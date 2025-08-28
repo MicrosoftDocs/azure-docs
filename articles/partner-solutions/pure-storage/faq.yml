@@ -1,13 +1,13 @@
 ### YamlMime:FAQ
 metadata:
-  title: Pure Storage Cloud on Azure FAQ
-  description: Frequently asked questions about developer resources and tools for Pure Storage on Azure.
+  title: Azure Native Pure Storage Cloud FAQ
+  description: Frequently asked questions about developer resources and tools for Azure Native Pure Storage Cloud.
   ms.topic: faq
   ms.date: 08/08/2025
 
-title: "FAQ: Pure Storage Cloud on Azure developer resources and tools"
+title: "FAQ: Azure Native Pure Storage Cloud"
 summary: |
-  This FAQ provides answers to common questions about resources and developer tools available for Pure Storage solutions on Azure. Use this guide to maximize the success of your Pure Storage Cloud deployment.
+  This FAQ provides answers to common questions about resources and developer tools available for Azure Native Pure Storage Cloud. Use this guide to maximize the success of your Pure Storage Cloud deployment.
 
 sections:
   - name: Pure Storage Cloud resources
@@ -35,8 +35,6 @@ sections:
           > [!IMPORTANT]
           > **Once you've connected:**  
           > See the [Pure Storage Resource Guide](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/management/c_psc_management.html) to learn how to manage your datastores and volumes.
-
-          Use the [Pure Storage management documentation](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/management/c_psc_management.html) to learn about operational tasks.
 
       - question: Where can I find troubleshooting help?
         answer: |

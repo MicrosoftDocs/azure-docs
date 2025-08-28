@@ -71,7 +71,7 @@ Once you create a resource, you can create a storage pool to connect to an Azure
 
 > [!IMPORTANT]
 >
-> - Before you can connect a storage pool to an Azure VMware Solution resource, you must create a [Storage Pool](#create-a-storage-pool) and an [Azure VMware solution](../../azure-vmware/tutorial-create-private-cloud.md).
+> - Before you can connect a storage pool to an Azure VMware Solution resource, you must create a [Storage Pool](#create-a-storage-pool) and an [Azure VMware Solution](../../azure-vmware/tutorial-create-private-cloud.md).
 > - All hosts must be in the same Host Location within the same Azure Subscription. 
 > - In order to connect your storage pool to an Azure VMware Solution resource, you must be an *Owner* or *RBACAdministrator* in your subscription.
 
