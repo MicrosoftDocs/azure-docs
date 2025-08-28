@@ -20,7 +20,7 @@ The listed features were released in the last six months. For information about 
 
 ## September 2025
 
-- [New data sources and enhanced User and Entity Behavior Analytics (UEBA) (Preview)](#new-data-sources-and-enhanced-user-and-entity-behavior-analytics-ueba-preview)
+- [New data sources and enhanced User and Entity Behavior Analytics (UEBA) (Preview)](#new-data-sources-for-enhanced-user-and-entity-behavior-analytics-ueba-preview)
 
 ### New data sources for enhanced User and Entity Behavior Analytics (UEBA) (Preview)
 
