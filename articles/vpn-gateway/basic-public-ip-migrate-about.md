@@ -54,7 +54,7 @@ Yes, you can create a VPN gateway using the gateway Basic SKU and a Basic SKU pu
 
 ### When will I be able to create a Basic SKU VPN gateway with a Standard SKU public IP address?
 
-The Standard SKU public IP address parameter for the VPN Gateway Basic SKU is currently being rolled out and will be completed in April 2025. After this date, you'll be able to create a Basic SKU VPN gateway with a Standard SKU public IP address.
+The Standard SKU public IP address parameter for the VPN Gateway Basic SKU is currently being rolled out. However, it is still in preview. Please use this function for testing purposes only.
 
 ### Can I change to a Standard SKU public IP address manually?
 
