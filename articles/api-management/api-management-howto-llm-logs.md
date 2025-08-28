@@ -11,10 +11,6 @@ ms.author: danlep
 ai-usage: ai-assisted
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
-  - ai-gen-docs-bap
-  - ai-gen-title
-  - ai-seo-date:08/22/2025
-  - ai-gen-description
 ---
 
 # Log token usage, prompts, and completions for LLM APIs
@@ -25,7 +21,7 @@ The API Management administrator can use LLM API request and response logs along
 
 * **Calculate usage for billing** - Calculate usage metrics for billing based on the number of tokens consumed by each application or API consumer (for example, segmented by subscription ID or IP address).
 
-* **Inspect messages** - To help with debugging or auditing, inspect and analyze prompts and completions.
+* **Inspect messages** - Inspect and analyze prompts and completions to help with debugging, auditing, and model evaluation.
 
 Learn more about:
 
@@ -36,13 +32,13 @@ Learn more about:
 - An Azure API Management instance.
 - A managed LLM chat completions API integrated with Azure API Management. For example, [Import an Azure AI Foundry API](azure-ai-foundry-api.md).
 - Access to an Azure Log Analytics workspace.
-- Appropriate permissions to configure diagnostic settings and access logs.
+- Appropriate permissions to configure diagnostic settings and access logs in API Management.
 
 ## Enable diagnostic setting for LLM API logs
 
-Enable a diagnostic setting to log requests that the gateway processes for large language model REST APIs. For each request, Azure Monitor receives data about token usage (prompt tokens, completion tokens, and total tokens), the name of the model used, and optionally the request and response messages (prompt and completion). Large requests and responses split into multiple log entries with sequence numbers for later reconstruction if needed.
+Enable a diagnostic setting to log requests that the gateway processes for large language model REST APIs. For each request, Azure Monitor receives data about token usage (prompt tokens, completion tokens, and total tokens), the name of the model used, and optionally the request and response messages (prompt and completion). Large requests and responses are split into multiple log entries with sequence numbers for later reconstruction if needed.
 
-The following steps briefly describe how to enable a diagnostic setting that directs LLM API logs to a Log Analytics workspace. For more information, see [Enable diagnostic setting for Azure Monitor logs](monitor-api-management.md#enable-diagnostic-setting-for-azure-monitor-logs).
+The following are brief steps to enable a diagnostic setting that directs LLM API logs to a Log Analytics workspace. For more information, see [Enable diagnostic setting for Azure Monitor logs](monitor-api-management.md#enable-diagnostic-setting-for-azure-monitor-logs).
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Azure API Management instance.
 1. In the left menu, under **Monitoring**, select **Diagnostic settings** > **+ Add diagnostic setting**.
@@ -56,7 +52,7 @@ The following steps briefly describe how to enable a diagnostic setting that dir
 
 ## Enable logging of requests or responses for LLM API
 
-You can enable diagnostic settings for all APIs or customize logging for specific APIs. The following steps briefly describe how to log both LLM requests and response messages for an API. For more information, see [Modify API logging settings](monitor-api-management.md#modify-api-logging-settings).
+You can enable diagnostic settings for all APIs or customize logging for specific APIs. The following are brief steps to log both LLM requests and response messages for an API. For more information, see [Modify API logging settings](monitor-api-management.md#modify-api-logging-settings).
 
 1. In the left menu of your API Management instance, select **APIs > APIs** and then select the name of the API.
 1. Select the **Settings** tab from the top bar.
@@ -74,7 +70,7 @@ You can enable diagnostic settings for all APIs or customize logging for specifi
 
 ## Review analytics workbook for LLM APIs
 
-The Azure Monitor-based **Analytics** dashboard provides insights into LLM API usage and token consumption  from data aggregated in a Log Analytics workspace. [Learn more](monitor-api-management.md#get-api-analytics-in-azure-api-management) about Analytics in API Management.
+The Azure Monitor-based **Analytics** dashboard provides insights into LLM API usage and token consumption using data aggregated in a Log Analytics workspace. [Learn more](monitor-api-management.md#get-api-analytics-in-azure-api-management) about Analytics in API Management.
 
 1. In the left menu of your API Management instance, select **Monitoring** > **Analytics**.
 1. Select the **Language models** tab.
@@ -88,7 +84,7 @@ Review the [ApiManagementGatewayLlmLog](/azure/azure-monitor/reference/tables/ap
 
 Requests and responses (including chunked messages for large requests and responses) appear in separate log entries that you can correlate by using the `CorrelationId` field. 
 
-For auditing purposes, use a Kusto query similar to the following query to join each request and response in a single record. Adjust the query to include the fields you want to track.
+For auditing purposes, use a Kusto query similar to the following query to join each request and response in a single record. Adjust the query to include the fields that you want to track.
 
 ```Kusto
 ApiManagementGatewayLlmLog
@@ -111,9 +107,9 @@ ApiManagementGatewayLlmLog
 
 ## Upload data to Azure AI Foundry for model evaluation
 
-You can export LLM logging data from Azure API Management as a dataset for [model evaluation](/azure/ai-foundry/concepts/observability) in Azure AI Foundry. With model evaluation, you can assess the performance of your generative AI models and applications against a test model or dataset using built-in or custom evaluation metrics. 
+You can export LLM logging data as a dataset for [model evaluation](/azure/ai-foundry/concepts/observability) in Azure AI Foundry. With model evaluation, you can assess the performance of your generative AI models and applications against a test model or dataset using built-in or custom evaluation metrics. 
 
-To use API Management as a dataset for model evaluation:
+To use LLM logs as a dataset for model evaluation:
 
 1. Join LLM request and response messages into a single record for each interaction, as shown in the [previous section](#review-azure-monitor-logs-for-requests-and-responses). Include the fields you want to use for model evaluation.
 1. Export the dataset to CSV format, which is compatible with Azure AI Foundry.
