@@ -284,6 +284,14 @@
                   href: point-to-site-vpn-client-configuration-radius-password.md
                 - name: Other authentication protocols
                   href: point-to-site-vpn-client-configuration-radius-other.md
+    - name: Assign IP addresses to specific user groups
+      items:
+        - name: About user groups and client address pools
+          href: point-to-site-user-groups-about.md
+        - name: Configure user groups for address pools
+          href: point-to-site-user-groups-create.md
+        - name: RADIUS - Configure NPS and user groups
+          href: point-to-site-user-groups-radius.md
     - name: Configure Always On tunnels
       items:
         - name: Device tunnel

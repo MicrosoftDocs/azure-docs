@@ -80,7 +80,7 @@ To learn more, see [Azure IoT Operations SDKs](https://github.com/Azure/iot-oper
 
 ## Azure IoT Hub
 
-> Use Azure IoT Hub to build a **cloud-based IoT solution**. IoT Hub does not follow the adaptive cloud approach.
+> Use Azure IoT Hub to build a **cloud-based IoT solution**.
 
 Azure IoT Hub is a managed service hosted in the cloud that acts as a central message hub for communication between an IoT application and its attached devices. Several messaging patterns are supported, including device-to-cloud messages, uploading files from devices, and request-reply methods to control your devices from the cloud. IoT Hub can route messages from devices to other cloud services for storage, analysis, or processing. IoT Hub also supports monitoring to help you track device creation, device connections, and device failures.
 

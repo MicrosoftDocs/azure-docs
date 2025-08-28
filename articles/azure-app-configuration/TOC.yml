@@ -234,6 +234,8 @@
       href: howto-variant-feature-flags-python.md
     - name: JavaScript
       href: howto-variant-feature-flags-javascript.md
+    - name: Go Gin
+      href: howto-variant-feature-flags-go.md
   - name: Enable telemetry for feature flags
     items:
     - name: Overview

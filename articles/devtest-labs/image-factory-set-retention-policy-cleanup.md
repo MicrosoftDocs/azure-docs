@@ -12,7 +12,9 @@ ms.custom: UpdateFrequency2
 
 # Set up an image retention policy in Azure DevTest Labs
 
-This article covers setting an image retention policy, cleaning up an image factory, and retiring old images from all the DevTest labs in an organization. 
+This article covers setting an image retention policy, cleaning up an image factory, and retiring old images from all the DevTest Labs in an organization. 
+
+[!INCLUDE [direct-azure-image-builder](includes/direct-azure-image-builder.md)]
 
 ## Prerequisites 
 
@@ -53,14 +55,14 @@ The script parameters are:
 
 ## Queue the build
 
-After you complete the build definition, queue up a new build to make sure everything is working. After the build completes successfully, the new custom images show up in the destination lab. If you check the image factory lab, you see no provisioned VMs. If you queue up further builds, you see the cleanup tasks retiring old custom images from the DevTest labs. The retirement proceeds according to the retention value set in the build variables.
+After you complete the build definition, queue up a new build to make sure everything is working. After the build completes successfully, the new custom images show up in the destination lab. If you check the image factory lab, you see no provisioned VMs. If you queue up further builds, you see the cleanup tasks retiring old custom images from the DevTest Labs. The retirement proceeds according to the retention value set in the build variables.
 
 > [!NOTE]
 > If you ran the build pipeline at the end of the previous article in this series, manually delete the virtual machines that you created in the image factory lab before queuing a new build. You only need the manual cleanup step when you set everything up and verify that it works.
 
 ## Summary
 
-You now have a running image factory that can generate custom images and distribute them to your labs on demand. At this point, it's just a matter of getting your images set up properly and identifying the target labs. As mentioned in the previous article, the *Labs.json* file located in your *Configuration* folder specifies which images should be made available in each of the target labs. As you add other DevTest labs to your organization, you simply need to add an entry in *Labs.json* for the new lab.
+You now have a running image factory that can generate custom images and distribute them to your labs on demand. At this point, it's just a matter of getting your images set up properly and identifying the target labs. As mentioned in the previous article, the *Labs.json* file located in your *Configuration* folder specifies which images should be made available in each of the target labs. As you add other DevTest Labs to your organization, you simply need to add an entry in *Labs.json* for the new lab.
 
 Adding a new image to your factory is also easy. When you want to include a new image in your factory, go to your factory lab in the Azure portal. Select the button to add a VM, and then choose the marketplace image and artifacts that you want. Instead of selecting the **Create** button to create the new VM, select **View Azure Resource Manager template**. Save the template as a .json file somewhere in the *GoldenImages* folder in your repository. The next time you run your image factory, it will create your custom image.
 

@@ -104,8 +104,9 @@ When viewing a DNS domain list in the Azure portal, you can also select **Settin
 |----------------------------------|-----------------------------------------------------------------------------|
 | Virtual network restrictions     | - DNS security policies can only be applied to VNets in the same region as the DNS security policy.<br>- You can link one security policy per VNet. |
 | Security policy restrictions     | 1000                                                                        |
-| DNS traffic rule restrictions    | 10                                                                          |
-| Domain list restrictions         | 1000                                                                        |
+| DNS traffic rule restrictions    | 100                                                                         |
+| Domain list restrictions         | 2,000                                                                       |
+| Large Domain list restrictions   | 100,000                                                                     |
 | Domain restrictions              | 100,000                                                                     |
 
 ## Related content

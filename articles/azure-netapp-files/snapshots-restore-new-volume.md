@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 06/19/2025
+ms.date: 08/28/2025
 ms.author: anfdocs
 # Customer intent: "As a cloud administrator, I want to restore a volume from a snapshot so that I can recover data to a specific point in time and maintain system integrity."
 ---
@@ -24,7 +24,9 @@ ms.author: anfdocs
   
 * Cross-region replication and cross-zone replication operations are suspended and cannot be added while restoring a snapshot to a new volume.
 
-* Only enable backup, snapshots, and replication (cross-region or cross-zone) on the new volume _after_ it's fully restored from the snapshot. To ensure the volume is fully restored, check the progress indicator in the volume details. 
+* Only enable backup, snapshots, and replication (cross-region or cross-zone) on the new volume _after_ it's fully restored from the snapshot. To ensure the volume is fully restored, check the progress indicator in the volume details.
+
+* Depending on the size of the volume being restored, the restore operation may take a few minutes to multiple hours to complete.
 
 ## Steps
 

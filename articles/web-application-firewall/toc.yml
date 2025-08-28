@@ -76,6 +76,8 @@ items:
         href: ./ag/application-gateway-crs-rulegroups-rules.md
       - name: Exclusion lists
         href: ./ag/application-gateway-waf-configuration.md
+      - name: Upgrade ruleset version
+        href: ./ag/upgrade-ruleset-version.md
       - name: Customize managed rules
         items:
         - name: Azure portal

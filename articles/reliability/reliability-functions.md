@@ -490,8 +490,6 @@ With an active-active pattern, functions in both regions are actively running an
 
 ![Architecture for Azure Front Door and Function](../azure-functions/media/functions-geo-dr/front-door.png)  
 
-For an example, see the sample on how to [implement the geode pattern by deploying the API to geodes in distributed Azure regions.](https://github.com/mspnp/geode-pattern-accelerator).
-
 ### Active-passive pattern for non-HTTPS trigger functions
 
 It's recommended that you use active-passive pattern for your event-driven, non-HTTP triggered functions, such as Service Bus and Event Hubs triggered functions.
