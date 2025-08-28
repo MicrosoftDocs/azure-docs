@@ -167,6 +167,8 @@ As before, you need to list both _Cache1_ and _Cache2_ using the `-LinkedDatabas
 
 ## Scaling instances in a geo-replication group
 
+Scaling geo-replicated caches is in Public Preview.
+
 It's possible to scale instances that are configured to use active geo-replication. However, a geo-replication group with a mix of different cache sizes can introduce problems. To prevent these issues from occurring, all caches in a geo replication group need to be the same size and performance tier.
 
 Since scaling requires changing the size or tier and it's difficult to simultaneously scale all instances in the geo-replication group, Azure Managed Redis has a locking mechanism. If you scale one instance in a geo-replication group, the underlying VM is scaled, but the memory available is capped at the original size until the other instances are scaled up as well. And any other scaling operations for the remaining instances are locked until they match the same configuration as the first cache to be scaled.
