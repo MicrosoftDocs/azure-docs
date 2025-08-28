@@ -17,7 +17,7 @@ This article provides steps to enable Alerts (preview) with [Azure Update Manage
 
 Azure Update Manager is a unified service that allows you to manage and govern updates for all your Windows and Linux virtual machines across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. It's designed as a standalone Azure service to provide SaaS experience to manage hybrid environments in Azure.
 
-Logs created from patching operations such as update assessments and installations are stored by Azure Update Manager in Azure Resource Graph (ARG). You can view up to last seven days of assessment data, and up to last 30 days of update installation results.
+Logs created from patching operations such as update assessments and installations are stored by Azure Update Manager in Azure Resource Graph (ARG). You can view up to last seven days of assessment data, and up to last 30 days of updated installation results.
 
 > [!NOTE]
 > This feature isn't available in Azure US Government and Azure China operated by 21 Vianet.
@@ -38,7 +38,7 @@ To enable alerts (Preview) with Azure Update Manager through Azure portal, follo
     1. From the dropdown list, select the **Subscription** that defines the scope of the alert rule.
     1. From the dropdown list, select the **Resource Group** and the alert is created. 
     1. From the dropdown list, select the **Location** and the location is created.
-    1. In the **Azure Resource Group** query dropdown, select one of the predefined alerting query options
+    1. In the **Azure Resource Group** query dropdown, select one of the predefined alerting query options.
     1. You can select **Custom query** option to edit or write a custom query and then select **Skip to custom alert rules**.
     
        :::image type="content" source="./media/manage-alerts/create-alert-rule-custom.png" alt-text="Screenshot that shows how to create alert custom rules." lightbox="./media/manage-alerts/create-alert-rule-custom.png":::
@@ -51,14 +51,14 @@ To enable alerts (Preview) with Azure Update Manager through Azure portal, follo
    
      :::image type="content" source="./media/manage-alerts/run-query-inline.png" alt-text="Screenshot that shows how to run the query." lightbox="./media/manage-alerts/run-query-expanded.png":::
 
-    1. Select the **Scope and filters** you wnat to be apply.
+    1. Select the **Scope and filters** you want to be apply.
     1. Select **Identify, Threshold, and Frequency** of evaluation as per your requirement.
     1. Enter your preferences in the **Notify me** section.
     1. Select **Quick create a new rule**.     
    
 1.To edit or write a custom query, select the **Custom query** option, and then select **Skip to custom alert rules** to go directly to the alert rule creation flow, where you can configure advanced alert rule settings. 
       
-    :::image type="content" source="./media/manage-alerts/advance-alert-rule-configuration-inline.png" alt-text="Screenshot that shows how to configure advanced alert rule." lightbox="./media/manage-alerts/advance-alert-rule-configuration-expanded.png":::
+   :::image type="content" source="./media/manage-alerts/advance-alert-rule-configuration-inline.png" alt-text="Screenshot that shows how to configure advanced alert rule." lightbox="./media/manage-alerts/advance-alert-rule-configuration-expanded.png":::
    
 1. Select **Review + create** to create alert. For more information, see [Create Azure Monitor alert rules](/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-alert-rule-conditions).
     - To identify alerts & alert rules created for Azure Update Manager, provide unique **Alert rule name** in the **Details** tab.
@@ -81,8 +81,8 @@ To view the alerts, follow these steps:
 
 
 > [!NOTE]
-> - Azure Resource Graph query used for alerts can return at maximum of 1000 rows.
-> - By default, Azure Resource Graph query will return response as per the access provided via the users managed identity and user need to filter out by subscriptions, resource groups and other criteria as per the requirement.
+> - Azure Resource Graph query used for alerts can return to a maximum of 1000 rows.
+> - By default, Azure Resource Graph query will return response as per the access provided via the users managed identity and user need to filter out by subscriptions, resource groups, and other criteria as per the requirement.
 ## Next steps
 
 * [An overview on Azure Update Manager](overview.md)
