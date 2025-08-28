@@ -44,11 +44,7 @@ Select **New query** to create a new query tab. The last query in each tab is sa
 
 ### Select workspaces
 
-Queries can run against a single workspace or multiple workspaces. The editor defaults to the Sentinel primary workspace. Select workspaces in the upper right corner of the query editor using the **Selected workspaces** dropdown. The workspaces you select determine the tables available for querying. When using multiple workspaces, the `union()` operator is applied by default to tables with the same name and schema from different workspaces. Use the `workspace()` operator to query specific workspaces, for example `workspace("MyWorkspace").AuditLogs`. 
-
-> [!NOTE] 
-> The selected workspaces apply to all query tabs in the query editor.  
-
+Queries can run against a single workspace or multiple workspaces. The editor defaults to the Sentinel primary workspace. Select workspaces in the upper right corner of the query editor using the **Selected workspaces** dropdown. The workspaces you select determine the tables available for querying. The selected workspaces apply to all query tabs in the query editor. When using multiple workspaces, the `union()` operator is applied by default to tables with the same name and schema from different workspaces. Use the `workspace()` operator to query specific workspaces, for example `workspace("MyWorkspace").AuditLogs`. 
 
 :::image type="content" source="media/kql-queries/select-a-workspace.png" lightbox="media/kql-queries/select-a-workspace.png" alt-text="A screenshot showing the workspaces selection panel.":::
 
