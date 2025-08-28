@@ -96,7 +96,7 @@ az apic api definition export-specification \
     --definition-id openapi --file-name "/Path/to/specificationFile.json"
 ```
 
-## Register API from a specification file
+## Register API from a specification file - single step
 
 By using the [az apic api register](/cli/azure/apic/api#az-apic-api-register) command, you can register an API from a local specification file in a single step. With this option, a default API version and definition are created automatically for the API.
 

@@ -58,7 +58,7 @@ Use the power of [GitHub Copilot](https://marketplace.visualstudio.com/items?ite
 
 :::image type="content" source="media/build-register-apis-vscode-extension/generate-api-documentation.gif" alt-text="Animation showing how to use GitHub Copilot to generate an OpenAPI spec from code." lightbox="media/build-register-apis-vscode-extension/generate-api-documentation.gif":::
 
-You can also generate an OpenAPI specification from all of the files in your current project. Use the **Azure API Center: Export API Specification Document** command from the Command Palette. 
+You can also generate an OpenAPI specification from all of the files in your current project. Use the **Azure API Center: Generate OpenAPI Spec from Entire Project** command from the Command Palette. 
 
 After generating the OpenAPI specification file and checking for accuracy, you can register the API with your API center using the **Azure API Center: Register API** command.
 
