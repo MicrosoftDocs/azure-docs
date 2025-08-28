@@ -42,6 +42,7 @@ To create a user-assigned managed identity, your account needs the [Managed Iden
 
    [!INCLUDE [ua-character-limit](/entra-docs/docs/includes/managed-identity-ua-character-limits)]
 
+
 1. Select **Review + create** to review the changes.
 1. Select **Create**.
 
