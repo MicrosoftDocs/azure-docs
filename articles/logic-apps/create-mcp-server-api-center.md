@@ -52,11 +52,14 @@ The following list describes restrictions or issues that exist in this release:
 
   For more information, see [Quickstart: Create your API center - portal](../api-center/set-up-api-center.md).
 
-- To find and view the MCP server that you create, you must set up the API Center portal.
+- To find and view the MCP server that you create, you must set up the API Center portal so you have access.
 
   This portal is an Azure-managed website that developers and other stakeholders in your organization use to discover the APIs in your API center. After you sign in, you can browse and filter APIs and view API details such as API definitions and documentation. User access to API information is based on Microsoft Entra ID and Azure role-based access control.
 
-  For more information, see [Set up your API Center portal](../api-center/set-up-api-center-portal.md).
+  For more information, see the following articles:
+
+  - [Set up your API Center portal](../api-center/set-up-api-center-portal.md)
+  - [Access the API Center portal](../api-center/set-up-api-center-portal.md#access-the-portal)
 
 - An empty Standard logic app resource, which doesn't contain any workflows, for creating your MCP server.
 
@@ -65,6 +68,22 @@ The following list describes restrictions or issues that exist in this release:
   - The logic app resource must be running.
 
   For more information, see [Create an example Standard logic app using the Azure portal](create-single-tenant-workflows-azure-portal.md)
+
+- An MCP client to test access to your MCP server.
+
+  This guide uses [Visual Studio Code installed with the Azure Logic Apps (Standard) extension](create-standard-workflows-visual-studio-code.md#prerequisites).
+
+  > [!NOTE]
+  >
+  > Make sure to use the latest version of Visual Studio Code for MCP server testing. Visual Studio Code 
+  > includes generally available MCP support in versions after 1.102. For more information, see 
+  > [MCP servers in Visual Studio Code](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
+
+  For the testing example, you need the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot). For more information, see the following articles:
+
+  - [Use extensions in Visual Studio Code](https://code.visualstudio.com/docs/getstarted/extensions)
+  - [Set up Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/setup#_set-up-copilot-in-vs-code)
+  - [Get started with GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/getting-started)
 
 ## Create an MCP server resource and tools
 
@@ -126,12 +145,57 @@ For this task, make sure you completed the requirement to set the API Center por
 
    **https://\<*API-Center-resource-name*\>.\<*region*\>.azure-apicenter.ms**.
 
+   For more information, see [Access the API Center portal](../api-center/set-up-api-center-portal.md#access-the-portal).
+
 1. Sign in with your Azure account.
 
    The API portal shows the available MCP servers.
 
-1. Find the MCP server that you created.
+1. Find and select the MCP server that you created.
 
-1. 
+1. On your MCP server information pane, on the **Options** tab, find the **Endpoint URL** section, and select **Copy URL** so you can test access from an MCP client.
 
-For more information, see [Access the API Center portal](../api-center/set-up-api-center-portal.md#access-the-portal)
+## Test access to your MCP server
+
+1. In Visual Studio Code, from the **View** menu, select **Command Palette**. Find and select **MCP: Add Server**.
+
+1. Select **HTTP (HTTP or Server-Sent Events)**. For **Enter Server URL**, provide the URL for your MCP server.
+
+1. For **Enter Server ID**, provide a meaningful name for your MCP server.
+
+   When you add an MCP server for the first time, you must choose where to store your MCP configuration. You get the following options, so choose the best option for your scenario:
+
+   - **Global**: Your user configuration, which is the directory at **c:\users\<your-username>\AppData\Roaming\Code\User** and is available across all workspaces.
+   - **Workspace**: Your current workspace in Visual Studio Code.
+
+   This article selects **Global** to store the MCP server information in the user configuration. As a result, Visual Studio Code creates and opens an **mcp.json** file, which shows your MCP server information.
+
+1. In the **mcp.json** file that opens, select the **Start** or **Restart** link to establish connectivity for your MCP server, for example:
+
+   :::image type="content" source="media/create-mcp-server-api-center/start-server-mcp-json-file.png" alt-text="Screenshot shows mcp.json file with Start link selected." lightbox="media/create-mcp-server-api-center/start-server-mcp-json-file.png":::
+
+1. When the authentication prompt appears, select **Allow**, and then select the account to use for authentication.
+
+1. Sign in and give consent to call your MCP server.
+
+   After authentication completes, the **mcp.sjon** file shows **Running** as the MCP server status.
+
+   :::image type="content" source="media/set-up-model-context-protocol-server-standard/running-mcp-json-file.png" alt-text="Screenshot shows mcp.json file with Running status selected." lightbox="media/set-up-model-context-protocol-server-standard/running-mcp-json-file.png":::
+
+1. As a test, try calling your MCP server from GitHub Copilot:
+
+   1. On the Visual Studio Code title bar, open the **Copilot** list, and select **Open Chat**.
+
+   1. Under the chat input box, from the **Built-in** modes list, and select **Agent**.
+
+   1. From the LLM list, select the LLM to use.
+
+   1. To browse the tools available in your MCP server, select **Configure Tools**.
+
+   1. In the tools list, select or clear tools as appropriate, but make sure that your new MCP server is selected.
+
+Now you can interact with your MCP server through the Copilot chat interface.
+
+## Related content
+
+- [Set up Standard logic apps as remote MCP servers](set-up-model-context-protocol-server-standardm.md)
