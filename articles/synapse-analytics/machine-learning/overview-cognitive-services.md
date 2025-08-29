@@ -92,7 +92,7 @@ The tutorial, [Pre-requisites for using Azure AI services in Azure Synapse](/azu
 
 ### Search
 
-* [**Bing Image search**](https://www.microsoft.com/bing/apis/bing-image-search-api) ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/bing/BingImageSearch.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.bing.html#module-synapse.ml.services.bing.BingImageSearch))
+* [**Bing Image search**](/previous-versions/bing/search-apis/bing-image-search/overview) ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/bing/BingImageSearch.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.bing.html#module-synapse.ml.services.bing.BingImageSearch))
 * [**Azure Cognitive search**](/azure/search/search-what-is-azure-search) ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/search/AzureSearchWriter$.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.search.html#module-synapse.ml.services.search.AzureSearchWriter))
 
 ## Prepare your system
@@ -327,7 +327,7 @@ display(analysis.transform(df).select("image", "analysis_results.description.tag
 
 ## Search for images that are related to a natural language query
 
-[Bing Image Search](https://www.microsoft.com/bing/apis/bing-image-search-api) searches the web to retrieve images related to a user's natural language query. 
+[Bing Image Search](/previous-versions/bing/search-apis/bing-image-search/overview) searches the web to retrieve images related to a user's natural language query. 
 
 The following code sample uses a text query that looks for images with quotes. The output of the code is a list of image URLs that contain photos related to the query.
 

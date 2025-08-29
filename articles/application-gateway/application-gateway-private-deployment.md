@@ -6,7 +6,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 8/11/2025
+ms.date: 8/19/2025
 ms.author: mbender
 #Customer intent: As an administrator, I want to evaluate Azure Private Application Gateway
 # Customer intent: "As a cloud administrator, I want to configure a Private Application Gateway with enhanced network controls, so that I can improve security and restrict data egress while managing inbound and outbound traffic effectively."
@@ -35,9 +35,9 @@ Each of these features can be configured independently. For example, a public IP
 
 ## Onboard to the feature
 
-The functionality of the new controls of private IP frontend configuration, control over NSG rules, and control over route tables, are generally available and supported in production.  To join enable the feature, you must opt in to the experience using the Azure portal, PowerShell, CLI, or REST API.
+The functionality of the new controls of private IP frontend configuration, control over NSG rules, and control over route tables, are generally available and supported in production.  To use the features, you must opt in to the experience using the Azure portal, PowerShell, CLI, or REST API.
 
-When enrolled, all new Application Gateways provision with the ability to define any combination of the NSG, Route Table, or private IP configuration features.  If you wish to opt out from the new functionality and return to the current generally available functionality of Application Gateway, you can do so by [unregistering from the feature](#unregister-the-feature).
+When enrolled, all new Application Gateways provision with the ability to define any combination of the NSG, Route Table, or private IP configuration features.  If you wish to opt out from the new functionality, you can do so by [unregistering from the feature](#unregister-the-feature).
 
 ## Register the feature
 

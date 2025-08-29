@@ -5,7 +5,7 @@ ms.author: jsuri
 author: jyothisuri
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 11/27/2018
+ms.date: 08/19/2025
 
 # Customer intent: "As an IT administrator managing SAP NetWeaver deployments, I want to set up a disaster recovery solution using cloud-based replication, so that I can ensure business continuity and minimize downtime during incidents."
 ---
