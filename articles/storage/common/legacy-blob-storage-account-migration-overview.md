@@ -38,13 +38,13 @@ By retiring legacy blob storage accounts, Azure simplifies the platform and ensu
 | Redundancy options (ZRS, GRS, RA-GRS) | ✅         | ✅              |
 | Consistent pricing meters        | ❌               | ✅              |
 
-**Note**  
-GPv2 supports all blob features available in legacy blob storage accounts.
+>[!NOTE] 
+>GPv2 supports all blob features available in legacy blob storage accounts.
 
 ## Retirement timeline and key milestones
 
 >[!Warning]
->If you do not migrate your legacy blob storage account to GPv2 by August 31, 2025, all existing legacy blob storage accounts will be auto migrated over to a GPv2 account, which may result in higher billing costs. Your decision not to migrate an existing legacy blob storage account will be construed as consent for Microsoft to migrate the account on your behalf.
+>If you do not migrate your legacy blob storage account to GPv2 by August 31, 2026, all existing legacy blob storage accounts will be auto migrated over to a GPv2 account, which may result in higher billing costs. Your decision not to migrate an existing legacy blob storage account will be construed as consent for Microsoft to migrate the account on your behalf.
 
 | Date           | Milestone                                      |
 |----------------|------------------------------------------------|
