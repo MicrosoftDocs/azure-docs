@@ -18,8 +18,9 @@ In this tutorial, you learn how to:
 > - Replicate 3rd Party (3P) Images into an Azure Extended Zone with Azure Compute Gallery.
 
 Azure Compute Gallery (previously Shared Image Gallery) is available in Extended Zones for 3rd parties, following a separate workflow.  
-    > [!NOTE]
-    > Platform Image Repositories are currently being replicated in Extended Zones to be on par with the region. Should you not be able to find your required image within a given Extended Zone, contact aezsupport@microsoft.com. The product’s engineering team is happy to help replicating it ahead of the broader replication. 
+
+> [!NOTE]
+> Platform Image Repositories are currently being replicated in Extended Zones to be on par with the region. Should you not be able to find your required image within a given Extended Zone, contact aezsupport@microsoft.com. The product’s engineering team is happy to help replicating it ahead of the broader replication. 
 
 ## Prerequisites
 - An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
