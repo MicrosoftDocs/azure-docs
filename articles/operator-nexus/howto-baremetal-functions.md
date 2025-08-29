@@ -173,7 +173,7 @@ az networkcloud baremetalmachine replace \
 ```
 
 > [!IMPORTANT]
-> By default the replace action uses a safeguard that prevents replacing a healthy machine (powered on, ready, provisioned, joined to cluster) to avoid unnecessary disruptive operations. If a `replace` is attempted while the machine is healthy the action is rejected with the following response:
+> For replace actions made using API version `2025-07-01-preview` and later: by default the replace action uses a safeguard that prevents replacing a healthy machine (powered on, ready, provisioned, joined to cluster) to avoid unnecessary disruptive operations. If a `replace` is attempted while the machine is healthy the action is rejected with the following response:
 >
 > ```
 > (action rejected) cannot replace healthy machine (powered on, ready, provisioned, joined to cluster). Use --safeguard-mode None to override
