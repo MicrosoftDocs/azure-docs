@@ -1,14 +1,13 @@
 ---
 title: Share Windows folder with Azure IoT Edge for Linux on Windows
 description: How to share a Windows folders and files with the Azure IoT Edge for Linux on Windows virtual machine.
-author: PatAltimore
-ms.reviewer: patricka
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ms.topic: how-to
 ms.date: 06/09/2025
-ms.author: patricka
 ---
 
 # Share a Windows folder with Azure IoT Edge for Linux on Windows
