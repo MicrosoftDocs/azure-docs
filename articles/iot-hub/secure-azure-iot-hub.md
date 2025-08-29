@@ -3,7 +3,7 @@ title: Secure your Azure IoT Hub deployment
 description: Learn how to secure Azure IoT Hub, with best practices for protecting your deployment.
 author: SoniaLopezBravo
 ms.author: sonialopez
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: conceptual
 ms.custom: horz-security
 ms.date: 08/28/2025
