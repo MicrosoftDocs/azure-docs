@@ -27,7 +27,7 @@ This article provides key concepts and instructions for Python developers who us
 
 You can use either the [Azure portal](https://portal.azure.com) or the Azure CLI for configuration:
 
-- **Azure portal**. Use the app's **Settings** > **Configuration** page, as described in [Configure an App Service app in the Azure portal](configure-common.md).
+- **Azure portal**. In the app's left pane, select **Settings** > **Environment variables** or **Settings** > **Configuration**, as described in [Configure an App Service app in the Azure portal](configure-common.md).
 
 - **Azure CLI**. You have two options.
 
@@ -161,7 +161,7 @@ The following table describes the production settings that are relevant to Azure
 | Django setting | Instructions for Azure |
 | --- | --- |
 | `SECRET_KEY` | Store the value in an App Service setting, as described in [Access app settings as environment variables](#access-app-settings-as-environment-variables). You can alternatively [store the value as a secret in Azure Key Vault](/azure/key-vault/secrets/quick-create-python). |
-| `DEBUG` | Create a `DEBUG` setting on App Service with the value 0 (false), and then load the value as an environment variable. In your development environment, create a `DEBUG` environment variable with the value 1 (true). |
+| `DEBUG` | Create a `DEBUG` setting on App Service with the value `0 ` (`false`), and then load the value as an environment variable. In your development environment, create a `DEBUG` environment variable with the value `1` (`true`). |
 | `ALLOWED_HOSTS` | In production, Django requires that you include the app's URL in the `ALLOWED_HOSTS` array of *settings.py*. You can retrieve this URL at runtime by using the code `os.environ['WEBSITE_HOSTNAME']`. App Service automatically sets the `WEBSITE_HOSTNAME` environment variable to the app's URL. |
 | `DATABASES` | Define settings in App Service for the database connection and load them as environment variables to populate the [`DATABASES`](https://docs.djangoproject.com/en/4.1/ref/settings/#std:setting-DATABASES) dictionary. You can alternatively store the values (especially the username and password) as [Key Vault secrets](/azure/key-vault/secrets/quick-create-python). |
 
@@ -202,14 +202,14 @@ For App Service, you then make the following modifications:
     ```python
     MIDDLEWARE = [                                                                   
         'django.middleware.security.SecurityMiddleware',
-        # Add WhiteNoise middleware after the security middleware                             
+        # Add WhiteNoise middleware after the security middleware.                             
         'whitenoise.middleware.WhiteNoiseMiddleware',
-        # Other values follow
+        # Other values follow.
     ]
 
     INSTALLED_APPS = [
         "whitenoise.runserver_nostatic",
-        # Other values follow
+        # Other values follow.
     ]
     ```
 
