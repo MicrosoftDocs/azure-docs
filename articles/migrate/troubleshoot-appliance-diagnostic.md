@@ -62,7 +62,7 @@ If you're getting any issues with the appliance during its configuration or seei
      
     ![Diagnostic report](./media/troubleshoot-appliance-diagnostic-solve/diagnostic-report.png)
 
-1. Once diagnostic checks have completed, you can either view the report in another tab where you can choose it save it in a PDF format or you can go to this location **C:\Users\Public\Desktop\DiagnosticsReport** on the appliance server where the report gets auto-saved in an HTML format.
+1. Once diagnostic checks have completed, you can either view the report in another tab where you can choose it save it in a PDF format, or you can go to this location **C:\Users\Public\Desktop\DiagnosticsReport** on the appliance server where the report gets auto-saved in an HTML format.
 
     ![View diagnostic report](./media/troubleshoot-appliance-diagnostic-solve/view-diagnostic-report.png)
 
