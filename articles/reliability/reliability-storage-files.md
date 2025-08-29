@@ -189,9 +189,11 @@ Below are some common high-level approaches to consider:
 
 - **Multiple storage accounts:** Azure Files can be deployed across multiple regions using separate storage accounts in each region. This approach provides flexibility in region selection, the ability to use non-paired regions, and more granular control over replication timing and data consistency. When implementing multiple storage accounts across regions, you need to configure cross-region data replication, implement load balancing and failover policies, and ensure data consistency across regions.
 
-- **Application-level replication**: Implement custom replication logic using [Azure Data Factory](/azure/data-factory/introduction) or [AzCopy](/azure/storage/common/storage-use-azcopy-v10) to synchronize data between file shares in different regions. This approach requires custom development and conflict resolution mechanisms.
+- **Application-level replication:** Implement custom replication logic using [Azure Data Factory](/azure/data-factory/introduction) or [AzCopy](/azure/storage/common/storage-use-azcopy-v10) to synchronize data between file shares in different regions. This approach requires custom development and conflict resolution mechanisms.
 
-- **Azure File Sync:** To sync between an SMB Azure file share (*cloud endpoint*), an on-premises Windows file server, and a mounted file share that runs on a VM in another Azure region (a *disaster recovery server endpoint*), you can use [Azure File Sync](/azure/storage/file-sync/file-sync-introduction).
+- **Use Azure File Sync to replicate files to a file share in another Azure region:** You can use [Azure File Sync](/azure/storage/file-sync/file-sync-introduction) to sync between an SMB Azure file share (*cloud endpoint*), an on-premises Windows file server, and a mounted file share that runs on a VM in another Azure region (a *disaster recovery server endpoint*).
+
+  This approach requires that you deploy multiple file shares, and a VM to coordinate the synchronization process.
 
   If you use this approach for multi-region file replication:
   - Disable cloud tiering to ensure that all data is present locally on the file server.
