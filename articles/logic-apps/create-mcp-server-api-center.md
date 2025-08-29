@@ -159,6 +159,8 @@ For this task, make sure you completed the requirement to set the API Center por
 
 1. In Visual Studio Code, from the **View** menu, select **Command Palette**. Find and select **MCP: Add Server**.
 
+   :::image type="content" source="media/create-mcp-server-api-center/visual-studio-code-mcp-add-server.png" alt-text="Screenshot shows Visual Studio Code, Command Palette, and command to add MCP server" lightbox="media/create-mcp-server-api-center/visual-studio-code-mcp-add-server.png":::
+
 1. Select **HTTP (HTTP or Server-Sent Events)**. For **Enter Server URL**, provide the URL for your MCP server.
 
 1. For **Enter Server ID**, provide a meaningful name for your MCP server.
@@ -198,4 +200,4 @@ Now you can interact with your MCP server through the Copilot chat interface.
 
 ## Related content
 
-- [Set up Standard logic apps as remote MCP servers](set-up-model-context-protocol-server-standardm.md)
+- [Set up Standard logic apps as remote MCP servers](set-up-model-context-protocol-server-standard.md)
