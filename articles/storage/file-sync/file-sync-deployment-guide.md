@@ -141,7 +141,7 @@ We strongly recommend that you read [Plan to deploy Azure Files](../files/storag
 
   1. [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-     If you prefer, you can also use Azure Cloud Shell to complete the steps in this tutorial. Azure Cloud Shell is an interactive shell environment that you use through your browser. Open Cloud Shell by using one of these methods:
+     If you prefer, you can also use Azure Cloud Shell to complete the steps in this article. Azure Cloud Shell is an interactive shell environment that you use through your browser. Open Cloud Shell by using one of these methods:
 
      - In the upper-right corner of a code block, select **Try It**. This action opens Azure Cloud Shell, but it doesn't automatically copy the code to Cloud Shell.
 
@@ -318,7 +318,7 @@ If you intend to use Azure File Sync with a failover cluster, the Azure File Syn
 
 # [Portal](#tab/azure-portal)
 
-1. Download the agent from the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). When the download is finished, double-click the MSI package to start the Azure File Sync agent installation.
+1. Download the agent from the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). When the download is finished, double-click the MSI package to start the agent installation.
 
    Alternatively, to silently install the agent, see [How to perform a silent installation for a new Azure File Sync agent installation](file-sync-agent-silent-installation.md).
 
@@ -462,16 +462,18 @@ The administrator who creates the cloud endpoint must be a member of the managem
 
 # [Portal](#tab/azure-portal)
 
-1. In the [Azure portal](https://portal.azure.com/), go to your storage sync service, and then select **+ Create a sync group**.
+1. In the [Azure portal](https://portal.azure.com/), go to your storage sync service.
+
+1. On the left pane, select **Sync** > **Sync groups**. Then select **+ Create a sync group**.
 
    :::image type="content" source="media/storage-sync-files-deployment-guide/create-sync-group-1.png" alt-text="Screenshot of the pane for sync groups in the Azure portal.":::
 
-1. On the pane that opens, enter the following information to create a sync group with a cloud endpoint. When you finish, select **Create**.
+1. On the pane that opens, enter the following information. When you finish, select **Create**.
 
    - **Sync group name**: Enter the name of the sync group to be created. This name must be unique within the storage sync service, but it can be any name that's logical for you.
    - **Subscription**: Select the subscription where you deployed the storage sync service in the [Deploy a storage sync service](#deploy-a-storage-sync-service) section.
-   - **Storage account**: If you select **Select storage account**, another pane appears. There, you can select the storage account that has the Azure file share that you want to sync with.
-   - **Azure file share**: Select the name of the Azure file share that you want to sync with.
+   - **Storage account**: If you choose **Select storage account**, another pane appears. There, you can select the storage account that has the Azure file share that you want to sync with.
+   - **Azure File Share**: Select the name of the Azure file share that you want to sync with.
 
    :::image type="content" source="media/storage-sync-files-deployment-guide/create-sync-group-2.png" alt-text="Screenshot of the pane for entering details about a new sync group in the Azure portal.":::
 
@@ -483,7 +485,7 @@ The administrator who creates the cloud endpoint must be a member of the managem
 
    If a cloud endpoint doesn't appear, its creation might have failed due to insufficient permissions. Try to create a cloud endpoint manually by using the following steps. For troubleshooting information, see [Cloud endpoint creation errors](/troubleshoot/azure/azure-storage/files/file-sync/file-sync-troubleshoot-sync-group-management#cloud-endpoint-creation-errors).
 
-   1. Select **+ Add Cloud Endpoint**.
+   1. Select **+ Add cloud endpoint**.
 
       :::image type="content" source="media/storage-sync-files-deployment-guide/add-cloud-endpoint-1.png" alt-text="Screenshot of information about a sync group in the Azure portal, with no cloud endpoint appearing.":::
 
@@ -623,7 +625,7 @@ This cmdlet lists all volumes on the server, along with the number of cloud-tier
 By default, all previous versions presented to an information worker can be used for the restore. The same is true if you change the default schedule to take more snapshots. However, if you change the schedule in a way that results in an available snapshot on the volume that's older than the value for compatible days, users can't use this older snapshot (previous version) to restore from.
 
 > [!NOTE]
-> Enabling self-service restore can have an impact on your Azure storage consumption and bill. This impact is limited to files currently tiered on the server. Enabling this feature ensures that there's a file version available in the cloud that can be referenced via a VSS snapshot entry.
+> Enabling self-service restore can have an impact on your Azure storage consumption and bill. This impact is limited to files currently tiered on the server. Enabling this feature ensures that a file version available in the cloud can be referenced via a VSS snapshot entry.
 >
 > If you disable the feature, the Azure storage consumption slowly declines until the window of compatible days passes. You can't speed up the process.
 
@@ -656,7 +658,7 @@ Information workers in India continue working on the project in their time zone.
 
 1. In the [Azure portal](https://portal.azure.com/), go to your storage sync service, select the correct sync group, and then identify the server endpoint for which you want to closely track changes in the Azure file share (cloud endpoint).
 
-1. In the section for cloud tiering, find the **Azure file share download** topic. You can change the currently selected mode to track Azure file share changes more closely and proactively recall them to the server.
+1. In the section for cloud tiering, find the **Azure file share download** topic. You can change the currently selected mode to track changes in the Azure file share more closely and proactively recall them to the server.
 
 :::image type="content" source="media/storage-sync-files-deployment-guide/proactive-download.png" alt-text="Screenshot that shows the Azure file share download behavior for a server endpoint currently in effect and a button to open a menu for changing it.":::
 
@@ -756,7 +758,7 @@ Currently, pre-seeding has these limitations:
 
 1. You can now enable cloud tiering on any server endpoint as needed.
 
-For more information, see the [Distributed File System](file-sync-planning.md#distributed-file-system) section of the planning guide for an Azure File Sync deployment.
+For more information, see the [Distributed File System](file-sync-planning.md#distributed-file-system) section of the Azure File Sync planning guide.
 
 ## Related content
 

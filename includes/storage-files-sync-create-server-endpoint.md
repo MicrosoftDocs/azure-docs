@@ -48,14 +48,14 @@ ms.devlang: azurecli
 
      To learn more, see [Initial download section](../articles/storage/file-sync/file-sync-server-endpoint-create.md#initial-download-section).
 
-1. To finish adding the server endpoint, select **Create**. Your files are now kept in sync across your Azure file share and Windows Server.
+1. To finish adding the server endpoint, select **Create**. Your files are now kept in sync across your Azure file share and Windows Server instance.
 
 > [!NOTE]
 > Azure File Sync takes a snapshot of the Azure file share as a backup before it creates the server endpoint. You can use this snapshot to restore the share to the state from before the server endpoint was created.
 >
 > The snapshot isn't removed automatically after the server endpoint is created. You can delete it manually if you don't need it.
 >
-> You can find the snapshots that Azure File Sync created by looking at the snapshots for the Azure file share and checking for **AzureFileSync** in the **Initiator** column.
+> You can find the snapshots that Azure File Sync created by viewing the snapshots for the Azure file share and checking for **AzureFileSync** in the **Initiator** column.
 
 # [PowerShell](#tab/azure-powershell)
 

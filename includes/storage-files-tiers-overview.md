@@ -11,7 +11,7 @@
 ---
 Azure Files offers two media tiers of storage: solid-state disk (SSD) and hard disk drive (HDD). These tiers allow you to tailor your shares to the performance and price requirements of your scenario:
 
-- **SSD (premium)**: SSD file shares provide consistent high performance and low latency, within single-digit milliseconds for most I/O operations, for I/O-intensive workloads. SSD file shares are suitable for a wide variety of workloads, like databases, web site hosting, and development environments.
+- **SSD (premium)**: SSD file shares provide consistent high performance and low latency, within single-digit milliseconds for most I/O operations, for I/O-intensive workloads. SSD file shares are suitable for a wide variety of workloads, like databases, website hosting, and development environments.
 
   You can use SSD file shares with both the SMB and NFS protocols. SSD file shares are available in the [provisioned v2](../articles/storage/files/understanding-billing.md#provisioned-v2-model) and [provisioned v1](../articles/storage/files/understanding-billing.md#provisioned-v1-model) billing models. SSD file shares offer a [higher availability SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) than HDD file shares.
 

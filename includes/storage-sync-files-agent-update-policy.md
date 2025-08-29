@@ -16,16 +16,16 @@ The Azure File Sync agent is updated regularly to add new functionality and to a
 
 There are five approved and tested ways to install the Azure File Sync agent updates:
 
-- **Use the Azure File Sync automatic update feature to install agent updates**: The Azure File Sync agent is automatically updated. You can select to install the latest agent version when it's available or update when the currently installed agent is near expiration. To learn more, see the next section, [Automatic agent lifecycle management](#automatic-agent-lifecycle-management).
+- **Use the Azure File Sync automatic update feature to install agent updates**: The Azure File Sync agent is automatically updated. You can select to install the latest agent version when it's available or update when the currently installed agent is near expiration. To learn more, see the next section, [Automatic management of the agent lifecycle](#automatic-management-of-the-agent-lifecycle).
 - **Configure Microsoft Update to automatically download and install agent updates**: We recommend installing every Azure File Sync update to ensure that you have access to the latest fixes for the server agent. Microsoft Update makes this process seamless by automatically downloading and installing updates for you.
 - **Use AfsUpdater.exe to download and install agent updates**: The `AfsUpdater.exe` file is located in the agent installation directory. Double-click the executable file to download and install agent updates. Depending on the release version, you might need to restart the server.
 - **Patch an existing Azure File Sync agent by using a Microsoft Update patch file or an .msp executable file**: You can download the latest Azure File Sync update package from the [Microsoft Update Catalog](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20File%20Sync). Running an .msp executable file updates your Azure File Sync installation with the same method that Microsoft Update uses automatically. Applying a Microsoft Update patch performs an in-place update of an Azure File Sync installation.
-- **Download the newest Azure File Sync agent installer**: You can get the installer in [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). To update an existing Azure File Sync agent installation, uninstall the older version and then install the latest version from the downloaded installer. Agent settings (for example, server registration and server endpoints) are maintained when the Azure File Sync agent is uninstalled.
+- **Download the newest Azure File Sync agent installer**: You can get the installer in the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). To update an existing Azure File Sync agent installation, uninstall the older version and then install the latest version from the downloaded installer. Agent settings (for example, server registration and server endpoints) are maintained when the Azure File Sync agent is uninstalled.
 
 > [!NOTE]
 > The downgrade of Azure File Sync agent isn't supported. New versions often include breaking changes when they're compared to the old versions, making the downgrade process unsupported. If you encounter any problems with your current agent version, contact support or update to the latest available release.
 
-#### Automatic agent lifecycle management
+#### Automatic management of the agent lifecycle
 
 The Azure File Sync agent is updated automatically. You can select either of the following modes and specify a maintenance window in which the update is attempted on the server. This feature is designed to help you with agent lifecycle management by either providing a guardrail that prevents your agent from expiration or allowing for a no-hassle, stay-current setting.
 
@@ -35,7 +35,7 @@ The Azure File Sync agent is updated automatically. You can select either of the
 
   This update occurs during the selected maintenance window and allows your server to benefit from new features and improvements as soon as they become generally available. This recommended, worry-free setting provides major agent versions and regular update patches to your server. Every agent released is at GA quality.
   
-  If you select this option, Microsoft flights the newest agent version to you. Clustered servers are excluded. After flighting is complete, the agent also becomes available in Microsoft Update and [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257).
+  If you select this option, Microsoft flights the newest agent version to you. Clustered servers are excluded. After flighting is complete, the agent also becomes available in Microsoft Update and the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257).
 
 ##### Change the automatic update setting
 
