@@ -105,35 +105,35 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
 1. Sign in to the Management VM and extract the contents from the compressed file from the following [location](https://github.com/Azure/ArcOnAVS/releases/latest). The extracted file contains the scripts to install the software.
 2. Open the 'config_avs.json' file and populate all the variables.
 
-    **Config JSON**
-   ```json
-  {
-     "subscriptionId": "", 
-      "resourceGroup": "", 
-      "privateCloud": "", 
-      "isStatic": true, 
-      "staticIpNetworkDetails": { 
-      "networkForApplianceVM": "", 
-      "networkCIDRForApplianceVM": "" 
-   }, 
-    "applianceCredentials": { 
-    "username": "", 
-    "password": "" 
+**Config JSON**
+```
+{
+  "subscriptionId": "",
+  "resourceGroup": "",
+  "privateCloud": "",
+  "isStatic": true,
+  "staticIpNetworkDetails": { 
+  "networkForApplianceVM": "", 
+  "networkCIDRForApplianceVM": ""
+   },
+   "applianceCredentials": { 
+   "username": "", 
+   "password": "" 
   }, 
-    "applianceProxyDetails": { 
-    "http": "", 
-    "https": "", 
-    "noProxy": "", 
-    "certificateFilePath": "" 
+  "applianceProxyDetails": { 
+  "http": "", 
+  "https": "", 
+  "noProxy": "", 
+  "certificateFilePath": "" 
   }, 
   "managementProxyDetails": { 
-    "http": "", 
-    "https": "", 
-    "noProxy": "", 
-    "certificateFilePath": "" 
+  "http": "", 
+  "https": "", 
+  "noProxy": "", 
+  "certificateFilePath": "" 
   } 
-    } 
-    ```
+   }
+```
     
   - Populate the `subscriptionId`, `resourceGroup`, and `privateCloud` names respectively.  
   - `isStatic` is always true. 
@@ -146,35 +146,35 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
   - If all the parameters are provided, the firewall and proxy URLs must be allowlisted for the lps between K8sNodeIPPoolStart, k8sNodeIPPoolEnd.
   - If you're skipping the optional fields, the firewall and proxy URLs must be allowlisted the following IPs in the segment. If the networkCIDRForApplianceVM is x.y.z.1/28, the IPs to allowlist are between x.y.z.11 – x.y.z.14. See the [Azure Arc resource bridge network requirements](/azure/azure-arc/resource-bridge/network-requirements).  
 
-  **JSON example**
-    ```json
+**JASON Example**
+```json
 {  
-  "subscriptionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",  
-  "resourceGroup": "test-rg", 
-  "privateCloud": "test-pc", 
-  "isStatic": true, 
+  "subscriptionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "resourceGroup": "test-rg",
+  "privateCloud": "test-pc",
+  "isStatic": true,
   "staticIpNetworkDetails": { 
    "networkForApplianceVM": "arc-segment",  
    "networkCIDRForApplianceVM": "10.14.10.1/28" 
-  }, 
+  },
   "applianceCredentials": {
-    "username": "",
-    "password": ""
-  }, 
- "applianceProxyDetails": { 
-    "http": "http://contoso-proxy.com", 
-    "https": "https://contoso-proxysecured.com", 
-    "noProxy": "localhost,127.0.0.1,.svc,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,.5edef8ac24a6b4567785cd.australiaeast.avs.azure.com", 
-    "certificateFilePath": "C:\Users\sampleUser.sslProxy.crt" 
-  }, 
+  "username": "",
+  "password": ""
+  },
+ "applianceProxyDetails": {
+ "http": "http://contoso-proxy.com",
+ "https": "https://contoso-proxysecured.com",
+ "noProxy": "localhost,127.0.0.1,.svc,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,.5edef8ac24a6b4567785cd.australiaeast.avs.azure.com",
+ "certificateFilePath": "C:\Users\sampleUser.sslProxy.crt"
+ },
   "managementProxyDetails": { 
-    "http": " http://contoso-proxy.com ", 
-    "https": "https://contoso-proxysecured.com", 
-    "noProxy": "localhost,127.0.0.1,.svc,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,.5edef8ac24a6b4567785cd.australiaeast.avs.azure.com", 
+  "http": " http://contoso-proxy.com ", 
+  "https": "https://contoso-proxysecured.com", 
+  "noProxy": "localhost,127.0.0.1,.svc,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,.5edef8ac24a6b4567785cd.australiaeast.avs.azure.com", 
     "certificateFilePath": “C:\Users\sampleUser.sslProxy.crt" 
-  } 
-} 
-
+  }
+}
+```
 3. Run the installation scripts. You can optionally set up this preview from a Windows or Linux-based jump box/VM. 
 
     Run the following commands to execute the installation script. 
