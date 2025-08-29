@@ -68,7 +68,8 @@ Steps for setting up Azure Files NFS Encryption in Transit for these two scenari
   sudo yum install aznfs
 
   ```
----
+
+  ---
 
   Choose `No` to autoupdate the package during installation. You can also turn off/on autoupdate at any time by changing the value of `AUTO_UPDATE_AZNFS` to false/true respectively in the file `/opt/microsoft/aznfs/data/config`.
 
@@ -113,6 +114,7 @@ sudo crm configure primitive fs_NW1_ASCS Filesystem device='sapnfs.file.core.win
 op start timeout=60s interval=0 \
 op stop timeout=60s interval=0 \
 op monitor interval=20s timeout=40s
+
 ```
 
 #### [**RHEL**](#tab/RHEL)
