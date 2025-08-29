@@ -264,7 +264,7 @@ These rules help identify issues and warnings when migrating PostgreSQL to Azure
 ## Related content
 
 - [PostgreSQL workloads for Migration to Azure](tutorial-assess-postgresql.md).
-- [Review PostgreSQL assessment results](tutorial-reivew-postgresql-report.md).
+- [Review PostgreSQL assessment results](tutorial-review-postgresql-report.md).
 
 
 
