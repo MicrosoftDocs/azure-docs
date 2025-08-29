@@ -186,7 +186,7 @@ MQTT v5 currently differs from the [MQTT v5 specification](https://docs.oasis-op
 - Maximum QoS is 1.
 - Maximum packet size is 512 KiB.
 - Subscription identifiers aren't supported.
-- Topic Alias maximum is 10. The server doesn't assign any topic aliases for outgoing messages at this time. Clients can assign and use topic aliases within the set limit.
+- Topic alias maximum is 10. The server doesn't assign any topic aliases for outgoing messages at this time. Clients can assign and use topic aliases within the set limit.
 - CONNACK doesn't return the `Response Information` property even if the CONNECT request contains the `Request Response Information` property.
 - User properties on CONNECT, SUBSCRIBE, DISCONNECT, PUBACK, and AUTH packets aren't used by the service, so they aren't supported. If any of these requests include user properties, the request fails.
 - If the server receives a PUBACK packet from a client with a nonsuccess response code, the connection is terminated.
