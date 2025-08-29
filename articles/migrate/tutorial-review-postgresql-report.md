@@ -14,6 +14,10 @@ ms.custom: engagement-fy24
 
 This article describes the key components of a PostgreSQL assessment and shows you how to review results, explore migration options, and evaluate cost and readiness for migrating to Azure.
 
+## Prerequisites
+
+Before you begin, ensure you’ve reviewed the discovered application. [Learn more](how-to-discover-applications.md). 
+
 ## View an assessment 
 
 To view the assessment, you create, follow these steps: 
@@ -107,6 +111,9 @@ To review readiness reports for different migration strategies, follow these ste
     - Instance properties
     - Configuration parameters scoped to the instance
     - Source database storage details.
+>[!Important]
+> If PostgreSQL credentials aren't provided or if the Azure Migrate appliance can't connect to the PostgreSQL instance, SKU recommendations are based on virtual machine-level configuration. In this case, the readiness status is marked as Ready with Conditions. To validate all assessment rules—including extensions, collations, data types, and other database-specific configurations—and to ensure optimal SKU sizing, provide PostgreSQL credentials with sufficient permissions.
+
 1. To view the list of user databases and their details, select the number of user databases.
 1. To review migration issues and warnings for a specific target deployment type, select **Review details** in the **Migration issues** column.
 1. Cost distribution by configuration: The assessment shows how costs are distributed across various Azure Database for PostgreSQL flexible server configurations: 
@@ -120,3 +127,7 @@ To review readiness reports for different migration strategies, follow these ste
     - **Recommended configuration**: Specific SKU recommendation based on assessment analysis.
     - **Cost variations**: Reflect differences in resource requirements across instances.
     
+## Related content
+
+- [Least privilege PostgreSQL account](postgresql-least-privilege-configuration.md).
+- [PostgreSQL workloads for Migration to Azure](tutorial-assess-postgresql.md).

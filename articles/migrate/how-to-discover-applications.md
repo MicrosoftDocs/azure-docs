@@ -101,6 +101,7 @@ Once connected, the appliance gathers configuration and performance data of SQL 
 > - Ensure your PostgreSQL instances are set up to accept connections from the appliance IP address.
 > - The default PostgreSQL port 5432 or the custom port is accessible if one is configured.
 > - The listen_addresses parameter in postgresql.conf must include the network interface that the appliance can access.
+> - Add entries in the pg_hba.conf file to allow connections from the appliance IP address.
 
 Learn more on [PostgreSQL configuration](https://www.postgresql.org/docs/current/auth-pg-hba-conf.html).
 

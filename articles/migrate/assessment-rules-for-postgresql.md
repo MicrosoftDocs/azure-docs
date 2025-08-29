@@ -20,23 +20,25 @@ These rules help identify issues and warnings when migrating PostgreSQL to Azure
 
 | Rule Name  | Scope  | Category | Link to Details   |
 |----------|---------|----------|----------------------|
-| Extensions    | Database       | Issue    | [Unsupported PostgreSQL extensions detected](#extensions)    |
-| Collations   | Instance/Database | Issue    | [Unsupported collations detected in the source PostgreSQL](#collations)     |
-| Language Used  | Database          | Issue    | [Unsupported procedural languages detected ](#language-used)   |
-| Custom Data Type used  | Database          | Issue    | [Unsupported custom data types found](#custom-data-type-used)  |
-| Casts   | Database          | Issue    | [Custom cast creation requires superuser privileges](#casts) |
-| Full Text Search (FTS) and FTS Templates  | Database  | Issue  | [Creating FTS configurations requires superuser privileges](#full-text-search-fts-and-fts-templates)  |
-| TLS/SSL versions   | Instance     | Warning  | [Unsupported TLS/SSL versions detected in source](#tlsssl-versions) |
-| Superuser Privileges  | Instance/Database | Warning  | [Unsupported: PostgreSQL objects owned by superuser](#superuser-privileges)  |
-| File Read/Write Privileges  | Database   | Warning  | [Unsupported: Source uses functions/extensions with file system access](#file-readwrite-privileges)  |
-| IPv6 Address          | Instance    | Issue |[Use of IPv6 for database connections](#ipv6-address) |
-| Port Usage   | Instance     | Warning  | [Database connections use ports other than 5432 or 6432](#port-usage)   |
-| OID Usage    | Database        | Issue    | [WITH OIDS clause in CREATE TABLE is not supported](#oid-usage)  |
-| Tablespaces  | Instance    | Warning  | [Custom tablespaces detected in source PostgreSQL](#tablespaces)       |
-| PostgreSQL Version < 9.5  | Instance   | Issue    | [ Source PostgreSQL version is below 9.5](#postgresql-version--95)     |
-| Read Replicas Count | Instance | Warning  | [Read replicas detected in source PostgreSQL](#read-replicas-count)  |
-| Encodings | Database  | Issue    | [Custom database encodings not allowed on Azure flexible server](#encodings)  |
-| Region Availability | Instance  | Issue    | [Target region not available for Azure flexible server](#region-availability) |
+| Extensions    | Database       | Issue    | [Unsupported PostgreSQL extensions detected](#extensions).    |
+| Collations   | Instance/Database | Issue    | [Unsupported collations detected in the source PostgreSQL](#collations).     |
+| Language Used  | Database          | Issue    | [Unsupported procedural languages detected ](#language-used).   |
+| Custom data type used  | Database          | Issue    | [Unsupported custom data types found](#custom-data-type-used)  |
+| Casts   | Database          | Issue    | [Custom cast creation requires superuser privileges](#casts). |
+| Full text search (FTS) and FTS Templates  | Database  | Issue  | [Creating FTS configurations requires superuser privileges](#full-text-search-fts-and-fts-templates)  |
+| TLS/SSL versions   | Instance     | Warning  | [Unsupported TLS/SSL versions detected in source](#tlsssl-versions). |
+| Superuser privileges  | Instance/Database | Warning  | [Unsupported: PostgreSQL objects owned by superuser](#superuser-privileges).  |
+| File read/write privileges  | Database   | Warning  | [Unsupported: Source uses functions/extensions with file system access](#file-readwrite-privileges)  |
+| IPv6 address          | Instance    | Issue |[Use of IPv6 for database connections](#ipv6-address). |
+| Port usage   | Instance     | Warning  | [Database connections use ports other than 5432 or 6432](#port-usage)   |
+| OID usage    | Database        | Issue    | [WITH OIDS clause in CREATE TABLE is not supported](#oid-usage). |
+| Tablespaces  | Instance    | Warning  | [Custom tablespaces detected in source PostgreSQL](#tablespaces). |
+| PostgreSQL Version < 9.5  | Instance   | Issue    | [ Source PostgreSQL version is below 9.5](#postgresql-version--95). |
+| Read replicas count | Instance | Warning  | [Read replicas detected in source PostgreSQL](#read-replicas-count).  |
+| Encodings | Database  | Issue    | [Custom database encodings not allowed on Azure flexible server](#encodings).  |
+| Region availability | Instance  | Issue    | [Target region not available for Azure flexible server](#region-availability). |
+| SKU sizing | Instance  | Warning    | [SKU recommendation based on VM-level configuration](#sku-sizing). |
+| Database assessment | Database/Instance | Warning | [Comprehensive database readiness assessment requires PostgreSQL credentials](#database-assessment). |
 
 ## Detailed rule description
 
@@ -239,6 +241,30 @@ These rules help identify issues and warnings when migrating PostgreSQL to Azure
 
 - Learn about [Azure regions for PostgreSQL flexible server](/azure/postgresql/flexible-server/overview#azure-regions).
 
+### SKU sizing
+
+- **Title**:  SKU recommendation is based on VM-level configuration due to limited database access.
+
+- **Category**: Warning
+
+- **Description**: SKU sizing is based on virtual machine-level data. For accurate sizing, PostgreSQL credentials with adequate permissions are required. Without database-level metrics, the SKU recommendation might not be optimal.
+
+**Recommendation**: To ensure accurate sizing, provide PostgreSQL credentials with adequate permissions or unblock discovery. Then, recalculate assessments 24 hours after providing the credentials. This helps optimize resource allocation and improve cost efficiency for your Azure Database for PostgreSQL flexible server deployment.
+
+### Database assessment
+
+- **Title**:  SA comprehensive database readiness assessment requires PostgreSQL credentials with sufficient permissions for a complete evaluation.
+
+- **Category**: Warning
+
+- **Description**: Database-level assessment rules can't be validated without PostgreSQL credentials. To proceed, either perform manual validation or enable deep discovery. The following rules couldn't be evaluated due to insufficient database access: Extensions, Collations, Languages, Data Types, Connections, Casts, Full-Text Search (FTS), TLS/SSL, Privileges, File Access, IPv6, OID, Tablespaces, Replicas, and Encodings.
+
+**Recommendation**: To ensure a comprehensive readiness assessment for migrating to Azure Database for PostgreSQL flexible server, either manually validate the unassessed rules using the provided documentation links or provide PostgreSQL credentials with adequate permissions. Then, recalculate the assessments to enable automated validation.
+
+## Related content
+
+- [PostgreSQL workloads for Migration to Azure](tutorial-assess-postgresql.md).
+- [Review PostgreSQL assessment](tutorial-reivew-postgresql-assessment.md).
 
 
 

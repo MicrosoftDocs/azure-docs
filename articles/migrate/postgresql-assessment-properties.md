@@ -30,3 +30,9 @@ This article explains the assessment properties on the **General** tab that you 
 | | **Azure Hybrid Benefit**| Specifies if you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) to use your existing OS licenses. For Azure VM assessments, you can bring in both Windows and Linux licenses. If the setting is enabled, Azure prices for selected operating systems aren't considered for VM costing.  |
 |**Security** | **Security** | Specifies if you want to assess readiness and cost for security tooling on Azure. If the setting has the default value **Yes, with Microsoft Defender for Cloud**, it assesses security readiness and costs for your Azure VM with Microsoft Defender for Cloud. | 
 |**VM Security Type** | | Specifies is you want to verify readiness for **Trusted Launch Virtual Machines (TVMs)**, Standard Virtual Machines, or both. By default, readiness is verified for both. We recommend to migrate eligible VMs to **Trusted Launch**, as TVMs provide enhanced security features, such as secure boot and virtual TPM at no extra cost.| 
+
+## Related content
+
+- [Least privilege PostgreSQL account](postgresql-least-privilege-configuration.md).
+- [PostgreSQL workloads for Migration to Azure](tutorial-assess-postgresql.md).
+- [Review PostgreSQL assessment](tutorial-review-postgresql-report.md).
