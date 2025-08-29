@@ -106,33 +106,33 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
 2. Open the 'config_avs.json' file and populate all the variables.
 
     **Config JSON**
-    ```json
+   ```json
   {
-     "subscriptionId": "",
-      "resourceGroup": "",
-      "privateCloud": "",
-      "isStatic": true,
-      "staticIpNetworkDetails": {
-      "networkForApplianceVM": "",
-      "networkCIDRForApplianceVM": ""
-   },
-    "applianceCredentials": {
-    "username": "",
-    "password": ""
-  },
-    "applianceProxyDetails": {
-    "http": "",
-    "https": "",
-    "noProxy": "",
-    "certificateFilePath": ""
-  },
-  "managementProxyDetails": {
-    "http": "",
-    "https": "",
-    "noProxy": "",
-    "certificateFilePath": ""
-  }
-    }
+     "subscriptionId": "", 
+      "resourceGroup": "", 
+      "privateCloud": "", 
+      "isStatic": true, 
+      "staticIpNetworkDetails": { 
+      "networkForApplianceVM": "", 
+      "networkCIDRForApplianceVM": "" 
+   }, 
+    "applianceCredentials": { 
+    "username": "", 
+    "password": "" 
+  }, 
+    "applianceProxyDetails": { 
+    "http": "", 
+    "https": "", 
+    "noProxy": "", 
+    "certificateFilePath": "" 
+  }, 
+  "managementProxyDetails": { 
+    "http": "", 
+    "https": "", 
+    "noProxy": "", 
+    "certificateFilePath": "" 
+  } 
+    } 
     ```
     
   - Populate the `subscriptionId`, `resourceGroup`, and `privateCloud` names respectively.  
@@ -150,17 +150,17 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
     ```json
 {  
   "subscriptionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",  
-  "resourceGroup": "test-rg",  
-  "privateCloud": "test-pc",  
-  "isStatic": true,  
-  "staticIpNetworkDetails": {  
+  "resourceGroup": "test-rg", 
+  "privateCloud": "test-pc", 
+  "isStatic": true, 
+  "staticIpNetworkDetails": { 
    "networkForApplianceVM": "arc-segment",  
-   "networkCIDRForApplianceVM": "10.14.10.1/28"
+   "networkCIDRForApplianceVM": "10.14.10.1/28" 
   }, 
   "applianceCredentials": {
     "username": "",
     "password": ""
-  },
+  }, 
  "applianceProxyDetails": { 
     "http": "http://contoso-proxy.com", 
     "https": "https://contoso-proxysecured.com", 
@@ -172,9 +172,9 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
     "https": "https://contoso-proxysecured.com", 
     "noProxy": "localhost,127.0.0.1,.svc,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,.5edef8ac24a6b4567785cd.australiaeast.avs.azure.com", 
     "certificateFilePath": “C:\Users\sampleUser.sslProxy.crt" 
-  }
+  } 
 } 
-    ```
+```
 
 3. Run the installation scripts. You can optionally set up this preview from a Windows or Linux-based jump box/VM. 
 
