@@ -181,7 +181,7 @@ The troubleshooting guidance in this section is specific to Azure IoT Operations
 
 If the Layered Network Management operator install fails or you can't apply the custom resource for a Layered Network Management instance then:
 
-1. Verify the regions are supported. For more information, see [Supported regions](../overview-iot-operations.md#supported-regions).
+1. Verify the regions are supported. For more information, see [Supported regions](../overview-support.md#supported-regions).
 1. If there are any other errors in installing Layered Network Management Arc extensions, follow the guidance included with the error. Try uninstalling and installing the extension.
 1. Verify the Layered Network Management operator is in the *Running and Ready* state.
 1. If applying the custom resource `kubectl apply -f cr.yaml` fails, the output of this command lists the reason for error. For example, CRD version mismatch or wrong entry in CRD.

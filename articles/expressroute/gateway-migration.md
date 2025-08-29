@@ -16,7 +16,7 @@ ms.author: duau
 
 # About ExpressRoute Gateway Migration
 
-This article explains the ExpressRoute gateway migration process, enabling you to move from non-Availability Zone (non-Az)-enabled SKUs to Az-enabled SKUs, and from Basic IP to Standard IP. Migrating to Az-enabled SKUs and Standard IPs improves the reliability and high availability of your ExpressRoute virtual network gateways.
+This article outlines the ExpressRoute gateway migration process, allowing you to move from your current SKU to any equal or higher SKU and from Basic IP to Standard IP—enhancing reliability and availability, while downgrades are not supported.
 
 For guidance on upgrading Basic SKU public IP addresses for other networking services, see [Upgrading Basic to Standard SKU](../virtual-network/ip-services/public-ip-basic-upgrade-guidance.md#steps-to-complete-the-upgrade).
 
@@ -30,15 +30,12 @@ By comparison, the **Standard**, **HighPerformance**, and **UltraPerformance** S
 
 ## Gateway migration experience
 
-The gateway migration experience allows you to deploy a second virtual network gateway in the same GatewaySubnet. Azure migrates your configurations from the old gateway to the new one. Both gateways run simultaneously during migration, minimizing disruption – though brief connectivity interruptions may still occur.
+The gateway migration experience allows you to deploy a second virtual network gateway in the same GatewaySubnet, with Azure [automatically assigning a new public IP-](expressroute-about-virtual-network-gateways.md#auto-assigned-public-ip) eliminating the need for manual IP creation—while configurations are migrated from the old gateway to the new one; both gateways run simultaneously to minimize disruption, though brief connectivity interruptions may still occur.
 
 After migration, the old gateway and its connections are deleted, and the new gateway is tagged with **CreatedBy: GatewaySKUMigration** to identify it as a migrated resource and shouldn’t be deleted.
 ## Supported Migration Scenarios
 
-The guided gateway migration experience supports the following scenarios:
-
-- Migrating from a non-Az-enabled SKU with a Basic IP to a non-Az-enabled SKU with a Standard IP.
-- Migrating from a non-Az-enabled SKU with a Basic IP to an Az-enabled SKU with a Standard IP.
+The guided ExpressRoute gateway migration experience enables customers to move from their current SKU to any equal or higher SKU. Migrating to a lower SKU (downgrades) is not supported.
 
 If you have an ExpressRoute gateway deployed in the same virtual network as a VPN Gateway, you can use the ExpressRoute Gateway migration tool. There is no expected impact to VPN Gateway traffic during this process.
  
@@ -50,7 +47,7 @@ For enhanced reliability and high availability, we recommend migrating to an Az-
 ## Steps to migrate to a new gateway
 
 1. **Validate**: Check that all resources are in a succeeded state. If any prerequisites aren't met, validation fails and migration can't proceed.
-2. **Prepare**: Azure creates a new virtual network gateway, public IP, and connections. This step can take up to 45 minutes. You can specify a name for the new gateway, or Azure will add **_migrated** to the original name by default. During preparation, the existing gateway is locked to prevent changes. If you need to stop the migration, you can **abort** at this stage, which deletes the new gateway and connections.
+2. **Prepare**:  Azure create a new virtual network gateway, [automatically assigns a new Public IP-](expressroute-about-virtual-network-gateways.md#auto-assigned-public-ip) a new Public IP  and re-establishes connections—this process can take up to 45 minutes; you can specify a custom name for the new gateway, or Azure will add **_migrated** to the original name by default. During preparation, the existing gateway is locked to prevent changes, with the option to **abort** and delete the new gateway and connections.
 
 > [!NOTE]
 > The new gateway is created in the same region as the existing one. To change regions, you must delete the current gateway and create a new one in the desired region.
@@ -133,8 +130,11 @@ During the migration process, traffic is rerouted seamlessly. There is no expect
 ### What should I do if the Prepare step fails due to a cross-region connection on a Basic SKU circuit during gateway migration?
 
 If the Prepare step fails because your Basic SKU circuit has a cross-region connection, **abort** the gateway migration and **upgrade** the circuit SKU before trying again. This configuration is unsupported, and migration will continue to fail until the circuit SKU is upgraded.
+
 ## Next Steps
 
 - Troubleshoot migration  issues with [Troubleshooting Gateway Migration](gateway-migration-error-messaging.md).
 - Learn how to [migrate using the Azure portal](expressroute-howto-gateway-migration-portal.md).
 - Learn how to [migrate using PowerShell](expressroute-howto-gateway-migration-powershell.md).
+
+

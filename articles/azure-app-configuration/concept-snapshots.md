@@ -4,7 +4,7 @@ description: Details of Snapshots in Azure App Configuration
 author: Muksvso
 ms.author: mubatra
 ms.service: azure-app-configuration
-ms.topic: conceptual 
+ms.topic: concept-article 
 ms.date: 06/04/2025
 ---
 

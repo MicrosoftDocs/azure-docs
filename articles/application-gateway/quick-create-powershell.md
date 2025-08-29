@@ -171,6 +171,9 @@ New-AzApplicationGateway `
 > [!TIP]
 > You can modify values of the `Name` and `Tier` parameters to use a different SKU. For example: `Basic`.
 
+> [!NOTE]
+> In regions that support availability zones, if you don't specify zones during creation via CLI, PowerShell, ARM/Bicep, or the REST API—Azure Application Gateway automatically enables zone redundancy, distributing instances across multiple availability zones for enhanced resiliency
+
 ### Backend servers
 
 Now that you have created the Application Gateway, create the backend virtual machines which will host the websites. A backend can be composed of NICs, virtual machine scale sets, public IP address, internal IP address, fully qualified domain names (FQDN), and multitenant backends like Azure App Service. 

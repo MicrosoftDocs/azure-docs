@@ -4,6 +4,7 @@ ms.author: cephalin
 ms.topic: include
 ms.custom: devx-track-azurecli
 ms.date: 01/16/2025
+ms.service: azure-app-service
 ---
 
 To deploy with the service principal you configured, use the `azure/login@v2` action with the `creds` key and reference the `AZURE_CREDENTIALS` secret that you created earlier.

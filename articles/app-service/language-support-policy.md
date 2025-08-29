@@ -6,6 +6,7 @@ ms.topic: concept-article
 ms.date: 05/06/2024
 ms.author: jefmarti
 ms.custom: devx-track-extended-java
+ms.service: azure-app-service
 ---
 
 # Language runtime support policy for Azure App Service

@@ -1,12 +1,16 @@
 ---
-title: Control traffic with Traffic Manager
+title: Control Traffic with Traffic Manager
 description: Find best practices for configuring Azure Traffic Manager when you integrate it with Azure App Service.
 
 ms.assetid: dabda633-e72f-4dd4-bf1c-6e945da456fd
-ms.topic: article
+ms.topic: concept-article
 ms.date: 02/25/2016
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
+
+# Customer intent: As a network engineer, I want to get an overview of how to use Traffic Manager with App Service so that I can control how requests from web clients are distributed to apps in App Service. 
+
 ---
 # Controlling Azure App Service traffic with Azure Traffic Manager
 > [!NOTE]
@@ -14,7 +18,7 @@ ms.author: cephalin
 > 
 > 
 
-## Introduction
+
 You can use Azure Traffic Manager to control how requests from web clients are distributed to apps in Azure App Service. When App Service endpoints are added to an Azure Traffic Manager profile, Azure Traffic Manager keeps track of the status of your App Service apps (running, stopped, or deleted) so that it can decide which of those endpoints should receive traffic.
 
 ## Routing methods
@@ -41,5 +45,5 @@ When using Azure Traffic Manager with Azure, keep in mind the following points:
 * You can only add apps that are in standard or premium mode to an Azure Traffic Manager profile.
 * Adding an app to a Traffic Manager profile causes the app to be restarted.
 
-## Next Steps
+## Related content
 For a conceptual and technical overview of Azure Traffic Manager, see [Traffic Manager Overview](../traffic-manager/traffic-manager-overview.md).
