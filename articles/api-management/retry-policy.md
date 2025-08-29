@@ -6,11 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
-<<<<<<< HEAD
-ms.date: 07/23/2024
-=======
 ms.date: 08/28/2025
->>>>>>> f3470fa4a4f4c (updated example)
 ms.author: danlep
 ---
 
