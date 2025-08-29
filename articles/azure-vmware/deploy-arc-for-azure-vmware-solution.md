@@ -146,7 +146,7 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
   - If all the parameters are provided, the firewall and proxy URLs must be allowlisted for the lps between K8sNodeIPPoolStart, k8sNodeIPPoolEnd.
   - If you're skipping the optional fields, the firewall and proxy URLs must be allowlisted the following IPs in the segment. If the networkCIDRForApplianceVM is x.y.z.1/28, the IPs to allowlist are between x.y.z.11 – x.y.z.14. See the [Azure Arc resource bridge network requirements](/azure/azure-arc/resource-bridge/network-requirements).  
 
-**JASON Example**
+**JSON Example**
 ```json
 {  
   "subscriptionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -171,7 +171,7 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
   "http": " http://contoso-proxy.com ", 
   "https": "https://contoso-proxysecured.com", 
   "noProxy": "localhost,127.0.0.1,.svc,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,.5edef8ac24a6b4567785cd.australiaeast.avs.azure.com", 
-    "certificateFilePath": “C:\Users\sampleUser.sslProxy.crt" 
+    "certificateFilePath": "C:\Users\sampleUser.sslProxy.crt"
   }
 }
 ```
@@ -200,12 +200,13 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
 5. SSL proxy configuration 
 
 If using a proxy, the Arc Resource Bridge must be configured to use the proxy in order to connect to Azure services. This approach requires other parameters to be specified during the onboarding process via the script.
-    - `applianceProxyDetails`- Proxy details to be used for the deployment of Arc Appliance in the network.
-    - `managementProxyDetails`- Proxy details to be used on management VM for running of the script. Provide these details only if you want to set or override the existing proxy settings on management VM.
-    - `http` - Proxy server address for http requests.
-    - `https` - Proxy server address for https requests.
-    - `noProxy` - The list of addresses that should be excluded from proxy. The endpoints those need to be excluded for Arc Deployment for both appliance and management VM are -localhost,127.0.0.1,.svc,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16, <esxihost endpoints common suffix> 
-    -`certificateFilePath` - The certificate that has to be used for authentication if it is an SSL proxy. 
+
+  - `applianceProxyDetails`- Proxy details to be used for the deployment of Arc Appliance in the network.
+  - `managementProxyDetails`- Proxy details to be used on management VM for running of the script. Provide these details only if you want to set or override the existing proxy settings on management VM.
+  - `http` - Proxy server address for http requests.
+  - `https` - Proxy server address for https requests.
+  - `noProxy` - The list of addresses that should be excluded from proxy. The endpoints those need to be excluded for Arc Deployment for both appliance and management VM are -localhost,127.0.0.1,.svc,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,\<esxihost endpoints common suffix\>
+  - `certificateFilePath` - The certificate that has to be used for authentication if it is an SSL proxy. 
 For more details on proxy configuration for Arc Deployment, Please check [Azure Arc resource bridge network requirements](/azure/azure-arc/resource-bridge/network-requirements).
 
 >[!Important]
