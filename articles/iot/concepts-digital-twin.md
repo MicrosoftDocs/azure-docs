@@ -4,6 +4,7 @@ description: Understand how IoT Plug and Play uses digital twins
 author: dominicbetts
 ms.author: dobett
 ms.date: 03/18/2025
+ms.update-cycle: 1095-days
 ms.topic: conceptual
 ms.service: azure-iot
 ---

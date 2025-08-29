@@ -1,14 +1,18 @@
 ---
-title: Bicep deployment what-if
+title: 'Bicep What-If: Preview Changes Before Deployment'
 description: Determine what changes will happen to your resources before deploying a Bicep file.
 ms.topic: conceptual
-ms.custom: devx-track-bicep, devx-track-azurecli, devx-track-azurepowershell
-ms.date: 08/12/2025
+ms.custom:
+  - devx-track-bicep, devx-track-azurecli, devx-track-azurepowershell
+  - ai-gen-docs-bap
+  - ai-gen-title
+  - ai-seo-date:08/19/2025
+ms.date: 08/19/2025
 ---
 
-# Bicep deployment what-if operation
+# Bicep What-If: Preview Changes Before Deployment
 
-Before deploying a Bicep file, you can preview the changes that will happen. Azure Resource Manager provides the what-if operation to let you see how resources will change if you deploy the Bicep file. The what-if operation doesn't make any changes to existing resources. Instead, it predicts the changes if the specified Bicep file is deployed.
+Before deploying a Bicep file, you can preview the changes that will happen. Azure Resource Manager (ARM) provides the what-if operation to let you see how resources will change if you deploy the Bicep file. The what-if operation doesn't make any changes to existing resources. Instead, it predicts the changes if the specified Bicep file is deployed.
 
 You can use the what-if operation with [Visual Studio Code](./visual-studio-code.md#deployment-pane), Azure PowerShell, Azure CLI, or REST API operations. What-if is supported for resource group, subscription, management group, and tenant level deployments.
 
@@ -67,6 +71,12 @@ To preview changes before deploying a Bicep file, use:
 - [az deployment mg what-if](/cli/azure/deployment/mg#az-deployment-mg-what-if) for management group deployments
 - [az deployment tenant what-if](/cli/azure/deployment/tenant#az-deployment-tenant-what-if) for tenant deployments
 
+Azure CLI version **2.76.0 or later** introduces the `--validation-level` switch to determine how thoroughly ARM validates the Bicep template during this process. It accepts the following values:
+
+- **Provider** (default): Performs full validation, including template syntax, resource definitions, dependencies, and permission checks to ensure you have sufficient permissions to deploy all resources in the template. 
+- **ProviderNoRbac**: Performs full validation of the template and resources, similar to Provider, but only checks for read permissions on each resource instead of full deployment permissions. This is useful when you want to validate resource configurations without requiring full access.
+- **Template**: Performs static validation only, checking template syntax and structure while skipping preflight checks (e.g., resource availability) and permission checks. This is less thorough, potentially missing issues that could cause deployment failures.
+
 You can use the `--confirm-with-what-if` switch (or its short form `-c`) to preview the changes and get prompted to continue with the deployment. Add this switch to:
 
 - [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create)
@@ -86,6 +96,12 @@ To preview changes before deploying a Bicep file, use [New-AzResourceGroupDeploy
 
 - `New-AzResourceGroupDeployment -Whatif` for resource group deployments
 - `New-AzSubscriptionDeployment -Whatif` and `New-AzDeployment -Whatif` for subscription level deployments
+
+Azure PowerShell version **13.4.0 or later** introduces the `-ValidationLevel` switch to determine how thoroughly ARM validates the Bicep template during this process. It accepts the following values:
+
+- **Provider** (default): Performs full validation, including template syntax, resource definitions, dependencies, and permission checks to ensure you have sufficient permissions to deploy all resources in the template.
+- **ProviderNoRbac**: Performs full validation of the template and resources, similar to Provider, but only checks for read permissions on each resource instead of full deployment permissions. This is useful when you want to validate resource configurations without requiring full access.
+- **Template**: Performs static validation only, checking template syntax and structure while skipping preflight checks (e.g., resource availability) and permission checks. This is less thorough, potentially missing issues that could cause deployment failures.
 
 You can use the `-Confirm` switch parameter to preview the changes and get prompted to continue with the deployment.
 
