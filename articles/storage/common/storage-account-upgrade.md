@@ -29,7 +29,7 @@ If you have a general-purpose v1 storage account, you can upgrade it to a genera
 ## Billing Impact of upgrading
 Upgrading from GPv1 to GPv2 may result in higher transactional costs, especially for workloads with high read/write operations. While GPv2 offers lower storage costs and tiering flexibility, transactional pricing is more granular and can significantly affect billing. It's recommended to review your current usage patterns and estimate costs before upgrading.
 
-[!Tip] Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the costs of a general-purpose v2 storage account based on your current usage patterns.
+>[!Tip] Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the costs of a general-purpose v2 storage account based on your current usage patterns.
 
 ## Upgrade an account
 
@@ -146,3 +146,4 @@ The cost of geo-replication data transfer for Blob storage accounts can also be 
 - [Create a storage account](storage-account-create.md)
 - [Move an Azure Storage account to another region](storage-account-move.md)
 - [Recover a deleted storage account](storage-account-recover.md)
+
