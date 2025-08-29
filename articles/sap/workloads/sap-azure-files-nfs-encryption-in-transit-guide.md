@@ -47,7 +47,7 @@ Steps for setting up Azure Files NFS Encryption in Transit for these two scenari
 
   Follow the AZNFS mount helper package installation steps based on operating system.
 
- #### [**SLES**](#tab/SUSE)
+  #### [**SLES**](#tab/SUSE)
 
   ```bash
   curl -sSL -O https://packages.microsoft.com/config/$(source /etc/os-release && echo "$ID/${VERSION_ID%%.*}")/packages-microsoft-prod.rpm
@@ -57,7 +57,7 @@ Steps for setting up Azure Files NFS Encryption in Transit for these two scenari
   sudo zypper install aznfs
   ```
 
- #### [**RHEL**](#tab/RHEL)
+  #### [**RHEL**](#tab/RHEL)
 
   ```bash
   curl -sSL -O https://packages.microsoft.com/config/$(source /etc/os-release && echo "$ID/${VERSION_ID%%.*}")/packages-microsoft-prod.rpm
@@ -69,9 +69,9 @@ Steps for setting up Azure Files NFS Encryption in Transit for these two scenari
 
  ---
 
- Choose `No` to autoupdate the package during installation. You can also turn off/on autoupdate at any time by changing the value of `AUTO_UPDATE_AZNFS` to false/true respectively in the file `/opt/microsoft/aznfs/data/config`.
+   Choose `No` to autoupdate the package during installation. You can also turn off/on autoupdate at any time by changing the value of `AUTO_UPDATE_AZNFS` to false/true respectively in the file `/opt/microsoft/aznfs/data/config`.
 
- For more information, see the [package installation section](../../storage/files/encryption-in-transit-for-nfs-shares.md#step-1-check-aznfs-mount-helper-package-installation).
+   For more information, see the [package installation section](../../storage/files/encryption-in-transit-for-nfs-shares.md#step-1-check-aznfs-mount-helper-package-installation).
 
 - Create the directories to mount the file shares.
 
@@ -101,7 +101,7 @@ For more information, refer to [mount the NFS file shares section](../../storage
 
 ## Mount the NFS File share as pacemaker cluster resource
 
-For high availability setup of SAP on Azure, if you choose the option to use Aure Files NFS file system as a resource in pacemaker cluster, then it needs to be mounted using pacemaker cluster command. In the pacemaker commands, to setup file system as cluster resource, change the mount type to `aznfs` from `nfs`. Also add `_netdev` in the options section.
+For high availability setup of SAP on Azure, if you choose the option to use Azure Files NFS file system as a resource in pacemaker cluster, then it needs to be mounted using pacemaker cluster command. In the pacemaker commands, to setup file system as cluster resource, change the mount type to `aznfs` from `nfs`. Also add `_netdev` in the options section.
 
 Example of command for **SLES** and **RHEL**.
 
