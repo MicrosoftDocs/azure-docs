@@ -64,7 +64,7 @@ Follow these recommendations to harden OS images:
   - Compare their current Group Policy objects (GPOs) with Microsoft-recommended GPO baselines or other baselines.
   - Edit their GPOs.
   - Store their GPOs in GPO backup file format.
-  - Apply GPOs via a domain controller, or inject them directly into testbed hosts to test their effects.
+  - Apply GPOs via a domain controller or inject them directly into testbed hosts to test their effects.
 
 ## Credentials
 
