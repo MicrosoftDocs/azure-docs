@@ -26,6 +26,8 @@ The following diagram shows the relationship between the MCP server and tools th
 
 :::image type="content" source="media/create-mcp-server-api-center/mcp-server-api-center-portal-arch.png" alt-text="Diagram shows relationship between MCP server and tools in Azure API Center portal, agent, and MCP client.":::
 
+## Review MCP and API Center
+
 MCP is an open standard that lets AI components such as LLMs, agents, and MCP clients use tools to work with external services and systems in a secure, discoverable, and structured way. This standard defines how to describe, run, and authenticate access to tools so that AI components can interact with real-world services, systems, databases, APIs, and business workflows. An MCP server acts like a bridge between AI components and the tools that they can use.
 
 API Center provides centralized API discovery and design-time API governance so you can track all your APIs in a consolidated location. You can develop and maintain an organized structured inventory for your organization's APIs with information such as version details, API definition files, and common metadata, regardless of API type, lifecycle stage, or deployment location. Stakeholders across your organization, such as API program managers, IT administrators, app developers, and API developers, can design, discover, reuse, and govern these APIs.
@@ -36,13 +38,6 @@ For more information, see the following articles:
 - [What is Azure API Center?](../api-center/overview.md)
 - [What is Azure Logic Apps?](logic-apps-overview.md)
 - [What are connectors in Azure Logic Apps](../connectors/introduction.md)
-
-## Limitations and known issues
-
-The following list describes restrictions or issues that exist in this release:
-
-- You must start with an empty Standard logic app resource when you create your MCP server resource.
-- Each tool can have only one action.
 
 ## Prerequisites
 
@@ -86,6 +81,14 @@ The following list describes restrictions or issues that exist in this release:
   - [Use extensions in Visual Studio Code](https://code.visualstudio.com/docs/getstarted/extensions)
   - [Set up Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/setup#_set-up-copilot-in-vs-code)
   - [Get started with GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/getting-started)
+
+## Limitations and known issues
+
+For this release, the following list describes restrictions or issues that apply:
+
+- You must currently start with an empty Standard logic app resource when you create your MCP server resource.
+
+- Each tool can have only one action.
 
 ## Create an MCP server resource and tools
 
