@@ -52,7 +52,9 @@ Steps for setting up Azure Files NFS EiT for these two scenarios are described i
 
 - Deploy the mount helper (AZNFS) package on the Linux VM.
 
-For **SUSE Linux:**
+Follow the AZNFS mount helper package installation steps based on operating system.
+
+#### [For **SUSE Linux:**](#tab/SUSE)
 
 ```bash
 curl -sSL -O https://packages.microsoft.com/config/$(source /etc/os-release && echo "$ID/${VERSION_ID%%.*}")/packages-microsoft-prod.rpm
@@ -62,7 +64,7 @@ sudo zypper refresh
 sudo zypper install aznfs
 ```
 
-For **RHEL Linux:**
+#### [For **RHEL Linux:**](#tab/RHEL)
 
 ```bash
 curl -sSL -O https://packages.microsoft.com/config/$(source /etc/os-release && echo "$ID/${VERSION_ID%%.*}")/packages-microsoft-prod.rpm
@@ -71,6 +73,8 @@ rm packages-microsoft-prod.rpm
 sudo yum update
 sudo yum install aznfs
 ```
+
+---
 
 Choose `No` to autoupdate the package during installation. You can also turn off/on autoupdate at any time by changing the value of `AUTO_UPDATE_AZNFS` to false/true respectively in the file `/opt/microsoft/aznfs/data/config`.
 
