@@ -134,7 +134,7 @@ To use managed identities for Azure resource authentication, follow these steps:
 
 2. Grant the system-assigned managed identity at least the **Contributor** role in Microsoft Fabric workspace. Follow the steps in [Grant permissions in Microsoft Fabric workspace](#grant-permissions-in-microsoft-fabric-workspace)
 
-These properties are supported for an Microsoft Fabric Lakehouse linked service:
+These properties are supported for a Microsoft Fabric Lakehouse linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -178,7 +178,7 @@ A data factory can be assigned with one or multiple [user-assigned managed ident
      
 1. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](credentials.md) for each user-assigned managed identity. 
 
-These properties are supported for an Microsoft Fabric Lakehouse linked service:
+These properties are supported for a Microsoft Fabric Lakehouse linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
