@@ -16,7 +16,7 @@ This article explains the different discovery methods in Azure Migrate and gives
  
 ## Prerequisites
 
-Before you begin, make sure you create an Azure Migrate project by following the steps in [Quickstart: Create an Azure Migrate project using portal](quickstart-create-project.md).
+Before you begin, ensure you create an Azure Migrate project by following the steps in [Quickstart: Create an Azure Migrate project using portal](quickstart-create-project.md).
 
 ## Appliance-based discovery
 

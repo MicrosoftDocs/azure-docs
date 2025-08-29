@@ -31,8 +31,7 @@ You can use this capability to:
     - **Configuration-based assessment**: Analyses PostgreSQL configuration metadata to provide migration recommendations
     - **Comprehensive discovery**: Identifies PostgreSQL instances across VMware, Hyper-V, physical servers, and other cloud environments
     - **Cost estimation**: Provides detailed monthly cost breakdowns for compute and storage in Azure
-    - **Migration readiness**: Categorizes instances as Ready, Ready with conditions, Not ready, or Unknown with detailed remediation steps
-
+    - **Migration readiness**: Categorizes instances as Ready, Ready with conditions, Not ready, or Unknown with detailed remediation steps. 
 [Learn more](tutorial-assess-postgresql.md).
 
 
