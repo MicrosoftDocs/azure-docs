@@ -38,48 +38,46 @@ Steps for setting up Azure Files NFS Encryption in Transit for these two scenari
 
 ## Preparations for Azure Files NFS Encryption in Transit deployment
 
-- Deploy the Azure File NFS storage account. Refer to the standard documentation for creating the Azure Files storage account, file share, and private endpoint for storage account.
+- Configure an Azure Files storage account, NFS file share, and private endpoint as described in [Create an NFS Azure file share](../../storage/files/storage-files-quick-create-use-linux.md)
 
-    [Create an NFS Azure file share](../../storage/files/storage-files-quick-create-use-linux.md)
-
-> [!NOTE]
-> To enforce Encryption in Transit for all the file shares in the Azure Storage account, enable [secure transfer required](../../storage/files/encryption-in-transit-for-nfs-shares.md#enforce-encryption-in-transit) option in the configuration tab of the storage account.
+ > [!NOTE]
+ > To enforce Encryption in Transit for all the file shares in the Azure Storage account, enable [secure transfer required](../../storage/files/encryption-in-transit-for-nfs-shares.md#enforce-encryption-in-transit) option in the configuration tab of the storage account.
 
 - Deploy the mount helper (AZNFS) package on the Linux VM.
 
-Follow the AZNFS mount helper package installation steps based on operating system.
+  Follow the AZNFS mount helper package installation steps based on operating system.
 
-#### [For **SUSE Linux**](#tab/SUSE)
+  #### [For **SLES**](#tab/SUSE)
 
-```bash
-curl -sSL -O https://packages.microsoft.com/config/$(source /etc/os-release && echo "$ID/${VERSION_ID%%.*}")/packages-microsoft-prod.rpm
-sudo rpm -i packages-microsoft-prod.rpm
-rm packages-microsoft-prod.rpm
-sudo zypper refresh
-sudo zypper install aznfs
-```
+ ```bash
+ curl -sSL -O https://packages.microsoft.com/config/$(source /etc/os-release && echo "$ID/${VERSION_ID%%.*}")/packages-microsoft-prod.rpm
+ sudo rpm -i packages-microsoft-prod.rpm
+ rm packages-microsoft-prod.rpm
+ sudo zypper refresh
+ sudo zypper install aznfs
+ ```
 
-#### [For **RHEL Linux**](#tab/RHEL)
+  #### [For **RHEL**](#tab/RHEL)
 
-```bash
-curl -sSL -O https://packages.microsoft.com/config/$(source /etc/os-release && echo "$ID/${VERSION_ID%%.*}")/packages-microsoft-prod.rpm
-sudo rpm -i packages-microsoft-prod.rpm
-rm packages-microsoft-prod.rpm
-sudo yum update
-sudo yum install aznfs
-```
+ ```bash
+ curl -sSL -O https://packages.microsoft.com/config/$(source /etc/os-release && echo "$ID/${VERSION_ID%%.*}")/packages-microsoft-prod.rpm
+ sudo rpm -i packages-microsoft-prod.rpm
+ rm packages-microsoft-prod.rpm
+ sudo yum update
+ sudo yum install aznfs
+ ```
 
----
+ ---
 
-Choose `No` to autoupdate the package during installation. You can also turn off/on autoupdate at any time by changing the value of `AUTO_UPDATE_AZNFS` to false/true respectively in the file `/opt/microsoft/aznfs/data/config`.
+ Choose `No` to autoupdate the package during installation. You can also turn off/on autoupdate at any time by changing the value of `AUTO_UPDATE_AZNFS` to false/true respectively in the file `/opt/microsoft/aznfs/data/config`.
 
-For more information, see the [package installation section](../../storage/files/encryption-in-transit-for-nfs-shares.md#step-1-check-aznfs-mount-helper-package-installation).
+ For more information, see the [package installation section](../../storage/files/encryption-in-transit-for-nfs-shares.md#step-1-check-aznfs-mount-helper-package-installation).
 
 - Create the directories to mount the file shares.
 
-```bash
-mkdir -p <full path of the directory>
-```
+  ```bash
+  mkdir -p <full path of the directory>
+  ```
 
 ## Mount the NFS File share from /etc/fstab
 
@@ -105,9 +103,9 @@ For more information, refer to [mount the NFS file shares section](../../storage
 
 For high availability setup of SAP on Azure, if you choose the option to use Aure Files NFS file system as a resource in pacemaker cluster, then it needs to be mounted using pacemaker cluster command. In the pacemaker commands, to setup file system as cluster resource, change the mount type to `aznfs` from `nfs`. Also add `_netdev` in the options section.
 
-Example of command for **SUSE Linux** and **RHEL Linux**.
+Example of command for **SLES** and **RHEL**.
 
-#### [**SUSE Linux**](#tab/SUSE-HA)
+#### [**SLES**](#tab/SUSE)
 ```bash
 sudo crm configure primitive fs_NW1_ASCS Filesystem device='sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1ascs' directory='/usr/sap/NW1/ASCS00' fstype='aznfs' options='noresvport,vers=4,minorversion=1,sec=sys,_netdev' \
 op start timeout=60s interval=0 \
@@ -115,7 +113,7 @@ op stop timeout=60s interval=0 \
 op monitor interval=20s timeout=40s
 ```
 
-#### [**RHEL Linux**](#tab/RHEL-HA)
+#### [**RHEL**](#tab/RHEL)
 
 ```bash
 sudo pcs resource create fs_NW1_ASCS Filesystem device='sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1ascs' \
