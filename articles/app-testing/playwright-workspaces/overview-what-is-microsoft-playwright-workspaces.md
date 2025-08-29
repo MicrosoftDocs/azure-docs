@@ -13,7 +13,7 @@ ms.custom: playwright-workspaces
 
 # What is Playwright Workspaces?
 
-Playwright Workspaces is a fully managed service for end-to-end web testing, built on top of [Playwright](https://playwright.dev). With Playwright Workspaces, you can significantly speed up test execution by running tests in parallel using managed cloud-based browers. The service takes care of the underlying infrastructure and complexity, allowing you to validate your web app across major browsers on both Linux and Windows—so you can ship features faster and with greater confidence.
+Playwright Workspaces is a fully managed service for end-to-end web testing, built on top of [Playwright](https://playwright.dev). With Playwright Workspaces, you can significantly speed up test execution by running tests in parallel using managed cloud-based browsers. The service takes care of the underlying infrastructure and complexity, allowing you to validate your web app across major browsers on both Linux and Windows—so you can ship features faster and with greater confidence.
 
 Get started with [Quickstart: run your Playwright tests at scale with Playwright Workspaces](./quickstart-run-end-to-end-tests.md).
 
