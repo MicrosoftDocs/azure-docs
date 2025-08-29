@@ -302,7 +302,7 @@ All commands must use relative paths to the project root folder.
 
 To specify a startup command or command file:
 
-- **Azure portal**. Select the app's **Configuration** page, and then select **General settings**. In the **Startup Command** box, enter either the full text of your startup command or the name of your startup command file. Then select **Save** to apply the changes. See [Configure general settings](configure-common.md#configure-general-settings) for Linux containers.
+- **Azure portal**. Under **Settings** in the left pane of the app's page, select **Configuration**, and then select **General settings**. In the **Startup Command** box, enter either the full text of your startup command or the name of your startup command file. Then select **Save** to apply the changes. See [Configure general settings](configure-common.md#configure-general-settings) for Linux containers.
 
 - **Azure CLI**. Use the [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set) command with the `--startup-file` parameter to set the startup command or file:
 
@@ -393,7 +393,7 @@ Use the following steps to access the deployment logs:
 
 1. On the Azure portal page for your web app, select **Deployment** > **Deployment Center** in the left pane.
 1. On the **Logs** tab, select the **Commit ID** for the most recent commit.
-1. On the **Log details** page that appears, select the **Show Logs** link that appears next to **Running oryx build**".
+1. On the **Log details** page that appears, select the **Show Logs** link that appears next to **Running oryx build**.
 
 Build issues, like incorrect dependencies in *requirements.txt* and errors in pre-build or post-build scripts, appear in these logs. Errors also appear if your requirements file isn't named *requirements.txt* or doesn't appear in the root folder of your project.
 
@@ -436,7 +436,7 @@ The following sections provide guidance for specific issues.
   - Restart the app, wait 20 seconds, and then check the app again.
 
   - Use [SSH](#open-ssh-session-in-a-browser) to connect directly to the App Service container and verify that your files exist under *site/wwwroot*. If your files don't exist, take the following steps:
-      1. Create an app setting named `SCM_DO_BUILD_DURING_DEPLOYMENT` with a value of 1, redeploy your code, wait a few minutes, and then try to access the app again. For more information on creating app settings, see [Configure an App Service app in the Azure portal](configure-common.md).
+      1. Create an app setting named `SCM_DO_BUILD_DURING_DEPLOYMENT` with a value of `1`, redeploy your code, wait a few minutes, and then try to access the app again. For more information on creating app settings, see [Configure an App Service app in the Azure portal](configure-common.md).
       1. Review your deployment process, [check the deployment logs](#access-deployment-logs), correct any errors, and redeploy the app.
 
   - If your files exist, App Service wasn't able to identify your startup file. Ensure that your app is structured as App Service expects for [Django](#django-app) or [Flask](#flask-app), or use a [custom startup command](#customize-startup-command).
