@@ -24,9 +24,9 @@ MCP is an open standard that lets AI components such as LLMs, agents, and MCP cl
 
 In Azure API Center, you can create an MCP server with tools that are backed by the prebuilt connector actions available in Azure Logic Apps. Usually, you use these connector actions and triggers in Azure Logic Apps to create workflows for automation and integration solutions. With [over 1,400 connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that access and interact with a vast range of cloud services, on-premises systems, apps, and data, you can build diverse toolsets that specifically work with your enterprise resources and assets.
 
-The following diagram shows the relationship between the MCP server that you create in API Center and the connector actions in Azure Logic Apps that you use to build the tools that your MCP server provides:
+The following diagram shows the relationship between the MCP server and tools that you create in API Center and the connector actions in Azure Logic Apps that you use to build the tools that your MCP server provides:
 
-:::image type="content" source="{source}" alt-text="Conceptual diagram shows relationship between MCP server in API Center, connector action-backed tools, and Azure Logic Apps.":::
+:::image type="content" source="media/create-mcp-server-api-center/mcp-server-api-center-portal-arch.png" alt-text="Diagram shows relationship between MCP server and tools in Azure API Center portal, agent, and MCP client.":::
 
 For more information, see the following articles:
 
@@ -159,7 +159,7 @@ For this task, make sure you completed the requirement to set the API Center por
 
 1. In Visual Studio Code, from the **View** menu, select **Command Palette**. Find and select **MCP: Add Server**.
 
-   :::image type="content" source="media/create-mcp-server-api-center/visual-studio-code-mcp-add-server.png" alt-text="Screenshot shows Visual Studio Code, Command Palette, and command to add MCP server" lightbox="media/create-mcp-server-api-center/visual-studio-code-mcp-add-server.png":::
+   :::image type="content" source="media/create-mcp-server-api-center/visual-studio-code-mcp-add-server.png" alt-text="Screenshot shows Visual Studio Code, Command Palette, and command to add MCP server." lightbox="media/create-mcp-server-api-center/visual-studio-code-mcp-add-server.png":::
 
 1. Select **HTTP (HTTP or Server-Sent Events)**. For **Enter Server URL**, provide the URL for your MCP server.
 
