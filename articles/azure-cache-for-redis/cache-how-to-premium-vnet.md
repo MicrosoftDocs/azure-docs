@@ -38,7 +38,7 @@ appliesto:
 - Azure portal does not support configuring VNET injection during resource create
 
 ## Set up virtual network support
-Please refer to [az redis create](https://learn.microsoft.com/en-us/cli/azure/redis?view=azure-cli-latest#az-redis-create)
+Please refer to [az redis create](https://learn.microsoft.com/cli/azure/redis?view=azure-cli-latest#az-redis-create)
 
 ## Azure Cache for Redis virtual network FAQ
 
