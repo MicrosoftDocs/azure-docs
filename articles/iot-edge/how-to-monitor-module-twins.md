@@ -1,9 +1,8 @@
 ---
 title: Monitor module twins - Azure IoT Edge
 description: How to interpret device twins and module twins to determine connectivity and health.
-author: PatAltimore
-
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.date: 06/09/2025
 ms.topic: how-to
 ms.service: azure-iot-edge

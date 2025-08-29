@@ -20,11 +20,14 @@ Back up network traffic between Azure VMware Solution VMs and the backup reposit
 >**Support Guidance for 3P Backup and recovery solution customer(s):**
 >For any issues related to 3 P backup and Recovery solutions, customers must contact the respective partner's support team directly. AVS does not provide direct support for partner products. If advanced troubleshooting becomes necessary, the partner’s support team engages AVS support as appropriate. We appreciate your understanding and recommend not opening a support request with Microsoft for partner solution-related matters.
 
+> [!IMPORTANT] 
+> Azure VMware Solution supports the use of custom roles with equal or lesser privileges than the CloudAdmin role. Use the CloudAdmin role to create, modify, or delete custom roles with privileges less than or equal to their current role. Roles that have privileges greater than that of CloudAdmin is unsupported. Please refer to the /azure/azure-vmware/architecture-identity.
+
 
 You can find more information on these backup solutions here:
 - [Cohesity](https://www.cohesity.com/blogs/expanding-cohesitys-support-for-microsofts-ecosystem-azure-stack-and-azure-vmware-solution/)
 - [Commvault](https://documentation.commvault.com/v11/essential/azure_vmware_solution.html)
-- [Dell PPDM](https://www.dell.com/en-us/shop/storage-servers-and-networking-for-business/sf/powerprotect-data-manager?msockid=08b6caa523ab639a1847dbf0221c6282)
+- [Dell PPDM](https://www.dell.com/support/manuals/en-us/enterprise-copy-data-management/pp-dm_19.19_virtual_machines_ug/azure-vmware-solution-avs-on-microsoft-azure?guid=guid-600e65ba-95f3-4d7c-b8bb-4950abf2f9ad&lang=en-us)
 - [Rubrik](https://www.rubrik.com/en/products/cloud-data-management)
 - [Veeam](https://www.veeam.com/kb4012)
 - [Veritas](https://vrt.as/nb4avs)
