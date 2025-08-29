@@ -27,4 +27,4 @@ The following table shows the default and maximum values (in minutes) for specif
 4. The default time-out for version 1.x of the Functions host runtime is _unbounded_. 
 5. When the [minimum number of replicas](../articles/container-apps/scale-app.md#scale-definition) is set to zero, the default time-out depends on the specific triggers used in the app.  
 
-The values in this table assume that the Azure Functions host process has started and is running correctly. There is a maximum timeout of 60 seconds allowed for the host process itself to start up. This host startup process timeout isn't currently configurable.
+The values in this table assume that the Azure Functions host process has started and is running correctly. There is a maximum timeout of 60 seconds allowed for the [host process itself to start up](../articles/azure-functions/event-driven-scaling.md#cold-start). This host startup process timeout isn't currently configurable.
