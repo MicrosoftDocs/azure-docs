@@ -172,8 +172,6 @@ az iot ops ns asset media stream add --asset mymediaasset --instance {your insta
 
 ### Verify the saved messages
 
-<!-- TODO: Add steps to show how you can view the messages in Azure Blob storage. Maybe include steps for viewing the PVC config in Kubernetes. -->
-
 The following steps assume that you configured a persistent volume claim (PVC) to save the clips to your Azure Blob storage account with these settings:
 
 | Setting | Value |
