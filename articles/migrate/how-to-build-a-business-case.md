@@ -105,7 +105,7 @@ To build a business case, follow these steps:
 
 1. In **Discount (%) on Pay as you go**, add any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%. The discount isn't applicable on top of reserved instance savings option.
 1. Select the currency in which you want to create the business case. 
-1. Review your selected inputs, and then select **Build business case**.
+1. Review your selected inputs and then select **Build business case**.
 
     :::image type="content" source="./media/how-to-build-a-business-case/review-and-build.png" alt-text="Screenshot shows to review and build a business case.":::
 
@@ -128,7 +128,7 @@ To build a business case, follow these steps:
     :::image type="content" source="./media/how-to-build-a-business-case/build-inline.png" alt-text="Screenshot of the Build Business case button." lightbox="./media/how-to-build-a-business-case/build-expanded.png":::
 
     > [!Note]
-    > We recommend you wait at least a day after you start discovery before you build a Business case. This allows enough collection of performance/resource utilization data points. Also, review the **Notifications**/**Resolve issues** blades on the Azure Migrate hub to identify any discovery related issues prior to Business case computation. It ensures that the IT estate in your datacenter is represented more accurately and the Business case recommendations are more valuable.
+    > We recommend you wait at least a day after you start discovery before you build a Business case. This allows enough collection of performance/resource utilization data points. Also, review the **Notifications**/**Resolve issues** blades on the Azure Migrate hub to identify any discovery related issues prior to Business case computation. It ensures that the IT estate in your datacenter is represented more accurately, and the Business case recommendations are more valuable.
 
 1. In **Business case name**, specify a name for the Business case. Make sure the Business case name is unique within a project, else the previous Business case with the same name gets recomputed.
 
@@ -136,7 +136,7 @@ To build a business case, follow these steps:
 
    Azure SKU size and cost recommendations are based on the location that you specify.
 
-1. In **Discovery source**, specify the discovery source on which you wish to create the business case. The options to build the business case using data discovered via the  appliance or imported via a .csv file is present based on the type of discovered servers present in your project. The discovery source will be defaulted to the option chosen by you while building the business case and you won't be able to update this field later.
+1. In **Discovery source**, specify the discovery source on which you wish to create the business case. The options to build the business case using data discovered via the appliance or imported via a .csv file is present based on the type of discovered servers present in your project. The discovery source will be defaulted to the option chosen by you while building the business case and you won't be able to update this field later.
 
 1. In **Migration strategy**, specify the migration strategy for your Business case:
     

@@ -33,14 +33,14 @@ You can specify one or multiple networks by using a list of rules. For example, 
 You can configure the `exposeNetwork` option in `playwright.service.config.ts`. The following example shows how to expose the `localhost` network by using the [`<loopback>`](https://en.wikipedia.org/wiki/Loopback) rule. You can also replace `localhost` with a domain that you want to enable for the service.
 
 ```typescript
-import { getServiceConfig, ServiceOS } from "@azure/playwright";
+import { createAzurePlaywrightConfig, ServiceOS } from "@azure/playwright";
 import { defineConfig } from "@playwright/test";
 import { DefaultAzureCredential } from "@azure/identity";
 import config from "./playwright.config";
 
 export default defineConfig(
   config,
-  getServiceConfig(config, {
+  createAzurePlaywrightConfig(config, {
     exposeNetwork: '<loopback>', // Allow service to access the localhost.
     credential: new DefaultAzureCredential()
   }),

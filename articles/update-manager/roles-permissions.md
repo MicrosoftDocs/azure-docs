@@ -57,7 +57,7 @@ Note that following permissions would be required in addition to read permission
 
 ## Scheduled patching (Maintenance configuration) related permissions
 
-Note that below permissions would be required in addition to permissions on individual machines, which are being managed by the schedules.
+Note that below permissions are required in addition to permissions on individual machines, which are managed by the schedules.
 
 | **Actions** | **Permission** | **Scope** |
 |---|---|---|

@@ -110,7 +110,7 @@ Defaults:AzMigrateLeastprivuser !requiretty
 To generate the project key, follow the steps:
 
 1. In **Servers, databases, and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
-1. In **Discover servers** > **Are your servers virtualized?**, select **Physical or other (AWS, GCP, Xen, etc.)**.
+1. In **Discover servers** > **Are your servers virtualized?** select **Physical or other (AWS, GCP, Xen, etc.)**.
 1. **Generate project key**, enter a name for the Azure Migrate appliance you want to set up to discover physical or virtual servers. The name should be alphanumeric and 14 characters or fewer.
 1. Select **Generate key** to start creating the required Azure resources. Keep the Discover servers page open while the resources are created.
 1. After the resources are created successfully, a **project key** is generated.

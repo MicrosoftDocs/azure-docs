@@ -58,10 +58,10 @@ To enable authentication using access tokens:
 1. While running the tests, enable access token auth in the `playwright.service.config.ts` file in your setup. 
 
     ```typescript
-    import { getServiceConfig, ServiceAuth } from '@azure/playwright';
+    import { createAzurePlaywrightConfig, ServiceAuth } from '@azure/playwright';
     
     /* Learn more about service configuration at https://aka.ms/pww/docs/config */
-    export default defineConfig(config, getServiceConfig( config, {
+    export default defineConfig(config, createAzurePlaywrightConfig( config, {
         serviceAuthType: ServiceAuth.ACCESS_TOKEN
     }));
     ```

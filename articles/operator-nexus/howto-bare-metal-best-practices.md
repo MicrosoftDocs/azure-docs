@@ -233,6 +233,7 @@ Before initiating any `replace` operation, ensure the following preconditions ar
 - Evaluate any Bare Metal Machine warnings or degraded conditions that could indicate the need to resolve hardware, network, or server configuration problems before a `replace` operation.
   For more information, see [Troubleshoot Degraded Status Errors on Bare Metal Machines] and [Troubleshoot Bare Metal Machine Warning Status].
 - Validate Bare Metal Machine is powered on.
+- A `replace` on a healthy (powered on, ready, provisioned, joined to cluster) Bare Metal Machine made using the API version `2025-07-01-preview` and later is rejected under the default safeguard mode. If a `replace` is truly required (for example after hardware component replacement), then this rejection can be overridden with `--safeguard-mode None`.
 - Validate that there are no running firmware upgrade jobs.
   Follow steps in section [Determine if Firmware Update Jobs are Running](#determine-if-firmware-update-jobs-are-running).
 

@@ -111,7 +111,7 @@ In VMware vSphere Web Client, set up a read-only account to use for vCenter Serv
 Refer to security best practices to set up user accounts. 
 
 > [!NOTE]
-> You can add multiple server credentials in the Azure Migrate appliance configuration manager to initiate discovery of installed applications, agentless dependency analysis, and discovery of web apps, and SQL Server instances and databases. You can add multiple domain, Windows (non-domain), Linux (non-domain), Linux (SSH-key) or SQL Server authentication credentials. Learn how to [add server credentials](add-server-credentials.md).
+> You can add multiple server credentials in the Azure Migrate appliance configuration manager to initiate discovery of installed applications, agentless dependency analysis, and discovery of web apps, and SQL Server instances and databases. You can add multiple domains, Windows (non-domain), Linux (non-domain), Linux (SSH-key) or SQL Server authentication credentials. Learn how to [add server credentials](add-server-credentials.md).
 
 ## Set up a project
 
@@ -146,7 +146,7 @@ The Azure Migrate: Discovery and assessment tool uses a lightweight Azure Migrat
 To set up the appliance by using an OVA template, complete these steps, which are described in more detail in this section:
 
 1. Provide an appliance name and generate a project key in the portal.
-1. Download an OVA template file, and then import it to vCenter Server. Verify that the OVA is secure.
+1. Download an OVA template file and then import it to vCenter Server. Verify that the OVA is secure.
 1. Create the appliance from the OVA file. Verify that the appliance can connect to Azure Migrate.
 1. Configure the appliance for the first time. 
 1. Register the appliance with the project by using the project key.
@@ -195,7 +195,7 @@ To set up the appliance for the first time:
 1. Select or enter the language, time zone, and password for the appliance.
 1. Open a browser on any computer that can connect to the appliance. Then, open the URL of the appliance configuration manager: `https://appliance name or IP address: 44368`.
 
-     Or, you can open the configuration manager from the appliance server desktop by selecting the shortcut for the configuration manager.
+     Or you can open the configuration manager from the appliance server desktop by selecting the shortcut for the configuration manager.
 1. Accept the license terms and read the third-party information.
 
 #### Set up prerequisites and register the appliance
@@ -211,7 +211,7 @@ In the configuration manager, select **Set up prerequisites**, and then complete
 1. **Install updates and register appliance**: To run auto-update and register the appliance, follow these steps:
 
     :::image type="content" source="./media/tutorial-discover-vmware/prerequisites.png" alt-text="Screenshot that shows setting up the prerequisites in the appliance configuration manager.":::
-1. For the appliance to run auto-update, paste the project key that you copied from the portal. If you don't have the key, go to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key, and then copy the key that's shown.
+1. For the appliance to run auto-update, paste the project key that you copied from the portal. If you don't have the key, go to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key and then copy the key that's shown.
 1. The appliance will verify the key and start the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
 1. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and open an Azure sign in prompt in a new browser tab. Ensure you've disabled the pop-up blocker in the browser to see the prompt.
 
@@ -222,7 +222,7 @@ In the configuration manager, select **Set up prerequisites**, and then complete
     > [!Note]
     > If you close the sign in tab accidentally without logging in, refresh the browser tab of the appliance configuration manager to display the device code and Copy code & Login button.
 
-1. After you successfully sign in, return to the browser tab that displays the appliance configuration manager. If the Azure user account that you used to sign in has the required permissions for the Azure resources that were created during key generation, appliance registration starts.
+1. After you successfully sign in, return to the browser tab that display the appliance configuration manager. If the Azure user account that you used to sign in has the required permissions for the Azure resources that were created during key generation, appliance registration starts.
 
     After the appliance is successfully registered, to see the registration details, select **View details**. 
 

@@ -33,7 +33,7 @@ ms.custom: mvc, engagement-fy25
 ## Update (May 2025)
 
 - General availability: Azure Migrate enhances support for [Premium v2 SSD Disks](/azure/virtual-machines/disks-deploy-premium-v2?tabs=azure-cli). This offers a seamless experience to migrate their on-premises workloads to Azure and benefit from the advanced disk options that offer greater flexibility and enhanced performance of Pv2 disks in Azure. 
-- Public preview: Azure Migrate expands support for migrations with [Ultra SSD](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal).This enables customers to seamlessly migrate their on-premises workloads to Azure while taking advantage of Ultra Disk’s cutting-edge performance and scalability.
+- Public preview: Azure Migrate expands support for migrations with [Ultra SSD](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal). This enables customers to seamlessly migrate their on-premises workloads to Azure while taking advantage of Ultra Disk’s cutting-edge performance and scalability.
 - Public preview: Azure Migrate enhances resiliency by supporting migration to [ZRS Disks](/azure/virtual-machines/disks-deploy-zrs?tabs=portal) during Migration only. **Zone-Redundant Storage (ZRS)** for Azure Disks synchronously replicates data across three physically separate availability zones within a region – each with independent power, cooling, and networking – enhancing Disk availability and resiliency.
 
 - General availability: Azure Migrate now supports a simplified experience through its upgraded version of the agent-based migration stack. This stack offers a streamlined experience for customers and is set to replace the classic experience over the next three years. [Learn more](simplified-experience-for-azure-migrate.md).
@@ -119,7 +119,7 @@ The RVTools XLSX (preview) file import now reads storage data, when available, f
 ## Update (June 2023)
 
 - Envision security cost savings with [Microsoft Defender for Cloud](https://www.microsoft.com/security/business/cloud-security/microsoft-defender-cloud) by using an Azure Migrate business case.
-- Resolve problems that affect the collection of performance data and the accuracy of Azure VM and Azure VMware Solution assessment recommendations, and improve the confidence ratings of assessments. [Learn more](common-questions-discovery-assessment.md).
+- Resolve problems that affect the collection of performance data and the accuracy of Azure VM and Azure VMware Solution assessment recommendations and improve the confidence ratings of assessments. [Learn more](common-questions-discovery-assessment.md).
 
 ## Update (May 2023)
 
