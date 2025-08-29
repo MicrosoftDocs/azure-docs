@@ -174,7 +174,6 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
     "certificateFilePath": “C:\Users\sampleUser.sslProxy.crt" 
   } 
 } 
-```
 
 3. Run the installation scripts. You can optionally set up this preview from a Windows or Linux-based jump box/VM. 
 
