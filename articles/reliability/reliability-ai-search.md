@@ -143,7 +143,9 @@ Azure AI Search is a single-region service. If the region becomes unavailable, y
 
 You can optionally deploy multiple Azure AI Search services in different regions. You're responsible for deploying and configuring separate services in each region. If you create an identical deployment in a secondary Azure region using a multi-region architecture, your application becomes less susceptible to a single-region disaster.
 
-When you follow this approach, you must synchronize indexes across regions to recover the last application state. You must also configure load balancing and failover policies. When your index's data source is geo-distributed, look for opportunities to perform indexing from the data source's local regional replica if the indexer supports reading from replicas. For more information, see [Multi-region deployments in Azure AI Search](/azure/search/search-multi-region).
+When you follow this approach, you must synchronize indexes across regions to recover the last application state. You must also configure load balancing and failover policies. 
+
+Also, when your index's data source is geo-distributed and the indexer supports reading from replicas, look for opportunities to perform indexing from the data source's local regional replica. For more information, see [Multi-region deployments in Azure AI Search](/azure/search/search-multi-region).
 
 ## Backups
 
