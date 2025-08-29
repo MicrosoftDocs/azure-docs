@@ -1,6 +1,6 @@
 ---
-title: Create MCP servers in API Center to automate tasks
-description: Learn how to create a Model Context Protocol (MCP) server through API Center by building tools that large language models (LLMs) can use to automate tasks. To build tools, you can use connector actions available for Standard workflows in Azure Logic Apps.
+title: Create MCP servers to automate tasks
+description: Learn how to create a Model Context Protocol (MCP) server driven by Azure Logic Apps for AI agents and models to automate tasks. Build tools powered by connector actions for large language models (LLMs) and agents to perform these tasks.
 services: logic-apps, azure-api-center
 ms.suite: integration
 ms.reviewers: estfan, azla
@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.date: 08/29/2025
 ms.update-cycle: 180-days
-#Customer intent: I want to create an MCP server that uses tools that I build by using connector actions that are available for Standard workflows in Azure Logic Apps.
+#Customer intent: I want to create an MCP server that provides tools that I build from connector actions in Azure Logic Apps. AI agents and models can then use these tools to run automated tasks.
 ---
 
-# Build MCP servers through API Center to automate tasks with tools backed by Azure Logic Apps (Preview)
+# Build MCP servers in API Center that automate tasks with tools backed by Azure Logic Apps (Preview)
 
 > [!NOTE]
 >
@@ -22,11 +22,13 @@ To make a large language model (LLM) fulfill requests by running actions that wo
 
 In Azure API Center, you can create an MCP server with tools that are backed by the prebuilt connector actions available in Azure Logic Apps. Usually, you use these connector actions and triggers in Azure Logic Apps to create workflows for automation and integration solutions. With access to [over 1,400 connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that interact and integrate a vast range of cloud services, on-premises systems, apps, and data, you can build diverse toolsets that specifically work with your enterprise resources and assets.
 
+This guide shows how to create an MCP server powered by a Standard logic app and build tools that the server makes available for agents and models.
+
+## Learn about MCP and API Center
+
 The following diagram shows the relationship between the MCP server and tools that you create in API Center and the connector actions in Azure Logic Apps that you use to build the tools that your MCP server provides:
 
 :::image type="content" source="media/create-mcp-server-api-center/mcp-server-api-center-portal-arch.png" alt-text="Diagram shows relationship between MCP server and tools in Azure API Center portal, agent, and MCP client.":::
-
-## Review MCP and API Center
 
 MCP is an open standard that lets AI components such as LLMs, agents, and MCP clients use tools to work with external services and systems in a secure, discoverable, and structured way. This standard defines how to describe, run, and authenticate access to tools so that AI components can interact with real-world services, systems, databases, APIs, and business workflows. An MCP server acts like a bridge between AI components and the tools that they can use.
 
