@@ -182,7 +182,7 @@ For this task, make sure you completed the requirement to set the API Center por
 
    After authentication completes, the **mcp.sjon** file shows **Running** as the MCP server status.
 
-   :::image type="content" source="media/create-mcp-server-api-center/running-mcp-json-file.png" alt-text="Screenshot shows mcp.json file with Running status selected." lightbox="media/set-up-model-context-protocol-server-standard/running-mcp-json-file.png":::
+   :::image type="content" source="media/create-mcp-server-api-center/running-mcp-json-file.png" alt-text="Screenshot shows mcp.json file with Running status selected." lightbox="media/create-mcp-server-api-center/running-mcp-json-file.png":::
 
 1. As a test, try calling your MCP server from GitHub Copilot:
 
