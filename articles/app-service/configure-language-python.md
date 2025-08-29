@@ -435,7 +435,7 @@ The following sections provide guidance for specific issues.
 
   - Restart the app, wait 20 seconds, and then check the app again.
 
-  - Use [SSH](#open-ssh-session-in-browser) to connect directly to the App Service container and verify that your files exist under *site/wwwroot*. If your files don't exist, take the following steps:
+  - Use [SSH](#open-ssh-session-in-a-browser) to connect directly to the App Service container and verify that your files exist under *site/wwwroot*. If your files don't exist, take the following steps:
       1. Create an app setting named `SCM_DO_BUILD_DURING_DEPLOYMENT` with a value of 1, redeploy your code, wait a few minutes, and then try to access the app again. For more information on creating app settings, see [Configure an App Service app in the Azure portal](configure-common.md).
       1. Review your deployment process, [check the deployment logs](#access-deployment-logs), correct any errors, and redeploy the app.
 
@@ -453,15 +453,15 @@ The following sections provide guidance for specific issues.
 
 - **The log stream shows "Could not find setup.py or requirements.txt; Not running pip install."**. The Oryx build process failed to find your *requirements.txt* file.
 
-  - Connect to the web app's container via [SSH](#open-ssh-session-in-browser) and verify that *requirements.txt* is named correctly and exists directly under *site/wwwroot*. If it doesn't exist, make sure the file exists in your repository and is included in your deployment. If it exists in a separate folder, move it to the root.
+  - Connect to the web app's container via [SSH](#open-ssh-session-in-a-browser) and verify that *requirements.txt* is named correctly and exists directly under *site/wwwroot*. If it doesn't exist, make sure the file exists in your repository and is included in your deployment. If it exists in a separate folder, move it to the root.
 
 #### ModuleNotFoundError when app starts
 
-If you see an error like `ModuleNotFoundError: No module named 'example'`, Python couldn't find one or more of your modules when the application started. This error most often occurs if you deploy your virtual environment with your code. Virtual environments aren't portable, so a virtual environment shouldn't be deployed with your application code. Instead, let Oryx create a virtual environment and install your packages on the web app by creating an app setting, `SCM_DO_BUILD_DURING_DEPLOYMENT`, and setting it to `1`. This setting will force Oryx to install your packages whenever you deploy to App Service. For more information, see [this article on virtual environment portability](https://azure.github.io/AppService/2020/12/11/cicd-for-python-apps.html).
+If you see an error like `ModuleNotFoundError: No module named 'example'`, Python couldn't find one or more of your modules when the application started. This error most often occurs if you deploy your virtual environment with your code. Virtual environments aren't portable, so a virtual environment shouldn't be deployed with your application code. Instead, let Oryx create a virtual environment and install your packages on the web app by creating an app setting, `SCM_DO_BUILD_DURING_DEPLOYMENT`, and setting it to `1`. This setting forces Oryx to install your packages whenever you deploy to App Service. For more information, see [this article on virtual environment portability](https://azure.github.io/AppService/2020/12/11/cicd-for-python-apps.html).
 
-### Database is locked
+#### Database is locked
 
-When attempting to run database migrations with a Django app, you might see "sqlite3. OperationalError: database is locked." The error indicates that your application is using a SQLite database, for which Django is configured by default, rather than using a cloud database such as Azure Database for PostgreSQL.
+When attempting to run database migrations with a Django app, you might see "sqlite3. OperationalError: database is locked." The error indicates that your application is using a SQLite database, for which Django is configured by default, rather than using a cloud database like Azure Database for PostgreSQL.
 
 Check the `DATABASES` variable in the app's *settings.py* file to ensure that your app is using a cloud database instead of SQLite.
 
@@ -469,13 +469,13 @@ If you're encountering this error with the sample in [Tutorial: Deploy a Django 
 
 #### Other issues
 
-- **Passwords don't appear in the SSH session when typed**: For security reasons, the SSH session keeps your password hidden when you type. The characters are being recorded, however, so type your password as usual and select **Enter** when done.
+- **Passwords don't appear in the SSH session when typed**: For security reasons, the SSH session keeps your password hidden when you type. The characters are being recorded, however, so type your password as usual and select **Enter** when you're done.
 
 - **Commands in the SSH session appear to be cut off**: The editor might not be word-wrapping commands, but they should still run correctly.
 
-- **Static assets don't appear in a Django app**: Ensure that you've enabled the [WhiteNoise module](http://whitenoise.evans.io/en/stable/django.html).
+- **Static assets don't appear in a Django app**: Ensure that you have enabled the [WhiteNoise module](http://whitenoise.evans.io/en/stable/django.html).
 
-- **You see the message, "Fatal SSL Connection is Required"**: Check any usernames and passwords used to access resources (such as databases) from within the app.
+- **You see the message "Fatal SSL Connection is Required"**: Check any usernames and passwords used to access resources (such as databases) from within the app.
 
 ## Related content
 
