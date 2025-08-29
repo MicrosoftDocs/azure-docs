@@ -253,7 +253,7 @@ These rules help identify issues and warnings when migrating PostgreSQL to Azure
 
 ### Database assessment
 
-- **Title**:  SA comprehensive database readiness assessment requires PostgreSQL credentials with sufficient permissions for a complete evaluation.
+- **Title**: A comprehensive database readiness assessment requires PostgreSQL credentials with sufficient permissions for a complete evaluation.
 
 - **Category**: Warning
 
