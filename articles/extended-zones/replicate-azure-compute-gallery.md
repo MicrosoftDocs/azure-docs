@@ -41,7 +41,7 @@ To create a user-assigned managed identity, your account needs the [Managed Iden
     - **Name**: Enter the name for your user-assigned managed identity, for example, UAI1.
 
     > [!NOTE]
-    > When you create user-assigned managed identities, the name must start with a letter or number, and may include a combination of alphanumeric characters, hyphens (-) and underscores (_). For the assignment to a virtual machine or virtual machine scale set to work properly, the name is limited to 24 characters. For more information, see FAQs and known issues.
+    > When you create user-assigned managed identities, the name must start with a letter or number, and may include a combination of alphanumeric characters, hyphens (-) and underscores (_). For the assignment to a virtual machine or virtual machine scale set to work properly, the name is limited to 24 characters.
 
 1. Select **Review + create** to review the changes.
 1. Select **Create**.
