@@ -18,15 +18,17 @@ ms.update-cycle: 180-days
 > The following capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To make a large language model (LLM) fulfill requests by running actions that work with external services, systems, apps, or data, you can create a *Model Context Protocol (MCP) server* that provides *tools* for your model to automate tasks. For example, these tools can read, update, or delete files, query databases, send emails, interact with APIs, perform computations, or even trigger workflows.
+To make a large language model (LLM) fulfill requests by running actions that work with external services, systems, apps, or data, you can create a *Model Context Protocol (MCP)* server that provides *tools* for your agent or model to automate tasks. For example, these tools can read, update, or delete files, query databases, send emails, interact with APIs, perform computations, or even trigger workflows.
 
-MCP is an open standard that lets AI components such as LLMs, agents, and MCP clients use tools to work with external services and systems in a secure, discoverable, and structured way. This standard defines how to describe, run, and authenticate access to tools so that AI components can interact with real-world services, systems, databases, APIs, and business workflows. An MCP server acts like a bridge between AI components and the tools that they can use.
-
-In Azure API Center, you can create an MCP server with tools that are backed by the prebuilt connector actions available in Azure Logic Apps. Usually, you use these connector actions and triggers in Azure Logic Apps to create workflows for automation and integration solutions. With [over 1,400 connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that access and interact with a vast range of cloud services, on-premises systems, apps, and data, you can build diverse toolsets that specifically work with your enterprise resources and assets.
+In Azure API Center, you can create an MCP server with tools that are backed by the prebuilt connector actions available in Azure Logic Apps. Usually, you use these connector actions and triggers in Azure Logic Apps to create workflows for automation and integration solutions. With access to [over 1,400 connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that interact and integrate a vast range of cloud services, on-premises systems, apps, and data, you can build diverse toolsets that specifically work with your enterprise resources and assets.
 
 The following diagram shows the relationship between the MCP server and tools that you create in API Center and the connector actions in Azure Logic Apps that you use to build the tools that your MCP server provides:
 
 :::image type="content" source="media/create-mcp-server-api-center/mcp-server-api-center-portal-arch.png" alt-text="Diagram shows relationship between MCP server and tools in Azure API Center portal, agent, and MCP client.":::
+
+MCP is an open standard that lets AI components such as LLMs, agents, and MCP clients use tools to work with external services and systems in a secure, discoverable, and structured way. This standard defines how to describe, run, and authenticate access to tools so that AI components can interact with real-world services, systems, databases, APIs, and business workflows. An MCP server acts like a bridge between AI components and the tools that they can use.
+
+API Center provides centralized API discovery and design-time API governance so you can track all your APIs in a consolidated location. You can develop and maintain an organized structured inventory for your organization's APIs with information such as version details, API definition files, and common metadata, regardless of API type, lifecycle stage, or deployment location. Stakeholders across your organization, such as API program managers, IT administrators, app developers, and API developers, can design, discover, reuse, and govern these APIs.
 
 For more information, see the following articles:
 
