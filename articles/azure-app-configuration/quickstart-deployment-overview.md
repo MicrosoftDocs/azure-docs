@@ -57,7 +57,7 @@ To use the Azure portal to configure the Azure Resource Manager authentication m
 
 1. Select **Settings** > **Access settings**.
 
-    :::image type="content" border="true" source="./media/access-settings-blade.png" alt-text="Screenshot of the Azure portal side pane for an App Configuration resource. Settings and Access settings are highlighted.":::
+    :::image type="content" border="true" source="./media/access-settings-blade.png" alt-text="Screenshot of the Azure portal side pane for an App Configuration resource. Under Settings, Access settings is highlighted.":::
 
 1. On the **Access settings** page, go to the **Azure Resource Manager Authentication Mode** section. Next to **Authentication mode**, select an authentication mode. **Pass-through** is the recommended mode.
 
@@ -93,7 +93,7 @@ When you restrict an App Configuration resource to private network access, deplo
 - Set up an [Azure Resource Management private link](../azure-resource-manager/management/create-private-link-access-portal.md).
 - In your App Configuration resource, set the Azure Resource Manager authentication mode to **Pass-through**.
 - In your App Configuration resource, enable Azure Resource Manager private network access.
-- If deployments access App Configuration data, run them through the configured Azure Resource Manager private link.
+- Run deployments accessing App Configuration data through the configured Azure Resource Manager private link.
 
 When all these criteria are met, deployments can successfully access App Configuration data.
 
@@ -103,7 +103,7 @@ To use the Azure portal to enable Azure Resource Manager private network access 
 
 1. Select **Settings** > **Networking**.
 
-    :::image type="content" border="true" source="./media/networking-blade.png" alt-text="Screenshot of the Azure portal side pane for an App Configuration resource. Settings and Networking are highlighted.":::
+    :::image type="content" border="true" source="./media/networking-blade.png" alt-text="Screenshot of the Azure portal side pane for an App Configuration resource. Under Settings, Networking is highlighted.":::
 
 1. Go to the **Private Access** tab, and then select **Enable Azure Resource Manager Private Network Access**. 
 
