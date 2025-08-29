@@ -183,11 +183,17 @@ For geo-redundant storage accounts, you can perform planned failover operations 
 
 - You use file share types that don't support geo-redundancy.
 
+[!INCLUDE [Storage - Alternative multi-region approaches - introduction](includes/storage/reliability-storage-multi-region-alternative-introduction-include.md)]
+
 Below are some common high-level approaches to consider:
 
 - **Multiple storage accounts:** Azure Files can be deployed across multiple regions using separate storage accounts in each region. This approach provides flexibility in region selection, the ability to use non-paired regions, and more granular control over replication timing and data consistency. When implementing multiple storage accounts across regions, you need to configure cross-region data replication, implement load balancing and failover policies, and ensure data consistency across regions.
 
 - **Application-level replication**: Implement custom replication logic using [Azure Data Factory](/azure/data-factory/introduction) or [AzCopy](/azure/storage/common/storage-use-azcopy-v10) to synchronize data between file shares in different regions. This approach requires custom development and conflict resolution mechanisms.
+
+- **TODO:** To sync between an SMB Azure file share (cloud endpoint), an on-premises Windows file server, and a mounted file share that runs on a VM in another Azure region (a *disaster recovery server endpoint*), you can use [Azure File Sync](TODO).
+
+    However, you must disable cloud tiering to ensure that all data is present locally on th efile server. You must also provision enough storage on the Azure VM to hold the entire dataset. To ensure that changes replicate quickly to the secondary region, files should only be accessed and modified on the server endpoint rather than in Azure.
 
 ## Backups
 
