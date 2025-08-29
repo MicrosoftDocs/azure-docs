@@ -73,7 +73,7 @@ To get started with running your Playwright tests on cloud browsers, you first n
 To use the service, install the Playwright Workspaces package. 
 
 ```npm
-npm init @azure/playwright
+npm init @azure/playwright@latest
 ```
 
 This generates a `playwright.service.config.ts` file which serves to direct and authenticate Playwright to Playwright Workspaces.
