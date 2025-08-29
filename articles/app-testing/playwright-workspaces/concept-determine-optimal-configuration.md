@@ -4,16 +4,16 @@ titleSuffix: Playwright Workspaces
 description: Learn about the factors that affect test completion time in Playwright Workspaces. Get practical steps to determine the optimal Playwright test project configuration.
 ms.service: azure-app-testing
 ms.subservice: playwright-workspaces
-author: ninallam
-ms.author: ninallam
+author: johnsta
+ms.author: johnsta
 ms.topic: conceptual
 ms.date: 08/07/2025
-ms.custom: playwright-workspaces-preview
+ms.custom: playwright-workspaces
 ---
 
 # Determine the optimal test suite configuration for Playwright Workspaces
 
-Playwright Workspaces Preview enables you to speed up your Playwright test execution by increasing parallelism at cloud scale. Several factors affect the completion time for your test suite. Determining the optimal configuration for reducing test suite completion time is application-specific and requires experimentation. This article explains the different levels to configure parallelism for your tests, the factors that influence test duration, and how to determine your optimal configuration to minimize test completion time.
+Playwright Workspaces enables you to speed up your Playwright test execution by increasing parallelism at cloud scale. Several factors affect the completion time for your test suite. Determining the optimal configuration for reducing test suite completion time is application-specific and requires experimentation. This article explains the different levels to configure parallelism for your tests, the factors that influence test duration, and how to determine your optimal configuration to minimize test completion time.
 
 In Playwright, you can run tests in parallel by using worker processes. By using Playwright Workspaces, you can further increase parallelism by using cloud-hosted browsers. In general, adding more parallelism reduces the time to complete your test suite. However, adding more worker processes doesn't always result in shorter test suite completion times. For example, the client machine computing resources, network latency, or test complexity might also affect test duration.
 
@@ -122,7 +122,7 @@ Experiment with the number of parallel workers to run your tests. Measure the te
 Notice at which point the test completion time no longer reduces as you add more workers. Move to the next step to further optimize your setup.
 
 > [!NOTE]
-> While the service is in preview, the number of [parallel workers per workspace is limited](./resource-limits-quotas-capacity.md) to 50. You can [request an increase of this limit for your workspace](https://aka.ms/pww/feedback).
+> The number of [parallel workers per workspace is limited](./resource-limits-quotas-capacity.md) to 100. You can [request an increase of this limit for your workspace](https://aka.ms/pww/feedback).
 
 ### 6. Scale the client
 

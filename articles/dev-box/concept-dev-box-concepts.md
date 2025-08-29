@@ -7,6 +7,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: concept-article
 ms.date: 02/26/2025
+ms.update-cycle: 90-days
 ms.custom: template-concept
 #Customer intent: As a platform engineer, I want to understand Dev Box concepts and terminology so that I can set up a Dev Box environment.
 ---

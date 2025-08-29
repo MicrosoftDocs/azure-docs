@@ -47,9 +47,9 @@ Azure Native Integrations data and storage partners enable scalable, secure, and
 | **Astro**                     | Astro is a managed Apache Airflow service for workflow orchestration. It enables scalable and reliable data pipelines. <br /><br /> Learn more: [What is Astro?](astronomer/overview.md) |
 | **Confluent**                 | Confluent provides managed Apache Kafka for real-time data streaming. It supports event-driven architectures and data integration. <br /><br /> Learn more: [What is Confluent?](apache-kafka-confluent-cloud/overview.md) |
 | **Informatica**               | Informatica delivers cloud data management solutions for integration and governance, helping organizations manage and secure their data assets. <br /><br /> Learn more: [What is Informatica?](informatica/overview.md) |
-| **MongoDB Atlas**    | MongoDB Atlas Preview is a managed document database with vector search capabilities, supporting modern application development. <br /><br /> Learn more: [What is MongoDB Atlas Preview?](mongo-db/overview.md) |
+| **MongoDB Atlas**             | MongoDB Atlas Preview is a managed document database with vector search capabilities, supporting modern application development. <br /><br /> Learn more: [What is MongoDB Atlas Preview?](mongo-db/overview.md) |
 | **Neon Serverless Postgres**  | Neon Serverless Postgres offers a serverless Postgres database service, enabling scalable and cost-effective relational data storage. <br /><br /> Learn more: [What is Neon Serverless Postgres?](neon/overview.md) |
-| **Pure Storage Cloud Preview** | Pure Storage Cloud Preview provides managed block storage as a service (STaaS), delivering high-performance and scalable storage solutions. <br /><br /> Learn more: [What is Pure Storage Cloud Preview?](pure-storage/overview.md) |
+| **Pure Storage Cloud** | Pure Storage Cloud Preview provides managed block storage as a service (STaaS), delivering high-performance and scalable storage solutions. <br /><br /> Learn more: [What is Pure Storage Cloud Preview?](pure-storage/overview.md) |
 | **Qumulo**                    | Qumulo is a scalable file data platform with multi-protocol support, enabling efficient management of unstructured data. <br /><br /> Learn more: [What is Qumulo?](qumulo/overview.md) |
 
 ## Networking and security partners

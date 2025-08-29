@@ -15,6 +15,8 @@
   items:
   - name: Back up a virtual machine
     href: backup-virtual-machine.md
+  - name: Replicate images with Azure Compute Gallery 
+    href: replicate-azure-compute-gallery.md
 - name: Concepts
   items:
   - name: Extended Zones FAQ
@@ -29,6 +31,8 @@
     href: create-storage-account.md
   - name: Request quota increase
     href: request-quota-increase.md
+  - name: Purchase reservations and savings plans
+    href: purchase-reservations-savings-plans.md
 - name: Arc-enabled PaaS workloads in Extended Zones
   items:
   - name: Create Arc-Enabled AKS Clusters in Extended Zones

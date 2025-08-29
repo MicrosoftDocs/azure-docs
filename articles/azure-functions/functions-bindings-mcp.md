@@ -2,7 +2,7 @@
 title: Model context protocol bindings for Azure Functions
 description: Learn how you can expose your functions as model context protocol (MCP) tools using bindings in Azure Functions.
 ms.topic: reference
-ms.date: 05/03/2025
+ms.date: 08/29/2025
 ms.update-cycle: 180-days
 ms.custom: 
   - build-2025
@@ -63,7 +63,10 @@ You can use `host.json` to define MCP server information.
     "mcp": {
       "instructions": "Some test instructions on how to use the server",
       "serverName": "TestServer",
-      "serverVersion": "2.0.0"
+      "serverVersion": "2.0.0",
+      "messageOptions": {
+        "useAbsoluteUriForEndpoint": false
+      }
     }    
   }
 }
@@ -74,6 +77,58 @@ You can use `host.json` to define MCP server information.
 | **instructions** | Describes to clients how to access the remote MCP server. |
 | **serverName** | A friendly name for the remote MCP server. |
 | **serverVersion** | Current version of the remote MCP server. |
+| **messageOptions** | Options object for the message endpoint in the SSE transport. |
+| **messageOptions.UseAbsoluteUriForEndpoint** | Defaults to `false`. Only applicable to the server-sent events (SSE) transport; this setting doesn't affect the Streamable HTTP transport. If set to `false`, the message endpoint is provided as a relative URI during initial connections over the SSE transport. If set to `true`, the message endpoint is returned as an absolute URI. Using a relative URI isn't recommended unless you have a specific reason to do so.|
+
+## Connect to your MCP server
+
+To connect to the MCP server exposed by your function app, you need to provide an MCP client with the appropriate endpoint and transport information. The following table shows the transports supported by the Azure Functions MCP extension, along with their corresponding connection endpoint.
+
+| Transport | Endpoint |
+| ----- | ----- |
+| Streamable HTTP | `/runtime/webhooks/mcp` |
+| Server-Sent Events (SSE)<sup>1</sup> | `/runtime/webhooks/mcp/sse` |
+
+<sup>1</sup> Newer protocol versions have deprecated the Server-Sent Events transport. Unless your client specifically requires it, you should use the Streamable HTTP transport instead.
+
+When hosted in Azure, the endpoints exposed by the extension also require the [system key](./function-keys-how-to.md) named `mcp_extension`. If it isn't provided in the `x-functions-key` HTTP header, your client receives a `401 Unauthorized` response. You can retrieve the key using any of the methods described in [Get your function access keys](./function-keys-how-to.md#get-your-function-access-keys). The following example shows how to get the key with the Azure CLI:
+
+```azurecli
+az functionapp keys list --resource-group <RESOURCE_GROUP> --name <APP_NAME> --query systemKeys.mcp_extension --output tsv
+```
+
+MCP clients accept this configuration in various ways. Consult the documentation for your chosen client. The following example shows an `mcp.json` file like you might use to [configure MCP servers for GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/customization/mcp-servers#_configuration-format). The example sets up two servers, both using the Streamable HTTP transport. The first is for local testing with the Azure Functions Core Tools. The second is for a function app hosted in Azure. The configuration takes input parameters for which VS Code prompts you when you first run the remote server. Using inputs ensures that secrets like the system key aren't saved to the file and checked into source control.
+
+```json
+{
+    "inputs": [
+        {
+            "type": "promptString",
+            "id": "functions-mcp-extension-system-key",
+            "description": "Azure Functions MCP Extension System Key",
+            "password": true
+        },
+        {
+            "type": "promptString",
+            "id": "functionapp-host",
+            "description": "The host domain of the function app."
+        }
+    ],
+    "servers": {
+        "local-mcp-function": {
+            "type": "sse",
+            "url": "http://localhost:7071/runtime/webhooks/mcp"
+        },
+        "remote-mcp-function": {
+            "type": "sse",
+            "url": "https://${input:functionapp-host}/runtime/webhooks/mcp",
+            "headers": {
+                "x-functions-key": "${input:functions-mcp-extension-system-key}"
+            }
+        }
+    }
+}
+```
 
 ## Related articles
 

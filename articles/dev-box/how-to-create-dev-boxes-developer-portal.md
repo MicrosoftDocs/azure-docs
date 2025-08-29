@@ -6,6 +6,7 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
+ms.update-cycle: 180-days
 ms.date: 02/28/2025
 ms.topic: how-to
 

@@ -5,10 +5,10 @@ description: Learn how to create & manage access tokens to authenticate requests
 ms.topic: how-to
 ms.service: azure-app-testing
 ms.subservice: playwright-workspaces
-author: ninallam
-ms.author: ninallam
+author: johnsta
+ms.author: johnsta
 ms.date: 08/07/2025
-ms.custom: playwright-workspaces-preview
+ms.custom: playwright-workspaces
 ---
 
 # Manage workspace access tokens in Playwright Workspaces
@@ -18,9 +18,6 @@ In this article, you learn how to manage workspace access tokens in Playwright W
 Access tokens are associated with a user account and workspace. When you use an access token for running Playwright tests, the service checks your Azure role-based access control (Azure RBAC) role to verify if you're granted access to run tests on the service. Learn more about [workspace access in Playwright Workspaces](./how-to-manage-workspace-access.md).
 
 You can create multiple access tokens per workspace, for example to distinguish between running tests interactively or as part of your continuous integration (CI) workflow. When you create an access token, the token has a limited lifespan.
-
-> [!IMPORTANT]
-> Playwright Workspaces is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites  
 
