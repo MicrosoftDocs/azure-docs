@@ -208,7 +208,7 @@ Step 6. Create and add a SymbolLayer to the map.
 
 Step 7. Create and add a LineLayer to the map.
 
-Step 8. Utilize the Route POST API: <https://atlas.microsoft.com/route/directions?api-version=2025-01-01&subscription-key=${subscriptionKey}> to find the route between the start and end points. Add the GeoJSON response to the DataSource and adjust the map's camera based on the bounding box of the response.
+Step 8. Utilize the Route POST API: `https://atlas.microsoft.com/route/directions?api-version=2025-01-01&subscription-key=${subscriptionKey}` to find the route between the start and end points. Add the GeoJSON response to the DataSource and adjust the map's camera based on the bounding box of the response.
 
 Example request body:
 
