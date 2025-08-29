@@ -66,15 +66,11 @@ When you add two or more replicas to your service, Azure AI Search attempts to p
 > [!IMPORTANT]
 > Azure AI Search doesn't guarantee the exact placement of replicas, which is subject to capacity constraints, scaling operations, and other factors.
 
-### Region support
-
-Support for availability zones depends on infrastructure and storage. For a list of supported regions, see [Choose a region for Azure AI Search](/azure/search/search-region-support).
-
 ### Requirements
 
 Zone redundancy is automatically enabled when your search service meets all of the following criteria:
 
-+ Is in a [region that has availability zones](/azure/search/search-region-support).
++ Is in a [region that has availability zones](/azure/search/search-region-support). Support for availability zones depends on infrastructure and storage.
 + Is on the [Basic tier or higher](/azure/search/search-sku-tier).
 + Has [at least two replicas](/azure/search/search-capacity-planning#add-or-remove-partitions-and-replicas).
   
@@ -147,7 +143,7 @@ Azure AI Search is a single-region service. If the region becomes unavailable, y
 
 You can optionally deploy multiple Azure AI Search services in different regions. You're responsible for deploying and configuring separate services in each region. If you create an identical deployment in a secondary Azure region using a multi-region architecture, your application becomes less susceptible to a single-region disaster.
 
-When you follow this approach, you must synchronize indexes across regions to recover the last application state. You must also configure load balancing and failover policies. For more information, see [Multi-region deployments in Azure AI Search](/azure/search/search-multi-region).
+When you follow this approach, you must synchronize indexes across regions to recover the last application state. You must also configure load balancing and failover policies. When your index's data source is geo-distributed, look for opportunities to perform indexing from the data source's local regional replica if the indexer supports reading from replicas. For more information, see [Multi-region deployments in Azure AI Search](/azure/search/search-multi-region).
 
 ## Backups
 
