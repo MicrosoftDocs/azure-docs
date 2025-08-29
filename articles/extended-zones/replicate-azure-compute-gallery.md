@@ -127,6 +127,7 @@ $uri = "https://$location.management.azure.com/subscriptions/$subscriptionId/res
 
 ## Replicate 3rd Party (3P) Images into an Azure Extended Zone with Azure Compute Gallery
 Having fulfilled the previous steps, you can use the following CLI or PowerShell scripts to replicate your images. 
+
     > [!NOTE]
     > Allowed Storage Account types are Standard_LRS, Standard_ZRS, and Premium_LRS.
 
