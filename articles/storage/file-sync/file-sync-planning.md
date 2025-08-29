@@ -119,7 +119,7 @@ In the following table, we've provided both the size of the namespace as well as
 | 50       | 23.3    | 16       | 64  (initial sync)/ 32 (typical churn)  |
 | 100*     | 46.6    | 32       | 128 (initial sync)/ 32 (typical churn)  |
 
-\*Syncing more than 100 million files & directories isn't recommended. This is a soft limit based on our tested thresholds. For more information, see [Azure File Sync scale targets](../files/storage-files-scale-targets.md?toc=/azure/storage/filesync/toc.json#azure-file-sync-scale-targets).
+\*Syncing more than 100 million files & directories isn't recommended. This is a soft limit based on our tested thresholds. For more information, see [Azure File Sync scale targets](./file-sync-scale-targets.md).
 
 > [!TIP]
 > Initial synchronization of a namespace is an intensive operation, and we recommend allocating more memory until initial synchronization is complete. This isn't required but might speed up initial sync. 
@@ -316,7 +316,7 @@ Changes made to the Azure file share by using the Azure portal or SMB aren't imm
 
 To detect changes to the Azure file share, Azure File Sync has a scheduled job called a change detection job. A change detection job enumerates every file in the file share, and then compares it to the sync version for that file. When the change detection job determines that files have changed, Azure File Sync initiates a sync session. The change detection job is initiated every 24 hours. Because the change detection job works by enumerating every file in the Azure file share, change detection takes longer in larger namespaces than in smaller namespaces. For large namespaces, it might take longer than once every 24 hours to determine which files have changed.
 
-For more information, see [Azure File Sync performance metrics](../files/storage-files-scale-targets.md?toc=/azure/storage/filesync/toc.json#azure-file-sync-performance-metrics) and [Azure File Sync scale targets](../files/storage-files-scale-targets.md?toc=/azure/storage/filesync/toc.json#azure-file-sync-scale-targets)
+For more information, see [Azure File Sync performance metrics](./file-sync-scale-targets.md#azure-file-sync-performance-metrics) and [Azure File Sync scale targets](./file-sync-scale-targets.md#azure-file-sync-scale-targets)
 
 ## Identity
 

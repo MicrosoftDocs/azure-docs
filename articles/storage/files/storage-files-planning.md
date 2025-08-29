@@ -35,7 +35,7 @@ Classic file shares, or file shares deployed in storage accounts, are the tradit
 
 - **Shared settings**: Many important settings, such as network and security rules, are applied at the storage account level, so as a result, placing classic file shares in the same storage account requires careful consideration. You should consider the storage account to be a trust boundary and only place classic file shares in the same storage account if you're ok with them having the same security settings.
 
-- **Scaling complexity**: Large scale deployments of Azure Files can require managing many Azure subscriptions due the constraints on storage accounts from the `Microsoft.Storage` resource provider. See [storage account limits](./storage-files-scale-targets.md#storage-account-scale-targets) for more information.
+- **Scaling complexity**: Large scale deployments of Azure Files can require managing many Azure subscriptions due the constraints on storage accounts from the `Microsoft.Storage` resource provider. See [storage account limits](./storage-files-scale-targets.md#storage-account-data-plane-limits) for more information.
 
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
 

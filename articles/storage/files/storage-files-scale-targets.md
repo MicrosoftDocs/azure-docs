@@ -194,4 +194,4 @@ File scale targets apply to individual files stored in a file share. Your abilit
 ## See also
 - [Planning for an Azure Files deployment](storage-files-planning.md)
 - [Understand Azure Files performance](understand-performance.md)
-- [Understanding Azure Files billing](understand-billing.md)
+- [Understanding Azure Files billing](understanding-billing.md)

@@ -188,7 +188,7 @@ When you plan your deployment with NFS on Azure Files, consider the following im
 - Deploy a separate `sapmnt` share for each SAP system.
 - Don't use the `sapmnt` share for any other activity, such as interfaces, or `saptrans`.
 - Don't use the `saptrans` share for any other activity, such as interfaces, or `sapmnt`.
-- Avoid consolidating the shares for too many SAP systems in a single storage account. There are also [storage account performance scale targets](../../storage/files/storage-files-scale-targets.md#storage-account-scale-targets). Be careful not to exceed the limits for the storage account, too.
+- Avoid consolidating the shares for too many SAP systems in a single storage account. There are also [storage account performance scale targets](../../storage/files/storage-files-scale-targets.md). Be careful not to exceed the limits for the storage account, too.
 - In general, don't consolidate the shares for more than five SAP systems in a single storage account. This guideline helps avoid exceeding the storage account limits and simplifies performance analysis.
 - In general, avoid mixing shares like `sapmnt` for nonproduction and production SAP systems in the same storage account.
 - We recommend that you deploy on RHEL 8.4 or higher to benefit from [NFS client improvements](../../storage/files/files-troubleshoot-linux-nfs.md#ls-hangs-for-large-directory-enumeration-on-some-kernels).
