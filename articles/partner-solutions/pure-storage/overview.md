@@ -13,7 +13,7 @@ Azure Native Pure Storage Cloud (refered to as Pure Storage Cloud from here on) 
 
 ## What is it used for?
 
-Azure Native Pure Storage Cloud is designed for organizations that require scalable, flexible, and high-performance block storage in the cloud.  
+Pure Storage Cloud is designed for organizations that require scalable, flexible, and high-performance block storage in the cloud.  
 
 Typical use cases include:
 
@@ -24,7 +24,7 @@ Typical use cases include:
 
 ## Key Features
 
-The following key features are available for Azure Native Pure Storage Cloud:
+The following key features are available for Pure Storage Cloud:
 
 - **Elastic Capacity**: Dynamically scale storage up or down to match workload requirements and pay only for what you use.
 - **Flexible Performance**: Independently scale performance and capacity to optimize for specific application needs.
