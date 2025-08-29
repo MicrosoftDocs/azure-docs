@@ -2,7 +2,7 @@
 title: Trusted Launch for Virtual Machines in Azure DevTest Labs
 description: Learn how to use Trusted Launch for Generation 2 virtual machines (VMs) in Azure DevTest Labs.
 ms.topic: how-to
-ms.author: anishtrakru
+ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 02/13/2025
 ms.custom: UpdateFrequency2

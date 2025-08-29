@@ -2,35 +2,35 @@
 title: European Union Data Boundary compliance for Azure Communication Services
 titleSuffix: An Azure Communication Services article
 description: This article describes how Azure Communication Services meets European Union data handling compliance laws
-author: hrazi
-manager: mharbut
+author: sloanster
 services: azure-communication-services
 
-ms.author: harazi
-ms.date: 02/01/2023
+ms.author: micahvivion
+ms.date: 08/25/2025
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.custom: references_regions
 ---
 
-# European Union Data Boundary (EUDB)
+# European Union Data Boundary (EUDB) support in Azure Communication Services
+Azure Communication Services meets the European Union Data Boundary (EUDB) requirements, as detailed [here](https://blogs.microsoft.com/eupolicy/2022/12/15/eu-data-boundary-cloud-rollout/). EUDB ensures customer and personal data for Azure Communication Services is stored and processed only within EU and EFTA regions. This helps organizations comply with GDPR, supports digital sovereignty, and reduces the risk of non-EU access to sensitive data.
 
-Azure Communication Services complies with European Union Data Boundary (EUDB) [announced by Microsoft December 15, 2022](https://blogs.microsoft.com/eupolicy/2022/12/15/eu-data-boundary-cloud-rollout/). 
+## Understanding more about the needs of this compliance requirement.
+For organizations using Azure Communication Services (ACS), EUDB compliance enables developers to integrate voice, video, chat, SMS, and email capabilities into their applications and be able to deliver EUDB compliance. Azure Communication Services ensures that customer content, personal data, and system-generated logs are stored and processed exclusively within EU/EFTA data centers. This includes data exchanged during real-time communications, metadata associated with those interactions, and diagnostic logs that support service reliability and performance. By meeting EUDB requirements, Azure Communication Services empowers European businesses to build communication solutions with confidence that their data remains protected and sovereign. For more details Microsoft’s commitment to ensure compliance with European Union Data Boundary (EUDB) mandates please see [here](https://blogs.microsoft.com/eupolicy/2022/12/15/eu-data-boundary-cloud-rollout/).
 
-This boundary defines data residency and processing rules for resources based on the data location selected when creating a new communication resource. When a data location for a resource is one of the European countries/regions in scope of EUDB, then all processing and storage of personal data remain within the European Union.
-
-The EU Data Boundary consists of the countries/regions in the European Union (EU) and the European Free Trade Association (EFTA). The EU countries/regions are: Austria, Belgium, Bulgaria, Croatia, Cyprus, Czechia, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Ireland, Italy, Latvia, Lithuania, Luxembourg, Malta, Netherlands, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, and Sweden. The EFTA countries/regions are: Liechtenstein, Iceland, Norway, and Switzerland.
+The EU Data Boundary consists of the countries/regions in the European Union (EU) and the European Free Trade Association (EFTA). The EU countries/regions are: Austria, Belgium, Bulgaria, Croatia, Cyprus, Czechia, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Ireland, Italy, Latvia, Lithuania, Luxembourg, Malta, Netherlands, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, and Sweden. The EFTA countries/regions are: Liechtenstein, Iceland, Norway, and Switzerland. This boundary defines data residency and processing rules for resources based on the data location selected when creating a new communication resource. When a data location for a resource is one of the European countries/regions in scope of EUDB, then all processing and storage of personal data remain within the European Union.
 
 ## Calling
 
-Users can establish calls and meetings in various ways. We define a few terms:
-- Organizer: person who created the meeting, for example, set it up using Outlook
-- Initiator: the first person who joins the meeting (the meeting only exists as a calendar item before the first person joins it)
-- Guest: a participant who isn't a member of the tenant of the Organizer. May include a member of a different tenant, PSTN (dial-in) user, and so on. In this article, *guest* is specific to this description and broader than used within IC3 generally.
-- Call: refers to a 1:1 call and\or to a Group call to a larger group. For the purposes of this conversation, they should be the same.
-- Real Time Text (RTT): is an accessibility compliance requirement for voice and video platforms in the EU. For more information, see: [Directive 2019/882](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019L0882).
+To establish how Azure Communication Services calling data aligns with EUDB compliance, it's important to first define key details about how calling data is processed—particularly in scenarios involving various types of participants:
+- **Organizer**: responsible for creating and managing a group call or meeting session. They are the person that sets the meeting identity.
+- **Initiator**: the first person who joins the meeting
+- **Guest**: a participant who isn't a member of the tenant of the Organizer. May include a member of a different tenant or a PSTN (dial-in) user.
+- **Call**: refers to a 1:1 call and\or to a Group call to a larger group.
+- **Real Time Text (RTT)**: is an accessibility compliance requirement for voice and video platforms in the EU. For more information, see: [Directive 2019/882](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019L0882).
+- **Resource**: refers to a provisioned communication identity or endpoint. See [here](../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp#manage-your-communication-services-resource) for more details
 
-For EU communication resources, when the organizer, initiator, or guests join a call from the EU, processing and storage of personal data is limited to the EU.
+For Azure Communication Services calling resources that were defined to be located within a European data boundary country\regiion and when either the organizer, initiator, or a guest joins a call from a location inside the European boundary, all personal data (PII) is processed and stored in facilities within EU boundary countries/regions. 
 
 ## SMS
 

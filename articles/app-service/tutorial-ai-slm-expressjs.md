@@ -7,6 +7,7 @@ ms.date: 05/07/2025
 ms.topic: tutorial
 ms.custom:
   - build-2025
+ms.service: azure-app-service
 ---
 
 # Tutorial: Run chatbot in App Service with a Phi-4 sidecar extension (Express.js)

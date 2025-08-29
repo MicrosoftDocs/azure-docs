@@ -533,6 +533,16 @@ groups:
     title: Java
   - id: programming-language-csharp
     title: C#
+- id: acs-plat-azp-azcli-ps
+  title: Portal and CLI and Powershell pivots
+  prompt: Choose a programming language
+  pivots:
+  - id: platform-azp
+    title: Azure portal
+  - id: platform-azcli
+    title: Azure CLI
+  - id: platform-powershell
+    title: PowerShell
 - id: acs-plat-azp-azcli-net-ps
   # Owner: mikben (Azure Communication Services)
   title: JS and C# pivots
@@ -949,7 +959,7 @@ groups:
     title: drawing package 1.0
   - id: drawing-package-v2
     title: drawing package 2.0
-# Owner: veyalla
+# Owner: sethm
 - id: how-to-troubleshoot-monitoring-and-faq-zpg
   title: Azure Monitor for IoT Edge FAQ
   prompt: Choose a topic
@@ -962,7 +972,7 @@ groups:
     title: Alerts
   - id: workbooks
     title: Workbooks
-# Owner: patricka
+# Owner: sethm
 - id: iotedge-dev
   title: IoT Edge development option
   prompt: Choose an Azure IoT Edge development option
@@ -1796,6 +1806,14 @@ groups:
     title: Azure CLI
   - id: experience-gui
     title: Grafana UI
+- id: interaction-type
+  title: Interaction type
+  prompt: Select how you want to interact with Azure
+  pivots:
+  - id: azure-portal
+    title: Azure portal
+  - id: azure-cli
+    title: Azure CLI
 # Owner: danlep
 - id: api-management-howto-add-products
   title: Interactive or Script

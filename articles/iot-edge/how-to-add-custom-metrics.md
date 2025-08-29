@@ -1,10 +1,9 @@
 ---
 title: How to add custom metrics - Azure IoT Edge
 description: Augment built-in metrics with scenario-specific metrics from custom modules
-author: veyalla
-
-ms.author: veyalla
-ms.date: 08/11/2021
+author: sethmanheim
+ms.author: sethm
+ms.date: 08/08/2025
 ms.topic: concept-article
 ms.reviewer: sonialopez
 ms.service: azure-iot-edge

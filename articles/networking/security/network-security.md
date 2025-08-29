@@ -6,7 +6,9 @@ ms.author: duau
 ms.service: azure-firewall
 ms.topic: overview
 ms.date: 06/24/2025
-ms.custom: ai-usage
+ms.custom: 
+    - ai-usage
+    - portfolio-consolidation-2025
 ---
 
 # What is Azure network security?

@@ -1,13 +1,13 @@
 ---
- title: IoT Edge all versions supported
- description: include file
- services: iot-edge
- author: PatAltimore
- ms.service: azure-iot-edge
- ms.topic: include
- ms.date: 01/08/2025
- ms.author: patricka
- ms.custom: include file
+title: IoT Edge all versions supported
+description: include file
+services: iot-edge
+author: sethmanheim
+ms.author: sethm
+ms.service: azure-iot-edge
+ms.topic: include
+ms.date: 08/28/2025
+ms.custom: include file
 ---
 
 **Applies to:** ![IoT Edge 1.5 checkmark](./media/iot-edge-version/yes-icon.png) IoT Edge 1.5
