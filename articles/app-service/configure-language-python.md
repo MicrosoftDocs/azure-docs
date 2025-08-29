@@ -39,7 +39,7 @@ You can use either the [Azure portal](https://portal.azure.com) or the Azure CLI
 
 ## Configure the Python version
 
-- **Azure portal**: use the **General settings** tab on the **Configuration** page, as described in [Configure general settings](configure-common.md#configure-general-settings) for Linux containers.
+- **Azure portal**: Use the **General settings** tab on the **Configuration** page, as described in [Configure general settings](configure-common.md#configure-general-settings) for Linux containers.
 
 - **Azure CLI**:
 
@@ -51,7 +51,7 @@ You can use either the [Azure portal](https://portal.azure.com) or the Azure CLI
 
     Replace `<resource-group-name>` and `<app-name>` with the names that are appropriate for your web app.
 
-  - Set the Python version by using [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set)
+  - Set the Python version by using [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set):
 
     ```azurecli
     az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PYTHON|3.11"
@@ -137,7 +137,7 @@ You can redeploy existing web applications to Azure as follows:
 
 1. **Database**. If your app depends on a database, create the necessary resources on Azure as well.
 
-1. **App Service resources**. Create a resource group, App Service plan, and App Service web app to host your application. You create these resources easily by running the Azure CLI command [`az webapp up`](/cli/azure/webapp#az-webapp-up). Or you can create and deploy resources as shown in the [Flask](tutorial-python-postgresql-app-flask.md), [Django](tutorial-python-postgresql-app-django.md), or [FastAPI](tutorial-python-postgresql-app-fastapi.md) with PostgreSQL tutorial. Replace the names of the resource group, App Service plan, and web app with names that are suitable for your application.
+1. **App Service resources**. Create a resource group, App Service plan, and App Service web app to host your application. You can create these resources easily by running the Azure CLI command [`az webapp up`](/cli/azure/webapp#az-webapp-up). Or you can create and deploy resources as shown in the [Flask](tutorial-python-postgresql-app-flask.md), [Django](tutorial-python-postgresql-app-django.md), or [FastAPI](tutorial-python-postgresql-app-fastapi.md) with PostgreSQL tutorial. Replace the names of the resource group, App Service plan, and web app with names that are suitable for your application.
 
 1. **Environment variables**. If your application requires any environment variables, create equivalent [App Service application settings](configure-common.md#configure-app-settings). These App Service settings appear to your code as environment variables, as described in [Access environment variables](#access-app-settings-as-environment-variables).
     - Database connections, for example, are often managed via such settings, as shown in [Tutorial: Deploy a Django web app with PostgreSQL - verify connection settings](tutorial-python-postgresql-app-django.md#3-secure-connection-secrets-and-add-secret_key).
@@ -148,7 +148,7 @@ You can redeploy existing web applications to Azure as follows:
 1. **Continuous deployment**. Set up continuous deployment from GitHub Actions, Bitbucket, or Azure Repos as described in the article [Continuous deployment to Azure App Service](deploy-continuous-deployment.md). Or set up continuous deployment from local Git as described in the article [Local Git deployment to Azure App Service](deploy-local-git.md).
 
 1. **Custom actions**. To perform actions within the App Service container that hosts your app, such as Django database migrations, you can [connect to the container by using SSH](configure-linux-open-ssh-session.md). For an example of running Django database migrations, see [Tutorial: Deploy a Django web app with PostgreSQL](tutorial-python-postgresql-app-django.md#5-generate-database-schema).
-    - When using continuous deployment, you can perform those actions by using post-build commands as described earlier in the [Customize build automation](#customize-build-automation) section.
+    - When using continuous deployment, you can perform those actions by using post-build commands, as described earlier in the [Customize build automation](#customize-build-automation) section.
 
 With these steps completed, you should be able to commit changes to your source repository and have those updates automatically deployed to App Service.
 
@@ -236,7 +236,7 @@ This container has the following characteristics:
 - Apps are run by the [Gunicorn WSGI HTTP Server](https://gunicorn.org/) with the extra arguments `--bind=0.0.0.0 --timeout 600`.
   - You can provide configuration settings for Gunicorn by [customizing the startup command](#customize-startup-command).
 
-  - To protect your web app from accidental or deliberate DDOS attacks, Gunicorn is run behind an Nginx reverse proxy as described in [Deploying Gunicorn](https://docs.gunicorn.org/en/latest/deploy.html).
+  - To protect your web app from accidental or deliberate DDOS attacks, Gunicorn is run behind an Nginx reverse proxy, as described in [Deploying Gunicorn](https://docs.gunicorn.org/en/latest/deploy.html).
 
 - By default, the base container image includes only the Flask web framework, but the container supports other frameworks that are WSGI-compliant and compatible with Python 3.6 and later, such as Django.
 
@@ -270,7 +270,7 @@ gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
 
 If you want more specific control over the startup command, use a [custom startup command](#customize-startup-command), replace `<module>` with the name of folder that contains *wsgi.py*, and add a `--chdir` argument if that module isn't in the project root. For example, if your *wsgi.py* is located under *knboard/backend/config* from your project root, use the arguments `--chdir knboard/backend config.wsgi`.
 
-To enable production logging, add the `--access-logfile` and `--error-logfile` parameters as shown in the examples for [custom startup commands](#example-startup-commands).
+To enable production logging, add the `--access-logfile` and `--error-logfile` parameters, as shown in the examples for [custom startup commands](#example-startup-commands).
 
 ### Flask app
 
@@ -298,7 +298,7 @@ If you deployed code and still see the default app, see [Troubleshooting - App d
 
 You can control the container's startup behavior by providing either a custom startup command or multiple commands in a startup command file. A startup command file can use whatever name you choose, like *startup.sh*, *startup.cmd*, or *startup.txt*.
 
-All commands must use relative paths to the project root folder.
+All commands must use paths that are relative to the project root folder.
 
 To specify a startup command or command file:
 
@@ -451,7 +451,7 @@ The following sections provide guidance for specific issues.
 
 #### Could not find setup.py or requirements.txt
 
-- **The log stream shows "Could not find setup.py or requirements.txt; Not running pip install."**. The Oryx build process failed to find your *requirements.txt* file.
+- **The log stream shows "Could not find setup.py or requirements.txt; Not running pip install."** The Oryx build process failed to find your *requirements.txt* file.
 
   - Connect to the web app's container via [SSH](#open-ssh-session-in-a-browser) and verify that *requirements.txt* is named correctly and exists directly under *site/wwwroot*. If it doesn't exist, make sure the file exists in your repository and is included in your deployment. If it exists in a separate folder, move it to the root.
 
