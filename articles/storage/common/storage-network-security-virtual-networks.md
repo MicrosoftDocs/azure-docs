@@ -6,7 +6,7 @@ author: normesta
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
-ms.date: 06/18/2025
+ms.date: 08/25/2025
 ms.author: normesta
 
 ---
@@ -26,23 +26,21 @@ To apply a virtual network rule to a storage account, the user must have the app
 
 1. Go to the storage account for which you want to configure virtual network and access rules.
 
-2. In the service menu, under **Security + networking**, select **Networking**.
+2. In the service menu, under **Security + networking**, select **Networking**, and then under **Resource settings: Virtual networks, IP addresses, and exceptions**, select **View**.
 
-3. In the **Firewalls and virtual networks** tab of the network settings page, make sure that **Enabled from selected virtual networks and IP addresses** is selected.  
-
-4. Under **Virtual networks**, select **Add existing virtual network**. 
+3. Under **Virtual networks**, select **Add existing virtual network**. 
 
    The **Add networks** pane appears.
 
-5. From the **Virtual networks** drop-down list, select a virtual network. 
+4. From the **Virtual networks** drop-down list, select a virtual network. 
 
-6. From the **Subnets** drop-down list, select the desired subnets, then select **Add**. 
+5. From the **Subnets** drop-down list, select the desired subnets, then select **Add**. 
 
-7. If you need to create a new virtual network, select **Add new virtual network**. Provide the necessary information to create the new virtual network, and then select **Create**.   Only virtual networks that belong to the same Microsoft Entra tenant appear for selection during rule creation. To grant access to a subnet in a virtual network that belongs to another tenant, use PowerShell, the Azure CLI, or the REST API.
+6. If you need to create a new virtual network, select **Add new virtual network**. Provide the necessary information to create the new virtual network, and then select **Create**.   Only virtual networks that belong to the same Microsoft Entra tenant appear for selection during rule creation. To grant access to a subnet in a virtual network that belongs to another tenant, use PowerShell, the Azure CLI, or the REST API.
 
-8. To remove a virtual network or subnet rule, select the ellipsis (**...**) to open the context menu for the virtual network or subnet, and then select **Remove**.
+7. To remove a virtual network or subnet rule, select the ellipsis (**...**) to open the context menu for the virtual network or subnet, and then select **Remove**.
 
-9. Select **Save** to apply your changes.
+8. Select **Save** to apply your changes.
 
 > [!IMPORTANT]
 > If you delete a subnet that's included in a network rule, it is removed from the network rules for the storage account. If you create a new subnet with the same name, it won't have access to the storage account. To allow access, you must explicitly authorize the new subnet in the network rules for the storage account.
