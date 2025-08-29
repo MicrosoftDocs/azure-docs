@@ -61,7 +61,7 @@ There are currently two ways to create a C# script app:
 
 ### [Core Tools](#tab/core-tools)
 
-Create a C# script project by passing the `--csx` option when running the [`func init`](functions-core-tools-reference#func-init) command. You must also set `--worker-runtime` to `dotnet`, as in this example:
+Create a C# script project by passing the `--csx` option when running the [`func init`](functions-core-tools-reference.md#func-init) command. You must also set `--worker-runtime` to `dotnet`, as in this example:
 
 ```command
 func init --worker-runtime dotnet --csx
@@ -83,7 +83,7 @@ Keep these considerations in mind before creating a C# script app:
 
 + C# script is supported primarily to provide a convenient in-portal experience to help you quickly get started creating and running C# functions. For production-quality apps, you should instead develop your C# functions locally as a [compiled C# class library project](dotnet-isolated-process-guide.md).
 + C# script is only supported when running [in-process with the Functions host](functions-dotnet-class-library.md), which is a [legacy execution mode for C#](https://aka.ms/azure-functions-retirements/in-process-model).
-+  You can't host C# script apps in the [Flex Consumption plan](flex-consumption.md), which is the recommended plan for dynamic scale apps. This is because the Flex Consumption plan only supports C# apps that use the [isolated worker model](dotnet-isolated-process-guide.md).
++  You can't host C# script apps in the [Flex Consumption plan](flex-consumption-plan.md), which is the recommended plan for dynamic scale apps. This is because the Flex Consumption plan only supports C# apps that use the [isolated worker model](dotnet-isolated-process-guide.md).
 
 ## Binding to arguments
 
