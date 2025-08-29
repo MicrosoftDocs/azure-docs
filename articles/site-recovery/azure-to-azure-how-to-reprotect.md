@@ -5,7 +5,7 @@ services: site-recovery
 author: jyothisuri
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 03/17/2025
+ms.date: 08/29/2025
 ms.author: jsuri
 # Customer intent: As an IT administrator managing disaster recovery for virtual machines, I want to reprotect VMs to the primary region after a failover, so that I can ensure continuous data replication and quickly restore services to their original location.
 ---
@@ -69,9 +69,6 @@ By default, the following occurs:
 
 1. The target side virtual machine is turned off if it's running.
 1. If the virtual machine is using managed disks, a copy of the original disk is created with an `-ASRReplica` suffix. The original disks are deleted. The `-ASRReplica` copies are used for replication.
-1. If the virtual machine is using unmanaged disks, the target virtual machine's data disks are detached and used for replication. A copy of the OS disk is created and attached on the virtual machine. The original OS disk is detached and used for replication.
-1. Only changes between the source disk and the target disk are synchronized. The differentials are computed by comparing both the disks and then transferred. Check below to find the estimated time to complete the reprotection.
-1. After the synchronization completes, the delta replication begins, and a recovery point is created in line with the replication policy.
 
 **When you trigger a reprotect job, and the target virtual machine and disks don't exist, the following occurs:**
 
