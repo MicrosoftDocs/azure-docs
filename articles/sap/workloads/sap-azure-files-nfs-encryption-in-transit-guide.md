@@ -40,32 +40,32 @@ Steps for setting up Azure Files NFS Encryption in Transit for these two scenari
 
 - Configure an Azure Files storage account, NFS file share, and private endpoint as described in [Create an NFS Azure file share](../../storage/files/storage-files-quick-create-use-linux.md)
 
- > [!NOTE]
- > To enforce Encryption in Transit for all the file shares in the Azure Storage account, enable [secure transfer required](../../storage/files/encryption-in-transit-for-nfs-shares.md#enforce-encryption-in-transit) option in the configuration tab of the storage account.
+  > [!NOTE]
+  > To enforce Encryption in Transit for all the file shares in the Azure Storage account, enable [secure transfer required](../../storage/files/encryption-in-transit-for-nfs-shares.md#enforce-encryption-in-transit) option in the configuration tab of the storage account.
 
 - Deploy the mount helper (AZNFS) package on the Linux VM.
 
   Follow the AZNFS mount helper package installation steps based on operating system.
 
-  #### [For **SLES**](#tab/SUSE)
+ #### [**SLES**](#tab/SUSE)
 
- ```bash
- curl -sSL -O https://packages.microsoft.com/config/$(source /etc/os-release && echo "$ID/${VERSION_ID%%.*}")/packages-microsoft-prod.rpm
- sudo rpm -i packages-microsoft-prod.rpm
- rm packages-microsoft-prod.rpm
- sudo zypper refresh
- sudo zypper install aznfs
- ```
+  ```bash
+  curl -sSL -O https://packages.microsoft.com/config/$(source /etc/os-release && echo "$ID/${VERSION_ID%%.*}")/packages-microsoft-prod.rpm
+  sudo rpm -i packages-microsoft-prod.rpm
+  rm packages-microsoft-prod.rpm
+  sudo zypper refresh
+  sudo zypper install aznfs
+  ```
 
-  #### [For **RHEL**](#tab/RHEL)
+ #### [**RHEL**](#tab/RHEL)
 
- ```bash
- curl -sSL -O https://packages.microsoft.com/config/$(source /etc/os-release && echo "$ID/${VERSION_ID%%.*}")/packages-microsoft-prod.rpm
- sudo rpm -i packages-microsoft-prod.rpm
- rm packages-microsoft-prod.rpm
- sudo yum update
- sudo yum install aznfs
- ```
+  ```bash
+  curl -sSL -O https://packages.microsoft.com/config/$(source /etc/os-release && echo "$ID/${VERSION_ID%%.*}")/packages-microsoft-prod.rpm
+  sudo rpm -i packages-microsoft-prod.rpm
+  rm packages-microsoft-prod.rpm
+  sudo yum update
+  sudo yum install aznfs
+  ```
 
  ---
 
@@ -106,6 +106,7 @@ For high availability setup of SAP on Azure, if you choose the option to use Aur
 Example of command for **SLES** and **RHEL**.
 
 #### [**SLES**](#tab/SUSE)
+
 ```bash
 sudo crm configure primitive fs_NW1_ASCS Filesystem device='sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1ascs' directory='/usr/sap/NW1/ASCS00' fstype='aznfs' options='noresvport,vers=4,minorversion=1,sec=sys,_netdev' \
 op start timeout=60s interval=0 \
