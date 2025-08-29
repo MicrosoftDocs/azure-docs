@@ -366,6 +366,8 @@ For this task, you need to edit the **host.json** file for your Standard logic a
 
 1. In Visual Studio Code, from the **View** menu, select **Command Palette**. Find and select **MCP: Add Server**.
 
+   :::image type="content" source="media/set-up-model-context-protocol-server-standard/visual-studio-code-mcp-add-server.png" alt-text="Screenshot shows Visual Studio Code, Command Palette, and command to add MCP server." lightbox="media/set-up-model-context-protocol-server-standard/visual-studio-code-mcp-add-server.png":::
+
 1. Select **HTTP (HTTP or Server-Sent Events)**. For **Enter Server URL**, provide the URL for your MCP server. 
 
 1. For **Enter Server ID**, provide a meaningful name for your MCP server.
