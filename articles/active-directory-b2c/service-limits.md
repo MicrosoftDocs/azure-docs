@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 07/29/2025
+ms.date: 08/19/2025
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
@@ -169,14 +169,20 @@ The following table lists the administrative configuration limits in the Azure A
 |Number of sign-out URLs per application        |1          |
 |String Limit per Attribute      |250 Chars          |
 |Number of B2C tenants per subscription      |20         |
-|Total number of objects (user accounts and applications) per tenant (default limit)|1.25 million |
-|Total number of objects (user accounts and applications) per tenant (using a verified custom domain). If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md).|5.25 million |
+|Number of objects (user accounts and applications) per tenant (default limit)  <sup>2</sup>|1.25 million|
+|Number of objects (user accounts and applications) per tenant (using a verified custom domain) <sup>3</sup>. If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md).|5.25 million|
+|Number of objects per tenant for Japan Go-Local Azure AD B2C tenants (default limit) <sup>4</sup>|310K|
+|Number of objects per tenant for Japan Go-Local Azure AD B2C tenants (using a verified custom domain) <sup>5</sup>. If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md).|570K|
 |Levels of [inheritance](custom-policy-overview.md#inheritance-model) in custom policies     |10         |
 |Number of policies per Azure AD B2C tenant (user flows + custom policies)     |200          |
 |Maximum policy file size      |1024 KB          |
 |Number of API connectors per tenant     |20         |
 
-<sup>1</sup> See also [Microsoft Entra service limits and restrictions](../active-directory/enterprise-users/directory-service-limits-restrictions.md).
+- <sup>1</sup> See also [Microsoft Entra service limits and restrictions](../active-directory/enterprise-users/directory-service-limits-restrictions.md).
+- <sup>2</sup> 1M user accounts and 250K applications.
+- <sup>3</sup> 5M user accounts and 250K applications.
+- <sup>4</sup> 60K user accounts and 250K applications.
+- <sup>5</sup> 320K user accounts and 250K applications.
 
 ## Region specific service limits 
 

@@ -125,7 +125,7 @@ Open a new bash terminal and do the following steps:
     
     | Parameter | Value |
     | --------- | ----- |
-    | LOCATION | An Azure region close to you. For the list of currently supported regions, see [Supported regions](../overview-iot-operations.md#supported-regions). |
+    | LOCATION | An Azure region close to you. For the list of currently supported regions, see [Supported regions](../overview-support.md#supported-regions). |
     | RESOURCE_GROUP | A name for a new Azure resource group where your cluster will be created. |
     | CLUSTER_NAME | A name for your Kubernetes cluster. |
     | STORAGE_ACCOUNT_NAME | A name for your storage account. Storage account names must be between 3 and 24 characters in length and only contain numbers and lowercase letters. |
@@ -207,7 +207,7 @@ To test the setup is working correctly, use `mosquitto_pub` to connect to the MQ
 
 ## Run a Sample
 
-This sample demonstrates a simple communication between a client and a server using [Telemetry](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/telemetry.md) and [remote procedure call (RPC)](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/rpc-protocol.md). The server tracks the value of a counter and accepts RPC requests from the client to either read or increment that counter.
+This sample demonstrates a simple communication between a client and a server using [Telemetry](https://github.com/Azure/iot-operations-sdks/blob/main/doc/components.md#telemetry-sender) and [remote procedure call (RPC)](https://github.com/Azure/iot-operations-sdks/blob/main/doc/components.md#command-invoker). The server tracks the value of a counter and accepts RPC requests from the client to either read or increment that counter.
 
 1. Install the [.NET 9.0 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
 

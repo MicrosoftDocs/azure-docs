@@ -7,7 +7,7 @@ ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 07/30/2025
+ms.date: 08/18/2025
 ---
 
 # Connector release stages and timelines
@@ -37,7 +37,7 @@ For comprehensive details on support levels and recommended usage at each stage,
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | version 2.0  | GA                  | /                      | /                      |
 |                                                       | version 1.0  | GA                           | To be determined       | /    |
 | [Cassandra](connector-cassandra.md)                          | version 2.0    | GA                                | /                   | /                   |
-|                                    | version 1.0    | End of support announced          | July 31, 2025         | September 30, 2025    |
+|                                    | version 1.0    | End of support         | July 31, 2025         | September 30, 2025    |
 | [Concur (Preview)](connector-concur.md)                   | /              | Removed                    | December 31, 2024     | December 31, 2024     |
 | [Couchbase (Preview)](connector-couchbase.md)                | /              | Removed                    | December 31, 2024     | December 31, 2024     |
 | [Drill](connector-drill.md)                              | /              | Removed                    | December 31, 2024     | December 31, 2024     |
@@ -48,6 +48,8 @@ For comprehensive details on support levels and recommended usage at each stage,
 | [HBase](connector-hbase.md)                              | /              | Removed                    | December 31, 2024     | December 31, 2024     |
 | [Hive](connector-hive.md)                          | version 2.0    | GA                                | /                   | /                   |
 |                                    | version 1.0    | End of support announced          | September 30, 2025         | October 31, 2025    |
+| [HubSpot](connector-hubspot.md)                          | version 2.0    | Public Preview                             | /                   | /                   |
+|                                    | version 1.0    | End of support announced          | October 22, 2025         | November 22, 2025      |
 | [Impala](connector-impala.md)                          | version 2.0    | GA                                | /                   | /                   |
 |                                    | version 1.0    | End of support announced          | September 30, 2025         | October 31, 2025    |
 | [Magento (Preview)](connector-magento.md)                  | /              | Removed                    | December 31, 2024     | December 31, 2024     |
@@ -88,10 +90,12 @@ For comprehensive details on support levels and recommended usage at each stage,
 |                                    | version 1.0    | End of support announced                                |September 30, 2025     | October 31, 2025                  |
 | [SQL Server](connector-sql-server.md)                 | version 2.0  | GA                           | /                      | /                      |
 |                                                       | version 1.0  | GA                           | To be determined       | /       |
+| [Square (Preview)](connector-square.md)                        | version 2.0    | Public Preview                    | /                   |/
+|                                    | version 1.0    | End of support announced                                | October 15, 2025     | November 15, 2025                    |
 | [Teradata](connector-teradata.md)                          | version 2.0    | GA                  | /                   | /                   |
 |                                    | version 1.0    | End of support announced                                | September 30, 2025     | October 31, 2025                     |
 | [Vertica](connector-vertica.md)                            | version 2.0    | GA                                | /                   | /                   |
-|                                    | version 1.0    | End of support announced          | July 31, 2025         | September 30, 2025    |
+|                                    | version 1.0    | End of support       | July 31, 2025         | September 30, 2025    |
 | [Zoho (Preview)](connector-zoho.md)                        | /              | Removed                    | December 31, 2024     | December 31, 2024     |
 
 ## Related content
