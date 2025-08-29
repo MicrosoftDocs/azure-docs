@@ -71,6 +71,7 @@ Steps for setting up Azure Files NFS Encryption in Transit for these two scenari
   rm packages-microsoft-prod.rpm
   sudo yum update
   sudo yum install aznfs
+
   ```
 
   Choose `No` to autoupdate the package during installation. You can also turn off/on autoupdate at any time by changing the value of `AUTO_UPDATE_AZNFS` to false/true respectively in the file `/opt/microsoft/aznfs/data/config`.
