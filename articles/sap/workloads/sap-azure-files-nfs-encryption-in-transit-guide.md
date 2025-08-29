@@ -71,9 +71,9 @@ Steps for setting up Azure Files NFS Encryption in Transit for these two scenari
   
   ---
 
-   Choose `No` to autoupdate the package during installation. You can also turn off/on autoupdate at any time by changing the value of `AUTO_UPDATE_AZNFS` to false/true respectively in the file `/opt/microsoft/aznfs/data/config`.
+      Choose `No` to autoupdate the package during installation. You can also turn off/on autoupdate at any time by changing the value of `AUTO_UPDATE_AZNFS` to false/true respectively in the file `/opt/microsoft/aznfs/data/config`.
 
-   For more information, see the [package installation section](../../storage/files/encryption-in-transit-for-nfs-shares.md#step-1-check-aznfs-mount-helper-package-installation).
+      For more information, see the [package installation section](../../storage/files/encryption-in-transit-for-nfs-shares.md#step-1-check-aznfs-mount-helper-package-installation).
 
 - Create the directories to mount the file shares.
 
@@ -124,6 +124,7 @@ sudo pcs resource create fs_NW1_ASCS Filesystem device='sapnfs.file.core.windows
 directory='/usr/sap/NW1/ASCS00' fstype='aznfs' force_unmount=safe options='noresvport,vers=4,minorversion=1,sec=sys,_netdev' \
 fast_stop=no op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
 --group g-NW1_ASCS
+
 ```
 
 ---
