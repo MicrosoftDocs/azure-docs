@@ -19,19 +19,6 @@ Azure Files NFS v4.1 volumes support [encryption in-transit](https://aka.ms/nfs/
 
 For more information, refer the following document: [Encryption in transit for NFS Azure file shares](../../storage/files/encryption-in-transit-for-nfs-shares.md)
 
-## Supported Linux releases
-
-For SAP on Azure environment, Azure Files NFS Encryption in Transit (EiT) is available for the following Operating System releases.
-
-- SLES for SAP 15 and higher
-- RHEL for SAP 7.9, 8.x, 9.x and higher
-Refer to [SAP Note 1928533](https://me.sap.com/notes/1928533) for Operating system supportability for SAP on Azure systems.
-
-If you're using Azure Files NFS Encryption in Transit for High availability setup and pacemaker Resource Agent is managing the NFS Filesystems, then following Operating System releases are supported.
-
-- SLES for SAP 15 SP 4 and higher
-- RHEL for SAP 8.8, 8.10, 9.x and higher
-
 ## Deploying Encryption in Transit (EiT) for Azure Files NFS Shares
 
 For SAP on Azure environment, mount Azure Files NFS shares from within the VM with two methods.
@@ -39,7 +26,15 @@ For SAP on Azure environment, mount Azure Files NFS shares from within the VM wi
 - File systems configured in /etc/fstab
 - File systems configured as pacemaker resource agent
 
-Steps for setting up Azure Files NFS EiT for these two scenarios are described in this document.
+Steps for setting up Azure Files NFS Encryption in Transit for these two scenarios are described in this document.
+
+> [!Important]
+> For SAP on Azure environments in High Availability(HA)  configuration, and file system managed by Pacemaker, support for Azure Files NFS Encryption in Transit (EiT) is restricted to: 
+>
+> - SLES for SAP 15 SP 4 and higher
+> - RHEL for SAP 8.8, 8.10, 9.x and higher
+>
+> Refer to [SAP Note 1928533](https://me.sap.com/notes/1928533) for Operating system supportability for SAP on Azure systems.
 
 ## Preparations for Azure Files NFS Encryption in Transit deployment
 
@@ -54,7 +49,7 @@ Steps for setting up Azure Files NFS EiT for these two scenarios are described i
 
 Follow the AZNFS mount helper package installation steps based on operating system.
 
-#### [For **SUSE Linux:**](#tab/SUSE)
+#### [For **SUSE Linux**](#tab/SUSE)
 
 ```bash
 curl -sSL -O https://packages.microsoft.com/config/$(source /etc/os-release && echo "$ID/${VERSION_ID%%.*}")/packages-microsoft-prod.rpm
@@ -64,7 +59,7 @@ sudo zypper refresh
 sudo zypper install aznfs
 ```
 
-#### [For **RHEL Linux:**](#tab/RHEL)
+#### [For **RHEL Linux**](#tab/RHEL)
 
 ```bash
 curl -sSL -O https://packages.microsoft.com/config/$(source /etc/os-release && echo "$ID/${VERSION_ID%%.*}")/packages-microsoft-prod.rpm
@@ -98,20 +93,21 @@ sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1  aznfs nore
 mount -a
 ```
 
-For more information, refer to [the section](../../storage/files/encryption-in-transit-for-nfs-shares.md#step-2-mount-the-nfs-file-share) for mounting the Azure Files NFS Encryption in Transit file share in Linux VMs.
+For more information, refer to [mount the NFS file shares section](../../storage/files/encryption-in-transit-for-nfs-shares.md#step-2-mount-the-nfs-file-share) for mounting the Azure Files NFS Encryption in Transit file share in Linux VMs.
 
 - File system mentioned is an example to explain the mount command syntax.
 - To use AZNFS mount helper and Encryption in Transit, use the fstype as `aznfs`. You should always add `_netdev` option to their /etc/fstab entries to make sure file shares are mounted on reboot only after the required services are active.
-- You can add 'notls' option in the mount command, if you don’t intend to use the Encryption in Transit but just want to use AZNFS mount helper to mount the file system. Also, it isn't recommended to use Encryption in Transit and non-Encryption in Transit methods for mounting different file systems using Azure Files NFS in the same Azure VM. Mount commands might fail to mount the file systems if Encryption in Transit and non-Encryption in Transit methods are used in the same VM.
+- It isn't recommended to use Encryption in Transit and non-Encryption in Transit methods for mounting different file systems using Azure Files NFS in the same Azure VM. Mount commands might fail to mount the file systems if Encryption in Transit and non-Encryption in Transit methods are used in the same VM.
 - Mount helper supports private-endpoint based connections for Azure Files NFS Encryption in Transit.
 - If SAP VM is [custom domain joined](/troubleshoot/azure/virtual-machines/linux/custom-dns-configuration-for-azure-linux-vms), then use custom DNS FQDN OR  short names for file share in the '/etc/fstab' as its defined in the DNS. To verify the hostname resolution, check using `nslookup <hostname>` and `getent host <hostname>` commands.
 
 ## Mount the NFS File share as pacemaker cluster resource
 
-For high availability setup of SAP on Azure, to use file system as a resource in pacemaker cluster, and it needs to be mounted using pacemaker cluster command. In the pacemaker commands to setup file system as cluster resource, change the mount type to `aznfs` from `nfs`. Also add `_netdev` in the options section.
+For high availability setup of SAP on Azure, if you choose the option to use Aure Files NFS file system as a resource in pacemaker cluster, then it needs to be mounted using pacemaker cluster command. In the pacemaker commands, to setup file system as cluster resource, change the mount type to `aznfs` from `nfs`. Also add `_netdev` in the options section.
 
-Example of command for **SUSE Linux:**
+Example of command for **SUSE Linux** and **RHEL Linux**.
 
+#### [**SUSE Linux**](#tab/SUSE-HA)
 ```bash
 sudo crm configure primitive fs_NW1_ASCS Filesystem device='sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1ascs' directory='/usr/sap/NW1/ASCS00' fstype='aznfs' options='noresvport,vers=4,minorversion=1,sec=sys,_netdev' \
 op start timeout=60s interval=0 \
@@ -119,7 +115,7 @@ op stop timeout=60s interval=0 \
 op monitor interval=20s timeout=40s
 ```
 
-Example of command for **RHEL Linux:**
+#### [**RHEL Linux**](#tab/RHEL-HA)
 
 ```bash
 sudo pcs resource create fs_NW1_ASCS Filesystem device='sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1ascs' \
@@ -127,6 +123,8 @@ directory='/usr/sap/NW1/ASCS00' fstype='aznfs' force_unmount=safe options='nores
 fast_stop=no op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
 --group g-NW1_ASCS
 ```
+
+---
 
 ## Validation of in-transit data Encryption for Azure Files NFS
 
