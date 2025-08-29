@@ -40,8 +40,8 @@ To create a user-assigned managed identity, your account needs the [Managed Iden
     - **Region**: Choose a region to deploy the user-assigned managed identity, for example, **West US**. **Remember that both gallery and gallery image definition need to be created in the same region.**
     - **Name**: Enter the name for your user-assigned managed identity, for example, UAI1.
 
-   [!INCLUDE [ua-character-limit](/entra-docs/docs/includes/managed-identity-ua-character-limits)]
-
+    > [!NOTE]
+    > When you create user-assigned managed identities, the name must start with a letter or number, and may include a combination of alphanumeric characters, hyphens (-) and underscores (_). For the assignment to a virtual machine or virtual machine scale set to work properly, the name is limited to 24 characters. For more information, see FAQs and known issues.
 
 1. Select **Review + create** to review the changes.
 1. Select **Create**.
