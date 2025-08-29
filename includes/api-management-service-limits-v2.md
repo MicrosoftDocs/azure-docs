@@ -35,11 +35,11 @@ ms.custom: Include file
 | Loggers  | 100 | 100 | 100 |
 | Schemas  | 100 | 100 | 100 |
 | Schemas per API | 100 | 100 | 100 |
-| Tags  | 100 | 100 | 100 |
-| Tags per API | 100 | 100 | 100 |
+| Tags  | 100,000 | 100,000 | 100,000 |
+| Tags per API | 500 | 500 | 500 |
 | Version sets  | 100 | 100 | 100 |
 | Releases per API | 100 | 100 | 100 |
-| Operations per API | 100 | 100 | 100 |
+| Operations per API | 200 | 200 | 200 |
 | GraphQL resolvers  | 100 | 100 | 100 |
 | GraphQL resolvers per API | 100 | 100 | 100 |
 | APIs per product | 100 | 100 | 100 |
