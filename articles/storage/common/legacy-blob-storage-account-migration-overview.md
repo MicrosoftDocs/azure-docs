@@ -71,9 +71,9 @@ To minimize risk and ensure a smooth migration:
 
 ## Identify legacy blob storage accounts using Azure Resource Graph
 
-Azure Resource Graph is a powerful tool that allows you to explore and query your Azure resources at scale. You can use it to identify all GPv1 storage accounts in your environment and assess their configurations. This can help you plan your migration to GPv2 more effectively.
+Azure Resource Graph is a powerful tool for exploring and querying your Azure resources at scale. You can use it to identify all legacy Blob storage and General Purpose v1 (GPv1) accounts in your environment and assess their configurations. This helps you plan your migration to GPv2 more effectively.
 
-Here is an example query to find all GPv1 storage accounts:
+Here’s an example Azure Resource Graph query to identify all legacy Blob storage accounts (kind `BlobStorage`) and General Purpose v1 (GPv1) storage accounts (kind `Storage`) within your subscription that are impacted by the retirement:
 
 ```
 Resources
@@ -84,6 +84,7 @@ Resources
 | project name, type, tenantId, kind, location, resourceGroup, subscriptionId, managedBy, sku, plan, properties, tags, identity, zones, extendedLocation, Version
 
 ```
+[!NOTE] This query identifies both legacy blob storage accounts (kind `BlobStorage`) and GPv1 accounts (kind `Storage`) regardless of redundancy, which are also being retired. Review both account types to ensure all impacted accounts are included in your migration plan.
 
 ## What happens if you don’t migrate by the deadline
 After **August 31, 2026**, you'll no longer be able to manage legacy blob storage accounts. After **September 2026**, if you don't migrate your legacy blob storage account to general-purpose v2, all existing legacy blob storage accounts are auto migrated over to a general-purpose v2 account, which may result in higher billing costs. Your decision not to migrate an existing legacy blob storage account will be construed as consent for Microsoft to migrate the account on your behalf.
@@ -102,9 +103,9 @@ If you have a support plan and you need technical help, create a support request
 1. For **Subscription**, select your subscription.
 1. For **Service**, select **My services**.
 1. For **Service type**, select **Storage Account Management**.
-1. For **Resource**, select the resource you want to migrate.
-1. For **Problem type**, select **Data Migration**.
-1. For **Problem subtype**, select **Migrate account to new resource group/subscription/region/tenant**.
+1. For **Resource**, select **the resource you want to migrate**.
+1. For **Problem type**, select **Upgrade or change account type, tier or replication**.
+1. For **Problem subtype**, select **Upgrade to general purpose v2 storage account.**.
 1. Select **Next**, then follow the instructions to submit your support request.
 
 

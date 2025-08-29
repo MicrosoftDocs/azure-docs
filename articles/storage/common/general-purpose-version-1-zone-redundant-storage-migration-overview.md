@@ -78,19 +78,21 @@ To minimize risk and ensure a smooth migration:
 
 ## Identify GPv1 with ZRS accounts using Azure Resource Graph
 
-Azure Resource Graph is a powerful tool that allows you to explore and query your Azure resources at scale. You can use it to identify all general purpose v1 (GPv1) with ZRS redundancy storage accounts in your environment and assess their configurations. This can help you plan your migration to GPv2 more effectively.
+Azure Resource Graph is a powerful tool for exploring and querying your Azure resources at scale. You can use it to identify all General Purpose v1 (GPv1) and legacy Blob storage accounts in your environment and assess their configurations. This helps you plan your migration to GPv2 more effectively.
 
-Here is an example query to find all GPv1 ZRS standard storage accounts:
+Here’s an example Azure Resource Graph query to identify all General Purpose v1 (GPv1) storage accounts (kind `Storage`) and legacy Blob storage accounts (kind `BlobStorage`) within your subscription that are impacted by the retirement:
 
 ```
 Resources
 | where type == "microsoft.storage/storageaccounts"
-| where sku.name in~ ("Standard_ZRS")
+| where sku.name in~ ("Standard_LRS", "Standard_GRS", "Standard_ZRS", "Standard_RAGRS", "Standard_RAGZRS")
 | where kind != "StorageV2"
 | extend Version = tostring(properties.siteProperties.propertiesid)
 | project name, type, tenantId, kind, location, resourceGroup, subscriptionId, managedBy, sku, plan, properties, tags, identity, zones, extendedLocation, Version
 
 ```
+[!NOTE] This query identifies both GPv1 accounts (kind `Storage`) and legacy blob storage accounts (kind `BlobStorage`) regardless of redundancy. Since both account types are being retired, be sure to review and include all affected accounts in your migration plan.
+
 ## Regions without ZRS support
 The following regions do not support Zone Redundant Storage (ZRS), if you have a general purpose v1 (GPv1) with ZRS redundancy account in one or more of the following regions, please reach out to support to discuss moving to either LRS or GRS or migrating to a region that supports ZRS:
 
@@ -127,7 +129,7 @@ If you have a support plan and you need technical help, create a support request
 1. For **Service type**, select **Storage Account Management**.
 1. For **Resource**, select **the resource you want to migrate**.
 1. For **Problem type**, select **Upgrade or change account type, tier or replication**.
-1. For **Problem subtype**, select **Upgrade to General Purpose v2 storage account.**.
+1. For **Problem subtype**, select **Upgrade to general purpose v2 storage account.**.
 1. Select **Next**, then follow the instructions to submit your support request.
 
 

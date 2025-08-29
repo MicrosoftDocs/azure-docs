@@ -86,9 +86,9 @@ To minimize risk and ensure a smooth migration:
 
 ### Azure Resource Graph - Example Query 
 
-Azure Resource Graph is a powerful tool that allows you to explore and query your Azure resources at scale. You can use it to identify all GPv1 storage accounts in your environment and assess their configurations. This can help you plan your migration to GPv2 more effectively.
+Azure Resource Graph is a powerful tool for exploring and querying your Azure resources at scale. You can use it to identify all General Purpose v1 (GPv1) and legacy Blob storage accounts in your environment and assess their configurations. This helps you plan your migration to GPv2 more effectively.
 
-Here is an example query to find all GPv1 storage accounts:
+Here’s an example Azure Resource Graph query to identify all General Purpose v1 (GPv1) storage accounts (kind `Storage`) and legacy Blob storage accounts (kind `BlobStorage`) within your subscription that are impacted by the retirement:
 
 ```
 Resources
@@ -99,6 +99,7 @@ Resources
 | project name, type, tenantId, kind, location, resourceGroup, subscriptionId, managedBy, sku, plan, properties, tags, identity, zones, extendedLocation, Version
 
 ```
+[!NOTE] This query identifies both GPv1 accounts (kind `Storage`) and legacy blob storage accounts (kind `BlobStorage`) regardless of redundancy. Since both account types are being retired, be sure to review and include all affected accounts in your migration plan.
 
 ## What happens if you don’t migrate by the deadline
 > [!Warning]
@@ -118,9 +119,9 @@ If you have a support plan and you need technical help, create a support request
 1. For **Subscription**, select your subscription.
 1. For **Service**, select **My services**.
 1. For **Service type**, select **Storage Account Management**.
-1. For **Resource**, select the resource you want to migrate.
-1. For **Problem type**, select **Data Migration**.
-1. For **Problem subtype**, select **Migrate account to new resource group/subscription/region/tenant**.
+1. For **Resource**, select **the resource you want to migrate**.
+1. For **Problem type**, select **Upgrade or change account type, tier or replication**.
+1. For **Problem subtype**, select **Upgrade to general purpose v2 storage account.**.
 1. Select **Next**, then follow the instructions to submit your support request.
 
 
