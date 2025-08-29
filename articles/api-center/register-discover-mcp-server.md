@@ -4,7 +4,7 @@ description: Learn about how Azure API Center can be a centralized registry for 
 author: dlepow
 ms.service: azure-api-center
 ms.topic: concept-article
-ms.date: 07/22/2025
+ms.date: 08/04/2025
 ms.author: danlep 
 # Customer intent: As an API program manager, I want to register and discover  MCP servers as APIs in my API Center inventory.
 ms.custom:
@@ -65,6 +65,8 @@ You can use the following lightweight OpenAPI 3.0 API definition for your MCP se
 
 Set up the [API Center portal](set-up-api-center-portal.md) so that developers and other stakeholders in your organization can discover MCP servers in your API inventory. Users can browse and filter MCP servers in the inventory and view details such as the URL endpoint of the MCP server, if available in the MCP server's API definition. 
 
+For a live example of how Azure API Center can power your private, enterprise-ready MCP registry, visit [https://mcp.azure.com](https://mcp.azure.com).
+
 :::image type="content" source="media/register-discover-mcp-server/mcp-server-portal-small.png" lightbox="media/register-discover-mcp-server/mcp-server-portal.png" alt-text="Screenshot of MCP server in API Center portal.":::
 
 > [!NOTE]
@@ -72,6 +74,7 @@ Set up the [API Center portal](set-up-api-center-portal.md) so that developers a
 
 ## Related content
 
+* [About MCP servers in API Management](../api-management/mcp-server-overview.md)
 * [Import APIs to your API center from API Management](import-api-management-apis.md)
 * [Use the Visual Studio extension for API Center](build-register-apis-vscode-extension.md) to build and register APIs from Visual Studio Code.
 

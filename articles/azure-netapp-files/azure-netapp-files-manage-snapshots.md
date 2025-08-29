@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 10/25/2024
+ms.date: 07/25/2025
 ms.author: anfdocs
 # Customer intent: "As a cloud administrator, I want to create on-demand snapshots for volumes in Azure NetApp Files, so that I can ensure data protection and quick recovery options for my applications."
 ---
@@ -14,7 +14,7 @@ ms.author: anfdocs
 Azure NetApp Files supports creating on-demand [snapshots](snapshots-introduction.md) and using snapshot policies to schedule automatic snapshot creation. You can also restore a [snapshot to a new volume](snapshots-restore-new-volume.md), [restore a single file by using a client](snapshots-restore-file-client.md), or [revert an existing volume by using a snapshot](snapshots-revert-volume.md). This article explains how to create an on-demand snapshot for a volume. 
 
 > [!NOTE] 
-> * For considerations about snapshot management in cross-region replication, see [Requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md).
+> * For considerations about snapshot management in cross-region replication, see [Requirements and considerations for using cross-region replication](replication-requirements.md).
 > * You can use Azure Application Consistent Snapshot tool (AzAcSnap) to enable data protection for third-party databases. For more information, see What is [Azure Application Consistent Snapshot tool](azacsnap-introduction.md).
  
 ## Steps
@@ -38,5 +38,6 @@ Azure NetApp Files supports creating on-demand [snapshots](snapshots-introductio
 * [Learn more about snapshots](snapshots-introduction.md)
 * [Manage snapshot policies with Azure NetApp Files](snapshots-manage-policy.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
+* [Create a short-term clone from an Azure NetApp File snapshot](create-short-term-clone.md)
 * [Azure NetApp Files Snapshots 101 video](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)
 * [What is Azure Application Consistent Snapshot Tool](azacsnap-introduction.md)

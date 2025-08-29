@@ -10,6 +10,7 @@ ms.devlang: javascript
 zone_pivot_groups: app-service-vscode-cli-portal
 ms.custom: mvc, devcenter, devdivchpfy22, devx-track-js, ai-video-demo
 ai-usage: ai-assisted
+ms.service: azure-app-service
 ---
 
 # Deploy a Node.js web app in Azure

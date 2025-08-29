@@ -3,9 +3,9 @@ title: Download a blob with Go
 titleSuffix: Azure Storage
 description: Learn how to download a blob in Azure Storage by using the Go client library.
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.date: 09/30/2024
 ms.service: azure-blob-storage
 ms.topic: how-to

@@ -1,0 +1,294 @@
+{
+    "redirections": [
+        { 
+            "source_path_from_root": "/articles/load-testing/index.yml",
+            "redirect_url": "/azure/app-testing/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-update-rerun-test.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-monitor-server-side-metrics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/tutorial-cicd-azure-pipelines.md",
+            "redirect_url": "/azure/app-testing/load-testing/quickstart-add-load-test-cicd",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/tutorial-cicd-github-actions.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-configure-load-test-cicd",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-find-download-logs.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-diagnose-failing-load-test",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-appservice-insights.md",
+            "redirect_url": "/azure/app-testing/load-testing/concept-load-test-app-service",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-troubleshoot-failing-test.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-diagnose-failing-load-test",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/tutorial-identify-performance-regression-with-cicd.md",
+            "redirect_url": "/azure/app-testing/load-testing/quickstart-add-load-test-cicd",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/concept-azure-load-testing-vnet-injection.md",
+            "redirect_url": "/azure/app-testing/load-testing/concept-azure-load-testing-vnet-injection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/concept-load-test-app-service.md",
+            "redirect_url": "/azure/app-testing/load-testing/concept-load-test-app-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/concept-load-testing-concepts.md",
+            "redirect_url": "/azure/app-testing/load-testing/concept-load-testing-concepts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-add-requests-to-url-based-test.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-add-requests-to-url-based-test",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-analyze-test-results-using-actionable-insights.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-analyze-test-results-using-actionable-insights",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-assign-roles.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-assign-roles",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-compare-multiple-test-runs.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-compare-multiple-test-runs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-configure-customer-managed-keys.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-configure-customer-managed-keys",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-configure-load-test-cicd.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-configure-load-test-cicd",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-configure-user-properties.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-configure-user-properties",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-create-and-run-load-test-with-jmeter-script.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-create-and-run-load-test-with-jmeter-script",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-create-load-test-app-service.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-create-load-test-app-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-create-load-test-function-app.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-create-load-test-function-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-create-manage-test.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-create-manage-test",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-create-manage-test-runs.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-create-manage-test-runs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-create-notification-rules.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-create-notification-rules",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-define-test-criteria.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-define-test-criteria",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-diagnose-failing-load-test.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-diagnose-failing-load-test",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-export-test-results.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-export-test-results",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-generate-load-from-multiple-regions.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-generate-load-from-multiple-regions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-high-scale-load.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-high-scale-load",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-manage-usage-limits.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-manage-usage-limits",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-monitor-server-side-metrics.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-monitor-server-side-metrics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-move-between-regions.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-move-between-regions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-move-between-resource-groups-subscriptions.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-move-between-resource-groups-subscriptions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-optimize-azure-functions.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-optimize-azure-functions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-parameterize-load-tests.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-parameterize-load-tests",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-read-csv-data.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-read-csv-data",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-run-tests-in-debug-mode.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-run-tests-in-debug-mode",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-schedule-tests.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-schedule-tests",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-test-private-endpoint.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-test-private-endpoint",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-test-secured-endpoints.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-test-secured-endpoints",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-use-a-managed-identity.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-use-a-managed-identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-use-azure-policy.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-use-azure-policy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-use-jmeter-plugins.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-use-jmeter-plugins",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/how-to-use-multiple-certificates.md",
+            "redirect_url": "/azure/app-testing/load-testing/how-to-use-multiple-certificates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/monitor-load-testing.md",
+            "redirect_url": "/azure/app-testing/load-testing/monitor-load-testing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/monitor-load-testing-reference.md",
+            "redirect_url": "/azure/app-testing/load-testing/monitor-load-testing-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/overview-what-is-azure-load-testing.md",
+            "redirect_url": "/azure/app-testing/load-testing/overview-what-is-azure-load-testing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/quickstart-add-load-test-cicd.md",
+            "redirect_url": "/azure/app-testing/load-testing/quickstart-add-load-test-cicd",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/quickstart-create-and-run-load-test.md",
+            "redirect_url": "/azure/app-testing/load-testing/quickstart-create-and-run-load-test",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/quickstart-create-run-load-tests-from-visual-studio-code.md",
+            "redirect_url": "/azure/app-testing/load-testing/quickstart-create-run-load-tests-from-visual-studio-code",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/quickstart-create-run-load-test-with-locust.md",
+            "redirect_url": "/azure/app-testing/load-testing/quickstart-create-run-load-test-with-locust",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/reference-test-config-yaml.md",
+            "redirect_url": "/azure/app-testing/load-testing/reference-test-config-yaml",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/resource-jmeter-property-overrides.md",
+            "redirect_url": "/azure/app-testing/load-testing/resource-jmeter-property-overrides",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/resource-jmeter-support.md",
+            "redirect_url": "/azure/app-testing/load-testing/resource-jmeter-support",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/resource-limits-quotas-capacity.md",
+            "redirect_url": "/azure/app-testing/load-testing/resource-limits-quotas-capacity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/resource-supported-azure-resource-types.md",
+            "redirect_url": "/azure/app-testing/load-testing/resource-supported-azure-resource-types",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/troubleshoot-private-endpoint-tests.md",
+            "redirect_url": "/azure/app-testing/load-testing/troubleshoot-private-endpoint-tests",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-testing/tutorial-identify-bottlenecks-azure-portal.md",
+            "redirect_url": "/azure/app-testing/load-testing/tutorial-identify-bottlenecks-azure-portal",
+            "redirect_document_id": false
+        }
+    ]
+}

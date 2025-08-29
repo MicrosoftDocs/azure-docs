@@ -61,9 +61,11 @@ To view the list of Dynamic scopes associated to a given maintenance configurati
 1. In the **Maintenance configurations** page, select the name of the maintenance configuration for which you want to edit an existing Dynamic scope. 
 1. In the given maintenance configuration page > select **Dynamic scopes** and select the scope you want to edit. Under **Actions** column, select the edit icon.
 1. In the **Edit Dynamic scope**, select the edit icon in the **Filter By** to edit the filters as needed and select **Ok**.
-   > [!NOTE]
-   > Subscription is mandatory for the creation of dynamic scope and you can't edit it after the dynamic scope is created.
 1. Select **Save**.
+   > [!IMPORTANT]
+   > + Dynamic scope can be created either at the subscription or resource group level. Subscription or resource group is mandatory for the creation of dynamic scope and you can't edit it after the dynamic scope is created. 
+   >
+   > + Resources eligible to be attached to a dynamic scope are determined by the level at which the dynamic scope is created. For instance, if the scope is set at the resource group level (e.g. RG1), resources from other groups (e.g. RG2) even under the same subscription, will be unassigned if attached to the dynamic scope created under RG1. 
 
 ## Delete a Dynamic scope
 

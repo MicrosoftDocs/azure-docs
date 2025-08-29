@@ -30,8 +30,8 @@ items:
     items:
     - name: Data residency and user privacy
       href: concepts/privacy.md
-    - name: Create a Network Security Perimeter (NSP)
-      href: quickstarts/network-security-perimeter.md
+#   - name: Create a Network Security Perimeter (NSP)
+#     href: quickstarts/network-security-perimeter.md
     - name: European Union Data Boundary
       href: concepts/european-union-data-boundary.md
     - name: Azure Government
@@ -58,6 +58,10 @@ items:
     href: concepts/credentials-best-practices.md
   - name: Use cases for string identifiers
     href: concepts/raw-id-use-cases.md
+  - name: Build an authentication service using Azure Functions
+    href: tutorials/trusted-service-tutorial.md
+  - name: Authentication service hero sample
+    href: samples/trusted-auth-sample.md
   - name: Presence events
     href: ../event-grid/communication-services-presence-events.md
   - name: References
@@ -118,8 +122,6 @@ items:
       href: concepts/analytics/logs/chat-logs.md
     - name: Chat insights
       href: concepts/analytics/insights/chat-insights.md
-    - name: Export SDK telemetry to Application Insights
-      href: quickstarts/telemetry-application-insights.md
   - name: Samples and tutorials
     items:
     - name: Create a chat access token
@@ -150,8 +152,6 @@ items:
       href: quickstarts/chat/react-native.md
     - name: Enable push notifications in your chat app
       href: tutorials/add-chat-push-notifications.md
-    - name: Build an authentication service using Azure Functions
-      href: tutorials/trusted-service-tutorial.md
     - name: Add a bot to your chat app
       href: quickstarts/chat/quickstart-botframework-integration.md
     - name: Integrate an OpenAI bot with chat
@@ -160,8 +160,6 @@ items:
       href: how-tos/chat-sdk/data-loss-prevention.md
     - name: Chat hero sample
       href: samples/chat-hero-sample.md
-    - name: Authentication service hero sample
-      href: samples/trusted-auth-sample.md
   - name: References
     items:
     - name: Chat (JavaScript)
@@ -240,6 +238,8 @@ items:
         href: quickstarts/email/send-email-advanced/throw-exception-when-tier-limit-reached.md
       - name: Use email object model for payload
         href: quickstarts/email/send-email-advanced/use-email-object-model-for-payload.md
+      - name: Hydrating messageId using EmailClient
+        href: quickstarts/email/send-email-advanced/hydrate-email-client-with-message-id.md
   - name: Manage sender reputation
     items:
     - name: Understand sender reputation
@@ -278,8 +278,8 @@ items:
       href: concepts/email-metrics.md
     - name: Email insights
       href: concepts/analytics/insights/email-insights.md
-    - name: Export SDK telemetry to Application Insights
-      href: quickstarts/telemetry-application-insights.md
+ #  - name: Export SDK telemetry to Application Insights
+ #    href: quickstarts/telemetry-application-insights.md
   - name: Samples and tutorials
     items:
     - name: Detect sensitive data using Azure AI
@@ -342,8 +342,8 @@ items:
       href: concepts/analytics/sms-metrics.md
     - name: SMS insights
       href: concepts/analytics/insights/sms-insights.md
-    - name: Export SDK telemetry to Application Insights
-      href: quickstarts/telemetry-application-insights.md
+#   - name: Export SDK telemetry to Application Insights
+#     href: quickstarts/telemetry-application-insights.md
   - name: Samples and tutorials
     items:
     - name: Get a phone number
@@ -542,6 +542,9 @@ items:
     - name: Enable video background effects
       href: quickstarts/voice-video-calling/get-started-video-effects.md
       displayName: background blur, background replace, background replacement, frosted glass
+    - name: Enable volume indicator controls
+      href: quickstarts/voice-video-calling/get-started-volume-indicator.md
+      displayName: volume, audio level, microphone sensitivity, taling indicator, volume input, sound intensity, volume display  
     - name: Pass user-to-user information (UUI) data in a header
       href: how-tos/calling-sdk/call-context.md
     - name: Data channel
@@ -647,8 +650,6 @@ items:
       href: concepts/analytics/rooms-metrics.md
     - name: Closed captions logs
       href: concepts/analytics/logs/closed-captions-logs.md
-    - name: Export SDK telemetry to Application Insights
-      href: quickstarts/telemetry-application-insights.md
   - name: Quality and diagnostics
     items:
     - name: Optimize call quality
@@ -964,8 +965,6 @@ items:
       href: concepts/analytics/log-analytics.md
     - name: Set up call monitoring and alerting
       href: concepts/analytics/set-up-call-monitoring.md
-    - name: Export SDK telemetry to Application Insights
-      href: quickstarts/telemetry-application-insights.md
   - name: Samples and tutorials
     items:
     - name: Get a trial phone number

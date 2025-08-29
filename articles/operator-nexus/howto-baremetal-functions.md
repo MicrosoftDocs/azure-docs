@@ -5,7 +5,7 @@ author: eak13
 ms.author: ekarandjeff
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 04/02/2025
+ms.date: 08/12/2025
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -31,6 +31,9 @@ The Cordon action without the `evacuate` parameter isn't considered disruptive w
 [!INCLUDE [caution-affect-cluster-integrity](./includes/baremetal-machines/caution-affect-cluster-integrity.md)]
 
 [!INCLUDE [important-donot-disrupt-kcpnodes](./includes/baremetal-machines/important-donot-disrupt-kcpnodes.md)]
+
+> [!TIP]
+> In version 2509.1 and above, you can monitor recent or in-progress BMM actions in the Azure portal. For more information, see [Monitor status in Bare Metal Machine JSON properties](./howto-bare-metal-best-practices.md#monitor-status-in-bare-metal-machine-json-properties).
 
 [!INCLUDE [prerequisites-azure-cli-bare-metal-machine-actions](./includes/baremetal-machines/prerequisites-azure-cli-bare-metal-machine-actions.md)]
 
@@ -82,7 +85,7 @@ Existing workloads continue to run on the Bare Metal Machine unless the workload
 
 ### Drain Bare Metal Machine workloads
 
-The cordon command supports the `evacuate` parameter which its default value `False` means that the `cordon` command prevents scheduling new workloads.
+The cordon command supports the `evacuate` parameter, for which its default value `False` means that the `cordon` command prevents scheduling new workloads.
 To drain workloads with the `cordon` command, the `evacuate` parameter must be set to `True`.
 The workloads running on the Bare Metal Machine are `stopped` and the Bare Metal Machine is set to `pending` state.
 
@@ -173,7 +176,7 @@ az networkcloud baremetalmachine replace \
 
 If the `replace` action fails due to a hardware validation failure, the specific error or test failure is shown in the `replace` response, as shown in the following examples.
 This information can also be found in the Activity Log for the Bare Metal Machine (Operator Nexus).
-The error code and error message are included the JSON properties of the corresponding `BareMetalMachines_Replace` operation.
+The error code and error message are also included in the JSON properties of the corresponding `BareMetalMachines_Replace` operation.
 
 **Example 1: Hardware validation fails due to invalid Key Vault URI for Baseboard Management Controller (BMC) credentials**
 
@@ -193,6 +196,9 @@ $ az networkcloud baremetalmachine replace --name rack1compute02 --resource-grou
 Code: None
 Message: BMC login unsuccessful: Fail - Unauthorized; System health test(s) failed: [Additional logs: Server power down at end of test failed with: Unauthorized]
 ```
+
+> [!NOTE]
+> When hardware validation fails due to BMC credential authentication issues (Unauthorized), the action is rejected but the Bare Metal Machine isn't marked as failed or put into an error state. The Bare Metal Machine maintains its current operational status while the hardware validation reports the credential authentication failure.
 
 **Example 3: Hardware validation fails due to networking failure**
 

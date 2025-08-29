@@ -4,7 +4,7 @@ description: Learn how TLS and SSL work in Azure App Service, including TLS vers
 keywords: Azure App Service, SSL, TLS, HTTPS, certificate management, TLS mutual authentication, secure bindings, SSL certificates, App Service Certificates, SSL in code, TLS versions
 ms.topic: overview
 ms.date: 04/17/2025
-ms.update-cycle: 1095-days
+ms.update-cycle: 180-days
 ms.author: msangapu
 author: msangapu-msft
 ms.service: azure-app-service
@@ -44,7 +44,7 @@ Azure App Service supports the following TLS versions for incoming requests to y
 
 You can configure the *minimum TLS version* for incoming requests to your web app and its Source Control Manager (SCM) site. By default, the minimum is set to **TLS 1.2**.
 
-You can use Azure Policy to help audit your resources and minimum TLS version. Go to [App Service apps should use the latest TLS version policy definition](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff0e6e85b-9b9f-4a4b-b67b-f730d42f1b0b) and change the values to the minimum TLS version you want your web apps to use. For related policy definitions for other App Service resources, see [List of built-in policy definitions - Azure Policy for App Service](../governance/policy/samples/built-in-policies.md#app-service).
+You can use Azure Policy to help audit your resources and minimum TLS version. Go to [App Service apps should use the latest TLS version policy definition](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff0e6e85b-9b9f-4a4b-b67b-f730d42f1b0b) and change the values to the minimum TLS version you want your web apps to use. For related policy definitions for other App Service resources, see [List of built-in policy definitions - Azure Policy for App Service](/azure/governance/policy/samples/built-in-policies#app-service).
 
 ### TLS 1.3
 

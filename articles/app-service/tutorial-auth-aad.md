@@ -11,6 +11,7 @@ ms.custom: devx-track-azurecli, engagement-fy23, AppServiceIdentity, linux-relat
 zone_pivot_groups: app-service-platform-windows-linux
 # Requires non-internal subscription - internal subscriptions doesn't provide permission to correctly configure Microsoft Entra apps
 #customer intent: As an app developer, I want to authenticate and authorize uses seamlessly for front-end and back-end apps in the Azure App Service.
+ms.service: azure-app-service
 ---
 
 # Tutorial: Authenticate and authorize users end-to-end in Azure App Service

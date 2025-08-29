@@ -4,8 +4,8 @@ description: Find which Azure regions support Service Connector for App Service,
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
-ms.topic: conceptual
-ms.date: 08/18/2025
+ms.date: 08/29/2025
+ms.topic: concept-article
 ms.custom: references_regions
 #customer intent: As a developer supporting Azure services, I want to know which regions are supported for Service Connector.
 ---

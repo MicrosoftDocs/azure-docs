@@ -148,6 +148,12 @@ items:
           href: tutorial-ai-openai-search-nodejs.md
         - name: Chatbot with local SLM
           href: tutorial-ai-slm-expressjs.md
+        - name: Add MCP server to app
+          href: tutorial-ai-model-context-protocol-server-node.md
+        - name: AI Foundry Agent calling web app
+          href: tutorial-ai-integrate-azure-ai-agent-node.md
+        - name: Agentic web app
+          href: tutorial-ai-agent-web-app-langgraph-foundry-node.md
   - name: Python
     items:
     - name: Quickstart
@@ -172,6 +178,12 @@ items:
           href: tutorial-ai-openai-search-python.md
         - name: Chatbot with local SLM
           href: tutorial-ai-slm-fastapi.md
+        - name: Add MCP server to app
+          href: tutorial-ai-model-context-protocol-server-python.md
+        - name: AI Foundry Agent calling web app
+          href: tutorial-ai-integrate-azure-ai-agent-python.md
+        - name: Agentic web app
+          href: tutorial-ai-agent-web-app-langgraph-foundry-python.md
         - name: Web app from Azure AI Foundry
           href: /azure/ai-foundry/tutorials/deploy-chat-web-app?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
   - name: PHP
@@ -589,6 +601,8 @@ items:
       href: routine-maintenance.md
     - name: Routine maintenance, Restarts, and Downtime
       href: routine-maintenance-downtime.md
+    - name: App Service Managed Certificate July 2025 Changes
+      href: app-service-managed-certificate-changes-july-2025.md
     - name: Language support policy
       href: operating-system-functionality.md
     - name: OS functionality

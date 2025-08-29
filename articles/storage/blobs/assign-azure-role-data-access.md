@@ -2,8 +2,8 @@
 title: Assign an Azure role for access to blob data
 titleSuffix: Azure Storage
 description: Learn how to assign permissions for blob data to a Microsoft Entra security principal with Azure role-based access control (Azure RBAC). Azure Storage supports built-in and Azure custom roles for authentication and authorization via Microsoft Entra ID.
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/28/2024
@@ -189,3 +189,4 @@ Keep in mind the following points about Azure role assignments in Azure Storage:
 
 - [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
 - [Best practices for Azure RBAC](../../role-based-access-control/best-practices.md)
+

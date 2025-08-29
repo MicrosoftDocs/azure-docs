@@ -1,34 +1,32 @@
 ---
-title: Azure Migrate support matrix
-description: Provides a summary of support settings and limitations for the Azure Migrate service.
+title: Support Matrix
+description: This article provides a summary of support settings and limitations for the Azure Migrate service.
 author: Vikram1988
 ms.author: vibansa
 ms.topic: concept-article
 ms.date: 05/08/2025
 ms.custom: engagement-fy24
-# Customer intent: As a cloud architect, I want to understand the Azure Migrate support matrix, so that I can determine the service's capabilities and limitations for assessing and migrating our on-premises workloads to the Azure cloud effectively.
+# Customer intent: As a cloud architect, I want to understand the Azure Migrate support matrix so that I can determine the service's capabilities and limitations for assessing and migrating on-premises workloads to Azure effectively.
 ---
 
 # Azure Migrate support matrix
 
-You can use the [Azure Migrate service](./migrate-services-overview.md) to assess and migrate servers to the Microsoft Azure cloud. This article summarizes general support settings and limitations for Azure Migrate scenarios and deployments.
+You can use the [Azure Migrate service](./migrate-services-overview.md) to assess and migrate servers to the Microsoft Azure cloud platform. This article summarizes general support settings and limitations for Azure Migrate scenarios and deployments.
 
-## Supported assessment/migration scenarios
+## Supported scenarios
 
-The table summarizes supported discovery, assessment, and migration scenarios.
-
-**Deployment** | **Details**
+Deployment | Details
 --- | ---
-**Discovery** | You can discover server metadata, and dynamic performance data.
-**Software inventory** | You can discover apps, roles, and features running on VMware VMs. Currently this feature is limited to discovery only. Assessment is currently at the server level. We don't yet offer app, role, or feature-based assessments.
-**Assessment** | Assess on-premises workloads and data running on VMware VMs, Hyper-V VMs, and physical servers. Assess using Azure Migrate: Discovery and assessment, Microsoft Data Migration Assistant (DMA), as well as other tools and ISV offerings.
-**Migration** | Migrate workloads and data running on physical servers, VMware VMs, Hyper-V VMs, physical servers, and cloud-based VMS to Azure. Migrate using the Migration and modernization tool and Azure Database Migration Service (DMS), and well as other tools and ISV offerings.
+Discovery | Discover server metadata and dynamic performance data.
+Software inventory | Discover apps, roles, and features running on VMware virtual machines (VMs). Currently, this feature is limited to discovery only. Assessment is currently at the server level. We don't yet offer app, role, or feature-based assessments.
+Assessment | Assess on-premises workloads and data running on VMware VMs, Hyper-V VMs, and physical servers. Assess by using Azure Migrate Discovery and Assessment, Microsoft Data Migration Assistant, and tools from other software development companies.
+Migration | Migrate workloads and data running on physical servers, VMware VMs, Hyper-V VMs, physical servers, and cloud-based VMs to Azure. Migrate by using Azure Migrate and Modernize, Azure Database Migration Service, and tools from other software development companies.
 
 ## Project
 
-**Support** | **Details**
+Support | Details
 --- | ---
-Subscription | Can have multiple projects within a subscription.
+Subscription | You can have multiple projects within a subscription.
 Azure permissions | Users need Contributor or Owner permissions in the subscription to create a project.
 VMware VMs  | Assess up to 35,000 VMware VMs in a single project.
 Hyper-V VMs    | Assess up to 35,000 Hyper-V VMs in a single project.
@@ -37,29 +35,27 @@ A project can include both VMware VMs and Hyper-V VMs, up to the assessment limi
 
 ## Azure permissions
 
-For Azure Migrate to work with Azure you need these permissions before you start assessing and migrating servers.
+For Azure Migrate to work with Azure, you need these permissions before you start assessing and migrating servers:
 
-**Task** | **Permissions** | **Details**
+Task | Permissions | Details
 --- | --- | ---
 Create a project | Your Azure account needs permissions to create a project. | Set up for [VMware](./tutorial-discover-vmware.md#prepare-an-azure-user-account), [Hyper-V](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account), or [physical servers](create-project.md).
-Register the Azure Migrate appliance| Azure Migrate uses a lightweight [Azure Migrate appliance](migrate-appliance.md) to discover and assess servers with Azure Migrate: Discovery and assessment, and to run [agentless migration](server-migrate-overview.md) of VMware VMs with the Migration and modernization tool. This appliance discovers servers, and sends metadata and performance data to Azure Migrate.<br><br> During registration, register providers (Microsoft.OffAzure, Microsoft.Migrate, and Microsoft.KeyVault) are registered with the subscription chosen in the appliance, so that the subscription works with the resource provider. To register, you need Contributor or Owner access on the subscription.<br><br> **VMware**-During onboarding, Azure Migrate creates two Microsoft Entra apps. The first app communicates between the appliance agents and the Azure Migrate service. The app doesn't have permissions to make Azure resource management calls or have Azure RBAC access for resources. The second app accesses an Azure Key Vault created in the user subscription for agentless VMware migration only. In agentless migration, Azure Migrate creates a Key Vault to manage access keys to the replication storage account in your subscription. It has Azure RBAC access on the Azure Key Vault (in the customer tenant) when discovery is initiated from the appliance.<br><br> **Hyper-V**-During onboarding, Azure Migrate creates one Microsoft Entra app. The app communicates between the appliance agents and the Azure Migrate service. The app doesn't have permissions to make Azure resource management calls or have Azure RBAC access for resources. | Set up for [VMware](./tutorial-discover-vmware.md#prepare-an-azure-user-account), [Hyper-V](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account), or [physical servers](create-project.md).
-Create a key vault for VMware agentless migration | To migrate VMware VMs with agentless Migration and modernization, Azure Migrate creates a Key Vault to manage access keys to the replication storage account in your subscription. To create the vault, you set permissions (Owner, or Contributor and User Access Administrator) on the resource group where the project resides. | [Set up](./tutorial-discover-vmware.md#prepare-an-azure-user-account) permissions.
+Register the Azure Migrate appliance| Azure Migrate uses a lightweight [Azure Migrate appliance](migrate-appliance.md) to discover and assess servers with the Azure Migrate Discovery and Assessment tool, and to run [agentless migration](server-migrate-overview.md) of VMware VMs with the Azure Migrate and Modernize tool. This appliance sends metadata and performance data to Azure Migrate.<br><br> During registration, the `Microsoft.OffAzure`, `Microsoft.Migrate`, and `Microsoft.KeyVault` resource providers are registered with the subscription chosen in the appliance, so that the subscription works with the resource providers. To register, you need Contributor or Owner access on the subscription.<br><br> **VMware**: During onboarding, Azure Migrate creates two Microsoft Entra apps. The first app communicates with the appliance agents and the Azure Migrate service. This app doesn't have permissions to make Azure resource management calls or have Azure role-based access control (RBAC) access for resources. The second app accesses an Azure key vault created in the user subscription for agentless VMware migration only. In agentless migration, Azure Migrate creates a key vault to manage access keys to the replication storage account in your subscription. The app has Azure RBAC access on the key vault (in the customer tenant) when discovery is initiated from the appliance.<br><br> **Hyper-V**: During onboarding, Azure Migrate creates one Microsoft Entra app. The app communicates with the appliance agents and the Azure Migrate service. The app doesn't have permissions to make Azure resource management calls or have Azure RBAC access for resources. | Set up for [VMware](./tutorial-discover-vmware.md#prepare-an-azure-user-account), [Hyper-V](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account), or [physical servers](create-project.md).
+Create a key vault for VMware agentless migration | To migrate VMware VMs with the agentless Azure Migrate and Modernize tool, Azure Migrate creates a key vault to manage access keys to the replication storage account in your subscription. To create the vault, you set permissions (Owner, Contributor, and User Access Administrator) on the resource group where the project resides. | Set up [permissions](./tutorial-discover-vmware.md#prepare-an-azure-user-account).
 
 ::: moniker range="migrate-classic"
 
-## Supported geographies 
-
-#### [Azure Public cloud](#tab/public)
+## Supported geographies
 
 ### Public cloud
 
-You can create a project in many geographies in the public cloud.
+When you create a project in the public cloud, you select a geography. The project and related resources are created in one of the regions in the geography. The Azure Migrate service allocates the region.
 
-- Although you can only create projects in these geographies, you can assess or migrate servers for other target locations.
-- The project geography is only used to store the discovered metadata. 
-- When you create a project, you select a geography. The project and related resources are created in one of the regions in the geography. The region is allocated by the Azure Migrate service. Azure Migrate does not move or store customer data outside of the region allocated.
+The project geography is used only to store discovered metadata. Azure Migrate does not move or store customer data outside the allocated region.
 
-**Geography** | **Metadata storage location**
+You can create a project in the following geographies in the public cloud. Although you can create projects only in these geographies, you can assess or migrate servers for other target locations.
+
+Geography | Metadata storage location
 --- | ---
 Africa | South Africa or North Africa
 Asia Pacific | East Asia
@@ -74,13 +70,13 @@ Indonesia| Indonesia Central
 Israel| Israel Central
 Italy | North Italy
 Japan |  Japan East or Japan West
-Jio India | Jio India West 
+Jio India | Jio India West
 Korea | Korea Central
 Malaysia | Malaysia West
 Mexico | Mexico Central
 New Zealand | New Zealand North
 Norway | Norway East
-Spain  | Spain Central 
+Spain  | Spain Central
 Sweden | Sweden Central
 Switzerland | Switzerland North
 United Arab Emirates | UAE North
@@ -88,47 +84,33 @@ United Kingdom | UK South or UK West
 United States | Central US or West US 2
 
 > [!NOTE]
-> For Switzerland geography, Switzerland West is only available for REST API users and need an approved subscription.
-
-#### [Azure for US Government](#tab/gov)
+> For Switzerland geography, Switzerland West is available only for REST API users and needs an approved subscription.
 
 ### Azure Government
 
-**Task** | **Geography** | **Details**
+Task | Geography | Details
 --- | --- | ---
-Create project | United States | Metadata is stored in US Gov Arizona, US Gov Virginia
-Target assessment | United States | Target regions: US Gov Arizona, US Gov Virginia, US Gov Texas
-Target replication | United States | Target regions: US DoD Central, US DoD East, US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia
+Project creation | United States | Metadata is stored in US Gov Arizona and US Gov Virginia.
+Target assessment | United States | Target regions: US Gov Arizona, US Gov Virginia, US Gov Texas.
+Target replication | United States | Target regions: US DoD Central, US DoD East, US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia.
 
-#### [Azure operated by 21Vianet](#tab/21via)
+### Azure operated by 21Vianet
 
-**Geography** | **Metadata storage location**
+Geography | Metadata storage location
 --- | ---
 Microsoft Azure operated by 21Vianet | China North 2
 
----
 ::: moniker-end
 
 ## VMware assessment and migration
 
-[Review](migrate-support-matrix-vmware.md) the Azure Migrate: Discovery and assessment and Migration and modernization support matrix for VMware VMs.
+[Review](migrate-support-matrix-vmware.md) the support matrix for using the Azure Migrate Discovery and Assessment tool and the Azure Migrate and Modernize tool to discover VMware VMs.
 
 ## Hyper-V assessment and migration
 
-[Review](migrate-support-matrix-hyper-v.md) the Azure Migrate: Discovery and assessment and Migration and modernization support matrix for Hyper-V VMs.
+[Review](migrate-support-matrix-hyper-v.md) the support matrix for using the Azure Migrate Discovery and Assessment tool and the Azure Migrate and Modernize tool to assess Hyper-V VMs.
 
-::: moniker range="migrate-classic"
+## Related content
 
-## Azure Migrate versions
-
-There are two versions of the Azure Migrate service:
-
-- **Current version**: Using this version, you can create new projects, discover on-premises servers, and orchestrate assessments and migrations. [Learn more](whats-new.md).
-- **Previous version**: For customers using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. In the previous version, you can't create new projects or perform new discoveries.
-
-::: moniker-end
-
-## Next steps
-
-- [Assess VMware VMs](./tutorial-assess-vmware-azure-vm.md) for migration.
-- [Assess Hyper-V VMs](tutorial-assess-hyper-v.md) for migration.
+- [Assess VMware VMs for migration to Azure](./tutorial-assess-vmware-azure-vm.md)
+- [Assess Hyper-V VMs for migration to Azure](tutorial-assess-hyper-v.md)

@@ -1,14 +1,15 @@
 ---
-title: Configure Premium V3 tier
+title: Configure Premium V3 Tier
 description: Learn how to better performance for your web, mobile, and API app in Azure App Service by scaling to the new Premium V3 pricing tier.
 keywords: app service, azure app service, scale, scalable, app service plan, app service cost
 ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/21/2025
 ms.author: msangapu
 author: msangapu-msft
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 #customer intent: As a deployment engineer, I want to understand the process and the benefits of scaling up apps to the Premium V3 pricing tier in Azure App Service.
+ms.service: azure-app-service
 ---
 
 # Configure Premium V3 tier for Azure App Service
@@ -128,4 +129,4 @@ New-AzAppServicePlan -ResourceGroupName <resource_group_name> `
 
 - [Scale up an app in Azure App Service](manage-scale-up.md)
 - [Get started with autoscale in Azure](/azure/azure-monitor/autoscale/autoscale-get-started)
-- [Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)
+- [Run a load test to identify performance bottlenecks in a web app](../app-testing/load-testing/tutorial-identify-bottlenecks-azure-portal.md)

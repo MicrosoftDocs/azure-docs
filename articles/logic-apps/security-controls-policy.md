@@ -22,5 +22,5 @@ with the specific standard.
 ## Next steps
 
 - Learn more about [Azure Policy Regulatory Compliance](../governance/policy/concepts/regulatory-compliance.md).
-- Review the [regulatory compliance details for Azure Security Benchmark](../governance/policy/samples/gov-azure-security-benchmark.md).
+- Review the [regulatory compliance details for Azure Security Benchmark](/azure/governance/policy/samples/gov-azure-security-benchmark).
 - See the built-ins on the [Azure Policy GitHub repo](https://github.com/Azure/azure-policy).
