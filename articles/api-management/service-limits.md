@@ -31,7 +31,7 @@ Starting in July 2025, Azure API Management is updating the service limits in th
 
 ### What's changing
 
-* New limits for Classic tier resources are more easily compared with the limits in the [V2 service tiers](azure/azure-resource-manager/management/azure-subscription-service-limits?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=%2Fazure%2Fapi-management%2Fbreadcrumb%2Ftoc.json#limits---api-management-v2-tiers).
+* New limits for Classic tier resources are more easily compared with the limits in the [V2 service tiers](/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=%2Fazure%2Fapi-management%2Fbreadcrumb%2Ftoc.json#limits---api-management-v2-tiers).
 * Previously, limits for certain resources in Classic tiers weren't defined explicitly or enforced. In practice, these resources were always constrained by service configuration, service capacity, number of scale units, policy configuration, and other factors. The new limits make these constraints explicit and predictable.
 
 ### Limits policy for existing customers
@@ -80,11 +80,11 @@ In some cases, you may want to request an increase to certain service limits. Be
 
 ### Requesting a limit increase
 
-To request a limit increase, create a support request from the Azure portal. For more information, see [Azure support plans](https://azure.microsoft.com/en-us/support/).
+To request a limit increase, create a support request from the Azure portal. For more information, see [Azure support plans](https://azure.microsoft.com/support/).
 
 Requests for limit increases are evaluated on a case-by-case basis and aren't guaranteed. We prioritize Premium tier customers for limit increases.
 
 ## Related content
 
 * [Capacity of an API Management instance](api-management-capacity.md)
-* [Upgrade and scale an API Management instance](upgrade-scale.md)
+* [Upgrade and scale an API Management instance](upgrade-and-scale.md)
