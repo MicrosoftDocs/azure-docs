@@ -108,19 +108,19 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
     **Config JSON**
     ```json
   {
-  "subscriptionId": "",
-  "resourceGroup": "",
-  "privateCloud": "",
-  "isStatic": true,
-  "staticIpNetworkDetails": {
-    "networkForApplianceVM": "",
-    "networkCIDRForApplianceVM": ""
-  },
-  "applianceCredentials": {
+     "subscriptionId": "",
+      "resourceGroup": "",
+      "privateCloud": "",
+      "isStatic": true,
+      "staticIpNetworkDetails": {
+      "networkForApplianceVM": "",
+      "networkCIDRForApplianceVM": ""
+   },
+    "applianceCredentials": {
     "username": "",
     "password": ""
   },
-  "applianceProxyDetails": {
+    "applianceProxyDetails": {
     "http": "",
     "https": "",
     "noProxy": "",
@@ -135,18 +135,18 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
     }
     ```
     
-    - Populate the `subscriptionId`, `resourceGroup`, and `privateCloud` names respectively.  
-    - `isStatic` is always true. 
-    - `networkForApplianceVM` is the name for the segment for Arc appliance VM. One gets created if it doesn't already exist.  
-    - `networkCIDRForApplianceVM` is the IP CIDR of the segment for Arc appliance VM. It should be unique and not affect other networks of Azure VMware Solution management IP CIDR. 
-    - `GatewayIPAddress` is the gateway for the segment for Arc appliance VM. 
-    - `applianceControlPlaneIpAddress` is the IP address for the Kubernetes API server that should be part of the segment IP CIDR provided. It shouldn't be part of the K8s node pool IP range.  
-    - `k8sNodeIPPoolStart`, `k8sNodeIPPoolEnd` are the starting and ending IP of the pool of IPs to assign to the appliance VM. Both need to be within the `networkCIDRForApplianceVM`. 
-    - `k8sNodeIPPoolStart`, `k8sNodeIPPoolEnd`, `gatewayIPAddress` ,`applianceControlPlaneIpAddress` are optional. You can choose to skip all the optional fields or provide values for all. If you choose not to provide the optional fields, then you must use /28 address space for `networkCIDRForApplianceVM` with the first lp as the gateway.
-    - If all the parameters are provided, the firewall and proxy URLs must be allowlisted for the lps between K8sNodeIPPoolStart, k8sNodeIPPoolEnd.
-    - If you're skipping the optional fields, the firewall and proxy URLs must be allowlisted the following IPs in the segment. If the networkCIDRForApplianceVM is x.y.z.1/28, the IPs to allowlist are between x.y.z.11 – x.y.z.14. See the [Azure Arc resource bridge network requirements](/azure/azure-arc/resource-bridge/network-requirements).  
+  - Populate the `subscriptionId`, `resourceGroup`, and `privateCloud` names respectively.  
+  - `isStatic` is always true. 
+  - `networkForApplianceVM` is the name for the segment for Arc appliance VM. One gets created if it doesn't already exist.  
+  - `networkCIDRForApplianceVM` is the IP CIDR of the segment for Arc appliance VM. It should be unique and not affect other networks of Azure VMware Solution management IP CIDR. 
+  - `GatewayIPAddress` is the gateway for the segment for Arc appliance VM. 
+  - `applianceControlPlaneIpAddress` is the IP address for the Kubernetes API server that should be part of the segment IP CIDR provided. It shouldn't be part of the K8s node pool IP range.  
+  - `k8sNodeIPPoolStart`, `k8sNodeIPPoolEnd` are the starting and ending IP of the pool of IPs to assign to the appliance VM. Both need to be within the `networkCIDRForApplianceVM`. 
+  - `k8sNodeIPPoolStart`, `k8sNodeIPPoolEnd`, `gatewayIPAddress` ,`applianceControlPlaneIpAddress` are optional. You can choose to skip all the optional fields or provide values for all. If you choose not to provide the optional fields, then you must use /28 address space for `networkCIDRForApplianceVM` with the first lp as the gateway.
+  - If all the parameters are provided, the firewall and proxy URLs must be allowlisted for the lps between K8sNodeIPPoolStart, k8sNodeIPPoolEnd.
+  - If you're skipping the optional fields, the firewall and proxy URLs must be allowlisted the following IPs in the segment. If the networkCIDRForApplianceVM is x.y.z.1/28, the IPs to allowlist are between x.y.z.11 – x.y.z.14. See the [Azure Arc resource bridge network requirements](/azure/azure-arc/resource-bridge/network-requirements).  
 
-    **JSON example**
+  **JSON example**
     ```json
 {  
   "subscriptionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",  
