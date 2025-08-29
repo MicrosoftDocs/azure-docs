@@ -4,7 +4,7 @@ description: Learn how Azure SRE Agent handles your data while in preview.
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: tutorial
-ms.date: 08/28/2025
+ms.date: 08/29/2025
 ms.service: azure
 ---
 
@@ -22,7 +22,7 @@ During preview, you can only choose to create Azure SRE Agent in the *Sweden Cen
 
 - All content and conversation history with the SRE Agent is transferred to and stored in the agent's Azure region. Data includes prompts, responses, and resource analysis.  
 
-- All data is transferred to the agent's Azure region, regardless of the Azure region of origin.
+- All data is transferred to the agent's Azure region, regardless of the Azure region of origin of services the agent manages.
 
 - Data is processed and stored within the agent’s region as selected at time of creation.
 
