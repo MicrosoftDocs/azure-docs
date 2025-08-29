@@ -29,7 +29,7 @@ If you have a general-purpose v1 storage account, you can upgrade it to a genera
 ## Billing Impact of upgrading
 Upgrading from GPv1 to GPv2 may result in higher transactional costs, especially for workloads with high read/write operations. While GPv2 offers lower storage costs and tiering flexibility, transactional pricing is more granular and can significantly affect billing. It's recommended to review your current usage patterns and estimate costs before upgrading.
 
-**Tip:** Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the costs of a general-purpose v2 storage account based on your current usage patterns.
+[!Tip] Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the costs of a general-purpose v2 storage account based on your current usage patterns.
 
 ## Upgrade an account
 
@@ -76,7 +76,7 @@ General-purpose v2 accounts support all Azure storage services and data objects,
 
 Blob access tiers enable you to choose the most cost-effective storage based on your anticipated usage patterns. Block blobs can be stored in a hot, cool, or archive tiers. For more information on access tiers, see [Azure blob storage: hot, cool, and archive storage tiers](../blobs/access-tiers-overview.md).
 
-By default, a new storage account is created in the hot access tier, and a general-purpose v1 storage account can be upgraded to either the hot or cool account tier. If an account access tier isn't specified on upgrade, it is upgraded too hot by default. If you're exploring which access tier to use for your upgrade, consider your current data usage scenario. There are two typical user scenarios for migrating to a general-purpose v2 account:
+By default, a new storage account is created in the hot access tier, and a general-purpose v1 storage account can be upgraded to either the hot or cool account tier. If an account access tier isn't specified on upgrade, it is upgraded to hot by default. If you're exploring which access tier to use for your upgrade, consider your current data usage scenario. There are two typical user scenarios for migrating to a general-purpose v2 account:
 
 - You have an existing general-purpose v1 storage account and want to evaluate an upgrade to a general-purpose v2 storage account, with the right storage access tier for blob data.
 - You have decided to use a general-purpose v2 storage account or already have one and want to evaluate whether you should use the hot or cool storage access tier for blob data.

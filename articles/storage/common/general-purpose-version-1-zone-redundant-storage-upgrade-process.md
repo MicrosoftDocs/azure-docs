@@ -1,7 +1,7 @@
 ---
-title: Change how a ZRS Classic storage account is replicated
+title: How to upgrade a General Purpose v1 (GPv1) with ZRS redundancy account to GPv2
 titleSuffix: Azure Storage
-description: Learn how to change how to upgrade a ZRS Classic storage account to a General Purpose V2 account.
+description: Learn how to upgrade a ZRS Classic storage account to a General Purpose V2 account.
 services: storage
 author: gtrossell
 ms.service: azure-storage
@@ -25,9 +25,10 @@ To upgrade your general purpose v1 (GPv1) with ZRS redundancy account to GPv2, u
 
 # [Portal](#tab/portal)
 
-To upgrade to GPv2 in the Azure portal, navigate to the **Configuration** settings of the account and choose **Upgrade**:
+To upgrade to GPv2 in the Azure portal, navigate to the **Configuration** settings of the account and choose **Upgrade**.
 
-![Upgrade to GPv2 in the Portal](media/redundancy-migration/portal-zrs-classic-upgrade.png)
+:::image type="content" source="media/redundancy-migration/portal-zrs-classic-upgrade.png" alt-text="<Screenshot of a storage account setup screen with options for upgrade, performance, replication, and Data Lake features.>":::
+<!---![Upgrade to GPv2 in the Portal](media/redundancy-migration/portal-zrs-classic-upgrade.png) -->
 
 # [PowerShell](#tab/powershell)
 

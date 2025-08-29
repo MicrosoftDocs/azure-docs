@@ -30,8 +30,14 @@ A GPv1 account is the original **general-purpose** Azure Storage account type. I
 GPv1 Accounts are already blocked on the Azure portal. From August 31, 2026 all new GPv1 account creation will be blocked via the Azure Resource Manager (ARM) API.
 
 ### Which redundancy options are available on GPv2 accounts?
+General-purpose v2 supports:
 
-**GPv2 supports:** local-redundant storage (**LRS**), zone-redundant storage (**ZRS**), geo-redundant storage (**GRS**), read-access geo-zone-redundant storage (**RA-GZRS**), and read-access geo-redundant storage (**RA-GRS**).
+- Local-redundant storage (**LRS**).
+- Zone-redundant storage (**ZRS**).
+- Geo-redundant storage (**GRS**).
+- Read-access geo-redundant storage (**RA-GRS**).
+- Geo-zone-redundant storage (**GZRS**).
+- Read-access geo-zone-redundant storage (**RA-GZRS**).
 
 ### Does GPv1 support hot, cool, or archive tiers or lifecycle management?
 
@@ -101,7 +107,11 @@ If you don't upgrade your GPv1 storage account to GPv2 by the deadline, **all ex
 
 ### Why is GPv2 more expensive than GPv1?
 
-GPv2 introduces new features and pricing models that may result in **higher costs for certain workloads**. However, it offers improved **performance**, **scalability**, and **management** capabilities that can lead to **overall cost savings**. Evaluate your **specific use case** and **access patterns** to understand the impact.  
-[Learn more about GPv2 pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
-[Blobs pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)
-[Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+GPv2 introduces new features and pricing models that may result in **higher costs for certain workloads**. However, it offers improved **performance**, **scalability**, and **management** capabilities that can lead to **overall cost savings**. Evaluate your **specific use case** and **access patterns** to understand the impact. 
+
+### See also 
+- [General purpose v1 (GPv1) storage account retirement](general-purpose-version-1-account-migration-overview.md)  
+- [Storage account upgrade process](storage-account-upgrade.md)
+- [Learn more about GPv2 pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)
+- [Blobs pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)
+- [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)

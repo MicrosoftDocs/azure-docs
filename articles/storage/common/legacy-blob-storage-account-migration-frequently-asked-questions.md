@@ -21,7 +21,7 @@ This FAQ addresses common questions about migrating from legacy blob storage (bl
 
 > [!IMPORTANT]
 > Microsoft will retire legacy blob storage accounts on **September 1, 2026**. All legacy blob storage must be migrated to general-purpose v2 before this date to avoid service disruption.  
-> See: [Migrate to GPv2](storage-account-upgrade.md) and [general purpose v1 (GPv1) account migration overview](general-purpose-version-1-account-migration-overview.md) for more details
+> See: [Migrate to GPv2](storage-account-upgrade.md) and [general purpose v1 (GPv1) account migration overview](general-purpose-version-1-account-migration-overview.md) for more details.
 
 
 A legacy blob storage account is a legacy Azure storage account type designed for blob workloads. It supports **block blobs** and **append blobs** with **account-level access tiering** (hot, cool, archive). It does not support File Shares, Tables, Queues or other Azure Storage features.
@@ -35,7 +35,14 @@ No. Starting **August 2026**, creation of new legacy blob storage accounts will 
 
 ### Which redundancy options are available on general-purpose v2 accounts?
 
-General-purpose v2 supports **local-redundant storage (LRS)**, **zone-redundant storage (ZRS)**, **geo-redundant storage (GRS)**, **read-access geo-zone-redundant storage (RA-GZRS)**, and **read-access geo-redundant storage (RA-GRS)**.
+General-purpose v2 supports:
+
+- Local-redundant storage (**LRS**).
+- Zone-redundant storage (**ZRS**).
+- Geo-redundant storage (**GRS**).
+- Read-access geo-redundant storage (**RA-GRS**).
+- Geo-zone-redundant storage (**GZRS**).
+- Read-access geo-zone-redundant storage (**RA-GZRS**).
 
 ### Does legacy blob storage support lifecycle management policies?
 
@@ -98,7 +105,8 @@ Microsoft provides various resources to assist with the upgrade, including **doc
 
 If you don't migrate your legacy blob storage account to general-purpose v2 by the deadline, **all existing legacy blob storage accounts are auto-migrated** to a general-purpose v2 account, which may result in **higher billing costs**. Your decision not to migrate an existing legacy blob storage account will be construed as **consent for Microsoft to migrate the account on your behalf**.
 
----
+### Why is general-purpose v2 more expensive than legacy blob storage?
+General-purpose v2 introduces **tier-based pricing** and **transaction meters**. While some operations may cost more, general-purpose v2 offers **cost optimization** via **hot/cool/archive** tiers and lifecycle rules.
 
 ## See also
 

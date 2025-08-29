@@ -57,7 +57,7 @@ The retirement takes effect globally across all Azure regions.
 
 ### Estimate costs before upgrading
 >[!TIP]
->If your workload is **read, write or list heavy**, reduce transaction counts by batching operations, writing larger blocks, and scoping list operations. GPv2 also provides better tools for optimizing costs, but allowing the tiering of data. Ensure cold data isn't left in the hot tier.
+>If your workload is **read, write or list heavy**, reduce transaction counts by batching operations, writing larger blocks, and scoping list operations. GPv2 also provides better tools for optimizing costs, by allowing the tiering of data. Ensure cold data isn't left in the hot tier.
 
 1. Capture a baseline of monthly operations by type (**read, write, list/metadata**) and any **egress**.
 1. Use the [Azure Pricing Page](https://azure.microsoft.com/pricing/details/storage/blobs/) page to compare **per-GB** and **per-operation** rates for your region, redundancy (LRS/ZRS/GRS/GZRS), and intended access tier (hot/cool/cold/archive).
@@ -77,12 +77,12 @@ The retirement takes effect globally across all Azure regions.
 
 To minimize risk and ensure a smooth migration:
 
-- **Inventory your accounts**: Use [Azure Resource Graph](../../governance/resource-graph/overview.md), CLI, [Azure Inventory](../blobs/blob-inventory-how-to.md), or the Portal to identify all GPv1 accounts.
-- **Evaluate workloads**: Review applications using GPv1 and verify compatibility with GPv2.
-- **Plan for pricing changes**: Understand the new GPv2 pricing model, which includes per-blob tiering and transaction costs. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs based on your usage patterns.
-- **Upgrade accounts**: Use the Azure portal, CLI, or automation tools to upgrade from GPv1 to GPv2. [Learn more about the upgrade process](storage-account-upgrade.md).
-- **Validate behavior**: Confirm that workloads continue functioning and that billing reflects expected changes post-upgrade.
-- **Monitor usage**: After migration, keep an eye on your storage account metrics to identify any unexpected changes in usage patterns or costs.
+1. **Inventory your accounts**: Use [Azure Resource Graph](../../governance/resource-graph/overview.md), CLI, [Azure Inventory](../blobs/blob-inventory-how-to.md), or the Portal to identify all GPv1 accounts.
+1. **Evaluate workloads**: Review applications using GPv1 and verify compatibility with GPv2.
+1. **Plan for pricing changes**: Understand the new GPv2 pricing model, which includes per-blob tiering and transaction costs. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs based on your usage patterns.
+1. **Upgrade accounts**: Use the Azure portal, CLI, or automation tools to upgrade from GPv1 to GPv2. [Learn more about the upgrade process](storage-account-upgrade.md).
+1. **Validate behavior**: Confirm that workloads continue functioning and that billing reflects expected changes post-upgrade.
+1. **Monitor usage**: After migration, keep an eye on your storage account metrics to identify any unexpected changes in usage patterns or costs.
 
 ### Azure Resource Graph - Example Query 
 
@@ -102,7 +102,7 @@ Resources
 
 ## What happens if you don’t migrate by the deadline
 > [!Warning]
-> If you do not migrate your GPv1 storage account to GPv2 by August 31, 2025, all existing GPv1 accounts will be auto migrated over to a GPv2 account, which may result in higher billing costs. **Your decision not to migrate an existing GPv1 account will be construed as consent for Microsoft to migrate the account on your behalf.**
+> If you do not migrate your GPv1 storage account to GPv2 by August 31, 2026, all existing GPv1 accounts will be auto migrated over to a GPv2 account, which may result in higher billing costs. **Your decision not to migrate an existing GPv1 account will be construed as consent for Microsoft to migrate the account on your behalf.**
 
 ## Where to get help and support
 If you have questions, get answers from community experts in Microsoft Q&A.

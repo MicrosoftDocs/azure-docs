@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 08/19/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
-ms.custom: devx-track-arm-template
+ms.custom: references_regions
 #CustomerIntent: As a storage admin, I want to understand the General Purpose v1 (GPv1) with ZRS redundancy retirement so that I can prepare for a smooth migration to GPv2.
 ---
 
@@ -48,7 +48,7 @@ The table below summarizes the key differences most customers care about:
 | Eventing & integrations | Limited | Event Grid and broader Azure integrations |
 | Pricing meters | Legacy meters | **Consistent** GPv2 meters across account types |
 
-> [!Note]
+> [!NOTE]
 > For high availability in a single region, modern **ZRS** is recommended. Add **GZRS/RA‑GZRS** if you also need geo‑redundancy.
 
 ## Retirement timeline and key milestones
@@ -59,7 +59,7 @@ The table below summarizes the key differences most customers care about:
 | Date               | Milestone |
 |--------------------|---|
 | **September 2025** | Public announcement and documentation updates. |
-| **September 2025** | Creation of new GPv1/Blob‑Only/**general purpose v1 (GPv1) with ZRS redundancy** configurations blocked. |
+| **September 2026** | Creation of new GPv1/Blob‑Only/**general purpose v1 (GPv1) with ZRS redundancy** configurations blocked. |
 | **September 2026** | **Full retirement.** Any remaining general purpose v1 (GPv1) with ZRS redundancy accounts are automatically upgraded to GPv2. |
 
 ## Preparing for migration
@@ -69,12 +69,12 @@ The table below summarizes the key differences most customers care about:
 
 To minimize risk and ensure a smooth migration:
 
-- **Inventory your general purpose v1 (GPv1) with ZRS redundancy accounts**: Use [Azure Resource Graph](../../governance/resource-graph/overview.md), CLI, [Azure Inventory](../blobs/blob-inventory-how-to.md), or the Portal to identify all general purpose v1 (GPv1) with ZRS redundancy storage accounts.
-- **Evaluate workloads**: To ensure compatibility with GPv2 (most general purpose v1 (GPv1) with ZRS redundancy workloads require no code changes).
-- **Plan for pricing changes**: Understand the new GPv2 pricing model, which includes per-blob tiering and transaction costs. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs based on your usage patterns.
-- **Migrate to GPv2**: Use the Azure portal, CLI, or automation tools to upgrade from GPv1 to GPv2. [Learn more about the upgrade process](storage-account-upgrade.md).
-- **Validate workloads**: Post-migration to ensure functionality and billing accuracy.
-- **Monitor usage**: After migration, keep an eye on your storage account metrics to identify any unexpected changes in usage patterns or costs.
+1. **Inventory your general purpose v1 (GPv1) with ZRS redundancy accounts**: Use [Azure Resource Graph](../../governance/resource-graph/overview.md), CLI, [Azure Inventory](../blobs/blob-inventory-how-to.md), or the Portal to identify all general purpose v1 (GPv1) with ZRS redundancy storage accounts.
+1. **Evaluate workloads**: To ensure compatibility with GPv2 (most general purpose v1 (GPv1) with ZRS redundancy workloads require no code changes).
+1. **Plan for pricing changes**: Understand the new GPv2 pricing model, which includes per-blob tiering and transaction costs. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs based on your usage patterns.
+1. **Migrate to GPv2**: Use the Azure portal, CLI, or automation tools to upgrade from GPv1 to GPv2. [Learn more about the upgrade process](storage-account-upgrade.md).
+1. **Validate workloads**: Post-migration to ensure functionality and billing accuracy.
+1. **Monitor usage**: After migration, keep an eye on your storage account metrics to identify any unexpected changes in usage patterns or costs.
 
 ## Identify GPv1 with ZRS accounts using Azure Resource Graph
 
@@ -125,9 +125,9 @@ If you have a support plan and you need technical help, create a support request
 1. For **Subscription**, select your subscription.
 1. For **Service**, select **My services**.
 1. For **Service type**, select **Storage Account Management**.
-1. For **Resource**, select the resource you want to migrate.
-1. For **Problem type**, select **Data Migration**.
-1. For **Problem subtype**, select **Migrate account to new resource group/subscription/region/tenant**.
+1. For **Resource**, select **the resource you want to migrate**.
+1. For **Problem type**, select **Upgrade or change account type, tier or replication**.
+1. For **Problem subtype**, select **Upgrade to General Purpose v2 storage account.**.
 1. Select **Next**, then follow the instructions to submit your support request.
 
 

@@ -38,7 +38,14 @@ Modern **ZRS on GPv2** replicates data **synchronously across three availability
 
 ### Which redundancy options are available on GPv2 accounts?
 
-**GPv2 supports:** Local-redundant storage (**LRS**), Zone-redundant storage (**ZRS**), Geo-redundant storage (**GRS**), Read-access geo-redundant storage (**RA-GRS**), Geo-zone-redundant storage (**GZRS**), and Read-access geo-zone-redundant storage (**RA-GZRS**).
+General-purpose v2 supports:
+
+- Local-redundant storage (**LRS**).
+- Zone-redundant storage (**ZRS**).
+- Geo-redundant storage (**GRS**).
+- Read-access geo-redundant storage (**RA-GRS**).
+- Geo-zone-redundant storage (**GZRS**).
+- Read-access geo-zone-redundant storage (**RA-GZRS**).
 
 ### Does GPv1 standard ZRS support blob tiering or lifecycle management?
 
@@ -100,12 +107,11 @@ Yes. **GPv2** supports **GRS**, **RA-GRS**, **GZRS**, and **RA-GZRS**.
 
 Microsoft provides documentation, Q&A forums, and support channels. If you have a support plan, create a **support request** in the Azure portal.
 
----
 
 ## See also
 
 - [GPv1 standard ZRS retirement overview](general-purpose-version-1-zone-redundant-storage-migration-overview.md)  
 - [Storage account upgrade process](storage-account-upgrade.md)  
 - [Storage account redundancy](storage-redundancy.md)
-- [Learn more about GPv2 pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+- [Learn more about GPv2 pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)
 - [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/)
