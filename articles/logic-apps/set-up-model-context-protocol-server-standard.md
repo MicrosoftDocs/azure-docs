@@ -366,9 +366,9 @@ For this task, you need to edit the **host.json** file for your Standard logic a
 
 1. In Visual Studio Code, from the **View** menu, select **Command Palette**. Find and select **MCP: Add Server**.
 
-1. Select **HTTP (HTTP or Server-Sent Events)**. Enter the URL for your MCP server.
+1. Select **HTTP (HTTP or Server-Sent Events)**. For **Enter Server URL**, provide the URL for your MCP server. 
 
-1. Provide a meaningful name for your MCP server.
+1. For **Enter Server ID**, provide a meaningful name for your MCP server.
 
    When you add an MCP server for the first time, you must choose where to store your MCP configuration. You get the following options, so choose the best option for your scenario:
 
@@ -381,7 +381,7 @@ For this task, you need to edit the **host.json** file for your Standard logic a
 
    :::image type="content" source="media/set-up-model-context-protocol-server-standard/start-server-mcp-json-file.png" alt-text="Screenshot shows mcp.json file with Start link selected." lightbox="media/set-up-model-context-protocol-server-standard/start-server-mcp-json-file.png":::
 
-1. When the authentication message appears, select **Allow**, and then select the account to use for authentication.
+1. When the authentication prompt appears, select **Allow**, and then select the account to use for authentication.
 
 1. Sign in and give consent to call your MCP server.
 
