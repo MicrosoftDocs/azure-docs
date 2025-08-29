@@ -169,13 +169,13 @@ In this section, you add a second prefix on an existing subnet to expand the add
 1. Use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) to add a second address prefix to subnet configuration. Specify both the existing and new address prefixes in this step.
 
     ```azurepowershell
-    Set-AzVirtualNetworkSubnetConfig -Name 'subnet-1' -VirtualNetwork $vnet -AddressPrefixes '10.0.0.0/24', '10.0.1.0/24'
+    Set-AzVirtualNetworkSubnetConfig -Name 'subnet-1' -VirtualNetwork $vnet -AddressPrefix '10.0.0.0/24', '10.0.1.0/24'
     ```
 
 1. Use [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) to apply the updated virtual network configuration.
 
     ```azurepowershell
-    $vnet | Set-AzVirtualNetwork @vnet
+    $vnet | Set-AzVirtualNetwork
     ```
 
 1. Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) and [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) to retrieve updated virtual network and subnet configuration. Verify that the subnet now has two address prefixes.

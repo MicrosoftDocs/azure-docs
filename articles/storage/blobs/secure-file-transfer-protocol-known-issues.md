@@ -25,7 +25,8 @@ The following clients are known to be incompatible with SFTP for Azure Blob Stor
 
 - Kemp
 - paramiko 1.16.0
-- SSH.NET 2016.1.0
+- SSH.NET 2016.1.0 or older
+- Renci SSH.NET 2014.6.0
 
 This list isn't exhaustive and might change over time.
 
