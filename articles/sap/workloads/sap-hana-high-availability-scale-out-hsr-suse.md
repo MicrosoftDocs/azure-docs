@@ -1085,7 +1085,7 @@ Create a dummy file system cluster resource, which will monitor and report failu
      crm configure primitive fs_<SID>_HDB<InstNum>_fscheck Filesystem \
        params device="/hana/shared/<SID>/check" \
        directory="/hana/check" fstype=nfs4 \
-       options="bind,defaults,rw,hard,proto=tcp,noatime,nfsvers=4.1,lock" \
+       options="bind,defaults,rw,hard,timeo=600,proto=tcp,noatime,nfsvers=4.1,lock" \
        op monitor interval=120 timeout=120 on-fail=fence \
        op_params OCF_CHECK_LEVEL=20 \
        op start interval=0 timeout=120 op stop interval=0 timeout=120

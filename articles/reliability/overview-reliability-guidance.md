@@ -99,8 +99,6 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Azure NetApp Files|| [Reliability in Azure NetApp Files](reliability-netapp-files.md)|
 |Azure Network Watcher|| [Network Watcher service availability and redundancy](../network-watcher/frequently-asked-questions.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#service-availability-and-redundancy)|
 |Azure Notification Hubs| [Reliability in Notification Hubs](reliability-notification-hubs.md)||
-|Azure Operator Nexus| [Reliability in Azure Operator Nexus](reliability-operator-nexus.md)||
-|Azure Private 5G Core | |[Reliability in Private 5G Core](../private-5g-core/reliability-private-5g-core.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Private Link|| [Private Link availability](../private-link/availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)   |
 |Azure public IP addresses|| [Azure public IP addresses availability zone](../virtual-network/ip-services/public-ip-addresses.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zone) |
 |Azure Queue Storage|[Reliability in Queue Storage](reliability-storage-queue.md)||
