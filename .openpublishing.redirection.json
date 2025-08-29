@@ -7080,6 +7080,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/reliability/availability-zones-migration-overview.md",
+      "redirect_url": "/azure/reliability/availability-zones-enable-zone-resiliency",
+      "redirect_document_id": false
+    },
+    {  
       "source_path": "articles/app-service/sre-agent-overview.md",
       "redirect_url": "/azure/sre-agent/overview",
       "redirect_document_id": false
@@ -7147,7 +7152,17 @@
     {
       "source_path": "articles/reliability/migrate-storage.md",
       "redirect_url": "/azure/storage/common/redundancy-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/reliability-operator-nexus.md",
+      "redirect_url": "/azure/reliability/overview-reliability-guidance",
+      "redirect_document_id": false
     }
+
+
+
+    
   ]
 }
 

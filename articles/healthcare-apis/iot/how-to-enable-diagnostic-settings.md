@@ -12,8 +12,7 @@ ms.author: chrupa
 
 # How to enable diagnostic settings for the MedTech service
 
-> [!IMPORTANT]
-> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central. This deprecation process began in May 2025 and is ongoing.
+[!INCLUDE [IoT deprecation](../includes/iot-deprecation.md)]
 
 In this article, learn how to enable diagnostic settings for the MedTech service to:
 
