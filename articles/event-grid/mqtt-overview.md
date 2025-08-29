@@ -78,10 +78,10 @@ IoT applications are software designed to interact with and process data from Io
 
 Event Grid has a client registry that stores information about the clients permitted to connect to it. Before a client can connect, there must be an entry for that client in the client registry. As a client connects to the MQTT broker, it needs to authenticate with the MQTT broker based on credentials stored in the identity registry. The MQTT broker supports the following client authentication mechanisms:
 
-- [X.509 certificate authentication](mqtt-client-authentication.md), which is the industry authentication standard in IoT devices.
-- [Microsoft Entra ID authentication](mqtt-client-microsoft-entra-token-and-rbac.md), which is the Azure authentication standard for applications. Learn more about [MQTT client authentication](mqtt-client-authentication.md).
+- [X.509 certificate authentication](mqtt-client-authentication.md) is the industry authentication standard in IoT devices.
+- [Microsoft Entra ID authentication](mqtt-client-microsoft-entra-token-and-rbac.md) is the Azure authentication standard for applications. Learn more about [MQTT client authentication](mqtt-client-authentication.md).
 - Flexible authentications:
-    - [OAuth 2.0 JSON Web Token (JWT) authentication](oauth-json-web-token-authentication.md), which provides a lightweight, secure, and flexible option for MQTT clients that aren't provisioned in Azure.
+    - [OAuth 2.0 JSON Web Token (JWT) authentication](oauth-json-web-token-authentication.md) provides a lightweight, secure, and flexible option for MQTT clients that aren't provisioned in Azure.
     - [Custom webhook authentication](authenticate-with-namespaces-using-webhook-authentication.md) allows external HTTP endpoints (webhooks) to authenticate MQTT connections dynamically. It uses the Microsoft Entra ID JWT validation to ensure secure access.
 
 ### Access control
@@ -110,9 +110,9 @@ Route MQTT messages and cloud events from an Event Grid namespace to Microsoft F
 
 Event Grid integrates with [Azure IoT Operations](../iot-operations/manage-mqtt-broker/overview-broker.md) to bridge its MQTT broker capability on the edge with the Event Grid MQTT broker feature in the cloud. Azure IoT Operations provides a new distributed MQTT broker for edge computing, running on Azure Arc-enabled Kubernetes clusters. It can connect to the Event Grid MQTT broker with Microsoft Entra ID authentication by using system-assigned managed identity, which simplifies credential management. The MQTT broker provides high availability, scalability, and security for your IoT devices and applications. Learn more about [connecting the Azure IoT Operations MQTT broker to the Event Grid MQTT broker](../iot-operations/connect-to-cloud/howto-create-dataflow.md).
 
-### MQTT client life cycle events
+### MQTT client life-cycle events
 
-Client life cycle events allow applications to react to events about the client connection status or the client resource operations. You can keep track of your client's connection status, react with a mitigation action for client disconnections, and track the namespace that your clients are attached to during automated failovers. Learn more about [MQTT client life cycle events](mqtt-client-life-cycle-events.md).
+Client life-cycle events allow applications to react to events about the client connection status or the client resource operations. You can keep track of your client's connection status, react with a mitigation action for client disconnections, and track the namespace that your clients are attached to during automated failovers. Learn more about [MQTT client life-cycle events](mqtt-client-life-cycle-events.md).
 
 ### Custom domain names
 
@@ -135,7 +135,7 @@ Learn more about concepts of the MQTT broker in Event Grid:
 - [Access control](mqtt-access-control.md)
 - [MQTT protocol support](mqtt-support.md)
 - [Routing MQTT messages](mqtt-routing.md)
-- [MQTT client life cycle events](mqtt-client-life-cycle-events.md)
+- [MQTT client life-cycle events](mqtt-client-life-cycle-events.md)
 
 ## Related content
 

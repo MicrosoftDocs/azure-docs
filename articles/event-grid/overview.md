@@ -48,21 +48,21 @@ The MQTT broker feature in Event Grid is ideal for the automotive, mobility, a
 
 Highlights of MQTT messaging support in Event Grid:
 
-- [MQTT v3.1.1 and MQTT v5.0](mqtt-publish-and-subscribe-portal.md) support: Use any open-source MQTT client library to communicate with the service.
-- Custom topics with wildcard support: Use your own topic structure.
-- Publish-subscribe messaging model: Communicate efficiently by using one-to-many, many-to-one, and one-to-one messaging patterns.
-- [Built-in cloud integration](mqtt-routing.md): Route your MQTT messages to Azure services or custom webhooks for further processing.
-- Flexible and fine-grained [access control model](mqtt-access-control.md): Group clients and topics to simplify access control management. Use the variable support in topic templates for fine-grained access control.
-- MQTT broker authentication methods: Use [X.509 certificate authentication](mqtt-client-authentication.md), an industry authentication standard for IoT devices. Use [Microsoft Entra ID authentication](mqtt-client-microsoft-entra-token-and-rbac.md), an Azure authentication standard for applications. Use flexible authentication patterns like [OAuth 2.0 JSON Web Token (JWT) authentication](oauth-json-web-token-authentication.md), which is lightweight and secure for MQTT clients that aren't provisioned in Azure. Use [Custom Webhook Authentication](authenticate-with-namespaces-using-webhook-authentication.md), which allows external HTTP endpoints (webhooks) to authenticate MQTT connections dynamically. This method uses Entra ID JWT validation to ensure secure access.
-- Transport Layer Security (TLS) 1.2 and TLS 1.3 support: Secure your client communication by using robust encryption protocols.
-- Multi-session support: Connect your applications with multiple active sessions to ensure reliability and scalability.
-- MQTT over WebSocket: Enable connectivity for clients in firewall-restricted environments.
-- Custom domain names: Allow users to assign their own domain names to Event Grid namespace's MQTT endpoints, enhancing security and simplifying client configuration.
-- Client life-cycle events: Allow applications to react to events about the client connection status or the client resource operations.
-- [HTTP Publish](mqtt-http-publish.md): Enables devices and services to send MQTT messages to Event Grid over HTTPS, simplifying integration with non-MQTT clients.
+- [MQTT v3.1.1 and MQTT v5.0](mqtt-publish-and-subscribe-portal.md) **support**: Uses any open-source MQTT client library to communicate with the service.
+- **Custom topics with wildcard support**: Uses your own topic structure.
+- **Publish-subscribe messaging model**: Communicates efficiently by using one-to-many, many-to-one, and one-to-one messaging patterns.
+- [Built-in cloud integration](mqtt-routing.md): Routes your MQTT messages to Azure services or custom webhooks for further processing.
+- **Flexible and fine-grained** [access control model](mqtt-access-control.md): Groups clients and topics to simplify access control management. Uses the variable support in topic templates for fine-grained access control.
+- **MQTT broker authentication methods**: Uses [X.509 certificate authentication](mqtt-client-authentication.md), an industry authentication standard for IoT devices. Uses [Microsoft Entra ID authentication](mqtt-client-microsoft-entra-token-and-rbac.md), an Azure authentication standard for applications. Uses flexible authentication patterns like [OAuth 2.0 JSON Web Token (JWT) authentication](oauth-json-web-token-authentication.md), which is lightweight and secure for MQTT clients that aren't provisioned in Azure. Uses [custom webhook authentication](authenticate-with-namespaces-using-webhook-authentication.md), which allows external HTTP endpoints (webhooks) to authenticate MQTT connections dynamically. This method uses Entra ID JWT validation to ensure secure access.
+- **Transport Layer Security (TLS) 1.2 and TLS 1.3 support**: Secures your client communication by using robust encryption protocols.
+- **Multi-session support**: Connects your applications with multiple active sessions to ensure reliability and scalability.
+- **MQTT over WebSocket**: Enables connectivity for clients in firewall-restricted environments.
+- **Custom domain names**: Allows users to assign their own domain names to Event Grid namespace's MQTT endpoints, which enhances security and simplifies client configuration.
+- **Client life-cycle events**: Allows applications to react to events about the client connection status or the client resource operations.
+- [HTTP Publish](mqtt-http-publish.md): Enables devices and services to send MQTT messages to Event Grid over HTTPS, which simplifies integration with non-MQTT clients.
 - [MQTT Retain](mqtt-retain.md): Ensures that the last known message on a topic is automatically delivered to new subscribers, which enables instant state synchronization.
 
-For more information about MQTT broker, see the following articles:
+For more information about the MQTT broker, see the following articles:
 
 - [Overview](mqtt-overview.md)
 - [Publish and subscribe to MQTT messages](mqtt-publish-and-subscribe-portal.md)
