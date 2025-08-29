@@ -56,7 +56,7 @@ Throughput units define the ingress and egress event rate capacity in namespaces
 | Maximum Retain message per TU          | 10,000 messages or 640 MB (whichever is reached first). |
 | Total Retain storage per TU                               | 640 MB.                         |
 | Retain message expiry (MQTT 3.1.1)                        | 365 days (default).             |
-| Retain message expiry (MQTT 5.0)                          | Configurable by using the message expiry interval. Range is 0 to 31,536,000 seconds (365 days). |
+| Retain message expiry (MQTT 5.0)                          | Configurable by using the message expiry interval with a range of 0 to 31,536,000 seconds (365 days). |
 | Outbound MQTT publishing requests per Event Grid namespace | 1,000 messages per second per TU.                                                         |
 | Outbound MQTT bandwidth per Event Grid namespace        | 1 MB per second per TU.                                                            |
 | Outbound MQTT publishing requests per session| 100 messages per second.                                                           |
@@ -90,7 +90,7 @@ Throughput units define the ingress and egress event rate capacity in namespaces
 
 \* For MQTTv5, learn more about [flow control support](../mqtt-support.md#flow-control).
 
-\** Retain messages count against the total MQTT storage quota for the namespace. When the quota is reached, publishing new retain messages fails until existing messages are expired or deleted (for example, via empty payload publish).
+\** Retained messages count against the total MQTT storage quota for the namespace. When the quota is reached, publishing new retained messages fails until existing messages are expired or deleted (for example, via an empty payload publish).
 
 ## Events limits in the Event Grid namespace
 
@@ -116,9 +116,9 @@ The following limits apply to Event Grid custom topic, system topic, and partner
 |--------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | Custom topics per Azure subscription                   | 100<br/>When the limit is reached, you can consider a different region or consider using domains, which can support 100,000 topics. |
 | Event subscriptions per topic                          | 500<br/>This limit can't be increased.                                                                                              |
-| Publish rate for a custom or a partner topic (ingress) | 5,000 events or 5 MB per second (whichever comes first). An event is counted for limits and pricing purposes as a 64-KB data chunk. So, if the event is 128 KB, it counts as two events. |
+| Publish rate for a custom or a partner topic (ingress) | 5,000 events or 5 MB per second (whichever comes first).<br/>An event is counted for limits and pricing purposes as a 64-KB data chunk. So, if the event is 128 KB, it counts as two events. |
 | Event size                                             | 1 MB<br/>This limit can't be increased.                                                                                             |
-| Maximum event retention on topics              | One day. This limit can't be increased. |
+| Maximum event retention on topics              | 1 day<br/>This limit can't be increased. |
 | Number of incoming events per batch                    | 5,000<br/>This limit can't be increased.                                                                                             |
 | Private endpoint connections per topic                 | 64<br/>This limit can't be increased.                                                                                                |
 | IP firewall rules per topic                            | 128                                                                                                                                 |
@@ -133,7 +133,7 @@ The following limits apply to the Event Grid domain resource.
 | Topics per domain                             | 100,000                                                            |
 | Event subscriptions per topic within a domain | 500<br/>This limit can't be increased.                              |
 | Domain scope event subscriptions              | 50<br/>This limit can't be increased.                               |
-| Publish rate for a domain (ingress)           | 5,000 events or 5 MB per second (whichever comes first). An event is counted for limits and pricing purposes as a 64-KB data chunk. So, if the event is 128 KB, it counts as two events. |
-| Maximum event retention on domain topics              | One day. This limit can't be increased. |
+| Publish rate for a domain (ingress)           | 5,000 events or 5 MB per second (whichever comes first).<br/>An event is counted for limits and pricing purposes as a 64-KB data chunk. So, if the event is 128 KB, it counts as two events. |
+| Maximum event retention on domain topics              | 1 day<br/>This limit can't be increased. |
 | Private endpoint connections per domain       | 64                                                                 |
 | IP firewall rules per topic                   | 128                                                                |

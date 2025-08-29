@@ -26,7 +26,7 @@ Each retained publish counts as two MQTT operations: one for processing the mess
 
 ## Storage limits
 
-- Up to 640 MB or 10,000 retained messages per Throughput Unit (TU).
+- Up to 640 MB or 10,000 retained messages per throughput unit (TU).
 - Maximum size per retained message is 64 KB.
 
 For larger needs, contact Azure Support.

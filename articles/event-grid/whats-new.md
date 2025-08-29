@@ -30,9 +30,9 @@ The following features are released in preview:
 The following features of Event Grid namespaces moved from public preview to GA:
 
 - [Cross-tenant delivery in the Basic tier](cross-tenant-delivery-using-managed-identity.md):
-    - Event hubs
-    - Service bus (queues and topics)
-    - Storage queues
+    - Azure Event Hubs
+    - Azure Service Bus (queues and topics)
+    - Azure Storage queues
 - MQTT compliance: [Message ordering](mqtt-support.md#message-ordering) now supported
 - [MQTT limits](quotas-limits.md) change:
     - Segments per topic/topic filter: 15
@@ -46,9 +46,9 @@ The following features are released in preview:
     - Webhooks
     - Namespace topics
 - [Cross-tenant delivery in the Standard tier (Event Grid namespaces)](cross-tenant-delivery-using-managed-identity.md):
-    - Event hubs
+    - Event Hubs
     - Webhooks
-    - Blob storage (dead letter storage)
+    - Azure Blob Storage (dead letter storage)
 - [OAuth 2.0 (JSON Web Token) authentication (Refresh: Direct upload of PEM certificates)](authenticate-with-namespaces-using-json-web-tokens.md#configure-oauth-20-jwt-authentication-settings-on-your-event-grid-namespace---direct-upload)
 - [Custom webhook authentication](authenticate-with-namespaces-using-webhook-authentication.md)
 - [Send MQTT events directly to Microsoft Fabric by using Event Grid](mqtt-events-fabric.md)
@@ -77,8 +77,8 @@ We also published the following new articles:
 
 The following features of Event Grid namespaces moved from public preview to GA:
 
-- [Last Will and Testament](mqtt-support.md#last-will-and-testament-lwt-messages)
-- [Push delivery to Azure Event Hubs](namespace-handler-event-hubs.md)
+- [Last Will and Testament](mqtt-support.md#last-will-and-testament-messages)
+- [Push delivery to Event Hubs](namespace-handler-event-hubs.md)
 
 The following features of Event Grid namespaces are released as public preview features:
 

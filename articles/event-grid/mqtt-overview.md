@@ -48,11 +48,12 @@ MQTT is a publish-subscribe messaging transport protocol that was designed for c
 - MQTT v3.1.1 features:
   	- **Last Will and Testament**: Notifies your MQTT clients of the abrupt disconnections of other MQTT clients. You can use this feature to ensure predictable and reliable flow of communication among MQTT clients during unexpected disconnections.
 	- **Persistent sessions**: Ensures reliability by preserving the client's subscription information and messages when a client disconnects.
-	- **Quality of Service (QoS) 0 and 1**: Provide your clients with control over the efficiency and reliability of the communication.
+	- **Quality of Service (QoS) 0 and 1**: Provides your clients with control over the efficiency and reliability of the communication.
 	- [MQTT Retain](mqtt-retain.md): Ensures that the broker stores the last published message on a topic and automatically delivers it to any new subscribers. This feature allows devices to instantly receive the latest known state without waiting for the next update. This capability enables faster and more reliable state synchronization across IoT systems.
-- The following sections describe the current differences between features supported by the MQTT broker and the MQTT v5 specifications. QoS 2 isn't supported.
 
-Learn more about [the MQTT broker and current limitations](mqtt-support.md).
+The following sections describe the current differences between features supported by the MQTT broker and the MQTT v5 specifications. QoS 2 isn't supported.
+
+Learn more about the [MQTT broker and current limitations](mqtt-support.md).
 
 ### Publish-subscribe messaging model
 

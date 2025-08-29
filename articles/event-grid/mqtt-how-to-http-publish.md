@@ -26,9 +26,9 @@ This article explains how to publish MQTT messages via HTTP with Event Grid.
 
 ## Get your connection details
 
-- Namespace fully qualified domain name (FQDN): An example is `contoso.westus3-1.ts.eventgrid.azure.net`.
-- Topic: An example is `devices/CXa-23112/prompt`.
-- Microsoft Entra ID client credentials.
+- **Namespace fully qualified domain name (FQDN)**: An example is `contoso.westus3-1.ts.eventgrid.azure.net`.
+- **Topic**: An example is `devices/CXa-23112/prompt`.
+- **Credentials**: Microsoft Entra ID client credentials.
 
 ## Get a bearer token
 

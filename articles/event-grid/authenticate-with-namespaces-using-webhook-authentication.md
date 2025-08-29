@@ -9,7 +9,7 @@ author: Connected-Seth
 ms.author: seshanmugam
 ---
 
-# Authenticate with MQTT broker by using custom webhook authentication
+# Authenticate with the MQTT broker by using custom webhook authentication
 
 This article shows you how to authenticate with Azure Event Grid namespaces by using a webhook or an Azure function.
 
@@ -103,7 +103,7 @@ Configure custom webhook authentication settings on your Event Grid namespace by
     1. **Microsoft Entra ID tenant ID**: Enter the value of the Microsoft Entra tenant ID used to acquire the bearer token for authenticated webhook delivery.
 1. Select **Apply**.
     
-        :::image type="content" source="./media/authenticate-with-namespaces-using-webhook-authentication/configure-webhook-authentication.png" alt-text="Screenshot that shows the configuration of webhook authentication for an Event Grid namespace." lightbox="./media/authenticate-with-namespaces-using-webhook-authentication/configure-webhook-authentication.png":::
+    :::image type="content" source="./media/authenticate-with-namespaces-using-webhook-authentication/configure-webhook-authentication.png" alt-text="Screenshot that shows the configuration of webhook authentication for an Event Grid namespace." lightbox="./media/authenticate-with-namespaces-using-webhook-authentication/configure-webhook-authentication.png":::
 
 ### Use the Azure CLI
 

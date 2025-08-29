@@ -107,7 +107,7 @@ HTTP model highlights:
 - **Advanced filtering**: Filter on event type or other event attributes to make sure your event handlers or consumer apps receive only relevant events.
 - **Reliability**: Push delivery features a 24-hour retry mechanism with exponential backoff to make sure that events are delivered. If you use pull delivery, your application has full control over event consumption.
 - **High throughput**: Build high-volume integrated solutions with Event Grid.
-- **Custom domain names**: Allows users to assign their own domain names to Event Grid namespace's HTTP endpoints, which enhances security and simplifies client configuration.
+- **Custom domain names**: Allow users to assign their own domain names to Event Grid namespace's HTTP endpoints, which enhances security and simplifies client configuration.
 
 For more information, see the following articles:
 

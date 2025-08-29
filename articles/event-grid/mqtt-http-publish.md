@@ -39,7 +39,7 @@ Consider using HTTP Publish when:
 ## How it works
 
 1. HTTP clients issue an HTTP `POST` request with MQTT Publish details.
-1. Event Grid maps HTTP request parts to standard MQTT Publish packet properties.
+1. Event Grid maps HTTP request parts to standard MQTT PUBLISH packet properties.
 1. Messages flow through the Event Grid routing and enrichment pipeline, which ensures delivery guarantees and applies any enrichment or transformation.
 
 ## Example: MQTT Publish equivalent
@@ -75,7 +75,7 @@ Please accept terms of licensing and agreement
 
 ## Request parameters
 
-The following table describes how HTTP request parts map to MQTT `PUBLISH` packet properties. Refer to the original documentation for full details.
+The following table describes how HTTP request parts map to MQTT PUBLISH packet properties. Refer to the original documentation for full details.
 
 | MQTT Publish part    | Type/Values        | Location                               | Required       | Description                |
 |--------------------------|------------------------|--------------------------------------------|--------------------|--------------------------------|
