@@ -7,7 +7,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
-ms.date: 08/22/2024
+ms.date: 08/28/2025
 ms.author: radeltch
 # Customer intent: As a cloud architect, I want to implement high availability for SAP HANA on Azure VMs using SUSE Linux, so that I can ensure data continuity and minimize downtime during system failures.
 ---
@@ -802,13 +802,8 @@ crm configure primitive rsc_secnc_<HANA SID>_HDB<instance number> azure-lb port=
 
 crm configure group g_secip_<HANA SID>_HDB<instance number> rsc_secip_<HANA SID>_HDB<instance number> rsc_secnc_<HANA SID>_HDB<instance number>
 
-# Run the following command if the cluster nodes are running on SLES 12 SP05.
 crm configure colocation col_saphana_secip_<HANA SID>_HDB<instance number> 4000: g_secip_<HANA SID>_HDB<instance number>:Started \
  msl_SAPHana_<HANA SID>_HDB<instance number>:Slave
- 
-# Run the following command if the cluster nodes are running on SLES 15 SP03 or later.
-crm configure colocation col_saphana_secip_<HANA SID>_HDB<instance number> 4000: g_secip_<HANA SID>_HDB<instance number>:Started \
- msl_SAPHana_<HANA SID>_HDB<instance number>:Unpromoted
 
 crm configure property maintenance-mode=false
 ```
