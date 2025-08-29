@@ -2,7 +2,7 @@
 title: Analyze a firmware image with the firmware analysis service.
 description: Learn to analyze a compiled firmware image using firmware analysis.
 ms.topic: tutorial
-ms.date: 02/07/2025
+ms.date: 07/17/2025
 author: karengu0
 ms.author: karenguo
 ms.service: azure-iot-operations

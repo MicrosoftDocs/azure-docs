@@ -1,8 +1,8 @@
 ---
 title: Configure MQTT broker authorization
 description: Configure MQTT broker authorization using BrokerAuthorization.
-author: PatAltimore
-ms.author: patricka
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:

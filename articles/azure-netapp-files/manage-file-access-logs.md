@@ -11,7 +11,7 @@ ms.custom: references_regions
 # Customer intent: As a storage administrator, I want to enable file access logs on Azure NetApp Files volumes so that I can monitor file access operations and troubleshoot access issues effectively.
 ---
 
-# Manage file access logs in Azure NetApp Files (preview)
+# Manage file access logs in Azure NetApp Files
 
 File access logs provide file access logging for individual volumes, capturing file system operations on selected volumes. The logs capture [standard file operation](#recognized-events). File access logs provide insights beyond the platform logging captured in the [Azure Activity Log](/azure/azure-monitor/essentials/activity-log).
 
@@ -75,10 +75,10 @@ The events capture in file access logs depend on the protocol of your volume.
 * Set attribute 
 * Unlink
 * Write
-
+<!--
 ## Register the feature
 
-The file access logs feature is currently in preview. If you're using this feature for the first time, you need to register the feature first. 
+If you're using file access logs for the first time, you need to register the feature. 
 
 1. Register the feature:
 
@@ -96,7 +96,7 @@ The file access logs feature is currently in preview. If you're using this featu
     ```
 
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.
-
+-->
 ## Supported regions
 
 Availability for file access log is limited to the following regions: 

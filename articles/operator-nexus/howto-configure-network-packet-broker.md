@@ -1,486 +1,173 @@
 ---
 title: "Azure Operator Nexus: Configure the network packet broker"
 description: Learn commands to create, view network packet broker's TAPRule.
-author: jdasari
-ms.author: jdasari
+author: sushantjrao
+ms.author: sushrao
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 10/20/2023
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
-# Network Packet Broker
-Azure Operator Nexus's Network Packet Broker is a specialized offering from Microsoft Azure tailored for telecommunication service providers. With Azure Operator Nexus's Network Packet Broker, telecom operators can efficiently capture, aggregate, filter, and monitor traffic across their infrastructure (AON), allowing for deep packet inspection, traffic analysis, and enhanced network monitoring. This is crucial in the telecommunications industry, where maintaining high-quality service, ensuring security, and complying with regulatory requirements are paramount. By applying this solution, operators can achieve better visibility into their network traffic, troubleshoot issues more effectively, and ultimately deliver improved services to their customers while maintaining the highest standards of network security and performance. 
+# How to configure Network Packet Broker (NPB)
 
-The Network Packet Broker (NPB) is designed and modeled as a separate top-level Azure Resource Manager (ARM) resource under Microsoft.managednetworkfabric. Operators can Create, Read, Update and Delete Network TAP, Network TAP rule and Neighbor Group functions. Each network packet broker has multiple resources such as Network TAP, Neighbor Group, & Network TAP Rules to manage, filter and forward designated traffic. 
+This guide explains how to set up a Network Packet Broker (NPB) to capture, filter, and forward network traffic to monitoring tools (vProbes).
 
-> [!Note] 
-> Update operations are not currently supported for Neighbor Groups. Changes made via CLI or API will not reflect on the network device.
+## Prerequisites
 
-## Steps to Enable Network Packet Broker
+- **Provisioned NPB devices**: Ensure NPB devices are correctly racked, stacked, and provisioned. For details, see [Network Fabric Provisioning](./howto-configure-network-fabric.md).
 
-**Prerequisites**
+- **vProbes configuration**: Respective vProbes should be set up with dedicated IPs.
 
-- NPB devices are correctly racked, stacked, and provisioned. For Procedure on how to provision the network fabric, see [Network Fabric Provisioning](./howto-configure-network-fabric.md).
-- Respective vProbes should be set up with dedicated IPs
-- For internal vProbes, Layer 3 Isolation domains with internal networks should be created. Required connected subnets should be configured, in addition, the extension flag should be set to NPB (in internal networks). For Procedure on how to create internal and external networks on an Isolation Domain and set extension flag for NPB, see [Isolation Domains](./howto-configure-isolation-domain.md).
-- For the Network to Network Inter-connect (NNI) use case, NNI should be created as type `NPB`. Appropriate layer 2 and layer 3 properties should be defined during the creation of NNI. For Procedure on how to create the network to network interconnect (NNI), see [Network Fabric Provisioning](./howto-configure-network-fabric.md).
+- **Internal vProbes (optional)**: If using internal vProbes, create Layer 3 isolation domains with internal networks. Required subnets must be configured, and the **NPB extension flag** must be set for internal networks. For details, see [Isolation Domains](./howto-configure-isolation-domain.md).
 
-**Steps**
-1. Create a Network TAP rule providing the match configuration (only inline input method is supported)
-1. Create a Neighbor Group resource defining destinations. 
-1. Create a Network TAP resource referencing the Tap rules and Neighbor Groups.
-1. Enable the Network TAP resource.
-###  NPB
-NNF would auto-create this resource during bootstrap..
-### Show NPB
-This command shows the details of NPB logical resource.
-```azurecli
- az networkfabric npb show --resource-group "example-rg" --resource-name "NPB1"
+- **Network-to-Network Interconnect (NNI) use case**: If applicable, create an NNI of type `NPB`. Ensure appropriate Layer 2 and Layer 3 properties are defined during creation. For details, see [Network Fabric Provisioning](./howto-configure-network-fabric.md).
+
+
+## Step 1: Create a Network TAP Rule
+
+A **network TAP rule** defines the traffic you want to capture and the actions to perform once a packet matches.
+
+**Key points:**
+
+* A TAP rule consists of one or more **matching configurations**.
+
+* **Match conditions** are evaluated as logical **“AND”** tuples; all conditions must be satisfied for a packet to match.
+
+* **Actions** are executed once a packet matches a configuration.
+
+* TAP rules can be created **inline** (Azure CLI, portal, or ARM) or **file-based** (upload from a storage URL). File updates support **push or pull mechanisms**.
+
+**CLI examples:**
+
+```bash
+# Create a TAP rule
+az networkfabric taprule create \
+  --resource-group <rg-name> \
+  --fabric-name <fabric-name> \
+  --name <taprule-name> \
+  --configurations <configurations-json>
+
+# Update a TAP rule
+az networkfabric taprule update --name <taprule-name> --resource-group <rg-name> --fabric-name <fabric-name>
+
+# Delete a TAP rule
+az networkfabric taprule delete --name <taprule-name> --resource-group <rg-name> --fabric-name <fabric-name>
+
+# Show a TAP rule
+az networkfabric taprule show --name <taprule-name> --resource-group <rg-name> --fabric-name <fabric-name>
 ```
-Expected Output
-```azurecli
-{
-  "properties": {
-    "networkFabricId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabrics/example-networkFabric",
-    "networkDeviceIds": [
-      "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkDevices/example-networkDevice"
-    ],
-    "sourceInterfaceIds": [
-      "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkDevices/example-networkDevice/networkInterfaces/example-networkInterface"
-    ],
-    "networkTapIds": [
-      "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkTaps/example-networkTap"
-    ],
-    "neighborGroupIds": [
-      "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup"
-    ],
-    "provisioningState": "Succeeded"
-  },
-  "tags": {
-    "key2806": "key"
-  },
-  "location": "eastuseuap",
-  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkPacketBrokers/example-networkPacketBroker",
-  "name": "example-networkPacketBroker",
-  "type": "microsoft.managednetworkfabric/networkPacketBrokers",
-  "systemData": {
-    "createdBy": "email@address.com",
-    "createdByType": "User",
-    "createdAt": "2023-05-17T11:56:12.100Z",
-    "lastModifiedBy": "email@address.com",
-    "lastModifiedByType": "User",
-    "lastModifiedAt": "2023-05-17T11:56:12.100Z"
-  }
-}
+
+## Step 2: Create a Neighbor Group
+
+A **neighbor group** defines **destinations** for the traffic forwarded by a TAP.
+
+**Key points:**
+
+* Destinations can include **network interfaces** or monitoring tools like **vProbes**.
+* IP addresses behind load balancers can also be used as destinations, but traffic is sent directly to the specified addresses.
+* Grouping multiple destinations simplifies configuration.
+
+**CLI examples:**
+
+```AzCLI
+# Create a neighbor group
+
+az networkfabric neighborgroup create \
+  --resource-group <rg-name> \
+  --fabric-name <fabric-name> \
+  --name <neighborgroup-name> \
+  --destinations <destinations-json>
+
+# Delete a neighbor group
+
+az networkfabric neighborgroup delete --name <neighborgroup-name> --resource-group <rg-name> --fabric-name <fabric-name>
+
+# Show a neighbor group
+
+az networkfabric neighborgroup show --name <neighborgroup-name> --resource-group <rg-name> --fabric-name <fabric-name>
 ```
-## Network TAP Rules
-NetworkTapRule resource provides ability for providing filtering and forwarding combinations of conditions and actions. 
-### Parameters for Network TAP Rules
-| Parameter | Description | Example | Required |
-|-----------|-------------|---------|----------|
-| resource-group | Use an appropriate resource group name specifically for your NetworkTapRule |  ResourceGroupName |True |
-| resource-name | Resource Names of the Network Tap |  InternetTAPrule1 |True |
-| location | AzON Azure Region used during Network Fabric Controller (NFC) Creation |  eastus |True |
-| configuration-type | Input methods to configure Network Tap Rule. | Inline or File|True |
-| match-configurations |List of match configurations.|  ||
-| match-configurations/matchconfigurationName|Name of Match configuration block |  | |
-| match-configurations/sequenceNumber|Sequence number of Match configuration |  | |
-| match-configurations/ipAddressType|Ip address family |  | |
-| match-configurations/matchconditions|List of dynamic match conditions based on port, protocol, VLAN & IP conditions. |  | |
-| match-configurations/action|Provide action details. Actions can be Drop, Count, Log,Goto,Redirect,Mirror|  | |
-| dynamic-match-configurations|List of dynamic match configurations based Port, VLAN & IP |  | |
-> [!NOTE]
-> Network Tap rules and Neighbor Groups must be created prior to referencing them in Network Tap 
-### Create Network Tap Rule
-This command creates a Network Tap rule:
-```azurecli
-az networkfabric taprule create --resource-group "example-rg" --location "westus3"--resource-name "example-networktaprule"\
- --configuration-type "Inline" \
- --match-configurations "[{matchConfigurationName:config1,sequenceNumber:10,ipAddressType:IPv4,matchConditions:[{encapsulationType:None,portCondition:{portType:SourcePort,layer4Protocol:TCP,ports:[100],portGroupNames:['example-portGroup1']},protocolTypes:[TCP],vlanMatchCondition:{vlans:['10'],innerVlans:['11-20']},ipCondition:{type:SourceIP,prefixType:Prefix,ipPrefixValues:['10.10.10.10/20']}}],\
- actions:[{type:Drop,truncate:100,isTimestampEnabled:True,destinationId:'/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup',matchConfigurationName:match1}]}]"\
- --dynamic-match-configurations"[{ipGroups:[{name:'example-ipGroup1',ipAddressType:IPv4,ipPrefixes:['10.10.10.10/30']}],vlanGroups:[{name:'example-vlanGroup',vlans:['10']}],portGroups:[{name:'example-portGroup1',ports:['100-200']}]}]"
-```
-Expected output:
-```output
-{
-  "properties": {
-    "networkTapId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkTaps/example-taprule",
-    "pollingIntervalInSeconds": 30,
-    "lastSyncedTime": "2023-06-12T07:11:22.485Z",
-    "configurationState": "Succeeded",
-    "provisioningState": "Accepted",
-    "administrativeState": "Enabled",
-    "annotation": "annotation",
-    "configurationType": "Inline",
-    "tapRulesUrl": "",
-    "matchConfigurations": [
-      {
-        "matchConfigurationName": "config1",
-        "sequenceNumber": 10,
-        "ipAddressType": "IPv4",
-        "matchConditions": [
-          {
-            "encapsulationType": "None",
-            "portCondition": {
-              "portType": "SourcePort",
-              "l4Protocol": "TCP",
-              "ports": [
-                "100"
-              ],
-              "portGroupNames": [
-                "example-portGroup1"
-              ]
-            },
-            "protocolTypes": [
-              "TCP"
-            ],
-            "vlanMatchCondition": {
-              "vlans": [
-                "10"
-              ],
-              "innerVlans": [
-                "11-20"
-              ],
-              "vlanGroupNames": [
-                "example-vlanGroup"
-              ]
-            },
-            "ipCondition": {
-              "type": "SourceIP",
-              "prefixType": "Prefix",
-              "ipPrefixValues": [
-                "10.10.10.10/20"
-              ],
-              "ipGroupNames": [
-                "example-ipGroup"
-              ]
-            }
-          }
-        ],
-        "actions": [
-          {
-            "type": "Drop",
-            "truncate": "100",
-            "isTimestampEnabled": "True",
-            "destinationId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup",
-            "matchConfigurationName": "match1"
-          }
-        ]
-      }
-    ],
-    "dynamicMatchConfigurations": [
-      {
-        "ipGroups": [
-          {
-            "name": "example-ipGroup1",
-            "ipPrefixes": [
-              "10.10.10.10/30"
-            ]
-          }
-        ],
-        "vlanGroups": [
-          {
-            "name": "example-vlanGroup",
-            "vlans": [
-              "10",
-              "100-200"
-            ]
-          }
-        ],
-        "portGroups": [
-          {
-            "name": "example-portGroup1",
-            "ports": [
-              "100-200"
-            ]
-          },
-          {
-            "name": "example-portGroup2",
-            "ports": [
-              "900",
-              "1000-2000"
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  "tags": {
-    "keyID": "keyValue"
-  },
-  "location": "eastuseuap",
-  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkTapRules/example-tapRule",
-  "name": "example-tapRule",
-  "type": "microsoft.managednetworkfabric/networkTapRules",
-  "systemData": {
-    "createdBy": "email@address.com",
-    "createdByType": "User",
-    "createdAt": "2023-06-12T07:11:22.488Z",
-    "lastModifiedBy": "user@mail.com",
-    "lastModifiedByType": "User",
-    "lastModifiedAt": "2023-06-12T07:11:22.488Z"
-  }
-}
-```
-### Show Network Tap Rule
-This command displays an IP community resource:
-```azurecli
-az networkfabric taprule show --resource-group "example-rg" --resource-name "example-networktaprule"
-```
-Expected output:
-```output
-{
-  "properties": {
-    "networkTapId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkTaps/example-taprule",
-    "pollingIntervalInSeconds": 30,
-    "lastSyncedTime": "2023-06-12T07:11:22.485Z",
-    "configurationState": "Succeeded",
-    "provisioningState": "Accepted",
-    "administrativeState": "Enabled",
-    "annotation": "annotation",
-    "configurationType": "Inline",
-    "tapRulesUrl": "",
-    "matchConfigurations": [
-      {
-        "matchConfigurationName": "config1",
-        "sequenceNumber": 10,
-        "ipAddressType": "IPv4",
-        "matchConditions": [
-          {
-            "encapsulationType": "None",
-            "portCondition": {
-              "portType": "SourcePort",
-              "l4Protocol": "TCP",
-              "ports": [
-                "100"
-              ],
-              "portGroupNames": [
-                "example-portGroup1"
-              ]
-            },
-            "protocolTypes": [
-              "TCP"
-            ],
-            "vlanMatchCondition": {
-              "vlans": [
-                "10"
-              ],
-              "innerVlans": [
-                "11-20"
-              ],
-              "vlanGroupNames": [
-                "example-vlanGroup"
-              ]
-            },
-            "ipCondition": {
-              "type": "SourceIP",
-              "prefixType": "Prefix",
-              "ipPrefixValues": [
-                "10.10.10.10/20"
-              ],
-              "ipGroupNames": [
-                "example-ipGroup"
-              ]
-            }
-          }
-        ],
-        "actions": [
-          {
-            "type": "Drop",
-            "truncate": "100",
-            "isTimestampEnabled": "True",
-            "destinationId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup",
-            "matchConfigurationName": "match1"
-          }
-        ]
-      }
-    ],
-    "dynamicMatchConfigurations": [
-      {
-        "ipGroups": [
-          {
-            "name": "example-ipGroup1",
-            "ipPrefixes": [
-              "10.10.10.10/30"
-            ]
-          }
-        ],
-        "vlanGroups": [
-          {
-            "name": "example-vlanGroup",
-            "vlans": [
-              "10",
-              "100-200"
-            ]
-          }
-        ],
-        "portGroups": [
-          {
-            "name": "example-portGroup1",
-            "ports": [
-              "100-200"
-            ]
-          },
-          {
-            "name": "example-portGroup2",
-            "ports": [
-              "900",
-              "1000-2000"
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  "tags": {
-    "keyID": "keyValue"
-  },
-  "location": "eastuseuap",
-  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkTapRules/example-tapRule",
-  "name": "example-tapRule",
-  "type": "microsoft.managednetworkfabric/networkTapRules",
-  "systemData": {
-    "createdBy": "email@address.com",
-    "createdByType": "User",
-    "createdAt": "2023-06-12T07:11:22.488Z",
-    "lastModifiedBy": "user@mail.com",
-    "lastModifiedByType": "User",
-    "lastModifiedAt": "2023-06-12T07:11:22.488Z"
-  }
-}
-```
-## Neighbor group
-Neighbor Group resource has the ability to group destinations for forwarding the filtered traffic
-### Parameters for Neighbor Group
-| Parameter | Description | Example | Required |
-|-----------|-------------|---------|----------|
-| resource-group | Use an appropriate resource group name specifically for your NeighborGroup |  ResourceGroupName |True |
-| resource-name | Resource Names of the NeighborGroup |  example-Neighbor |True |
-| location | AzON Azure Region used during NFC Creation |  eastus |True |
-| destination |List of Ipv4 or Ipv6 destinations to forward traffic | 10.10.10.10|True |
 
 > [!Note]
-> If you need to modify a Neighbor Group, you must delete and recreate it. Update operations are not supported and will not apply changes to the network device.
+> Update operations are not currently supported for Neighbor Groups. Changes made via `CLI` or `API` will not reflect on the network device.
 
-### Create Neighbor group
-This command creates a Neighbor Group resource:
-```azurecli
- az networkfabric neighborgroup create --resource-group "example-rg" --location "westus3"
---resource-name "example-neighborgroup" --destination "{ipv4Addresses:['10.10.10.10']}"
+## Step 3: Create a Network TAP
+
+A **network TAP** captures traffic from a specified **source network interface** and forwards it according to a TAP rule and neighbor group.
+
+**Key points:**
+
+* Associate the TAP rule and neighbor group created in previous steps.
+* Use Azure CLI, portal, or ARM to create the TAP.
+* The TAP can be **enabled or disabled** to start or stop traffic forwarding.
+
+**CLI examples:**
+
+```AzCLI
+# Create a network TAP
+az networkfabric tap create \
+  --resource-group <rg-name> \
+  --fabric-name <fabric-name> \
+  --name <tap-name> \
+  --source-interface <interface-id> \
+  --taprule <taprule-name> \
+  --neighborgroup <neighborgroup-name>
+
+# Update a network TAP
+az networkfabric tap update --name <tap-name> --resource-group <rg-name> --fabric-name <fabric-name>
+
+# Delete a network TAP
+az networkfabric tap delete --name <tap-name> --resource-group <rg-name> --fabric-name <fabric-name>
+
+# Show a network TAP
+az networkfabric tap show --name <tap-name> --resource-group <rg-name> --fabric-name <fabric-name>
 ```
-Expected output:
-```output
-{
-  "properties": {
-    "networkTapIds": [
-    ],
-    "networkTapRuleIds": [
-    ],
-    "destination": {
-      "ipv4Addresses": [
-        "10.10.10.10",
-      ]
-    },
-    "provisioningState": "Succeeded",
-    "annotation": "annotation"
-  },
-  "tags": {
-    "keyID": "KeyValue"
-  },
-  "location": "eastus",
-  "id": "/subscriptions/subscriptionId/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup",
-  "name": "example-neighborGroup",
-  "type": "microsoft.managednetworkfabric/neighborGroups",
-  "systemData": {
-    "createdBy": "user@mail.com",
-    "createdByType": "User",
-    "createdAt": "2023-05-23T05:49:59.193Z",
-    "lastModifiedBy": "email@address.com",
-    "lastModifiedByType": "User",
-    "lastModifiedAt": "2023-05-23T05:49:59.194Z"
-  }
-}
+
+## Step 4: Enable or Disable a Network TAP
+
+After creating a TAP, **enable it** to start the packet brokering process. You can disable it at any time to stop forwarding traffic.
+
+**CLI example:**
+
+```AzCLI
+# Enable a network TAP
+az networkfabric tap update-admin-state \
+  --resource-group <rg-name> \
+  --fabric-name <fabric-name> \
+  --name <tap-name> \
+  --enabled true
+
+# Disable a network TAP
+az networkfabric tap update-admin-state \
+  --resource-group <rg-name> \
+  --fabric-name <fabric-name> \
+  --name <tap-name> \
+  --enabled false
 ```
-### Show Neighbor group resource
-This command displays an IP extended community resource:
-```azurecli
- az networkfabric neighborgroup show --resource-group "example-rg" --resource-name "example-neighborgroup"
-```
-Expected output:
-```output
-{
-  "properties": {
-    "networkTapIds": [
-    ],
-    "networkTapRuleIds": [
-    ],
-    "destination": {
-      "ipv4Addresses": [
-        "10.10.10.10",
-      ]
-    },
-    "provisioningState": "Succeeded",
-    "annotation": "annotation"
-  },
-  "tags": {
-    "keyID": "KeyValue"
-  },
-  "location": "eastus",
-  "id": "/subscriptions/subscriptionId/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup",
-  "name": "example-neighborGroup",
-  "type": "microsoft.managednetworkfabric/neighborGroups",
-  "systemData": {
-    "createdBy": "user@mail.com",
-    "createdByType": "User",
-    "createdAt": "2023-05-23T05:49:59.193Z",
-    "lastModifiedBy": "email@address.com",
-    "lastModifiedByType": "User",
-    "lastModifiedAt": "2023-05-23T05:49:59.194Z"
-  }
-}
-```
-## Network TAP
-Network TAP allows Operators to define destinations and encapsulation mechanism to forward filtered traffic based on the Network TAP Rules
-### Parameters for Network TAP
-| Parameter | Description | Example | Required |
-|-----------|-------------|---------|----------|
-| resource-group | Use an appropriate resource group name specifically for your Network Tap |  ResourceGroupName |True |
-| resource-name | Resource Name of the Network Tap |  NetworkTAP-Austin |True |
-| location | AzON Azure Region used during NFC Creation | eastus |True |
-| network-packet-broker-id  | ARMID of Network Packet Broker resource |   |True |
-| polling-type | Polling method for Network Tap rules (Push or Pull)|  Pull|True |
-| destination |Destination definitions|  |True |
-| destination/name | name of destination |  ||
-| destination/type| type of destination.IsolationDomain or NNI |   ||
-| destination/IsolationDomainProperties| Details of Isolation domain. Encapsulation, Neighbor group IDs | Azure Resource Manager (ARM) ID of internal network or NNI  |False|
-| destinationTapRuleId| ARMID of the Tap rule, which needs to be applied | |True |
 
-> [!NOTE] 
-> Network Tap rules and Neighbor Groups must be created prior to referencing them in Network Tap. <br>
-> IP, VLAN, and port group name must be unique across all Network Tap rules associated with the same Network Fabric.
+## Operational notes
 
-### NetworkTAP device programming naming conventions/ best practices:
+* NPB **does not analyze traffic**; it only captures, filters, and forwards packets.
 
-It's essential to ensure that the configurations and values within these fieldset names (vlanGroupNames, ipGroupNames, PortGroupNames) are **unique** and do not conflict with each other.  
+* Multiple TAPs can be configured to monitor different sources simultaneously.
 
-- **Recommendations:** 
+* Updates to TAP rules or neighbor groups can be applied dynamically without disrupting other flows.
 
-  - **Unique Field-Set Names:** The field-set names across NetworkTAPRules must be unique if the field-set contents are distinct.
+## Common errors for NPB
 
-  - **Unique Resource Names:** The NetworkTAP and NetworkTAPRule resource names must be unique across resource groups within the Fabric.
+During Network Packet Broker (NPB) configuration, the system classifies all control path errors into two broad categories:
 
-  - **Regional Resource Creation:** The NetworkTAP and NetworkTAPRule resources must be created within the Region and associated with the respective Fabric within the Region.
+- **Bad Request (400)**  
+  This occurs when the request is invalid. For example, missing required parameters, providing incorrect values, or using an unsupported schema.  
+  **Recommended action:** Review your request payload and ensure that all required fields and values are valid.
 
-  - **Destination Name Modification:** The destination name is unique for a defined network tap rule destination configuration. Destination name can't be modified once the network tap configuration is pushed to the device.
+- **Internal Server Error (500)**  
+  This occurs when the system encounters an unexpected condition, such as backend unavailability or a transient failure.  
+  **Recommended action:** Retry the operation after a few minutes. 
+  If the issue persists, contact Microsoft Support.
 
-### Create Network TAP
-This command creates  network Tap resource:
-```azurecli
-az networkfabric tap create --resource-group "example-rg" --location "westus3" \
---resource-name "example-networktap" \
---network-packet-broker-id "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkPacketBrokers/example-networkPacketBroker" \
---polling-type "Pull"\
---destinations "[{name:'example-destinationName',destinationType:IsolationDomain,destinationId:'/subscriptions/xxxxx/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/example-l3Domain/internalNetworks/example-internalNetwork',\
-isolationDomainProperties:{encapsulation:None,neighborGroupIds:['/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup']},\
-```
+## Additional resources
+[Concepts: Network Packet Broker](./concepts-nexus-network-packet-broker.md)
+[Deep Dive: Network TAP Rules](./concepts-nexus-network-tap-rules.md)
+[Configure the Network Fabric](./howto-configure-network-fabric.md)
+[Network Fabric Services](./concepts-network-fabric-services.md)

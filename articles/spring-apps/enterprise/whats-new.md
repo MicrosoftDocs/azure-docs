@@ -7,7 +7,8 @@ ms.reviewer: hangwan
 ms.service: azure-spring-apps
 ms.topic: conceptual
 ms.custom: devx-track-java
-ms.date: 07/29/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ---
 
 # What's new in Azure Spring Apps?
