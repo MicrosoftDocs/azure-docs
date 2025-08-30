@@ -63,7 +63,7 @@ Geo redundancy conversions, including *LRS* **to, or from,** *GRS* or *ZRS* **to
 - The number and size of the objects in the storage account.
 - The available resources for background replication, such as CPU, memory, disk, and WAN capacity.
 
-You can read more about the factors affecting SKU conversion times in the [Initiate a storage account failover - Azure Storage](storage-failover.md) article.
+You can read more about the factors affecting SKU conversion times in the [Initiate a storage account failover](storage-failover-customer-managed-planned.md#how-to-initiate-a-failover) article.
 
 ### Why is my SKU conversion process taking so long?
 
