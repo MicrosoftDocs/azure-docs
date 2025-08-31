@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 08/29/2025
+ms.date: 09/05/2025
 ms.update-cycle: 180-days
 #Customer intent: I want to create an MCP server that provides tools that I build from connector actions in Azure Logic Apps. AI agents and models can then use these tools to run automated tasks.
 ---
@@ -174,10 +174,12 @@ For this task, make sure you completed the requirement to set the API Center por
 
    When you add an MCP server for the first time, you must choose where to store your MCP configuration. You get the following options, so choose the best option for your scenario:
 
-   - **Global**: Your user configuration, which is the directory at **c:\users\<your-username>\AppData\Roaming\Code\User** and is available across all workspaces.
-   - **Workspace**: Your current workspace in Visual Studio Code.
+   | Option | Description |
+   |--------|-------------|
+   | **Global** | Your user configuration, which is the directory at **c:\users\<your-username>\AppData\Roaming\Code\User** and is available across all workspaces. |
+   | **Workspace** | Your current workspace in Visual Studio Code. |
 
-   This article selects **Global** to store the MCP server information in the user configuration. As a result, Visual Studio Code creates and opens an **mcp.json** file, which shows your MCP server information.
+   This example selects **Global** to store the MCP server information in the user configuration. As a result, Visual Studio Code creates and opens an **mcp.json** file, which shows your MCP server information.
 
 1. In the **mcp.json** file that opens, select the **Start** or **Restart** link to establish connectivity for your MCP server, for example:
 
