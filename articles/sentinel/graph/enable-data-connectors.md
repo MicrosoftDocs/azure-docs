@@ -84,5 +84,5 @@ SigninLogs
 ## Next Steps
 
 - See the [Table Management documentation](./asset-data-tables.md) for details on tiering options and retention settings.
-- See how asset data enriches [Purview Data Risk graphs].
+- See how asset data enriches [Purview Data Risk graphs](/graph/security-datasecurityandgovernance-overview).
 - How to query [Sentinel data lake](../datalake/sentinel-lake-overview.md#flexible-querying-with-kusto-query-language)
