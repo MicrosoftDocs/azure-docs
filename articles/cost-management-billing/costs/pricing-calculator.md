@@ -1,13 +1,13 @@
 ---
 title: Estimate costs with the Azure pricing calculator
 description: This article explains how to use the Azure pricing calculator to turn anticipated usage into an estimated cost, which makes it easier to plan and budget for your Azure usage.
-author: maxull0a
-ms.author: maxulloa
-ms.date: 03/04/2025
+author: abhishekjois
+ms.author: abhishekjois
+ms.date: 07/21/2025
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: maxulloa
+ms.reviewer: abhishekjois
 ---
 
 # Estimate costs with the Azure pricing calculator
@@ -15,7 +15,6 @@ ms.reviewer: maxulloa
 The Azure pricing calculator helps you turn anticipated usage into an estimated cost, which makes it easier to plan and budget for your Azure usage. Whether you're a small business owner or an enterprise-level organization, the web-based tool helps you make informed decisions about your cloud spending. When you log in, the calculator also provides a cost estimate for your Azure consumption with your negotiated or discounted prices. This article explains how to use the Azure pricing calculator.
 
 >[!NOTE]
-> - You can also use Azure [Total Cost of Ownership (TCO) Calculator](https://azure.microsoft.com/pricing/tco/calculator/) to estimate the cost savings you can achieve by migrating your application workloads to Microsoft Azure.
 > - Prices shown in this article are examples to help you understand how the calculator works. They aren't actual prices.
 
 ## Access the Azure pricing calculator
@@ -163,12 +162,6 @@ If you're a Cloud Solution Provider (CSP) partner that transitioned to the new c
 > Partner Earned Credit (PEC) estimation isn't available in the calculator, so you need to manually apply your anticipated PEC to the monthly estimate.
 
 If you don't have access to log in to the calculator to see negotiated prices, contact your administrator or Azure Account Manager.
-
-## Help us improve the calculator
-
-If you want to provide feedback about the Pricing Calculator, there's a link at the bottom of the page. We welcome your feedback.
-
-:::image type="content" source="./media/pricing-calculator/feedback.png" alt-text="Screenshot showing the Feedback option." lightbox="./media/pricing-calculator/feedback.png" :::
 
 ## Next steps
 

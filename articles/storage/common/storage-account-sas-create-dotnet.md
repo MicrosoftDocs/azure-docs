@@ -3,12 +3,12 @@ title: Create an account SAS with .NET
 titleSuffix: Azure Storage
 description: Learn how to create an account shared access signature (SAS) using the .NET client library.
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 08/05/2024
-ms.author: pauljewell
+ms.author: shaas
 ms.reviewer: dineshm
 ms.subservice: storage-common-concepts
 ms.devlang: csharp
@@ -58,3 +58,4 @@ To learn more about creating an account SAS using the Azure Blob Storage client 
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md)
 - [Create an account SAS](/rest/api/storageservices/create-account-sas)
 - For related code samples using deprecated .NET version 11.x SDKs, see [Code samples using .NET version 11.x](../blobs/blob-v11-samples-dotnet.md#create-an-account-sas).
+

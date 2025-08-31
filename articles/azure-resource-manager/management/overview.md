@@ -137,6 +137,11 @@ Resource Manager is designed for resiliency and continuous availability. Resourc
 
 This resiliency applies to services that receive requests through Resource Manager. Azure Key Vault is one service that benefits from this consistency.
 
+
+Using the global endpoint `management.azure.com` is recommended for Azure Resource Manager routing because it enables DNS-based traffic distribution, automatic failover, and optimal routing to the closest or healthiest region, which improves latency and reliability for users worldwide.
+Global endpoints typically result in faster response times, as users are directed to the nearest available region, reducing network hops and delays.
+
+
 ## Resolve concurrent operations
 
 Concurrent resource updates can cause unexpected results. When two or more operations try to update the same resource at the same time, Resource Manager detects the conflict, allows only one operation to complete successfully, blocks the other operations, and returns an error. This resolution ensures that your updates are conclusive and reliable; you know the status of your resources and avoid any inconsistency or data loss.  

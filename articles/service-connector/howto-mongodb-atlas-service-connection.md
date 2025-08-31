@@ -4,6 +4,7 @@ description: Learn how to connect apps to your MongoDB Atlas service using Servi
 # customerIntent: As a developer, I want connect apps deployed to Azure services to a MongoDB Atlas resource.
 ms.topic: how-to
 ms.date: 07/11/2025
+ms.service: service-connector
 ms.custom:
   - service-connector
   - build-2025
