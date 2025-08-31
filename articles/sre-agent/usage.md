@@ -14,6 +14,13 @@ Azure SRE Agent Preview helps you maintain the health and performance of your Az
 
 This article demonstrates how to create an agent and connect it to your resources to maintain optimal application performance.
 
+## Preview access
+
+Access to SRE Agent is available only as a preview. To sign up for access, fill out the [SRE Agent application](https://go.microsoft.com/fwlink/?linkid=2319540).
+
+> [!NOTE]
+> By using SRE Agent, you consent to the product-specific [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Prerequisites
 
 To create an agent, you need to grant your agent the correct permissions and access to the right namespace:
@@ -108,13 +115,15 @@ You can change the list of resource groups that your agent manages at any time. 
 
 ## Manage incidents
 
-You can diagnose incidents in Azure App Service, Azure Container Apps, Azure Functions, Azure Kubernetes Service, and Azure Database for PostgreSQL by chatting with the agent directly or by connecting an incident management platform.
+You can diagnose incidents your Azure services by setting up an incident response plan.
 
-SRE Agent connects to Azure Monitor by default, but you can also use the following steps to connect it to PagerDuty. To set up SRE Agent with PagerDuty, you need a PagerDuty API key.  
+SRE Agent connects to Azure Monitor alerts by default, but you can also use the following steps to connect it to PagerDuty. To set up SRE Agent with PagerDuty, you need a PagerDuty API key.
 
-1. In your SRE Agent resource, go to the **Settings** tab and select **Incident Management**.
+1. In your SRE Agent resource, select the **Incident management** tab.
 
-1. In the **Incident platform** dropdown list, select **PagerDuty**.
+1. Select **Incident platform**
+
+1. In the *Incident platform* dropdown list, select **PagerDuty**.
 
 1. Enter your API key.
 
