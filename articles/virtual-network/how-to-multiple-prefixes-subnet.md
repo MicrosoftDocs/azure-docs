@@ -25,7 +25,7 @@ The following limitations still apply as of now:
 
 - This feature doesn't support multiple customer address (CA) configurations. When using multiple prefixes on a subnet, you're only able to use a single customer address (CA) configuration. A single IPv4 (Internet Protocol version 4) and single IPv6 (Internet Protocol Version 6) address per NIC (network interface card) is supported.
 
-- This feature is only avalable currently via command line (PowerShell, CLI) or Azure Resource Manager Templates. Azure Portal support is limited. Once additional address prefixes are added, under the `Subnets` blade, you will be able to see the correct count of `Available IPs` from all the prefixes, but only the first prefix is listed. 
+- This feature is only available currently via command line (PowerShell, CLI) or Azure Resource Manager Templates. Azure portal support is limited. Once additional address prefixes are added, under the `Subnets` blade, you will be able to see the correct count of `Available IPs` from all the prefixes, but only the first prefix is listed. 
     - You can get the details of subnet configuration and all subnet prefixes by navigating to Virtual Network `Overview` page and selecting `JSON View`.
 
 ## Prerequisites
@@ -166,7 +166,7 @@ In this section, you add a second prefix on an existing subnet to expand the add
 
 1. Use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) to add a second address prefix to subnet configuration. Specify both the existing and new address prefixes in this step
   
-    [!IMPORTANT]
+    > [!IMPORTANT]
     > You must not skip listing the existing subnet prefixes in this step.
     > Only the address prefixes specified here will be applied in next step, all others will be removed if not in use, or result in an error if those are referenced by existing network interfaces.
 
@@ -194,7 +194,7 @@ In this section, you add a second prefix on an existing subnet to expand the add
 
 1. Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) to add a second address prefix to subnet configuration and apply the new configuration to the virtual network.
 
-    [!IMPORTANT]
+    > [!IMPORTANT]
     > You must not skip listing the existing subnet prefixes in this step.
     > Only the address prefixes specified here will be applied to subnet, all others will be removed if not in use, or result in an error if those are referenced by existing network interfaces.
 
@@ -227,7 +227,7 @@ You can also remove the address prefixes from the subnet that are not being acti
 
 1. Use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) to update the list of address prefixes and remove the ones that are not used.
 
-    [!IMPORTANT]
+    > [!IMPORTANT]
     > Only the address prefixes specified here will be applied in next step, all others will be removed if not in use, or result in an error if those are referenced by existing network interfaces.
 
 
@@ -254,7 +254,7 @@ You can also remove the address prefixes from the subnet that are not being acti
 
 1. Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) to update the list of address prefixes and remove the ones that are not used.
 
-    [!IMPORTANT]
+    > [!IMPORTANT]
     > You must not skip listing all the required subnet prefixes in this step.
     > Only the address prefixes specified here will be applied to the subnet, all others will be removed if not in use, or result in an error if those are referenced by existing network interfaces
 
