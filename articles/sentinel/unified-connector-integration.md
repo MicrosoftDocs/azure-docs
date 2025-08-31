@@ -1,5 +1,5 @@
 ---
-title: Connect using unified connectors
+title: Connect to Microsoft Sentinel using a unified connector
 description: Learn how to connect to the Unified Connectors Platform that simplifies connector management across Microsoft security products including Microsoft Sentinel, Defender for Cloud, and Defender for Identity.
 author: mberdugo
 contributors:
