@@ -25,7 +25,7 @@ The following limitations still apply as of now:
 
 - This feature doesn't support multiple customer address (CA) configurations. When using multiple prefixes on a subnet, you're only able to use a single customer address (CA) configuration. A single IPv4 (Internet Protocol version 4) and single IPv6 (Internet Protocol Version 6) address per NIC (network interface card) is supported.
 
-- This feature is only available currently via command line (PowerShell, CLI) or Azure Resource Manager Templates. Azure portal support is limited. Once additional address prefixes are added, under the `Subnets` blade, you will be able to see the correct count of `Available IPs` from all the prefixes, but only the first prefix is listed. 
+- This feature is only available currently via command line (PowerShell, CLI) or Azure Resource Manager Templates. Azure portal support is limited. Once additional address prefixes are added, under the `Subnets` blade, you'll be able to see the correct count of `Available IPs` from all the prefixes, but only the first prefix is listed. 
     - You can get the details of subnet configuration and all subnet prefixes by navigating to Virtual Network `Overview` page and selecting `JSON View`.
 
 ## Prerequisites
@@ -33,7 +33,7 @@ The following limitations still apply as of now:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!CAUTION]
-> Subnet properties **addressPrefixes** and **addressPrefix** are not to be used interchangeably. For best results, use only **addressPrefixes** for both a single address prefix and for multiple address prefixes. If you are already using **addressPrefixes** in your workflows, continue to use this property.
+> Subnet properties **addressPrefixes** and **addressPrefix** aren't to be used interchangeably. For best results, use only **addressPrefixes** for both a single address prefix and for multiple address prefixes. If you're already using **addressPrefixes** in your workflows, continue to use this property.
 
 # [PowerShell](#tab/powershell)
 
@@ -209,7 +209,7 @@ In this section, you add a second prefix on an existing subnet to expand the add
 
 ## Remove a prefix from the subnet
 
-You can also remove the address prefixes from the subnet that are not being actively used, i.e. no existing network interfaces are referencing these address prefixes. In this section, you will remove an `unused` address prefix.
+You can also remove the address prefixes from the subnet that aren't being actively used, that is, no existing network interfaces are referencing these address prefixes. In this section, you'll remove an `unused` address prefix.
 
 # [PowerShell](#tab/powershell)
 
@@ -225,7 +225,7 @@ You can also remove the address prefixes from the subnet that are not being acti
     Get-AzVirtualNetworkSubnetConfig -Name 'subnet-1' -VirtualNetwork $vnet 
     ```
 
-1. Use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) to update the list of address prefixes and remove the ones that are not used.
+1. Use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) to update the list of address prefixes and remove the ones that aren't used.
 
     > [!IMPORTANT]
     > Only the address prefixes specified here will be applied in next step, all others will be removed if not in use, or result in an error if those are referenced by existing network interfaces.
@@ -252,7 +252,7 @@ You can also remove the address prefixes from the subnet that are not being acti
 
 # [CLI](#tab/cli)
 
-1. Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) to update the list of address prefixes and remove the ones that are not used.
+1. Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) to update the list of address prefixes and remove the ones that aren't used.
 
     > [!IMPORTANT]
     > You must not skip listing all the required subnet prefixes in this step.
