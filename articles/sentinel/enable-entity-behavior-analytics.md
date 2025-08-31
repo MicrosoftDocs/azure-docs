@@ -103,4 +103,4 @@ To enable or disable this feature (these prerequisites aren't required to use th
 In this article, you learned how to enable and configure User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel. For more information about UEBA:
 
 > [!div class="nextstepaction"]
->>[Investigate entities with entity pages](entity-pages.md)
+>>[Identify threats with UEBA](./identify-threats-with-entity-behavior-analytics.md)
