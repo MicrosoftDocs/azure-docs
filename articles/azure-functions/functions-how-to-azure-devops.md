@@ -118,7 +118,7 @@ steps:
     fi
     npm install 
     npm run build --if-present
-    npm prune --production
+    npm prune --omit=dev
 - task: ArchiveFiles@2
   displayName: "Archive files"
   inputs:
@@ -370,7 +370,7 @@ steps:
     fi
     npm install 
     npm run build --if-present
-    npm prune --production
+    npm prune --omit=dev
 - task: ArchiveFiles@2
   displayName: "Archive files"
   inputs:

@@ -1,26 +1,23 @@
 ---
 title: Optimize regional latency
 titleSuffix: Playwright Workspaces
-description: Learn how to optimize regional latency for a Playwright Workspaces Preview workspace. Choose to run tests on remote browsers in an Azure region nearest to you, or in a fixed region.
+description: Learn how to optimize regional latency for a Playwright Workspace. Choose to run tests on remote browsers in an Azure region nearest to you, or in a fixed region.
 ms.topic: how-to
 ms.date: 08/07/2025
 ms.service: azure-app-testing
 ms.subservice: playwright-workspaces
-author: ninallam
-ms.author: ninallam
-ms.custom: playwright-workspaces-preview
+author: johnsta
+ms.author: johnsta
+ms.custom: playwright-workspaces
 ---
 
-# Optimize regional latency for a workspace in Playwright Workspaces Preview
+# Optimize regional latency for a workspace in Playwright Workspaces
 
-Learn how to minimize the network latency between the client machine and the remote browsers for a Playwright Workspaces Preview workspace.
+Learn how to minimize the network latency between the client machine and the remote browsers for a Playwright Workspace.
 
 Playwright Workspaces lets you run your Playwright tests on hosted browsers in the Azure region that's nearest to your client machine. The service collects the test results in the Azure region of the remote browsers, and then transfers the results to the workspace region.
 
 By default, when you create a new workspace, the service runs tests in an Azure region closest to the client machine. When you disable this setting on the workspace, the service uses remote browsers in the Azure region of the workspace.
-
-> [!IMPORTANT]
-> Playwright Workspaces is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Configure regional settings for a workspace
 

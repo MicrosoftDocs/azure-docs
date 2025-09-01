@@ -1,7 +1,7 @@
 ---  
-title: Compare KQL jobs, summary rules, and search jobs
+title: KQL jobs, summary rules, and search jobs
 titleSuffix: Microsoft Security  
-description: Compare KQL jobs, summary rules, and search jobs in Microsoft Sentinel to choose the best tool for querying and analyzing security data.
+description: A comparison of KQL jobs, summary rules, and search jobs in Microsoft Sentinel to choose the best tool for querying and analyzing security data.
 author: EdB-MSFT  
 ms.service: microsoft-sentinel  
 ms.topic: how-to
@@ -15,7 +15,7 @@ ms.collection: ms-security
 
 ---
 
-# Compare KQL jobs, summary rules, and search jobs
+# KQL jobs, summary rules, and search jobs
 
 This article compares KQL jobs, summary rules, and search jobs in Microsoft Sentinel. These features let you query and analyze data in Microsoft Sentinel, and each serves different purposes and use cases.
 
@@ -33,7 +33,7 @@ This article compares KQL jobs, summary rules, and search jobs in Microsoft Sent
 | **Data tier**        | Microsoft Sentinel data lake tier   | Analytics, auxiliary, basic, data lake (except for tables in the default workspace)       | Analytics, auxiliary, basic, data lake (except for tables in the default workspace) |     
 | **Workspace scope**  | Any Microsoft Sentinel workspace connected to Microsoft Defender | Any Microsoft Sentinel workspace connected to Microsoft Defender | Any Microsoft Sentinel workspace  |
 | **Table scope**      | Multiple tables                     | Multiple tables                                     | Single table                                                        |
-| **Query language**   | [KQL jobs supported operators](kql-jobs.md#considerations-and-limitations)   | KQL <br>All KQL operators supported except for:<br>•	[Cross-resource queries](/azure/azure-monitor/logs/cross-workspace-query) queries, which use the workspaces(), app(), and resource() expressions, and [cross-service queries](/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy), which use the `ADX()` and `ARG()` expressions<br>• Plugins that reshape the data schema, including [bag](/kusto/query/bag-unpack-plugin) [unpack](/azure/data-explorer/kusto/query/bag-unpack-plugin), [narrow](/azure/data-explorer/kusto/query/narrow-plugin), and [pivot](/azure/data-explorer/kusto/query/pivot-plugin).<br>• User-defined functions aren't supported | [Limited KQL operators](/azure/azure-monitor/logs/search-jobs#kql-query-considerations)  |
+| **Query language**   | [KQL jobs supported operators](kql-jobs.md#considerations-and-limitations)   | [Limited KQL operators](/azure/azure-monitor/logs/summary-rules?tabs=api#create-or-update-a-summary-rule) | [Limited KQL operators](/azure/azure-monitor/logs/search-jobs#kql-query-considerations)  |
 | **Join support**     | Supported                      | Analytics tier: supported<br>Basic: join up to five Analytics tables using [lookup](/azure/data-explorer/kusto/query/lookup-operator) operator   | Not supported |
 | **Scheduling frequency** | On-demand<br>Daily, weekly, monthly  | 20 minutes to 24 hours                                 | On-demand (long-running searches support up to a 24-hour timeout)  |
 | **Lookback period**  | Up to 12 years                           | Up to 1 day                                         | Up to 12 years                                                            |

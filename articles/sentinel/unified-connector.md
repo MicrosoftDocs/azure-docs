@@ -47,7 +47,7 @@ When configuring a unified connector, you enter your credentials for the externa
 
 All health issues are stored to a shared health table that is accessible to all users through [Advanced Hunting](/defender-xdr/advanced-hunting-microsoft-defender).
 
-:::image type="content" source="./media/unified-connector/unified-health.png" alt-text="Screenshot of Okta connector with health information on the right side.":::
+:::image type="content" source="./media/unified-connector/unified-health.png" alt-text="Screenshot of Okta connector with health information on the right side." lightbox="./media/unified-connector/unified-health-focus.png":::
 
 ### Integration with Microsoft data lake
 
