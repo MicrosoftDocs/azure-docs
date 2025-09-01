@@ -102,7 +102,9 @@ For example, suppose you want to create an MCP server with tools that manage con
 
    1. When you're done, select **Save**, which returns you to the **Model Context Protocol servers** page.
 
-      The **Connectors** section now shows your selected connector. The **Actions** section shows the selected actions that power the tools that your MCP server now provides. By default, any parameters for these actions use an LLM as the input source. You can change this input source to user-provided, based on your scenario's needs.
+      The **Connectors** section now shows your selected connector. The **Actions** section shows the selected actions that power the tools that your MCP server provides. By default, any parameters for these actions use an LLM as the input source. You can change this input source to user-provided, based on your scenario's needs.
+
+      :::image type="content" source="media/create-mcp-server-api-center/tools-list.png" alt-text="Screenshot shows Connectors and Actions sections with tools list." lightbox="media/create-mcp-server-api-center/tools-list.png":::
 
   1. To help an agent or LLM choose the correct tool and pass correctly sourced inputs to tool parameters, review and update each tool's setup by following these steps:
 
