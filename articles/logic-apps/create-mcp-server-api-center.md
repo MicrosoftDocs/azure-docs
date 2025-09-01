@@ -84,7 +84,7 @@ For example, suppose you want to create an MCP server with tools that manage con
 
    1. Under **Tools**, in the **Connectors** section, select **Add connector** or **Add**.
 
-      :::image type="content" source="media/create-mcp-server-api-center/add-connector.png" alt-text="Screenshot shows Model Context Protocol servers page with selected empty Standard logic app." lightbox="media/create-mcp-server-api-center/add-connector.png":::
+      :::image type="content" source="media/create-mcp-server-api-center/add-connector.png" alt-text="Screenshot shows Connections section with selected options for Add and Add connector." lightbox="media/create-mcp-server-api-center/add-connector.png":::
 
    1. On the **Add connector** pane and the **Choose connector** tab, find and select the connector for which you want to create a tool, for example:
 
@@ -94,7 +94,7 @@ For example, suppose you want to create an MCP server with tools that manage con
 
       You can select multiple actions, but you can create only one tool for each selected action.
 
-      :::image type="content" source="media/create-mcp-server-api-center/select-actions.png" alt-text="Screenshot shows Add connector pane with selected Office 365 Outlook connector." lightbox="media/create-mcp-server-api-center/select-actions.png":::
+      :::image type="content" source="media/create-mcp-server-api-center/select-actions.png" alt-text="Screenshot shows Add connector pane with selected connector actions to create as tools." lightbox="media/create-mcp-server-api-center/select-actions.png":::
 
    1. On the **Create connection** tab, provide any connection information or sign in and authenticate your credentials, if required.
 
@@ -112,7 +112,7 @@ For example, suppose you want to create an MCP server with tools that manage con
 
         | Section | Description |
         |---------|-------------|
-        | **Description** | Describes the purpose for the action-backed tool to help an agent or LLM determine when to use the tool. A default description exists, but you can customize the text for your needs. <br><br>The default text comes from the [connector's API Swagger description](/connectors/connector-reference/connector-reference-logicapps-connectors), for example, [Actions - Office 365 Outlook](https://learn.microsoft.com/connectors/office365/). |
+        | **Description** | Describes the purpose for the action-backed tool to help an agent or LLM determine when to use the tool. A default description exists, but you can customize the text for your needs. <br><br>The default text comes from the [connector's API Swagger description](/connectors/connector-reference/connector-reference-logicapps-connectors), for example, [Actions - Office 365 Outlook](/connectors/office365/). |
         | **Default parameters** | Lists any parameters required to run the tool. For each parameter, the input source options are **Model** and **User**. By default, the model (LLM) provides the inputs. If you select **User**, the appropriate UX appears for you to provide the input source. |
         | **Optional parameters** | Select any other parameters that you want to include for the tool. |
 
