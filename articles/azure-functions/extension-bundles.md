@@ -66,8 +66,6 @@ To upgrade your app to the most recent bundle, edit the host.json file in the ro
 }
 ```
 
-
-
 Keep these considerations in mind when upgrading the extension bundle version used by your app:
 
 + The contents of the latest 4.x bundle can always be found at [this release page in the repo](https://github.com/Azure/azure-functions-extension-bundles/releases/latest).
