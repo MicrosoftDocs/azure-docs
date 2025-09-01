@@ -230,11 +230,9 @@ These timelines may be subject to change. Please revisit this for the most updat
 
   | Date                | Event                                                      |
   |---------------------|------------------------------------------------------------|
-  | Apr/May 2025        | Migration tooling availability for Active-Passive Gateways. |
-  | Jul/Aug 2025        | Migration tooling availability for Active-Active Gateways.  |
-  | May 2025 to Sep 2025| Customer-controlled migration can be initiated after tool availability. |
-  | Sep 2025            | Basic SKU IP addresses are deprecated.                     |
-
+  | Aug 2025        | Migration tooling availability for Active-Passive Gateways ( preview ) |
+  | Sep 2025        | Migration tooling availability for Active-Active Gateways.  |
+  | Aug 2025 to Jan 2026| Customer-controlled migration can be initiated after tool availability. |
 
 ### What are the required customer actions?
 
