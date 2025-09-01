@@ -6,16 +6,14 @@ author: henikaraa
 manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: teams-interop
-ms.date: 05/19/2025
+ms.date: 09/01/2025
 ms.topic: conceptual
 ms.author: henikaraa
-ms.custom: public_preview
+ms.custom: general_availability
 services: azure-communication-services
 ---
 
 # Teams Phone extensibility troubleshooting
-
-[!INCLUDE [public-preview-notice.md](../../../includes/public-preview-include-document.md)]
 
 This article describes how to identify and resolve Teams Phone extensibility issues. Errors can stem from the application, Azure Communication Services SDKs, the user environment, or Microsoft Teams configuration settings.
 
