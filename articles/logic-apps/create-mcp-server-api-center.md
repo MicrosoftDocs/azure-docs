@@ -43,58 +43,28 @@ For more information, see the following articles:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have a subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-  Make sure to use the same Azure subscrition for the resources required in this scenario.
-
-- An API center resource.
-
-  For more information, see [Quickstart: Create your API center - portal](../api-center/set-up-api-center.md).
-
-- To find and view the MCP server that you create, you must set up the API Center portal so you have access.
-
-  This portal is an Azure-managed website that developers and other stakeholders in your organization use to discover the APIs in your API center. After you sign in, you can browse and filter APIs and view API details such as API definitions and documentation. User access to API information is based on Microsoft Entra ID and Azure role-based access control.
-
-  For more information, see the following articles:
-
-  - [Set up your API Center portal](../api-center/set-up-api-center-portal.md)
-  - [Access the API Center portal](../api-center/set-up-api-center-portal.md#access-the-portal)
-
-- An empty Standard logic app resource, which doesn't contain any workflows, for creating your MCP server.
-
-  - This capability applies to Standard logic app resources that use any hosting option, such as the Workflow Service Plan.
-
-  - The logic app resource must be running.
-
-  For more information, see [Create an example Standard logic app using the Azure portal](create-single-tenant-workflows-azure-portal.md)
-
-- An MCP client to test access to your MCP server.
-
-  This guide uses [Visual Studio Code installed with the Azure Logic Apps (Standard) extension](create-standard-workflows-visual-studio-code.md#prerequisites).
-
-  > [!NOTE]
-  >
-  > Make sure to use the latest version of Visual Studio Code for MCP server testing. Visual Studio Code 
-  > includes generally available MCP support in versions after 1.102. For more information, see 
-  > [MCP servers in Visual Studio Code](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
-
-  For the testing example, you need the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot). For more information, see the following articles:
-
-  - [Use extensions in Visual Studio Code](https://code.visualstudio.com/docs/getstarted/extensions)
-  - [Set up Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/setup#_set-up-copilot-in-vs-code)
-  - [Get started with GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/getting-started)
+| Prerequisite | Description or notes |
+|--------------|----------------------|
+| Azure account with an active subscription | If you don't have a subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). <br><br>**Important**: Make sure to use the same Azure subscription for the resources required in this scenario. |
+| An API center resource | For more information, see [Quickstart: Create your API center - portal](../api-center/set-up-api-center.md). |
+| Access to the API Center portal | To find and view the MCP server that you create, you must set up the API Center portal so you have access. <br><br>This portal is an Azure-managed website that developers and other stakeholders in your organization use to discover the APIs in your API center. After you sign in, you can browse and filter APIs and view API details such as API definitions and documentation. User access to API information is based on Microsoft Entra ID and Azure role-based access control. <br><br>For more information, see the following articles: <br><br>- [Set up your API Center portal](../api-center/set-up-api-center-portal.md) <br>- [Access the API Center portal](../api-center/set-up-api-center-portal.md#access-the-portal) |
+| Empty Standard logic app resource | For creating your MCP server, this logic app doesn't contain any workflows. <br><br>- The MCP capability applies to Standard logic app resources that use any hosting option, such as the Workflow Service Plan. <br><br>- Your logic app resource and API center resource must use the same subscription. <br><br>- Your logic app resource must be running. <br><br>For more information, see [Create an example Standard logic app using the Azure portal](create-single-tenant-workflows-azure-portal.md). |
+| MCP client to test access to your MCP server | This guide uses [Visual Studio Code installed with the Azure Logic Apps (Standard) extension](create-standard-workflows-visual-studio-code.md#prerequisites). <br><br>**Important**: Make sure to use the latest version of Visual Studio Code for MCP server testing. Visual Studio Code includes generally available MCP support in versions after 1.102. For more information, see [MCP servers in Visual Studio Code](https://code.visualstudio.com/docs/copilot/chat/mcp-servers). <br><br>For the example in this guide, you also need the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot). For more information, see the following articles: <br><br>- [Use extensions in Visual Studio Code](https://code.visualstudio.com/docs/getstarted/extensions) <br>- [Set up Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/setup#_set-up-copilot-in-vs-code) <br>- [Get started with GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/getting-started) |
+| Access to the service, system, app, or data source from which to create your MCP server | You need any required credentials for the resource that you use to create the MCP server and tools. <br><br>The example in this guide uses the **Office 365 Outlook** connector. If you don't have a work or school account, you can use the **Outlook.com** connector or another supported email connector. The general steps are the same, but your UX might slightly differ. |
 
 ## Limitations and known issues
 
 For this release, the following list describes restrictions or issues that apply:
 
-- You must currently start with an empty Standard logic app resource when you create your MCP server resource.
+- You must currently start with an empty Standard logic app resource to create your MCP server resource.
+
+- You can select only connector for your MCP server.
 
 - Each tool can have only one action.
 
 ## Create an MCP server resource and tools
 
-For example, suppose you want to create an MCP server with a tool that gets items from an RSS feed.
+For example, suppose you want to create an MCP server with tools that manage contacts and sends emails.
 
 1. In the [Azure portal](https://portal.azure.com), open your API center resource.
 
@@ -102,39 +72,55 @@ For example, suppose you want to create an MCP server with a tool that gets item
 
 1. On the **MCP** page, find the **Azure Logic Apps** tile, and select **Register**.
 
+   :::image type="content" source="media/create-mcp-server-api-center/register-mcp-server.png" alt-text="Screenshot shows Azure portal, selected API Center, and selected Register button on Azure Logic Apps tile." lightbox="media/create-mcp-server-api-center/register-mcp-server.png":::
+
 1. On the **Model Context Protocol servers** page, follow these steps:
 
    1. Under **Resources**, from the **Logic app** list, select your empty Standard logic app resource.
 
-   1. Under **Tools**, in the **Connectors** section, select **Add connector**.
+      :::image type="content" source="media/create-mcp-server-api-center/select-empty-logic-app.png" alt-text="Screenshot shows Model Context Protocol servers page with selected empty Standard logic app." lightbox="media/create-mcp-server-api-center/select-empty-logic-app.png":::
 
-   1. On the **Add connector** pane and the **Choose connector** tab, find and select the connector for the service, system, app, or data source for which you want to create a tool.
+   1. Under **Tools**, in the **Connectors** section, select **Add connector** or **Add**.
 
-      You can select only one connector for each tool that you create.
+      :::image type="content" source="media/create-mcp-server-api-center/add-connector.png" alt-text="Screenshot shows Model Context Protocol servers page with selected empty Standard logic app." lightbox="media/create-mcp-server-api-center/add-connector.png":::
+
+   1. On the **Add connector** pane and the **Choose connector** tab, find and select the connector for which you want to create a tool, for example:
+
+      :::image type="content" source="media/create-mcp-server-api-center/choose-connector.png" alt-text="Screenshot shows Add connector pane with selected Office 365 Outlook connector." lightbox="media/create-mcp-server-api-center/choose-connector.png":::
 
    1. On the **Select actions** tab, select each action that you want to create as a tool. When you're done, select **Next**.
 
       You can select multiple actions, but you can create only one tool for each selected action.
 
-   1. On the **Create connection** tab, provide any required connection information, and select **Create new**.
+      :::image type="content" source="media/create-mcp-server-api-center/select-actions.png" alt-text="Screenshot shows Add connector pane with selected Office 365 Outlook connector." lightbox="media/create-mcp-server-api-center/select-actions.png":::
+
+   1. On the **Create connection** tab, provide any connection information or sign in and authenticate your credentials, if required.
+
+      If you must create a different connection, select **Add new**.
 
    1. When you're done, select **Save**, which returns you to the **Model Context Protocol servers** page.
 
-   The **Connectors** section now shows your selected connector. The **Actions** section shows one or more actions that are now available as tools in your MCP server. By default, your LLM is the input source for any parameters in these actions. You can change this input source to user-provided, based on your scenario's needs.
+      The **Connectors** section now shows your selected connector. The **Actions** section shows the selected actions that power the tools that your MCP server now provides. By default, any parameters for these actions use an LLM as the input source. You can change this input source to user-provided, based on your scenario's needs.
 
-   1. To describe the purpose for each action-backed tool and review the default input sources for any action parameters, select the action name or the edit (pencil) button.
+  1. To help an agent or LLM choose the correct tool and pass correctly-sourced inputs to tool parameters, review and update each tool's setup by following these steps:
 
-   1. On the **Edit: <*task-name*>** pane, provide the following information:
+     1. In the **Actions** section, select either the tool name or the edit (pencil) button for that tool.
 
-      | Section | Description |
-      |---------|-------------|
-      | **Description** | Describe the purpose for the current task to help determine when to use the task. |
-      | **Default parameters** | Lists any parameters required to perform the task. For each parameter, the input source options are **Model** and **User**. By default, your model provides the task inputs. If you select **User**, you get the appropriate UX to provide the inputs for the selected parameter. |
-      | **Optional parameters** | Select any other parameters that you want to include for the current task. |
+     1. On the **Edit: <*tool-name*>** pane, provide the following information:
 
-   1. When you're done, select **Save changes**.
+        | Section | Description |
+        |---------|-------------|
+        | **Description** | Describes the purpose for the action-backed tool to help an agent or LLM determine when to use the tool. A default description exists, but you can customize the text for your needs. <br><br>The default text comes from the [connector's API Swagger description](/connectors/connector-reference/connector-reference-logicapps-connectors), for example, [Actions - Office 365 Outlook](https://learn.microsoft.com/connectors/office365/). |
+        | **Default parameters** | Lists any parameters required to run the tool. For each parameter, the input source options are **Model** and **User**. By default, the model (LLM) provides the inputs. If you select **User**, the appropriate UX appears for you to provide the input source. |
+        | **Optional parameters** | Select any other parameters that you want to include for the tool. |
 
-1. After you're done, select **Register**.
+        The following example shows the description and parameters for the **Send email (V2)** tool:
+
+        :::image type="content" source="media/create-mcp-server-api-center/tool-parameters.png" alt-text="Screenshot shows Edit pane for an example tool." lightbox="media/create-mcp-server-api-center/tool-parameters.png":::
+
+     1. When you're done, select **Save changes**.
+
+1. When you're done reviewing or updating each tool, select **Register**.
 
 1. Wait for the notifications that Azure successfully registered your MCP server.
 
