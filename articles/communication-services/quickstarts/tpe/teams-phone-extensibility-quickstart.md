@@ -8,13 +8,12 @@ ms.subservice: call-automation
 ms.topic: tutorial
 ms.date: 05/20/2025
 ms.author: radubulboaca
-ms.custom: public_preview
+ms.custom: general_availability
 services: azure-communication-services
 ---
 
 # Teams Phone System extensibility quick start
 
-[!INCLUDE [public-preview-notice.md](../../includes/public-preview-include-document.md)]
 
 This article describes how an independent software vendor (ISV) can provision Teams Phone for the scope of Teams Phone extensibility (TPE). This article also describes how an ISV can guide their customers because there are operations in Teams that a tenant needs to implement.
 
