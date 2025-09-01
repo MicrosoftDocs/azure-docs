@@ -1,21 +1,21 @@
 ---
-title: Subscribe to Azure Communication Services Events
-titleSuffix: An Azure Communication Services quickstart
+title: Subscribe to events
+titleSuffix: An Azure Communication Services article
 description: This article describes how to subscribe to events from Azure Communication Services.
-author: pgrandhi
+author: awang119
 manager: rasubram
 services: azure-communication-services
-ms.author: pgrandhi
-ms.date: 01/26/2024
+ms.author: anniewang
+ms.date: 06/28/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: arm
-zone_pivot_groups: acs-plat-azp-azcli-net-ps
+zone_pivot_groups: acs-plat-azp-azcli-ps
 ms.custom: mode-other, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli 
 ---
 
-# Subscribe to Azure Communication Services events
+# Subscribe to events
 
 This article describes how to subscribe to events from Azure Communication Services through the portal, Azure CLI, PowerShell, and .NET SDK.
 
@@ -29,10 +29,6 @@ This article describes the process of setting up a webhook as a subscriber for S
 
 ::: zone pivot="platform-azcli"
 [!INCLUDE [Azure CLI](./includes/create-event-subscription-az-cli.md)]
-::: zone-end
-
-::: zone pivot="platform-net"
-[!INCLUDE [.NET](./includes/create-event-subscription-net.md)]
 ::: zone-end
 
 ::: zone pivot="platform-powershell"

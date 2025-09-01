@@ -5,7 +5,10 @@ services: azure-app-configuration
 author: junbchen
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-other
+ms.custom:
+  - devx-track-csharp
+  - mode-other
+  - build-2025
 ms.topic: quickstart
 ms.date: 04/24/2024
 ms.author: junbchen

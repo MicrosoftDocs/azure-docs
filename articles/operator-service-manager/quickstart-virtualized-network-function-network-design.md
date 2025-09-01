@@ -6,6 +6,8 @@ ms.author: sherryg
 ms.date: 10/19/2023
 ms.topic: quickstart
 ms.service: azure-operator-service-manager
+ms.custom:
+  - build-2025
 ---
 
 # Quickstart: Design a Network Service Design (NSD) for Ubuntu Virtual Machine (VM) as a Virtualized Network Function (VNF)

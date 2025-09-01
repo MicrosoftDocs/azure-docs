@@ -7,7 +7,9 @@ ms.author: mukeshdua
 ms.service: azure-operator-nexus
 ms.topic: reference
 ms.date: 05/14/2025
-ms.custom: template-reference
+ms.custom:
+  - template-reference
+  - build-2025
 ---
 
 # BareMetal Machine roles
@@ -66,8 +68,8 @@ The spare node is never provisioned and doesn't have the Cluster version, Kubern
 The spare node’s `cordonState` is set to `Uncordoned`, the `powerState` is set to `Off`, and the Kubernetes version value is unset.
 The `detailedStatus` is made `Available` and its `detailedStatusMessage` is `Available to participate in the cluster.`
 
-Once a Cluster runtime upgrade *(brownfield, BF)* is executed and completed, the spare node designation is reassigned to another node in the control plane pool.
-After the runtime upgrade concludes, there's one spare node that used to be an active node at some point in time.
+When a spare node has been provisioned, the spare node designation is reassigned to another node in the control plane pool. 
+After the runtime upgrade concludes, there's one spare node that used to be an active node at some point in time. Outside of a runtime upgrade, an active KCP server can become the spare, if it moves into an unhealthy state. 
 The newly designated spare node reflects the previous Cluster version and includes the OAM IP information.
-Additionally, the spare node’s `cordonState` is set to `Cordoned`, the `powerState` is set to `Off`, and the Kubernetes version value is unset.
+The spare node’s `cordonState` is set to `Cordoned`, the `powerState` is set to `Off`, and the Kubernetes version value is unset.
 The `detailedStatus` is made `Available` and its `detailedStatusMessage` is `Available to participate in the cluster.`

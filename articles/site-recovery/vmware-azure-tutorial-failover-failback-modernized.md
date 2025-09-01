@@ -5,8 +5,9 @@ ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 09/29/2023
 ms.custom: MVC
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
+# Customer intent: "As an IT administrator, I want to fail over on-premises VMware VMs to Azure using Site Recovery, so that I can ensure business continuity and minimize downtime during disaster recovery."
 ---
 # Fail over VMware VMs - Modernized
 

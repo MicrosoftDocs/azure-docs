@@ -49,6 +49,7 @@ You receive an Azure invoice when any of the following events occur during your 
     - Visual Studio Enterprise (Annual)
     - Visual Studio Professional (Monthly)
     - Visual Studio Professional (Annual)
+    - Azure Communication Services (SMS and PSTN)
 - **Marketplace charges**: Azure Marketplace purchases and usage aren't covered by your organization's credit. So, you're invoiced for Marketplace charges despite your credit balance. In the Azure portal, an Enterprise Administrator can enable and disable Marketplace purchases.
 
 Your invoice shows Azure usage charges with costs associated to them first, followed by any marketplace charges. If you have a credit balance, it gets applied to Azure usage and your invoice shows Azure usage and marketplace usage without any cost, last in the list.

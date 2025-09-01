@@ -8,6 +8,8 @@ ms.topic: concept-article #Required; leave this attribute/value as-is.
 ms.date: 04/15/2024
 
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
+ms.custom:
+  - build-2025
 ---
 
 # Network Fabric read-only commands for troubleshooting
@@ -54,6 +56,9 @@ To use Network Fabric read-only commands, complete the following steps:
 
     > [!NOTE]
     > The Storage URL must be located in a different region from the Network Fabric. For instance, if the Fabric is hosted in East US, the storage URL should be outside of East US. 
+
+>[!Note]
+> As part of our continued commitment to security and modernization, we are announcing the end of support for Shared Access Signature (SAS) URL–based access to customer-provided storage accounts Azure Operator Nexus 2508.1 release.
 
 ## Bring your own storage account 
 

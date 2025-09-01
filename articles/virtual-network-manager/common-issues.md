@@ -18,7 +18,7 @@ This article describes common issues with Azure Virtual Network Manager and prov
 These are some common reasons why your configuration changes aren't applied:
 
 
-### The configuration isn't applied to the regions where virtual networks are located.
+### The configuration isn't applied to the regions where virtual networks are located
 
 You need to check the regions where the virtual networks are located. The configuration is only applied to the regions where the virtual networks are located. If you have a virtual network in a region that isn't included in the configuration, the configuration isn't applied to that virtual network.
 
@@ -48,7 +48,7 @@ In a hub-and-spoke topology, if you enable the option to *use the hub as a gatew
 
 ### Members in the network group can't communicate with each other
 
-If you want to have members in the network group to communicate with each other across regions in a hub and spoke topology configuration, you need to enable the global mesh option. 
+If you want to have members in the network group communicate with each other across regions in a hub and spoke topology configuration, you need to enable the global mesh option. 
 
 ## Next steps
 

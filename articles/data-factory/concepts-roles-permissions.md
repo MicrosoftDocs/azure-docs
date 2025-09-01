@@ -1,7 +1,7 @@
 ---
 title: Roles and permissions for Azure Data Factory 
 description: Describes the roles and permissions required to create Data Factories and to work with child resources.
-ms.date: 02/13/2025
+ms.date: 07/29/2025
 ms.topic: concept-article
 ms.subservice: security
 author: nabhishek
@@ -12,34 +12,34 @@ ms.author: abnarain
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+Most roles needed for Azure Data Factory are some of the standard [Microsoft Entra built-in roles](/entra/identity/role-based-access-control/permissions-reference): Owner, Contributor, Reader, etc.
 
-This article describes the roles required to create and manage Azure Data Factory resources, and the permissions granted by the Data Factory Contributor role.
+Though there is one special Azure Data Factory role: [**Data Factory Contributor**](#scope-of-the-data-factory-contributor-role)
 
-## Roles and requirements
+This article explains what permissions are needed to perform actions in Azure Data Factory, what capabilities the **Data Factory Contributor** role has, and how to set up permissions.
 
-Most roles needed for Azure Data Factory are some of the standard Azure roles, though there is one special Azure Data Factory role: **Data Factory Contributor**
+## Permissions to create Data Factory instances
 
-**To create Data Factory instances**, the user account that you use to sign in to Azure must be a member of the *contributor* role, the *owner* role, or an *administrator* of the Azure subscription. To view the permissions that you have in the subscription, in the Azure portal, select your username in the upper-right corner, and then select **My permissions**. If you have access to multiple subscriptions, select the appropriate subscription.
+**To create Data Factory instances**, the user account that you use to sign in to Azure must be a member of the *contributor* role, the *owner* role, or an *administrator* of the Azure subscription. 
 
-**To create and manage child resources for Data Factory** - including datasets, linked services, pipelines, triggers, and integration runtimes - the following requirements are applicable:
-- To create and manage child resources in the Azure portal, you must belong to the **Data Factory Contributor** role at the **Resource Group** level or above.
+To view the permissions that you have in the subscription, in the Azure portal, select your username in the upper-right corner, and then select **My permissions**. If you have access to multiple subscriptions, select the appropriate subscription.
+
+## Permissions to create and manage resources within Data Factory
+
+- **To create and manage child resources in the Data Factory portal** - including datasets, linked services, pipelines, triggers, and integration runtimes you need **Data Factory Contributor** OR [**Microsoft Entra ID Contributor**](../role-based-access-control/built-in-roles.md#contributor) permissions at the **Resource Group** level or above.
   
   > [!NOTE]
-  > If you already assigned the **Contributor** role at the **Resource Group** level or above, you do not need the **Data Factory Contributor** role. The [Contributor role](../role-based-access-control/built-in-roles.md#contributor) is a superset role that includes all permissions granted to the [Data Factory Contributor role](../role-based-access-control/built-in-roles.md#data-factory-contributor).
+  > If you already assigned the **Contributor** role at the **Resource Group** level or above, you do not need the **Data Factory Contributor** role. The [Contributor role](../role-based-access-control/built-in-roles.md#contributor) is a superset role that includes all permissions of the [Data Factory Contributor role](../role-based-access-control/built-in-roles.md#data-factory-contributor).
 
-- To create and manage child resources with PowerShell or the SDK, the **contributor** role at the resource level or above is sufficient.
+## Permissions to manage permissions within Data Factory
 
-For sample instructions about how to add a user to a role, see the [Add roles](../cost-management-billing/manage/add-change-subscription-administrator.md) article.
+To give this access to other users, you need **Data Factory Contributor** permissions on the **Resource Group** that contains the Data Factory.
 
-## Set up permissions
-
-After you create a Data Factory, you may want to let other users work with the data factory. To give this access to other users, you have to add them to the built-in **Data Factory Contributor** role on the **Resource Group** that contains the Data Factory.
-
-### Scope of the Data Factory Contributor role
+## Scope of the Data Factory Contributor role
 
 Membership of the **Data Factory Contributor** role lets users do the following things:
 - Create, edit, and delete data factories and child resources including datasets, linked services, pipelines, triggers, and integration runtimes.
-- Deploy Resource Manager templates. Resource Manager deployment is the deployment method used by Data Factory in the Azure portal.
+- [Deploy Resource Manager templates.](#resource-manager-template-deployment) Resource Manager deployment is the deployment method used by Data Factory in the Azure portal.
 - Manage App Insights alerts for a data factory.
 - Create support tickets.
 
@@ -51,7 +51,6 @@ The **Data Factory Contributor** role, at the resource group level or above, let
 
 Permissions on Azure Repos and GitHub are independent of Data Factory permissions. As a result, a user with repo permissions who is only a member of the Reader role can edit Data Factory child resources and commit changes to the repo, but can't publish these changes.
 
-
 > [!IMPORTANT]
 > Resource Manager template deployment with the **Data Factory Contributor** role does not elevate your permissions. For example, if you deploy a template that creates an Azure virtual machine, and you don't have permission to create virtual machines, the deployment fails with an authorization error.
 
@@ -59,7 +58,7 @@ Permissions on Azure Repos and GitHub are independent of Data Factory permission
 - That permission is only required in Live mode when the customer modifies the global parameters.
 - That permission is always required in Git mode since every time after the customer publishes, the factory object with the last commit ID needs to be updated.
 
-### Custom scenarios and custom roles
+## Custom scenarios and custom roles
 
 Sometimes you may need to grant different access levels for different data factory users. For example:
 - You may need a group where users only have permissions on a specific data factory.
@@ -92,9 +91,11 @@ Here are a few examples that demonstrate what you can achieve with custom roles:
 
   Assign the built-in **contributor** role on the data factory resource for the user. This role lets the user see the resources in the Azure portal, but the user can't access the  **Publish** and **Publish All** buttons.
 
+## How to assign Microsoft Entra ID roles
+
+For sample instructions about how to add a user to a Microsoft Entra ID role, see the [Add roles](/entra/identity/role-based-access-control/manage-roles-portal?tabs=admin-center) article.
 
 ## Related content
 
 - Learn more about roles in Azure - [Understand role definitions](../role-based-access-control/role-definitions.md)
-
 - Learn more about the **Data Factory contributor** role - [Data Factory Contributor role](../role-based-access-control/built-in-roles.md#data-factory-contributor).

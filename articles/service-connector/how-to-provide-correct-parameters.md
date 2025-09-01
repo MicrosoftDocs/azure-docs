@@ -6,6 +6,8 @@ ms.service: service-connector
 ms.topic: how-to
 ms.date: 05/12/2025
 ms.author: honc
+ms.custom:
+  - build-2025
 ---
 # Provide correct parameters to Service Connector
 
@@ -54,7 +56,7 @@ Target services are backing services or dependency services that your compute se
 | Azure Storage (File)               | `/subscriptions/{subscription}/resourceGroups/{target_resource_group}/providers/Microsoft.Storage/storageAccounts/{account}/fileServices/default`                           |
 | Azure Storage (Table)              | `/subscriptions/{subscription}/resourceGroups/{target_resource_group}/providers/Microsoft.Storage/storageAccounts/{account}/tableServices/default`                          |
 | Azure Web PubSub                   | `/subscriptions/{subscription}/resourceGroups/{target_resource_group}/providers/Microsoft.SignalRService/WebPubSub/{webpubsub}`                                             |
-| MongoDB Atlas (Preview)            | `/subscriptions/{subscription}/resourceGroups/{target_resource_group}/providers/MongoDB.Atlas/organization/{organization-id}`                                               |
+| MongoDB Atlas            | `/subscriptions/{subscription}/resourceGroups/{target_resource_group}/providers/MongoDB.Atlas/organization/{organization-id}`                                               |
 
 ## Authentication type
 

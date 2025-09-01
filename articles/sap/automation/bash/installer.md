@@ -10,6 +10,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-automation
 title: installer.sh
 description: Deploy a new SAP system using a shell script.
+# Customer intent: "As a system administrator, I want to deploy a new SAP system using a shell script, so that I can automate the setup process and ensure consistent configurations across different deployments."
 ---
 
 # Installer.sh

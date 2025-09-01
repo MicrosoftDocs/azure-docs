@@ -3,7 +3,7 @@ title: Manage Apache Spark packages
 description: Learn how to add and manage libraries used by Apache Spark in Azure Synapse Analytics.
 author: shuaijunye
 ms.service: azure-synapse-analytics
-ms.reviewer:  eskot
+ms.reviewer:  ms-arali
 ms.topic: how-to
 ms.date: 11/15/2024
 ms.author: shuaijunye
@@ -76,7 +76,7 @@ To learn more about these capabilities, see [Manage Spark pool packages](./apach
 
 If you're having trouble identifying required dependencies, follow these steps:
 
-1. Run the following script to set up a local Python environment that's the same as the Azure Synapse Spark environment. This script requires a YAML file containing a list of all the libraries included in the default Python environment for Azure Synapse Spark. You can find this YAML file in the documentation for specific runtime versions, such as [Apache Spark 3.2 (End of Support announced)](./apache-spark-32-runtime.md) and [Apache Spark 3.3 (GA)](./apache-spark-33-runtime.md).
+1. Run the following script to set up a local Python environment that's the same as the Azure Synapse Spark environment. This script requires a YAML file containing a list of all the libraries included in the default Python environment for Azure Synapse Spark. You can find this YAML file in the documentation for specific runtime versions, such as [Apache Spark 3.4 (GA)](./apache-spark-34-runtime.md).
 
    ```powershell
       # One-time Azure Synapse Python setup

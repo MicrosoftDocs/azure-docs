@@ -2,10 +2,11 @@
 title: Automatic Guest Patching for Azure Virtual Machines
 description: Learn how to automatically patch your Azure Virtual Machines and Scale Sets using Azure Update Manager. This article provides an overview of supported OS images, configuration steps, and best practices for maintaining security compliance through automatic guest patching.
 ms.service: azure-update-manager
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ms.date: 03/07/2025
 ms.topic: overview
+# Customer intent: "As a cloud administrator, I want to enable automatic guest patching for Azure Virtual Machines, so that I can ensure they remain secure and compliant without manual intervention."
 ---
 # Automatic guest patching for Azure virtual machines
 
@@ -15,7 +16,9 @@ By enabling automatic guest patching for your Azure Virtual Machines (VMs), you 
 
 ## Supported OS images
 
-Automatic VM guest patching, on-demand patch assessment and on-demand patch installation are supported only on VMs created from images with the exact combination of publisher, offer and sku from the below supported OS images list. Custom images or any other publisher, offer, sku combinations aren't supported. More images are added periodically. Don't see your SKU in the list? Request support by filing out [Image Support Request](https://forms.microsoft.com/r/6vfSgT0mFx).
+Automatic VM guest patching, on-demand patch assessment and on-demand patch installation are supported only on VMs created from images with the exact combination of publisher, offer and sku combinations listed in the supported OS images. Custom images or any other Publisher, Offer, SKU combinations aren't supported. The list of supported images is updated regularly. 
+
+Check the list of [supported OS images](/azure/virtual-machines/automatic-vm-guest-patching#supported-os-images). Don't see your SKU in the list? Request support by filing out [Image Support Request](https://forms.microsoft.com/r/6vfSgT0mFx).
 
 If [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching) is enabled on a VM, then the available Critical and Security patches are downloaded and applied automatically on the VM.
 

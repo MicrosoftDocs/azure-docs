@@ -8,7 +8,7 @@ author: RoseHJM
 ms.date: 03/21/2025
 ms.topic: how-to
 
-#customer intent: As a platform engineer, I want to assign permissions to dev team leads so that they can peform the appropriate actions.
+#customer intent: As a platform engineer, I want to assign permissions to dev team leads so that they can perform the appropriate actions.
 ---
 
 # Provide access to projects for dev team leads

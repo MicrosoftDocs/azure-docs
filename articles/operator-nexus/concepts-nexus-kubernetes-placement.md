@@ -28,7 +28,7 @@ each NKS VM launches.
 Nexus first identifies the set of potential bare metal servers that meet all of
 the resource requirements of the NKS VM SKU. For example, if the user
 specified an `NC_G48_224_v1` VM SKU for their agent pool, Nexus collects the
-bare metal servers that have available capacity for 48 vCPU, 224Gi of RAM, etc.
+bare metal servers that have available capacity for 48 vCPU, 224 GiB of RAM, etc.
 
 Nexus then examines the `AvailabilityZones` field for the Agent Pool or Control
 Plane being scheduled. If this field isn't empty, Nexus filters the list of
@@ -79,7 +79,7 @@ The example Operator Nexus environment has these specifications:
 
 * Eight racks of 16 bare metal servers
 * Each bare metal server contains two [Non-Uniform Memory Access][numa] (NUMA) cells
-* Each NUMA cell provides 48 CPU and 224Gi RAM
+* Each NUMA cell provides 48 CPU and 224 GiB RAM
 
 [numa]: https://en.wikipedia.org/wiki/Non-uniform_memory_access
 
@@ -318,3 +318,7 @@ it is not guaranteed that this will be exactly one-full and one-half NUMA cells.
 This means that an `NC_G24_112_v1` may or may not be able to schedule on a machine
 running an `NC_E70_336_v1` depending on how the `NC_E70_336_v1` VM is scheduled
 across the NUMA-cells.
+
+## Storage-optimized VM SKUs
+
+`NC_L46_224_v1` and `NC_L54_224_v1` are SKUs designed to enhance local storage utilization and scalability by allowing a Nexus Kubernetes node to allocate up to 1.6 TiB of disk space. This is to support workloads that require more than the typical 300 GiB allocated by other SKUs. 

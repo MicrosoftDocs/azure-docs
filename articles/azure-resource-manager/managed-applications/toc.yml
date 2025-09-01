@@ -64,6 +64,9 @@
     - name: Request just-in-time access
       href: request-just-in-time-access.md
       displayName: JIT
+    - name: Restrictions on hardcoded credentials
+      href: hardcoded-credentials-restrictions.md
+      displayName: credentialsRestrictions
     - name: Use existing virtual network
       href: existing-vnet-integration.md
       displayName: vnet
@@ -193,7 +196,7 @@
 - name: Resources
   items:
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/updates/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/managed-applications/
   - name: Pricing calculator

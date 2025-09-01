@@ -86,25 +86,25 @@ The cluster registry feature deploys helper pods on the target edge cluster to a
 * This pod stores and retrieves container images for CNF.
 
 ### Cluster registry garbage collection
-AOSM cluster extension runs a background garbage collection (GC) job to regularly clean up container images. This job will run based on a schedule, check if the cluster registry usage has reached the specified threshold, and if so, initiate the garbage collection process. The job schedule and threshold is configured by the end-user, but by default the job runs once per day at a 0% utilization threshold. 
+AOSM cluster extension runs a background garbage collection (GC) job to regularly clean up container images. This job runs based on a schedule, check if the cluster registry usage reaches the specified threshold, and if so, initiate the garbage collection process. The end-user configures the job schedule and threshold, but by default the job runs once per day at a 0% utilization threshold. 
 
 #### Clean up garbage image manifests
-AOSM maintains references between pod owner resource and consuming images in cluster registry. Upon initiating the images cleanup process, images will be identified which are not linked to any pods, issuing a soft delete to remove them from cluster registry. This type of soft delete doesn't immediately free cluster registry storage space. Actual image files removal depends on the CNCF distribution registry garbage collection outlined below.
+AOSM maintains references between pod owner resource and consuming images in cluster registry. Upon initiating the images cleanup process, images unlinked to any pods are identified and a soft delete is issued to remove them from cluster registry. This type of soft delete doesn't immediately free cluster registry storage space. Actual image files removal depends on the actual registry garbage collection settings.
 
 > [!NOTE]
-> The reference between a pod's owner and its container images ensures that AOSM does not mistakenly delete images. For example, if a replicaset pod goes down, AOSM will not dereference the container images. AOSM only dereferences container images when the replicaset is deleted. The same principle applies to pods managed by Kubernetes jobs and daemonsets.
+> The reference between a pod's owner and its container images ensures that AOSM does not mistakenly delete images. For example, if a replicaset pod goes down, AOSM doesn't dereference the container images. AOSM only dereferences container images when the replicaset is deleted. The same principle applies to pods managed by Kubernetes jobs and daemonsets.
 
 #### CNCF garbage collection distribution
-AOSM sets up the cluster registry using open source [CNCF distribution registry](https://distribution.github.io/distribution/). Therefore, AOSM relies on garbage collection capabilities that provided by [Garbage collection | CNCF Distribution](https://distribution.github.io/distribution/about/garbage-collection/#:~:text=About%20garbage%20collection,considerable%20amounts%20of%20disk%20space.). Overall, it follows standard 2 phase “mark and sweep” process to delete image files to free registry storage space.
+AOSM sets up the cluster registry using open source [CNCF distribution registry](https://distribution.github.io/distribution/). Therefore, AOSM relies on garbage collection capabilities that provided by [Garbage collection | Public Distribution](https://distribution.github.io/distribution/about/garbage-collection/#:~:text=About%20garbage%20collection,considerable%20amounts%20of%20disk%20space.). Overall, it follows standard 2 phase “mark and sweep” process to delete image files to free registry storage space.
 
 > [!NOTE]
-> This process requires the cluster registry in read-only mode. If images are uploaded when registry not in read-only mode, there is the risk that images layers are mistakenly deleted leading to a corrupted image. Registry requires lock in read-only mode for a duration of up to 1 minute. Consequently, AOSM will defer other NF deployment when cluster registry in read-only mode.
+> This process requires the cluster registry in read-only mode. If images are uploaded when registry not in read-only mode, there is the risk that images layers are mistakenly deleted leading to a corrupted image. Registry requires lock in read-only mode for a duration of up to 1 minute. AOSM will defer other NF deployment when cluster registry in read-only mode.
 
 #### Garbage collection configuration parameters
 The following parameters configure the schedule and threshold for the garbage collection job.
 * global.networkfunctionextension.clusterRegistry.clusterRegistryGCCadence
 * global.networkfunctionextension.clusterRegistry.clusterRegistryGCThreshold
-* For more configuration details, please refer to the latest [Network function extension installation instructions](manage-network-function-operator.md)
+* For more configuration details, refer to the latest [Network function extension installation instructions](manage-network-function-operator.md)
 
 ## High availability and resiliency considerations 
 The AOSM NF extension relies uses a mutating webhook and edge registry to support key features. 
@@ -122,23 +122,23 @@ With HA, cluster registry and webhook pods now support a replicaset with a minim
 * Pods scale horizontally under CPU and memory load.
 
 #### Replicas
-* A cluster running multiple copies, or replicas, of an application provides the first level of redundancy. Both cluster registry and webhook are defined as 'kind:deployment' with a minimum of three replicas.
+* A cluster running multiple copies, or replicas, of an application provides the first level of redundancy. Both cluster registry and webhook are defined as 'kind:deployment' with a minimum of three replicas and maximum of 5 replicas.
 #### DeploymentStrategy
 * A rollingUpdate strategy is used to help achieve zero downtime upgrades and support gradual rollout of applications. Default maxUnavailable configuration allows only one pod to be taken down at a time, until enough pods are created to satisfying redundancy policy.
 #### Pod Disruption Budget
 * A policy disruption budget (PDB) protects pods from voluntary disruption and is deployed alongside Deployment, ReplicaSet, or StatefulSet objects. For AOSM operator pods, a PDB with minAvailable parameter of 2 is used.
 #### Pod anti-affinity
-* Pod anti-affinity controls distribution of application pods across multiple nodes in your cluster. With HA, AOSM pod anti-affinity using the following parameters:
-  * A scheduling mode is used to define how strictly the rule is enforced.
-    * requiredDuringSchedulingIgnoredDuringExecution(Hard): Pods must be scheduled in a way that satisfies the defined rule. If no topologies that meet the rule's requirements are available, the pod is not scheduled. 
-    * preferredDuringSchedulingIgnoredDuringExecution(Soft): This rule type expresses a preference for scheduling pods but doesn't enforce a strict requirement. If topologies that meet the preference criteria are available, Kubernetes schedules the pod. If no such topologies are available, the pod can still be scheduled on other nodes that do not meet the preference. 
-  * A Label Selector is used to target specific pods for which the affinity is applied.
-  * A Topology Key is used to define the node needs. 
-* Nexus node placement is spread evenly across zones by design, so spreading the pods across nodes also gives zonal redundancy.
-* AOSM operator pods use a soft anti-affinity with weight 100 and topology key based on node hostnames is used.
+* Pod anti-affinity controls distribution of application pods across multiple nodes in your cluster. With HA enabled, AOSM implements the following anti-affinity rules:
+  * A preferredDuringSchedulingIgnoredDuringExecution(Soft) rule type is used. With soft scheduling, topologies that meet the preference criteria are available, Kubernetes schedules the pod. If no such topologies are available, the pod can still be scheduled on other nodes that do not meet the preference. 
+  * A topology key is used based on the value of kubernetes.io/hostname.
+  * A weight of 100 is used.
+#### Node affinity
+Nexus node placement is spread evenly across zones by design, resulting in zonal redundancy. AOSM further spreads pods evenly across nodes, using the following rules:  
+* Prefer nodes without 'control-plane' role (weight: 10)
+* Prefer nodes with 'system' mode (weight: 20)
 
 #### Storage
-* Since AOSM edge registry has multiple replicas which are spread across nodes, the persistent volume must support ReadWriteMany (RWX) access mode. PVC “nexus-shared” volume is available on Nexus clusters and supports RWX access mode.
+* Since AOSM edge registry has multiple replicas which are spread across nodes, the persistent volume must support ReadWriteManyX (RWX) access mode. PVC “nexus-shared” volume is available on Nexus clusters and supports RWX access mode.
   
 #### Monitoring via Readiness Probes
 * AOSM uses http readiness probes to know when a container is ready to start accepting traffic. A pod is considered ready when all containers are ready. When a Pod is not ready, it is removed from the service load balancers. 
@@ -175,7 +175,7 @@ The following command can be used to list files in a human readable format:
 ```bash
  kubectl get artifacts -A -o jsonpath='{range .items[*]}{.spec.sourceArtifact}'
 ```
-This command should produce output similar to the following:
+This command should produce the following output:
 ```bash
  ppleltestpublisheras2f88b55037.azurecr.io/nginx:1.0.0
 ```

@@ -5,7 +5,7 @@ description: Learn how to troubleshoot connector issues in Azure Data Factory an
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 01/14/2025
+ms.date: 07/03/2025
 ms.author: jianleishen
 ms.custom: synapse
 ai-usage: ai-assisted
@@ -54,7 +54,7 @@ The following errors are general to the copy activity and could occur with any c
 
 - **Cause**: This typically indicates an authentication failure during data transfer operations. This can occur when the remote party closes the transport stream.
 
-- **Reccomendation**:
+- **Recommendation**:
   - Verify the source connection and test it to ensure it is functioning correctly.
   - Check the authentication method used for the connection.
   - Review firewall configuration settings for Azure Cosmos DB to ensure they allow the necessary traffic.
@@ -270,13 +270,21 @@ The following errors are general to the copy activity and could occur with any c
 
 - **Recommendation**: Confirm that the user provided exists in your instance of PostgreSQL and that the password corresponds to the one currently assigned to that user. Make sure that the encryption method selected is accepted by your instance of PostgreSQL, based on its current configuration. If the network connectivity method of your instance is configured for Private access (virtual network integration), use a Self-Hosted Integration Runtime (IR) to connect to it. If it's configured for Public access (allowed IP addresses), it's recommended to use an Azure IR with managed virtual network and deploy a managed private endpoint to connect to your instance. When it's configured for Public access (allowed IP addresses) a less recommended alternative consists in creating firewall rules in your instance to allow traffic originating on the IP addresses used by the Azure IR you're using.
 
+## My error isn't here
+
+If you do not see your specific error message listed here, it could be a connector-specific error, so follow these steps:
+
+1. Check the full error message. Some error messages provide guidance to resolve the issue.
+1. Check [your connector's troubleshooting page](#connector-specific-problems) for more details.
+1. Open a ticket with support to troubleshoot the issue.
+
 ## Related content
 
 For more troubleshooting help, try these resources:
 
 - [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 - [Data Factory feature requests](/answers/topics/azure-data-factory.html)
-- [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+- [Azure videos](/shows/data-exposed/?products=azure&terms=data-factory)
 - [Microsoft Q&A page](/answers/topics/azure-data-factory.html)
 - [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 - [X information about Data Factory](https://x.com/hashtag/DataFactory)

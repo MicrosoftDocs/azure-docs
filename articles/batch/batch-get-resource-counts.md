@@ -4,6 +4,7 @@ description: Count the state of Azure Batch tasks and compute nodes to help mana
 ms.date: 04/25/2025
 ms.topic: how-to
 ms.devlang: csharp
+# Customer intent: As a cloud engineer managing large-scale Batch solutions, I want to count the states of tasks and compute nodes, so that I can effectively monitor job progress and ensure adequate compute resources are available for optimal performance.
 ---
 # Monitor Batch solutions by counting tasks and nodes by state
 
@@ -44,7 +45,7 @@ You can use a similar pattern for REST and other supported languages to get task
 The List Pool Node Counts operation counts compute nodes by the following states in each pool. Separate aggregate counts are provided for dedicated nodes and Spot nodes in each pool.
 
 - **Creating**: An Azure-allocated VM that hasn't yet started to join a pool.
-- **Idle**: A compute node that's availale and currently not running any tasks.
+- **Idle**: A compute node that's available and currently not running any tasks.
 - **LeavingPool**: A node that is leaving the pool, either because the user explicitly removed it or because the pool is resizing or autoscaling down.
 - **Offline**: A node that Batch cannot use to schedule new tasks.
 - **Preempted**: A Spot node that was removed from the pool because Azure reclaimed the VM. A `preempted` node can be reinitialized when replacement Spot VM capacity is available.

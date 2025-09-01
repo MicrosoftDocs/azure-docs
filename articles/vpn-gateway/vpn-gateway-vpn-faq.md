@@ -6,6 +6,7 @@ ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.date: 05/09/2025
 ms.author: cherylmc
+# Customer intent: As a network administrator, I want to understand the configuration options and limitations of Azure VPN Gateway, so that I can effectively manage cross-premises connections and optimize my organization’s hybrid network architecture.
 ---
 
 # VPN Gateway FAQ
@@ -74,9 +75,9 @@ When configuring the Azure DNS Private Resolver's forwarding rule in the VNet wh
 
 ### Can two VPN clients connected in point-to-site to the same VPN gateway communicate?
 
-No. VPN clients connected in point-to-site to the same VPN gateway can't communicate with each other.
+Yes. VPN clients connected in point-to-site to the same VPN gateway can communicate with each other.
 
-When two VPN clients are connected to the same point-to-site VPN gateway, the gateway can automatically route traffic between them by determining the IP address that each client is assigned from the address pool. However, if the VPN clients are connected to different VPN gateways, routing between the VPN clients isn't possible because each VPN gateway is unaware of the IP address that the other gateway assigned to the client.
+When two VPN clients are connected to the same point-to-site VPN gateway, the gateway can automatically route traffic between them by determining the IP address that each client is assigned from the address pool.
 
 ### Could a potential vulnerability known as "tunnel vision" affect point-to-site VPN connections?
 
@@ -146,7 +147,7 @@ Azure Standard SKU public IP resources must use a static allocation method. You 
 
 Standard SKU public IP address resources use a static allocation method. Going forward, you must use a Standard SKU public IP address when you create a new VPN gateway. This requirement applies to all gateway SKUs except the Basic SKU. The Basic SKU currently supports only Basic SKU public IP addresses. We're working on adding support for Standard SKU public IP addresses for the Basic SKU.
 
-For non-zone-redundant and non-zonal gateways that were previously created (gateway SKUs that don't have *AZ* in the name), dynamic IP address assignment is supported but is being phased out. When you use a dynamic IP address, the IP address doesn't change after it's assigned to your VPN gateway. The only time that the VPN gateway IP address changes is when the gateway is deleted and then re-created. The public IP address doesn't change when you resize, reset, or complete other internal maintenance and upgrades of your VPN gateway.
+For non-zone-redundant and non-zonal gateways that were previously created (gateway SKUs that don't have *AZ* in the name), dynamic IP address assignment is supported but is being phased out. When you use a dynamic IP address, the IP address doesn't change after it's assigned to your VPN gateway. The only time that the VPN gateway IP address changes is when the gateway is deleted and then re-created. The public IP address doesn't change when you upgrade (resize), reset, or complete other internal maintenance and upgrades of your VPN gateway.
 
 ### How does the retirement of Basic SKU public IP addresses affect my VPN gateways?
 

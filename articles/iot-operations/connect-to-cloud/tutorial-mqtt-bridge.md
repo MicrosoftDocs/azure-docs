@@ -1,14 +1,16 @@
 ---
 title: "Tutorial: Bi-directional MQTT bridge to Azure Event Grid"
 description: Learn how to create a bi-directional MQTT bridge to Azure Event Grid using Azure IoT Operations data flows.
-author: PatAltimore
-ms.author: patricka
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: tutorial
 ms.date: 05/21/2025
 
 #CustomerIntent: As an operator, I want to understand how to create a bi-directional MQTT bridge to Azure Event Grid so that I can send and receive messages between devices and services.
+ms.custom:
+  - build-2025
 ---
 
 # Tutorial: Bi-directional MQTT bridge to Azure Event Grid

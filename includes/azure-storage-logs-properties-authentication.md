@@ -26,7 +26,7 @@
 |**requester / objectId** | The OAuth object ID of the requester. In case of Kerberos authentication, represents the object identifier of Kerberos authenticated user. <br> For example: `aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb`. |
 |**requester / tenantId** | The OAuth tenant ID of identity. <br> For example: `aaaabbbb-0000-cccc-1111-dddd2222eeee`.|
 |**requester / tokenIssuer** | The OAuth token issuer. <br> For example: `https://sts.windows.net/aaaabbbb-0000-cccc-1111-dddd2222eeee/`.|
-|**requester / upn** | The User Principal Name (UPN) of requestor. <br> For example: `someone@contoso.com`. |
+|**requester / upn** | The User Principal Name (UPN) of requester. <br> For example: `someone@contoso.com`. |
 |**requester / userName** | This field is reserved for internal use only.|
 |**requester / uniqueName** | The unique name of the requester. For example: `someone@example.com`. |
 |**delegatedResource / tenantId**| The Microsoft Entra tenant ID of the Azure resource ID which accesses storage on-behalf-of the storage resource owner (for example: `aaaabbbb-0000-cccc-1111-dddd2222eeee`). |

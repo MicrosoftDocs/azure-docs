@@ -6,7 +6,9 @@ ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 03/09/2025
 ms.reviewer: christianreddington,anthdela,juselph
-ms.custom: UpdateFrequency2
+ms.custom:
+  - UpdateFrequency2
+  - build-2025
 
 #customer intent: As a customer, I want to know about Azure DevTest Labs capabilities, so I can use DevTest Labs for popular scenarios like development, test, and training.
 ---

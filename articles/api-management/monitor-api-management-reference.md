@@ -2,7 +2,9 @@
 title: Monitoring Data Reference for Azure API Management
 description: This article contains important reference material you need when you monitor Azure API Management by using Azure Monitor.
 ms.date: 05/14/2025
-ms.custom: horz-monitor
+ms.custom:
+  - horz-monitor
+  - build-2025
 ms.topic: reference
 author: dlepow
 ms.author: danlep

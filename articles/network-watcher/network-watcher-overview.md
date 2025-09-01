@@ -8,6 +8,7 @@ ms.topic: overview
 ms.date: 03/14/2025
 
 #CustomerIntent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
+# Customer intent: As a network administrator, I want to utilize Azure Network Watcher's monitoring and diagnostic tools, so that I can effectively troubleshoot and optimize the performance of my cloud-based network resources.
 ---
 
 # What is Azure Network Watcher?

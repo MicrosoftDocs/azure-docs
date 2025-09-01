@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 06/10/2024
 ms.author: normesta
 ms.custom: devx-track-azurepowershell
+# Customer intent: "As a cloud storage administrator, I want to enable soft delete for blobs, so that I can protect data from accidental deletions and ensure it can be restored within a specified retention period."
 ---
 
 # Enable soft delete for blobs

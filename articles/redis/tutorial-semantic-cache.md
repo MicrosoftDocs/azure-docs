@@ -2,6 +2,7 @@
 title: "Tutorial: Use Azure Managed Redis as a semantic cache"
 description: In this tutorial, you learn how to use Azure Managed Redis as a semantic cache.
 ms.date: 01/08/2024
+ms.update-cycle: 180-days
 ms.topic: tutorial
 ms.collection:
   - ce-skilling-ai-copilot

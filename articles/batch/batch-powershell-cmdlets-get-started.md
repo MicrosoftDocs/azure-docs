@@ -4,6 +4,7 @@ description: A quick introduction to the Azure PowerShell cmdlets you can use to
 ms.topic: how-to
 ms.date: 04/02/2025
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a cloud administrator, I want to use PowerShell cmdlets to manage Azure Batch resources, so that I can automate the creation, modification, and querying of Batch accounts, pools, jobs, tasks, and application packages efficiently.
 ---
 
 # Manage Batch resources with PowerShell cmdlets

@@ -78,17 +78,31 @@ Dynamic sessions are available in the following regions:
 | Region | Code interpreter | Custom container |
 |--------|------------------|------------------|
 | Australia East | ✔ | ✔ |
-| Central US EUAP | ✔ | ✔ |
-| East US 2 EUAP | ✔ | ✔ |
-| East US | ✔ | ✔ |
+| Brazil South | - | ✔ |
+| Canada East | - | ✔ |
 | East Asia | ✔ | ✔ |
+| East US | ✔ | ✔ |
+| East US 2 | ✔ | ✔ |
+| France Central | - | ✔ |
 | Germany West Central | ✔ | ✔ |
 | Italy North | ✔ | ✔ |
-| North Central US | ✔ | - |
+| Japan East | ✔ | - |
+| Korea Central | - | ✔ |
+| North Central US | ✔ | ✔ |
+| North Europe | ✔ | ✔ |
+| Norway East | ✔ | ✔ |
 | Poland Central | ✔ | ✔ |
+| South Africa North | - | ✔ |
+| South India | - | ✔ |
+| Sweden Central | ✔ | ✔ |
 | Switzerland North | ✔ | ✔ |
+| UAE North | - | ✔ |
+| UK South | ✔ | ✔ |
 | West Central US | ✔ | ✔ |
+| West Europe | ✔ | ✔ |
+| West US | ✔ | ✔ |
 | West US 2 | ✔ | ✔ |
+| West US 3 | ✔ | ✔ |
 
 ## Billing
 

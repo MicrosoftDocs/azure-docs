@@ -78,7 +78,7 @@ There are currently two ways to authenticate Azure Front Door to access your Key
 
 > [!WARNING]
 > - Azure Front Door currently only supports Key Vault in the same subscription. Selecting Key Vault under a different subscription results in a failure.
-> - Azure Front Door doesn't support certificates with elliptic curve cryptography algorithms. Also, your certificate must have a complete certificate chain with leaf and intermediate certificates. The root CA also must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
+> - Azure Front Door doesn't support certificates with elliptic curve cryptography algorithms. Also, your certificate must have a complete certificate chain with leaf and intermediate certificates. The root CA also must be part of the [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT).
 
 #### Register Azure Front Door
 
@@ -152,7 +152,7 @@ Azure Front Door can now access this key vault and the certificates it contains.
 
 1. Return to your Azure Front Door Standard/Premium in the portal.
 
-1. Under **Settings**, go to **Secrets** and select **+ Add certificate**.
+1. Under **Security**, go to **Secrets** and select **+ Add certificate**.
 
 1. On the **Add certificate** pane, select the checkbox for the certificate you want to add to Azure Front Door Standard/Premium.
 

@@ -3,10 +3,12 @@ title: Data cubes in Microsoft Planetary Computer Pro overview
 description: Learn about data cube concepts and data cube enrichment for STAC assets in Microsoft Planetary Computer Pro. This article explains how to enable and disable data cube enrichment.
 author: tanyamarton
 ms.author: tanyamarton
-ms.service: azure
+ms.service: planetary-computer-pro
 ms.topic: concept-article
 ms.date: 04/24/2025
 
+ms.custom:
+  - build-2025
 # customer intent: As a GeoCatalog User I want to undertand how Data Cubes are supported in Microsoft Planetary Computer Pro so that I can ingest, manage, and visualize data cube data formats.
 ---
 # Data cubes in Microsoft Planetary Computer Pro

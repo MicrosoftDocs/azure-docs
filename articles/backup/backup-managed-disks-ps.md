@@ -2,10 +2,11 @@
 title: Back up Azure Managed Disks using Azure PowerShell
 description: Learn how to back up Azure Managed Disks using Azure PowerShell.
 ms.topic: how-to
-ms.date: 04/23/2025
+ms.date: 08/25/2025
 ms.custom: devx-track-azurepowershell
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As an IT administrator, I want to back up Azure Managed Disks using PowerShell, so that I can ensure data reliability and recoverability for critical workloads."
 ---
 
 # Back up Azure Managed Disks using Azure PowerShell
@@ -106,7 +107,7 @@ Azure Disk Backup offers multiple backups per day. If you require more frequent 
    >- For Azure Disks belonging to Standard HDD, Standard SSD, and Premium SSD SKUs, you can define the backup schedule with *Hourly* frequency (of 1, 2, 4, 6, 8, or 12 hours) and *Daily* frequency. 
    >- For Azure Disks belonging to Premium V2 and Ultra Disk SKUs, you can define the backup schedule with *Hourly* frequency of only 12 hours and *Daily* frequency.
 
-To know more details about policy creation, refer to the [Azure Disk Backup policy](backup-managed-disks.md#create-backup-policy) document.
+To know more details about policy creation, see [how to create Azure Disk Backup policy](backup-managed-disks.md#create-backup-policy-for-azure-disks).
 
 If you want to edit the hourly frequency or the retention period, use the [Edit-AzDataProtectionPolicyTriggerClientObject](/powershell/module/az.dataprotection/edit-azdataprotectionpolicytriggerclientobject) and/or [Edit-AzDataProtectionPolicyRetentionRuleClientObject](/powershell/module/az.dataprotection/edit-azdataprotectionpolicyretentionruleclientobject) commands. Once the policy object has all the desired values, proceed to create a new policy from the policy object using the [New-AzDataProtectionBackupPolicy](/powershell/module/az.dataprotection/new-azdataprotectionbackuppolicy).
 
@@ -255,7 +256,7 @@ You can also use Az.ResourceGraph to track all jobs across all backup vaults. Us
 
 ## Next steps
 
-[Restore Azure Managed Disks using Azure PowerShell](restore-managed-disks-ps.md).
+Restore Managed Disk using [Azure portal](restore-managed-disks.md), [Azure PowerShell](restore-managed-disks-ps.md), [Azure CLI](restore-managed-disks-cli.md).
 
 ## Related content
 

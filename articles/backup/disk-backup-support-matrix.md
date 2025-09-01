@@ -2,11 +2,12 @@
 title: Azure Disk Backup support matrix
 description: Provides a summary of support settings and limitations Azure Disk Backup.
 ms.topic: reference
-ms.date: 04/16/2025
+ms.date: 08/25/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As an IT administrator, I want to understand the support matrix for Azure Disk Backup so that I can plan my backup and recovery strategy effectively within the service limitations and requirements."
 ---
 
 # Azure Disk Backup support matrix
@@ -50,11 +51,13 @@ Azure Disk Backup is available in all public cloud and Sovereign cloud regions.
 
 - ADE encrypted disks can't be protected.
 
-- Disks encrypted with platform-managed keys or customer-managed keys are supported. However, the restore fails for the restore points of a disk that is encrypted using customer-managed keys (CMK) if the Disk Encryption Set KeyVault key is disabled or deleted.
+- Disks encrypted with platform-managed keys or customer-managed keys are supported. However, if a restore point of a CMK-encrypted disk is used for recovery, ensure that the Disk Encryption Set Key Vault key is active and accessible to prevent restore failures.
+
+- Cross-subscription restore is not supported for disks encrypted using Customer-Managed Keys (CMK) via Disk Encryption Set. 
 
 - The Snapshot Resource group that is assigned to a backup instance when you  configure the backup of a disk can't be changed.
 
-- When you configure backup, the disk selected to be backed up and the snapshot resource group where the snapshots are to be stored must be part of the same subscription. You can't create an incremental snapshot for a particular disk outside of that disk's subscription. Learn more about [incremental snapshots](/azure/virtual-machines/disks-incremental-snapshots#restrictions) for managed disk. For more information on how to choose a snapshot resource group, see  [Configure backup](backup-managed-disks.md#configure-backup).
+- When you configure backup, the disk selected to be backed up and the snapshot resource group where the snapshots are to be stored must be part of the same subscription. You can't create an incremental snapshot for a particular disk outside of that disk's subscription. Learn more about [incremental snapshots](/azure/virtual-machines/disks-incremental-snapshots#restrictions) for managed disk. For more information on how to choose a snapshot resource group, see  [Configure Azure Disk backup](backup-managed-disks.md#configure-azure-disk-backup).
 
 - For successful backup and restore operations, role assignments are required by the Backup vault’s managed identity. Use only the role definitions provided in the documentation. Use of other roles like owner, contributor, and so on, isn't supported. You may face permission issues, if you start configuring backup or restore operations soon after assigning roles. This is because the role     assignments take a few minutes to take effect.
 

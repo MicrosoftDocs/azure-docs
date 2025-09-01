@@ -6,6 +6,8 @@ ms.author: adamdor
 ms.date: 05/20/2024
 ms.topic: upgrade-and-migration-article
 ms.service: azure-operator-service-manager
+ms.custom:
+  - build-2025
 ---
 
 # Get started with safe upgrade practices

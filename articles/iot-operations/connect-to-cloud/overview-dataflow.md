@@ -1,11 +1,11 @@
 ---
 title: Process and route data with data flows
 description: Learn about data flows and how to process and route data in Azure IoT Operations.
-author: PatAltimore
-ms.author: patricka
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/21/2025
 
 #CustomerIntent: As an operator, I want to understand how I can use data flows to connect data sources.
@@ -32,7 +32,7 @@ Here are the key features of data flows.
 Data flows enable the ingestion, processing, and routing of the messages to specified sinks. You can specify:
 
 - **Sources**: Where messages are ingested from
-- **Destinations**: Where messages are drained to
+- **Destinations**: Where messages are drained to, including support for dynamic topic routing based on message content for MQTT endpoints
 - **Transformations (optional)**: Configuration for data processing operations
 
 ### Transformation capabilities

@@ -4,6 +4,8 @@ ms.service: azure-app-service
 ms.topic: include
 ms.date: 05/17/2025
 ms.author: cephalin
+ms.custom:
+  - build-2025
 ---
 
 

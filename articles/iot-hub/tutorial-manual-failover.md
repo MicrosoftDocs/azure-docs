@@ -8,13 +8,18 @@ services: iot-hub
 ms.topic: tutorial
 ms.date: 11/17/2022
 ms.author: sonialopez
-ms.custom: [mvc, mqtt]
+ms.custom:
+  - [mvc,mqtt]
+  - build-2025
 #Customer intent: As an IT Pro, I want to be able to perform a manual failover of my IoT hub to a different region, and then return it to the original region.
 ---
 
 # Tutorial: Perform manual failover for an IoT hub
 
-Manual failover is a feature of the IoT Hub service that allows customers to [failover](https://en.wikipedia.org/wiki/Failover) their hub's operations from a primary region to the corresponding [Azure geo-paired region](../reliability/cross-region-replication-azure.md). Manual failover can be done in the event of a regional disaster or an extended service outage. You can also perform a planned failover to test your disaster recovery capabilities, although we recommend using a test IoT hub rather than one running in production. The manual failover feature is offered to customers at no additional cost for IoT hubs created after May 18, 2017.
+Manual failover is a feature of the IoT Hub service that allows customers to [failover](https://en.wikipedia.org/wiki/Failover) their hub's operations from a primary region to the corresponding [Azure geo-paired region](../reliability/cross-region-replication-azure.md). The manual failover feature is offered to customers at no additional cost for IoT hubs created after May 18, 2017.
+
+> [!NOTE]
+> Manual failover can be done in the event of a regional disaster or an extended service outage. You can also perform a planned failover to test your disaster recovery capabilities, although we recommend using a test IoT hub rather than one running in production. 
 
 In this tutorial, you perform the following tasks:
 

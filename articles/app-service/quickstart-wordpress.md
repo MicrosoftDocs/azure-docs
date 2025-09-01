@@ -4,11 +4,14 @@ description: Learn how to create and deploy a WordPress site on Azure App Servic
 keywords: app service, azure app service, wordpress, wordpress hosting, azure wordpress, php, mysql flexible server, linux app service, wordpress on linux, azure marketplace
 
 author: msangapu-msft
-ms.subservice: wordpress
+ms.service: azure-app-service
 ms.topic: quickstart
 ms.date: 04/11/2025
 ms.author: msangapu
-ms.custom: mvc, linux-related-content
+ms.custom:
+  - mvc
+  - linux-related-content
+  - build-2025
 ---
 # Create a WordPress site
 

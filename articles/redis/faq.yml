@@ -6,7 +6,7 @@ metadata:
   ms.topic: faq
   ms.custom:
     - ignite-2024
-      - build-2025
+    - build-2025
   appliesto:
     - ✅ Azure Managed Redis
     - ✅ Azure Cache for Redis
@@ -38,11 +38,6 @@ sections:
                           
   - name: General Azure Redis questions
     questions:
-      - question: |
-          Are there any deprecated Azure Cache for Redis services?
-        answer: |
-          Yes. The Managed Cache service and In-Role Cache service were retired on November 30, 2016.
-
       - question: |
           How can I get answers to frequently asked questions about Azure Redis?
         answer: |

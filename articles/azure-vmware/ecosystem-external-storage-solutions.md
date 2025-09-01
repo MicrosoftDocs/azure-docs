@@ -7,6 +7,7 @@ ms.author: dsoderholm
 ms.service: azure-vmware
 ms.date: 12/09/2024
 ms.custom: engagement-fy23
+# Customer intent: As a cloud architect, I want to evaluate external storage solutions for Azure VMware Solution, so that I can determine the best option to meet my workloads' performance, capacity, and data protection requirements.
 ---
  
 # External storage solutions
@@ -58,7 +59,7 @@ Providing the same consistent external block storage architecture in the cloud i
 
 #### Pure Cloud Block Store
 
-[Pure Cloud Block Store](../azure-vmware/configure-pure-cloud-block-store.md) is a software-delivered service offered by Pure Storage, designed to provide a consistent storage experience for VMware workloads running in Azure. Pure Cloud Block Store runs the Purity Operating Environment on Azure virtual machines, and can be used with Azure VMware Solution to provide external block storage. You can create volumes in Pure Cloud Block Store and mount them on Azure VMware Solution hosts using iSCSI. Pure Cloud Block Store also offers data protection features such as snapshots and replication; storage efficiency using data deduplication and compression; and familiar management capabilities to administrators who are already using Pure Storage solutions.
+[Pure Cloud Block Store](../azure-vmware/configure-pure-cloud-block-store.md) is a software-delivered service offered by Pure Storage, designed to provide a consistent storage experience for VMware workloads running in Azure. Pure Cloud Block Store runs the Purity Operating Environment on Azure virtual machines and can be used with Azure VMware Solution to provide external block storage. You can create volumes in Pure Cloud Block Store and mount them on Azure VMware Solution hosts using iSCSI. Pure Cloud Block Store also offers data protection features such as snapshots and replication; storage efficiency using data deduplication and compression; and familiar management capabilities to administrators who are already using Pure Storage solutions.
 
 ## Next steps
 

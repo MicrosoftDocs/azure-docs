@@ -5,7 +5,7 @@ author: jovinson-ms
 ms.service: azure-health-data-services
 ms.subservice: deidentification-service
 ms.topic: quickstart
-ms.date: 7/16/2024
+ms.date: 06/19/2025
 ms.author: jovinson
 ---
 

@@ -7,6 +7,9 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 05/16/2025
 ms.author: anfdocs
+ms.custom:
+  - build-2025
+# Customer intent: As a cloud administrator, I want to delete unnecessary backups of an Azure NetApp Files volume, so that I can free up storage space and potentially reduce costs associated with backups.
 ---
 # Delete backups of a volume 
 

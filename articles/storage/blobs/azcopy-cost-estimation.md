@@ -7,7 +7,10 @@ ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.date: 05/15/2025
 ms.author: normesta
-ms.custom: subject-cost-optimization
+ms.custom:
+  - subject-cost-optimization
+  - build-2025
+# Customer intent: As a data engineer, I want to estimate the costs associated with transferring data using AzCopy and Azure Blob Storage, so that I can effectively manage my storage expenses and optimize data transfer strategies.
 ---
 
 # Estimate the cost of using AzCopy to transfer blobs

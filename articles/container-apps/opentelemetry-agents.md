@@ -4,9 +4,11 @@ description: Learn to record and query data collected using OpenTelemetry in Azu
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.date: 05/08/2025
+ms.date: 07/07/2025
 ms.author: cshoe
 ms.topic: how-to
+ms.custom:
+  - build-2025
 ---
 
 # Collect and read OpenTelemetry data in Azure Container Apps
@@ -743,6 +745,13 @@ resource environment 'Microsoft.App/managedEnvironments@2024-10-02-preview' = {
 
 For more information, see [Microsoft.App/managedEnvironments](/azure/templates/microsoft.app/2024-02-02-preview/managedenvironments).
 
+## Data resilience
+
+In the event of a messaging inturruptions to an endpoint, the OpenTelemetry agent uses the following procedure to support data resilience: 
+
+- **In-memory buffering and retries**: The agent holds data in memory and keeps retrying (with backoff) for up to five minutes.
+- **Dropping data**: If the buffered queue fills up, or the endpoint is still down after retries, the agent discards the oldest batches to avoid running out of memory.
+
 ## Environment variables
 
 The OpenTelemetry agent automatically injects a set of environment variables into your application at runtime.
@@ -777,6 +786,7 @@ See the destination service for their billing structure and terms. For example, 
 - System data, such as system logs or Container Apps standard metrics, isn't available to be sent to the OpenTelemetry agent.
 - The Application Insights endpoint doesn't accept metrics.
 - Configuration settings live at the environment level. You can send different data types to different destinations, but you can't split up your data by app. For example, in the same app you can send metrics to Datadog, and traces to App Insights.
+- The managed agent only supports the gRPC transport protocol for telemetry data.
 
 ## Frequently asked questions
 

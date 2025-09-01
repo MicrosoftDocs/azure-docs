@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 03/06/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-content
 zone_pivot_groups: app-service-containers-windows-linux
+ms.service: azure-app-service
 ---
 
 # Configure a custom container for Azure App Service
@@ -581,4 +582,4 @@ The following lists show supported and unsupported Docker Compose configuration 
 Or, see more resources:
 
 - [Environment variables and app settings reference](reference-app-settings.md)
-- [Load certificate in Windows/Linux containers](configure-ssl-certificate-in-code.md#load-certificate-in-linuxwindows-containers)
+- [Load certificates in Windows/Linux containers](configure-ssl-certificate-in-code.md#load-certificates-in-linuxwindows-containers)

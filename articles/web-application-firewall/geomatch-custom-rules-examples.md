@@ -8,6 +8,7 @@ ms.service: azure-web-application-firewall
 ms.custom: devx-track-azurepowershell
 ms.date: 02/13/2024
 ms.topic: how-to
+# Customer intent: As a security engineer, I want to create and manage custom geomatch rules in a web application firewall, so that I can enhance network security by controlling access based on geographic locations.
 ---
 
 # Use Azure WAF geomatch custom rules to enhance network security

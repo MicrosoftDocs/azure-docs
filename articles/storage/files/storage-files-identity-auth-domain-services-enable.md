@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 10/18/2024
 ms.author: kendownie
 ms.custom: engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
-recommendations: false
+# Customer intent: As a cloud administrator, I want to enable identity-based authentication for SMB Azure file shares using Microsoft Entra Domain Services, so that users can securely access file shares using their Microsoft Entra credentials.
 ---
 
 # Enable Microsoft Entra Domain Services authentication on Azure Files

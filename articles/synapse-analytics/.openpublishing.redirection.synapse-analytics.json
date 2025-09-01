@@ -754,6 +754,16 @@
              "source_path_from_root": "/articles/synapse-analytics/sql-data-warehouse/workspace-connected-regions.md",
              "redirect_url": "https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table",
              "redirect_document_id": false
+           },
+           {
+             "source_path_from_root": "/articles/synapse-analytics/spark/apache-spark-3-runtime.md",
+             "redirect_url": "/azure/synapse-analytics/spark/apache-spark-35-runtime",
+             "redirect_document_id": false
+           },
+           {
+             "source_path_from_root": "/articles/synapse-analytics/spark/apache-spark-32-runtime.md",
+             "redirect_url": "/azure/synapse-analytics/spark/apache-spark-35-runtime",
+             "redirect_document_id": false
            }
     ]
 }

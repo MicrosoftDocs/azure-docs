@@ -5,7 +5,11 @@ author: dramasamy
 ms.author: dramasamy
 ms.service: azure-operator-nexus
 ms.topic: quickstart-bicep #Required; leave this attribute/value as-is.
-ms.custom: subject-bicepqs, devx-track-azurecli, devx-track-bicep
+ms.custom:
+  - subject-bicepqs
+  - devx-track-azurecli
+  - devx-track-bicep
+  - build-2025
 ms.date: 05/13/2023
 ---
 

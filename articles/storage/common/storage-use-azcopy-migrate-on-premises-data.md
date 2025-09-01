@@ -9,6 +9,7 @@ ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: storage-common-concepts
 #Customer intent: As a customer with data, I want to move my data from its existing location so that I can have access to that data in my storage account.
+# Customer intent: "As an IT administrator, I want to migrate on-premises data to cloud storage using a command-line tool, so that I can ensure efficient data access and management in my organization's storage account."
 ---
 
 #  Tutorial: Migrate on-premises data to cloud storage with AzCopy

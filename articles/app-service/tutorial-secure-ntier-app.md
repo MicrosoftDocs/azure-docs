@@ -3,9 +3,12 @@ title: 'Tutorial: Create a secure N-tier web app'
 description: Learn how to securely deploy your N-tier web app to Azure App Service.
 author: seligj95
 ms.topic: tutorial
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 ms.date: 2/25/2023
 ms.author: jordanselig
+ms.service: azure-app-service
 ---
 
 # Tutorial: Create a secure n-tier app in Azure App Service

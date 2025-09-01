@@ -323,6 +323,6 @@ In this article, you learned how to:
 To learn more about Azure Functions and Quarkus, see the following articles and references:
 
 * [Azure Functions Java developer guide](./functions-reference-java.md)
-* [Quickstart: Create a Java function in Azure using Visual Studio Code](./create-first-function-vs-code-java.md)
+* [Quickstart: Create a Java function in Azure using Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-java)
 * [Azure Functions documentation](./index.yml)
 * [Quarkus guide to deploying on Azure](https://quarkus.io/guides/deploying-to-azure-cloud)

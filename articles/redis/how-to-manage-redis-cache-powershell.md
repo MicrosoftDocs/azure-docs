@@ -7,7 +7,8 @@ zone_pivot_groups: redis-type
 appliesto:
   - ✅ Azure Cache for Redis
   - ✅ Azure Managed Redis
-
+ms.custom:
+  - build-2025
 ---
 
 # Manage Azure Redis with Azure PowerShell
@@ -220,11 +221,11 @@ The following tables show Azure PowerShell properties and descriptions for commo
 | maxmemory-reserved |[Memory reserved](../azure-cache-for-redis/cache-configure.md#memory-policies) for noncache processes. |Standard and Premium |
 | maxmemory-policy |[Eviction policy]/azure-cache-for-redis/cache-configure.md#memory-policies) for the cache. |All pricing tiers |
 | notify-keyspace-events |[Keyspace notifications]/azure-cache-for-redis/cache-configure.md#keyspace-notifications-advanced-settings). |Standard and Premium |
-| hash-max-ziplist-entries |[Memory optimization](https://redis.io/docs/management/optimization/memory-optimization/) for small aggregate data types. |Standard and Premium |
-| hash-max-ziplist-value |[Memory optimization](https://redis.io/docs/management/optimization/memory-optimization/) for small aggregate data types. |Standard and Premium |
-| set-max-intset-entries |[Memory optimization](https://redis.io/docs/management/optimization/memory-optimization/) for small aggregate data types. |Standard and Premium |
-| zset-max-ziplist-entries |[Memory optimization](https://redis.io/docs/management/optimization/memory-optimization/) for small aggregate data types. |Standard and Premium |
-| zset-max-ziplist-value |[Memory optimization](https://redis.io/docs/management/optimization/memory-optimization/) for small aggregate data types. |Standard and Premium |
+| hash-max-ziplist-entries |[Memory optimization](https://redis.io/docs/latest/operate/oss_and_stack/management/optimization/memory-optimization/) for small aggregate data types. |Standard and Premium |
+| hash-max-ziplist-value |[Memory optimization](https://redis.io/docs/latest/operate/oss_and_stack/management/optimization/memory-optimization/) for small aggregate data types. |Standard and Premium |
+| set-max-intset-entries |[Memory optimization](https://redis.io/docs/latest/operate/oss_and_stack/management/optimization/memory-optimization/) for small aggregate data types. |Standard and Premium |
+| zset-max-ziplist-entries |[Memory optimization](https://redis.io/docs/latest/operate/oss_and_stack/management/optimization/memory-optimization/) for small aggregate data types. |Standard and Premium |
+| zset-max-ziplist-value |[Memory optimization](https://redis.io/docs/latest/operate/oss_and_stack/management/optimization/memory-optimization/) for small aggregate data types. |Standard and Premium |
 | databases |Number of databases. This property can be configured only at cache creation. |Standard and Premium |
 
 ## Create an Azure Cache for Redis cache

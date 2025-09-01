@@ -3,11 +3,14 @@ title: Best Practices for Azure App Service
 description: Learn best practices and common troubleshooting scenarios for your app running in Azure App Service.
 
 ms.assetid: f3359464-fa44-4f4a-9ea6-7821060e8d0d
-ms.topic: article
+ms.topic: best-practice
 ms.date: 05/06/2025
 author: msangapu-msft
 ms.author: msangapu
-ms.custom: devx-track-js
+ms.custom:
+  - devx-track-js
+  - build-2025
+ms.service: azure-app-service
 ---
 # Best practices for Azure App Service
 
@@ -98,7 +101,7 @@ In App Service, you can add identical custom domains to multiple web apps, as lo
 
 Another option is to use a load balancer in front of the web apps, such as Azure Front Door or Azure Traffic Manager, to ensure high availability for your web apps. For more information, see [Quickstart: Create an Azure Front Door (classic) using the Azure portal](../frontdoor/quickstart-create-front-door.md) or [Controlling Azure App Service traffic with Azure Traffic Manager](./web-sites-traffic-manager.md).
 
-## Related content
+## Resource-specific best practices
 
 To get actionable best practices that are specific to your resource, use [App Service diagnostics](./overview-diagnostics.md):
 

@@ -4,9 +4,9 @@ description: This article lists the Azure built-in roles for Azure role-based ac
 ms.service: role-based-access-control
 ms.topic: generated-reference
 ms.workload: identity
-author: rolyon
-manager: femila
-ms.author: rolyon
+author: jenniferf-skc
+manager: pmwongera
+ms.author: jfields
 ms.date: 05/25/2025
 ms.custom: generated
 ---
@@ -423,7 +423,7 @@ Manage key vaults, but does not allow you to assign roles in Azure RBAC, and doe
 
 [Learn more](/azure/key-vault/general/security-features)
 
-[!INCLUDE [contributor-role-warning.md](~/reusable-content/ce-skilling/azure/includes/key-vault/includes/key-vault-contributor-role-warning.md)]
+[!INCLUDE [contributor-role-warning.md](~/reusable-content/ce-skilling/azure/includes/key-vault/key-vault-contributor-role-warning.md)]
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |

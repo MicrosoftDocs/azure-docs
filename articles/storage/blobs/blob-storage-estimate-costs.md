@@ -7,7 +7,10 @@ ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.date: 05/15/2025
 ms.author: normesta
-ms.custom: subject-cost-optimization
+ms.custom:
+  - subject-cost-optimization
+  - build-2025
+# Customer intent: "As a cost manager, I want to estimate the costs of using cloud storage, so that I can optimize spending on data storage and transfer operations."
 ---
 
 # Estimate the cost of using Azure Blob Storage

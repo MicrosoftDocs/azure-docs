@@ -6,7 +6,10 @@ ms.service: azure-container-storage
 ms.topic: how-to
 ms.date: 08/06/2024
 ms.author: kendownie
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - build-2025
+# Customer intent: "As a Kubernetes administrator, I want to configure Azure Container Storage with Azure Elastic SAN so that I can efficiently manage persistent storage for my containerized applications."
 ---
 
 # Use Azure Container Storage with Azure Elastic SAN (preview)

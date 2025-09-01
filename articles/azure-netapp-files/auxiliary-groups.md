@@ -7,6 +7,9 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 02/13/2025
 ms.author: anfdocs
+ms.custom:
+  - build-2025
+# Customer intent: As a storage administrator, I want to configure auxiliary groups with NFS in Azure NetApp Files, so that I can manage user access control and leverage extended group memberships efficiently.
 ---
 
 # Understand auxiliary/supplemental groups with NFS in Azure NetApp Files

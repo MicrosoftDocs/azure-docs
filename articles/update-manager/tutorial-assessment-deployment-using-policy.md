@@ -1,12 +1,12 @@
 ---
-title: Schedule updates and enable periodic assessment at scale using policy.
+title: Schedule Updates and Enable Periodic Assessment at Scale Using Policy.
 description: In this tutorial, you learn on how enable periodic assessment or update the deployment using policy.
 ms.service: azure-update-manager
-ms.date: 04/23/2024
+ms.date: 08/21/2025
 ms.topic: tutorial 
-author: SnehaSudhirG
-ms.author: sudhirsneha
-#Customer intent: As an IT admin, I want dynamically apply patches or enable periodic assessment on the machines at scale using a policy.
+author: habibaum
+ms.author: v-uhabiba
+# Customer intent: "As an IT administrator, I want to enable periodic assessment and schedule updates for Azure VMs using policy, so that I can ensure compliance and streamline the management of updates across all machines at scale."
 ---
 
 # Tutorial: Enable periodic assessment and schedule updates on Azure VMs using policy

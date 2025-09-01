@@ -7,6 +7,7 @@ ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 06/30/2023
 ms.author: duau
+# Customer intent: As a network administrator, I want to configure alerts for ExpressRoute circuit maintenance, so that I can proactively manage my network and minimize service disruptions.
 ---
 
 # How to view and configure alerts for Azure ExpressRoute circuit maintenance

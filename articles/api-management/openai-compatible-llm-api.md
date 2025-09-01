@@ -1,34 +1,35 @@
 ---
-title: Import OpenAI-Compatible Language Model API - Azure API Management
-description: How to import an OpenAI-compatible language model or a non-Azure-provided AI model as a REST API in Azure API Management.
+title: Import Language Model API - Azure API Management
+description: How to import an OpenAI-compatible language model or a non-OpenAI-compatible AI model as a REST API in Azure API Management.
 ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 05/15/2025
+ms.date: 07/06/2025
+ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
-ms.custom: template-how-to, build-2024
+ms.custom: template-how-to
 ---
 
-# Import an OpenAI-compatible language model API 
+# Import a language model API 
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-You can import OpenAI-compatible language model endpoints to your API Management instance as APIs. For example, you might want to manage an LLM that you self-host, or that's hosted on an inference provider other than Azure AI services. Use AI gateway policies and other capabilities in API Management to simplify integration, improve observability, and enhance control over the model endpoints.
+You can import OpenAI-compatible language model endpoints to your API Management instance as APIs. You can also import language models that aren't compatible with OpenAI as passthrough APIs, which forward requests directly to the backend endpoints. For example, you might want to manage an LLM that you self-host, or that's hosted on an inference provider other than Azure AI services. Use AI gateway policies and other capabilities in API Management to simplify integration, improve observability, and enhance control over the model endpoints.
 
 Learn more about managing AI APIs in API Management:
 
-* [Generative AI gateway capabilities in Azure API Management](genai-gateway-capabilities.md)
+* [AI gateway capabilities in Azure API Management](genai-gateway-capabilities.md)
 
 ## Language model API types
 
 API Management supports two types of language model APIs for this scenario. Choose the option suitable for your model deployment. The option determines how clients call the API and how the API Management instance routes requests to the AI service.
 
-* **OpenAI-compatible** - Language model endpoints that are compatible with OpenAI's API. Examples include certain models exposed by inference providers such as [Hugging Face Text Generation Inference (TGI)](https://huggingface.co/docs/text-generation-inference/en/index).
+* **OpenAI-compatible** - Language model endpoints that are compatible with OpenAI's API. Examples include certain models exposed by inference providers such as [Hugging Face Text Generation Inference (TGI)](https://huggingface.co/docs/text-generation-inference/en/index) and [Google Gemini API](openai-compatible-google-gemini-api.md).
 
-    API Management configures an OpenAI-compatible chat completions endpoint. 
+    For an OpenAI-compatible LLM, API Management configures a chat completions endpoint. 
 
-* **Passthrough** - Other language model endpoints that aren't compatible with OpenAI's API. Examples include models deployed in [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html) or other providers.
+* **Passthrough** - Other language model endpoints that aren't compatible with OpenAI's API. Examples include models deployed in [Amazon Bedrock](amazon-bedrock-passthrough-llm-api.md) or other providers.
 
     API Management configures wildcard operations for common HTTP verbs. Clients can append paths to the wildcard operations, and API Management passes requests to the backend.  
 
@@ -40,6 +41,11 @@ API Management supports two types of language model APIs for this scenario. Choo
 
 ## Import language model API using the portal
 
+When you import the LLM API in the portal, API Management automatically configures:
+
+* A [backend](backends.md) resource and a [set-backend-service](set-backend-service-policy.md) policy that direct API requests to the LLM endpoint.
+* (optionally) Access to the LLM backend using an access key you provide. The key is protected as a secret [named value](api-management-howto-properties.md) in API Management.
+* (optionally) Policies to help you monitor and manage the API.
 
 To import a language model API to API Management:
 
@@ -70,6 +76,8 @@ To import a language model API to API Management:
 1. Select **Review**.
 1. After settings are validated, select **Create**. 
 
+API Management creates the API, and configures operations for the LLM endpoints. By default, the API requires an API Management subscription.
+
 ## Test the LLM API
 
 To ensure that your LLM API is working as expected, test it in the API Management test console. 
@@ -84,5 +92,6 @@ To ensure that your LLM API is working as expected, test it in the API Managemen
 
     When the test is successful, the backend responds with a successful HTTP response code and some data. Appended to the response is token usage data to help you monitor and manage your language model token consumption.
 
+## Related content
 
-[!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
+* [AI gateway capabilities in Azure API Management](genai-gateway-capabilities.md)

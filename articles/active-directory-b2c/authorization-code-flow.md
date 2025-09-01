@@ -233,7 +233,7 @@ A successful token response looks like this:
 | access_token |The signed JWT that you requested. |
 | scope |The scopes that the token is valid for. You also can use the scopes to cache tokens for later use. |
 | expires_in |The length of time that the token is valid (in seconds). |
-| refresh_token |An OAuth 2.0 refresh token. The app can use this token to acquire additional tokens after the current token expires. Refresh tokens are long-lived, and can be used to retain access to resources for extended periods of time. For more information, see the [Azure AD B2C token reference](tokens-overview.md). |
+| refresh_token |An OAuth 2.0 refresh token. The app can use this token to acquire additional tokens after the current token expires. Refresh tokens are long-lived and can be used to retain access to resources for extended periods of time. For more information, see the [Azure AD B2C token reference](tokens-overview.md). |
 
 Error responses look like this:
 

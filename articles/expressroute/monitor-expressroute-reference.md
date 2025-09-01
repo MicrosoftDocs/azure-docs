@@ -7,6 +7,7 @@ ms.topic: reference
 author: duongau
 ms.author: duau
 ms.service: azure-expressroute
+# Customer intent: "As a network administrator, I want to access monitoring metrics for Azure ExpressRoute, so that I can effectively track performance and identify any issues in my network connections."
 ---
 # Azure ExpressRoute monitoring data reference
 

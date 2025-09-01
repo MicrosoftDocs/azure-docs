@@ -7,7 +7,7 @@ ms.service: dev-box
 ms.custom:
   - ignite-2024
 ms.topic: quickstart
-ms.date: 11/06/2024
+ms.date: 08/25/2025
 
 #customer intent: As a Dev Center Admin or Project Admin, I want to create an image definition file so that I can create a customized dev box as a proof of concept.  
 
@@ -15,24 +15,19 @@ ms.date: 11/06/2024
   
 # Quickstart: Create a dev box by using team customizations
 
-[!INCLUDE [note-build-2025](includes/note-build-2025.md)]
-  
 In this quickstart, you create a dev box by using Microsoft Dev Box team customizations. The feature uses an image definition file so that you can create consistently customized dev boxes for your development team and provide a tailored environment for your projects.
   
+ 
 ## Prerequisites
-  
-To complete the steps in this quickstart, you must have a dev center configured with a dev box project.  
-  
-## Permissions required to configure customizations
-  
-[!INCLUDE [permissions-for-customizations](includes/permissions-for-customizations.md)]
+
+| Product | Requirements |
+|---------|--------------|
+| Microsoft Dev Box  | - Set up a [dev center with a dev box pool and a dev box project](./quickstart-get-started-template.md) so you can create a dev box.</br>- Attach a catalog to the dev center with tasks you can use in your image definition file. If you don't have a catalog, see [Add and configure a catalog from GitHub or Azure Repos](./how-to-configure-catalog.md).</br>**- Permissions**</br>- *To create a dev box:* Join the Dev Box Users security group for at least one project.</br>- *To enable project-level catalogs for a dev center:* Platform engineer with write access on the subscription.</br>- *To enable catalog sync settings for a project:* Platform engineer with write access on the subscription.</br>- *To attach a catalog to a project:* Dev Center Project Admin or Contributor permissions on the project.</br>- *To create a customization file:* None specified. Anyone can create a customization file.</br>- *To use the developer portal to upload and apply a YAML file during dev box creation:* Dev Box User.</br>- *To add tasks to a catalog:* Permission to add to the repository that hosts the catalog. |
+| Visual Studio Code | - Install the latest version |
   
 ## Create an image definition
   
-1. Download the [example YAML customization file](https://aka.ms/devcenter/preview/imaging/examples).  
-1. Open the file and examine the tasks.  
-
-The image definition file specifies a name for the image definition by using a `name` field. Use this name to identify the image definition in the dev box pool.
+To create a dev box with customizations, you must create an image definition file. The image definition file is a YAML file that contains the customizations that you want to apply to the dev box. You can use the example image definition file in this quickstart as a starting point.
 
 ## Enable project-level catalogs
 
@@ -49,22 +44,40 @@ You must enable project-level catalogs at the dev center level before you can ad
 The sections that follow walk you through these tasks:
 
 1. Fork the example catalog repository to your GitHub organization.
-1. Install and configure the Microsoft Dev Center app.
-1. Assign permissions in GitHub for the repos.
+1. Configure sync settings to synchronize the catalog with your project.
 1. Add your repository as a catalog.
 
 ### Fork the example catalog repository
 
 1. Open the [example catalog repository](https://aka.ms/devcenter/preview/imaging/examples/repo).
-1. Select **Fork** to fork the repository to your GitHub organization.
 
-### Install the Microsoft Dev Center app
+1. Select **Fork** > **Create a new fork** to fork the repository to your GitHub organization.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+   :::image type="content" source="media/quickstart-team-customizations/dev-box-new-fork.png" alt-text="Screenshot showing the eShop repo in GitHub, with Create a new fork highlighted.":::
 
-1. Go to your dev center or project.
+### Configure catalog sync settings
 
-1. On the service menu, under **Environment configuration**, select **Catalogs**, and then select **Add**.
+1. Switch back to the [Azure portal](https://portal.azure.com).
+
+1. In the search box, enter **projects**. In the list of results, select **Projects**.
+
+1. Select the project you want to add the catalog to.
+
+1. On the left menu, select **Settings** > **Catalogs**.
+
+1. Select **Sync settings**.
+
+   :::image type="content" source="./media/quickstart-team-customizations/dev-box-project-catalog-sync-settings.png" alt-text="Screenshot of the Catalogs pane in the Azure portal, with the button for sync settings highlighted." lightbox="./media/quickstart-team-customizations/dev-box-project-catalog-sync-settings.png":::
+
+1. On the **Sync settings** pane:
+    - If **Image definitions** is cleared, select it and select **Save**.
+    - If **Image definitions** is already selected, select **Cancel**.
+
+   :::image type="content" source="./media/quickstart-team-customizations/dev-box-project-catalog-sync-image-definitions.png" alt-text="Screenshot of the pane for sync settings in the Azure portal, with the checkbox for image definitions highlighted." lightbox="./media/quickstart-team-customizations/dev-box-project-catalog-sync-image-definitions.png":::
+
+### Add your repository as a catalog
+
+1. On the Catalogs page, select **Add**.
 
 1. On the **Add catalog** pane, enter or select the following values:
 
@@ -76,7 +89,7 @@ The sections that follow walk you through these tasks:
 
 1. Select the **configure your repositories** link.
 
-   :::image type="content" source="media/quickstart-team-customizations/add-catalog-configure-repositories.png" alt-text="Screenshot of the Azure portal that shows selections for adding a catalog with the link for configuring repositories highlighted." lightbox="media/quickstart-team-customizations/add-catalog-configure-repositories.png":::
+   :::image type="content" source="media/quickstart-team-customizations/dev-box-add-catalog-configure-repositories.png" alt-text="Screenshot of the Azure portal that shows selections for adding a catalog with the link for configuring repositories highlighted." lightbox="media/quickstart-team-customizations/dev-box-add-catalog-configure-repositories.png":::
 
 1. If you're prompted to authenticate to GitHub, authenticate.
 
@@ -86,72 +99,65 @@ The sections that follow walk you through these tasks:
 
 1. Select the GitHub organization that contains the repository you want to add as a catalog. You must be an owner of the organization to install this app.
 
-   :::image type="content" source="media/quickstart-team-customizations/install-organization.png" alt-text="Screenshot of the Install Microsoft DevCenter page, with a GitHub organization highlighted." lightbox="media/quickstart-team-customizations/install-organization.png":::
+   :::image type="content" source="media/quickstart-team-customizations/github-microsoft-dev-center-install-organization.png" alt-text="Screenshot of the Install Microsoft DevCenter page, with a GitHub organization highlighted." lightbox="media/quickstart-team-customizations/github-microsoft-dev-center-install-organization.png":::
 
-1. On the **Install Microsoft DevCenter** page, select **Only select repositories**, select the repository that you want to add as a catalog, and then select **Install**.
+1. On the **Install Microsoft DevCenter** page, select **Only select repositories**, select the repository that you want to add as a catalog, and then select **Save**.
 
-   :::image type="content" source="media/quickstart-team-customizations/select-one-repository.png" alt-text="Screenshot of the Install Microsoft DevCenter page, with one repository selected and highlighted." lightbox="media/quickstart-team-customizations/select-one-repository.png":::
+   :::image type="content" source="media/quickstart-team-customizations/github-microsoft-dev-center-select-one-repository.png" alt-text="Screenshot of the Install Microsoft DevCenter page, with one repository selected and highlighted." lightbox="media/quickstart-team-customizations/github-microsoft-dev-center-select-one-repository.png":::
 
    You can select multiple repositories to add as catalogs. You must add each repository as a separate catalog, as described in the [next section of this quickstart](#add-your-repository-as-a-catalog).
 
-1. On the **Microsoft DevCenter by Microsoft would like permission to** page, review the required permissions, and then select **Authorize Microsoft DevCenter**.
-
-   :::image type="content" source="media/quickstart-team-customizations/authorize-microsoft-dev-center.png" alt-text="Screenshot of the page that requests Microsoft DevCenter permissions, with the button for authorizing permissions highlighted." lightbox="media/quickstart-team-customizations/authorize-microsoft-dev-center.png":::
-
-### Add your repository as a catalog
-
-1. Switch back to the Azure portal.
-
-1. Select **Sync settings**.
-
-   :::image type="content" source="./media/how-to-configure-customization-imaging/customizations-project-sync-settings-small.png" alt-text="Screenshot of the Catalogs pane in the Azure portal, with the button for sync settings highlighted." lightbox="./media/how-to-configure-customization-imaging/customizations-project-sync-settings.png":::
-
-1. On the **Sync settings** pane, select **Image definitions**, and then select **Save**.
-
-   :::image type="content" source="./media/how-to-configure-customization-imaging/customizations-project-sync-image-definitions.png" alt-text="Screenshot of the pane for sync settings in the Azure portal, with the checkbox for image definitions highlighted." lightbox="./media/how-to-configure-customization-imaging/customizations-project-sync-image-definitions.png":::
-
+1. Switch back to the [Azure portal](https://portal.azure.com).
+ 
+1. On the **Add catalog** pane, select **Sign in with GitHub**.
 
 1. On the **Add catalog** pane, enter the following information, and then select **Add**:
 
     | Field | Value |
     | ----- | ----- |
-    | **Repo**  | Select the repository that you want to add as a catalog. |
-    | **Branch**  | Select the branch. |
-    | **Folder path**  | Select the folder that contains subfolders that hold your environment definitions. |
+    | **Repo**  | Select the repository that contains your image definition.</br>Example: *eShop*  |
+    | **Branch**  | Select the branch.</br>Example: *main*  |
+    | **Folder path**  | Select the folder that contains subfolders that hold your image definitions.</br>Example: *.devcenter/catalog/image-definitions* |
 
+1. In the **Catalogs** pane, verify that your catalog appears. When the connection is successful, the **Status** column shows **Sync successful**.
 
-1. On the **Catalogs** pane, verify that your catalog appears. When the connection is successful, the **Status** column shows **Sync successful**.
+   :::image type="content" source="media/quickstart-team-customizations/dev-box-project-catalog-sync-successful.png" alt-text="Screenshot of the Catalogs page showing a catalog with a sync successful status." lightbox="media/quickstart-team-customizations/dev-box-project-catalog-sync-successful-lg.png":::
 
-   :::image type="content" source="media/quickstart-team-customizations/catalog-connection-successful.png" alt-text="Screenshot of the Azure portal's Catalogs pane with a connected status." lightbox="media/quickstart-team-customizations/catalog-connection-successful.png":::
-
+1. Verify that the image definitions are correctly synced. On the left menu, select **Manage** > **Image definitions**. In this example, you see two image definitions:
+    - **backend-dev** - This image is a Microsoft Visual Studio + Tools image on Windows 11, suitable for the eShop *backend* engineering environment.
+    - **frontend-dev** - This image is a Microsoft Visual Studio + Tools image on Windows 11, suitable for the eShop *frontend* engineering environment.
+ 
+   :::image type="content" source="media/quickstart-team-customizations/dev-box-project-image-definitions.png" alt-text="Screenshot of the Image definitions page showing the image definitions imported from the catalog." lightbox="media/quickstart-team-customizations/dev-box-project-image-definitions-lg.png"::: 
+ 
 ## Create a dev box pool for the image definition  
 
 To make the customization file, imagedefintion.yaml, accessible for creating dev boxes, you specify it as the image definition for a pool.
   
-To create a dev box pool that's associated with a project:
+To create a dev box pool associated with a project:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the [Azure portal](https://portal.azure.com).
 
 1. In the search box, enter **projects**. In the list of results, select **Projects**.
 
 1. Open the project in which you want to create the dev box pool.
 
-1. Select **Dev box pools**, and then select **Create**.
+1. On the left menu, select **Manage** > **Dev box pools**
+
+1. On the **Dev box pools** page, select **Create**.
 
 1. On the **Create a dev box pool** pane, enter the following values:
 
    | Setting | Value |
    |---|---|
-   | **Name** | Enter a name for the pool. The pool name is visible to developers to select when they're creating dev boxes. The name must be unique within a project. |
-   | **Definition** | Select the definition, as named in your image definition file. |
-   | **Network connection** | 1. Select **Deploy to a Microsoft hosted network**. </br>2. Select your desired deployment region for the dev boxes. Choose a region close to your dev box users for the optimal user experience. |
-   | **Dev box Creator Privileges** | Select **Local Administrator** or **Standard User**. |
-   | **Enable Auto-stop** | **Yes** is the default. Select **No** to disable an auto-stop schedule. You can configure an auto-stop schedule after the pool is created. |
-   | **Stop time** | Select a time to shut down all the dev boxes in the pool. All dev boxes in this pool shut down at this time every day. |
-   | **Time zone** | Select the time zone for the stop time. |
+   | **Name** | Enter a descriptive name for the pool. The pool name is visible to developers to select when they're creating dev boxes, so include the purpose and region of the pool. The name must be unique within a project. </br>Example: *contoso-frontend-westUS* |
+   | **Definition** | From the image definition section of the list, select an image definition.</br>Example: *contoso-catalog/frontend-dev* |
+   | **Compute** | Select the compute resources for the dev boxes in the pool. </br>Example: *8 vCPU, 32-GB RAM* |
+   | **Storage** | Select the storage options for the dev boxes in the pool. </br>Example: *256 GB SSD* |
+   | **Hibernation** | Hibernation is supported when the source image and compute size are both hibernation compatible. |
+   | **Network connection** | 1. Select **Deploy to a Microsoft hosted network**. </br>2. Select a deployment region for the dev boxes. Choose a region close to your dev box users for the optimal user experience. </br>Example: *West US* |
    | **Licensing** | Select this checkbox to confirm that your organization has Azure Hybrid Benefit licenses that you want to apply to the dev boxes in this pool. |
 
-   :::image type="content" source="media/quickstart-team-customizations/create-pool-basics.png" alt-text="Screenshot of the Basics pane for creating a new a dev box pool, with the image definition MyImageDefinition.yaml highlighted.":::
+   :::image type="content" source="media/quickstart-team-customizations/dev-box-create-pool-basics.png" alt-text="Screenshot of the Basics pane for creating a new a dev box pool.":::
 
 1. Select **Create**.
 
@@ -173,27 +179,26 @@ To create a dev box in the Microsoft Dev Box developer portal:
 
    | Setting | Value |
    |---|---|
-   | **Name** | Enter a name for your dev box. Dev box names must be unique within a project. |
-   | **Project** | Select a project from the dropdown list. |
-   | **Dev box pool** | Select a pool from the dropdown list, which includes all the dev box pools for that project. Choose a dev box pool near to you for the lowest latency.|
+   | **Name** | Enter a name for your dev box. Dev box names must be unique within a project.</br>Example: *contoso-frontend-dev-box* |
+   | **Project** | The developer portal lists the projects you have access to. Select the project you need from the  list. |
+   | **Dev box pool** | The developer portal lists all the dev box pools for the project you selected. Select the appropriate pool for your work. Choose a dev box pool near to you for the lowest latency.|
+   | **Apply customizations** | Leave this check box cleared. It's used to apply user customizations. In this article you've configured team customizations. |
 
    After you make your selections, the page shows the following information:
 
-   - How many dev boxes you can create in the project that you selected, if the project has limits configured.
    - Whether hibernation is supported or not.
-   - Whether customizations are enabled or not.
-   - A shutdown time if the pool where you're creating the dev box has a shutdown schedule.
    - A notification that the dev box creation process can take 25 minutes or longer.
 
 1. Select **Create** to begin creating your dev box.
 
 1. To track the progress of creation, use the dev box tile in the developer portal.
   
-## Verify that the customization is applied  
+## Verify that the customizations are applied  
 
 Dev Box applies customizations as the final stage of the creation process. Dev Box emails you when the dev box is ready. Then you can check that your customizations are applied.
-  
-1. Wait for email confirmation that the dev box is created.  
+
+1. Wait for the dev box to be created.
+
 1. In the developer portal, on the dev box tile, select **Actions** > **Customizations**.
 
    :::image type="content" source="media/quickstart-team-customizations/developer-portal-actions-customizations.png" alt-text="Screenshot of the dev box tile, showing the Actions menu with the Customizations command highlighted.":::
@@ -208,5 +213,5 @@ Dev Box applies customizations as the final stage of the creation process. Dev B
   
 ## Related content
 
-- [Microsoft Dev Box team customizations](concept-what-are-team-customizations.md)
+- [Microsoft Dev Box customizations](concept-what-are-dev-box-customizations.md)
 - [Write a customization file for a dev box](./how-to-write-customization-file.md)

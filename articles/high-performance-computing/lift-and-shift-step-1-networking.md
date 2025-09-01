@@ -7,11 +7,12 @@ ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+# Customer intent: As an IT administrator managing high performance computing resources, I want to configure network access during migration so that I can ensure secure and efficient communication between computational resources while maintaining proper security protocols.
 ---
 
 # Network access configuration
 
-A key aspect of your high performance computing migration is the configuration of network access. Proper network access configration ensures secure, efficient, and uninterrupted communication between computational resources. This part of the guide covers the needs, tools, services, and best practices associated with your network access configuration.
+A key aspect of your high performance computing migration is the configuration of network access. Proper network access configuration ensures secure, efficient, and uninterrupted communication between computational resources. This part of the guide covers the needs, tools, services, and best practices associated with your network access configuration.
 
 It's a common practice in production environments to have resources with private IP addresses, and with rules to define how resources should be accessed.
 

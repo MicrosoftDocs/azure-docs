@@ -9,6 +9,7 @@ ms.service: azure-elastic-san-storage
 ms.topic: how-to
 ms.date: 05/31/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, references_regions
+# Customer intent: As a cloud administrator, I want to configure customer-managed keys for Azure Elastic SAN encryption, so that my data management practices meet compliance requirements.
 ---
 
 # Configure customer-managed keys for an Azure Elastic SAN

@@ -289,7 +289,7 @@ The **SAPAuditLogAnomalies** function returns the following data:
 
 **Recommendations**:
 
-As with any machine learning solution, the **SAPAuditLogAnomalies** function performs better with time, and can be adjusted as needed as time goes on.
+As with any machine learning solution, the **SAPAuditLogAnomalies** function performs better with time and can be adjusted as needed as time goes on.
 
 We recommend restricting the size of the learned database to be under 100 million records using the many available input parameters.
 

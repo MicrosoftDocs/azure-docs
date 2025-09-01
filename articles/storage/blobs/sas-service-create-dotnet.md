@@ -2,15 +2,16 @@
 title: Create a service SAS for a container or blob with .NET
 titleSuffix: Azure Storage
 description: Learn how to create a service shared access signature (SAS) for a container or blob using the Azure Blob Storage client library for .NET.
-author: pauljewellmsft
+author: stevenmatthew
 
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 09/06/2024
-ms.author: pauljewell
+ms.author: shaas
 ms.reviewer: nachakra
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, engagement-fy23, devx-track-dotnet
+# Customer intent: As a .NET developer, I want to create a service shared access signature (SAS) for a blob or container, so that I can manage access permissions and operations for storage resources securely and efficiently.
 ---
 
 # Create a service SAS for a container or blob with .NET
@@ -91,3 +92,4 @@ To learn more about creating a service SAS using the Azure Blob Storage client l
 
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md)
 - [Create a service SAS](/rest/api/storageservices/create-service-sas)
+

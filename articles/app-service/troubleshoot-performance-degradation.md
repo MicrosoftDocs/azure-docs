@@ -5,10 +5,16 @@ tags: top-support-issue
 keywords: web app performance, slow app, app slow
 
 ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
-ms.topic: article
+ms.topic: troubleshooting-general
 ms.date: 04/30/2025
 ms.author: msangapu
 author: msangapu-msft
+ms.custom:
+  - build-2025
+ms.service: azure-app-service
+
+# Customer intent: As a developer, I want to learn strategies for troubleshooting slow app performance so that I can take steps to mitigate the issue.
+
 ---
 # Troubleshoot slow app performance issues in Azure App Service
 
@@ -68,7 +74,7 @@ For more information, see:
 
 ### Monitor web endpoint status
 
-If your app in running in the **Standard** pricing tier, App Service lets you monitor two endpoints from three geographic locations.
+If your app is running in the **Standard** pricing tier, App Service lets you monitor two endpoints from three geographic locations.
 
 Endpoint monitoring configures web tests from geo-distributed locations that test response time and uptime of web URLs. The test performs an `HTTP GET` operation on the web URL to determine the response time and uptime from each location. Each configured location runs a test every five minutes.
 
@@ -173,4 +179,4 @@ You can also manage your app using Azure PowerShell. For more information, see [
 ## Related content
 
 - [Troubleshooting intermittent outbound connection errors in Azure App Service](troubleshoot-intermittent-outbound-connection-errors.md)
-- [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)
+- [Tutorial: Run a load test to identify performance bottlenecks in a web app](../app-testing/load-testing/tutorial-identify-bottlenecks-azure-portal.md)

@@ -3,6 +3,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.custom:
   - build-2024
+  - build-2025
 ms.topic: include
 ms.date: 04/25/2025
 ms.author: danlep

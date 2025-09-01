@@ -4,8 +4,11 @@ description: This article describes how to enable replication, failover, and fai
 ms.topic: concept-article
 ms.service: azure-site-recovery
 ms.date: 05/15/2025
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
+ms.custom:
+  - build-2025
+# Customer intent: As a system administrator, I want to configure disaster recovery for Azure virtual machines using shared disks, so that I can ensure cluster consistency and enable efficient failover and failback processes during outages.
 ---
 
 # Set up disaster recovery for Azure virtual machines using shared disk

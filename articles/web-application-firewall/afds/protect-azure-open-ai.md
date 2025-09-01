@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 08/28/2023
+# Customer intent: As a cloud architect, I want to implement Azure Web Application Firewall on Azure Front Door for my Azure OpenAI APIs, so that I can enhance security and protect against evolving web application attacks.
 ---
 
 # Protect Azure OpenAI using Azure Web Application Firewall on Azure Front Door

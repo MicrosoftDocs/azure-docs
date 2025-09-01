@@ -3,14 +3,15 @@ title: Create a user delegation SAS for a blob with Java
 titleSuffix: Azure Storage
 description: Learn how to create a user delegation SAS for a container or blob with Microsoft Entra credentials by using the Azure Storage client library for Java.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 09/06/2024
 ms.reviewer: dineshm
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
+# Customer intent: As a Java developer, I want to create a user delegation SAS for Azure Blob Storage, so that I can securely grant limited access to my blob resources using Microsoft Entra credentials.
 ---
 
 # Create a user delegation SAS for a container or blob with Java

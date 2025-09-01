@@ -6,6 +6,7 @@ ms.service: azure-virtual-network
 ms.topic: concept-article
 ms.date: 03/24/2023
 ms.author: allensu
+# Customer intent: As a network architect, I want to analyze control plane configurations for interoperability between ExpressRoute, VPN connections, and virtual network peering, so that I can ensure optimal network routing and connectivity across cloud and on-premises environments.
 ---
 
 # Interoperability in Azure - Control plane analysis

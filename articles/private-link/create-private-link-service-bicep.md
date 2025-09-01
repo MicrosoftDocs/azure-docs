@@ -9,6 +9,7 @@ ms.topic: quickstart
 ms.date: 03/25/2025
 ms.author: abell
 ms.custom: subject-armqs, mode-arm, template-quickstart, devx-track-bicep
+# Customer intent: As a cloud administrator, I want to use Bicep to create a private link service, so that I can securely connect to virtual machines without exposing them to the public internet.
 ---
 
 # Quickstart: Create a private link service using Bicep

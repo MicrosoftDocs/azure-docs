@@ -8,11 +8,16 @@ ms.author: halkazwini
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/31/2025
+# Customer intent: As a domain owner, I want to onboard my root or apex domain to an existing CDN endpoint, so that I can ensure proper DNS configuration and HTTPS support for my web applications.
 ---
 
 # Onboard a root or apex domain to an existing Azure CDN endpoint
 
-[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+> [!IMPORTANT]
+> - Starting August 15, 2025, Azure CDN from Microsoft (classic) will no longer support new domain onboarding or profile creation. Migrate to [AFD Standard and Premium](/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) to create new domains or profiles and avoid service disruption. [Learn more](https://azure.microsoft.com/updates?id=498522)
+> - Starting August 15, 2025, Azure CDN from Microsoft (classic) will no longer support Managed certificates. To avoid service disruption, either [switch to Bring Your Own Certificate (BYOC)](/azure/cdn/cdn-custom-ssl?toc=%2Fazure%2Ffrontdoor%2Ftoc.json&tabs=option-1-default-enable-https-with-a-cdn-managed-certificate) or migrate to [AFD Standard and Premium](/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) by this date. Existing managed certificates will be auto renewed before August 15, 2025, and remain valid until April 14, 2026. [Learn more](https://azure.microsoft.com/updates?id=498522)
+> - Azure CDN Standard from Microsoft (classic) will be retired on September 30, 2027. To avoid service disruption ⁠[migrate to AFD Standard or Premium](/azure/cdn/migrate-tier). ⁠[Learn more.](https://azure.microsoft.com/updates?id=Azure-CDN-Standard-from-Microsoft-classic-will-be-retired-on-30-September-2027)
+> - Azure CDN from Edgio was retired on January 15, 2025. ⁠[Learn more.](/previous-versions/azure/cdn/edgio-retirement-faq?toc=%2Fazure%2Ffrontdoor%2FTOC.json)
 
 Azure CDN uses CNAME records to validate domain ownership for onboarding of custom domains. CDN doesn't expose the frontend IP address associated with your CDN profile. You can't map your apex domain to an IP address if your intent is to onboard it to Azure CDN.
 

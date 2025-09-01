@@ -6,13 +6,16 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
 ms.topic: overview
-ms.date: 05/16/2025
+ms.date: 08/15/2025
 #CustomerIntent: As a network administrator, I want to understand the different access modes and how to transition to a network security perimeter in Azure.
+# Customer intent: As a network administrator, I want to learn how to configure access modes and transition to a network security perimeter in Azure, so that I can secure my resources while minimizing connectivity disruptions.
 ---
 
 # Transition to a network security perimeter in Azure
 
 In this article, you learn about the different access modes and how to transition to a [network security perimeter](./network-security-perimeter-concepts.md) in Azure. Access modes control resource access and logging behavior, helping you secure your Azure resources.
+
+[!INCLUDE network-security-perimeter-preview-message]
 
 ## Access mode configuration point on resource associations 
 
@@ -45,7 +48,7 @@ To prevent undesired connectivity disruptions while adopting network security pe
 To fully secure your public access, it's essential to move to enforced mode in network security perimeter. Things to consider before moving to enforced mode are the impact on public, private, trusted, and perimeter access. When in enforced mode, the behavior of network access on associated PaaS resources across different types of PaaS resources can be summarized as follows:
 
 - **Public access:** Public access refers to inbound or outbound requests made through public networks. PaaS resources secured by a network security perimeter have their inbound and outbound public access disabled by default, but network security perimeter access rules  can be used to selectively allow public traffic that matches them.
-- **Perimeter access:** Perimeter access refers to inbound or outbound requests between the resources part of the same network security perimeter. To prevent data infiltration and exfiltration, such perimeter traffic will never cross perimeter boundaries unless explicitly approved as public traffic at both source and destination in enforced mode. Manged identity needs to be assigned on resources for perimeter access. 
+- **Perimeter access:** Perimeter access refers to inbound or outbound requests between the resources part of the same network security perimeter. To prevent data infiltration and exfiltration, such perimeter traffic will never cross perimeter boundaries unless explicitly approved as public traffic at both source and destination in enforced mode. Managed identity needs to be assigned on resources for perimeter access. 
 - **Trusted access:** Trusted service access refers to a feature few Azure services that enables access through public networks when its origin is specific Azure services that are considered trusted. Since network security perimeter provides more granular control than trusted access, Trusted access isn't supported in enforced mode. 
 - **Private access:** Access via Private Links isn't impacted by network security perimeter.
 
@@ -67,7 +70,7 @@ On resource creation, if `publicNetworkAccess` is set to `SecuredByPerimeter`, t
 Both the `publicNetworkAccess` and `accessMode` properties can be set using the Azure portal by following these steps:
 
 1. Navigate to your network security perimeter resource in the Azure portal.
-2. Select **Settings** > **Resources** to view the list of resources associated with the perimeter.
+2. Select **Settings** > **Associated resources** to view the list of resources associated with the perimeter.
 3. Select *...* (ellipsis) next to the resource you want to configure.
    
     :::image type="content" source="media/network-security-perimeter-transition/network-security-perimeter-resources-page-full-size.png" alt-text="Screenshot of resources page with management options selected for resource." lightbox="media/network-security-perimeter-transition/network-security-perimeter-association-settings-lightbox.png":::
@@ -76,7 +79,7 @@ Both the `publicNetworkAccess` and `accessMode` properties can be set using the 
 
     :::image type="content" source="media/network-security-perimeter-transition/network-security-perimeter-association-settings.png" alt-text="Screenshot of public network access settings with access mode options.":::
 
-5. To set the access mode, select **Configure access mode** from the dropdown menu, and then select the desired access mode from the two options available: **Learning** or **Enforced**.
+5. To set the access mode, select **Change access mode** from the dropdown menu, and then select the desired access mode from the two options available: **Learning** or **Enforced**.
 
     :::image type="content" source="media/network-security-perimeter-transition/network-security-perimeter-association-access-mode.png" alt-text="Screenshot of access mode settings with access mode options.":::
 

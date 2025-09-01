@@ -1,0 +1,9 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/partner-solutions/datadog/get-support.md",
+            "redirect_url": "/azure/partner-solutions/datadog/overview",
+            "redirect_document_id": false
+        }
+    ]
+}

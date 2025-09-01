@@ -7,6 +7,7 @@ ms.author: mbender
 author: mbender-ms
 ms.service: azure-virtual-network
 ms.topic: how-to
+# Customer intent: As a network administrator, I want to configure a public IP address with an Internet routing preference, so that I can effectively manage inbound and outbound internet traffic for my Azure resources.
 ---
 
 # Configure routing preference for a public IP address

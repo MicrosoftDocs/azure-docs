@@ -9,6 +9,7 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 09/30/2024
 ms.custom: mvc, devx-track-azurecli, devx-track-dotnet, devx-track-extended-java, devx-track-python, AppServiceConnectivity, service-connector
+ms.service: azure-app-service
 ---
 # Tutorial: Connect to Azure databases from App Service without secrets using a managed identity
 
@@ -218,7 +219,7 @@ Connectivity to the Azure Database for PostgreSQL in your code follows the `Defa
 
 ## 4. Set up your dev environment
 
- This sample code uses `DefaultAzureCredential` to get a useable token for your Azure database from Microsoft Entra ID and then adds it to the database connection. While you can customize `DefaultAzureCredential`, it's already versatile by default. It gets a token from the signed-in Microsoft Entra user or from a managed identity, depending on whether you run it locally in your development environment or in App Service.
+ This sample code uses `DefaultAzureCredential` to get a usable token for your Azure database from Microsoft Entra ID and then adds it to the database connection. While you can customize `DefaultAzureCredential`, it's already versatile by default. It gets a token from the signed-in Microsoft Entra user or from a managed identity, depending on whether you run it locally in your development environment or in App Service.
 
 Without any further changes, your code is ready to be run in Azure. To debug your code locally, however, your develop environment needs a signed-in Microsoft Entra user. In this step, you configure your environment of choice by signing in with your Microsoft Entra user. 
 

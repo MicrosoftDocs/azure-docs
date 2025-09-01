@@ -5,8 +5,9 @@ ms.service: azure-update-manager
 ms.custom: devx-track-azurepowershell
 ms.date: 12/03/2024
 ms.topic: how-to
-author: snehasudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
+# Customer intent: As an IT administrator, I want to configure scheduled patching on Azure VMs so that I can ensure business continuity and control over maintenance during off-peak hours.
 ---
 
 # Configure scheduled patching on Azure VMs for business continuity

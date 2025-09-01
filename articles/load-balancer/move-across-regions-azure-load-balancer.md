@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 11/27/2024
 ms.author: mbender
 ms.custom: template-how-to, devx-track-arm-template, engagement-fy23
+# Customer intent: "As a network administrator, I want to move an Azure load balancer to another region using an Azure Resource Manager template so that I can replicate configurations for testing or implement disaster recovery plans."
 ---
 
 # Move an Azure Load Balancer to another Azure region

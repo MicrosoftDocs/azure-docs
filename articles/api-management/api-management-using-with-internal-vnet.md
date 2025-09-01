@@ -141,7 +141,7 @@ The following virtual IP addresses are configured for an API Management instance
 
 The load-balanced public and private IP addresses can be found on the **Overview** blade in the Azure portal.
 
-For more information and considerations, see [IP addresses of Azure API Management](api-management-howto-ip-addresses.md#ip-addresses-of-api-management-service-in-vnet).
+For more information and considerations, see [IP addresses of Azure API Management](api-management-howto-ip-addresses.md#ip-addresses-of-api-management-in-a-virtual-network).
 
 [!INCLUDE [api-management-virtual-network-vip-dip](../../includes/api-management-virtual-network-vip-dip.md)]
 

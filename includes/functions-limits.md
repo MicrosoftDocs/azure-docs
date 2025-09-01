@@ -3,11 +3,12 @@ author: ggailey777
 ms.service: azure-functions
 ms.custom:
   - build-2024
+  - build-2025
 ms.topic: include
 ms.date: 03/06/2025
 ms.author: glenga
 ---
-| Resource |[Flex Consumption plan](/azure/azure-functions/flex-consumption-plan)|[Premium plan](/azure/azure-functions/functions-premium-plan)|[Dedicated plan](/azure/azure-functions/dedicated-plan)/[ASE](/azure/app-service/environment/intro)| [Container Apps](/azure/azure-functions/functions-container-apps-hosting)|[Consumption plan](/azure/azure-functions/consumption-plan)|
+| Resource |[Flex Consumption plan](../articles/azure-functions/flex-consumption-plan.md)|[Premium plan](../articles/azure-functions/functions-premium-plan.md)|[Dedicated plan](../articles/azure-functions/dedicated-plan.md)/[ASE](../articles/app-service/environment/overview.md)| [Container Apps](../articles/container-apps/functions-overview.md)|[Consumption plan](../articles/azure-functions/consumption-plan.md)|
 | --- | --- | --- | --- | --- | --- | 
 | Default [time-out duration](/azure/azure-functions/functions-scale#timeout) (min) | 30 | 30 |30<sup>1</sup> | 30<sup>16</sup> |5 |
 | Max [time-out duration](/azure/azure-functions/functions-scale#timeout) (min) | unbounded<sup>9</sup> | unbounded<sup>9</sup> | unbounded<sup>2</sup> | unbounded<sup>17</sup> |10 |

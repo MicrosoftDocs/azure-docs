@@ -7,6 +7,7 @@ ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 05/06/2024
 ms.author: kendownie
+# Customer intent: "As a system administrator, I want to migrate files from a Linux server to a Windows Server with Azure File Sync, so that I can establish a hybrid cloud deployment while ensuring data integrity and minimizing downtime."
 ---
 
 # Migrate from Linux to a hybrid cloud deployment with Azure File Sync

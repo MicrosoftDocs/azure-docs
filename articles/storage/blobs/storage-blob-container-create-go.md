@@ -3,14 +3,15 @@ title: Create a blob container with Go
 titleSuffix: Azure Storage
 description: Learn how to create a blob container in your Azure Storage account using the Go client library.
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/05/2024
-ms.author: pauljewell
+ms.author: shaas
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
+# Customer intent: As a Go developer, I want to create a blob container in Azure Storage, so that I can organize and upload my blobs effectively within my storage account.
 ---
 
 # Create a blob container with Go

@@ -5,7 +5,10 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
-ms.date: 03/01/2025
+ms.date: 06/10/2025
+ms.custom:
+  - build-2025
+# Customer intent: As an application administrator, I want to understand the best practices for ensuring application resilience on Azure NetApp Files during storage service maintenance events, so that I can minimize disruptions and maintain continuity of service for my users.
 ---
 # Application resilience FAQs for Azure NetApp Files
 
@@ -13,7 +16,7 @@ This article answers frequently asked questions (FAQs) about Azure NetApp Files 
 
 ## What do you recommend for handling potential application disruptions due to storage service maintenance events?
 
-Azure NetApp Files might undergo occasional planned maintenance (for example, platform updates, service or software upgrades). From a file protocol (NFS/SMB) perspective, the maintenance operations are nondisruptive, as long as the application can handle the IO pauses that might briefly occur during these events. The I/O pauses are typically short, ranging from a few seconds up to 30 seconds. The NFS protocol is especially robust, and client-server file operations continue normally. Some applications might require tuning to handle IO pauses for as long as 30-45 seconds. As such, ensure that you're aware of the application’s resiliency settings to cope with the storage service maintenance events. For human interactive applications leveraging the SMB protocol, the standard protocol settings are usually sufficient. 
+Azure NetApp Files might undergo occasional planned maintenance (for example, platform updates, service or software upgrades). From a file protocol (NFS/SMB) perspective, the maintenance operations are nondisruptive, as long as the application can handle the I/O pauses that might briefly occur during these events. The I/O pauses are typically short, ranging from a few seconds up to 30 seconds. The NFS protocol is especially robust, and client-server file operations continue normally. Some applications might require tuning to handle I/O pauses for as long as 30-45 seconds for NFSv3 and up to 120 seconds for NFSv4.1. As such, ensure that you're aware of the application’s resiliency settings to cope with the storage service maintenance events. For human interactive applications leveraging the SMB protocol, the standard protocol settings are usually sufficient.
 
 >[!IMPORTANT]
 >To ensure a resilient architecture, it is crucial to recognize that the cloud operates under a _shared responsibility_ model. This model encompasses the Azure cloud platform, its infrastructure services, the OS-layer, and application vendors. Each of these components plays a vital role in gracefully handling potential application disruptions that may arise during storage service maintenance events.
@@ -22,10 +25,10 @@ Azure NetApp Files might undergo occasional planned maintenance (for example, pl
 
 Yes, certain SMB-based applications require SMB Transparent Failover. SMB Transparent Failover enables maintenance operations on the Azure NetApp Files service without interrupting connectivity to server applications storing and accessing data on SMB volumes. To support SMB Transparent Failover for specific applications, Azure NetApp Files now supports the [SMB Continuous Availability shares option](azure-netapp-files-create-volumes-smb.md#continuous-availability). Using SMB Continuous Availability is only supported for workloads on:
 * Citrix App Layering
-* [FSLogix user profile containers](../virtual-desktop/create-fslogix-profile-container.md)
+* [FSLogix user profile containers](/azure/virtual-desktop/create-fslogix-profile-container)
 * FSLogix ODFC containers
 * Microsoft SQL Server (not Linux SQL Server)
-* [MSIX app attach](../virtual-desktop/create-netapp-files.md)
+* [MSIX app attach](/azure/virtual-desktop/create-netapp-files)
 
 
 >[!CAUTION]

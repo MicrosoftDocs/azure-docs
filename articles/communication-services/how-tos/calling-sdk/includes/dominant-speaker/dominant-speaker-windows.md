@@ -2,7 +2,7 @@
 author: jsaurezlee-msft
 ms.service: azure-communication-services
 ms.topic: article
-ms.date: 27/01/2022
+ms.date: 06/15/2025
 ms.author: jsaurezlee
 ---
 
@@ -10,19 +10,21 @@ ms.author: jsaurezlee
 
 [!INCLUDE [common](dominant-speaker-common.md)]
 
-In order to use the Dominant Speakers call feature for Windows, the first step is to obtain the Dominant Speakers feature API object:
+To use the Dominant Speakers call feature for Windows, the first step is to obtain the Dominant Speakers object:
 
 ```csharp
 DominantSpeakersCallFeature dominantSpeakersFeature = call.Features.DominantSpeakers;
 ```
 
-The Dominant Speakers feature object have the following API structure:
+The Dominant Speakers feature object has the following structure:
+
 - `OnDominantSpeakersChanged`: Event for listening for changes in the dominant speakers list.
 - `DominantSpeakersInfo`: Gets the `DominantSpeakersInfo` object. This object has:
     - `Speakers`: A list of participant identifiers representing the dominant speakers list.
     - `LastUpdatedAt`: The date when the dominant speakers list was updated. 
 
 To subscribe to changes in the dominant speakers list:
+
 ```csharp
 // Obtain the extended feature object from the call object.
 DominantSpeakersFeature dominantSpeakersFeature = call.Features.DominantSpeakers;

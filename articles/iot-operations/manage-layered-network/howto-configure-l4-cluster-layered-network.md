@@ -1,9 +1,9 @@
 ---
 title: Configure Layered Network Management (preview) on level 4 cluster
 description: Deploy and configure Azure IoT Layered Network Management (preview) on a level 4 cluster.
-author: PatAltimore
+author: SoniaLopezBravo
 ms.subservice: layered-network-management
-ms.author: patricka
+ms.author: sonialopez
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
 ms.date: 12/12/2024
@@ -15,6 +15,8 @@ ms.service: azure-iot-operations
 # Configure Azure IoT Layered Network Management (preview) on level 4 cluster
 
 Azure IoT Layered Network Management (preview) is a component to support Azure IoT Operations. However, it needs to be deployed individually to the top network layer for supporting the Azure IoT Operations in the lower layer. In the top level of your network layers (usually level 4 of the ISA-95 network architecture), the cluster and Layered Network Management service have direct internet access. Once the setup is completed, the Layered Network Management (preview) service is ready for receiving network traffic from the child layer and forwards it to Azure Arc.
+
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 
 ## Prerequisites
 Meet the following minimum requirements for deploying the Layered Network Management individually on the system.
@@ -112,7 +114,7 @@ Follow the steps in [Single machine deployment](/azure/aks/hybrid/aks-edge-howto
     ```powershell
     az login
     ```
-1. Set environment variables for the setup steps. Replace values in `<>` with valid values or names of your choice. The `CLUSTER_NAME` and `RESOURCE_GROUP` are created based on the names you provide. Refer to [Azure IoT Operations supported regions](../overview-iot-operations.md#supported-regions) for choosing the  `LOCATION`.
+1. Set environment variables for the setup steps. Replace values in `<>` with valid values or names of your choice. The `CLUSTER_NAME` and `RESOURCE_GROUP` are created based on the names you provide. Refer to [Azure IoT Operations supported regions](../overview-support.md#supported-regions) for choosing the  `LOCATION`.
     ```powershell
     # Id of the subscription where your resource group and Arc-enabled cluster will be created
     $SUBSCRIPTION_ID = "<subscription-id>"

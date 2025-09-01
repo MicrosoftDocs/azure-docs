@@ -2,7 +2,7 @@
 author: DaybreakQuip
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 05/21/2024
+ms.date: 06/20/2025
 ms.author: zehangzheng
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-android.md)]
@@ -11,7 +11,7 @@ The ability to view capabilities is an extended feature of the core `Call` API. 
 
 The feature enables you to register for an event listener to listen for capability changes.
 
-In order to use the Capabilities call feature for Windows, the first step is to obtain the Capabilities feature API object:
+To use the capabilities call feature for Windows, the first step is to obtain the capabilities feature API object:
 
 ## Get the capabilities feature
 
@@ -22,7 +22,7 @@ capabilitiesCallFeature = call.feature(Features.CAPABILITIES);
 
 ## Get the capabilities of the local participant
 
-Capabilities object has the capabilities of the local participants and is of type `ParticipantCapability`. Properties of Capabilities include:
+The capabilities object has the capabilities of the local participants and is of type `ParticipantCapability`. Properties of capabilities include:
 
 - *isAllowed* indicates if a capability can be used.
 - *reason* indicates capability resolution reason.

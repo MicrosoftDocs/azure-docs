@@ -9,6 +9,7 @@ ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 
+# Customer intent: As a cloud administrator, I want to assign private IP address prefixes to virtual machines, so that I can efficiently manage network configurations for varying workloads in my environment.
 ---
 # Assign private IP address prefixes to virtual machines using the Azure portal - Preview
 
@@ -100,7 +101,7 @@ You can add a static private IP address prefix to a virtual machine by completin
    | **Private IP address settings** |   |
    | Private IP Address Type | IP address prefix |
    | Allocation | Select **Static**. |
-   | IP address | Enter an unused CIDR of size /28 from the subnet for your virtual machine.</br> For the 10.0.0.0/14 subnet in the example, an IP would be **10.0.0.0/80**. |
+   | IP address | Enter an unused CIDR of size /28 from the subnet for your virtual machine.</br> For the 10.0.0.0/14 subnet in the example, an IP would be **10.0.0.0/28**. |
 
 9. Select **OK**.
 

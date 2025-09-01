@@ -2,14 +2,15 @@
 title: Copy a blob with asynchronous scheduling using JavaScript or TypeScript
 titleSuffix: Azure Storage
 description: Learn how to copy a blob with asynchronous scheduling in Azure Storage by using the JavaScript client library.
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.date: 10/28/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
+# Customer intent: As a developer using the JavaScript client library, I want to copy blobs asynchronously, so that I can manage data transfers efficiently across storage accounts or accessible URLs without blocking other operations.
 ---
 
 # Copy a blob with asynchronous scheduling using JavaScript or TypeScript
@@ -18,7 +19,7 @@ ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
 
 This article shows how to copy a blob with asynchronous scheduling using the [Azure Storage client library for JavaScript](/javascript/api/overview/azure/storage-blob-readme). You can copy a blob from a source within the same storage account, from a source in a different storage account, or from any accessible object retrieved via HTTP GET request on a given URL. You can also abort a pending copy operation.
 
-The client library methods covered in this article use the [Copy Blob](/rest/api/storageservices/copy-blob) REST API operation, and can be used when you want to perform a copy with asynchronous scheduling. For most copy scenarios where you want to move data into a storage account and have a URL for the source object, see [Copy a blob from a source object URL with JavaScript](storage-blob-copy-url-javascript.md).
+The client library methods covered in this article use the [Copy Blob](/rest/api/storageservices/copy-blob) REST API operation and can be used when you want to perform a copy with asynchronous scheduling. For most copy scenarios where you want to move data into a storage account and have a URL for the source object, see [Copy a blob from a source object URL with JavaScript](storage-blob-copy-url-javascript.md).
 
 ## Prerequisites
 
@@ -128,3 +129,4 @@ The Azure SDK for JavaScript contains libraries that build on top of the Azure R
 [!INCLUDE [storage-dev-guide-resources-javascript](../../../includes/storage-dev-guides/storage-dev-guide-resources-javascript.md)]
 
 [!INCLUDE [storage-dev-guide-next-steps-javascript](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-javascript.md)]
+

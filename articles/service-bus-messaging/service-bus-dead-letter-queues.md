@@ -3,7 +3,9 @@ title: Service Bus dead-letter queues | Microsoft Docs
 description: Describes dead-letter queues in Azure Service Bus. Service Bus queues and topic subscriptions provide a secondary subqueue, called a dead-letter queue.
 ms.topic: concept-article
 ms.date: 05/15/2025
-ms.custom: "fasttrack-edit, devx-track-csharp"
+ms.custom:
+  - "fasttrack-edit, devx-track-csharp"
+  - build-2025
 #customer intent: As an architect or a developer, I want to understand how dead-lettering of messages work in Azure Service Bus.
 ---
 

@@ -4,6 +4,8 @@ ms.service: azure-app-service
 ms.topic: include
 ms.date: 05/07/2025
 ms.author: cephalin
+ms.custom:
+  - build-2025
 ---
 
 1. In the terminal, log into Azure using Azure Developer CLI:
@@ -32,7 +34,7 @@ ms.author: cephalin
 
 6. Wait for the deployment to complete. This process will:
    - Create all required Azure resources.
-   - Deploy the Blazor application to Azure App Service.
+   - Deploy the application to Azure App Service.
    - Configure secure service-to-service authentication using managed identities.
    - Set up the necessary role assignments for secure access between services.
 

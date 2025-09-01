@@ -1,7 +1,7 @@
 ---
 title: What's new in Azure Managed Redis
 description: Recent updates for Azure Managed Redis
-ms.date: 05/18/2025
+ms.date: 08/19/2025
 ms.topic: conceptual
 ms.custom:
   - references_regions
@@ -14,7 +14,15 @@ appliesto:
 
 Find out what's new in Azure Managed Redis.
 
-## May 2024
+## August 2025
+
+Some features that were previous in Public Preview have are now generally available (GA) for you to use.  
+
+- Scaling a cache (GA)
+- Data persistence (GA)
+- _Non-clustered_ clustering policy (GA)
+
+## May 2025
 
 ### Azure Managed Redis General Availability (GA)
 

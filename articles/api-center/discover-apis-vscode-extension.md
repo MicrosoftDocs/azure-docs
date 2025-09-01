@@ -4,7 +4,7 @@ description: API developers can use the Azure API Center extension for Visual St
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 10/16/2024
+ms.date: 05/27/2025
 ms.author: danlep 
 ms.custom: 
 # Customer intent: As an API developer, I want to use my Visual Studio Code environment to discover and consume APIs in my organizations API center.
@@ -21,12 +21,13 @@ API developers in your organization can discover and consume APIs in your [API c
 API developers can also take advantage of features in the extension to [register APIs](build-register-apis-vscode-extension.md) in the API center and ensure [API governance](govern-apis-vscode-extension.md).
 
 > [!TIP]
-> If you want enterprise app developers to discover your APIs in a centralized location, optionally enable the read-only [API Center portal](enable-api-center-portal-vs-code-extension.md) in Visual Studio Code. 
+> If you want enterprise app developers to discover your APIs in a centralized location, optionally enable the read-only [API Center portal view](enable-api-center-portal-vs-code-extension.md) in Visual Studio Code. 
 
 [!INCLUDE [vscode-extension-basic-prerequisites](includes/vscode-extension-basic-prerequisites.md)]  
     
 * [REST client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) - to send HTTP requests and view the responses in Visual Studio Code directly
 * [Microsoft Kiota extension](https://marketplace.visualstudio.com/items?itemName=ms-graph.kiota) - to generate API clients
+- [Microsoft 365 Agents Toolkit](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension) - to create Microsoft 365 declarative agents
 
 [!INCLUDE [vscode-extension-setup](includes/vscode-extension-setup.md)]   
 
@@ -36,7 +37,7 @@ API center resources appear in the tree view on the left-hand side. Expand an AP
 
 :::image type="content" source="media/discover-apis-vscode-extension/explore-api-centers.png" alt-text="Screenshot of API Center tree view in Visual Studio Code." lightbox="media/discover-apis-vscode-extension/explore-api-centers.png":::
 
-Search for APIs within an API Center by using the search icon shown in the **Apis** tree view item.
+Search for APIs within an API Center by using the search icon shown in the **APIs** tree view item.
 
 ## View API documentation
 
@@ -53,7 +54,7 @@ You can view the documentation for an API definition in your API center and try 
     > Depending on the API, you might need to provide authorization credentials or an API key to try the API.
 
     > [!TIP]
-    > Using the pre-release version of the extension, you can generate API documentation in Markdown, a format that's easy to maintain and share with end users. Right-click on the definition, and select **Generate Markdown**.
+    > You can generate API documentation in Markdown, a format that's easy to maintain and share with end users. Right-click on the definition, and select **Generate Markdown**.
 
 ## Generate HTTP file
 
@@ -103,10 +104,24 @@ You can also export a specification using the Command Palette:
 1. Select **Azure API Center: Export API Specification Document**.
 1. Make selections to navigate to an API definition. A new tab appears that renders an API specification document.
 
-## Related content
+    
+## Create M365 declarative agent
+
+You can create a [declarative agent for Microsoft 365 Copilot](/microsoft-365-copilot/extensibility/overview-declarative-agent) from an OpenAPI definition in your API center. With a declarative agent, you customize Microsoft 365 Copilot to help you meet the unique business needs of your users. When you build a declarative agent, you provide the instructions, actions, and knowledge to tailor Copilot for your business scenarios. 
+
+To export a declarative agent in the extension's tree view:
+
+1. Expand the API Center tree view to show an OpenAPI definition.
+1. Right-click on the definition, and select **Export M365 Declarative Agent**. 
+1. When prompted:
+    1. Select one or more API operations that Copilot can interact with.
+    1. Select a workspace folder.
+    1. Enter an application name.
+
+The declarative agent is created in the selected workspace folder. Use the Microsoft 365 Agents Toolkit to further customize and deploy the agent.
 
 * [Azure API Center - key concepts](key-concepts.md)
 * [Build and register APIs with the Azure API Center extension for Visual Studio Code](build-register-apis-vscode-extension.md)
 * [Govern APIs with the Azure API Center extension for Visual Studio Code](govern-apis-vscode-extension.md)
-* [Enable and view API Center portal in Visual Studio Code](enable-api-center-portal-vs-code-extension.md)
+* [Enable API Center portal view in Visual Studio Code](enable-api-center-portal-vs-code-extension.md)
 

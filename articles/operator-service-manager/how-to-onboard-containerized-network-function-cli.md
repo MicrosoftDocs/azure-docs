@@ -6,7 +6,9 @@ ms.author: peterwhiting
 ms.date: 03/18/2024
 ms.topic: how-to
 ms.service: azure-operator-service-manager
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 
 ---
 # Onboard a Containerized Network Function (CNF) to Azure Operator Service Manager (AOSM)
@@ -15,9 +17,9 @@ In this how-to guide, Network Function Publishers and Service Designers learn ho
 
 Onboarding is a multi-step process. Once you meet the prerequisites, you'll use the Azure CLI AOSM extension to:
 
-1. Generate BICEP files that define a Network Function Definition Group and Version (NFD) based on your Helm charts and values.yaml.
+1. Generate Bicep files that define a Network Function Definition Group and Version (NFD) based on your Helm charts and values.yaml.
 2. Publish the NFD and upload the CNF images and charts to an Artifact Store (AOSM-managed Azure Container Registry (ACR)).
-3. Add your published NFD to the BICEP files that define a Network Service Design Group and Version (NSD).
+3. Add your published NFD to the Bicep files that define a Network Service Design Group and Version (NSD).
 4. Publish the NSD.
 
 ## Prerequisites

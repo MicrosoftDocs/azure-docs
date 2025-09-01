@@ -2,7 +2,12 @@
 title: Azure Cosmos DB bindings for Functions 2.x and higher
 description: Understand how to use Azure Cosmos DB triggers and bindings in Azure Functions.
 ms.topic: reference
-ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
+ms.custom:
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - devx-track-ts
+  - build-2025
 ms.date: 11/29/2022
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -92,44 +97,11 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
 
-## Install bundle
-
-The Azure Cosmos DB bindings extension is part of an [extension bundle], which is specified in your *host.json* project file. You may need to modify this bundle to change the version of the binding, or if bundles aren't already installed. To learn more, see [extension bundle].
-
-::: zone-end  
+[!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
+::: zone-end
 ::: zone pivot="programming-language-java"   
 [!INCLUDE [functions-cosmosdb-extension-java-note](../../includes/functions-cosmosdb-extension-java-note.md)]
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"   
-
-# [Bundle v4.x](#tab/extensionv4)
-
-This version of the bundle contains version 4.x of the Azure Cosmos DB bindings extension that introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md).
-
-You can add this version of the extension from the preview extension bundle v4 by adding or replacing the following code in your `host.json` file:
-
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[4.0.0, 5.0.0)"
-  }
-}
-```
-
-To learn more, see [Update your extensions].
-
-# [Bundle v2.x and v3.x](#tab/functionsv2)
-
-You can install this version of the extension in your function app by registering the [extension bundle], version 2.x or 3.x.
-
-[!INCLUDE [functions-extension-bundles-json-v3](../../includes/functions-extension-bundles-json-v3.md)]
-
----
-
-::: zone-end
-
 ::: zone pivot="programming-language-csharp"
 
 ## Binding types
@@ -284,7 +256,7 @@ SDK Type support for Azure Cosmos is in Preview. Follow the [Python SDK Bindings
 - [Read an Azure Cosmos DB document (Input binding)](./functions-bindings-cosmosdb-v2-input.md)
 - [Save changes to an Azure Cosmos DB document (Output binding)](./functions-bindings-cosmosdb-v2-output.md)
 
-[extension bundle]: ./functions-bindings-register.md#extension-bundles
+[extension bundle]: ./extension-bundles.md
 [Update your extensions]: ./functions-bindings-register.md
 
 [C# scripting]: ./functions-reference-csharp.md

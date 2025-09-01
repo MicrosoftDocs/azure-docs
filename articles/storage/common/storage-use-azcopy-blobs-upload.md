@@ -8,6 +8,7 @@ ms.date: 09/22/2022
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.reviewer: dineshm
+# Customer intent: As a data engineer, I want to upload files and directories to Azure Blob storage using AzCopy, so that I can efficiently manage and transfer large amounts of data in my cloud environment.
 ---
 
 # Upload files to Azure Blob storage by using AzCopy

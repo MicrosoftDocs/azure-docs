@@ -2,11 +2,12 @@
 title: Azure Backup support matrix for SQL Server Backup in Azure VMs 
 description: Provides a summary of support settings and limitations when backing up SQL Server in Azure VMs with the Azure Backup service.
 ms.topic: reference
-ms.date: 03/07/2025
+ms.date: 07/28/2025
 ms.custom: references_regions 
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a database administrator, I want to understand the support matrix for SQL Server Backup in Azure VMs so that I can ensure compliance with the system requirements and optimize my backup strategy for our SQL Server environments.
 ---
 
 # Support matrix for SQL Server Backup in Azure VMs
@@ -19,8 +20,8 @@ You can use Azure Backup to back up SQL Server databases in Azure VMs hosted on 
 --- | ---
 **Supported deployments** | SQL Marketplace Azure VMs and non-Marketplace (SQL Server manually installed) VMs are supported.
 **Supported regions** | Azure Backup for SQL Server databases is available in all regions, except France South (FRS).
-**Supported operating systems** | Windows Server 2022, Windows Server 2019, Windows Server 2016, Windows Server 2012 (all versions), Windows Server 2008 R2 SP1 <br/><br/> Linux isn't currently supported.
-**Supported SQL Server versions** | SQL Server 2022 Express, SQL Server 2022, SQL Server 2019, SQL Server 2017 as detailed on the [Search product lifecycle page](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 and SPs as detailed on the [Search product lifecycle page](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Enterprise, Standard, Web, Developer, Express.<br><br>Express Local DB versions aren't supported.
+**Supported operating systems** | Windows Server 2022, Windows Server 2019, Windows Server 2016, Windows Server 2012 (all versions), Windows Server 2008 R2 SP1 <br/><br/> Additional configuration is required for Windows Server 2008 and 2008 R2. Learn how to [set VM permission](backup-azure-sql-database.md#set-vm-permissions). <br><br> Linux isn't currently supported. 
+**Supported SQL Server versions** | SQL Server 2022 Express, SQL Server 2022, SQL Server 2019, SQL Server 2017 as detailed on the [Search product lifecycle page](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 and SPs as detailed on the [Search product lifecycle page](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012. <br/><br/> Enterprise, Standard, Web, Developer, Express.<br><br>Express Local DB versions aren't supported.
 **Supported .NET versions** | .NET Framework 4.6.2 or later installed on the VM
 **Supported deployments** | SQL Marketplace Azure VMs and non-Marketplace (SQL Server that is manually installed) VMs are supported. Support for standalone instances is always on [availability groups](backup-sql-server-on-availability-groups.md). <br><br>  Note that the SQL databases that are part of a AlwaysOn AG and are synced from SQL Managed Instance aren't supported.
 **Cross Region Restore** | Supported. [Learn more](restore-sql-database-azure-vm.md#cross-region-restore).
@@ -37,6 +38,7 @@ You can use Azure Backup to back up SQL Server databases in Azure VMs hosted on 
 |Number of full backups supported per day    |    One scheduled backup. <br><br> Three on-demand backups. <br><br> We recommend not to trigger more than three backups per day. However, to allow user retries in case of failed attempts, hard limit for on-demand backups is set to nine attempts. |
 | Log shipping | When you enable [log shipping](/sql/database-engine/log-shipping/about-log-shipping-sql-server?view=sql-server-ver15&preserve-view=true) on the SQL server database that you are backing up, we recommend you to disable log backups in the backup policy. This is because, the log shipping (which automatically sends transaction logs from the primary to secondary database) will interfere with the log backups enabled through Azure Backup. <br><br>    Therefore, if you enable log shipping, ensure that your policy only has full and/or differential backups enabled. |
 | Retention period for on-demand backups  | For Full/ Differential/ Incremental backups, the out-of-box retention is 45 days. <br><br>  For Copy-only full backup, you can define a custom retention period.  |
+| Restore limit for SQL in Azure VM | 20 |
 
 _*The database size limit depends on the data transfer rate that we support and the backup time limit configuration. It’s not the hard limit. [Learn more](#backup-throughput-performance) on backup throughput performance._
 
@@ -58,6 +60,7 @@ Azure Backup supports a consistent data transfer rate of 350 MBps for full and d
 - The underlying VM (containing the SQL Server instance, which hosts the database) is configured with the required network throughput. If the maximum throughput of the VM is less than 200 MBps, Azure Backup can’t transfer data at the optimum speed.<br>Also, the disk that contains the database files must have enough throughput provisioned. [Learn more](/azure/virtual-machines/disks-performance) about disk throughput and performance in Azure VMs. 
 - Processes, which are running in the VM, are not consuming the VM bandwidth. 
 - The backup schedules are spread across a subset of databases. Multiple backups running concurrently on a VM shares the network consumption rate between the backups. [Learn more](faq-backup-sql-server.yml#can-i-control-how-many-concurrent-backups-run-on-the-sql-server-) about how to control the number of concurrent backups.
+- The maximum supported throughput for log backups is **50 Mbps**, based on average log churn observed in most environments. If you consistently experience high log churn and encounter reduced backup performance, contact Microsoft Support for further assistance.
 
 >[!NOTE]
 >- The higher throughput is automatically throttled when the following conditions are met:

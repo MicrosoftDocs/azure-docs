@@ -10,7 +10,7 @@ ms.date: 12/09/2024
 
 This article describes a recommended architecture for deploying Cloud NGFW for Azure by Palo Alto Networks behind Azure Application Gateway. Cloud NGFW for Azure is a next-generation firewall delivered as an integrated service for Azure. You can find Cloud NGFW for Azure in Azure Marketplace and consume it in your Azure Virtual Network and Azure Virtual WAN instances.
 
-With Cloud NGFW for Azure, you can access core firewall capabilities from Palo Alto Networks, such as App-ID and Advanced URL Filtering. It provides threat prevention and detection through cloud-delivered security services and threat prevention signatures. The deployment model in this article uses the reverse proxy and web application firewall (WAF) functionality of Application Gateway by using the network security capabilities of Cloud NGFW for Azure.
+With Cloud NGFW for Azure, you can access core firewall capabilities from Palo Alto Networks, like App-ID and Advanced URL Filtering. It provides threat prevention and detection through cloud-delivered security services and threat prevention signatures. The deployment model in this article uses the reverse proxy and web application firewall (WAF) functionality of Application Gateway by using the network security capabilities of Cloud NGFW for Azure.
 
 For more information about Cloud NGFW for Azure, see [What is Cloud NGFW by Palo Alto Networks - an Azure Native ISV Service?](palo-alto-overview.md).
 
@@ -39,7 +39,7 @@ Application Gateway is deployed in a dedicated virtual network with a front end 
 
 Similar to spoke virtual networks, the Application Gateway virtual network must be peered with the hub virtual network to ensure that the traffic can be routed toward the destination spoke virtual network.
 
-To force incoming web traffic through the Cloud NGFW for Azure resource, you must create a user-defined route and associate it with the Application Gateway subnet. The next hop in this case is the private IP address of Cloud NGFW for Azure. You can find this address by selecting **Overview** from the resource menu in the Azure portal.
+To force incoming web traffic through the Cloud NGFW for Azure resource, you must create a user-defined route and associate it with the Application Gateway subnet. The next hop in this case is the private IP address of Cloud NGFW for Azure. You can find this address by selecting **Overview** from the service menu in the Azure portal.
 
 :::image type="content" source="media/palo-alto-app-gateway/palo-alto-resource.png" alt-text="Screenshot that shows the Cloud NGFW for Azure view in the Azure portal.":::
 
@@ -82,7 +82,7 @@ For more information, see [Cloud NGFW Native Policy Management Using Rulestacks]
 
 ### Panorama
 
-When you manage Cloud NGFW for Azure resources by using Panorama, you can use existing and new policy constructs such as template stacks, zones, and vulnerability profiles. You can configure the Cloud NGFW for Azure security policies between the two zones: private and public. Inbound traffic goes from public to private, outbound traffic goes from private to public, and east-west traffic goes from private to private.
+When you manage Cloud NGFW for Azure resources by using Panorama, you can use existing and new policy constructs like template stacks, zones, and vulnerability profiles. You can configure the Cloud NGFW for Azure security policies between the two zones: private and public. Inbound traffic goes from public to private, outbound traffic goes from private to public, and east-west traffic goes from private to private.
 
 :::image type="content" source="media/palo-alto-app-gateway/palo-alto-app-gateway-zones-1.png" alt-text="Diagram that shows zone placement and traffic flows in Cloud NGFW for Azure.":::
 

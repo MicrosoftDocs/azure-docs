@@ -8,6 +8,7 @@ ms.date: 08/27/2024
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
+# Customer intent: "As a cloud administrator, I want to upgrade public IP addresses attached to VMs in an Availability Set from Basic to Standard SKU, so that I can ensure compliance with upcoming retirement policies and benefit from enhanced security features."
 ---
 
 # Upgrade all public IP addresses attached to VMs in an Availability Set from Basic to Standard

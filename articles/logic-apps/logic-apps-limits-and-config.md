@@ -4,8 +4,8 @@ description: Reference guide about the limits and configuration settings for log
 services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, laveeshb, rarayudu, azla
-ms.topic: conceptual
-ms.date: 03/27/2025
+ms.topic: reference
+ms.date: 07/31/2025
 ---
 
 # Limits and configuration reference for Azure Logic Apps
@@ -28,13 +28,13 @@ The following table briefly summarizes differences between a Consumption logic a
 
 <a name="definition-limits"></a>
 
-## Workflow definition limits
+## Workflow limits
 
-The following tables list the values for a single workflow definition:
+The following table lists the values that apply to a single workflow definition unless noted otherwise:
 
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
-| Workflows per region per Azure subscription | - Consumption: 1,000 workflows where each logic app always has only 1 workflow <br><br>- Standard: Unlimited, based on the selected hosting plan, app activity, size of machine instances, and resource usage, where each logic app can have multiple workflows | For optimal performance guidelines around Standard logic app workflows, see [Best practices and recommendations](create-single-tenant-workflows-azure-portal.md#best-practices-and-recommendations). |
+| Workflows per region per Azure subscription | - Consumption: 1,000 workflows <br><br>**Note**: Each Consumption logic app resource always contains only one workflow. <br><br>- Standard: Unlimited, based on the selected hosting plan, app activity, size of machine instances, and resource usage. <br><br>Each Standard logic app resource can contain multiple workflows | For optimal performance guidelines around Standard logic app workflows, see [Best practices and recommendations](create-single-tenant-workflows-azure-portal.md#best-practices-and-recommendations). |
 | Workflow - Maximum name length | - Consumption: 80 characters <br><br>- Standard: 32 characters ||
 | Triggers per workflow | - Consumption (designer): 1 trigger <br>- Consumption (JSON): 10 triggers <br><br>- Standard: 1 trigger | - Consumption:  Multiple triggers are possible only when you work on the JSON workflow definition, whether in code view or an Azure Resource Manager (ARM) template, not the designer. <br><br>- Standard: Only one trigger is possible, whether in the designer, code view, or an Azure Resource Manager (ARM) template. |
 | Actions per workflow | 500 actions | To extend this limit, you can use nested workflows as necessary. |
@@ -46,7 +46,7 @@ The following tables list the values for a single workflow definition:
 | `description` - Maximum length | 256 characters ||
 | `parameters` - Maximum number of parameters per workflow | - Consumption: 50 parameters <br><br>- Standard: 500 parameters ||
 | `outputs` - Maximum number of outputs | 10 outputs ||
-| `trackedProperties` - Maximum number of characters | 8,000 characters ||
+| `trackedProperties` - Maximum number of characters | 8,000 characters | Each action supports a JSON object named `trackedProperties` that you can use to specify certain action inputs or outputs to emit from your workflow and include in diagnostic telemetry. For more information, see [Monitor and collect diagnostic data for workflows](monitor-workflows-collect-diagnostic-data.md#tracked-properties). |
 
 <a name="run-duration-retention-limits"></a>
 
@@ -56,7 +56,7 @@ The following table lists the values for a single workflow run:
 
 | Name | Multitenant | Single-tenant | Notes |
 |------|-------------|---------------|-------|
-| Run history retention in storage | 90 days | 90 days <br>(Default) | The amount of time to keep a workflow's run history in storage after a run starts. <br><br>**Note**: If the workflow's run duration exceeds the retention limit, this run is removed from the run history in storage. If a run isn't immediately removed after reaching the retention limit, the run is removed within 7 days. <br><br>Whether a run completes or times out, run history retention is always calculated by using the run's start time and the current limit specified in the workflow setting, [**Run history retention in days**](#change-retention). No matter the previous limit, the current limit is always used for calculating retention. <br><br>For more information, review [Change duration and run history retention in storage](#change-retention). |
+| Run history retention in storage | 90 days | 90 days <br>(Default) | The amount of time to keep a workflow's run history in storage after a run starts. <br><br>**Note**: If the workflow's run duration exceeds the retention limit, this run is removed from the run history in storage. If a run isn't immediately removed after reaching the retention limit, the run is removed within 7 days. <br><br>Whether a run completes or times out, retention is always calculated by using the run's start time and the retention limit at the *time when the run started*, not the current limit. You can find the retention limit in the workflow setting, [**Run history retention in days**](#change-retention). <br><br>For more information, review [Change duration and run history retention in storage](#change-retention). |
 | Run duration | 90 days | - Stateful workflow: 90 days <br>(Default) <br><br>- Stateless workflow: 5 min <br>(Default) | The amount of time that a workflow can continue running before forcing a time-out. The run duration is calculated by using a run's start time and the limit that's specified in the workflow setting, [**Run history retention in days**](#change-duration) at that start time. <br><br>**Important**: Make sure the run duration value is always less than or equal to the run history retention in storage value. Otherwise, run histories might be deleted before the associated jobs are complete. <br><br>For more information, review [Change run duration and history retention in storage](#change-duration). |
 | Recurrence interval | - Min: 1 sec <br><br>- Max: 500 days | - Min: 1 sec <br><br>- Max: 500 days ||
 
@@ -73,7 +73,7 @@ For Consumption logic app workflows, the same setting controls the maximum numbe
 
 * In multitenant Azure Logic Apps, the 90-day default limit is the same as the maximum limit. You can only decrease this value.
 
-For example, suppose that you reduce the retention limit from 90 days to 30 days. A 60-day-old run is removed from the run history. If you increase the retention period from 30 days to 60 days, a 20-day-old run stays in the run history for another 40 days.
+* Run history retention is always calculated by using the run's start time and the retention limit at the time when the run started, not the current retention limit. 
 
 #### Portal
 
@@ -119,6 +119,8 @@ For Standard logic app workflows, you can decrease or increase the 90-day defaul
 * A host setting named [**Runtime.FlowMaintenanceJob.RetentionCooldownInterval**](edit-app-settings-host-settings.md#run-duration-history)
 
 By default, the app setting named **Workflows.RuntimeConfiguration.RetentionInDays** is set to keep 90 days of data. The host setting named **Runtime.FlowMaintenanceJob.RetentionCooldownInterval** is set to check every 7 days for old data to delete. If you leave these default values, you might see data *up to* 97 days old. For example, suppose Azure Logic Apps checks on Day X and deletes data older than Day X - 90 days, and then waits for 7 days before running again. This behavior results in data that ages up to 97 days before the job runs again. However, if you set the interval to 1 day, but leave the retention days at the default value, the maximum delay to delete old data is 90+1 days.
+
+Run history retention is always calculated by using the run's start time and the retention limit at the time when the run started, not the current retention limit. 
 
 #### Portal
 
@@ -649,12 +651,14 @@ This section lists the inbound IP addresses that Azure Logic Apps requires for t
 |--------|---------------------|
 | Australia East | 13.75.153.66, 104.210.89.222, 104.210.89.244, 52.187.231.161, 20.53.94.103, 20.53.107.215, 20.11.76.135, 20.11.77.54, 4.200.57.191, 20.11.77.111, 4.200.48.30, 4.198.185.192, 4.200.48.37, 4.200.57.70 |
 | Australia Southeast | 13.73.115.153, 40.115.78.70, 40.115.78.237, 52.189.216.28, 52.255.42.110, 20.70.114.64, 20.211.194.165, 20.70.118.30, 4.198.78.245, 20.70.114.85, 20.70.116.201, 20.92.62.87, 20.211.194.79, 20.92.62.64, 13.77.55.128, 13.77.55.129 |
+| Austria East | 68.210.183.164,68.210.183.162,68.210.183.167,68.210.183.161,68.210.183.160,68.210.183.163,68.210.183.166,68.210.183.165 |
 | Brazil South | 191.235.86.199, 191.235.95.229, 191.235.94.220, 191.234.166.198, 20.201.66.147, 20.201.25.72, 20.201.111.44, 20.201.110.210, 20.201.95.184, 20.201.111.106, 20.201.110.239, 20.201.111.218, 20.201.111.204, 4.228.78.206 |
 | Brazil Southeast | 20.40.32.59, 20.40.32.162, 20.40.32.80, 20.40.32.49, 20.206.42.14, 20.206.43.33, 108.140.19.183, 108.140.16.189, 108.140.19.38, 108.140.17.2, 108.140.19.189, 108.140.20.8, 108.140.19.206, 108.140.20.2 |
 | Canada Central | 13.88.249.209, 52.233.30.218, 52.233.29.79, 40.85.241.105, 20.104.14.9, 20.48.133.182, 20.175.241.90, 20.116.229.122, 4.172.59.88, 52.237.58.32, 20.116.231.233, 20.116.229.68, 4.172.57.90, 20.116.230.165 |
 | Canada East | 52.232.129.143, 52.229.125.57, 52.232.133.109, 40.86.202.42, 20.200.63.149, 52.229.126.142, 40.86.205.75, 40.86.229.191, 40.69.102.29, 40.69.96.69, 40.86.248.230, 52.229.114.121, 20.220.76.245, 52.229.99.183 |
 | Central India | 52.172.157.194, 52.172.184.192, 52.172.191.194, 104.211.73.195, 20.204.203.110, 20.204.212.77, 4.186.8.164, 20.235.200.244, 20.235.200.100, 20.235.200.92, 4.188.187.112, 4.188.187.170, 4.188.187.173, 4.188.188.52 |
 | Central US | 13.67.236.76, 40.77.111.254, 40.77.31.87, 104.43.243.39, 13.86.98.126, 20.109.202.37, 172.212.239.224, 172.212.239.225, 172.212.239.226, 172.212.239.227, 172.212.239.228, 172.212.239.229, 172.212.239.230, 172.212.239.231 |
+| Chile Central | 68.211.20.55,68.211.20.53,68.211.20.52,68.211.20.54,68.211.20.48,68.211.20.51,68.211.20.49,68.211.20.50 |
 | East Asia | 168.63.200.173, 13.75.89.159, 23.97.68.172, 40.83.98.194, 20.187.254.129, 20.187.189.246, 20.6.149.94, 4.144.32.35, 20.255.186.54, 20.6.149.151, 20.255.121.88, 20.255.104.187, 20.255.121.57, 20.6.177.230 |
 | East US | 137.135.106.54, 40.117.99.79, 40.117.100.228, 137.116.126.165, 52.226.216.209, 40.76.151.124, 20.84.29.150, 40.76.174.148, 4.156.26.80, 4.156.25.14, 4.156.25.189, 20.242.168.44, 4.156.241.183, 4.156.243.174, 4.156.242.86, 4.156.243.165, 52.224.145.162, 4.156.242.96, 4.156.243.173, 4.156.241.195, 4.156.242.97, 4.156.242.26, 4.156.242.13, 172.212.37.35 |
 | East US 2 | 40.84.25.234, 40.79.44.7, 40.84.59.136, 40.70.27.253, 20.96.58.28, 20.96.89.98, 20.96.90.28, 20.122.237.191, 52.251.20.210, 20.122.237.232, 20.122.237.221, 4.152.129.54, 4.152.128.241, 20.1.240.241, 4.152.129.229, 4.152.127.230, 4.152.126.158, 4.153.195.56, 4.153.201.240 |
@@ -662,6 +666,7 @@ This section lists the inbound IP addresses that Azure Logic Apps requires for t
 | France South | 52.136.131.145, 52.136.129.121, 52.136.130.89, 52.136.131.4, 52.136.134.128, 52.136.143.218, 51.138.154.147, 51.138.152.107, 51.138.154.171, 51.138.154.241, 51.138.154.167, 51.138.152.46, 51.138.154.191, 51.138.154.153 |
 | Germany North | 51.116.211.29, 51.116.208.132, 51.116.208.37, 51.116.208.64, 20.113.206.147, 20.113.197.46, 20.218.25.193, 20.218.25.211, 20.218.26.154, 20.218.26.185, 20.218.40.222, 20.218.41.149, 20.218.40.115, 20.218.41.77 |
 | Germany West Central | 51.116.168.222, 51.116.171.209, 51.116.233.40, 51.116.175.0, 20.113.12.69, 20.113.11.8, 98.67.210.83, 98.67.210.94, 98.67.210.49, 98.67.144.141, 98.67.146.59, 98.67.145.222, 98.67.146.65, 98.67.146.238 |
+| Indonesia Central | 70.153.175.241,70.153.175.245,70.153.175.242,70.153.175.246,70.153.175.244,70.153.175.240,70.153.175.247,70.153.175.243 |
 | Israel Central | 20.217.134.130, 20.217.134.135, 51.4.2.18, 51.4.2.88, 51.4.2.119, 51.4.2.140, 51.4.2.16, 51.4.2.136, 51.4.2.186, 51.4.2.17 |
 | Italy North | 4.232.12.165, 4.232.12.191, 172.213.177.28, 172.213.177.95, 172.213.177.111, 172.213.196.142, 172.213.199.113, 172.213.193.254, 172.213.199.195, 172.213.198.5 |
 | Japan East | 13.71.146.140, 13.78.84.187, 13.78.62.130, 13.78.43.164, 20.191.174.52, 20.194.207.50, 20.18.198.232, 20.18.197.179, 20.18.198.148, 20.18.238.86, 4.189.8.207, 4.189.9.80, 4.189.10.88, 4.189.8.209, 172.207.65.96, 172.207.65.97 |
@@ -669,6 +674,7 @@ This section lists the inbound IP addresses that Azure Logic Apps requires for t
 | Jio India West | 20.193.206.48, 20.193.206.49, 20.193.206.50, 20.193.206.51, 20.193.173.174, 20.193.168.121, 20.207.247.103, 20.244.240.200, 20.244.244.210, 20.244.241.129, 20.244.240.7, 20.244.242.21, 20.244.247.29, 20.244.244.219 |
 | Korea Central | 52.231.14.182, 52.231.103.142, 52.231.39.29, 52.231.14.42, 20.200.207.29, 20.200.231.229, 20.249.169.92, 20.249.169.87, 20.249.169.155, 20.249.171.205, 4.230.149.190, 20.249.170.248, 20.249.171.120, 20.249.171.7 |
 | Korea South | 52.231.166.168, 52.231.163.55, 52.231.163.150, 52.231.192.64, 20.200.177.151, 20.200.177.147, 52.231.228.78, 52.231.181.100, 52.231.223.213, 52.231.140.232, 52.231.228.60, 52.231.143.60, 52.231.138.189, 52.231.137.253 |
+| Malaysia West | 20.17.142.181,20.17.142.180,20.17.142.182,20.17.142.179,20.17.142.176,20.17.142.183,20.17.142.178,20.17.142.177 |
 | Mexico Central | 158.23.36.62,158.23.36.24,158.23.254.137,158.23.254.158,158.23.254.105,158.23.254.193,158.23.254.101,158.23.254.220,158.23.254.57,158.23.254.156 |
 | New Zealand North | 172.204.59.81,172.204.60.91,172.204.60.122,172.204.59.84,172.204.59.8,172.204.59.218,172.204.132.91,172.204.59.14 |
 | North Central US | 168.62.249.81, 157.56.12.202, 65.52.211.164, 65.52.9.64, 52.162.177.104, 23.101.174.98, 20.98.61.245, 172.183.50.180, 172.183.52.146, 172.183.51.138, 172.183.48.31, 172.183.48.9, 172.183.48.234, 40.116.65.34 |
@@ -742,12 +748,14 @@ This section lists the outbound IP addresses that Azure Logic Apps requires for 
 |--------|---------------------|
 | Australia East | 13.75.149.4, 104.210.91.55, 104.210.90.241, 52.187.227.245, 52.187.226.96, 52.187.231.184, 52.187.229.130, 52.187.226.139, 20.53.93.188, 20.53.72.170, 20.53.107.208, 20.53.106.182, 20.11.76.122, 20.11.77.49, 4.200.57.71, 20.11.77.107, 4.198.187.22, 4.198.185.90, 4.198.185.246, 4.200.58.227 |
 | Australia Southeast | 13.73.114.207, 13.77.3.139, 13.70.159.205, 52.189.222.77, 13.77.56.167, 13.77.58.136, 52.189.214.42, 52.189.220.75, 52.255.36.185, 52.158.133.57, 20.70.114.125, 20.70.114.10, 20.70.117.240, 20.70.116.106, 20.70.114.97, 20.211.194.242, 20.70.109.46, 20.11.136.137, 20.70.116.240, 20.211.194.233, 20.11.154.170, 4.198.89.96, 20.92.61.254, 20.70.95.150, 20.70.117.21, 20.211.194.127, 20.92.61.242, 20.70.93.143, 13.77.53.224, 13.77.53.225 |
+| Austria East | 68.210.183.197,68.210.183.198,68.210.183.193,68.210.183.195,68.210.183.194,68.210.183.192,68.210.183.196,68.210.183.199 |
 | Brazil South | 191.235.82.221, 191.235.91.7, 191.234.182.26, 191.237.255.116, 191.234.161.168, 191.234.162.178, 191.234.161.28, 191.234.162.131, 20.201.66.44, 20.201.64.135, 20.201.24.212, 191.237.207.21, 20.201.111.36, 20.201.110.208, 20.201.91.95, 20.201.110.244, 20.201.110.234, 20.201.111.212, 20.201.111.203, 4.228.72.24 |
 | Brazil Southeast | 20.40.32.81, 20.40.32.19, 20.40.32.85, 20.40.32.60, 20.40.32.116, 20.40.32.87, 20.40.32.61, 20.40.32.113, 20.206.41.94, 20.206.41.20, 20.206.42.67, 20.206.40.250, 108.140.19.0, 108.140.16.168, 108.140.17.240, 108.140.17.223, 108.140.19.181, 108.140.20.3, 108.140.19.68, 108.140.16.195 |
 | Canada Central | 52.233.29.92, 52.228.39.244, 40.85.250.135, 40.85.250.212, 13.71.186.1, 40.85.252.47, 13.71.184.150, 20.104.13.249, 20.104.9.221, 20.48.133.133, 20.48.132.222, 20.175.241.76, 20.116.229.92, 4.172.57.144, 52.237.56.228, 20.116.231.222, 20.116.229.57, 4.172.57.52, 20.116.230.54 |
 | Canada East | 52.232.128.155, 52.229.120.45, 52.229.126.25, 40.86.203.228, 40.86.228.93, 40.86.216.241, 40.86.226.149, 40.86.217.241, 20.200.60.151, 20.200.59.228, 52.229.126.67, 52.229.105.109, 40.86.226.221, 40.86.228.72, 40.69.98.14, 40.86.208.137, 40.86.229.179, 40.86.227.188, 40.86.202.35, 40.86.206.74, 52.229.100.167, 40.86.240.237, 40.69.120.161, 40.69.102.71, 20.220.75.33, 20.220.74.16, 40.69.101.66, 52.229.114.105 |
 | Central India | 52.172.154.168, 52.172.186.159, 52.172.185.79, 104.211.101.108, 104.211.102.62, 104.211.90.169, 104.211.90.162, 104.211.74.145, 20.204.204.74, 20.204.202.72, 20.204.212.60, 20.204.212.8, 4.186.8.62, 4.186.8.18, 20.235.200.242, 20.235.200.237, 20.235.200.79, 20.235.200.44, 20.235.200.70, 20.235.200.32, 4.188.187.109, 4.188.187.86, 4.188.187.140, 4.188.185.15, 4.188.187.145, 4.188.187.107, 4.188.187.184, 4.188.187.64 |
 | Central US | 13.67.236.125, 104.208.25.27, 40.122.170.198, 40.113.218.230, 23.100.86.139, 23.100.87.24, 23.100.87.56, 23.100.82.16, 52.141.221.6, 52.141.218.55, 20.109.202.36, 20.109.202.29, 20.118.195.232, 20.118.195.233, 20.118.195.234, 20.118.195.235, 20.118.195.236, 20.118.195.237, 20.118.195.238, 20.118.195.239 |
+| Chile Central | 68.211.20.135,68.211.20.133,68.211.20.134,68.211.20.132,68.211.20.130,68.211.20.131,68.211.20.129,68.211.20.128 |
 | East Asia | 13.75.94.173, 40.83.127.19, 52.175.33.254, 40.83.73.39, 65.52.175.34, 40.83.77.208, 40.83.100.69, 40.83.75.165, 20.187.254.110, 20.187.250.221, 20.187.189.47, 20.187.188.136, 20.239.240.181, 20.6.152.201, 20.2.52.61, 20.255.43.37, 20.255.41.243, 4.192.72.182, 20.6.177.234, 20.255.113.33 |
 | East US | 13.92.98.111, 40.121.91.41, 40.114.82.191, 23.101.139.153, 23.100.29.190, 23.101.136.201, 104.45.153.81, 23.101.132.208, 52.226.216.197, 52.226.216.187, 40.76.151.25, 40.76.148.50, 20.84.29.29, 20.84.29.18, 40.76.174.83, 40.76.174.39, 4.156.27.7, 4.156.28.117, 4.156.25.188, 20.242.168.24, 4.156.241.165, 4.156.243.170, 4.156.242.49, 4.156.243.164, 52.224.145.30, 4.156.242.92, 4.156.243.172, 4.156.241.191, 4.156.241.47, 4.156.241.229, 4.156.242.12, 172.212.32.196 |
 | East US 2 | 40.84.30.147, 104.208.155.200, 104.208.158.174, 104.208.140.40, 40.70.131.151, 40.70.29.214, 40.70.26.154, 40.70.27.236, 20.96.58.140, 20.96.58.139, 20.96.89.54, 20.96.89.48, 20.96.89.254, 20.96.89.234, 20.122.237.189, 52.253.79.47, 20.122.237.225, 20.122.237.205, 4.152.128.227, 4.152.128.205, 4.153.159.226, 4.152.129.221, 4.152.127.229, 4.152.125.62, 4.153.194.246, 4.153.201.239 |
@@ -755,6 +763,7 @@ This section lists the outbound IP addresses that Azure Logic Apps requires for 
 | France South | 52.136.132.40, 52.136.129.89, 52.136.131.155, 52.136.133.62, 52.136.139.225, 52.136.130.144, 52.136.140.226, 52.136.129.51, 52.136.139.71, 52.136.135.74, 52.136.133.225, 52.136.139.96, 51.138.154.137, 51.138.153.121, 51.138.152.26, 51.138.155.43, 51.138.154.125, 51.138.153.24, 51.138.152.141, 51.138.152.170 |
 | Germany North | 51.116.211.168, 51.116.208.165, 51.116.208.175, 51.116.208.192, 51.116.208.200, 51.116.208.222, 51.116.208.217, 51.116.208.51, 20.113.195.253, 20.113.196.183, 20.113.206.134, 20.113.206.170, 20.218.25.86, 20.218.25.112, 20.218.26.84, 20.218.26.28, 20.218.40.124, 20.218.41.137, 20.218.41.177, 20.218.41.117 |
 | Germany West Central | 51.116.233.35, 51.116.171.49, 51.116.233.33, 51.116.233.22, 51.116.168.104, 51.116.175.17, 51.116.233.87, 51.116.175.51, 20.113.11.136, 20.113.11.85, 20.113.10.168, 20.113.8.64, 98.67.210.79, 98.67.210.78, 98.67.210.85, 98.67.210.84, 98.67.210.14, 98.67.210.24, 98.67.144.136, 98.67.144.122, 98.67.145.221, 98.67.144.207, 98.67.146.88, 98.67.146.81, 98.67.146.51, 98.67.145.122, 98.67.146.229, 98.67.146.218 |
+| Indonesia Central | 70.153.175.230,70.153.175.225,70.153.175.226,70.153.175.229,70.153.175.227,70.153.175.228,70.153.175.231,70.153.175.224 | 
 | Israel Central | 20.217.134.127, 20.217.134.126, 20.217.134.132, 20.217.129.229, 51.4.1.246, 51.4.2.73, 51.4.2.116, 51.4.2.139, 51.4.2.89, 51.4.0.146, 51.4.2.105, 51.4.2.123 |
 | Italy North | 4.232.12.164, 4.232.12.173, 4.232.12.190, 4.232.12.169, 172.213.176.243, 172.213.177.89, 172.213.176.130, 172.213.195.126, 172.213.199.94, 172.213.196.10, 172.213.199.179, 172.213.199.115 |
 | Japan East | 13.71.158.3, 13.73.4.207, 13.71.158.120, 13.78.18.168, 13.78.35.229, 13.78.42.223, 13.78.21.155, 13.78.20.232, 20.191.172.255, 20.46.187.174, 20.194.206.98, 20.194.205.189, 20.18.198.224, 20.18.197.177, 20.18.198.141, 20.18.238.83, 4.189.14.67, 4.189.8.211, 4.189.9.135, 4.189.8.208, 20.210.69.32, 20.210.69.33 |
@@ -762,6 +771,7 @@ This section lists the outbound IP addresses that Azure Logic Apps requires for 
 | Jio India West | 20.193.206.128, 20.193.206.129, 20.193.206.130, 20.193.206.131, 20.193.206.132, 20.193.206.133, 20.193.206.134, 20.193.206.135, 20.193.173.7, 20.193.172.11, 20.193.170.88, 20.193.171.252, 20.207.246.213, 20.207.247.91, 20.207.241.77, 20.207.246.218, 20.244.243.50, 20.244.243.105, 20.244.242.55, 20.244.241.138 |
 | Korea Central | 52.231.14.11, 52.231.14.219, 52.231.15.6, 52.231.10.111, 52.231.14.223, 52.231.77.107, 52.231.8.175, 52.231.9.39, 20.200.206.170, 20.200.202.75, 20.200.231.222, 20.200.231.139, 20.249.169.25, 20.249.169.18, 20.249.169.147, 20.249.171.130, 4.230.149.189, 20.249.169.207, 20.249.171.17, 20.249.169.238 |
 | Korea South | 52.231.204.74, 52.231.188.115, 52.231.189.221, 52.231.203.118, 52.231.166.28, 52.231.153.89, 52.231.155.206, 52.231.164.23, 20.200.177.148, 20.200.177.135, 20.200.177.146, 20.200.180.213, 52.231.139.2, 52.231.220.66, 52.231.137.133, 52.231.228.71, 52.231.230.253, 52.231.176.192, 52.231.182.160, 52.231.218.243 |
+| Malaysia West | 20.17.92.195,20.17.92.193,20.17.92.178,20.17.92.177,20.17.92.194,20.17.92.176,20.17.92.192,20.17.92.179 |
 | Mexico Central | 158.23.36.78,158.23.36.73,158.23.36.21,158.23.36.20,158.23.254.50,158.23.253.167,158.23.254.157,158.23.254.103,158.23.254.104,158.23.254.159,158.23.254.149,158.23.254.99,158.23.254.100,158.23.254.148,158.23.254.192,158.23.254.136,158.23.254.23,158.23.252.96,158.23.254.102,158.23.254.221 |
 | New Zealand North | 172.204.59.65,172.204.59.54,172.204.60.89,172.204.59.203,172.204.59.196,172.204.60.115,172.204.59.68,172.204.59.63,172.204.56.121,172.204.58.18,172.204.59.207,172.204.56.218,172.204.131.225,172.204.131.252,172.204.58.185,172.204.58.53 |
 | North Central US | 168.62.248.37, 157.55.210.61, 157.55.212.238, 52.162.208.216, 52.162.213.231, 65.52.10.183, 65.52.9.96, 65.52.8.225, 52.162.177.90, 52.162.177.30, 23.101.160.111, 23.101.167.207, 20.80.33.190, 20.88.47.77, 172.183.51.180, 40.116.65.125, 20.88.51.31, 40.116.66.226, 40.116.64.218, 20.88.55.77, 172.183.49.208, 20.102.251.70, 20.102.255.252, 20.88.49.23, 172.183.50.30, 20.88.49.21, 20.102.255.209, 172.183.48.255 |

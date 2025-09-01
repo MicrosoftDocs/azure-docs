@@ -3,13 +3,14 @@ title: 'Quickstart: Create an Azure DNS zone and record - Azure Resource Manager
 titleSuffix: Azure DNS
 description: Learn how to create a DNS zone and record in Azure DNS. This article is a step-by-step quickstart to create and manage your first DNS zone and record using Azure Resource Manager template (ARM template).
 services: dns
-author: greg-lindsay
-ms.author: greglin
+author: asudbring
+ms.author: allensu
 ms.date: 11/05/2024
 ms.topic: quickstart
 ms.service: azure-dns
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS using Azure ARM template so I can use Azure DNS for my name resolution.
+# Customer intent: As an administrator or developer, I want to create a DNS zone and record using an ARM template, so that I can efficiently manage name resolution for my applications in Azure.
 ---
 
 # Quickstart: Create an Azure DNS zone and record using an ARM template

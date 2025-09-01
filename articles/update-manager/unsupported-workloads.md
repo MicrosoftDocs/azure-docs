@@ -2,10 +2,11 @@
 title: Unsupported Workloads for Azure Update Manager
 description: Learn about the workloads that are not supported by Azure Update Manager.
 ms.service: azure-update-manager
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ms.date: 02/26/2025
 ms.topic: overview
+# Customer intent: As a cloud administrator, I want to understand the unsupported workloads for Azure Update Manager so that I can ensure proper update management for my systems and use recommended alternatives for those workloads.
 ---
 
 # Unsupported workloads for Azure Update Manager

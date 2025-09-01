@@ -7,6 +7,7 @@ ms.service: azure-load-balancer
 ms.topic: concept-article
 ms.date: 06/18/2024
 ms.author: mbender
+# Customer intent: "As a cloud architect, I want to understand the components of Azure Load Balancer, so that I can configure it effectively to manage traffic distribution and ensure high availability for my applications."
 ---
 
 # Azure Load Balancer components

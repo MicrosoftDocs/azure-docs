@@ -7,6 +7,7 @@ ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+# Customer intent: "As an HPC architect, I want to migrate end-user entry points to the cloud, so that I can ensure a seamless user experience while minimizing latency disruptions during the transition from on-premises infrastructure."
 ---
 
 # End-user entry point migration overview

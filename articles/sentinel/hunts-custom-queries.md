@@ -2,8 +2,8 @@
 title: Create custom hunting queries in Microsoft Sentinel
 titleSuffix: Microsoft Sentinel
 description: Learn how to create a custom query to hunt for threats. 
-author: austinmccollum
-ms.author: austinmc
+author: mberdugo 
+ms.author: monaberdugo 
 ms.topic: how-to
 ms.date: 04/24/2024
 appliesto:

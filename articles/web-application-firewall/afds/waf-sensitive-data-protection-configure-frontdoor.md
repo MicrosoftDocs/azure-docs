@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 04/30/2025
+# Customer intent: "As a security administrator, I want to enable log scrubbing on the Web Application Firewall, so that I can mask sensitive data in WAF logs and protect user privacy."
 ---
 
 # How to mask sensitive data on Azure Web Application Firewall on Azure Front Door
@@ -29,7 +30,7 @@ The following table shows examples of log scrubbing rules that can be used to pr
 
 <sup>1</sup> If a request triggers a rule that scans the request body, and the content type is either `application/x-www-form-urlencoded` or `application/json`,  the WAF will scrub all request details from the logs to prevent any potential storage of PII. 
 
-<sup>2</sup> Request IP Address and Request URI rules only support the *equals any* operator and scrubs all instances of the requestor's IP address that appears in the WAF logs.
+<sup>2</sup> Request IP Address and Request URI rules only support the *equals any* operator and scrubs all instances of the requester's IP address that appears in the WAF logs.
 
 For more information, see [What is Azure Web Application Firewall on Azure Front Door Sensitive Data Protection?](waf-sensitive-data-protection-frontdoor.md)
 

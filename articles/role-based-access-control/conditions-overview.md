@@ -1,14 +1,16 @@
 ---
 title: What is Azure attribute-based access control (Azure ABAC)?
 description: Get an overview of Azure attribute-based access control (Azure ABAC). Use role assignments with conditions to control access to Azure resources.
-author: rolyon
-manager: femila
+author: jenniferf-skc
+manager: pmwongera
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: overview
 ms.date: 05/19/2025
-ms.author: rolyon
+ms.author: jfields
 #Customer intent: As a dev, devops, or it admin, I want to learn how to constrain access within a role assignment by using conditions.
+ms.custom:
+  - build-2025
 ---
 
 # What is Azure attribute-based access control (Azure ABAC)?

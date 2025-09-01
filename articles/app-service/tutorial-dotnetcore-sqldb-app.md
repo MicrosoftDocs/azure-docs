@@ -3,7 +3,8 @@
 title: Deploy ASP.NET Core and Azure SQL Database app
 description: Learn how to deploy an ASP.NET Core web app to Azure App Service and connect to an Azure SQL Database.
 ms.topic: tutorial
-ms.date: 04/17/2025
+ms.date: 06/30/2025
+ms.update-cycle: 180-days
 author: cephalin
 ms.author: cephalin
 ms.devlang: csharp
@@ -118,7 +119,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service, Azure SQL Database, and Azure Cache. For the creation process, you'll specify:
 
-* The **Name** for the web app. It's used as part of the DNS name for your app in the form of `https://<app-name>-<hash>.<region>.azurewebsites.net`.
+* The **Name** for the web app. It's used as part of the DNS name for your app.
 * The **Region** to run the app physically in the world. It's also used as part of the DNS name for your app.
 * The **Runtime stack** for the app. It's where you select the .NET version to use for your app.
 * The **Hosting plan** for the app. It's the pricing tier that includes the set of features and scaling capacity for your app.
@@ -129,34 +130,62 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 :::row:::
     :::column span="2":::
         **Step 1:** In the Azure portal:
-        1. Enter "web app database" in the search bar at the top of the Azure portal.
-        1. Select the item labeled **Web App + Database** under the **Marketplace** heading.
-        You can also navigate to the [creation wizard](https://portal.azure.com/?feature.customportal=false#create/Microsoft.AppServiceWebAppDatabaseV3) directly.
+        1. In the top search bar, type *app service*.
+        1. Select the item labeled **App Service** under the **Services** heading.
+        1. Select **Create** > **Web App**.
+        You can also navigate to the [creation wizard](https://portal.azure.com/#create/Microsoft.WebSite) directly.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sqldb-1.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find the Web App + Database creation wizard." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sqldb-1.png":::
+        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sql-database-1.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find the Web App creation wizard." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sql-database-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2:** In the **Create Web App + Database** page, fill out the form as follows.
-        1. *Resource Group*: Select **Create new** and use a name of **msdocs-core-sql-tutorial**.
-        1. *Region*: Any Azure region near you.
-        1. *Name*: **msdocs-core-sql-XYZ** where *XYZ* is any three random characters. This name must be unique across Azure.
+        **Step 2:** In the **Create Web App** page, fill out the form as follows.
+        1. *Name*: **msdocs-core-sql-XYZ**. A resource group named **msdocs-core-sql-XYZ_group** will be generated for you.
         1. *Runtime stack*: **.NET 8 (LTS)**.
-        1. *Engine*: **SQLAzure**. Azure SQL Database is a fully managed platform as a service (PaaS) database engine that's always running on the latest stable version of the SQL Server.
-        1. *Add Azure Cache for Redis?*: **Yes**.
-        1. *Hosting plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier.
+        1. *Operating System*: **Linux**.
+        1. *Region*: your preferred region.
+        1. *Linux Plan*: **Create new** and use the name **msdocs-core-sql-XYZ**.
+        1. *Pricing plan*: **Basic B1**. When you're ready, you can [scale up](manage-scale-up.md) to a different pricing tier.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sql-database-2.png" alt-text="A screenshot showing how to configure a new app and database in the Web App wizard." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sql-database-2.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 3:**
+        1. Select the **Database** tab.
+        1. Select **Create a Database**.
+        1. In **Engine**, select **SQLAzure**.
+        1. Select **Create an Azure Cache for Redis**.
+        1. In **Name** (under Cache), enter a name for the cache.
+        1. In **SKU**, select **Basic**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sql-database-3.png" alt-text="A screenshot showing database configuration in the Web App wizard." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sql-database-3.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 4:**
+        1. Select the **Deployment** tab.
+        1. Enable **Continuous deployment**.
+        1. In **Organization**, select your GitHub alias.
+        1. In **Repository**, select **msdocs-app-service-sqldb-dotnetcore**.
+        1. In **Branch**, select **starter-no-infra**.
+        1. Make sure **Basic authentication** is disabled.
         1. Select **Review + create**.
         1. After validation completes, select **Create**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sqldb-2.png" alt-text="A screenshot showing how to configure a new app and database in the Web App + Database wizard." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sqldb-2.png":::
+        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sql-database-4.png" alt-text="A screenshot showing deployment configuration in the Web App wizard." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sql-database-4.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3:** The deployment takes a few minutes to complete. Once deployment completes, select the **Go to resource** button. You're taken directly to the App Service app, but the following resources are created:
+        **Step 5:** The deployment takes a few minutes to complete. Once deployment completes, select the **Go to resource** button. You're taken directly to the App Service app, but the following resources are created:
         - **Resource group**: The container for all the created resources.
         - **App Service plan**: Defines the compute resources for App Service. A Linux plan in the *Basic* tier is created.
         - **App Service**: Represents your app and runs in the App Service plan.
@@ -170,7 +199,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         - **Private DNS zones**: Enable DNS resolution of the key vault, the database server, and the Redis cache in the virtual network.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sqldb-3.png" alt-text="A screenshot showing the deployment process completed." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sqldb-3.png":::
+        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sql-database-5.png" alt-text="A screenshot showing the deployment process completed." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sql-database-5.png":::
     :::column-end:::
 :::row-end:::
 
@@ -198,7 +227,7 @@ The creation wizard generated the connectivity variable for you already as [.NET
     :::column span="2":::
         **Step 2:  Create a key vault for secure management of secrets**
         1. In the top search bar, type "*key vault*", then select **Marketplace** > **Key Vault**.
-        1. In **Resource Group**, select **msdocs-core-sql-tutorial**.
+        1. In **Resource Group**, select **msdocs-core-sql-XYZ_group**.
         1. In **Key vault name**, type a name that consists of only letters and numbers.
         1. In **Region**, set it to the same location as the resource group.
     :::column-end:::
@@ -212,12 +241,12 @@ The creation wizard generated the connectivity variable for you already as [.NET
         1. Select the **Networking** tab.
         1. Unselect **Enable public access**.
         1. Select **Create a private endpoint**.
-        1. In **Resource group**, select **msdocs-core-sql-tutorial**.
+        1. In **Resource group**, select **msdocs-core-sql-XYZ_group**.
         1. In the dialog, in **Location**, select the same location as your App Service app.
         1. In **Name**, type **msdocs-core-sql-XYZVvaultEndpoint**.
         1. In **Location**, select the same location as your App Service app.
-        1. In **Virtual network**, select **msdocs-core-sql-XYZVnet**.
-        1. In **Subnet**, **msdocs-core-sql-XYZSubnet**.
+        1. In **Virtual network**, select the virtual network in the **msdocs-core-sql-XYZ_group** group.
+        1. In **Subnet**, select the available compatible subnet. The Web App wizard created it for your convenience.
         1. Select **OK**.
         1. Select **Review + create**, then select **Create**. Wait for the key vault deployment to finish. You should see "Your deployment is complete."
     :::column-end:::
@@ -257,6 +286,7 @@ The creation wizard generated the connectivity variable for you already as [.NET
         **Step 6: Finalize the SQL Database connector settings**
         1. You're back in the edit dialog for **defaultConnector**. In the **Authentication** tab, wait for the key vault connector to be created. When it's finished, the **Key Vault Connection** dropdown automatically selects it.
         1. Select **Next: Networking**.
+        1. Select **Configure firewall rules to enable access to target service**. The app creation wizard already secured the SQL database with a private endpoint.
         1. Select **Save**. Wait until the **Update succeeded** notification appears.
     :::column-end:::
     :::column:::
@@ -271,7 +301,7 @@ The creation wizard generated the connectivity variable for you already as [.NET
         1. Select **Store Secret in Key Vault**.
         1. Under **Key Vault Connection**, select the key vault you created. 
         1. Select **Next: Networking**.
-        1. Select **Configure firewall rules to enable access to target service**. The app creation wizard already secured the SQL database with a private endpoint.
+        1. Select **Configure firewall rules to enable access to target service**.
         1. Select **Save**. Wait until the **Update succeeded** notification appears.
     :::column-end:::
     :::column:::
@@ -303,44 +333,19 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
 
 :::row:::
     :::column span="2":::
-        **Step 1:** In the left menu, select **Deployment** > **Deployment Center**. 
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-1.png" alt-text="A screenshot showing how to open the deployment center in App Service." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-1.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 2:** In the Deployment Center page:
-        1. In **Source**, select **GitHub**. By default, **GitHub Actions** is selected as the build provider.        
-        1. Sign in to your GitHub account and follow the prompt to authorize Azure.
-        1. In **Organization**, select your account.
-        1. In **Repository**, select **msdocs-app-service-sqldb-dotnetcore**.
-        1. In **Branch**, select **starter-no-infra**. This is the same branch that you worked in with your sample app, without any Azure-related files or configuration.
-        1. For **Authentication type**, select **User-assigned identity**.
-        1. In the top menu, select **Save**. 
-        App Service commits a workflow file into the chosen GitHub repository, in the `.github/workflows` directory.
-        By default, the deployment center [creates a user-assigned identity](#i-dont-have-permissions-to-create-a-user-assigned-identity) for the workflow to authenticate using Microsoft Entra (OIDC authentication). For alternative authentication options, see [Deploy to App Service using GitHub Actions](deploy-github-actions.md).
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-2.png" alt-text="A screenshot showing how to configure CI/CD using GitHub Actions." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-2.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 3:** Back in the GitHub codespace of your sample fork, run `git pull origin starter-no-infra`. 
+        **Step 1:** Back in the GitHub codespace of your sample fork, run `git pull origin starter-no-infra`. 
         This pulls the newly committed workflow file into your codespace.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-3.png" alt-text="A screenshot showing git pull inside a GitHub codespace." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-3.png":::
+        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-1.png" alt-text="A screenshot showing git pull inside a GitHub codespace." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4 (Option 1: with GitHub Copilot):**  
+        **Step 2 (Option 1: with GitHub Copilot):**  
         1. Start a new chat session by selecting the **Chat** view, then selecting **+**.
         1. Ask, "*@workspace How does the app connect to the database and the cache?*" Copilot might give you some explanation about the `MyDatabaseContext` class and how it's configured in *Program.cs*. 
-        1. Ask, "In production mode, I want the app to use the connection string called AZURE_SQL_CONNECTIONSTRING for the database and the app setting called AZURE_REDIS_CONNECTIONSTRING*." Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *Program.cs* file. 
+        1. Ask, "In production mode, I want the app to use the connection string called AZURE_SQL_CONNECTIONSTRING for the database and the app setting called AZURE_REDIS_CONNECTIONSTRING." Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *Program.cs* file. 
         1. Open *Program.cs* in the explorer and add the code suggestion.
         GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
     :::column-end:::
@@ -350,18 +355,18 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4 (Option 2: without GitHub Copilot):**  
+        **Step 2 (Option 2: without GitHub Copilot):**  
         1. Open *Program.cs* in the explorer.
         1. Find the commented code (lines 12-21) and uncomment it. 
         This code connects to the database by using `AZURE_SQL_CONNECTIONSTRING` and connects to the Redis cache by using the app setting `AZURE_REDIS_CONNECTIONSTRING`.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-4.png" alt-text="A screenshot showing a GitHub codespace and the Program.cs file opened." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-4.png":::
+        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-2.png" alt-text="A screenshot showing a GitHub codespace and the Program.cs file opened." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-2.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 5 (Option 1: with GitHub Copilot):**
+        **Step 3 (Option 1: with GitHub Copilot):**
         1. Open *.github/workflows/starter-no-infra_msdocs-core-sql-XYZ* in the explorer. This file was created by the App Service create wizard.
         1. Highlight the `dotnet publish` step and select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false":::.
         1. Ask Copilot, "*Install dotnet ef, then create a migrations bundle in the same output folder.*"
@@ -374,45 +379,45 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 5 (Option 2: without GitHub Copilot):**
+        **Step 3 (Option 2: without GitHub Copilot):**
         1. Open *.github/workflows/starter-no-infra_msdocs-core-sql-XYZ* in the explorer. This file was created by the App Service create wizard.
         1. Under the `dotnet publish` step, add a step to install the [Entity Framework Core tool](/ef/core/cli/dotnet) with the command `dotnet tool install -g dotnet-ef --version 8.*`.
         1. Under the new step, add another step to generate a database [migration bundle](/ef/core/managing-schemas/migrations/applying?tabs=dotnet-core-cli#bundles) in the deployment package: `dotnet ef migrations bundle --runtime linux-x64 -o ${{env.DOTNET_ROOT}}/myapp/migrationsbundle`.
         The migration bundle is a self-contained executable that you can run in the production environment without needing the .NET SDK. The App Service linux container only has the .NET runtime and not the .NET SDK.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-5.png" alt-text="A screenshot showing steps added to the GitHub workflow file for database migration bundle." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-5.png":::
+        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-3.png" alt-text="A screenshot showing steps added to the GitHub workflow file for database migration bundle." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-3.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 6:**
+        **Step 4:**
         1. Select the **Source Control** extension.
         1. In the textbox, type a commit message like `Configure Azure database and cache connections`. Or, select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false"::: and let GitHub Copilot generate a commit message for you.
         1. Select **Commit**, then confirm with **Yes**.
         1. Select **Sync changes 1**, then confirm with **OK**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-6.png" alt-text="A screenshot showing the changes being committed and pushed to GitHub." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-6.png":::
+        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-4.png" alt-text="A screenshot showing the changes being committed and pushed to GitHub." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-4.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 7:**
+        **Step 5:**
         Back in the Deployment Center page in the Azure portal:
         1. Select the **Logs** tab, then select **Refresh** to see the new deployment run.
         1. In the log item for the deployment run, select the **Build/Deploy Logs** entry with the latest timestamp.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-7.png" alt-text="A screenshot showing how to open deployment logs in the deployment center." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-7.png":::
+        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-5.png" alt-text="A screenshot showing how to open deployment logs in the deployment center." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-5.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 8:** You're taken to your GitHub repository and see that the GitHub action is running. The workflow file defines two separate stages, build and deploy. Wait for the GitHub run to show a status of **Success**. It takes about 5 minutes.
+        **Step 6:** You're taken to your GitHub repository and see that the GitHub action is running. The workflow file defines two separate stages, build and deploy. Wait for the GitHub run to show a status of **Success**. It takes about 5 minutes.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-8.png" alt-text="A screenshot showing a GitHub run in progress." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-8.png":::
+        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-6.png" alt-text="A screenshot showing a GitHub run in progress." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-6.png":::
     :::column-end:::
 :::row-end:::
 
@@ -671,7 +676,7 @@ With the SQL Database protected by the virtual network, the easiest way to run d
 1. In the AZD output, find the URL for the SSH session and navigate to it in the browser. It looks like this in the output:
 
     <pre>
-    Open SSH session to App Service container at: https://&lt;app-name>.scm.azurewebsites.net/webssh/host
+    Open SSH session to App Service container at: &lt;URL>
     </pre>
 
 1. In the SSH session, run the following commands: 
@@ -697,7 +702,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
     Deploying services (azd deploy)
     
       (✓) Done: Deploying service web
-      - Endpoint: https://&lt;app-name>-&lt;hash>.azurewebsites.net/
+      - Endpoint: &lt;URL>
     </pre>
 
 2. Add a few tasks to the list.
@@ -719,7 +724,7 @@ The sample application includes standard logging statements to demonstrate this 
 In the AZD output, find the link to stream App Service logs and navigate to it in the browser. The link looks like this in the AZD output:
 
 <pre>
-Stream App Service logs at: https://portal.azure.com/#@/resource/subscriptions/&lt;subscription-guid>/resourceGroups/&lt;group-name>/providers/Microsoft.Web/sites/&lt;app-name>/logStream
+Stream App Service logs at: &lt;URL>
 </pre>
 
 Learn more about logging in .NET apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](/azure/azure-monitor/app/opentelemetry-enable?tabs=aspnetcore).

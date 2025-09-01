@@ -7,6 +7,7 @@ ms.author: msangapu
 author: msangapu-msft
 ms.devlang: python
 ms.custom: devx-azure-cli, devx-azure-portal, devx-vscode-azure-extension, devdivchpfy22, vscode-azure-extension-update-completed, devx-track-azurecli, devx-track-python
+ms.service: azure-app-service
 ---
 
 # Quickstart: Deploy a Python (Django, Flask, or FastAPI) web app to Azure App Service
@@ -316,7 +317,7 @@ For FastAPI, you must configure a custom startup command for App Service to run 
 
 ## Browse to the app
 
-Browse to the deployed application in your web browser by using the URL `http://<app-name>.azurewebsites.net`. If you see a default app page, wait a minute and refresh the browser.
+Browse to the deployed application in your web browser. You can follow a link from the Azure portal. Go to the **Overview** page and select **Default Domain**. If you see a default app page, wait a minute and refresh the browser.
 
 The Python sample code is running a Linux container in App Service using a built-in image.
 

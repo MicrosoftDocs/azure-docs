@@ -6,7 +6,13 @@ ms.topic: reference
 ms.date: 04/04/2023
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-ts
+ms.custom:
+  - devx-track-csharp
+  - devx-track-python
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-ts
+  - build-2025
 zone_pivot_groups: programming-languages-set-functions
 ---
 

@@ -1,12 +1,12 @@
 ---
 title: Cost Management dataset schema index
 description: Learn about the dataset schemas available in Cost Management.
-author: jojopm
+author: jojohpm
 ms.reviewer: jojoh
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 01/24/2025
+ms.date: 06/26/2025
 ms.author: jojoh
 ---
 
@@ -32,20 +32,20 @@ For for more information about each agreement type and what's included, see [Sup
 
 |Dataset|Contract|Dataset version|
 |------|------|------|
-|Cost and usage details|Enterprise Agreement (EA)|[2023-12-01-preview](cost-usage-details-ea.md)
-|Cost and usage details|Microsoft Customer Agreement (MCA)|[2023-12-01-preview](cost-usage-details-mca.md)
-|Cost and usage details|Microsoft Partner Agreement (MPA)|[2023-12-01-preview](cost-usage-details-mca-partner.md)
-|Cost and usage details|Cloud Service Provider (CSP) subscription|[2023-12-01-preview](cost-usage-details-mca-partner-subscription.md)
-|Cost and usage details|Pay-as-you-go (MOSA)|[2019-11-01](cost-usage-details-pay-as-you-go.md)
-|Cost and usage details (FOCUS)|EA and MCA|[1.0](cost-usage-details-focus.md)
-|Price sheet|EA|[2023-05-01](price-sheet-ea.md)
-|Price sheet|MCA|[2023-05-01](price-sheet-mca.md)
-|Reservation details|EA|[2023-03-01](reservation-details-ea.md)
-|Reservation details|MCA|[2023-03-01](reservation-details-mca.md)
-|Reservation recommendations|EA|[2023-05-01](reservation-recommendations-ea.md)
-|Reservation recommendations|MCA|[2023-05-01](reservation-recommendations-mca.md)
-|Reservation transactions|EA|[2023-05-01](reservation-transactions-ea.md)
-|Reservation transactions|MCA|[2023-05-01](reservation-transactions-mca.md)
+|Cost and usage details|Enterprise Agreement (EA)|[2023-12-01-preview](cost-usage-details-ea.md)|
+|Cost and usage details|Microsoft Customer Agreement (MCA)|[2023-12-01-preview](cost-usage-details-mca.md)|
+|Cost and usage details|Microsoft Partner Agreement (MPA)|[2023-12-01-preview](cost-usage-details-mca-partner.md)|
+|Cost and usage details|Cloud Service Provider (CSP) subscription|[2023-12-01-preview](cost-usage-details-mca-partner-subscription.md)|
+|Cost and usage details|Pay-as-you-go (MOSA)|[2019-11-01](cost-usage-details-pay-as-you-go.md)|
+|Cost and usage details (FOCUS)|EA and MCA|[1.2-preview](cost-usage-details-focus.md)|
+|Price sheet|EA|[2023-05-01](price-sheet-ea.md)|
+|Price sheet|MCA|[2023-05-01](price-sheet-mca.md)|
+|Reservation details|EA|[2023-03-01](reservation-details-ea.md)|
+|Reservation details|MCA|[2023-03-01](reservation-details-mca.md)|
+|Reservation recommendations|EA|[2023-05-01](reservation-recommendations-ea.md)|
+|Reservation recommendations|MCA|[2023-05-01](reservation-recommendations-mca.md)|
+|Reservation transactions|EA|[2023-05-01](reservation-transactions-ea.md)|
+|Reservation transactions|MCA|[2023-05-01](reservation-transactions-mca.md)|
 
 ## Older versions of dataset schema files
 

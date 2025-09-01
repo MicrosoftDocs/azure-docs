@@ -2,25 +2,28 @@
 title: About Azure Data Lake Storage Vaulted Backup (preview)
 description: Learn how the Azure Data Lake Storage vaulted backup works
 ms.topic: overview
-ms.date: 04/16/2025
-author: jyothisuri
-ms.author: jsuri
+ms.date: 08/26/2025
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: As a data engineer, I want to understand the backup aspects before configuring vaulted backups for Azure Data Lake Storage, so that I can ensure reliable data protection and restore capabilities for my storage accounts.
 --- 
 
 # About Azure Data Lake Storage vaulted backup (preview)
 
-[Azure Data Lake Storage (ADLS)](/azure/storage/blobs/data-lake-storage-introduction) vaulted backup (preview) is a streamlined, cloud-native solution to back up and restore general-purpose v2 storage accounts with a [hierarchical namespace](/azure/storage/blobs/data-lake-storage-namespace). It allows selective backup and restoration of containers, and store backups in a dedicated vault for granular control.
+[Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) vaulted backup (preview) is a streamlined, cloud-native solution to back up and restore general-purpose v2 storage accounts with a [hierarchical namespace](/azure/storage/blobs/data-lake-storage-namespace). It allows selective backup and restoration of containers, and store backups in a dedicated vault for granular control.
+
+For more insights on Azure Backup’s support for vaulted backups in Azure Data Lake Storage (preview) that enables secure, long-term, and isolated data protection, see the [Microsoft Community Hub blog](https://azure.microsoft.com/updates?id=488835).
 
 >[!Note]
 >- This feature is currently in limited preview and is available in specific regions only. See the [supported regions](azure-data-lake-storage-backup-support-matrix.md#supported-regions).
 >- To enroll in this preview feature, fill [this form](https://forms.office.com/r/sixidTkYb4)  and write to [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
 
-## Azure Data Lake Storage backup workflow
+## How the backup process for Azure Data Lake Storage works
 
 Vaulted backup uses platform capabilities such as snapshots and object replication to copy data to the Backup vault. Object replication asynchronously copies block blobs from a source storage account to a destination backup storage account, including the blob's contents, versions, metadata, and properties.  
 
-When you configure protection, Azure Backup sets up a destination storage account within the Backup vault and applies an object replication policy at the container level for both source and destination accounts. During backup, Azure Backup places a recovery point marker on the source account and tracks its replication. After the marker is replicated to the destination, the recovery point is created.
+When you configure protection, Azure Backup sets up a destination storage account within the Backup vault and applies an object replication policy at the container level for both source and destination accounts. During backup, Azure Backup places a recovery point marker on the source account and tracks its replication. After the marker is replicated to the destination, the recovery point is created. Backup may take a minimum of 30–40 minutes, as backups rely on snapshots, and are taken every 15 minutes and require two snapshots to detect changes before triggering the backup.
 
 *The following diagram shows the recovery point creation process after the snapshot is taken:*
 
@@ -28,9 +31,9 @@ When you configure protection, Azure Backup sets up a destination storage accoun
 
 Learn about the [supported scenarios and limitations for Azure Data Lake Storage backup](azure-data-lake-storage-backup-support-matrix.md).
 
-## ADLS backup configuration and retention (preview)
+## Azure Data Lake Storage backup configuration and retention (preview)
 
-The ADLS backup requires a Backup vault that provides a centralized view of configured backups. Vaulted backup is set at the storage account level, with the option to exclude containers. 
+The Azure Data Lake Storage backup requires a Backup vault that provides a centralized view of configured backups. Vaulted backup is set at the storage account level, with the option to exclude containers. 
 >[!Note]
 >If an account has over 100 containers, reduce the count to **<= 100**. Learn [about the supported container count for backup](azure-data-lake-storage-backup-support-matrix.md#protection-limits).
 
@@ -44,7 +47,7 @@ Azure Backup automatically runs scheduled jobs, replicating block blobs from the
 
 ### Backup management 
 
-After the ADLS backup configuration is complete, a backup instance is created in the Backup vault. Use it to initiate restores, monitor activity, stop protection, and perform other backup operations.
+After the Azure Data Lake Storage backup configuration is complete, a backup instance is created in the Backup vault. Use it to initiate restores, monitor activity, stop protection, and perform other backup operations.
 
 The Backup vault's managed identity needs specific permissions on storage accounts for backup and restore operations. These permissions are bundled into the **Storage Account Backup Contributor** role for ease of management.
 
