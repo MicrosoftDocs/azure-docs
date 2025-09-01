@@ -43,6 +43,8 @@ For more information, see the following articles:
 
 ## Prerequisites
 
+The following table describes the prerequisites for this guide:
+
 | Prerequisite | Description or notes |
 |--------------|----------------------|
 | Azure account with an active subscription | If you don't have a subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). <br><br>**Important**: Make sure to use the same Azure subscription for the resources required in this scenario. |
