@@ -6,15 +6,13 @@ author: sofiar
 manager: miguelher
 services: azure-communication-services
 ms.author: sofiar
-ms.date: 05/19/2025
+ms.date: 09/01/2025
 ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: identity
 ---
 
 # Access Teams Phone without going through the Teams client
-
-[!INCLUDE [public-preview-notice.md](../../includes/public-preview-include-document.md)]
 
 This article describes how to grant consent to a server to receive calls directed to a Teams Resource Account. Following sections also describe how to use a client to answer and place calls on behalf of Teams Resource Accounts.
 
