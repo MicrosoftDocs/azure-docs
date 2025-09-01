@@ -54,9 +54,9 @@ Feature | Windows credentials | Linux credentials
 ### Recommended practices to provide credentials
 
 - We recommend you to create a dedicated domain user account with the [required permissions](add-server-credentials.md#required-permissions), which is scoped to perform software inventory, agentless dependency analysis and discovery of web app, and SQL Server instances and databases on the desired servers.
-- We recommend you to provide at least one successfully validated domain credential or at least one nondomain credential to initiate software inventory.
+- We recommend you provide at least one successfully validated domain credential or at least one nondomain credential to initiate software inventory.
 - To discover SQL Server instances and databases, you can provide domain credentials, if you've configured Windows authentication mode on your SQL Servers.
-- You can also provide SQL Server authentication credentials if you've configured SQL Server authentication mode on your SQL Servers but it's recommended to provide at least one successfully validated domain credential or at least one Windows (Nondomain) credential so that the appliance can first complete the software inventory.
+- You can also provide SQL Server authentication credentials if you've configured SQL Server authentication mode on your SQL Servers, but it's recommended to provide at least one successfully validated domain credential or at least one Windows (Nondomain) credential so that the appliance can first complete the software inventory.
 
 ## Credentials handling on appliance
 

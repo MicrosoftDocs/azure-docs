@@ -8,6 +8,7 @@ ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: azure-cloud-services-classic
 ms.topic: concept-article
 ms.date: 08/07/2025
+ms.update-cycle: 3650-days
 ms.author: jejackson
 ms.custom: compute-evergreen
 ---
