@@ -2,7 +2,7 @@
 title: Onboard Microsoft Sentinel Data Lake
 description: Enable and configure Microsoft Sentinel Data Lake, including prerequisites, permissions, onboarding steps, and data retention management in the Microsoft Defender portal.
 author: KanenasCS
-ms.author: 
+ms.author: bagol
 ms.topic: how-to
 ms.date: 09/01/2025
 ms.collection: usx-security
