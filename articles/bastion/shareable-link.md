@@ -6,6 +6,7 @@ ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 12/09/2024
 ms.author: abell
+# Customer intent: As an IT administrator, I want to create shareable links for Azure Bastion so that users can connect to target resources without accessing the Azure portal, ensuring secure and convenient access management.
 ---
 
 # Create a shareable link for Bastion

@@ -6,8 +6,8 @@ ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 12/05/2024
+ms.topic: concept-article
+ms.date: 07/05/2025
 ---
 
 # Process XML messages and flat files in Azure Logic Apps
@@ -23,7 +23,7 @@ For example, the Azure Logic Apps includes the following XML capabilities:
 | [Transform XML](logic-apps-enterprise-integration-transform.md) | Convert or customize an XML message based on your requirements or partner requirements by using maps. |
 | [Encode and decode flat files](logic-apps-enterprise-integration-flatfile.md) | Encode or decode a flat file. <br><br>For example, SAP accepts and sends IDOC files in flat file format. Many integration platforms create XML messages, including Azure Logic Apps. So, you can create a logic app workflow that uses the flat file encoder to convert XML into flat file format. |
 | [Validate XML](logic-apps-enterprise-integration-xml-validation.md) | Validate an inbound or outbound XML message against a specific schema. |
-| [XPath](workflow-definition-language-functions-reference.md#xpath) | Enrich a message and extract specific properties from the message. You can then use the extracted properties to route the message to a destination, or an intermediary endpoint. |
+| [XPath](expression-functions-reference.md#xpath) | Enrich a message and extract specific properties from the message. You can then use the extracted properties to route the message to a destination, or an intermediary endpoint. |
 
 ## Sample
 

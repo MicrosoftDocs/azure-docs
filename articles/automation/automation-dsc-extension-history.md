@@ -7,6 +7,8 @@ services: automation
 ms.subservice: desired-state-config
 ms.topic: conceptual
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Work with Azure Desired State Configuration extension version history

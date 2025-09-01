@@ -2,7 +2,7 @@
 author: cnwankwo
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 08/06/2023
+ms.date: 06/15/2025
 ms.author: cnwankwo
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-ios.md)]

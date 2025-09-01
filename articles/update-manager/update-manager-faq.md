@@ -8,7 +8,7 @@ ms.topic: faq
 ms.date: 04/16/2025
 author: habibaum
 ms.author: v-uhabiba
-#Customer intent: As an implementer, I want answers to various questions.
+# Customer intent: As an IT administrator managing updates across various environments, I want to find answers to frequently asked questions about Azure Update Manager, so that I can effectively use its features for patch management and ensure compliance across my systems.
 ---
 
 # Azure Update Manager frequently asked questions
@@ -135,6 +135,7 @@ Customers won't be charged for already existing Arc-enabled servers which were u
 If you have purchased a Defender for Servers Plan 2, then you won't have to pay to remediate the unhealthy resources for the above two recommendations. But if you're using any other Defender for server plan for your Arc machines, then you would be charged for those machines at the daily prorated $0.16/server by Azure Update Manager.
 
 ### Is Azure Update Manager chargeable on Azure Local?
+
 Azure Update Manager isn't charged for:
  - Management of Azure Local instances  via **Azure Local**  and [Azure Update Manager on Azure Local](/azure/azure-local/update/azure-update-manager-23h2)
  - [Arc-enabled Azure Local VMs](/azure/azure-local/manage/azure-arc-vm-management-overview) created via the Arc Resource Bridge. For example *Machine-Azure Arc (Azure Local)* resource.
@@ -142,7 +143,10 @@ Azure Update Manager isn't charged for:
 All other resources including, but not limited to the following will be charged.
  - Management of individual Azure Local machines. For example, *Machine - Azure Arc* resource or *Azure Update Manager - Machines*.
  - All VMs on Azure Local that is not created by Arc resource bridge - VMs projected as Arc-enabled servers and/or VMs on Azure Local managed by Azure Arc-enabled SCVMM.
- 
+
+### Is there any additional cost associated with Azure Update Manager for any data transfers?
+
+No, there is no extra cost for data transfer when using Azure Update Manager for patch management operations.
 
 ## Update Manager support and integration
 

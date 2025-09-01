@@ -2,9 +2,10 @@
 title: Create a pool with disk encryption enabled
 description: Learn how to use disk encryption configuration to encrypt nodes with a platform-managed key.
 ms.topic: how-to
-ms.date: 06/29/2023
+ms.date: 07/01/2025
 ms.devlang: csharp
 ms.custom: devx-track-azurecli
+# Customer intent: "As a cloud administrator, I want to create a Batch pool with disk encryption enabled, so that I can safeguard data on the compute nodes while reducing management overhead."
 ---
 
 # Create a pool with disk encryption enabled

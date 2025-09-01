@@ -4,13 +4,12 @@ description: Learn how to configure replication to another region for Azure VMs,
 author: jyothisuri
 ms.author: jsuri
 ms.topic: how-to
-ms.date: 12/23/2024
+ms.date: 06/17/2025
 ms.service: azure-site-recovery
+# Customer intent: "As an IT administrator, I want to configure replication for Azure VMs to another region, so that I can ensure disaster recovery and maintain business continuity in the event of a regional outage."
 ---
 
-
 # Replicate Azure VMs to another Azure region
-
 
 This article describes how to enable replication of Azure VMs, from one Azure region to another.
 
@@ -73,7 +72,7 @@ Use the following procedure to replicate Azure VMs to another Azure region. As a
          :::image type="Storage" source="./media/azure-to-azure-how-to-enable-replication/storage.png" alt-text="Screenshot of Storage."::: 
   
        - **Replica-managed disk**: Site Recovery creates new replica-managed disks in the target region to mirror the source VM's managed disks with the same storage type (Standard or premium) as the source VM's managed disk.
-       - **Cache storage**: Site Recovery needs extra storage account called cache storage in the source region. All the changes happening on the source VMs are tracked and sent to cache storage account before replicating them to the target location. 
+       - **Cache storage**: Site Recovery needs extra storage account called cache storage in the source region. All the changes happening on the source VMs are tracked and sent to cache storage account before replicating them to the target location. High Churn is the only option available to protect VMs using Premium SSD v2/Ultra Disks.
          >[!Note]
          >Azure Site Recovery has a *High Churn* option that you can choose to protect VMs with high data change rate. With this, you can use a *Premium Block Blob* type of storage account. By default, the **Normal Churn** option is selected. For more information, see [Azure VM Disaster Recovery - High Churn Support](./concepts-azure-to-azure-high-churn-support.md).
          >:::image type="Churn" source="media/concepts-azure-to-azure-high-churn-support/churns.png" alt-text="Screenshot of churn.":::    

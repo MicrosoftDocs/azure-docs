@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 01/14/2025
+# Customer intent: "As a cloud security administrator, I want to create and manage Web Application Firewall policies for different application gateways, so that I can customize security settings based on the specific needs of each site and URI. "
 ---
 
 # Azure Web Application Firewall (WAF) policy overview

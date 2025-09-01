@@ -4,6 +4,7 @@ description: Learn about Azure Batch accounts and how they're used from a develo
 ms.topic: concept-article
 ms.date: 04/02/2025
 
+# Customer intent: As a cloud developer, I want to understand how to create and associate Batch accounts with Azure Storage accounts, so that I can efficiently manage and store resource files for my parallel processing workloads.
 ---
 # Batch accounts and Azure Storage accounts
 

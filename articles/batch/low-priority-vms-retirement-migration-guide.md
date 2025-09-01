@@ -5,7 +5,8 @@ author: padmalathas
 ms.author: padmalathas
 ms.service: azure-batch
 ms.topic: how-to
-ms.date: 02/25/2025
+ms.date: 04/09/2025
+# Customer intent: As an Azure Batch user, I want to migrate my low-priority VMs to Spot VMs before the retirement deadline, so that I can continue to benefit from cost-effective compute resources without service disruption.
 ---
 
 # Migrate Batch low-priority VMs to Spot VMs

@@ -8,6 +8,7 @@ ms.date: 02/03/2023
 author: sagarkeswani
 ms.author: sagarkeswani
 #Customer intent: As a SAP Basis Admin, I want to view and manage my SAP systems using Virtual Instance for SAP solutions resource where I can find SAP system properties.
+# Customer intent: As a SAP Basis Admin, I want to configure and manage a Virtual Instance for SAP solutions in the Azure portal, so that I can monitor system properties and optimize resource connections for effective SAP system management.
 ---
 
 # Manage a Virtual Instance for SAP solutions

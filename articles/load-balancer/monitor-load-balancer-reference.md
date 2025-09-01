@@ -7,6 +7,7 @@ ms.topic: reference
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-load-balancer
+# Customer intent: As a network administrator, I want to access detailed metrics and monitoring data for Azure Load Balancer, so that I can effectively manage performance and troubleshoot issues in my cloud infrastructure.
 ---
 
 # Azure Load Balancer monitoring data reference

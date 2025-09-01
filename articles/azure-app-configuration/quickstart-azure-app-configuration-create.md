@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
-ms.date: 04/16/2025
+ms.date: 06/04/2025
 
 #Customer intent: As an Azure developer, I want to create an app configuration store to manage all my app settings in one place using Azure App Configuration.
 ---
@@ -39,8 +39,8 @@ An Azure account with an active subscription. [Create one for free](https://azur
     | **Resource group**               | *AppConfigTestResources*   | Select or create a resource group for your App Configuration store resource. A resource group can be used to organize and manage multiple resources at the same time, such as deleting multiple resources in a single operation by deleting their resource group. For more information, see [Manage Azure resource groups by using the Azure portal](../azure-resource-manager/management/manage-resource-groups-portal.md). |
     | **Location**                     | *Central US*               | Use **Location** to specify the geographic location in which your app configuration store is hosted. For the best performance, create the resource in the same region as other components of your application.                                                                                                                                                |
     | **Resource name**                | Globally unique name       | Enter a unique resource name to use for the App Configuration store resource. The name must be a string between 5 and 50 characters and contain only numbers, letters, and the `-` character. The name can't start or end with the `-` character.                                                                                                             |
-    | **Pricing tier**                 | *Free*                     | Selecting **Free**. If you select the standard tier, you can also get access to geo-replication and soft-delete features. For more information, see the [App Configuration pricing page](https://azure.microsoft.com/pricing/details/app-configuration).                                                                                                                                                                                               |
-    
+    | **Pricing tier**                 | *Free*                     | Select the **Free** tier. Other tiers enable access to additional features, such as geo-replication and soft-delete. For more information, see the [App Configuration pricing page](https://azure.microsoft.com/pricing/details/app-configuration).                                                                                                                                                                                               |
+        
     :::image type="content" source="media/azure-app-configuration-create/azure-portal-basic-tab.png" alt-text="Screenshot of the Azure portal that shows the basic tab of the creation for with the free tier selected.":::
 
 1. Select **Review + create** to validate your settings.
@@ -69,6 +69,12 @@ az appconfig create --location centralus --name <name> --resource-group AppConfi
 
 ---
 
+> [!NOTE]
+> App Configuration store limits vary by tier:
+> - **Free tier**: Limited to 3 stores per subscription
+> - **Developer, Standard, and Premium tiers**: Unlimited stores per subscription
+>
+> For more information, see [Azure App Configuration pricing](https://azure.microsoft.com/pricing/details/app-configuration/).
 If you're following another tutorial to use the App Configuration store, you can go back to your original tutorial as the store should be ready. To continue with this tutorial, follow the steps below.
 
 ## Create a key-value
@@ -89,12 +95,14 @@ If you're following another tutorial to use the App Configuration store, you can
 
 Add a key-value to the App Configuration store using the [az appconfig kv set](/cli/azure/appconfig/#az-appconfig-kv-set) command. Replace the placeholder `<name>` with the name of the App Configuration store:
 
-
 ```azurecli
 az appconfig kv set --name <name> --key TestApp:Settings:TextAlign --value center
 ```
 
 ---
+
+> [!TIP]
+> Consider using the [Azure MCP Server tools for App Configuration](/azure/developer/azure-mcp-server/tools/app-configuration) for a quick way to manage  your App Configuration store using natural language prompts. These tools allow you to list configuration stores, list, create, search, lock, unlock, and update key-values settings through conversational AI interactions.
 
 ## Clean up resources
 
@@ -114,7 +122,6 @@ When no longer needed, delete the resource group. Deleting a resource group also
 ### [Azure CLI](#tab/azure-cli)
 
 Run the [az group delete](/cli/azure/group/#az-group-delete) command. Replace the placeholder `<name>` with the name of the App Configuration store:
-
 
 ```azurecli
 az group delete --name <name>

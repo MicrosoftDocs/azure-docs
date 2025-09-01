@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 07/24/2023
 ms.author: nasindam
+# Customer intent: As an IT manager in a diverse industry, I want to understand how companies are using cloud-based file storage and sync solutions, so that I can evaluate similar strategies to enhance scalability, collaboration, and business continuity within my organization.
 ---
 
 # Azure Files and Azure File Sync customer case studies

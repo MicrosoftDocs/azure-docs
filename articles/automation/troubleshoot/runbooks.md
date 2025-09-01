@@ -5,6 +5,8 @@ services: automation
 ms.date: 05/09/2024
 ms.topic: troubleshooting
 ms.custom: has-adal-ref, devx-track-azurepowershell
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Troubleshoot runbook issues

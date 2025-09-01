@@ -10,6 +10,7 @@ ms.date: 04/17/2025
 ms.author: shaas
 zone_pivot_groups: data-box-sku
 #Customer intent: As an IT admin, I need to be able to export data from Azure to another location, such as, another cloud provider or my location.
+# Customer intent: As an IT administrator, I want to export data from Azure Data Box to another location, so that I can ensure data recovery and management in case of on-premises storage issues.
 ---
 # Tutorial: Create export order for Azure Data Box
 

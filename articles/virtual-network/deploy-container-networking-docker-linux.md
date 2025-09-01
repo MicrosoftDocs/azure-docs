@@ -8,6 +8,7 @@ ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 08/28/2023
 ms.custom: template-how-to, linux-related-content
+# Customer intent: As a DevOps engineer, I want to deploy the Azure CNI plugin for a standalone Linux Docker host, so that I can enable container networking and ensure proper IP address allocation for my containers.
 ---
 
 # Deploy container networking for a stand-alone Linux Docker host

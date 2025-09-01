@@ -9,6 +9,7 @@ ms.subservice: storage-common-concepts
 ms.topic: concept-article
 ms.date: 09/25/2020
 ms.author: shaas
+# Customer intent: As a data engineer, I want to evaluate Azure data transfer solutions based on data size and network bandwidth, so that I can choose the most efficient method for transferring data to the cloud.
 ---
 
 <!--
@@ -72,7 +73,7 @@ You can also provide information specific to your scenario and review a list of 
 
 ## Next steps
 
-- [Get an introduction to Azure Storage Explorer](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/).
+- [Introduction to Azure Storage](/azure/storage/common/storage-introduction).
 - [Read an overview of AzCopy](./storage-use-azcopy-v10.md).
 - [Quickstart: Upload, download, and list blobs with PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
 - [Quickstart: Create, download, and list blobs with Azure CLI](../blobs/storage-quickstart-blobs-cli.md)

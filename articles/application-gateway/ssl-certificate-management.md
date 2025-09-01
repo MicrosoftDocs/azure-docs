@@ -7,6 +7,7 @@ ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 03/19/2024
 ms.author: jaysoni
+# Customer intent: As an IT administrator managing listener TLS certificates, I want to efficiently upload, modify, and delete SSL certificates through the management portal so that I can ensure secure TLS connections for users accessing our application.
 ---
 
 # TLS certificates management for listeners

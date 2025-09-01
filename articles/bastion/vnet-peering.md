@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.date: 12/09/2024
 ms.author: abell
 
+# Customer intent: "As a network administrator, I want to configure Azure Bastion with virtual network peering, so that I can centralize remote access to virtual machines across peered networks without deploying multiple Bastion hosts."
 ---
 
 # Virtual network peering and Azure Bastion

@@ -6,6 +6,7 @@ ms.service: azure-container-storage
 ms.date: 10/15/2024
 ms.author: kendownie
 ms.topic: how-to
+# Customer intent: "As a cloud administrator managing Azure Container Storage, I want to troubleshoot installation and storage pool issues, so that I can ensure successful deployment and optimal performance."
 ---
 
 # Troubleshoot Azure Container Storage

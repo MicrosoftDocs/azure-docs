@@ -4,6 +4,7 @@ description: A description of IoT Plug and Play conventions for service develope
 author: dominicbetts
 ms.author: dobett
 ms.date: 03/18/2025
+ms.update-cycle: 1095-days
 ms.topic: conceptual
 ms.service: azure-iot
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python

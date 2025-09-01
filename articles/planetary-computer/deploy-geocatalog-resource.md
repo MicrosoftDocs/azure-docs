@@ -116,9 +116,7 @@ This article describes two methods for deploying an Planetary Computer Pro GeoCa
    az resource show -g $RESOURCE_GROUP -n $CATALOG_NAME --namespace Microsoft.Orbital --resource-type "geocatalogs"
    ```
 
-1. Once the deployment status shows succeeded, you should be able to see the created GeoCatalog instance on the portal under the specified resource group (note you need to check "Show hidden types" checkbox to see it).
-
-   [ ![Screenshot of GeoCatalog instance in the Azure portal under the specified resource group.](media/show-hidden-roles.png) ](media/show-hidden-roles.png#lightbox)
+1. Once the deployment status shows succeeded, you should be able to see the created GeoCatalog instance on the portal under the specified resource group.
 
 ## Next Steps
 - [Create a STAC Collection](./create-collection-web-interface.md)

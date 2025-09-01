@@ -8,6 +8,8 @@ ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 #Customer intent: As a developer, I want create modular runbooks so that I can be more efficient.
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Create modular runbooks in Automation

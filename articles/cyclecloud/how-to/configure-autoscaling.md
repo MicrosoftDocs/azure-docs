@@ -2,31 +2,31 @@
 title: Configuring Autoscaling
 description: Learn how to configure autoscaling on Azure CycleCloud clusters. Scaling lets you easily increase or decrease a resource to accommodate heavier or lighter loads.
 author: adriankjohnson
-ms.date: 01/14/2020
+ms.date: 07/01/2025
 ms.author: adjohnso
 ---
 
-# AutoScale Your Clusters
+# AutoScale your clusters
 
-*Scaling* is the ability to easily increase or decrease a resource to accommodate heavier or lighter loads. In Azure CycleCloud, jobs can be easily scaled up when the load increases, or scaled down to conserve cost. This can be done automatically or manually.
+*Scaling* means you can easily increase or decrease a resource to handle heavier or lighter loads. In Azure CycleCloud, you can easily scale up jobs when the load increases or scale down jobs to save costs. You can set up scaling to happen automatically or do it manually.
 
-## Auto-Scaling
+## Auto-scaling
 
-When creating a new cluster via the GUI, the **Compute Backend** tab allows you to choose to auto-scale your cluster and add execute hosts as required. Check the box to allow CycleCloud to start and stop execute nodes as required, and set the number of initial and maximum cores allowed.
+When you create a new cluster through the GUI, the **Compute Backend** tab gives you the option to auto-scale your cluster and add execute hosts as needed. Select the check box to let CycleCloud start and stop execute nodes as needed. Set the number of initial and maximum cores.
 
 ::: moniker range="=cyclecloud-7"
-![Auto-Scale Setting for New Cluster](../images/version-7/autoscale-setting.png)
+![Auto-scale setting for new cluster](../images/version-7/autoscale-setting.png)
 ::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
-![Auto-Scale Setting for New Cluster](../images/version-8/autoscale-setting.png)
+![Auto-scale setting for new cluster](../images/version-8/autoscale-setting.png)
 ::: moniker-end
 
-Setting a **Max Cores** number will limit the number of nodes started to ensure your workload does not run unfetted. You can also set up an [usage alert](~/articles/cyclecloud/concepts/usage-tracking.md) when submitting your job to ensure a budget is not exceeded.
+Setting a **Max Cores** number limits the number of nodes that start, so your workload doesn't run unchecked. You can also set up an [usage alert](~/articles/cyclecloud/concepts/usage-tracking.md) when you submit your job to make sure you don't go over budget.
 
-## Auto-Scaling in Cluster Template
+## Auto-scaling in cluster template
 
-By default, auto-scaling is disabled for all new clusters. To enable it, add the following to your [cluster template](cluster-templates.md):
+By default, new clusters have auto-scaling turned off. To turn on auto-scaling, add the following code to your [cluster template](cluster-templates.md):
 
 ``` ini
 Autoscale = true
@@ -34,7 +34,7 @@ Autoscale = true
 MaxCoreCount = xx
 ```
 
-## Further Reading
+## More information
 
 * Create a [Cluster Template](cluster-templates.md)
 * [Start a Cluster](start-cluster.md)

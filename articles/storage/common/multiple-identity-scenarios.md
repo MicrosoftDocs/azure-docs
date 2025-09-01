@@ -11,6 +11,7 @@ ms.author: alexwolf
 ms.subservice: storage-common-concepts
 ms.devlang: csharp
 ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet
+# Customer intent: As a developer, I want to configure passwordless connections using managed identities for my Azure applications, so that I can securely connect multiple services without managing secrets manually.
 ---
 
 # Configure passwordless connections between multiple Azure apps and services

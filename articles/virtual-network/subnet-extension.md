@@ -7,6 +7,7 @@ ms.service: azure-virtual-network
 ms.topic: concept-article
 ms.date: 04/06/2023
 ms.author: allensu
+# Customer intent: As a network architect, I want to extend my on-premises subnets into Azure, so that I can migrate applications without renumbering IP addresses and enable seamless communication between cloud and on-premises resources.
 ---
 
 # Subnet extension

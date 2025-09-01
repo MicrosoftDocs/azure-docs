@@ -4,8 +4,9 @@ description: Learn about past features releases in Azure Backup.
 ms.topic: release-notes
 ms.date: 07/30/2024
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As an IT administrator responsible for data protection, I want to review the previous feature releases for Azure Backup, so that I can stay informed about past features and improvements to better manage our backup solutions."
 ---
 
 # Archived release notes in Azure Backup

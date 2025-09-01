@@ -4,8 +4,8 @@ description: Learn how to use Azure Policy to audit and enforce backups for all 
 ms.topic: how-to
 ms.date: 06/05/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ---
 
 # Audit and enforce backup for Azure Files using Azure Policy 

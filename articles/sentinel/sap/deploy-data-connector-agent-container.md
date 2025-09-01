@@ -348,7 +348,7 @@ At this stage, the system's **Health** status is **Pending**. If the agent is up
     - If you have the **Entra ID Application Developer** role or higher, continue to the next step.
     - If you don't have the **Entra ID Application Developer** role or higher:
         - Share the DCR ID with your Entra ID administrator or colleague with the required permissions. 
-        - Ensure that the **Monitoring Metrics Publishing** role is assigned on the DCR, with the service principal assignment, using the client ID from the Entra ID app registration.                      
+        - Ensure that the **Monitoring Metrics Publisher** role is assigned on the DCR, with the service principal assignment, using the client ID from the Entra ID app registration.                      
         - Retrieve the client ID and client secret from the Entra ID app registration to use for authorization on the DCR. 
         
         The SAP admin uses the client ID and client secret information to post to the DCR.              
@@ -369,6 +369,9 @@ At this stage, the system's **Health** status is **Pending**. If the agent is up
     | **Integration Suite Endpoint** | The *url* value taken from the Process Integration Runtime service key JSON file. For example: `https://your-tenant.it-account-rt.cfapps.region.hana.ondemand.com` |
 
 1. Select **Connect**.
+
+> [!IMPORTANT]
+> There may be some wait time on initial connect. Find more details to verify the connector [here](/azure/sentinel/create-codeless-connector#verify-the-codeless-connector).
 
 ## Customize data connector behavior (optional)
 

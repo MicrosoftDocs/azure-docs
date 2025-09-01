@@ -8,6 +8,7 @@ ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 10/15/2024
 ms.author: cherylmc
+# Customer intent: As a network administrator, I want to advertise custom routes to point-to-site VPN clients, so that I can ensure efficient traffic routing through the VPN tunnel for secure access to resources like storage accounts.
 ---
 
 # Advertise custom routes for P2S VPN clients

@@ -13,7 +13,7 @@ ms.custom: engagement-fy23
 
 # Automatically scale an Azure API Management instance
 
-[!INCLUDE [api-management-availability-premium-standard-basic](../../includes/api-management-availability-premium-standard-basic.md)]
+[!INCLUDE [api-management-availability-premium-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 An Azure API Management service instance can scale automatically based on a set of rules. This behavior can be enabled and configured through [Azure Monitor autoscale](/azure/azure-monitor/autoscale/autoscale-overview#supported-services-for-autoscale).
 
@@ -64,7 +64,7 @@ Follow these steps to configure autoscale for an Azure API Management service:
     |-----------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Metric source         | Current resource  | Define the rule based on the current API Management resource metrics.                                                                                                                                                                                                     |
     | *Criteria*            |                   |                                                                                                                                                                                                                                                                                 |
-    | Metric name           | Capacity          | [Capacity metric](api-management-capacity.md) is an API Management metric reflecting usage of resources by an Azure API Management instance.                                                                                                                                                            |
+    | Metric name           | Capacity          | [Capacity metric](api-management-capacity.md) is one of the API Management metrics reflecting usage of resources by an Azure API Management instance. Choose a capacity metric supported in your API Management service tier.                                                                                                                                                           |
     | Location | Select the primary location of the API Management instance | |
     | Operator              | Greater than      |                                                                                                                                                                                                                                                                                 |
     | Metric threshold             | 70%               | The threshold for the averaged capacity metric. For considerations on setting this threshold, see [Using capacity for scaling decisions](api-management-capacity.md#use-capacity-for-scaling-decisions).                                                                                                                                                                                                                               |

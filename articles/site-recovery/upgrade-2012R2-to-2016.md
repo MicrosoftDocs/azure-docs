@@ -7,6 +7,7 @@ ms.service: azure-site-recovery
 ms.date: 09/23/2024
 ms.author: jsuri
 ms.custom: engagement-fy23
+# Customer intent: As an IT administrator managing virtual machines, I want to upgrade Windows Server and System Center VMM from 2012 R2 to 2016, so that I can ensure continuity, enhance disaster recovery capabilities, and maintain system compatibility.
 ---
 
 # Upgrade Windows Server and System Center VMM 2012 R2 to 2016

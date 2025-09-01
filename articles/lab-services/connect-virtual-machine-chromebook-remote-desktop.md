@@ -69,7 +69,7 @@ Connect to the lab VM by using the remote desktop application. You can retrieve 
 
 For more information about Microsoft Remote Desktop app, see:
 - [What's new in the Remote Desktop client for Android and Chrome OS](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
-- [Connect to Azure Virtual Desktop with the Remote Desktop client for Android and Chrome OS](../virtual-desktop/users/connect-android-chrome-os.md)
+- [Connect to Azure Virtual Desktop with the Remote Desktop client for Android and Chrome OS](/azure/virtual-desktop/users/connect-android-chrome-os)
 
 
 ## Related content

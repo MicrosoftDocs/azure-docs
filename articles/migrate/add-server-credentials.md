@@ -8,6 +8,7 @@ ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 03/21/2025
 ms.custom: engagement-fy25
+# Customer intent: As a cloud migration consultant, I want to provide server credentials in the configuration manager, so that I can accurately discover software inventory, web apps, and SQL Server instances to facilitate a smooth migration process.
 ---
 
 # Provide server credentials to discover software inventory, dependencies, web apps, and SQL Server instances and databases
@@ -53,9 +54,9 @@ Feature | Windows credentials | Linux credentials
 ### Recommended practices to provide credentials
 
 - We recommend you to create a dedicated domain user account with the [required permissions](add-server-credentials.md#required-permissions), which is scoped to perform software inventory, agentless dependency analysis and discovery of web app, and SQL Server instances and databases on the desired servers.
-- We recommend you to provide at least one successfully validated domain credential or at least one nondomain credential to initiate software inventory.
+- We recommend you provide at least one successfully validated domain credential or at least one nondomain credential to initiate software inventory.
 - To discover SQL Server instances and databases, you can provide domain credentials, if you've configured Windows authentication mode on your SQL Servers.
-- You can also provide SQL Server authentication credentials if you've configured SQL Server authentication mode on your SQL Servers but it's recommended to provide at least one successfully validated domain credential or at least one Windows (Nondomain) credential so that the appliance can first complete the software inventory.
+- You can also provide SQL Server authentication credentials if you've configured SQL Server authentication mode on your SQL Servers, but it's recommended to provide at least one successfully validated domain credential or at least one Windows (Nondomain) credential so that the appliance can first complete the software inventory.
 
 ## Credentials handling on appliance
 
@@ -70,4 +71,4 @@ Feature | Windows credentials | Linux credentials
 
 - [Steps to add credentials in VMware appliance](./tutorial-discover-vmware.md#provide-server-credentials).
 - [Steps to add credentials in Hyper-V appliance](tutorial-discover-hyper-v.md#provide-server-credentials).
-- [Steps to add credentials in physical appliance](tutorial-discover-physical.md#start-continuous-discovery). 
+- [Steps to add credentials in physical appliance](tutorial-discover-physical.md#start-discovery). 

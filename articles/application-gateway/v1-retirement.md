@@ -8,6 +8,7 @@ ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 04/19/2023
 ms.author: mjyothish
+# Customer intent: As an IT administrator using Application Gateway V1, I want to migrate to Application Gateway V2 before April 28, 2026, so that I can ensure continuous support and benefit from enhanced performance and security features.
 ---
 
 # Migrate your Application Gateways from V1 SKU to V2 SKU by April 28, 2026 

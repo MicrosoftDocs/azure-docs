@@ -1,24 +1,34 @@
 > [!NOTE]
 > Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/use-managed-Identity)
 
+## Overview
+
+This quickstart demonstrates how to use managed identities via Azure Service Principals to authenticate with Azure Communication Services. It provides examples for issuing an access token for Voice over IP (VoIP) calls and sending SMS messages.
+
 ## Setting up
 
 ### Create a new C# application
 
-In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `ActiveDirectoryQuickstart`. This command creates a simple "Hello World" C# project with a single source file: `Program.cs`.
+The goal is to create a new console application in C# to run the quickstart code. Open a terminal window (e.g., Command Prompt, PowerShell, or Bash) and execute the following command to create a new console app named `ActiveDirectoryAuthenticationQuickstart`:
 
 ```console
 dotnet new console -o ActiveDirectoryAuthenticationQuickstart
 ```
 
-Change your directory to the newly created app folder and use the `dotnet build` command to compile your application.
+This command will generate a simple "Hello World" C# project, including a single source file: `Program.cs`.
+
+### Build the Application
+
+Navigate to the newly created app folder and compile your application using the `dotnet build` command:
 
 ```console
 cd ActiveDirectoryAuthenticationQuickstart
 dotnet build
 ```
 
-### Install the SDK packages
+### Install the Required SDK Packages
+
+To interact with Azure Communication Services and Azure Identity, add the following NuGet packages to your project:
 
 ```console
 dotnet add package Azure.Communication.Identity
@@ -26,9 +36,9 @@ dotnet add package Azure.Communication.Sms
 dotnet add package Azure.Identity
 ```
 
-### Use the SDK packages
+### Update the Program.cs file
 
-Add the following `using` directives to `Program.cs` to use the Azure Identity and Azure Storage SDKs.
+To use the installed Azure SDK packages, include the following `using` directives at the top of your `Program.cs` file:
 
 ```csharp
 using Azure.Identity;
@@ -38,9 +48,9 @@ using Azure.Core;
 using Azure;
 ```
 
-## Create a DefaultAzureCredential
+## Authenticate with DefaultAzureCredential
 
-We'll be using the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) for this quickstart. This credential is suitable for production and development environments. As it is needed for each operation let's create it within the `Program.cs` class. Add the following to the top of the file.
+For this quickstart, we'll use the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), which is suitable for both development and production environments. Declare an instance of this credential at the class level in `Program.cs`:
 
 ```csharp
 private DefaultAzureCredential credential = new DefaultAzureCredential();
@@ -48,7 +58,7 @@ private DefaultAzureCredential credential = new DefaultAzureCredential();
 
 ## Issue a token with service principals
 
-Now we'll add code which uses the created credential, to issue a VoIP Access Token. We'll call this code later on.
+Add the following method to your `Program.cs` file. This method uses the Azure Communication Services SDK to issue a VoIP Access Token:
 
 ```csharp
 public AccessToken CreateIdentityAndGetTokenAsync(Uri resourceEndpoint)
@@ -62,7 +72,7 @@ public AccessToken CreateIdentityAndGetTokenAsync(Uri resourceEndpoint)
 
 ## Send an SMS with service principals
 
-As another example of using service principals, we'll add this code which uses the same credential to send an SMS:
+To demonstrate sending an SMS, add the following method to your `Program.cs` file. This method uses the Azure Communication Services SDK to send an SMS message:
 
 ```csharp
 public SmsSendResult SendSms(Uri resourceEndpoint, string from, string to, string message)
@@ -81,16 +91,16 @@ public SmsSendResult SendSms(Uri resourceEndpoint, string from, string to, strin
 
 ## Write the Main method
 
-Your `Program.cs` should already have a Main method, let's add some code which will call our previously created code to demonstrate the use of service principals:
+In the `Main` method of your `Program.cs` file, add code to call the methods you created for issuing a token and sending an SMS. Your `Main` method should look similar to this:
 
 ```csharp
 static void Main(string[] args)
 {
-    // You can find your endpoint and access key from your resource in the Azure portal
-    // e.g. "https://<RESOURCE_NAME>.communication.azure.com";
+    // Replace <RESOURCE_NAME> with your Communication Services resource name,
+    // for example: "https://<RESOURCE_NAME>.communication.azure.com".
     Uri endpoint = new("https://<RESOURCENAME>.communication.azure.com/");
 
-    // We need an instance of the program class to use within this method.
+    // Create an instance of the Program class to invoke instance methods.
     Program instance = new();
 
     Console.WriteLine("Retrieving new Access Token, using Service Principals");
@@ -99,7 +109,7 @@ static void Main(string[] args)
 
     Console.WriteLine("Sending SMS using Service Principals");
 
-    // You will need a phone number from your resource to send an SMS.
+    // Replace with your Azure Communication Services phone number and the target phone number.
     SmsSendResult result = instance.SendSms(endpoint, "<Your Azure Communication Services Phone Number>", "<The Phone Number you'd like to send the SMS to.>", "Hello from using Service Principals");
     Console.WriteLine($"Sms id: {result.MessageId}");
     Console.WriteLine($"Send Result Successful: {result.Successful}");
@@ -114,11 +124,11 @@ class Program
           private DefaultAzureCredential credential = new DefaultAzureCredential();
           static void Main(string[] args)
           {
-               // You can find your endpoint and access key from your resource in the Azure portal
-               // e.g. "https://<RESOURCE_NAME>.communication.azure.com";
+               // Replace <RESOURCE_NAME> with your Communication Services resource name,
+               // for example: "https://<RESOURCE_NAME>.communication.azure.com".
                Uri endpoint = new("https://acstestingrifox.communication.azure.com/");
 
-               // We need an instance of the program class to use within this method.
+               // Create an instance of the Program class to invoke instance methods.
                Program instance = new();
 
                Console.WriteLine("Retrieving new Access Token, using Service Principals");
@@ -127,7 +137,7 @@ class Program
 
                Console.WriteLine("Sending SMS using Service Principals");
 
-               // You will need a phone number from your resource to send an SMS.
+               // Replace with your Azure Communication Services phone number and the target phone number.
                SmsSendResult result = instance.SendSms(endpoint, "<Your Azure Communication Services Phone Number>", "<The Phone Number you'd like to send the SMS to.>", "Hello from Service Principals");
                Console.WriteLine($"Sms id: {result.MessageId}");
                Console.WriteLine($"Send Result Successful: {result.Successful}");
@@ -156,11 +166,18 @@ class Program
 
 ## Run the program
 
-You should now be able to run your application, using `dotnet run` from your application folder. The output should resemble the following:
+It is time to run your application and verify that it retrieves an access token and sends an SMS. Open a terminal, navigate to your application directory, and run:
+
+```console
+     dotnet run
 ```
-Retrieving new Access Token, using Service Principals
-Retrieved Access Token: ey....
-Sending SMS using Service Principals
-Sms id: Outgoing_..._noam
-Send Result Successful: True
+
+The console output should appear as follows:
+
+```Bash
+     Retrieving new Access Token, using Service Principals
+     Retrieved Access Token: ...
+     Sending SMS using Service Principals
+     Sms id: ...
+     Send Result Successful: True
 ```

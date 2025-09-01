@@ -67,10 +67,14 @@ Now that you have configured an ingestion source, refer to the following steps t
 8. When the ingestion run is complete, the **STAC items** tab in your collection displays your list of STAC items that have been ingested, with columns for the item ID and acquisition date. 
     [ ![Screenshot of STAC items tab.](./media/stac-items.jpeg) ](./media/stac-items.jpeg#lightbox)
 
+## Troubleshooting
+
+If you encounter issues during the ingestion process, such as failures in creating an ingestion source, starting a run, or if items don't appear as expected, refer to the following resources:
+
+- [Troubleshooting data ingestion in Microsoft Planetary Computer Pro](./troubleshooting-ingestion.md): Provides guidance on diagnosing common ingestion problems.
+- [Error codes: Microsoft Planetary Computer Pro ingestion](./error-codes-ingestion.md): Lists common error codes and their meanings.
 
 ## Next steps
-
-<!-- TODO: Update this link to point to the next article in the sequence once finalized. -->
 
 Once you have ingested data, it's time to configure the STAC Collection so you can visualize your data in the Explorer. 
 

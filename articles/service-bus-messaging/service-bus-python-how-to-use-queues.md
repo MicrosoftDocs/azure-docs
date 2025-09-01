@@ -1,60 +1,61 @@
 ---
-title: Get started with Azure Service Bus queues (Python)
-description: This tutorial shows you how to send messages to and receive messages from Azure Service Bus queues using the Python programming language.
+title: Get Started with Azure Service Bus Queues (Python)
+description: This quickstart shows you how to send messages to and receive messages from Azure Service Bus queues using the Python programming language.
 author: spelluru
 ms.author: spelluru
-ms.date: 02/06/2024
+ms.date: 06/11/2025
 ms.topic: quickstart
 ms.devlang: python
 ms.custom: devx-track-python, mode-api, passwordless-python
+#customer intent: As a developer, I want to learn how to send and receive messages with Azure Service Bus queues by using the Python programming language.
 ---
 
-# Send messages to and receive messages from Azure Service Bus queues (Python)
+# Quickstart: Send messages to and receive messages from Azure Service Bus queues (Python)
 > [!div class="op_single_selector" title1="Select the programming language:"]
-> * [C#](service-bus-dotnet-get-started-with-queues.md)
-> * [Java](service-bus-java-how-to-use-queues.md)
-> * [JavaScript](service-bus-nodejs-how-to-use-queues.md)
-> * [Python](service-bus-python-how-to-use-queues.md)
+> - [C#](service-bus-dotnet-get-started-with-queues.md)
+> - [Java](service-bus-java-how-to-use-queues.md)
+> - [JavaScript](service-bus-nodejs-how-to-use-queues.md)
+> - [Python](service-bus-python-how-to-use-queues.md)
 
-In this tutorial, you complete the following steps: 
+This article provides step-by-step instructions for a simple scenario of sending messages to a Service Bus queue and receiving them. You can find prebuilt JavaScript and TypeScript samples for Azure Service Bus in the [Azure SDK for Python repository on GitHub](https://github.com/azure/azure-sdk-for-python/tree/main/sdk/servicebus/azure-servicebus/samples). 
 
-1. Create a Service Bus namespace, using the Azure portal.
-1. Create a Service Bus queue, using the Azure portal.
-1. Write Python code to use the [azure-servicebus](https://pypi.org/project/azure-servicebus/) package to:
-    1. Send a set of messages to the queue.
-    1. Receive those messages from the queue.
+In this quickstart, you:
 
-> [!NOTE]
-> This quick start provides step-by-step instructions for a simple scenario of sending messages to a Service Bus queue and receiving them. You can find pre-built JavaScript and TypeScript samples for Azure Service Bus in the [Azure SDK for Python repository on GitHub](https://github.com/azure/azure-sdk-for-python/tree/main/sdk/servicebus/azure-servicebus/samples). 
+ - Create a Service Bus namespace, using the Azure portal.
+ - Create a Service Bus queue, using the Azure portal.
+ - Write Python code to use the [azure-servicebus](https://pypi.org/project/azure-servicebus/) package to:
 
+   - Send a set of messages to the queue.
+   - Receive those messages from the queue.
+
+If you're new to the service, see [Service Bus overview](service-bus-messaging-overview.md) before you begin.
 
 ## Prerequisites
 
-If you're new to the service, see [Service Bus overview](service-bus-messaging-overview.md) before you do this quickstart.
-
-- An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- An Azure subscription. To complete this quickstart, you need an Azure account. You can activate your [Monthly Azure credits for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 
 - [Python 3.8](https://www.python.org/downloads/) or higher.
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
 To use this quickstart with your own Azure account:
-* Install [Azure CLI](/cli/azure/install-azure-cli), which provides the passwordless authentication to your developer machine.
-* Sign in with your Azure account at the terminal or command prompt with `az login`. 
-* Use the same account when you add the appropriate data role to your resource.
-* Run the code in the same terminal or command prompt.
-* Note the **queue** name for your Service Bus namespace. You'll need that in the code.  
+
+- Install [Azure CLI](/cli/azure/install-azure-cli), which provides the passwordless authentication to your developer machine.
+- Sign in with your Azure account at the terminal or command prompt with `az login`. 
+- Use the same account when you add the appropriate data role to your resource.
+- Run the code in the same terminal or command prompt.
+- Note the **queue** name for your Service Bus namespace. You need that in the code.  
 
 ### [Connection string](#tab/connection-string)
 
-Note the following, which you'll use in the code below:
-* Service Bus namespace **connection string** 
-* Service Bus namespace **queue** you created
+Note the following values, which you use in the code:
+
+- Service Bus namespace **connection string** 
+- Service Bus namespace **queue** you created
 
 ---
 
->[!NOTE]
-> This tutorial works with samples that you can copy and run using Python. For instructions on how to create a Python application, see [Create and deploy a Python application to an Azure Website](../app-service/quickstart-python.md). For more information about installing packages used in this tutorial, see the [Python Installation Guide](/azure/developer/python/sdk/azure-sdk-install).
+This quickstart works with samples that you can copy and run using Python. For instructions on how to create a Python application, see [Quickstart: Deploy a Python web app to Azure App Service](../app-service/quickstart-python.md). For more information about installing packages used in this quickstart, see [How to install Azure library packages for Python](/azure/developer/python/sdk/azure-sdk-install).
 
 [!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal.md)]
 
@@ -66,8 +67,8 @@ Note the following, which you'll use in the code below:
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
-1. To install the required Python packages for this Service Bus tutorial, open a command prompt that has Python in its path, change the directory to the folder where you want to have your samples.
-
+1. To install the required Python packages for this Service Bus quickstart, open a Command Prompt window that has Python in its path.
+1. Change the directory to the folder where you want to have your samples.
 1. Install the following packages: 
 
     ```shell
@@ -78,8 +79,8 @@ Note the following, which you'll use in the code below:
 
 ### [Connection string](#tab/connection-string)
 
-1. To install the required Python packages for this Service Bus tutorial, open a command prompt that has Python in its path, change the directory to the folder where you want to have your samples.
-
+1. To install the required Python packages for this Service Bus quickstart, open a Command Prompt window that has Python in its path.
+1. Change the directory to the folder where you want to have your samples.
 1. Install the following package: 
 
     ```bash
@@ -90,7 +91,7 @@ Note the following, which you'll use in the code below:
 
 ## Send messages to a queue
 
-The following sample code shows you how to send a message to a queue. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/), create a file *send.py*, and add the following code into it.
+The following sample code shows you how to send a message to a queue. Open a text editor, such as [Visual Studio Code](https://code.visualstudio.com/), create a file *send.py*, and add the following code into it.
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
@@ -125,7 +126,7 @@ The following sample code shows you how to send a message to a queue. Open your 
         print("Sent a single message")
     ```
 
-    The sender is an object that acts as a client for the queue you created. You'll create it later and send as an argument to this function.
+    The sender is an object that acts as a client for the queue you created. You create it later and send as an argument to this function.
 
 1. Add a method to send a list of messages.
 
@@ -219,7 +220,7 @@ The following sample code shows you how to send a message to a queue. Open your 
         print("Sent a single message")
     ```
 
-    The sender is an object that acts as a client for the queue you created. You'll create it later and send as an argument to this function.
+    The sender is an object that acts as a client for the queue you created. You create it later and send as an argument to this function.
 
 1. Add a method to send a list of messages.
 
@@ -284,11 +285,11 @@ The following sample code shows you how to send a message to a queue. Open your 
 
 The following sample code shows you how to receive messages from a queue. The code shown receives new messages until it doesn't receive any new messages for 5 (`max_wait_time`) seconds.
 
-Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/), create a file *recv.py*, and add the following code into it.
+Open a text editor, such as [Visual Studio Code](https://code.visualstudio.com/), create a file *recv.py*, and add the following code to it.
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
-1. Similar to the send sample, add `import` statements, define constants that you should replace with your own values, and define a credential.
+1. Similar to the *send.py* sample, add `import` statements. Replace the constants with your own values and define a credential.
 
     ```python
     import asyncio
@@ -334,7 +335,7 @@ Open your favorite editor, such as [Visual Studio Code](https://code.visualstudi
 
 ### [Connection string](#tab/connection-string)
 
-1. Similar to the send sample, add `import` statements and define constants that you should replace with your own values.
+1. Similar to the *send.py* sample, add `import` statements and define constants that use your own values.
 
     ```python
     import asyncio
@@ -406,7 +407,7 @@ Received: Message inside a ServiceBusMessageBatch
 Received: Message inside a ServiceBusMessageBatch
 ```
 
-In the Azure portal, navigate to your Service Bus namespace. On the **Overview** page, verify that the **incoming** and **outgoing** message counts are 16. If you don't see the counts, refresh the page after waiting for a few minutes. 
+In the Azure portal, navigate to your Service Bus namespace. On the **Overview** page, verify that the **incoming** and **outgoing** message counts are 16. If you don't see the counts, wait few minutes, then refresh the page. 
 
 :::image type="content" source="./media/service-bus-python-how-to-use-queues/overview-incoming-outgoing-messages.png" alt-text="Incoming and outgoing message count":::
 
@@ -414,13 +415,14 @@ Select the queue on this **Overview** page to navigate to the **Service Bus Queu
 
 :::image type="content" source="./media/service-bus-python-how-to-use-queues/queue-details.png" alt-text="Queue details":::
 
-
-## Next steps
+## Related content
 
 See the following documentation and samples: 
 
 - [Azure Service Bus client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus)
-- [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus/samples). 
+- [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus/samples)
+
     - The **sync_samples** folder has samples that show you how to interact with Service Bus in a synchronous manner. 
     - The **async_samples** folder has samples that show you how to interact with Service Bus in an asynchronous manner. In this quick start, you used this method. 
+
 - [azure-servicebus reference documentation](/python/api/azure-servicebus/azure.servicebus?preserve-view=true)

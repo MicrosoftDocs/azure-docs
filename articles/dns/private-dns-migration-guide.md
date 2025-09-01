@@ -7,6 +7,7 @@ ms.service: azure-dns
 ms.topic: how-to
 ms.date: 11/30/2023
 ms.author: allensu
+# Customer intent: As an IT administrator managing legacy DNS configurations, I want to migrate private DNS zones to the new resource model, so that I can ensure compliance with support requirements and maintain DNS resolution without downtime.
 ---
 
 # Migrating legacy Azure DNS private zones to new resource model

@@ -6,6 +6,7 @@ ms.service: azure-avere-vfxt
 ms.topic: how-to
 ms.date: 12/19/2019
 ms.author: rohogue
+# Customer intent: As a non-owner user, I want a workaround to deploy Avere vFXT in Azure, so that I can create and manage the cluster without requiring owner privileges.
 ---
 
 # Authorize non-owners to deploy Avere vFXT

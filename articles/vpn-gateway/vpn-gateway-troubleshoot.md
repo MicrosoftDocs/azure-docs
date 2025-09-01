@@ -8,6 +8,7 @@ ms.topic: troubleshooting
 ms.date: 04/28/2021
 ms.author: cherylmc
 
+# Customer intent: As a network administrator, I want to troubleshoot VPN Gateway configurations and connections, so that I can ensure secure connectivity between my Azure environment and on-premises infrastructure.
 ---
 # Troubleshoot VPN Gateway
 

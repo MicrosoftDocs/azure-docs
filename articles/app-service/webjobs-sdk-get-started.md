@@ -9,6 +9,7 @@ ms.author: glenga
 ms.topic: tutorial
 
 #Customer intent: As an App Services developer, I want use the Azure portal to add scheduled tasks to my web app in Azure.
+ms.service: azure-app-service
 ---
 
 # Tutorial: Get started with the Azure WebJobs SDK for event-driven background processing

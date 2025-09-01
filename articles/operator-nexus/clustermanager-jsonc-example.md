@@ -1,11 +1,11 @@
 ---
 title: "Azure Operator Nexus - Example of clusterManager.jsonc template file"
 description: Example of clusterManager.jsonc template file to use with ARM template in creating a cluster manager.
-author: jeffreymason
-ms.author: jeffreymason
+author: bartpinto
+ms.author: bpinto
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 05/08/2024
+ms.date: 07/21/2025
 ms.custom: template-how-to, devx-track-arm-template
 ---
 
@@ -63,12 +63,6 @@ ms.custom: template-how-to, devx-track-arm-template
       "metadata": {
         "description": "Additional tags to pass to the Cluster Manager on creation"
       }
-    },
-    "assignedIdentities": {
-      "type": "object",
-      "metadata": {
-        "description": "The assigned identities for the Cluster Manager"
-      }
     }
   },
   "variables": {},
@@ -77,7 +71,7 @@ ms.custom: template-how-to, devx-track-arm-template
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2021-04-01",
       "name": "[concat(parameters('environment'), '-lab-cm-deployment')]",
-          "resourceGroup": "[parameters('resourceGroupName')]",
+	  "resourceGroup": "[parameters('resourceGroupName')]",
       "tags": {},
       "properties": {
         "debugSetting": {
@@ -117,9 +111,6 @@ ms.custom: template-how-to, devx-track-arm-template
             },
             "clusterManagerTags": {
               "type": "object"
-            },
-            "assignedIdentities": {
-              "type": "object"
             }
           },
           "variables": {},
@@ -130,7 +121,6 @@ ms.custom: template-how-to, devx-track-arm-template
               "name": "[parameters('name')]",
               "location": "[parameters('location')]",
               "tags": "[parameters('clusterManagerTags')]",
-              "identity": "[parameters('assignedIdentities')]",
               "properties": {
                 "fabricControllerId": "[parameters('fabricControllerId')]",
                 "vmSize": "[if(equals(parameters('vmSize'), ''), json('null'), parameters('vmSize'))]",
@@ -165,9 +155,6 @@ ms.custom: template-how-to, devx-track-arm-template
           },
           "resourceGroupName": {
             "value": "[parameters('resourceGroupName')]"
-          },
-          "assignedIdentities": {
-            "value": "[parameters('assignedIdentities')]"
           },
           "managedResourceGroupConfiguration": {
             "value": {

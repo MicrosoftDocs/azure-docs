@@ -2,7 +2,7 @@
 title: "Quickstart: Add Service Group members using the REST API - Azure Governance"
 description: In this quickstart, you use REST API to add a resource to a service group with a service group member relationship.
 author: rthorn17
-ms.author: rithorn
+ms.author: kenieva
 ms.service: azure-policy
 ms.topic: quickstart
 ms.date: 5/19/2025
@@ -16,8 +16,7 @@ ms.custom:
 To add resources, resource groups, or subscriptions to a Service Group (preview), you need to create a new Service Group Member Relationship. For more information on service groups, see [Getting started with Service Groups](overview.md).
 
 > [!IMPORTANT]
-> Azure Service Groups is currently in PREVIEW. 
-> For more information about participating in the preview, see [Azure Service Groups Preview](https://aka.ms/ServiceGroups/PreviewSignup).
+> Azure Service Groups is currently in public preview. 
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
@@ -27,6 +26,8 @@ To add resources, resource groups, or subscriptions to a Service Group (preview)
 
 - If you haven't already, install [ARMClient](https://github.com/projectkudu/ARMClient). It's a tool
   that sends HTTP requests to Azure Resource Manager-based REST APIs.
+
+- To be able to deploy a service group member relationship, you must have Microsoft.Relationship/ServiceGroupMember/write permissions on the source as well as Microsoft.ServiceGroup Contributor at the target service group. 
 
 ## Create in REST API
 
@@ -54,7 +55,7 @@ specify the service group as the parent, use the **TargetID** property.
 - REST API URI
 
   ```http
-  PUT https://management.azure.com/subscriptions/[SUBID]/resourceGroups/[RGID]/providers/microsoft.compute/virtualmachine/[VMID]/providers/Microsoft.Relationships/serviceGroupMember/SGM1?api-version=2024-02-01-preview
+  PUT https://management.azure.com/subscriptions/[SUBID]/resourceGroups/[RGID]/providers/microsoft.compute/virtualmachine/[VMID]/providers/Microsoft.Relationships/serviceGroupMember/SGM1?api-version=2023-09-01-preview
   ```
 
 - Request Body

@@ -1,7 +1,7 @@
 ---
 title: Create functions in Azure using the Azure Developer CLI
 description: "Learn how to use the Azure Developer CLI (azd) to create resources and deploy the local project to a Flex Consumption plan on Azure."
-ms.date: 10/19/2024
+ms.date: 7/23/2025
 ms.topic: quickstart
 ms.custom:
   - ignite-2024
@@ -21,32 +21,12 @@ By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing m
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd).
++ [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
 
-+ [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools).
++ [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools)
 
-::: zone pivot="programming-language-csharp"  
-+ [.NET 8.0 SDK](https://dotnet.microsoft.com/download)
+[!INCLUDE [functions-requirements-azure-cli](../../includes/functions-requirements-azure-cli.md)]
 
-+ [Azurite storage emulator](../storage/common/storage-use-azurite.md?tabs=npm#install-azurite) 
-::: zone-end  
-::: zone pivot="programming-language-java"  
-+ [Java 17 Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure)
-    + If you use another [supported version of Java](supported-languages.md?pivots=programming-language-java#languages-by-runtime-version), you must update the project's pom.xml file. 
-    + The `JAVA_HOME` environment variable must be set to the install location of the correct version of the JDK.
-+ [Apache Maven 3.8.x](https://maven.apache.org)  
-::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-typescript"  
-+ [Node.js 20](https://nodejs.org/)  
-::: zone-end  
-::: zone pivot="programming-language-powershell"  
-+ [PowerShell 7.2](/powershell/scripting/install/installing-powershell-core-on-windows)
-
-+ [.NET 6.0 SDK](https://dotnet.microsoft.com/download)  
-::: zone-end
-::: zone pivot="programming-language-python" 
-+ [Python 3.11](https://www.python.org/).
-::: zone-end  
 + A [secure HTTP test tool](functions-develop-local.md#http-test-tools) for sending requests with JSON payloads to your function endpoints. This article uses `curl`.
 
 ## Initialize the project

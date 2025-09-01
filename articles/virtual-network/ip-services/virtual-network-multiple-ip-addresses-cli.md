@@ -10,6 +10,7 @@ ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.custom: template-how-to, engagement-fy23, devx-track-azurecli, linux-related-content
+# Customer intent: As a cloud engineer, I want to assign multiple IP addresses to a virtual machine using the CLI, so that I can host multiple services and enhance network functionality on a single VM.
 ---
 # Assign multiple IP addresses to virtual machines using the Azure CLI
 

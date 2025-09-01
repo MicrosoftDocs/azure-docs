@@ -9,6 +9,7 @@ ms.service: azure-cdn
 ms.topic: concept-article
 ms.date: 03/31/2025
 ROBOTS: NOINDEX
+# Customer intent: "As a CDN administrator, I want to configure actions in the Standard rules engine, so that I can optimize request handling and caching behaviors for improved content delivery performance."
 ---
 
 # Actions in the Standard rules engine for Azure Content Delivery Network

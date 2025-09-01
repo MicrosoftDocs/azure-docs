@@ -8,6 +8,7 @@ ms.custom: mvc
 ms.author: jsuri
 author: jyothisuri
 #Customer intent: As an Azure admin, I want to fail back VMs to the primary region after running a failover to a secondary region.  
+# Customer intent: "As an Azure admin, I want to fail back my VMs to the primary region after a disaster recovery failover, so that I can restore normal operations and ensure data consistency."
 ---
 
 # Tutorial: Fail back Azure VM to the primary region

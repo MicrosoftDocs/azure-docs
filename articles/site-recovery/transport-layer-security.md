@@ -6,6 +6,7 @@ ms.service: azure-site-recovery
 ms.date: 12/15/2023
 ms.author: jsuri
 author: jyothisuri
+# Customer intent: "As an IT administrator, I want to enable TLS 1.2 for Azure Site Recovery, so that I can ensure secure data transfer and protect against potential security vulnerabilities."
 ---
 
 # Transport Layer Security in Azure Site Recovery

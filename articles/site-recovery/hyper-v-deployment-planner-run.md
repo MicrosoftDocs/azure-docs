@@ -6,6 +6,7 @@ ms.service: azure-site-recovery
 ms.topic: concept-article
 ms.date: 04/09/2019
 ms.author: jsuri
+# Customer intent: "As an IT administrator, I want to run the Hyper-V Deployment Planner tool to profile virtual machines and generate reports, so that I can calculate the bandwidth and storage requirements for disaster recovery to Azure."
 ---
 
 

@@ -6,6 +6,7 @@ ms.service: azure-site-recovery
 ms.topic: how-to
 ms.author: jsuri
 ms.date: 03/25/2025
+# Customer intent: As a system administrator managing disaster recovery of VMware VMs, I want to effectively configure and maintain the on-premises configuration server, so that I can ensure reliable data replication and recovery to Azure.
 ---
 
 # Manage the configuration server for VMware VM/physical server disaster recovery

@@ -37,7 +37,7 @@ landingContent:
             url: supported-data-types.md
 
   # Card
-  - title: Deploy & setup
+  - title: Deploy & Set up
     linkLists:
       - linkListType: get-started
         links:
@@ -92,6 +92,12 @@ landingContent:
             url: add-stac-item-to-collection.md
           - text: Bulk ingest data
             url: bulk-ingestion-api.md
+      - linkListType: reference
+        links:
+          - text: Troubleshooting ingestion
+            url: troubleshooting-ingestion.md
+          - text: Error codes from ingestion
+            url: error-codes-ingestion.md
 
   # Card
   - title: Configure collections for visualization
@@ -104,6 +110,8 @@ landingContent:
         links:
           - text: Configure collections for visualization
             url: configure-collection-web-interface.md
+          - text: Data visualization sample gallery
+            url: data-visualization-samples.md
       - linkListType: concept
         links:
           - text: Mosaic configuration

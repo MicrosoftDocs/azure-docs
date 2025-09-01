@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 07/29/2024
+# Customer intent: As a web application administrator, I want to implement rate limiting using a web application firewall, so that I can protect my applications from denial-of-service attacks and manage traffic effectively.
 ---
 
 # What is rate limiting for Azure Front Door?

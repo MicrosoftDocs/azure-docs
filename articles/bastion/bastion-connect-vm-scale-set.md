@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 01/23/2025
 ms.author: abell
 
+# Customer intent: "As an IT administrator, I want to connect to a virtual machine scale set using a secure gateway, so that I can manage instances without needing additional clients or software."
 ---
 
 # Connect to a virtual machine scale set using Azure Bastion

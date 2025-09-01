@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: overview
 ms.date: 06/04/2025
 ms.author: kendownie
+# Customer intent: "As an IT administrator looking to optimize file storage, I want to implement Azure File Sync so that I can centralize my file shares in the cloud while maintaining quick local access and ensuring data resilience across multiple sites."
 ---
 
 # What is Azure File Sync?

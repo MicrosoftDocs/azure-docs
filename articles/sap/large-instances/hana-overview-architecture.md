@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 09/28/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
+# Customer intent: As an IT administrator, I want to deploy SAP HANA on Azure (Large Instances) so that I can leverage dedicated bare-metal servers for enhanced performance and isolation to meet my organization's data processing needs.
 ---
 #  What is SAP HANA on Azure (Large Instances)?
 

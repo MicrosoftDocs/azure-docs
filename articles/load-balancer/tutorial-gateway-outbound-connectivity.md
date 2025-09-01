@@ -8,6 +8,7 @@ ms.service: azure-load-balancer
 ms.topic: tutorial
 ms.date: 11/26/2024
 ms.custom: template-tutorial
+# Customer intent: "As a network administrator, I want to configure a Gateway Load Balancer for my virtual machines' outbound connectivity, so that I can ensure high performance and scalability while securing both inbound and outbound traffic."
 ---
 
 # Tutorial: Configure outbound connectivity with a gateway load balancer

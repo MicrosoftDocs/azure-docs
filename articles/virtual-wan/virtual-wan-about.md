@@ -38,6 +38,9 @@ For spoke connectivity with SD-WAN/VPN devices, users can either manually set it
 * **Automated spoke setup and configuration:** Connect your virtual networks and workloads to the Azure hub seamlessly.
 * **Intuitive troubleshooting:** You can see the end-to-end flow within Azure, and then use this information to take required actions.
 
+> [!NOTE]
+> Azure Virtual WAN is one of the services that make up the Hybrid Connectivity category in Azure. Other services in this category include [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) and [ExpressRoute](../expressroute/expressroute-introduction.md). Each service has its own unique features and use cases. For more information on this service category, see [Hybrid Connectivity](../networking/hybrid-connectivity/hybrid-connectivity.md).
+
 ## <a name="architecture"></a>Architecture
 
 For information about Virtual WAN architecture and how to migrate to Virtual WAN, see the following articles:

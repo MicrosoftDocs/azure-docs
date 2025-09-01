@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 01/06/2025
 ms.author: shaas
 ms.subservice: storage-common-concepts
+# Customer intent: "As a cloud administrator, I want to initiate a failover for my storage account, so that I can ensure data availability during service outages or conduct disaster recovery tests."
 ---
 
 # Initiate a storage account failover

@@ -5,8 +5,8 @@ author: PreetiSGit
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/22/2025
-ms.reviewer: presharm
+ms.date: 08/21/2025
+ms.reviewer: nicholak
 ms.author: presharm
 ---
 

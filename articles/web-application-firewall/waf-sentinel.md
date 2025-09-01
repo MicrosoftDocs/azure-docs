@@ -7,6 +7,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 06/19/2023
+# Customer intent: As a security analyst, I want to integrate Azure Web Application Firewall with a security information event management system, so that I can analyze WAF data and automatically respond to security incidents effectively.
 ---
 
 # Using Microsoft Sentinel with Azure Web Application Firewall

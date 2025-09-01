@@ -11,6 +11,7 @@ ms.author: akashdubey
 ms.reviewer: wielriac
 ms.devlang: csharp
 ms.custom: devx-track-csharp
+# Customer intent: "As a cloud architect, I want to understand the features and benefits of Azure page blobs, so that I can determine their suitability for storing virtual disks and optimizing application performance in my cloud solutions."
 ---
 
 # Overview of Azure page blobs

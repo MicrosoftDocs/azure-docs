@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 09/27/2023
+# Customer intent: As a security analyst, I want to automate the detection and response of threats using a combination of WAF detection templates and incident playbooks, so that I can quickly mitigate web application vulnerabilities and reduce manual intervention in security operations.
 ---
 
 # Automated detection and response for Azure WAF with Microsoft Sentinel

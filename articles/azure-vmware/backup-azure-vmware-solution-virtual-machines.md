@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 12/21/2023
 ms.custom: engagement-fy23
+# Customer intent: "As an IT administrator managing virtual machines in Azure VMware Solution, I want to configure backups using Azure Backup Server, so that I can ensure data protection and recovery for my virtualized workloads."
 ---
 
 # Back up Azure VMware Solution VMs with Azure Backup Server

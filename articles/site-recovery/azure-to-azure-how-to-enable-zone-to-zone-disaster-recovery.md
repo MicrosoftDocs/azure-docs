@@ -7,6 +7,7 @@ ms.topic: tutorial
 ms.date: 02/12/2025
 ms.author: jsuri
 ms.custom: references_regions
+# Customer intent: "As a cloud architect, I want to implement zone-to-zone disaster recovery for Azure virtual machines, so that I can enhance business continuity by minimizing downtime during regional outages."
 ---
 
 # Enable Azure VM disaster recovery between availability zones

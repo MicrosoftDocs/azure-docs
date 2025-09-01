@@ -75,7 +75,7 @@ In this scenario, Trusona acts as an Identity Provider (IdP) for Azure AD B2C to
 
 ## Step 1: Onboard with Trusona Authentication Cloud
 
-1.	Sign in to the [Trusona Portal](https://portal.trusona.io).
+1.	Sign in to the [Trusona Portal](https://portal.trusona.com/).
 2.	From the left navigation panel, select **Settings**
 3.	In the Settings menu, select the slider to **Enable OIDC**.
 4.	Select the appropriate **Inputs** and provide the **Redirect URL** `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`.

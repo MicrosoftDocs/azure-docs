@@ -5,6 +5,7 @@ ms.topic: sample
 ms.date: 06/24/2024
 ms.custom: devx-track-azurecli, seo-azure-cli
 keywords: batch, azure cli samples, azure cli examples, azure cli code samples
+# Customer intent: "As a cloud administrator, I want to create an Azure Batch account in user subscription mode, so that I can allocate compute nodes and manage resources within my subscription effectively."
 ---
 
 # CLI example: Create a Batch account in user subscription mode

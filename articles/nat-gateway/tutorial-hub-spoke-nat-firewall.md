@@ -8,6 +8,7 @@ ms.service: azure-nat-gateway
 ms.topic: tutorial
 ms.date: 05/29/2025
 ms.custom: template-tutorial
+# Customer intent: As a network administrator, I want to integrate a NAT gateway with Azure Firewall in a hub and spoke network, so that I can ensure scalable outbound connectivity for my workloads while optimizing resource usage.
 ---
 
 # Integrate NAT gateway with Azure Firewall in a hub and spoke network for outbound connectivity
@@ -21,7 +22,7 @@ NAT gateway can be integrated with Azure Firewall by configuring NAT gateway dir
 :::image type="content" source="./media/tutorial-hub-spoke-nat-firewall/resources-diagram.png" alt-text="Diagram of Azure resources created in tutorial." lightbox="./media/tutorial-hub-spoke-nat-firewall/resources-diagram.png":::
 
 >[!NOTE]
->Azure NAT Gateway isn't currently supported in secured virtual hub network (vWAN) architectures. You must deploy using a hub virtual network architecture as described in this tutorial. For more information about Azure Firewall architecture options, see [What are the Azure Firewall Manager architecture options?](/azure/firewall-manager/vhubs-and-vnets).
+> While you can deploy NAT Gateway in a hub and spoke virtual network network architecture as described in this tutorial, NAT Gateway isn't supported in the hub virtual network of a vWAN architecture. To use in a vWAN architecture, NAT Gateway must be configured directly to the spoke virtual networks associated with the secured virtual hub (vWAN). For more information about Azure Firewall architecture options, see [What are the Azure Firewall Manager architecture options?](/azure/firewall-manager/vhubs-and-vnets).
 
 In this tutorial, you learn how to:
 

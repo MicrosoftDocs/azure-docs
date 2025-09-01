@@ -10,6 +10,7 @@ ms.topic: article
 ms.date: 04/27/2023
 ms.author: greglin
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a cloud administrator, I want to route traffic for high availability using a PowerShell script, so that I can ensure my applications remain accessible even if one region goes down.
 ---
 
 # Route traffic for high availability of applications - Azure PowerShell

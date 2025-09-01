@@ -10,6 +10,7 @@ ms.custom:
 ms.topic: how-to
 ms.date: 03/01/2025
 ms.author: anfdocs
+# Customer intent: "As a system administrator, I want to join a Linux VM to a managed domain so that users can log in using a single set of credentials for streamlined access and management of resources."
 ---
 
 # Join a Linux VM to a Microsoft Entra Domain

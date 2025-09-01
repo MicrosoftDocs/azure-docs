@@ -10,6 +10,7 @@ ms.subservice: ip-services
 ms.topic: tutorial
 ms.custom: template-tutorial, devx-track-azurecli
 ms.devlang: azurecli
+# Customer intent: As a cloud engineer, I want to configure routing preferences for my Azure Kubernetes Service using the Azure CLI, so that I can ensure optimal network performance and proper public IP management for my Kubernetes cluster.
 ---
 
 # Tutorial: Configure routing preference for an Azure Kubernetes Service using the Azure CLI

@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 03/31/2025
 ms.author: abell
 
+# Customer intent: As an Azure administrator, I want to view and upgrade my Bastion SKU so that I can enhance the features and capabilities of my secure remote access setup.
 ---
 
 # View or upgrade a SKU

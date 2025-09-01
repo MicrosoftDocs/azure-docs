@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 11/30/2023
 ms.author: allensu
 ms.custom: devx-track-azurecli
+# Customer intent: As a cloud administrator, I want to manage DNS zones using the Azure CLI so that I can efficiently create, update, and delete DNS resources in my Azure environment.
 ---
 
 # How to manage DNS Zones in Azure DNS using the Azure CLI

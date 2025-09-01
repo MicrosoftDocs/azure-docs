@@ -65,7 +65,7 @@ landingContent:
       - linkListType: deploy
         links:
           - text: Index of policy samples
-            url: ./samples/index.md
+            url: /azure/governance/policy/samples/index
 
   - title: Author policies
     linkLists:

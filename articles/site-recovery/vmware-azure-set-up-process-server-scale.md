@@ -6,6 +6,7 @@ ms.service: azure-site-recovery
 ms.topic: how-to
 ms.author: jsuri
 ms.date: 09/11/2024
+# Customer intent: As a system administrator, I want to deploy additional process servers for disaster recovery of VMware VMs and physical servers, so that I can enhance the capacity and manage the data transfer efficiently during replication to Azure.
 ---
 
 # Scale with extra process servers

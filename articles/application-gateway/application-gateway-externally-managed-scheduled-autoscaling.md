@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 10/30/2023
 ms.author: mbender
 
+# Customer intent: As a cloud administrator, I want to implement scheduled autoscaling for Application Gateway v2 using Azure Automation, so that I can efficiently manage traffic demands and optimize resource utilization during peak and non-peak hours.
 ---
 # Schedule autoscaling for Application Gateway v2
 

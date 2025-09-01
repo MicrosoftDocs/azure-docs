@@ -6,7 +6,8 @@ ms.author: karler
 ms.reviewer: zlhe
 ms.service: azure-spring-apps
 ms.topic: overview
-ms.date: 01/29/2025
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
@@ -63,7 +64,7 @@ Azure Spring Apps previously provided built-in integration with Tanzu Applicatio
    ```java
    @SpringBootApplication
    @Configuration
-   @EnableAutoConfiguration // Use a discovery service instead of Spring Boot Admin Clinet. The rest is done by our AutoConfiguration.
+   @EnableAutoConfiguration // Use a discovery service instead of Spring Boot Admin Client. The rest is done by our AutoConfiguration.
    @EnableDiscoveryClient  // Enables the service to register with a discovery service
    @EnableAdminServer
    public class SpringBootAdminApplication {

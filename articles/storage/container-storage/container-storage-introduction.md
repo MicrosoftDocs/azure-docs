@@ -9,6 +9,7 @@ ms.author: kendownie
 ms.custom:
   - references_regions
   - ignite-2023-container-storage
+# Customer intent: "As a DevOps engineer, I want to use a managed volume orchestration service for my Kubernetes applications, so that I can efficiently provision and manage persistent storage for stateful workloads without the operational overhead of configuring individual storage interfaces."
 ---
 
 # What is Azure Container Storage?

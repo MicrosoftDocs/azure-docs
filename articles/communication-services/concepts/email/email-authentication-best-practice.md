@@ -1,7 +1,7 @@
 ---
 title: Best practices for sender authentication support
 titleSuffix: An Azure Communication Services article
-description: This article desribes the best practices for Sender Authentication Support.
+description: This article describes the best practices for Sender Authentication Support.
 author: bashan-git
 manager: sphenry
 services: azure-communication-services

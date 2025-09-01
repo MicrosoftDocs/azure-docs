@@ -6,6 +6,7 @@ ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 11/18/2024
 ms.author: jsuri
+# Customer intent: As an IT admin managing disaster recovery resources, I want to delete the Azure Site Recovery replication appliance, so that I can free up resources and ensure no leftover components are affecting my cloud environment.
 ---
 
 # How to Delete the Replication Appliance

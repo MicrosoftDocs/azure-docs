@@ -3,10 +3,10 @@ title: Azure permissions for DevOps - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the DevOps category.
 ms.service: role-based-access-control
 ms.topic: generated-reference
-author: rolyon
-manager: femila
-ms.author: rolyon
-ms.date: 05/25/2025
+author: jenniferf-skc
+manager: pmwongera
+ms.author: jfields
+ms.date: 07/07/2025
 ms.custom: generated
 ---
 
@@ -331,6 +331,31 @@ Azure service: [Azure Lab Services](/azure/lab-services/)
 > | Microsoft.DevTestLab/schedules/write | Add or modify schedules. |
 > | Microsoft.DevTestLab/schedules/Execute/action | Execute a schedule. |
 > | Microsoft.DevTestLab/schedules/Retarget/action | Updates a schedule's target resource Id. |
+
+## Microsoft.DevOpsInfrastructure
+
+Read, write, delete and perform actions on Managed DevOps Pools
+
+Azure service: [Managed DevOps Pools](/azure/devops/managed-devops-pools/overview)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.DevOpsInfrastructure/register/action | Register the subscription for Microsoft.DevOpsInfrastructure |
+> | Microsoft.DevOpsInfrastructure/unregister/action | Unregister the subscription for Microsoft.DevOpsInfrastructure |
+> | Microsoft.DevOpsInfrastructure/images/versions/read | List ImageVersion resources by Image |
+> | Microsoft.DevOpsInfrastructure/Locations/OperationStatuses/read | Read OperationStatuses |
+> | Microsoft.DevOpsInfrastructure/Locations/OperationStatuses/write | Write OperationStatuses |
+> | Microsoft.DevOpsInfrastructure/locations/skus/read | List ResourceSku resources by subscription ID |
+> | Microsoft.DevOpsInfrastructure/locations/usages/read | List Quota resources by subscription ID |
+> | Microsoft.DevOpsInfrastructure/Operations/read | Read Operations |
+> | Microsoft.DevOpsInfrastructure/pools/read | List Pool resources by subscription ID |
+> | Microsoft.DevOpsInfrastructure/pools/read | List Pool resources by resource group |
+> | Microsoft.DevOpsInfrastructure/pools/read | Get a Pool |
+> | Microsoft.DevOpsInfrastructure/pools/write | Create a Pool |
+> | Microsoft.DevOpsInfrastructure/pools/delete | Delete a Pool |
+> | Microsoft.DevOpsInfrastructure/pools/write | Update a Pool |
+> | Microsoft.DevOpsInfrastructure/pools/resources/read | List ResourceDetailsObject resources by Pool |
 
 ## Microsoft.LabServices
 

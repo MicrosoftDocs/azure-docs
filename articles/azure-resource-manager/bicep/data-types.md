@@ -2,7 +2,7 @@
 title: Data types in Bicep
 description: This article describes the data types that are available in Bicep.
 ms.topic: reference
-ms.date: 05/20/2025
+ms.date: 07/07/2025
 ms.custom: devx-track-bicep
 ---
 
@@ -66,7 +66,7 @@ var index = 1
 output secondElement int = exampleArray[index] // 2
 ```
 
-Starting with [Bicep CLI version 0.34.x](https://github.com/Azure/bicep/releases/tag/v0.34.1), you can use the `array[^index]` syntax to access elements from the end of an array — `^1` refers to the last element, `^2` to the second-to-last, and so on.
+Starting with [Bicep CLI version 0.34.x](https://github.com/Azure/bicep/releases/tag/v0.34.1), you can use the `array[^index]` syntax to access elements from the end of an array - `^1` refers to the last element, `^2` to the second-to-last, and so on.
 
 ```bicep
 var exampleArray = [1, 2, 3]
@@ -325,7 +325,7 @@ var storageName = 'storage${uniqueString(resourceGroup().id)}'
 In Bicep, multi-line strings are defined between three single quotation marks (`'''`) followed optionally by a newline (the opening sequence) and three single quotation marks (`'''` is the closing sequence). Characters that are entered between the opening and closing sequence are read verbatim. Escaping isn't necessary or possible.
 
 > [!NOTE]
-> The Bicep parser reads every characters as it is. Depending on the line endings of your Bicep file, newlines are interpreted as either `\r\n` or `\n`.
+> The Bicep parser reads every character as it is. Depending on the line endings of your Bicep file, newlines are interpreted as either `\r\n` or `\n`.
 >
 > Interpolation isn't currently supported in multi-line strings. Because of this limitation, you might need to use the [`concat`](./bicep-functions-string.md#concat) function instead of using [interpolation](#strings).
 >
@@ -436,6 +436,16 @@ The union type has some limitations:
 - All literals must be of the same primitive data type (for example, all strings or all integers).
 
 You can use the union type syntax in [user-defined data types](./user-defined-data-types.md).
+
+## Nullable types
+
+You can make any primitive or complex type nullable by appending a `?` to the type name. This allows the parameter, variable, or output to accept null as a valid value. For example:
+
+```bicep
+output description string? = null
+output config object? = null
+output optionalValue int? = null
+```
 
 ## Secure strings and objects
 

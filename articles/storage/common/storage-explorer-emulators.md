@@ -9,6 +9,7 @@ ms.topic: article
 ms.date: 11/23/2021
 ms.author: jinglou
 ms.reviewer: cralvord,richardgao
+# Customer intent: "As a developer, I want to connect my application to a local Azure Storage emulator using Storage Explorer, so that I can test my code in a free environment before deploying to the cloud."
 ---
 
 # Connect an emulator to Storage Explorer

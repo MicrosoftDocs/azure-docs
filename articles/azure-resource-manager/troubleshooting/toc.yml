@@ -81,12 +81,10 @@
   - name: Azure Quickstart Templates
     href: https://azure.microsoft.com/resources/templates/
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=monitoring-management
+    href: https://azure.microsoft.com/updates/?filters=%5B%22Azure+Resource+Manager%22%5D
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=azure-resource-manager
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-resource-manager
-  - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager

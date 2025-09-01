@@ -242,5 +242,5 @@ The mobile phone that owns the number you provided in the `to` value also receiv
 - [Learn more about Postman](https://learning.postman.com/)
 - [Add chat to your app](../quickstarts/chat/get-started.md)
 - [Create user access tokens](../quickstarts/identity/access-tokens.md)
-- [Learn about client and server architecture](../concepts/identity-model.md#client-server-architecture)
+- [Learn about client and server architecture](../concepts/identity-model.md#client-server-architecture-for-the-bring-your-own-identity-byoi-model)
 - [Learn about authentication](../concepts/authentication.md)

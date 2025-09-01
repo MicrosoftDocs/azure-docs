@@ -2,9 +2,10 @@
 title: Restore encrypted Azure VMs
 description: Describes how to restore encrypted Azure VMs with the Azure Backup service.
 ms.topic: how-to
-ms.date: 04/14/2025
-author: jyothisuri
-ms.author: jsuri
+ms.date: 08/20/2025
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As an IT administrator, I want to restore encrypted Azure virtual machines using the Azure Backup service, so that I can ensure data recovery while maintaining security compliance."
 ---
 # Restore encrypted Azure virtual machines
 
@@ -12,6 +13,8 @@ This article describes how to restore Windows or Linux Azure virtual machines (V
 
 > [!Note]
 > This article is applicable to virtual machines encrypted with Azure Disk encryption. For more information on ADE and how it differs from other disk encryption types in Azure, see [Disk Encryption Overview](/azure/virtual-machines/disk-encryption-overview).
+
+You can also restore Key Vault key and secret for encrypted VMs using Azure Backup. [Learn more](backup-azure-restore-key-secret.md).
 
 ## Before you start
 
@@ -58,6 +61,11 @@ Do one of the following actions:
 ### Step 3: Restore an encrypted Linux VM
 
 Reinstall the ADE extension so the data disks are open and mounted.
+
+>[!Note]
+>If an Azure VM uses disks size >= 4097 GB, or includes > 16 disks, the restore job fails to restore ADE settings on the restored disk. The restored disk remains encrypted with ADE, as it was at the restoration point,but the ADE configuration doesn't apply to the restored disk.
+>
+>To re-enable ADE, create a new Azure VM from the restored disk and then re-encrypt it using ADE.
 
 ## Cross Region Restore for an encrypted Azure VM
 
