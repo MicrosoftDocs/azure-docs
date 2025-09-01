@@ -6,7 +6,7 @@ author: sofiar
 manager: miguelher
 services: azure-communication-services
 ms.author: sofiar
-ms.date: 11/27/2024
+ms.date: 09/01/2025
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: identity
@@ -15,8 +15,6 @@ ms.subservice: identity
 # REST API for Teams Phone Extensibility
 
 This article describes REST API for Teams Phone extensibility.
-
-[!INCLUDE [public-preview-notice.md](../../includes/public-preview-include-document.md)]
 
 ## Create assignment
 
