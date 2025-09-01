@@ -6,7 +6,7 @@ author: sofiar
 manager: miguelher
 services: azure-communication-services
 ms.author: sofiar
-ms.date: 05/19/2025
+ms.date: 09/01/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: identity
@@ -15,8 +15,6 @@ ms.subservice: identity
 # Answer Teams Phone calls from Call Automation
 
 Use Azure Communication Services Call Automation to receive and answer calls for a Teams resource account.
-
-[!INCLUDE [public-preview-notice.md](../../includes/public-preview-include-document.md)]
 
 ## Prerequisites
 
