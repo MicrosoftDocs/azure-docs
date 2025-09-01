@@ -8,7 +8,7 @@ ms.service: azure-app-service
 ms.topic: faq
 ms.date: 12/13/2024
 # ms.devlang: wordpress
-ms.author: areddys
+ms.author: tulikac
 ms.custom: mvc, linux-related-content
 ---
 # WordPress on App Service: Frequently Asked Questions
