@@ -8,15 +8,13 @@ ms.subservice: teams-interop
 ms.date: 05/20/2025
 ms.topic: conceptual
 ms.author: henikaraa
-ms.custom: public_preview
+ms.custom: general_availability
 services: azure-communication-services
 ---
 
 # Teams Phone extensibility
 
 This article describes features of Teams Phone extensibility (TPE).
-
-[!INCLUDE [public-preview-notice.md](../../../includes/public-preview-include-document.md)]
 
 Artificial intelligence (AI) technologies increase the complexity of customer engagements, requiring businesses to adopt more sophisticated strategies to manage and improve customer interaction.
 
