@@ -5,16 +5,14 @@ description: This article describes available PSTN connectivity options and cost
 author: henikaraa
 ms.service: azure-communication-services
 ms.subservice: pstn
-ms.date: 05/20/2025
+ms.date: 09/01/2025
 ms.topic: conceptual
 ms.author: henikaraa
-ms.custom: public_preview
+ms.custom: general_Availability
 services: azure-communication-services
 ---
 
 # Cost and connectivity options for Teams Phone extensibility
-
-[!INCLUDE [public-preview-notice.md](../../../includes/public-preview-include-document.md)]
 
 Effective communication is essential for success in today's fast-paced business environment. Choosing the right public switched telephone network (PSTN) connectivity option for your organization's communication needs can significantly improve efficiency, reduce cost, and raise overall performance.
 
