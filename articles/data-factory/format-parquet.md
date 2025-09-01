@@ -216,7 +216,7 @@ When copying data from the source connector in Parquet format, the following map
 | BINARY                        | Byte array           |
 | FIXED_LEN_BYTE_ARRAY          | Byte array           |
 
-When copying data to the destination connector in Parquet format, the following mappings are used from interim data types used by the service internally to Parquet data types.
+When copying data to the sink connector in Parquet format, the following mappings are used from interim data types used by the service internally to Parquet data types.
 
 | Interim service data type | Parquet type |
 |----------------------|---------------------|
