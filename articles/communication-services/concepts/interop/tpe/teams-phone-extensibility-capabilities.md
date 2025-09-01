@@ -6,7 +6,7 @@ author: jacadd
 manager: chpalm
 services: azure-communication-services
 ms.author: jacadd
-ms.date: 05/20/2025
+ms.date: 09/01/2025
 ms.topic: conceptual
 ms.custom: general_availability
 ms.service: azure-communication-services
@@ -111,8 +111,8 @@ The following list of capabilities is supported for scenarios where at least one
 
 - [Microsoft Teams Phone overview](/microsoftteams/what-is-phone-system-in-office-365)
 - [Set up Microsoft Teams Phone in your organization](/microsoftteams/setting-up-your-phone-system)
-- [Access a user's Teams Phone separate from their Teams client](https://learn.microsoft.com/azure/communication-services/quickstarts/tpe/teams-phone-extensibility-access-teams-phone)
-- [Answer Teams Phone calls from Call Automation](https://learn.microsoft.com/azure/communication-services/quickstarts/tpe/teams-phone-extensibility-answer-teams-calls)
+- [Access a user's Teams Phone separate from their Teams client](../../../quickstarts/tpe/teams-phone-extensibility-access-teams-phone.md)
+- [Answer Teams Phone calls from Call Automation](../../../quickstarts/tpe/teams-phone-extensibility-answer-teams-calls.md)
 
 ## Related articles
 
