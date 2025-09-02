@@ -37,18 +37,6 @@ For troubleshooting issues related to the Calling SDK, see:
 
 ## Common Teams Phone extensibility issues
 
-### Unable to update CallAutomation SDK to Alpha
-
-1. Download `Azure.Communication.CallAutomation.1.4.0-alpha.20250129.2.nupkg` from [Call Automation Alpha SDKs](https://github.com/Azure/communication-preview/blob/master/Teams%20Phone%20Extensibility/teams-phone-extensibility-quickstart.md#alpha-sdks) in your preferred programming language.
-2. Open your solution in Visual Studio and go to the **Tools** menu, select **NuGet Package Manager**, and then select **Package Manager Console**. For reference, see [Manage NuGet packages with the Visual Studio Package Manager Console](/nuget/consume-packages/install-use-packages-powershell#console-controls).
-3. Go to the Package Manager Console and execute the following (be sure to update the path):
-
-   ```dotnetcli
-   Install-Package C:\path\to\Azure.Communication.CallAutomation.1.4.0-alpha.20250129.2.nupkg
-   ```
-
-4. Go back to the **Tools** menu, select **NuGet Package Manager**, and select **Manage NuGet Packages for Solution**. When the NuGet package loads, go to the **Installed** tab and make sure `Azure.Communication.CallAutomation` says that 1.4.0-alpha.20250129.2 is the installed version.
-
 ### Consent blocked due to Microsoft Entra App permission
 
 If you receive the following error:
