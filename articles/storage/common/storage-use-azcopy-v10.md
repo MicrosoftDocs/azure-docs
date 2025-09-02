@@ -257,10 +257,8 @@ AzCopy uses the `--from-to` parameter to explicitly define the source and destin
 | `FileSMBFileSMB`       | Copy between two SMB shares in Azure File Storage                                     |
 | `FileSMBLocal`         | Download from SMB share in Azure File Storage to local file system                    |
 | `FileNFSFileNFS`       | Copy between two NFS shares in Azure File Storage                                     |
-| `FileNFSFileSMB`       | Copy from NFS share to SMB share in Azure File Storage                                |
 | `FileNFSLocal`         | Download from NFS share in Azure File Storage to local file system (Linux only)       |
 | `FilePipe`             | Stream data from Azure File Storage to a pipe                                         |
-| `FileSMBFileNFS`       | Copy from SMB share to NFS share in Azure File Storage                                |
 | `FileSMBFileSMB`       | Copy between SMB shares (duplicate of above for completeness)                         |
 | `FileSMBLocal`         | Download from SMB share to local file system                                          |
 | `GCPBlob`              | Copy from Google Cloud Storage to Azure Blob Storage                                  |
