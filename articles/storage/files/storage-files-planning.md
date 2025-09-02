@@ -71,6 +71,10 @@ Currently, creating a file share with Microsoft.FileShares (preview) is availabl
 - Korea South
 - Australia Central
 
+Currently, private endpoint support for file share with Microsoft.FileShares (preview) is available in the following regions:
+
+- East Asia
+
 #### Comparing resource providers: Microsoft.Storage versus Microsoft.FileShares
 
 | Feature | Classic file shares ![fileshareclassicicon1](./media/storage-files-planning/icon-service-Azure-Fileshares.svg) | File shares (Microsoft.FileShares) ![mfsicon](./media/storage-files-planning/icon-service-Managed-File-Shares.svg) |
