@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/logic-apps/create-agent-workflows.md",
+            "redirect_url": "/azure/logic-apps/create-autonomous-agent-workflows",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/logic-apps/logic-apps-scenario-social-serverless.md",
             "redirect_url": "/azure/logic-apps/logic-apps-serverless-overview",
             "redirect_document_id": false

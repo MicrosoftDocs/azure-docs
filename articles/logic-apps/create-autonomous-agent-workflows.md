@@ -37,7 +37,7 @@ With [1,400+ connectors](/connectors/connector-reference/connector-reference-log
 
 The following diagram shows an example autonomous agent workflow that you create in this guide. The workflow uses an agent to get the weather forecast and send that forecast in email. The diagram shows the agent information pane where you set up the agent and provide instructions for the agent to follow:
 
-:::image type="content" source="media/create-agent-workflows/weather-example.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and example for agent workflow type." lightbox="media/create-agent-workflows/weather-example.png":::
+:::image type="content" source="media/create-autonomous-agent-workflows/weather-example.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and example for agent workflow type." lightbox="media/create-autonomous-agent-workflows/weather-example.png":::
 
 For the high-level steps that describe how the agent works and more overview information about agent workflows, see [AI agent workflows in Azure Logic Apps](/azure/logic-apps/agent-workflows-concepts).
 
@@ -166,7 +166,7 @@ Follow these steps to create a partial workflow with an empty **Default Agent**.
 
    1. Select **Autonomous Agents** > **Create**.
 
-   :::image type="content" source="media/create-agent-workflows/create-agent-workflow.png" alt-text="Screenshot shows Standard logic app resource with open Workflows page and Create workflow pane with workflow name, selected Agent option, and Create button." lightbox="media/create-agent-workflows/create-agent-workflow.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/create-agent-workflow.png" alt-text="Screenshot shows Standard logic app resource with open Workflows page and Create workflow pane with workflow name, selected Agent option, and Create button." lightbox="media/create-autonomous-agent-workflows/create-agent-workflow.png":::
 
    The designer opens and shows a partial workflow, which includes an empty **Default Agent** that you need to set up when you're ready. Before you can save your workflow, you must complete the following setup tasks for the agent:
 
@@ -174,7 +174,7 @@ Follow these steps to create a partial workflow with an empty **Default Agent**.
 
    - Provide system instructions that describe the roles that the agent plays, the tasks that the agent can perform, and other information to help the agent better understand how to operate. You also complete this task in a later section.
 
-   :::image type="content" source="media/create-agent-workflows/agent-workflow-start.png" alt-text="Screenshot shows workflow designer with Add a trigger and empty Default Agent." lightbox="media/create-agent-workflows/agent-workflow-start.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/agent-workflow-start.png" alt-text="Screenshot shows workflow designer with Add a trigger and empty Default Agent." lightbox="media/create-autonomous-agent-workflows/agent-workflow-start.png":::
 
 1. Continue to the next section.
 
@@ -188,7 +188,7 @@ Your workflow requires a trigger to control when the workflow starts running. Yo
 
    This example uses the **Request** trigger named **When a HTTP request is received**. For this article, you don't need any other trigger setup.
 
-   :::image type="content" source="media/create-agent-workflows/request-trigger.png" alt-text="Screenshot shows workflow designer with Request trigger and Default Agent." lightbox="media/create-agent-workflows/request-trigger.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/request-trigger.png" alt-text="Screenshot shows workflow designer with Request trigger and Default Agent." lightbox="media/create-autonomous-agent-workflows/request-trigger.png":::
 
 1. Continue to the next section so you can set up the connection between your agent and your model.
 
@@ -199,7 +199,7 @@ Your workflow requires a trigger to control when the workflow starts running. Yo
    > before you can save any changes. However, you don't have to set up the agent now. You can 
    > continue to create your workflow. Just remember to set up the agent before you save your workflow.
    >
-   > :::image type="content" source="media/create-agent-workflows/error-missing-default-agent-settings.png" alt-text="Screenshot shows workflow designer toolbar with Errors button with red dot and error in default agent information pane." lightbox="media/create-agent-workflows/error-missing-default-agent-settings.png":::
+   > :::image type="content" source="media/create-autonomous-agent-workflows/error-missing-default-agent-settings.png" alt-text="Screenshot shows workflow designer toolbar with Errors button with red dot and error in default agent information pane." lightbox="media/create-autonomous-agent-workflows/error-missing-default-agent-settings.png":::
 
 ## Connect the agent to your model
 
@@ -224,11 +224,11 @@ Now, create a connection between the agent and your deployed model by following 
 
    For example, if you select **Azure OpenAI** as your model source and **Managed identity** for authentication, your connection information looks like the following sample:
 
-   :::image type="content" source="media/create-agent-workflows/connection-azure-openai.png" alt-text="Screenshot shows example connection details for a deployed model in Azure OpenAI Service." lightbox="media/create-agent-workflows/connection-azure-openai.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/connection-azure-openai.png" alt-text="Screenshot shows example connection details for a deployed model in Azure OpenAI Service." lightbox="media/create-autonomous-agent-workflows/connection-azure-openai.png":::
 
    If you select **Foundry Agent Service** as your model source with **Managed identity** for authentication, your connection information looks like the following sample:
 
-   :::image type="content" source="media/create-agent-workflows/connection-ai-foundry.png" alt-text="Screenshot shows example connection details for a deployed model in Azure AI Foundry." lightbox="media/create-agent-workflows/connection-ai-foundry.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/connection-ai-foundry.png" alt-text="Screenshot shows example connection details for a deployed model in Azure AI Foundry." lightbox="media/create-autonomous-agent-workflows/connection-ai-foundry.png":::
 
 1. When you're done, select **Create new**.
 
@@ -244,7 +244,7 @@ Clearly identify the agent's purpose by updating the agent name in following ste
 
 1. On the agent information pane, select the default agent name, and enter the new name, for example, **Weather agent**.
 
-   :::image type="content" source="media/create-agent-workflows/rename-agent.png" alt-text="Screenshot shows workflow designer, workflow trigger, and renamed agent." lightbox="media/create-agent-workflows/rename-agent.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/rename-agent.png" alt-text="Screenshot shows workflow designer, workflow trigger, and renamed agent." lightbox="media/create-autonomous-agent-workflows/rename-agent.png":::
 
    > [!NOTE]
    >
@@ -278,7 +278,7 @@ To get the best results, make sure that your system instructions are prescriptiv
 
    Here's how the example looks with the system instructions for the agent:
 
-   :::image type="content" source="media/create-agent-workflows/system-instructions-weather-agent.png" alt-text="Screenshot shows workflow designer, and agent with system instructions." lightbox="media/create-agent-workflows/system-instructions-weather-agent.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/system-instructions-weather-agent.png" alt-text="Screenshot shows workflow designer, and agent with system instructions." lightbox="media/create-autonomous-agent-workflows/system-instructions-weather-agent.png":::
 
 1. Now, you can save your workflow. On the designer toolbar, select **Save**.
 
@@ -301,7 +301,7 @@ To get the best results, make sure that your system instructions are prescriptiv
 
       The monitoring view opens and shows the workflow operations with their status. The **Agent log** pane is open and shows the system instructions that you provided earlier. The pane also shows the agent's response. For autonomous agent workflows, the chat box is unavailable and in ready-only mode.
 
-      :::image type="content" source="media/create-agent-workflows/agent-only-test.png" alt-text="Screenshot shows monitoring view, operation status, and agent log." lightbox="media/create-agent-workflows/agent-only-test.png":::
+      :::image type="content" source="media/create-autonomous-agent-workflows/agent-only-test.png" alt-text="Screenshot shows monitoring view, operation status, and agent log." lightbox="media/create-autonomous-agent-workflows/agent-only-test.png":::
 
       However, the agent doesn't have any tools to use at this time, which means that the agent can't actually take any specific actions, such as send email to a subscriber list, until you create tools that the agent needs to complete their tasks. You might even get an email that your message was rejected by your email server.
 
@@ -321,7 +321,7 @@ In this example, the agent needs a tool that gets the weather forecast. You can 
 
    After you select the action, both the **Tool** and the action appear inside the agent on the designer at the same time. Both information panes also open at the same time.
 
-   :::image type="content" source="media/create-agent-workflows/added-tool-get-forecast.png" alt-text="Screenshot shows workflow designer with the renamed agent, which contains a tool that includes the action named Get forecast for today." lightbox="media/create-agent-workflows/added-tool-get-forecast.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/added-tool-get-forecast.png" alt-text="Screenshot shows workflow designer with the renamed agent, which contains a tool that includes the action named Get forecast for today." lightbox="media/create-autonomous-agent-workflows/added-tool-get-forecast.png":::
 
 1. On the tool information pane, rename the tool to describe its purpose.
 
@@ -361,7 +361,7 @@ For an action parameter that uses only model-generated outputs, create an agent 
 
    This button has the following tooltip: **Select to generate the agent parameter**.
 
-   :::image type="content" source="media/create-agent-workflows/generate-agent-parameter.png" alt-text="Screenshot shows an action with the mouse cursor inside a parameter box, parameter options, and the selected option to generate an agent parameter." lightbox="media/create-agent-workflows/generate-agent-parameter.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/generate-agent-parameter.png" alt-text="Screenshot shows an action with the mouse cursor inside a parameter box, parameter options, and the selected option to generate an agent parameter." lightbox="media/create-autonomous-agent-workflows/generate-agent-parameter.png":::
 
    The **Create agent parameter** window shows the **Name**, **Type**, and **Description** fields, which are prepopulated from the source action parameter.
 
@@ -384,7 +384,7 @@ For an action parameter that uses only model-generated outputs, create an agent 
 
    The following diagram shows the example **Get weather forecast for today** action with the **Location** agent parameter:
 
-   :::image type="content" source="media/create-agent-workflows/get-forecast-today-action.png" alt-text="Screenshot shows the Weather agent, Get weather tool, and selected action named Get forecast for today. The Location action parameter includes the created agent parameter." lightbox="media/create-agent-workflows/get-forecast-today-action.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/get-forecast-today-action.png" alt-text="Screenshot shows the Weather agent, Get weather tool, and selected action named Get forecast for today. The Location action parameter includes the created agent parameter." lightbox="media/create-autonomous-agent-workflows/get-forecast-today-action.png":::
 
 1. Save your workflow.
 
@@ -452,7 +452,7 @@ For these scenarios, create the agent parameter on the tool by following these s
 
    For example, the finished **Get weather** tool looks like the following example:
 
-   :::image type="content" source="media/create-agent-workflows/get-weather-tool.png" alt-text="Screenshot shows workflow designer with the agent and selected tool now named Get weather." lightbox="media/create-agent-workflows/get-weather-tool.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/get-weather-tool.png" alt-text="Screenshot shows workflow designer with the agent and selected tool now named Get weather." lightbox="media/create-autonomous-agent-workflows/get-weather-tool.png":::
 
 1. Save your workflow.
 
@@ -470,7 +470,7 @@ To build this tool, follow these steps:
 
    Like before, after you select the action, both the new **Tool** and action appear inside the agent on the designer at the same time. Both information panes open at the same time.
 
-   :::image type="content" source="media/create-agent-workflows/added-tool-send-email.png" alt-text="Screenshot shows workflow designer with Weather agent, Get weather tool, and new tool with action named Send an email (V2)." lightbox="media/create-agent-workflows/added-tool-send-email.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/added-tool-send-email.png" alt-text="Screenshot shows workflow designer with Weather agent, Get weather tool, and new tool with action named Send an email (V2)." lightbox="media/create-autonomous-agent-workflows/added-tool-send-email.png":::
 
 1. On the tool information pane, make the tool's purpose obvious by updating the tool name.
 
@@ -494,11 +494,11 @@ The steps in this section are nearly the same as [Create agent parameters for th
 
    When you're done, the example action uses the previously defined agent parameters as shown here:
 
-   :::image type="content" source="media/create-agent-workflows/send-email-action.png" alt-text="Screenshot shows the information pane for the action named Send an email V2, plus the previously defined agent parameters named To, Subject, and Body." lightbox="media/create-agent-workflows/send-email-action.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/send-email-action.png" alt-text="Screenshot shows the information pane for the action named Send an email V2, plus the previously defined agent parameters named To, Subject, and Body." lightbox="media/create-autonomous-agent-workflows/send-email-action.png":::
 
    The second example tool is now complete and looks like the following example:
 
-   :::image type="content" source="media/create-agent-workflows/send-email-tool-complete.png" alt-text="Screenshot shows the finished second tool inside the agent." lightbox="media/create-agent-workflows/send-email-tool-complete.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/send-email-tool-complete.png" alt-text="Screenshot shows the finished second tool inside the agent." lightbox="media/create-autonomous-agent-workflows/send-email-tool-complete.png":::
 
 ## Create a tool to provide subscriber list
 
@@ -506,7 +506,7 @@ Finally, for this example, create a tool named **Get subscribers** to provide a 
 
 The following example shows how the **Get subscribers** tool might look:
 
-:::image type="content" source="media/create-agent-workflows/add-tool-get-subscribers.png" alt-text="Screenshot shows agent with new tool named Get subscribers that contains a Compose action with subscriber information." lightbox="media/create-agent-workflows/add-tool-get-subscribers.png":::
+:::image type="content" source="media/create-autonomous-agent-workflows/add-tool-get-subscribers.png" alt-text="Screenshot shows agent with new tool named Get subscribers that contains a Compose action with subscriber information." lightbox="media/create-autonomous-agent-workflows/add-tool-get-subscribers.png":::
 
 Optionally, on the agent, you can provide *user instructions* that the agent can use as prompts or requests. 
 For better results, make each user instruction focus on a specific task, for example:
@@ -633,7 +633,7 @@ The workflow run history provides useful information that helps you learn what h
 
 1. To get tool execution data at a specific point, find that point in the agent log, and select the tool execution reference, for example:
 
-   :::image type="content" source="media/create-agent-workflows/tool-reference-links.png" alt-text="Screenshot shows agent log and selected tool execution link." lightbox="media/create-agent-workflows/tool-reference-links.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/tool-reference-links.png" alt-text="Screenshot shows agent log and selected tool execution link." lightbox="media/create-autonomous-agent-workflows/tool-reference-links.png":::
 
    This action moves you to the matching tool in monitoring view. The agent shows the current iteration count.
 
@@ -641,7 +641,7 @@ The workflow run history provides useful information that helps you learn what h
 
    The following example shows a selected action for the previously selected tool execution:
 
-   :::image type="content" source="media/create-agent-workflows/tool-execution-data.png" alt-text="Screenshot shows monitoring view, current agent loop iteration, and selected action with inputs and outputs at this point in time." lightbox="media/create-agent-workflows/tool-execution-data.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/tool-execution-data.png" alt-text="Screenshot shows monitoring view, current agent loop iteration, and selected action with inputs and outputs at this point in time." lightbox="media/create-autonomous-agent-workflows/tool-execution-data.png":::
 
    If you select the agent, you can review the following information that passes into the model and returns from the model, for example:
 

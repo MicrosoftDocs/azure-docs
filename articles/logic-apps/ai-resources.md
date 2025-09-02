@@ -43,7 +43,7 @@ For more information, see the following resources:
 
 | Resource type | Link |
 |---------------|------|
-| **Documentation** | - [Workflows with AI agents and models in Azure Logic Apps](agent-workflows-concepts.md) <br><br>- [Create workflows that use AI agents and models to complete tasks in Azure Logic Apps](create-agent-workflows.md) |
+| **Documentation** | - [Workflows with AI agents and models in Azure Logic Apps](agent-workflows-concepts.md) <br><br>- [Create autonomous agent workflows in Azure Logic Apps](create-autonomous-agent-workflows.md) |
 | **Blog article** | [Announcing agent loop: Build AI Agents in Azure Logic Apps](https://techcommunity.microsoft.com/blog/integrationsonazureblog/%F0%9F%93%A2announcing-agent-loop-build-ai-agents-in-azure-logic-apps-%F0%9F%A4%96/4415052) |
 | **Blog article** | [Agent Loop Demos for Azure Logic Apps](https://techcommunity.microsoft.com/blog/integrationsonazureblog/%F0%9F%A4%96-agent-loop-demos-%F0%9F%A4%96/4414770) |
 | **Video overview** | [Getting Ready for Agents in Azure Logic Apps](https://youtu.be/EMXLB4thdhg) |
