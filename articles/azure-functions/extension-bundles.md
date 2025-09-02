@@ -77,19 +77,20 @@ Keep these considerations in mind when upgrading the extension bundle version us
 
 ## Extension bundles support policy
 
-Major version releases of an extension bundle can occur when there are breaking changes or updates in one of the contained binding extensions. These extension breaking changes require updates to the bundle to remain compatible with the underlying Azure SDKs.  
+Major version releases of an extension bundle can occur when there are breaking change updates in one of the contained binding extensions. These extension breaking changes require updates to the bundle to remain compatible with the underlying Azure SDKs. Upgrading the bundle ensures your apps continue to receive new features, performance improvements, and full product support.
 
-Microsoft notifies you when an extension bundle or a binding extension version is deprecated. These notifications might appear in different parts of your Functions experience, such as in host logs, Application Insights tables, or the Azure portal. When you encounter these notifications, you must start the process of planning for and upgrading your function apps to the latest supported extension bundle version. 
+> [!TIP]  
+> Because extension bundle updates are driven by updates in the underlying Azure SDKs, the support cycle for extension bundles generally follows the [support policies of the underlying Azure SDKs](https://azure.github.io/azure-sdk/policies_support.html).  
+>  
+> Microsoft notifies you when an extension bundle or a binding extension version is deprecated. These notifications might appear in different parts of your Functions experience, such as in host logs, Application Insights tables, or the Azure portal. When you encounter these notifications, you must start the process of planning for and upgrading your function apps to the latest supported extension bundle version. 
 
-Upgrading ensures your apps continue to receive new features, performance improvements, and full product support. 
-
-The support cycle of an extension bundle, which is based on the [support policies of the underlying Azure SDKs](https://azure.github.io/azure-sdk/policies_support.html), follows these distinct phases: 
+The support cycle of extension bundles follows these distinct phases: 
 
 | Phase | Description |
 | ----- | ----- |  
-| **Preview** |Pre-release versions of specific binding extensions are maintained in a preview extension bundle (`Microsoft.Azure.Functions.ExtensionBundle.Preview`). You can use this preview extension bundle to take advantage of preview extensions and new behaviors in existing extensions before they reach general availability (GA). For more information, see [Work with preview extension bundles](#work-with-preview-extension-bundles). | 
-| **Active** | The most recent major version of extension bundles is considered the active version. We recommend this version for your function apps. |
-| **Deprecation** | A bundle version has been superseded by a more recent release and is now deprecated. Once a bundle is deprecated, it will only receive critical bug fixes and security updates for a limited overlap period—typically at least 12 months—giving you time to plan, test, and upgrade your apps to the latest bundle version.<br/><br/>Function apps that continue to use a deprecated bundle can still run on the platform. However, to ensure access to new features, performance improvements, security patches, and full support, you must upgrade your function apps to a supported bundle version. |
+| **Preview** |Prerelease versions of specific binding extensions are maintained in a preview extension bundle (`Microsoft.Azure.Functions.ExtensionBundle.Preview`). You can use this preview extension bundle to take advantage of preview extensions and new behaviors in existing extensions before they reach general availability (GA). For more information, see [Work with preview extension bundles](#work-with-preview-extension-bundles). | 
+| **Active** | The most recent major version of extension bundles is considered to be the active version. We recommend this version for your function apps. |
+| **Deprecation** | The bundle version is superseded by a more recent release and is now deprecated. After a bundle is deprecated, it only receives critical bug fixes and security updates for a limited overlap period. This overlap is typically at least 12 months, which gives you time to plan, test, and upgrade your apps to the latest bundle version.<br/><br/>Function apps that continue to use a deprecated bundle can still run on the platform. However, to ensure access to new features, performance improvements, security patches, and full support, you must upgrade your function apps to a supported bundle version. |
 
 You can view the extension bundle versions and their included extensions in the [Azure Functions extension bundles repository](https://github.com/Azure/azure-functions-extension-bundles/releases). You can also view the Azure SDK releases page for an inventory of all Functions extensions. You can find individual .NET packages on [NuGet.org](https://nuget.org/). 
 

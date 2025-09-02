@@ -73,7 +73,7 @@ Add the extension to your project by installing this [NuGet package](https://www
 |---------|---------|---------|
 |`prefetchCount`|30|Gets or sets the number of messages that the message receiver can simultaneously request and is cached.|
 |`queueName`|n/a| Name of the queue to receive messages from.|
-|`connectionString`|n/a|The app setting that contains the RabbitMQ message queue connection string. This optional connection setting is used for all RabbitMQ bindings in the app. |
+|`connectionString`|n/a|The app setting that contains the RabbitMQ message queue connection string. |
 |`port`|0|(ignored if using connectionString) Gets or sets the Port used. Defaults to 0, which points to rabbitmq client's default port setting: 5672.|
 
 ## Related articles
