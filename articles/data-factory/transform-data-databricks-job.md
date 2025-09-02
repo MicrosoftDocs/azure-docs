@@ -28,7 +28,7 @@ To use a Job activity for Azure Databricks in a pipeline, complete the following
 
 1. Search for _Job_ in the pipeline Activities pane, and drag a Job activity to the pipeline canvas.
 1. Select the new Job activity on the canvas if it isn't already selected.
-1. Select the  **Azure Databricks** tab to select or create a new Azure Databricks linked service that executes the Job activity.
+1. Select the **Azure Databricks** tab to select or create a new Azure Databricks linked service.
 
    > [!Note]
    > The Azure Databricks Job activity automatically runs on serverless clusters, so you don't need to specify a cluster in your linked service configuration.
