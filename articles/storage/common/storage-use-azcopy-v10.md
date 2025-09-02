@@ -241,36 +241,36 @@ To find example commands, see any of these articles.
 
 AzCopy uses the `--from-to` parameter to explicitly define the source and destination resource types when automatic detection may fail-such as in piping scenarios or emulators. This helps AzCopy understand the context of the transfer and optimize accordingly.
 
-| FromTo Value           | Description                                                                     |
-|------------------------|---------------------------------------------------------------------------------|
-| `BlobBlob`             | Copy between two Azure Blob Storage locations                                   | 
-| `BlobBlobFS`           | Copy from Azure Blob Storage to Azure Data Lake Gen2 (BlobFS)                   |
-| `BlobFSBlob`           | Copy from Azure Data Lake Gen2 (BlobFS) to Azure Blob Storage                   |
-| `BlobFSBlobFS`         | Copy between two Azure Data Lake Gen2 (BlobFS) locations                        |
-| `BlobFSFile`           | Copy from Azure Data Lake Gen2 (BlobFS) to Azure File Storage                   |
-| `BlobFSLocal`          | Download from Azure Data Lake Gen2 (BlobFS) to local file system                |
-| `BlobFile`             | Copy from Azure Blob Storage to Azure File Storage                              |
-| `BlobLocal`            | Download from Azure Blob Storage to local file system                           |
-| `BlobPipe`             | Stream data from Azure Blob Storage to a pipe                                   |
-| `FileBlob`             | Copy from Azure File Storage to Azure Blob Storage                              |
-| `FileBlobFS`           | Copy from Azure File Storage to Azure Data Lake Gen2 (BlobFS)                   |
-| `FileSMBFileSMB`       | Copy between two SMB shares in Azure File Storage                               |
-| `FileSMBLocal`         | Download from SMB share in Azure File Storage to local file system              |
-| `FileNFSFileNFS`       | Copy between two NFS shares in Azure File Storage                               |
-| `FileNFSFileSMB`       | Copy from NFS share to SMB share in Azure File Storage                          |
-| `FileNFSLocal`         | Download from NFS share in Azure File Storage to local file system              |
-| `FilePipe`             | Stream data from Azure File Storage to a pipe                                   |
-| `FileSMBFileNFS`       | Copy from SMB share to NFS share in Azure File Storage                          |
-| `FileSMBFileSMB`       | Copy between SMB shares (duplicate of above for completeness)                   |
-| `FileSMBLocal`         | Download from SMB share to local file system                                    |
-| `GCPBlob`              | Copy from Google Cloud Storage to Azure Blob Storage                            |
-| `LocalBlob`            | Upload from local file system to Azure Blob Storage                             |
-| `LocalBlobFS`          | Upload from local file system to Azure Data Lake Gen2 (BlobFS)                  |
-| `LocalFileSMB`         | Upload from local file system to SMB share in Azure File Storage                |
-| `LocalFileNFS`         | Upload from local file system to NFS share in Azure File Storage                |
-| `PipeBlob`             | Stream data from a pipe to Azure Blob Storage                                   |
-| `PipeFile`             | Stream data from a pipe to Azure File Storage                                   |
-| `S3Blob`               | Copy from Amazon S3 to Azure Blob Storage                                       |
+| FromTo Value           | Description                                                                           |
+|------------------------|---------------------------------------------------------------------------------------|
+| `BlobBlob`             | Copy between two Azure Blob Storage locations                                         | 
+| `BlobBlobFS`           | Copy from Azure Blob Storage to Azure Data Lake Gen2 (BlobFS)                         |
+| `BlobFSBlob`           | Copy from Azure Data Lake Gen2 (BlobFS) to Azure Blob Storage                         |
+| `BlobFSBlobFS`         | Copy between two Azure Data Lake Gen2 (BlobFS) locations                              |
+| `BlobFSFile`           | Copy from Azure Data Lake Gen2 (BlobFS) to Azure File Storage                         |
+| `BlobFSLocal`          | Download from Azure Data Lake Gen2 (BlobFS) to local file system                      |
+| `BlobFile`             | Copy from Azure Blob Storage to Azure File Storage                                    |
+| `BlobLocal`            | Download from Azure Blob Storage to local file system                                 |
+| `BlobPipe`             | Stream data from Azure Blob Storage to a pipe                                         |
+| `FileBlob`             | Copy from Azure File Storage to Azure Blob Storage                                    |
+| `FileBlobFS`           | Copy from Azure File Storage to Azure Data Lake Gen2 (BlobFS)                         |
+| `FileSMBFileSMB`       | Copy between two SMB shares in Azure File Storage                                     |
+| `FileSMBLocal`         | Download from SMB share in Azure File Storage to local file system                    |
+| `FileNFSFileNFS`       | Copy between two NFS shares in Azure File Storage                                     |
+| `FileNFSFileSMB`       | Copy from NFS share to SMB share in Azure File Storage                                |
+| `FileNFSLocal`         | Download from NFS share in Azure File Storage to local file system (Linux only)       |
+| `FilePipe`             | Stream data from Azure File Storage to a pipe                                         |
+| `FileSMBFileNFS`       | Copy from SMB share to NFS share in Azure File Storage                                |
+| `FileSMBFileSMB`       | Copy between SMB shares (duplicate of above for completeness)                         |
+| `FileSMBLocal`         | Download from SMB share to local file system                                          |
+| `GCPBlob`              | Copy from Google Cloud Storage to Azure Blob Storage                                  |
+| `LocalBlob`            | Upload from local file system to Azure Blob Storage                                   |
+| `LocalBlobFS`          | Upload from local file system to Azure Data Lake Gen2 (BlobFS)                        |
+| `LocalFileSMB`         | Upload from local file system to SMB share in Azure File Storage                      |
+| `LocalFileNFS`         | Upload from local file system (Linux only) to NFS share in Azure File Storage         |
+| `PipeBlob`             | Stream data from a pipe to Azure Blob Storage                                         |
+| `PipeFile`             | Stream data from a pipe to Azure File Storage                                         |
+| `S3Blob`               | Copy from Amazon S3 to Azure Blob Storage                                             |
 
 ## Get command help
 
