@@ -36,11 +36,9 @@ The key differences between the Classic and Simplified experience:
   >[!NOTE]
   >Classic experience will not support starting replications on new servers after **October 30, 2025**.
 - If you have servers discovered through the replication appliance under the classic experience, ensure replication is initiated before **October 30, 2025**, and plan your subsequent migrations before the deprecation date **(March 30, 2026)**.
-- Existing VMware and physical machines can remain on the classic experience until **March 30, 2026**. After **30 March 2026**, changes to any configurations of the replication on these existing VMware and physical machines will require upgrade to the new simplified experience. 
-
-- Support for new features or improvements, along with mobility agent support for new Linux distros, will only be available on the simplified experience.
-
-- If you do not migrate your machines by **March 30, 2026**, the replication health of your machines may be disrupted and you will no longer be able to view, manage, or perform any operations through the Azure portal.
+- Existing VMware and physical machines can continue using the classic experience until **March 30, 2026**. After that date, any changes to replication configurations will require an upgrade to the new simplified experience.
+-  New features, enhancements, and mobility agent support for additional Linux distributions will only be made available in the simplified experience.
+-  If you don’t migrate your machines by **March 30, 2026**, replication health may be affected. You won’t be able to view, manage, or perform operations on these machines through the Azure portal after this date.
   
 ## Move your existing replications on classic experience to simplified experience
 >[!NOTE]
