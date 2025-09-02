@@ -73,22 +73,10 @@ Add the extension to your project by installing this [NuGet package](https://www
 |---------|---------|---------|
 |`prefetchCount`|30|Gets or sets the number of messages that the message receiver can simultaneously request and is cached.|
 |`queueName`|n/a| Name of the queue to receive messages from.|
-|`connectionString`|n/a|The RabbitMQ message queue connection string. <!---verify this--> The connection string is directly specified here and not through an app setting.|
+|`connectionString`|n/a|The app setting that contains the RabbitMQ message queue connection string. This optional connection setting is used for all RabbitMQ bindings in the app. |
 |`port`|0|(ignored if using connectionString) Gets or sets the Port used. Defaults to 0, which points to rabbitmq client's default port setting: 5672.|
-
-> [!IMPORTANT]
-> Support for these v1.x settings is removed in v2.x of the binding extension. 
->
-> + `hostName`
-> + `userNameSetting`
-> + `passwordSetting`
-> + `port`
->
-> If your host.json or binding definitions include these settings, they are ignored when using the v2.x extension. Instead, use the `connectionString` setting, which can be [maintained in Azure Key Vault](../app-service/app-service-key-vault-references.md) for improved security. 
 
 ## Related articles
 
 - [Run a function when a RabbitMQ message is created (Trigger)](./functions-bindings-rabbitmq-trigger.md)
 - [Send RabbitMQ messages from Azure Functions (Output binding)](./functions-bindings-rabbitmq-output.md)
-
-[extension bundle]: ./extension-bundles.md
