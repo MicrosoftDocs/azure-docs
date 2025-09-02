@@ -401,7 +401,7 @@ sections:
       - question: |
           Is Traffic Analytics supported in a Log Analytics Workspace with NSP enabled?
         answer: |
-          No, it is currently not recommended. If a LAW is deployed behind a NSP, Traffic Analytics will not be able to ingest data from it. Customers are advised to avoid placing LAW under NSP boundaries until this limitation is resolved.
+          No, it is currently not supported. If a Log Analytics workspace is deployed behind a network security perimeter, traffic analytics won't be able to ingest data from it.
 
   - name: Network diagnostic tools
     questions:
