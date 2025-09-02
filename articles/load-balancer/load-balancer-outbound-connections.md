@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: concept-article
-ms.date: 06/26/2024
+ms.date: 09/01/2025
 ms.author: mbender
 # Customer intent: "As a cloud architect, I want to configure Source Network Address Translation (SNAT) for my virtual machines, so that I can ensure secure and reliable outbound internet connectivity while managing SNAT port allocation effectively to avoid exhaustion."
 ---
@@ -96,7 +96,7 @@ This option is similar to the previous one, except when no outbound rules are cr
 In Azure, virtual machines created in a virtual network without explicit outbound connectivity defined are assigned a default outbound public IP address. This IP address enables outbound connectivity from the resources to the Internet. This access is referred to as [default outbound access](../virtual-network/ip-services/default-outbound-access.md).  This method of access is **not recommended** as it's insecure and the IP addresses are subject to change.
 
 >[!Important]
->On September 30, 2025, new virtual networks will default to using private subnets. For more information, see the [official announcement](https://azure.microsoft.com/updates?id=default-outbound-access-for-vms-in-azure-will-be-retired-transition-to-a-new-method-of-internet-access). It is recommended to use one the explicit forms of connectivity as shown in options 1-3 above.
+>On March 31, 2026, new virtual networks will default to using private subnets. For more information, see the [official announcement](https://azure.microsoft.com/updates?id=default-outbound-access-for-vms-in-azure-will-be-retired-transition-to-a-new-method-of-internet-access). It is recommended to use one the explicit forms of connectivity as shown in options 1-3 above.
 
 ### What are SNAT ports?
 

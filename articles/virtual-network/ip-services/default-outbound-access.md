@@ -7,7 +7,7 @@ ms.author: mbender
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: concept-article
-ms.date: 06/11/2025
+ms.date: 09/01/2025
 # Customer intent: "As an Azure network administrator, I want to transition from default outbound access to explicit outbound connectivity for virtual machines, so that I can ensure secure and reliable internet access while avoiding potential disruptions from IP address changes."
 ---
 
@@ -28,10 +28,13 @@ Examples of explicit outbound connectivity for virtual machines are:
 
 If a Virtual Machine (VM) is deployed without an explicit outbound connectivity method, Azure assigns it a default outbound public IP address. This IP, known as the default outbound access IP, is owned by Microsoft and can change without notice. It isn't recommended for production workloads.
 
-:::image type="content" source="./media/default-outbound-access/decision-tree-load-balancer-thumb.png"  alt-text="Diagram of decision tree for default outbound access." lightbox="./media/default-outbound-access/decision-tree-load-balancer.png":::
+:::image type="content" source="./media/default-outbound-access/decision-tree-load-balancer.png"  alt-text="Diagram of decision tree for default outbound access." lightbox="./media/default-outbound-access/decision-tree-load-balancer.png":::
+
+>[!Note]
+>In some cases, a default outbound IP is still assigned to virtual machines in a non-private subnet, even when an explicit outbound method—such as a NAT Gateway or a UDR directing traffic to an NVA/firewall—is configured. This does not mean the default outbound IPs are used for egress unless those explicit methods are removed. To completely remove the default outbound IPs, the subnet must be made private, and the virtual machines must be stopped and deallocated.
 
 >[!Important]
->After September 30, 2025, new virtual networks will default to using private subnets, meaning that an explicit outbound method must be enabled in order to reach public endpoints on the Internet and within Microsoft. For more information, see the [official announcement](https://azure.microsoft.com/updates/default-outbound-access-for-vms-in-azure-will-be-retired-transition-to-a-new-method-of-internet-access/). We recommend that you use one of the explicit forms of connectivity discussed in the following section. For additional questions, please see the "FAQs: Default Behavior Change to Private Subnets" section.
+>After March 31, 2026, new virtual networks will default to using private subnets, meaning that an explicit outbound method must be enabled in order to reach public endpoints on the Internet and within Microsoft. For more information, see the [official announcement](https://azure.microsoft.com/updates/default-outbound-access-for-vms-in-azure-will-be-retired-transition-to-a-new-method-of-internet-access/). We recommend that you use one of the explicit forms of connectivity discussed in the following section. For additional questions, please see the "FAQs: Default Behavior Change to Private Subnets" section.
 
 ## Why is disabling default outbound access recommended?
 
@@ -154,6 +157,8 @@ az network vnet subnet update --resource-group rgname --name subnetname --vnet-n
     * One or more routes are configured to [Service Tag destinations](../virtual-networks-udr-overview.md#service-tags-for-user-defined-routes) with next hop type `Internet`, to bypass the NVA/firewall. Unless an explicit outbound connectivity method is also configured for the source of the connection to these destinations, attempts to connection to these destinations fail, because default outbound access isn't available.
 
   * This limitation doesn't apply to the use of Service Endpoints, which use a different next hop type `VirtualNetworkServiceEndpoint`. See [Virtual Network service endpoints](../virtual-network-service-endpoints-overview.md).
+ 
+* Virtual machines are still able to access Azure Storage accounts in the same region in a private subnet without an explicit method of outbound. NSGs are recommended to control egress connectivity.
 
 * Private Subnets aren't applicable to delegated or managed subnets used for hosting PaaS services. In these scenarios, outbound connectivity is managed by the individual service.
 
@@ -164,7 +169,7 @@ az network vnet subnet update --resource-group rgname --name subnetname --vnet-n
  
 * Associate a NAT gateway to the subnet of your virtual machine. Note this is the recommended method for most scenarios.
 * Associate a standard load balancer configured with outbound rules.
-* Associate a Standard public IP to any of the virtual machine's network interfaces (if there are multiple network interfaces, having a single NIC with a standard public IP prevents default outbound access for the virtual machine).
+* Associate a Standard public IP to any of the virtual machine's network interfaces.
 * Add a Firewall or Network Virtual Appliance (NVA) to your virtual network and point traffic to it using a User Defined Route (UDR).
 
 >[!NOTE]
@@ -180,7 +185,7 @@ az network vnet subnet update --resource-group rgname --name subnetname --vnet-n
 ### FAQs: Default Behavior Change to Private Subnets
 
 #### What does making Private Subnets default mean, and how will it be implemented?
-Starting with the API version released after September 30 2025, the defaultOutboundAccess property for subnets in new VNETs will be set to "false" by default. This change makes subnets private by default and prevents generation of default outbound IPs for virtual machines in those subnets.
+Starting with the API version released after March 31, 2026, the defaultOutboundAccess property for subnets in new VNETs will be set to "false" by default. This change makes subnets private by default and prevents generation of default outbound IPs for virtual machines in those subnets.
 This behavior applies across all configuration methods--ARM templates, Azure portal, PowerShell, and CLI. Earlier versions of ARM templates (or tools like Terraform that can specify older versions) will continue to set defaultOutboundAccess as null, which implicitly allows outbound access.
 
 #### What will happen to my existing VNETs and virtual machines? What about new virtual machines created in existing VNETs?
