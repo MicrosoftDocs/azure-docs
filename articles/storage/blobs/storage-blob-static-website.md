@@ -20,7 +20,7 @@ If you need a web server to render content, you can use [Azure App Service](http
 
 ## Prerequisites
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/).
-- An Azure storage account resource. To learn how to create a storage account, see [Create an Azure storage account](/common/storage-account-create.md). 
+- An Azure storage account resource. To learn how to create a storage account, see [Create an Azure storage account](../common/storage-account-create.md). 
 
 ## Setting up a static website
 

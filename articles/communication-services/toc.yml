@@ -158,6 +158,13 @@ items:
       href: how-tos/chat-sdk/data-loss-prevention.md
     - name: Chat hero sample
       href: samples/chat-hero-sample.md
+    - name: Authentication service hero sample
+      href: samples/trusted-auth-sample.md
+    - name: Migrate to Android push notifications FCM v1
+      href: tutorials/call-chat-migrate-android-push-fcm-v1.md
+    - name: Register for Android push notifications FCM v1
+      href: tutorials/call-chat-register-android-push-fcm-v1.md
+
   - name: References
     items:
     - name: Chat (JavaScript)
@@ -364,10 +371,6 @@ items:
       href: quickstarts/sms/apply-for-toll-free-verification.md
     - name: Enable alphanumeric sender ID
       href: quickstarts/sms/enable-alphanumeric-sender-id.md
-    - name: Migrate to Android push notifications FCM v1
-      href: tutorials/call-chat-migrate-android-push-fcm-v1.md
-    - name: Register for Android push notifications FCM v1
-      href: tutorials/call-chat-register-android-push-fcm-v1.md
   - name: References
     items:
     - name: SMS (JavaScript)

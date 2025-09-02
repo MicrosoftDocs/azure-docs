@@ -41,6 +41,10 @@ The addition of multiple replicas allows AI Search to:
 
 One replica is automatically assigned to be the *primary replica* by Azure AI Search. All write operations are performed against that replica. The other replicas are used for read operations.
 
+The following diagram illustrates how a search service with three replicas might be spread across three availability zones:
+
+:::image type="content" source="./media/reliability-ai-search/replicas.png" alt-text="Diagram that shows an AI Search service with three replicas. Read operations are sent to all replicas, and write operations are sent to the primary replica." border="false" :::
+
 You can also configure the number of *partitions*, which represent the storage used by the search indexes.
 
 It's important to understand the impact of adding replicas and partitions, because they each affect read and write performance in different ways. For more information about replicas and partitions, see [Estimate and manage capacity of a search service](/azure/search/search-capacity-planning).
@@ -63,6 +67,10 @@ Azure AI Search is zone redundant, which means that your replicas are distribute
 
 When you add two or more replicas to your service, Azure AI Search attempts to place each replica in a different availability zone. For services with more replicas than available zones, replicas are distributed across zones as evenly as possible.
 
+The following diagram illustrates how an example search service with four replicas might be deployed across three availability zones:
+
+:::image type="content" source="./media/reliability-ai-search/availability-zones.png" alt-text="Diagram that shows an AI Search service with four replicas distributed across three availability zones." border="false" :::
+
 > [!IMPORTANT]
 > Azure AI Search doesn't guarantee the exact placement of replicas, which is subject to capacity constraints, scaling operations, and other factors.
 
@@ -74,7 +82,7 @@ Support for availability zones depends on infrastructure and storage. For a list
 
 Zone redundancy is automatically enabled when your search service meets all of the following criteria:
 
-+ Is in a [region that has availability zones](/azure/search/search-region-support).
++ Meets the [region requirements](#region-support).
 + Is on the [Basic tier or higher](/azure/search/search-sku-tier).
 + Has [at least two replicas](/azure/search/search-capacity-planning#add-or-remove-partitions-and-replicas).
   

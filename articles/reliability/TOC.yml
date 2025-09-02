@@ -131,7 +131,7 @@ items:
       - name: Disaster recovery
         href: /azure/azure-sql/database/recovery-using-backups?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#geo-restore
     - name: Azure SQL Managed Instance
-      href: /azure/azure-sql/database/auto-failover-group-sql-db?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&tabs=azure-powershell
+      href: reliability-sql-managed-instance.md
   - name: Developer tools
     items:
     - name: Azure API Center
@@ -381,7 +381,7 @@ items:
       - name: Azure SQL Database
         href: /azure/azure-sql/database/enable-zone-redundancy?view=azuresql-db&preserve-view=true&toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure SQL Managed Instance
-        href: /azure/azure-sql/managed-instance/instance-zone-redundancy-configure
+        href: reliability-sql-managed-instance.md#configure-availability-zone-support
       - name: Azure Virtual Machines and Virtual Machine Scale Sets
         href: migrate-vm.md
 - name: Reliability concepts

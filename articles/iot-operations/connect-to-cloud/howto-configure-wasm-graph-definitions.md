@@ -86,7 +86,7 @@ This graph creates a straightforward data processing pipeline:
 2. **Map operation**: Processes data with the temperature WASM module (`temperature:1.0.0`)
 3. **Sink operation**: Sends converted data to the data flow's destination endpoint
 
-The [temperature module](https://github.com/Azure-Samples/explore-iot-operations/blob/wasm/samples/wasm/operators/temperature/src/lib.rs) converts Fahrenheit to Celsius using the standard formula `(F - 32) × 5/9 = C`.
+The [temperature module](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/rust/examples/temperature/src/lib.rs) converts Fahrenheit to Celsius using the standard formula `(F - 32) × 5/9 = C`.
 
 **Input format:**
 ```json
@@ -266,7 +266,7 @@ moduleConfigurations:
 
 These parameters are passed to your WASM operator's `init` function at runtime, enabling dynamic configuration without rebuilding modules. For detailed examples of how to access and use these parameters in your Rust and Python code, see [Module configuration parameters](howto-develop-wasm-modules.md#module-configuration-parameters).
 
-For a complete implementation example, see the [branch module](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples/branch), which demonstrates parameter usage for conditional routing logic.
+For a complete implementation example, see the [branch module](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/python/examples/branch), which demonstrates parameter usage for conditional routing logic.
 
 ## Next steps
 

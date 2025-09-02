@@ -38,8 +38,8 @@ If a Virtual Machine (VM) is deployed without an explicit outbound connectivity 
 
 ## Why is disabling default outbound access recommended?
 
-**Security**: Default Internet access contradicts Zero Trust principles.
-**Clarity**: Explicit connectivity is preferred over implicit access.
+**Security**: Default Internet access contradicts Zero Trust principles.<br>
+**Clarity**: Explicit connectivity is preferred over implicit access.<br>
 **Stability**: The default outbound IP isn't customer-owned and can change, leading to potential disruptions.
 
 Some examples of configurations that don't work when using default outbound access:
