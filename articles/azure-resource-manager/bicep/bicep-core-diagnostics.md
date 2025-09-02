@@ -90,7 +90,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP078' />[BCP078](./diagnostics/bcp078.md) | Error/Warning | The property `<property-name>` requires a value of type `<type-name>`, but none was supplied. |
 | <a id='BCP079' />BCP079 | Error | This expression is referencing its own declaration, which isn't allowed. |
 | <a id='BCP080' />BCP080 | Error | The expression is involved in a cycle (`{string.Join("\" -> \"", cycle)}`). |
-| <a id='BCP081' />BCP081 | Warning | Resource type `{resourceTypeReference.FormatName()}` doesn't have types available. Bicep is unable to validate resource properties prior to deployment, but this won't block the resource from being deployed. |
+| <a id='BCP081' />[BCP081](./diagnostics/bcp081.md) | Warning | Resource type `\<resource-type@api-version>` doesn't have types available. Bicep is unable to validate resource properties prior to deployment, but this won't block the resource from being deployed. |
 | <a id='BCP082' />[BCP082](./diagnostics/bcp082.md) | Error | The name `<name>` doesn't exist in the current context. Did you mean `<name>`? |
 | <a id='BCP083' />[BCP083](./diagnostics/bcp083.md) | Error/Warning | The type `<type-definition>` doesn't contain property `<property-name>`. Did you mean `<property-name>`? |
 | <a id='BCP084' />BCP084 | Error | The symbolic name `{name}` is reserved. Use a different symbolic name. Reserved namespaces are `{ToQuotedString(namespaces.OrderBy(ns => ns))}`. |

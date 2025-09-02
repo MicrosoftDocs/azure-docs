@@ -672,6 +672,8 @@ items:
             href: diagnostics/bcp077.md
           - name: BCP078
             href: diagnostics/bcp078.md
+          - name: BCP081
+            href: diagnostics/bcp081.md
           - name: BCP082
             href: diagnostics/bcp082.md
           - name: BCP083
