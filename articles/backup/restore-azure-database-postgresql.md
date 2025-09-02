@@ -2,7 +2,7 @@
 title: Restore Azure Database for PostgreSQL by Using the Azure Portal
 description: Learn about how to restore Azure Database for PostgreSQL backups.
 ms.topic: how-to
-ms.date: 05/20/2025
+ms.date: 08/18/2025
 ms.custom:
   - devx-track-azurecli
   - build-2025
@@ -139,4 +139,5 @@ Follow these steps:
 
 ## Related content
 
-- [Troubleshoot PostgreSQL database backup by using Azure Backup](backup-azure-database-postgresql-troubleshoot.md)
+- [Manage an Azure Database for PostgreSQL server by using the Azure portal](manage-azure-database-postgresql.md).
+- [Troubleshoot PostgreSQL database backup by using Azure Backup](backup-azure-database-postgresql-troubleshoot.md).

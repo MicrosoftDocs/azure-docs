@@ -15,7 +15,7 @@ This article describes how to install, validate, and uninstall the Azure File Sy
 
 ## Prerequisites
 
-* **Azure Arc-enabled server (Windows only):** The target machine must be connected to Azure Arc (Azure Connected Machine agent installed and onboarding completed) and running a supported Windows Server OS. Azure File Sync is supported on Windows Server 2012 R2 or later (see [Azure File Sync system requirements and interoperability](file-sync-planning.md#windows-file-server-considerations) for details on supported versions).
+* **Azure Arc-enabled server (Windows only):** The target machine must be connected to Azure Arc (Azure Connected Machine agent installed and onboarding completed) and running a supported Windows Server OS. Azure File Sync Extension is supported on Windows Server 2016 and later versions. Only RTM versions are supported. See [Azure File Sync system requirements and interoperability](file-sync-planning.md#windows-file-server-considerations) for details on supported versions.
 
   > [!IMPORTANT]
   > The Azure File Sync agent extension is **only supported on Windows**. Linux Arc-enabled servers aren't supported for Azure File Sync.
