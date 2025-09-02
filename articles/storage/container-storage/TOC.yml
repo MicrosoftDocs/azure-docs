@@ -19,6 +19,8 @@
     href: use-container-storage-with-local-disk.md
 - name: How-to guides
   items:
+  - name: Enable monitoring with managed Prometheus
+    href: enable-monitoring.md
   - name: Remove Azure Container Storage
     href: remove-container-storage.md
 - name: Concepts
@@ -64,7 +66,7 @@
   - name: Enable multi-zone storage redundancy
     href: enable-multi-zone-redundancy.md
   - name: Enable monitoring with managed Prometheus
-    href: enable-monitoring.md
+    href: enable-monitoring-v1.md
   - name: Remove Azure Container Storage
     href: remove-container-storage-v1.md
   - name: Troubleshoot Azure Container Storage
