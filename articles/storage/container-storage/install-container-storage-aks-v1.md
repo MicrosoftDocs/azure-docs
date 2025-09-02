@@ -4,7 +4,7 @@ description: Learn how to install Azure Container Storage (v1) for use with Azur
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: tutorial
-ms.date: 08/20/2025
+ms.date: 09/02/2025
 ms.author: kendownie
 ms.custom: devx-track-azurecli
 # Customer intent: "As a cloud administrator, I want to install Azure Container Storage (v1) on an AKS cluster so that I can efficiently manage storage for containerized applications."
@@ -15,7 +15,7 @@ ms.custom: devx-track-azurecli
 [Azure Container Storage](container-storage-introduction-v1.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. In this tutorial, you'll create an [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) cluster and install Azure Container Storage (v1) on the cluster. If you already have an AKS cluster deployed, we recommend installing Azure Container Storage (v1) [using this QuickStart](container-storage-aks-quickstart-v1.md) instead of following the manual steps in this tutorial.
 
 > [!IMPORTANT]
-> This article applies to Azure Container Storage v1.x releases. If you're using Azure Container Storage v2.x, see [this article](install-container-storage-aks.md).
+> This article explains how to install Azure Container Storage version 1.x.x, which now explicitly requires a version pinning parameter `--container-storage-version 1` for installation. Azure Container Storage v2.x.x is now available. See [Azure Container Storage](container-storage-introduction.md) for more information.
 
 > [!div class="checklist"]
 > * Create a resource group
@@ -30,7 +30,7 @@ ms.custom: devx-track-azurecli
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* This article requires the latest version (2.35.0 or later) of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). If you're using the Bash environment in Azure Cloud Shell, the latest version is already installed. If you plan to run the commands locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges. For more information, see [Get started with Azure Cloud Shell](/azure/cloud-shell/get-started).
+* This article requires the latest version (2.77.0 or later) of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). If you're using the Bash environment in Azure Cloud Shell, the latest version is already installed. If you plan to run the commands locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges. For more information, see [Get started with Azure Cloud Shell](/azure/cloud-shell/get-started).
 
 * You'll need the Kubernetes command-line client, `kubectl`. It's already installed if you're using Azure Cloud Shell, or you can install it locally by running the `az aks install-cli` command.
 
@@ -138,7 +138,7 @@ By default, the system node pool is named `nodepool1`. If you want to enable Azu
 \*If there are any existing node pools with the `acstor.azure.com/io-engine:acstor` label, Azure Container Storage will install the data plane components by default. Otherwise, users have the option to pass the preferred node pool to `acstor` through Azure CLI. If the cluster only has the system node pool, it will be labeled and used for Azure Container Storage by default. It's important to note that only data plane components will be restricted to the labeled node pool. The control plane components of Azure Container Storage aren't limited to the labeled nodes and may be installed on the system node pool as well. 
 
 ```azurecli-interactive
-az aks create -n <cluster-name> -g <resource-group> --node-vm-size Standard_D4s_v3 --node-count 3 --enable-azure-container-storage <storage-pool-type> --generate-ssh-keys
+az aks create -n <cluster-name> -g <resource-group> --node-vm-size Standard_D4s_v3 --node-count 3 --enable-azure-container-storage <storage-pool-type> --container-storage-version 1 --generate-ssh-keys
 ```
 
 The deployment will take 10-15 minutes. When it completes, you'll have an AKS cluster with Azure Container Storage installed, the components for your chosen storage pool type enabled, and a default storage pool. If you want to enable additional storage pool types to create additional storage pools, see [Enable additional storage pool types](container-storage-aks-quickstart-v1.md#enable-additional-storage-pool-types).
