@@ -8,7 +8,7 @@ ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
-ms.date: 08/01/2025
+ms.date: 09/04/2025
 #Customer intent: As a developer, I want to create a workflow that accepts files and can process those files by using an agent that can upload a file and generate the necesssary Python code to use for file processing.
 ---
 
@@ -85,7 +85,7 @@ This article shows how to set up and use various **Code Interpreter (Python Cont
     >
     > To manage files or run code in the session pool, make sure that you have the Azure 
     > built-in role named **Azure ContainerApps Session Executor** on the session pool. 
-    > For this task, see [Give identity access to resources](authenticate-with-managed-identity.md?tabs=standard#give-identity-access-to-resources).
+    > For this task, see [Give identity access to resources](../authenticate-with-managed-identity.md?tabs=standard#give-identity-access-to-resources).
 
     To upload the file through Azure portal, follow these steps:
 
