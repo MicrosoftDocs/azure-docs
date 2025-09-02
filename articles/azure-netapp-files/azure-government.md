@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: devx-track-azurecli, no-azure-ad-ps-ref
 ms.topic: concept-article
-ms.date: 07/28/2025
+ms.date: 09/01/2025
 ms.author: anfdocs
 # Customer intent: As a government IT administrator, I want to understand how to access and utilize Azure NetApp Files in Azure Government, so that I can effectively manage mission-critical workloads within the dedicated cloud environment.
 ---
@@ -26,7 +26,7 @@ All [Azure NetApp Files features](whats-new.md) available on Azure public cloud 
 | Azure NetApp Files features | Azure public cloud availability |  Azure Government availability |
 |:--- |:--- |:--- |
 | Azure NetApp Files customer-managed key with managed Hardware Security Module | Generally available | No |
-| Azure NetApp Files file access logs | Public preview | [Limited regional support](manage-file-access-logs.md#supported-regions) |
+| Azure NetApp Files file access logs | Public preview | No |
 
 ## Portal access
 

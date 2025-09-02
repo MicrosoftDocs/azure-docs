@@ -202,9 +202,13 @@ If you stop here, you have a self-contained app that the App Service authenticat
 
 You enabled authentication and authorization to both of your apps. To complete the authentication, you need to do three things:
 
-- Grant the front-end app access to the back-end app
+- Expose the backend app as an API by defining a scope
+- Grant the frontend app access to the backend app
 - Configure App Service to return a usable token
 - Use the token in your code
+
+> [!NOTE]
+> Before you can grant the frontend app access to the backend, you must expose the backend API by setting an Application ID URI and defining at least one scope. This allows the backend to be selectable under "My APIs" when assigning API permissions.
 
 > [!TIP]
 > If you run into errors and reconfigure your app's authentication/authorization settings, the tokens in the token store might not regenerate from the new settings. To make sure your tokens regenerate, you need to sign out and sign back in to your app. One approach is to use your browser in private mode. Close and reopen the browser in private mode after changing the settings in your apps.

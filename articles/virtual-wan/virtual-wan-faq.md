@@ -335,7 +335,9 @@ Yes. An internet connection and physical device that supports IPsec, preferably 
 
 A virtual hub can propagate a learned default route to a virtual network/site-to-site VPN/ExpressRoute connection if the flag is 'Enabled' on the connection. This flag is visible when the user edits a virtual network connection, a VPN connection, or an ExpressRoute connection. By default, this flag is disabled when a site or an ExpressRoute circuit is connected to a hub. It's enabled by default when a virtual network connection is added to connect a VNet to a virtual hub.
 
-The default route doesn't originate in the Virtual WAN hub. The default route is propagated if it's already learned by the Virtual WAN hub as a result of deploying a firewall in the hub, or if another connected site has forced-tunneling enabled. A default route doesn't propagate between hubs (inter-hub).
+The default route doesn't originate in the Virtual WAN hub. The default route is propagated if it's already learned by the Virtual WAN hub as a result of deploying a firewall in the hub, or if another connected site has forced-tunneling enabled. 
+
+A default route doesn't propagate between hubs (inter-hub).
 
 ### Is it possible to create multiple virtual WAN hubs in the same region?
 
@@ -507,11 +509,16 @@ The maximum number of address spaces across all Virtual Networks directly connec
 
 This limit is adjustable. For more information on the limit, the procedure to request a limit increase and sample scripts to determine the number of address spaces across Virtual Networks connected to a Virtual WAN hub, see [routing intent virtual network address space limits](how-to-routing-policies.md#address-limits).
 
+### Can I use Azure Bastion with Virtual WAN?
+Yes but there are limitations. See the [Azure Bastion FAQ](../bastion/bastion-faq.md#vwan) for more details.
+
 ## <a name="vwan-customer-controlled-maintenance"></a>Virtual WAN customer-controlled gateway maintenance
 
 ### Which services are included in the Maintenance Configuration scope of Network Gateways? 
 
-For Virtual WAN, you can configure maintenance windows for site-to-site VPN gateways, point-to-site VPN gateways and ExpressRoute gateways.
+For Virtual WAN, you can configure maintenance windows for site-to-site VPN gateways, point-to-site VPN gateways and ExpressRoute gateways. 
+
+This feature is also supported for [Azure Firewalls in Virtual WAN secure hubs](../firewall/customer-controlled-maintenance.md).
 
 ### Which maintenance is supported or not supported by customer-controlled maintenance?
 

@@ -107,7 +107,7 @@ The resource group is not necessary for this part of the instructions, but it's 
 
 ## Add dependency injection to the function
 
-The open-standard technology Jakarta EE Contexts and Dependency Injection (CDI) provides dependency injection in Quarkus. For a high-level overview of injection in general, and CDI specifically, see the [Jakarta EE tutorial](https://eclipse-ee4j.github.io/jakartaee-tutorial/#injection).
+The open-standard technology Jakarta EE Contexts and Dependency Injection (CDI) provides dependency injection in Quarkus.
 
 1. Add a new function that uses dependency injection.
 

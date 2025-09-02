@@ -6,7 +6,7 @@ metadata:
   ms.author: halkazwini
   ms.service: azure-network-watcher
   ms.topic: faq
-  ms.date: 08/20/2025
+  ms.date: 09/02/2025
 title: "Network Watcher frequently asked questions (FAQ)"
 summary: |
   This article provides answers to the most frequently asked questions about Azure Network Watcher.
@@ -226,6 +226,26 @@ sections:
           4. Enable flow logs by creating a flow log for your target resource using the storage account. For more information, see [Create a flow log](vnet-flow-logs-manage.md#create-a-flow-log).
           
           You can check the storage logs after a few minutes. You should see an updated TimeStamp or a new JSON file created.
+
+      - question: |
+          How many retention policy rules can a storage account have?
+        answer: |
+          Currently, a storage account supports 100 rules, and each rule can accommodate 10 blob prefixes. If you reach the limit, you can set the retention policy to ***0*** when you enable new virtual network flow logs, and then manually add a retention rule for the subscription.
+
+          To create a retention policy subscription rule, follow these steps:
+          1. Go to the storage account by entering the storage account's name in the search box at the top of the portal.
+          1. Under **Data management**, select **Lifecycle management**.
+          1. Select **+ Add rule**.
+          1. In the **Details** section, select the following settings: **Rule scope:** *Limit blobs with filters*, **Blob type:** *Block blobs*, and **Blob subtype:** *Base blobs*.
+          1. In the **Base blobs** section, configure your retention settings.
+          1. In the **Filter set** section, format the **Blob prefix** as the following:
+          `"insights-logs-flowlogflowevent/flowLogResourceID=/<yourSubscriptionId>_NETWORKWATCHERRG"`
+          1. Select **Add**.
+
+      - question: |
+           What happens if I have both a flow log retention policy rule and a subscription-level rule at the same time?
+        answer: |
+          The rule with shorter retention period takes precedence.
 
       - question: |
           Why do I see some 403 errors in storage account activity logs?

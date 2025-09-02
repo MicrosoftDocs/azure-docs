@@ -40,8 +40,8 @@ The connector supports the Windows versions in this [article](create-self-hosted
 
 The billing_on column property was removed from the Recurring_Application_Charges and UsageCharge tables due to Shopify's official deprecation of billing_on field.
 
-> [!Note]
-> For version 2.0 (Preview), column names retain the Shopify GraphQL structure, such as `data.customers.edges.node.xx`. For version 1.0, column names use simplified names.
+> [!NOTE]
+> For version 2.0 (Preview), column names retain the Shopify GraphQL structure, such as `data.customers.edges.node.createdAt`. For version 1.0, column names use simplified names, for example, `Created_At`.
 
 ## Getting started
 
@@ -151,7 +151,7 @@ To copy data from Shopify, set the type property of the dataset to **ShopifyObje
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **ShopifyObject** | Yes |
-| tableName | Name of the table. | Yes for version 2.0 (Preview).<br> No for version 1.0 (if "query" in activity source is specified) |
+| tableName | Name of the table. For version 2.0 (Preview), table names retain the Shopify GraphQL structure, for example `customers`. For version 1.0, table names use simplified names with prefix, for example, `"Shopify"."Customers"`.| Yes for version 2.0 (Preview).<br> No for version 1.0 (if "query" in activity source is specified) |
 
 **Example**
 
@@ -249,12 +249,12 @@ The following table shows the release stage and change logs for different versio
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
 | Version 1.0 | End of support announced | / |  
-| Version 2.0 | Public Preview | • Column names retain the Shopify GraphQL structure, such as `data.customers.edges.node.xx`. <br><br> • `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service. <br><br>  • `query` is not supported. |
+| Version 2.0 | Public Preview | • Table and column names retain the Shopify GraphQL structure. <br><br> • `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service. <br><br>  • `query` is not supported. |
 
 ### <a name="upgrade-the-shopify-connector-from-version-10-to-version-20"></a> Upgrade the Shopify connector from version 1.0 to version 2.0 (Preview)
 
 1. In **Edit linked service** page, select 2.0 (Preview) for version. For more information, see [linked service version 2.0 (Preview) properties](#version-20).
-1. For version 2.0 (Preview), note that column names retain the Shopify GraphQL structure, such as `data.customers.edges.node.xx`. For version 1.0, column names use simplified names.
+1. For version 2.0 (Preview), note that table and column names retain the Shopify GraphQL structure.
 1. `query` is only supported in version 1.0. You should use the `tableName` instead of `query` in version 2.0 (Preview).
 
 ## Related content

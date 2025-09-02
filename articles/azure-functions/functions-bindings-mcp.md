@@ -116,11 +116,11 @@ MCP clients accept this configuration in various ways. Consult the documentation
     ],
     "servers": {
         "local-mcp-function": {
-            "type": "sse",
+            "type": "http",
             "url": "http://localhost:7071/runtime/webhooks/mcp"
         },
         "remote-mcp-function": {
-            "type": "sse",
+            "type": "http",
             "url": "https://${input:functionapp-host}/runtime/webhooks/mcp",
             "headers": {
                 "x-functions-key": "${input:functions-mcp-extension-system-key}"

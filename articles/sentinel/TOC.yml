@@ -104,6 +104,10 @@
   - name: Set up connectors for the Microsoft Sentinel data lake
     href: datalake/sentinel-lake-connectors.md
     displayName: data lake    
+  - name: Unified connectors overview
+    href: unified-connector.md
+  - name: Integrate with unified connectors
+    href: unified-connector-integration.md
   - name: Configure content
     href: configure-content.md
   - name: Set up multiple workspaces

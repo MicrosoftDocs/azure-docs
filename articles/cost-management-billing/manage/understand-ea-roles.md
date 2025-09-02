@@ -164,17 +164,17 @@ The following table shows user limits and permissions associated with each admin
 
 |Tasks| Enterprise Administrator|Enterprise Administrator (read only)| EA Purchaser | Department Administrator|Department Administrator (read only)|Account Owner| Partner|
 |---|---|---|---|---|---|---|---|
-|View Enterprise Administrators|✔|✔| ✔|✘|✘|✘|✔|
-|Add or remove Enterprise Administrators|✔|✘|✘|✘|✘|✘|✘|
-|View Notification Contacts⁴ |✔|✔|✔|✘|✘|✘|✔|
-|Add or remove Notification Contacts⁴ |✔|✘|✘|✘|✘|✘|✘|
-|Create and manage Departments |✔|✘|✘|✘|✘|✘|✘|
-|View Department Administrators|✔|✔|✔|✔|✔|✘|✔|
-|Add or remove Department Administrators|✔|✘|✘|✔|✘|✘|✘|
-|View Accounts in the enrollment |✔|✔|✔|✔⁵|✔⁵|✘|✔|
-|Add Accounts to the enrollment and change Account Owner|✔|✘|✘|✔⁵|✘|✘|✘|
-|Purchase reservations/savings plans|✔|✘⁶|✔|✘|✘|✘|✘|
-|Create and manage subscriptions |✔|✘|✘|✘|✘|✔|✘|
+|View Enterprise Administrators|〇|〇| 〇|✘|✘|✘|〇|
+|Add or remove Enterprise Administrators|〇|✘|✘|✘|✘|✘|✘|
+|View Notification Contacts⁴ |〇|〇|〇|✘|✘|✘|〇|
+|Add or remove Notification Contacts⁴ |〇|✘|✘|✘|✘|✘|✘|
+|Create and manage Departments |〇|✘|✘|✘|✘|✘|✘|
+|View Department Administrators|〇|〇|〇|〇|〇|✘|〇|
+|Add or remove Department Administrators|〇|✘|✘|〇|✘|✘|✘|
+|View Accounts in the enrollment |〇|〇|〇|〇⁵|〇⁵|✘|〇|
+|Add Accounts to the enrollment and change Account Owner|〇|✘|✘|〇⁵|✘|✘|✘|
+|Purchase reservations/savings plans|〇|✘⁶|〇|✘|✘|✘|✘|
+|Create and manage subscriptions |〇|✘|✘|✘|✘|〇|✘|
 
 - ⁴ Notification contacts are sent email communications about the Azure Enterprise Agreement.
 - ⁵ Task is limited to accounts in your department.

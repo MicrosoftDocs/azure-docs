@@ -3,6 +3,7 @@ title: Azure CycleCloud Cluster-Init Parameter Reference
 description: See a reference for cluster-init objects to be used with Azure CycleCloud. A cluster-init object defines the CycleCloud project specifications to run on a node.
 author: adriankjohnson
 ms.date: 06/29/2025
+ms.update-cycle: 3650-days
 ms.author: adjohnso
 ms.custom: compute-evergreen
 ---

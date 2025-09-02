@@ -3,6 +3,7 @@ title: Add a Node Array
 description: How to add node arrays to a cluster
 author: dpwatrous
 ms.date: 06/30/2025
+ms.update-cycle: 3650-days
 ms.author: dawatrou
 ms.custom: compute-evergreen
 ---
