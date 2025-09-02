@@ -243,8 +243,6 @@ Azure Communication Services supports chat.
 
 Azure Communication Services stores chat messages according to the retention policy that you set when you create a chat thread.
 
-[!INCLUDE [public-preview-notice.md](../includes/public-preview-include-document.md)]
-
 You can choose between indefinite message retention or automatic deletion between 30 and 90 days via the retention policy on the [Create Chat Thread API](/rest/api/communication/chat/chat/create-chat-thread). Alternatively, you can choose not to set a retention policy on a chat thread.
 
 If you have strict compliance needs, we recommend that you use the [Delete Chat Thread](/rest/api/communication/chat/chat/delete-chat-thread) API to delete chat threads. Any threads created before the new retention policy aren't affected unless you specifically change the policy for that thread.

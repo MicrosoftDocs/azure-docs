@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 02/10/2025
+ms.date: 08/26/2025
 ms.author: danlep
 ---
 
@@ -27,9 +27,9 @@ The following table summarizes all the observability capabilities supported by A
 > [!NOTE]
 > For API consumers who use the developer portal, a built-in API report is available. It only provides information about their individual API usage during the preceding 90 days. Currently, the built-in API report isn't available in the developer portal for the v2 service tiers.
 >  
-| Tool        | Useful for    | Data lag | Retention | Sampling | Data kind | Supported Deployment Model(s) |
+| Tool        | Useful for    | Data lag<sup>4</sup> | Retention | Sampling | Data kind | Supported Deployment Model(s) |
 |:------------- |:-------------|:---- |:----|:---- |:--- |:---- |
-| **[API Inspector](api-management-howto-api-inspector.md)** | Testing and debugging | Instant | Last 100 traces | Turned on per request | Request traces | Managed, Self-hosted, Azure Arc, Workspace |
+| **[Request tracing (API Inspector)](api-management-howto-api-inspector.md)** | Testing and debugging | Instant | Last 100 traces | Turned on per request | Request traces | Managed, Self-hosted, Azure Arc, Workspace |
 | **[Built-in Analytics](monitor-api-management.md#get-api-analytics-in-azure-api-management)** | Reporting and monitoring | Minutes | Lifetime | 100% | Reports and logs | Managed |
 | **[Azure Monitor Metrics](monitor-api-management-reference.md#metrics)** | Reporting and monitoring | Minutes | 90 days (upgrade to extend) | 100% | Metrics | Managed, Self-hosted<sup>2</sup>, Azure Arc |
 | **[Azure Monitor Logs](monitor-api-management-reference.md#resource-logs)** | Reporting, monitoring, and debugging | Minutes | 31 days/5GB (upgrade to extend) | 100% (adjustable) | Logs | Managed<sup>1</sup>, Self-hosted<sup>3</sup>, Azure Arc<sup>3</sup> |
@@ -37,11 +37,10 @@ The following table summarizes all the observability capabilities supported by A
 | **[Logging through Azure Event Hubs](api-management-howto-log-event-hubs.md)** | Custom scenarios | Seconds | User managed | Custom | Custom | Managed<sup>1</sup>, Self-hosted<sup>1</sup>, Azure Arc<sup>1</sup> |
 | **[OpenTelemetry](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md#introduction-to-opentelemetry)** | Monitoring | Minutes | User managed | 100% | Metrics | Self-hosted<sup>2</sup> |
 
-*1. Optional, depending on the configuration of feature in Azure API Management*
-
-*2. Optional, depending on the configuration of the gateway*
-
-*3. The [self-hosted gateway](self-hosted-gateway-overview.md) currently doesn't send diagnostic logs to Azure Monitor. However, it's possible to configure and persist logs locally where the self-hosted gateway is deployed. For more information, please see [configuring local metrics and logs for self-hosted gateway](how-to-configure-local-metrics-logs.md)*
+<sup>1</sup> Optional, depending on the configuration of feature in Azure API Management.<br/>
+<sup>2</sup> Optional, depending on the configuration of the gateway.<br/>
+<sup>3</sup> The [self-hosted gateway](self-hosted-gateway-overview.md) currently doesn't send diagnostic logs to Azure Monitor. However, it's possible to configure and persist logs locally where the self-hosted gateway is deployed. For more information, see [configuring local metrics and logs for self-hosted gateway](how-to-configure-local-metrics-logs.md).<br/>
+<sup>4</sup> Except for request tracing, all logging in API Management occurs asynchronously.
 
 ## Related content
 

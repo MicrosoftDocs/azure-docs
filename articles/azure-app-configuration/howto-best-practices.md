@@ -79,8 +79,10 @@ configBuilder.AddAzureAppConfiguration(options =>
 
 ```javascript
 const appConfig = await load(endpoint, credential, {
+    // Load all keys that start with `TestApp:` and have no label
     selectors: [{ keyFilter: "TestApp:*" }],
     refreshOptions: {
+        // Trigger full configuration refresh when any selected key changes
         enabled: true
     }
 });
@@ -90,12 +92,14 @@ const appConfig = await load(endpoint, credential, {
 
 ```golang
 options := &azureappconfiguration.Options{
+    // Load all keys that start with `TestApp` and have no label
     Selectors: []azureappconfiguration.Selector{
         {
-            KeyFilter: "TestApp.*",
+            KeyFilter: "TestApp*",
         },
     },
     RefreshOptions: azureappconfiguration.KeyValueRefreshOptions{
+        // Trigger full configuration refresh when any selected key changes
         Enabled:  true,
     },
 }
@@ -115,9 +119,11 @@ spec:
   target:
     configMapName: configmap-created-by-appconfig-provider
   configuration:
+    # Load all keys that start with `TestApp` and have no label
     selectors:
       - keyFilter: TestApp*
     refresh:
+      # Trigger full configuration refresh when any selected key changes
       enabled: true
 ```
 
@@ -147,8 +153,10 @@ configBuilder.AddAzureAppConfiguration(options =>
 
 ```javascript
 const appConfig = await load(endpoint, credential, {
+    // Load all keys that start with `TestApp:` and have no label
     selectors: [{ keyFilter: "TestApp:*" }],
     refreshOptions: {
+        // Trigger full configuration refresh only if the `SentinelKey` changes
         enabled: true,
         watchedSettings: [{ key: "SentinelKey" }]
     }
@@ -159,16 +167,20 @@ const appConfig = await load(endpoint, credential, {
 
 ```golang
 options := &azureappconfiguration.Options{
+    // Load all keys that start with `TestApp` and have no label
     Selectors: []azureappconfiguration.Selector{
         {
             KeyFilter: "TestApp*",
         },
     },
     RefreshOptions: azureappconfiguration.KeyValueRefreshOptions{
+        // Trigger full configuration refresh only if the `SentinelKey` changes
         Enabled:  true,
-        WatchedSettings: []WatchedSetting{
-				    {Key: "SentinelKey"},
-			},
+        WatchedSettings: []azureappconfiguration.WatchedSetting{
+            {
+                Key: "SentinelKey",
+            },
+        },
     },
 }
 
@@ -187,9 +199,11 @@ spec:
   target:
     configMapName: configmap-created-by-appconfig-provider
   configuration:
+    # Load all keys that start with `TestApp` and have no label
     selectors:
       - keyFilter: TestApp*
     refresh:
+      # Trigger full configuration refresh only if the `SentinelKey` changes
       enabled: true
       monitoring:
         keyValues:
