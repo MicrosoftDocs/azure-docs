@@ -9,6 +9,7 @@ ms.topic: tutorial
 ms.date: 07/06/2021
 ms.author: shaas
 #Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Gateway so I can use it to transfer data to Azure.
+# Customer intent: "As an IT admin, I want to learn how to add and connect shares on the Data Box Gateway, so that I can successfully transfer data to Azure efficiently."
 ---
 # Tutorial: Transfer data with Azure Data Box Gateway
 

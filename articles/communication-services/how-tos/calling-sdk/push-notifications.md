@@ -1,20 +1,20 @@
 ---
-title: Enable push notifications for calls
-titleSuffix: An Azure Communication Services how-to guide
+title: Enable push notifications
+titleSuffix: An Azure Communication Services article
 description: Use Azure Communication Services SDKs to enable push notifications for calls.
 author: tophpalmer
 ms.author: chpalm
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.topic: how-to 
-ms.date: 08/10/2021
+ms.topic: how-to
+ms.date: 06/28/2025
 ms.custom: template-how-to
 zone_pivot_groups: acs-plat-web-ios-android-windows
 
 #Customer intent: As a developer, I want to enable push notifications by using the Azure Communication Services SDKs so that I can create a calling application that provides push notifications to its users.
 ---
 
-# Enable push notifications for calls
+# Enable push notifications
 
 Push notifications send information from your application to users' devices. You can use push notifications to show a dialog, play a sound, or display incoming call into the app's UI layer.
 
@@ -24,7 +24,7 @@ In this article, you learn how to enable push notifications for Azure Communicat
 
 The time-to-live (TTL) token is a setting that determines the length of time that a notification token stays valid before becoming invalid. This setting is useful for applications where user engagement doesn't require daily interaction but remains critical over longer periods.
 
-The TTL configuration allows the management of push notifications' life cycle. It reduces the need for frequent token renewals while helping to ensure that the communication channel between the application and its users remains open and reliable for extended durations.
+The TTL configuration enables the management of push notifications' life cycle. It reduces the need for frequent token renewals while helping to ensure that the communication channel between the application and its users remains open and reliable for extended durations.
 
 Currently, the maximum value for TTL is **180 days (15,552,000 seconds)**, and the minimum value is **5 minutes (300 seconds)**. You can enter this value and adjust it to fit your needs. If you don't provide a value, the default value is **24 hours (86,400 seconds)**.
 
@@ -63,7 +63,7 @@ If you want to revoke an identity, follow [this process](../../concepts/identity
 [!INCLUDE [Enable push notifications Windows](./includes/push-notifications/push-notifications-windows.md)]
 ::: zone-end
 
-## Related content
+## Related articles
 
 - [Subscribe to SDK events](./events.md)
 - [Manage calls](./manage-calls.md)

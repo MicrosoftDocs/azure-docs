@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 09/09/2024
 ms.author: kendownie
+# Customer intent: As a network administrator managing Azure storage, I want to configure DNS forwarding for Azure Files to ensure the fully qualified domain name resolves to the private endpoint IP address, so that I can securely access file shares from my on-premises network.
 ---
 
 # Configure DNS forwarding for Azure Files using VMs or Azure DNS Private Resolver

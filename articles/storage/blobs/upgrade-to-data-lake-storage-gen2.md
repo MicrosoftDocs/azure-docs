@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.date: 11/26/2024
 ms.author: normesta
 
+# Customer intent: As a cloud storage administrator, I want to upgrade Azure Blob Storage to Data Lake Storage capabilities, so that I can enhance performance, improve data organization, and utilize advanced analytics features for better data management and efficiency.
 ---
 
 # Upgrading Azure Blob Storage with Azure Data Lake Storage capabilities

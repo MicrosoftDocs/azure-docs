@@ -9,6 +9,7 @@ ms.date: 05/04/2023
 ms.author: sagarkeswani
 author: sagarkeswani
 #Customer intent: As a developer, I want to create a distributed non-HA SAP system so that I can use the system with Azure Center for SAP solutions.
+# Customer intent: As a developer, I want to deploy a distributed non-high-availability SAP system in Azure using PowerShell, so that I can leverage Azure's infrastructure for my SAP applications.
 ---
 # Quickstart: Create infrastructure for a distributed non-high-availability SAP system with *Azure Center for SAP solutions* 
 

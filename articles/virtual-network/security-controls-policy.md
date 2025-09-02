@@ -21,7 +21,7 @@ compliant with the specific standard.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
 
-[!INCLUDE [azure-policy-compliancecontrols-vnet](../../includes/policy/standards/byrp/microsoft.network.md)]
+[!INCLUDE [azure-policy-compliancecontrols-vnet](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.network.md)]
 
 ## Next steps
 

@@ -8,6 +8,7 @@ ms.date: 04/17/2025
 ms.service: azure-migrate
 ms.custom: engagement-fy23
 monikerRange: migrate
+# Customer intent: "As an IT administrator, I want to onboard on-premises VMware servers to a cloud management platform, so that I can manage my hybrid IT environment effectively and streamline operations across my infrastructure."
 ---
 
 # Onboard on-premises servers in VMware virtual environment to Azure Arc   

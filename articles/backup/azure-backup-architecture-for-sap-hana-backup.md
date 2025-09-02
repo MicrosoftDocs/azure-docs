@@ -2,10 +2,11 @@
 title: Azure Backup architecture for SAP HANA Backup
 description: Learn about Azure Backup architecture for SAP HANA backup.
 ms.topic: overview
-ms.date: 06/05/2025
+ms.date: 08/19/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As an IT administrator managing SAP HANA databases on Azure VMs, I want to understand the architectural flow before implementing Azure Backup for SAP HANA, so that I can ensure consistent and efficient backup and recovery of my databases with minimal infrastructure management."
 ---
 # Azure Backup architecture for SAP HANA backup
 
@@ -168,4 +169,5 @@ The restore architecture explains the different permissions required during the 
 - [Restore SAP HANA databases on Azure VMs using Azure portal](./sap-hana-db-restore.md) and [Azure CLI](tutorial-sap-hana-restore-cli.md).
 - Manage SAP HANA databases that are backed up by Azure Backup using [Azure portal](./sap-hana-db-manage.md) and [Azure CLI](tutorial-sap-hana-manage-cli.md).
 - Restore SAP HANA System Replication on Azure VMs using [Azure portal](sap-hana-database-with-hana-system-replication-backup.md) and [Azure CLI](quick-restore-hana-cli.md).
+- [Troubleshoot SAP HANA snapshot backup jobs on Azure Backup](sap-hana-database-instance-troubleshoot.md).
 - [Well-architected data reliability enhancement for SAP HANA](/azure/well-architected/sap/design-areas/data-platform#use-data-backups).

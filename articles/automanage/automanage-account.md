@@ -4,6 +4,7 @@ description: Learn how an Automanage Account works and how to create one.
 ms.service: azure-automanage
 ms.topic: concept-article
 ms.date: 12/10/2021
+# Customer intent: As a system administrator, I want to create and configure an Automanage Account, so that I can enable automated operations on my virtual machines and manage permissions effectively across multiple subscriptions.
 ---
 
 # Automanage Accounts

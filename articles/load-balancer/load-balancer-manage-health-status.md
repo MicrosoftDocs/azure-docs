@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 10/30/2024
 ms.author: mbender
 ms.custom: references_regions
+# Customer intent: "As a cloud operator, I want to manage the health status of backend instances in my load balancer, so that I can ensure optimal performance and reliability of my applications by quickly identifying and addressing any issues that arise."
 ---
 
 # Manage Azure Load Balancer Health Status

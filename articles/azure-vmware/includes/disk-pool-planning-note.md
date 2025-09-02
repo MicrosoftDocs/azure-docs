@@ -12,6 +12,7 @@ ms.custom: engagement-fy23
 # articles\azure-vmware\attach-disk-pools-to-azure-vmware-solution.md
 # articles\azure-vmware\tutorial-network-checklist.md
 # articles\azure-vmware\includes\production-ready-deployment-steps.md 
+# Customer intent: As a cloud architect, I want to deploy my virtual network close to Azure VMware Solution hosts, so that I can optimize storage performance while scaling my infrastructure.
 ---
 
 

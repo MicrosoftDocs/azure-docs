@@ -9,6 +9,7 @@ ms.author: normesta
 ms.service: azure-table-storage
 ms.devlang: csharp
 # ms.devlang: csharp, powershell, azurecli
+# Customer intent: As a cloud administrator, I want to monitor Azure Table Storage metrics and logs, so that I can ensure optimal performance, track resource usage, and diagnose any issues effectively.
 ---
 
 # Monitor Azure Table Storage

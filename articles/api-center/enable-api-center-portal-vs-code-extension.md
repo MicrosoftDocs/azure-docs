@@ -28,9 +28,6 @@ This article shows how to provide enterprise developers access to the Azure API 
 ### For app developers
 
 * [Azure API Center extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=apidev.azure-api-center)
-
-    > [!NOTE]
-    > Where noted, certain features are available only in the Azure API Center extension's pre-release version. [!INCLUDE [vscode-extension-prerelease-features](includes/vscode-extension-prerelease-features.md)]
     
 The following Visual Studio Code extensions are optional:
 
@@ -95,7 +92,7 @@ The API Center portal view helps enterprise developers discover API details and 
 
 ## Use language model tools 
 
-In the pre-release version of the Azure API Center extension, developers with access to the API Center portal view can add API Center language model tools to use in GitHub Copilot's agent mode. [Learn more about using tools in agent mode](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode#_agent-mode-tools). 
+Developers with access to the API Center portal view can add API Center language model tools to use in GitHub Copilot's agent mode. [Learn more about using tools in agent mode](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode#_agent-mode-tools). 
 
 The API Center tools can be used in agent mode to help search for APIs and API versions, API definitions and specifications, deployments, and more using natural language prompts.
 

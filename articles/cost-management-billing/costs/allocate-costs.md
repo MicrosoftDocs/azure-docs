@@ -3,7 +3,7 @@ title: Allocate Azure costs
 description: This article explains how create cost allocation rules to distribute costs of subscriptions, resource groups, or tags to others.
 author: sdoultani
 ms.author: sadoulta
-ms.date: 01/07/2025
+ms.date: 06/27/2025
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -126,7 +126,6 @@ Currently, Cost Management supports cost allocation in Cost analysis, budgets, a
 
 The following items are currently unsupported by cost allocation:
 
-- Billing subscriptions area
 - [Cost Management Power BI App](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)
 - [Power BI Desktop connector](/power-bi/connect-data/desktop-connect-azure-cost-management)
 
@@ -134,7 +133,7 @@ The [Cost Details](/rest/api/cost-management/generate-cost-details-report/create
 
 However, cost allocation data results might be empty if you're using an unsupported API or if you don't have any cost allocation rules.
 
-If you have cost allocation rules enabled, the unit price for the reserved instance (RI) purchase shows up as 0 in the usage details file. To work around this limitation, you could use the price sheet data. 
+If you are an enterprise agreement (EA) customer and have cost allocation rules enabled, the unit price for the reserved instance (RI) purchase shows up as 0 in the usage details file. To work around this limitation, you could use the price sheet data. 
 
 Cost allocation to a target doesn't happen if that target doesn't have any costs associated with it.
 

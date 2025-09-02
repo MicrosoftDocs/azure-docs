@@ -8,6 +8,7 @@ ms.service: azure-compute-fleet
 ms.date: 05/09/2025
 ms.reviewer: jushiman
 ms.custom: devx-track-azurecli
+# Customer intent: As a cloud administrator, I want to create and deploy a Compute Fleet using Azure CLI, so that I can efficiently manage my virtual machine resources and optimize workloads.
 ---
 
 # Create an Azure Compute Fleet using Azure CLI

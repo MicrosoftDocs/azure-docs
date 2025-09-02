@@ -2,6 +2,7 @@
 title: About Vector Embeddings and Vector Search in Azure Cache for Redis
 description: Learn about Azure Cache for Redis to store vector embeddings and provide similarity search.
 ms.date: 05/18/2025
+ms.update-cycle: 180-days
 ms.topic: overview
 ms.collection:
   - ce-skilling-ai-copilot
@@ -23,7 +24,7 @@ For tutorials and sample applications on how to use Enterprise tier or Azure Man
 
 ## Scope of Availability
 
-Vector search capabilities in Redis require [Redis Stack](https://redis.io/docs/latest/operate/oss_and_stack/stack-with-enterprise/), specifically the [RediSearch](https://redis.io/docs/interact/search-and-query/) module. This capability is only available in the [Enterprise tiers of Azure Cache for Redis](redis-modules.md) and Azure Managed Redis.
+Vector search capabilities in Redis require [Redis Stack](https://redis.io/docs/latest/operate/oss_and_stack/stack-with-enterprise/), specifically the [RediSearch](https://redis.io/docs/latest/operate/oss_and_stack/stack-with-enterprise/search/) module. This capability is only available in the [Enterprise tiers of Azure Cache for Redis](redis-modules.md) and Azure Managed Redis.
 
 This table contains the information for vector search availability in different tiers.
 
@@ -97,7 +98,7 @@ Redis has a wide range of search capabilities through the [RediSearch module](re
 - Vector storage in hash or JSON data structures
 - Top K queries
 - [Vector range queries](https://redis.io/docs/latest/develop/interact/search-and-query/advanced-concepts/vectors/#range-queries) (that is, find all items within a specific vector distance)
-- Hybrid search with [powerful query features](https://redis.io/docs/interact/search-and-query/) such as:
+- Hybrid search with [powerful query features](https://redis.io/docs/latest/operate/oss_and_stack/stack-with-enterprise/search/) such as:
   - Geospatial filtering
   - Numeric and text filters
   - Prefix and fuzzy matching

@@ -8,6 +8,7 @@ ms.author: anfdocs
 ms.date: 06/13/2025
 ms.custom:
   - build-2025
+# Customer intent: As an IT administrator, I want to understand how to integrate Azure NetApp Files with Azure VMware Solution, so that I can effectively expand our cloud storage capabilities and optimize resource utilization.
 ---
 # Integration FAQs for Azure NetApp Files
 

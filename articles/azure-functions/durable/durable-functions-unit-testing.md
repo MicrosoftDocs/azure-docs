@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ---
 
-# Durable Functions unit testing (C#)
+# Durable Functions unit testing (C# in-process)
 
 Unit testing is an important part of modern software development practices. Unit tests verify business logic behavior and protect from introducing unnoticed breaking changes in the future. Durable Functions can easily grow in complexity so introducing unit tests helps avoid breaking changes. The following sections explain how to unit test the three function types - Orchestration client, orchestrator, and activity functions.
 

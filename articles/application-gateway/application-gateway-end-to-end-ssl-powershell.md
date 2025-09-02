@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: mbender 
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a cloud architect, I want to configure end-to-end TLS with an application gateway using PowerShell so that I can ensure secure communication between clients and backend servers.
 ---
 
 # Configure end to end TLS by using Application Gateway with PowerShell

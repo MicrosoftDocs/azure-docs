@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 06/03/2025
+ms.date: 08/19/2025
 ms.author: danlep
 #customer intent: As administrator of an API Management instance, I want to learn about using workspaces to manage APIs in a decentralized way, so that I can enable my development teams to manage and productize their own APIs.
 ms.custom:
@@ -15,7 +15,7 @@ ms.custom:
 
 # Federated API management with workspaces
 
-[!INCLUDE [api-management-availability-premium](../../includes/api-management-availability-premium.md)]
+[!INCLUDE [api-management-availability-premium-premium-v2](../../includes/api-management-availability-premium-premium-v2.md)]
 
 This article provides an overview of API Management *workspaces* and how they empower decentralized API development teams to manage and productize their APIs in a common service infrastructure. 
 
@@ -71,6 +71,10 @@ Workspace gateways are managed independently from the API Management service and
 
 * For information on the cost of workspace gateways, see [API Management pricing](https://aka.ms/apimpricing).
 * For a detailed comparison of API Management gateways, see [API Management gateways overview](api-management-gateways-overview.md).
+
+> [!NOTE]
+> In August 2025, we announced upcoming changes to gateway and tier support in workspaces. [See the announcement for details](https://aka.ms/apim/workspaces/built-in-gateway-changes)
+> 
 
 ### Associate workspaces with a workspace gateway
 
@@ -129,6 +133,7 @@ The following constraints currently apply to workspace gateways:
 * Workspace gateways support only internal cache; external cache isn't supported 
 * Workspace gateways don't support synthetic GraphQL APIs
 * Workspace gateways don't support creating APIs directly from Azure resources such as Azure OpenAI Service, App Service, Function Apps, and so on
+* Workspace gateways don't support MCP servers
 * Request metrics can't be split by workspace in Azure Monitor; all workspace metrics are aggregated at the service level
 * Workspace gateways don't support CA certificates
 * Workspace gateways don't support managed identities, including related features like storing secrets in Azure Key Vault and using the `authentication-managed-identity` policy

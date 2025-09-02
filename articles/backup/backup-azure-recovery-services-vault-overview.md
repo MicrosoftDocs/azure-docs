@@ -4,9 +4,10 @@ description: An overview of Recovery Services vaults.
 ms.topic: overview
 ms.date: 06/23/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: As an IT administrator, I want to utilize a Recovery Services vault for backing up data and managing recovery points, so that I can ensure data security, minimize management overhead, and efficiently restore backups in various scenarios.
 ---
 # Recovery Services vaults overview
 

@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 02/11/2022
 ms.author: bentrin
 ms.custom: H1Hack27Feb2017
+# Customer intent: "As an SAP administrator, I want to migrate SAP HANA workloads from Large Instances to Azure Virtual Machines, so that I can enhance performance, reduce costs, and leverage Azure's scalability for my database needs."
 ---
 # SAP HANA on Azure Large Instance migration to Azure Virtual Machines
 This article describes possible Azure Large Instance deployment scenarios and offers planning and migration approach with minimized transition downtime.

@@ -26,7 +26,7 @@ You can use service tags to define network access controls on [network security 
 | **ServiceBus** | Azure Service Bus traffic. | Outbound | Yes | Yes |
 
 > [!NOTE]
-Previously, Service Bus service tags included only the IP addresses of namespaces on the **premium** SKU. This has now been updated to include the IP addresses of **all namespaces**, regardless of the SKU.
+>Previously, Service Bus service tags included only the IP addresses of namespaces on the **premium** SKU. This has now been updated to include the IP addresses of **all namespaces**, regardless of the SKU.
 
 ## IP firewall 
 By default, Service Bus namespaces are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IPv4 addresses or IPv4 address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.

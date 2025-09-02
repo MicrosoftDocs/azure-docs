@@ -7,6 +7,7 @@ ms.service: azure-update-manager
 ms.topic: overview
 ms.date: 12/06/2024
 
+# Customer intent: "As a system administrator, I want to migrate virtual machines from Automation Update Management to Azure Update Manager, so that I can ensure efficient software update management and avoid service interruptions due to the retirement of the previous solution."
 ---
 
 # Overview of migration from Automation Update Management to Azure Update Manager

@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 04/02/2025
 ms.devlang: javascript
 ms.custom: devx-track-js, linux-related-content
+# Customer intent: "As a JavaScript developer, I want to use the Azure Batch client library to create and manage a batch processing solution, so that I can efficiently run parallel tasks for data processing from Azure Blob storage."
 ---
 
 # Get started with Batch SDK for JavaScript

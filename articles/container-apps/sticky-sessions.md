@@ -51,7 +51,7 @@ Session affinity is configured by setting the `affinity` property in the `ingres
 
 You can enable session affinity when you create your container app via the Azure portal. To enable session affinity:
 
-1. Start at the Azure portal home page, search for **Container Apps** in the top search bar.
+1. Start at the [Azure portal](https://portal.azure.com/#home) home page, search for **Container Apps** in the top search bar.
 
 1. Select **Container Apps** in the search results and select the **Create** button.
 

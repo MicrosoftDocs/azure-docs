@@ -1,11 +1,11 @@
 ---
 title: "Azure Operator Nexus: Before you start platform deployment prerequisites"
 description: Learn the prerequisite steps for deploying the Operator Nexus platform software.
-author: pjw711
-ms.author: peterwhiting
+author: jac0bsmith
+ms.author: jacobsmith
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 03/13/2023
+ms.date: 07/13/2025
 ms.custom:
   - template-how-to
   - build-2025
@@ -669,9 +669,39 @@ An example design of three on-premises instances from the same NFC/CM pair, usin
 
 #### Minimum recommended BIOS and firmware versions for Nexus Cluster runtime
 
-As a best practice, starting from the following minimum recommended BIOS and firmware versions are deployed based on your Nexus Cluster, based on the selected runtime version and BOM:
+As a best practice, the following BIOS and firmware versions need to be installed on the servers prior to deployment, based on the selected runtime version and BOM.
+For reference, version N is the latest available runtime version. N-1 and N-2 are the previous supported runtime versions.
 
-#### Nexus Cluster runtime version 4.4.x
+#### Nexus Cluster runtime version N
+
+##### BOM 1.7.3
+
+| Component                                                               | Version       |
+|-------------------------------------------------------------------------|---------------|
+| BIOS                                                                    | 1.17.2        |
+| Storage Array Controller (PERC H755)                                    | 52.26.0-5179  |
+| iDRAC                                                                   | 7.20.30.00    |
+| Non-Expander Storage Backplane Passive SEP Firmware (15G Non-Expander)  | 7.10          |
+| CPLD                                                                    | 1.1.1         |
+| Mellanox ConnectX-6 DX Adapter                                          | 22.41.10.00   |
+| NVIDIA ConnectX-6 Lx 2x 25G SFP28                                       | 26.41.10.00   |
+| Broadcom 5720 Quad Port 1GbE BASE-T Adapter                             | 23.21.6       |
+
+##### BOM 2.0.0
+
+| Component                                           | Version       |
+|-----------------------------------------------------|---------------|
+| BIOS                                                | 2.6.3         |
+| Storage Array Controller (PERC H755)                | 52.26.0-5179  |
+| iDRAC                                               | 7.20.30.00    |
+| SAS Expander Backplane Firmware (R760)              | 1.61          |
+| Non-Expander Storage Backplane Firmware (R660)      | 7.10          |
+| CPLD                                                | 1.2.6         |
+| Mellanox ConnectX-6 DX Adapter                      | 22.41.10.00   |
+| NVIDIA ConnectX-6 Lx 2x 25G SFP28                   | 26.41.10.00   |
+| Broadcom 5720 Quad Port 1GbE BASE-T Adapter         | 23.21.6       |
+
+#### Nexus Cluster runtime version N-1
 
 ##### BOM 1.7.3
 
@@ -679,12 +709,12 @@ As a best practice, starting from the following minimum recommended BIOS and fir
 |-------------------------------------------------------------------------|---------------|
 | BIOS                                                                    | 1.15.2        |
 | Storage Array Controller (PERC H755)                                    | 52.26.0-5179  |
-| iDRAC                                                                   | 7.10.90.00    |
+| iDRAC                                                                   | 6.10.30.20    |
 | Non-Expander Storage Backplane Passive SEP Firmware (15G Non-Expander)  | 7.10          |
 | CPLD                                                                    | 1.1.1         |
-| Mellanox ConnectX-6 DX Adapter                                          | 22.41.1000    |
-| NVIDIA ConnectX-6 Lx 2x 25G SFP28                                       | 26.41.1000    |
-| Broadcom 5720 Quad Port 1GbE BASE-T Adapter                             | 22.91.5       |
+| Mellanox ConnectX-6 DX Adapter                                          | 22.35.10.12   |
+| NVIDIA ConnectX-6 Lx 2x 25G SFP28                                       | 26.41.10.00   |
+| Broadcom 5720 Quad Port 1GbE BASE-T Adapter                             | 22.00.6       |
 
 ##### BOM 2.0.0
 
@@ -692,7 +722,7 @@ As a best practice, starting from the following minimum recommended BIOS and fir
 |-----------------------------------------------------|---------------|
 | BIOS                                                | 2.4.4         |
 | Storage Array Controller (PERC H755)                | 52.26.0-5179  |
-| iDRAC                                               | 7.10.90.00    |
+| iDRAC                                               | 7.10.30.00    |
 | SAS Expander Backplane Firmware (R760)              | 1.61          |
 | Non-Expander Storage Backplane Firmware (R660)      | 7.10          |
 | CPLD                                                | 1.2.6         |
@@ -700,7 +730,7 @@ As a best practice, starting from the following minimum recommended BIOS and fir
 | NVIDIA ConnectX-6 Lx 2x 25G SFP28                   | 26.41.10.00   |
 | Broadcom 5720 Quad Port 1GbE BASE-T Adapter         | 22.91.5       |
 
-#### Nexus Cluster runtime version 4.1.x
+#### Nexus Cluster runtime version N-2
 
 ##### BOM 1.7.3
 
@@ -708,11 +738,11 @@ As a best practice, starting from the following minimum recommended BIOS and fir
 |-------------------------------------------------------------------------|---------------|
 | BIOS                                                                    | 1.13.2        |
 | Storage Array Controller (PERC H755)                                    | 52.26.0-5179  |
-| iDRAC                                                                   | 7.10.30.00    |
+| iDRAC                                                                   | 6.10.30.20    |
 | Non-Expander Storage Backplane Passive SEP Firmware (15G Non-Expander)  | 7.10          |
 | CPLD                                                                    | 1.0.9         |
 | Mellanox ConnectX-6 DX Adapter                                          | 22.35.10.12   |
-| Broadcom 5720 Quad Port 1GbE BASE-T Adapter                             | 22.61.8       |
+| Broadcom 5720 Quad Port 1GbE BASE-T Adapter                             | 22.00.6       |
 
 ##### BOM 2.0.0
 

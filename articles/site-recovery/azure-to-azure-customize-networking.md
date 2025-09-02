@@ -8,6 +8,7 @@ ms.date: 03/27/2023
 ms.author: jsuri
 ms.custom: engagement-fy23
 
+# Customer intent: As an IT administrator responsible for managing disaster recovery, I want to customize networking configurations for failover virtual machines, so that I can ensure optimal connectivity and compliance with my network architecture during Azure VM replication and recovery.
 ---
 # Customize networking configurations of the target Azure VM
 

@@ -13,6 +13,7 @@ ms.reviewer: ozgun
 ms.devlang: powershell
 # ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
+# Customer intent: "As a cloud storage administrator, I want to create and manage encryption scopes for blob data, so that I can ensure secure and compliant data storage for different customers or applications within the same storage account."
 ---
 
 # Create and manage encryption scopes

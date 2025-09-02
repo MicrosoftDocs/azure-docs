@@ -6,6 +6,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.date: 03/23/2025
 ms.topic: overview
+# Customer intent: "As an IT administrator managing Windows Server environments, I want to enroll in Extended Security Updates for my Azure Arc-enabled machines, so that I can ensure critical security updates are applied and maintain compliance for outdated servers."
 ---
 
 # Extended Security Updates (ESU) for Windows Server

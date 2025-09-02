@@ -2,7 +2,6 @@
 title: Monitor Azure Managed Redis data using diagnostic settings
 description: Learn how to use diagnostic settings to monitor connected ip addresses to your Azure Managed Redis.
 ms.date: 05/18/2025
-ms.service: azure-managed-redis
 ms.topic: how-to
 ms.custom:
   - template-how-to

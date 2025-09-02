@@ -7,6 +7,7 @@ ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: jsuri
 ms.custom: MVC
+# Customer intent: As an IT administrator managing virtual machines, I want to reprotect Azure VMware Solution VMs after failover, so that I can ensure data consistency and maintain disaster recovery capabilities in my cloud environment.
 ---
 
 # Reprotect from Azure to Azure VMware Solution private cloud

@@ -4,7 +4,7 @@ description: Learn how to create, change, or delete Azure virtual network peerin
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 05/08/2025
+ms.date: 07/29/2025
 ms.author: allensu
 ms.custom:
   - template-how-to
@@ -15,7 +15,7 @@ ms.custom:
 # Customer intent: As a network administrator, I want to create, modify, or delete virtual network peerings, so that I can improve connectivity and manage traffic flow between virtual networks across regions using the Azure backbone network.
 ---
 
-# Create, Change, or Delete Azure Virtual Network Peering
+# Create, change, or delete Azure virtual network peering
 
 This article explains how to create, change, or delete Azure virtual network peering. Virtual network peering connects virtual networks across regions using the Azure backbone network. Learn more in the [virtual network peering overview](virtual-network-peering-overview.md) or the [virtual network peering tutorial](tutorial-connect-virtual-networks-portal.md).
 
@@ -44,17 +44,17 @@ The account you use connect to Azure must be assigned to the [network contributo
 ---
 
 <a name="create-a-peering"></a>
-## Create a virtual network peering 
+## Create a virtual network peering
 
 Before creating a peering, familiarize yourself with the [requirements and constraints](#requirements-and-constraints) and [necessary permissions](#permissions).
 
 # [**Portal**](#tab/peering-portal)
 
-1. In the search box at the top of the Azure portal, enter **Virtual network**. Select **Virtual networks** in the search results. 
+1. In the search box at the top of the Azure portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
 1. In **Virtual networks**, select the network you want to create a peering for.
 
-1. Select **Peerings** in **Settings**. 
+1. Select **Peerings** in **Settings**.
 
 1. Select **+ Add**.
 
@@ -71,9 +71,9 @@ Before creating a peering, familiarize yourself with the [requirements and const
     | Virtual network | Select the remote virtual network. |
     | **Remote virtual network peering settings** | |
     | Allow the peered virtual network to access 'vnet-1' | By **default**, this option is selected.</br></br> - Select this option to allow traffic from the peered virtual network to 'vnet-1.' This setting enables communication between hub and spoke in hub-spoke network topology and allows a VM in the peered virtual network to communicate with a VM in 'vnet-1.' The **VirtualNetwork** service tag for network security groups includes the virtual network and peered virtual network when this setting is selected. To learn more about service tags, see [Azure service tags](./service-tags-overview.md). |
-    | Allow the peered virtual network to receive forwarded traffic from 'vnet-1` | This option **isn't selected by default.** </br></br> - Enabling this option allows the peered virtual network to receive traffic from virtual networks peered to 'vnet-1.' For example, if vnet-2 has an NVA that receives traffic from outside of vnet-2 that forwards to vnet-1, you can select this setting to allow that traffic to reach vnet-1 from vnet-2. While enabling this capability allows the forwarded traffic through the peering, it doesn't create any user-defined routes or network virtual appliances. User-defined routes and network virtual appliances are created separately. | 
+    | Allow the peered virtual network to receive forwarded traffic from 'vnet-1' | This option **isn't selected by default.** </br></br> - Enabling this option allows the peered virtual network to receive traffic from virtual networks peered to 'vnet-1.' For example, if vnet-2 has an NVA that receives traffic from outside of vnet-2 that forwards to vnet-1, you can select this setting to allow that traffic to reach vnet-1 from vnet-2. While enabling this capability allows the forwarded traffic through the peering, it doesn't create any user-defined routes or network virtual appliances. User-defined routes and network virtual appliances are created separately. |
     | Allow gateway or route server in the peered virtual network to forward traffic to 'vnet-1' | This option **isn't selected by default**.</br></br> - Enabling this setting allows 'vnet-1' to receive traffic from the peered virtual networks' gateway or route server. In order for this option to be enabled, the peered virtual network must contain a gateway or route server. |
-    | Enable the peered virtual network to use 'vnet-1's' remote gateway or route server | This option **isn't selected by default.**  </br></br> - This option can be enabled only if 'vnet-1' has a remote gateway or route server and 'vnet-1' enables "Allow gateway in 'vnet-1' to forward traffic to the peered virtual network." This option can be enabled in only one of the peered virtual networks' peerings.</br></br> You can also select this option, if you want this virtual network to use the remote Route Server to exchange routes, see [Azure Route Server](../route-server/overview.md).</br></br> **NOTE:** *You can't use remote gateways if you already have a gateway configured in your virtual network. To learn more about using a gateway for transit, see [Configure a VPN gateway for transit in a virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md)*.| 
+    | Enable the peered virtual network to use 'vnet-1's' remote gateway or route server | This option **isn't selected by default.**  </br></br> - This option can be enabled only if 'vnet-1' has a remote gateway or route server and 'vnet-1' enables "Allow gateway in 'vnet-1' to forward traffic to the peered virtual network." This option can be enabled in only one of the peered virtual networks' peerings.</br></br> You can also select this option, if you want this virtual network to use the remote Route Server to exchange routes, see [Azure Route Server](../route-server/overview.md).</br></br> **NOTE:** *You can't use remote gateways if you already have a gateway configured in your virtual network. To learn more about using a gateway for transit, see [Configure a VPN gateway for transit in a virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md)*.|
     | **Local virtual network summary** | |
     | Peering link name | The name of the peering from the remote virtual network. The name must be unique within the virtual network. |
     | **Local virtual network peering settings** |
@@ -255,7 +255,7 @@ deselect the **Allow traffic to remote virtual network** setting if you want to 
 
     :::image type="content" source="./media/virtual-network-manage-peering/delete-peering.png" alt-text="Screenshot of deleting a peering from the virtual network.":::
 
-1.  In **Delete Peerings**, enter **delete** in the confirmation box, and then select **Delete**.
+1. In **Delete Peerings**, enter **delete** in the confirmation box, and then select **Delete**.
 
     :::image type="content" source="./media/virtual-network-manage-peering/confirm-deletion.png" alt-text="Screenshot of peering delete confirmation entry box.":::
 

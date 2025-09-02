@@ -8,6 +8,7 @@ services: site-recovery
 ms.topic: article
 ms.date: 09/10/2024
 ms.author: jsuri
+# Customer intent: As an IT administrator managing virtual machines, I want to troubleshoot failover errors when migrating to the cloud, so that I can ensure successful disaster recovery and maintain operational continuity.
 ---
 # Troubleshoot errors when failing over VMware VM or physical machine to Azure
 

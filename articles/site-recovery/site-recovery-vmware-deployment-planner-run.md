@@ -7,6 +7,7 @@ ms.topic: overview
 ms.author: jsuri
 ms.date: 12/15/2023
 
+# Customer intent: "As a disaster recovery planner, I want to run the Deployment Planner for VMware disaster recovery to Azure, so that I can assess network bandwidth, storage requirements, and cost for effective virtual machine replication."
 ---
 # Run the Deployment Planner for VMware disaster recovery
 This article is the Azure Site Recovery Deployment Planner user guide for VMware-to-Azure production deployments.

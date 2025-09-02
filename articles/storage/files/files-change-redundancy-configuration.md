@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 01/15/2025
 ms.author: kendownie
 ms.custom: references_regions, devx-track-azurepowershell
+# Customer intent: "As a cloud storage administrator, I want to change the redundancy configuration for Azure Files so that I can optimize data protection and cost based on my organization’s specific availability and disaster recovery needs."
 ---
 
 # Change how Azure Files data is replicated

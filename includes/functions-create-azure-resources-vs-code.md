@@ -2,12 +2,12 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 08/18/2024
+ms.date: 05/20/2025
 ms.author: glenga
 ms.custom: devdivchpfy22
 ---
 
-In this section, you create a function app and related resources in your Azure subscription. Many of the resource creation decisions are made for you based on default behaviors. For more control over the created resources, you must instead [create your function app with advanced options](../articles/azure-functions/functions-develop-vs-code.md?tabs=advanced-options#publish-to-azure).
+In this section, you create a function app in the Flex Consumption plan along with related resources in your Azure subscription. Many of the resource creation decisions are made for you based on default behaviors. For more control over the created resources, you must instead [create your function app with advanced options](../articles/azure-functions/functions-develop-vs-code.md?tabs=advanced-options#publish-to-azure).
 
 1. In Visual Studio Code, select F1 to open the command palette. At the prompt (`>`), enter and then select **Azure Functions: Create Function App in Azure**.
 
@@ -16,9 +16,10 @@ In this section, you create a function app and related resources in your Azure s
     |Prompt|Action|
     |--|--|
     |**Select subscription**| Select the Azure subscription to use. The prompt doesn't appear when you have only one subscription visible under **Resources**. |
-    |**Enter a globally unique name for the function app**| Enter a name that is valid in a URL path. The name you enter is validated to make sure that it's unique in Azure Functions.|
+    |**Enter a new function app name**| Enter a globally unique name that's valid in a URL path. The name you enter is validated to make sure that it's unique in Azure Functions. |
+    |**Select a location for new resources**| Select an Azure region. For better performance, select a [region](https://azure.microsoft.com/regions/) near you. Only regions supported by Flex Consumption plans are displayed. |
     |**Select a runtime stack**| Select the language version you currently run locally. |
-    |**Select a location for new resources**| Select an Azure region. For better performance, select a [region](https://azure.microsoft.com/regions/) near you.|
+    | **Select resource authentication type** | Select **Managed identity**, which is the most secure option for connecting to the [default host storage account](../articles/azure-functions/storage-considerations.md#storage-account-guidance). |
 
     In the **Azure: Activity Log** panel, the Azure extension shows the status of individual resources as they're created in Azure.
 

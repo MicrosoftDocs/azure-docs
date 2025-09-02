@@ -253,7 +253,7 @@ This section helps you create, get, update, and delete the Azure private peering
    If you choose to use an MD5 hash, use the following example:
 
    ```azurecli
-   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 10.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 10.0.0.4/30 --vlan-id 200 --peering-type AzurePrivatePeering --SharedKey "A1B2C3D4"
+   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 10.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 10.0.0.4/30 --vlan-id 200 --peering-type AzurePrivatePeering --shared-key "A1B2C3D4"
    ```
 
    > [!IMPORTANT]

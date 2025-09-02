@@ -207,7 +207,7 @@ Call flow description:
 3. An agent picks up the call on Azure Communication Services Calling SDK client.
 
 > [!NOTE]
-> The *Redirect* option is available in the Call Automation SDK. We don't recommend using redirect for CCaaS scenarios. For better integration and support, we strongly recommend using the `AddParticipant` function when adding CCaaS agents to the call. This method ensures compatibility with future updates and provides a more robust solution for your needs.
+> The *Redirect* option is available in the Call Automation SDK. We don't recommend using redirect for CCaaS scenarios. For better integration and support, we strongly recommend using the `AddParticipant` function when adding CCaaS agents to the call. This method ensures compatibility with future updates and provides a more robust solution for your needs. *Redirect* option is also not supported for OBO use cases.
 
 ## Value added services
 

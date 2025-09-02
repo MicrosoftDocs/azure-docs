@@ -10,6 +10,7 @@ ms.topic: article
 ms.date: 07/25/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
+# Customer intent: As an IT planner for SAP workloads, I want to evaluate different Azure storage types, so that I can select the best options for performance, resiliency, and cost-effectiveness in supporting my SAP applications.
 ---
 
 # Azure Storage types for SAP workload
@@ -323,7 +324,7 @@ The capability matrix for SAP workload on Azure NetApp Files looks like:
 | Throughput linear to capacity | Linear with auto QoS; independently configurable with Manual QoS | Three [service levels](../../azure-netapp-files/azure-netapp-files-service-levels.md) available |
 | HANA certified | [Yes](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24&sort=Latest%20Certification&sortDesc=true) | - |
 | Disk snapshots possible | Yes | See [How Azure NetApp Files snapshots work](../../azure-netapp-files/snapshots-introduction.md) |
-| Application consistent snapshot and backup orchestration | No | Use [AzAcSnap](../../azure-netapp-files/azacsnap-introduction.md) or [SnapCenter](https://docs.netapp.com/us-en/snapcenter/concept/concept_snapcenter_overview.html) |
+| Application consistent snapshot and backup orchestration | No | Use [AzAcSnap](../../azure-netapp-files/azacsnap-introduction.md) or [SnapCenter](https://www.netapp.com/snapcenter/) |
 | Costs | Use TCO estimation tools | Use the [SAP on Azure NetApp Files TCO Estimator](https://aka.ms/anfsapcalc) and enter the size of the landscape |
 
 Other built-in functionality of Azure NetApp Files storage:

@@ -157,7 +157,7 @@ A claims transformation technical profile accesses the `isForgotPassword` claim.
 
 The **SelfAsserted-LocalAccountSignin-Email** technical profile **setting.forgotPasswordLinkOverride** defines the password reset claims exchange that executes in your user journey.
 
-The **LocalAccountWritePasswordUsingObjectId** technical profile **UseTechnicalProfileForSessionManagement** `SM-AAD` session manager is required for the user to preform subsequent logins successfully under [SSO](./custom-policy-reference-sso.md) conditions.
+The **LocalAccountWritePasswordUsingObjectId** technical profile **UseTechnicalProfileForSessionManagement** `SM-AAD` session manager is required for the user to perform subsequent logins successfully under [SSO](./custom-policy-reference-sso.md) conditions.
 
 ### Add the password reset sub journey
 

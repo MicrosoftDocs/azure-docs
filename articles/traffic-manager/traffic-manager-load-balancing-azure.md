@@ -23,7 +23,7 @@ In this tutorial, we first define a customer use case and see how it can be made
 At a conceptual level, each of these services plays a distinct role in the load-balancing hierarchy.
 
 * **Traffic Manager** provides global DNS load balancing. It looks at incoming DNS requests and responds with a healthy endpoint, in accordance with the routing policy the customer has selected. Options for routing methods are:
-  * Performance routing to send the requestor to the closest endpoint in terms of latency.
+  * Performance routing to send the requester to the closest endpoint in terms of latency.
   * Priority routing to direct all traffic to an endpoint, with other endpoints as backup.
   * Weighted round-robin routing, which distributes traffic based on the weighting that is assigned to each endpoint.
   * Geography-based routing to distribute the traffic to your application endpoints based on geographic location of the user.

@@ -27,7 +27,7 @@ No, the Teams Phone extensibility calls are designed to use Teams Phone and asso
 
 Inbound PSTN calls to the phone number assigned to the Teams Resource Account triggers an **Incoming Call** Event Grid notification to the configured endpoint in the Azure Communication Services Resource. This Resource is linked to the RA during provisioning. The CCaaS server-side application then uses the Call Automation SDK to answer the call.
 
-## What are the benefits from having OBO instead of direct outbound calling?
+## What are the benefits from having On-Behalf-OF (OBO) instead of direct outbound calling?
 
 Using a resource account for outbound calls ensures that the customer sees the company’s caller ID and potentially a name, maintaining a professional image and consistent branding. Using a resource account also enables the server application to have greater control over which numbers agent can call, enhancing operational efficiency and ensuring compliance with organizational policies.
 
@@ -67,6 +67,10 @@ The business model for TPE is consistent with Azure Communication Services regul
 ## How can I monitor and debug calling issues?
 
 For TPE calls, we provide access to telemetry details similar to what is offered on Azure today for regular Azure Communication Services calls. These details include [Call Summary](/azure/azure-monitor/reference/tables/acscallsummary), [Call Diagnostics](/azure/azure-monitor/reference/tables/acscalldiagnostics), and what is available on the Teams admin center. You can also differentiate between Azure Communication Services and Teams Phone extensibility calls.
+
+## Why is my end user hearing an announcement that I didn't trigger whenever I start or pause the call recording?
+
+When a recording is started or paused in a call that includes a PSTN user and a Teams or Dual Persona user, the PSTN user will hear an announcement indicating the change. This is due to compliance requirements on Teams to ensure that all participants are aware of the recording status.
 
 ## How can I report issues related to TPE calls?
 

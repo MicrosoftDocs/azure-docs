@@ -6,6 +6,7 @@ ms.service: azure-hpc-cache
 ms.topic: how-to
 ms.date: 07/08/2021
 ms.author: rohogue
+# Customer intent: As a system administrator, I want to access performance metrics and monitoring tools for Azure HPC Cache, so that I can efficiently track cache usage, optimize storage, and troubleshoot client connections.
 ---
 
 # Cache metrics and monitoring

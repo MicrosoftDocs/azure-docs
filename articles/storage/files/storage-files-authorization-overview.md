@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: overview
 ms.date: 01/24/2025
 ms.author: kendownie
+# Customer intent: As a cloud administrator, I want to configure authorization and access control for Azure file shares, so that I can manage user permissions at both the share and directory/file levels effectively.
 ---
 
 # Overview of Azure Files authorization and access control

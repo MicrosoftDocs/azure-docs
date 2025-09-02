@@ -8,6 +8,7 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, mvc, AppServiceConnectivity
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
 ---
 
 # Tutorial: Send email and invoke other business processes from App Service

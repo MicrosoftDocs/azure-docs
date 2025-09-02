@@ -6,6 +6,7 @@ ms.service: azure-elastic-san-storage
 ms.topic: concept-article
 ms.date: 04/21/2025
 ms.author: rogarana
+# Customer intent: As a cloud infrastructure administrator, I want to implement best practices for configuring an Elastic SAN, so that I can achieve optimal performance and resource efficiency for my storage solutions in a cloud environment.
 ---
 
 # Optimize the performance of your Elastic SAN
@@ -76,6 +77,7 @@ defaults {
     failback immediate			# For immediate failback to highest priority path group with active paths
     no_path_retry 3			# To disable I/O queueing after retrying once when all paths are down
     polling_interval 5         # Set path check polling interval to 5 seconds
+    find multipaths yes        # To allow multipath to take control of only those devices that have multiple paths 
 }
 devices {
   device {

@@ -2,11 +2,12 @@
 title: Create and delete Backup vaults
 description: Learn how to create and delete the Backup vaults.
 ms.topic: how-to
-ms.date: 06/23/2025
+ms.date: 07/16/2025
 ms.custom: references_regions
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a cloud administrator, I want to create and delete Backup vaults, so that I can efficiently manage and organize backup data for Azure services while ensuring data security and compliance.
 ---
 # Create and delete Backup vaults
 
@@ -87,5 +88,6 @@ When there are no more items in the vault, select **Delete** on the vault dashbo
 
 ## Next steps
 
-- [Manage a Backup vault](manage-backup-vault.md)
-- [Configure backup on Azure PostgreSQL databases](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases)
+- [Manage a Backup vault](manage-backup-vault.md).
+- [Troubleshoot Azure Backup Vault related operations](backup-azure-backup-vault-troubleshoot.md).
+- [Configure backup on Azure PostgreSQL databases](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases).

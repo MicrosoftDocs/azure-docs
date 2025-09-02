@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 07/08/2024
 ms.author: cherylmc
 
+# Customer intent: "As a network administrator, I want to add or remove site-to-site connections from a VPN gateway, so that I can manage connectivity between on-premises networks and Azure efficiently."
 ---
 # Add or remove VPN Gateway site-to-site connections
 

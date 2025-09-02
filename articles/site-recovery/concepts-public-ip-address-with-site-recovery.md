@@ -7,6 +7,7 @@ ms.topic: overview
 ms.date: 10/31/2023
 ms.author: jsuri
 
+# Customer intent: "As a cloud architect, I want to configure public IP addresses for my applications after a failover, so that I can ensure consistent connectivity and recovery in disaster recovery scenarios using Azure Site Recovery."
 ---
 # Set up public IP addresses after failover
 

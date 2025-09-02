@@ -5,6 +5,7 @@ ms.service: azure-automanage
 ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 12/10/2021
+# Customer intent: "As an IT administrator, I want to onboard a machine to Azure Automanage using an ARM template, so that I can automate configuration management and ensure adherence to best practices efficiently."
 ---
 
 # Onboard a machine to Automanage with an Azure Resource Manager (ARM) template

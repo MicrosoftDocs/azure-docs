@@ -20,11 +20,11 @@ Follow the guidelines in this article to provide extra protection for your Azure
 
 ## Prerequisites
 
- - A deployed Azure Virtual Desktop environment and host pool. For more information, see [Deploy Azure Virtual Desktop](../virtual-desktop/deploy-azure-virtual-desktop.md).
+ - A deployed Azure Virtual Desktop environment and host pool. For more information, see [Deploy Azure Virtual Desktop](/azure/virtual-desktop/deploy-azure-virtual-desktop).
  - An Azure Firewall deployed with at least one Firewall Manager Policy.
  - DNS and DNS Proxy enabled in the Firewall Policy to use [FQDN in Network Rules](../firewall/fqdn-filtering-network-rules.md).
 
-To learn more about Azure Virtual Desktop terminology, see [Azure Virtual Desktop terminology](../virtual-desktop/terminology.md).
+To learn more about Azure Virtual Desktop terminology, see [Azure Virtual Desktop terminology](/azure/virtual-desktop/terminology).
 
 > [!WARNING]
 > Azure Virtual Desktop disconnections may occur during Azure Firewall scale-ins if all traffic is routed to the Azure Firewall using a default route. We recommend having direct access to the gateway and broker for Azure Virtual Desktop to avoid these disconnections. To resolve this issue, add a route to the route table applied to the Azure Virtual Desktop subnet with the *destination type* set to **Service tag**, the *destination service* set to **WindowsVirtualDesktop**, and the *next hop* set to **Internet**.
@@ -33,10 +33,10 @@ To learn more about Azure Virtual Desktop terminology, see [Azure Virtual Deskto
 
 The Azure virtual machines you create for Azure Virtual Desktop must have access to several Fully Qualified Domain Names (FQDNs) to function properly. Azure Firewall uses the Azure Virtual Desktop FQDN tag `WindowsVirtualDesktop` to simplify this configuration. You need to create an Azure Firewall Policy and create Rule Collections for Network Rules and Applications Rules. Give the Rule Collection a priority and an *allow* or *deny* action.
 
-You need to create rules for each of the required FQDNs and endpoints. The list is available at [Required FQDNs and endpoints for Azure Virtual Desktop](../virtual-desktop/required-fqdn-endpoint.md). In order to identify a specific host pool as *Source*, you can create an [IP Group](../firewall/ip-groups.md) with each session host to represent it. 
+You need to create rules for each of the required FQDNs and endpoints. The list is available at [Required FQDNs and endpoints for Azure Virtual Desktop](/azure/virtual-desktop/required-fqdn-endpoint). In order to identify a specific host pool as *Source*, you can create an [IP Group](../firewall/ip-groups.md) with each session host to represent it. 
 
 > [!IMPORTANT]
-> We recommend that you don't use TLS inspection with Azure Virtual Desktop. For more information, see the [proxy server guidelines](../virtual-desktop/proxy-server-support.md#dont-use-ssl-termination-on-the-proxy-server).
+> We recommend that you don't use TLS inspection with Azure Virtual Desktop. For more information, see the [proxy server guidelines](/azure/virtual-desktop/proxy-server-support#dont-use-ssl-termination-on-the-proxy-server).
 
 ## Azure Firewall Policy Sample
 
@@ -55,4 +55,4 @@ Admins can allow or deny user access to different website categories. Add a rule
 
 ## Next step
 
-- Learn more about Azure Virtual Desktop: [What is Azure Virtual Desktop?](../virtual-desktop/overview.md)
+- Learn more about Azure Virtual Desktop: [What is Azure Virtual Desktop?](/azure/virtual-desktop/overview)

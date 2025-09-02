@@ -68,7 +68,6 @@ If you're using your own certificate, you need to enable managed identity so Azu
 
 > [!NOTE]
 > * If you're not using your own certificate, enabling managed identities and granting access to the Key Vault is not required. You can skip to the [**Migrate**](#migrate) phase.
-> * Managed certificates are currently **not supported** for Azure Front Door Standard or Premium in Azure Government Cloud. You need to use BYOC for Azure Front Door Standard or Premium in Azure Government Cloud or wait until this capability is available.
 
 1. Select **Enable** and then choose either **System assigned** or **User assigned** depending on the type of managed identity you want to use.
 
