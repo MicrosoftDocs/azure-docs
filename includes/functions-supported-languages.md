@@ -45,7 +45,7 @@ For more information, see [Develop C# class library functions using Azure Functi
 
 | Supported version | Support level | Expected end-of-support date |
 | ---- | ---- |--- |
-| .NET Framework 4.8 | GA | See [.NET Framework Support Policy][dotnet-framework-policy]. |
+| .NET Framework 4.8.1 | GA | See [.NET Framework Support Policy][dotnet-framework-policy]. |
  
 For more information, see [Develop C# class library functions using Azure Functions](../articles/azure-functions/functions-dotnet-class-library.md) and [Azure Functions legacy C# script (.csx) developer reference](../articles/azure-functions/functions-reference-csharp.md).
 
