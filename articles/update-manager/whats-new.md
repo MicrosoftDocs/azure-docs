@@ -5,7 +5,7 @@ ms.service: azure-update-manager
 ms.topic: overview
 author: habibaum
 ms.author: v-uhabiba
-ms.date: 11/01/2024
+ms.date: 08/21/2025
 # Customer intent: "As a system administrator, I want to understand the latest features of Azure Update Manager, so that I can effectively manage and govern updates across my environments and ensure compliance with security policies."
 ---
 

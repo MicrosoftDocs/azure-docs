@@ -1,11 +1,11 @@
 ---
-title: Use migration runbooks to migrate workloads from Automation Update Management to Azure Update Manager
+title: Use Migration Runbooks to Migrate Workloads from Automation Update Management to Azure Update Manager
 description: Guidance on how to use migration runbooks to move schedules and machines from Automation Update Management to Azure Update Manager
 author: habibaum
 ms.author: v-uhabiba
 ms.service: azure-update-manager
 ms.topic: how-to
-ms.date: 08/01/2024
+ms.date: 08/21/2025
 
 # Customer intent: "As a system administrator managing machine schedules, I want to use migration runbooks to transfer workloads from Automation Update Management to Azure Update Manager, so that I can streamline updates and improve management efficiency across my automation accounts."
 ---

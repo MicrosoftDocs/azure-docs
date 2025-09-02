@@ -3,6 +3,7 @@ title: Common Issues - Credentials Resource
 description: Azure CycleCloud common issue - Credential Resources
 author: adriankjohnson
 ms.date: 06/30/2025
+ms.update-cycle: 3650-days
 ms.author: adjohnso
 ms.service: azure-cyclecloud
 ms.custom: compute-evergreen
