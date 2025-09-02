@@ -6,7 +6,7 @@ ms.author: mathoma
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-sql-managed-instance
-ms.date: 08/28/2025
+ms.date: 09/03/2025
 zone_pivot_groups: sql-managed-instance-tiers
 ---
 
