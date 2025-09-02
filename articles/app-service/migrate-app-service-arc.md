@@ -96,7 +96,7 @@ If your cluster satisfies these requirements then follow the documentaion to [En
 
 For any applications which you are migrating from Azure App Service on Arc enabled Kubernetes to Azure Container Apps on Arc enabled Kubernetes, you will need to containerize them before deploying.
 
-You can deploy your application from an [existing container image](), [deploy from code]() or [deploy from code in GitHub]() 
+You can deploy your application from an [existing container image](https://aka.ms/acaonarck8sup), [deploy from code](https://aka.ms/acaonarck8sup) or [deploy from code in GitHub](https://aka.ms/acaonarck8sup) 
 
 
 
