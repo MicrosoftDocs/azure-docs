@@ -36,9 +36,9 @@ UEBA now supports anomaly detection using six new data sources:
   - **Microsoft Entra ID managed identity signin logs**: Track sign-ins by managed identities used in automation, such as scripts and services. This is crucial for spotting silent misuse of service identities.
   - **Microsoft Entra ID service principal signin logs**: Monitor sign-ins by service principals - often used by apps or scripts - to detect anomalies, such as unexpected access or privilege escalation.
 
-- **Third-party cloud platforms**: 
+- **Third-party cloud and identity management platforms**: 
   
-  UEBA now integrates with leading cloud platforms to enhance detection of identity compromise, privilege misuse, and risky access behaviors across multicloud environments.
+  UEBA now integrates with leading cloud and identity management platforms to enhance detection of identity compromise, privilege misuse, and risky access behaviors across multicloud environments.
 
   - **AWS CloudTrail login events**: Flag risky login attempts in Amazon Web Services (AWS), such as failed multifactor authentication (MFA) or use of the root account—critical indicators of potential account compromise.
   - **GCP audit logs - Failed IAM access events**: Capture denied access attempts in Google Cloud Platform, helping identify privilege escalation attempts or misconfigured roles.

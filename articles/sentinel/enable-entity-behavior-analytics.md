@@ -19,7 +19,7 @@ ms.collection: usx-security
 
 In the previous deployment step, you enabled the Microsoft Sentinel security content you need to protect your systems. In this article, you learn how to enable and use the UEBA feature to streamline the analysis process. This article is part of the [Deployment guide for Microsoft Sentinel](deploy-overview.md).
 
-As Microsoft Sentinel collects logs and alerts from all of its connected data sources, it analyzes them and builds baseline behavioral profiles of your organization’s entities (such as users, hosts, IP addresses, and applications) across time and peer group horizon. Using various techniques and machine learning capabilities, Microsoft Sentinel can then identify anomalous activity and help you determine if an asset has been compromised. Learn more about [UEBA](identify-threats-with-entity-behavior-analytics.md).
+As Microsoft Sentinel collects logs and alerts from all of its connected data sources, it analyzes them and builds baseline behavioral profiles of your organization’s entities (such as users, hosts, IP addresses, and applications) across time and peer group horizon. Using various techniques and machine learning capabilities, Microsoft Sentinel can then identify anomalous activity and help you determine whether an asset is compromised. Learn more about [UEBA](identify-threats-with-entity-behavior-analytics.md).
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
@@ -62,14 +62,13 @@ To enable or disable this feature (these prerequisites aren't required to use th
 
     To get to the **Entity behavior configuration** page:
 
-    1. From the Microsoft Defender portal navigation menu, select **Settings**.
-    1. In the **Settings** page, select **Microsoft Sentinel**.
-    1. From the next menu, select **Entity behavior analytics**. 
-    1. Then, select **Set UEBA** which opens a new browser tab with the **Entity behavior configuration** page in the **Azure portal**.
+    1. From the Microsoft Defender portal navigation menu, select **Settings** > **Microsoft Sentinel** > **SIEM workspaces**.
+    1. Select the workspace you want to configure.
+    1. From the workspace configuration page, select **Entity behavior analytics** > **Configure UEBA**. 
 
     ---
 
-1. On the **Entity behavior configuration** page, switch the toggle to **On**.
+1. On the **Entity behavior configuration** page, toggle **Turn on UEBA feature**.
 
     :::image type="content" source="media/enable-entity-behavior-analytics/ueba-configuration.png" alt-text="Screenshot of UEBA configuration settings.":::
 
@@ -82,19 +81,25 @@ To enable or disable this feature (these prerequisites aren't required to use th
 
 1. Select the data sources on which you want to enable UEBA.
 
-    You can only enable these data sources from the Defender portal:
+    You can only enable these data sources from the Defender and the Azure portals:
+    - Signin Logs
+    - Audit Logs
+    - Azure Activity    
+    - Security Events
+
+    You can enable these data sources from the Defender portal only (preview):
     
-    - AAD managed identity sign-in logs
-    - AAD service principal sign-in logs
+    - AAD Managed Identity Signin logs (Microsoft Entra ID)
+    - AAD Service Principal Signin logs (Microsoft Entra ID)
     - AWS CloudTrail
-    - Device logon events
+    - Device Logon Events
     - Okta CL
-    - GCP audit logs
+    - GCP Audit Logs
 
     For more information about UEBA data sources and anomalies, see [Microsoft Sentinel UEBA reference](./ueba-reference.md) and [UEBA anomalies](./anomalies-reference.md#ueba-anomalies).
 
     > [!NOTE]
-    > After you enable UEBA, when you connect new data sources, you can enable them for UEBA directly from the data connector pane if they're UEBA-capable.
+    > After enabling UEBA, you can enable supported data sources for UEBA directly from the data connector pane, or from the Defender portal Settings page, as described in this article.
 
 1. Select **Apply**. 
 
