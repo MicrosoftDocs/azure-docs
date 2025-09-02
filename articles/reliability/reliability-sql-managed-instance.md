@@ -146,7 +146,7 @@ The following section describes what to expect when your SQL managed instance is
 
 - **Traffic routing between zones:** During normal operations, requests are routed to the primary replica of your SQL managed instance.
 
-- **Data replication between zones:** The primary replica continually and sequentially pushes changes to the secondary replicas in different availability zones, which ensures that data is persisted on a sufficient number of secondary replicas before committing each transaction. Those replicas are located in different availability zones. This process guarantees that, if the primary replica or a readable secondary replica become unavailable for any reason, a fully synchronized replica is always available for failover.
+- **Data replication between zones:** The primary replica continually and sequentially pushes changes to the secondary replicas in different availability zones. This process ensures that data is persisted on a sufficient number of secondary replicas before committing each transaction. Those replicas are located in different availability zones. This process guarantees that, if the primary replica or a readable secondary replica become unavailable for any reason, a fully synchronized replica is always available for failover.
 
   Because zone-redundant instances have replicas in different datacenters with some distance between them, the increased network latency might increase the transaction commit time, and thus impact the performance of some OLTP workloads. Most applications aren't sensitive to this extra latency.
 
@@ -289,8 +289,8 @@ In addition to the built-in automated backups, Azure SQL Managed Instance also s
 When you configure automated backups for your SQL managed instance, you can specify how backups should be replicated. Backups that are configured to be stored on zone-redundant storage have a higher level of resiliency. We recommend you configure your backups to use one of these storage types:
 
 - Zone-redundant storage (ZRS) for resiliency within the region, as long as the region has availability zones.
-- Geo-zone redundant storage (GZRS) to improve the resilency of your backups across regions, as long as the region has availability zones and is [paired with another region](./regions-paired.md).
-- Geo-redundant storage (GRS), which you should use if your region doesn't support availabilty zones but has a paired region.
+- Geo-zone redundant storage (GZRS) to improve the resiliency of your backups across regions, as long as the region has availability zones and is [paired with another region](./regions-paired.md).
+- Geo-redundant storage (GRS), which you should use if your region doesn't support availability zones but has a paired region.
 
 For more information on different storage types and their capabilities, see [Backup storage redundancy](/azure/azure-sql/managed-instance/automated-backups-overview#backup-storage-redundancy).
 
