@@ -29,3 +29,5 @@ items:
   items:
     - name: Starter prompts
       href: prompts.md
+    - name: Data residency and privacy
+      href: data-privacy.md
