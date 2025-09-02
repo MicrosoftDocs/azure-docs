@@ -82,7 +82,7 @@ Support for availability zones depends on infrastructure and storage. For a list
 
 Zone redundancy is automatically enabled when your search service meets all of the following criteria:
 
-+ Is in a [region that has availability zones](/azure/search/search-region-support).
++ Meets the [region requirements](#region-support).
 + Is on the [Basic tier or higher](/azure/search/search-sku-tier).
 + Has [at least two replicas](/azure/search/search-capacity-planning#add-or-remove-partitions-and-replicas).
   
