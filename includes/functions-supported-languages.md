@@ -35,7 +35,7 @@ Your function app code runs in the same process as the Functions host process. T
 .NET 6 was previously supported by the in-process model but reached the end of official support on [November 12, 2024][dotnet-policy].
 
 > [!IMPORTANT]
-> The in-process model doesn't support .NET 10. If you want to update your function app to use .NET 10, you must [migrate to the isolated worker model](../articles/azure-functions/migrate-dotnet-to-isolated-model.md).
+> The in-process model currently only supports .NET 8. To be able to update your function app to use a later .NET version, you must [migrate to the isolated worker model](../articles/azure-functions/migrate-dotnet-to-isolated-model.md).
 
 For more information, see [Develop C# class library functions using Azure Functions](../articles/azure-functions/functions-dotnet-class-library.md) and [Azure Functions legacy C# script (.csx) developer reference](../articles/azure-functions/functions-reference-csharp.md).
 

@@ -25,14 +25,15 @@ The following table shows which languages supported by Functions can run on Linu
 | Language | Runtime stack | Linux | Windows | In-portal editing |
 |:--- |:-- |:--|:--- |:--- |
 | [C# (isolated worker model)](dotnet-isolated-process-guide.md) |.NET|✓ |✓ | |
-| [C# (in-process model)](functions-dotnet-class-library.md)|.NET|✓ |✓ | |
-| [C# script](functions-reference-csharp.md) | .NET | ✓ |✓ |✓ |
+| [C# (in-process model)](functions-dotnet-class-library.md)|.NET|✓ |✓ | <sup>*</sup> |
 | [JavaScript](functions-reference-node.md?tabs=javascript) | Node.js |✓ |✓ | ✓ |
 | [Python](functions-reference-python.md) | Python |✓ |X|✓ |
 | [Java](functions-reference-java.md) | Java |✓ |✓ | |
 | [PowerShell](functions-reference-powershell.md) |PowerShell Core |✓ |✓ |✓ |
 | [TypeScript](functions-reference-node.md?tabs=typescript) | Node.js |✓ |✓ |  |
-| [Go/Rust/other](functions-custom-handlers.md) | Custom Handler |✓ |✓ | |
+| [Go/Rust/other](functions-custom-handlers.md) | Custom Handlers |✓ |✓ | |
+
+<sup>*</sup>Although we recommend local development for C# apps, you can use the portal to develop and test C# script functions that use the in-process model. For more information, see [Create a C# script app](functions-reference-csharp.md#create-a-c-script-app).
 
 For more information on operating system and language support, see [Operating system support](functions-scale.md#operating-systemruntime).
 
