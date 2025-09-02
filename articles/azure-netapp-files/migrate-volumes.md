@@ -37,6 +37,23 @@ Before using the migration assistant, you must submit a request through the [Azu
 
 After you submit the request, you can check the status of your registration with the PowerShell command ` Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFMigrationAssistant`. You can also use [Azure CLI commands](/cli/azure/feature) `az feature show` to display the registration status.
 
+<!--
+You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. 
+
+1. Register the feature: 
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFMigrationAssistant
+    ```
+
+2. Check the status of the feature registration: 
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFMigrationAssistant
+    ```
+
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.
+-->
 ## Before you begin 
 
 You must create Express Route or VPN resources to ensure network connectivity from the external NetApp ONTAP cluster to the target Azure NetApp Files cluster. There are multiple ways to ensure network connectivity. Connectivity includes this set of firewall rules (bidirectional for all): 
@@ -223,4 +240,4 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 ## More information 
 
 * [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md)
-* [Migrating data to Azure NetApp Volumes](migrate-data.md)
+* [Migrating data to Azure NetApp Files volumes](migrate-data.md)
