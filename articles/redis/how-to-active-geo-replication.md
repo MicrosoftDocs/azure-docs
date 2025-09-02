@@ -20,6 +20,8 @@ Active geo-replication groups up to five instances of Azure Managed Redis into a
 > [!NOTE]
 > Data transfer between Azure regions is charged at standard [bandwidth rates](https://azure.microsoft.com/pricing/details/bandwidth/).
 >
+> Data sync among replicas follows eventual consistency. The service does not provide SLA on sync time. Please design your system without relying on the  timeliness of data sync.
+>
 
 ## How active geo-replication works
 

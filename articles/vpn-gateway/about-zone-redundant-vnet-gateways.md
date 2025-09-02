@@ -35,30 +35,6 @@ Zone-redundant and zonal gateways are available as gateway SKUs. We have added n
 
 For information about gateway SKUs, see [VPN gateway SKUs](vpn-gateway-about-vpngateways.md#gwsku) and [ExpressRoute gateway SKUs](../expressroute/expressroute-about-virtual-network-gateways.md#gwsku).
 
-## <a name="pipskus"></a>Public IP SKUs
-
-Zone-redundant, zonal, and non-zonal gateways rely on the configuration of *Standard* SKU of Azure public IP resource. If you create a public IP resource with a *Basic* SKU, the gateway won't have any zone redundancy, and the gateway resources are regional.
-
-For more information, see [Availability zones](../virtual-network/ip-services/public-ip-addresses.md#availability-zone).
-
-### <a name="pipzrg"></a>Zone-redundant gateways
-
-When you create a public IP address using the **Standard** public IP SKU with zone-redundant option, the behavior differs depending on whether the gateway is a VPN gateway, or an ExpressRoute gateway.
-
-* For a VPN gateway, the two gateway instances are deployed in any two out of these three zones to provide zone-redundancy.
-* For an ExpressRoute gateway, since there can be more than two instances, the gateway can span across all the three zones.
-
-### <a name="pipzg"></a>Zonal gateways
-
-When you create a public IP address using the **Standard** public IP SKU and specify the Zone (1, 2, or 3), all the gateway instances are deployed in the same zone.
-
-### <a name="piprg"></a>Non-zonal or regional gateways
-
-A non-zonal or regional gateway doesn't have zone-redundancy. These gateways are created in the following scenarios:
-
-* When you create a public IP address using the **Standard** public IP SKU with the "No Zone" option
-* When you create a public IP address using the **Basic** public IP SKU
-
 ## <a name="faq"></a>FAQ
 
 ### What will change when I deploy these SKUs?

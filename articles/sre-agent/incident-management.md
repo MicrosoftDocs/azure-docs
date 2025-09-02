@@ -63,4 +63,4 @@ You can choose to enable a series of tools that provide granular control over ho
 
 ## Related content
 
-* [Security contexts in Azure SRE Agent](./security-context.md)
+* [Security contexts in Azure SRE Agent](./access-management.md)
