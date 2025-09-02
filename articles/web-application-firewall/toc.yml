@@ -25,7 +25,7 @@ items:
     - name: Web Application Firewall on Azure CDN
       href: ./cdn/cdn-overview.md
   - name: What is Azure network security?
-    href: /azure/networking/security/network-security.md?toc=/azure/web-application-firewall/toc.json
+    href: /azure/networking/security/network-security?toc=%2fazure%2fweb-application-firewall%2ftoc.json
 - name: Deploy
   items:
   - name: Application Gateway
@@ -76,6 +76,8 @@ items:
         href: ./ag/application-gateway-crs-rulegroups-rules.md
       - name: Exclusion lists
         href: ./ag/application-gateway-waf-configuration.md
+      - name: Upgrade ruleset version
+        href: ./ag/upgrade-ruleset-version.md
       - name: Customize managed rules
         items:
         - name: Azure portal
@@ -108,6 +110,8 @@ items:
         href: geomatch-custom-rules-examples.md
     - name: Request size limits
       href: ./ag/application-gateway-waf-request-size-limits.md
+    - name: Configure custom response code and body
+      href: ./ag/configure-custom-response-code.md
     - name: WAF engine
       href: ./ag/waf-engine.md
   - name: Front Door
