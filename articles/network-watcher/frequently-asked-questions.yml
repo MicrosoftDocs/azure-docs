@@ -236,13 +236,7 @@ sections:
           1. Go to the storage account by entering the storage account's name in the search box at the top of the portal.
           1. Under **Data management**, select **Lifecycle management**.
           1. Select **+ Add rule**.
-          1. In the **Details** section, select the following settings:
-
-          | Setting | Value |
-          | Rule scope | Limit blobs with filters |
-          | Blob type | Block blobs |
-          | Blob subtype | Base blobs |
-
+          1. In the **Details** section, select the following settings: **Rule scope:** *Limit blobs with filters*, **Blob type:** *Block blobs*, and **Blob subtype:** *Base blobs*.
           1. In the **Base blobs** section, configure your retention settings.
           1. In the **Filter set** section, format the **Blob prefix** as the following:
           `"insights-logs-flowlogflowevent/flowLogResourceID=/<yourSubscriptionId>_NETWORKWATCHERRG"`
