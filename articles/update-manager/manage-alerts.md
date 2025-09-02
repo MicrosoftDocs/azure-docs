@@ -49,7 +49,7 @@ To enable alerts (Preview) with Azure Update Manager through Azure portal, follo
 
     1. Select **Run** to run the query and to enable **Continue Editing Alert**.
    
-         :::image type="content" source="./media/manage-alerts/run-query-inline.png" alt-text="Screenshot that shows how to run the query." lightbox="./media/manage-alerts/run-query-expanded.png":::
+         :::image type="content" source="./media/manage-alerts/query-inline.png" alt-text="Screenshot that shows how to run the query." lightbox="./media/manage-alerts/query-inline.png":::
 
     1. Select the **Scope and filters** you want to be apply.
     1. Select **Identify, Threshold, and Frequency** of evaluation as per your requirement.
