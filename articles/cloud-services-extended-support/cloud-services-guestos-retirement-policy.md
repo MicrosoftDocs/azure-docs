@@ -9,6 +9,7 @@ ms.assetid: 919dd781-4dc6-4e50-bda8-9632966c5458
 ms.service: azure-cloud-services-classic
 ms.topic: concept-article
 ms.date: 05/09/2025
+ms.update-cycle: 3650-days
 ms.author: ssundara
 ms.custom: compute-evergreen
 # Customer intent: As a cloud services administrator, I want to understand the support and retirement policies for Azure Guest OS, so that I can ensure my applications remain secure and compliant during updates and migrations.
