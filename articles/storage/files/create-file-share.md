@@ -97,9 +97,12 @@ The final step to create the file share is to select the **Create** button on th
 
 1. After the file share is created, search private endpoint in the search bar, and then click on create button. 
 1. Leave **Subscription** and **Resource group** the same. Under **Instance**, provide a name and select a region for the new private endpoint. Your private endpoint must be in the same region as your virtual network, so use the same region as you specified when creating the VM. When all the fields are complete, select **Next: Resource**.
-   :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-basics.png" alt-text="Screenshot showing how to provide the project and instance details for a new private endpoint." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-basics.png" border="true":::
+
+   ![image for private endpoint creation for mfs part 1](./media/storage-how-to-create-microsoft-fileshares/private-endpoint-for-microsoft-fileshares-one.png)
+
 1. Confirm that the **Subscription**, and **Resource** are correct. Choose Microsoft.FileShares/fileShares as the **Resource type**, and select **FileShare** from the **Target sub-resource** drop-down. Then select **Next: Virtual Network**.
-   :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-resource.png" alt-text="Screenshot showing how to select the resources that a new private endpoint should connect to." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-resource.png" border="true":::
+   
+   ![image for private endpoint creation for mfs part 2](./media/storage-how-to-create-microsoft-fileshares/private-endpoint-for-microsoft-fileshares-two.png)
 1. Under **Networking**, select the virtual network associated with your VM and leave the default subnet. Under **Private IP configuration**, leave **Dynamically allocate IP address** selected. Select **Next: DNS**.
    :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-virtual-network.png" alt-text="Screenshot showing how to add virtual networking and private IP configuration to a new private endpoint." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-virtual-network.png" border="true":::
 1. Select **Yes** for **Integrate with private DNS zone**. Make sure the correct subscription and resource group are selected, and then select **Next: Tags**.
