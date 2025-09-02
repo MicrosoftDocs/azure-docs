@@ -1,20 +1,18 @@
 ---
-title: Create Workflows with AI Agents
-description: Build workflows that use AI agents to independently complete tasks with Azure Logic Apps.
+title: Create Workflows with Autonomous AI Agents
+description: Build AI agent workflows that don't use human interactions to complete tasks with Azure Logic Apps.
 service: ecfan
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, divswa, krmitta, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 08/22/2025
+ms.date: 09/08/2025
 ms.update-cycle: 180-days
-# Customer intent: As an integration developer, I want to automate workflows that complete tasks with AI agents and other AI capabilities for my integration scenarios by using Azure Logic Apps.
-ms.custom:
-  - build-2025
+# Customer intent: As an integration developer, I want to build workflows that complete tasks by using AI agents and other AI capabilities without human interactions for my integration solutions with Azure Logic Apps.
 ---
 
-# Create workflows with autonomous AI agents that complete tasks with Azure Logic Apps (Preview)
+# Create autonomous agent workflows without human interactions to complete tasks with Azure Logic Apps (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -23,21 +21,21 @@ ms.custom:
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In Azure Logic Apps, you can create automation workflows that handle instructions and complete tasks by using AI *agents* connected to *large language models (LLMs)*. An agent uses an iterative looped process to solve complex, multi-step problems. A large language model is a program that's trained to recognize patterns and perform jobs without human interaction.
+When your scenario requires workflows that use agents but not human interactions to complete tasks, you can create an *autonomous* agent workflow in Azure Logic Apps. All agent workflows perform tasks by using an agent connected to a large language models (LLM). The agent uses an iterative looped process to solve complex, multi-step problems. A large language model is a program that's trained to recognize patterns and perform jobs without human interaction.
 
-In workflows, an agent provides the following capabilities and benefits when connected to a model:
+In autonomous agent workflows, an agent provides the following capabilities and benefits when connected to a model:
 
-- Accept instructions about the agent's role, how to operate, and how to respond.
-- Receive and respond to requests (prompts) without human interaction or intervention.
-- Process inputs, analyze data, and make choices, based on available information.
-- Choose tools to complete the tasks necessary to fulfill requests. A *tool* is a sequence with one or more actions that complete a task.
-- Adapt to environments that require flexibility and are fluid, dynamic, unpredictable, or unstable.
+- Accepts instructions about the agent's role, how to operate, and how to respond.
+- Receives and responds to requests (prompts) without human interaction or intervention.
+- Processes inputs, analyze data, and make choices, based on available information.
+- Chooses tools to complete the tasks necessary to fulfill requests. A *tool* is a sequence with one or more actions that complete a task.
+- Adapts to environments that require flexibility and are fluid, dynamic, unpredictable, or unstable.
 
 With [1,400+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that provide actions that you can use to create tools for an agent to use, autonomous agent workflows support a vast range of scenarios that can greatly benefit from AI capabilities.
 
-The following diagram shows an example autonomous agent workflow that you create in this guide. The workflow uses an agent to get the weather forecast and send that forecast in email. The diagram shows the agent information pane where you set up the agent and provide instructions for the agent to follow:
+The following diagram shows an example autonomous agent workflow that you create in this guide. The workflow uses an agent to get the weather forecast and send that forecast in email. The diagram shows the agent information pane where you set up the agent and provide instructions that don't require human interaction for the agent to follow:
 
-:::image type="content" source="media/create-autonomous-agent-workflows/weather-example.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and example for agent workflow type." lightbox="media/create-autonomous-agent-workflows/weather-example.png":::
+:::image type="content" source="media/create-autonomous-agent-workflows/weather-example.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and example autonomous agent." lightbox="media/create-autonomous-agent-workflows/weather-example.png":::
 
 For the high-level steps that describe how the agent works and more overview information about agent workflows, see [AI agent workflows in Azure Logic Apps](/azure/logic-apps/agent-workflows-concepts).
 
