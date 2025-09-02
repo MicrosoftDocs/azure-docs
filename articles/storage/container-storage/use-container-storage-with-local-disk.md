@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 [Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage v2.0.0 and later to use Ephemeral Disk with local NVMe as back-end storage for your Kubernetes workloads.
 
-> [!NOTE]
+> [!IMPORTANT]
 > This article covers Azure Container Storage v2.x.x, which introduces significant improvements over previous versions. For documentation on earlier versions, see [Use Azure Container Storage (v1) with local NVMe](use-container-storage-with-local-disk-v1.md).
 
 ## What is Ephemeral Disk?
