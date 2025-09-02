@@ -79,15 +79,15 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Azure Event Hubs||[Best practices for insulating Azure Event Hubs applications against outages and disasters](/azure/event-hubs/event-hubs-business-continuity-outages-disasters)|
 |Azure ExpressRoute|| [Design for high availability with ExpressRoute](../expressroute/designing-for-high-availability-with-expressroute.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) </p>[Design for disaster recovery with ExpressRoute private peering](../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Files||[Choose the right redundancy option](/azure/storage/files/files-disaster-recovery?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#choose-the-right-redundancy-option)</p>[Disaster recovery and failover for Azure Files](/azure/storage/files/files-disaster-recovery?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-|Azure Firewall|| [Deploy Azure Firewall with availability zones by using Azure PowerShell](../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+|Azure Firewall| [Reliability in Azure Firewall](./reliability-firewall.md) ||
 |Azure Functions|  [Reliability in Azure Functions ](reliability-functions.md)||
 |Azure guest configuration||[Azure guest configuration availability](../governance/machine-configuration/overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability) |
 |Azure Health Data Services||[Disaster recovery for Health Data Services](../healthcare-apis/azure-api-for-fhir/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure Health Data Services: De-identification service|[Reliability in the Health Data Services de-identification service](reliability-health-data-services-deidentification.md)||
 |Azure Health Data Services: Workspace services (FHIR®, DICOM®, medtech) | | [Business continuity and disaster recovery considerations](/azure/healthcare-apis/business-continuity-disaster-recovery?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure HDInsight| [Reliability in HDInsight](reliability-hdinsight.md)||
-|Azure IoT Hub|| [Reliability in IoT Hub](reliability-iot-hub.md) |
-|Azure Key Vault|| [Reliability in Key Vault](./reliability-key-vault.md) |
+|Azure IoT Hub| [Reliability in IoT Hub](reliability-iot-hub.md) ||
+|Azure Key Vault| [Reliability in Key Vault](./reliability-key-vault.md) ||
 |Azure Kubernetes Service (AKS)| [Reliability in AKS](reliability-aks.md)||
 |Azure Load Balancer| [Reliability in Load Balancer](reliability-load-balancer.md )||
 |Azure Logic Apps|[Reliability in Logic Apps](reliability-logic-apps.md) ||
@@ -99,8 +99,6 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Azure NetApp Files|| [Reliability in Azure NetApp Files](reliability-netapp-files.md)|
 |Azure Network Watcher|| [Network Watcher service availability and redundancy](../network-watcher/frequently-asked-questions.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#service-availability-and-redundancy)|
 |Azure Notification Hubs| [Reliability in Notification Hubs](reliability-notification-hubs.md)||
-|Azure Operator Nexus| [Reliability in Azure Operator Nexus](reliability-operator-nexus.md)||
-|Azure Private 5G Core | |[Reliability in Private 5G Core](../private-5g-core/reliability-private-5g-core.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Private Link|| [Private Link availability](../private-link/availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)   |
 |Azure public IP addresses|| [Azure public IP addresses availability zone](../virtual-network/ip-services/public-ip-addresses.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zone) |
 |Azure Queue Storage|[Reliability in Queue Storage](reliability-storage-queue.md)||

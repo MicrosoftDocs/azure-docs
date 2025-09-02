@@ -28,6 +28,9 @@ Yes, to ensure that routes are successfully advertised to Route Server and to co
 > During Route Server maintenance events, BGP peering may go down between your NVA and one of Route Server's instances. As a result, if you configure your NVA to peer with both instances of Route Server, then your connectivity will remain up and running during maintenance events. 
 > 
 
+### Can I get advanced notification of the maintenance?
+
+At this time, you can't get advanced notification for the maintenance of Azure Route Server.
 
 ### Does Azure Route Server store customer data?
 
