@@ -8,6 +8,7 @@ ms.date: 05/07/2023
 ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+# Customer intent: As a SAP admin preparing for deployment on Azure, I want to generate an accurate Bill of Materials (BOM) so that I can automate the configuration of SAP systems effectively and streamline the installation process.
 ---
 
 # Prepare SAP BOM

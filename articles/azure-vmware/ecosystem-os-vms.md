@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 03/05/2025
 ms.custom: engagement-fy25
+# Customer intent: "As a cloud administrator, I want to understand the operating system support for Azure VMware Solution virtual machines, so that I can ensure compatibility and optimize workloads within my cloud infrastructure."
 ---
 
 # Operating system support for Azure VMware Solution virtual machines

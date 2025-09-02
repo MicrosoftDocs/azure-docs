@@ -3,8 +3,8 @@ title: Back up an Exchange server via System Center DPM
 description: Learn how to back up an Exchange server to Azure Backup using System Center 2012 R2 DPM
 ms.topic: how-to
 ms.date: 07/15/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As an IT administrator, I want to configure backup for an Exchange server to Azure Backup using DPM, so that I can ensure data protection and recovery for my organization's email infrastructure."
 ---
 

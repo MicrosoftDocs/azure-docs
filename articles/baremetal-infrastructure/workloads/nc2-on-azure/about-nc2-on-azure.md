@@ -68,9 +68,7 @@ Under the Azure Hybrid Benefit terms NC2 on Azure should be considered a Dedicat
 - [Windows Server Product Terms](https://www.microsoft.com/licensing/terms/productoffering/WindowsServerStandardDatacenterEssentials/EAEAS) 
 - [Azure Product Terms](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/EAEAS)
 
-There's no current product integration where you can choose Azure Hybrid Benefit for VMs in NC2 on Azure. 
-
-For any additional questions on Azure Hybrid Benefit, contact your Microsoft Account Executive. 
+Currently, it is not possible to specify the use of Azure Hybrid Benefit in NC2 on Azure. For any additional questions on Azure Hybrid Benefit, contact your Microsoft Account Executive. 
 
 ### No-cost Extended Security Updates (ESU) for Windows Server
 Windows virtual machines (VMs) hosted in Azure, including NC2 on Azure, are eligible for Extended Security Updates (ESUs) free of charge. 

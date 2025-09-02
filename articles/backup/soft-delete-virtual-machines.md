@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 09/11/2024
 ms.custom: references_regions, devx-track-azurepowershell
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a cloud administrator, I want to utilize soft delete for virtual machine backups, so that I can recover accidentally deleted backup data within a 14-day window and enhance data resilience against unintentional deletions.
 ---
 # Soft delete for virtual machines

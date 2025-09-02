@@ -5,8 +5,8 @@ ms.service: azure-backup
 ms.topic: tutorial
 ms.date: 04/30/2025
 ms.custom: mvc, engagement-fy24
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a system administrator, I want to recover deleted files from a Windows Server using Azure Backup, so that I can quickly restore important data without extensive downtime."
 ---
 # Tutorial: Recover files from Azure to a Windows Server

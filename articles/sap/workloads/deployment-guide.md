@@ -10,6 +10,7 @@ ms.custom: linux-related-content
 ms.topic: article
 ms.date: 06/14/2023
 ms.author: sedusch
+# Customer intent: "As an IT administrator, I want to deploy SAP NetWeaver on Azure virtual machines, so that I can leverage cloud resources for improved reliability and integration with my existing on-premises infrastructure."
 ---
 # Azure Virtual Machines deployment for SAP NetWeaver
 

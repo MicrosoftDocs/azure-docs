@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: AbhishekMallick-MS
   ms.author: v-mallicka
-  ms.date: 07/15/2025
+  ms.date: 07/16/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -191,6 +191,8 @@ landingContent:
             url: offline-backup-azure-data-box-dpm-mabs.md
           - text: Manage telemetry settings in MABS
             url: manage-telemetry.md
+          - text: Back up an Exchange server with DPM
+            url: backup-azure-backup-exchange-server.md
 # Card
   - title: Manage at scale
     linkLists:

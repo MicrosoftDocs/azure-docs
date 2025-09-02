@@ -10,6 +10,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-automation
 title: Deploy Control Plane
 description: Deploys the control plane (deployer, SAP library) using a shell script.
+# Customer intent: "As a cloud engineer, I want to deploy the SAP control plane using a shell script, so that I can set up the necessary infrastructure for managing SAP systems efficiently."
 ---
 
 # deploy_controlplane.sh

@@ -5,7 +5,7 @@ services: application gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
-ms.date: 03/21/2024
+ms.date: 7/24/2025
 ms.author: mbender
 # Customer intent: As a cloud architect, I want to configure a custom TLS policy for the Application Gateway in my Kubernetes environment, so that I can enhance security and compliance by controlling the TLS version and cipher suites used for secure connections.
 ---
@@ -31,7 +31,7 @@ The following table shows the list of cipher suites and minimum protocol version
 | Predefined policy names | 2023-06  | 2023-06-S |
 | ---------- | ---------- | ---------- |
 | **Minimum protocol version** | TLS 1.2 | TLS 1.2 |
-| **Enabled protocol versions** | TLS 1.2 | TLS 1.2 |
+| **Enabled protocol versions** | TLS 1.2, TLS 1.3 | TLS 1.2, TLS 1.3 |
 | TLS_AES_256_GCM_SHA384 | &check; | &check; |
 | TLS_AES_128_GCM_SHA256 | &check; | &check; |
 | TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384	| &check;	| &check; |

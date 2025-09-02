@@ -5,6 +5,7 @@ ms.topic: reference
 ms.service: azure-vmware
 ms.date: 12/12/2023
 ms.custom: engagement-fy23
+# Customer intent: As an IT manager overseeing a data center evacuation, I want to evaluate migration solutions for Azure VMware Solution virtual machines, so that I can effectively move our VMware-based workloads to Azure while maximizing our existing investments.
 ---
 
 # Migration solutions for Azure VMware Solution virtual machines (VMs)

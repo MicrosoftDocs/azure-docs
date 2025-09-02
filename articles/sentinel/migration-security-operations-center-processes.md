@@ -1,8 +1,8 @@
 ---
 title: "Microsoft Sentinel migration: Update SOC and analyst processes | Microsoft Docs"
 description: Learn how to update your SOC and analyst processes as part of your migration to Microsoft Sentinel.
-author: cwatson-cat
-ms.author: cwatson
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: how-to
 ms.date: 05/03/2022
 

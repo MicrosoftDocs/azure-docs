@@ -2,11 +2,11 @@
 title: Perform actions using Backup center in Azure Backup
 description: This article explains how to perform actions using Backup center
 ms.topic: how-to
-ms.date: 12/24/2024
+ms.date: 08/22/2025
 ms.service: azure-backup
 ms.custom: engagement-fy24
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a cloud administrator, I want to use the Backup center to manage backup actions for various data sources, so that I can efficiently configure, restore, and monitor backups from a centralized interface without navigating multiple vaults.
 ---
 # Perform actions using Backup center

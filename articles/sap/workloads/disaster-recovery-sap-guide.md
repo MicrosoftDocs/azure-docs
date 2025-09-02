@@ -9,6 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: concept-article
 ms.date: 04/29/2025
+# Customer intent: As an SAP system administrator, I want to implement a comprehensive disaster recovery strategy for SAP workloads on Azure, so that I can ensure business continuity and minimize downtime in the event of a disaster.
 ---
 
 # Disaster recovery guidelines for SAP application

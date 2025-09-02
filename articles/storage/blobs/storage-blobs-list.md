@@ -3,8 +3,8 @@ title: List blobs with .NET
 titleSuffix: Azure Storage
 description: Learn how to list blobs in your storage account using the Azure Storage client library for .NET. Code examples show how to list blobs in a flat listing, or how to list blobs hierarchically, as though they were organized into directories or folders.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 
 ms.service: azure-blob-storage
 ms.topic: how-to
@@ -144,3 +144,4 @@ The Azure SDK for .NET contains libraries that build on top of the Azure REST AP
 - [Blob versioning](versioning-overview.md)
 
 [!INCLUDE [storage-dev-guide-next-steps-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-dotnet.md)]
+

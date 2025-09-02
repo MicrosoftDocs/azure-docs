@@ -6,7 +6,7 @@ author: kromerm
 ms.author: makromer
 ms.reviewer: whhender
 ms.topic: tutorial
-ms.date: 09/25/2024
+ms.date: 07/25/2025
 ---
 
 # Errors and Conditional execution
@@ -26,7 +26,7 @@ Azure Data Factory and Synapse Pipeline orchestration allows conditional logic a
 
 :::image type="content" source="media/tutorial-pipeline-failure-error-handling/pipeline-error-1-four-branches.png" alt-text="Screenshot showing the four branches out of an activity.":::
 
-You may add multiple branches following an activity, with one exception: _Upon Completion_ path can't coexist with either _Upon Success_ or _Upon Failure_ path. For each pipeline run, at most one path is activated, based on the execution outcome of the activity.
+You can add multiple branches following an activity, with one exception: _Upon Completion_ path can't coexist with either _Upon Success_ or _Upon Failure_ path. For each pipeline run, at most one path is activated, based on the execution outcome of the activity.
 
 ## Error Handling
 
@@ -58,7 +58,7 @@ Approach | Defines | When activity succeeds, overall pipeline shows | When activ
 [Do-If-Else](#do-if-else-block) | _Upon Failure_ path + _Upon Success_ paths | Success |  Failure
 [Do-If-Skip-Else](#do-if-skip-else-block) |  _Upon Failure_ path + _Upon Success_ path (with a _Dummy Upon Skip_ at the end) | Success |  Success
 
-### How pipeline failure are determined
+### How pipeline failures are determined
 
 Different error handling mechanisms lead to different status for the pipeline: while some pipelines fail, others succeed. We determine pipeline success and failures as follows:
 
@@ -108,13 +108,13 @@ Certain steps, such as informational logging, are less critical, and their failu
 :::image type="content" source="media/tutorial-pipeline-failure-error-handling/conditional-simple-2.png" alt-text="Screenshot showcasing best effort attempt to log.":::
 
 ### And
-First and most common scenarios are conditional "and": continue the pipeline if and only if the previous activities succeed. For instance, you may have multiple copy activities that need to succeed first before moving onto next stage of data processing. In ADF, the behavior can be achieved easily: declare multiple dependencies for the next step. Graphically, that means multiple lines pointing into the next activity. You can choose either "Upon Success" path to ensure the dependency have succeeded, or "Upon Completion" path to allow best effort execution.
+First and most common scenarios are conditional "and": continue the pipeline if and only if the previous activities succeed. For instance, you could have multiple copy activities that need to succeed first before moving onto next stage of data processing. In ADF, the behavior can be achieved easily: declare multiple dependencies for the next step. Graphically, that means multiple lines pointing into the next activity. You can choose either "Upon Success" path to ensure the dependency have succeeded, or "Upon Completion" path to allow best effort execution.
 
 Here, the follow-up wait activity will only execute when both web activities were successful.
 
 :::image type="content" source="media/tutorial-pipeline-failure-error-handling/conditional-and-1.png" alt-text="Screenshot showcasing pipeline proceeds only if both web activities succeed.":::
 
-And here, the follow-up wait activity executes when _ActivitySucceeded_ passes and _ActivityFailed_ completed. Note, with "Upon Success" path  _ActivitySucceeded_ has to succeed, whereas _ActivityFailed_ on the "Upon Completion" path runs with best effort, that is, may fail.
+And here, the follow-up wait activity executes when _ActivitySucceeded_ passes and _ActivityFailed_ completed. Note, with "Upon Success" path  _ActivitySucceeded_ has to succeed, whereas _ActivityFailed_ on the "Upon Completion" path runs with best effort, that is, might fail.
 
 
 :::image type="content" source="media/tutorial-pipeline-failure-error-handling/conditional-and-2.png" alt-text="Screenshot showcasing pipeline proceeds when first web activity succeeds and second web activity completes.":::
@@ -122,10 +122,10 @@ And here, the follow-up wait activity executes when _ActivitySucceeded_ passes a
 ### Or
 Second common scenarios are conditional "or": run an activity if any of the dependencies succeeds or fails. Here we need to use "Upon Completion" paths, [If Condition activity](control-flow-if-condition-activity.md) and [expression language](control-flow-expression-language-functions.md).
 
-Before we dive deep into code, we need to understand one more thing. After an activity ran and completed, you may reference its status with _@activity('ActivityName').Status_. It's either "Succeeded"_ or _"Failed"_. We use this property to build conditional or logic.
+Before we dive deep into code, we need to understand one more thing. After an activity ran and completed, you can reference its status with _@activity('ActivityName').Status_. It's either "Succeeded"_ or _"Failed"_. We use this property to build conditional or logic.
 
 #### Shared error handling logging step
-In some cases, you may want to invoke a shared error handling or logging step, if any of the previous activities failed. You can build your pipeline like this:
+In some cases, you might want to invoke a shared error handling or logging step, if any of the previous activities failed. You can build your pipeline like this:
 * run multiple activities in parallel
 * add an if condition to contain the error handling steps, in True branch
 * connect activities to the condition activity using _"Upon Completion"_ path
@@ -141,7 +141,7 @@ In some cases, you may want to invoke a shared error handling or logging step, i
 :::image type="content" source="media/tutorial-pipeline-failure-error-handling/conditional-or-1.png" alt-text="Screenshot showcasing how to execute a shared error handling step if any of the previous activities failed.":::
 
 #### Greenlight if any activity succeeded
-When all your activities are best effort, you may want to proceed to next step if any of the previous activities succeeded. You can build your pipeline like this:
+When all your activities are best effort, you might want to proceed to next step if any of the previous activities succeeded. You can build your pipeline like this:
 * run multiple activities in parallel
 * add an if condition to contain next steps, in True branch
 * connect activities to the condition activity using _"Upon Completion"_ path

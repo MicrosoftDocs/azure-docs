@@ -1,8 +1,8 @@
 ---
 title: Track your Microsoft Sentinel migration with a workbook | Microsoft Docs
 description: Learn how to track your migration with a workbook, how to customize and manage the workbook, and how to use the workbook tabs for useful Microsoft Sentinel actions.
-author: cwatson
-ms.author: cwatson
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: how-to
 ms.date: 06/14/2024
 appliesto:

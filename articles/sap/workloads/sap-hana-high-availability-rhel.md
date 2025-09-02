@@ -10,6 +10,7 @@ ms.topic: article
 ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ms.date: 05/01/2025
 ms.author: radeltch
+# Customer intent: As an SAP administrator, I want to establish high availability for SAP HANA on Azure Virtual Machines using Red Hat Enterprise Linux, so that I can ensure continuous system uptime and reliability for my critical applications.
 ---
 
 # High availability of SAP HANA on Azure VMs on Red Hat Enterprise Linux

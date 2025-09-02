@@ -2,10 +2,10 @@
 title: Manage an Azure Database for PostgreSQL Server by Using the Azure Portal
 description: Learn about managing an Azure Database for PostgreSQL server.
 ms.topic: how-to
-ms.date: 09/11/2024
+ms.date: 08/18/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a database administrator, I want to manage backup operations for my Azure Database for PostgreSQL server, so that I can control data retention effectively and ensure compliance with recovery requirements.
 ---
 
@@ -19,7 +19,7 @@ You can change the policy that's associated with a backup instance.
 
 Changing the backup policy does not affect existing recovery points and their retention duration. The updated retention settings apply only to new recovery points that you create after the policy change.
 
-1. In the Azure portal, go to your backup instance, and then select **Change Policy**.
+1. In the Azure portal, go to **Backup vault** > **Backup instances** > a backup instance, and then select **Change Policy**.
 
    :::image type="content" source="./media/manage-azure-database-postgresql/change-policy.png" alt-text="Screenshot that shows the Change Policy button.":::
 

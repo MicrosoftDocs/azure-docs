@@ -3,8 +3,8 @@ title: Query your backups using Azure Resource Graph (ARG)
 description: Learn more about querying information on backup for your Azure resources using Azure Resource Group (ARG).
 ms.topic: how-to
 ms.date: 07/15/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As an IT administrator, I want to query backup information across my Azure resources using a scalable service, so that I can efficiently monitor backup statuses, jobs, and policies for effective data management and recovery processes.
 ---
 

@@ -4,8 +4,8 @@ description: In this tutorial, learn how to configure vaulted backup for Azure B
 ms.topic: tutorial
 ms.date: 06/17/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a cloud administrator, I want to configure the vaulted backup for Azure Blobs, so that I can ensure data is securely backed up and retained according to our organizational policies.
 ---
 

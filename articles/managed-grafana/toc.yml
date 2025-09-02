@@ -51,6 +51,8 @@ items:
       href: how-to-data-source-plugins-managed-identity.md
     - name: Add an Azure Monitor workspace
       href: how-to-connect-azure-monitor-workspace.md
+    - name: Configure bundled Prometheus
+      href: how-to-bundled-prometheus.md
     - name: Add Azure Data Explorer
       href: how-to-connect-azure-data-explorer.md
     - name: Enable Grafana Enterprise

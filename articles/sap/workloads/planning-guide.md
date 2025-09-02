@@ -9,6 +9,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 05/30/2023
 ms.author: robiro
+# Customer intent: "As an IT architect, I want to plan and implement an SAP deployment on Azure, so that I can leverage cloud resources for optimal performance and ensure compliance and security throughout the deployment process."
 ---
 # Plan and implement an SAP deployment on Azure
 

@@ -2,13 +2,13 @@
 title: Restore PostgreSQL Databases by Using Azure PowerShell
 description: Learn how to restore Azure Database for PostgreSQL by using Azure PowerShell.
 ms.topic: how-to
-ms.date: 05/20/2025
+ms.date: 08/18/2025
 ms.service: azure-backup
 ms.custom:
   - devx-track-azurepowershell
   - build-2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a database administrator, I want to restore a PostgreSQL database using Azure PowerShell, so that I can effectively manage backups and recover data as needed while adhering to platform limitations.
 ---
 
@@ -138,4 +138,5 @@ $job = Search-AzDataProtectionJobInAzGraph -Subscription $sub -ResourceGroupName
 
 ## Related content
 
-- [What is Azure Database for PostgreSQL backup?](backup-azure-database-postgresql-overview.md)
+- [What is Azure Database for PostgreSQL backup?](backup-azure-database-postgresql-overview.md).
+- [Manage an Azure Database for PostgreSQL server by using the Azure portal](manage-azure-database-postgresql.md).

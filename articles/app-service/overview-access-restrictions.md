@@ -7,6 +7,7 @@ ms.date: 02/13/2024
 ms.update-cycle: 1095-days
 ms.author: jordanselig
 ms.custom: UpdateFrequency3
+ms.service: azure-app-service
 ---
 
 # Azure App Service access restrictions

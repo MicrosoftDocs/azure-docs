@@ -4,7 +4,7 @@ description: Learn about expression functions for workflows in Azure Logic Apps 
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, niding, azla
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 07/08/2025
 ---
 
@@ -2079,7 +2079,7 @@ formatNumber(<number>, <format>, <locale>?)
 Suppose that you want to format the number `1234567890`. This example formats that number as the string "1,234,567,890.00".
 
 ```
-formatNumber(1234567890, '0,0.00', 'en-us')
+formatNumber(1234567890, '#,##0.00', 'en-US')
 ```
 
 *Example 2"
@@ -2087,7 +2087,7 @@ formatNumber(1234567890, '0,0.00', 'en-us')
 Suppose that you want to format the number `1234567890`. This example formats the number to the string "1.234.567.890,00".
 
 ```
-formatNumber(1234567890, '0,0.00', 'is-is')
+formatNumber(1234567890, '#,##0.00', 'is-IS')
 ```
 
 *Example 3*
@@ -2103,7 +2103,7 @@ formatNumber(17.35, 'C2')
 Suppose that you want to format the number `17.35`. This example formats the number to the string "17,35 kr".
 
 ```
-formatNumber(17.35, 'C2', 'is-is')
+formatNumber(17.35, 'C2', 'is-IS')
 ```
 
 ## G

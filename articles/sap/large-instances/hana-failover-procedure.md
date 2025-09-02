@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 6/16/2021
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017
+# Customer intent: "As a database administrator, I want to execute a disaster recovery failover for SAP HANA on Azure, so that I can ensure data availability and continuity in the event of a production site outage."
 ---
 # Disaster recovery failover procedure
 

@@ -4,8 +4,8 @@ description: In this article, learn how to use Azure Backup Server to protect or
 ms.topic: how-to
 ms.service: azure-backup
 ms.date: 04/30/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a system administrator, I want to install Azure Backup Server on Azure Stack Hub, so that I can effectively protect and manage backup workloads from a single console."
 ---
 # Install Azure Backup Server on Azure Stack Hub

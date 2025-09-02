@@ -1182,7 +1182,6 @@ Azure service: [Azure Service Health](/azure/service-health/)
 > | Microsoft.ResourceHealth/events/action | Endpoint to fetch details for event |
 > | Microsoft.ResourceHealth/register/action | Registers the subscription for the Microsoft ResourceHealth |
 > | Microsoft.ResourceHealth/unregister/action | Unregisters the subscription for the Microsoft ResourceHealth |
-> | Microsoft.Resourcehealth/healthevent/action | Denotes the change in health state for the specified resource |
 > | Microsoft.ResourceHealth/AvailabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | Microsoft.ResourceHealth/AvailabilityStatuses/current/read | Gets the availability status for the specified resource |
 > | Microsoft.ResourceHealth/emergingissues/read | Get Azure services' emerging issues |
@@ -1191,11 +1190,6 @@ Azure service: [Azure Service Health](/azure/service-health/)
 > | Microsoft.ResourceHealth/events/listSecurityAdvisoryImpactedResources/action | Get Impacted Resources for a given event of type SecurityAdvisory |
 > | Microsoft.ResourceHealth/events/fetchBillingCommunicationDetails/action | Get Billing details for a given subscription and tracking id |
 > | Microsoft.ResourceHealth/events/impactedResources/read | Get Impacted Resources for a given event |
-> | Microsoft.Resourcehealth/healthevent/Activated/action | Denotes the change in health state for the specified resource |
-> | Microsoft.Resourcehealth/healthevent/Updated/action | Denotes the change in health state for the specified resource |
-> | Microsoft.Resourcehealth/healthevent/Resolved/action | Denotes the change in health state for the specified resource |
-> | Microsoft.Resourcehealth/healthevent/InProgress/action | Denotes the change in health state for the specified resource |
-> | Microsoft.Resourcehealth/healthevent/Pending/action | Denotes the change in health state for the specified resource |
 > | Microsoft.ResourceHealth/impactedResources/read | Get Impacted Resources for given subscription |
 > | Microsoft.ResourceHealth/metadata/read | Gets Metadata |
 > | Microsoft.ResourceHealth/Notifications/read | Receives Azure Resource Manager notifications |

@@ -8,7 +8,7 @@ ms.custom:
   - references_regions
   - build-2024
   - build-2025
-ms.date: 04/30/2025
+ms.date: 07/30/2025
 # Customer intent: As an architect or a developer, I want to know what Azure Event Grid is and how it can help me with creating event-driven applications. 
 ---
 
@@ -33,9 +33,11 @@ Here are the two main features of Azure Event Grid:
 Event Grid's push delivery mechanism sends data to destinations that include your own application webhooks and Azure services. Let's look at these two features in detail: 
 
 ## MQTT messaging 
-Event Grid enables your clients to communicate on [custom MQTT topic names](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901107) using a publish-subscribe messaging model. Event Grid supports clients that publish and subscribe to messages over MQTT v3.1.1, MQTT v3.1.1 over WebSockets, MQTT v5, and MQTT v5 over WebSockets. Event Grid allows you to send MQTT messages to the cloud for data analysis, storage, and visualizations, among other use cases.
+Event Grid enables your clients to communicate on [custom MQTT topic names](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901107) using a publish-subscribe messaging model. Event Grid supports clients that publish and subscribe to messages over MQTT v3.1.1, MQTT v3.1.1 over WebSockets, MQTT v5, MQTT v5 over WebSockets. 
 
-Event Grid integrates with [Azure IoT Operations](../iot-operations/manage-mqtt-broker/overview-broker.md) to bridge its MQTT broker capability on the edge with Event Grid’s MQTT broker capability in the cloud. Azure IoT MQTT broker is a new distributed MQTT broker for edge computing, running on Arc enabled Kubernetes clusters. It's now available in [public preview](../iot-operations/manage-mqtt-broker/overview-broker.md) as part of Azure IoT Operations.
+Azure Event Grid also supports devices and services sending MQTT messages over HTTPS, simplifying integration with non-MQTT clients. Event Grid allows you to send MQTT messages to the cloud for data analysis, storage, and visualizations, among other use cases. This feature is currently in preview.
+
+Event Grid integrates with [Azure IoT Operations](../iot-operations/manage-mqtt-broker/overview-broker.md) to bridge its MQTT broker capability on the edge with Event Grid’s MQTT broker capability in the cloud. Azure IoT MQTT broker is a new distributed MQTT broker for edge computing, running on Arc enabled Kubernetes clusters. It's now available in as part of [Azure IoT Operations](../iot-operations/manage-mqtt-broker/overview-broker.md).
 
 The MQTT broker feature in Azure Event Grid is ideal for the automotive, mobility and manufacturing scenarios, among others. See the reference architectures - [automotive](/industry/mobility/architecture/automotive-messaging-data-analytics-content) and [manufacturing](/industry/manufacturing/manufacturing-data-solutions/architecture/ra-manufacturing-data-solutions) to learn how to build secure and scalable solutions to connect millions of MQTT clients to the cloud, using Azure’s messaging and data analytics services. 
 
@@ -48,13 +50,14 @@ Here are some highlights of MQTT messaging support in Azure Event Grid:
 - Publish-subscribe messaging model - Communicate efficiently using one-to-many, many-to-one, and one-to-one messaging patterns.
 - [Built-in cloud integration](mqtt-routing.md) - Route your MQTT messages to Azure services or custom webhooks for further processing.
 - Flexible and fine-grained [access control model](mqtt-access-control.md) - Group clients and topic to simplify access control management, and use the variable support in topic templates for a fine-grained access control.
-- MQTT broker authentication methods - [X.509 certificate authentication](mqtt-client-authentication.md), an industry authentication standard for IoT devices, [Microsoft Entra ID authentication](mqtt-client-microsoft-entra-token-and-rbac.md), an Azure's authentication standard for applications, flexible authentication patterns like [OAuth 2.0 JSON Web Token (JWT) authentication](oauth-json-web-token-authentication.md), which is lightweight and secure for MQTT clients that aren't provisioned in Azure and Custom Webhook Authentication allows external HTTP endpoints (webhooks) to authenticate MQTT connections dynamically. This method uses Entra ID JWT validation to ensure secure access. 
+- MQTT broker authentication methods - [X.509 certificate authentication](mqtt-client-authentication.md), an industry authentication standard for IoT devices, [Microsoft Entra ID authentication](mqtt-client-microsoft-entra-token-and-rbac.md), an Azure's authentication standard for applications, flexible authentication patterns like [OAuth 2.0 JSON Web Token (JWT) authentication](oauth-json-web-token-authentication.md), which is lightweight and secure for MQTT clients that aren't provisioned in Azure and [Custom Webhook Authentication](authenticate-with-namespaces-using-webhook-authentication.md) allows external HTTP endpoints (webhooks) to authenticate MQTT connections dynamically. This method uses Entra ID JWT validation to ensure secure access. 
 - Transport Layer Security (TLS) 1.2 and TLS 1.3 support - Secure your client communication using robust encryption protocols.
 - Multi-session support - Connect your applications with multiple active sessions to ensure reliability and scalability.
 - MQTT over WebSockets - Enable connectivity for clients in firewall-restricted environments.
 - Custom domain names - Allows users to assign their own domain names to Event Grid namespace's MQTT endpoints, enhancing security and simplifying client configuration.
 - Client Life Cycle events - Allow applications to react to events about the client connection status or the client resource operations.
-
+- [HTTP Publish](mqtt-http-publish.md) - Enables devices and services to send MQTT messages to Azure Event Grid over HTTPS, simplifying integration with non-MQTT clients. 
+- [MQTT Retain](mqtt-retain.md) - Ensures the last known message on a topic is automatically delivered to new subscribers, enabling instant state synchronization. 
 
 For more information about MQTT broker, see the following articles: 
 

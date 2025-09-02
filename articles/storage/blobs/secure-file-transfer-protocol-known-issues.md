@@ -25,7 +25,8 @@ The following clients are known to be incompatible with SFTP for Azure Blob Stor
 
 - Kemp
 - paramiko 1.16.0
-- SSH.NET 2016.1.0
+- SSH.NET 2016.1.0 or older
+- Renci SSH.NET 2014.6.0
 
 This list isn't exhaustive and might change over time.
 
@@ -74,8 +75,6 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
 
 - For performance issues and considerations, see [SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage](secure-file-transfer-protocol-performance.md).
 
-- Resume and append operations require enabling the `SFTP Resumable Uploads` preview feature on your subscription. For more information on enabling preview features, see [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md).
-  
 - By default, the Content-MD5 property of blobs that are uploaded by using SFTP are set to null. Therefore, if you want the Content-MD5 property of those blobs to contain an MD5 hash, your client must calculate that value, and then set the Content-MD5 property of the blob before the uploading the blob.
   
 - Maximum file upload size via the SFTP endpoint is 500 GB.

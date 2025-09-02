@@ -4,7 +4,7 @@ description: While a blob is in the archive access tier, it's considered to be o
 author: normesta
 
 ms.author: normesta
-ms.date: 07/31/2024
+ms.date: 06/21/2025
 ms.service: azure-blob-storage
 ms.topic: concept-article
 # Customer intent: As a cloud storage administrator, I want to rehydrate archived blobs to an online tier, so that I can access and modify the stored data as needed for operational tasks.
@@ -34,6 +34,10 @@ To check the rehydration priority while the rehydration operation is underway, c
 Standard priority is the default rehydration option. A high-priority rehydration is faster, but also costs more than a standard-priority rehydration. A high-priority rehydration may take longer than one hour, depending on blob size and current demand. Microsoft recommends reserving high-priority rehydration for use in emergency data restoration situations.
 
 While a standard-priority rehydration operation is pending, you can update the rehydration priority setting for a blob to *High* to rehydrate that blob more quickly. For example, if you're rehydrating a large number of blobs in bulk, you can specify *Standard* priority for all blobs for the initial operation, then increase the priority to *High* for any individual blobs that need to be brought online more quickly, up to the limit of 10 GiB per hour.
+
+> [!IMPORTANT]
+> The 10 GiB/hour limit applies at the **storage account level**, not per blob. While timelines such as “up to 15 hours” for standard priority may apply to individual blobs under ideal conditions, they do **not scale linearly** for bulk operations. Customers rehydrating large volumes of data should expect longer durations and plan accordingly.
+> The throughput is shared across all blobs being rehydrated within the same account, and exceeding the hourly limit may result in throttling or extended delays. For optimal performance, consider batching rehydration requests and monitoring account-level activity.
 
 The rehydration priority setting can't be lowered from *High* to *Standard* for a pending operation. Keep in mind that updating the rehydration priority setting may have a billing impact.
 

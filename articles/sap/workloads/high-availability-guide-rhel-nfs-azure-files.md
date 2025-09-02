@@ -9,6 +9,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.date: 04/29/2025
 ms.author: radeltch
+# Customer intent: "As a system architect, I want to configure high availability for SAP NetWeaver on Azure VMs using NFS on Azure Files, so that I can ensure resilience and fault tolerance for critical enterprise applications."
 ---
 
 # High availability for SAP NetWeaver on VMs on RHEL with NFS on Azure Files
@@ -67,6 +68,7 @@ This article describes how to deploy and configure virtual machines (VMs), insta
 * Azure-specific RHEL documentation:
   * [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341)
   * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491)
+  * [What is the fast_stop option for a Filesystem resource in a Pacemaker cluster?](https://access.redhat.com/solutions/4801371)
 
 ## Overview
 
@@ -341,7 +343,7 @@ The following items are prefixed with:
    
     sudo pcs resource create fs_NW1_ASCS Filesystem device='sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1ascs' \
       directory='/usr/sap/NW1/ASCS00' fstype='nfs' force_unmount=safe options='noresvport,vers=4,minorversion=1,sec=sys' \
-      op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
+      fast_stop=no op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
       --group g-NW1_ASCS
    
     sudo pcs resource create vip_NW1_ASCS IPaddr2 \
@@ -397,7 +399,7 @@ The following items are prefixed with:
     
     sudo pcs resource create fs_NW1_AERS Filesystem device='sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1ers' \
       directory='/usr/sap/NW1/ERS01' fstype='nfs' force_unmount=safe options='noresvport,vers=4,minorversion=1,sec=sys' \
-      op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
+      fast_stop=no op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
      --group g-NW1_AERS
    
     sudo pcs resource create vip_NW1_AERS IPaddr2 \
