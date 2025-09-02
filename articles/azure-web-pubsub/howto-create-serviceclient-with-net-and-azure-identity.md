@@ -2,7 +2,7 @@
 title: How to create a WebPubSubServiceClient with .NET and Azure Identity
 description: How to create a WebPubSubServiceClient with .NET and Azure Identity
 author: terencefan
-ms.author: tefa
+ms.author: lianwei
 ms.date: 11/15/2021
 ms.service: azure-web-pubsub
 ms.custom: devx-track-dotnet

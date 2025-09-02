@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.custom: linux-related-content
 ms.date: 10/14/2024
 ms.author: jefmarti
+ms.service: azure-app-service
 ---
 
 # Configure error pages on App Service

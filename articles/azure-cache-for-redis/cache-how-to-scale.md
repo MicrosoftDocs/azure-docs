@@ -19,7 +19,7 @@ There are fundamentally two ways to scale an Azure Cache for Redis Instance:
 
 - _Scaling up_ increases the size of the Virtual Machine (VM) running the Redis server, adding more memory, Virtual CPUs (vCPUs), and network bandwidth. Scaling up is also called _vertical scaling_. The opposite of scaling up is _Scaling down_.
 
-- _Scaling out_ divides the cache instance into more nodes of the same size, increasing memory, vCPUs, and network bandwidth through parallelization. Scaling out is also referred to as _horizontal scaling_ or _sharding_. The opposite of scaling out is **Scaling in**. In the Redis community, scaling out is frequently called [_clustering_](https://redis.io/docs/management/scaling/).
+- _Scaling out_ divides the cache instance into more nodes of the same size, increasing memory, vCPUs, and network bandwidth through parallelization. Scaling out is also referred to as _horizontal scaling_ or _sharding_. The opposite of scaling out is **Scaling in**. In the Redis community, scaling out is frequently called [_clustering_](https://redis.io/docs/latest/operate/oss_and_stack/management/scaling/).
 
 ## Scope of availability
 

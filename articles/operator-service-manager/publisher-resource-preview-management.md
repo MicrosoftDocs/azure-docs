@@ -1,21 +1,16 @@
 ---
 title: Publisher Resource Preview Management
-description: Learn about the Publisher Resource Preview Management feature in Azure Network Function Manager.
-author: sherrygonz
-ms.author: sherryg
-ms.date: 09/11/2023
+description: Learn about the Publisher Resource Preview Management feature in Azure Operator Service Manager.
+author: msftadam
+ms.author: adamdor
+ms.date: 08/06/2025
 ms.topic: concept-article
 ms.service: azure-operator-service-manager
-ms.custom:
 ---
 
 # Publisher Resource Preview Management feature
 
-This article introduces the Publisher Resource Preview Management feature in Azure Network Function Manager.
-
-The Azure Network Function Manager Publisher API offers partners a seamless Azure Marketplace experience for onboarding network functions (NFs) and network service designs (NSDs). The Publisher API introduces features that enable NF publishers and service designers to manage network function definitions (NFDs) and NSDs in various modes. These modes empower partners to exercise control over the usage of NFDs and NSDs. This control allows partners to target specific subscriptions, target all subscriptions, or deprecate a network function definition version (NFDV) or a network service design version (NSDV) if there are regressions. This article delves into the specifics of these modes.
-
-The Publisher Resource Preview Management feature in Azure Network Function Manager empowers partners to seamlessly manage network function definitions and their versions. With the ability to control deployment states, access privileges, and version management, partners can provide a smooth experience for their customers while maintaining the quality and stability of their offerings.
+This article introduces the publisher resource preview management feature in Azure Operator Service Manager. The publisher API offers partners a seamless experience for onboarding network functions (NFs) and network service designs (NSDs). The publisher API preview feature enables publishers to manage NF artifacts across various lifecycle states. With the ability to control deployments, access privileges, and version management, partners can provide a smooth experience for their customers while maintaining the quality and stability of their offerings.
 
 ## Considerations for tenants, subscriptions, and regions
 

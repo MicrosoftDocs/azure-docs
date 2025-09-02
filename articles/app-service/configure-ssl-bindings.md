@@ -10,6 +10,7 @@ ms.date: 02/14/2025
 ms.reviewer: yutlin
 ms.author: msangapu
 author: msangapu-msft
+ms.service: azure-app-service
 ---
 # Enable HTTPS for a custom domain in Azure App Service
 
