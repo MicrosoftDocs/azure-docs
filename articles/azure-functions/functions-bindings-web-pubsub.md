@@ -75,10 +75,10 @@ By default, an application setting named `WebPubSubConnectionString` is used to 
 > A connection string includes the authorization information required for your application to access Azure Web PubSub service. The access key inside the connection string is similar to a root password for your service. For optimal security, your function app should use managed identities when connecting to the Web PubSub service instead of using a connection string. For more information, see [Authorize a managed identity request by using Microsoft Entra ID](../azure-web-pubsub/howto-authorize-from-managed-identity.md). 
 
 For details on how to configure and use Web PubSub and Azure Functions together, refer to [Tutorial: Create a serverless notification app with Azure Functions and Azure Web PubSub service](../azure-web-pubsub/tutorial-serverless-notification.md).
-
+::: zone pivot="programming-language-csharp"
 > [!NOTE]
-> The Azure Web PubSub binding in the isolated process model currently does not support using Managed Identity. It expects the connection string to include an AccessKey, even when the Function App has appropriate role assignments.
-
+> When running in the isolated worker model, the Azure Web PubSub binding doesn't currently support Microsoft Entra ID authetication using managed identities. In the isolated model, you must continue to use a connection string, which includes a shared secret key.
+::: zone-end
 ## Next steps
 
 - [Handle client events from Web PubSub  (Trigger binding)](./functions-bindings-web-pubsub-trigger.md)
@@ -90,3 +90,4 @@ For details on how to configure and use Web PubSub and Azure Functions together,
 [extension bundle]: ./functions-bindings-register.md#extension-bundles
 [Update your extensions]: ./functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
+
