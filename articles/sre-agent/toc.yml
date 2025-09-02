@@ -23,8 +23,8 @@ items:
       items:
         - name: Overview
           href: incident-management.md
-        - name: Incident handlers
-          href: incident-handler.md
+        - name: Custom response plans
+          href: incident-response-plan.md
     - name: FAQ
       href: faq.md
     - name: Billing
