@@ -56,7 +56,7 @@ To enable alerts (Preview) with Azure Update Manager through Azure portal, follo
     1. Enter your preferences in the **Notify me** section.
     1. Select **Quick create a new rule**.     
 
-### Edits alerts 
+## Edits alerts 
 
 To edit the alerts, follow these steps:
 
