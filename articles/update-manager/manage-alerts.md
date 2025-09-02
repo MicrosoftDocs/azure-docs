@@ -20,7 +20,7 @@ Azure Update Manager is a unified service that allows you to manage and govern u
 Logs created from patching operations such as update assessments and installations are stored by Azure Update Manager in Azure Resource Graph (ARG). You can view up to last seven days of assessment data, and up to last 30 days of updated installation results.
 
 > [!NOTE]
-> This feature isn't available in Azure US Government and Azure China operated by 21 Vianet.
+> This feature isn't available in Azure US Government and Azure operated by 21 Vianet.
 
 ## Prerequisite
 
