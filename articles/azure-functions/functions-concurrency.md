@@ -30,7 +30,7 @@ To handle increases in load, you can scale out a function app to multiple instan
 - When you host your function app in a dynamic scale plan (Consumption, Flex Consumption, or Premium), the host scales resources. Specifically, the host scales the number of function app instances up or down based on the number of incoming events. For more information, see [Event-driven scaling in Azure Functions](./event-driven-scaling.md).
 - When you host your function app in a Dedicated (App Service) plan, you must manually configure your instances or [set up an autoscale scheme](dedicated-plan.md#scaling).
 
-Like scaling, concurrency also affects how your function apps respond to load changes. With concurrency, your function app can handle multiple invocations of the same type in a single instance. As a result, the concurrency of executions on a given instance directly impacts scale decisions. For instance, when an app in a dynamic scale plan hits a concurrency limit, it might need to scale to keep up with incoming demand.
+Like scaling, concurrency also affects how your function app responds to load changes. With concurrency, your function app can handle multiple invocations of the same type in a single instance. As a result, the concurrency of executions on a given instance directly impacts scale decisions. For instance, when an app in a dynamic scale plan hits a concurrency limit, it might need to scale to keep up with incoming demand.
 
 ## Static concurrency
 
@@ -77,7 +77,7 @@ Dynamic concurrency provides the following benefits:
 
 - **Simplified configuration**: You no longer have to manually determine per-trigger concurrency settings. The system learns the optimal values for your workload over time. 
 - **Dynamic adjustments**: Concurrency is adjusted up or down dynamically in real time, which allows the system to adapt to changing load patterns over time. 
-- **Instance health protection**: The runtime limits concurrency to levels a function app instance can comfortably handle. These limits protect the app from overloading itself by taking on more work than it should. 
+- **Instance health protection**: The runtime limits concurrency to levels that a function app instance can comfortably handle. These limits protect the app from overloading itself by taking on more work than it should. 
 - **Improved throughput**: Overall throughput is improved, because individual instances don't pull more work than they can quickly process. As a result, work is load-balanced more effectively across instances. For functions that can handle higher loads, higher throughput can be obtained by increasing concurrency to values above the default configuration.
 
 ### Dynamic concurrency configuration
