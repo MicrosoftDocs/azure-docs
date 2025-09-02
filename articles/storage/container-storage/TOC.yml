@@ -48,7 +48,7 @@
   - name: Use with Ephemeral Disk
     items:
     - name: Local NVMe
-      href: use-container-storage-with-local-disk.md
+      href: use-container-storage-with-local-disk-v1.md
     - name: Local NVMe with replication
       href: use-container-storage-with-local-nvme-replication.md
     - name: Temp SSD
