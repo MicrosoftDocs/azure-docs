@@ -4,11 +4,9 @@ description: An overview of Azure Container Storage (v1), a service built native
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: overview
-ms.date: 08/18/2025
+ms.date: 09/02/2025
 ms.author: kendownie
-ms.custom:
-  - references_regions
-  - ignite-2023-container-storage
+ms.custom: references_regions
 # Customer intent: "As a DevOps engineer, I want to use a managed volume orchestration service for my Kubernetes applications, so that I can efficiently provision and manage persistent storage for stateful workloads without the operational overhead of configuring individual storage interfaces."
 ---
 
@@ -17,7 +15,7 @@ ms.custom:
 Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built natively for containers. It integrates with Kubernetes, allowing you to dynamically and automatically provision persistent volumes to store data for stateful applications running on Kubernetes clusters. Azure Container Storage is derived from [OpenEBS](https://openebs.io/), an open-source solution that provides container storage capabilities for Kubernetes.
 
 > [!IMPORTANT]
-> This article covers features and capabilities available in Azure Container Storage v1.x. For details about v2.x, see [Azure Container Storage v2 documentation](container-storage-introduction.md).
+> This article covers features and capabilities available in Azure Container Storage v1.x.x. For details about v2.x.x, see [Azure Container Storage](container-storage-introduction.md).
 > Azure Container Storage isn't available in all Azure regions. See [regional availability](#regional-availability).
 > If you previously installed the Azure Container Storage preview and don't have auto-upgrade enabled, be sure to [update to the GA version](container-storage-aks-quickstart.md#install-azure-container-storage-on-your-aks-cluster).
 
