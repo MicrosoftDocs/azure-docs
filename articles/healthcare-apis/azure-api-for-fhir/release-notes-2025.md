@@ -26,6 +26,8 @@ Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHI
 
 **Patient export improvement**: Improved performance of Patient/$export functionality by splitting patients into smaller groups and processing them in parallel.
 
+**Provisioning new account with invalid CMK improved error handling**: Previously, provisioning an API for FHIR account with invalid CMK (Customer Managed Key) would return an Unhealthy Status. This has been corrected to return Degraded status.
+
 #### Bug fixes:
 
 **Bulk delete and custom search parameter fix**: Previously, there was a bug where after using $bulk-delete to hard delete a custom search parameter, it was not possible to then create the same custom search parameter with the same url or code. This issue has been fixed, and you can now create a custom search parameter after using $bulk-delete to hard delete a custom search parameter with the same url or code.
