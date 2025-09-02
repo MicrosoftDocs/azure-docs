@@ -54,7 +54,7 @@ Keep these considerations in mind when you work with extension bundles:
 
 It's important to keep your bundle version up-to-date so that your apps can continue to be eligible for new features, security patches, and performance optimizations. 
 
-To upgrade your app to the most recent bundle, edit the host.json file in the root of your app project. Set the value of `extensionBundle.version` to `[4.x,5.0.0)`, which should look like this in your host.json file:
+To upgrade your app to the most recent bundle, edit the host.json file in the root of your app project. Set the value of `extensionBundle.version` to `[4.0.0,5.0.0)`, which should look like this in your host.json file:
 
 ```json
 {
