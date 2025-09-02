@@ -54,7 +54,7 @@ Dynamic Refresh (Poll Mode) | [GA](./reference-dotnet-provider.md#refresh-on-sen
 Dynamic Refresh (Push Mode) | GA | GA | N/A | N/A | N/A | N/A
 Dynamic Refresh (Collection Monitoring) | [GA](./reference-dotnet-provider.md#configuration-refresh) | WIP | GA | WIP | [GA](./reference-javascript-provider.md#configuration-refresh) | GA
 JSON Content Type Handling | [GA](./reference-dotnet-provider.md#json-content-type-handling) | GA | GA | GA | [GA](./reference-javascript-provider.md#json-content-type-handling) | GA
-JSON with Comments | WIP | WIP | WIP | WIP | [GA](./reference-javascript-provider.md#json-content-type-handling) | WIP
+JSON with Comments | WIP | WIP | GA | WIP | [GA](./reference-javascript-provider.md#json-content-type-handling) | GA
 Configuration Setting Mapping | [GA](./reference-dotnet-provider.md#configuration-setting-mapping) | N/A | N/A | N/A | N/A | N/A
 Key Vault References | [GA](./reference-dotnet-provider.md#key-vault-reference) | GA | GA | GA | [GA](./reference-javascript-provider.md#key-vault-reference) | GA
 Key Vault Secret Refresh | [GA](./reference-dotnet-provider.md#key-vault-secret-refresh) | WIP | GA | WIP | [GA](./reference-javascript-provider.md#key-vault-secret-refresh) | GA
@@ -62,7 +62,7 @@ Custom Key Vault Secret Resolution | [GA](./reference-dotnet-provider.md#key-vau
 Parallel Secret Resolution | WIP | N/A | WIP | N/A | [GA](./reference-javascript-provider.md#parallel-secret-resolution) | GA
 Feature Flags | [GA](./reference-dotnet-provider.md#feature-flag) | GA | GA | GA | [GA](./reference-javascript-provider.md#feature-flag) | GA
 Variant Feature Flags | [GA](./reference-dotnet-provider.md#feature-flag) | Preview | GA | GA | [GA](./reference-javascript-provider.md#feature-flag) | GA
-Feature Flag Telemetry | GA | Preview | WIP | GA | GA | WIP
+Feature Flag Telemetry | GA | Preview | GA | GA | GA | WIP
 Key Prefix Trim | [GA](./reference-dotnet-provider.md#trim-prefix-from-keys) | GA | GA | GA | [GA](./reference-javascript-provider.md#trim-prefix-from-keys) | GA
 Configurable Startup Time-out | [GA](./reference-dotnet-provider.md#startup-retry) | WIP | N/A | WIP | [GA](./reference-javascript-provider.md#startup-retry) | WIP
 Replica Auto Discovery | [GA](./reference-dotnet-provider.md#geo-replication) | GA | GA | GA | [GA](./reference-javascript-provider.md#geo-replication) | GA
