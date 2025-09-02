@@ -3,7 +3,7 @@ title: Troubleshoot backup errors with Azure VMs
 description: In this article, learn how to troubleshoot errors encountered with backup and restore of Azure virtual machines.
 ms.reviewer: srinathv
 ms.topic: troubleshooting
-ms.date: 06/19/2025
+ms.date: 08/13/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -262,6 +262,8 @@ The Backup operation failed due to inconsistent state of Backup Extension. To re
 * Select the backup extension VmSnapshot or VmSnapshotLinux and select **Uninstall**.
 * After deleting backup extension, retry the backup operation
 * The subsequent backup operation will install the new extension in the desired state
+
+Learn more how to [reinstall the VMSnapshot backup extension on Windows VM](backup-azure-manage-vms.md#re-install-the-vmsnapshot-backup-extension-for-azure-vm-protection).
 
 ### ExtensionFailedSnapshotLimitReachedError - Snapshot operation failed as snapshot limit is exceeded for some of the disks attached
 
@@ -560,8 +562,7 @@ VM backup relies on issuing snapshot commands to underlying storage. Not having 
 * **VMs with SQL Server backup configured can cause snapshot task delay**. To avoid that, currently VM backup creates a VSS full backup (Copy-Only) on Windows VMs. If you need a VSS Full backup (Non-copy Only) then add the following registry key on the Windows VM:
 
    ```console
-   REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v UseVssFullBackup /t REG_SZ /d True /f
-   
+   REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v UseVSSCopyBackup /t REG_SZ /d True /f   
    ```
 
   >[!Note]

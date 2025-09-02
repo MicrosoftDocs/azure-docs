@@ -5,6 +5,10 @@ author: cephalin
 ms.author: cephalin
 ms.topic: how-to
 ms.date: 07/22/2025
+ms.service: azure-app-service
+
+# Customer intent: As a deployment engineer, I want to control outbound App Service traffic by using Azure Firewall so that I can reduce the risk of data exfiltration and malicious program implantation.   
+  
 ---
 
 # Control outbound traffic with Azure Firewall
@@ -57,7 +61,7 @@ To deploy a firewall into the integrated virtual network, the virtual network mu
 
    :::image type="content" source="./media/network-secure-outbound-traffic-azure-firewall/firewall-private-ip.png" alt-text="Screenshot of get Azure Firewall private IP address.":::
 
-## 3. Route all traffic to the firewall
+## Route all traffic to the firewall
 
 When you create a virtual network, Azure automatically creates a [default route table](/azure/virtual-network/virtual-networks-udr-overview#default) for each of its subnets and adds system default routes to the table. In this step, you create a user-defined route table that routes all traffic to the firewall. You associate the user-defined route table with the App Service subnet in the integrated virtual network.
 
@@ -92,7 +96,7 @@ When you create a virtual network, Azure automatically creates a [default route 
 
 Outbound traffic from your app is now routed through the integrated virtual network to the firewall.
 
-## 4. Configure firewall policies
+## Configure firewall policies
 
 To control App Service outbound traffic, add an application rule to firewall policy.
 
@@ -109,7 +113,7 @@ To control App Service outbound traffic, add an application rule to firewall pol
    > [!NOTE]
    > Instead of specifying the App Service subnet as the source address, you can use the private IP address of the app directly. You can find your app's private IP address in the subnet by using the [`WEBSITE_PRIVATE_IP` environment variable](reference-app-settings.md#networking).
 
-## 5. Verify the outbound traffic
+## Verify the outbound traffic
 
 An easy way to verify the outbound connection of your configuration is to use the `curl` command from your app's Source Control Manager (SCM), also called Kudu, debug console.
 

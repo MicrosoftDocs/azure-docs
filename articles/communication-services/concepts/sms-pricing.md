@@ -41,6 +41,7 @@ zone_pivot_groups: acs-tollfree-shortcode-alphanumeric-tendlc-mobile
 
 ## Related articles
 
+- For global messaging and partner-led options, see [Messaging Connect](../concepts/sms/messaging-connect.md).
 - Learn about the [SMS SDKs](../concepts/sms/sdk-features.md).
 - Get an SMS capable [phone number](../quickstarts/telephony/get-phone-number.md).
 - Get a [short code](../quickstarts/sms/apply-for-short-code.md).

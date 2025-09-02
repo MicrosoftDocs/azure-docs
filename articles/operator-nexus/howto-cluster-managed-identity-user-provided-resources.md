@@ -29,8 +29,8 @@ For information on using the API to update Cluster managed identities, see [Upda
 
 - [Install Azure CLI](https://aka.ms/azcli).
 - Install the latest version of the [appropriate Azure CLI extensions](./howto-install-cli-extensions.md).
-- Storage Account managed identity support requires the 2024-07-01 or later version of the NetworkCloud API. 
-- Key Vault and Log Analytics Workspace managed identity support requires the 2025-02-01 or later version of the NetworkCloud API.
+- Storage Account managed identity support requires the `2024-07-01` or later version of the NetworkCloud API.
+- Key Vault and Log Analytics Workspace managed identity support requires the `2025-02-01` or later version of the NetworkCloud API.
 
 ## Operator Nexus Clusters with User Assigned Managed Identities (UAMI)
 
@@ -42,7 +42,7 @@ The impacts of not configuring these resources for a new Cluster are as follows:
 - _LAW:_ Cluster deployment fails as the LAW (Log Analytics Workplace) is required to install software extensions during deployment.
 - _Key Vault:_ Credential rotations fail as there's a check to ensure write access to the user provided Key Vault before performing credential rotation.
 
-Updating the Cluster can be done at any time. Changing the LAW settings causes a brief disruption in sending metrics to the LAW as the extensions which use the LAW needs to be reinstalled.
+Updating the Cluster can be done at any time. Changing the LAW settings causes a brief disruption in sending metrics to the LAW as the extensions that use the LAW need to be reinstalled.
 
 The following steps should be followed for using UAMIs with Nexus Clusters and associated resources.
 
@@ -61,7 +61,7 @@ The following steps should be followed for using UAMIs with Nexus Clusters and a
 
 1. Create a storage account, or identify an existing storage account that you want to use. See [Create an Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal).
 1. Create a blob storage container in the storage account. See [Create a container](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
-1. Assign the `Storage Blob Data Contributor` role to users and the UAMI which need access to the run-\* command output. See [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal).
+1. Assign the `Storage Blob Data Contributor` role to users and the UAMI that need access to the run-\* command output. See [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal).
 1. To limit access to the Storage Account to a select set of IP or virtual networks, see [Configure Azure Storage firewalls and virtual networks](/azure/storage/common/storage-network-security?tabs=azure-portal).
    1. The IPs for all users executing run-\* commands need to be added to the Storage Account's `Virtual Networks` and/or `Firewall` lists.
    1. Ensure `Allow Azure services on the trusted services list to access this storage account.` under `Exceptions` is selected.
@@ -103,6 +103,20 @@ The `--command-output-settings` data construct is used to define the Storage Acc
 - `container-url`: The URL of the storage account container that is to be used by the specified identities.
 - `identity-resource-id`: The user assigned managed identity resource ID to use. Mutually exclusive with a system assigned identity type.
 - `identity-type`: The type of managed identity that is being selected. Use `UserAssignedIdentity`.
+- `overrides`: Optional. An array of override objects that can be used to override the storage account container and identity to use for specific types of run commands. Each override object consists of the following fields:
+  - `command-output-type`: The type of run command to override.
+  - `container-url`: The URL of the storage account container to use for the specified command type.
+  - `identity-resource-id`: The user assigned managed identity resource ID to use for the specified command type.
+  - `identity-type`: The type of managed identity that is being selected. Use `UserAssignedIdentity`.
+
+Valid `command-output-type` values are:
+- `BareMetalMachineRunCommand`: Output from the `az networkcloud baremetalmachine run-command` command.
+- `BareMetalMachineRunDataExtracts`: Output from the `az networkcloud baremetalmachine run-data-extract` command.
+- `BareMetalMachineRunDataExtractsRestricted`: Output from the `az networkcloud baremetalmachine run-data-extracts-restricted` command.
+- `BareMetalMachineRunReadCommands`: Output from the `az networkcloud baremetalmachine run-read-command` command.
+- `StorageRunReadCommands`: Output from the `az networkcloud storageappliance run-read-command` command.
+
+Run command output is written to the storage account container defined in the `overrides` for the specific command type, using the associated identity for that override. If no matching override is found, the default `container-url` and `identity-resource-id` from the command output settings is used.
 
 #### Log Analytics Workspace settings
 
@@ -122,7 +136,7 @@ The `--secret-archive-settings` data construct is used to define the Key Vault w
 
 #### Cluster create command examples
 
-_Example 1:_ This example is an abbreviated Cluster create command which uses one UAMI across the Storage Account, LAW, and Key Vault.
+_Example 1:_ This example is an abbreviated Cluster create command that uses one UAMI across the Storage Account, LAW, and Key Vault.
 
 ```azurecli-interactive
 az networkcloud cluster create --name "clusterName" -g "resourceGroupName" \
@@ -141,7 +155,7 @@ az networkcloud cluster create --name "clusterName" -g "resourceGroupName" \
       identity-resource-id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUAMI"
 ```
 
-_Example 2:_ This example is an abbreviated Cluster create command which uses two UAMIs. The Storage Account and LAW use the first UAMI and the Key Vault uses the second.
+_Example 2:_ This example is an abbreviated Cluster create command that uses two UAMIs. The Storage Account and LAW use the first UAMI and the Key Vault uses the second.
 
 ```azurecli-interactive
 az networkcloud cluster create --name "clusterName" -g "resourceGroupName" \
@@ -191,7 +205,7 @@ az networkcloud cluster update --name "clusterName" --resource-group "resourceGr
 _Example 3:_ Update a Cluster that already has a SAMI and add a UAMI and assign the UAMI to the log analytics output settings (LAW). The SAMI is retained. 
 
 > [!CAUTION]
-> Changing the LAW settings causes a brief disruption in sending metrics to the LAW as the extensions which use the LAW might need to be reinstalled.
+> Changing the LAW settings causes a brief disruption in sending metrics to the LAW as the extensions that use the LAW might need to be reinstalled.
 
 ```azurecli-interactive
 az networkcloud cluster update --name "clusterName" --resource-group "resourceGroupName" \
@@ -238,7 +252,7 @@ For a new Cluster, these steps need to be completed before Cluster deployment. T
 - _LAW:_ Cluster deployment fails as the LAW is required to install software extensions during deployment.
 - _Key Vault:_ Credential rotations fail as there's a check to ensure write access to the user provided Key Vault before performing credential rotation.
 
-Updating the Cluster can be done at any time. Changing the LAW settings causes a brief disruption in sending metrics to the LAW as the extensions which use the LAW need to be reinstalled.
+Updating the Cluster can be done at any time. Changing the LAW settings causes a brief disruption in sending metrics to the LAW as the extensions that use the LAW need to be reinstalled.
 
 The following steps should be followed for using UAMIs with Nexus Clusters and associated resources.
 
@@ -305,7 +319,7 @@ The `--secret-archive-settings` data construct is used to define the Key Vault w
 
 #### Cluster create command examples
 
-_Example:_ This example is an abbreviated Cluster create command which specifies a SAMI and uses the SAMI for each of the user provided resources.
+_Example:_ This example is an abbreviated Cluster create command that specifies a SAMI and uses the SAMI for each of the user provided resources.
 
 ```azurecli-interactive
 az networkcloud cluster create --name "clusterName" -g "resourceGroupName" \
@@ -351,7 +365,7 @@ The identity resource ID can be found by selecting "JSON view" on the identity r
 
 The CLI can also be used to view the identity and the associated principal ID data within the cluster.
 
-Note the `principalId` of the identity which is used when granting access to the resources.
+Note the `principalId` of the identity that is used when granting access to the resources.
 
 _Example_:
 
@@ -375,7 +389,7 @@ These updates are applicable post Cluster creation or update to ensure that the 
 
 #### Storage Accounts setup
 
-1. Assign the `Storage Blob Data Contributor` role to users and the SAMI which need access to the run-\* command output. See [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal).
+1. Assign the `Storage Blob Data Contributor` role to users and the SAMI that need access to the run-\* command output. See [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal).
 1. To limit access to the Storage Account to a select set of IP or virtual networks, see [Configure Azure Storage firewalls and virtual networks](/azure/storage/common/storage-network-security?tabs=azure-portal).
    1. The IPs for all users executing run-\* commands need to be added to the Storage Account's `Virtual Networks` and/or `Firewall` lists.
    1. Ensure `Allow Azure services on the trusted services list to access this storage account.` under `Exceptions` is selected.
@@ -438,7 +452,7 @@ az networkcloud cluster update --name "clusterName" --resource-group "resourceGr
 _Example 2:_ Add or update the log analytics output settings (LAW) for a Cluster.
 
 > [!CAUTION]
-> Changing the LAW settings causes a brief disruption in sending metrics to the LAW as the extensions which use the LAW need to be reinstalled.
+> Changing the LAW settings causes a brief disruption in sending metrics to the LAW as the extensions that use the LAW need to be reinstalled.
 
 ```azurecli-interactive
 az networkcloud cluster update --name "clusterName" --resource-group "resourceGroupName" \

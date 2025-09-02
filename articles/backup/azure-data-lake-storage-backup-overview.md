@@ -2,7 +2,7 @@
 title: About Azure Data Lake Storage Vaulted Backup (preview)
 description: Learn how the Azure Data Lake Storage vaulted backup works
 ms.topic: overview
-ms.date: 06/20/2025
+ms.date: 08/26/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.custom: engagement-fy24
@@ -13,6 +13,8 @@ ms.custom: engagement-fy24
 
 [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) vaulted backup (preview) is a streamlined, cloud-native solution to back up and restore general-purpose v2 storage accounts with a [hierarchical namespace](/azure/storage/blobs/data-lake-storage-namespace). It allows selective backup and restoration of containers, and store backups in a dedicated vault for granular control.
 
+For more insights on Azure Backup’s support for vaulted backups in Azure Data Lake Storage (preview) that enables secure, long-term, and isolated data protection, see the [Microsoft Community Hub blog](https://azure.microsoft.com/updates?id=488835).
+
 >[!Note]
 >- This feature is currently in limited preview and is available in specific regions only. See the [supported regions](azure-data-lake-storage-backup-support-matrix.md#supported-regions).
 >- To enroll in this preview feature, fill [this form](https://forms.office.com/r/sixidTkYb4)  and write to [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
@@ -21,7 +23,7 @@ ms.custom: engagement-fy24
 
 Vaulted backup uses platform capabilities such as snapshots and object replication to copy data to the Backup vault. Object replication asynchronously copies block blobs from a source storage account to a destination backup storage account, including the blob's contents, versions, metadata, and properties.  
 
-When you configure protection, Azure Backup sets up a destination storage account within the Backup vault and applies an object replication policy at the container level for both source and destination accounts. During backup, Azure Backup places a recovery point marker on the source account and tracks its replication. After the marker is replicated to the destination, the recovery point is created.
+When you configure protection, Azure Backup sets up a destination storage account within the Backup vault and applies an object replication policy at the container level for both source and destination accounts. During backup, Azure Backup places a recovery point marker on the source account and tracks its replication. After the marker is replicated to the destination, the recovery point is created. Backup may take a minimum of 30–40 minutes, as backups rely on snapshots, and are taken every 15 minutes and require two snapshots to detect changes before triggering the backup.
 
 *The following diagram shows the recovery point creation process after the snapshot is taken:*
 

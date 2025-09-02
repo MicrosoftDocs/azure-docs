@@ -10,6 +10,7 @@ ms.assetid: 3be1f4bd-8a81-4565-8a56-528c037b24bd
 
 #customer intent: As an app deployment engineer, I need to understand options for controlling access to our apps by using Azure App Service.
 
+ms.service: azure-app-service
 ---
 # Set up Azure App Service access restrictions
 
@@ -156,6 +157,8 @@ You can add HTTP header filters to any rule. The following HTTP header names are
 - `X-Forwarded-Host`
 - `X-Azure-FDID`
 - `X-FD-HealthProbe`
+
+++ For more information about the X-FD-HealthProbe, see [HTTP header filtering for site access restriction rules](/overview-access-restrictions#http-header-filtering-for-site-access-restriction-rules).
 
 For each header name, you can add up to eight values separated by commas. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
 

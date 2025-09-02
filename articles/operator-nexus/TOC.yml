@@ -55,6 +55,8 @@
         - name: Commit Workflow v2
           href: concepts-commit-workflow-v2.md
         - name: Route Policy
+        - name: Azure Firewall outbound rules for Azure Operator Nexus
+          href: concepts-azure-firewall-outbound-rules-nexus.md
           expanded: false
           items:
             - name: Route Policy Overview
@@ -219,8 +221,6 @@
           href: howto-delete-layer-3-isolation-domains.md
         - name: Cross-subscription deployments and required RBAC for Network Fabric
           href: concepts-cross-subscription-deployments-required-rbac-for-network-fabric.md
-        - name: How to replace network devices in Azure Operator Nexus Network Fabric
-          href: howto-replace-network-devices.md
         - name: How to put a device into maintenance mode
           href: howto-put-device-in-maintenance-mode.md
         - name: How to set up break glass access
@@ -241,8 +241,8 @@
           href: howto-append-custom-suffix-to-interface-descriptions.md
         - name: How to reboot Network Device in Azure Operator Nexus Network Fabric
           href: howto-reboot-network-device.md
-        - name: How to replace a device in Azure Operator Nexus Network Fabric
-          href: howto-replace-a-device-in-azure-operator-nexus-network-fabric.md
+        - name: How to replace network devices in Azure Operator Nexus Network Fabric
+          href: howto-replace-network-devices.md
         - name: How to Configure NNF with Bring Your Own (BYO) Storage
           href: howto-configure-bring-your-own-storage-network-fabric.md
         - name: How to upgrade OS of terminal server
@@ -347,12 +347,11 @@
           href: howto-configure-acls-for-ssh-management-on-access-vpn.md
         - name: Enable/Disable Vulnerability Scanning
           href: howto-enable-disable-vulnerability-scanning.md
-        - name: Service Principal Best Practices
-          href: howto-service-principal.md
-          expanded: false
-          items:
-            - name: Service Principal Rotation
-              href: howto-service-principal-rotation.md
+    - name: Storage Appliance
+      expanded: false
+      items:
+        - name: Storage Appliance Run-Read Commands
+          href: howto-storage-run-read.md
     - name: Install CLI Extension
       href: howto-install-cli-extensions.md
     - name: General
@@ -408,6 +407,14 @@
       items:
         - name: Troubleshoot Resource Health alerts
           href: troubleshoot-resource-health-alerts.md
+        - name: Troubleshoot failed volume attachments
+          href: troubleshoot-failed-volume-attachments.md
+        - name: Troubleshoot storage control plane connectivity issues
+          href: troubleshoot-storage-control-plane-disconnected.md
+        - name: Troubleshoot unhealthy Container Storage Interface (CSI) pods
+          href: troubleshoot-unhealthy-container-storage-interface.md
+        - name: Troubleshoot Unhealthy Network File System pods
+          href: troubleshoot-network-file-system-unhealthy.md
         - name: Troubleshoot Unhealthy or Degraded Storage Appliance
           href: troubleshoot-unhealthy-degraded-storage-appliance.md
     - name: Storage Appliance

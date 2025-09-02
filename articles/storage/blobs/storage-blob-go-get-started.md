@@ -3,8 +3,8 @@ title: Get started with Azure Blob Storage and Go
 titleSuffix: Azure Storage
 description: Get started developing a Go application that works with Azure Blob Storage. This article helps you set up a project and authorize access to an Azure Blob Storage endpoint.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 
 ms.service: azure-blob-storage
 ms.topic: how-to
@@ -132,3 +132,4 @@ The following guides show you how to access data and perform specific actions us
 | [Upload blobs](storage-blob-upload-go.md) | Learn how to upload blobs by using strings, streams, file paths, and other methods. |
 
 [!INCLUDE [storage-dev-guide-code-samples-note-go](../../../includes/storage-dev-guides/storage-dev-guide-code-samples-note-go.md)]
+

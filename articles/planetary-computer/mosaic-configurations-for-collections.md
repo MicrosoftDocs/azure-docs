@@ -97,7 +97,7 @@ Each collection may have its own set of properties that can be used in the `cql`
 ```
 
 ## Related content
-
+- [Data visualization sample guide](./data-visualization-samples.md)
 - [Render configuration for Microsoft Planetary Computer Pro](./render-configuration.md)
 - [Tile settings for Microsoft Planetary Computer Pro](./tile-settings.md)
 - [Queryables for Microsoft Planetary Computer Pro Data Explorer custom search filters](./queryables-for-explorer-custom-search-filter.md)

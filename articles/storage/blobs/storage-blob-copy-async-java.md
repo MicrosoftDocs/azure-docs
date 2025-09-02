@@ -2,9 +2,9 @@
 title: Copy a blob with asynchronous scheduling using Java
 titleSuffix: Azure Storage
 description: Learn how to copy a blob with asynchronous scheduling in Azure Storage by using the Java client library.
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.date: 08/26/2024
 ms.service: azure-blob-storage
 ms.topic: how-to

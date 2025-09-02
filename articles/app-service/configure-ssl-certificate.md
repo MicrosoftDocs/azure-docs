@@ -9,9 +9,12 @@ ms.date: 02/14/2025
 ms.reviewer: yutlin
 ms.author: msangapu
 author: msangapu-msft
+ms.service: azure-app-service
 ---
 
 # Add and manage TLS/SSL certificates in Azure App Service
+
+[!INCLUDE [app-service-managed-certificate](./includes/managed-certs/managed-certs-note.md)]
 
 You can add digital security certificates to [use in your application code](configure-ssl-certificate-in-code.md) or to [help secure custom Domain Name System (DNS) names](configure-ssl-bindings.md) in [Azure App Service](overview.md). App Service provides a highly scalable, self-patching web hosting service. The certificates are currently called Transport Layer Security (TLS) certificates. They were previously known as Secure Sockets Layer (SSL) certificates. These private or public certificates help you to secure internet connections. The certificates encrypt data sent between your browser, websites that you visit, and the website server.
 

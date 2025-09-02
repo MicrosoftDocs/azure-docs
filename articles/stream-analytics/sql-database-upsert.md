@@ -130,7 +130,7 @@ This sample was built on:
 
 To better understand the binding approach, it's recommended to follow [this tutorial](https://github.com/Azure/azure-functions-sql-extension#quick-start).
 
-First, create a default HttpTrigger function app by following this [tutorial](../azure-functions/create-first-function-vs-code-csharp.md?tabs=in-process). The following information is used:
+First, create a default HttpTrigger function app by following this [tutorial](../azure-functions/how-to-create-function-vs-code.md?pivot=programming-language-csharp?tabs=in-process). The following information is used:
 
 - Language: `C#`
 - Runtime: `.NET 6` (under function/runtime v4)
@@ -239,7 +239,7 @@ You can now test the wiring between the local function and the database by debug
 [{"DeviceId":3,"Value":13.4,"Timestamp":"2021-11-30T03:22:12.991Z"},{"DeviceId":4,"Value":41.4,"Timestamp":"2021-11-30T03:22:12.991Z"}]
 ```
 
-The function can now be [published](../azure-functions/create-first-function-vs-code-csharp.md#publish-the-project-to-azure) to Azure. An [application setting](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) should be set for `SqlConnectionString`. The Azure SQL **Server** firewall should [allow Azure services](/azure/azure-sql/database/network-access-controls-overview) in for the live function to reach it.
+The function can now be [published](../azure-functions/how-to-create-function-vs-code.md?pivot=programming-language-csharp#create-the-function-app-in-azure) to Azure. An [application setting](../azure-functions/functions-how-to-use-azure-function-app-settings.md#settings) should be set for `SqlConnectionString`. The Azure SQL **Server** firewall should [allow Azure services](/azure/azure-sql/database/network-access-controls-overview) in for the live function to reach it.
 
 The function can then be defined as an output in the ASA job, and used to replace records instead of inserting them.
 
@@ -256,7 +256,7 @@ This sample was built on:
 - [.NET 6.0](/dotnet/core/whats-new/dotnet-6)
 - Microsoft.Data.SqlClient [4.0.0](https://www.nuget.org/packages/Microsoft.Data.SqlClient/)
 
-First, create a default HttpTrigger function app by following this [tutorial](../azure-functions/create-first-function-vs-code-csharp.md?tabs=in-process). The following information is used:
+First, create a default HttpTrigger function app by following this [tutorial](../azure-functions/how-to-create-function-vs-code.md?pivot=programming-language-csharp?tabs=in-process). The following information is used:
 
 - Language: `C#`
 - Runtime: `.NET 6` (under function/runtime v4)
@@ -365,7 +365,7 @@ You can now test the wiring between the local function and the database by debug
 [{"DeviceId":3,"Value":13.4,"Timestamp":"2021-11-30T03:22:12.991Z"},{"DeviceId":4,"Value":41.4,"Timestamp":"2021-11-30T03:22:12.991Z"}]
 ```
 
-The function can now be [published](../azure-functions/create-first-function-vs-code-csharp.md#publish-the-project-to-azure) to Azure. An [application setting](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) should be set for `SqlConnectionString`. The Azure SQL **Server** firewall should [allow Azure services](/azure/azure-sql/database/network-access-controls-overview) in for the live function to reach it.
+The function can now be [published](../azure-functions/how-to-create-function-vs-code.md?pivot=programming-language-csharp#create-the-function-app-in-azure) to Azure. An [application setting](../azure-functions/functions-how-to-use-azure-function-app-settings.md#settings) should be set for `SqlConnectionString`. The Azure SQL **Server** firewall should [allow Azure services](/azure/azure-sql/database/network-access-controls-overview) in for the live function to reach it.
 
 The function can then be defined as an output in the ASA job, and used to replace records instead of inserting them.
 

@@ -6,7 +6,7 @@ ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/16/2025
 ---
 

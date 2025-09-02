@@ -16,16 +16,6 @@ To connect your Azure virtual network (virtual network) and your on-premises net
 
 This article explains different gateway types, gateway SKUs, and estimated performance by SKU. This article also explains ExpressRoute [FastPath](#fastpath), a feature that enables the network traffic from your on-premises network to bypass the virtual network gateway to improve performance.
 
-## Gateway types
-
-When you create a virtual network gateway, you need to specify several settings. One of the required settings, `-GatewayType`, specifies whether the gateway is used for ExpressRoute or VPN traffic. The two gateway types are:
-
-* `Vpn`: To send encrypted traffic across the public internet, use `Vpn` for `-GatewayType` (also called a VPN gateway). Site-to-site, point-to-site, and VNet-to-VNet connections all use a VPN gateway.
-
-* `ExpressRoute`: To send network traffic on a private connection, use `ExpressRoute` for `-GatewayType` (also called an ExpressRoute gateway). This type of gateway is used when you're configuring ExpressRoute.
-
-Each virtual network can have only one virtual network gateway per gateway type. For example, you can have one virtual network gateway that uses `Vpn` for `-GatewayType`, and one that uses `ExpressRoute` for `-GatewayType`.
-
 ## <a name="gwsku"></a>Gateway SKUs
 
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
@@ -84,9 +74,11 @@ The following table shows the features that each gateway type supports and the m
 [!INCLUDE [expressroute-gateway-performance-include](../../includes/expressroute-gateway-performance-include.md)]
 
 
-## Hosted-On-Behalf-Of (HOBO) Public IP
+## Auto-Assigned Public IP
 
-The Hosted-On-Behalf-Of (HOBO) Public IP feature simplifies ExpressRoute gateway deployment by allowing Microsoft to manage the required public IP address on your behalf. For PowerShell/CLI, you are no longer required to create or maintain a separate public IP resource for your gateway. 
+The Auto-Assigned Public IP feature simplifies ExpressRoute gateway deployment by allowing Microsoft to manage the required public IP address on your behalf. For PowerShell/CLI, you are no longer required to create or maintain a separate public IP resource for your gateway. 
+
+:::image type="content" source="media/expressroute-about-virtual-network-gateways/hobo-ip.png" alt-text="Screenshot of the create for virtual network gateway for ExpressRoute.":::
 
 **Key benefits:**
 
@@ -95,12 +87,13 @@ The Hosted-On-Behalf-Of (HOBO) Public IP feature simplifies ExpressRoute gateway
 - **Streamlined deployment:** The Azure PowerShell and CLI no longer prompt for a public IP during gateway creation.
 
 **How it works:**  
+
 When you create an ExpressRoute gateway, Microsoft automatically provisions and manages the public IP address in a secure, backend subscription. This IP is encapsulated within the gateway resource, enabling Microsoft to enforce policies such as data rate limits and enhance auditability.
 
 **Availability:**  
-HOBO Public IP is not available for Virtual WAN (vWAN) or Extended Zone deployments.
 
-
+Auto-Assigned Public IP is not available for Virtual WAN (vWAN) or Extended Zone deployments.
+ 
 ## Connectivity from VNet to VNet and from VNet to virtual WAN
 
 By default, VNet-to-VNet and VNet-to-virtual-WAN connectivity is disabled through an ExpressRoute circuit for all gateway SKUs. To enable this connectivity, you must configure the ExpressRoute virtual network gateway to allow this traffic. For more information, see guidance about [virtual network connectivity over ExpressRoute](virtual-network-connectivity-guidance.md). To enable this traffic, see [Enable VNet-to-VNet or VNet-to-virtual-WAN connectivity through ExpressRoute](expressroute-howto-add-gateway-portal-resource-manager.md#enable-or-disable-vnet-to-vnet-or-vnet-to-virtual-wan-traffic-through-expressroute).
@@ -119,6 +112,7 @@ The ExpressRoute virtual network gateway facilitates connectivity to private end
 > * The throughput and control plane capacity for connectivity to private endpoint resources might be reduced by half compared to connectivity to non-private endpoint resources.
 > * During a maintenance period, you might experience intermittent connectivity problems to private endpoint resources.
 > * You need to ensure that on-premises configuration, including router and firewall settings, are correctly set up to ensure that packets for the IP 5-tuple transits use a single next hop (Microsoft Enterprise Edge router) unless there's a maintenance event. If your on-premises firewall or router configuration is causing the same IP 5-tuple to frequently switch next hops, you'll experience connectivity problems.
+> * Ensure that [network policies](../private-link/disable-private-endpoint-network-policy.md) (at a minimum, for UDR support) are enabled on the subnet(s) where private endpoints are deployed
 
 ### Private endpoint connectivity and planned maintenance events
 
@@ -154,3 +148,4 @@ A virtual network with an ExpressRoute gateway can have virtual network peering 
 * For more information about configuring zone-redundant gateways, see [Create a zone-redundant virtual network gateway](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md).
 
 * For more information about FastPath, see [About FastPath](about-fastpath.md).
+

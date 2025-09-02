@@ -41,26 +41,27 @@ In this quickstart, you'll enhance a basic Go console application to dynamically
     > [!TIP]
     > You can set the `Interval` property of the `RefreshOptions` to specify the minimum time between configuration refreshes. In this example, you use the default value of 30 seconds. Adjust to a higher value if you need to reduce the number of requests made to your App Configuration store.
 
-2. Open the file *`unmarshal_sample.go`* and add the following code to your main function:
+2. Open the file *`main.go`* and add the following code to your main function:
 
     ```golang
-    // Existing code in unmarshal_sample.go
+    // Existing code in main.go
     // ... ...
-    fmt.Printf("Timeout: %d seconds\n", config.App.Settings.Timeout)
-    fmt.Printf("Retry Count: %d\n", config.App.Settings.RetryCount)
+	fmt.Println("\nRaw JSON Configuration:")
+	fmt.Println("------------------------")
+	fmt.Println(string(jsonBytes))
+	
+    // Register refresh callback to update the configuration
+	provider.OnRefreshSuccess(func() {
+		var updatedConfig Config
+		// Re-unmarshal the configuration
+		err := provider.Unmarshal(&updatedConfig, nil)
+		if err != nil {
+			log.Printf("Error unmarshalling updated configuration: %s", err)
+			return
+		}
 
-    // Register refresh callback to update and display the configuration
-    provider.OnRefreshSuccess(func() {
-        // Re-unmarshal the configuration
-        err := appCfgProvider.Unmarshal(&updatedConfig, nil)
-        if err != nil {
-            log.Printf("Error unmarshalling updated configuration: %s", err)
-            return
-        }
-        
-        // Display the updated configuration
-        displayConfig(config)
-    })
+		fmt.Printf("Message: %s\n", updatedConfig.Message)
+	})
 
     // Setup a channel to listen for termination signals
     done := make(chan os.Signal, 1)
@@ -99,7 +100,8 @@ In this quickstart, you'll enhance a basic Go console application to dynamically
 1. Run your application:
 
    ```bash
-   go run unmarshal_sample.go
+    go mod tidy
+    go run .
    ```
 
 2. Keep the application running.

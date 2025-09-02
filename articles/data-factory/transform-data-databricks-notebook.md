@@ -140,13 +140,13 @@ In certain cases, you might require to pass back certain values from notebook ba
 
 1. [Use the Databricks workspace UI](/azure/databricks/libraries/cluster-libraries#install-a-library-on-a-cluster)
 
-2. To obtain the dbfs path of the library added using UI, you can use [Databricks CLI](/azure/databricks/dev-tools/cli/fs-commands#list-the-contents-of-a-directory).
+2. To obtain the dbfs path of the library added using UI, you can use [Databricks CLI](/azure/databricks/dev-tools/cli/reference/fs-commands#databricks-fs-ls).
 
    Typically the Jar libraries are stored under dbfs:/FileStore/jars while using the UI. You can list all through the CLI: *databricks fs ls dbfs:/FileStore/job-jars*
 
 ### Or you can use the Databricks CLI:
 
-1. Follow [Copy the library using Databricks CLI](/azure/databricks/dev-tools/cli/fs-commands#copy-a-directory-or-a-file)
+1. Follow [Copy the library using Databricks CLI](/azure/databricks/dev-tools/cli/reference/fs-commands#databricks-fs-cp)
 
 2. Use Databricks CLI [(installation steps)](/azure/databricks/dev-tools/cli/commands#compute-commands)
 

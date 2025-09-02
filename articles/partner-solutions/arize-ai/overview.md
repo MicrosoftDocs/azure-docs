@@ -25,7 +25,7 @@ This offering allows you to manage your Arize AI resource as an integrated nativ
 
 Here are the key capabilities:
 
-- Seamless onboarding and integration of data into the Arize Ax platform
+- Seamless onboarding and integration of data into the Arize AI platform
 - Integration of cloud data buckets allowing direct query of trace data from Azure bucket
 - Single unified bill integrated into Azure
 - Single-sign on
