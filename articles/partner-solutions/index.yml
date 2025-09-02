@@ -93,7 +93,7 @@ productDirectory:
       links:
         - url: ./palo-alto/palo-alto-overview.md
           text: Protect your organization with a next generation firewall solution integrated with Azure.
-    - title: Pure Storage Preview
+    - title: Pure Storage
       imageSrc: ./media/index/pure-storage.svg
       links:
         - url: pure-storage/overview.md
