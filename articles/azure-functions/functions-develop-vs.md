@@ -42,16 +42,16 @@ The Azure Functions project template in Visual Studio creates a C# class library
 
 1. From the Visual Studio menu, select **File** > **New** > **Project**.
 
-1. In **Create a new project**, enter *functions* in the search box, choose the **Azure Functions** template, and then select **Next**.
+1. In the **Create a new project** dialog, enter **functions** in the search box, select the **Azure Functions** template, and then select **Next**.
 
-1. In **Configure your new project**, enter a **Project name** for your project, and then select **Create**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other nonalphanumeric characters.
+1. In the **Configure your new project** dialog, for **Project name**, enter a name for your project, and then select **Create**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other nonalphanumeric characters.
 
-1. For the **Create a new Azure Functions application** settings, use the values in the following table:
+1. In the **Additional information** dialog, use the values in the following table:
     ::: zone pivot="isolated"  
 
     | Setting      | Value  | Description                      |
     | ------------ | ------ |--------------------------------- |
-    | **.NET version** | **.NET 8 Isolated** | This value creates a function project that runs in an [isolated worker process](dotnet-isolated-process-guide.md). Isolated worker process supports other non-LTS version of .NET and also .NET Framework. For more information, see [Azure Functions runtime versions overview](functions-versions.md).   |
+    | **Framework** | **.NET 8.0 (Long Term Support)** | This value creates a function project that runs in an [isolated worker process](dotnet-isolated-process-guide.md). Isolated worker process supports other non-LTS version of .NET and also .NET Framework. For more information, see [Azure Functions runtime versions overview](functions-versions.md).   |
     | **Function template** | **HTTP trigger** | This value creates a function triggered by an HTTP request. |
     | **Storage account (AzureWebJobsStorage)**  | **Storage emulator** | Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use an Azure Storage account connection string; all other trigger types require a valid Azure Storage account connection string. |
     | **Authorization level** | **Anonymous** | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth).|
