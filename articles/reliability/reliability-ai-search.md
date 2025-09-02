@@ -66,11 +66,15 @@ When you add two or more replicas to your service, Azure AI Search attempts to p
 > [!IMPORTANT]
 > Azure AI Search doesn't guarantee the exact placement of replicas, which is subject to capacity constraints, scaling operations, and other factors.
 
+### Region support
+
+Support for availability zones depends on infrastructure and storage. For a list of supported regions, see [Choose a region for Azure AI Search](/azure/search/search-region-support).
+
 ### Requirements
 
 Zone redundancy is automatically enabled when your search service meets all of the following criteria:
 
-+ Is in a [region that has availability zones](/azure/search/search-region-support). 
++ Is in a [region that has availability zones](/azure/search/search-region-support).
 + Is on the [Basic tier or higher](/azure/search/search-sku-tier).
 + Has [at least two replicas](/azure/search/search-capacity-planning#add-or-remove-partitions-and-replicas).
   
@@ -145,7 +149,9 @@ You can optionally deploy multiple Azure AI Search services in different regions
 
 When you follow this approach, you must synchronize indexes across regions to recover the last application state. You must also configure load balancing and failover policies. 
 
-Also, when your index's data source is geo-distributed and the indexer supports reading from replicas, look for opportunities to perform indexing from the data source's local regional replica. For more information, see [Multi-region deployments in Azure AI Search](/azure/search/search-multi-region).
+To optimize the performance of your overall solution, look for opportunities to perform indexing on read-only replicas of your data sources. For example, some indexers support reading from a geo-distributed data source's read replicas.
+
+For more information, see [Multi-region deployments in Azure AI Search](/azure/search/search-multi-region).
 
 ## Backups
 
