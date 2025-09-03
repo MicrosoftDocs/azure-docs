@@ -5,7 +5,7 @@ author: cephalin
 ms.author: jukullam
 ms.manager: mijacobs
 ms.topic: how-to
-ms.date: 09/02/2025
+ms.date: 09/03/2025
 ms.custom: "devops-pipelines-deploy"
 ms.service: azure-app-service
 #customer intent: As a web app developer, I want to learn how to set up a pipeline using Azure Pipelines so I can deploy changes and updates to my web apps.
@@ -51,7 +51,11 @@ Define a pipeline by creating an *azure-pipelines.yml* YAML file in your code re
 1. On the **Where is your code** screen, select the location of your source code, either **Azure Repos Git** or **GitHub**. If necessary, sign in to GitHub.
 1. On the **Select a repository** screen, select your code repository.
 1. On the **Configure your pipeline** screen, select **Starter pipeline**.
-1. On the **Review your pipeline YAML** screen, delete all the code following the `steps:` line. Position your cursor there, and select **Show assistant** at right.
+
+Add the [.NET Core (DotNetCoreCLI@2)](/azure/devops/pipelines/tasks/reference/dotnet-core-cli-v2) task to the pipeline, and build and publish your app.
+
+1. On the **Review your pipeline YAML** screen, delete all the code after the `steps:` line.
+1. Select the end of the file, and then select **Show assistant** at right.
 1. Under **Tasks**, select **.NET Core**.
 1. On the **.NET Core** configuration screen, under **Azure Resource Manager connection**, select your Azure subscription, and then select **Authorize** to create the required service connection.
 1. Under **Command**, select **publish**.
@@ -65,7 +69,6 @@ Define a pipeline by creating an *azure-pipelines.yml* YAML file in your code re
 1. On the **Pipelines** page, select **New pipeline**, or **Create pipeline** if this pipeline is the first in the project.
 1. On the **Where is your code** screen, select **Use the classic editor to create a pipeline without YAML**.
 1. On the **Select a repository** screen, select the location of your source code, either **Azure Repos Git** or **GitHub**, and then select your code **Repository** and **Default branch**. Select **Continue**.
-1. GitHub might prompt you to sign in or to install the [Azure Pipelines](https://github.com/apps/azure-pipelines) GitHub app. Follow onscreen instructions to sign in or install the app.
 1. On the **Choose a template** screen, select **ASP.NET Core**, and then select **Apply**.
 1. On the new pipeline screen, under **Agent Specification** at right, select an agent specification such as **ubuntu-latest** or **windows-latest** depending on your app platform and version.
 1. Look at the pipeline to see what it does. When you're ready, select **Save & queue**.
@@ -148,15 +151,11 @@ For classic pipelines, it's easiest to define build and release stages in separa
 
 The following sections discuss creating different kinds of build and release pipelines.
 
-### Deploy to a web app
-
-To deploy a ZIP web package from an ASP.NET web app to an Azure web app, use the instructions in the previous sections. There might be templates for other programming languages to choose from.
-
 ### Deploy to a virtual application
 
 # [YAML](#tab/yaml/)
 
-By default, you deploy to the root application in the Azure web app. You can deploy to a specific virtual application by using the `VirtualApplication` property of the [Azure App Service deploy (AzureRmWebAppDeployment@4)](/azure/devops/pipelines/tasks/reference/azure-rm-web-app-deployment-v4) task.
+The [Azure Web App (AzureWebApp@1)](/azure/devops/pipelines/tasks/reference/azure-web-app-v1) task deploys to the root application in the Azure web app. You can deploy to a specific virtual application by using the `VirtualApplication` property of the [Azure App Service deploy (AzureRmWebAppDeployment@4)](/azure/devops/pipelines/tasks/reference/azure-rm-web-app-deployment-v4) task.
 
 ```yaml
 - task: AzureRmWebAppDeployment@4
@@ -168,7 +167,7 @@ By default, you deploy to the root application in the Azure web app. You can dep
 
 # [Classic](#tab/classic/)
 
-By default, you deploy to the root application in the Azure web app. If you want to deploy to a specific virtual application, enter its name in the **Virtual Application** property of the **Azure App Service deploy** task.
+The [Azure Web App (AzureWebApp@1)](/azure/devops/pipelines/tasks/reference/azure-web-app-v1) task deploys to the root application in the Azure web app. To deploy to a specific virtual application, enter its name in the **Virtual Application** property of the [Azure App Service deploy (AzureRmWebAppDeployment@4)](/azure/devops/pipelines/tasks/reference/azure-rm-web-app-deployment-v4) task.
 
 ---
 
@@ -304,10 +303,10 @@ In your release pipeline, you can implement various checks and conditions to con
 - Set **pre-deployment approvals** or configure **gates** as a precondition for deployment to a stage.
 - Specify conditions for a task to run.
 
-For more information, see:
-- [Release, branch, and stage triggers](/azure/devops/pipelines/release/triggers)
-- [Release deployment control using approvals](/azure/devops/pipelines/release/approvals/approvals)
-- [Release deployment control using gates](/azure/devops/pipelines/release/approvals/gates)
+For more information, see the following articles:
+- [Classic release triggers](/azure/devops/pipelines/release/triggers)
+- [Deployment control using approvals](/azure/devops/pipelines/release/approvals/approvals)
+- [Deployment gates concepts](/azure/devops/pipelines/release/approvals/gates)
 
 ---
 
