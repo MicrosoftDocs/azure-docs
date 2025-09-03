@@ -1,7 +1,6 @@
 ---
 title: Migration Checklist: Azure App Service on Arc-enabled Kubernetes to Azure Container Apps on Arc-enabled Kubernetes
-description: Learn what needs to be done to migrate from Azure App Service on Arc-enabled Kubernetes to Azure Container Apps on Arc-enabled Kubernetes
-ms.assetid: 
+description: Learn what needs to be done to migrate from Azure App Service on Arc-enabled Kubernetes to Azure Container Apps on Arc-enabled Kubernetes.
 ms.topic: how-to
 ms.date: 09/02/2025
 ms.author: anwestg
@@ -33,6 +32,7 @@ az graph query -q "resources | where type =~ 'microsoft.web/sites" and kind cont
 ```azurepowershell-interactive
 Search-AzGraph -Query "resources | where type=~ 'microsoft.web/sites" and kind contains 'app,linux,kubernetes'"
 ```
+---
 
 ### Identify all App Service Kubernetes Environments connected to App Service on Arc-enabled Kubernetes
 
@@ -51,6 +51,7 @@ az graph query -q "resources | where type=~'microsoft.web/kubeenvironments'"
 ```azurepowershell-interactive
 Search-AzGraph -Query "resources | where type=~'microsoft.web/kubeenvironments'"
 ```
+---
 
 ### Identify all Azure Arc-enabled Kubernetes Clusters that have the Application services extension installed on them
 
@@ -71,6 +72,7 @@ az graph query -q "KubernetesConfigurationResources | where type =~ 'microsoft.k
 ```azurepowershell-interactive
 Search-AzGraph -Query "KubernetesConfigurationResources | where type =~ 'microsoft.kubernetesconfiguration/extensions' | where properties.ExtensionType == 'microsoft.web.appservice' | project clusterresourceid = trim_end('/providers/Microsoft.KubernetesConfiguration/Extensions/.*', ['id']), name, location"
 ```
+---
 
 ## Remove Application Services extension from Arc-enabled Kubernetes clusters 
 
