@@ -29,7 +29,6 @@ Fabric makes commercially reasonable efforts to support zone-redundant availabil
 ### Prerequisites
 
 - Fabric currently provides partial availability-zone support in a [limited number of regions](#supported-regions). This partial availability-zone support covers experiences (and/or certain functionalities within an experience).
-- Experiences such as Event Streams don't support availability zones.
 - Data engineering supports availability zones if you use OneLake. If you use other data sources such as ADLS Gen2, then you need to ensure that Zone-redundant storage (ZRS) is enabled.
 - Zone availability may or may not be available for Fabric experiences and/or features/functionalities that are in preview.
 - On-premises gateways and large semantic models in Power BI don't support availability zones.

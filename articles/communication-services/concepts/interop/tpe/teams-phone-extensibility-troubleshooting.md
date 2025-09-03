@@ -6,16 +6,14 @@ author: henikaraa
 manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: teams-interop
-ms.date: 05/19/2025
+ms.date: 09/01/2025
 ms.topic: conceptual
 ms.author: henikaraa
-ms.custom: public_preview
+ms.custom: general_availability
 services: azure-communication-services
 ---
 
 # Teams Phone extensibility troubleshooting
-
-[!INCLUDE [public-preview-notice.md](../../../includes/public-preview-include-document.md)]
 
 This article describes how to identify and resolve Teams Phone extensibility issues. Errors can stem from the application, Azure Communication Services SDKs, the user environment, or Microsoft Teams configuration settings.
 
@@ -38,18 +36,6 @@ For troubleshooting issues related to the Calling SDK, see:
 - [VoIP Call Quality](../../voice-video-calling/troubleshoot-web-voip-quality.md): provides guidance on troubleshooting and improving VoIP call quality.
 
 ## Common Teams Phone extensibility issues
-
-### Unable to update CallAutomation SDK to Alpha
-
-1. Download `Azure.Communication.CallAutomation.1.4.0-alpha.20250129.2.nupkg` from [Call Automation Alpha SDKs](https://github.com/Azure/communication-preview/blob/master/Teams%20Phone%20Extensibility/teams-phone-extensibility-quickstart.md#alpha-sdks) in your preferred programming language.
-2. Open your solution in Visual Studio and go to the **Tools** menu, select **NuGet Package Manager**, and then select **Package Manager Console**. For reference, see [Manage NuGet packages with the Visual Studio Package Manager Console](/nuget/consume-packages/install-use-packages-powershell#console-controls).
-3. Go to the Package Manager Console and execute the following (be sure to update the path):
-
-   ```dotnetcli
-   Install-Package C:\path\to\Azure.Communication.CallAutomation.1.4.0-alpha.20250129.2.nupkg
-   ```
-
-4. Go back to the **Tools** menu, select **NuGet Package Manager**, and select **Manage NuGet Packages for Solution**. When the NuGet package loads, go to the **Installed** tab and make sure `Azure.Communication.CallAutomation` says that 1.4.0-alpha.20250129.2 is the installed version.
 
 ### Consent blocked due to Microsoft Entra App permission
 

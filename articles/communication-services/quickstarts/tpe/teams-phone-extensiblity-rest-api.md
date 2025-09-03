@@ -6,7 +6,7 @@ author: sofiar
 manager: miguelher
 services: azure-communication-services
 ms.author: sofiar
-ms.date: 11/27/2024
+ms.date: 09/01/2025
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: identity
@@ -16,14 +16,12 @@ ms.subservice: identity
 
 This article describes REST API for Teams Phone extensibility.
 
-[!INCLUDE [public-preview-notice.md](../../includes/public-preview-include-document.md)]
-
 ## Create assignment
 
 Create an assignment to give a Teams user or Teams resource account access to the Communication Services resource.
 
 ```http
-PUT {endpoint}/access/teamsExtension/tenants/{tenantId}/assignments/{objectId}?api-version=2025-03-02-preview
+PUT {endpoint}/access/teamsExtension/tenants/{tenantId}/assignments/{objectId}?api-version=2025-06-30
 ```
 
 ### URI parameters
@@ -53,7 +51,7 @@ PUT {endpoint}/access/teamsExtension/tenants/{tenantId}/assignments/{objectId}?a
 Get the assignment for a resource access from a Teams user or Teams resource account.
 
 ```http
-GET {endpoint}/access/teamsExtension/assignments/{objectId}?api-version=2025-03-02-preview
+GET {endpoint}/access/teamsExtension/assignments/{objectId}?api-version=2025-06-30
 ```
 
 ### URI parameters
@@ -74,7 +72,7 @@ GET {endpoint}/access/teamsExtension/assignments/{objectId}?api-version=2025-03-
 Delete the assignment to remove resource access from a Teams user or Teams resource account.
 
 ```http
-DELETE {endpoint}/access/teamsExtension/assignments/{objectId}?api-version=2025-03-02-preview
+DELETE {endpoint}/access/teamsExtension/assignments/{objectId}?api-version=2025-06-30
 ```
 
 ### URI parameters

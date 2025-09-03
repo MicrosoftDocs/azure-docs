@@ -319,15 +319,15 @@
     href: data-connectors-reference.md
   - name: Connection instructions by type
     items:
-    - name: General instructions for Microsoft connectors
+    - name: Connect Microsoft Sentinel to Microsoft connectors
       items: 
-      - name: Connect Microsoft Sentinel to Microsoft connectors
+      - name: Overview
         href: connect-azure-windows-microsoft-services.md
-      - name: Connect via API-based connectors
+      - name: API-based connectors
         href: connect-services-api-based.md
-      - name: Connect via diagnostic settings-based connectors
+      - name: Diagnostic settings-based connectors
         href: connect-services-diagnostic-setting-based.md
-      - name: Connect via Windows agent-based connectors
+      - name: Windows agent-based connectors
         href: connect-services-windows-based.md
     - name: Azure Functions API connection
       href: connect-azure-functions-template.md    

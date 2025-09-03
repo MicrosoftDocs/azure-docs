@@ -6,18 +6,16 @@ author: henikaraa
 manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: teams-interop
-ms.date: 05/20/2025
+ms.date: 09/01/2025
 ms.topic: conceptual
 ms.author: henikaraa
-ms.custom: public_preview
+ms.custom: general_availability
 services: azure-communication-services
 ---
 
 # Teams Phone extensibility FAQ
 
 This article answers frequently asked questions about the Teams Phone extensibility (TPE).
-
-[!INCLUDE [public-preview-notice.md](../../../includes/public-preview-include-document.md)]
 
 ## Can I use an Azure Communication Services phone number to place and receive PSTN calls for TPE scenarios?
 

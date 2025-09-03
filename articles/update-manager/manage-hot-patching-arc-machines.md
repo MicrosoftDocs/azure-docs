@@ -25,7 +25,7 @@ This article explains how to install hotpatches (preview) on compatible Arc-enab
 
 ## Prerequisites
 
-- Verify that the machine has a supported OS SKU. [Learn more](#supported-operating-systems).
+- Verify that the machine has a supported OS SKU. [Learn more](/windows-server/get-started/hotpatch#supported-platforms).
 - Ensure that Virtualization Based Security (VBS) is enabled. [Learn more](https://techcommunity.microsoft.com/t5/windows-server-news-and-best/how-to-preview-azure-arc-connected-hotpatching-for-windows/ba-p/4246895).
 - Ensure the machine is Arc-enabled. 
 

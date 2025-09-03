@@ -15,7 +15,7 @@ Learn about the different data protection and disaster recovery features in Azur
 
 ## On-disk data protection
 
-Azure NetApp Files Flexible, Standard, Premium and Ultra service levels are built on a [fault-tolerant bare-metal fleet powered by ONTAP®](azure-netapp-files-introduction.md#simplicity-and-availability), delivering enterprise-grade resilience, and uses RAID-DP® (Double Parity RAID) to safeguard data against disk failures. This mechanism distributes parity across multiple disks, enabling seamless data recovery even if two disks fail simultaneously. RAID-DP has a long-standing presence in the enterprise storage industry and is recognized for its proven reliability and fault tolerance.
+Azure NetApp Files Flexible, Standard, Premium and Ultra service levels are built on a [fault-tolerant bare-metal fleet powered by ONTAP](azure-netapp-files-introduction.md#simplicity-and-availability), delivering enterprise-grade resilience, and uses RAID-DP (Double Parity RAID) to safeguard data against disk failures. This mechanism distributes parity across multiple disks, enabling seamless data recovery even if two disks fail simultaneously. RAID-DP has a long-standing presence in the enterprise storage industry and is recognized for its proven reliability and fault tolerance.
 
 ## Snapshots 
 
