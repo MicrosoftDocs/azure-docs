@@ -19,6 +19,10 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## September 2025
 
+* [Cross-tenant customer-managed keys for Azure NetApp Files volume encryption](customer-managed-keys-cross-tenant.md) is now generally available (GA)
+
+    Cross-tenant customer-managed keys for Azure NetApp Files volume encryption enables you to manage your own keys across different tenancies. In scenarios such as SaaS provider/user configurations, this feature ensures the end user retains full control of their keys rather than the SaaS provider. This capability provides SaaS providers with the flexibility to offer customers customizable key management options. This feature is available in all Azure NetApp Files supported regions. This feature is now generally available (GA).
+    
 * [Security enhancement: new required permissions for Azure NetApp Files datastore with Azure VMware Solution (AVS)](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md#prerequisites)
 
     Due to security enhancements in Azure, new role requirements have been introduced to perform create, update, and delete operations on Azure NetApp Files datastores for AVS. Pre-defined roles, such as the [Contributor role](../role-based-access-control/built-in-roles.md#privileged), might have the correct permissions, however custom roles might not. Ensure you meet the [new requirements](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md#prerequisites) for your Azure NetApp Files datastores.
