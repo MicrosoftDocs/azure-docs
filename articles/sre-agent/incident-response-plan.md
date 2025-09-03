@@ -10,7 +10,7 @@ ms.service: azure
 
 # Incident response plans in Azure SRE Agent
 
-An Azure SRE Agent incident response plans allows you to define how incidents are detected, reviewed, and mitigated within your environment. When you define custom plans, you tailor the agent’s response to incidents, set autonomy levels, and provide custom instructions for incident management. You can choose between either semi-autonomous and fully autonomous operations, depending on your needs.
+An Azure SRE Agent incident response plans allows you to define how incidents are detected, reviewed, and mitigated within your environment. When you define custom plans, you tailor the agent’s response to incidents, set autonomy levels, and provide custom instructions for how the agent resolves issues. You can choose between either semi-autonomous and fully autonomous operations, depending on your needs.
 
 ## How incident response plans work
 
