@@ -2,7 +2,6 @@
 title: Configure data persistence (preview) - Azure Managed Redis
 description: Learn how to configure and manage data persistence your Azure Managed Redis instances
 ms.date: 05/18/2025
-ms.service: azure-managed-redis
 ms.topic: conceptual
 ms.custom:
   - devx-track-azurecli
@@ -11,7 +10,7 @@ ms.custom:
 appliesto:
   - ✅ Azure Managed Redis
 ---
-# Configure data persistence (preview) for an Azure Managed Redis instance
+# Configure data persistence for an Azure Managed Redis instance
 
 [Redis persistence (preview)](https://redis.io/topics/persistence) allows you to persist data stored in cache instance. If there's a hardware failure, the cache instance is rehydrated with data from the persistence file when it comes back online. The ability to persist data is an important way to boost the durability of a cache instance because all cache data is stored in memory. Data loss is possible if a failure occurs when cache nodes are down. Persistence should be a key part of your high availability and disaster recovery strategy with Azure Managed Redis.
 
@@ -22,9 +21,9 @@ appliesto:
 
 ## Scope of availability
 
-|Tier     | Memory Optimized, Balanced, Compute Optimized  | Flash Optimized  |
-|---------|---------|---------|
-|Available  | Yes (preview)      | Yes (preview)       |
+| Tier      | Memory Optimized, Balanced, Compute Optimized | Flash Optimized |
+|-----------|-----------------------------------------------|-----------------|
+| Available | Yes                                           | Yes (preview)   |
 
 ## Types of data persistence in Redis
 
@@ -47,7 +46,7 @@ Persistence features are intended to be used to restore data to the same cache a
 - Persistence isn't supported with caches using [active geo-replication](how-to-active-geo-replication.md).
 - The managed disk holding persisted data files is encrypted using Microsoft managed keys (MMK) by default, but customer managed keys (CMK) can also be used. For more information, see [managing data encryption](#managing-data-encryption).
 
-## How to set up data persistence (preview) using the Azure portal
+## How to set up data persistence using the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and start following the instructions in the [Azure Managed Redis quickstart guide](quickstart-create-managed-redis.md).
 
@@ -70,7 +69,7 @@ Persistence features are intended to be used to restore data to the same cache a
 > You can add persistence to a previously created Azure Managed Redis instance at any time by navigating to the **Advanced settings** in the Resource menu.
 >
 
-## How to set up data persistence (preview) using PowerShell and Azure CLI
+## How to set up data persistence using PowerShell and Azure CLI
 
 ### Using PowerShell
 

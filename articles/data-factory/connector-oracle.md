@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 07/11/2025
+ms.date: 08/29/2025
 ms.author: jianleishen
 ---
 
@@ -39,6 +39,7 @@ Specifically, this Oracle connector supports:
     - Oracle Database 19c and higher
     - Oracle Database 18c and higher
     - Oracle Database 12c and higher
+    - Oracle Database 11g and higher
 - The following versions of an Oracle database for version 1.0:
     - Oracle 19c R1 (19.1) and higher
     - Oracle 18c R1 (18.1) and higher
@@ -360,6 +361,8 @@ To copy data from Oracle, set the source type in the copy activity to `OracleSou
 | partitionColumnName | Specify the name of the source column **in integer type** that will be used by range partitioning for parallel copy. If not specified, the primary key of the table is auto-detected and used as the partition column. <br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook  `?AdfRangePartitionColumnName` in the WHERE clause. For an example, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
 | partitionUpperBound | The maximum value of the partition column to copy data out. <br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook `?AdfRangePartitionUpbound` in the WHERE clause. For an example, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
 | partitionLowerBound | The minimum value of the partition column to copy data out. <br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook `?AdfRangePartitionLowbound` in the WHERE clause. For an example, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
+| numberPrecision | Specify the maximum number of significant decimal digits. Allowed values range from 1 to 256. Defaults to 256 if not specified. <br>This property is supported in Oracle version 2.0. It applies only to NUMBER types that do not have precision and scale explicitly defined in the Oracle database. It can be set when `supportV1DataTypes` isn't `true`. If you use self-hosted integration runtime, its version should be 5.56 or above. | No |
+| numberScale | Specify the number of digits after the decimal point. Allowed values range from 0 to 130 and must be less than or equal to the precision. Defaults to 130 if not specified. <br>This property is supported in Oracle version 2.0. It applies only to NUMBER types that do not have precision and scale explicitly defined in the Oracle database. It can be set when `supportV1DataTypes` isn't `true`. If you use self-hosted integration runtime, its version should be 5.56 or above. | No |
 
 **Example: copy data by using a basic query without partition**
 

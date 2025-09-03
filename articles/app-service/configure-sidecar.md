@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 07/14/2025
 ms.author: cephalin
 author: cephalin
+ms.service: azure-app-service
 ---
 
 # Configure sidecars in Azure App Service

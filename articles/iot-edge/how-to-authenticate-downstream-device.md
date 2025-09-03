@@ -1,9 +1,8 @@
 ---
 title: Authenticate downstream devices - Azure IoT Edge
 description: How to authenticate downstream devices to IoT Hub, and route their connection through Azure IoT Edge gateway devices. 
-author: PatAltimore
-
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.date: 05/27/2025
 ms.topic: concept-article
 ms.service: azure-iot-edge

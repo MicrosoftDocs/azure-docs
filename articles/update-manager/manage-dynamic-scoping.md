@@ -25,6 +25,8 @@ To add a Dynamic scope to an existing configuration, follow these steps:
 1. In the **Maintenance configurations** page, select the name of the maintenance configuration for which you want to add a Dynamic scope. 
 1. In the given maintenance configuration page > select **Dynamic scopes** > **Add a dynamic scope**.
 1. In the **Add a dynamic scope** page, select **subscriptions** (mandatory).
+   > [!NOTE]
+   > Subscription level dynamic scope assignments should be created with empty location since subscription is not associated to any specific region.
 1. In **Filter by**, choose **Select** and in the **Select Filter by**, specify the Resource group, Resource type, Location, Tags and OS type and then select **Ok**. These filters are optional fields.
 1. In the **Preview of machines based on above scope**, you can view the list of machines for the selected criteria and then select **Save**.
    > [!NOTE]
