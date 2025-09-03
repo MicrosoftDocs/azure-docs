@@ -7,7 +7,7 @@ ms.workload: identity
 author: jenniferf-skc
 manager: pmwongera
 ms.author: jfields
-ms.date: 08/26/2025
+ms.date: 09/03/2025
 ms.custom: generated
 ---
 
@@ -176,14 +176,14 @@ Grants full access to manage all Batch resources, including Batch accounts, pool
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/* |  |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/* | Manage all Batch resources. |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/* |  |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/* | Manage all Batch resources. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -226,12 +226,12 @@ Lets you view all resources including pools and jobs in the Batch account.
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/*/read |  |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/*/read | View all resources in Batch account. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/*/read |  |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/*/read | View all resources in Batch account. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -273,20 +273,20 @@ Grants permissions to manage Batch pools and jobs but not to modify accounts.
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/read | Lists Batch accounts or gets the properties of a Batch account |
-> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/applications/* |  |
-> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/certificates/* |  |
-> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/certificateOperationResults/* |  |
-> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/pools/* |  |
-> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/poolOperationResults/* |  |
-> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/locations/*/read |  |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/applications/* | Create and manage applications and application packages on a Batch account. |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/certificates/* | Create and manage certificates on a Batch account. (Warning: Certificate feature was retired) |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/certificateOperationResults/* | Gets the results of a long running certificate operation on a Batch account. (Warning: Certificate feature was retired) |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/pools/* | Create and manage pools on a Batch account. |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/poolOperationResults/* | Gets the results of a long running pool operation on a Batch account. |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/locations/*/read | Get Batch account operation result/Batch quota/supported VM size at the given location. |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/jobSchedules/* |  |
-> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/jobs/* |  |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/jobSchedules/* | Create and manage job schedules on a Batch account. |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/jobs/* | Create and manage jobs on a Batch account. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -344,8 +344,8 @@ Lets you submit and manage jobs in the Batch account.
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/jobSchedules/* |  |
-> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/jobs/* |  |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/jobSchedules/* | Create and manage job schedules on a Batch account. |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/jobs/* | Create and manage jobs on a Batch account. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
