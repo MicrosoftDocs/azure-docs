@@ -1,5 +1,12 @@
 ---
-title: Setup Azure Migrate appliance using a preconfigured Microsoft Entra ID application
+title: Setup Azure Mig-	A-	Assign the Contributor role to the registered Micr-	Select Add to complete the upload.
+![Screenshot of procedure to upload certificate in Microsoft Entra App.](./media/how-to-register-appliance-usingaadapp/uploadcertificatetoentraidapp.png)
+
+-	Note down the Microsoft Entra ID app details that will be later required when configuring appliance.t Entra ID application in the resource group, where the Azure Migrate project is deployed. 
+![Screenshot of permissions assignment.](./media/how-to-register-appliance-usingaadapp/contributor.png)ign the Contributor role to the registered Microsoft Entra ID application in the resource group, where the Azure Migrate project is deployed. 
+![Screenshot of permissions assignment.](./media/how-to-register-appliance-usingaadapp/contributor.png)
+
+## 2. To authenticate the application generate certificates appliance using a preconfigured Microsoft Entra ID application
 description: Learn how to register an Azure Migrate appliance using a preconfigured Microsoft Entra ID app. Overcome permission issues, DCF restrictions, and streamline setup with this step-by-step guide.
 author: molishv
 ms.author: molir
@@ -25,8 +32,8 @@ To avoid registering the appliance under a user's context and to address the abo
 ## 1.	Register a Microsoft Entra ID application and assign permissions
 
 -	Follow these [steps](/entra/identity-platform/howto-create-service-principal-portal.md#register-an-application-with-microsoft-entra-id-and-create-a-service-principal) to register a new application (or use an existing application) in Microsoft Entra ID. A service principal is automatically created for the app registration.
--	Assign the Contributor role to the registered Microsoft Entra ID application in the resource group, where the Azure Migrate project is deployed. 
-![Screenshot of permissions assignment.](./media/how-to-register-appliance-usingAADapp/contributor.png)
+-	Assign the Contributor role to the registered Microsoft Entra ID application in the Resource Group, where the Azure Migrate project is deployed. 
+![Screenshot of permissions assignment.](./media/how-to-register-appliance-usingaadapp/contributor.png)
 
 ## 2. To authenticate the application generate certificates
 
@@ -77,7 +84,7 @@ Save the private certificated(_.pfx file) in Azure Migrate appliance machine.
 -	Under the Certificates section, select Upload certificate.
 -	Browse to the folder and select the .cer file containing your public certificate.
 -	Select Add to complete the upload.
-![Screenshot of procedure to upload certificate in Microsoft Entra App.](./media/how-to-register-appliance-usingAADapp/UploadcertificatetoEntraIDApp.png)
+![Screenshot of procedure to upload certificate in Microsoft Entra App.](./media/how-to-register-appliance-usingaadapp/uploadcertificatetoentraidapp.png)
 
 -	Note down the Microsoft Entra ID app details that will be later required when configuring appliance.  
  ```
@@ -88,24 +95,24 @@ Tenant ID:
 Certificates & secrets ->Thumbprint: 
 Service principal Object ID: 
    ```
-![Screenshot of Microsoft Entra ID properties.](./media/how-to-register-appliance-usingAADapp/EntraIDproperties.png)
+![Screenshot of Microsoft Entra ID properties.](./media/how-to-register-appliance-usingaadapp/entraidproperties.png)
 -	Navigate to Microsoft Entra ID -> Enterprise applications -> Manage all applications and copy the service principal object ID.
 
-![Screenshot of Microsoft Entra ID properties.](./media/how-to-register-appliance-usingAADapp/Serviceprincipal.png)
+![Screenshot of Microsoft Entra ID properties.](./media/how-to-register-appliance-usingaadapp/serviceprincipal.png)
 
 ## 5.	Install the private certificate in Appliance machine
 -	Sign in to the appliance machine and go to the folder where private certificate is saved. Double select on the certificate file to start the installation. 
 
-![Screenshot of procedure to install certificate in Appliance.](./media/how-to-register-appliance-usingAADapp/Installprivatecertificate01.png)
+![Screenshot of procedure to install certificate in Appliance.](./media/how-to-register-appliance-usingaadapp/installprivatecertificate01.png)
 -	Choose store location as Local machine. 
 -	Select next and specify the file path of the certificate. 
 
-![Screenshot of procedure to install certificate in Appliance.](./media/how-to-register-appliance-usingAADapp/Installprivatecertificate02.png)
+![Screenshot of procedure to install certificate in Appliance.](./media/how-to-register-appliance-usingaadapp/installprivatecertificate02.png)
 
 -	Enter the password created while exporting the private key.
 -	Select Personal as the certificate store location and select Finish to complete the installation.
 
-![Screenshot of procedure to install certificate in Appliance.](./media/how-to-register-appliance-usingAADapp/Installprivatecertificate03.png)
+![Screenshot of procedure to install certificate in Appliance.](./media/how-to-register-appliance-usingaadapp/installprivatecertificate03.png)
 
 ## 7.	Update the registry values in Appliance machine
 -	Run the following PowerShell script in Appliance machine to update the registry values. 
@@ -156,12 +163,12 @@ Write-Output "All registry entries created successfully!"
 ```
 -  Open Registry Editor and select AzureAppliance in the left pane.
 -  Verify that the registry values are updated correctly. If needed, you can manually update any misconfigured values. 
-![Screenshot of Appliance registry.](./media/how-to-register-appliance-usingAADapp/Registry.png)
+![Screenshot of Appliance registry.](./media/how-to-register-appliance-usingaadapp/registry.png)
 
 ## 8.	Complete appliance registration using Microsoft Entra ID app
 -	After updating the registry values, clear the browser cache and reload the page to start Entra ID App Authentication flow from the config manager.
 -	Appliance registration is completed and the Entra ID app name is displayed in the config manager. 
-![Screenshot of Appliance Config Manager.](./media/how-to-register-appliance-usingAADapp/EntraIDregisteredappliance.png)
+![Screenshot of Appliance Config Manager.](./media/how-to-register-appliance-usingaadapp/entraidregisteredappliance.png)
 
 
 ## Limitations
