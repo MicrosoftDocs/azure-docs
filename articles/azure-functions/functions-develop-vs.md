@@ -46,17 +46,17 @@ The Azure Functions project template in Visual Studio creates a C# class library
 
 1. In the **Configure your new project** dialog, for **Project name**, enter a name for your project, and then select **Create**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other nonalphanumeric characters.
 
-1. In the **Additional information** dialog, use the values in the following table:
+1. In the **Additional information** dialog, select the values in the following table:
     ::: zone pivot="isolated"  
 
-    | Setting      | Value  | Description                      |
+    | Setting      | Action  | Description                      |
     | ------------ | ------ |--------------------------------- |
-    | **Framework** | **.NET 8.0 (Long Term Support)** | This value creates a function project that runs in an [isolated worker process](dotnet-isolated-process-guide.md). Isolated worker process supports other non-LTS version of .NET and also .NET Framework. For more information, see [Azure Functions runtime versions overview](functions-versions.md).   |
-    | **Function template** | **HTTP trigger** | This value creates a function triggered by an HTTP request. |
-    | **Storage account (AzureWebJobsStorage)**  | **Storage emulator** | Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use an Azure Storage account connection string; all other trigger types require a valid Azure Storage account connection string. |
-    | **Authorization level** | **Anonymous** | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth).|
+    | **Functions worker** | Select **.NET 8.0 Isolated (Long Term Support)**. | When you select this value, Visual Studio creates a function project that runs in an [isolated worker process](dotnet-isolated-process-guide.md). The isolated worker process also supports other versions of .NET and .NET Framework that don't offer long term support (LTS). For more information, see [Azure Functions runtime versions overview](functions-versions.md).   |
+    | **Function** | Select **Http trigger**. | With this value, Visual Studio creates a function triggered by an HTTP request. |
+    | **Use Azurite for runtime storage account (AzureWebJobsStorage)**  | Select this checkbox. | Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use an Azure Storage account connection string. All other trigger types require a valid Azure Storage account connection string. |
+    | **Authorization level** | Select **Anonymous**. | With this value, the created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth).|
 
-    :::image type="content" source="media/functions-develop-vs/functions-project-settings-v4-isolated.png" alt-text="Screenshot of Azure Functions project settings for the isolated worker model.":::
+    :::image type="content" source="media/functions-develop-vs/functions-project-settings-v4-isolated.png" alt-text="Screenshot of the Visual Studio Additional information dialog that shows selected settings like an isolated .NET version for the Functions worker.":::
 
     ::: zone-end  
     ::: zone pivot="in-proc"  
@@ -88,14 +88,16 @@ The new project has the following files:
 
 * **local.settings.json**: Maintains settings used when running functions locally. These settings aren't used when running in Azure. For more information, see [Local settings file](#local-settings).
 
-    >[!IMPORTANT]
-    >Because the *local.settings.json* file can contain secrets, you must exclude it from your project source control. Make sure the **Copy to Output Directory** setting for this file is set to **Copy if newer**.
+  > [!IMPORTANT]
+  > Because the *local.settings.json* file can contain secrets, you must exclude it from your project source control. In the **Properties** dialog for this file, make sure the **Copy to Output Directory** setting is set to **Copy if newer**.
+
 ::: zone pivot="isolated" 
 For more information, see [Project structure](dotnet-isolated-process-guide.md#project-structure) in the Isolated worker guide.
 ::: zone-end  
 ::: zone pivot="in-proc" 
 For more information, see [Functions class library project](functions-dotnet-class-library.md#functions-class-library-project).
 ::: zone-end 
+
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
 Visual Studio doesn't automatically upload the settings in *local.settings.json* when you publish the project. To make sure that these settings also exist in your function app in Azure, upload them after you publish your project. For more information, see [Function app settings](#function-app-settings). The values in a `ConnectionStrings` collection are never published.
@@ -122,13 +124,13 @@ In C# class library functions, the bindings used by the function are defined by 
 
 1. In **Solution Explorer**, right-click your project node and select **Add** > **New Azure Function**. 
 
-1. Enter a **Name** for the class, and then select **Add**.
+1. In the **Add New Item** dialog, select **Azure Function**, and then select **Add**.
 
-1. Choose your trigger, set the required binding properties, and then select **Add**. The following example shows the settings for creating a Queue storage trigger function.
+1. Select a trigger, and then set the required binding properties. If you select an Azure Storage service trigger and you want to configure the connection, select the checkbox for configuring the trigger connection. The following example shows the settings for creating a Queue Storage trigger function.
 
     :::image type="content" source="media/functions-develop-vs/functions-vstools-create-queuetrigger.png" alt-text="Screenshot that shows the setting to create a Queue storage trigger function.":::
 
-    For an Azure Storage service trigger, check the **Configure connection** box and you're prompted to choose between using an Azurite storage emulator or referencing a provisioned Azure storage account. Select **Next** and if you choose a storage account, Visual Studio tries to connect to your Azure account and get the connection string. Choose **Save connection string value in Local user secrets file** and then **Finish** to create the trigger class.
+1. Select **Add**. If you selected the checkbox for configuring the trigger connection, you're prompted to choose between using an Azurite storage emulator or referencing a provisioned Azure storage account. Select **Next** and if you choose a storage account, Visual Studio tries to connect to your Azure account and get the connection string. Choose **Save connection string value in Local user secrets file** and then **Finish** to create the trigger class.
 
     This trigger example uses an application setting for the storage connection with a key named `QueueStorage`. This key, stored in the [local.settings.json file](functions-develop-local.md#local-settings-file), either references the Azurite emulator or an Azure storage account. 
 
