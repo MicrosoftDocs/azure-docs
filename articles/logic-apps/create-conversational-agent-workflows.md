@@ -266,7 +266,7 @@ To get the best results, make sure that your system instructions are prescriptiv
 
    1. Check that the response is what you expect, for example:
 
-      :::image type="content" source="media/create-conversational-agent-workflows/test-chat.png" alt-text="Screenshot shows workflow designer, and agent with system instructions." lightbox="media/create-conversational-agent-workflows/test-chat.png":::
+      :::image type="content" source="media/create-conversational-agent-workflows/test-chat.png" alt-text="Screenshot shows integrate chat interface." lightbox="media/create-conversational-agent-workflows/test-chat.png":::
 
    1. Return to your workflow in the designer.
 
@@ -466,7 +466,7 @@ To build this tool, follow these steps:
 
 ## Create agent parameters for the 'Send an email (V2)' action
 
-The steps in this section are nearly the same as [Create agent parameters for the 'Get forecast' action](#create-agent-parameters-for-the-get-forecast-action), except for the different parameters in the **Send an email (V2)** action. 
+The steps in this section are nearly the same as [Create agent parameters for the 'Get current weather' action](#create-agent-parameters-for-the-get-current-weather-action), except for the different parameters in the **Send an email (V2)** action. 
 
 1. Follow the earlier steps to create the following agent parameters for the action parameter values in the action named **Send an email (V2)**.
 
