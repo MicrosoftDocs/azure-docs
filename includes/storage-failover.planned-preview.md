@@ -11,8 +11,9 @@ ms.author: shaas
 ms.custom: "include file", references_regions
 ---
 
-> [!IMPORTANT]
 <!-- User feedback is being incorporated into customer-managed planned failover (preview) and the feature is temporarily unavailable in all regions. After completion, updated documentation will be released to reflect the regions in which the feature is available.-->
+
+> [!IMPORTANT]
 > Customer-managed planned failover is currently in PREVIEW and limited to the following regions:
 >
 > - Australia East
