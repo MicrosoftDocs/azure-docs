@@ -6,7 +6,7 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: concept-article
-ms.date: 07/18/2025
+ms.date: 09/03/2025
 ---
 
 # Differences between Standard single-tenant logic apps versus Consumption multitenant logic apps
@@ -310,6 +310,8 @@ For the **Standard** logic app workflow, the following capabilities are differen
 * **Trigger history and run history**: For a **Standard** logic app workflow, trigger history and run history in the Azure portal appears at the workflow level, not the logic app resource level. For more information, review [Create single-tenant based workflows using the Azure portal](create-single-tenant-workflows-azure-portal.md).
 
 * **Terraform templates**: You can't use these templates with a **Standard** logic app resource for complete infrastructure deployment. For more information, see [What is Terraform on Azure](/azure/developer/terraform/overview)?
+
+* **Incoming client certificate**: Logic app standard does not support incoming client certificate. There is no client certificate setting on configuration blade on Azure Portal. And make sure not to enable client certificate in ARM template if you use ARM deployment.
 
 <a name="firewall-permissions"></a>
 
