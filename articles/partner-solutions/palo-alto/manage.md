@@ -40,7 +40,14 @@ You can view and change settings by selecting one of the following settings cate
 
 ## Security Policies
 
-1. Select **Security Policies** under **Settings** in the left pane.
+To view these setttings, select **Security Policies** under **Settings** in the left pane.
+
+The settings that you see on this tab depend on how your security policies are managed.
+
+### Azure Rulestack
+
+If your security policies are managed by an Azure rulestack, you see the following sections. 
+
 1. In **Local Rulestack**, select an existing rulestack from the dropdown list.
 1. To manage settings for a rulestack, select the rulestack name under **Local Rulestack**. This action takes you to the local rulestack page. In the left pane, you see the following settings categories under **Resources**:
    - Rules
@@ -100,6 +107,10 @@ You can view and change settings by selecting one of the following settings cate
 1. On the **Managed Identity** page, you can enable or disable managed identity. 
 1. To enable managed identity, select **Enable MI** and then select an identity in the **Identity** list. 
 1. To disable managed identity, clear the **Enable MI** checkbox. 
+
+### Strata Cloud Manager
+
+If your security policies are managed by Starta Cloud Manager, you view see the **SCM Tenant ID** on the **Security Policies** tab.   
 
 ## Log Settings
 
