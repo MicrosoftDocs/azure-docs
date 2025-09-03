@@ -218,7 +218,7 @@ For continuation (`C`) and end (`E`) flow states, byte and packet counts are agg
 
 ### ExpressRoute gateway traffic
 
-Outbound flows from virtual machines to ExpressRoute circuit won't be recorded if flow logging is enabled on the ExpressRoute gateway subnet. Such flows must be recorded at the subnet or NIC of the VM. Traffic also bypasses the ExpressRoute gateway when [FastPath](../expressroute/about-fastpath.md) is enabled and won't be recorded if flow logging is enabled on the ExpressRoute gateway subnet.
+Outbound flows from virtual machines (VMs) to ExpressRoute circuit aren't recorded if flow logging is enabled on the ExpressRoute gateway subnet. Such flows must be recorded at the subnet or NIC of the VM. Traffic also bypasses the ExpressRoute gateway when [FastPath](../expressroute/about-fastpath.md) is enabled and isn't recorded if flow logging is enabled on the ExpressRoute gateway subnet.
 
 ### Private endpoint traffic
 
