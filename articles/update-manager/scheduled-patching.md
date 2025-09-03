@@ -15,19 +15,22 @@ ms.author: v-uhabiba
 
 Azure Update Manager uses Maintenance Configurations to control and manage updates for many Azure VM resources. See the [Guest](https://learn.microsoft.com/azure/virtual-machines/maintenance-configurations#guest) documentation for more details.
 
+**Concept** You can use Azure Update Manager to create and save recurring deployment schedules. You can create a schedule on a daily, weekly, or hourly cadence. You can specify the machines that must be updated as part of the schedule and the updates to be installed. These are saved as Maintenance Configurations.
+
 ## Prerequisites for scheduled patching
 
 1. See [Prerequisites for Update Manager](prerequisites.md).
 2. Patch orchestration of the Azure machines should be set to **Customer Managed Schedules**. For more information, see [Enable schedule patching on existing VMs](prerequsite-for-schedule-patching.md#enable-scheduled-patching-on-azure-vms).
 
+**Note** For Azure Arc-enabled machines, it is not a requirement.
 
 ## Scheduled patching in an availability set
 
 All VMs in a common [availability set](/azure/virtual-machines/availability-set-overview) aren't updated concurrently.
 
-VMs in a common availability set are updated within Update Domain boundaries. VMs across multiple Update Domains aren't updated concurrently. 
+VMs in a common availability set are updated within Update Domain boundaries. VMs across multiple Update Domains aren't updated concurrently.
 
-In scenarios where machines from the same availability set are being patched at the same time in different schedules, it is likely that they might not get patched or could potentially fail if the maintenance window exceeds. To avoid this, we recommend that you either increase the maintenance window or split the machines belonging to the same availability set across multiple schedules at different times. 
+In scenarios where machines from the same availability set are being patched at the same time in different schedules, it is likely that they might not get patched or could potentially fail if the maintenance window exceeds. To avoid this, we recommend that you either increase the maintenance window or split the machines belonging to the same availability set across multiple schedules at different times.
 
 
 ## Configure reboot settings
