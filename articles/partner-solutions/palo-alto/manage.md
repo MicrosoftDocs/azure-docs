@@ -110,7 +110,7 @@ If your security policies are managed by an Azure rulestack, you see the followi
 
 ### Strata Cloud Manager
 
-If your security policies are managed by Starta Cloud Manager, you view see the **SCM Tenant ID** on the **Security Policies** tab.   
+If your security policies are managed by Starta Cloud Manager, you can view the **SCM Tenant ID** on the **Security Policies** tab.   
 
 ## Log Settings
 
