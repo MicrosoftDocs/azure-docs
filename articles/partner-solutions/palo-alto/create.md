@@ -87,6 +87,15 @@ Next, you must accept the terms of use for the new Cloud NGFW resource.
 
 [!INCLUDE [review-create](../includes/review-create.md)]
 
+## Connection errors
+ 
+For connection errors, see [known issues for Azure Virtual WAN](../../virtual-wan/whats-new.md#known-issues).
+ 
+#### See also
+ 
+- [Azure Virtual Network FAQ](../../virtual-network/virtual-networks-faq.md)
+- [Virtual WAN FAQ](../../virtual-wan/virtual-wan-faq.md)
+
 ## Next steps
 
 - [Manage the Cloud NGFW resource](manage.md)
