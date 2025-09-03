@@ -15,7 +15,7 @@ In this quickstart, you use Bicep to deploy a firmware analysis workspace so you
 
 /azure/azure-resource-manager/includes/resource-manager-quickstart-bicep-introduction.md]
 
-[Bicep](articles\azure-resource-manager\bicep\overview.md) is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. It provides concise syntax, reliable type safety, and support for code reuse. Bicep offers the best authoring experience for your infrastructure-as-code solutions in Azure.
+[Bicep](../../articles/azure-resource-manager/bicep/overview.md) is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. It provides concise syntax, reliable type safety, and support for code reuse. Bicep offers the best authoring experience for your infrastructure-as-code solutions in Azure.
 
 ## Prerequisites
 
