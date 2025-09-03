@@ -44,7 +44,7 @@ The following table describes the benefits that you get when you set up Standard
 | Reusability | Call existing workflows, connectors, and codeful functions from an AI agent, which gives you extra return on your investments. |
 | Flexibility | Choose from more than 1,400 connectors that provide access and actions to work with enterprise assets and resources in the cloud or on premises. |
 | Access points | Azure Logic Apps supports different connectivity models for running your MCP server. You can run your server in the cloud, expose your server as a private endpoint, or connect to virtual networks and on-premises resources. |
-| Security | When you expose your logic app as an MCP server, you set up a strong security posture so you can meet your enterprise security requirements. By default, MCP endpoints use [OAuth 2.0](/entra/identity-platform/v2-oauth2-auth-code-flow) for authentication and authorization. For more information, see [What is OAuth](https://www.microsoft.com/security/business/security-101/what-is-oauth)? <br><br>You can also use Microsoft Entra ID with *Easy Auth* to secure your MCP server and Standard workflows. Easy Auth is the current name for the native authentication and authorization features in Azure App Service, Azure Functions, and Azure Container Apps. For more information, see [Authentication and authorization in Azure App Service and Azure Functions](../app-service/overview-authentication-authorization.md). |
+| Security | When you expose your logic app as an MCP server, you set up a strong security posture so you can meet your enterprise security requirements. By default, MCP endpoints use [OAuth 2.0](/entra/identity-platform/v2-oauth2-auth-code-flow) for authentication and authorization. For more information, see [What is OAuth](https://www.microsoft.com/security/business/security-101/what-is-oauth)? <br><br>You can use *Easy Auth* to secure your MCP server and Standard workflows. Easy Auth is the current name for the native authentication and authorization features in Azure App Service, Azure Functions, and Azure Container Apps. For more information, see [Authentication and authorization in Azure App Service and Azure Functions](../app-service/overview-authentication-authorization.md). |
 | Monitoring, governance, and compliance | Azure Logic Apps provides workflow run history and integration with Application Insights or Log Analytics so you get the data necessary to manage and monitor your MCP server tools and support diagnostics, troubleshooting, reporting, traceability, and auditing. |
 
 Standard logic app based MCP servers support the [Streamable HTTP and Server-Sent Events (SSE) transports for MCP](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports).
@@ -74,7 +74,7 @@ Standard logic app based MCP servers support the [Streamable HTTP and Server-Sen
 
 - An MCP client to test your MCP server setup.
 
-  This guide uses [Visual Studio Code installed with the Azure Logic Apps (Standard) extension](create-standard-workflows-visual-studio-code.md#prerequisites).
+  This guide uses [Visual Studio Code](https://code.visualstudio.com/download).
 
   > [!NOTE]
   >
@@ -106,7 +106,11 @@ To help agents or models find and run tools, add the following metadata to the *
 
 - Trigger description
 
-  Your MCP server uses this metadata as the tool description to show end users and to route requests to the correct tool. To add this description, follow these steps:
+  Your MCP server uses this metadata as the tool description to show end users and to route requests to the correct tool, for example:
+
+  :::image type="content" source="media/set-up-model-context-protocol-server-standard/trigger-description.png" alt-text="Screenshot shows trigger information pane with description box and example description." lightbox="media/set-up-model-context-protocol-server-standard/trigger-description.png":::
+
+  To add this description, follow these steps:
 
   1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow.
 
@@ -118,7 +122,11 @@ To help agents or models find and run tools, add the following metadata to the *
 
 - Input parameter descriptions
 
-  This metadata improves the agent's accuracy in passing the correct inputs to tools at runtime. To add a description for each input parameter, follow these steps:
+  This metadata improves the agent's accuracy in passing the correct inputs to tools at runtime, for example:
+
+  :::image type="content" source="media/set-up-model-context-protocol-server-standard/input-parameter-descriptions.png" alt-text="Screenshot shows trigger information pane with Request Body Json Schema box and example descriptions for input parameters." lightbox="media/set-up-model-context-protocol-server-standard/input-parameter-descriptions.png":::
+
+  To add a description for each input parameter, follow these steps:
 
   1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow.
 
@@ -210,7 +218,7 @@ To create an app registration for your logic app to use in your Easy Auth setup,
 
       | Property | Required | Description |
       |----------|----------|-------------|
-      | **Scope name** | Yes | A relevant name for the permissions scope that uses the following format:<br><br> `<resource>.<operation>.<constraint>` <br><br>This example uses `user_impersonation`. For more information, see [Scopes and permissions in the Microsoft identity platform](/entra/identity-platform/scopes-oidc). |
+      | **Scope name** | Yes | A relevant name for the permissions scope. As a recommendation, use the name **`user_impersonation`**, which is the default supported scope in the Azure Logic Apps protected resource data in the MCP server context. <br><br>If you use a different scope, you must override the default scope in your logic app's configuration file (*host.json*) and use the following format:<br><br> `<resource>.<operation>.<constraint>` <br><br>For more information, see [Scopes and permissions in the Microsoft identity platform](/entra/identity-platform/scopes-oidc). |
       | **Who can consent** | Yes | Whether users can also consent to this scope or whether only admins can consent. Use **Admins only** for higher-privileged permissions. Based on your organization's policies, select the option that best aligns with your policies. This example selects **Admins and users**. |
       | **Admin consent display name** | Yes | A short description about the scope's purpose that only admins can see. |
       | **Admin consent description** | Yes | A more detailed description about the permission granted by the scope that only admins can see. |
@@ -249,14 +257,14 @@ Now set up Easy Auth authentication on the Standard logic app that you want to u
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Application (client) ID** | Yes | The application (client) ID from your previously created app registration. |
-   | **Issuer URL** | Yes | The following URL where you replace <*tenant-ID*> with the GUID for your directory (tenant): <br><br> `https://login.microsoftonline.com/<tenant-ID>/v2.0`|
-   | **Allowed token audiences** | Yes | The application ID URI from your previously created app registration. |
+   | **Issuer URL** | Yes | The following URL where you replace <*tenant-ID*> with the GUID for your directory (tenant): <br><br> **`https://login.microsoftonline.com/<tenant-ID>/v2.0`** |
+   | **Allowed token audiences** | Yes | The application ID URI from your previously created app registration in the following format: <br><br>**`api://<application-ID>/`**. <br><br>**Important**: Make sure that you include the trailing slash at the end of the URI, for example: <br><br>**`api://11112222-bbbb-3333-cccc-4444dddd5555/`** |
 
 1. In the **Additional checks** section, select the following options or provide information to further control authentication and access:
 
    | Property | Required | Description |
    |----------|----------|-------------|
-   | **Client application requirement** | Yes | Choose an option: <br><br>- **Allow requests from specific client applications**: If you know which client applications call your MCP server, you can select these applications from the **Allowed client applications** list. For example, if you use Visual Studio Code, you can add the ID for this client application by editing the **Allowed client applications** list. To find this value, follow these steps: <br><br>1. In the Azure portal search box, find and select **Enterprise applications**. <br>2. On the **All applications** page search box, find and select the application ID for Visual Studio Code. <br><br>- **Allow requests from any application (Not recommended)**: Only when you're unsure what applications call your MCP server. |
+   | **Client application requirement** | Yes | Choose an option: <br><br>- **Allow requests only from this application itself**: Not applicable to MCP server. <br><br>- **Allow requests from specific client applications**: If you know which client applications call your MCP server, you can select these applications from the **Allowed client applications** list. For example, if you use Visual Studio Code, you can add the ID for this client application by editing the **Allowed client applications** list. To find this value, follow these steps: <br><br>1. In the Azure portal search box, find and select **Enterprise applications**. <br>2. On the **All applications** page search box, find and select the application ID for Visual Studio Code. <br><br>- **Allow requests from any application (Not recommended)**: Only when you're unsure what applications call your MCP server. |
    | **Identity requirement** | Yes | To restrict which users can call your MCP server, select **Allow requests from specific identities**, and then from Microsoft Entra ID, from the **Allowed identities** list, select the object IDs for those identities that you allow to call your MCP server. Otherwise, select **Allow requests from any identity**. |
    | **Tenant requirement** | Yes | To deny calls from outside tenants to your MCP server, select **Allow requests from the issuer tenant**. |
 
@@ -286,9 +294,9 @@ For this task, you need to edit the **host.json** file for your Standard logic a
 
 1. In the editor window, following the `extensionBundle` JSON object, add the `extensions` JSON object at the same level as `extensionBundle`.
 
-   - Set the `extensions.workflow.mcpserverendpoints.enable` property to `true`.
+   - Set the `extensions.workflow.McpServerEndpoints.enable` property to `true`.
 
-     This setting helps you avoid having to change the other information in this file.
+     This property enables MCP Server specific APIs on your logic app and is the only property value that requires you to change. All other property values don't require changes unless you want to use SSE transport or override the default values.
 
    - To override the default values for the properties in `ProtectedResourceMetadata`, replace the placeholder values with the following values that you saved earlier:
 
@@ -304,7 +312,7 @@ For this task, you need to edit the **host.json** file for your Standard logic a
 
      - `BearerMethodsSupported` and `ScopesSupported` support only the specified values.
 
-     - For `ScopesSupported`, the allowed token audience is `"api://<client-ID>/"`. Include the trailing slash unless you know this character doesn't exist in the token's audience claim.
+     - For `ScopesSupported`, the allowed token audience is `"api://<client-ID>/"`. Make sure to include the trailing slash unless you know this character doesn't exist in the token's audience claim.
 
      - `AuthorizationServers` specifies the recommended value for your tenant.
 
@@ -320,8 +328,8 @@ For this task, you need to edit the **host.json** file for your Standard logic a
    "extensions": {
        "workflow": {
            "Settings": {
-               "Runtime.McpServerToMcpClientPingIntervalInSeconds": 25, // Ping interval default value, which you can change if necessary.
-               "Runtime.Backend.EdgeWorkflowRuntimeTriggerListener.AllowCrossWorkerCommunication": true // Required only for SSE transport.
+               "Runtime.McpServerToMcpClientPingIntervalInSeconds": 30, // Required only for SSE transport to keep the connection alive. The ping interval default value is 30 seconds, which you can change if necessary.
+               "Runtime.Backend.EdgeWorkflowRuntimeTriggerListener.AllowCrossWorkerCommunication": false // Required and set to `true` only for SSE transport.
            },
            "McpServerEndpoints": {
                "enable": true,
