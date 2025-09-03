@@ -89,9 +89,9 @@ Next, you must accept the terms of use for the new Cloud NGFW resource.
 
 ## Connection errors
  
-For connection errors, see [known issues for Azure Virtual WAN](../../virtual-wan/whats-new.md#known-issues).
+For information about connection errors, see [known issues for Azure Virtual WAN](../../virtual-wan/whats-new.md#known-issues).
  
-#### See also
+Also see these references: 
  
 - [Azure Virtual Network FAQ](../../virtual-network/virtual-networks-faq.md)
 - [Virtual WAN FAQ](../../virtual-wan/virtual-wan-faq.md)
