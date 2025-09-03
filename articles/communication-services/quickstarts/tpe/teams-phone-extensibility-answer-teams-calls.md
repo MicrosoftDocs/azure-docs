@@ -45,7 +45,7 @@ Send a request to the Microsoft Teams Extension access assignments API to allow 
 The following example shows a request for a Teams Tenant with identifier `87d349ed-44d7-43e1-9a83-5f2406dee5bd` and a Teams resource account oid with identifier `e5b7f628-ea94-4fdc-b3d9-1af1fe231111`.
 
 ```http
-PUT {endpoint}/access/teamsExtension/tenants/87d349ed-44d7-43e1-9a83-5f2406dee5bd/assignments/e5b7f628-ea94-4fdc-b3d9-1af1fe231111?api-version=2025-03-02-preview
+PUT {endpoint}/access/teamsExtension/tenants/87d349ed-44d7-43e1-9a83-5f2406dee5bd/assignments/e5b7f628-ea94-4fdc-b3d9-1af1fe231111?api-version=2025-06-30
 
 {
     "principalType" : "teamsResourceAccount",
@@ -74,7 +74,7 @@ Content-type: application/json
 Send a request to the Microsoft Teams Extension access assignments API to delete the entry for your Teams resource account.
 
 ```http
-DELETE {endpoint}/access/teamsExtension/assignments/e5b7f628-ea94-4fdc-b3d9-1af1fe231111?api-version=2025-03-02-preview
+DELETE {endpoint}/access/teamsExtension/assignments/e5b7f628-ea94-4fdc-b3d9-1af1fe231111?api-version=2025-06-30
 ```
 
 ### Response
@@ -89,7 +89,7 @@ Content-type: application/json
 To verify that the Teams resource account is no longer linked with the Communication Services resource, you can send a GET request to the Microsoft Teams Extension access assignments API. Verify that its response status code is 404. 
 
 ```http
-GET {endpoint}/access/teamsExtension/assignments/e5b7f628-ea94-4fdc-b3d9-1af1fe231111?api-version=2025-03-02-preview
+GET {endpoint}/access/teamsExtension/assignments/e5b7f628-ea94-4fdc-b3d9-1af1fe231111?api-version=2025-06-30
 ```
 
 ## Receive and answer incoming calls
