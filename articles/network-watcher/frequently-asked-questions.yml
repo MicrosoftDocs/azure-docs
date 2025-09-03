@@ -418,6 +418,11 @@ sections:
           - Select **New alert rule** to create the alert.
           - See [Create a new alert rule](/azure/azure-monitor/alerts/alerts-log) to create the alert.
 
+      - question: |
+          Is traffic analytics supported in a Log Analytics workspace with Network Security Perimeter enabled?
+        answer: |
+          No, it is currently not supported. If a Log Analytics workspace is deployed behind a network security perimeter, traffic analytics won't be able to ingest data from it.
+
   - name: Network diagnostic tools
     questions:
       - question: | 
