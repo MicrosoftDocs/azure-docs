@@ -33,7 +33,7 @@ In conversational agent workflows, an agent provides the following capabilities 
 
 With [1,400+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that provide actions that you can use to create tools for an agent to use, conversational agent workflows support a vast range of scenarios that can greatly benefit from AI capabilities.
 
-The following screenshot shows an example conversational agent workflow that you create in this guide. The workflow uses an agent to get the weather forecast and send that forecast in email. The diagram shows the agent information pane where you set up the agent and provide instructions through a chat interface for the agent to follow:
+The following screenshot shows an example conversational agent workflow that you create in this guide. The workflow uses an agent to get the current weather and send that information in email. The diagram shows the agent information pane where you set up the agent and provide instructions through a chat interface for the agent to follow:
 
 For the high-level steps that describe how the agent works and more overview information about agent workflows, see [AI agent workflows in Azure Logic Apps](/azure/logic-apps/agent-workflows-concepts).
 
@@ -258,33 +258,229 @@ To get the best results, make sure that your system instructions are prescriptiv
 
 1. Now, you can save your workflow. On the designer toolbar, select **Save**.
 
+1. To make sure your workflow doesn't have errors at this stage, follow these steps:
 
+   1. On the designer toolbar, select **Chat**.
 
+   1. In the chat client interface, ask the following question: **What is the current weather in Seattle?**
 
+   1. Check that the response is what you expect, for example:
 
+      :::image type="content" source="media/create-conversational-agent-workflows/test-chat.png" alt-text="Screenshot shows workflow designer, and agent with system instructions." lightbox="media/create-conversational-agent-workflows/test-chat.png":::
 
-## Create a tool to provide subscriber list
+   1. Return to your workflow in the designer.
 
-Finally, for this example, create a tool named **Get subscribers** to provide a subscriber list for the agent parameter values to use. This tool uses the **Compose** action to supply the subscriber name, email address, and location. Or, you might source these inputs from blob storage or a database. Azure Logic Apps offers many options that you can use as data sources.
+   1. On the workflow sidebar, under **Tools**, select **Run history**.
 
-The following example shows how the **Get subscribers** tool might look:
+   1. On the **Run history** page, on the **Run history** tab, in the **Identifier** column, select the latest workflow run.
 
-:::image type="content" source="media/create-autonomous-agent-workflows/add-tool-get-subscribers.png" alt-text="Screenshot shows agent with new tool named Get subscribers that contains a Compose action with subscriber information." lightbox="media/create-autonomous-agent-workflows/add-tool-get-subscribers.png":::
+      > [!NOTE]
+      >
+      > If the page doesn't show any runs, on the toolbar, select **Refresh**.
+      >
+      > If the **Status** column shows a **Running** status, the agent workflow 
+      > is still working.
 
-Optionally, on the agent, you can provide *user instructions* that the agent can use as prompts or requests. 
-For better results, make each user instruction focus on a specific task, for example:
+      The monitoring view opens and shows the workflow operations with their status. The **Agent log** pane is open and shows the system instructions that you provided earlier. The pane also shows the agent's response.
 
-1. On the agent information pane, in the **User instructions** section, select **Add new item**.
+      :::image type="content" source="media/create-conversational-agent-workflows/agent-only-run-history.png" alt-text="Screenshot shows monitoring view, operation status, and agent log." lightbox="media/create-conversational-agent-workflows/agent-only-run-history.png":::
 
-1. In the **User instructions Item - 1** box, enter the question to ask the agent.
+      However, the agent doesn't have any tools to use at this time, which means that the agent can't actually take any specific actions, such as send email, until you create tools that the agent needs to complete their tasks. You might even get an email that your message was rejected by your email server.
 
-1. To add another item, select **Add new item** again.
+1. Return to the designer. On the monitoring view toolbar, select **Edit**.
 
-1. In the **User instructions item - 2** box, enter another question to ask the agent.
+## Create a tool to get current weather
 
-1. Repeat until you finish adding all the questions to ask the agent.
+For an agent to run prebuilt actions available in Azure Logic Apps, you must create one or more tools for the agent to use. A tool must contain at least one action and only actions. The agent calls the tool by using specific arguments.
 
-1. When you're done, test your workflow.
+In this example, the agent needs a tool that gets the current weather. You can build this tool by following these steps:
+
+1. On the designer, inside the agent and under **Add tool**, select the plus sign (**+**) to open the pane where you can browse available actions.
+
+1. On the **Add an action** pane, follow these [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-action) to add an action for your scenario.
+
+   This example uses the **MSN Weather** action named **Get current weather**.
+
+   After you select the action, both the **Tool** and the action appear inside the agent on the designer at the same time. Both information panes also open at the same time.
+
+   :::image type="content" source="media/create-conversational-agent-workflows/added-tool-get-weather.png" alt-text="Screenshot shows workflow designer with weather agent action, which contains a tool that includes the action named Get current weather." lightbox="media/create-conversational-agent-workflows/added-tool-get-weather.png":::
+
+1. On the tool information pane, rename the tool to describe its purpose.
+
+   This example uses **Get current weather**.
+
+1. On the **Details** tab, for **Description**, enter the tool description.
+
+   This example uses **Gets the weather for the specified location.**
+
+   Under **Description**, the **Agent Parameters** section applies only for specific use cases. For more information, see [Create agent parameters](#create-agent-parameters-for-the-get-current-weather-action).
+
+1. Continue to the next section to learn more about agent parameters, their use cases, and how to create them, based on these use cases.
+
+## Create agent parameters for the 'Get current weather' action
+
+Actions usually have parameters that require you to specify the values to use. Actions in tools are almost the same except for one difference. You can create agent parameters that the agent uses to specify the parameter values for actions in tools. You can specify model-generated outputs, values from non-model sources, or a combination. For more information, see [Agent parameters](agent-workflows-concepts.md#key-concepts).
+
+The following table describes the use cases for creating agent parameters and where to create them, based on the use case:
+
+| To | Where to create agent parameter |
+|----|---------------------------------|
+| Use model-generated outputs only. <br>Share with other actions in the same tool. | Start from the action parameter. For detailed steps, see [Use model-generated outputs only](#use-model-generated-outputs-only). |
+| Use non-model values. | No agent parameters needed. <br><br>This experience is the same as the usual action setup experience in Azure Logic Apps but is repeated for convenience in [Use values from non-model sources](#use-values-from-non-model-sources). |
+| Use model-generated outputs with non-model values. <br>Share with other actions in the same tool. | Start from the tool, in the **Agent Parameters** section. For detailed steps, see [Use model outputs and non-model values](#use-model-outputs-and-non-model-values).|
+
+##### Use model-generated outputs only
+
+For an action parameter that uses only model-generated outputs, create an agent parameter by following these steps:
+
+1. In the tool, select the action to open the information pane.
+
+   For this example, the action is **Get current weather**.
+
+1. On the **Parameters** tab, select inside the parameter box to show the parameter options.
+
+1. On the right edge of the **Location** box, select the stars button.
+
+   This button has the following tooltip: **Select to generate the agent parameter**.
+
+   :::image type="content" source="media/create-conversational-agent-workflows/generate-agent-parameter.png" alt-text="Screenshot shows an action with the mouse cursor inside a parameter box, parameter options, and the selected option to generate an agent parameter." lightbox="media/create-conversational-agent-workflows/generate-agent-parameter.png":::
+
+   The **Create agent parameter** window shows the **Name**, **Type**, and **Description** fields, which are prepopulated from the source action parameter.
+
+   The following table describes the fields that define the agent parameter:
+
+   | Parameter | Value | Description |
+   |-----------|-------|-------------|
+   | **Name** | <*agent-parameter-name*> | The agent parameter name. |
+   | **Type** | <*agent-parameter-data-type*> | The agent parameter data type. |
+   | **Description** | <*agent-parameter-description*> | The agent parameter description that easily identifies the parameter's purpose. |
+
+   > [!NOTE]
+   >
+   > Microsoft recommends that you follow the action's Swagger definition. For example, 
+   > for the **Get current weather** action, which is from the **MSN Weather** "shared" 
+   > connector hosted and managed by global, multitenant Azure, see the 
+   > [**MSN Weather** connector technical reference article](/connectors/msnweather/#get-current-weather).
+
+1. When you're ready, select **Create**.
+
+   The following diagram shows the example **Get current weather** action with the **Location** agent parameter:
+
+   :::image type="content" source="media/create-conversational-agent-workflows/get-current-weather-action.png" alt-text="Screenshot shows the Weather agent, Get current weather tool, and selected action named Get current weather. The Location action parameter includes the created agent parameter." lightbox="media/create-conversational-agent-workflows/get-current-weather-action.png":::
+
+1. Save your workflow.
+
+##### Use values from non-model sources
+
+For an action parameter value that uses only non-model values, choose the option that best fits your use case:
+
+**Use outputs from earlier operations in the workflow**
+
+To browse and select from these outputs, follow these steps:
+
+1. Select inside the parameter box, and then select the lightning icon to open the dynamic content list.
+
+1. From the list, in the trigger or action section, select the output that you want. 
+
+1. Save your workflow.
+
+**Use results from expressions**
+
+To create an expression, follow these steps:
+
+1. Select inside the parameter box, and then select the function icon to open the expression editor.
+
+1. Select from available functions to create the expression.
+
+1. Save your workflow.
+
+For more information, see [Reference guide to workflow expression functions in Azure Logic Apps](/azure/logic-apps/workflow-definition-language-functions-reference).
+
+##### Use model outputs and non-model values
+
+Some scenarios might need to specify an action parameter value that uses both model-generated outputs with non-model values. For example, you might want to create an email body that uses static text, non-model outputs from earlier operations in the workflow, and model-generated outputs.
+
+For these scenarios, create the agent parameter on the tool by following these steps:
+
+1. On the designer, select the tool where you want to create the agent parameter.
+
+1. On the **Details** tab, under **Agent Parameters**, select **Create Parameter**.
+
+1. Expand **New agent parameter**, and provide the following information, but match the action parameter details.
+
+   For this example, the example action is **Get current weather**.
+
+   > [!NOTE]
+   >
+   > Microsoft recommends that you follow the action's Swagger definition. For example, 
+   > to find this information for the **Get current weather** action, see the 
+   > [**MSN Weather** connector technical reference article](/connectors/msnweather/#get-current-weather). 
+   > The example action is provided by the **MSN Weather** managed connector, 
+   > which is hosted and run in a shared cluster on multitenant Azure.
+  
+   | Parameter | Value | Description |
+   |-----------|-------|-------------|
+   | **Name** | <*agent-parameter-name*> | The agent parameter name. |
+   | **Type** | <*agent-parameter-data-type*> | The agent parameter data type. |
+   | **Description** | <*agent-parameter-description*> | The agent parameter description that easily identifies the parameter's purpose. You can choose from the following options or combine them to provide a description: <br><br>- Plain literal text with details such as the parameter's purpose, permitted values, restrictions, or limits. <br><br>- Outputs from earlier operations in the workflow. To browse and choose these outputs, select inside the **Description** box, and then select the lightning icon to open the dynamic content list. From the list, select the output that you want. <br><br>- Results from expressions. To create an expression, select inside the **Description** box, and then select the function icon to open the expression editor. Select from available functions to create the expression. |
+
+   When you're done, under **Agent Parameters**, the new agent parameter appears.
+
+1. On the designer, in the tool, select the action to open the action information pane.
+
+1. On the **Parameters** tab, select inside the parameter box to show the parameter options, and then select the robot icon.
+
+1. From the **Agent parameters** list, select the agent parameter that you defined earlier.
+
+   For example, the finished **Get current weather** tool looks like the following example:
+
+   :::image type="content" source="media/create-conversational-agent-workflows/get-current-weather-tool.png" alt-text="Screenshot shows workflow designer with the agent and selected tool now named Get current weather." lightbox="media/create-conversational-agent-workflows/get-current-weather-tool.png":::
+
+1. Save your workflow.
+
+## Create a tool to send email
+
+For many scenarios, an agent usually needs more than one tool. In this example, the agent needs a tool that sends the weather report in email.
+
+To build this tool, follow these steps:
+
+1. On the designer, inside the agent action, next to the existing tool, select the plus sign (**+**) to add an action.
+
+1. On the **Add an action** pane, follow these [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-action) to select another action for your new tool.
+
+   The examples use the **Outlook.com** action named **Send an email (V2)**.
+
+   Like before, after you select the action, both the new **Tool** and action appear inside the agent on the designer at the same time. Both information panes open at the same time.
+
+   :::image type="content" source="media/create-conversational-agent-workflows/added-tool-send-email.png" alt-text="Screenshot shows workflow designer with Weather agent, Get current weather tool, and new tool with action named Send an email (V2)." lightbox="media/create-conversational-agent-workflows/added-tool-send-email.png":::
+
+1. On the tool information pane, make the tool's purpose obvious by updating the tool name.
+
+   The examples use **Send email**.
+
+1. On the **Details** tab, provide the following information:
+
+   1. For **Description**, enter the tool description.
+
+      This example uses **Send weather report in email.**
+
+## Create agent parameters for the 'Send an email (V2)' action
+
+The steps in this section are nearly the same as [Create agent parameters for the 'Get forecast' action](#create-agent-parameters-for-the-get-forecast-action), except for the different parameters in the **Send an email (V2)** action. 
+
+1. Follow the earlier steps to create the following agent parameters for the action parameter values in the action named **Send an email (V2)**.
+
+   The action needs three agent parameters named **To**, **Subject**, and **Body**. For the action's Swagger definition, see [**Send an email (V2)**](/connectors/outlook/#send-an-email-(v2)).
+
+   For example, the **Send an email (V2)** action looks like the following example:
+
+   When you're done, the example action uses the previously defined agent parameters as shown here:
+
+   :::image type="content" source="media/create-conversational-agent-workflows/send-email-action.png" alt-text="Screenshot shows the information pane for the action named Send an email V2, plus the previously defined agent parameters named To, Subject, and Body." lightbox="media/create-conversational-agent-workflows/send-email-action.png":::
+
+   The second example tool is now complete and looks like the following example:
+
+   :::image type="content" source="media/create-conversational-agent-workflows/send-email-tool-complete.png" alt-text="Screenshot shows the finished second tool inside the agent." lightbox="media/create-conversational-agent-workflows/send-email-tool-complete.png":::
 
 ## Related content
 

@@ -485,7 +485,7 @@ The steps in this section are nearly the same as [Create agent parameters for th
 
 1. Follow the earlier steps to create the following agent parameters for the action parameter values in the action named **Send an email (V2)**.
 
-   The action needs three agent parameters named **To**, **Subject**, and **Body**. For the action's Swagger definition, see [**Send an meal (V2)**](/connectors/outlook/#send-an-email-(v2)).
+   The action needs three agent parameters named **To**, **Subject**, and **Body**. For the action's Swagger definition, see [**Send an email (V2)**](/connectors/outlook/#send-an-email-(v2)).
 
    For example, the **Send an email (V2)** action looks like the following example:
 
