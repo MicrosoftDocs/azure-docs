@@ -1,21 +1,21 @@
 ---
-title: Use Azure Container Storage (v1) with local NVMe
-description: Configure Azure Container Storage (v1) for use with Ephemeral Disk using local NVMe on the Azure Kubernetes Service (AKS) cluster nodes. Create a storage pool, select a storage class, and deploy a pod.
+title: Use Azure Container Storage (version 1.x.x) with local NVMe
+description: Configure Azure Container Storage (version 1.x.x) for use with Ephemeral Disk using local NVMe on the Azure Kubernetes Service (AKS) cluster nodes. Create a storage pool, select a storage class, and deploy a pod.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
 ms.date: 09/02/2025
 ms.author: kendownie
 ms.custom: references_regions
-# Customer intent: "As a Kubernetes administrator, I want to configure Azure Container Storage (v1) to use local NVMe for ephemeral volumes, so that I can optimize storage performance for my applications requiring low latency that don't require data durability."
+# Customer intent: "As a Kubernetes administrator, I want to configure Azure Container Storage (version 1.x.x) to use local NVMe for ephemeral volumes, so that I can optimize storage performance for my applications requiring low latency that don't require data durability."
 ---
 
-# Use Azure Container Storage (v1) with local NVMe
+# Use Azure Container Storage (version 1.x.x) with local NVMe
 
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage (v1) to use Ephemeral Disk with local NVMe as back-end storage for your Kubernetes workloads. At the end, you'll have a pod that's using local NVMe as its storage.
+Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage (version 1.x.x) to use Ephemeral Disk with local NVMe as back-end storage for your Kubernetes workloads. At the end, you'll have a pod that's using local NVMe as its storage.
 
 > [!IMPORTANT]
-> This article applies to Azure Container Storage v1.x releases. If you're using Azure Container Storage v2.x, see [this article](use-container-storage-with-local-disk.md).
+> This article covers features and capabilities available in Azure Container Storage (version 1.x.x). [Azure Container Storage (version 2.x.x)](container-storage-introduction.md) is now available.If you're already using Azure Container Storage (version 2.x.x), see [this article](use-container-storage-with-local-disk.md) to configure local NVMe.
 
 ## What is Ephemeral Disk?
 
@@ -427,4 +427,4 @@ az aks update -n <cluster-name> -g <resource-group> --enable-azure-container-sto
 
 ## See also
 
-- [What is Azure Container Storage?](container-storage-introduction-v1.md)
+- [What is Azure Container Storage (version 1.x.x)?](container-storage-introduction-version-1.md)

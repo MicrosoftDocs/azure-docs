@@ -3,7 +3,7 @@ title: Introduction to Azure Container Storage
 description: An overview of Azure Container Storage, a service built natively for containers that enables customers to create and manage volumes for running production-scale stateful container applications.
 author: khdownie
 ms.service: azure-container-storage
-ms.date: 09/02/2025
+ms.date: 09/03/2025
 ms.author: kendownie
 ms.topic: overview
 ms.custom: references_regions
@@ -17,7 +17,7 @@ Azure Container Storage is a cloud-based volume management, deployment, and orch
 To get started using Azure Container Storage, see [Use Azure Container Storage with Azure Kubernetes Service](container-storage-aks-quickstart.md).
 
 > [!IMPORTANT]
-> This article covers features and capabilities available in Azure Container Storage v2.x.x. For details about earlier versions, see [Azure Container Storage v1 documentation](container-storage-introduction-v1.md).
+> This article covers features and capabilities available in Azure Container Storage (version 2.x.x), which currently only supports local NVMe disk as backing storage. For details about earlier versions, see [Azure Container Storage (version 1.x.x) documentation](container-storage-introduction-version-1.md).
 
 ## Why Azure Container Storage is useful
 
@@ -119,4 +119,4 @@ To better navigate Azure Container Storage and Kubernetes concepts, familiarize 
 
 - [Install Azure Container Storage for use with AKS](container-storage-aks-quickstart.md)
 - [Azure Container Storage pricing](https://aka.ms/AzureContainerStoragePricingPage)
-- [What's Azure Container Storage v1](container-storage-introduction-v1.md)
+- [Azure Container Storage (version 1.x.x)](container-storage-introduction-version-1.md)

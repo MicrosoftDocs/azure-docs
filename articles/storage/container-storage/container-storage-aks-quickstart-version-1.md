@@ -1,21 +1,21 @@
 ---
-title: Use Azure Container Storage (v1) with AKS
-description: Connect to a Linux-based Azure Kubernetes Service (AKS) cluster, install Azure Container Storage (v1), and create a storage pool.
+title: Use Azure Container Storage (version 1.x.x) with AKS
+description: Connect to a Linux-based Azure Kubernetes Service (AKS) cluster, install Azure Container Storage (version 1.x.x), and create a storage pool.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 08/20/2025
+ms.date: 09/03/2025
 ms.author: kendownie
 ms.custom: devx-track-azurecli, linux-related-content
-# Customer intent: As a cloud engineer, I want to install Azure Container Storage (v1) on my AKS cluster, so that I can manage container volumes efficiently and choose the appropriate storage options for my workloads.
+# Customer intent: As a cloud engineer, I want to install Azure Container Storage (version 1.x.x) on my AKS cluster, so that I can manage container volumes efficiently and choose the appropriate storage options for my workloads.
 ---
 
-# Quickstart: Use Azure Container Storage (v1) with Azure Kubernetes Service
+# Quickstart: Use Azure Container Storage (version 1.x.x) with Azure Kubernetes Service
 
-[Azure Container Storage](container-storage-introduction-v1.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This Quickstart shows you how to connect to a Linux-based [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) cluster, install Azure Container Storage (v1), and create a storage pool using Azure CLI.
+Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built natively for containers. This Quickstart shows you how to connect to a Linux-based [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) cluster, install Azure Container Storage (version 1.x.x), and create a storage pool using Azure CLI.
 
 > [!IMPORTANT]
-> This article explains how to install Azure Container Storage version 1.x.x, which now explicitly requires a version pinning parameter `--container-storage-version 1` for installation. Azure Container Storage v2.x.x is now available. See [Azure Container Storage](container-storage-introduction.md) for more information.
+> This article explains how to install Azure Container Storage (version 1.x.x), which now explicitly requires a version pinning parameter `--container-storage-version 1` for installation. [Azure Container Storage (version 2.x.x)](container-storage-introduction.md) is now available.
 
 ## Prerequisites
 
@@ -25,9 +25,9 @@ ms.custom: devx-track-azurecli, linux-related-content
 
 - You'll need the Kubernetes command-line client, `kubectl`. It's already installed if you're using Azure Cloud Shell, or you can install it locally by running the `az aks install-cli` command.
 
-- Check if your target region is supported in [Azure Container Storage regions](container-storage-introduction.md#regional-availability).
+- Check if your target region is supported in [Azure Container Storage regions](container-storage-introduction-version-1.md#regional-availability).
 
-- If you haven't already created an AKS cluster, follow the instructions for [Installing an AKS Cluster](install-container-storage-aks.md).
+- If you haven't already created an AKS cluster, follow the instructions for [Installing an AKS Cluster](install-container-storage-aks-version-1.md).
 
 ## Getting started
 
@@ -109,7 +109,7 @@ Azure Container Storage requires certain node resources to run components for th
 
 The resources consumed are per node, and will be consumed for each node in the node pool where Azure Container Storage will be installed. If your nodes don't have enough resources, Azure Container Storage will fail to run. Kubernetes will automatically re-try to initialize these failed pods, so if resources get liberated, these pods can be initialized again.
 
-\*In a storage pool type Ephemeral Disk - Local NVMe with the standard (default) performance tier, if you're using multiple VM SKU types for your cluster nodes, the 25% of CPU cores consumed applies to the smallest SKU used. For example, if you're using a mix of 8-core and 16-core VM types, resource consumption is 2 cores. You can [update the performance tier](use-container-storage-with-local-disk-v1.md#optimize-performance-when-using-local-nvme) to use a greater percentage of cores and achieve greater IOPS.
+\*In a storage pool type Ephemeral Disk - Local NVMe with the standard (default) performance tier, if you're using multiple VM SKU types for your cluster nodes, the 25% of CPU cores consumed applies to the smallest SKU used. For example, if you're using a mix of 8-core and 16-core VM types, resource consumption is 2 cores. You can [update the performance tier](use-container-storage-with-local-disk-version-1.md#optimize-performance-when-using-local-nvme) to use a greater percentage of cores and achieve greater IOPS.
 
 ## Ensure VM type for your cluster meets the following criteria
 
@@ -221,6 +221,6 @@ To create volumes, select the link for the backing storage type you selected.
 
 - [Create persistent volume with Azure managed disks](use-container-storage-with-managed-disks.md#3-create-a-persistent-volume-claim)
 - [Create persistent volume with Azure Elastic SAN](use-container-storage-with-elastic-san.md#3-create-a-persistent-volume-claim)
-- [Create generic ephemeral volume with local NVMe](use-container-storage-with-local-disk.md#create-and-attach-generic-ephemeral-volumes)
+- [Create generic ephemeral volume with local NVMe](use-container-storage-with-local-disk-version-1.md#create-and-attach-generic-ephemeral-volumes)
 - [Create generic ephemeral volume with temp SSD](use-container-storage-with-temp-ssd.md#create-and-attach-generic-ephemeral-volumes)
 - [Create persistent volume with local NVMe and volume replication](use-container-storage-with-local-nvme-replication.md#create-and-attach-persistent-volumes)

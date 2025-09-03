@@ -4,7 +4,7 @@ description: Connect to a Linux-based Azure Kubernetes Service (AKS) cluster and
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 09/02/2025
+ms.date: 09/03/2025
 ms.author: kendownie
 ms.custom: references_regions
 # Customer intent: As a cloud engineer, I want to install Azure Container Storage on my AKS cluster, so that I can manage container volumes efficiently and choose the appropriate storage options for my workloads.
@@ -15,7 +15,7 @@ ms.custom: references_regions
 [Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This Quickstart shows you how to connect to a Linux-based [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) cluster and install Azure Container Storage.
 
 > [!IMPORTANT]
-> This article covers installation of Azure Container Storage v2.x.x, which currently only supports local NVMe Disk storage type. For details about the capabilities of v2.x.x, see [Azure Container Storage](container-storage-introduction.md). For earlier versions, see [Azure Container Storage v1 documentation](container-storage-introduction-v1.md). If you already have Azure Container Storage v1 installed on your cluster, remove it by following the steps to [Remove Azure Container Storage v1](remove-container-storage-v1.md).
+> This article applies to [Azure Container Storage (version 2.x.x)](container-storage-introduction.md). For earlier versions, see [Azure Container Storage (version 1.x.x) documentation](container-storage-introduction-version-1.md). If you already have Azure Container Storage (version 1.x.x) installed on your AKS cluster, remove it by following [these steps](remove-container-storage-version-1.md).
 
 ## Prerequisites
 
@@ -99,4 +99,4 @@ The deployment will take 5-10 minutes. When it completes, you'll have an AKS clu
 
 ## Next step
 
-- [Create generic ephemeral volume with local NVMe](use-container-storage-with-local-disk.md#create-and-attach-generic-ephemeral-volumes)
+- [Create generic ephemeral volume with local NVMe](use-container-storage-with-local-disk.md)

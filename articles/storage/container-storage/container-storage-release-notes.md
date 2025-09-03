@@ -4,7 +4,7 @@ description: Release notes for Azure Container Storage
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: release-notes
-ms.date: 09/02/2025
+ms.date: 09/03/2025
 ms.author: kendownie
 # Customer intent: "As a cloud administrator, I want to review the latest release notes for Azure Container Storage so that I can stay informed about new features, bug fixes, and support status for proper planning and management of my storage deployments."
 ---
@@ -39,20 +39,20 @@ A **major release** introduces significant changes, often including new features
 
 ### Breaking changes
 
-- **StoragePool custom resource removed**: Azure Container Storage v2.0.0 eliminates the StoragePool custom resource. Users now create standard Kubernetes StorageClasses directly, aligning with native Kubernetes patterns. Existing StoragePools from v1.x will need to be migrated to StorageClasses.
+- **StoragePool custom resource removed**: Azure Container Storage version 2.0.0 eliminates the StoragePool custom resource. Users now create standard Kubernetes StorageClasses directly, aligning with native Kubernetes patterns. Existing StoragePools from version 1.x.x will need to be migrated to StorageClasses.
 - **CSI driver naming changes**: The CSI driver provisioner has changed from `containerstorage.csi.azure.com` to `localdisk.csi.acstor.io` for local NVMe storage. Existing PVCs using the old provisioner will need to be recreated.
 - **Annotation changes**: The ephemeral storage annotation has changed from `acstor.azure.com/accept-ephemeral-storage: "true"` to `localdisk.csi.acstor.io/accept-ephemeral-storage: "true"`.
 - **No built-in Prometheus Operator**: We've removed the bundled Prometheus operator to avoid conflicts with existing monitoring setups. Azure Container Storage now exposes metrics that can be scraped by Azure Monitor or existing Prometheus instances without deploying its own monitoring components.
 
 ### Improvements and new features
 
-- **Improved performance with reduced resource usage**: Azure Container Storage v2.0.0 delivers improved local NVMe performance without the need for users to configure performance tiers.
+- **Improved performance with reduced resource usage**: Azure Container Storage version 2.0.0 delivers improved local NVMe performance without the need for users to configure performance tiers.
 - **Smaller cluster support**: Azure Container Storage now supports clusters with just one or two nodes, removing the previous requirement of a minimum of three nodes for ephemeral drives.
 - **Simplified deployment**: Azure Container Storage now runs in the kube-system namespace and no longer depends on cert-manager for webhooks, using a built-in certificate approach instead.
 
 ### Migration guidance
 
-There are significant breaking changes in v2.0.0. Users looking to migrate from v1.x to v2.0.0 should completely remove prior versions of Azure Container Storage and review the new setup guides to get started.
+There are significant breaking changes in version 2.0.0. Users looking to migrate from version 1.x.x to version 2.0.0 should completely [remove prior versions](remove-container-storage-version-1.md) of Azure Container Storage and review the new setup guides to get started.
 
 ## Version 1.3.1
 

@@ -1,21 +1,21 @@
 ---
-title: Install Azure Container Storage (v1) with AKS
-description: Learn how to install Azure Container Storage (v1) for use with Azure Kubernetes Service (AKS). Create an AKS cluster and install Azure Container Storage.
+title: Install Azure Container Storage (version 1.x.x) with AKS
+description: Learn how to install Azure Container Storage (version 1.x.x) for use with Azure Kubernetes Service (AKS). Create an AKS cluster and install Azure Container Storage.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: tutorial
-ms.date: 09/02/2025
+ms.date: 09/03/2025
 ms.author: kendownie
-ms.custom: devx-track-azurecli
-# Customer intent: "As a cloud administrator, I want to install Azure Container Storage (v1) on an AKS cluster so that I can efficiently manage storage for containerized applications."
+ms.custom: devx-track-azurecli, references_regions
+# Customer intent: "As a cloud administrator, I want to install Azure Container Storage (version 1.x.x) on an AKS cluster so that I can efficiently manage storage for containerized applications."
 ---
 
-# Tutorial: Install Azure Container Storage (v1) for use with Azure Kubernetes Service
+# Tutorial: Install Azure Container Storage (version 1.x.x) for use with Azure Kubernetes Service
 
-[Azure Container Storage](container-storage-introduction-v1.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. In this tutorial, you'll create an [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) cluster and install Azure Container Storage (v1) on the cluster. If you already have an AKS cluster deployed, we recommend installing Azure Container Storage (v1) [using this QuickStart](container-storage-aks-quickstart-v1.md) instead of following the manual steps in this tutorial.
+[Azure Container Storage](container-storage-introduction-v1.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. In this tutorial, you'll create an [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) cluster and install Azure Container Storage (version 1.x.x) on the cluster. If you already have an AKS cluster deployed, we recommend installing Azure Container Storage (version 1.x.x) [using this QuickStart](container-storage-aks-quickstart-version-1.md) instead of following the manual steps in this tutorial.
 
 > [!IMPORTANT]
-> This article explains how to install Azure Container Storage version 1.x.x, which now explicitly requires a version pinning parameter `--container-storage-version 1` for installation. Azure Container Storage v2.x.x is now available. See [Azure Container Storage](container-storage-introduction.md) for more information.
+> This article explains how to install Azure Container Storage (version 1.x.x), which now explicitly requires a version pinning parameter `--container-storage-version 1` for installation. [Azure Container Storage (version 2.x.x)](container-storage-introduction.md) is now available.
 
 > [!div class="checklist"]
 > * Create a resource group
@@ -24,7 +24,7 @@ ms.custom: devx-track-azurecli
 > * Connect to the cluster
 > * Label the node pool
 > * Assign Azure Container Storage Operator role to AKS managed identity
-> * Install Azure Container Storage
+> * Install Azure Container Storage (version 1.x.x)
 
 ## Prerequisites
 
@@ -113,7 +113,7 @@ Azure Container Storage requires certain node resources to run components for th
 
 The resources consumed are per node, and will be consumed for each node in the node pool where Azure Container Storage will be installed. If your nodes don't have enough resources, Azure Container Storage will fail to run. Kubernetes will automatically re-try to initialize these failed pods, so if resources get liberated, these pods can be initialized again.
 
-\*In a storage pool type Ephemeral Disk - Local NVMe with the standard (default) performance tier, if you're using multiple VM SKU types for your cluster nodes, the 25% of CPU cores consumed applies to the smallest SKU used. For example, if you're using a mix of 8-core and 16-core VM types, resource consumption is 2 cores. You can [update the performance tier](use-container-storage-with-local-disk-v1.md#optimize-performance-when-using-local-nvme) to use a greater percentage of cores and achieve greater IOPS.
+\*In a storage pool type Ephemeral Disk - Local NVMe with the standard (default) performance tier, if you're using multiple VM SKU types for your cluster nodes, the 25% of CPU cores consumed applies to the smallest SKU used. For example, if you're using a mix of 8-core and 16-core VM types, resource consumption is 2 cores. You can [update the performance tier](use-container-storage-with-local-disk-version-1.md#optimize-performance-when-using-local-nvme) to use a greater percentage of cores and achieve greater IOPS.
 
 ### Ensure VM type for your cluster meets the following criteria
 
@@ -127,13 +127,13 @@ Follow these guidelines when choosing a VM type for the cluster nodes. You must 
 
 ## Create a new AKS cluster and install Azure Container Storage
 
-If you already have an AKS cluster deployed, follow the installation instructions in [this QuickStart](container-storage-aks-quickstart.md).
+If you already have an AKS cluster deployed, follow the installation instructions in [this QuickStart](container-storage-aks-quickstart-version-1.md).
 
 Run the following command to create a new AKS cluster, install Azure Container Storage, and create a storage pool. Replace `<cluster-name>` and `<resource-group>` with your own values, and specify which VM type you want to use. Replace `<storage-pool-type>` with `azureDisk`, `ephemeralDisk`, or `elasticSan`. If you select `ephemeralDisk`, you must also specify `--storage-pool-option`, and the values can be `NVMe` or `Temp`.
 
 Running this command will enable Azure Container Storage on the system node pool\* with three Linux VMs. **If you're specifying local NVMe for your storage pool type, be sure to set the node count to 4 or greater, or the command will fail to run.**
 
-By default, the system node pool is named `nodepool1`. If you want to enable Azure Container Storage on other node pools, see [Install Azure Container Storage on specific node pools](container-storage-aks-quickstart-v1.md#install-azure-container-storage-on-specific-node-pools). If you want to specify additional storage pool parameters with this command, see [this table](container-storage-storage-pool-parameters.md).
+By default, the system node pool is named `nodepool1`. If you want to enable Azure Container Storage on other node pools, see [Install Azure Container Storage on specific node pools](container-storage-aks-quickstart-version-1.md#install-azure-container-storage-on-specific-node-pools). If you want to specify additional storage pool parameters with this command, see [this table](container-storage-storage-pool-parameters.md).
 
 \*If there are any existing node pools with the `acstor.azure.com/io-engine:acstor` label, Azure Container Storage will install the data plane components by default. Otherwise, users have the option to pass the preferred node pool to `acstor` through Azure CLI. If the cluster only has the system node pool, it will be labeled and used for Azure Container Storage by default. It's important to note that only data plane components will be restricted to the labeled node pool. The control plane components of Azure Container Storage aren't limited to the labeled nodes and may be installed on the system node pool as well. 
 
@@ -144,7 +144,7 @@ az aks create -n <cluster-name> -g <resource-group> --node-vm-size Standard_D4s_
 The deployment will take 10-15 minutes. When it completes, you'll have an AKS cluster with Azure Container Storage installed, the components for your chosen storage pool type enabled, and a default storage pool. If you want to enable additional storage pool types to create additional storage pools, see [Enable additional storage pool types](container-storage-aks-quickstart-v1.md#enable-additional-storage-pool-types).
 
 > [!IMPORTANT]
-> If you specified Azure Elastic SAN as backing storage for your storage pool and you don't have either [Azure Container Storage Owner](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-owner) role or [Azure Container Storage Contributor](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-contributor) role assigned to the Azure subscription, Azure Container Storage installation will fail and a storage pool won't be created. If you try to [enable Azure Elastic SAN as an additional storage pool type](container-storage-aks-quickstart-v1.md#enable-additional-storage-pool-types) without either of these roles, your previous installation and storage pools will remain unaffected and an Elastic SAN storage pool won't be created.
+> If you specified Azure Elastic SAN as backing storage for your storage pool and you don't have either [Azure Container Storage Owner](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-owner) role or [Azure Container Storage Contributor](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-contributor) role assigned to the Azure subscription, Azure Container Storage installation will fail and a storage pool won't be created. If you try to [enable Azure Elastic SAN as an additional storage pool type](container-storage-aks-quickstart-version-1.md#enable-additional-storage-pool-types) without either of these roles, your previous installation and storage pools will remain unaffected and an Elastic SAN storage pool won't be created.
 
 ## Display available storage pools
 
@@ -168,6 +168,6 @@ Select the link for the backing storage type you selected and follow the instruc
 
 - [Create persistent volume with Azure managed disks](use-container-storage-with-managed-disks.md)
 - [Create persistent volume with Azure Elastic SAN](use-container-storage-with-elastic-san.md)
-- [Create generic ephemeral volume with local NVMe](use-container-storage-with-local-disk.md)
+- [Create generic ephemeral volume with local NVMe](use-container-storage-with-local-disk-version-1.md)
 - [Create generic ephemeral volume with temp SSD](use-container-storage-with-temp-ssd.md)
 - [Create persistent volume with local NVMe and volume replication](use-container-storage-with-local-nvme-replication.md)

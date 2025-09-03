@@ -4,7 +4,7 @@ description: Configure Azure Container Storage for use with Ephemeral Disk using
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 09/02/2025
+ms.date: 09/03/2025
 ms.author: kendownie
 ms.custom: references_regions
 # Customer intent: "As a Kubernetes administrator, I want to configure Azure Container Storage to use local NVMe for ephemeral volumes, so that I can optimize storage performance for my applications requiring low latency that don't require data durability using standard Kubernetes patterns."
@@ -12,16 +12,14 @@ ms.custom: references_regions
 
 # Use Azure Container Storage with local NVMe
 
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage v2.0.0 and later to use Ephemeral Disk with local NVMe as back-end storage for your Kubernetes workloads.
+[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use Ephemeral Disk with local NVMe as back-end storage for your Kubernetes workloads. NVMe is designed for high-speed data transfer between storage and CPU, providing extremely high IOPS and throughput.
 
 > [!IMPORTANT]
-> This article covers Azure Container Storage v2.x.x, which introduces significant improvements over previous versions. For documentation on earlier versions, see [Use Azure Container Storage (v1) with local NVMe](use-container-storage-with-local-disk-v1.md).
+> This article applies to [Azure Container Storage (version 2.x.x)](container-storage-introduction.md), which currently only supports local NVMe disk for backing storage. For details about earlier versions, see [Azure Container Storage (version 1.x.x) documentation](container-storage-introduction-version-1.md).
 
 ## What is Ephemeral Disk?
 
 When your application needs sub-millisecond storage latency and doesn't require data durability, you can use Ephemeral Disk with Azure Container Storage to meet your performance requirements. Ephemeral means that the disks are deployed on the local virtual machine (VM) hosting the AKS cluster and not saved to an Azure storage service. Data will be lost on these disks if you stop/deallocate your VM.
-
-There are two types of Ephemeral Disk available: local NVMe and temp SSD. Azure Container Storage v2.x.x currently only supports local NVMe. NVMe is designed for high-speed data transfer between storage and CPU, providing extremely high IOPS and throughput.
 
 Azure Container Storage supports the use of *generic ephemeral volumes* by default when using ephemeral disk. For use cases that require *persistent volumes* even if the data isn't durable (for example, when using existing YAML files hard-coded to use persistent volumes), you can add the annotation `localdisk.csi.acstor.io/accept-ephemeral-storage: "true"` in your persistent volume claim definition.
 
@@ -47,7 +45,7 @@ PoolName    VmSize
 nodepool1   standard_l8s_v3
 ```
 
-We recommend that each VM have a minimum of four virtual CPUs (vCPUs). With Azure Container Storage v2.x.x+, you can now use single-node clusters, though multi-node configurations are still recommended.
+We recommend that each VM have a minimum of four virtual CPUs (vCPUs). With Azure Container Storage (version 2.x.x), you can now use single-node clusters, though multi-node configurations are still recommended.
 
 ## Create and attach generic ephemeral volumes
 
@@ -55,14 +53,14 @@ Follow these steps to create and attach a generic ephemeral volume using Azure C
 
 ### 1. Create a storage class
 
-Unlike previous versions that required creating a custom storage pool resource, Azure Container Storage v2.x.x uses standard Kubernetes storage classes. This is a significant change that simplifies the storage configuration process.
+Unlike previous versions that required creating a custom storage pool resource, Azure Container Storage (version 2.x.x) uses standard Kubernetes storage classes. This is a significant change that simplifies the storage configuration process.
 
 Follow these steps to create a storage class using local NVMe.
 
 1. Use your favorite text editor to create a YAML manifest file such as `code storageclass.yaml`.
 
 1. Paste in the following code and save the file.
-   
+
    ```yaml
    apiVersion: storage.k8s.io/v1
    kind: StorageClass
@@ -72,10 +70,10 @@ Follow these steps to create a storage class using local NVMe.
    reclaimPolicy: Delete
    volumeBindingMode: WaitForFirstConsumer
    allowVolumeExpansion: true
-```
+   ```
 
 1. Apply the YAML manifest file to create the storage pool.
-   
+
    ```azurecli-interactive
    kubectl apply -f storageclass.yaml
    ```
@@ -153,10 +151,10 @@ kubectl exec -it fiopod -- fio --name=benchtest --size=800m --filename=/volume/t
 
 ## Create and attach persistent volumes with ephemeral storage annotation
 
-While generic ephemeral volumes are recommended for ephemeral storage, Azure Container Storage v2.x.x also supports persistent volumes with ephemeral storage when needed for compatibility with existing workloads.
+While generic ephemeral volumes are recommended for ephemeral storage, Azure Container Storage also supports persistent volumes with ephemeral storage when needed for compatibility with existing workloads.
 
 > [!NOTE]
-> In v2.x.x, the annotation has changed from `acstor.azure.com/accept-ephemeral-storage: "true"` to `localdisk.csi.acstor.io/accept-ephemeral-storage: "true"`. This reflects the new CSI driver naming convention.
+> In Azure Container Storage (version 2.x.x), the annotation has changed from `acstor.azure.com/accept-ephemeral-storage: "true"` to `localdisk.csi.acstor.io/accept-ephemeral-storage: "true"`. This reflects the new CSI driver naming convention.
 
 ### 1. Create a storage class (if not already created)
 
@@ -165,7 +163,7 @@ If you haven't already created a storage class that uses local NVMe in the previ
 1. Use your favorite text editor to create a YAML manifest file such as `code storageclass.yaml`.
 
 1. Paste in the following code and save the file.
-   
+
    ```yaml
    apiVersion: storage.k8s.io/v1
    kind: StorageClass
@@ -175,10 +173,10 @@ If you haven't already created a storage class that uses local NVMe in the previ
    reclaimPolicy: Delete
    volumeBindingMode: WaitForFirstConsumer
    allowVolumeExpansion: true
-```
+   ```
 
 1. Apply the YAML manifest file to create the storage pool.
-   
+
    ```azurecli-interactive
    kubectl apply -f storageclass.yaml
    ```
@@ -264,4 +262,4 @@ kubectl delete storageclass local
 ## See also
 
 - [What is Azure Container Storage?](container-storage-introduction.md)
-- [Use Azure Container Storage with local NVMe (pre-v2.0.0)](use-container-storage-with-local-disk-v1.md)
+- [Use Azure Container Storage (version 1.x.x) with local NVMe](use-container-storage-with-local-disk-version-1.md)

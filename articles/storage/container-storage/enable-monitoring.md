@@ -4,7 +4,7 @@ description: Enable monitoring for stateful workloads running on Azure Container
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 09/02/2025
+ms.date: 09/03/2025
 ms.author: kendownie
 # Customer intent: As a cloud administrator, I want to enable monitoring for stateful workloads on Azure Container Storage using managed Prometheus, so that I can gain insights into performance metrics and ensure the reliability of my systems.
 ---
@@ -14,7 +14,7 @@ ms.author: kendownie
 You can now monitor your stateful workloads running on Azure Container Storage using managed Prometheus. Prometheus is a popular open-source monitoring and alerting solution that's widely used in Kubernetes environments to monitor and alert on infrastructure and workload performance.
 
 > [!IMPORTANT]
-> This article explains how to enable monitoring for Azure Container Storage version 2.x.x. For details about the capabilities of version 2.x.x, see [Azure Container Storage](container-storage-introduction.md). For earlier versions, see [Azure Container Storage v1 documentation](container-storage-introduction-v1.md). If you want to enable monitoring for version 1.x.x, see [Enable monitoring for Azure Container Storage (v1)](enable-monitoring-v1.md).
+> This article applies to [Azure Container Storage (version 2.x.x)](container-storage-introduction.md). For earlier versions, see [Azure Container Storage (version 1.x.x) documentation](container-storage-introduction-version-1.md). If you want to enable monitoring for version 1.x.x, see [this article](enable-monitoring-version-1.md).
 
 [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview#azure-monitor-managed-service-for-prometheus) is a component of [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics) that provides a fully managed and scalable environment for running Prometheus. It enables collecting Prometheus metrics from your Azure Kubernetes Service (AKS) clusters to monitor your workloads.
 

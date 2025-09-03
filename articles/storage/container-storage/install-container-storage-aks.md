@@ -4,9 +4,9 @@ description: Learn how to install Azure Container Storage for use with Azure Kub
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: tutorial
-ms.date: 08/20/2025
+ms.date: 09/03/2025
 ms.author: kendownie
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, references_regions
 # Customer intent: "As a cloud administrator, I want to install Azure Container Storage on an AKS cluster so that I can efficiently manage storage for containerized applications."
 ---
 
@@ -15,7 +15,7 @@ ms.custom: devx-track-azurecli
 [Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. In this tutorial, you'll create an [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) cluster and install the latest production version of Azure Container Storage on the cluster. If you already have an AKS cluster deployed, we recommend installing Azure Container Storage [using this QuickStart](container-storage-aks-quickstart.md) instead of following the manual steps in this tutorial.
 
 > [!IMPORTANT]
-> This article covers installation of Azure Container Storage v2.0.0 and later. This version currently only supports local NVMe Disk storage type. For details about the capabilities of v2.0.0 and later, see [Azure Container Storage](container-storage-introduction.md). For earlier versions, see [Azure Container Storage v1 documentation](container-storage-introduction-v1.md).
+> This article applies to [Azure Container Storage (version 2.x.x)](container-storage-introduction.md). For earlier versions, see [Azure Container Storage (version 1.x.x) documentation](container-storage-introduction-version-1.md). If you already have Azure Container Storage (version 1.x.x) installed on your AKS cluster, remove it by following [these steps](remove-container-storage-version-1.md).
 
 > [!div class="checklist"]
 > * Create a resource group

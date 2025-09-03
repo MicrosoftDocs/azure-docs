@@ -3,7 +3,7 @@ title: Remove Azure Container Storage
 description: Remove Azure Container Storage by deleting the extension instance for Azure Kubernetes Service (AKS). Optionally delete the AKS cluster or entire resource group to clean up resources.
 author: khdownie
 ms.service: azure-container-storage
-ms.date: 08/20/2025
+ms.date: 09/03/2025
 ms.author: kendownie
 ms.topic: how-to
 # Customer intent: "As a cloud administrator, I want to remove Azure Container Storage from my AKS environment, so that I can clean up resources and ensure no unnecessary costs are incurred for unused components."
@@ -14,7 +14,7 @@ ms.topic: how-to
 This article shows you how to remove Azure Container Storage by deleting the extension instance for Azure Kubernetes Service (AKS). Optionally, you can also delete the AKS cluster or entire resource group to clean up resources.
 
 > [!IMPORTANT]
-> This article covers removal of Azure Container Storage v2.x.x. If you have Azure Container Storage v1 installed on your cluster, you can remove it by following the steps to [Remove Azure Container Storage v1](remove-container-storage-v1.md).
+> This article applies to [Azure Container Storage (version 2.x.x)](container-storage-introduction.md). If you have Azure Container Storage (version 1.x.x) installed on your AKS cluster, remove it by following [these steps](remove-container-storage-version-1.md).
 
 ## Delete extension instance
 

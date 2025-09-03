@@ -1,20 +1,20 @@
 ---
-title: Enable Monitoring for Azure Container Storage (v1)
-description: Enable monitoring for stateful workloads running on Azure Container Storage (v1) using Azure Monitor managed service for Prometheus.
+title: Enable Monitoring for Azure Container Storage (version 1.x.x)
+description: Enable monitoring for stateful workloads running on Azure Container Storage (version 1.x.x) using Azure Monitor managed service for Prometheus.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 09/02/2025
+ms.date: 09/03/2025
 ms.author: kendownie
-# Customer intent: As a cloud administrator, I want to enable monitoring for stateful workloads on Azure Container Storage (v1) using managed Prometheus, so that I can gain insights into performance metrics and ensure the reliability of my systems.
+# Customer intent: As a cloud administrator, I want to enable monitoring for stateful workloads on Azure Container Storage (version 1.x.x) using managed Prometheus, so that I can gain insights into performance metrics and ensure the reliability of my systems.
 ---
 
-# Enable monitoring for Azure Container Storage (v1) with managed Prometheus
+# Enable monitoring for Azure Container Storage (version 1.x.x) with managed Prometheus
 
-You can now monitor your stateful workloads running on Azure Container Storage (v1) using managed Prometheus. Prometheus is a popular open-source monitoring and alerting solution that's widely used in Kubernetes environments to monitor and alert on infrastructure and workload performance.
+You can now monitor your stateful workloads running on Azure Container Storage (version 1.x.x) using managed Prometheus. Prometheus is a popular open-source monitoring and alerting solution that's widely used in Kubernetes environments to monitor and alert on infrastructure and workload performance.
 
 > [!IMPORTANT]
-> This article applies to Azure Container Storage v1.x releases. Azure Container Storage v2.x is available. See [Azure Container Storage](container-storage-introduction.md) for more information.
+> This article covers monitoring for Azure Container Storage (version 1.x.x). [Azure Container Storage (version 2.x.x)](container-storage-introduction.md) is now available. If you've already installed Azure Container Storage (version 2.x.x) and want to monitor your workloads, you can use a [similar managed Prometheus setup](enable-monitoring.md).
 
 [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview#azure-monitor-managed-service-for-prometheus) is a component of [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics) that provides a fully managed and scalable environment for running Prometheus. It enables collecting Prometheus metrics from your Azure Kubernetes Service (AKS) clusters to monitor your workloads.
 

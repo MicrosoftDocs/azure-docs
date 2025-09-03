@@ -1,32 +1,30 @@
 ---
-title: Introduction to Azure Container Storage (v1)
-description: An overview of Azure Container Storage (v1), a service built natively for containers that enables customers to create and manage volumes for running production-scale stateful container applications.
+title: Introduction to Azure Container Storage (version 1.x.x)
+description: An overview of Azure Container Storage (version 1.x.x), a service built natively for containers that enables customers to create and manage volumes for running production-scale stateful container applications.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: overview
-ms.date: 09/02/2025
+ms.date: 09/03/2025
 ms.author: kendownie
 ms.custom: references_regions
 # Customer intent: "As a DevOps engineer, I want to use a managed volume orchestration service for my Kubernetes applications, so that I can efficiently provision and manage persistent storage for stateful workloads without the operational overhead of configuring individual storage interfaces."
 ---
 
-# What is Azure Container Storage (v1)?
+# What is Azure Container Storage (version 1.x.x)?
 
 Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built natively for containers. It integrates with Kubernetes, allowing you to dynamically and automatically provision persistent volumes to store data for stateful applications running on Kubernetes clusters. Azure Container Storage is derived from [OpenEBS](https://openebs.io/), an open-source solution that provides container storage capabilities for Kubernetes.
 
 > [!IMPORTANT]
-> This article covers features and capabilities available in Azure Container Storage v1.x.x. For details about v2.x.x, see [Azure Container Storage](container-storage-introduction.md).
+> This article covers features and capabilities available in Azure Container Storage (version 1.x.x). [Azure Container Storage (version 2.x.x)](container-storage-introduction.md) is now available.
 > Azure Container Storage isn't available in all Azure regions. See [regional availability](#regional-availability).
-> If you previously installed the Azure Container Storage preview and don't have auto-upgrade enabled, be sure to [update to the GA version](container-storage-aks-quickstart.md#install-azure-container-storage-on-your-aks-cluster).
-
-To get started using Azure Container Storage (v1), see [Use Azure Container Storage with Azure Kubernetes Service](container-storage-aks-quickstart.md) or watch the video.
+> If you previously installed the Azure Container Storage preview and don't have auto-upgrade enabled, be sure to [update to the GA version](container-storage-aks-quickstart-version-1.md#install-azure-container-storage-on-your-aks-cluster).
 
 :::row:::
     :::column:::
         > [!VIDEO https://learn-video.azurefd.net/vod/player?id=0e3cc19a-f57b-4b72-856e-481b42dfacd0]
     :::column-end:::
     :::column:::
-        This video provides an introduction to Azure Container Storage (v1), an end-to-end storage management and orchestration service for stateful applications. Learn how to optimize the performance of stateful workloads on Azure Kubernetes Service (AKS) to effectively scale across storage services while providing a cost-effective, container-native experience.
+        This video provides an introduction to Azure Container Storage (version 1.x.x), an end-to-end storage management and orchestration service for stateful applications. Learn how to optimize the performance of stateful workloads on Azure Kubernetes Service (AKS) to effectively scale across storage services while providing a cost-effective, container-native experience.
    :::column-end:::
 :::row-end:::
 
@@ -34,7 +32,7 @@ To get started using Azure Container Storage (v1), see [Use Azure Container Stor
 
 Azure Container Storage utilizes existing Azure Storage offerings for actual data storage and offers a volume orchestration and management solution purposely built for containers. You can choose any of the supported backing storage options to create a storage pool for your persistent volumes.
 
-Azure Container Storage offers persistent volume support with ReadWriteOnce access mode to Linux-based [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) clusters. Supported backing storage options include block storage offerings only: Azure Disks, Ephemeral Disks (local NVMe or temp SSD), and Azure Elastic SAN (Preview). The following table summarizes the supported storage types, recommended workloads, and provisioning models.
+Azure Container Storage (version 1.x.x) offers persistent volume support with ReadWriteOnce access mode to Linux-based [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) clusters. Supported backing storage options include: Azure Disks, Ephemeral Disks (local NVMe or temp SSD), and Azure Elastic SAN. The following table summarizes the supported storage types, recommended workloads, and provisioning models.
 
 | **Storage type** | **Description** | **Workloads** | **Offerings** | **Provisioning model** |
 |------------------|-----------------|---------------|---------------|------------------------|
@@ -121,7 +119,7 @@ It's helpful to understand some key terms relating to Azure Container Storage an
 
 -   **Storage pool**
 
-    The Azure Container Storage stack attempts to unify the object model across cluster owned resources and platform abstractions. To accomplish the unified representation, the available storage capacity is aggregated into a storage pool object. The storage capacity within a storage pool is considered homogeneous. An AKS cluster can have multiple storage pools. Storage pools also serve as the authentication and provisioning boundary. They provide a logical construct for operators to manage the storage infrastructure while simplifying volume creation and management for application developers.
+    In Azure Container Storage (version 1.x.x), the available storage capacity is aggregated into a storage pool object. The storage capacity within a storage pool is considered homogeneous. An AKS cluster can have multiple storage pools. Storage pools also serve as the authentication and provisioning boundary. They provide a logical construct for operators to manage the storage infrastructure while simplifying volume creation and management for application developers.
 
 -   **Storage class**
 
@@ -141,5 +139,5 @@ It's helpful to understand some key terms relating to Azure Container Storage an
 
 ## Next steps
 
-- [Install Azure Container Storage for use with AKS](container-storage-aks-quickstart.md)
+- [Install Azure Container Storage (version 1.x.x) for use with AKS](container-storage-aks-quickstart-version-1.md)
 - [Azure Container Storage pricing](https://aka.ms/AzureContainerStoragePricingPage)

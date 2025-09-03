@@ -1,20 +1,20 @@
 ---
-title: Understand billing for Azure Container Storage (v1)
-description: Understand the billing and pricing model for Azure Container Storage (v1), including backing storage costs and applicable service fees for orchestration.
+title: Understand billing for Azure Container Storage (version 1.x.x)
+description: Understand the billing and pricing model for Azure Container Storage (version 1.x.x), including backing storage costs and applicable service fees for orchestration.
 author: khdownie
 ms.service: azure-container-storage
-ms.date: 07/09/2024
+ms.date: 09/03/2025
 ms.author: kendownie
 ms.topic: concept-article
-# Customer intent: "As a cloud solutions architect, I want to understand the pricing model for Azure Container Storage (v1), so that I can accurately estimate costs based on backing storage options and service fees for different deployment scenarios."
+# Customer intent: "As a cloud solutions architect, I want to understand the pricing model for Azure Container Storage (version 1.x.x), so that I can accurately estimate costs based on backing storage options and service fees for different deployment scenarios."
 ---
 
-# Understand Azure Container Storage (v1) billing
+# Understand Azure Container Storage (version 1.x.x) billing
 
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article describes the billing and pricing model for Azure Container Storage (v1). It also presents some examples to help you understand the pricing for Azure Container Storage used with different backing storage options.
+Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article describes the billing and pricing model for Azure Container Storage (version 1.x.x). It also presents some examples to help you understand the pricing with different backing storage options.
 
 > [!IMPORTANT]
-> This article applies to Azure Container Storage v1.x releases. If you're using Azure Container Storage v2.x, see [this article](container-storage-billing.md).
+> This article applies to billing for Azure Container Storage (version 1.x.x). [Azure Container Storage (version 2.x.x)](container-storage-introduction.md) is now available, and it's [free to use with local NVMe disks](container-storage-billing.md).
 
 ## Azure Container Storage pricing model
 
@@ -65,5 +65,5 @@ See [Azure Elastic SAN pricing](https://azure.microsoft.com/pricing/details/elas
 
 ## See also
 
-- [What is Azure Container Storage?](container-storage-introduction.md)
+- [What is Azure Container Storage (version 1.x.x)?](container-storage-introduction-version-1.md)
 - [Azure Container Storage Pricing](https://aka.ms/AzureContainerStoragePricingPage)
