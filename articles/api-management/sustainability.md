@@ -40,9 +40,9 @@ By optimizing how your APIs handle traffic based on environmental factors, you c
 
 <!-- Is context variable only available for primary region? -->
 
-Traffic shaping lets you adjust API behavior based on relative carbon emission levels in your API Management service's primary region. API Management exposes the `context.Sustainability.CurrentCarbonCategory` [context variable](api-management-policy-expressions.md#context-variable), which indicates the current carbon emission category for the region where your API Management instance is running. The five emission categories are qualitative (Very Low - Very High) and are derived from internal Microsoft data sources.
+Traffic shaping lets you adjust API behavior based on relative carbon emission levels in your API Management service's primary region. API Management exposes the `context.Sustainability.CurrentCarbonCategory` [context variable](api-management-policy-expressions.md#ContextVariables), which indicates the current carbon emission category for the region where your API Management instance is running. The five emission categories are qualitative (Very Low - Very High) and are derived from internal Microsoft data sources.
 
-Use this context variable in your policies to perform more intensive traffic processing during periods of low carbon emissions, or reduce processing during high carbon emissions.
+Use this context variable in your policies n to perform more intensive traffic processing during periods of low carbon emissions, or reduce processing during high carbon emissions.
 
 ### Example - Adjust behavior in high carbon emission periods
 
