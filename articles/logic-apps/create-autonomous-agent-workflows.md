@@ -265,8 +265,7 @@ To get the best results, make sure that your system instructions are prescriptiv
 
    > [!NOTE]
    >
-   > Autonomous agents don't accept additional input through the chat interface at runtime. Instead, 
-   > you later learn how to provide inputs by using the **User Instructions** section or through tools.
+   > Autonomous agents don't accept additional input through the chat interface at runtime.
 
    For this example, the weather agent example uses the following sample instructions where you later provide a subscriber list with your own email address for testing:
 
@@ -293,9 +292,9 @@ To get the best results, make sure that your system instructions are prescriptiv
       > If the page doesn't show any runs, on the toolbar, select **Refresh**.
       >
       > If the **Status** column shows a **Running** status, the agent workflow 
-      > is either still working or waiting for user input. The latter behavior 
-      > happens if you enabled chat channels on your agent in an earlier release. 
-      > The current release no longer includes chat channels.
+      > is either still working or waiting. The latter behavior happens if you 
+      > enabled chat channels on your agent in an earlier release. The current 
+      > release no longer includes chat channels.
 
       The monitoring view opens and shows the workflow operations with their status. The **Agent log** pane is open and shows the system instructions that you provided earlier. The pane also shows the agent's response. For autonomous agent workflows, the chat box is unavailable and in ready-only mode.
 
@@ -505,21 +504,6 @@ Finally, for this example, create a tool named **Get subscribers** to provide a 
 The following example shows how the **Get subscribers** tool might look:
 
 :::image type="content" source="media/create-autonomous-agent-workflows/add-tool-get-subscribers.png" alt-text="Screenshot shows agent with new tool named Get subscribers that contains a Compose action with subscriber information." lightbox="media/create-autonomous-agent-workflows/add-tool-get-subscribers.png":::
-
-Optionally, on the agent, you can provide *user instructions* that the agent can use as prompts or requests. 
-For better results, make each user instruction focus on a specific task, for example:
-
-1. On the agent information pane, in the **User instructions** section, select **Add new item**.
-
-1. In the **User instructions Item - 1** box, enter the question to ask the agent.
-
-1. To add another item, select **Add new item** again.
-
-1. In the **User instructions item - 2** box, enter another question to ask the agent.
-
-1. Repeat until you finish adding all the questions to ask the agent.
-
-1. When you're done, test your workflow.
 
 ## Best practices for agents and tools
 

@@ -173,3 +173,29 @@ Follow these steps to create a partial workflow with an empty **Default Agent**.
    :::image type="content" source="media/create-autonomous-agent-workflows/agent-workflow-start.png" alt-text="Screenshot shows workflow designer with Add a trigger and empty Default Agent." lightbox="media/create-autonomous-agent-workflows/agent-workflow-start.png":::
 
 1. Continue to the next section.
+
+
+
+
+## Create a tool to provide subscriber list
+
+Finally, for this example, create a tool named **Get subscribers** to provide a subscriber list for the agent parameter values to use. This tool uses the **Compose** action to supply the subscriber name, email address, and location. Or, you might source these inputs from blob storage or a database. Azure Logic Apps offers many options that you can use as data sources.
+
+The following example shows how the **Get subscribers** tool might look:
+
+:::image type="content" source="media/create-autonomous-agent-workflows/add-tool-get-subscribers.png" alt-text="Screenshot shows agent with new tool named Get subscribers that contains a Compose action with subscriber information." lightbox="media/create-autonomous-agent-workflows/add-tool-get-subscribers.png":::
+
+Optionally, on the agent, you can provide *user instructions* that the agent can use as prompts or requests. 
+For better results, make each user instruction focus on a specific task, for example:
+
+1. On the agent information pane, in the **User instructions** section, select **Add new item**.
+
+1. In the **User instructions Item - 1** box, enter the question to ask the agent.
+
+1. To add another item, select **Add new item** again.
+
+1. In the **User instructions item - 2** box, enter another question to ask the agent.
+
+1. Repeat until you finish adding all the questions to ask the agent.
+
+1. When you're done, test your workflow.
