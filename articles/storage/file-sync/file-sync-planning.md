@@ -228,7 +228,7 @@ The following example illustrates how to estimate the amount of free space that 
   To fully benefit from cloud tiering, we recommend that you use smaller NTFS cluster sizes (less than 64 KiB) because each tiered file occupies a cluster. Also, NTFS allocates the space that tiered files occupy. This space doesn't show up in any UI.
 - Sync metadata occupies a cluster size per item:
 
-  *(1 million files + 100,000 directories) * 4-KiB cluster size = 4,400,000 KiB (4.4 GiB)*
+  *(1 million files + 100,000 directories) * 4 KiB cluster size = 4,400,000 KiB (4.4 GiB)*
 - Azure File Sync heatstore occupies 1.1 KiB per file:
 
   *1 million files * 1.1 KiB = 1,100,000 KiB (1.1 GiB)*
