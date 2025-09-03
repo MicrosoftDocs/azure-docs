@@ -1,5 +1,5 @@
 ---
-title: Migration Checklist: Azure App Service on Arc-enabled Kubernetes to Azure Container Apps on Arc-enabled Kubernetes
+title: Migration Checklist - Azure App Service on Arc-enabled Kubernetes to Azure Container Apps on Arc-enabled Kubernetes
 description: Learn what needs to be done to migrate from Azure App Service on Arc-enabled Kubernetes to Azure Container Apps on Arc-enabled Kubernetes.
 ms.topic: how-to
 ms.date: 09/02/2025
