@@ -40,11 +40,11 @@ By optimizing how your APIs handle traffic based on environmental factors, you c
 
 <!-- Is context variable only available for primary region? -->
 
-Traffic shaping lets you adjust API behavior based on relative carbon emission levels in your API Management service's primary region. API Management exposes the `context.Sustainability.CurrentCarbonCategory` [context variable](api-management-policy-expressions.md#ContextVariables), which indicates the current carbon emission category for the region where your API Management instance is running. The five emission categories are qualitative (Very Low - Very High) and are derived from internal Microsoft data sources.
+Traffic shaping lets you adjust API behavior based on relative carbon emission levels in your API Management service's primary region. API Management exposes the `context.Deployment.SustainabilityInfo.CurrentCarbonIntensity` [context variable](api-management-policy-expressions.md#ContextVariables), which indicates the current carbon emission category for the region where your API Management instance is running. The five emission categories are qualitative (Very Low, Low, Medium, High, Very High) and are derived from internal Microsoft data sources.
 
-Use this context variable in your policies n to perform more intensive traffic processing during periods of low carbon emissions, or reduce processing during high carbon emissions.
+Use this context variable in your policies to enable more intensive traffic processing during periods of low carbon emissions, or reduce processing during high carbon emissions.
 
-### Example - Adjust behavior in high carbon emission periods
+### Example: Adjust behavior in high carbon emission periods
 
 In the following example, API Management extends cache durations, implements stricter rate limiting, and reduces logging detail during high carbon emission periods.
 
@@ -55,13 +55,13 @@ In the following example, API Management extends cache durations, implements str
         <base />
 
 <choose>
-  <when condition="@(context.Sustainability.CurrentCarbonCategory == 'High')">
+  <when condition="@(context.Deployment.SustainabilityInfo.CurrentCarbonIntensity == 'High')">
     <!-- Policies for high carbon emission periods -->
     <cache-store duration="3600" />
     <rate-limit-by-key calls="100" renewal-period="60" counter-key="@(context.Request.IpAddress)" />
     <set-variable name="enableDetailedLogging" value="false" />
   </when>
-  <when condition="@(context.Sustainability.CurrentCarbonCategory == 'Medium')">
+  <when condition="@(context.Deployment.SustainabilityInfo.CurrentCarbonIntensity == 'Medium')">
     <!-- Policies for medium carbon emission periods -->
     <cache-store duration="1800" />
     <rate-limit-by-key calls="200" renewal-period="60" counter-key="@(context.Request.IpAddress)" />
@@ -100,7 +100,7 @@ In the following example, API Management extends cache durations, implements str
 
 ```
 
-### Example - Expose carbon intensity information
+### Example:  Expose carbon intensity information
 
 This example shows how to access the current carbon intensity and propagate it to the backend or in logs.
 
