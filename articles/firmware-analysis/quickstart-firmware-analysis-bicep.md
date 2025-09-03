@@ -3,7 +3,7 @@ title: Create a firmware analysis workspace by using Bicep
 description: In this quickstart, use Bicep to deploy a firmware analysis workspace in Azure. This quickstart includes Bicep, Azure CLI, and Azure PowerShell steps.
 author: karengu0
 ms.author: karenguo
-ms.service: firmware-analysis
+ms.service: azure
 ms.topic: quickstart-bicep
 ms.custom: subject-bicepqs
 ms.date: 08/28/2025
