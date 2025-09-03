@@ -140,7 +140,7 @@ A `requirement_type` of `All` changes the traversal. First, if there is no filte
 
 In this example, `FeatureW` specifies a `requirement_type` of `All`, meaning all of its filters must evaluate to true for the feature to be enabled. In this case, the feature is enabled for 50% of users during the specified time window.
 
-#### Custom feature flag configuration merging
+#### Handling multiple configuration sources
 
 Starting with v4.3.0, you can opt in to custom merging for Microsoft schema feature flags (the `feature_management` section). When the same feature flag ID appears in multiple configuration sources, the built-in `ConfigurationFeatureDefinitionProvider` merges those definitions according to configuration provider registration order. If there's a conflict, the last feature flag definition wins. This behavior differs from .NET's default array index-based merging.
 
