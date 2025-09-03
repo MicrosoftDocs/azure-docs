@@ -307,7 +307,7 @@ sections:
       - question: |
           Can I restrict public access to the data collection endpoint (DCE) resource created by traffic analytics?
         answer: |
-          Yes, you can disable public access to restrict public inbound traffic to the DCE resource.
+          Yes, you can disable public access to restrict public inbound traffic to the DCE resource and you don't have to associate the DCE to the Azure Monitor Private Link scope for the ingestion to work.
 
       - question: |
           Can I use an existing workspace?
