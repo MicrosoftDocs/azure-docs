@@ -15,9 +15,11 @@ In this quickstart, you use Bicep to deploy a firmware analysis workspace so you
 
 /azure/azure-resource-manager/includes/resource-manager-quickstart-bicep-introduction.md]
 
+[Bicep](articles\azure-resource-manager\bicep\overview.md) is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. It provides concise syntax, reliable type safety, and support for code reuse. Bicep offers the best authoring experience for your infrastructure-as-code solutions in Azure.
+
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a https://azure.microsoft.com/free/?WT.mc_id=A261C142F before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - **Permissions**: `Owner` or `Contributor` on the target resource group (or higher) to deploy resources.  
 - **Azure CLI**: Install the /cli/azure/install-azure-cli and sign in with `az login`. If you use `az deployment group create`, use Azure CLI **2.6.0 or later**. Check with `az --version`.  
 - **Azure PowerShell**: Install the /powershell/azure/install-azure-powershell and sign in with `Connect-AzAccount`.
@@ -29,7 +31,7 @@ In this quickstart, you use Bicep to deploy a firmware analysis workspace so you
 
 The following Bicep file creates a firmware analysis workspace in the specified resource group and region.
 
-
+```JSON 
 @description('Name of the firmware analysis workspace.')
 param workspaceName string
 
@@ -48,6 +50,7 @@ resource workspace 'Microsoft.IoTFirmwareDefense/workspaces@2025-04-01-preview' 
 
 output workspaceId string = workspace.id
 output workspaceNameOut string = workspace.name
+```
 
 ## Deploy the Bicep file
 
@@ -56,7 +59,7 @@ Save the Bicep file as main.bicep to your local computer.
 
 
 Deploy the Bicep file by using either Azure CLI or Azure PowerShell.
-Azure CLI (recommended)
+Azure CLI is recommended.
 
 ### Azure CLI
 
@@ -156,9 +159,6 @@ Write-Host "Press [ENTER] to continue..."
 
 ## Next steps
 
-[!div class="nextstepaction"]
-/azure/firmware-analysis/quickstart-firmware-analysis-portal
+> [!div class="nextstepaction"]
+> [Analyze firmware images in the Azure portal](/azure/firmware-analysis/quickstart-firmware-analysis-portal)
 
-
-/azure/firmware-analysis/tutorial-analyze-firmware
-/azure/templates/microsoft.iotfirmwaredefense/workspaces
