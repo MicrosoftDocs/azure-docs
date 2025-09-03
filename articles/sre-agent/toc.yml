@@ -23,7 +23,7 @@ items:
       items:
         - name: Overview
           href: incident-management.md
-        - name: Custom response plans
+        - name: Response plans
           href: incident-response-plan.md
     - name: FAQ
       href: faq.md
