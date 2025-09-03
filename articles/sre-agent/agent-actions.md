@@ -79,4 +79,3 @@ Consider the following key takeaways when working in an autonomous incident reso
 ## Related content
 
 * [Incident management](incident-management.md)
-* [Security context](security-context.md)
