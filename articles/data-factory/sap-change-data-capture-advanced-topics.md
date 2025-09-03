@@ -56,19 +56,19 @@ In the **Optimize** tab, a source partitioning scheme (see [optimizing performan
 The format in step 1 follows the JSON standard, consisting of an array of partition definitions, each of which itself is an array of individual filter conditions. These conditions themselves are JSON objects with a structure aligned with so-called **selection options** in SAP. In fact, the format required by the SAP ODP framework is basically the same as dynamic DTP filters in SAP BW:
 
 ```json
-{ "fieldName": <>, "sign": <>, "option": <>, "low": <>, "high": <> }
+{ "FieldName": <>, "Sign": <>, "Option": <>, "Low": <>, "High": <> }
 ```
 
 For example
 
 ```json
-{ "fieldName": "VBELN", "sign": "I", "option": "EQ", "low": "0000001000" }
+{ "FieldName": "VBELN", "Sign": "I", "Option": "EQ", "Low": "0000001000" }
 ```
 
 corresponds to a SQL WHERE clause ... **WHERE "VBELN" = '0000001000'**, or
 
 ```json
-{ "fieldName": "VBELN", "sign": "I", "option": "BT", "low": "0000000000", "high": "0000001000" }
+{ "FieldName": "VBELN", "Sign": "I", "Option": "BT", "Low": "0000000000", "High": "0000001000" }
 ```
 
 corresponds to a SQL WHERE clause ... **WHERE "VBELN" BETWEEN '0000000000' AND '0000001000'**
@@ -78,10 +78,10 @@ A JSON definition of a partitioning scheme containing two partitions thus looks 
 ```json
 [
     [
-        { "fieldName": "GJAHR", "sign": "I", "option": "BT", "low": "2011", "high": "2015" }
+        { "FieldName": "GJAHR", "Sign": "I", "Option": "BT", "Low": "2011", "High": "2015" }
     ],
     [
-        { "fieldName": "GJAHR", "sign": "I", "option": "BT", "low": "2016", "high": "2020" }
+        { "FieldName": "GJAHR", "Sign": "I", "Option": "BT", "Low": "2016", "High": "2020" }
     ]
 ]
 ```
@@ -102,11 +102,11 @@ As an example, the partition condition
 
 ```json
     [
-        { "fieldName": "BUKRS", "sign": "I", "option": "EQ", "low": "1000" },
-        { "fieldName": "BUKRS", "sign": "I", "option": "EQ", "low": "1010" },
-        { "fieldName": "GJAHR", "sign": "I", "option": "BT", "low": "2010", "high": "2025" },
-        { "fieldName": "GJAHR", "sign": "E", "option": "EQ", "low": "2023" },
-        { "fieldName": "GJAHR", "sign": "E", "option": "EQ", "low": "2021" }
+        { "FieldName": "BUKRS", "Sign": "I", "Option": "EQ", "Low": "1000" },
+        { "FieldName": "BUKRS", "Sign": "I", "Option": "EQ", "Low": "1010" },
+        { "FieldName": "GJAHR", "Sign": "I", "Option": "BT", "Low": "2010", "High": "2025" },
+        { "FieldName": "GJAHR", "Sign": "E", "Option": "EQ", "Low": "2023" },
+        { "FieldName": "GJAHR", "Sign": "E", "Option": "EQ", "Low": "2021" }
     ]
 ```
 corresponds to a SQL WHERE clause ... **WHERE ("BUKRS" = '1000' OR "BUKRS" = '1010') AND ("GJAHR" BETWEEN '2010' AND '2025') AND NOT ("GJAHR" = '2021' or "GJARH" = '2023')**
