@@ -53,7 +53,6 @@ Follow these steps to move your existing replications to the simplified experien
 5. [Prepare the simplified/modernized Recovery Services vault](../site-recovery/move-from-classic-to-modernized-vmware-disaster-recovery.md#prepare-modernized-recovery-services-vault) where your appliance has been registered.
 6. [Trigger migration for your existing replications](../site-recovery/how-to-move-from-classic-to-modernized-vmware-disaster-recovery.md).
 
-.
   
 ## Next steps
 
