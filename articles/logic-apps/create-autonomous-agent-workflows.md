@@ -33,7 +33,7 @@ In autonomous agent workflows, an agent provides the following capabilities and 
 
 With [1,400+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that provide actions that you can use to create tools for an agent to use, autonomous agent workflows support a vast range of scenarios that can greatly benefit from AI capabilities.
 
-The following diagram shows an example autonomous agent workflow that you create in this guide. The workflow uses an agent to get the weather forecast and send that forecast in email. The diagram shows the agent information pane where you set up the agent and provide instructions that don't require human interaction for the agent to follow:
+The following screenshot shows an example autonomous agent workflow that you create in this guide. The workflow uses an agent to get the weather forecast and send that forecast in email. The diagram shows the agent information pane where you set up the agent and provide instructions that don't require human interaction for the agent to follow:
 
 :::image type="content" source="media/create-autonomous-agent-workflows/weather-example.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and example autonomous agent." lightbox="media/create-autonomous-agent-workflows/weather-example.png":::
 
@@ -150,7 +150,7 @@ The following table describes the current limitations and any known issues in th
 
 ## Create an autonomous agent workflow
 
-Follow these steps to create a partial workflow with an empty **Default Agent**.
+Follow these steps to create a partial workflow with an empty **Agent**.
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
@@ -158,21 +158,21 @@ Follow these steps to create a partial workflow with an empty **Default Agent**.
 
 1. On the **Workflows** page toolbar, select **Add** > **Add**.
 
-1. On the **Create Workflow** pane, complete the following steps:
+1. On the **Create workflow** pane, complete the following steps:
 
    1. For **Workflow name**, provide a name for your workflow to use.
 
    1. Select **Autonomous Agents** > **Create**.
 
-   :::image type="content" source="media/create-autonomous-agent-workflows/create-agent-workflow.png" alt-text="Screenshot shows Standard logic app resource with open Workflows page and Create workflow pane with workflow name, selected Agent option, and Create button." lightbox="media/create-autonomous-agent-workflows/create-agent-workflow.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/select-autonomous-agents.png" alt-text="Screenshot shows Standard logic app resource with open Workflows page and Create workflow pane with workflow name, selected Agent option, and Create button." lightbox="media/create-autonomous-agent-workflows/select-autonomous-agents.png":::
 
-   The designer opens and shows a partial workflow, which includes an empty **Default Agent** that you need to set up when you're ready. Before you can save your workflow, you must complete the following setup tasks for the agent:
+   The designer opens and shows a partial workflow, which includes an empty **Agent** that you need to set up when you're ready. Before you can save your workflow, you must complete the following setup tasks for the agent:
 
    - Create a connection to your deployed model. You complete this task in a later section.
 
    - Provide system instructions that describe the roles that the agent plays, the tasks that the agent can perform, and other information to help the agent better understand how to operate. You also complete this task in a later section.
 
-   :::image type="content" source="media/create-autonomous-agent-workflows/agent-workflow-start.png" alt-text="Screenshot shows workflow designer with Add a trigger and empty Default Agent." lightbox="media/create-autonomous-agent-workflows/agent-workflow-start.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/agent-workflow-start.png" alt-text="Screenshot shows workflow designer with Add a trigger and empty Agent." lightbox="media/create-autonomous-agent-workflows/agent-workflow-start.png":::
 
 1. Continue to the next section.
 
