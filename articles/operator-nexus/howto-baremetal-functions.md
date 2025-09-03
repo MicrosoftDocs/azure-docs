@@ -171,8 +171,20 @@ az networkcloud baremetalmachine replace \
   --boot-mac-address <PXE_MAC> \
   --machine-name <OS_HOSTNAME> \
   --serial-number <SERIAL_NUMBER> \
-  --subscription <subscriptionID>
+  --subscription <subscriptionID> \
+  --safeguard-mode <"All" or "None">
 ```
+
+> [!IMPORTANT]
+> For replace actions made using API version `2025-07-01-preview` and later: by default the replace action uses a safeguard that prevents replacing a healthy machine (powered on, ready, provisioned, joined to cluster) to avoid unnecessary disruptive operations. If a `replace` is attempted while the machine is healthy the action is rejected with the following response:
+>
+> ```
+> (action rejected) cannot replace healthy machine (powered on, ready, provisioned, joined to cluster). Use --safeguard-mode None to override
+> Code: action rejected
+> Message: cannot replace healthy machine (powered on, ready, provisioned, joined to cluster). Use --safeguard-mode None to override
+> ```
+>
+> To override the safeguard, specify `--safeguard-mode None`:
 
 If the `replace` action fails due to a hardware validation failure, the specific error or test failure is shown in the `replace` response, as shown in the following examples.
 This information can also be found in the Activity Log for the Bare Metal Machine (Operator Nexus).

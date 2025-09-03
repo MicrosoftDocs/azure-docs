@@ -6,9 +6,9 @@ ms.topic: quickstart
 ms.date: 08/07/2025
 ms.service: azure-app-testing
 ms.subservice: playwright-workspaces
-author: ninallam
-ms.author: ninallam
-ms.custom: playwright-workspaces-preview
+author: johnsta
+ms.author: johnsta
+ms.custom: playwright-workspaces
 zone_pivot_group_filename: app-testing/playwright-workspaces/zone-pivots-groups.json
 zone_pivot_groups: playwright-workspaces
 ---
@@ -18,9 +18,6 @@ zone_pivot_groups: playwright-workspaces
 In this quickstart, you learn how to run your Playwright tests with highly parallel cloud browsers using Playwright Workspaces. Use cloud infrastructure to validate your application across multiple browsers, devices, and operating systems.
 
 After you complete this quickstart, you have a Playwright workspace to run your Playwright tests at scale.
-
-> [!IMPORTANT]
-> Playwright Workspaces is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -73,7 +70,7 @@ To get started with running your Playwright tests on cloud browsers, you first n
 To use the service, install the Playwright Workspaces package. 
 
 ```npm
-npm init @azure/playwright@beta
+npm init @azure/playwright@latest
 ```
 
 This generates a `playwright.service.config.ts` file which serves to direct and authenticate Playwright to Playwright Workspaces.
@@ -87,7 +84,7 @@ If you already have this file, the package asks you to overwrite it.
 To use the service, install the Playwright Workspaces package. 
 
 ```PowerShell
-dotnet add package Azure.Developer.Playwright.NUnit --prerelease
+dotnet add package Azure.Developer.Playwright.NUnit
 ```
 
 ::: zone-end

@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 12/18/2024
+ms.date: 08/25/2024
 ---
 
 # Copy and transform data in Microsoft Fabric Lakehouse using Azure Data Factory or Azure Synapse Analytics
@@ -68,6 +68,8 @@ The following sections provide details about properties that are used to define 
 The Microsoft Fabric Lakehouse connector supports the following authentication types. See the corresponding sections for details:
 
 - [Service principal authentication](#service-principal-authentication)
+- [System-assigned managed identity authentication](#managed-identity)
+- [User-assigned managed identity authentication](#user-assigned-managed-identity-authentication)
 
 ### Service principal authentication
 
@@ -79,24 +81,8 @@ To use service principal authentication, follow these steps.
     - Client secret value, which is the service principal key in the linked service.
     - Tenant ID
 
-2. Grant the service principal at least the **Contributor** role in Microsoft Fabric workspace. Follow these steps:
-    1. Go to your Microsoft Fabric workspace, select **Manage access** on the top bar. Then select **Add people or groups**.
-    
-        :::image type="content" source="media/connector-microsoft-fabric-lakehouse/fabric-workspace-manage-access.png" alt-text="Screenshot shows selecting Fabric workspace Manage access."::: 
+2. Grant the service principal at least the **Contributor** role in Microsoft Fabric workspace. Follow the steps in [Grant permissions in Microsoft Fabric workspace](#grant-permissions-in-microsoft-fabric-workspace)
 
-        :::image type="content" source="media/connector-microsoft-fabric-lakehouse/manage-access-pane.png" alt-text=" Screenshot shows Fabric workspace Manage access pane."::: 
-    
-    1. In **Add people** pane, enter your service principal name, and select your service principal from the drop-down list.
-
-       >[!Note]
-       > The service principal will not appear in the **Add people** list unless the Power BI tenant settings [enable service principals access to Fabric APIs](/power-bi/developer/embedded/embed-service-principal#step-3---enable-the-power-bi-service-admin-settings).
-    
-    1. Specify the role as **Contributor** or higher (Admin, Member), then select **Add**.
-        
-        :::image type="content" source="media/connector-microsoft-fabric-lakehouse/select-workspace-role.png" alt-text="Screenshot shows adding Fabric workspace role."::: 
-
-    1. Your service principal is displayed on **Manage access** pane.
-    
 These properties are supported for the linked service:
 
 | Property | Description | Required |
@@ -137,6 +123,111 @@ You can also store service principal key in Azure Key Vault.
     }
 }
 ```
+
+### <a name="managed-identity"></a> System-assigned managed identity authentication
+
+A data factory or Synapse pipeline can be associated with a [system-assigned managed identity for Azure resources](data-factory-service-identity.md#system-assigned-managed-identity), which represents that resource for authentication to other Azure services. You can directly use this system-assigned managed identity for Microsoft Fabric Lakehouse authentication, which is similar to using your own service principal. It allows this designated resource to access and copy data from or to Microsoft Fabric Lakehouse. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+
+To use managed identities for Azure resource authentication, follow these steps:
+
+1. [Retrieve system-assigned managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the system-assigned managed identity object ID generated along with your factory or Synapse workspace.
+
+2. Grant the system-assigned managed identity at least the **Contributor** role in Microsoft Fabric workspace. Follow the steps in [Grant permissions in Microsoft Fabric workspace](#grant-permissions-in-microsoft-fabric-workspace)
+
+These properties are supported for a Microsoft Fabric Lakehouse linked service:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The **type** property must be set to **Lakehouse**. | Yes |
+| workspaceId | The Microsoft Fabric workspace ID. | Yes |
+| artifactId | The Microsoft Fabric Lakehouse object ID. | Yes |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is in a private network. If not specified, the default Azure integration runtime is used. |No |
+
+**Example:**
+
+```json
+{
+    "name": "MicrosoftFabricLakehouseLinkedService",
+    "properties": {
+        "type": "Lakehouse",
+        "typeProperties": {            
+            "workspaceId": "<Microsoft Fabric workspace ID>",
+            "artifactId": "<Microsoft Fabric Lakehouse object ID>",
+            "authenticationType": "SystemAssignedManagedIdentity"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+> [!NOTE]
+> This authentication type is not supported on the self-hosted integration runtime.
+
+### User-assigned managed identity authentication
+
+A data factory can be assigned with one or multiple [user-assigned managed identities](data-factory-service-identity.md#user-assigned-managed-identity). You can use this user-assigned managed identity for Microsoft Fabric Lakehouse authentication, which allows to access and copy data from or to Microsoft Fabric Lakehouse. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
+
+ To use user-assigned managed identity authentication, follow these steps:
+
+1. [Create one or multiple user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+
+1. Grant the user-assigned managed identity at least the **Contributor** role in Microsoft Fabric workspace. Follow the steps in [Grant permissions in Microsoft Fabric workspace](#grant-permissions-in-microsoft-fabric-workspace).
+     
+1. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](credentials.md) for each user-assigned managed identity. 
+
+These properties are supported for a Microsoft Fabric Lakehouse linked service:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The **type** property must be set to **Lakehouse**. | Yes |
+| workspaceId | The Microsoft Fabric workspace ID. | Yes |
+| artifactId | The Microsoft Fabric Lakehouse object ID. | Yes |
+| credentials | Specify the user-assigned managed identity as the credential object. | Yes |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | No |
+
+**Example:**
+
+```json
+{
+    "name": "MicrosoftFabricLakehouseLinkedService",
+    "properties": {
+        "type": "Lakehouse",
+        "typeProperties": {            
+            "workspaceId": "<Microsoft Fabric workspace ID>",
+            "artifactId": "<Microsoft Fabric Lakehouse object ID>",
+            "authenticationType": "UserAssignedManagedIdentity",
+            "credential": {
+                "referenceName": "credential1",
+                "type": "CredentialReference"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### Grant permissions in Microsoft Fabric workspace
+
+You need to grant the service principal/system-assigned managed identity/user-assigned managed identity at least the **Contributor** role in Microsoft Fabric workspace. Follow these steps:
+
+1. Go to your Microsoft Fabric workspace, select **Manage access** on the top bar. Then select **Add people or groups**.
+
+    :::image type="content" source="media/connector-microsoft-fabric-lakehouse/fabric-workspace-manage-access.png" alt-text="Screenshot shows selecting Fabric workspace Manage access."::: 
+    :::image type="content" source="media/connector-microsoft-fabric-lakehouse/manage-access-pane.png" alt-text=" Screenshot shows Fabric workspace Manage access pane."::: 
+
+1. In **Add people** pane, enter your service principal/system-assigned managed identity/user-assigned managed identity name, and select it from the drop-down list.
+
+1. Specify the role as **Contributor** or higher (Admin, Member), then select **Add**.
+    
+    :::image type="content" source="media/connector-microsoft-fabric-lakehouse/select-workspace-role.png" alt-text="Screenshot shows adding Fabric workspace role."::: 
+
+1. Your service principal/system-assigned managed identity/user-assigned managed is displayed on **Manage access** pane.
 
 ## Dataset properties
 
