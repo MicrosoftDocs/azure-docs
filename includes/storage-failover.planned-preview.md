@@ -6,11 +6,13 @@ author: stevenmatthew
 ms.service: azure-storage
 ms.subservice: common-concepts
 ms.topic: "include"
-ms.date: 09/03/2025
+ms.date: 02/21/2025
 ms.author: shaas
 ms.custom: "include file", references_regions
 ---
 
+> [!IMPORTANT]
+<!-- User feedback is being incorporated into customer-managed planned failover (preview) and the feature is temporarily unavailable in all regions. After completion, updated documentation will be released to reflect the regions in which the feature is available.-->
 > Customer-managed planned failover is currently in PREVIEW and limited to the following regions:
 >
 > - Australia East
