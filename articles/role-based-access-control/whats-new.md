@@ -5,7 +5,7 @@ author: jenniferf-skc
 manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: whats-new
-ms.date: 05/25/2025
+ms.date: 08/25/2025
 ms.author: jfields
 
 ---
@@ -18,6 +18,7 @@ This article provides information about new features and documentation improveme
 
 | Date | Area | Description |
 | --- | --- | --- |
+| August 2025 | Roles | Added Azure Batch roles.<br/>[Azure Batch Account Contributor](./built-in-roles/compute.md#azure-batch-account-contributor)<br/>[Azure Batch Account Reader](./built-in-roles/compute.md#azure-batch-account-reader)<br/>[Azure Batch Data Contributor](./built-in-roles/compute.md#azure-batch-data-contributor)<br/>[Azure Batch Job Submitter](./built-in-roles/compute.md#azure-batch-job-submitter) |
 | May 2025 | Roles and permissions | Updated permissions for several roles and resource providers. See [Azure built-in roles](built-in-roles.md) and [Azure permissions](resource-provider-operations.md). |
 | May 2025 | Roles | Updated role name from Managed Applications Reader to [Managed Application Publisher Operator](./built-in-roles/management-and-governance.md#managed-application-publisher-operator). |
 | April 2025 | Roles and permissions | Updated permissions for several roles and resource providers. See [Azure built-in roles](built-in-roles.md) and [Azure permissions](resource-provider-operations.md). |

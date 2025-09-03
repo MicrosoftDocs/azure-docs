@@ -7,7 +7,7 @@ ms.workload: identity
 author: jenniferf-skc    
 manager: pmwongera
 ms.author: jfields
-ms.date: 07/25/2025
+ms.date: 08/26/2025
 ms.custom: generated
 ---
 
@@ -45,6 +45,10 @@ The following table provides a brief description of each built-in role. Click th
 > | Built-in role | Description | ID |
 > | --- | --- | --- |
 > | <a name='azure-arc-vmware-vm-contributor'></a>[Azure Arc VMware VM Contributor](./built-in-roles/compute.md#azure-arc-vmware-vm-contributor) | Arc VMware VM Contributor has permissions to perform all VM actions. | b748a06d-6150-4f8a-aaa9-ce3940cd96cb |
+> | <a name='azure-batch-account-contributor'></a>[Azure Batch Account Contributor](./built-in-roles/compute.md#azure-batch-account-contributor) | Grants full access to manage all Batch resources, including Batch accounts, pools and jobs. | 29fe4964-1e60-436b-bd3a-77fd4c178b3c |
+> | <a name='azure-batch-account-reader'></a>[Azure Batch Account Reader](./built-in-roles/compute.md#azure-batch-account-reader) | Lets you view all resources including pools and jobs in the Batch account. | 11076f67-66f6-4be0-8f6b-f0609fd05cc9 |
+> | <a name='azure-batch-data-contributor'></a>[Azure Batch Data Contributor](./built-in-roles/compute.md#azure-batch-data-contributor) | Grants permissions to manage Batch pools and jobs but not to modify accounts. | 6aaa78f1-f7de-44ca-8722-c64a23943cae |
+> | <a name='azure-batch-job-submitter'></a>[Azure Batch Job Submitter](./built-in-roles/compute.md#azure-batch-job-submitter) | Lets you submit and manage jobs in the Batch account. | 48e5e92e-a480-4e71-aa9c-2778f4c13781 |
 > | <a name='classic-virtual-machine-contributor'></a>[Classic Virtual Machine Contributor](./built-in-roles/compute.md#classic-virtual-machine-contributor) | Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they're connected to. | d73bb868-a0df-4d4d-bd69-98a00b01fccb |
 > | <a name='compute-fleet-contributor'></a>[Compute Fleet Contributor](./built-in-roles/compute.md#compute-fleet-contributor) | Allows users to manage Compute Fleet resources. | 2bed379c-9fba-455b-99e4-6b911073bcf2 |
 > | <a name='compute-gallery-artifacts-publisher'></a>[Compute Gallery Artifacts Publisher](./built-in-roles/compute.md#compute-gallery-artifacts-publisher) | This is the role for publishing gallery artifacts. | 85a2d0d9-2eba-4c9c-b355-11c2cc0788ab |
