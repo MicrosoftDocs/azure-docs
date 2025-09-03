@@ -91,6 +91,7 @@ You can configure this setting using the following methods:
 
 ### Configure Public IP addresses with availability zones configured
 Refer to the table below for creating/using public IP addresses for zonal Bastion deployments:
+
 | | Bastion availability zones  | Public IP availability zones  |
 |:-------|:------|:-------|
 | Creating a new public IP | 1, 2, 3 | 1, 2, 3 |
