@@ -33,26 +33,6 @@ Following these steps, you install the service provider's application in your te
 
 With these three parameters, the service provider provisions Azure resources in tenant 1 that can be encrypted with the customer-managed key in tenant 2. 
 
-## Register the feature 
-
-Cross-tenant customer-managed keys is now generally available (GA). You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
-
-1. Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCrossTenantCMK
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** can remain in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCrossTenantCMK
-    ```
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
-
 ## Configure cross-tenant customer-managed keys for Azure NetApp Files 
 
 The configuration process for cross-tenant customer-managed keys has portions that can only be completed using the REST API and Azure CLI. 
