@@ -6,33 +6,37 @@ ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 09/02/2025
 ms.author: danlep
-ms.custom: 
-  - ai-gen
+ai-usage: ai-assisted
 ---
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 # Environmentally sustainable APIs in Azure API Management (preview)
 
-This article introduces environmental sustainability features in Azure API Management that help you monitor and reduce the carbon footprint of your APIs. These limited preview features allow you to optimize API traffic based on carbon emissions in different Azure regions.
+This article introduces features in Azure API Management that help you monitor and reduce the carbon footprint of your APIs. Use the features to optimize API traffic based on carbon emissions in different Azure regions.
 
-[!INCLUDE [preview-notice](../../includes/api-management-preview-statement.md)]
+> [!NOTE]
+> * These features are currently in limited preview. To sign up, please fill the form. <!-- Link to form -->
+> * Environmental stainability features are available only in Azure API Management classic tiers (Developer, Basic, Standard, Premium).
 
-> [!IMPORTANT]
-> These features are currently in limited preview. To gain access, please fill the sign-up form.
-> Environmentalstainability features are available only in Azure API Management classic tiers (Developer, Basic, Standard, Premium).
-
-## Why use sustainability features
+## About sustainable APIs
 
 Organizations are increasingly focused on reducing their environmental impact through their digital infrastructure. By optimizing how your APIs handle traffic based on environmental factors, you can:
 
 * Reduce carbon emissions by routing traffic to regions with lower carbon intensity
-* Support corporate sustainability initiatives and environmental commitments
 * Make informed decisions about when and where to scale infrastructure
+* Support corporate sustainability initiatives and environmental commitments
 * Demonstrate environmental responsibility to stakeholders
+
+API Management helps you achieve these goals with features to:
+
+* Shape API traffic based on carbon emissions in your API Management service's region
+* Shift API traffic to backend regions with lower carbon intensity
 
 
 ## Traffic shaping
 
-Traffic shaping lets you adjust API behavior based on carbon emission levels in your API Management service's region. Using a context variable that indicates the current carbon emission category, you can dynamically modify policies to reduce resource usage during high-emission periods. For example, use this information to:
+Traffic shaping lets you adjust API behavior based on carbon emission levels in your API Management service's region. API Management exposes a `context.Sustainability.CurrentCarbonCategory` context variable that indicates the current carbon emission category for the region where your API Management instance is running. Use this variable in your policies to implement different behaviors based on the region'scarbon intensity. For example, you could use this information to:
 
 * Extend cache durations
 * Implement stricter rate limiting
@@ -44,9 +48,8 @@ Traffic shaping lets you adjust API behavior based on carbon emission levels in 
 
 [Placeholder for carbon emission categories]
 
-### Using the context variable
+### Examples
 
-API Management exposes a `context.Sustainability.CurrentCarbonCategory` context variable that indicates the current carbon emission category for the region where your API Management instance is running. You can use this variable in your policies to implement different behaviors based on the carbon intensity.
 
 Here's an example of how to use the context variable in a policy:
 
@@ -181,14 +184,9 @@ To configure a load balancer with carbon emission thresholds:
 }
 ```
 
-## Get access to sustainability features
-Sustainability features in Azure API Management are currently available as a limited preview. To get access:
-
-Sign up for the preview program (link to be provided)
-Once approved, you can enable and configure these features in your existing API Management instances
-Use the features in your API configuration and policies as described in this article
-
 ## Related content
-How to configure backends in Azure API Management
-API Management policy reference
-Azure sustainability documentation
+
+* [Backends](backends.md)
+* [API Management policy reference](api-management-policies.md)
+* [Sustainable workloads in Azure](/azure/well-architected/sustainability/sustainability-get-started)
+* [Microsoft for sustainability](https://www.microsoft.com/sustainability/cloud)
