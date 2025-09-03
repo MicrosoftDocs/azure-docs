@@ -21,9 +21,9 @@ Current: 99 (3350/0)
 
 # Storage redundancy configuration FAQs
 
-There are many different factors that can help drive the need to change your storage account's redundancy options. The decision to change redundancy options involves carefully balancing your organization's data availability, disaster recovery, performance, and cost requirements. These requirements are then weighed against the risks and benefits associated with the various redundancy options. Regular assessment and adjustment are crucial to ensure an optimal and resilient data storage strategy.
+There are many different factors that can drive the need to change your storage accounts' redundancy options. The correct redundancy option balances your organization's data availability, disaster recovery, performance, and cost requirements. These requirements are weighed against the risks and benefits associated with the various redundancy options. Regular assessment and adjustment are necessary to ensure an optimal and resilient data storage strategy.
 
-Similarly, there are many considerations to keep in mind when changing redundancy options, especially from a time and cost perspective. The time it takes to change redundancy options can vary based on the specific options being changed and the size of the data involved. Additionally, there might be costs associated with data transfer and increased storage requirements during the transition.
+There are also many considerations to consider when changing redundancy options, especially from a time and cost perspective. The time it takes to change redundancy options can vary based on the specific options being changed and the size of the data involved. There might also be costs associated with data transfer and increased storage requirements during a transition.
 
 This article contains answers to frequently asked questions about the process of changing Azure Storage redundancy options for your storage accounts.
 
@@ -40,25 +40,33 @@ There are no initial costs for making these conversions. However, after an accou
 
 For details on pricing, refer to the [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) article.
 
-When you *add* geo-redundancy, the conversion incurs a [geo-replication data transfer charge](https://azure.microsoft.com/pricing/details/storage/blobs/) at the time of the change. This transfer charge applies because your entire storage account is being replicated to the secondary region. Because all subsequent write operations are replicated to the secondary region, they also incur the data transfer charge. This charge applies to *LRS* **to** *GRS*; *RA-GRS* or *ZRS* **to** *GZRS*; and *RA-GRS* **to** *GZRS* conversions.
+When you *add* geo-redundancy, the conversion incurs a [geo-replication data transfer charge](https://azure.microsoft.com/pricing/details/storage/blobs/) at the time of the change. This transfer charge applies because your entire storage account is being replicated to the secondary region. Because all subsequent write operations are also replicated to the secondary region, they're subject to the data transfer charge. This charge applies to *LRS* **to** *GRS*; *RA-GRS* or *ZRS* **to** *GZRS*; and *RA-GRS* **to** *GZRS* conversions.
 
-You incur no charges when you *remove* geo-redundancy, such as when you convert *GRS* **to** *LRS* or *ZRS* **to** *GZRS*.
+You incur no charges when you *remove* geo-redundancy, such as converting *GRS* **to** *LRS* or *ZRS* **to** *GZRS*.
 
-When you remove read access from a storage account, it continues to incur charges as *RA-GRS* or *RA-GZRS* for 30 days beyond the date on which it was converted. This policy applies to *RA-GRS* **to** *GRS* or *RA-GZRS* **to** *GZRS*, for example.
+When you remove read access from a storage account, it continues to incur charges as *RA-GRS* or *RA-GZRS* for 30 days beyond the date on which it was converted. This policy applies to *RA-GRS* **to** *GRS* or *RA-GZRS* **to** *GZRS*.
 
 You can learn more about changing a storage account's replication options in the [Change the redundancy option for a storage account](redundancy-migration.md) article.
     
-### How long does the SKU conversion process take? 
+### How long does the SKU conversion process take?
 
-Zonal redundancy conversions such as *LRS* **to, or from,** *ZRS*, *GRS* **to, or from,** *GZRS*, or *RA-GRS* **to, or from,** *RA-GZRS* typically begin within a few days after a request is validated. However, it might take weeks to complete, depending on current resource demands in the region, account size, and other factors.
+The type of account conversion you initiate affects the duration of the process. To understand the timeline better, it's important to know the differences between zonal and geo redundancy.
 
-It isn't possible to speed up this process by submitting a support request. The conversion progress changes to 'In progress' when data movement begins.
+Geo-redundancy replicates data to a secondary, geographically distant region. Zonal redundancy replicates data across multiple availability zones, or isolated data centers with independent power, cooling, and networking, within a single region. As their names imply, zonal redundancy protects against zone failures, while geo-redundancy protects against large-scale regional disasters.
 
-There's currently no service level agreement (SLA) for completion of a SKU conversion. If you need more control over when a conversion begins and finishes, consider a Manual migration. Manual migrations utilize a feature or tool such as AzCopy to migrate the data of your current storage account to another storage account with the desired redundancy.
+#### Zonal conversion
+
+Zonal redundancy conversions such as *LRS* **to, or from,** *ZRS*; *GRS* **to, or from,** *GZRS*; or *RA-GRS* **to, or from,** *RA-GZRS* typically begin within a few days after a request is validated. However, it might take weeks to complete, depending on current resource demands in the region, account size, and other factors.
+
+There's currently no service level agreement (SLA) for completion of a SKU conversion, and the conversion process can't be expedited by submitting a support request. The conversion progress status changes to `In progress` when data movement begins.
+
+If you need more control over a conversion's timeline, such as when it starts and finishes, consider performing a *manual migration*. Manual migrations utilize a feature or tool such as AzCopy to migrate the data of your current storage account to a different storage account with the desired redundancy.
 
 You can learn more about changing a storage account's replication options in the [Change the redundancy option for a storage account](redundancy-migration.md) article.
 
-Geo redundancy conversions, including *LRS* **to, or from,** *GRS* or *ZRS* **to, or from,** *GZRS*, currently have no SLA for completion. It isn't possible to speed up this process by submitting a support request. The timeframe it takes to complete these conversions can vary depending on various factors, including:
+#### Geo conversion
+
+There's currently no SLA for completion of a geo redundancy conversion, including *LRS* **to, or from,** *GRS* or *ZRS* **to, or from,** *GZRS*. It isn't possible to expedite this process by submitting a support request. The timeframe it takes to complete these conversions can vary depending on various factors, including:
 
 - The number and size of the objects in the storage account.
 - The available resources for background replication, such as CPU, memory, disk, and WAN capacity.
@@ -67,77 +75,83 @@ You can read more about the factors affecting SKU conversion times in the [Initi
 
 ### Why is my SKU conversion process taking so long?
 
-There's currently no SLA for completion of either a geo or zonal SKU conversion. It isn't possible to speed up this process by submitting a support request. The conversion progress changes to 'In progress' when data movement begins.
+The SKU conversion process typically completes within a few days but can take up to a few weeks depending on the current resource demands in the region, account size along with various other factors. 
 
-If you need more control over when a conversion begins and finishes, consider a Manual migration. Manual migrations utilize a feature or tool such as AzCopy to migrate the data of your current storage account to another storage account with the desired redundancy. The SKU conversion process typically completes within a few days but can take up to a few weeks depending on the current resource demands in the region, account size along with various other factors.
+There's currently no SLA for completion of either a geo or zonal SKU conversion, and it isn't possible to expedite the process by submitting a support request. The conversion's progress changes to `In progress` when data movement begins.
+
+If you need more control over a conversion's timeline, such as when it starts and finishes, consider performing a *manual migration*. Manual migrations utilize a feature or tool such as AzCopy to migrate the data of your current storage account to a different storage account with the desired redundancy.
 
 You can learn more about changing a storage account's replication options in the [Change the redundancy option for a storage account](redundancy-migration.md) article.
         
-### What is the performance and availability impact of a SKU conversion? Is there any application downtime expected? Is there any data loss expected?
+### How does a SKU conversion affect performance and availability? Is there any application downtime expected? Is there any data loss expected?
 
-During a SKU conversion, you can access data in your storage account with no loss of durability or availability. The Azure Storage SLA is maintained during the migration process and no data is lost during a conversion. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the migration.
+During a SKU conversion, you can continue to access data in your storage account with no loss of durability or availability. The Azure Storage SLA is maintained during the conversion process and no data is lost. Similarly, service endpoints, access keys, shared access signatures, and other account options also remain unchanged.
         
 You can learn more about changing a storage account's replication options in the [Change the redundancy option for a storage account](redundancy-migration.md) article.
     
 ### How do I convert my account from LRS to GZRS?
 
-A direct conversion form LRS to GZRS isn't supported today and this conversion requires a two-step process. You have the option of completing this conversion two ways:
+A direct *LRS* **to** *GZRS* conversion isn't supported. This conversion requires a two-step process that can be completed in two ways:
 
-1. *LRS to ZRS*, followed by *ZRS to GZRS*, or 
-1. *LRS to GRS*, followed by *GRS to GZRS*. 
+1. *LRS* **to** *ZRS*, followed by *ZRS* **to** *GZRS*, or 
+1. *LRS* **to** *GRS*, followed by *GRS* **to** *GZRS*. 
 
-When performing an *LRS to ZRS* conversion followed by *ZRS to GZRS*, you must wait at least 72 hours between the conversions. This temporary delay allows background processes to complete before making another change, ensuring the consistency and integrity of the account.
+When performing an *LRS* **to** *ZRS* conversion, followed by *ZRS* **to** *GZRS*, you must wait at least 72 hours between the conversions. This temporary delay ensures the consistency and integrity of the account by allowing background processes to complete before making another change.
 
 ### How do I convert my account from GZRS to LRS?
 
-A direct *GZRS to LRS* conversion isn't supported and requires a two-step process. You have the option of completing this conversion two ways: 
+A direct *GZRS* **to** *LRS* conversion isn't supported. This conversion requires a two-step process that can be completed in two ways:
 
-1. *GZRS to ZRS*, followed by *ZRS to LRS*, or 
-1. *GZRS to GRS*, followed by *GRS to LRS*. 
+1. *GZRS* **to** *ZRS*, followed by *ZRS* **to** *LRS*, or 
+1. *GZRS* **to** *GRS*, followed by *GRS* **to** *LRS*. 
 
-When performing a *GZRS to GRS* conversion followed by *GRS to LRS*, you must wait at least 72 hours between the conversions. This temporary delay allows background processes to complete before making another change, ensuring the consistency and integrity of the account.
+When performing a *GZRS* **to** *GRS* conversion, followed by *GRS* **to** *LRS*, you must wait at least 72 hours between the conversions. This temporary delay ensures the consistency and integrity of the account by allowing background processes to complete before making another change.
 
 ### How do I convert my account from GRS to ZRS?
 
-A direct *GRS to ZRS* conversion isn't supported and requires a two-step process. You have the option of completing this conversion two ways: 
+A direct *GRS* **to** *ZRS* conversion isn't supported. This conversion requires a two-step process that can be completed in two ways:
 
-1. *GRS to GZRS*, followed by *GZRS to ZRS*.
-1. *GRS to LRS*, followed by *LRS to ZRS*.
+1. *GRS* **to** *GZRS*, followed by *GZRS* **to** *ZRS*.
+1. *GRS* **to** *LRS*, followed by *LRS* **to** *ZRS*.
 
-When performing a *GRS to GZRS* conversion followed by *GZRS to ZRS*, you must wait at least 72 hours between the conversions. This temporary hold allows background processes to complete before making another change, ensuring the consistency and integrity of the account.
+When performing a *GRS* **to** *GZRS* conversion followed by *GZRS* **to** *ZRS*, you must wait at least 72 hours between the conversions. This temporary delay ensures the consistency and integrity of the account by allowing background processes to complete before making another change.
 
-If you perform a *GRS to LRS* conversion followed by *LRS to ZRS*, your storage account is temporarily held in LRS, a lower redundancy option. This option offers less durability and availability.
+When you complete the initial *GRS* **to** *LRS* conversion, your storage account temporarily becomes *LRS*, a lower redundancy option. This option offers less durability and availability.
 
 ### How do I convert my account from ZRS to GRS?
 
-A direct *ZRS to GRS* conversion isn't supported and requires a two-step process. You have the option of completing this conversion two ways: 
+A direct *ZRS* **to** *GRS* conversion isn't supported. This conversion requires a two-step process that can be completed in two ways:
 
-1. *ZRS to GZRS*, followed by *GZRS to GRS*, or 
-1. *ZRS to LRS*, followed by *LRS to GRS*.
+1. *ZRS* **to** *GZRS*, followed by *GZRS* **to** *GRS*, or
+1. *ZRS* **to** *LRS*, followed by *LRS* **to** *GRS*.
 
-When performing a *ZRS to LRS* conversion followed by *LRS to GRS*, you must wait at least 72 hours between the conversions. This temporary hold allows background processes to complete before making another change, ensuring the consistency and integrity of the account. When you complete the initial *ZRS to LRS* conversion, your storage account is temporarily held in LRS, a lower redundancy option. This option offers much less durability and availability.
+When performing a *ZRS* **to** *LRS* conversion followed by *LRS* **to** *GRS*, you must wait at least 72 hours between the conversions. This temporary delay ensures the consistency and integrity of the account by allowing background processes to complete before making another change. 
 
-## What are the conflicting features or scenarios for SKU conversions?
+When you complete the initial *ZRS* **to** *LRS* conversion, your storage account is temporarily held in *LRS*, a lower redundancy option. This option offers much less durability and availability.
 
-### Zonal Conversions (LRS <-> ZRS, GRS <-> GZRS, and RA-GRS <-> RA-GZRS)
+### What are the conflicting features or scenarios for SKU conversions?
 
-- Object Replication: User can delete their object replication policies and retry.
-- NFSv3: User can't unconfigure NFSv3 once enabled so if they really want ZRS they have to do a manual migration. For example, use AzCopy
-- Point in time restore (PITR): User can disable PITR and retry.
-- Archive data: User can rehydrate their data to cold, cool, or hot, then retry or they can delete the archived data.
-- NFSv4 accounts with public endpoints: User can disable access to the storage account’s public endpoints (Change how a storage account is replicated - Azure Storage | Microsoft Learn)
-- Routing choice == Internet Routing: User can set their routing preference to Microsoft network routing (Configure network routing preference - Azure Storage | Microsoft Learn)
-- Accounts with boot diagnostics enabled (this is only blocked for LRS -> ZRS, GRS -> GZRS and RA-GRS -> RA-GZRS): User can disable boot diagnostics on their account (Boot diagnostics for VMs in Azure - Virtual Machines | Microsoft Learn). Users can’t re-enable once the conversion is completed because boot diagnostics isn't supported for ZRS. 
-- Requested current and target SKU change is supported (example: GRS -> ZRS is currently not supported). If the user attempts to change their GRS account to ZRS, they run into a failure.
-- Their region supports the SKU they're attempting to convert to. Example: Mexico Central doesn't support GZRS so if a user attempts to convert their account from GRS to GZRS it fails.
-- There's a conflicting migration currently ongoing on their account. Example: attempting to do LRS -> ZRS while LRS -> GRS is already in progress. User has to wait until the original migration completes before submitting a new conversion request.
-- Account is failed over: User can failback their account to the original primary region then resubmit the request.
+As with [conversion duration](#how-long-does-the-sku-conversion-process-take), the type of account conversion you initiate affects the number of conflicting features and scenarios.
 
+#### Zonal Conversions
 
-### Geo Conversions (LRS <-> GRS, ZRS <-> GZRS)
+Zonal conversions involve adding or removing availability zone options to your account. These conversions include: *LRS* **to, or from,** *ZRS*; *GRS* **to, or from,** *GZRS*; and *RA-GRS* **to, or from,** *RA-GZRS*.
 
-- Archive data (If accounts have archive data the data needs to be rehydrated before the LRS -> GRS request can be submitted). This is a check performed by SRP and users receive an error message almost instantly.
-- Ensure your region supports your desired SKU (ex: there are 3+0 regions that support ZRS but don't support GZRS)
+- **Object Replication:** Zonal conversions on accounts with object replication (OR) might generate an error. In this case, you can delete your account's OR policies and attempt the conversion again.
+- **NFSv3:** NFSv3 can't be unconfigured. To convert an NFSv3-enabled account to ZRS, you need to perform a *manual migration*. Manual migrations utilize a feature or tool such as AzCopy to migrate the data of your current storage account to a different storage account with the desired redundancy. To learn more about using AzCopy, see [Use AzCopy to copy blobs](https://learn.microsoft.com/azure/storage/common/storage-use-azcopy-blobs).
+- **Point in time restore (PITR):** Zonal conversions on accounts with point-in-time restore (PITR) might generate an error. In this case, you can disable PITR and retry the migration.
+- **Archive data:** Accounts containing data within the archive tier can generate errors. Before converting, you should rehydrate archive data to either the cold, cool, or hot tier, and then retry your conversion. You can also delete any archived data before converting.
+- **NFSv4 accounts with public endpoints:** You might encounter issues when attempting to migrate a storage account with a public endpoint. You should disable access to the storage account's public endpoints before retrying your conversion. You can read more about changing account replication in the [Change how a storage account is replicated](redundancy-migration.md) article.
+- **Routing choice, internet Routing:** You should set your routing preference to *Microsoft network routing*. For details, see [Configure network routing preference](storage-configure-network-routing.md).
+- **Accounts with boot diagnostics enabled:** Boot diagnostics for virtual machines (VMs) isn't supported for *ZRS*. Migrations including *LRS* **to** *ZRS*; *GRS* **to** *GZRS*; and *RA-GRS* **to** *RA-GZRS* are blocked. You can disable boot diagnostics on your account before migrating, but you can't re-enable them after the conversion is complete. For details, see the [Boot diagnostics for VMs in Azure](/troubleshoot/azure/virtual-machines/windows/boot-diagnostics) article.
+- **Unsupported target:** Although your account's region might support a particular SKU, not all regions support zonal migrations. Attempting to convert within an unsupported region might generate errors. For example, Mexico Central doesn't support GZRS; attempting to convert your account from GRS to GZRS generates a failure.
+- **Conflicting conversion:** Your account might currently have a conflicting migration in process. For example, you might already have an *LRS* **to** *GRS* migration in progress. Attempting to perform an *LRS* **to** *ZRS* conversion fails. Wait for the original migration to complete before submitting a new conversion request.
+- **Account is failed over:** If your account is failed over, you can fail back your account to its original primary region then resubmit the request.
+
+#### Geo Conversions (LRS <-> GRS, ZRS <-> GZRS)
+
+- **Archive data:** If your account contains data in the archive tier, the data needs to be rehydrated before an *LRS* **to** *GRS* request can be submitted. Because the storage resource provider (SRP) verifies that no archived data exists before the conversion is performed, you should receive an error message almost instantly.
+- **Unsupported target:** There are some Azure regions with three availability zones and no satellite region. These regions support *ZRS* but don't support *GZRS*. Ensure your region supports your desired SKU.
 
 ## See also
 
