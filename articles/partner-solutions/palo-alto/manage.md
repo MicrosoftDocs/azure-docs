@@ -112,6 +112,17 @@ If your security policies are managed by an Azure rulestack, you see the followi
 
 If your security policies are managed by Starta Cloud Manager, you can view the **SCM Tenant ID** on the **Security Policies** tab.   
 
+### Panorama
+
+If your security policies are managed by Panorama, you can change the **Panorama Registration String** on the **Security Policies** tab.
+
+You can also view the following setting on this tab: 
+
+- Panorama IP 1
+- Panorama IP 2
+- Device Group
+- Template Name
+
 ## Log Settings
 
 1. Select **Log Settings** under **Settings** in the left pane.
@@ -129,6 +140,9 @@ If your security policies are managed by Starta Cloud Manager, you can view the 
 1. Select **Rules** under **Settings** in the left pane.
 1. You can view a list of existing rules on the **Rules** page. You can also search for rules. 
 1. To view configured parameters for a rule, double-click the rule. 
+
+> [!NOTE]
+> If your security policies are managed by Panorama, your rules won't appear on this tab. You can view them in Panorama. 
 
 ## Properties 
 
