@@ -1,6 +1,6 @@
 ---
-title: Setup Azure Migrate appliance using a pre-configured Entra ID application
-description: Learn how to set up Azure Migrate appliance using a pre-configured Entra ID application.
+title: Setup Azure Migrate appliance using a preconfigured Microsoft Entra ID application
+description: Learn how to register an Azure Migrate appliance using a preconfigured Microsoft Entra ID app. Overcome permission issues, DCF restrictions, and streamline setup with this step-by-step guide.
 author: molishv
 ms.author: molir
 ms.manager: ronai
@@ -8,28 +8,28 @@ ms.topic: how-to
 ms.service: azure-migrate
 ms.date: 09/01/2025
 ms.custom: engagement-fy25
-# Customer intent: "As an IT administrator, I would like ot set up Migarte appliance using an existing Entra ID application and not in the user context to avoid challenges such as missing tenant permissions for the user and DCF being disabled at Entra ID level."
+# Customer intent: "As an IT administrator, I would like ot set up Migarte appliance using an existing Microsoft Entra ID application and not in the user context to avoid challenges such as missing tenant permissions for the user and DCF being disabled at Microsoft Entra ID level."
 ---
 
-# Setup Azure Migrate appliance using a pre-configured Entra ID application
+# Setup Azure Migrate appliance using a preconfigured Microsoft Entra ID application
 
 
 When setting up the Azure Migrate appliance, users typically sign in to Azure to register the appliance with an Azure Migrate project. The common challenges in this step include
--	**Insufficient permissions at tenant level**: The user deploying the appliance may lack tenant-level permissions required to register applications in Microsoft Entra ID. 
--	**DCF restrictions**: Some organizations disable Device Code Flow (DCF) in Entra ID, which blocks appliance registration.
--	**Use of Pre-Approved Entra ID Applications**: Enterprises may prefer to use existing, pre-approved Entra ID applications that align with internal naming conventions and compliance policies, rather than allowing the appliance to create a new Entra ID app automatically.
-To overcome these challenges and avoid registering the appliance under a user's context, customers can use an existing, pre-configured Entra ID (AAD) application for appliance registration.
+-	**Insufficient permissions at tenant level**: The user deploying the appliance might lack tenant-level permissions required to register applications in Microsoft Entra ID. 
+-	**Device Code Flow (DCF) restrictions**: Some organizations disable Device Code Flow (DCF) in Microsoft Entra ID, which blocks appliance registration.
+-	**Use of Pre-Approved Microsoft Entra ID Applications**: Enterprises might prefer to use existing, pre-approved Microsoft Entra ID applications that align with internal naming conventions and compliance policies, rather than allowing the appliance to create a new Entra ID app automatically.
+To avoid registering the appliance under a user's context and to address the above challenges, you can use a preconfigured Microsoft Entra ID application for appliance registration.
 
 
-## 1.	Register an Entra ID application and assign permissions
+## 1.	Register a Microsoft Entra ID application and assign permissions
 
--	Follow these [steps](../identity-platform/howto-create-service-principal-portal.md) to register a new application (or use an existing application) in Microsoft Entra ID. A service principal is automatically created for the app registration.
--	In the Resource Group where Azure Migrate project is deployed, assign contributor role to the registered Microsoft Entra application. 
+-	Follow these [steps](/entra/identity-platform/quickstart-register-app.md#register-an-application) to register a new application (or use an existing application) in Microsoft Entra ID. A service principal is automatically created for the app registration.
+-	Assign the Contributor role to the registered Microsoft Entra ID application in the resource group, where the Azure Migrate project is deployed. 
 ![Screenshot of permissions assignment.](./media/how-to-register-appliance-usingAADapp/contributor.png)
 
 ## 2.	Generate certificates to authenticate the application
 
-- For authentication of the Entra ID application, you can use Certificate Authority (CA) signed certificate (Recommended) or a self-signed certificate. Any other tools like PowerShell, OpenSSL, mkcert or Azure Key Vault can be used to generate certificates. 
+- To authenticate the Entra ID application, use either a Certificate Authority (CA)-signed certificate (recommended) or a self-signed certificate. You can generate certificates using tools like PowerShell, OpenSSL, mkcert, or Azure Key Vault.. 
 - The following is a PowerShell command to generate a self-signed certificate. 
 Replace `{certificateName}` with the name that you wish to give to your certificate.
 
@@ -49,9 +49,9 @@ Export-Certificate -Cert $cert -FilePath "C:\Users\admin\Desktop\$certname.cer" 
 
 ```
 
-The certificate is now ready to be uploaded to Entra ID application.
+The certificate is ready to be uploaded to Entra ID application.
 **Private certificate:**
-Following on from the previous commands, create a password for your certificate private key and save it in a variable. Replace `{myPassword}` with the password that you wish to use to protect your certificate private key.
+Create a password to protect the certificate’s private key and store it in a variable. Replace {myPassword} with your preferred password.
 
 ```powershell
 
@@ -90,19 +90,22 @@ Service principal Object ID:
    ```
 ![Screenshot of Entra ID properties.](./media/how-to-register-appliance-usingAADapp/EntraIDproperties.png)
 -	Navigate to Microsoft Entra ID -> Enterprise applications -> Manage all applications and copy the service principal object ID.
+
 ![Screenshot of Entra ID properties.](./media/how-to-register-appliance-usingAADapp/Serviceprincipal.png)
 
 ## 5.	Install the private certificate in Appliance machine
--	Log in to the appliance machine and navigate to the folder where private certifciate is saved. Double click on the file and install the private certificate. 
+-	Sign in to the appliance machine and go to the folder where private certifciate is saved. Double click on the certificate file to start the installation. 
+
 ![Screenshot of procedure to install certificate in Appliance.](./media/how-to-register-appliance-usingAADapp/Installprivatecertificate01.png)
 -	Choose store location as Local machine. 
--	Click next and specify the file path of the certificate. 
+-	Select next and specify the file path of the certificate. 
+
 ![Screenshot of procedure to install certificate in Appliance.](./media/how-to-register-appliance-usingAADapp/Installprivatecertificate02.png)
+
 -	Enter the password created while exporting the private key.
--	Specify the certificate store location as Personal and click on Finish to import the certificate. 
+-	Select Personal as the certificate store location and select Finish to complete the installation.
+
 ![Screenshot of procedure to install certificate in Appliance.](./media/how-to-register-appliance-usingAADapp/Installprivatecertificate03.png)
-
-
 
 ## 7.	Update the registry values in Appliance machine
 -	Run the following PowerShell script in Appliance machine to update the registry values. 
@@ -151,12 +154,13 @@ Write-Output "All registry entries created successfully!"
 
 
 ```
--	Navigate to Registry editor ->AzureAppliance and verify if the registry values are updated correctly. The registry values can also be updated manually if there are any misconfigurations. 
+-  Open Registry Editor and select AzureAppliance in the left pane.
+-  Verify that the registry values are updated correctly. If needed, you can manually update any misconfigured values. 
 ![Screenshot of Appliance registry.](./media/how-to-register-appliance-usingAADapp/Registry.png)
 
 ## 8.	Complete appliance registration using Entra ID app
 -	After updating the registry values, clear the browser cache and reload the page to start Entra ID App Authentication flow from the config manager.
--	Appliance registration would be completed and the Entra ID app name is displayed in the config manager. 
+-	Appliance registration is completed and the Entra ID app name is displayed in the config manager. 
 ![Screenshot of Appliance Config Manager.](./media/how-to-register-appliance-usingAADapp/EntraIDregisteredappliance.png)
 
 
@@ -164,7 +168,7 @@ Write-Output "All registry entries created successfully!"
 
 -	An Entra ID application registered for appliance authentication is limited to one Azure Migrate appliance. You cannot reuse the same Entra application to register multiple appliances, even if they are part of the same Azure Migrate project or a different one.
 To deploy another appliance, you must register a new application in Microsoft Entra ID, ensure a new service principal is created, and assign the required Azure role (such as Contributor) to the new application in the appropriate resource group.
--	The approach can be used to set up [VMware](how-to-set-up-appliance-vmware.md), [Hyper-V](how-to-set-up-appliance-hyper-v.md) and [physical](how-to-set-up-appliance-physical.md) stack of Azure Migrate appliance. This approach cannot be used to set up [ASR replication appliance](tutorial-migrate-physical-virtual-machines.md\Set up the replication appliance). 
+-	The approach can be used to set up [VMware](how-to-set-up-appliance-vmware.md), [Hyper-V](how-to-set-up-appliance-hyper-v.md) and [physical](how-to-set-up-appliance-physical.md) stack of Azure Migrate appliance. This approach cannot be used to set up [ASR replication appliance](tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance). 
 
 
 ## Next steps
