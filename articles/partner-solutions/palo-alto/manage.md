@@ -122,7 +122,7 @@ You can view and change settings by selecting one of the following settings cate
 ## Properties 
 
 1. Select **Properties** under **Settings** in the left pane.
-1. On the **Properties** page, you can view various properties of the firewall, including essentials like the ID, name, and location, the network profile, the associated rulestack, DNS settings, and plan data. 
+1. On the **Properties** page, you can view various properties of the firewall, including essentials like the ID, name, and location, the network profile, DNS settings, and plan data. 
 
 ## Locks
 
