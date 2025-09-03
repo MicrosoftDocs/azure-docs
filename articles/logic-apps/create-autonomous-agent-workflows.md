@@ -145,7 +145,7 @@ The following table describes the current limitations and any known issues in th
 |------------|-------------|
 | Supported workflow types | To create an autonomous agent workflow, you must select the **Autonomous Agents** workflow type. You can't start with the **Stateful** or **Stateless** workflow type, and then add an agent. |
 | Authentication | For managed identity authentication, you can use only the system-assigned managed identity at this time. Support is currently unavailable for the user-assigned managed identity. <br><br>**Note**: For Azure AI Foundry projects, you must use managed identity authentication. |
-| Agent tools | - To create tools, you can use only actions, not triggers. <br><br>- A tool starts with action and always contains at least one action. <br><br>- A tool works only inside the agent where that tool exists. |
+| Agent tools | - To create tools, you can use only actions, not triggers. <br><br>- A tool starts with action and always contains at least one action. <br><br>- A tool works only inside the agent where that tool exists. <br><br>- Control flow actions are unsupported. |
 | General limits | For general information about the limits in Azure OpenAI Service, Azure AI Foundry, and Azure Logic Apps, see the following articles: <br><br>- [Azure OpenAI Service quotas and limits](/azure/ai-services/openai/quotas-limits) <br>- [Azure OpenAI in Azure AI Foundry Models quotas and limits](/azure/ai-foundry/openai/quotas-limits) <br>- [Azure Logic Apps limits and configuration](/azure/logic-apps/logic-apps-limits-and-config) |
 
 ## Create an autonomous agent workflow
@@ -164,9 +164,9 @@ Follow these steps to create a partial workflow with an empty **Agent**.
 
    1. Select **Autonomous Agents** > **Create**.
 
-   :::image type="content" source="media/create-autonomous-agent-workflows/select-autonomous-agents.png" alt-text="Screenshot shows Standard logic app resource with open Workflows page and Create workflow pane with workflow name, selected Agent option, and Create button." lightbox="media/create-autonomous-agent-workflows/select-autonomous-agents.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/select-autonomous-agents.png" alt-text="Screenshot shows Standard logic app resource with open Workflows page and Create workflow pane with workflow name, selected Autonomous Agents option, and Create button." lightbox="media/create-autonomous-agent-workflows/select-autonomous-agents.png":::
 
-   The designer opens and shows a partial workflow, which includes an empty **Agent** that you need to set up when you're ready. Before you can save your workflow, you must complete the following setup tasks for the agent:
+   The designer opens and shows a partial workflow, which includes an empty **Agent** action that you need to set up later. Before you can save your workflow, you must complete the following setup tasks for the **Agent** action:
 
    - Create a connection to your deployed model. You complete this task in a later section.
 
@@ -186,7 +186,7 @@ Your workflow requires a trigger to control when the workflow starts running. Yo
 
    This example uses the **Request** trigger named **When a HTTP request is received**. For this article, you don't need any other trigger setup.
 
-   :::image type="content" source="media/create-autonomous-agent-workflows/request-trigger.png" alt-text="Screenshot shows workflow designer with Request trigger and Default Agent." lightbox="media/create-autonomous-agent-workflows/request-trigger.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/request-trigger.png" alt-text="Screenshot shows workflow designer with Request trigger and Agent action." lightbox="media/create-autonomous-agent-workflows/request-trigger.png":::
 
 1. Continue to the next section so you can set up the connection between your agent and your model.
 
@@ -197,13 +197,13 @@ Your workflow requires a trigger to control when the workflow starts running. Yo
    > before you can save any changes. However, you don't have to set up the agent now. You can 
    > continue to create your workflow. Just remember to set up the agent before you save your workflow.
    >
-   > :::image type="content" source="media/create-autonomous-agent-workflows/error-missing-default-agent-settings.png" alt-text="Screenshot shows workflow designer toolbar with Errors button with red dot and error in default agent information pane." lightbox="media/create-autonomous-agent-workflows/error-missing-default-agent-settings.png":::
+   > :::image type="content" source="media/create-autonomous-agent-workflows/error-missing-agent-settings.png" alt-text="Screenshot shows workflow designer toolbar with Errors button with red dot and error in the agent action information pane." lightbox="media/create-autonomous-agent-workflows/error-missing-agent-settings.png":::
 
 ## Connect the agent to your model
 
 Now, create a connection between the agent and your deployed model by following these steps:
 
-1. On the designer, select the title bar on the **Default Agent** to open the **Create connection** pane.
+1. On the designer, select the title bar on the **Agent** action to open the **Create connection** pane.
 
    This pane opens only if you don't have an existing working connection.
 
@@ -215,10 +215,10 @@ Now, create a connection between the agent and your deployed model by following 
    | **Agent Model Source** | Yes | - **Azure OpenAI** <br>- **Foundry Agent Service** | The source for the deployed model. |
    | **Authentication Type** | Yes | - **Managed identity** <br><br>- **URL and key-based authentication** | The authentication type to use for validating and authorizing an identity's access to your deployed model. <br><br>**Note**: For Azure AI Foundry projects, you must use managed identity authentication. <br><br>- **Managed identity** requires that your Standard logic app have a managed identity enabled and set up with the required roles for role-based access. For more information, see [Prerequisites](#prerequisites). <br><br>- **URL and key-based authentication** requires the endpoint URL and API key for your deployed model. These values automatically appear when you select your model source. <br><br>**Important**: For the examples and exploration only, you can use **URL and key-based authentication**. For production scenarios, use **Managed identity**. |
    | **Subscription** | Yes | <*Azure-subscripton*> | Select the Azure subscription associated with your Azure OpenAI Service resource. |
-   | **Azure OpenAI Resource** | Yes | <*Azure-OpenAI-Service-resource-name*> | Select your Azure OpenAI Service resource. |
-   | **Project** | Yes, only for **Foundry Agent Service** | <*Azure-AI-Foundry-project-name*> | Select your project in Azure AI Foundry. <br><br>**Note**: If you recently assigned the necessary role on your project, you might experience a delay before role permissions take effect. Meanwhile, an error message appears that you don't have correct permissions on the project. |
+   | **Azure OpenAI Resource** | Yes, only when **Agent Model Source** is **Azure OpenAI** | <*Azure-OpenAI-Service-resource-name*> | Select your Azure OpenAI Service resource. |
+   | **AI Foundry Project** | Yes, only when **Agent Model Source** is **Foundry Agent Service** | <*Azure-AI-Foundry-project-name*> | Select your project in Azure AI Foundry. <br><br>**Note**: If you recently assigned the necessary role on your project, you might experience a delay before role permissions take effect. Meanwhile, an error message appears that you don't have correct permissions on the project. |
    | **API Endpoint** | Yes | Automatically populated | The endpoint URL for your deployed model in Azure OpenAI Service. <br><br>This example uses **`https://fabrikam-azureopenai.openai.azure.com/`**. |
-   | **API Key** | Yes, only for **URL and key-based authentication** | Automatically populated | The API key for your deployed model in Azure OpenAI Service. |
+   | **API Key** | Yes, only when **Authentication Type** is **URL and key-based authentication** | Automatically populated | The API key for your deployed model in Azure OpenAI Service. |
 
    For example, if you select **Azure OpenAI** as your model source and **Managed identity** for authentication, your connection information looks like the following sample:
 
@@ -240,7 +240,7 @@ Clearly identify the agent's purpose by updating the agent name in following ste
 
 1. If the agent information pane isn't open, on the designer, select the agent title bar to open the pane.
 
-1. On the agent information pane, select the default agent name, and enter the new name, for example, **Weather agent**.
+1. On the agent information pane, select the agent name, and enter the new name, for example, **Weather agent**.
 
    :::image type="content" source="media/create-autonomous-agent-workflows/rename-agent.png" alt-text="Screenshot shows workflow designer, workflow trigger, and renamed agent." lightbox="media/create-autonomous-agent-workflows/rename-agent.png":::
 
@@ -248,7 +248,7 @@ Clearly identify the agent's purpose by updating the agent name in following ste
    >
    > If the connection to your model is incorrect, the **Deployment Model Name** list appears unavailable.
 
-1. Continue to the next section.
+1. Continue to the next section to provide system instructions for the agent.
 
 ## Set up system instructions for the agent
 
@@ -261,7 +261,7 @@ The agent requires *system instructions* that describe the roles that the agent 
 
 To get the best results, make sure that your system instructions are prescriptive and that you're willing to refine these instructions over multiple iterations.
 
-1. Under **Instructions for Agent**, in the **System Instructions** box, enter all the information that the autonomous agent needs to understand its role and tasks.
+1. Under **Instructions for Agent**, in the **System instructions** box, enter all the information that the agent needs to understand its role and tasks.
 
    > [!NOTE]
    >

@@ -141,14 +141,14 @@ The following table describes the current limitations and any known issues in th
 
 | Limitation | Description |
 |------------|-------------|
-| Supported workflow types | To create an autonomous agent workflow, you must select the **Autonomous Agents** workflow type. You can't start with the **Stateful** or **Stateless** workflow type, and then add an agent. |
-| Authentication | For managed identity authentication, you can use only the system-assigned managed identity at this time. Support is currently unavailable for the user-assigned managed identity. <br><br>**Note**: For Azure AI Foundry projects, you must use managed identity authentication. |
-| Agent tools | - To create tools, you can use only actions, not triggers. <br><br>- A tool starts with action and always contains at least one action. <br><br>- A tool works only inside the agent where that tool exists. |
-| General limits | For general information about the limits in Azure OpenAI Service, Azure AI Foundry, and Azure Logic Apps, see the following articles: <br><br>- [Azure OpenAI Service quotas and limits](/azure/ai-services/openai/quotas-limits) <br>- [Azure OpenAI in Azure AI Foundry Models quotas and limits](/azure/ai-foundry/openai/quotas-limits) <br>- [Azure Logic Apps limits and configuration](/azure/logic-apps/logic-apps-limits-and-config) |
+| Supported workflow types | To create a conversational agent workflow, you must select the **Conversational Agents** workflow type. You can't start with the **Stateful** or **Stateless** workflow type, and then add an agent. |
+| Authentication | For managed identity authentication, you can use only the system-assigned managed identity at this time. Support is currently unavailable for the user-assigned managed identity. |
+| Agent tools | - To create tools, you can use only actions, not triggers. <br><br>- A tool starts with action and always contains at least one action. <br><br>- A tool works only inside the agent where that tool exists. <br><br>- Control flow actions are currently unsupported. |
+| General limits | For general information about the limits in Azure OpenAI Service and Azure Logic Apps, see the following articles: <br><br>- [Azure OpenAI Service quotas and limits](/azure/ai-services/openai/quotas-limits) <br>- [Azure Logic Apps limits and configuration](/azure/logic-apps/logic-apps-limits-and-config) |
 
 ## Create a conversational agent workflow
 
-Follow these steps to create a partial workflow with an empty **Default Agent**.
+Follow these steps to create a workflow with an empty **Agent**.
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
@@ -162,17 +162,103 @@ Follow these steps to create a partial workflow with an empty **Default Agent**.
 
    1. Select **Conversational Agents** > **Create**.
 
-   :::image type="content" source="media/create-autonomous-agent-workflows/create-agent-workflow.png" alt-text="Screenshot shows Standard logic app resource with open Workflows page and Create workflow pane with workflow name, selected Agent option, and Create button." lightbox="media/create-autonomous-agent-workflows/create-agent-workflow.png":::
+   :::image type="content" source="media/create-conversational-agent-workflows/select-conversational-agents.png" alt-text="Screenshot shows Standard logic app resource with open Workflows page and Create workflow pane with workflow name, selected Conversational Agents option, and Create button." lightbox="media/create-conversational-agent-workflows/select-conversational-agents.png":::
 
-   The designer opens and shows a partial workflow, which includes an empty **Default Agent** that you need to set up when you're ready. Before you can save your workflow, you must complete the following setup tasks for the agent:
+   The designer opens and shows a workflow that starts with the required trigger named **When a new chat session starts** and an empty **Agent** action that you need to set up later. Before you can save your workflow, you must complete the following setup tasks for the **Agent** action:
 
    - Create a connection to your deployed model. You complete this task in a later section.
 
    - Provide system instructions that describe the roles that the agent plays, the tasks that the agent can perform, and other information to help the agent better understand how to operate. You also complete this task in a later section.
 
-   :::image type="content" source="media/create-autonomous-agent-workflows/agent-workflow-start.png" alt-text="Screenshot shows workflow designer with Add a trigger and empty Default Agent." lightbox="media/create-autonomous-agent-workflows/agent-workflow-start.png":::
+   :::image type="content" source="media/create-conversational-agent-workflows/agent-workflow-start.png" alt-text="Screenshot shows workflow designer with default trigger and empty Agent." lightbox="media/create-conversational-agent-workflows/agent-workflow-start.png":::
+
+1. Continue to the next section so you can set up the connection between your agent and your model.
+
+   > [!NOTE]
+   >
+   > If you try to save the workflow now, the designer toolbar shows a red dot on the **Errors** 
+   > button. The designer alerts you to this error condition because the agent requires setup 
+   > before you can save any changes. However, you don't have to set up the agent now. You can 
+   > continue to create your workflow. Just remember to set up the agent before you save your workflow.
+   >
+   > :::image type="content" source="media/create-conversational-agent-workflows/error-missing-agent-settings.png" alt-text="Screenshot shows workflow designer toolbar with Errors button with red dot and error in the agent action information pane." lightbox="media/create-conversational-agent-workflows/error-missing-agent-settings.png":::
+
+## Connect the agent to your model
+
+Now, create a connection between the agent and your deployed model by following these steps:
+
+1. On the designer, select the title bar on the **Agent** action to open the **Create connection** pane.
+
+   This pane opens only if you don't have an existing working connection.
+
+1. In the **Create a new connection** section, provide the following information:
+
+   | Parameter | Required | Value | Description |
+   |-----------|----------|-------|-------------|
+   | **Connection Name** | Yes | <*connection-name*> | The name to use for the connection to your deployed model. <br><br>This example uses **fabrikam-azure-ai-connection**. |
+   | **Agent Model Source** | Yes | **Azure OpenAI** | The source for the deployed model. |
+   | **Authentication Type** | Yes | - **Managed identity** <br><br>- **URL and key-based authentication** | The authentication type to use for validating and authorizing an identity's access to your deployed model. <br><br>- **Managed identity** requires that your Standard logic app have a managed identity enabled and set up with the required roles for role-based access. For more information, see [Prerequisites](#prerequisites). <br><br>- **URL and key-based authentication** requires the endpoint URL and API key for your deployed model. These values automatically appear when you select your model source. <br><br>**Important**: For the examples and exploration only, you can use **URL and key-based authentication**. For production scenarios, use **Managed identity**. |
+   | **Subscription** | Yes | <*Azure-subscripton*> | Select the Azure subscription associated with your Azure OpenAI Service resource. |
+   | **Azure OpenAI Resource** | Yes, only when **Agent Model Source** is **Azure OpenAI** | <*Azure-OpenAI-Service-resource-name*> | Select your Azure OpenAI Service resource. |
+   | **API Endpoint** | Yes | Automatically populated | The endpoint URL for your deployed model in Azure OpenAI Service. <br><br>This example uses **`https://fabrikam-azureopenai.openai.azure.com/`**. |
+   | **API Key** | Yes, only when **Authentication Type** is **URL and key-based authentication** | Automatically populated | The API key for your deployed model in Azure OpenAI Service. |
+
+   For example, if you select **Azure OpenAI** as your model source and **Managed identity** for authentication, your connection information looks like the following sample:
+
+   :::image type="content" source="media/create-conversational-agent-workflows/connection-azure-openai.png" alt-text="Screenshot shows example connection details for a deployed model in Azure OpenAI Service." lightbox="media/create-autonomous-agent-workflows/connection-azure-openai.png":::
+
+1. When you're done, select **Create new**.
+
+   If you want to create another connection, on the **Parameters** tab, scroll down to the bottom, and select **Change connection**.
 
 1. Continue to the next section.
+
+## Rename the agent
+
+Clearly identify the agent's purpose by updating the agent name in following steps:
+
+1. If the agent information pane isn't open, on the designer, select the agent title bar to open the pane.
+
+1. On the agent information pane, select the agent name, and enter the new name, for example, **Weather agent**.
+
+   :::image type="content" source="media/create-conversational-agent-workflows/rename-agent.png" alt-text="Screenshot shows workflow designer, workflow trigger, and renamed agent." lightbox="media/create-conversational-agent-workflows/rename-agent.png":::
+
+   > [!NOTE]
+   >
+   > If the connection to your model is incorrect, the **Deployment Model Name** list appears unavailable.
+
+1. Continue to the next section to provide system instructions for the agent.
+
+## Set up system instructions for the agent
+
+The agent requires *system instructions* that describe the roles that the agent can play and the tasks that the agent can perform. To help the agent learn and understand these responsibilities, you can also include the following information:
+
+- Workflow structure
+- Available actions
+- Any restrictions or limitations
+- Interactions for specific scenarios or special cases
+
+To get the best results, make sure that your system instructions are prescriptive and that you're willing to refine these instructions over multiple iterations.
+
+1. Under **Instructions for Agent**, in the **System instructions** box, enter all the information that the agent needs to understand its role and tasks.
+
+   > [!NOTE]
+   >
+   > Conversational agents can accept additional input through the chat interface at runtime.
+
+   For this example, the weather agent example uses the following sample instructions where you later ask questions and provide your own email address for testing:
+
+   **You're an AI agent that answers questions about the weather for a specified location. You can also send a weather report in email if you're provided email address. If no address is provided, ask for an email address.**
+
+   **Format the weather report with bullet lists where appropriate. Make your response concise and useful, but use a conversational and friendly tone. You can include suggestions like "Carry an umbrella" or "Dress in layers".**
+
+   Here's how the example looks with the system instructions for the agent:
+
+   :::image type="content" source="media/create-conversational-agent-workflows/system-instructions-weather-agent.png" alt-text="Screenshot shows workflow designer, and agent with system instructions." lightbox="media/create-conversational-agent-workflows/system-instructions-weather-agent.png":::
+
+1. Now, you can save your workflow. On the designer toolbar, select **Save**.
+
+
 
 
 
@@ -199,3 +285,6 @@ For better results, make each user instruction focus on a specific task, for exa
 1. Repeat until you finish adding all the questions to ask the agent.
 
 1. When you're done, test your workflow.
+
+## Related content
+
