@@ -55,12 +55,16 @@ This guide shows how to create an example Standard logic app workflow with the *
 
   The examples in this guide use the Azure portal. However, after you open the workflow designer, the steps to use the designer are mostly similar between the portal and Visual Studio Code. Some interactions have minor differences.
 
-- For your model source, you need one of the following sources:
+- For your model source, you need an [Azure OpenAI Service resource](/azure/ai-services/openai/overview) with a deployed [Azure OpenAI Service model](/azure/ai-services/openai/concepts/models).
 
-  | Model source | Description |
-  |--------------|-------------|
-  | [Azure OpenAI Service resource](/azure/ai-services/openai/overview) with a deployed [Azure OpenAI Service model](/azure/ai-services/openai/concepts/models) | You need the resource name when you create a connection to your deployed model in Azure OpenAI Service from an agent in your workflow. If you don't have this resource and model, see the following articles: <br><br>- [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) <br><br>- [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) <br><br>Agent workflows support only specific models. For more information, see [Supported models](#supported-models-for-agent-workflows). |
-  | [Azure OpenAI resource](/azure/ai-services/openai/overview) connected to an [Azure AI Foundry project](/azure/ai-foundry/what-is-azure-ai-foundry) and a deployed [Azure OpenAI model in Azure AI Foundry](/azure/ai-foundry/openai/concepts/models) | Make sure that you have a Foundry project, not a Hub based project. If you don't have this project, resource, and model, see the following articles: <br><br>- [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal)<br><br>- [Create a project for Azure AI Foundry](/azure/ai-foundry/how-to/create-projects?tabs=ai-foundry) <br><br>- [Connect Azure AI services after you create a project](/azure/ai-services/connect-services-ai-foundry-portal#connect-azure-ai-services-after-you-create-a-project) or [Create a new connection in Azure AI Foundry portal](/azure/ai-foundry/how-to/connections-add?tabs=aoai%2Cblob%2Cserp&pivots=fdp-project#create-a-new-connection) <br><br>- [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) <br><br>Agent workflows support only specific models. For more information, see [Supported models](#supported-models-for-agent-workflows). |
+  - Agent workflows support only specific models. For more information, see [Supported models](#supported-models-for-agent-workflows).
+
+  - You need the resource name when you create a connection to your deployed model in Azure OpenAI Service from an agent in your workflow.
+
+  If you don't have this resource and model, see the following articles: 
+
+  - [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal)
+  - [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model)
 
   > [!IMPORTANT]
   >
@@ -69,10 +73,6 @@ This guide shows how to create an example Standard logic app workflow with the *
   > [Pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 - The authentication to use when you create a new connection between an agent and your deployed model.
-
-  > [!NOTE]
-  >
-  > For Azure AI Foundry projects, you must use managed identity authentication.
 
   - Managed identity authentication
 
@@ -89,13 +89,11 @@ This guide shows how to create an example Standard logic app workflow with the *
     | Model source | Role |
     |--------------|------|
     | Azure OpenAI Service resource | - **Cognitive Services OpenAI User** (least privileged) <br>- **Cognitive Services OpenAI Contributor** |
-    | Azure AI Foundry project | **Azure AI User** |
 
     For more information about managed identity setup, see the following resources:
 
     - [Authenticate access and connections with managed identities in Azure Logic Apps](/azure/logic-apps/authenticate-with-managed-identity?tabs=standard)
     - [Role-based access control for Azure OpenAI Service](/azure/ai-services/openai/how-to/role-based-access-control)
-    - [Role-based access control for Azure AI Foundry](/azure/ai-foundry/concepts/rbac-azure-ai-foundry)
     - [Best practices for Microsoft Entra roles](/entra/identity/role-based-access-control/best-practices)
 
   - URL and key-based authentication
