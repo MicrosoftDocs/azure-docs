@@ -1,6 +1,6 @@
 ---
-title: Create MCP servers to automate tasks
-description: Learn how to create a Model Context Protocol (MCP) server driven by Azure Logic Apps for AI agents and models to automate tasks. Build tools powered by connector actions for large language models (LLMs) and agents to perform these tasks.
+title: Create MCP servers for agents and models
+description: Learn how to create a Model Context Protocol (MCP) server driven by Azure Logic Apps. Build tools powered by connector actions for agents and models to use.
 services: logic-apps, azure-api-center
 ms.suite: integration
 ms.reviewers: estfan, azla
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.date: 09/05/2025
 ms.update-cycle: 180-days
-#Customer intent: I want to create an MCP server that provides tools that I build from connector actions in Azure Logic Apps. AI agents and models can then use these tools to run automated tasks.
+#Customer intent: I want to create an MCP server that provides tools that I build from connector actions in Azure Logic Apps. AI agents and models can use these tools to complete tasks.
 ---
 
-# Build MCP servers in API Center that automate tasks with tools backed by Azure Logic Apps (Preview)
+# Build MCP servers in API Center to provide tools backed by Azure Logic Apps (Preview)
 
 > [!NOTE]
 >
 > The following capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To make a large language model (LLM) fulfill requests by running actions that work with external services, systems, apps, or data, you can create a *Model Context Protocol (MCP)* server that provides *tools* for your agent or model to automate tasks. For example, these tools can read, update, or delete files, query databases, send emails, interact with APIs, perform computations, or even trigger workflows.
+To make an agent or large language model (LLM) fulfill requests by running actions that work with external services, systems, apps, or data, you can create a *Model Context Protocol (MCP)* server that provides *tools* for your agent or model to automate tasks. For example, these tools can read, update, or delete files, query databases, send emails, interact with APIs, perform computations, or even trigger workflows.
 
 In Azure API Center, you can create an MCP server with tools that are backed by the prebuilt connector actions available in Azure Logic Apps. Usually, you use these connector actions and triggers in Azure Logic Apps to create workflows for automation and integration solutions. With access to [over 1,400 connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that interact and integrate a vast range of cloud services, on-premises systems, apps, and data, you can build diverse toolsets that specifically work with your enterprise resources and assets.
 
@@ -50,8 +50,8 @@ The following table describes the prerequisites for this guide:
 | Azure account with an active subscription | If you don't have a subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). <br><br>**Important**: Make sure to use the same Azure subscription for the resources required in this scenario. |
 | An API center resource | For more information, see [Quickstart: Create your API center - portal](../api-center/set-up-api-center.md). |
 | Access to the API Center portal | To find and view the MCP server that you create, you must set up the API Center portal so you have access. <br><br>This portal is an Azure-managed website that developers and other stakeholders in your organization use to discover the APIs in your API center. After you sign in, you can browse and filter APIs and view API details such as API definitions and documentation. User access to API information is based on Microsoft Entra ID and Azure role-based access control. <br><br>For more information, see the following articles: <br><br>- [Set up your API Center portal](../api-center/set-up-api-center-portal.md) <br>- [Access the API Center portal](../api-center/set-up-api-center-portal.md#access-the-portal) |
-| Empty Standard logic app resource | This logic app doesn't contain any workflows. <br><br>- The MCP capability applies to Standard logic app resources that use any hosting option, such as the Workflow Service Plan. <br><br>- Your logic app resource and API center resource must use the same subscription. <br><br>- Your logic app resource must be running. <br><br>For more information, see [Create an example Standard logic app using the Azure portal](create-single-tenant-workflows-azure-portal.md). |
-| MCP client to test access to your MCP server | This guide uses [Visual Studio Code installed with the Azure Logic Apps (Standard) extension](create-standard-workflows-visual-studio-code.md#prerequisites). <br><br>**Important**: Make sure to use the latest version of Visual Studio Code for MCP server testing. Visual Studio Code includes generally available MCP support in versions after 1.102. For more information, see [MCP servers in Visual Studio Code](https://code.visualstudio.com/docs/copilot/chat/mcp-servers). <br><br>For the example in this guide, you also need the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot). For more information, see the following articles: <br><br>- [Use extensions in Visual Studio Code](https://code.visualstudio.com/docs/getstarted/extensions) <br>- [Set up Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/setup#_set-up-copilot-in-vs-code) <br>- [Get started with GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/getting-started) |
+| Empty Standard logic app resource | This logic app doesn't contain any workflows. See [Limitations and known issues](#limitations-and-known-issues). <br><br>- The MCP capability applies to Standard logic app resources that use any hosting option, such as the Workflow Service Plan. <br><br>- Your logic app resource and API center resource must use the same subscription. <br><br>- Your logic app resource must be running. <br><br>For more information, see [Create an example Standard logic app using the Azure portal](create-single-tenant-workflows-azure-portal.md). |
+| MCP client to test access to your MCP server | This guide uses [Visual Studio Code](https://code.visualstudio.com/download). <br><br>**Important**: Make sure to use the latest version of Visual Studio Code for MCP server testing. Visual Studio Code includes generally available MCP support in versions after 1.102. For more information, see [MCP servers in Visual Studio Code](https://code.visualstudio.com/docs/copilot/chat/mcp-servers). <br><br>For the example in this guide, you also need the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot). For more information, see the following articles: <br><br>- [Use extensions in Visual Studio Code](https://code.visualstudio.com/docs/getstarted/extensions) <br>- [Set up Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/setup#_set-up-copilot-in-vs-code) <br>- [Get started with GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/getting-started) |
 | Access to the service, system, app, or data source from which to create your MCP server | You need any required credentials for the resource that you use to create the MCP server and tools. <br><br>The example in this guide uses the **Office 365 Outlook** connector. If you don't have a work or school account, you can use the **Outlook.com** connector or another supported email connector. The general steps are the same, but your UX might slightly differ. |
 
 ## Limitations and known issues
@@ -64,7 +64,7 @@ For this release, the following list describes restrictions or issues that apply
 
 - Each tool can have only one action.
 
-## Create an MCP server resource and tools
+## Create an MCP server and tools
 
 For example, suppose you want to create an MCP server with tools that manage contacts and sends emails.
 
