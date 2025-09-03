@@ -19,7 +19,7 @@ Initial: 69 (1620/75)
 Current: 99 (3350/0)
 -->
 
-# Storage redundancy configuration FAQs
+# Changing Azure Storage redundancy configuration: FAQs
 
 There are many different factors that can drive the need to change your storage accounts' redundancy options. The correct redundancy option balances your organization's data availability, disaster recovery, performance, and cost requirements. These requirements are weighed against the risks and benefits associated with the various redundancy options. Regular assessment and adjustment are necessary to ensure an optimal and resilient data storage strategy.
 
