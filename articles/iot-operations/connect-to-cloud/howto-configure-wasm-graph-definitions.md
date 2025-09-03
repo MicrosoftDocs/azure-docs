@@ -70,6 +70,9 @@ moduleRequirements:
     - name: "wasi-nn"
 ```
 
+> [!TIP]
+> For guidance on enabling in-band ONNX inference with the `wasi-nn` feature, see [Run ONNX inference in WebAssembly data flow graphs](howto-wasm-onnx-inference.md).
+
 ## Example 1: Simple graph definition
 
 The [simple graph definition](https://github.com/Azure-Samples/explore-iot-operations/blob/wasm/samples/wasm/graph-simple.yaml) demonstrates a basic three-stage pipeline that converts temperature data from Fahrenheit to Celsius:
