@@ -1,5 +1,5 @@
 ---
-title: Learn to use Azure SRE Agent Preview through chat
+title: Learn to Use Azure SRE Agent Preview Through Chat
 description: Use Azure SRE Agent to teach you how to learn the agent.
 author: craigshoemaker
 ms.author: cshoe
