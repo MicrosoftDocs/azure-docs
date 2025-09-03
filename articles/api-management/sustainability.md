@@ -1,59 +1,59 @@
 ---
 title: Sustainability Features in Azure API Management (Preview)
-description: Learn about environmental sustainability features in Azure API Management that help reduce carbon emissions and build more environmentally conscious APIs.
+description: Learn about gateway features in Azure API Management that help reduce carbon emissions of APIs and help customers meet their environmental sustainability goals.
 author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 09/02/2025
+ms.date: 09/03/2025
 ms.author: danlep
 ai-usage: ai-assisted
+#customer intent: As an IT admin, I want to shift API traffic to backend regions with lower carbon intensity so that I can minimize emissions from my services.
 ---
+# Environmentally sustainable APIs in Azure API Management (preview)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-# Environmentally sustainable APIs in Azure API Management (preview)
-
-This article introduces features in Azure API Management that help you monitor and reduce the carbon footprint of your APIs. Use the features to optimize API traffic based on carbon emissions in different Azure regions.
+This article introduces features in Azure API Management that help you reduce the carbon footprint of your API traffic. Use the features to adjust API traffic based on carbon emissions in different Azure regions.
 
 > [!NOTE]
-> * These features are currently in limited preview. To sign up, please fill the form. <!-- Link to form -->
-> * Environmental stainability features are available only in Azure API Management classic tiers (Developer, Basic, Standard, Premium).
+> * Environmental sustainability features are currently in limited preview. To sign up, complete the form. <!-- Link to form -->
+> * These features are currently available in [select regions](#region-availability) in the Azure API Management classic tiers (Developer, Basic, Standard, Premium).
+
+<!--Required API versions? -->
 
 ## About sustainable APIs
 
-Organizations are increasingly focused on reducing their environmental impact through their digital infrastructure. By optimizing how your APIs handle traffic based on environmental factors, you can:
+Organizations are increasingly focused on reducing their environmental impact through their digital infrastructure. 
 
-* Reduce carbon emissions by routing traffic to regions with lower carbon intensity
-* Make informed decisions about when and where to scale infrastructure
+API Management lets you achieve these goals with features that help:
+
+* [Shape API traffic](#traffic-shaping) based on carbon emissions in your API Management service's region
+* [Shift and load-balance API traffic](#traffic-shifting) to backend regions with lower carbon intensity
+
+By optimizing how your APIs handle traffic based on environmental factors, you can:
+
+* Reduce carbon emissions of your API traffic
 * Support corporate sustainability initiatives and environmental commitments
 * Demonstrate environmental responsibility to stakeholders
 
-API Management helps you achieve these goals with features to:
-
-* Shape API traffic based on carbon emissions in your API Management service's region
-* Shift API traffic to backend regions with lower carbon intensity
-
-
 ## Traffic shaping
 
-Traffic shaping lets you adjust API behavior based on carbon emission levels in your API Management service's region. API Management exposes a `context.Sustainability.CurrentCarbonCategory` context variable that indicates the current carbon emission category for the region where your API Management instance is running. Use this variable in your policies to implement different behaviors based on the region'scarbon intensity. For example, you could use this information to:
+<!-- Is context variable only available for primary region? -->
 
-* Extend cache durations
-* Implement stricter rate limiting
-* Reduce logging detail
-* Minimize retry attempts
-* Defer non-critical processing
+Traffic shaping lets you adjust API behavior based on relative carbon emission levels in your API Management service's primary region. API Management exposes the `context.Sustainability.CurrentCarbonCategory` [context variable](api-management-policy-expressions.md#context-variable), which indicates the current carbon emission category for the region where your API Management instance is running. The five emission categories are qualitative (Very Low - Very High) and are derived from internal Microsoft data sources.
 
-### Carbon emission categories
+Use this context variable in your policies to perform more intensive traffic processing during periods of low carbon emissions, or reduce processing during high carbon emissions.
 
-[Placeholder for carbon emission categories]
+### Example - Adjust behavior in high carbon emission periods
 
-### Examples
-
-
-Here's an example of how to use the context variable in a policy:
+In the following example, API Management extends cache durations, implements stricter rate limiting, and reduces logging detail during high carbon emission periods.
 
 ```xml
+<policies>
+    [...]
+    <inbound>
+        <base />
+
 <choose>
   <when condition="@(context.Sustainability.CurrentCarbonCategory == 'High')">
     <!-- Policies for high carbon emission periods -->
@@ -100,93 +100,135 @@ Here's an example of how to use the context variable in a policy:
 
 ```
 
-This example demonstrates how you can:
+### Example - Expose carbon intensity information
 
-Apply longer cache durations during high carbon emission periods
-Implement stricter rate limiting when carbon emissions are higher
-Reduce logging detail during high carbon emission periods
-Traffic shifting
+This example shows how to access the current carbon intensity and propagate it to the backend or in logs.
+
+```xml
+<policies>
+    [...]
+    <outbound>
+        <base />
+        <set-header name="X-Sustainability-CarbonEmission" exists-action="override">
+            <value>@(context.Deployment.SustainabilityInfo.CurrentCarbonIntensity.ToString())</value>
+        </set-header>
+    </outbound>
+    [...]
+</policies>
+```
 
 ## Traffic shifting
-The
- traffic shifting feature allows you to route API traffic to backend services based on the carbon emission levels in the regions where those backends are hosted. This capability helps you prioritize backends in regions with lower carbon emissions.
 
-To use traffic shifting, you:
+Traffic shifting requires configuring a [backend](backends.md) resource in a specific Azure region. Then, in a load-balanced backend pool, specify the maximum acceptable carbon emission level for the regionalized backend. Similar to the emission categories for the API Management instance, the emission thresholds for backends are qualitative and range from Very Low to Very High. 
 
-* Specify the Azure region for each backend in your API Management configuration
-* Set carbon emission thresholds for backends in a load balancer configuration
-* API Management automatically routes traffic to backends with emissions below your specified threshold
-* When all backends exceed the specified threshold, API Management routes traffic to all backends to ensure service availability.
+This capability, combined with your existing load balancing and routing strategies, helps you prioritize backends in regions with relatively lower carbon emissions.
 
-### How traffic shifting works
+At runtime:
 
-Traffic shifting requires configuring your backend services with their corresponding Azure regions. When using a load balancer backend, you can specify the maximum acceptable carbon emission level for each backend.
+* API Management automatically routes traffic to "greener" backends -  those with emissions below your specified threshold
+* When emissions exceed the specified thresholds for all backends, API Management routes traffic to all backends based on their remaining load balancing configuration to ensure service availability.
 
-API Management then uses this information to direct traffic away from "dirty" regions (those with higher carbon emissions) to "greener" regions (those with lower carbon emissions). This shifting helps reduce the overall carbon footprint of your API ecosystem while maintaining service availability.
+<!--Is there an updated diagram? -->
 
-The key points of traffic shifting include:
-
-* It's an opt-in feature that gives you control over your sustainability preferences
-* You can configure different carbon emission thresholds for different backends
-* The system prioritizes service availability - if all backends exceed thresholds, traffic is still routed to all backends
-* You can combine this feature with your existing load balancing and routing strategies
-Supported regions
-[Placeholder for supported regions]
+:::image type="content" source="media/sustainability/traffic-shifting.png" alt-text="Diagram of shifting traffic to a backend with lower emissions in load-balanced pool.":::
 
 ### Configuration example
-To configure a backend with its Azure region:
 
-```xml
+First, configure a backend that is preferred based on carbon intensity in a [supported Azure region](#region-availability) by setting the `azureRegion` property:
+
+```json
 {
-  "name": "myBackend",
-  "url": "https://mybackend.example.com",
-  "protocol": "http",
-  "properties": {
-    "azureRegion": "westeurope"
+    "type": "Microsoft.ApiManagement/service/backends", 
+    "apiVersion": "2023-09-01-preview", 
+    "name": "sustainable-backend", 
+    "properties": {
+        "url": "https://mybackend.example.com",
+        "protocol": "http",
+        "azureRegion": "westeurope",
+        [...]
   }
 }
-
 ```
 
-To configure a load balancer with carbon emission thresholds:
+Then, use the regionalized backend in a load-balanced pool and define the emission threshold using a `preferredCarbonEmission` property. In this example, if the carbon intensity exceeds `Medium`, the `sustainable-backend` is deprioritized compared with the other backend in the pool.
 
-```xml
 
+```json
 {
-  "name": "myLoadBalancer",
-  "loadBalancingMethod": "RoundRobin",
-  "backends": [
-    {
-      "name": "backend1",
-      "url": "https://backend1.example.com",
-      "properties": {
-        "azureRegion": "westeurope",
-        "maxCarbonEmission": 100
-      }
-    },
-    {
-      "name": "backend2",
-      "url": "https://backend2.example.com",
-      "properties": {
-        "azureRegion": "eastus",
-        "maxCarbonEmission": 150
-      }
-    },
-    {
-      "name": "backend3",
-      "url": "https://backend3.example.com",
-      "properties": {
-        "azureRegion": "westus2",
-        "maxCarbonEmission": 120
-      }
+    [...]
+    "properties": {
+        "description": "Load balancer for multiple backends",
+        "type": "Pool",
+        "pool": {
+            "services": [
+                {
+                    "id": "<sustainable-backend-id>",
+                    "weight": 1,
+                    "priority": 1,
+                    "preferredCarbonEmission": "Medium"
+                }
+                {
+                    "id": "<regular-backend-id>",
+                    "weight": 1,
+                    "priority": 2
+                }
+            ]
+        }
     }
-  ]
-}
+} 
 ```
+
+## Region availability
+
+The environmental sustainability features are available in the following Azure regions:
+
+* East Asia
+* West Central US
+* Australia Southeast
+* Brazil South
+* Japan East
+* UK South
+* West US 2
+* Central India
+* East US
+* UK West
+* Australia East
+* Canada Central
+* Canada East
+* Central US
+* Germany West Central
+* Japan West
+* North Europe
+* Norway East
+* South Africa North
+* Southeast Asia
+* Switzerland North
+* UAE North
+* East US 2
+* France South
+* Israel Central
+* Italy North
+* Jio India West
+* Mexico Central
+* Poland Central
+* Qatar Central
+* South India
+* Spain Central
+* Sweden Central
+* Switzerland West
+* Taiwan North
+* Taiwan North West
+* West Europe
+* West US
+* West US 3
+* New Zealand North
+* Indonesia Central
+
 
 ## Related content
 
 * [Backends](backends.md)
 * [API Management policy reference](api-management-policies.md)
 * [Sustainable workloads in Azure](/azure/well-architected/sustainability/sustainability-get-started)
+* [Carbon optimization in Azure](/azure/carbon-optimization/overview)
 * [Microsoft for sustainability](https://www.microsoft.com/sustainability/cloud)
