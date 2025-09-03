@@ -9,7 +9,7 @@
  ms.author: kendownie
  ms.custom: include file
 ---
-Azure file shares are deployed into *storage accounts*, which are top-level objects that represent a shared pool of storage. You can use storage accounts to deploy multiple file shares and other storage resources, depending on the storage account type. All storage resources that are deployed into a storage account share the limits that apply to that storage account. For current storage account limits, see [Scalability and performance targets for Azure Files and Azure File Sync](../articles/storage/files/storage-files-scale-targets.md).
+Classic Azure file shares are deployed into *storage accounts*, which are top-level objects that represent a shared pool of storage. You can use storage accounts to deploy multiple file shares and other storage resources, depending on the storage account type. All storage resources that are deployed into a storage account share the limits that apply to that storage account. For current storage account limits, see [Scalability and performance targets for Azure Files and Azure File Sync](../articles/storage/files/storage-files-scale-targets.md).
 
 There are two main types of storage accounts for Azure Files deployments:
 
