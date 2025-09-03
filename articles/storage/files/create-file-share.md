@@ -47,17 +47,17 @@ This article assumes that you have an Azure subscription. If you don't have an A
 
 To create a file share via the Azure portal, use the search box at the top of the Azure portal to search for **file share** and select the matching result.
 
-![A screenshot of the Azure portal search box with results for file share.](./media/storage-how-to-create-microsoft-fileshares/search-for-fileshares.png)
+![A screenshot of the Azure portal search box with results for file share.](./media/storage-how-to-create-microsoft-fileshares/search-for-file-share.png)
 
 Click **+ Create** to create a new file share.
 
-![A screenshot of the Azure portal for create button for file share.](./media/storage-how-to-create-microsoft-fileshares/fileshares-create.png)
+![A screenshot of the Azure portal for create button for file share.](./media/storage-how-to-create-microsoft-fileshares/file-share-create.png)
 
 ### Basics
 
 The first tab to complete creating a file share is labeled **Basics**, which contains the required fields to create a file share.
 
-![A screenshot of the Azure portal for create flow 1 for file share.](./media/storage-how-to-create-microsoft-fileshares/fileshares-createflow-basic.png)
+![A screenshot of the Azure portal for create flow 1 for file share.](./media/storage-how-to-create-microsoft-fileshares/file-share-createflow-basic.png)
 
 
 | **Field name**                  | **Input type**         | **Values**                                                                                                                                                                                                                   | **Meaning**                                                                                                                                                                                                                                                                       |
@@ -77,7 +77,7 @@ The first tab to complete creating a file share is labeled **Basics**, which con
 
 The **Advanced** tab is optional, but provides more granular settings for the file share. Currently you can choose to set up root squash options or specify a mount name for the file share. See [nfs root squash options](./nfs-root-squash.md) to learn more. Mount name allows you to choose a different name to use to mount the file share. By default, it's the same as the file share name. Customize it if you want a unique mount name. The same rules still apply to the naming policy. See [Naming rules and restrictions for Azure resources](../../azure-resource-manager/management/resource-name-rules.md) to learn more.
 
-![A screenshot of the  of the advanced tab.](./media/storage-how-to-create-microsoft-fileshares/fileshares-createflow-advanced.png)
+![A screenshot of the  of the advanced tab.](./media/storage-how-to-create-microsoft-fileshares/file-share-createflow-advanced.png)
 
 ### Networking
 
@@ -98,11 +98,11 @@ The final step to create the file share is to select the **Create** button on th
 1. After the file share is created, search private endpoint in the search bar, and then click on create button. 
 1. Leave **Subscription** and **Resource group** the same. Under **Instance**, provide a name and select a region for the new private endpoint. Your private endpoint must be in the same region as your virtual network, so use the same region as you specified when creating the VM. When all the fields are complete, select **Next: Resource**.
 
-   ![image for private endpoint creation for mfs part 1](./media/storage-how-to-create-microsoft-fileshares/private-endpoint-setup-for-fileshares-basic.png)
+   ![image for private endpoint creation for mfs part 1](./media/storage-how-to-create-microsoft-fileshares/private-endpoint-setup-for-file-share-basic.png)
 
 1. Confirm that the **Subscription**, and **Resource** are correct. Choose Microsoft.FileShares/fileShares as the **Resource type**, and select **FileShare** from the **Target sub-resource** drop-down. Then select **Next: Virtual Network**.
    
-   ![image for private endpoint creation for mfs part 2](./media/storage-how-to-create-microsoft-fileshares/private-endpoint-setup-for-fileshares-resource.png)
+   ![image for private endpoint creation for mfs part 2](./media/storage-how-to-create-microsoft-fileshares/private-endpoint-setup-for-file-share-resource.png)
 1. Under **Networking**, select the virtual network associated with your VM and leave the default subnet. Under **Private IP configuration**, leave **Dynamically allocate IP address** selected. Select **Next: DNS**.
    :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-virtual-network.png" alt-text="Screenshot showing how to add virtual networking and private IP configuration to a new private endpoint." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-virtual-network.png" border="true":::
 1. Select **Yes** for **Integrate with private DNS zone**. Make sure the correct subscription and resource group are selected, and then select **Next: Tags**.

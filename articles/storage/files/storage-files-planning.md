@@ -77,7 +77,7 @@ Currently, private endpoint support for file share with Microsoft.FileShares (pr
 
 #### Comparing resource providers: Microsoft.Storage versus Microsoft.FileShares
 
-| Feature | Classic file shares ![fileshareclassicicon1](./media/storage-files-planning/icon-service-fileshares.svg) | File shares (Microsoft.FileShares) ![mfsicon](./media/storage-files-planning/icon-service-Managed-File-Shares.svg) |
+| Feature | Classic file shares ![fileshareclassicicon1](./media/storage-files-planning/icon-service-file-share.svg) | File shares (Microsoft.FileShares) ![mfsicon](./media/storage-files-planning/icon-service-Managed-File-Shares.svg) |
 |-|-|-|
 | Support guarantee | General available | Public preview |
 | Top level resource for the service | Storage account ![fileshareclassicicon2](./media/storage-files-planning/icon-service-Storage-Accounts.svg) | File Shares ![mfsicon](./media/storage-files-planning/icon-service-Managed-File-Shares.svg) |
