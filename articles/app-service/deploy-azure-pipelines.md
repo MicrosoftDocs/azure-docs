@@ -19,17 +19,17 @@ This article explains how to use [Azure Pipelines](/azure/devops/pipelines/) to 
 
 Pipelines consist of *stages*, *jobs*, and *steps*. A step is the smallest building block of a pipeline and can be a *script* or a *task*, which is a prepackaged script. For more information about the key concepts and components that make up a pipeline, see [Key Azure Pipelines concepts](/azure/devops/pipelines/get-started/key-pipelines-concepts).
 
-You can use the [Azure Web App (AzureWebApp@1)](/azure/devops/pipelines/tasks/reference/azure-web-app-v1) task in your pipeline to deploy to App Service. For more complex scenarios, like using XML parameters in deployments, you can configure the [Azure App Service deploy (AzureRmWebAppDeployment@4)](/azure/devops/pipelines/tasks/reference/azure-rm-web-app-deployment-v4) task.
+You can use the [Azure Web App (AzureWebApp@1)](/azure/devops/pipelines/tasks/reference/azure-web-app-v1) task in your pipeline to deploy to App Service. For more complex scenarios, like using XML parameters in deployments, you can use the [Azure App Service deploy (AzureRmWebAppDeployment@4)](/azure/devops/pipelines/tasks/reference/azure-rm-web-app-deployment-v4) task.
 
 ## Prerequisites
 
-- A working Azure App Service app with code hosted on [GitHub](https://docs.github.com/get-started/quickstart/create-a-repo) or [Azure Repos](/azure/devops/repos/git/creatingrepo). You can use any of the following quickstart articles to create a sample app.
+- A working Azure App Service app with code hosted on [GitHub](https://docs.github.com/get-started/quickstart/create-a-repo) or [Azure Repos](/azure/devops/repos/git/creatingrepo). You can use any of the following quickstart articles to create a sample app:
 
-  - ASP.NET Core: [Create an ASP.NET Core web app in Azure](quickstart-dotnetcore.md).
-  - ASP.NET: [Create an ASP.NET Framework web app in Azure](quickstart-dotnetcore.md?tabs=netframework48).
-  - JavaScript: [Create a Node.js web app in Azure App Service](quickstart-nodejs.md).
-  - Java: [Create a Java app in Azure App Service](quickstart-java.md).
-  - Python: [Create a Python app in Azure App Service](quickstart-python.md).
+  - ASP.NET Core: [Create an ASP.NET Core web app in Azure](quickstart-dotnetcore.md)
+  - ASP.NET: [Create an ASP.NET Framework web app in Azure](quickstart-dotnetcore.md?tabs=netframework48)
+  - JavaScript: [Create a Node.js web app in Azure App Service](quickstart-nodejs.md)
+  - Java: [Create a Java app in Azure App Service](quickstart-java.md)
+  - Python: [Create a Python app in Azure App Service](quickstart-python.md)
 
 - An Azure DevOps organization that has the ability to run pipelines on Microsoft-hosted agents. You need to request a free tier of parallel jobs or purchase parallel jobs. For more information, see [Configure and pay for parallel jobs](/azure/devops/pipelines/licensing/concurrent-jobs).
 
@@ -88,7 +88,7 @@ After the pipeline runs successfully, add the deployment task.
 1. Select the end of the YAML file, and select **Show assistant** if the **Tasks** list isn't showing.
 1. In the **Tasks** list, search for and select the [Azure Web App](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app) task. Alternatively, you can use the [Azure App Service deploy](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment) task.
 1. On the **Azure Web App** configuration screen, under **Azure subscription**, select the same service connection you set up for the previous step. You don't need to reauthorize this connection.
-1. For **App type**, select **Azure Web App on Linux** or **Azure Web App on Windows**, depending on your code and agent specification.
+1. For **App type**, select **Azure Web App on Linux** or **Azure Web App on Windows**, depending on your code.
 1. For **App name**, select or enter your App Service app name.
 1. Select **Add**.
 1. Select **Validate and save**, and then select **Save**.
@@ -136,7 +136,7 @@ For classic pipelines, it's easiest to define build and release stages in separa
 1. On the **New release pipeline** page, select the **Tasks** tab, select **Stage 1**, and complete the following fields under **Parameters**:
 
    - **Azure subscription**: If you don't already have an Azure service connection, select your Azure subscription, and then select **Authorize** to create the required service connection.
-   - **App type**: Select **Azure Web App on Linux** or **Azure Web App on Windows**, depending on your code and agent specification.
+   - **App type**: Select **Azure Web App on Linux** or **Azure Web App on Windows**, to match your code and agent specification.
    - **App service name**: Select your App Service app.
 
 1. On the **Pipeline** tab of the **New release pipeline** screen, next to **Artifacts**, select **Add**.
