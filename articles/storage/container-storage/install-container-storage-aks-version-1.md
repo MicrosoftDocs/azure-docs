@@ -12,7 +12,7 @@ ms.custom: devx-track-azurecli, references_regions
 
 # Tutorial: Install Azure Container Storage (version 1.x.x) for use with Azure Kubernetes Service
 
-[Azure Container Storage](container-storage-introduction-v1.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. In this tutorial, you'll create an [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) cluster and install Azure Container Storage (version 1.x.x) on the cluster. If you already have an AKS cluster deployed, we recommend installing Azure Container Storage (version 1.x.x) [using this QuickStart](container-storage-aks-quickstart-version-1.md) instead of following the manual steps in this tutorial.
+Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built natively for containers. In this tutorial, you'll create an [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) cluster and install Azure Container Storage (version 1.x.x) on the cluster. If you already have an AKS cluster deployed, we recommend installing Azure Container Storage (version 1.x.x) [using this QuickStart](container-storage-aks-quickstart-version-1.md) instead of following the manual steps in this tutorial.
 
 > [!IMPORTANT]
 > This article explains how to install Azure Container Storage (version 1.x.x), which now explicitly requires a version pinning parameter `--container-storage-version 1` for installation. [Azure Container Storage (version 2.x.x)](container-storage-introduction.md) is now available.
@@ -141,7 +141,7 @@ By default, the system node pool is named `nodepool1`. If you want to enable Azu
 az aks create -n <cluster-name> -g <resource-group> --node-vm-size Standard_D4s_v3 --node-count 3 --enable-azure-container-storage <storage-pool-type> --container-storage-version 1 --generate-ssh-keys
 ```
 
-The deployment will take 10-15 minutes. When it completes, you'll have an AKS cluster with Azure Container Storage installed, the components for your chosen storage pool type enabled, and a default storage pool. If you want to enable additional storage pool types to create additional storage pools, see [Enable additional storage pool types](container-storage-aks-quickstart-v1.md#enable-additional-storage-pool-types).
+The deployment will take 10-15 minutes. When it completes, you'll have an AKS cluster with Azure Container Storage installed, the components for your chosen storage pool type enabled, and a default storage pool. If you want to enable additional storage pool types to create additional storage pools, see [Enable additional storage pool types](container-storage-aks-quickstart-version-1.md#enable-additional-storage-pool-types).
 
 > [!IMPORTANT]
 > If you specified Azure Elastic SAN as backing storage for your storage pool and you don't have either [Azure Container Storage Owner](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-owner) role or [Azure Container Storage Contributor](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-contributor) role assigned to the Azure subscription, Azure Container Storage installation will fail and a storage pool won't be created. If you try to [enable Azure Elastic SAN as an additional storage pool type](container-storage-aks-quickstart-version-1.md#enable-additional-storage-pool-types) without either of these roles, your previous installation and storage pools will remain unaffected and an Elastic SAN storage pool won't be created.
