@@ -129,6 +129,8 @@ items:
       href: connectors/create-chat-completions-prompt-template.md
     - name: Create autonomous agent workflows
       href: create-autonomous-agent-workflows.md
+    - name: Create conversational agent workflows
+      href: create-conversational-agent-workflows.md
     - name: Edit app and host settings
       href: edit-app-settings-host-settings.md
     - name: Enable stateful mode for stateless built-in connectors
