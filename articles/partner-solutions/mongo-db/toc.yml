@@ -18,8 +18,6 @@ items:
   items:
   - name: Manage a resource
     href: manage.md
-  - name: Troubleshoot a resource
-    href: /troubleshoot/azure/partner-solutions/welcome-native-integrations
   - name: Get support
     href: https://www.mongodb.com/company/contact
 - name: Reference
