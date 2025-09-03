@@ -21,12 +21,14 @@ ms.update-cycle: 180-days
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-When your scenario requires workflows that use agents and human interactions to complete tasks, you can create a *conversational* agent workflow in Azure Logic Apps. All agent workflows perform tasks by using an agent connected to a large language models (LLM). The agent uses an iterative looped process to solve complex, multi-step problems. A large language model is a program that's trained to recognize patterns and perform jobs without human interaction.
+When your scenario requires workflows that use agents and human interactions to complete tasks, you can create a *conversational* agent workflow in Azure Logic Apps. These workflows are the best option for scenarios where agents focus on natural language interactions and are typically user-driven, short-lived, or session-based.
 
-In conversational agent workflows, an agent provides the following capabilities and benefits when connected to a model:
+All agent workflows perform tasks by using an agent connected to a large language models (LLM). The agent uses an iterative looped process to solve complex, multi-step problems. An LLM is a program that's trained to recognize patterns and perform jobs without human interaction. Combined with Azure Logic Apps, agent workflows let you separate an agent's decision logic, meaning the model, prompts, and orchestration, from integration and task execution.
+
+An agent provides the following capabilities and benefits when connected to a model:
 
 - Accepts instructions about the agent's role, how to operate, and how to respond.
-- Receives and responds to requests (prompts) through human interactions or intervention.
+- Receives and responds to instructions and requests, or *prompts*.
 - Processes inputs, analyze data, and make choices, based on available information.
 - Chooses tools to complete the tasks necessary to fulfill requests. A *tool* is a sequence with one or more actions that complete a task.
 - Adapts to environments that require flexibility and are fluid, dynamic, unpredictable, or unstable.
@@ -480,5 +482,12 @@ The steps in this section are nearly the same as [Create agent parameters for th
 
    :::image type="content" source="media/create-conversational-agent-workflows/send-email-tool-complete.png" alt-text="Screenshot shows the finished second tool inside the agent." lightbox="media/create-conversational-agent-workflows/send-email-tool-complete.png":::
 
+[!INCLUDE [agent-workflows-best-practices](includes/agent-workflows-best-practices.md)]
+
+[!INCLUDE [clean-up-resources](includes/clean-up-resources.md)]
+
 ## Related content
 
+- [AI agent workflows in Azure Logic Apps](/azure/logic-apps/agent-workflows-concepts)
+- [Azure Logic Apps limits and configuration](/azure/logic-apps/logic-apps-limits-and-config)
+- [Azure OpenAI Service quotas and limits](/azure/ai-services/openai/quotas-limits)
