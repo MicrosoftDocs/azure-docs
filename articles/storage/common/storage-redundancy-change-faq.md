@@ -148,7 +148,9 @@ Zonal conversions involve adding or removing availability zone options to your a
 - **Conflicting conversion:** Your account might currently have a conflicting migration in process. For example, you might already have an *LRS* **to** *GRS* migration in progress. Attempting to perform an *LRS* **to** *ZRS* conversion fails. Wait for the original migration to complete before submitting a new conversion request.
 - **Account is failed over:** If your account is failed over, you can fail back your account to its original primary region then resubmit the request.
 
-#### Geo Conversions (LRS <-> GRS, ZRS <-> GZRS)
+#### Geo Conversions
+
+Geo conversions involve adding or removing replication targets in secondary, geographically distant regions. These conversions include: *LRS* **to, or from,** *GRS* and  *ZRS* **to, or from,** *GZRS*.
 
 - **Archive data:** If your account contains data in the archive tier, the data needs to be rehydrated before an *LRS* **to** *GRS* request can be submitted. Because the storage resource provider (SRP) verifies that no archived data exists before the conversion is performed, you should receive an error message almost instantly.
 - **Unsupported target:** There are some Azure regions with three availability zones and no satellite region. These regions support *ZRS* but don't support *GZRS*. Ensure your region supports your desired SKU.
