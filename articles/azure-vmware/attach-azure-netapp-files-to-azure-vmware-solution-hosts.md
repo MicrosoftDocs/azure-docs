@@ -3,7 +3,7 @@ title: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
 description: Learn how to create Azure NetApp Files-based NFS datastores for Azure VMware Solution hosts.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 07/28/2025
+ms.date: 09/02/2025
 ms.custom: "references_regions, engagement-fy23"
 # Customer intent: "As an IT administrator, I want to attach Azure NetApp Files NFS datastores to Azure VMware Solution hosts, so that I can optimize storage performance and manage virtual machine workloads effectively in a cloud environment."
 ---
@@ -28,6 +28,28 @@ The following diagram demonstrates a typical architecture of Azure NetApp Files 
 ## Prerequisites
 
 Before you begin the prerequisites, review the [Performance best practices](#performance-best-practices) section to learn about optimal performance of NFS datastores on Azure NetApp Files volumes.
+
+>[!IMPORTANT]
+>As of September 2025, creating and deleting a datastore in Azure VMware Solution and changing the service level of an Azure NetApp Files datastore requires appropriate permissions. If you're using built-in roles such as Owner and Contributor across the these two services, no changes are necessary. If you're using custom roles, ensure you have the correct permissions configured.
+><details><summary>For a complete list of required permissions, expand this section.</summary>
+>
+>To create an Azure NetApp Files datastore, you must have the following permissions: 
+>- `Microsoft.AVS/privateClouds/clusters/datastores/write`
+>- `Microsoft.NetApp/netAppAccounts/capacityPools/volumes/read`
+>- `Microsoft.NetApp/netAppAccounts/capacityPools/volumes/updateAVSDataStoreInfo/action`
+>
+>To delete an Azure NetApp Files datastore, you must have the following permissions:
+>- `Microsoft.AVS/privateClouds/clusters/datastores/delete`
+>- `Microsoft.NetApp/netAppAccounts/capacityPools/volumes/read`
+>- `Microsoft.NetApp/netAppAccounts/capacityPools/volumes/updateAVSDataStoreInfo/action`
+>
+>To update the service level: 
+>- `Microsoft.AVS/privateClouds/clusters/datastores/write`
+>- `Microsoft.NetApp/netAppAccounts/capacityPools/volumes/write`
+>
+>For information about creating and modifying custom roles, see [create or update Azure custom roles using the Azure portal](../role-based-access-control/custom-roles-portal.md).
+</details>
+
 
 1. [Deploy Azure VMware Solution](./deploy-azure-vmware-solution.md) private cloud and a dedicated virtual network connected via ExpressRoute gateway. The virtual network gateway should be configured with the Ultra performance or ErGw3Az SKU and have FastPath enabled. For more information, see [Configure networking for your VMware private cloud](tutorial-configure-networking.md) and [Network planning checklist](tutorial-network-checklist.md).
 1. Create an [NFSv3 volume for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-create-volumes.md) in the same virtual network created in the previous step.

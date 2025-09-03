@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 07/24/2025
+ms.date: 08/29/2025
 ms.author: jianleishen
 ---
 
@@ -39,6 +39,7 @@ Specifically, this Oracle connector supports:
     - Oracle Database 19c and higher
     - Oracle Database 18c and higher
     - Oracle Database 12c and higher
+    - Oracle Database 11g and higher
 - The following versions of an Oracle database for version 1.0:
     - Oracle 19c R1 (19.1) and higher
     - Oracle 18c R1 (18.1) and higher
