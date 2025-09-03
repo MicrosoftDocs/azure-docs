@@ -15,6 +15,6 @@ items:
   - name: Manage your NGINXaaS resource
     href: manage.md
 - name: Get support
-- href: https://my.f5.com/manage/s/
+  href: https://my.f5.com/manage/s/
   
 
