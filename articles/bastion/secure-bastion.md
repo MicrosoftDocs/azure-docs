@@ -1,5 +1,5 @@
 ---
-title: Secure your Azure Bastion deployment
+title: Secure Your Azure Bastion Deployment
 description: Learn how to secure your Azure Bastion deployment using actionable guidance aligned to the Microsoft Cloud Security Benchmark.
 author: abell
 ms.service: azure-bastion
