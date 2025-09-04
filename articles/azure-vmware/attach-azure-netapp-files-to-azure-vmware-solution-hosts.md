@@ -18,11 +18,13 @@ By using NFS datastores backed by Azure NetApp Files, you can expand your storag
 
 You create your Azure VMware Solution and Azure NetApp Files NFS volumes in a virtual network. For Azure VMware Solution Generation&nbsp;1 private clouds, the ExpressRoute is required for connectivity between the clusters and the Azure NetApp Files volumes. For Azure VMware Solution Generation&nbsp;2 private clouds, Azure NetApp Files volumes can use the same virtual network or a virtual network that is peered with the virtual network of your private cloud. Ensure there's connectivity from the private cloud to the NFS volumes created. Use those volumes to create NFS datastores and attach the datastores to clusters of your choice in a private cloud. As a native integration, you don't need other permissions configured via vSphere.
 
-The following diagrams show the typical architecture of Azure NetApp Files backed NFS datastores attached to Azure VMware Solution Generation 1 and Generation 2.
+This diagram show the typical architecture of Azure NetApp Files backed NFS datastores attached to Azure VMware Solution Generation 1. 
 
 :::image type="content" source="media/attach-netapp-files-to-cloud/architecture-netapp-files-nfs-datastores.png" alt-text="Diagram shows the architecture of Azure NetApp Files backed NFS datastores attached to an Azure VMware Solution Generation 1 private cloud." lightbox="media/attach-netapp-files-to-cloud/architecture-netapp-files-nfs-datastores.png"::: 
 
-:::image type="content" source="media/attach-netapp-files-to-cloud/architecture-netapp-files-nfs-datastores.png" alt-text="Diagram shows the architecture of Azure NetApp Files backed NFS datastores attached to an Azure VMware Solution Generation 2 private cloud." lightbox="media/attach-netapp-files-to-cloud/architecture-gen2-netapp-files-nfs-datastores.png"::: 
+This diagram show the typical architecture of Azure NetApp Files backed NFS datastores attached to Azure VMware Solution Generation 2.
+
+:::image type="content" source="media/attach-netapp-files-to-cloud/architecture-generation-two-netapp-files-nfs-datastores.png" alt-text="Diagram shows the architecture of Azure NetApp Files backed NFS datastores attached to an Azure VMware Solution Generation 2 private cloud." lightbox="media/attach-netapp-files-to-cloud/architecture-generation-two-netapp-files-nfs-datastores.png"::: 
 
 >[!Note]
 > NFS traffic from the ESXi hosts does not traverse any NSX components. Traffic traverses the ESXi VMkernel port directly to the NFS mount via the Azure network. 
