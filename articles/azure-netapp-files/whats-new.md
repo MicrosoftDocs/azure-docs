@@ -21,7 +21,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Azure NetApp Files datastore support in Azure VMware Solution Generation 2](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md)
 
-  [Azure NetApp Files datastore](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) is now supported in [Azure VMware Solution (AVS) Generation 2](../azure-vmware/native-introduction.md). AVS Generation&nbsp2 private clouds are deployed inside an Azure virtual network. This means that ExpressRoute is no longer needed to connect the Azure VMware Solution to Azure NetApp Files datastores. This deployment simplifies networking architecture, enhances data transfer speeds, reduces latency for workloads, and improves performance when accessing other Azure services. This capability is supported in all regions where Azure VMware Solution Generation 2 and Azure NetApp Files are available.
+  [Azure NetApp Files datastore](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) is now supported in [Azure VMware Solution (AVS) Generation 2](../azure-vmware/native-introduction.md). AVS Generation&nbsp;2 private clouds are deployed inside an Azure virtual network. This means that ExpressRoute is no longer needed to connect the Azure VMware Solution to Azure NetApp Files datastores. This deployment simplifies networking architecture, enhances data transfer speeds, reduces latency for workloads, and improves performance when accessing other Azure services. This capability is supported in all regions where Azure VMware Solution Generation 2 and Azure NetApp Files are available.
 
 * [Azure NetApp Files migration assistant](migrate-volumes.md) is now generally available (GA)
 
