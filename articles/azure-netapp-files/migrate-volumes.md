@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 09/03/2025
+ms.date: 09/04/2025
 ms.author: anfdocs
 ---
 # Migrate volumes to Azure NetApp Files 
@@ -32,9 +32,24 @@ With Azure NetApp Files' migration assistant, you can peer and migrate volumes f
 
 ## Register the feature
 
-Before using the migration assistant, you must submit a request through the [Azure NetApp Files migration assistant waitlist form](https://forms.microsoft.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR2Qj2eZL0mZPv1iKUrDGvc9UOTFCVE9LQzdRVTNMUDUwVjE5N1AzMlpIRyQlQCN0PWcu).
+You need to register the feature before using it for the migration assistant for the first time. After registration, the feature is enabled and works in the background. 
 
-After you submit the request, you can check the status of your registration with the PowerShell command `Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFMigrationAssistant`. You can also use [Azure CLI command](/cli/azure/feature) `az feature show` to display the registration status.
+1. Register the feature: 
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFMigrationAssistant
+    ```
+
+2. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFMigrationAssistant
+    ```
+
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.
 
 ## Before you begin 
 
