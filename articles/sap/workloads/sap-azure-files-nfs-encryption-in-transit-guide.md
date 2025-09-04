@@ -69,11 +69,11 @@ Steps for setting up Azure Files NFS Encryption in Transit for these two scenari
 
   ```
 
-   ---
+  ---
 
-  Choose `No` to autoupdate the package during installation. You can also turn off/on autoupdate at any time by changing the value of `AUTO_UPDATE_AZNFS` to false/true respectively in the file `/opt/microsoft/aznfs/data/config`.
+   Choose `No` to autoupdate the package during installation. You can also turn off/on autoupdate at any time by changing the value of `AUTO_UPDATE_AZNFS` to false/true respectively in the file `/opt/microsoft/aznfs/data/config`.
 
-  For more information, see the [package installation](../../storage/files/encryption-in-transit-for-nfs-shares.md#step-1-check-aznfs-mount-helper-package-installation) section.
+   For more information, see the [package installation](../../storage/files/encryption-in-transit-for-nfs-shares.md#step-1-check-aznfs-mount-helper-package-installation) section.
 
 - Create the directories to mount the file shares.
 
