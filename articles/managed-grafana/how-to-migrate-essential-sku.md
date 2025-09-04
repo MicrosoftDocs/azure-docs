@@ -1,5 +1,6 @@
 ---
 title: Migrate from Azure Managed Grafana Essential SKU Before Retirement
+ms.service: azure-managed-grafana
 description: Migrate from Azure Managed Grafana Essential SKU before retirement. Step-by-step guide to upgrade to Standard SKU or move to Azure Monitor dashboards with Grafana.
 author: maud-lv
 ms.topic: how-to
@@ -87,7 +88,8 @@ To move dashboards to Azure Monitor dashboards with Grafana, you first export yo
 
 1. Import to Azure Monitor dashboards with Grafana.
 
-   Refer to [Import Grafana dashboards using JSON](/azure/azure-monitor/visualize/visualize-use-grafana-dashboards.md#import-grafana-dashboards-using-json) for details.
+   Refer to [Import Grafana dashboards using JSON](/azure/azure-monitor/visualize/visualize-use-grafana-dashboards#import-grafana-dashboards-using-json) for details.
+   import
 
    1. In the Azure portal, open Azure Monitor.
    1. In the service menu, select **Dashboards with Grafana (preview)**, then **New** > **Import**.
@@ -101,5 +103,5 @@ To move dashboards to Azure Monitor dashboards with Grafana, you first export yo
 ## Related content
 
 - [Visualizing data with Grafana in Azure Monitor](/azure/azure-monitor/visualize/visualize-use-grafana-dashboards) for details.
-- [Azure Managed Grafana pricing](https://azure.microsoft.com/en-us/pricing/details/managed-grafana/)
+- [Azure Managed Grafana pricing](https://azure.microsoft.com/pricing/details/managed-grafana/)
  
