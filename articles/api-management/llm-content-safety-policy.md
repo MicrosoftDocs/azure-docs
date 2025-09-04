@@ -8,7 +8,7 @@ ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
 ms.topic: reference
-ms.date: 03/04/2025
+ms.date: 09/03/2025
 ms.update-cycle: 180-days
 ms.author: danlep
 ---
@@ -36,7 +36,7 @@ Use the policy in scenarios such as the following:
 ## Policy statement
 
 ```xml
-<llm-content-safety backend-id="name of backend entity" shield-prompt="true | false" >
+<llm-content-safety backend-id="name of backend entity" shield-prompt="true | false" enforce-on-completions="true | false">
     <categories output-type="FourSeverityLevels | EightSeverityLevels">
         <category name="Hate | SelfHarm | Sexual | Violence" threshold="integer" />
         <!-- If there are multiple categories, add more category elements -->
@@ -56,6 +56,7 @@ Use the policy in scenarios such as the following:
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | backend-id	| Identifier (name) of the Azure AI Content Safety backend to route content-safety API calls to. Policy expressions are allowed.	|  Yes	| N/A |
 | shield-prompt	| If set to `true`, content is checked for user attacks. Otherwise, skip this check. Policy expressions are allowed.	| No	| `false` |
+| enforce-on-completions| If set to `true`, content safety checks are enforced on chat completions for response validation. Otherwise, skip this check. Policy expressions are allowed.	| No	| `false` |
 
 
 ## Elements
