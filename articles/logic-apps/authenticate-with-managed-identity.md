@@ -1192,7 +1192,7 @@ This example shows the underlying connection resource definition for a connector
         "connectionState": "Enabled",
         "customParameterValues": {},
         "displayName": "[variables('connections_<connector-name>_name')]",
-        "parameterValueSet":{
+        "parameterValueSet": {
             "name": "managedIdentityAuth",
             "values": {}
         }
@@ -1258,7 +1258,7 @@ This example shows the underlying connection resource definition for a connector
         "connectionState": "Enabled",
         "customParameterValues": {},
         "displayName": "[variables('connections_<connector-name>_name')]",
-        "parameterValueSet":{
+        "parameterValueSet": {
             "name": "managedIdentityAuth",
             "values": {}
         }
