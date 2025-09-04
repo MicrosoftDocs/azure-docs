@@ -140,6 +140,63 @@ A `requirement_type` of `All` changes the traversal. First, if there is no filte
 
 In this example, `FeatureW` specifies a `requirement_type` of `All`, meaning all of its filters must evaluate to true for the feature to be enabled. In this case, the feature is enabled for 50% of users during the specified time window.
 
+#### Handling multiple configuration sources
+
+Starting with v4.3.0, you can opt in to custom merging for Microsoft schema feature flags (the `feature_management` section). When the same feature flag ID appears in multiple configuration sources, the built-in `ConfigurationFeatureDefinitionProvider` merges those definitions according to configuration provider registration order. If there's a conflict, the last feature flag definition wins. This behavior differs from .NET's default array index-based merging.
+
+The following example demonstrates how to enable custom feature flag configuration merging through dependency injection.
+
+```C#
+IConfiguration configuration = new ConfigurationBuilder()
+    .AddJsonFile("appsettings.json")
+    .AddJsonFile("appsettings.prod.json")
+    .build();
+
+services.AddSingleton(configuration);
+services.AddFeatureManagement();
+services.Configure<ConfigurationFeatureDefinitionProviderOptions>(o =>
+{
+        o.CustomConfigurationMergingEnabled = true;
+});
+```
+
+You can also enable it when constructing the `ConfigurationFeatureDefinitionProvider`
+
+```C#
+var featureManager = new FeatureManager(
+    new ConfigurationFeatureDefinitionProvider(
+            configuration,
+            new ConfigurationFeatureDefinitionProviderOptions
+            {
+                    CustomConfigurationMergingEnabled = true
+            }));
+```
+
+Example behavior:
+
+```javascript
+// appsettings.json
+{
+    "feature_management": {
+        "feature_flags": [
+            { "id": "FeatureA", "enabled": true },
+            { "id": "FeatureB", "enabled": false }
+        ]
+    }
+}
+
+// appsettings.prod.json (added later in ConfigurationBuilder)
+{
+    "feature_management": {
+        "feature_flags": [
+            { "id": "FeatureB", "enabled": true }
+        ]
+    }
+}
+```
+
+With custom merging enabled, `FeatureA` remains enabled and `FeatureB` resolves to enabled (last declaration wins). With default .NET merging (custom merging disabled), arrays are merged by index, which can yield unexpected results if sources don’t align by position.
+
 ### .NET Feature Management schema
 
 In previous versions, the primary schema for the feature management library was the [`.NET feature management schema`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/schemas/FeatureManagement.Dotnet.v1.0.0.schema.json). Starting from v4.0.0, new features including variants and telemetry are not supported for the .NET feature management schema.

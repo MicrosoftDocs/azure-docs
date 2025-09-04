@@ -7,7 +7,7 @@ ms.workload: identity
 author: jenniferf-skc    
 manager: pmwongera
 ms.author: jfields
-ms.date: 07/25/2025
+ms.date: 08/26/2025
 ms.custom: generated
 ---
 
@@ -27,6 +27,7 @@ The following table provides a brief description of each built-in role. Click th
 > | --- | --- | --- |
 > | <a name='contributor'></a>[Contributor](./built-in-roles/privileged.md#contributor) | Grants full access to manage all resources, but does not allow you to assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries. | b24988ac-6180-42a0-ab88-20f7382dd24c |
 > | <a name='owner'></a>[Owner](./built-in-roles/privileged.md#owner) | Grants full access to manage all resources, including the ability to assign roles in Azure RBAC. | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
+> | <a name='azure-file-sync-administrator'></a>[Azure File Sync Administrator](./built-in-roles/privileged.md#azure-file-sync-administrator) | Provides full access to manage all Azure File Sync (Storage Sync Service) resources, including the ability to assign roles in Azure RBAC. | 92b92042-07d9-4307-87f7-36a593fc5850 |
 > | <a name='reservations-administrator'></a>[Reservations Administrator](./built-in-roles/privileged.md#reservations-administrator) | Lets one read and manage all the reservations in a tenant | a8889054-8d42-49c9-bc1c-52486c10e7cd |
 > | <a name='role-based-access-control-administrator'></a>[Role Based Access Control Administrator](./built-in-roles/privileged.md#role-based-access-control-administrator) | Manage access to Azure resources by assigning roles using Azure RBAC. This role does not allow you to manage access using other ways, such as Azure Policy. | f58310d9-a9f6-439a-9e8d-f62e7b41a168 |
 > | <a name='user-access-administrator'></a>[User Access Administrator](./built-in-roles/privileged.md#user-access-administrator) | Lets you manage user access to Azure resources. | 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9 |
@@ -44,6 +45,10 @@ The following table provides a brief description of each built-in role. Click th
 > | Built-in role | Description | ID |
 > | --- | --- | --- |
 > | <a name='azure-arc-vmware-vm-contributor'></a>[Azure Arc VMware VM Contributor](./built-in-roles/compute.md#azure-arc-vmware-vm-contributor) | Arc VMware VM Contributor has permissions to perform all VM actions. | b748a06d-6150-4f8a-aaa9-ce3940cd96cb |
+> | <a name='azure-batch-account-contributor'></a>[Azure Batch Account Contributor](./built-in-roles/compute.md#azure-batch-account-contributor) | Grants full access to manage all Batch resources, including Batch accounts, pools and jobs. | 29fe4964-1e60-436b-bd3a-77fd4c178b3c |
+> | <a name='azure-batch-account-reader'></a>[Azure Batch Account Reader](./built-in-roles/compute.md#azure-batch-account-reader) | Lets you view all resources including pools and jobs in the Batch account. | 11076f67-66f6-4be0-8f6b-f0609fd05cc9 |
+> | <a name='azure-batch-data-contributor'></a>[Azure Batch Data Contributor](./built-in-roles/compute.md#azure-batch-data-contributor) | Grants permissions to manage Batch pools and jobs but not to modify accounts. | 6aaa78f1-f7de-44ca-8722-c64a23943cae |
+> | <a name='azure-batch-job-submitter'></a>[Azure Batch Job Submitter](./built-in-roles/compute.md#azure-batch-job-submitter) | Lets you submit and manage jobs in the Batch account. | 48e5e92e-a480-4e71-aa9c-2778f4c13781 |
 > | <a name='classic-virtual-machine-contributor'></a>[Classic Virtual Machine Contributor](./built-in-roles/compute.md#classic-virtual-machine-contributor) | Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they're connected to. | d73bb868-a0df-4d4d-bd69-98a00b01fccb |
 > | <a name='compute-fleet-contributor'></a>[Compute Fleet Contributor](./built-in-roles/compute.md#compute-fleet-contributor) | Allows users to manage Compute Fleet resources. | 2bed379c-9fba-455b-99e4-6b911073bcf2 |
 > | <a name='compute-gallery-artifacts-publisher'></a>[Compute Gallery Artifacts Publisher](./built-in-roles/compute.md#compute-gallery-artifacts-publisher) | This is the role for publishing gallery artifacts. | 85a2d0d9-2eba-4c9c-b355-11c2cc0788ab |
@@ -106,7 +111,6 @@ The following table provides a brief description of each built-in role. Click th
 > | --- | --- | --- |
 > | <a name='avere-contributor'></a>[Avere Contributor](./built-in-roles/storage.md#avere-contributor) | Can create and manage an Avere vFXT cluster. | 4f8fab4f-1852-4a58-a46a-8eaf358af14a |
 > | <a name='avere-operator'></a>[Avere Operator](./built-in-roles/storage.md#avere-operator) | Used by the Avere vFXT cluster to manage the cluster. | c025889f-8102-4ebf-b32c-fc0c6f0c6bd9 |
-> | <a name='azure-file-sync-administrator'></a>[Azure File Sync Administrator](./built-in-roles/storage.md#azure-file-sync-administrator) | Provides full access to manage all Azure File Sync (Storage Sync Service) resources, including the ability to assign roles in Azure RBAC. | 92b92042-07d9-4307-87f7-36a593fc5850 |
 > | <a name='azure-file-sync-reader'></a>[Azure File Sync Reader](./built-in-roles/storage.md#azure-file-sync-reader) | Provides read access to Azure File Sync service (Storage Sync Service). | 754c1a27-40dc-4708-8ad4-2bffdeee09e8 |
 > | <a name='backup-contributor'></a>[Backup Contributor](./built-in-roles/storage.md#backup-contributor) | Lets you manage backup service, but can't create vaults and give access to others. | 5e467623-bb1f-42f4-a55d-6e525e11384b |
 > | <a name='backup-mua-admin'></a>[Backup MUA Admin](./built-in-roles/storage.md#backup-mua-admin) | Backup MultiUser-Authorization. Can create/delete ResourceGuard.  | c2a970b4-16a7-4a51-8c84-8a8ea6ee0bb8 |
