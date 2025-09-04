@@ -12,7 +12,7 @@ ms.author: malev
 
 The Azure Managed Grafana Essential SKU is being retired due to resource limitations. This article outlines the retirement timeline, guides you through the recommended upgrade to Standard SKU, and details an alternative migration path.
 
-You have two migration options to ensure continuity of your Grafana dashboards and monitoring capabilities:
+Two migration paths are available to ensure continuity of your Grafana dashboards and monitoring capabilities:
 
 - Upgrade to Standard SKU (recommended): Keep your existing Azure Managed Grafana workspace with enhanced reliability, SLA coverage, and additional features.
 - Migrate to Azure Monitor dashboards with Grafana: Move your dashboards to a free, Azure-native alternative.
