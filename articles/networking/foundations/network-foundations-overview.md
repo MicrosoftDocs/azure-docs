@@ -1,12 +1,13 @@
 ---
-title: Azure network foundation services overview
-description: Learn about Azure network foundation services.
+title: Azure Network Foundation Services Overview
+description: Learn how Azure Virtual Network, Private Link, and DNS work together to create secure, private cloud connectivity. Get started with Azure network foundation services today.
 services: dns
 author: asudbring
-ms.service: azure-dns
+ms.service: azure-virtual-network
 ms.topic: overview
-ms.date: 06/24/2025
+ms.date: 07/26/2025
 ms.author: allensu
+ms.custom: portfolio-consolidation-2025
 # Customer intent: As an administrator, I want to learn about Azure's foundation services.
 ---
 
@@ -16,7 +17,7 @@ Azure network foundation services provide core connectivity for your resources i
 
 The following diagram is an example of how these services can be used together in a basic Azure network.
 
-[ ![An animated conceptual diagram of Azure network foundation services.](media/animated-diagram.gif) ](media/animated-diagram.gif#lightbox)
+:::image type="content" source="media/animated-diagram.gif" alt-text="Screenshot of an animated conceptual diagram showing how Azure Virtual Network, Private Link, and DNS services work together to create secure cloud connectivity." lightbox="media/animated-diagram.gif":::
 
 This article provides a summary of each of these Azure foundational services, and illustrates how they work together. Links are also provided to more detailed guidance for each foundational service.
 
@@ -24,11 +25,12 @@ This article provides a summary of each of these Azure foundational services, an
 
 [Azure Virtual Network](/azure/virtual-network) enables you to create private networks in the cloud, securely connecting Azure resources, the Internet, and on-premises networks. 
 
-Two virtual networks are provisioned in the following example: 
+Two virtual networks are provisioned in the following example:
+
 - The hub virtual network is used to deploy Azure services and provide access to data resources. The hub is optionally connected to an on-premises network. 
 - The hub peers with a spoke network containing a business tier subnet with virtual machines to process user interactions, and an application subnet to handle data storage and transactions. 
 
-![A conceptual diagram of Azure Virtual Network.](media/azure-virtual-network.svg) 
+:::image type="content" source="media/azure-virtual-network.svg" alt-text="Screenshot of a conceptual diagram showing Azure Virtual Network with hub and spoke topology, including business tier and application subnets.":::
 
 For more information about designing virtual networks, see [Plan virtual networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm). To create a virtual network, see [Use the Azure portal to create a virtual network](/azure/virtual-network/quick-create-portal).
 
@@ -40,16 +42,17 @@ In the following figure, a **private endpoint** is provisioned in the app subnet
 
 Private endpoints securely connect services within virtual networks.
 
-![A conceptual diagram that includes Azure Private Link.](media/azure-private-link.svg) 
+:::image type="content" source="media/azure-private-link.svg" alt-text="Screenshot of a conceptual diagram that includes Azure Private Link with private endpoint connectivity in a virtual network architecture.":::
 
 > [!NOTE]
-> When you create a private endpoint, you're given the choice of integrating with a private DNS zone. This configuration can be added, deleted, or modified later. In the example shown here, the option to integrate with a private DNS zone is selected. This basic DNS configuration is suitable for virtual network workloads that don't use an Azure DNS Private Resolver. For more information, see [Azure Private Endpoint DNS integration](/azure/private-link/private-endpoint-dns-integration).
+> Private endpoints offer DNS integration options during creation. You can choose to integrate with a private DNS zone, and this configuration remains flexible - you can add, remove, or modify it after deployment. The example demonstrates selecting private DNS zone integration, which provides a straightforward DNS setup ideal for virtual network workloads without an Azure DNS Private Resolver. For more information, see [Azure Private Endpoint DNS integration](/azure/private-link/private-endpoint-dns-integration).
 
 For an overview of private link and private endpoint, see [What is Azure Private Link service](/azure/private-link/private-link-service-overview) and [What is a private endpoint](/azure/private-link/private-endpoint-overview). To create a private endpoint, see [Create a private endpoint](/azure/private-link/create-private-endpoint-portal).
 
 ## Azure DNS
 
 [Azure DNS](/azure/dns) provides cloud-based public and private domain name hosting and resolution. It includes three services that provide public or private DNS resolution and hosting, and one load balancing service:
+
 * [Azure Public DNS](/azure/dns/public-dns-overview) provides high-availability hosting for public DNS domains.
 * [Azure Private DNS](/azure/dns/private-dns-overview) is a DNS naming and resolution service for virtual networks and the private services hosted inside those networks.
 * [Azure DNS Private Resolver](/azure/dns/dns-private-resolver-overview) is a fully managed high availability DNS service that enables you to query private DNS zones from an on-premises environment and vice versa without deploying VM based DNS servers.
@@ -61,7 +64,7 @@ In the following example, the private endpoint shown in the previous figure is a
 
 This zone is also configured with a virtual network link to the hub virtual network, enabling all resources in the hub network to resolve the zone using Azure-provided DNS (168.63.129.16) and providing access to the private endpoint using its fully qualified DNS name (FQDN).
 
-![A conceptual diagram that includes Azure DNS.](media/azure-dns.svg)
+:::image type="content" source="media/azure-dns.svg" alt-text="Screenshot of a conceptual diagram showing Azure DNS private zones and virtual network links for private endpoint resolution.":::
 
 By default, private endpoints can only be resolved from within Azure. To resolve the private-linked storage account from on-premises, or to resolve on-premises resources from within Azure, you can configure a **DNS private resolver** in the hub virtual network (not shown). 
 
@@ -73,7 +76,7 @@ For more information about configuring a DNS private resolver, see [Resolve Azur
 
 The Azure portal provides a centralized experience for [getting started with network foundation services](https://aka.ms/hubs/networkfoundation). Information and links are provided to help you create an isolated network, manage network services, secure access to resources, manage hybrid name resolution, and troubleshoot network issues.
 
-[ ![A screen capture of the portal overview for foundation services.](media/portal-overview.png) ](media/portal-overview-expanded.png#lightbox)
+:::image type="content" source="media/portal-overview.png" alt-text="Screenshot of the Azure portal interface showing the network foundation services overview page with navigation options and service links.":::
 
 Resource links are also provided in the left-hand service tree to help you understand, create, and view supporting components of the network foundation services.
 
@@ -85,3 +88,4 @@ Resource links are also provided in the left-hand service tree to help you under
 - [Azure network monitoring and management](/azure/networking/monitoring-management/)
 - [Azure Networking Fundamentals](/azure/networking/fundamentals/)
 - [Azure networking](/azure/networking)
+

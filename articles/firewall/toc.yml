@@ -18,6 +18,8 @@ items:
   expanded: true
 - name: Design & architecture
   items:
+  - name: Reliability in Azure Firewall
+    href: ../reliability/reliability-firewall.md?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
   - name: Policy
     items:
     - name: Policy rule sets
@@ -130,8 +132,8 @@ items:
       href: deploy-terraform.md
     - name: ARM template
       href: deploy-template.md
-    - name: Secured hub customer public IP
-      href: secured-hub-customer-public-ip.md
+  - name: Secured hub customer public IP
+    href: secured-hub-customer-public-ip.md
   - name: Azure policy
     items:
     - name: Portal

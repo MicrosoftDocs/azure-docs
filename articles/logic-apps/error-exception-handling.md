@@ -187,20 +187,35 @@ For the exponential interval retry policy, the following table shows the general
 
 ## Manage the "run after" behavior
 
-When you add actions in the workflow designer, you implicitly declare the order to use for running those actions. After an action finishes running, that action is marked with a status such as **Succeeded**, **Failed**, **Skipped**, or **TimedOut**. By default, an action that you add in the designer runs only after the predecessor completes with **Succeeded** status. In an action's underlying JSON definition, the `runAfter` property specifies that the predecessor action that must first finish and the statuses permitted for that predecessor before the successor action can run.
+When you add actions in the workflow designer, you implicitly declare the sequence for running those actions. After an action finishes running, that action is marked with a status such as **Succeeded**, **Failed**, **Skipped**, or **TimedOut**. In other words, the predecessor action must first finish with any of the permitted statuses before the successor action can run.
+
+By default, an action that you add in the designer runs only if the preceding action completes with **Succeeded** status. This *run after* behavior precisely specifies the run order for actions in a workflow. 
+
+In the designer, you can change the default "run after" behavior for an action by [editing the action's **Run after** setting](#change-run-after-designer). This setting is available only on subsequent actions that follow the first action in a workflow. The first action in a workflow always runs after the trigger successfully runs. So, the **Run after** setting isn't available and doesn't apply to the first action.
+
+In an action's underlying JSON definition, the **Run after** setting is the same as the `runAfter` property. This property specifies one or more predecessor actions that must first finish with the specific permitted statuses before the successor action can run. The `runAfter` property is a JSON object that provides flexibility by letting you specify all the predecessor actions that must finish before the successor action runs. This object also defines an array of acceptable statuses.
+
+For example, to have an action run after action A succeeds and also after action B succeeds or fails when you're working on an action's JSON definition, set up the following `runAfter` property:
+
+```json
+{
+   // Other parts in action definition
+   "runAfter": {
+      "Action A": ["Succeeded"],
+      "Action B": ["Succeeded", "Failed"]
+    }
+}
+```
+
+### "Run after" behavior for error handling
 
 When an action throws an unhandled error or exception, the action is marked **Failed**, and any successor action is marked **Skipped**. If this behavior happens for an action that has parallel branches, the Azure Logic Apps engine follows the other branches to determine their completion statuses. For example, if a branch ends with a **Skipped** action, that branch's completion status is based on that skipped action's predecessor status. After the workflow run completes, the engine determines the entire run's status by evaluating all the branch statuses. If any branch ends in failure, the entire workflow run is marked **Failed**.
 
-![Conceptual diagram with examples that show how run statuses are evaluated.](./media/error-exception-handling/status-evaluation-for-parallel-branches.png)
+:::image type="content" source="media/error-exception-handling/status-evaluation-for-parallel-branches.png" alt-text="Conceptual diagram with examples that show how run statuses are evaluated." lightbox="media/error-exception-handling/status-evaluation-for-parallel-branches.png":::
 
 To make sure that an action can still run despite its predecessor's status, you can change an action's "run after" behavior to handle the predecessor's unsuccessful statuses. That way, the action runs when the predecessor's status is **Succeeded**, **Failed**, **Skipped**, **TimedOut**, or all these statuses.
 
 For example, to run the Office 365 Outlook **Send an email** action after the Excel Online **Add a row into a table** predecessor action is marked **Failed**, rather than **Succeeded**, change the "run after" behavior using either the designer or code view editor.
-
-> [!NOTE]
->
-> In the designer, the "run after" setting doesn't apply to the action that immediately 
-> follows the trigger. The trigger must successfully run before the first action can run.
 
 <a name="change-run-after-designer"></a>
 
@@ -214,7 +229,7 @@ For example, to run the Office 365 Outlook **Send an email** action after the Ex
 
    - **Standard**
    
-     1. Under **Workflows**, select **Workflows**.
+     1. On the resource sidebar, under **Workflows**, select **Workflows**.
 
      1. From the **Workflows** page, select your workflow.
 

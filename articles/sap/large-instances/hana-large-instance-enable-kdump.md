@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 06/22/2021
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017
+# Customer intent: "As a system administrator managing SAP HANA on Azure Large Instances, I want to enable the kdump service, so that I can effectively troubleshoot and analyze system crashes to ensure the application's reliability and performance."
 ---
 
 # kdump for SAP HANA on Azure Large Instances

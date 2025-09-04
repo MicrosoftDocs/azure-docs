@@ -93,10 +93,14 @@
       href: security-recommendations.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/storage-security-baseline?toc=/azure/storage/queues/toc.json?toc=/azure/storage/queues/TOC.json
-  - name: Data redundancy
-    href: ../common/storage-redundancy.md?toc=/azure/storage/queues/toc.json
-  - name: Disaster recovery and failover
-    href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/queues/toc.json
+  - name: Reliability
+    items:
+    - name: Reliability in Azure Queue storage
+      href: ../../reliability/reliability-storage-queue.md?toc=/azure/storage/queues/toc.json
+    - name: Data redundancy
+      href: ../common/storage-redundancy.md?toc=/azure/storage/queues/toc.json
+    - name: Disaster recovery and failover
+      href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/queues/toc.json
   - name: Performance, scaling, and cost optimization
     items:
     - name: Scalability and performance targets

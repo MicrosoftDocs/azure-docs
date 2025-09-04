@@ -7,6 +7,7 @@ ms.service: sap-on-azure
 ms.topic: overview
 ms.date: 08/22/2024
 ms.custom: template-overview
+# Customer intent: As an IT manager overseeing SAP systems, I want to explore available offerings for running and managing SAP on Azure, so that I can choose the best solutions for deploying, integrating, and monitoring our SAP workloads effectively.
 ---
 
 # What SAP on Azure offerings are available?

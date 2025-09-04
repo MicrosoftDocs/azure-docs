@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.custom: devx-track-arm-template
 ms.date: 03/09/2023
 ms.author: jordanselig
+ms.service: azure-app-service
 ---
 # Create an App Service Environment by using an Azure Resource Manager template
 

@@ -8,6 +8,7 @@ ms.date: 04/06/2023
 author: sagarkeswani
 ms.author: sagarkeswani
 #Customer intent: As a developer, I want to download the necessary SAP media for installing the SAP software and upload it for us with Azure Center for SAP solutions.
+# Customer intent: "As an IT administrator, I want to download and prepare the SAP installation media for upload to an Azure Storage account, so that I can successfully set up the SAP software needed for my organization's infrastructure."
 ---
 
 # Get SAP installation media

@@ -3,6 +3,7 @@ author: cephalin
 ms.author: cephalin
 ms.topic: include
 ms.date: 01/16/2025
+ms.service: azure-app-service
 ---
 
 The `publish-profile` input should reference the `AZURE_WEBAPP_PUBLISH_PROFILE` GitHub secret that you created earlier.

@@ -6,7 +6,7 @@ ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.custom: devx-track-python
 ms.topic: tutorial
-ms.date: 02/15/2022
+ms.date: 07/17/2025
 ms.author: buchvarun
 ---
 

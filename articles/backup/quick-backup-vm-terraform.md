@@ -5,8 +5,8 @@ ms.topic: quickstart
 ms.date: 04/03/2025
 ms.custom: devx-track-terraform
 ms.service: windows
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 #customer intent: As a Terraform user, I want to see how to configure Azure Backup to run a backup on demand by creating and configuring an Azure virtual network, subnet, public IP, network security group, network interface, storage account, Backup recovery services vault, and Backup policy.
 content_well_notification: 
   - AI-contribution

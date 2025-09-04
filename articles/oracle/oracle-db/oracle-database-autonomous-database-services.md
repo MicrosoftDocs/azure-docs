@@ -6,6 +6,7 @@ ms.author: jacobjaygbay
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024
+# Customer intent: "As a cloud architect, I want to understand how to integrate and manage Oracle Autonomous Database within Azure, so that I can leverage its capabilities while ensuring compatibility with Azure's infrastructure requirements."
 ---
 
 # Oracle Autonomous Database in Oracle Database@Azure

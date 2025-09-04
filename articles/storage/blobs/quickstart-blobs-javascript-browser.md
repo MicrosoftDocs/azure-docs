@@ -2,9 +2,9 @@
 title: "Quickstart: Azure Blob storage library v12 - JS Browser"
 titleSuffix: Azure Storage
 description: In this quickstart, you learn how to use the Azure Blob storage npm client library version 12 for JavaScript in a browser. You create a container and an object in Blob storage. Next, you learn how to list all of the blobs in a container. Finally, you learn how to delete blobs and delete a container.
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.date: 02/25/2022
 ms.service: azure-blob-storage
 ms.topic: quickstart
@@ -295,3 +295,4 @@ For tutorials, samples, quickstarts, and other documentation, visit:
 
 - To learn more, see the [Azure Blob storage client library for JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob).
 - To see Blob storage sample apps, continue to [Azure Blob storage client library v12 JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples).
+

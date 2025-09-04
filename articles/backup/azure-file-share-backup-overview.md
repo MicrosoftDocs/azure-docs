@@ -7,8 +7,8 @@ ms.service: azure-backup
 ms.custom:
   - engagement-fy23
   - ignite-2023
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As an IT administrator managing cloud storage, I want to understand the backup aspects before configuring Azure Files backup using a Recovery Services vault, so that I can ensure data protection, streamline recovery processes, and eliminate on-premises maintenance overhead.
 ---
 

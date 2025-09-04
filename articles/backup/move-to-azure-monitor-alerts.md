@@ -4,8 +4,8 @@ description: Learn how to back up Classic Alerts in the Azure Recovery Services 
 ms.topic: how-to
 ms.date: 03/17/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
 # Customer intent: As a cloud administrator, I want to back up classic alerts in the Azure Recovery Services vault, so that I can maintain alerting functionality while transitioning to Azure Monitor for improved alert management and monitoring capabilities.
 ---

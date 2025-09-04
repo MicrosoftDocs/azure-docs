@@ -4,8 +4,8 @@ description: Learn how to update the existing VM backup policy using Azure CLI.
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 07/16/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a system administrator, I want to update the VM backup policy using CLI commands, so that I can modify retention settings and ensure my virtual machines are backed up according to the latest requirements.
 ---
 # Update the existing VM backup policy using CLI

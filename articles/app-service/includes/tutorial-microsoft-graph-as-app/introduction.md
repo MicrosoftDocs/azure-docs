@@ -9,7 +9,6 @@ ms.date: 08/19/2022
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
-ms.subservice: web-apps
 ---
 
 Learn how to access Microsoft Graph from a web app running on Azure App Service.

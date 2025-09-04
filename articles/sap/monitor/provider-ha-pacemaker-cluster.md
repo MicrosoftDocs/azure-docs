@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 08/21/2024
 ms.author: sujaj
 #Customer intent: As a developer, I want to create a high-availability Pacemaker cluster so that I can use the resource with Azure Monitor for SAP solutions.
+# Customer intent: As a system administrator, I want to configure a high-availability Pacemaker cluster for Azure Monitor for SAP solutions, so that I can ensure reliable and continuous monitoring of my SAP systems.
 ---
 
 # Create high-availability cluster provider for Azure Monitor for SAP solutions

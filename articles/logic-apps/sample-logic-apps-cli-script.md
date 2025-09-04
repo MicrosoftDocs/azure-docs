@@ -4,9 +4,9 @@ description: Sample script to create a logic app through the Logic Apps extensio
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: mvc, devx-track-azurecli
-ms.date: 02/20/2025
+ms.date: 07/18/2025
 ---
 
 # Azure CLI script sample - create a logic app

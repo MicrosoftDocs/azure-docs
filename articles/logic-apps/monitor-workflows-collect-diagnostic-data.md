@@ -360,7 +360,15 @@ If you don't specify this custom tracking ID, Azure automatically generates this
 
 ### Tracked properties
 
-Actions have a **Tracked Properties** section where you can specify a custom property name and value by entering an expression or hardcoded value to track specific inputs or outputs, for example:
+Each action has a **Tracked Properties** section where you can specify the name and value for a custom property by entering an expression or hardcoded value to track specific inputs or outputs that you want to emit from your workflow and include in diagnostic telemetry.
+
+- Tracked properties aren't allowed on a trigger or action that has secure inputs, secure outputs, or both. They're also not allowed to reference another trigger or action that has secure inputs, secure outputs, or both.
+
+- Tracked properties can track only a single action's inputs and outputs, but you can use the `correlation` properties of events to correlate across actions in a workflow run.
+
+- Tracked properties can only reference the parameters, inputs, and outputs for its own trigger or action.
+
+Based on whether you have a Consumption or Standard logic app workflow, the following screenshots where you can find the **Tracked Properties** section on an action:
 
 ### [Consumption](#tab/consumption)
 
@@ -372,11 +380,24 @@ Actions have a **Tracked Properties** section where you can specify a custom pro
 
 ---
 
-Tracked properties can track only a single action's inputs and outputs, but you can use the `correlation` properties of events to correlate across actions in a workflow run.
+In your workflow's underlying JSON definition, the JSON object is named `trackedProperties` and appears as a sibling to the action's `type` and `runAfter` properties, for example:
 
-Tracked properties can only reference the parameters, inputs, and outputs for its own trigger or action.
-
-Tracked properties aren't allowed on a trigger or action that has secure inputs, secure outputs, or both. They're also not allowed to reference another trigger or action that has secure inputs, secure outputs, or both.
+``` json
+{
+   "Http": {
+      "inputs": {
+         "method": "GET",
+         "uri": "https://www.bing.com"
+      },
+      "runAfter": {},
+      "type": "Http",
+      "trackedProperties": {
+         "responseCode": "@action().outputs.statusCode",
+         "uri": "@action().inputs.uri"
+      }
+   }
+}
+```
 
 The following examples show where custom properties appear in your Log Analytics workspace:
 
@@ -402,7 +423,7 @@ The custom tracking ID appears in the **ClientTrackingId** column and tracked pr
 
 ---
 
-## Next steps
+## Related content
 
 * [Create monitoring and tracking queries](create-monitoring-tracking-queries.md)
 * [Monitor B2B messages with Azure Monitor Logs](monitor-b2b-messages-log-analytics.md)

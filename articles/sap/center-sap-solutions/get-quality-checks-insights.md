@@ -8,6 +8,7 @@ ms.date: 10/19/2022
 author: sagarkeswani
 ms.author: sagarkeswani
 #Customer intent: As a developer, I want to use the quality checks feature so that I can learn more insights about virtual machines within my Virtual Instance for SAP resource.
+# Customer intent: "As a SAP system administrator, I want to utilize the quality checks feature to gather insights on my Virtual Instance for SAP solutions, so that I can ensure optimal performance and adherence to best practices for my SAP environment on Azure."
 ---
 
 # Get quality checks and insights for a Virtual Instance for SAP solutions
