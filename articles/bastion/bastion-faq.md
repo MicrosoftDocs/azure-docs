@@ -128,7 +128,7 @@ In order to make a connection, the following roles are required:
 * Reader role on the virtual machine.
 * Reader role on the NIC with private IP of the virtual machine.
 * Reader role on the Azure Bastion resource.
-* Reader role on the virtual network of the target virtual machine (if the Bastion deployment is in a peered virtual network).
+* Reader role on the virtual network of the target virtual machine.
 
 Additionally, the user must have the rights (if required) to connect to the VM. For example, if the user is connecting to a Windows VM via RDP and isn't a member of the local Administrators group, they must be a member of the Remote Desktop Users group.
 
