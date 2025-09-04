@@ -148,7 +148,7 @@ When you replicate a new VM and specify a new Automation Account name, the vault
 
 Azure Site Recovery uses this new Automation Account to manage the site recovery extension on all replicated VMs.
 
-### Premium SSD v2 disks (preview)
+### Premium SSD v2 disks
 
 #### If the source disk IOPS is changed after enable replication, will it reflect during failover?
 
@@ -156,7 +156,7 @@ The IOPS of the source Premium SSD v2 disk at the time of enable replication are
 
 #### What disk sector size is supported when I protect VMs with Premium SSD v2 disks?
 
-Azure Site Recovery supports both 512 and 4096 sector size disks in public preview.
+Azure Site Recovery supports both 512 and 4096 sector size disks.
  
 #### Does Azure Site Recovery support Premium SSD v2 disk capability to live resize?
 
@@ -164,8 +164,8 @@ Azure Site Recovery supports live resync. Once resize is completed, resync of Re
  
 #### Are there any changes in performance of Azure Site Recovery between Premium SSD v1 and SSD v2 disks?
 
-The RPO and RTO SLAs of Azure Site Recovery remain the same for both disk types. However, Premium SSD v2 disks take more time to complete the enable protection process. Also, as Azure Site Recovery uses Premium SSD v1 disks as replica disks, during failover, the new Premium SSD v2 disks created in target using the replica disk, would need some time for data hydration. However, this would not impact the environment availability.
- 
+The RPO and RTO SLAs of Azure Site Recovery are the same across disk types. Premium SSD v2 disks may take additional time during the enable protection process, and at failover, new Premium SSD v2 disks are created from replica disks, requiring hydration. This process does not impact environment availability.
+
 #### What snapshots are used when protecting VMs with Premium SSD v2 using Azure Site Recovery?
 
 The Premium SSD v2 disks use Standard Page Blob snapshots in source, and Premium Snapshots in target. If the visible snapshots are deleted, Azure Site Recovery will have to resync.
