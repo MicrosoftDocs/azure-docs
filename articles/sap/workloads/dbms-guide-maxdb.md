@@ -463,5 +463,5 @@ If you configure the SAP Content Server to store files in the file system, one o
 #### Other
 Other SAP Content Server-specific settings are transparent to Azure VMs and are described in various documents and SAP Notes:
 
-* [SAP NetWeaver](https://www.sap.com/products/technology-platform/netweaver.html)
+* [SAP NetWeaver](https://support.sap.com/en/product/support-by-product/01200314690800000134/default-editorial.html)
 * SAP Note [1619726]
