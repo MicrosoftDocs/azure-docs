@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/25/2024
+ms.date: 08/29/2025
 ---
 
 # Copy and transform data in Microsoft Fabric Lakehouse using Azure Data Factory or Azure Synapse Analytics
@@ -599,6 +599,49 @@ To copy data to Microsoft Fabric Lakehouse using Microsoft Fabric Lakehouse Tabl
     }
 ]
 ```
+
+## Data type mapping for Microsoft Fabric Lakehouse table
+
+When copying data from Microsoft Fabric Lakehouse table, the following mappings are used from Microsoft Fabric Lakehouse table data types to interim data types used by the service internally. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
+
+| Microsoft Fabric Lakehouse table data type | Interim service data type |
+|---------------------|------------------|
+| string              | String           |
+| long                | Int64            |
+| integer             | Int32            |
+| short               | Int16            |
+| byte                | SByte            |
+| float               | Single           |
+| double              | Double           |
+| decimal             | Decimal          |
+| boolean             | Boolean          |
+| binary              | Byte array       |
+| date                | Date             |
+| timestamp           | DateTime         |
+
+When copying data to Microsoft Fabric Lakehouse table, the following mappings are used from interim data types used by the service internally to supported delta sink data types.
+
+| Interim service data type | Supported delta sink type |
+|---------------------|------------------|
+| Boolean          | boolean             |
+| SByte            | byte                |
+| Byte             | short               |
+| Int16            | short               |
+| UInt16           | integer             |
+| Int32            | integer             |
+| UInt32           | long                |
+| Int64            | long                |
+| UInt64           | decimal (20,0)      |
+| Single           | float               |
+| Double           | double              |
+| GUID             | string              |
+| Date             | date                |
+| TimeSpan         | Not supported       |
+| DateTime         | timestamp           |
+| DateTimeOffset   | timestamp           |
+| String           | string              |
+| Byte array       | binary              |
+| Decimal          | decimal             |
 
 ## Mapping data flow properties
 
