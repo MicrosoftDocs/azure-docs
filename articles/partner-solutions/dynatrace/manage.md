@@ -86,7 +86,7 @@ To monitor resources for Azure Arc Machines, select **Dynatrace environment conf
 
 To monitor multiple subscriptions: 
 
-1. Select **Dynatrace environment config** > **Monitored Subscriptions**. 
+1. In the left pane, select **Dynatrace environment config** > **Monitored Subscriptions**. 
 
 1. Select **Add subscriptions** in the top menu. 
 
