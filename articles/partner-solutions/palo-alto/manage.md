@@ -40,7 +40,7 @@ Select **Networking & NAT** under **Settings** in the left pane.
 
 ## Security Policies
 
-To view these setttings, select **Security Policies** under **Settings** in the left pane.
+To view these settings, select **Security Policies** under **Settings** in the left pane.
 
 The settings that you see on this tab depend on how your security policies are managed.
 
@@ -97,7 +97,7 @@ If your security policies are managed by an Azure rulestack, you see the setting
 #### Deployment
 
 1. Select **Deployment** under **Resources** in the left pane of the local rulestack page. 
-   - On the **Deployment** page, select **Deploy Configuration** to deploy changes that you made to the rulesack. 
+   - On the **Deployment** page, select **Deploy Configuration** to deploy changes that you made to the rulestack. 
    - Select **Revert** to remove all changes made since the last deployed configuration.
 
 #### Managed Identity
@@ -109,7 +109,7 @@ If your security policies are managed by an Azure rulestack, you see the setting
 
 ### Strata Cloud Manager
 
-If your security policies are managed by Starta Cloud Manager, you can view the **SCM Tenant ID** on the **Security Policies** tab.   
+If your security policies are managed by Strata Cloud Manager, you can view the **SCM Tenant ID** on the **Security Policies** tab.   
 
 ### Panorama
 
