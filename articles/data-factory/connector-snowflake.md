@@ -6,9 +6,12 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: synapse
 ms.date: 08/12/2025
 ai-usage: ai-assisted
+ms.custom:
+  - synapse
+  - sfi-image-nochange
+  - sfi-ropc-blocked
 ---
 
 # Copy and transform data in Snowflake V2 using Azure Data Factory or Azure Synapse Analytics
