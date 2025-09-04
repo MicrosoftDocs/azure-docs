@@ -29,7 +29,7 @@
     href: container-storage-billing.md 
   - name: FAQ
     href: container-storage-faq.md
-- name: Azure Container Storage (version 1.x.x) documentation
+- name: Azure Container Storage (version 1.x.x)
   items:
   - name: What is Azure Container Storage (version 1.x.x)?
     href: container-storage-introduction-version-1.md
