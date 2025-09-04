@@ -203,14 +203,14 @@ To create an app registration for your logic app to use in your Easy Auth setup,
      
 1. When you're done, select **Register**.
 
-1. On the app registration page, copy and save the following values for later use:
+1. On the app registration page, copy and save the following values for later use if you want to override the default values:
 
    - **Directory (tenant) ID**
    - **Application (client) ID**
 
 1. On the app registration sidebar, under **Manage**, select **Expose an API**.
 
-1. Next to **Application ID URI**, select **Add**. Keep the default value, copy and save this value for later use, and select **Save**.
+1. Next to **Application ID URI**, select **Add**. Keep the default value. Copy and save this value for later use to override the default value, and select **Save**.
 
 1. Under **Scopes defined by this API**, select **Add a scope** to provide granular permissions to your app's users.
 
