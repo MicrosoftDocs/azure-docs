@@ -60,14 +60,14 @@ If your security policies are managed by an Azure rulestack, you see the setting
 
 #### Rules
 
-1. Select **Rules** under **Resources** in the left pane of the local rulestack page. A page appears that shows local rules and allows you to add, delete, and configure them. 
+Select **Rules** under **Resources** in the left pane of the local rulestack page. A page appears that shows local rules and allows you to add, delete, and configure them. 
    - To edit a rule, select the checkbox next to it and then select **Edit**. A pane showing the configured parameters for the rule appears. You can edit the parameters. 
    - To add a rule, select **Add**. A pane that allows you to configure and validate the parameters appears. 
    - To delete a rule, select the checkbox next to it and then select **Delete**. 
 
 #### Security Services
 
-1. Select **Security Services** under **Resources** in the left pane of the local rulestack page. 
+Select **Security Services** under **Resources** in the left pane of the local rulestack page. 
    - Under **Advanced Threat Prevention**, you can enable, disable, and configure vulnerability protection, anti-spyware, antivirus, and file blocking profiles.  
    - Under **Advanced URL Filtering**, you can enable, disable, and configure URL access management profiles. 
    - Under **DNS Security**, you can enable, disable, and configure DNS security profiles. 
@@ -75,28 +75,28 @@ If your security policies are managed by an Azure rulestack, you see the setting
 
 #### Prefix List
 
-1. Select **Prefix List** under **Resources** in the left pane of the local rulestack page. A page appears that shows prefixes and allows you to add, delete, and configure them.
+ Select **Prefix List** under **Resources** in the left pane of the local rulestack page. A page appears that shows prefixes and allows you to add, delete, and configure them.
    - To edit a prefix, select the checkbox next to it and then select **Edit**. A pane showing the name, description, and address of the prefix appears. You can edit and validate the configuration.
    - To add a prefix, select the **Add** button. A pane that allows you to enter a name, description, and address appears. You can also validate the parameters. 
    - To delete a prefix, select the checkbox next to it and then select **Delete**.
 
 #### FQDN List 
 
-1. Select **FQDN List** under **Resources** in the left pane of the local rulestack page. A page appears that slows FQDNs and allows you to add, delete, and configure them. 
+Select **FQDN List** under **Resources** in the left pane of the local rulestack page. A page appears that slows FQDNs and allows you to add, delete, and configure them. 
    - To edit an FQDN, select the checkbox next to it and then select **Edit**. A pane showing the configured name, description, and FQDN appears. You can edit and validate the configuration. 
    - To add an FQDN, select the **Add** button. A pane that allows you to enter a name, description, and FQDN appears. You can also validate the parameters. 
    - To delete an FQDN, select the checkbox next to it and then select **Delete**.
 
 #### Certificates
 
-1. Select **Certificates** under **Resources** in the left pane of the local rulestack page. A page appears that shows certificates and allows you to add, delete, and configure them. 
+Select **Certificates** under **Resources** in the left pane of the local rulestack page. A page appears that shows certificates and allows you to add, delete, and configure them. 
    - To add a certificate, select the **Add** button. A pane that allows you to configure the certificate appears. You can select the certificate from a key vault or paste in a URL. You can also add self-signed certificates. 
    - To edit a certificate, select the checkbox next to it and then select **Edit**. You can edit and validate the configuration.
    - To delete a certificate, select the checkbox next to it and then select **Delete**. 
  
 #### Deployment
 
-1. Select **Deployment** under **Resources** in the left pane of the local rulestack page. 
+Select **Deployment** under **Resources** in the left pane of the local rulestack page. 
    - On the **Deployment** page, select **Deploy Configuration** to deploy changes that you made to the rulestack. 
    - Select **Revert** to remove all changes made since the last deployed configuration.
 
