@@ -1,8 +1,9 @@
 ---
 title: Configure Microsoft Sentinel MCP Server for AI-powered security investigations
 description: Learn how to set up and use the Model Context Protocol (MCP) Server in Microsoft Sentinel to enable natural language queries and AI-powered security investigations through Visual Studio Code.
-author: mlichtinger
-ms.author: mlichtinger
+author: mberdugo
+ms.author: monaberdugo
+ms.reviewer: mlichtinger
 ms.service: microsoft-sentinel
 ms.topic: how-to
 ms.date: 01/15/2025
@@ -35,7 +36,7 @@ Before you begin, make sure you have:
 - An Azure account with at least **Security Reader** role for using tools, or **Security Operator** role for creating custom tools
 - [Visual Studio Code](https://code.visualstudio.com/) installed
 - [GitHub Copilot](https://github.com/features/copilot) enabled in Visual Studio Code
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) installed (for custom tool development)
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) installed (for custom tool development)
 
 ## Collections and tools
 
@@ -103,8 +104,6 @@ You can extend the MCP Server's capabilities by creating custom tools tailored t
 
 1. The bearer token is now in your clipboard. Store it securely as you would a password.
 
-  > [!WARNING] Bearer tokens expire every hour. Never share your token and regenerate it as needed.
-
 ### Create a collection and tools
 
 You can use either Insomnia (recommended) or any REST client to create custom tools.
@@ -122,7 +121,7 @@ You can use either Insomnia (recommended) or any REST client to create custom to
 
 Use the base URL: [URL]> with the following headers:
 
-- Authorization: Bearer <your-token>
+- Authorization: Bearer token
 - Content-Type: application/json
 
 Collection Endpoints:
