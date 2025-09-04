@@ -82,6 +82,8 @@ To monitor resources for Azure Arc Machines, select **Dynatrace environment conf
 
 ---
 
+## Monitor multiple subscriptions
+
 ## Reconfigure single sign-on
 
 [!INCLUDE [reconfigure-sso](../includes/reconfigure-sso.md)]
