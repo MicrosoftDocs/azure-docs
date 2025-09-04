@@ -84,6 +84,42 @@ To monitor resources for Azure Arc Machines, select **Dynatrace environment conf
 
 ## Monitor multiple subscriptions
 
+To monitor multiple subscriptions: 
+
+1. Select **Dynatrace environment config** > **Monitored Subscriptions**. 
+
+1. Select **Add subscriptions** from the command bar. 
+
+   The **Add Subscriptions** experience opens and shows the subscriptions you have Owner role assigned to and any Dynatrace resource created in those subscriptions that is already linked to the same Dynatrace environment as the current resource. 
+
+   If the subscription you want to monitor has a resource already linked to the same Dynatrace environment, delete the resource to avoid shipping duplicate data and incurring double the charges. 
+
+1. Select the subscriptions you want to monitor through the Dynatrace resource and select **Add**. 
+
+> [!note]
+> You can link up to a maximum of 20 subscriptions.
+
+> [!important]
+> Setting separate tag rules for different subscriptions isn't supported. 
+
+Diagnostics settings are automatically added to the subscription's resources that match the defined tag rules. 
+
+Select **Refresh** to view the subscriptions and their monitoring status. 
+
+Once a subscription is added, the status changes to **Active**. 
+
+## Remove subscriptions 
+
+To unlink subscriptions from a Dynatrace resource: 
+
+1. Select **Dynatrace environment config** > **Monitored Subscriptions** from the service menu. 
+
+1. Select the subscription you want to remove. 
+
+1. Choose **Remove subscriptions**. 
+
+To view the updated list of monitored subscriptions, select **Refresh** from the command bar. 
+
 ## Reconfigure single sign-on
 
 [!INCLUDE [reconfigure-sso](../includes/reconfigure-sso.md)]
