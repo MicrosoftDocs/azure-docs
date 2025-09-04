@@ -3,7 +3,7 @@ title: "Quickstart: Create an Azure IoT Edge Device on Linux"
 description: Learn how to configure an Azure IoT Edge device on Linux. This guide walks you through creating an IoT Hub, registering a device, and deploying a simulated sensor module.
 author: sethmanheim
 ms.author: sethm
-ms.date: 09/02/2025
+ms.date: 09/04/2025
 ms.topic: quickstart
 ms.service: azure-iot-edge
 services: iot-edge
