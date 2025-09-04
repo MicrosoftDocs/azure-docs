@@ -61,7 +61,7 @@ In **2: Download Azure Migrate appliance**, select the OVA file, and select **Do
 
 ##### Verify security
 
-Before you deploy the OVA file, verify that the file is [secure](migrate-appliance.md/#verify-security) by validating the SHA256 values.
+Before you deploy the OVA file, [verify security](migrate-appliance.md#verify-security) by validating the SHA256 values.
 
 #### Create the appliance server
 
