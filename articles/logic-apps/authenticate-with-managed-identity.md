@@ -1156,7 +1156,7 @@ This example shows the underlying connection resource definition for a connector
     "properties": {
         "alternativeParameterValues": {},
         "api": {
-            "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), 'azureautomation')]"
+            "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), '<connector-name>')]"
         },
         "authenticatedUser": {},
         "connectionState": "Enabled",
@@ -1186,7 +1186,7 @@ This example shows the underlying connection resource definition for a connector
     "properties": {
         "alternativeParameterValues":{},
         "api": {
-            "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), 'azureblob')]"
+            "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), '<connector-name>')]"
         },
         "authenticatedUser": {},
         "connectionState": "Enabled",
@@ -1195,8 +1195,7 @@ This example shows the underlying connection resource definition for a connector
         "parameterValueSet":{
             "name": "managedIdentityAuth",
             "values": {}
-        },
-        "parameterValueType": "Alternative"
+        }
     }
 }
 ```
@@ -1262,8 +1261,7 @@ This example shows the underlying connection resource definition for a connector
         "parameterValueSet":{
             "name": "managedIdentityAuth",
             "values": {}
-        },
-        "parameterValueType": "Alternative"
+        }
     }
 }
 ```
