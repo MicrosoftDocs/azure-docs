@@ -1,5 +1,5 @@
 ---
-title: Azure Files NFS Encryption In Transit for SAP on Azure Systems| Microsoft Docs
+title: Azure Files NFS Encryption in Transit for SAP on Azure Systems
 description: Setup guide for Azure Files NFS Encryption In Transit for SAP on Azure Systems
 services: virtual-machines-windows,virtual-network,storage
 author: anjanbanerjee
@@ -15,9 +15,9 @@ ms.author: anjbanerjee
 
 # Azure Files NFS Encryption in Transit for SAP on Azure Systems
 
-Azure Files NFS v4.1 volumes support [encryption in-transit](https://aka.ms/nfs/EiT/Announcement)  via TLS providing enterprise-grade security by encrypting all traffic between clients and servers, without compromising performance. With Azure Files NFS, you could encrypt your data end-to-end: at rest, in transit, and across the network.
+Azure Files NFS v4.1 volumes support [encryption in-transit](https://aka.ms/nfs/EiT/Announcement) via TLS providing enterprise-grade security by encrypting all traffic between clients and servers, without compromising performance. With Azure Files NFS, you could encrypt your data end-to-end: at rest, in transit, and across the network.
 
-For more information, refer the following document: [Encryption in transit for NFS Azure file shares](../../storage/files/encryption-in-transit-for-nfs-shares.md)
+For more information, refer the following document: [Encryption in transit for NFS Azure file shares](../../storage/files/encryption-in-transit-for-nfs-shares.md).
 
 ## Deploying Encryption in Transit (EiT) for Azure Files NFS Shares
 
@@ -83,7 +83,7 @@ Steps for setting up Azure Files NFS Encryption in Transit for these two scenari
   mkdir -p <full path of the directory>
   ```
 
-## Mount the NFS File share from /etc/fstab
+## Mount the NFS file share from /etc/fstab
 
 To mount the file share permanently by adding the mount commands in '/etc/fstab'.
 
@@ -103,7 +103,7 @@ For more information, refer to [mount the NFS file shares section](../../storage
 - Mount helper supports private-endpoint based connections for Azure Files NFS Encryption in Transit.
 - If SAP VM is [custom domain joined](/troubleshoot/azure/virtual-machines/linux/custom-dns-configuration-for-azure-linux-vms), then use custom DNS FQDN OR  short names for file share in the '/etc/fstab' as its defined in the DNS. To verify the hostname resolution, check using `nslookup <hostname>` and `getent host <hostname>` commands.
 
-## Mount the NFS File share as pacemaker cluster resource
+## Mount the NFS file share as pacemaker cluster resource
 
 For high availability setup of SAP on Azure, if you choose the option to use Azure Files NFS file system as a resource in pacemaker cluster, then it needs to be mounted using pacemaker cluster command. In the pacemaker commands, to setup file system as cluster resource, change the mount type to `aznfs` from `nfs`. Also add `_netdev` in the options section.
 
@@ -131,7 +131,7 @@ fast_stop=no op start interval=0 timeout=60 op stop interval=0 timeout=120 op mo
 
 ---
 
-## Validation of in-transit data Encryption for Azure Files NFS
+## Validation of in-transit data Encryption for Azure files NFS
 
 Check the mounted file systems in the VM.
 
@@ -151,7 +151,7 @@ These mounting details indicate that the client(VM) is connected through the loc
 
 For more information, refer to the [Verify that the in-transit data encryption succeeded](../../storage/files/encryption-in-transit-for-nfs-shares.md#step-3--verify-that-the-in-transit-data-encryption-succeeded) section for further checks.
 
-## Next Steps
+## Next steps
 
 - [Plan and implement an SAP deployment on Azure](./planning-guide.md)
 - [Azure Virtual Machines deployment for SAP NetWeaver](./deployment-guide.md)
