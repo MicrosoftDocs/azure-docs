@@ -1184,7 +1184,7 @@ This example shows the underlying connection resource definition for a connector
     "location": "[parameters('location')]",
     "kind": "V1",
     "properties": {
-        "alternativeParameterValues":{},
+        "alternativeParameterValues": {},
         "api": {
             "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), '<connector-name>')]"
         },
@@ -1215,8 +1215,8 @@ This example shows the underlying connection resource definition for a connector
 ```json
 {
     "type": "Microsoft.Web/connections",
-    "name": "[variables('connections_<connector-name>_name')]",
     "apiVersion": "[providers('Microsoft.Web','connections').apiVersions[0]]",
+    "name": "[variables('connections_<connector-name>_name')]",
     "location": "[parameters('location')]",
     "kind": "V2",
     "properties": {
@@ -1250,7 +1250,7 @@ This example shows the underlying connection resource definition for a connector
     "location": "[parameters('location')]",
     "kind": "V2",
     "properties": {
-        "alternativeParameterValues":{},
+        "alternativeParameterValues": {},
         "api": {
             "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), '<connector-name>')]"
         },
