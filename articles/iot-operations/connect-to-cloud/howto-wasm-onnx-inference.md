@@ -18,10 +18,12 @@ ai-usage: ai-assisted
 >
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or not yet released into general availability.
 
-This article shows how to embed and run small ONNX models inside your WebAssembly modules to perform in-band inference as part of Azure IoT Operations data flow graphs. Use this approach for low-latency enrichment and classification directly on streaming data without calling external prediction services.
+This article shows how to embed and run small Open Neural Network Exchange (ONNX) models inside your WebAssembly modules to perform in-band inference as part of Azure IoT Operations data flow graphs. Use this approach for low-latency enrichment and classification directly on streaming data without calling external prediction services.
+
+ONNX is an open model format. In this preview, inference runs on CPU only through the WebAssembly System Interface (WASI) neural network API (`wasi-nn`).
 
 > [!IMPORTANT]
-> Data flow graphs currently only support MQTT, Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage are not supported. For more information, see [Known issues](../troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).
+> Data flow graphs currently only support MQTT (Message Queuing Telemetry Transport), Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage aren't supported. For more information, see [Known issues](../troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).
 
 ## Overview
 
@@ -68,11 +70,21 @@ For detailed setup instructions, see [Develop WebAssembly modules](howto-develop
 
 The common pattern for ONNX inference in data flow graphs:
 
-1. **Preprocess data**: Transform raw input data to match your model's expected format. For image models, this typically involves decoding image bytes, resizing to the target dimensions (like 224×224), converting color spaces (RGB, BGR), normalizing pixel values to the expected range (0-1 or -1 to 1), and arranging data in the correct tensor layout (NCHW vs NHWC).
+1. **Preprocess data**: Transform raw input data to match your model's expected format. For image models, this process typically involves:
+  - Decoding image bytes.
+  - Resizing to a target dimension (for example, 224×224).
+  - Converting the color space (for example, RGB to BGR).
+  - Normalizing pixel values to the expected range (0–1 or -1 to 1).
+  - Arranging data in the correct tensor layout: NCHW (batch, channels, height, width) or NHWC (batch, height, width, channels).
 
 1. **Run inference**: Convert preprocessed data into tensors using the `wasi-nn` interface, load your embedded ONNX model with the CPU backend, set input tensors on the execution context, invoke the model's forward pass, and retrieve output tensors containing raw predictions.
 
-1. **Postprocess outputs**: Transform raw model outputs into meaningful results. Common operations include applying softmax for classification probabilities, selecting top-K predictions, applying confidence thresholds to filter low-confidence results, mapping prediction indices to human-readable labels, and formatting results for downstream consumption.
+1. **Postprocess outputs**: Transform raw model outputs into meaningful results. Common operations:
+  - Apply softmax to produce classification probabilities.
+  - Select top-K predictions.
+  - Apply a confidence threshold to filter low-confidence results.
+  - Map prediction indices to human-readable labels.
+  - Format results for downstream consumption.
 
 Public samples demonstrate this pattern:
 
@@ -85,7 +97,7 @@ To enable ONNX inference in your data flow graph, you need to configure both the
 
 ### Enable WASI-NN support
 
-Add the `wasi-nn` feature to your graph definition to enable WebAssembly Neural Network interface support:
+To enable WebAssembly Neural Network interface support, add the `wasi-nn` feature to your graph definition:
 
 ```yaml
 moduleRequirements:
@@ -172,25 +184,25 @@ Your operator `init` can read these values through the module configuration inte
 
 ## Package the model
 
-Embedding ONNX models directly into your WASM component ensures atomic deployment and version consistency. This approach simplifies distribution and eliminates runtime dependencies on external model files or registries.
+Embedding ONNX models directly into your WASM component ensures atomic deployment and version consistency. This approach simplifies distribution and removes runtime dependencies on external model files or registries.
 
 > [!TIP]
-> Embedding keeps the model and operator logic versioned together. To update a model, publish a new module version and update your graph definition to reference it. This eliminates model drift and ensures reproducible deployments.
+> Embedding keeps the model and operator logic versioned together. To update a model, publish a new module version and update your graph definition to reference it. This approach eliminates model drift and ensures reproducible deployments.
 
 ### Model preparation guidelines
 
 Before embedding your model, ensure it meets the requirements for WASM deployment:
 
-- Keep models under 50MB for practical WASM loading times and memory constraints
-- Verify your model accepts single tensor inputs in common formats (float32, uint8)
-- Test that all operators are supported by the WASM ONNX runtime backend
-- Use ONNX optimization tools to reduce model size and improve inference speed
+- Keep models under 50 MB for practical WASM loading times and memory constraints.
+- Verify your model accepts a single tensor input in a common format (float32 or uint8).
+- Verify that the WASM ONNX runtime backend supports every operator your model uses.
+- Use ONNX optimization tools to reduce model size and improve inference speed.
 
 ### Embedding workflow
 
 Follow these steps to embed your model and associated resources:
 
-1. **Organize model assets**: Place the `.onnx` model file and optional `labels.txt` in your source tree. Create a dedicated directory structure like `src/fixture/models/` and `src/fixture/labels/` for clear organization.
+1. **Organize model assets**: Place the `.onnx` model file and optional `labels.txt` in your source tree. Use a dedicated directory structure such as `src/fixture/models/` and `src/fixture/labels/` for clear organization.
 
 1. **Embed at compile time**: Use language-specific mechanisms to include model bytes in your binary. In Rust, use `include_bytes!` for binary data and `include_str!` for text files.
 
@@ -278,7 +290,7 @@ Reuse the streamlined sample builders or build locally:
 Follow this deployment process:
 
 1. Build your WASM module in release mode and produce a `<module-name>-<version>.wasm` file.
-1. Push the module and optionally a graph definition to your registry with ORAS.
+1. Push the module and optionally a graph definition to your registry by using OCI Registry as Storage (ORAS).
 1. Create or reuse a registry endpoint in Azure IoT Operations.
 1. Create a data flow graph resource that references your graph definition artifact.
 
@@ -295,11 +307,11 @@ To deploy this example, pull the artifacts from the public registry, push them t
 
 This preview has the following limitations:
 
-- ONNX only. Other formats like TFLite aren't supported by data flow graphs.
+- ONNX only. Data flow graphs don't support other formats like TFLite.
 - CPU only. No GPU/TPU acceleration.
-- Small models recommended. Very large models and memory-intensive inference aren't supported.
-- Single-tensor input models are supported. Multi-input models, key-value caching, and advanced sequence/generative scenarios aren't supported.
-- Ensure your model's operators are supported by the ONNX backend in the WASM runtime. If an operator isn't supported, inference will fail at load or execution time.
+- Small models recommended. Large models and memory-intensive inference aren't supported.
+- Single-tensor input models are supported. Multi-input models, key-value caching, and advanced sequence or generative scenarios aren't supported.
+- Ensure the ONNX backend in the WASM runtime supports your model's operators. If an operator isn't supported, inference fails at load or execution time.
 
 ## Related content
 
