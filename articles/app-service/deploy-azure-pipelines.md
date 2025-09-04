@@ -13,7 +13,7 @@ ms.service: azure-app-service
 
 # Deploy to Azure App Service by using Azure Pipelines
 
-**Azure DevOps Services**
+**Azure DevOps Services** | **Azure DevOps Server 2022**
 
 This article explains how to use [Azure Pipelines](/azure/devops/pipelines/) to automatically build, test, and deploy your web app to [Azure App Service](./overview.md). You can set up a continuous integration and continuous delivery (CI/CD) pipeline that runs whenever you check in a code change to a designated branch of your repository.
 
