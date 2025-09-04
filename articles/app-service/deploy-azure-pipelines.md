@@ -19,7 +19,7 @@ This article explains how to use [Azure Pipelines](/azure/devops/pipelines/) to 
 
 Pipelines consist of *stages*, *jobs*, and *steps*. A step is the smallest building block of a pipeline and can be a *script* or a *task*, which is a prepackaged script. For more information about the key concepts and components that make up a pipeline, see [Key Azure Pipelines concepts](/azure/devops/pipelines/get-started/key-pipelines-concepts).
 
-You can use the [Azure Web App](/azure/devops/pipelines/tasks/reference/azure-web-app-v1) task in your pipeline to deploy to App Service. For more complex scenarios, like using XML parameters in deployments, you can use the [Azure App Service deploy](/azure/devops/pipelines/tasks/reference/azure-rm-web-app-deployment) task.
+You can use the [Azure Web App](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app) task in your pipeline to deploy to App Service. For more complex scenarios, like using XML parameters in deployments, you can use the [Azure App Service deploy](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment) task.
 
 ## Prerequisites
 
@@ -155,7 +155,7 @@ The following sections discuss creating different kinds of build and release pip
 
 # [YAML](#tab/yaml/)
 
-The [Azure Web App](/azure/devops/pipelines/tasks/reference/azure-web-app-v1) task deploys to the root application in the Azure web app. You can deploy to a specific virtual application by using the `VirtualApplication` property of the [Azure App Service deploy](/azure/devops/pipelines/tasks/reference/azure-rm-web-app-deployment) task.
+The [Azure Web App](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app) task deploys to the root application in the Azure web app. You can deploy to a specific virtual application by using the `VirtualApplication` property of the [Azure App Service deploy](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment) task.
 
 ```yaml
 - task: AzureRmWebAppDeployment@5
@@ -167,7 +167,7 @@ The [Azure Web App](/azure/devops/pipelines/tasks/reference/azure-web-app-v1) ta
 
 # [Classic](#tab/classic/)
 
-The [Azure Web App](/azure/devops/pipelines/tasks/reference/azure-web-app-v1) task deploys to the root application in the Azure web app. To deploy to a specific virtual application, enter its name in the **Virtual Application** property of the [Azure App Service deploy](/azure/devops/pipelines/tasks/reference/azure-rm-web-app-deployment) task.
+The [Azure Web App](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app) task deploys to the root application in the Azure web app. To deploy to a specific virtual application, enter its name in the **Virtual Application** property of the [Azure App Service deploy](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment) task.
 
 ---
 
@@ -312,7 +312,7 @@ For more information, see the following articles:
 
 ### Deploy using Web Deploy
 
-The [Azure App Service deploy](/azure/devops/pipelines/tasks/reference/azure-rm-web-app-deployment) task can deploy to App Service by using Web Deploy.
+The [Azure App Service deploy](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment) task can deploy to App Service by using Web Deploy.
 
 # [YAML](#tab/yaml/)
 
@@ -349,13 +349,13 @@ steps:
 
 If you're using the **Azure App Service deployment** template in a release pipeline, follow these steps to deploy to Web Deploy.
 
-1. Select the **Tasks** tab, and then select **Deploy Azure App Service**, the [Azure App Service deploy](/azure/devops/pipelines/tasks/reference/azure-rm-web-app-deployment) task.
+1. Select the **Tasks** tab, and then select **Deploy Azure App Service**, the [Azure App Service deploy](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment) task.
 1. On the configuration screen, make sure that **Connection type** is set to **Azure Resource Manager**.
 1. Expand **Additional Deployment Options** and choose **Select deployment method**. Make sure that **Web Deploy** is selected as the deployment method.
 1. Save the release pipeline.
 
 > [!NOTE]
-> With the [Azure App Service deploy](/azure/devops/pipelines/tasks/reference/azure-rm-web-app-deployment) task, you should use the **Azure Resource Manager** connection type or `AzureRM` when you deploy with **Web Deploy**. This connection type uses publishing profiles for deployment when basic authentication is enabled for your app. When [basic authentication is disabled](configure-basic-auth-disable.md), the connection uses the more secure Microsoft Entra ID authentication.
+> With the [Azure App Service deploy](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment) task, you should use the **Azure Resource Manager** connection type or `AzureRM` when you deploy with **Web Deploy**. This connection type uses publishing profiles for deployment when basic authentication is enabled for your app. When [basic authentication is disabled](configure-basic-auth-disable.md), the connection uses the more secure Microsoft Entra ID authentication.
 
 ---
 
@@ -363,9 +363,9 @@ If you're using the **Azure App Service deployment** template in a release pipel
 
 ### What's the difference between the AzureWebApp and AzureRmWebAppDeployment tasks?
 
-The [Azure Web App](/azure/devops/pipelines/tasks/reference/azure-web-app) task is the simplest way to deploy to an Azure web app. By default, you deploy the root application in the Azure web app.
+The [Azure Web App](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app) task is the simplest way to deploy to an Azure web app. By default, you deploy the root application in the Azure web app.
 
-The [Azure App Service deploy](/azure/devops/pipelines/tasks/reference/azure-rm-web-app-deployment) task can handle more custom scenarios, such as:
+The [Azure App Service deploy](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment) task can handle more custom scenarios, such as:
 
 - [Deploy with Web Deploy](#deploy-using-web-deploy), if you usually use the Internet Information Services (IIS) deployment process.
 - [Deploy to virtual applications](#deploy-to-a-virtual-application).
@@ -389,7 +389,7 @@ pool:
 
 ### Why doesn't Web Deploy work when I disable basic authentication?
 
-For troubleshooting information on getting Microsoft Entra ID authentication to work with the [Azure App Service deploy](/azure/devops/pipelines/tasks/reference/azure-rm-web-app-deployment) task, see [I can't Web Deploy to my Azure App Service using Microsoft Entra ID authentication from my Windows agent](/azure/devops/pipelines/tasks/reference/azure-rm-web-app-deployment#i-cant-web-deploy-to-my-azure-app-service-using-microsoft-entra-id-authentication-from-my-windows-agent).
+For troubleshooting information on getting Microsoft Entra ID authentication to work with the [Azure App Service deploy](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment) task, see [I can't Web Deploy to my Azure App Service using Microsoft Entra ID authentication from my Windows agent](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment#i-cant-web-deploy-to-my-azure-app-service-using-microsoft-entra-id-authentication-from-my-windows-agent).
 
 ## Related content
 
