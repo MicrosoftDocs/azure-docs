@@ -24,9 +24,9 @@ This diagram shows the typical architecture of Azure NetApp Files backed NFS dat
 
 This diagram shows the typical architecture of Azure NetApp Files backed NFS datastores attached to Azure VMware Solution Generation 2.
 
-:::image type="content" source="media/attach-netapp-files-to-cloud/architecture-generation-two.png" alt-text="Diagram shows the architecture of Azure NetApp Files backed NFS datastores attached to an Azure VMware Solution Generation 2 private cloud." lightbox="media/attach-netapp-files-to-cloud/architecture-generation-two.png"::: 
+:::image type="content" source="media/attach-netapp-files-to-cloud/architecture-netapp-files-generation-two.png" alt-text="Diagram shows the architecture of Azure NetApp Files backed NFS datastores attached to an Azure VMware Solution Generation 2 private cloud." lightbox="media/attach-netapp-files-to-cloud/architecture-netapp-files-generation-two.png"::: 
 
->[!Note]
+>[!NOTE]
 > NFS traffic from the ESXi hosts does not traverse any NSX components. Traffic traverses the ESXi VMkernel port directly to the NFS mount via the Azure network. 
 
 ## Prerequisites
