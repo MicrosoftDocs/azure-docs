@@ -50,11 +50,17 @@ Inside an incident response plan, you can choose the autonomy level for the agen
 | Review | In this semi-autonomous mode, the agent diagnoses incidents then mitigates or modifies resources only after you review and approve and the proposed actions. | Yes |
 | Autonomous | In this fully autonomous mode, the agent analyzes incidents and independently performs mitigation or resource modifications.<br><br>**Note** : If the agent doesn't have the required permissions to take action, it prompts you to grant temporary access to elevated permissions. | No |
 
-## Define custom instructions
+### Define custom instructions
 
 To customize your incident response plan, SRE Agent looks at a series of previous incidents to figure out how they've been resolved in the past. After the agent creates a profile based on historical incidents, it generates more detailed context that the agent uses to respond to incidents.
 
 You can customize the generated instructions or replace them with your own instructions.
+
+## Summary reports
+
+If you connect your resources monitored by the agent to the related source code repositories, it creates summary reports as issues GitHub or Azure DevOps.
+
+A summary report is a work item created by the agent that summarizes issues the agent found during its investigation of your environment. 
 
 ## Related content
 
