@@ -1,9 +1,9 @@
 ---
 title: Set up an Azure Migrate appliance for server assessment in a VMware environment
 description: Learn how to set up an Azure Migrate appliance to assess and migrate servers in VMware environment.
-author: vikram1988
-ms.author: vibansa
-ms.manager: abhemraj
+author: molishv
+ms.author: molir
+ms.manager: runai
 ms.topic: how-to
 ms.service: azure-migrate
 ms.date: 05/09/2025
