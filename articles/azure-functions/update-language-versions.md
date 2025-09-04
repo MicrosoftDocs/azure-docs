@@ -73,9 +73,7 @@ Use these steps to determine your Functions runtime version:
 
 1. In the [Azure portal](https://portal.azure.com), locate and select your function app. On the side menu, select **Settings** > **Configuration**.
 
-1. Go to the **Function runtime settings** tab and check the **Runtime version** value. Your function app should run on version 4.x of the Functions runtime (`~4`). 
-
-   :::image type="content" source="media/update-language-versions/update-functions-version-portal.png" alt-text="Screenshot of a function app Configuration page in the Azure portal. On the Function runtime settings tab, the Runtime version value 4 is selected." lightbox="media/update-language-versions/update-functions-version-portal.png"::: 
+1. Go to the **Function runtime settings** tab and check the **Runtime version** value. Your function app should run on version 4.x of the Functions runtime (`~4`).
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -124,9 +122,7 @@ Python apps aren't supported on Windows. Go to the **Linux** tab instead.
 ::: zone pivot="programming-language-python" 
 1. In the [Azure portal](https://portal.azure.com), locate and select your function app. On the side menu, select **Settings** > **Configuration**. If you have a staging slot, select the specific slot.
 
-1. On the **General settings** tab, update **Python Version** to the desired version. 
-
-   :::image type="content" source="media/update-language-versions/update-python-version-portal.png" alt-text="Screenshot of the Azure portal function app Configuration page. On the General settings tab, several Python versions are available for selection."::: 
+1. On the **General settings** tab, update **Python Version** to the desired version.
 
    > [!NOTE]   
    > You can't change the Python version when your function app runs in a Consumption plan.  
