@@ -16,11 +16,13 @@ ms.custom: "references_regions, engagement-fy23"
 
 By using NFS datastores backed by Azure NetApp Files, you can expand your storage instead of scaling the clusters. You can also use Azure NetApp Files volumes to replicate data from on-premises or primary VMware vSphere environments for the secondary site. 
 
-You create your Azure VMware Solution and Azure NetApp Files NFS volumes in a virtual network. For Azure VMware Solution Gen 1 private clouds, the ExpressRoute is required for connectivity between the clusters and the Azure NetApp Files volumes. For Azure VMware Solution Gen 2 private clouds, Azure NetApp Files volumes can use the same virtual network or a virtual network that is peered with the virtual network of your private cloud. Ensure there's connectivity from the private cloud to the NFS volumes created. Use those volumes to create NFS datastores and attach the datastores to clusters of your choice in a private cloud. As a native integration, you don't need other permissions configured via vSphere.
+You create your Azure VMware Solution and Azure NetApp Files NFS volumes in a virtual network. For Azure VMware Solution Generation&nbsp;1 private clouds, the ExpressRoute is required for connectivity between the clusters and the Azure NetApp Files volumes. For Azure VMware Solution Generation&nbsp;2 private clouds, Azure NetApp Files volumes can use the same virtual network or a virtual network that is peered with the virtual network of your private cloud. Ensure there's connectivity from the private cloud to the NFS volumes created. Use those volumes to create NFS datastores and attach the datastores to clusters of your choice in a private cloud. As a native integration, you don't need other permissions configured via vSphere.
 
-The following diagram shows the typical architecture of Azure NetApp Files backed NFS datastores attached to Azure VMware Solution.
+The following diagrams show the typical architecture of Azure NetApp Files backed NFS datastores attached to Azure VMware Solution Generation 1 and Generation 2.
 
-:::image type="content" source="media/attach-netapp-files-to-cloud/architecture-netapp-files-nfs-datastores.png" alt-text="Diagram shows the architecture of Azure NetApp Files backed NFS datastores attached to an Azure VMware Solution private cloud." lightbox="media/attach-netapp-files-to-cloud/architecture-netapp-files-nfs-datastores.png"::: 
+:::image type="content" source="media/attach-netapp-files-to-cloud/architecture-netapp-files-nfs-datastores.png" alt-text="Diagram shows the architecture of Azure NetApp Files backed NFS datastores attached to an Azure VMware Solution Generation 1 private cloud." lightbox="media/attach-netapp-files-to-cloud/architecture-netapp-files-nfs-datastores.png"::: 
+
+:::image type="content" source="media/attach-netapp-files-to-cloud/architecture-netapp-files-nfs-datastores.png" alt-text="Diagram shows the architecture of Azure NetApp Files backed NFS datastores attached to an Azure VMware Solution Generation 2 private cloud." lightbox="media/attach-netapp-files-to-cloud/architecture-gen2-netapp-files-nfs-datastores.png"::: 
 
 >[!Note]
 > NFS traffic from the ESXi hosts does not traverse any NSX components. Traffic traverses the ESXi VMkernel port directly to the NFS mount via the Azure network. 
@@ -96,7 +98,7 @@ For Azure VMware Solution Gen 2:
 There are some important best practices to follow for optimal performance of NFS datastores on Azure NetApp Files volumes.
 
 - Create Azure NetApp Files volumes using **Standard** network features to enable optimized connectivity from Azure VMware Solution private cloud.
-- For optimized performance with Azure VMware Solution Gen 1,, choose either **UltraPerformance** gateway or **ErGw3Az** gateway and enable [FastPath](../expressroute/expressroute-howto-linkvnet-arm.md#configure-expressroute-fastpath) from a private cloud to Azure NetApp Files volumes virtual network. View more detailed information on gateway SKUs at [About ExpressRoute virtual network gateways](../expressroute/expressroute-about-virtual-network-gateways.md).
+- For optimized performance with Azure VMware Solution Generation&nbsp;1, choose either **UltraPerformance** gateway or **ErGw3Az** gateway and enable [FastPath](../expressroute/expressroute-howto-linkvnet-arm.md#configure-expressroute-fastpath) from a private cloud to Azure NetApp Files volumes virtual network. View more detailed information on gateway SKUs at [About ExpressRoute virtual network gateways](../expressroute/expressroute-about-virtual-network-gateways.md).
 - Based on your performance requirements, select the correct service level needed for the Azure NetApp Files capacity pool. See [Service levels for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-service-levels.md) to understand the throughput allowed per provisioned TiB for each service level. 
 
     >[!IMPORTANT]
