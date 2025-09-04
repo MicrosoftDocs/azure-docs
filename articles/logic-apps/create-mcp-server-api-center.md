@@ -26,7 +26,12 @@ This guide shows how to create an MCP server powered by a Standard logic app and
 
 ## Learn about MCP and API Center
 
-The following diagram shows the relationship between the MCP server and tools that you create in API Center and the connector actions in Azure Logic Apps that you use to build the tools that your MCP server provides:
+The following diagram shows relationships between the different components at work in this scenario:
+
+- The MCP server and tools that you create and register through API Center
+- The connector actions in Azure Logic Apps that you use to build the tools that your MCP server provides
+- The interactions between your MCP client and your MCP server
+- The interactions between your MCP client and the agent or model
 
 :::image type="content" source="media/create-mcp-server-api-center/mcp-server-api-center-portal-arch.png" alt-text="Diagram shows relationship between MCP server and tools in Azure API Center portal, agent, and MCP client.":::
 
@@ -199,4 +204,3 @@ Now you can interact with your MCP server through the Copilot chat interface.
 
 ## Related content
 
-- [Set up Standard logic apps as remote MCP servers](set-up-model-context-protocol-server-standard.md)
