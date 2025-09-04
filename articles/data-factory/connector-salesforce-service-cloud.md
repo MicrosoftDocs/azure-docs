@@ -205,7 +205,7 @@ To copy data from Salesforce Service Cloud, set the source type in the copy acti
 | type | The type property of the copy activity source must be set to **SalesforceServiceCloudV2Source**. | Yes |
 | query | Use the custom query to read data. You can only use [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query. If query is not specified, all the data of the Salesforce object specified in "objectApiName/reportId" in dataset will be retrieved. | No (if "objectApiName/reportId" in the dataset is specified) |
 | includeDeletedObjects | Indicates whether to query the existing records, or query all records including the deleted ones. If not specified, the default behavior is false. <br>Allowed values: **false** (default), **true**. | No |
-| partitionOption | Provide capability to automatically detect and apply the optimal partitioning algorithm to optimize for read throughput when applicable. You are recommended to select `AutoDetect` for long-running copy that can benefit from multi-threaded reads. The default value is `AutoDetect`. | No |
+| partitionOption | Provide capability to automatically detect and apply the optimal partitioning algorithm to optimize for read throughput when applicable. You are recommended to specify `AutoDetect` for long-running copy that can benefit from multi-threaded reads. The default value is `AutoDetect`. | No |
 
 > [!IMPORTANT]
 > The "__c" part of **API Name** is needed for any custom object.
