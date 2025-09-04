@@ -219,4 +219,4 @@ Additional articles about Azure Policy and guest configuration:
 - [Regulatory Compliance](../concepts/regulatory-compliance.md) overview.
 - Review other examples at [Azure Policy samples](./index.md).
 - Review [Understanding policy effects](../concepts/effects.md).
-- Learn how to [remediate non-compliant resources with the new azure-osconfig auto-remediation function](https://learn.microsoft.com/en-us/azure/osconfig/quickstart-sec-baseline-mc-set?tabs=azure-portal) **Limited Public Preview**.
+- Learn how to [remediate non-compliant resources with the new azure-osconfig auto-remediation function](/azure/osconfig/quickstart-sec-baseline-mc-set?tabs=azure-portal) **Limited Public Preview**.
