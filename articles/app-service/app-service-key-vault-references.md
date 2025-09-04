@@ -11,7 +11,7 @@ ms.custom: AppServiceConnectivity
 ms.service: azure-app-service
 ---
 
-# Use Key Vault references as app settings in Azure App Service, Azure Functions and Azure Logic Apps (Standard)
+# Use Key Vault references as app settings in Azure App Service, Azure Functions, and Azure Logic Apps (Standard)
 
 This article shows you how to use secrets from Azure Key Vault as values of [app settings](configure-common.md#configure-app-settings) or [connection strings](configure-common.md#configure-connection-strings) in your Azure App Service, Azure Functions apps or Azure Logic Apps (Standard).
 
