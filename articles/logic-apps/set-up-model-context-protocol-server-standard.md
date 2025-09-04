@@ -25,7 +25,12 @@ Typically, large language models (LLMs) work with AI agents that handle and fulf
 
 MCP is an open standard that lets LLMs, AI agents, and MCP clients work with external systems and tools in a secure, discoverable, and structured way. This standard defines how to describe, run, and authenticate access to tools so agents can interact with real-world systems like databases, APIs, and business workflows. Consider an MCP server as a bridge between an LLM, AI agent, or MCP client and the tools they use.
 
-For example, suppose you have a Standard logic app-based MCP server that runs in Azure. On your local computer, Visual Studio Code has an MCP client that you use to remotely connect to your MCP server. This scenario differs from local MCP servers that run on your computer.
+For example, suppose you have a Standard logic app-based MCP server that runs in Azure. On your local computer, Visual Studio Code has an MCP client that you use to remotely connect to your MCP server. This scenario differs from local MCP servers that run on your computer. The following diagram shows relationships between the different components at work in this scenario:
+
+- The interactions between your MCP client and your MCP server, which provides logic app workflows as tools
+- The interactions between your MCP client and the agent or model
+- The inputs that go in through the MCP client to the agent or model
+- The outputs from the agent or model that go out through the MCP client
 
 :::image type="content" source="media/set-up-model-context-protocol-server-standard/mcp-arch.png" alt-text="Diagram that shows agent interactions with related components." lightbox="media/set-up-model-context-protocol-server-standard/mcp-arch.png":::
 
@@ -203,10 +208,7 @@ To create an app registration for your logic app to use in your Easy Auth setup,
      
 1. When you're done, select **Register**.
 
-1. On the app registration page, copy and save the following values for later use if you want to override the default values:
-
-   - **Directory (tenant) ID**
-   - **Application (client) ID**
+1. On the app registration page, copy and save the **Application (client) ID** to use for setting up Easy Auth.
 
 1. On the app registration sidebar, under **Manage**, select **Expose an API**.
 
@@ -258,7 +260,7 @@ Now set up Easy Auth authentication on the Standard logic app that you want to u
    |----------|----------|-------------|
    | **Application (client) ID** | Yes | The application (client) ID from your previously created app registration. |
    | **Issuer URL** | Yes | The following URL where you replace <*tenant-ID*> with the GUID for your directory (tenant): <br><br> **`https://login.microsoftonline.com/<tenant-ID>/v2.0`** |
-   | **Allowed token audiences** | Yes | The application ID URI from your previously created app registration in the following format: <br><br>**`api://<application-ID>/`** <br><br>**Important**: Make sure that you include the trailing slash at the end of the URI, for example: <br><br>**`api://11112222-bbbb-3333-cccc-4444dddd5555/`** |
+   | **Allowed token audiences** | Yes | The application ID URI from your previously created app registration in the following format: <br><br>**`api://<application-ID-URI>/`** <br><br>**Important**: Make sure that you include the trailing slash at the end of the URI, for example: <br><br>**`api://11112222-bbbb-3333-cccc-4444dddd5555/`** |
 
 1. In the **Additional checks** section, select the following options or provide information to further control authentication and access:
 
@@ -300,7 +302,6 @@ For this task, you need to edit the **host.json** file for your Standard logic a
 
    - To override the default values for the properties in `ProtectedResourceMetadata`, replace the placeholder values with the following values that you saved earlier:
 
-     - Directory (tenant) ID
      - Logic app name
      - Application ID URI
 
@@ -318,7 +319,23 @@ For this task, you need to edit the **host.json** file for your Standard logic a
 
      - You can override the `ProtectedResourceMetadata` values returned with the [HTTP WWW-Authenticate response header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/WWW-Authenticate), but only if the overriding values follow the standards in [3.3 Protected Resource Metadata Validation - OAuth 2.0 Protected Resource Metadata](https://datatracker.ietf.org/doc/html/rfc9728#PRConfigurationValidation).
 
-   The following example shows where the `extensions` JSON object appears:
+   The following example shows a minimal *host.json* file and where the `extensions` JSON object appears to enable your MCP server to use streamable HTTP transport:
+
+   ```json
+   "extensionBundle": {
+       "id": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
+       "version": "<version-number>"
+   },
+   "extensions": {
+       "workflow": {
+           "McpServerEndpoints": {
+               "enable": true
+           }
+       }
+   }
+   ```
+
+   The following example shows a *host.json* file and where the `extensions` JSON object appears with all the default values that you can override:
 
    ```json
    "extensionBundle": {
@@ -328,18 +345,18 @@ For this task, you need to edit the **host.json** file for your Standard logic a
    "extensions": {
        "workflow": {
            "Settings": {
-               "Runtime.McpServerToMcpClientPingIntervalInSeconds": 30, // Required only for SSE transport to keep the connection alive. The ping interval default value is 30 seconds, which you can change if necessary.
-               "Runtime.Backend.EdgeWorkflowRuntimeTriggerListener.AllowCrossWorkerCommunication": false // Required and set to `true` only for SSE transport.
+               "Runtime.McpServerToMcpClientPingIntervalInSeconds": 30, // Optional: Available for enabling SSE transport. Overrides the ping interval default value, which is 30 seconds.
+               "Runtime.Backend.EdgeWorkflowRuntimeTriggerListener.AllowCrossWorkerCommunication": false // Available and required for SSE transport. You must set this property to `true`.
            },
            "McpServerEndpoints": {
                "enable": true,
                "authentication": {
-                   "type": "oauth2" // Default authentication type, which you can change if necessary.
+                   "type": "oauth2" // Defaults to "oauth2" if not provided. Optional: To remove authentication, change to "anonymous".
                },
                // The following section applies only if you want to override the default values.
                "ProtectedResourceMetadata": {
                    "BearerMethodsSupported": ["header"],
-                   "ScopesSupported": ["api://<application-ID-URI>/user_impersionation"],
+                   "ScopesSupported": ["api://<application-ID-URI>/user_impersonation"],
                    "Resource": "https://<logic-app-name>.azurewebsites.net/api/mcp",
                    "AuthorizationServers": ["https://login.microsoftonline.com/<tenant-ID>/v2.0"]
                }
