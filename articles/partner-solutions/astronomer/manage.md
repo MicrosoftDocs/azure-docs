@@ -56,11 +56,11 @@ Choose a Microsoft Entra account for the single sign-on. Once consent is provide
 
 ## Get support
 
-Contact [Astronomer](https://www.support.astronomer.io) for customer support. 
+Contact [Astronomer](https://support.astronomer.io) for customer support. 
 
 You can also request support in the Azure portal from the [resource overview](#resource-overview).  
 
-Select **Support + Troubleshooting** > **New support request** from the service menu, then choose the link to [log a support request in the Astronomer portal](https://www.support.astronomer.io). 
+Select **Support + Troubleshooting** > **New support request** from the service menu, then choose the link to [log a support request in the Astronomer portal](https://support.astronomer.io). 
 
 ## Next steps
 
