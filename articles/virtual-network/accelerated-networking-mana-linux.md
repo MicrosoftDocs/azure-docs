@@ -22,16 +22,12 @@ For more info about MANA, see [Microsoft Azure Network Adapter overview](./accel
 
 Several Linux images from [Azure Marketplace](/marketplace/azure-marketplace-overview) have built-in support for the Ethernet driver in MANA:
 
-- Ubuntu 22.04 LTS
+- Ubuntu 22.04 LTS (with linux-azure kernel >= 6.8.0-1033)
 - Ubuntu 24.04 LTS
-- Red Hat Enterprise Linux 8.8
-- Red Hat Enterprise Linux 8.10
-- Red Hat Enterprise Linux 9.2
-- Red Hat Enterprise Linux 9.4
-- SUSE Linux Enterprise Server 15 SP4
+- SUSE Linux Enterprise Server 15 SP5 and above
 - Debian 12 "Bookworm"
-- Oracle Linux 8.0 UEK R7
-- Oracle Linux 9.0 UEK R7
+- Debian 13 "Trixie"
+- Oracle Linux 9.0 UEK R8
 
 > [!NOTE]
 > Newer MANA features are under active development and Linux distribution vendors partner with Microsoft to update their kernels with upstream changes. Cadence of updates varies by distribution vendor. The newer your distribution and kernel is, the more likely it is to have the latest updates. 
