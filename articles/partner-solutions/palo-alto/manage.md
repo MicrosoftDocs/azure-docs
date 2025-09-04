@@ -31,12 +31,12 @@ You can view and change settings by selecting one of the following settings cate
 
 ## Networking & NAT
 
-1. Select **Networking & NAT** under **Settings** in the left pane.
-1. In the **Networking** section, you can view networking settings. 
-1. To add prefixes to the private traffic range, select **Edit**, select the **Additional Prefixes** checkbox, and then add the prefixes in the resulting text box.
-1. In the **Source Network Address Translation (SNAT)** section, you can make changes by selecting the **Edit** button. You can then update the **Public IP Addresses**, select or clear the **Use the above Public IP addresses** checkbox, or update the **Source NAT Public IPs**. 
-1. In the **Destination Network Address Translation (DNAT)** section, you can make changes by selecting the **Edit** button. You can then add a frontend setting by selecting the **Add** button and providing a **Name**, **Protocol**, **Frontend IP**, **Frontend Port**, **Backend IP**, and **Backend Port**. You can also modify existing settings in this section. 
-1. In the **Private Source NAT** section, you can add a destination address by selecting the **Edit** button and then adding the address in the **Private Source NAT Destination Address** box. Private Source NAT replaces the source IP address with the trusted firewall IP address. 
+Select **Networking & NAT** under **Settings** in the left pane.
+- In the **Networking** section, you can view networking settings. 
+- To add prefixes to the private traffic range, select **Edit**, select the **Additional Prefixes** checkbox, and then add the prefixes in the resulting text box.
+- In the **Source Network Address Translation (SNAT)** section, you can make changes by selecting the **Edit** button. You can then update the **Public IP Addresses**, select or clear the **Use the above Public IP addresses** checkbox, or update the **Source NAT Public IPs**. 
+- In the **Destination Network Address Translation (DNAT)** section, you can make changes by selecting the **Edit** button. You can then add a frontend setting by selecting the **Add** button and providing a **Name**, **Protocol**, **Frontend IP**, **Frontend Port**, **Backend IP**, and **Backend Port**. You can also modify existing settings in this section. 
+- In the **Private Source NAT** section, you can add a destination address by selecting the **Edit** button and then adding the address in the **Private Source NAT Destination Address** box. Private Source NAT replaces the source IP address with the trusted firewall IP address. 
 
 ## Security Policies
 
@@ -46,7 +46,7 @@ The settings that you see on this tab depend on how your security policies are m
 
 ### Azure Rulestack
 
-If your security policies are managed by an Azure rulestack, you see the following sections. 
+If your security policies are managed by an Azure rulestack, you see the settings described in this section. 
 
 1. In **Local Rulestack**, select an existing rulestack from the dropdown list.
 1. To manage settings for a rulestack, select the rulestack name under **Local Rulestack**. This action takes you to the local rulestack page. In the left pane, you see the following settings categories under **Resources**:
@@ -61,52 +61,51 @@ If your security policies are managed by an Azure rulestack, you see the followi
 #### Rules
 
 1. Select **Rules** under **Resources** in the left pane of the local rulestack page. A page appears that shows local rules and allows you to add, delete, and configure them. 
-1. To edit a rule, select the checkbox next to it and then select **Edit**. A pane showing the configured parameters for the rule appears. You can edit the parameters. 
-1. To add a rule, select **Add**. A pane that allows you to configure and validate the parameters appears. 
-1. To delete a rule, select the checkbox next to it and then select **Delete**. 
+   - To edit a rule, select the checkbox next to it and then select **Edit**. A pane showing the configured parameters for the rule appears. You can edit the parameters. 
+   - To add a rule, select **Add**. A pane that allows you to configure and validate the parameters appears. 
+   - To delete a rule, select the checkbox next to it and then select **Delete**. 
 
 #### Security Services
 
 1. Select **Security Services** under **Resources** in the left pane of the local rulestack page. 
-1. Under **Advanced Threat Prevention**, you can enable, disable, and configure vulnerability protection, anti-spyware, antivirus, and file blocking profiles.  
-1. Under **Advanced URL Filtering**, you can enable, disable, and configure URL access management profiles. 
-1. Under **DNS Security**, you can enable, disable, and configure DNS security profiles. 
-1. Under **Encrypted Threat Protection**, you can manage egress decryption settings.
+   - Under **Advanced Threat Prevention**, you can enable, disable, and configure vulnerability protection, anti-spyware, antivirus, and file blocking profiles.  
+   - Under **Advanced URL Filtering**, you can enable, disable, and configure URL access management profiles. 
+   - Under **DNS Security**, you can enable, disable, and configure DNS security profiles. 
+   - Under **Encrypted Threat Protection**, you can manage egress decryption settings.
 
 #### Prefix List
 
 1. Select **Prefix List** under **Resources** in the left pane of the local rulestack page. A page appears that shows prefixes and allows you to add, delete, and configure them.
-1. To edit a prefix, select the checkbox next to it and then select **Edit**. A pane showing the name, description, and address of the prefix appears. You can edit and validate the configuration.
-1. To add a prefix, select the **Add** button. A pane that allows you to enter a name, description, and address appears. You can also validate the parameters. 
-1. To delete a prefix, select the checkbox next to it and then select **Delete**.
+   - To edit a prefix, select the checkbox next to it and then select **Edit**. A pane showing the name, description, and address of the prefix appears. You can edit and validate the configuration.
+   - To add a prefix, select the **Add** button. A pane that allows you to enter a name, description, and address appears. You can also validate the parameters. 
+   - To delete a prefix, select the checkbox next to it and then select **Delete**.
 
 #### FQDN List 
 
 1. Select **FQDN List** under **Resources** in the left pane of the local rulestack page. A page appears that slows FQDNs and allows you to add, delete, and configure them. 
-1. To edit an FQDN, select the checkbox next to it and then select **Edit**. A pane showing the configured name, description, and FQDN appears. You can edit and validate the configuration. 
-1. To add an FQDN, select the **Add** button. A pane that allows you to enter a name, description, and FQDN appears. You can also validate the parameters. 
-1. To delete an FQDN, select the checkbox next to it and then select **Delete**.
+   - To edit an FQDN, select the checkbox next to it and then select **Edit**. A pane showing the configured name, description, and FQDN appears. You can edit and validate the configuration. 
+   - To add an FQDN, select the **Add** button. A pane that allows you to enter a name, description, and FQDN appears. You can also validate the parameters. 
+   - To delete an FQDN, select the checkbox next to it and then select **Delete**.
 
 #### Certificates
 
 1. Select **Certificates** under **Resources** in the left pane of the local rulestack page. A page appears that shows certificates and allows you to add, delete, and configure them. 
-1. To edit a certificate, select the checkbox next to it then select **Edit**. A pane that shows the current configuration appears. Edit the values as needed. 
-1.  To add a certificate, select the **Add** button. A pane that allows you to configure the certificate appears. You can select the certificate from a key vault or paste in a URL. You can also add self-signed certificates. 
-1. To edit a certificate, select the checkbox next to it and then select **Edit**. You can edit and validate the configuration.
-1. To delete a certificate, select the checkbox next to it and then select **Delete**. 
+   - To add a certificate, select the **Add** button. A pane that allows you to configure the certificate appears. You can select the certificate from a key vault or paste in a URL. You can also add self-signed certificates. 
+   - To edit a certificate, select the checkbox next to it and then select **Edit**. You can edit and validate the configuration.
+   - To delete a certificate, select the checkbox next to it and then select **Delete**. 
  
 #### Deployment
 
 1. Select **Deployment** under **Resources** in the left pane of the local rulestack page. 
-1. On the **Deployment** page, select **Deploy Configuration** to deploy changes that you made to the rulesack. 
-1. Select **Revert** to remove all changes made since the last deployed configuration.
+   - On the **Deployment** page, select **Deploy Configuration** to deploy changes that you made to the rulesack. 
+   - Select **Revert** to remove all changes made since the last deployed configuration.
 
 #### Managed Identity
 
 1. Select **Managed Identity** under **Resources** in the left pane of the local rulestack page. 
 1. On the **Managed Identity** page, you can enable or disable managed identity. 
-1. To enable managed identity, select **Enable MI** and then select an identity in the **Identity** list. 
-1. To disable managed identity, clear the **Enable MI** checkbox. 
+   - To enable managed identity, select **Enable MI** and then select an identity in the **Identity** list. 
+   - To disable managed identity, clear the **Enable MI** checkbox. 
 
 ### Strata Cloud Manager
 
@@ -153,8 +152,8 @@ You can also view the following setting on this tab:
 
 1. Select **Locks** under **Settings** in the left pane.
 1. On the **Locks** page, you can view a list of locks. 
-1. To edit a lock, select the **Edit** button next to the lock. You can also delete a lock. 
-1. To add a lock, select **Add** and then enter a **Lock name**, **Lock type**, and, optionally, **Notes**. 
+    - To edit a lock, select the **Edit** button next to the lock. You can also delete a lock. 
+    - To add a lock, select **Add** and then enter a **Lock name**, **Lock type**, and, optionally, **Notes**. 
 
 ## Change plan
 
