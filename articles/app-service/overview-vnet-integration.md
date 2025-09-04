@@ -3,7 +3,7 @@ title: Integrate your app with an Azure virtual network
 description: Integrate your app in Azure App Service with Azure virtual networks.
 author: seligj95
 ms.topic: conceptual
-ms.date: 08/11/2025
+ms.date: 09/03/2025
 ms.update-cycle: 1095-days
 ms.author: jordanselig
 ms.custom:
@@ -256,11 +256,31 @@ The feature is easy to set up, but that doesn't mean your experience is problem 
 > * Virtual network integration isn't supported for Docker Compose scenarios in App Service.
 > * Access restrictions does not apply to traffic coming through a private endpoint.
 
-### Deleting the App Service plan or app before disconnecting the network integration
+### Cleaning up orphaned Service Association Links (SAL)
 
-If you deleted the app or the App Service plan without disconnecting the virtual network integration first, you aren't able to do any update/delete operations on the virtual network or subnet that was used for the integration with the deleted resource. A subnet delegation 'Microsoft.Web/serverFarms' remains assigned to your subnet and prevents the update and delete operations. 
+When an App Service is integrated with a virtual network, a Service Association Link (SAL) is created. If the App Service is deleted without properly disconnecting the virtual network, the SAL might remain orphaned, preventing subnet deletion or updates.
 
-In order to do update/delete the subnet or virtual network again, you need to re-create the virtual network integration, and then disconnect it:
+#### Method 1: Purging orphaned Service Association Links (SAL)
+
+First, try to delete the orphan SAL using the following Azure CLI command. Replace the placeholders for `SUBSCRIPTION-ID`, `LOCATION`, and `SUBNET-RESOURCE-ID`. The location in the URI must match the location of the virtual network/subnet. You must have at a minimum the RBAC permissions associated with the [Network Contributor](../role-based-access-control/built-in-roles/networking.md#network-contributor) role on the subnet to execute this command.
+
+```bash
+az rest --method POST --uri "/subscriptions/<SUBSCRIPTION-ID>/providers/Microsoft.Web/locations/<LOCATION>/purgeUnusedVirtualNetworkIntegration?api-version=2024-04-01" --body "{'subnetResourceId': '<SUBNET-RESOURCE-ID>'}"
+```
+
+Successful execution of this command gives the following response:
+
+```bash
+{
+  "message": "Purged unused virtual network integration.",
+  "swiftVirtualNetwork": null
+}
+```
+
+#### Method 2: Re-creating and disconnecting the integration (if Method 1 fails)
+
+If the purge command doesn't resolve the issue and you still can't perform update/delete operations on the virtual network or subnet, a subnet delegation 'Microsoft.Web/serverFarms' might remain assigned to your subnet. In this case, you need to re-create the virtual network integration and then disconnect it:
+
 1. Re-create the App Service plan and app (it's mandatory to use the exact same web app name as before).
 1. Navigate to **Networking** on the app in Azure portal and configure the virtual network integration. 
 1. After the virtual network integration is configured, select the 'Disconnect' button.
