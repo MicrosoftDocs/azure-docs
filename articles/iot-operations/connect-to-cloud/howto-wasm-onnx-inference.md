@@ -71,20 +71,18 @@ For detailed setup instructions, see [Develop WebAssembly modules](howto-develop
 The common pattern for ONNX inference in data flow graphs:
 
 1. **Preprocess data**: Transform raw input data to match your model's expected format. For image models, this process typically involves:
-  - Decoding image bytes.
-  - Resizing to a target dimension (for example, 224×224).
-  - Converting the color space (for example, RGB to BGR).
-  - Normalizing pixel values to the expected range (0–1 or -1 to 1).
-  - Arranging data in the correct tensor layout: NCHW (batch, channels, height, width) or NHWC (batch, height, width, channels).
-
+   - Decoding image bytes.
+   - Resizing to a target dimension (for example, 224×224).
+   - Converting the color space (for example, RGB to BGR).
+   - Normalizing pixel values to the expected range (0–1 or -1 to 1).
+   - Arranging data in the correct tensor layout: NCHW (batch, channels, height, width) or NHWC (batch, height, width, channels).
 1. **Run inference**: Convert preprocessed data into tensors using the `wasi-nn` interface, load your embedded ONNX model with the CPU backend, set input tensors on the execution context, invoke the model's forward pass, and retrieve output tensors containing raw predictions.
-
 1. **Postprocess outputs**: Transform raw model outputs into meaningful results. Common operations:
-  - Apply softmax to produce classification probabilities.
-  - Select top-K predictions.
-  - Apply a confidence threshold to filter low-confidence results.
-  - Map prediction indices to human-readable labels.
-  - Format results for downstream consumption.
+   - Apply softmax to produce classification probabilities.
+   - Select top-K predictions.
+   - Apply a confidence threshold to filter low-confidence results.
+   - Map prediction indices to human-readable labels.
+   - Format results for downstream consumption.
 
 Public samples demonstrate this pattern:
 
@@ -203,13 +201,9 @@ Before embedding your model, ensure it meets the requirements for WASM deploymen
 Follow these steps to embed your model and associated resources:
 
 1. **Organize model assets**: Place the `.onnx` model file and optional `labels.txt` in your source tree. Use a dedicated directory structure such as `src/fixture/models/` and `src/fixture/labels/` for clear organization.
-
 1. **Embed at compile time**: Use language-specific mechanisms to include model bytes in your binary. In Rust, use `include_bytes!` for binary data and `include_str!` for text files.
-
 1. **Initialize WASI-NN graph**: In your operator's `init` function, create a `wasi-nn` graph from the embedded bytes, specifying the ONNX encoding and CPU execution target.
-
 1. **Implement inference loop**: For each incoming message, preprocess inputs to match model requirements, set input tensors, execute inference, retrieve outputs, and apply postprocessing.
-
 1. **Handle errors gracefully**: Implement proper error handling for model loading failures, unsupported operators, and runtime inference errors.
 
 For a complete implementation pattern, see the `snapshot` sample linked in the [Architecture pattern](#architecture-pattern) section.
