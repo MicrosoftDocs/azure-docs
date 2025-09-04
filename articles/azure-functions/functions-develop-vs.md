@@ -128,11 +128,16 @@ In C# class library functions, the bindings used by the function are defined by 
 
 1. Select a trigger, and then set the required binding properties. If you select an Azure Storage service trigger and you want to configure the connection, select the checkbox for configuring the trigger connection. The following example shows the settings for creating a Queue Storage trigger function.
 
-    :::image type="content" source="media/functions-develop-vs/functions-vstools-create-queuetrigger.png" alt-text="Screenshot that shows the setting to create a Queue storage trigger function.":::
+    :::image type="content" source="media/functions-develop-vs/functions-visual-studio-tools-create-queue-trigger.png" alt-text="Screenshot that shows the setting to create a Queue storage trigger function.":::
 
-1. Select **Add**. If you selected the checkbox for configuring the trigger connection, you're prompted to choose between using an Azurite storage emulator or referencing a provisioned Azure storage account. Select **Next** and if you choose a storage account, Visual Studio tries to connect to your Azure account and get the connection string. Choose **Save connection string value in Local user secrets file** and then **Finish** to create the trigger class.
+1. Select **Add**. If you selected the checkbox for configuring a storage connection in the previous step, the **Connect to dependency** page appears. Select an Azurite storage emulator or **Azure Storage**, and then select **Next**.
+   - If you select an Azurite storage emulator, ...
+   - If you select **Azure Storage**, the **Connect to Azure Storage** page appears. Take the following steps:
+     1.Select a storage account, and then select **Next**. Visual Studio tries to connect to your Azure account and retrieve an endpoint.
+     1. Select **Next**.
+     1. On the **Summary of changes** page, select **Finish**. Visual Studio configures the dependency and creates the trigger class.
 
-    This trigger example uses an application setting for the storage connection with a key named `QueueStorage`. This key, stored in the [local.settings.json file](functions-develop-local.md#local-settings-file), either references the Azurite emulator or an Azure storage account. 
+   This trigger example uses an application setting for the storage connection with a key named `QueueStorage`. This key, stored in the [local.settings.json file](functions-develop-local.md#local-settings-file), either references the Azurite emulator or an Azure storage account.
 
 1. Examine the newly added class. For example, the following C# class represents a basic Queue storage trigger function: 
     ::: zone pivot="isolated"  
@@ -237,11 +242,11 @@ Azure Functions Core Tools lets you run Azure Functions project on your local de
 
 To start your function in Visual Studio in debug mode:
 
-1. Press **F5**. If prompted, accept the request from Visual Studio to download and install Azure Functions Core (CLI) tools. You might also need to enable a firewall exception so that the tools can handle HTTP requests.
+1. Select **F5**. If prompted, accept the request from Visual Studio to download and install Azure Functions Core (CLI) tools. You might also need to enable a firewall exception so that the tools can handle HTTP requests.
 
-1. With the project running, test your code as you would test a deployed function. 
+1. When the project runs, test your code the same way you test a deployed function. 
 
-    When you run Visual Studio in debug mode, breakpoints are hit as expected.
+   When you run Visual Studio in debug mode, breakpoints are hit as expected.
 
 ::: zone pivot="in-proc"
 For a more detailed testing scenario using Visual Studio, see [Testing functions](#testing-functions).
@@ -262,7 +267,7 @@ Use the following steps to publish your project to a function app in Azure.
    - For **Specific target**, select **Azure Function App**, and then select **Next**.  
    - For **Functions instance**, select **Create new**.
 
-   :::image type="content" source="media/functions-vstools-publish/functions-vs-functions-instance.png" alt-text="Screenshot that shows Create a new function app instance.":::
+   :::image type="content" source="media/functions-develop-vs/visual-studio-tools-functions-instance.png" alt-text="Screenshot of the Publish page. In the Functions instance section, a resource group is visible, and Create new is highlighted.":::
 
 1. Create a new instance by using the values specified in the following table:
 
@@ -273,7 +278,7 @@ Use the following steps to publish your project to a function app in Azure.
    | **[Resource group](../articles/azure-resource-manager/management/overview.md)** | Name of your resource group |  The resource group in which you want to create your function app. Select **New** to create a new resource group. You can also select an existing resource group from the list. |
    | **[Plan Type](../articles/azure-functions/functions-scale.md)** | **Premium** or **App service plan** | When you publish your project to a function app that runs in a [Flex Consumption plan](../articles/azure-functions/flex-consumption-plan.md), you might pay only for executions of your functions app. Other hosting plans can incur higher costs. |
    | **Hosting Plan** | The name of your hosting plan | The hosting plan you want to use for your function app. Select **New** to create a new plan. You can also select an existing plan from the list. |
-   | **Operating system** | Windows | Remote debugging currently requires Windows for the .NET stack. |
+   | **Operating System** | Windows | Remote debugging currently requires Windows for the .NET stack. |
    | **[Azure Storage](../articles/azure-functions/storage-considerations.md)** | General-purpose storage account | An Azure storage account is required by the Functions runtime. Select **New** to configure a general-purpose storage account. You can also choose to use an existing account that meets the [storage account requirements](../articles/azure-functions/storage-considerations.md#storage-account-requirements).  |
    | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Application Insights instance | You should enable Azure Application Insights integration for your function app. Select **New** to create a new instance, either in a new or in an existing Log Analytics workspace. You can also choose to use an existing instance.  |
 
@@ -281,13 +286,15 @@ Use the following steps to publish your project to a function app in Azure.
 
 1. Select **Create** to create a function app and its related resources in Azure. The status of resource creation is shown in the lower-left corner of the window.
 
-1. Select **Finish**, and then on the **Publish** tab select **Publish** to deploy the package that contains your project files to your new function app in Azure.
+1. Select **Finish**. The **Publish profile creation progress** window appears. When the profile is created, select **Close**.
+
+1. On the **Publish** tab, select **Publish** to deploy the package that contains your project files to your new function app in Azure.
 
     When deployment is completed, the root URL of the function app in Azure is shown on the **Publish** tab.
 
 1. On the **Publish** tab, in the **Hosting** section, select **Open in Azure portal**. The new function app Azure resource opens in the Azure portal.
 
-    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-complete.png" alt-text="Screenshot of the Publish success message.":::
+    :::image type="content" source="media/functions-develop-vs/visual-studio-tools-functions-publish-complete.png" alt-text="Screenshot of the Publish success message.":::
 
 ## Function app settings
 
