@@ -44,7 +44,7 @@ The Azure Functions project template in Visual Studio creates a C# class library
 
 1. In the **Create a new project** dialog, enter **functions** in the search box, select the **Azure Functions** template, and then select **Next**.
 
-1. In the **Configure your new project** dialog, for **Project name**, enter a name for your project, and then select **Create**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other nonalphanumeric characters.
+1. In the **Configure your new project** dialog, for **Project name**, enter a name for your project, and then select **Next**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other nonalphanumeric characters.
 
 1. In the **Additional information** dialog, select the values in the following table:
     ::: zone pivot="isolated"  
@@ -255,7 +255,39 @@ Don't deploy to Azure Functions using Web Deploy (`msdeploy`).
 
 Use the following steps to publish your project to a function app in Azure.
 
-[!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
+1. In **Solution Explorer**, right-click the project and select **Publish**.
+
+1. On the **Publish** page, make the following selections:
+   - For **Target**, select **Azure**, and then select **Next**.
+   - For **Specific target**, select **Azure Function App**, and then select **Next**.  
+   - For **Functions instance**, select **Create new**.
+
+   :::image type="content" source="media/functions-vstools-publish/functions-vs-functions-instance.png" alt-text="Screenshot that shows Create a new function app instance.":::
+
+1. Create a new instance by using the values specified in the following table:
+
+   | Setting      | Value  | Description                                |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Name** | Globally unique name | Name that uniquely identifies your new function app. Accept this name or enter a new name. Valid characters are: `a-z`, `0-9`, and `-`. |
+   | **Subscription name** | Name of your subscription | The Azure subscription to use. Accept this subscription or select a new one from the dropdown list. |
+   | **[Resource group](../articles/azure-resource-manager/management/overview.md)** | Name of your resource group |  The resource group in which you want to create your function app. Select **New** to create a new resource group. You can also select an existing resource group from the list. |
+   | **[Plan Type](../articles/azure-functions/functions-scale.md)** | **Premium** or **App service plan** | When you publish your project to a function app that runs in a [Flex Consumption plan](../articles/azure-functions/flex-consumption-plan.md), you might pay only for executions of your functions app. Other hosting plans can incur higher costs. |
+   | **Hosting Plan** | The name of your hosting plan | The hosting plan you want to use for your function app. Select **New** to create a new plan. You can also select an existing plan from the list. |
+   | **Operating system** | Windows | Remote debugging currently requires Windows for the .NET stack. |
+   | **[Azure Storage](../articles/azure-functions/storage-considerations.md)** | General-purpose storage account | An Azure storage account is required by the Functions runtime. Select **New** to configure a general-purpose storage account. You can also choose to use an existing account that meets the [storage account requirements](../articles/azure-functions/storage-considerations.md#storage-account-requirements).  |
+   | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Application Insights instance | You should enable Azure Application Insights integration for your function app. Select **New** to create a new instance, either in a new or in an existing Log Analytics workspace. You can also choose to use an existing instance.  |
+
+   :::image type="content" source="./media/functions-develop-vs/visual-studio-create-function-app.png" alt-text="Screenshot of the Function App Create new dialog. Fields for the name, subscription, resource group, plan, and other settings are filled in.":::
+
+1. Select **Create** to create a function app and its related resources in Azure. The status of resource creation is shown in the lower-left corner of the window.
+
+1. Select **Finish**, and then on the **Publish** tab select **Publish** to deploy the package that contains your project files to your new function app in Azure.
+
+    When deployment is completed, the root URL of the function app in Azure is shown on the **Publish** tab.
+
+1. On the **Publish** tab, in the **Hosting** section, select **Open in Azure portal**. The new function app Azure resource opens in the Azure portal.
+
+    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-complete.png" alt-text="Screenshot of the Publish success message.":::
 
 ## Function app settings
 
@@ -303,21 +335,33 @@ When you're done, you should [disable remote debugging](#disable-remote-debuggin
 ::: zone pivot="isolated" 
 To attach a remote debugger to a function app running in a process separate from the Functions host:
 
-1. From the **Publish** tab, select the ellipses (**...**) in the **Hosting** section, and then choose **Download publish profile**. This action downloads a copy of the publish profile and opens the download location. You need this file, which contains the credentials used to attach to your isolated worker process running in Azure.
+1. On the **Publish** tab, go to the **Hosting** section. Select the ellipses (**...**), and then select **Download publish profile**. This action downloads a copy of the publish profile and opens the download location. You need this file, which contains the credentials used to attach to your isolated worker process running in Azure.
 
     > [!CAUTION]
     > The *.publishsettings* file contains your credentials (unencoded) that are used to administer your function app. The security best practice for this file is to store it temporarily outside your source directories (for example in the Libraries\Documents folder), and then delete it after it's no longer needed. A malicious user who gains access to the *.publishsettings* file can edit, create, and delete your function app.
 
-1. Again from the **Publish** tab, select the ellipses (**...**) in the **Hosting** section, and then choose **Attach debugger**.  
+1. On the **Publish** tab, go to the **Hosting** section. Select the ellipses (**...**), and then select **Attach debugger**.  
 
     Visual Studio connects to your function app and enables remote debugging, if not already enabled. 
 
     > [!NOTE]
     > Because the remote debugger isn't able to connect to the host process, you could see an error. In any case, the default debugging doesn't break into your code. 
 
-1. Back in Visual Studio, copy the URL for the **Site** under **Hosting** in the **Publish** page.
+1. On the **Publish** tab, go to the **Hosting** section. Next to **Site**, copy the URL.
 
-1. From the **Debug** menu, select **Attach to Process**, and in the **Attach to process** window, paste the URL in the **Connection Target**, remove `https://` and append the port `:4024`. 
+1. On the Visual Studio **Debug** menu, select **Attach to Process**.
+
+1. In the **Attach to Process** dialog, take the following steps:
+   1. Next to **Connection type**, select **Microsoft Azure App Services**.
+   1. Next to **Connection target**, select **Find**.
+
+1. In the **Azure Attach to Process** dialog, search for and select your function app, and then select **OK**.
+
+1. If prompted, allow Visual Studio access through your local firewall.
+
+1. Back in the **Attach to Process** dialog, select **Show process from all users**. Select **dotnet.exe**, and then select **Attach**. When the operation finishes, you're attached to your C# class library code running in an isolated worker process. At this point, you can debug your function app as normal.
+
+1. Probably skip this step. Paste the URL in the **Connection Target**, remove `https://` and append the port `:4024`. 
 
     Verify that your target looks like `<FUNCTION_APP>.azurewebsites.net:4024` and press **Enter**.
 
@@ -325,7 +369,7 @@ To attach a remote debugger to a function app running in a process separate from
 
 1. If prompted, allow Visual Studio access through your local firewall.
 
-1. When prompted for credentials, instead of local user credentials choose a different account (**More choices** on Windows). Provide the values of **userName** and **userPWD** from the published profile for **Email address** and **Password** in the authentication dialog on Windows. After a secure connection is established with the deployment server, the available processes are shown.
+1. Probably skip this step. When prompted for credentials, instead of local user credentials choose a different account (**More choices** on Windows). Provide the values of **userName** and **userPWD** from the published profile for **Email address** and **Password** in the authentication dialog on Windows. After a secure connection is established with the deployment server, the available processes are shown.
 
     :::image type="content" source="media/functions-develop-vs/creds-dialog.png" alt-text="Screenshot that shows the dialog box to enter credentials.":::
 
