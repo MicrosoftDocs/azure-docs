@@ -63,7 +63,7 @@ To get started, create a Log Analytics workspace. If you already have one, skip 
     :::image type="content" source="media/quickstart-onboard/log-analytics-workspace-create.png" alt-text="Select Create to create a new Log Analytics workspace":::
 
 1. Select **Create a new workspace**.
-    :::image type="content" source="media/quickstart-onboard/log-analytics-workspace-create-a-new-workspace.png" alt-text="Select "Create a new workspace"":::
+    :::image type="content" source="media/quickstart-onboard/log-analytics-workspace-create-a-new-workspace.png" alt-text="Select Create a new workspace":::
 
 1. Under **Subscription** > **Resource group** > select **Create new**.
     :::image type="content" source="media/quickstart-onboard/log-analytics-workspace-resource-group-create-new.png" alt-text="Create a new resource group":::
