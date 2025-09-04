@@ -1,13 +1,6 @@
 ---
-title: Setup Azure Mig-	A-	Assign the Contributor role to the registered Micr-	Select Add to complete the upload.
-![Screenshot of procedure to upload certificate in Microsoft Entra App.](./media/how-to-register-appliance-usingaadapp/uploadcertificatetoentraidapp.png)
-
--	Note down the Microsoft Entra ID app details that will be later required when configuring appliance.t Entra ID application in the resource group, where the Azure Migrate project is deployed. 
-![Screenshot of permissions assignment.](./media/how-to-register-appliance-usingaadapp/contributor.png)ign the Contributor role to the registered Microsoft Entra ID application in the resource group, where the Azure Migrate project is deployed. 
-![Screenshot of permissions assignment.](./media/how-to-register-appliance-usingaadapp/contributor.png)
-
-## 2. To authenticate the application generate certificates appliance using a preconfigured Microsoft Entra ID application
-description: Learn how to register an Azure Migrate appliance using a preconfigured Microsoft Entra ID app. Overcome permission issues, DCF restrictions, and streamline setup with this step-by-step guide.
+title: Register Azure Migrate appliance using a preconfigured Microsoft Entra ID application
+description: Learn how to register an Azure Migrate appliance using a preconfigured Microsoft Entra ID app.
 author: molishv
 ms.author: molir
 ms.manager: ronai
@@ -31,7 +24,7 @@ To avoid registering the appliance under a user's context and to address the abo
 
 ## 1.	Register a Microsoft Entra ID application and assign permissions
 
--	Follow these [steps](/entra/identity-platform/howto-create-service-principal-portal.md#register-an-application-with-microsoft-entra-id-and-create-a-service-principal) to register a new application (or use an existing application) in Microsoft Entra ID. A service principal is automatically created for the app registration.
+-	Follow these [steps](/entra/identity-platform/howto-create-service-principal-portal#register-an-application-with-microsoft-entra-id-and-create-a-service-principal) to register a new application (or use an existing application) in Microsoft Entra ID. A service principal is automatically created for the app registration.
 -	Assign the Contributor role to the registered Microsoft Entra ID application in the Resource Group, where the Azure Migrate project is deployed. 
 ![Screenshot of permissions assignment.](./media/how-to-register-appliance-usingaadapp/contributor.png)
 
