@@ -265,7 +265,9 @@ When an App Service is integrated with a virtual network, a Service Association 
 First, try to delete the orphan SAL using the following Azure CLI command. Replace the placeholders for `SUBSCRIPTION-ID`, `LOCATION`, and `SUBNET-RESOURCE-ID`. The location in the URI must match the location of the virtual network/subnet. You must have at a minimum the permissions associated with the [Network Contributor](../role-based-access-control/built-in-roles/networking.md#network-contributor) role on the subnet to execute this command.
 
 ```bash
-az rest --method POST --uri "/subscriptions/<SUBSCRIPTION-ID>/providers/Microsoft.Web/locations/<LOCATION>/purgeUnusedVirtualNetworkIntegration?api-version=2024-04-01" --body "{'subnetResourceId': '<SUBNET-RESOURCE-ID>'}"
+az rest --method POST \
+  --uri "/subscriptions/<SUBSCRIPTION-ID>/providers/Microsoft.Web/locations/<LOCATION>/purgeUnusedVirtualNetworkIntegration?api-version=2024-04-01" \
+  --body "{'subnetResourceId': '<SUBNET-RESOURCE-ID>'}"
 ```
 
 Successful execution of this command gives the following response:
