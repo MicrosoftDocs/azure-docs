@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 09/05/2025
+ms.date: 09/08/2025
 ms.update-cycle: 180-days
 #Customer intent: I want to create an MCP server that provides tools that I build from connector actions in Azure Logic Apps. AI agents and models can use these tools to complete tasks.
 ---
@@ -32,6 +32,8 @@ The following diagram shows relationships between the different components at wo
 - The connector actions in Azure Logic Apps that you use to build the tools that your MCP server provides
 - The interactions between your MCP client and your MCP server
 - The interactions between your MCP client and the agent or model
+- The inputs that go in through the MCP client to the agent or model
+- The outputs from the agent or model that go out through the MCP client
 
 :::image type="content" source="media/create-mcp-server-api-center/mcp-server-api-center-portal-arch.png" alt-text="Diagram shows relationship between MCP server and tools in Azure API Center portal, agent, and MCP client.":::
 
