@@ -51,7 +51,7 @@ To enable alerts (Preview) with Azure Update Manager through Azure portal, follo
    
          :::image type="content" source="./media/manage-alerts/query-inline.png" alt-text="Screenshot that shows how to run the query." lightbox="./media/manage-alerts/query-inline.png":::
 
-    1. Select the **Scope and filters** you want to be apply.
+    1. Select the **Scope and filters** you want to apply.
     1. Select **Identify, Threshold, and Frequency** of evaluation as per your requirement.
     1. Enter your preferences in the **Notify me** section.
     1. Select **Quick create a new rule**.     
