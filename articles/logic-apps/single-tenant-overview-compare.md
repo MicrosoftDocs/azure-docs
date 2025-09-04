@@ -311,7 +311,7 @@ For the **Standard** logic app workflow, the following capabilities are differen
 
 * **Terraform templates**: You can't use these templates with a **Standard** logic app resource for complete infrastructure deployment. For more information, see [What is Terraform on Azure](/azure/developer/terraform/overview)?
 
-* **Incoming client certificate**: Logic app standard does not support incoming client certificate. There is no client certificate setting on configuration blade on Azure Portal. And make sure not to enable client certificate in ARM template if you use ARM deployment.
+* **Incoming client certificate**: **Standard** logic apps don't support incoming client certificates, and no client certificate setting exists for the logic app in the Azure portal. If you use ARM template deployment, make sure that you don't enable client certificates.
 
 <a name="firewall-permissions"></a>
 
