@@ -87,7 +87,7 @@ If the resource group was created successfully, you'll see output similar to thi
 Follow these guidelines when choosing a VM type for the cluster nodes. You must choose a VM type that supports [Azure premium storage](/azure/virtual-machines/premium-storage-performance).
 
 - Choose a VM SKU that supports local NVMe data disks, for example, [Storage optimized VM SKUs](/azure/virtual-machines/sizes/overview#storage-optimized) or [GPU accelerated VM SKUs](/azure/virtual-machines/sizes/overview#gpu-accelerated).
-- Choose the OS type for the VMs in the node pools as Linux OS. Windows OS is not currently supported.
+- Choose the OS type for the VMs in the node pools as Linux OS. Windows OS isn't currently supported.
 
 ## Create a new AKS cluster and install Azure Container Storage
 
@@ -96,7 +96,7 @@ If you already have an AKS cluster deployed, follow the installation instruction
 Run the following command to create a new AKS cluster and install Azure Container Storage. Replace `<cluster-name>` and `<resource-group>` with your own values, and specify which VM type you want to use.
 
 ```azurecli-interactive
-az aks create -n <cluster-name> -g <resource-group> --node-vm-size Standard_D4s_v3 --enable-azure-container-storage --generate-ssh-keys
+az aks create -n <cluster-name> -g <resource-group> --node-vm-size Standard_L8s_v3 --enable-azure-container-storage --generate-ssh-keys
 ```
 
 The deployment will take 5-10 minutes. When it completes, you'll have an AKS cluster with Azure Container Storage installed and the components for local NVMe storage type deployed.
