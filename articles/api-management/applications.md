@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 09/03/2025
+ms.date: 07/11/2025
 ms.author: danlep
 ms.custom:
   - build-2025
@@ -19,7 +19,7 @@ ms.custom:
 API Management now supports built-in OAuth 2.0 application-based access to product APIs using the client credentials flow. This feature allows API managers to register Microsoft Entra ID applications, streamlining secure API access for developers through OAuth 2.0 authorization.
 
 > [!NOTE]
-> Applications are currently in preview. 
+> Applications are currently in limited preview. To sign up, fill [this form](https://aka.ms/apimappspreview).
 
 With this feature:
 * API managers set a product property to enable application-based access.

@@ -56,7 +56,7 @@ Use the policy in scenarios such as the following:
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | backend-id	| Identifier (name) of the Azure AI Content Safety backend to route content-safety API calls to. Policy expressions are allowed.	|  Yes	| N/A |
 | shield-prompt	| If set to `true`, content is checked for user attacks. Otherwise, skip this check. Policy expressions are allowed.	| No	| `false` |
-| enforce-on-completions| If set to `true`, content safety checks are enforced on chat completions for final redaction, logging, and response validation. Otherwise, skip this check. Policy expressions are allowed.	| No	| `false` |
+| enforce-on-completions| If set to `true`, content safety checks are enforced on chat completions for response validation. Otherwise, skip this check. Policy expressions are allowed.	| No	| `false` |
 
 
 ## Elements
