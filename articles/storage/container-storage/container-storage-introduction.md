@@ -3,7 +3,7 @@ title: Introduction to Azure Container Storage
 description: An overview of Azure Container Storage, a service built natively for containers that enables customers to create and manage volumes for running production-scale stateful container applications.
 author: khdownie
 ms.service: azure-container-storage
-ms.date: 09/03/2025
+ms.date: 09/04/2025
 ms.author: kendownie
 ms.topic: overview
 ms.custom: references_regions
@@ -31,7 +31,7 @@ You can use Azure Container Storage to:
 
 - **Simplify volume management with Kubernetes:** Azure Container Storage enables you to provision, manage, and monitor storage volumes directly through Kubernetes-native tools and workflows. This unified experience eliminates the need to switch between multiple management interfaces, streamlining storage operations for your containerized workloads.
 
-- **Enable cloud-agnostic deployments with open source:** Azure Container Storage supports both Azure Kubernetes Service (AKS) and self-hosted Kubernetes clusters using open-source components. This means you can run your workloads in Azure or other clouds, making it easier to manage storage in multi-cloud or hybrid environments.
+- **Enable cloud-agnostic deployments with open source:** Azure Container Storage supports both Azure Kubernetes Service (AKS) and self-hosted Kubernetes clusters using open-source components. This means you can run your workloads in Azure or other clouds, making it easier to manage storage in multicloud or hybrid environments.
 
 ## Key benefits
 

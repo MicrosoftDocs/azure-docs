@@ -77,8 +77,7 @@ $ az aks nodepool list -g $resourceGroup --cluster-name $clusterName --query "[]
 
 ```
 
-You can remove these taints temporarily to unblock and configure them back after you install and enable successfully. You can go to Azure Portal > AKS cluster > Node pools, click your node pool, remove the taints in "Taints and labels
-" section. Or you can use the following command to remove taints and confirm the change.
+You can remove these taints temporarily to unblock and configure them back after you install and enable successfully. You can go to Azure portal > AKS cluster > Node pools, select your node pool, and remove the taints in the **Taints and labels** section. Or you can use the following command to remove taints and confirm the change.
 
 ```bash
 $ az aks nodepool update -g $resourceGroup --cluster-name $clusterName --name $nodePoolName --node-taints ""

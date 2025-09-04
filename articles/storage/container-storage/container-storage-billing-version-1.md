@@ -3,7 +3,7 @@ title: Understand billing for Azure Container Storage (version 1.x.x)
 description: Understand the billing and pricing model for Azure Container Storage (version 1.x.x), including backing storage costs and applicable service fees for orchestration.
 author: khdownie
 ms.service: azure-container-storage
-ms.date: 09/03/2025
+ms.date: 09/04/2025
 ms.author: kendownie
 ms.topic: concept-article
 # Customer intent: "As a cloud solutions architect, I want to understand the pricing model for Azure Container Storage (version 1.x.x), so that I can accurately estimate costs based on backing storage options and service fees for different deployment scenarios."
@@ -18,10 +18,10 @@ Azure Container Storage is a cloud-based volume management, deployment, and orch
 
 ## Azure Container Storage pricing model
 
-Azure Container Storage pricing is comprised of two components:
+Azure Container Storage pricing comprises two components:
 
-1. The cost of the **backing storage resources** you choose: Azure Disks, Ephemeral Disk, or Azure Elastic SAN.
-1. A **service fee** for Azure Container Storage orchestration. This fee only applies to storage pools larger than 5 TiB. If the storage pool is less than 5 TiB, there is no service fee. If the storage pool is greater than 5 TiB, the storage fee is based on the amount by which the storage pool capacity exceeds 5 TiB. For example, if you deploy a 9 TiB storage pool, the service fee will be calculated on 4 TiB.
+- The cost of the **backing storage resources** you choose: Azure Disks, Ephemeral Disk, or Azure Elastic SAN.
+- A **service fee** for Azure Container Storage orchestration. This fee only applies to storage pools larger than 5 TiB. If the storage pool is less than 5 TiB, there is no service fee. If the storage pool is greater than 5 TiB, the storage fee is based on the amount by which the storage pool capacity exceeds 5 TiB. For example, if you deploy a 9 TiB storage pool, the service fee will be calculated on 4 TiB.
 
 The amount of the Azure Container Storage service fee (if applicable) varies by target region. See [Azure Container Storage Pricing](https://aka.ms/AzureContainerStoragePricingPage) for details.
 

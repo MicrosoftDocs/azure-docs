@@ -4,7 +4,7 @@ description: Configure Azure Container Storage (version 1.x.x) for use with Ephe
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 09/02/2025
+ms.date: 09/04/2025
 ms.author: kendownie
 ms.custom: references_regions
 # Customer intent: "As a Kubernetes administrator, I want to configure Azure Container Storage (version 1.x.x) to use local NVMe for ephemeral volumes, so that I can optimize storage performance for my applications requiring low latency that don't require data durability."
@@ -15,7 +15,7 @@ ms.custom: references_regions
 Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage (version 1.x.x) to use Ephemeral Disk with local NVMe as back-end storage for your Kubernetes workloads. At the end, you'll have a pod that's using local NVMe as its storage.
 
 > [!IMPORTANT]
-> This article covers features and capabilities available in Azure Container Storage (version 1.x.x). [Azure Container Storage (version 2.x.x)](container-storage-introduction.md) is now available.If you're already using Azure Container Storage (version 2.x.x), see [this article](use-container-storage-with-local-disk.md) to configure local NVMe.
+> This article covers features and capabilities available in Azure Container Storage (version 1.x.x). [Azure Container Storage (version 2.x.x)](container-storage-introduction.md) is now available. If you're already using Azure Container Storage (version 2.x.x), see [this article](use-container-storage-with-local-disk.md) to configure local NVMe.
 
 ## What is Ephemeral Disk?
 
@@ -407,8 +407,9 @@ kubectl delete sp -n acstor <storage-pool-name>
 Depending on your workload’s performance requirements, you can choose from three different performance tiers: **Basic**, **Standard**, and **Premium**. Your selection will impact the number of vCPUs that Azure Container Storage components consume in the nodes where it's installed. Standard is the default configuration if you don't update the performance tier.
 
 These three tiers offer a different range of IOPS. The following table contains guidance on what you could expect with each of these tiers. We used [FIO](https://github.com/axboe/fio), a popular benchmarking tool, to achieve these numbers with the following configuration:
-- AKS: Node SKU - Standard_L16s_v3; 
-- FIO: Block size - 4KB; Queue depth - 32; Numjobs - number of cores assigned to container storage components; Access pattern - random; Worker set size - 32G
+
+- AKS: Node SKU - Standard_L16s_v3
+- FIO: Block size - 4 KiB; Queue depth - 32; Numjobs - number of cores assigned to container storage components; Access pattern - random; Worker set size - 32 GiB
 
 | **Tier** | **Number of vCPUs** | **100 % Read IOPS** | **100 % Write IOPS** |
 | --- | --- | --- | --- |

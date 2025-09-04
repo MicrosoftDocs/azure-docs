@@ -394,8 +394,8 @@ Follow these instructions to expand an existing storage pool for Azure Disks.
          storage: 2Ti
    ```
 
-  > [!NOTE]
-  > If you have two disks in a storage pool with a capacity of 1 TiB each, and you edit the YAML manifest file to read `storage: 4Ti`, both disks are expanded to 2 TiB when the YAML is applied, giving you a new total capacity of 4 TiB.
+   > [!NOTE]
+   > If you have two disks in a storage pool with a capacity of 1 TiB each, and you edit the YAML manifest file to read `storage: 4Ti`, both disks are expanded to 2 TiB when the YAML is applied, giving you a new total capacity of 4 TiB.
 
 1. Apply the YAML manifest file to expand the storage pool.
    
