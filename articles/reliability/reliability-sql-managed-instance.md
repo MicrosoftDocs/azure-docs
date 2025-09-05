@@ -329,14 +329,9 @@ For more information, see [Maintenance window in SQL Managed Instance](/azure/az
 
 The service-level agreement (SLA) for SQL Managed Instance describes the expected availability of the service. It also describes the conditions that must be met to achieve that availability expectation, including the networking configuration you must use. To understand these conditions, it's important that you review the [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
-## Next steps
-
-- [Overview of business continuity with SQL Managed Instance](/azure/azure-sql/managed-instance/business-continuity-high-availability-disaster-recover-hadr-overview)
-- [High availability and DR checklist](/azure/azure-sql/managed-instance/high-availability-disaster-recovery-checklist)
-
 ## Related content
 
+- [Overview of business continuity with Azure SQL Managed Instance](/azure/azure-sql/managed-instance/business-continuity-high-availability-disaster-recover-hadr-overview)
+- [High availability and disaster recovery checklist - Azure SQL Managed Instance](/azure/azure-sql/managed-instance/high-availability-disaster-recovery-checklist)
 - [Reliability in Azure](./overview.md)
-
-
 
