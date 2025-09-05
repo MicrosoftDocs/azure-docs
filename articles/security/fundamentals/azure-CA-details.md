@@ -113,15 +113,15 @@ Any entity trying to access Microsoft Entra identity services via the TLS/SSL pr
 | └ [Microsoft Azure RSA TLS Issuing CA 04](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20RSA%20TLS%20Issuing%20CA%2004%20-%20xsign.crt) | 0x09f96ec295555f24749eaf1e5dced49d<br>BE68D0ADAA2345B48E507320B695D386080E5B25 |
 | └ [Microsoft Azure RSA TLS Issuing CA 07](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20RSA%20TLS%20Issuing%20CA%2007%20-%20xsign.crt) | 0x0a43a9509b01352f899579ec7208ba50<br>3382517058A0C20228D598EE7501B61256A76442 |
 | └ [Microsoft Azure RSA TLS Issuing CA 08](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20RSA%20TLS%20Issuing%20CA%2008%20-%20xsign.crt) | 0x0efb7e547edf0ff1069aee57696d7ba0<br>31600991ED5FEC63D355A5484A6DCC787EAD89BC |
-| └ [**Microsoft TLS RSA Root G2**](https://caissuers.microsoft.com/pkiops/certs/Microsoft%20TLS%20RSA%20Root%20G2%20-%20xsign.crt) | 0b0c6b2c466917b04773c647d4afc0c8<br>B5EE89E77326AB2BF1775BD99C19A28947FF8184 |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ [Microsoft TLS G2 RSA CA OCSP 02](https://www.microsoft.com/pkiops/certs/Microsoft%20TLS%20G2%20RSA%20CA%20OCSP%2002.crt) | 330000000c4964a16f44203b2200000000000c<br>F8A408B8FBEEA077B75738658641BE77154720EB |
- |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ [Microsoft TLS G2 RSA CA OCSP 04](https://www.microsoft.com/pkiops/certs/Microsoft%20TLS%20G2%20RSA%20CA%20OCSP%2004.crt) | 330000000b13e5667d4a9b558000000000000b<br>DA6D0400641B45AECC595D24E5037AA6BC09C358 |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ [Microsoft TLS G2 RSA CA OCSP 06](https://www.microsoft.com/pkiops/certs/Microsoft%20TLS%20G2%20RSA%20CA%20OCSP%2006.crt) | 330000000def69cd2d7223735600000000000d<br>88283C78D08489718F78CD2B797333765164E911 |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ [Microsoft TLS G2 RSA CA OCSP 08](https://www.microsoft.com/pkiops/certs/Microsoft%20TLS%20G2%20RSA%20CA%20OCSP%2008.crt) | 3300000011f100a7eb05eba100000000000011<br>DDBD3DA5C09386CC36CFEC4680F17084BA7A5628 |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ [Microsoft TLS G2 RSA CA OCSP 10](https://www.microsoft.com/pkiops/certs/Microsoft%20TLS%20G2%20RSA%20CA%20OCSP%2010.crt) | 330000000f33206537ee42ae4f00000000000f<br>B663D8413CA35F3F22643CCBC2D3250700916B1A |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ [Microsoft TLS G2 RSA CA OCSP 12](https://www.microsoft.com/pkiops/certs/Microsoft%20TLS%20G2%20RSA%20CA%20OCSP%2012.crt) | 33000000107d59860fd64d7243000000000010<br>D3089DF9F47490887045B91D3FDEF6ED87F02F52 |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ [Microsoft TLS G2 RSA CA OCSP 14](https://www.microsoft.com/pkiops/certs/Microsoft%20TLS%20G2%20RSA%20CA%20OCSP%2014.crt) | 33000000127e739347e75be1a1000000000012<br>55D9B33BDC16DDB3B663F1771F96D4324C118073 |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ [Microsoft TLS G2 RSA CA OCSP 16](https://www.microsoft.com/pkiops/certs/Microsoft%20TLS%20G2%20RSA%20CA%20OCSP%2016.crt) | 330000000e42938f25dc51a99b00000000000e<br>27E6663299D340DFE54571CECCEC01BE74495DC6 |
+| └ [Microsoft TLS G2 RSA CA OCSP 02](https://www.microsoft.com/pkiops/certs/Microsoft%20TLS%20G2%20RSA%20CA%20OCSP%2002.crt) | 330000000c4964a16f44203b2200000000000c<br>F8A408B8FBEEA077B75738658641BE77154720EB |
+| └ [Microsoft TLS G2 RSA CA OCSP 04](https://www.microsoft.com/pkiops/certs/Microsoft%20TLS%20G2%20RSA%20CA%20OCSP%2004.crt) | 330000000b13e5667d4a9b558000000000000b<br>DA6D0400641B45AECC595D24E5037AA6BC09C358 |
+| └ [Microsoft TLS G2 RSA CA OCSP 06](https://www.microsoft.com/pkiops/certs/Microsoft%20TLS%20G2%20RSA%20CA%20OCSP%2006.crt) | 330000000def69cd2d7223735600000000000d<br>88283C78D08489718F78CD2B797333765164E911 |
+| └ [Microsoft TLS G2 RSA CA OCSP 08](https://www.microsoft.com/pkiops/certs/Microsoft%20TLS%20G2%20RSA%20CA%20OCSP%2008.crt) | 3300000011f100a7eb05eba100000000000011<br>DDBD3DA5C09386CC36CFEC4680F17084BA7A5628 |
+| └ [Microsoft TLS G2 RSA CA OCSP 10](https://www.microsoft.com/pkiops/certs/Microsoft%20TLS%20G2%20RSA%20CA%20OCSP%2010.crt) | 330000000f33206537ee42ae4f00000000000f<br>B663D8413CA35F3F22643CCBC2D3250700916B1A |
+| └ [Microsoft TLS G2 RSA CA OCSP 12](https://www.microsoft.com/pkiops/certs/Microsoft%20TLS%20G2%20RSA%20CA%20OCSP%2012.crt) | 33000000107d59860fd64d7243000000000010<br>D3089DF9F47490887045B91D3FDEF6ED87F02F52 |
+| └ [Microsoft TLS G2 RSA CA OCSP 14](https://www.microsoft.com/pkiops/certs/Microsoft%20TLS%20G2%20RSA%20CA%20OCSP%2014.crt) | 33000000127e739347e75be1a1000000000012<br>55D9B33BDC16DDB3B663F1771F96D4324C118073 |
+| └ [Microsoft TLS G2 RSA CA OCSP 16](https://www.microsoft.com/pkiops/certs/Microsoft%20TLS%20G2%20RSA%20CA%20OCSP%2016.crt) | 330000000e42938f25dc51a99b00000000000e<br>27E6663299D340DFE54571CECCEC01BE74495DC6 |
+| └ [Microsoft TLS RSA Root G2](https://caissuers.microsoft.com/pkiops/certs/Microsoft%20TLS%20RSA%20Root%20G2%20-%20xsign.crt) | 0b0c6b2c466917b04773c647d4afc0c8<br>B5EE89E77326AB2BF1775BD99C19A28947FF8184 |
 | [**DigiCert Global Root G3**](https://cacerts.digicert.com/DigiCertGlobalRootG3.crt) | 0x055556bcf25ea43535c3a40fd5ab4572<br>7E04DE896A3E666D00E687D33FFAD93BE83D349E |
 | └ [DigiCert Basic OV G3 TLS CN ECC P-384 SHA384 2022 CA1](http://cacerts.digicert.cn/DigiCertBasicOVG3TLSCNECCP-384SHA3842022CA1.crt) | 01484637b5aacf53c276a96852c2bf32<br>9355B7783FFF5DF69FE98FAF08F7B66CD4B94B99 |
 | └ [DigiCert Global G3 TLS ECC SHA384 2020 CA1](https://cacerts.digicert.com/DigiCertGlobalG3TLSECCSHA3842020CA1-2.crt) | 0b00e92d4d6d731fca3059c7cb1e1886<br>9577F91FE86C27D9912129730E8166373FC2EEB8 |
@@ -137,9 +137,9 @@ Any entity trying to access Microsoft Entra identity services via the TLS/SSL pr
 | └ [Microsoft ECC TLS Issuing AOC CA 02](https://crt.sh/?d=4814787086) |33000000290f8a6222ef6a5695000000000029<br>3709CD92105D074349D00EA8327F7D5303D729C8 |
 | └ [Microsoft ECC TLS Issuing EOC CA 01](https://crt.sh/?d=4814787088) |330000002a2d006485fdacbfeb00000000002a<br>5FA13B879B2AD1B12E69D476E6CAD90D01013B46 |
 | └ [Microsoft ECC TLS Issuing EOC CA 02](https://crt.sh/?d=4814787085) |330000002be6902838672b667900000000002b<br>58A1D8B1056571D32BE6A7C77ED27F73081D6E7A |
-| └ [**Microsoft TLS ECC Root G2**](https://caissuers.microsoft.com/pkiops/certs/Microsoft%20TLS%20ECC%20Root%20G2%20-%20xsign.crt) | 08d3c6d001f26cb5a23f0c7d6a73ffb6<br>7FA05ACF9B4AABB0DE0CFAFA297DDF92FDC5F3F5 |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ [Microsoft TLS G2 ECC CA OCSP 02](https://www.microsoft.com/pkiops/certs/Microsoft%20TLS%20G2%20ECC%20CA%20OCSP%2002.crt) | 3300000005516a21c89814ccf7000000000005<br>336D3E5451315294F6E1E7CFDA84E51C8B1E4054 |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ [Microsoft TLS G2 ECC CA OCSP 06](https://www.microsoft.com/pkiops/certs/Microsoft%20TLS%20G2%20ECC%20CA%20OCSP%2006.crt) | 33000000066fa24c31c3956fab000000000006<br>9BC57546ACBDB29E388CD1791B43DE4F659B844B |
+| └ [Microsoft TLS ECC Root G2](https://caissuers.microsoft.com/pkiops/certs/Microsoft%20TLS%20ECC%20Root%20G2%20-%20xsign.crt) | 08d3c6d001f26cb5a23f0c7d6a73ffb6<br>7FA05ACF9B4AABB0DE0CFAFA297DDF92FDC5F3F5 |
+| └ [Microsoft TLS G2 ECC CA OCSP 02](https://www.microsoft.com/pkiops/certs/Microsoft%20TLS%20G2%20ECC%20CA%20OCSP%2002.crt) | 3300000005516a21c89814ccf7000000000005<br>336D3E5451315294F6E1E7CFDA84E51C8B1E4054 |
+| └ [Microsoft TLS G2 ECC CA OCSP 06](https://www.microsoft.com/pkiops/certs/Microsoft%20TLS%20G2%20ECC%20CA%20OCSP%2006.crt) | 33000000066fa24c31c3956fab000000000006<br>9BC57546ACBDB29E388CD1791B43DE4F659B844B |
 | [**Microsoft RSA Root Certificate Authority 2017**](https://www.microsoft.com/pkiops/certs/Microsoft%20RSA%20Root%20Certificate%20Authority%202017.crt) | 0x1ed397095fd8b4b347701eaabe7f45b3<br>73A5E64A3BFF8316FF0EDCCC618A906E4EAE4D74 |
 | └ [Microsoft Azure RSA TLS Issuing CA 03](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20RSA%20TLS%20Issuing%20CA%2003.crt) | 0x330000003968ea517d8a7e30ce000000000039<br>37461AACFA5970F7F2D2BAC5A659B53B72541C68 |
 | └ [Microsoft Azure RSA TLS Issuing CA 04](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20RSA%20TLS%20Issuing%20CA%2004.crt) | 0x330000003cd7cb44ee579961d000000000003c<br>7304022CA8A9FF7E3E0C1242E0110E643822C45E |
@@ -311,9 +311,7 @@ Microsoft updated Azure services to use TLS certificates from a different set of
     | [Entrust Certification Authority - L1K](http://aia.entrust.net/l1k-chain256.cer) | 0ee94cc30000000051d37785<br>F21C12F46CDB6B2E16F09F9419CDFF328437B2D7 |
     | [Entrust Certification Authority - L1M](http://aia.entrust.net/l1m-chain256.cer) | 61a1e7d20000000051d366a6<br>CC136695639065FAB47074D28C55314C66077E90 |
 
-    - Added `caissuers.microsoft.com` from AIA URLs.
-    - Removed `cdp.geotrust.com` from CRL URLs.
-    - Removed `status.geotrust.com` from OCSP URLs.
+    - Updated AIA, CRL, and OCSP URLs to reflect recent CA changes.
 
 - October 8, 2024: Removed the following CAs and CDP endpoints: crl.microsoft.com, mscrl.microsoft.com, and ocsp.msocsp.com.
 
