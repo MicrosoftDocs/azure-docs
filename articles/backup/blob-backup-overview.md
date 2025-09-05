@@ -20,7 +20,7 @@ This article gives you an understanding about configuring the following types of
 
 - **Periodic backups**: You can configure vaulted backup, a managed offsite data protection solution, to get protection against any accidental or malicious deletion of blobs or storage account. The backup data using vaulted backups is copied and stored in the Backup vault as per the schedule and frequency you define via the backup policy and retained as per the retention configured in the policy.
 
-Vaulted backup for Azure Blob Storage is now generally available, offering secure, offsite protection with granular restores, automation support, and enhanced compliance and security features.For more information, see the [Microsoft Community Hub blog](https://azure.microsoft.com/updates?id=ga-vaulted-backup-azure-blob-storage).
+Vaulted backup for Azure Blob Storage is now generally available, offering secure, offsite protection with granular restore options, automation support, and enhanced compliance and security features.For more information, see the [Microsoft Community Hub blog](https://azure.microsoft.com/updates?id=ga-vaulted-backup-azure-blob-storage).
 
 You can choose to configure vaulted backups, operational backups, or both on your storage accounts using a single backup policy. The integration with [Azure Business Continuity Center](../business-continuity-center/business-continuity-center-overview.md) enables you to govern, monitor, operate, and analyze backups at scale.
 
