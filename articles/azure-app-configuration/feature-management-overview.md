@@ -52,6 +52,7 @@ Feature Flag Telemetry | [GA](./feature-management-dotnet-reference.md#telemetry
 Application Insights Integration | [GA](./feature-management-dotnet-reference.md#application-insights-telemetry) | GA | [GA](./feature-management-python-reference.md#application-insights-telemetry) | [GA](./feature-management-javascript-reference.md#application-insights-integration) | WIP
 Feature Gate | [GA](./feature-management-dotnet-reference.md#controllers-and-actions) | GA | N/A | N/A | N/A
 Feature Gated Middleware | [GA](./feature-management-dotnet-reference.md#application-building) | GA | N/A | N/A | N/A
+Custom Feature Flag Configuration Merging | [GA](./feature-management-dotnet-reference.md#handling-multiple-configuration-sources) | N/A | N/A | N/A | N/A
 
 ## Support policy
 
