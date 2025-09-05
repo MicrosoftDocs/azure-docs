@@ -9,6 +9,7 @@ ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 07/31/2023
 ms.author: wellee
+ms.custom: sfi-image-nochange
 ms.custom : references_regions
 
 ---

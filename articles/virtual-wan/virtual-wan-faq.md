@@ -3,12 +3,13 @@ title: 'Azure Virtual WAN FAQ'
 description: See answers to frequently asked questions about Azure Virtual WAN networks, clients, gateways, devices, partners, and connections.
 author: cherylmc
 ms.service: azure-virtual-wan
-ms.custom:
-  - devx-track-azurepowershell
-  - build-2025
 ms.topic: faq
 ms.date: 03/26/2025
 ms.author: cherylmc
+ms.custom:
+  - devx-track-azurepowershell
+  - build-2025
+  - sfi-image-nochange
 # Customer intent: As someone with a networking background, I want to read more details about Virtual WAN in a FAQ format.
 ---
 
