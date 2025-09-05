@@ -1,6 +1,6 @@
 ---
-title: Create MCP servers through API Center
-description: Learn how to create a Model Context Protocol (MCP) server driven by Azure Logic Apps through API Center. Build tools powered by connector actions for agents and models to use. Register the MCP server through the API Center.
+title: Create and register MCP servers
+description: Learn how to create and register a Model Context Protocol (MCP) server driven by Azure Logic Apps through API Center. Build tools powered by connector actions for agents and models to use.
 services: logic-apps, azure-api-center
 ms.suite: integration
 ms.reviewers: estfan, azla
