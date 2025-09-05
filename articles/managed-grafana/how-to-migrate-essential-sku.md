@@ -21,7 +21,7 @@ Choose the option that best fits your requirements and budget.
 
 We recommend that you plan your migration before the following key retirement dates to prevent disruption:
 
-- October 15, 2025: Portal support for creating new Essential (preview) workspaces ends.
+- October 31, 2025: Portal support for creating new Essential (preview) workspaces ends.
 - March 31, 2026: The Essential SKU is fully retired and existing Essential workspaces stop functioning.
 
 
@@ -32,6 +32,8 @@ Upgrading to the Standard SKU ensures continued reliability, SLA coverage, and 
 - SLA-backed service and enterprise-level reliability.
 - Two instance sizes available: X1 (default) and X2 (more capacity and alert rules).
 - Additional features: zone redundancy, private endpoints, reporting, alerts, and more.
+
+For pricing details, see [Azure Managed Grafana pricing](https://azure.microsoft.com/pricing/details/managed-grafana/).
 
 To upgrade to the Standard SKU, follow these steps in the Azure Portal:
 
@@ -45,7 +47,7 @@ To upgrade to the Standard SKU, follow these steps in the Azure Portal:
 
 ## Alternative option: move dashboards to Azure Monitor dashboards with Grafana (preview)
 
-If upgrading isn't suitable, consider migrating your dashboards to Azure Monitor dashboards with Grafana (preview) — a free, Azure-native alternative:
+If upgrading isn't suitable, consider migrating your dashboards to [Azure Monitor dashboards with Grafana (preview)](/azure/azure-monitor/visualize/visualize-use-grafana-dashboards) — a free, Azure-native alternative:
 
 - Integrated directly with Azure Monitor (metrics, logs, traces, Prometheus, etc.).
 - Higher availability—no reliance on spot VMs.
@@ -58,11 +60,8 @@ To move dashboards to Azure Monitor dashboards with Grafana, you first export yo
     ### [Grafana UI](#tab/grafana-ui)
     
     1.  In the Grafana UI, open the dashboard you want to export.
-    
     1.  At the top of the dashboard, select **Share**.
-    
     1.  In the dialog that appears, select the **Export** tab.
-    
     1.  Select **Save to file** to download the dashboard JSON file.
     
         :::image type="content" source="media/migrate-essential-sku/export-dashboard.png" alt-text="Screenshot of the Grafana user interface showing the dashboard export option.":::
@@ -86,10 +85,9 @@ To move dashboards to Azure Monitor dashboards with Grafana, you first export yo
         --components datasources dashboards folders
     ```
 
-1. Import to Azure Monitor dashboards with Grafana.
+1. Import your exported dashboards to Azure Monitor dashboards with Grafana.
 
-   Refer to [Import Grafana dashboards using JSON](/azure/azure-monitor/visualize/visualize-use-grafana-dashboards#import-grafana-dashboards-using-json) for details.
-   import
+    Follow these steps, or see more details in the guide: [Import Grafana dashboards using JSON](/azure/azure-monitor/visualize/visualize-use-grafana-dashboards#import-grafana-dashboards-using-json).
 
    1. In the Azure portal, open Azure Monitor.
    1. In the service menu, select **Dashboards with Grafana (preview)**, then **New** > **Import**.
@@ -102,6 +100,6 @@ To move dashboards to Azure Monitor dashboards with Grafana, you first export yo
 
 ## Related content
 
-- [Visualizing data with Grafana in Azure Monitor](/azure/azure-monitor/visualize/visualize-use-grafana-dashboards) for details.
+- [Visualize data with Grafana in Azure Monitor](/azure/azure-monitor/visualize/visualize-use-grafana-dashboards) for details.
 - [Azure Managed Grafana pricing](https://azure.microsoft.com/pricing/details/managed-grafana/)
  
