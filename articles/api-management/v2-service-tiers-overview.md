@@ -80,7 +80,7 @@ The following API Management capabilities are currently unavailable in the v2 ti
 * Upgrade to v2 tiers from classic tiers 
 * CA Certificates
 * Sending events to Event Grid
-* Event Hubs metrics
+* Event Hubs event metrics
 
 **Developer portal**
 * Reports
