@@ -1255,6 +1255,11 @@ curl --request POST http://localhost:7071/api/Function1 --header "Content-Type: 
 
 When invoking an HTTP-triggered function hosted in Azure, you need to consider your networking configuration. The HTTP client must have network access to the app, so if you have [inbound networking restrictions](./functions-networking-options.md#inbound-networking-features) enabled, the client might need to be within a virtual network or specific IP ranges. Your domain configuration determines the base URL you need to use for the request.
 
+> [!NOTE]
+> Newly created function apps can generate a unique default host name that uses the naming convention `<app-name>-<random-hash>.<region>.azurewebsites.net`. An example is `myapp-ds27dh7271aah175.westus-01.azurewebsites.net`. Existing app names remain unchanged.
+>
+> For more information, see the [blog post about creating an app with a unique default host name](https://techcommunity.microsoft.com/blog/appsonazureblog/secure-unique-default-hostnames-ga-on-app-service-web-apps-and-public-preview-on/4303571).
+
 Unless you selected the anonymous [authorization level](#http-auth) in your trigger definition, your request may also need to [include an access key](./function-keys-how-to.md#use-access-keys).
 
 The following example sends an HTTP POST request with a function body, including the access key in the query string:
