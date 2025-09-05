@@ -5,7 +5,7 @@ author: jenniferf-skc
 manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: whats-new
-ms.date: 09/04/2025
+ms.date: 09/05/2025
 ms.author: jfields
 
 ---
@@ -20,6 +20,8 @@ This article provides information about new features and documentation improveme
 | --- | --- | --- |
 | September 2025 | Roles | Added Azure Container Instances Contributor role.<br/>[Azure Container Instances Contributor Role](./built-in-roles/containers.md#azure-container-instances-contributor-role) |
 | August 2025 | Roles | Added Azure Batch roles.<br/>[Azure Batch Account Contributor](./built-in-roles/compute.md#azure-batch-account-contributor)<br/>[Azure Batch Account Reader](./built-in-roles/compute.md#azure-batch-account-reader)<br/>[Azure Batch Data Contributor](./built-in-roles/compute.md#azure-batch-data-contributor)<br/>[Azure Batch Job Submitter](./built-in-roles/compute.md#azure-batch-job-submitter) |
+| July 2025 | Roles | Added DevOps Infrastructure Contributor role.<br/>[DevOps Infrastructure Contributor Role](./built-in-roles/devops.md#devops-infrastructure-contributor) |
+| June 2025 | Roles | Added Azure Kubernetes Fleet Manager role.<br/>[Azure Kubernetes Fleet Manager Hub Agent Role](./built-in-roles/containers.md#azure-kubernetes-fleet-manager-hub-agent-role)<br/>Added Container Apps roles.<br/>[Container Apps ConnectedEnvironments Contributor](./built-in-roles/containers.md#container-apps-connectedenvironments-contributor)<br/>[Container Apps ConnectedEnvironments Reader](./built-in-roles/containers.md#container-apps-connectedenvironments-reader)<br/>[Container Apps Contributor](./built-in-roles/containers.md#container-apps-contributor)<br/>[Container Apps Jobs Contributor](./built-in-roles/containers.md#container-apps-jobs-contributor)<br>.[Container Apps Jobs Operator](./built-in-roles/containers.md#container-apps-jobs-operator)<br/>[Container Apps Jobs Reader](./built-in-roles/containers.md#container-apps-jobs-reader)<br/>[Container Apps ManagedEnvironments Contributor](./built-in-roles/containers.md#container-apps-managedenvironments-contributor)<br/>[Container Apps ManagedEnvironments Reader](./built-in-roles/containers.md#container-apps-managedenvironments-reader)<br/>[Container Apps Operator](./built-in-roles/containers.md#container-apps-operator)<br/>[Container Apps SessionPools Contributor](./built-in-roles/containers.md#container-apps-sessionpools-contributor)<br/>[Container Apps SessionPools Reader](./built-in-roles/containers.md#container-apps-sessionpools-reader) |
 | May 2025 | Roles and permissions | Updated permissions for several roles and resource providers. See [Azure built-in roles](built-in-roles.md) and [Azure permissions](resource-provider-operations.md). |
 | May 2025 | Roles | Updated role name from Managed Applications Reader to [Managed Application Publisher Operator](./built-in-roles/management-and-governance.md#managed-application-publisher-operator). |
 | April 2025 | Roles and permissions | Updated permissions for several roles and resource providers. See [Azure built-in roles](built-in-roles.md) and [Azure permissions](resource-provider-operations.md). |
