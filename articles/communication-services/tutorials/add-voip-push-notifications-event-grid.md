@@ -7,6 +7,7 @@ ms.service: azure-communication-services
 ms.topic: tutorial
 ms.date: 06/28/2025
 ms.author: sanathr
+ms.custom: sfi-ropc-nochange
 ---
 
 # Use Event Grid to send calling push notifications
