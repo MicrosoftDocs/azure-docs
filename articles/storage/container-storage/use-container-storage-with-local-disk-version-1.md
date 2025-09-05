@@ -368,8 +368,13 @@ An ephemeral volume is allocated on a single node. When you configure the size o
 
 Run the following command to check the available capacity of ephemeral disk for a single node.
 
+```azurecli-interactive
+kubectl get diskpool -n acstor
+```
+
+You should see output similar to this:
+
 ```output
-$ kubectl get diskpool -n acstor
 NAME                                CAPACITY      AVAILABLE     USED        RESERVED    READY   AGE
 ephemeraldisk-nvme-diskpool-jaxwb   75660001280   75031990272   628011008   560902144   True    21h
 ephemeraldisk-nvme-diskpool-wzixx   75660001280   75031990272   628011008   560902144   True    21h
