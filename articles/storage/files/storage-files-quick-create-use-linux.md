@@ -3,10 +3,12 @@ title: Create an NFS Azure File Share
 description: This article covers how to use the Azure portal to deploy a Linux virtual machine (VM), create an Azure file share using the NFS protocol, and mount the file share.
 author: khdownie
 ms.service: azure-file-storage
-ms.custom: linux-related-content
 ms.topic: tutorial
 ms.date: 07/01/2025
 ms.author: kendownie
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
 # Customer intent: "As an IT admin evaluating Azure Files, I want to create an NFS file share and mount it on a Linux VM, so that I can assess its performance and integration with my existing workflows."
 ---
 
