@@ -19,7 +19,7 @@ ms.subservice: b2c
 
 [!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
-In this tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2C) with [TheAccessHub Admin Tool](https://n8identity.com/products/theaccesshub-admintool/) from N8 Identity [N8ID](https://n8identity.com/). The solution addresses customer account migration and customer service request (CSR) administration.  
+In this tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2C) with [TheAccessHub Admin Tool](https://n8identity.com/theaccesshub/) from N8 Identity [N8ID](https://n8identity.com/). The solution addresses customer account migration and customer service request (CSR) administration.  
 
 Use this solution for the following scenarios:
 

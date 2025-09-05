@@ -52,7 +52,7 @@ Resolutions for large response sizes are varied but include:
 
 ## Key distribution
 
-If you're planning to use Redis clustering, first read [Redis Clustering Best Practices with Keys](https://redislabs.com/blog/redis-clustering-best-practices-with-keys/).
+If you're planning to use Redis clustering, first read [Redis Clustering Best Practices with Keys](https://redis.io/blog/redis-clustering-best-practices-with-keys/).
 
 ## Use pipelining
 

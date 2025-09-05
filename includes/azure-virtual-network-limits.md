@@ -28,7 +28,7 @@ The following limits apply only for networking resources managed through **Azure
 | Private IP addresses per virtual network |65,536 |
 | Total Private Addresses for a group of Peered Virtual networks | 128,000 |
 | Private IP addresses per network interface |256 |
-| Private IP addresses per virtual machine |256 |
+| Private IP addresses per virtual machine |256 * N (N is number of NICs on VM) |
 | Public IP addresses per network interface |256 |
 | Public IP addresses per virtual machine |256 |
 | [Concurrent TCP or UDP flows per NIC of a virtual machine or role instance](../articles/virtual-network/virtual-machine-network-throughput.md#flow-limits-and-active-connections-recommendations) |500,000 |

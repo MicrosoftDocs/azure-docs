@@ -5,6 +5,7 @@ author: robbyatmicrosoft
 ms.author: robbymillsap
 ms.date: 03/25/2025
 ms.topic: conceptual
+ms.service: azure
 ms.collection:
  - migration
  - aws-to-azure

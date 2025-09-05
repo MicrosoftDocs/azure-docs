@@ -122,10 +122,6 @@
           href: upgrade-basic-standard-with-powershell.md
     - name: Standard Load Balancer and Virtual Machine Scale Sets
       href: load-balancer-standard-virtual-machine-scale-sets.md
-    - name: Migration to Azure
-      items:
-        - name: Migrate AWS Network Load Balancing
-          href: network-load-balancing-aws-to-azure-how-to.md
     - name: IP-based backend
       items:
         - name: Create a public load balancer with an IP-based backend - Portal
