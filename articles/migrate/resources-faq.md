@@ -98,7 +98,7 @@ Yes, Azure Migrate supports Virtual Desktop Infrastructure (VDI) migrations. For
 
 ## Can I use Azure Migrate to move VMs from Azure VMware Solution (AVS) to Azure?
 
-Yes, you can use Azure Migrate to move VMs from AVS to Azure. Azure Migrate supports moving VMware VMs from on-premises as well as AVS to Azure services, but not the other way around.
+Yes, you can use Azure Migrate to move virtual machines (VMs) from Azure VMware Solution (AVS) to Azure. Azure Migrate supports migrating VMware VMs from both on-premises environments and AVS to Azure. However, it doesn't support migrating VMs from Azure back to AVS.
 
 ## What skills and expertise help manage migration effectively with Azure Migrate?
 
