@@ -43,7 +43,7 @@ To upgrade to the Standard SKU, follow these steps in the Azure Portal:
 1.  Save the changes.
 
 > [!IMPORTANT]
-> Downgrading from Standard SKU back to Essential (Preview), or moving from a larger to a smaller instance size, is not supported.
+> Downgrading from Standard SKU back to Essential (preview), or moving from a larger to a smaller instance size, is not supported.
 
 ## Alternative option: move dashboards to Azure Monitor dashboards with Grafana (preview)
 
@@ -63,7 +63,6 @@ To move dashboards to Azure Monitor dashboards with Grafana, you first export yo
     1.  At the top of the dashboard, select **Share**.
     1.  In the dialog that appears, select the **Export** tab.
     1.  Select **Save to file** to download the dashboard JSON file.
-    
         :::image type="content" source="media/migrate-essential-sku/export-dashboard.png" alt-text="Screenshot of the Grafana user interface showing the dashboard export option.":::
     
     ### [Azure CLI](#tab/azure-cli)
@@ -91,9 +90,7 @@ To move dashboards to Azure Monitor dashboards with Grafana, you first export yo
 
    1. In the Azure portal, open Azure Monitor.
    1. In the service menu, select **Dashboards with Grafana (preview)**, then **New** > **Import**.
-
        :::image type="content" source="media/migrate-essential-sku/import-dashboard.png" alt-text="Screenshot of the Dashboards with Grafana interface in the Azure portal showing the dashboard import option.":::
-
    1. Under **Import dashboard from File**, upload the JSON file you exported.
    1. Select **Load**.
    1. Enter a name for the dashboard, and select the subscription, resource group, and region where the dashboard should be created.
