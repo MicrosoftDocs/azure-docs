@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: rohithah, laveeshb, rarayudu, azla
 ms.topic: reference
 ms.date: 07/31/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Limits and configuration reference for Azure Logic Apps
