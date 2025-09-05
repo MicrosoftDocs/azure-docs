@@ -8,8 +8,6 @@ ms.date: 08/06/2025
 ---
 # What is Azure Native Arize AI Cloud Service?
 
-## What is it?
-
 Azure Native Arize AI Cloud Service is a Software as a Service (SaaS) platform for AI observability and evaluation, jointly developed and managed by Microsoft and Arize AI as an Azure Native Integration. [!INCLUDE [what-is](../includes/what-is.md)]
 
 ## What is it used for?
