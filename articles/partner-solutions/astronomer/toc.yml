@@ -16,8 +16,8 @@ items:
   items:
   - name: Manage your Apache Airflow on Astro resource
     href: manage.md
-  - name: Troubleshoot Astro
-    href: troubleshoot.md
+  - name: Troubleshoot a resource
+    href: /troubleshoot/azure/partner-solutions/marketplace-purchases-errors
 
 - name: SDKs and tools
   items:

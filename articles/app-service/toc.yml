@@ -621,6 +621,8 @@ items:
           href: manage-create-arc-environment.md
         - name: Create app on Azure Arc
           href: quickstart-arc.md
+        - name: Migrate from App Service on Arc-enabled Kubernetes to Container Apps on Arc-enabled Kubernetes
+          href: migrate-app-service-arc.md
     - name: Best practices
       href: app-service-best-practices.md
     - name: Samples

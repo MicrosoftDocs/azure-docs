@@ -157,7 +157,7 @@ FasAPI already contains OpenAPI functionality at the default path `/openapi.json
     - "Create a restaurant. Use your imagination for the details."
     - "I didn't like the food at this restaurant. Please create a 2 star review."
     
-    :::image type="content" source="media/tutorial-ai-integrate-azure-ai-agent-python/agents-playground.png" alt-text="Screenshot showing the agents playground in the middle of a conversation that takes actions by using the OpenAPI tool.":::
+    :::image type="content" source="media/tutorial-ai-integrate-azure-ai-agent-python/agents-playground.png" alt-text="Screenshot showing the agents playground in the middle of a conversation that takes actions by using the OpenAPI tool. The prompt says to create a restaurant.":::
 
 ## Security best practices
 

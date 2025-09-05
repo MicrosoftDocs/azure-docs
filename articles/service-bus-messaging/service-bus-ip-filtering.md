@@ -15,6 +15,9 @@ This feature is helpful in scenarios in which Azure Service Bus should be only a
 ## IP firewall rules
 The IP firewall rules are applied at the Service Bus namespace level. Therefore, the rules apply to all connections from clients using any **supported protocol** (AMQP (5671) and HTTPS (443)). Any connection attempt from an IP address that doesn't match an allowed IP rule on the Service Bus namespace is rejected as unauthorized. The response doesn't mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
 
+> [!NOTE]
+> The networking options differ between Service Bus SKUs. The **Standard SKU** supports IP filtering but does not include the "Trusted Services" option. For Premium SKU networking features, please refer to the dedicated Premium SKU networking documentation.
+
 ## Important points
 - Virtual Networks are supported only in the **premium** tier of Service Bus. If upgrading to the **premium** tier isn't an option, it's possible to use IP firewall rules using the [Azure portal](#use-azure-portal), [Azure Resource Manager templates](#use-resource-manager-template), [Azure CLI](#use-azure-cli), [PowerShell](#use-azure-powershell) or [REST API](#rest-api). We recommend that you keep the Shared Access Signature (SAS) token secure and share it with only authorized users. For information about SAS authentication, see [Authentication and authorization](service-bus-authentication-and-authorization.md#shared-access-signature).
 - Specify **at least one IP firewall rule or virtual network rule** for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network. If there are no IP and virtual network rules, the namespace can be accessed over the public internet (using the access key).  

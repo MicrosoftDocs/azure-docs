@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.author: kecheung
 author: kcheeeung
 ms.date: 10/17/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Scale HiveServer2 on Azure HDInsight Clusters for High Availability
