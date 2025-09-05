@@ -6,9 +6,13 @@ manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ms.date: 05/26/2025
 ms.author: radeltch
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - linux-related-content
+  - sfi-image-nochange
 # Customer intent: "As a system administrator, I want to deploy a highly available SAP HANA scale-out system using HANA system replication and Pacemaker on SUSE Linux, so that I can ensure continual database service in the event of node failures."
 ---
 
