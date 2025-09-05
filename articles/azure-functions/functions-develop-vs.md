@@ -410,22 +410,40 @@ This section describes how to create a C# in-process model project that you can 
 
 Follow these steps to configure the environment, including the app project and functions, required to support your tests:
 
-1. [Create a new Functions app](functions-get-started.md) and name it *Functions*
-1. [Create an HTTP function from the template](functions-get-started.md) and name it *MyHttpTrigger*.
-1. [Create a timer function from the template](functions-create-scheduled-function.md) and name it *MyTimerTrigger*.
-1. [Create an xUnit Test app](https://xunit.net/docs/getting-started/netcore/cmdline) in the solution and name it *Functions.Tests*. Remove the default test files.
-1. Use NuGet to add a reference from the test app to [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
-1. [Reference the *Functions* app](/visualstudio/ide/managing-references-in-a-project) from *Functions.Tests* app. 
+1. In Visual Studio, create a functions app project named **Functions**.
 
-Now that the projects are created, you can create the classes used to run the automated tests. 
+1. Create an HTTP function from the template by taking the following steps:
+   1. In **Solution Explorer**, right-click the **Functions** project, and then select **Add** > **New Azure Function**. 
+   1. In the **Add New Item** dialog, select **Azure Function**, and then select **Add**.
+   1. Select **Http trigger**, and then select **Add**.
+   1. Rename the new class *MyHttpTrigger*.
+
+1. Create a timer function from the template by taking the following steps:
+   1. In **Solution Explorer**, right-click the **Functions** project, and then select **Add** > **New Azure Function**. 
+   1. In the **Add New Item** dialog, select **Azure Function**, and then select **Add**.
+   1. Select **Timer trigger**, and then select **Add**.
+   1. Rename the new class *MyTimerTrigger*.
+
+1. Create an [xUnit Test app](https://xunit.net/docs/getting-started/netcore/cmdline) in the solution by taking the following steps:
+   1. In **Solution Explorer**, right-click the solution that contains your **Functions** project, and then select **Add** > **New Project**.
+   1. Select the **xUnit Test Project** template, and then select **Next**.
+   1. Name the project **Functions.Tests**.
+
+1. Remove the default test files from the **Functions.Tests** project.
+
+1. Use NuGet to add a reference from the test app to [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/). You can use Package Manager Console, or you can go to **Solution Explorer**, right-click the **Functions.Tests** project, select **Manage NuGet Packages**, and then search for and install **Microsoft.AspNetCore.Mvc**.
+
+1. In the **Functions.Tests** app, [add a reference](/visualstudio/ide/managing-references-in-a-project) to the **Functions** app by taking the following steps:
+   1. In **Solution Explorer**, right-click the **Functions.Tests** project, and then select **Add** > **Project Reference**.
+   1. Select the **Functions** project, and then select **OK**.
 
 ### Step 2: Create test classes
 
+In this section, you create the classes that you use to run the automated tests.
+
 Each function takes an instance of [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger) to handle message logging. Some tests either don't log messages or have no concern for how logging is implemented. Other tests need to evaluate messages logged to determine whether a test is passing.
 
-1. Create a class named `ListLogger`, which holds an internal list of messages to evaluate during testing. To implement the required `ILogger` interface, the class needs a scope. The following class mocks a scope for the test cases to pass to the `ListLogger` class.
-
-1. Create a new class in your *Functions.Tests* project named *NullScope.cs* and add this code:
+1. Create a new class in your *Functions.Tests* project named *NullScope.cs* and add the following code. This class provides a mock scope. In a later step, you create an implementation of `ILogger` that uses this scope.
 
     ```csharp
     using System;
@@ -443,7 +461,7 @@ Each function takes an instance of [`ILogger`](/dotnet/api/microsoft.extensions.
     }
     ```
 
-1. Create a class in your *Functions.Tests* project named *ListLogger.cs* and add this code:
+1. Create a class in your *Functions.Tests* project named *ListLogger.cs* and add this code. Create a class named `ListLogger`, which holds an internal list of messages to evaluate during testing. To implement the required `ILogger` interface, the class uses the mock scope from *NullScope.cs*. The test cases pass the mock scope to the `ListLogger` class.
 
     ```csharp
     using Microsoft.Extensions.Logging;
