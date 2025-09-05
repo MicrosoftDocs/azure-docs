@@ -19,6 +19,10 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## September 2025
 
+* [Azure NetApp Files datastore support in Azure VMware Solution Generation 2](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md)
+
+  [Azure NetApp Files datastore](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) is now supported in [Azure VMware Solution (AVS) Generation 2](../azure-vmware/native-introduction.md). AVS Generation&nbsp;2 private clouds are deployed inside an Azure virtual network. This means that ExpressRoute is no longer needed to connect the Azure VMware Solution to Azure NetApp Files datastores. This deployment simplifies networking architecture, enhances data transfer speeds, reduces latency for workloads, and improves performance when accessing other Azure services. This capability is supported in all regions where Azure VMware Solution Generation 2 and Azure NetApp Files are available.
+
 * [Azure NetApp Files migration assistant](migrate-volumes.md) is now generally available (GA)
 
     Azure NetApp Files [migration assistant](migrate-data.md) enables you to accelerate and simplify migrations of business-critical applications and data to Azure. Migration assistant offers efficient and cost-effective data migration, leveraging ONTAP's built-in replication engine for seamless transition from on-premises storage or Cloud Volumes ONTAP to Azure NetApp Files. It's a storage-efficient data transfer that reduces network transfer costs for both baseline and incremental updates. Migration assistant also offers a low cutover/downtime window, ensuring faster and more efficient final updates, minimizing disruption to operations. Volume migration using migration assistant includes source volume snapshots for primary data protection, and directory and file metadata maintaining security attributes.
