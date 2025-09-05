@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB bindings for Functions 2.x and higher
+title: Azure Cosmos DB bindings for Functions
 description: Understand how to use Azure Cosmos DB triggers and bindings in Azure Functions.
 ms.topic: reference
 ms.custom:
@@ -8,17 +8,13 @@ ms.custom:
   - devx-track-python
   - devx-track-ts
   - build-2025
-ms.date: 11/29/2022
+ms.date: 08/26/2025
 zone_pivot_groups: programming-languages-set-functions
 ---
 
-# Azure Cosmos DB trigger and bindings for Azure Functions 2.x and higher overview
+# Azure Cosmos DB trigger and bindings for Azure Functions overview
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
-> * [Version 1](functions-bindings-cosmosdb.md)
-> * [Version 2 and higher](functions-bindings-cosmosdb-v2.md)
-
-This set of articles explains how to work with [Azure Cosmos DB](/azure/cosmos-db/serverless-computing-database) bindings in Azure Functions 2.x and higher. Azure Functions supports trigger, input, and output bindings for Azure Cosmos DB.
+This set of articles explains how to work with [Azure Cosmos DB](/azure/cosmos-db/serverless-computing-database) bindings in Azure Functions. Azure Functions supports trigger, input, and output bindings for Azure Cosmos DB.
 
 | Action | Type |
 |---------|---------|
@@ -26,10 +22,9 @@ This set of articles explains how to work with [Azure Cosmos DB](/azure/cosmos-d
 | Read an Azure Cosmos DB document | [Input binding](./functions-bindings-cosmosdb-v2-input.md) |
 | Save changes to an Azure Cosmos DB document  |[Output binding](./functions-bindings-cosmosdb-v2-output.md) |
 
-> [!NOTE]
-> This reference is for [Azure Functions version 2.x and higher](functions-versions.md).  For information about how to use these bindings in Functions 1.x, see [Azure Cosmos DB bindings for Azure Functions 1.x](functions-bindings-cosmosdb.md).
->
-> This binding was originally named DocumentDB. In Azure Functions version 2.x and higher, the trigger, bindings, and package are all named Azure Cosmos DB.
+> [!IMPORTANT]
+> This version of the Azure Cosmos DB binding extension supports [Azure Functions version 4.x](functions-versions.md). If your app still uses version 1.x of the Functions runtime, instead see [Azure Cosmos DB bindings for Azure Functions 1.x](functions-bindings-cosmosdb.md).
+> In the Functions v1.x runtime, this binding was originally named `DocumentDB`. 
 
 ## Supported APIs
 
