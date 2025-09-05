@@ -115,6 +115,7 @@ For more information, see:
 
 * [Set or edit policies](set-edit-policies.md#use-base-element-to-set-policy-evaluation-order)
 * [Subscriptions in API Management](api-management-subscriptions.md)
+* [Azure Policy definitions for API Management](policy-reference.md)
 
 ### GraphQL resolver policies
 
