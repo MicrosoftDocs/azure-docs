@@ -1339,7 +1339,7 @@ productDirectory:
       imageSrc: ./media/index/storage-actions.svg
       azureCategories:
         - storage
-      url: /storage-actions/storage-tasks/index.yml 
+      url: storage-actions/storage-tasks/index.yml 
     # Card
     - title: Azure SignalR Service
       summary: Add real-time web functionality easily
