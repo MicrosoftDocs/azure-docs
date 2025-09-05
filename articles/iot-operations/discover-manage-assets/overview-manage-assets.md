@@ -10,12 +10,38 @@ ai-usage: ai-assisted
 # CustomerIntent: As an industrial edge IT or operations user, I want to understand the key components in the Azure IoT Operations for managing devices and assets, so that I can effectively manage the devices and assets in my solution. 
 ---
 
+<!-- TODO: 
+
+## Proposed outline for this article
+
+- AIO architecture diagram
+- Physical assets and devices
+- Logical namespace assets and devices
+- Southbound and northbound connectivity
+- Services
+  - ADR
+    - Namespaces
+    - Assets
+    - Devices
+    - Schemas
+    - Resource synchronization
+  - Akri
+    - Connectivity
+    - Discovery
+    - Monitoring
+  - DOE
+  - Azure portal
+
+*Reuse existing content as much as possible*
+
+-->
+
 # What is asset and device management in Azure IoT Operations?
 
 > [!IMPORTANT]
-> Devices (preview) are new in version 1.2.x of Azure IoT Operations. To learn about the asset endpoint, see [Asset management overview](/previous-versions/azure/iot-operations/discover-manage-assets/overview-manage-assets) on the previous versions site.
+> Devices (preview) are new in version 1.2.x of Azure IoT Operations. To learn about asset endpoints, see [Asset management overview](/previous-versions/azure/iot-operations/discover-manage-assets/overview-manage-assets) on the previous versions site.
 
-In Azure IoT Operations, a key task is to manage the assets and devices that are part of your solution. This article:
+In Azure IoT Operations, a key task is to manage the namespace assets and devices that are part of your solution. This article:
 
 - Defines what *namespace assets (preview)* and *devices (preview)* mean in Azure IoT Operations.
 - Provides an overview of services used to manage namespace assets and devices.
@@ -119,6 +145,11 @@ Azure Device Registry uses *namespaces (preview)* to organize namespace assets a
 Manage devices and namespace assets through the operations experience or Azure APIs and tools like Azure Resource Graph. Changes made in the cloud sync to the edge and appear as custom resources in the Kubernetes cluster.
 
 ## Akri services
+
+*Akri services (preview)* in Azure IoT Operations:
+
+- Provide an extensible framework for building and deploying connectors that enable connectivity protocols like ONVIF and REST/HTTP.
+- Enable automatic discovery, onboarding, and monitoring of physical devices and assets at the edge.
 
 ### Connectivity
 

@@ -70,7 +70,7 @@ items:
         items:
           - name: Understand asset and device management
             href: discover-manage-assets/overview-manage-assets.md
-            displayName: operations, experience, connector, OPC UA, ONVIF, media, device, registry, discovery, detect, discover, southbound
+            displayName: operations, experience, connector, Akri, Akri services, OPC UA, ONVIF, media, device, registry, discovery, detect, discover, southbound
           - name: Understand namespace assets and devices
             href: discover-manage-assets/concept-assets-devices.md
             displayName: data points, events, operations, experience, southbound
