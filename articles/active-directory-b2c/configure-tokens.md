@@ -9,6 +9,7 @@ ms.date: 02/17/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 #Customer intent: As a developer configuring token lifetimes in Azure Active Directory B2C, I want to understand the options and settings available for token lifetime and compatibility, so that I can customize them to fit the needs of my application and ensure secure access to resources.
 
