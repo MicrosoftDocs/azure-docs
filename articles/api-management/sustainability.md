@@ -239,10 +239,10 @@ The API Management environmental sustainability features are supported in the fo
 
 ## Carbon intensity categories
 
-The following table explains the carbon intensity categories used in the traffic shifting and traffic shaping features. Values are in kg CO₂ per MWh for [scope 2 emissions](/industry/sustainability/calculate-scope2).
+The following table explains the carbon intensity categories used in the traffic shifting and traffic shaping features. Values are in kg CO₂e per MWh for [scope 2 emissions](/industry/sustainability/calculate-scope2).
 
 
-| Category | kg CO₂ |
+| Category | kg CO₂e |
 |-------------------|------------|
 | Very Low | ≤ 150 |
 | Low | 151-300 |
