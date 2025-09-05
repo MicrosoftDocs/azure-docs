@@ -3,11 +3,13 @@ title: Use selective logging with a script action for Azure Monitor Agent (AMA) 
 description: Learn how to use the selective logging feature with a script action to monitor logs for Azure Monitor Agent (AMA).
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.custom: references-regions
 author: yeturis
 ms.author: sairamyeturi
 ms.reviewer: nijelsf
 ms.date: 09/06/2024
+ms.custom:
+  - references-regions
+  - sfi-image-nochange
 ---
 
 # Use selective logging with a script action  for Azure Monitor Agent (AMA) in Azure HDInsight
