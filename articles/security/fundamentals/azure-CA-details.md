@@ -32,7 +32,6 @@ Any entity trying to access Microsoft Entra identity services via the TLS/SSL pr
 
 | Certificate Authority | Serial Number /<br>Thumbprint |
 |---- |---- |
-| 
 | [DigiCert Global Root CA](https://cacerts.digicert.com/DigiCertGlobalRootCA.crt) | 0x083be056904246b1a1756ac95991c74a<br>A8985D3A65E5E5C4B2D7D66D40C6DD2FB19C5436 |
 | [DigiCert Global Root G2](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt) | 0x033af1e6a711a9a0bb2864b11d09fae5<br>DF3C24F9BFD666761B268073FE06D1CC8D4F82A4 |
 | [DigiCert Global Root G3](https://cacerts.digicert.com/DigiCertGlobalRootG3.crt) | 0x055556bcf25ea43535c3a40fd5ab4572<br>7E04DE896A3E666D00E687D33FFAD93BE83D349E |
