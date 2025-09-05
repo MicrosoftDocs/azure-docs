@@ -69,7 +69,7 @@ For this release, the following list describes restrictions or issues that apply
 
 - You can select only one connector for your MCP server.
 
-- [Built-in service provider-based connectors](azure/logic-apps/connectors/built-in/reference) and custom connectors currently aren't supported.
+- [Built-in service provider-based connectors](/azure/logic-apps/connectors/built-in/reference) and custom connectors currently aren't supported.
 
 - Each tool can have only one action.
 
