@@ -6,7 +6,9 @@ ms.topic: how-to
 ms.service: azure-api-management
 ms.author: danlep
 ms.date: 05/07/2025
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Send events from API Management to Event Grid
