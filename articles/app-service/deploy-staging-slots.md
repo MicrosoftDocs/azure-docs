@@ -35,7 +35,7 @@ The following video complements the steps in this article by illustrating how to
 
 ## Prerequisites
 
-- Permissions to perform the slot operation that you want. For information on the required permissions, see [Resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftweb). Search for **slot**, for example.
+- Permissions to perform the slot operation that you want. For information on the required permissions, see [Resource provider operations](../role-based-access-control/permissions/web-and-mobile.md#microsoftweb). Search for **slot**, for example.
 
 <a name="Add"></a>
 
