@@ -1,27 +1,31 @@
 ---
-title: Post event to custom Azure Event Grid topic
-description: This article describes how to post an event to a custom topic. It shows the format of the post and event data.
-ms.topic: concept-article
-ms.date: 06/18/2024 
+title: Publish Events to Azure Event Grid Custom Topics
+description: Discover how to post events to Azure Event Grid custom topics with step-by-step guidance on authentication, event schema, and sample requests.
 #customer intent: As a developer, I want to know how to publish events to an Azure Event Grid custom topic
+ms.topic: concept-article
+ms.date: 07/29/2025
+ms.custom:
+  - ai-gen-docs-bap
+  - ai-gen-title
+  - ai-seo-date:07/29/2025
+  - ai-gen-description
 ---
 
 # Publish events to Azure Event Grid custom topics using access keys
+This article provides guidance on how to publish events to Azure Event Grid custom topics using access keys. You learn about the required endpoint format, authentication headers, event schema, and how to send sample events. 
 
-This article describes how to post an event to a custom topic using an access key. It shows the format of the post and event data. The [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/) only applies to posts that match the expected format.
-
+The [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/) only applies to posts that match the expected format.
 
 > [!NOTE]
-> Microsoft Entra authentication provides a superior authentication support than that's offered by access key or Shared Access Signature (SAS) token authentication. With Microsoft Entra authentication, the identity is validated against Microsoft Entra identity provider. As a developer, you won't have to handle keys in your code if you use Microsoft Entra authentication. you'll also benefit from all security features built into the Microsoft identity platform, such as Conditional Access, that can help you improve your application's security stance. For more information, see [Authenticate publishing clients using Microsoft Entra ID](authenticate-with-microsoft-entra-id.md).
+> Microsoft Entra authentication provides a superior authentication support than that's offered by access key or Shared Access Signature (SAS) token authentication. With Microsoft Entra authentication, the identity is validated against Microsoft Entra identity provider. As a developer, you won't have to handle keys in your code if you use Microsoft Entra authentication. You'll also benefit from all security features built into the Microsoft identity platform, such as Conditional Access, that can help you improve your application's security stance. For more information, see [Authenticate publishing clients using Microsoft Entra ID](authenticate-with-microsoft-entra-id.md).
 
 ## Endpoint
-
-When sending the HTTP POST to a custom topic, use the URI format: `https://<topic-endpoint>?api-version=2018-01-01`. For example, a valid URI is: `https://exampletopic.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01`. To get the endpoint for a custom topic using Azure CLI, use:
+To publish events to a custom topic, send an HTTP POST request using the following URI format: `https://<topic-endpoint>?api-version=2018-01-01`. For example, a valid URI is: `https://exampletopic.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01`. To get the endpoint for a custom topic, use Azure portal, Azure CLI, or Azure PowerShell.
 
 # [Azure portal](#tab/azure-portal)
 You can find the topic's endpoint on the **Overview** tab of the **Event Grid Topic** page in the Azure portal. 
 
-:::image type="content" source="./media/post-to-custom-topic/topic-endpoint.png" alt-text="Screenshot that shows the Event Grid topic page on the Azure portal with the topic endpoint highlighted." lightbox="./media/post-to-custom-topic/topic-endpoint.png":::
+:::image type="content" source="./media/post-to-custom-topic/topic-endpoint.png" alt-text="Screenshot of the Event Grid topic page in the Azure portal with the topic endpoint highlighted." lightbox="./media/post-to-custom-topic/topic-endpoint.png":::
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -60,7 +64,7 @@ az eventgrid topic key list --name <topic-name> -g <topic-resource-group> --quer
 
 ---
 
-## Event data
+## Event data schema for custom topics
 
 For custom topics, the top-level data contains the same fields as standard resource-defined events. One of those properties is a `data` property that contains properties unique to the custom topic. As an event publisher, you determine properties for that data object. Here's the schema:
 
@@ -97,7 +101,7 @@ For example, a valid event data schema is:
 }]
 ```
 
-## Send the sample event 
+## Send a sample event 
 This section shows how to send a sample event to the custom topic. 
 
 # [Azure portal](#tab/azure-portal)
@@ -185,6 +189,6 @@ For errors, the message body has the following format:
 
 ## Related content
 
-* For information about monitoring event deliveries, see [Monitor Event Grid message delivery](monitor-event-delivery.md).
-* For more information about the authentication key, see [Event Grid security and authentication](security-authentication.md).
-* For more information about creating an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).
+* [Monitor Event Grid message delivery](monitor-event-delivery.md): Learn how to track and troubleshoot event deliveries.  
+* [Event Grid security and authentication](security-authentication.md): Understand how to secure your events with authentication keys.  
+* [Event Grid subscription schema](subscription-creation-schema.md): Step-by-step guidance on creating an Event Grid subscription.  

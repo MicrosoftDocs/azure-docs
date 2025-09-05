@@ -4,8 +4,8 @@ description: Describes how to enable backup when you create an Azure VM with Azu
 ms.topic: how-to
 ms.date: 05/16/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom:
   - build-2025
 # Customer intent: "As a cloud administrator, I want to enable backup during the creation of a virtual machine, so that I can ensure data protection and recovery points are established from the outset."

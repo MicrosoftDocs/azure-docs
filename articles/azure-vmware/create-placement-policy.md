@@ -8,6 +8,7 @@ ms.custom: engagement-fy23
 
 #Customer intent: As an Azure service administrator, I want to control the placement of virtual machines on hosts within a cluster in my private cloud. 
 
+# Customer intent: "As an Azure service administrator, I want to create placement policies for virtual machines on clusters, so that I can control their placement and ensure optimal resource utilization within my private cloud environment."
 ---
 
 # Create a placement policy in Azure VMware Solution

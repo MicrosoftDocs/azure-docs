@@ -367,12 +367,21 @@ Using the sample VPN configuration and VPN site from above, create firewall rule
 
 #### Performance for Encrypted ExpressRoute
 
-Configuring private routing policies with Encrypted ExpressRoute routes VPN ESP packets through the next hop security appliance deployed in the hub. As a result, you can expect Encrypted ExpressRoute maximum VPN tunnel throughput of 1 Gbps in both directions (inbound from on-premises and outbound from Azure). To achieve the maximum VPN tunnel throughput, consider the following deployment optimizations:
+Configuring private routing policies with Encrypted ExpressRoute routes VPN ESP packets through the next hop security appliance deployed in the hub. Encrypted ExpressRoute performance is impacted by two main factors:
+* You can expect Encrypted ExpressRoute VPN tunnels to have a maximum throughput of 1 Gbps due to ESP traffic being forwarded through the next hop security appliance deployed in the Virtual WAN hub. 
+* In practice, Encrypted ExpressRoute VPN tunnel throughput is also impacted by the maximum per-tunnel packets-per-second (PPS) supported by the VPN Gateway scale unit. For smaller packet sizes, you may see lower tunnel throughput. See [Site-to-site VPN performance](virtual-wan-faq.md#packets) for more information.
+
+
+To achieve the maximum VPN tunnel throughput, consider the following deployment optimizations:
 
 * Deploy Azure Firewall Premium instead of Azure Firewall Standard or Azure Firewall Basic.
 * Ensure Azure Firewall processes the rule that allows traffic between the VPN tunnel endpoints (192.168.1.4 and 192.168.1.5 in the example above) first by making the rule have the highest priority in your Azure Firewall policy. For more information about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](../firewall/rule-processing.md#rule-processing-using-firewall-policy).
 * Turn off deep-packet for traffic between the VPN tunnel endpoints. For information on how to configure Azure Firewall to exclude traffic from deep-packet inspection, reference [IDPS bypass list documentation](../firewall/premium-features.md#idps).
 * Configure VPN devices to use GCMAES256 for both IPSEC Encryption and Integrity to maximize performance.
+
+To achieve maximum aggregate throughput, consider the following optimization:
+
+* To increase throughput between a single on-premises site and Azure, create multiple tunnels between on-premises devices and the Site-to-site VPN Gateway in Virtual WAN. Ensure your on-premises VPN device is configured to load-balance traffic across all active tunnels.
 
 #### Direct routing to NVA instances for dual-role connectivity and firewall NVAs
 
@@ -411,7 +420,7 @@ The following steps describe how to configure routing intent and routing policie
 
     :::image type="content" source="./media/routing-policies/configure-intents.png"alt-text="Screenshot showing how to configure routing policies."lightbox="./media/routing-policies/configure-intents.png":::
 
-1. If you want to configure a Private Traffic Routing Policy and have branches or virtual networks advertising non-IANA RFC1918 Prefixes, select **Private Traffic Prefixes** and specify the non-IANA RFC1918 prefix ranges in the text box that comes up. Select **Done**. 
+1. If you want to configure a Private Traffic Routing Policy and have branches or virtual networks advertising non-IANA RFC1918 Prefixes, select **Private Traffic Prefixes** and specify the non-IANA RFC1918 prefix ranges in the text box that comes up. Select **Done**. Additionally, add any address ranges corresponding to delegated subnets for bare-metal services (Azure NetApp Files, Oracle Database @ Azure or Nutanix NC2 cloud clusters )connected to Virtual WAN  
 
     :::image type="content" source="./media/routing-policies/private-prefixes.png"alt-text="Screenshot showing how to edit private traffic prefixes."lightbox="./media/routing-policies/private-prefixes.png":::
 
@@ -496,6 +505,7 @@ Assuming you have already reviewed the [Known Limitations](#knownlimitations) se
   * **If you're using Private Endpoints deployed in Virtual Networks connected to the Virtual Hub**, traffic from on-premises destined for Private Endpoints deployed in Virtual Networks connected to the Virtual WAN hub by default **bypasses** the routing intent next hop Azure Firewall, NVA, or SaaS. However, this results in asymmetric routing (which can lead to loss of connectivity between on-premises and Private Endpoints) as Private Endpoints in Spoke Virtual Networks forward on-premises traffic to the Firewall. To ensure routing symmetry, enable [Route Table network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md) on the subnets where Private Endpoints are deployed. Configuring /32 routes corresponding to Private Endpoint private IP addresses in the Private Traffic text box **will not** ensure traffic symmetry when private routing policies are configured on the hub.
   * **If you're using Encrypted ExpressRoute with Private Routing Policies**, ensure that your Firewall device has a rule configured to allow traffic between the Virtual WAN Site-to-site VPN Gateway private IP tunnel endpoint and on-premises VPN device. ESP (encrypted outer) packets should log in Azure Firewall logs. For more information on Encrypted ExpressRoute with routing intent, see [Encrypted ExpressRoute documentation](#encryptedER).
   * **If you're using a user-defined route tables on your spoke virtual networks**, ensure that "Propagate gateway routes" is set to "Yes" on the route table. "Propagate gateway routes" must be enabled for Virtual WAN to advertise routes to workloads deployed in spoke Virtual Networks connected to Virtual WAN. For more information on user-defined route table settings, see [Virtual Network user-defined routing documentation](../virtual-network/virtual-networks-udr-overview.md#border-gateway-protocol).
+  * * **If you're using bare-metal services such as Azure NetApp Files, Nutanix Cloud Clusters (NC2) or Oracle Database@Azure**, ensure that the exact (or more specific) CIDR range corresponding to bare-metal delegated subnets are added as additional private traffic prefix text boxes. This configuration is required for on-premises traffic destined for bare-metal delegated subnets to be inspected by the next hop reosurce specified in routing intent private routing policy.
 
 ### Troubleshooting Azure Firewall routing issues
 

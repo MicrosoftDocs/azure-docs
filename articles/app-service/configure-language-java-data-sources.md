@@ -1,15 +1,19 @@
 ---
-title: Configure data sources for Tomcat, JBoss, or Java SE apps
+title: Configure Data Sources for Tomcat, JBoss, or Java SE Apps
 description: Learn how to configure data sources for Tomcat, JBoss, or Java SE apps on Azure App Service, including native Windows and Linux container variants.
 keywords: azure app service, web app, windows, oss, java, tomcat, jboss
 ms.devlang: java
-ms.topic: article
+ms.topic: how-to 
 ms.date: 07/17/2024
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java, linux-related-content
 zone_pivot_groups: app-service-java-hosting
 adobe-target: true
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
+ 
+# customer intent: As a developer, I want to configure a data source for Tomcat, JBoss, or Java SE apps.
+ 
 ---
 
 # Configure data sources for a Tomcat, JBoss, or Java SE app in Azure App Service
@@ -67,6 +71,8 @@ Or set the environment variables in the **Configuration** > **Application Settin
 Next, determine if the data source should be available to one application or to all applications running on the Tomcat servlet.
 
 ### Application-level data sources
+
+To configure an application-level data source:
 
 1. Create a *context.xml* file in the *META-INF/* directory of your project. Create the *META-INF/* directory if it doesn't exist.
 
@@ -195,47 +201,46 @@ You can't directly modify a Tomcat installation for server-wide configuration be
 
 #### Add a startup file
 
-Create a file named `startup.cmd` `%HOME%\site\wwwroot` directory. This file runs automatically before the Tomcat server starts. The file should have the following content:
+Create a file named `startup.cmd` in the `%HOME%\site\wwwroot` directory. This file runs automatically before the Tomcat server starts. The file should have the following content:
 
 ```dos
-C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -File  %HOME%\site\configure.ps1
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -File  %HOME%\site\configure.ps1 > %HOME%\site\configure.log
 ```
 
 #### Add the PowerShell configuration script
 
-Next, add the configuration script called *configure.ps1* to the *%HOME%_\site* directory with the following code:
+Next, add the configuration script called `configure.ps1` to the `%HOME%\site` directory with the following code:
 
 ```powershell
 # Locations of xml and xsl files
-$target_xml="$Env:LOCAL_EXPANDED\tomcat\conf\server.xml"
-$target_xsl="$Env:HOME\site\server.xsl"
+$source_xml = "$Env:AZURE_TOMCAT90_HOME\conf\server.xml"
+$target_xml = "$Env:LOCAL_EXPANDED\tomcat\conf\server.xml"
+$target_xsl = "$Env:HOME\site\server.xsl"
+$marker_file = "$Env:HOME\site\config_done_marker"
 
 # Define the transform function
 # Useful if transforming multiple files
-function TransformXML{
+function TransformXML {
     param ($xml, $xsl, $output)
 
-    if (-not $xml -or -not $xsl -or -not $output)
-    {
+    if (-not $xml -or -not $xsl -or -not $output) {
         return 0
     }
 
-    Try
-    {
+    Try {
         $xslt_settings = New-Object System.Xml.Xsl.XsltSettings;
         $XmlUrlResolver = New-Object System.Xml.XmlUrlResolver;
         $xslt_settings.EnableScript = 1;
 
         $xslt = New-Object System.Xml.Xsl.XslCompiledTransform;
-        $xslt.Load($xsl,$xslt_settings,$XmlUrlResolver);
+        $xslt.Load($xsl, $xslt_settings, $XmlUrlResolver);
         $xslt.Transform($xml, $output);
     }
 
-    Catch
-    {
+    Catch {
         $ErrorMessage = $_.Exception.Message
         $FailedItem = $_.Exception.ItemName
-        echo  'Error'$ErrorMessage':'$FailedItem':' $_.Exception;
+        Write-Error 'Error'$ErrorMessage':'$FailedItem':' $_.Exception;
         return 0
     }
     return 1
@@ -244,17 +249,15 @@ function TransformXML{
 # Start here
 
 # Check for marker file indicating that config has already been done
-if(Test-Path "$Env:LOCAL_EXPANDED\tomcat\config_done_marker"){
+if (Test-Path "$marker_file") {
     return 0
 }
 
 # Delete previous Tomcat directory if it exists
 # In case previous config isn't completed or a new config should be forcefully installed
-if(Test-Path "$Env:LOCAL_EXPANDED\tomcat"){
-    Remove-Item "$Env:LOCAL_EXPANDED\tomcat" Recurse
+if (Test-Path "$Env:LOCAL_EXPANDED\tomcat") {
+    Remove-Item -Path "$Env:LOCAL_EXPANDED\tomcat" -Recurse -Force
 }
-
-md -Path "$Env:LOCAL_EXPANDED\tomcat"
 
 # Copy Tomcat to local
 # Using the environment variable $AZURE_TOMCAT90_HOME uses the 'default' version of Tomcat
@@ -262,11 +265,11 @@ New-Item "$Env:LOCAL_EXPANDED\tomcat" -ItemType Directory
 Copy-Item -Path "$Env:AZURE_TOMCAT90_HOME\*" "$Env:LOCAL_EXPANDED\tomcat" -Recurse
 
 # Perform the required customization of Tomcat
-$success = TransformXML -xml $target_xml -xsl $target_xsl -output $target_xml
+$success = TransformXML -xml $source_xml -xsl $target_xsl -output $target_xml
 
 # Mark that the operation was a success if successful
-if($success){
-    New-Item -Path "$Env:LOCAL_EXPANDED\tomcat\config_done_marker" -ItemType File
+if ($success) {
+    New-Item -Path "$marker_file" -ItemType File
 }
 ```
 
@@ -386,7 +389,7 @@ There are three core steps when [registering a data source with JBoss EAP](https
 1. Add the JDBC driver as a module.
 1. Add a data source with the module. 
 
-App Service is a stateless hosting service, so you must put these steps into a startup script and run it each time the JBoss container starts. Using PostgreSQL, MySQL, and SQL Database as an examples:
+App Service is a stateless hosting service, so you must put these steps into a startup script and run it each time the JBoss container starts. Using PostgreSQL, MySQL, and SQL Database as examples:
 
 # [PostgreSQL](#tab/postgresql)
 
@@ -404,7 +407,7 @@ App Service is a stateless hosting service, so you must put these steps into a s
 
 ::: zone-end
 
-## Next steps
+## Related content
 
 Visit the [Azure for Java Developers](/java/azure/) center to find Azure quickstarts, tutorials, and Java reference documentation.
 

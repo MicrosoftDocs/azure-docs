@@ -4,8 +4,8 @@ description: Monitor Azure Backup workloads and create custom alerts by using Az
 ms.topic: how-to
 ms.date: 12/30/2024
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
 # Customer intent: As a backup administrator, I want to configure custom alerts in a Log Analytics workspace for Azure Backup workloads, so that I can effectively monitor and manage backup success and failure notifications across multiple Recovery Services vaults.
 ---

@@ -366,7 +366,7 @@ Securing systems, applications, and data begins with identity-based access contr
 ### Secure Identity
 Microsoft uses multiple security practices and technologies across its products and services to manage identity and access.
 
-- [Multifactor authentication](https://azure.microsoft.com/services/multi-factor-authentication/) requires users to use multiple methods for access, on-premises and in the cloud. It provides strong authentication with a range of easy verification options, while accommodating users with a simple sign-in process.
+- [Multifactor authentication](https://www.microsoft.com/security/business/identity-access/microsoft-entra-mfa-multi-factor-authentication) requires users to use multiple methods for access, on-premises and in the cloud. It provides strong authentication with a range of easy verification options, while accommodating users with a simple sign-in process.
 
 - [Microsoft Authenticator](https://aka.ms/authenticator) provides a user-friendly multifactor authentication experience that works with both Microsoft Entra ID and Microsoft accounts, and includes support for wearables and fingerprint-based approvals.
 

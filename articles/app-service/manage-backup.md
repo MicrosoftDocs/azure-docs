@@ -8,6 +8,7 @@ ms.date: 02/10/2025
 ms.custom: devx-track-azurecli
 ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 
+ms.service: azure-app-service
 ---
 
 # Back up and restore your app in Azure App Service

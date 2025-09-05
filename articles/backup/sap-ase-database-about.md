@@ -6,8 +6,8 @@ ms.date: 05/13/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a database administrator, I want to back up and restore SAP ASE (Sybase) databases on Azure virtual machines, so that I can ensure data integrity and meet recovery objectives efficiently without managing complex backup infrastructure.
 ---
 

@@ -321,13 +321,13 @@ The following table lists the operating systems supported on [Azure Arc-enabled 
 | Alma Linux 9 |
 | Amazon Linux 2 (x64) |
 | Amazon Linux 2023 |
-| Debian 10 and 11 |
+| Debian 10, 11, and 12 |
 | Oracle 7.x, 8.x |
 | Oracle Linux 9 |
 | Red Hat Enterprise Linux (RHEL) 7, 8, 9 (x64) |
 | Rocky Linux 8, 9 |
 | SUSE Linux Enterprise Server (SLES) 12 and 15 (x64) |
-| Ubuntu 16.04, 18.04, 20.04, and 22.04 LTS |
+| Ubuntu 16.04 LTS, 18.04 LTS, 20.04 LTS, 22.04 LTS, 24.04 LTS |
 | Windows Server 2012 R2 and higher (including Server Core) |
 
 :::zone-end

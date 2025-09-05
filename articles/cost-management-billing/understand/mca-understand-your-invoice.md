@@ -123,6 +123,7 @@ A Limited Risk Distributor (LRD) is a subsidiary that Microsoft established as b
 - Sweden
 - Switzerland
 - Spain
+- Brazil
 
 Under the LRD model:
 

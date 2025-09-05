@@ -2,11 +2,11 @@
 title: Troubleshoot Blob backup and restore issues
 description: In this article, learn about symptoms, causes, and resolutions of Azure Backup failures related to the Azure Blob backups and restore.
 ms.topic: troubleshooting
-ms.date: 07/03/2025
+ms.date: 08/05/2025
 ms.service: azure-backup
 ms.reviewer: geg
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
 # Customer intent: As a backup administrator, I want to troubleshoot Azure Blob backup and restore issues, so that I can ensure seamless data protection and recovery for our cloud-based storage solutions.
 ---
@@ -542,3 +542,8 @@ This error is usually seen for operational tier restore failure due to PITR stil
 **Error message**: Limit reached for maximum number of operations within a time range is reached.
 
 **Recommended action**: The daily backup count has reached the maximum limit of five for the instance. Trigger a new backup after 24 hours.
+
+## Related content
+
+- [Use Data protection settings of the storage account to configure backup](blob-backup-configure-manage.md?tabs=operational-backup#using-data-protection-settings-of-the-storage-account-to-configure-backup).
+- [Restore Azure Blobs](blob-restore.md?tabs=operational-backup).

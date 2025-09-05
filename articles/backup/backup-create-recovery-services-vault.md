@@ -4,8 +4,8 @@ description: Learn how to create and configure Recovery Services vaults, and how
 ms.topic: how-to
 ms.date: 06/30/2025
 ms.custom: references_regions, engagement-fy23
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a cloud administrator, I want to create and configure a Recovery Services vault with Cross Region Restore capabilities, so that I can ensure data backup and recovery are reliable and compliant during regional outages or disaster recovery scenarios.
 ---
 
