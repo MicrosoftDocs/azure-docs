@@ -66,6 +66,8 @@ You can customize the generated instructions or replace them with your own instr
 
 To ensure your incident response plan behaves the way you expect, you can test your plan against historical issues. In test mode, your plan runs against existing incidents so you can see how the agent attempts to mitigate the issue.
 
+When it test mode, the agent always operates in a read-only mode.
+
 You can test both new and existing incident response plans.
 
 # [New plan](#tab/new-plan)
