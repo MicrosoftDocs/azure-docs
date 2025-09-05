@@ -4,7 +4,7 @@ description: Learn about gateway features in Azure API Management that help redu
 author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 09/03/2025
+ms.date: 09/05/2025
 ms.author: danlep
 ai-usage: ai-assisted
 #customer intent: As an IT admin, I want to shift API traffic to backend regions with lower carbon intensity so that I can minimize emissions from my services.
@@ -27,8 +27,8 @@ Organizations are increasingly focused on reducing their environmental impact th
 
 API Management lets you achieve these goals with features that help:
 
-* [Shape API traffic](#traffic-shaping) based on carbon emissions in your API Management service's region
 * [Shift and load-balance API traffic](#traffic-shifting) to backend regions with lower carbon intensity
+* [Shape API traffic](#traffic-shaping) based on carbon emissions in your API Management service's region
 
 By optimizing how your APIs handle traffic based on environmental factors, you can:
 
@@ -36,96 +36,16 @@ By optimizing how your APIs handle traffic based on environmental factors, you c
 * Support corporate sustainability initiatives and environmental commitments
 * Demonstrate environmental responsibility to stakeholders
 
-## Traffic shaping
-
-<!-- Is context variable only available for primary region? -->
-
-Traffic shaping lets you adjust API behavior based on relative carbon emission levels in your API Management service's primary region. API Management exposes the `context.Deployment.SustainabilityInfo.CurrentCarbonIntensity` [context variable](api-management-policy-expressions.md#ContextVariables), which indicates the current carbon emission category for the region where your API Management instance is running. The five emission categories are qualitative (Very Low, Low, Medium, High, Very High) and are derived from internal Microsoft data sources.
-
-Use this context variable in your policies to enable more intensive traffic processing during periods of low carbon emissions, or reduce processing during high carbon emissions.
-
-### Example: Adjust behavior in high carbon emission periods
-
-In the following example, API Management extends cache durations, implements stricter rate limiting, and reduces logging detail during high carbon emission periods.
-
-```xml
-<policies>
-    [...]
-    <inbound>
-        <base />
-
-<choose>
-  <when condition="@(context.Deployment.SustainabilityInfo.CurrentCarbonIntensity == 'High')">
-    <!-- Policies for high carbon emission periods -->
-    <cache-store duration="3600" />
-    <rate-limit-by-key calls="100" renewal-period="60" counter-key="@(context.Request.IpAddress)" />
-    <set-variable name="enableDetailedLogging" value="false" />
-  </when>
-  <when condition="@(context.Deployment.SustainabilityInfo.CurrentCarbonIntensity == 'Medium')">
-    <!-- Policies for medium carbon emission periods -->
-    <cache-store duration="1800" />
-    <rate-limit-by-key calls="200" renewal-period="60" counter-key="@(context.Request.IpAddress)" />
-    <set-variable name="enableDetailedLogging" value="true" />
-  </when>
-  <otherwise>
-    <!-- Policies for low carbon emission periods -->
-    <cache-store duration="900" />
-    <rate-limit-by-key calls="300" renewal-period="60" counter-key="@(context.Request.IpAddress)" />
-    <set-variable name="enableDetailedLogging" value="true" />
-  </otherwise>
-</choose>
-
-<!-- Use the logging variable elsewhere -->
-<choose>
-  <when condition="@(context.Variables.GetValueOrDefault<bool>("enableDetailedLogging"))">
-    <log-to-eventhub logger-id="detailed-logger">
-      @{
-          return JObject.FromObject(context).ToString();
-      }
-    </log-to-eventhub>
-  </when>
-  <otherwise>
-    <log-to-eventhub logger-id="basic-logger">
-      @{
-          var log = new JObject();
-          log["requestId"] = context.RequestId;
-          log["method"] = context.Request.Method;
-          log["url"] = context.Request.Url.ToString();
-          log["statusCode"] = context.Response.StatusCode;
-          return log.ToString();
-      }
-    </log-to-eventhub>
-  </otherwise>
-</choose>
-
-```
-
-### Example:  Expose carbon intensity information
-
-This example shows how to access the current carbon intensity and propagate it to the backend or in logs.
-
-```xml
-<policies>
-    [...]
-    <outbound>
-        <base />
-        <set-header name="X-Sustainability-CarbonEmission" exists-action="override">
-            <value>@(context.Deployment.SustainabilityInfo.CurrentCarbonIntensity.ToString())</value>
-        </set-header>
-    </outbound>
-    [...]
-</policies>
-```
 
 ## Traffic shifting
 
-Traffic shifting requires configuring a [backend](backends.md) resource in a specific Azure region. Then, in a load-balanced backend pool, specify the maximum acceptable carbon emission level for the regionalized backend. Similar to the emission categories for the API Management instance, the emission thresholds for backends are qualitative and range from Very Low to Very High. 
+Traffic shifting requires configuring a [backend](backends.md) resource in a [supported Azure region](#region-availability). Then, in a load-balanced backend pool, specify the maximum acceptable carbon emission level for the regionalized backend, using one of the [carbon intensity categories](#carbon-intensity-categories).
 
 This capability, combined with your existing load balancing and routing strategies, helps you prioritize backends in regions with relatively lower carbon emissions.
 
 At runtime:
 
-* API Management automatically routes traffic to "greener" backends -  those with emissions below your specified threshold
+* API Management automatically routes traffic to "greener" backends -  those with emissions below your specified threshold.
 * When emissions exceed the specified thresholds for all backends, API Management routes traffic to all backends based on their remaining load balancing configuration to ensure service availability.
 
 <!--Is there an updated diagram? -->
@@ -178,51 +98,158 @@ Then, use the regionalized backend in a load-balanced pool and define the emissi
 } 
 ```
 
+## Traffic shaping
+
+Traffic shaping lets you adjust API behavior based on relative carbon emission levels in your API Management service's region (or regions). API Management exposes the `context.Deployment.SustainabilityInfo.CurrentCarbonIntensity` [context variable](api-management-policy-expressions.md#ContextVariables), which indicates the current [carbon intensity category](#carbon-intensity-categories) for your API Management instance. 
+
+Use this context variable in your policies to enable more intensive traffic processing during periods of low carbon emissions, or reduce processing during high carbon emissions.
+
+### Example: Adjust behavior in high carbon emission periods
+
+In the following example, API Management extends cache durations, implements stricter rate limiting, and reduces logging detail during high carbon emission periods.
+
+```xml
+<policies>
+    <inbound>
+        <base />
+        <choose>
+          <when condition="@(context.Deployment.SustainabilityInfo.CurrentCarbonIntensity == 'High')">
+            <!-- Policies for high carbon emission periods -->
+            <cache-store duration="3600" />
+            <rate-limit-by-key calls="100" renewal-period="60" counter-key="@(context.Request.IpAddress)" />
+            <set-variable name="enableDetailedLogging" value="false" />
+          </when>
+          <when condition="@(context.Deployment.SustainabilityInfo.CurrentCarbonIntensity == 'Medium')">
+            <!-- Policies for medium carbon emission periods -->
+            <cache-store duration="1800" />
+            <rate-limit-by-key calls="200" renewal-period="60" counter-key="@(context.Request.IpAddress)" />
+            <set-variable name="enableDetailedLogging" value="true" />
+          </when>
+          <otherwise>
+            <!-- Policies for low carbon emission periods -->
+            <cache-store duration="900" />
+            <rate-limit-by-key calls="300" renewal-period="60" counter-key="@(context.Request.IpAddress)" />
+            <set-variable name="enableDetailedLogging" value="true" />
+          </otherwise>
+        </choose>
+    
+        <!-- Use the logging variable elsewhere -->
+        <choose>
+          <when condition="@(context.Variables.GetValueOrDefault<bool>("enableDetailedLogging"))">
+            <log-to-eventhub logger-id="detailed-logger">
+              @{
+                  return JObject.FromObject(context).ToString();
+              }
+            </log-to-eventhub>
+          </when>
+          <otherwise>
+            <log-to-eventhub logger-id="basic-logger">
+              @{
+                  var log = new JObject();
+                  log["requestId"] = context.RequestId;
+                  log["method"] = context.Request.Method;
+                  log["url"] = context.Request.Url.ToString();
+                  log["statusCode"] = context.Response.StatusCode;
+                  return log.ToString();
+              }
+            </log-to-eventhub>
+          </otherwise>
+        </choose>
+    </inbound>
+    [...]    
+</policies>
+```
+
+### Example: Expose carbon intensity information in logs or a custom trace
+
+The following example shows how to access the current carbon intensity and propagate it to the backend or in logs.
+
+```xml
+<policies>
+    [...]
+    <outbound>
+        <base />
+        <set-header name="X-Sustainability-CarbonEmission" exists-action="override">
+            <value>@(context.Deployment.SustainabilityInfo.CurrentCarbonIntensity.ToString())</value>
+        </set-header>
+    </outbound>
+    [...]
+</policies>
+```
+
+The following example shows how to send the current carbon intensity information as a custom [trace](trace-policy.md).
+
+```xml
+<policies>
+    [...]
+    <inbound>
+        <base />
+        <trace source="SustainabilityInfo" severity="information">
+            <message>@(context.Deployment.SustainabilityInfo.CurrentCarbonIntensity.ToString())</message>
+        </trace>
+    </inbound>
+    [...]    
+</policies>
+```
+
 ## Region availability
 
-The environmental sustainability features are available in the following Azure regions:
+The API Management environmental sustainability features are supported in the following Azure regions.
 
-* East Asia
-* West Central US
+* Australia East
 * Australia Southeast
 * Brazil South
-* Japan East
-* UK South
-* West US 2
-* Central India
-* East US
-* UK West
-* Australia East
-* Canada Central
 * Canada East
+* Central India
 * Central US
-* Germany West Central
-* Japan West
-* North Europe
-* Norway East
-* South Africa North
-* Southeast Asia
-* Switzerland North
-* UAE North
+* Central US EUAP
+* East US
+* East US EUAP
 * East US 2
 * France South
+* Germany West Centrals
+* Indonesia Central
 * Israel Central
 * Italy North
+* Japan East
+* Japan West
 * Jio India West
 * Mexico Central
+* New Zealand North
+* North Europe
+* Norway East
 * Poland Central
 * Qatar Central
+* South Africa North
 * South India
 * Spain Central
 * Sweden Central
+* Switzerland North
 * Switzerland West
 * Taiwan North
-* Taiwan North West
+* UAE North
+* UK South
+* UK West
+* West Central US
 * West Europe
 * West US
+* West US 2
 * West US 3
-* New Zealand North
-* Indonesia Central
+
+
+## Carbon intensity categories
+
+The following table explains the carbon intensity categories used in the traffic shifting and traffic shaping features. Values are in kg CO₂ per MWh for [scope 2 emissions](/industry/sustainability/calculate-scope2).
+
+
+| Category | kg CO₂ |
+|-------------------|------------|
+| Very Low | ≤ 150 |
+| Low | 151-300 |
+| Medium | 301-500 |
+| High | 501-700 |
+| Very High | > 700 |
+| Not Available | N/A |
 
 
 ## Related content
