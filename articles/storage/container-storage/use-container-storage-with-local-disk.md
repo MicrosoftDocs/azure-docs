@@ -1,6 +1,6 @@
 ---
 title: Use Azure Container Storage with Local NVMe
-description: Configure Azure Container Storage for use with Ephemeral Disk using local NVMe on the Azure Kubernetes Service (AKS) cluster nodes. Create a storage class and deploy a pod using standard Kubernetes patterns.
+description: Configure Azure Container Storage for use with local NVMe on the Azure Kubernetes Service (AKS) cluster nodes. Create a storage class and deploy a pod using standard Kubernetes patterns.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
@@ -12,20 +12,22 @@ ms.custom: references_regions
 
 # Use Azure Container Storage with local NVMe
 
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use Ephemeral Disk with local NVMe as back-end storage for your Kubernetes workloads. NVMe is designed for high-speed data transfer between storage and CPU, providing extremely high IOPS and throughput.
+[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use local NVMe disk as back-end storage for your Kubernetes workloads. NVMe is designed for high-speed data transfer between storage and CPU, providing extremely high IOPS and throughput.
 
 > [!IMPORTANT]
 > This article applies to [Azure Container Storage (version 2.x.x)](container-storage-introduction.md), which currently only supports local NVMe disk for backing storage. For details about earlier versions, see [Azure Container Storage (version 1.x.x) documentation](container-storage-introduction-version-1.md).
 
-## What is Ephemeral Disk?
+## What is local NVMe?
 
-When your application needs sub-millisecond storage latency and doesn't require data durability, you can use Ephemeral Disk with Azure Container Storage to meet your performance requirements. Ephemeral means that the disks are deployed on the local virtual machine (VM) hosting the AKS cluster and not saved to an Azure storage service. Data will be lost on these disks if you stop/deallocate your VM.
+When your application needs sub-millisecond storage latency and extremely high throughput, you can use local NVMe with Azure Container Storage to meet your performance requirements. Ephemeral means that the disks are deployed on the local virtual machine (VM) hosting the AKS cluster and not saved to an Azure storage service. Data will be lost on these disks if you stop/deallocate your VM. Local NVMe disks are offered on select Azure VM families such as [storage-optimized](/azure/virtual-machines/sizes/overview#storage-optimized) VMs.
 
-Azure Container Storage supports the use of *generic ephemeral volumes* by default when using ephemeral disk. For use cases that require *persistent volumes* even if the data isn't durable (for example, when using existing YAML files hard-coded to use persistent volumes), you can add the annotation `localdisk.csi.acstor.io/accept-ephemeral-storage: "true"` in your persistent volume claim definition.
+Azure Container Storage supports the use of *generic ephemeral volumes* by default when using ephemeral disk. For use cases that require *persistent volume claims*, you can add the annotation `localdisk.csi.acstor.io/accept-ephemeral-storage: "true"` in your persistent volume claim template.
 
 ## Prerequisites
 
 [!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
+
+- You can now use clusters with a single node, though multi-node configurations are still recommended.
 
 ## Choose a VM type that supports local NVMe
 
@@ -278,7 +280,9 @@ az aks nodepool scale --cluster-name <cluster-name> --name <nodepool-name> --res
 
 ### Delete storage resources
 
-To clean up storage resources, you can delete the storage class if no longer needed:
+To clean up storage resources, you must first delete all PersistentVolumeClaims and/or PersistentVolumes. Deleting the Azure Container Storage StorageClass won't automatically remove your existing PersistentVolumes/PersistentVolumeClaims.
+
+To delete a storage class named **local**, run the following command:
 
 ```azurecli-interactive
 kubectl delete storageclass local
