@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 05/16/2025
 ms.author: danlep 
 ms.custom:
+  - sfi-image-nochange
 
 #customer intent: As an API developer, I want to add a custom CA certificate in API Management. 
 ---
