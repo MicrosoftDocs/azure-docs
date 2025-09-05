@@ -78,6 +78,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Cirion Technologies](https://lp.ciriontechnologies.com/cloud-connect-lp-latam?c_campaign=HOTSITE&c_tactic=&c_subtactic=&utm_source=SOLUCIONES-CTA&utm_medium=Organic&utm_content=&utm_term=&utm_campaign=HOTSITE-ESP)** | &check; | &check; | Queretaro<br/>Rio De Janeiro<br/>Santiago |
 | **Claro** |&check; |&check; | Miami |
 | **Cloudflare** |&check; |&check; | Los Angeles |
+| **[Cogent](https://www.t-mobile.com/business/solutions/networking/cloud-networking)** |&check; |&check; | Amsterdam<br/>Chicago<br/>Seattle<br/>Silicon Valley<br/>Washington DC<br/> |
 | **[Cologix](https://cologix.com/connectivity/cloud/cloud-connect/microsoft-azure/)** |&check; |&check; | Chicago<br/>Dallas<br/>Minneapolis<br/>Montreal<br/>Toronto<br/>Vancouver<br/>Washington DC |
 | **[Claro](https://www.usclaro.com/enterprise-mnc/connectivity/mpls/)** |&check; |&check; | Miami |
 | **Cloudflare** |&check; |&check; | Los Angeles |
@@ -222,7 +223,6 @@ The following table shows locations by service provider. If you want to view ava
 | **[Tivit](https://onecloud.tivit.com/en/home-en/)** |&check; |&check; | Sao Paulo2 |
 | **[Tokai Communications](https://www.tokai-com.co.jp/en/)** | &check; | &check; | Osaka<br/>Tokyo2 |
 | **TPG Telecom**| &check; | &check; | Melbourne<br/>Sydney |
-| **[T-Mobile/Sprint](https://www.t-mobile.com/business/solutions/networking/cloud-networking)** |&check; |&check; | Chicago<br/>Silicon Valley<br/>Washington DC |
 | **[T-Mobile Poland](https://biznes.t-mobile.pl/pl/produkty-i-uslugi/sieci-teleinformatyczne/cloud-on-edge)** |&check; |&check; | Warsaw |
 | **[T-Systems](https://geschaeftskunden.telekom.de/vernetzung-digitalisierung/produkt/intraselect)** | &check; | &check; | Frankfurt |
 | **UOLDIVEO** | &check; | &check; | Sao Paulo |
