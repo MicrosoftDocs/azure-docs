@@ -80,7 +80,7 @@ The following guidance provides best practices for tools.
 
   You can change the results from a tool before they pass into the model by using the [**Compose** action](/azure/logic-apps/logic-apps-perform-data-operations#compose-action). This approach provides the following benefits:
 
-  - Improve response quality by reducing irrelevant [context](/azure/logic-apps/agent-workflows-concepts.md#key-concepts) that passes into the model. You send only the fields that you need from a large response.
+  - Improve response quality by reducing irrelevant [context](/azure/logic-apps/agent-workflows-concepts#key-concepts) that passes into the model. You send only the fields that you need from a large response.
 
   - Reduce billing charges for tokens that pass into the model and avoid exceeding the model's limit on *context length*, the maximum number of tokens that pass into the model. You send only the fields that you need.
 
