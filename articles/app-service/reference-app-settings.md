@@ -5,9 +5,10 @@ ms.topic: conceptual
 ms.date: 03/28/2025
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
 ms.custom:
   - build-2025
-ms.service: azure-app-service
+  - sfi-ropc-nochange
 ---
 
 # Environment variables and app settings in Azure App Service
