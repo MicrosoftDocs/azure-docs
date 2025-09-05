@@ -6,6 +6,7 @@ ms.author: ajetasi
 ms.service: azure-stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
+ms.custom: sfi-image-nochange
 ---
 
 # Troubleshoot Azure Stream Analytics queries
