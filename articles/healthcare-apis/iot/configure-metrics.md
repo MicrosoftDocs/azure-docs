@@ -8,6 +8,7 @@ ms.subservice: medtech-service
 ms.topic: how-to
 ms.date: 11/21/2023
 ms.author: chrupa
+ms.custom: sfi-image-nochange
 ---
 
 # Monitor performance metrics for the MedTech service

@@ -7,6 +7,7 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 9/27/2023
 ms.author: kesheth
+ms.custom: sfi-image-nochange
 ---
 
 # Export FHIR data in Azure API for FHIR

@@ -7,6 +7,7 @@ ms.subservice: dicom-service
 ms.topic: tutorial
 ms.date: 07/15/2025
 ms.author: buchvarun
+ms.custom: sfi-image-nochange
 ---
 
 # Register a client application for the DICOM service
