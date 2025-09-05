@@ -7,11 +7,11 @@ ms.author: anwestg
 author: apwestgarth
 ms.service: azure-app-service
 ---
-# Migrating from Azure App Service on Arc-enabled Kubernetes to Azure Container Apps on Arc-enabled Kubernetes
+# Migrate from Azure App Service on Arc-enabled Kubernetes to Azure Container Apps on Arc-enabled Kubernetes
 
 This article provides a checklist of items and considerations for you to work through in migrating from Azure App Service on Arc-enabled Kubernetes.
 
-## Assessment and Planning
+## Assessment and planning
 
 First you should identify any workloads running on App Service on Arc-enabled Kubernetes. Run the following Azure Resource Graph Queries to list Web Applications, App Service Kubernetes Environments, and Arc-enabled Kubernetes clusters that have the Application services extension installed on them:
 
@@ -82,15 +82,15 @@ The Azure Container Apps on Arc-enabled Kubernetes extension can't be installed 
 
 To uninstall the Application services extension, you must:
 
-1. Delete any App Service Kubernetes Environments, associated Web Applications, and App Service Plans from the connected cluster
-1. Uninstall the Application services extension from your connected cluster
+1. Delete any App Service Kubernetes Environments, associated Web Applications, and App Service Plans from the connected cluster.
+1. Uninstall the Application services extension from your connected cluster.
 
 ## Set up Azure Container Apps on Arc-enabled Kubernetes
 
 [Azure Container Apps on Arc-enabled Kubernetes](../container-apps/azure-arc-overview.md) can be installed on an Arc-enabled Kubernetes cluster that satisfies the following requirements:
 
-1. The cluster **must** support the [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer) service type
-1. The cluster **must** be connected to one of the supported [Azure Regions](../container-apps/azure-arc-overview.md#limitations)
+1. The cluster **must** support the [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer) service type.
+1. The cluster **must** be connected to one of the supported [Azure Regions](../container-apps/azure-arc-overview.md#limitations).
 1. All Container Apps must be deployed in Linux containers. No Windows support is available.
 
 If your cluster satisfies these requirements, then follow the documentation to [Enable Azure Container Apps on Azure Arc-enabled Kubernetes](../container-apps/azure-arc-enable-cluster.md)).
@@ -106,4 +106,5 @@ You can deploy your application from an [existing container image](https://aka.m
 * [Azure Container Apps on Azure Arc=enabled Kubernetes - Overview](../container-apps/azure-arc-overview.md)
 * [Setup Azure Container Apps on Azure Arc-enabled Kubernetes](../container-apps/azure-arc-enable-cluster.md)
 * [Tutorial: Create an Azure Container App on Azure Arc-enabled Kubernetes](../container-apps/azure-arc-create-container-app.md)
+
 
