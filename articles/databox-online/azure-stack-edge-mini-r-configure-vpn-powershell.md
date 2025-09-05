@@ -8,7 +8,9 @@ ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 11/17/2020
 ms.author: alkohli 
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 #Customer intent: As an IT admin, I need to understand how to configure VPN on my Azure Stack Edge Mini R device so that I can have a second layer of encryption for my data-in-flight.
 ---
 

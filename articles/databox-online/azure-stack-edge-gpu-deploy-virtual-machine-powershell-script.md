@@ -5,10 +5,12 @@ services: databox
 author: alkohli
 
 ms.service: azure-stack-edge
-ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 05/24/2022
 ms.author: alkohli
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using an Azure PowerShell script so that I can efficiently manage my VMs.
 ---
 
