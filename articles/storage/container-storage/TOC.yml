@@ -15,7 +15,7 @@
     href: install-container-storage-aks.md
 - name: Storage options
   items:
-  - name: Use with Ephemeral Disk (Local NVMe)
+  - name: Use with Local NVMe
     href: use-container-storage-with-local-disk.md
 - name: How-to guides
   items:
