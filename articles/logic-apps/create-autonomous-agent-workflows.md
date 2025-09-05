@@ -1,6 +1,6 @@
 ---
-title: Create Workflows with Autonomous AI Agents
-description: Build AI agent workflows that don't use human interactions to complete tasks with Azure Logic Apps.
+title: Create Autonomous AI Agent Workflows
+description: Build AI agent workflows that complete tasks without human interactions in Azure Logic Apps.
 service: ecfan
 services: logic-apps
 ms.suite: integration
@@ -12,7 +12,7 @@ ms.update-cycle: 180-days
 # Customer intent: As an integration developer, I want to build workflows that complete tasks by using AI agents and other AI capabilities without human interactions for my integration solutions with Azure Logic Apps.
 ---
 
-# Create autonomous agent workflows without human interactions to complete tasks with Azure Logic Apps (Preview)
+# Create autonomous agent workflows that don't use human interactions in Azure Logic Apps (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -23,7 +23,7 @@ ms.update-cycle: 180-days
 
 When your scenario requires workflows with agents that can make decisions and complete tasks without human interactions, you can create an *autonomous* agent workflow in Azure Logic Apps. These workflows are the best option for scenarios where agents need to make independent decisions, might need to run longer, and require stronger governance, isolation, and automated rollback or compensation strategies.
 
-All agent workflows perform tasks by using at least one agent connected to a large language models (LLM). An agent uses an iterative looped process to solve complex, multi-step problems. An LLM is a program that's trained to recognize patterns and perform jobs without human interaction. Combined with Azure Logic Apps, agent workflows let you separate an agent's decision logic, meaning the model, prompts, and orchestration, from integration and task execution.
+All agent workflows perform tasks by using at least one agent connected to a large language models (LLM). An agent uses an iterative looped process to solve complex, multi-step problems. An LLM is a trained program that recognizes patterns and performs jobs without human interaction. By including an agent connected to a model, an agent workflow lets you separate an agent's decision logic, meaning the model, prompts, and orchestration, from integration and task execution.
 
 An agent provides the following capabilities and benefits when connected to a model:
 
@@ -88,7 +88,7 @@ This guide shows how to create an example Standard logic app workflow with the *
     >
     > If the system-assigned identity is disabled, [reenable the identity](/azure/logic-apps/authenticate-with-managed-identity?tabs=standard#enable-system-assigned-identity-in-the-azure-portal). 
 
-    The system-assigned identity requires one of the following roles for Microsoft Entra role-based access (RBAC), based on the [principle of least privilege](/entra/identity-platform/secure-least-privileged-access):
+    The system-assigned identity requires one of the following roles for Microsoft Entra role-based access control (RBAC), based on the [principle of least privilege](/entra/identity-platform/secure-least-privileged-access):
 
     | Model source | Role |
     |--------------|------|
@@ -109,7 +109,7 @@ This guide shows how to create an example Standard logic app workflow with the *
     > [!IMPORTANT]
     >
     > Use this authentication option only for the examples in this guide, exploratory scenarios, 
-    > non-production scenarios, or if your organization's policy specifies that you can't use 
+    > nonproduction scenarios, or if your organization's policy specifies that you can't use 
     > managed identity authentication.
     >
     > In general, make sure that you secure and protect sensitive data and personal 
@@ -125,7 +125,7 @@ This guide shows how to create an example Standard logic app workflow with the *
 
 - To follow along with the examples, you need an email account to send email.
 
-  The examples in this guide use an Outlook.com account. For your own scenarios, you can use any supported email service or messaging app in Azure Logic Apps, such as Office 365 Outlook, Microsoft Teams, Slack, and so on. The setup for other email services or apps are generally similar to the examples, but have minor differences.
+  The examples in this guide use an Outlook.com account. For your own scenarios, you can use any supported email service or messaging app in Azure Logic Apps, such as Office 365 Outlook, Microsoft Teams, Slack, and so on. The setup for other email services or apps are similar to the examples, but have minor differences.
 
 [!INCLUDE [supported-models](includes/supported-models.md)]
 
@@ -257,7 +257,7 @@ To get the best results, make sure that your system instructions are prescriptiv
 
    > [!NOTE]
    >
-   > Autonomous agents don't accept additional input through the chat interface at runtime.
+   > Autonomous agents don't accept input through the chat interface at runtime.
 
    For this example, the weather agent example uses the following sample instructions where you later provide a subscriber list with your own email address for testing:
 
@@ -292,7 +292,7 @@ To get the best results, make sure that your system instructions are prescriptiv
 
       :::image type="content" source="media/create-autonomous-agent-workflows/agent-only-test.png" alt-text="Screenshot shows monitoring view, operation status, and agent log." lightbox="media/create-autonomous-agent-workflows/agent-only-test.png":::
 
-      However, the agent doesn't have any tools to use at this time, which means that the agent can't actually take any specific actions, such as send email to a subscriber list, until you create tools that the agent needs to complete their tasks. You might even get an email that your message was rejected by your email server.
+      However, the agent doesn't have any tools to use at this time, which means that the agent can't actually take any specific actions, such as send email to a subscriber list, until you create tools that the agent needs to complete their tasks. You might even get an email that your email server rejected the message.
 
 1. Return to the designer. On the monitoring view toolbar, select **Edit**.
 
@@ -326,15 +326,15 @@ In this example, the agent needs a tool that gets the weather forecast. You can 
 
 ## Create agent parameters for the 'Get forecast' action
 
-Actions usually have parameters that require you to specify the values to use. Actions in tools are almost the same except for one difference. You can create agent parameters that the agent uses to specify the parameter values for actions in tools. You can specify model-generated outputs, values from non-model sources, or a combination. For more information, see [Agent parameters](agent-workflows-concepts.md#key-concepts).
+Actions usually have parameters that require you to specify the values to use. Actions in tools are almost the same except for one difference. You can create agent parameters that the agent uses to specify the parameter values for actions in tools. You can specify model-generated outputs, values from nonmodel sources, or a combination. For more information, see [Agent parameters](agent-workflows-concepts.md#key-concepts).
 
 The following table describes the use cases for creating agent parameters and where to create them, based on the use case:
 
 | To | Where to create agent parameter |
 |----|---------------------------------|
 | Use model-generated outputs only. <br>Share with other actions in the same tool. | Start from the action parameter. For detailed steps, see [Use model-generated outputs only](#use-model-generated-outputs-only). |
-| Use non-model values. | No agent parameters needed. <br><br>This experience is the same as the usual action setup experience in Azure Logic Apps but is repeated for convenience in [Use values from non-model sources](#use-values-from-non-model-sources). |
-| Use model-generated outputs with non-model values. <br>Share with other actions in the same tool. | Start from the tool, in the **Agent Parameters** section. For detailed steps, see [Use model outputs and non-model values](#use-model-outputs-and-non-model-values).|
+| Use nonmodel values. | No agent parameters needed. <br><br>This experience is the same as the usual action setup experience in Azure Logic Apps but is repeated for convenience in [Use values from nonmodel sources](#use-values-from-nonmodel-sources). |
+| Use model-generated outputs with nonmodel values. <br>Share with other actions in the same tool. | Start from the tool, in the **Agent Parameters** section. For detailed steps, see [Use model outputs and nonmodel values](#use-model-outputs-and-nonmodel-values).|
 
 ##### Use model-generated outputs only
 
@@ -377,9 +377,9 @@ For an action parameter that uses only model-generated outputs, create an agent 
 
 1. Save your workflow.
 
-##### Use values from non-model sources
+##### Use values from nonmodel sources
 
-For an action parameter value that uses only non-model values, choose the option that best fits your use case:
+For an action parameter value that uses only nonmodel values, choose the option that best fits your use case:
 
 **Use outputs from earlier operations in the workflow**
 
@@ -403,9 +403,9 @@ To create an expression, follow these steps:
 
 For more information, see [Reference guide to workflow expression functions in Azure Logic Apps](/azure/logic-apps/workflow-definition-language-functions-reference).
 
-##### Use model outputs and non-model values
+##### Use model outputs and nonmodel values
 
-Some scenarios might need to specify an action parameter value that uses both model-generated outputs with non-model values. For example, you might want to create an email body that uses static text, non-model outputs from earlier operations in the workflow, and model-generated outputs.
+Some scenarios might need to specify an action parameter value that uses both model-generated outputs with nonmodel values. For example, you might want to create an email body that uses static text, nonmodel outputs from earlier operations in the workflow, and model-generated outputs.
 
 For these scenarios, create the agent parameter on the tool by following these steps:
 
