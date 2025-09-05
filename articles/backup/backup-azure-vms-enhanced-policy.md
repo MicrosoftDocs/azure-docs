@@ -14,7 +14,7 @@ ms.author: v-mallicka
 
 Azure Backup now supports the Enhanced policy for Azure VM backup that offers:
 
-- Zonal resiliency by using zone-redundant storage (ZRS) for Instant Restore snapshots.
+- Zonal resiliency by using zone-redundant storage for Instant Restore snapshots.
 - Multiple backups per days. You can schedule backups as frequently as every 4 hours for Azure VMs.
 - Support for new Azure offerings, including Trusted Launch virtual machines (VMs), Premium solid-state drive (SSD) v2 and Ultra SSD disks, and multidisk crash-consistent snapshot support.
 - Longer retention in snapshot (operational) tier up to 30 days.
@@ -22,9 +22,9 @@ Azure Backup now supports the Enhanced policy for Azure VM backup that offers:
 >[!Note]
 >- The Standard policy doesn't support protecting newer Azure offerings, such as Ultra SSD and Premium SSD v2. Only the Azure CLI (version 2.73.0 and later), PowerShell (version Az 14.0.0 and later), and the REST API (version 2025-01-01 and later) support Trusted Launch VM backup with the Standard policy.
 >- Backups for VMs fail for disks enabled with data access authentication.
->- Protection of a VM with an enhanced policy incurs more snapshot costs. [Learn more](backup-instant-restore-capability.md#cost-impact).
+>- Protection of a VM with an enhanced policy incurs more snapshot costs. [Learn more about cost impact](backup-instant-restore-capability.md#cost-impact).
 >- After you enable a VM backup with the Enhanced policy, Azure Backup doesn't allow changing the policy type to Standard.
->- Backup now supports the migration to enhanced policy for the Azure VM backups by using the Standard policy. [Learn more](backup-azure-vm-migrate-enhanced-policy.md).
+>- Backup now supports the migration to enhanced policy for the Azure VM backups by using the Standard policy. [Learn more about migrating Azure VM backups from the Standard to the Enhanced policy](backup-azure-vm-migrate-enhanced-policy.md).
 >- You can exclude shared disks with the Enhanced policy and back up the other supported disks in the VM.
 
 :::image type="content" source="./media/backup-azure-vms-enhanced-policy/enhanced-backup-policy-settings.png" alt-text="Screenshot that shows the Enhanced backup policy options.":::
@@ -58,7 +58,7 @@ Follow these steps:
 
 1. On the **Create policy** pane, perform the following actions:
 
-   - **Policy sub-type**: Select the **Enhanced** type.
+   - **Policy subtype**: Select the **Enhanced** type.
    
      :::image type="content" source="./media/backup-azure-vms-enhanced-policy/select-enhanced-backup-policy-sub-type.png" alt-text="Screenshot that shows selecting the backup policy's subtype as Enhanced.":::
 	 
@@ -119,7 +119,7 @@ In this sample cmdlet:
   >[!Note]
   >The start time must be in UTC even if the time zone isn't UTC.
 
-- The sixth and seventh commands update the interval (in hours) after which the backup is retriggered on the same day, with the duration (in hours) for which the schedule will run.
+- The sixth and seventh commands update the interval (in hours) after which the backup is retriggered on the same day. The commands also update the duration (in hours) for which the schedule will run.
 
 ### Step 3: Create the backup retention policy
 
@@ -246,7 +246,7 @@ You can back up Trusted Launch VMs only by using Enhanced policies.
 
 ## Enable selective disk backup and restore
 
-You can exclude noncritical disks from backup by using selective disk backup to save costs. By using this capability, you can selectively back up a subset of the data disks that are attached to your VM. Then you can restore a subset of the disks that are available in a recovery point, both from Instant Restore and the vault tier. [Learn more](selective-disk-backup-restore.md).
+You can exclude noncritical disks from backup by using selective disk backup to save costs. By using this capability, you can selectively back up a subset of the data disks that are attached to your VM. Then you can restore a subset of the disks that are available in a recovery point, both from Instant Restore and the vault tier. [Learn more about selective disk backup and restore for Azure VMs](selective-disk-backup-restore.md).
 
 ## Related content
 
