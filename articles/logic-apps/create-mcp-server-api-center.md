@@ -11,7 +11,7 @@ ms.update-cycle: 180-days
 #Customer intent: I want to create and register an MCP server that provides tools that I build from connector actions in Azure Logic Apps through API Center. AI agents and models can use these tools to complete tasks.
 ---
 
-# Build MCP servers through API Center to provide tools driven by Azure Logic Apps (Preview)
+# Build MCP and register servers in API Center to provide tools driven by Azure Logic Apps (Preview)
 
 > [!NOTE]
 >
