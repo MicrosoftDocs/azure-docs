@@ -92,7 +92,7 @@ To move dashboards to Azure Monitor dashboards with Grafana, you first export yo
    1. In the Azure portal, open Azure Monitor.
    1. In the service menu, select **Dashboards with Grafana (preview)**, then **New** > **Import**.
 
-   :::image type="content" source="media/migrate-essential-sku/import-dashboard.png" alt-text="Screenshot of the Dashboards with Grafana interface in the Azure portal showing the dashboard import option.":::
+       :::image type="content" source="media/migrate-essential-sku/import-dashboard.png" alt-text="Screenshot of the Dashboards with Grafana interface in the Azure portal showing the dashboard import option.":::
 
    1. Under **Import dashboard from File**, upload the JSON file you exported.
    1. Select **Load**.
