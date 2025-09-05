@@ -67,7 +67,9 @@ For this release, the following list describes restrictions or issues that apply
 
 - You must currently start with an empty Standard logic app resource to create your MCP server resource.
 
-- You can select only connector for your MCP server.
+- You can select only one connector for your MCP server.
+
+- [Built-in service provider-based connectors](azure/logic-apps/connectors/built-in/reference) and custom connectors currently aren't supported.
 
 - Each tool can have only one action.
 
