@@ -159,7 +159,7 @@ The following table shows locations by service provider. If you want to view ava
 
 |Service provider | Microsoft Azure | Microsoft 365  | Locations |
 | --- | --- | --- | --- |
-| **[National Telecom](https://www.nc.ntplc.co.th/cat/category/264/855/CAT+Direct+Cloud+Connect+for+Microsoft+ExpressRoute?lang=en_EN)** | &check; | &check; | Bangkok |
+| **[National Telecom](https://www.ntplc.co.th/en/enterprise/products-and-services/fixedbroadband/nt-direct-cloud-connect)** | &check; | &check; | Bangkok |
 | **NEC** | &check; | &check; | Tokyo3 |
 | **[NETSG](https://www.netsg.co/dc-cloud/cloud-and-dc-interconnect/)** | &check; | &check; | Melbourne<br/>Sydney2 |
 | **[Next Generation Data](https://vantage-dc-cardiff.co.uk/)** | &check; | &check; | Newport(Wales) |
