@@ -8,6 +8,9 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/14/2025
 ms.author: jkinma
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ga-nochange
 ---
 
 # Set up your billing account for a Microsoft Customer Agreement

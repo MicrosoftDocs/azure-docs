@@ -8,6 +8,7 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/18/2025
 ms.author: presharm
+ms.custom: sfi-image-nochange
 ---
 
 # Transfer an Azure subscription to an Enterprise Agreement (EA)

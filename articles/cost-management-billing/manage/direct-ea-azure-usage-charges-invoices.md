@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: racheg
+ms.custom: sfi-image-nochange
 ---
 
 # View your usage summary details and download reports for EA enrollments

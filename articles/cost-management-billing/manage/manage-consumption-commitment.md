@@ -8,8 +8,9 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/14/2025
 ms.author: macyso
-#customer intent: As a Microsoft Customer Agreement billing owner, I want learn about managing a MACC so that I move it when needed.
 ms.custom:
+  - sfi-image-nochange
+#customer intent: As a Microsoft Customer Agreement billing owner, I want learn about managing a MACC so that I move it when needed.
 - build-2025
 ---
 

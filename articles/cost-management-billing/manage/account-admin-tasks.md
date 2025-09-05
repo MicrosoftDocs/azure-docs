@@ -8,6 +8,7 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 01/22/2025
 ms.author: lishepar
+ms.custom: sfi-image-nochange
 ---
 
 # Account Administrator tasks in the Azure portal

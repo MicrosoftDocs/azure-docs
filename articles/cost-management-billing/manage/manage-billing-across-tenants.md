@@ -9,6 +9,9 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 07/29/2025
 ms.author: jkinma
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ga-nochange
 ---
 
 # Manage billing across multiple tenants using associated billing tenants

@@ -10,6 +10,8 @@ ms.topic: conceptual
 ms.date: 08/13/2025
 ms.author: presharm
 ms.custom:
+  - sfi-image-nochange
+  - sfi-ga-nochange
 - build-2025
 ---
 

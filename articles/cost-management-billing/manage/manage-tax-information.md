@@ -8,7 +8,9 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 07/29/2025
 ms.author: jkinma
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - sfi-image-nochange
 ---
 
 # Update tax details for an Azure billing account

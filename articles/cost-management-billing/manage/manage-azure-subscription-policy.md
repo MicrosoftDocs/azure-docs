@@ -8,6 +8,9 @@ ms.topic: how-to
 ms.date: 08/21/2025
 ms.reviewer: nicholak
 ms.author: presharm
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ga-nochange
 ---
 
 # Manage Azure subscription policies
