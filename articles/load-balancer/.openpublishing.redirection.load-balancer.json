@@ -421,7 +421,7 @@
         },
         {
             "source_path_from_root":"/articles/load-balancer/network-load-balancing-aws-to-azure-how-to.md",
-            "redirect_url": "/articles/migration/migrate-networking-from-aws",
+            "redirect_url": "/azure/migration/migrate-networking-from-aws",
             "redirect_document_id": false
         }
     ]
