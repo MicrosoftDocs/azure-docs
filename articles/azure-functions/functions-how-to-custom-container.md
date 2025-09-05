@@ -3,8 +3,12 @@ title: Work with Azure Functions in Containers
 description: Learn how to work with containerized function apps running in Linux containers in an Azure Container Apps environment.
 ms.date: 07/23/2024
 ms.topic: how-to
-ms.custom: build-2023, linux-related-content, build-2024
 zone_pivot_groups: functions-container-hosting
+ms.custom:
+  - build-2023
+  - linux-related-content
+  - build-2024
+  - sfi-image-nochange
 #customer intent: As an app developer who uses containers to support my linux apps, I want to use Azure Functions and Azure Container Apps to run and update my apps.
 ---
 
