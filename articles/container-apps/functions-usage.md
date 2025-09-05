@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  how-to
-ms.date: 04/07/2025
+ms.date: 08/28/2025
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -46,11 +46,11 @@ The following steps show you how to use a sample container image to create your 
     | Resource group | Select **Create new resource group**, name it **my-aca-functions-group**, and select **OK**.  |
     | Container app name | Enter **my-aca-functions-app**. |
 
-1. Next to *Optimize for Azure Functions* check the checkbox.
+1. Next to *Optimize for Azure Functions*, check the checkbox.
 
     :::image type="content" source="media/functions-overview/functions-create-container-app.png" alt-text="Screenshot of the Azure portal when you create a container app pre-configured for Azure Functions.":::
- 
-1. Under *Container Apps environment* enter:
+
+1. Under *Container Apps environment*, enter:
 
     | Property | Value |
     |---|---|
@@ -81,7 +81,7 @@ The following steps show you how to use a sample container image to create your 
     | Registry login server  | Enter **mcr.microsoft.com** |
     | Image and tag | Enter **azure-functions/dotnet8-quickstart-demo:1.0** |
 
-1. Under *Environment variables* enter values for the following variables:
+1. Under *Environment variables*, enter values for the following variables:
 
     - `AzureWebJobsStorage`
     - `APPINSIGHTS_INSTRUMENTATIONKEY` or `APPLICATIONINSIGHTS_CONNECTION_STRING`

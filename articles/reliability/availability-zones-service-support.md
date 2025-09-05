@@ -92,6 +92,7 @@ Some Azure services are *nonregional*, which means that you don't deploy the ser
 | [Azure Site Recovery](migrate-recovery-services-vault.md) |  | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false":::|
 | [Azure Spring Apps](reliability-spring-apps.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure SQL Database](/azure/azure-sql/database/enable-zone-redundancy?view=azuresql-db&preserve-view=true&toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
+| [Azure SQL Managed Instance](./reliability-sql-managed-instance.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure SQL Managed Instance](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure Table Storage](./reliability-storage-table.md)| :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
