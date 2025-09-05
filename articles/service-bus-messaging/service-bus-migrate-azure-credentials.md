@@ -6,6 +6,7 @@ ms.reviewer: randolphwest
 ms.date: 07/25/2025
 ms.topic: how-to
 ms.custom:
+  - sfi-ropc-nochange
 - devx-track-csharp
 - devx-track-azurecli
 - devx-track-azurepowershell

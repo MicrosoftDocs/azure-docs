@@ -6,7 +6,11 @@ ms.author: spelluru
 ms.date: 06/11/2025
 ms.topic: quickstart
 ms.devlang: python
-ms.custom: devx-track-python, mode-api, passwordless-python
+ms.custom:
+  - devx-track-python
+  - mode-api
+  - passwordless-python
+  - sfi-ropc-nochange
 #customer intent: As a developer, I want to learn how to send and receive messages with Azure Service Bus queues by using the Python programming language.
 ---
 
