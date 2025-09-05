@@ -28,7 +28,7 @@
         {
             "source_path_from_root": "/articles/partner-solutions/astronomer/troubleshoot.md",
             "redirect_url": "/troubleshoot/azure/partner-solutions/index",
-            "redirect_document_id": true
+            "redirect_document_id": false
         }
     ]
 }
