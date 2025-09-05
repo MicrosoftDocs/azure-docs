@@ -127,17 +127,7 @@ This guide shows how to create an example Standard logic app workflow with the *
 
   The examples in this guide use an Outlook.com account. For your own scenarios, you can use any supported email service or messaging app in Azure Logic Apps, such as Office 365 Outlook, Microsoft Teams, Slack, and so on. The setup for other email services or apps are generally similar to the examples, but have minor differences.
 
-## Supported models for agent workflows
-
-The following list identifies the models that you can use for agent workflows:
-
-- gpt-4.1
-- gpt-4.1-mini
-- gpt-4.1-nano
-- gpt-4o
-- gpt-4o-mini
-- gpt-4
-- gpt-35-turbo
+[!INCLUDE [supported-models](includes/supported-models.md)]
 
 ## Limitations and known issues
 
@@ -507,7 +497,9 @@ The following example shows how the **Get subscribers** tool might look:
 
 :::image type="content" source="media/create-autonomous-agent-workflows/add-tool-get-subscribers.png" alt-text="Screenshot shows agent with new tool named Get subscribers that contains a Compose action with subscriber information." lightbox="media/create-autonomous-agent-workflows/add-tool-get-subscribers.png":::
 
-[!INCLUDE [agent-workflows-best-practices](includes/agent-workflows-best-practices.md)]
+[!INCLUDE [best-practices-agent-workflows](includes/best-practices-agent-workflows.md)]
+
+[!INCLUDE [troubleshooting-agent-workflows](includes/troubleshooting-agent-workflows.md)]
 
 [!INCLUDE [clean-up-resources](includes/clean-up-resources.md)]
 
