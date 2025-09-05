@@ -61,14 +61,14 @@ The Azure Functions project template in Visual Studio creates a C# class library
     ::: zone-end  
     ::: zone pivot="in-proc"  
 
-    | Setting      | Value  | Description                      |
+    | Setting      | Action  | Description                      |
     | ------------ | ------ |--------------------------------- |
-    | **.NET version** | **.NET 8** | This value creates a function project that runs in-process with version 4.x of the Azure Functions runtime. For more information, see [Azure Functions runtime versions overview](functions-versions.md).   |
-    | **Function template** | **HTTP trigger** | This value creates a function triggered by an HTTP request. |
-    | **Storage account (AzureWebJobsStorage)**  | **Storage emulator** | Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use an Azure Storage account connection string; all other trigger types require a valid Azure Storage account connection string. |
-    | **Authorization level** | **Anonymous** | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth). |
+    | **Functions worker** | Select **.NET 8.0 In-process (Long Term Support)**. | This value creates a function project that runs in-process with version 4.x of the Azure Functions runtime. For more information, see [Azure Functions runtime versions overview](functions-versions.md).   |
+    | **Function** | Select **Http trigger**. | This value creates a function triggered by an HTTP request. |
+    | **Use Azurite for runtime storage account (AzureWebJobsStorage)**  | Select this checkbox. | Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use an Azure Storage account connection string; all other trigger types require a valid Azure Storage account connection string. |
+    | **Authorization level** | Select **Anonymous** | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth). |
 
-    :::image type="content" source="media/functions-develop-vs/functions-project-settings.png" alt-text="Screenshot of Azure Functions project settings for the in-process model.":::
+    :::image type="content" source="media/functions-develop-vs/functions-project-settings.png" alt-text="Screenshot of the Visual Studio Additional information dialog that shows selected settings like an in-process .NET version for the Functions worker.":::
 
     ::: zone-end
 
@@ -131,7 +131,9 @@ In C# class library functions, the bindings used by the function are defined by 
     :::image type="content" source="media/functions-develop-vs/functions-visual-studio-tools-create-queue-trigger.png" alt-text="Screenshot that shows the setting to create a Queue storage trigger function.":::
 
 1. Select **Add**. If you selected the checkbox for configuring a storage connection in the previous step, the **Connect to dependency** page appears. Select an Azurite storage emulator or **Azure Storage**, and then select **Next**.
-   - If you select an Azurite storage emulator, ...
+   - If you select an Azurite storage emulator, the **Connect to Storage Azurite emulator** page appears. Take the following steps:
+     1. Select **Next**.
+     1. On the **Summary of changes** page, select **Finish**. Visual Studio configures the dependency and creates the trigger class.
    - If you select **Azure Storage**, the **Connect to Azure Storage** page appears. Take the following steps:
      1.Select a storage account, and then select **Next**. Visual Studio tries to connect to your Azure account and retrieve an endpoint.
      1. Select **Next**.
@@ -282,7 +284,7 @@ Use the following steps to publish your project to a function app in Azure.
    | **[Azure Storage](../articles/azure-functions/storage-considerations.md)** | General-purpose storage account | An Azure storage account is required by the Functions runtime. Select **New** to configure a general-purpose storage account. You can also choose to use an existing account that meets the [storage account requirements](../articles/azure-functions/storage-considerations.md#storage-account-requirements).  |
    | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Application Insights instance | You should enable Azure Application Insights integration for your function app. Select **New** to create a new instance, either in a new or in an existing Log Analytics workspace. You can also choose to use an existing instance.  |
 
-   :::image type="content" source="./media/functions-develop-vs/visual-studio-create-function-app.png" alt-text="Screenshot of the Function App Create new dialog. Fields for the name, subscription, resource group, plan, and other settings are filled in.":::
+   :::image type="content" source="./media/functions-develop-vs/visual-studio-tools-create-function-app.png" alt-text="Screenshot of the Function App Create new dialog. Fields for the name, subscription, resource group, plan, and other settings are filled in.":::
 
 1. Select **Create** to create a function app and its related resources in Azure. The status of resource creation is shown in the lower-left corner of the window.
 
@@ -292,32 +294,37 @@ Use the following steps to publish your project to a function app in Azure.
 
     When deployment is completed, the root URL of the function app in Azure is shown on the **Publish** tab.
 
-1. On the **Publish** tab, in the **Hosting** section, select **Open in Azure portal**. The new function app Azure resource opens in the Azure portal.
+1. On the **Publish** tab, go to the **Hosting** section. Select the ellipses (**...**), and then select **Open in Azure portal**. The new function app Azure resource opens in the Azure portal.
 
-    :::image type="content" source="media/functions-develop-vs/visual-studio-tools-functions-publish-complete.png" alt-text="Screenshot of the Publish success message.":::
+    :::image type="content" source="media/functions-develop-vs/visual-studio-tools-functions-publish-complete.png" alt-text="Screenshot of the publish profile page. In the Hosting section, the ellipsis shortcut menu is open, and Open in Azure portal is highlighted.":::
 
 ## Function app settings
 
-Visual Studio doesn't upload these settings automatically when you publish the project. Any settings you add in the *local.settings.json* you must also add to the function app in Azure.
+Visual Studio doesn't upload app settings automatically when you publish your project. If you add settings to the *local.settings.json* file, you must also add them to the function app in Azure.
 
-The easiest way to upload the required settings to your function app in Azure is to expand the three dots next to the **Hosting** section and select the **Manage Azure App Service settings** link that appears after you successfully publish your project.
+The easiest way to upload the required settings to your function app in Azure is to manage them in Visual Studio. On the **Publish** tab, go to the **Hosting** section. Select the ellipses (**...**), and then select **Manage Azure App Service settings**.
 
-:::image type="content" source="./media/functions-develop-vs/functions-vstools-app-settings.png" alt-text="Screenshot that shows the settings in the Publish window.":::
+:::image type="content" source="./media/functions-develop-vs/visual-studio-tools-manage-app-settings.png" alt-text="Screenshot of the publish profile page Hosting section. The ellipsis shortcut menu is open, and Manage Azure App Service settings is highlighted.":::
 
-Selecting this link displays the **Application settings** dialog for the function app, where you can add new application settings or modify existing ones.
+When you make the selection, the **Application settings** dialog opens for the function app. You can use this dialog to add application settings or modify existing ones.
 
-:::image type="content" source="media/functions-develop-vs/functions-vstools-app-settings2.png" alt-text="Screenshot that shows the Application settings.":::
+:::image type="content" source="media/functions-develop-vs/visual-studio-tools-app-settings.png" alt-text="Screenshot of the Application settings dialog that shows local and remote values for various settings and controls for adding and editing values.":::
 
-**Local** displays a setting value in the *local.settings.json* file, and **Remote** displays a current setting value in the function app in Azure. Choose **Add setting** to create a new app setting. Use the **Insert value from Local** link to copy a setting value to the **Remote** field. Pending changes are written to the local settings file and the function app when you select **OK**.
+For each setting, the **Local** value is the value in the *local.settings.json* file, and the **Remote** value is the value in the function app in Azure.
+
+- To create an app setting. select **Add setting**.
+- To copy a setting value from the **Local** field to the **Remote** field, select **Insert value from Local**.
+
+Pending changes are written to the local settings file and the function app when you select **OK**.
 
 > [!NOTE]
-> By default, the *local.settings.json* file isn't checked into source control. This means that if you clone a local Functions project from source control, the project doesn't have a *local.settings.json* file. In this case, you need to manually create the *local.settings.json* file in the project root so that the **Application settings** dialog works as expected.
+> By default, the *local.settings.json* file isn't checked into source control. As a result, if you clone a local Functions project from source control, the project doesn't have a *local.settings.json* file. You need to manually create the *local.settings.json* file in the project root so that the **Application settings** dialog works as expected.
 
 You can also manage application settings in one of these other ways:
 
-* [Use the Azure portal](functions-how-to-use-azure-function-app-settings.md#settings)
-* [Use the `--publish-local-settings` publish option in the Azure Functions Core Tools](functions-run-local.md#publish)
-* [Use the Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set)
+* Use the [Azure portal](functions-how-to-use-azure-function-app-settings.md#settings).
+* Use the [`--publish-local-settings` publish option in the Azure Functions Core Tools](functions-run-local.md#publish).
+* Use the [Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 
 ## Remote debugging 
 
@@ -328,33 +335,25 @@ This section assumes you've already published to your function app using a relea
 ### Remote debugging considerations
 
 * Remote debugging isn't recommended on a production service.
-* If you have [Just My Code debugging](/visualstudio/debugger/just-my-code#BKMK_Enable_or_disable_Just_My_Code) enabled, disable it. 
-* Avoid long stops at breakpoints when remote debugging. Azure treats a process that is stopped for longer than a few minutes as an unresponsive process, and shuts it down.
-* While you're debugging, the server sends data to Visual Studio, which could affect bandwidth charges. For information about bandwidth rates, see [Pricing calculator](https://azure.microsoft.com/pricing/calculator/).
-* Remote debugging is automatically disabled in your function app after 48 hours. After 48 hours, you'll need to reenable remote debugging.
+* If you have the Just My Code feature turned on, turn it off. For instructions, see [Enable or disable Just My Code](/visualstudio/debugger/just-my-code#BKMK_Enable_or_disable_Just_My_Code).
+* Avoid long stops at breakpoints when you use remote debugging. When a process is stopped for longer than a few minutes, Azure treats it as an unresponsive process and shuts it down.
+* While you're debugging, the server sends data to Visual Studio, which can affect bandwidth charges. For information about bandwidth rates, see [Pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+* Remote debugging is automatically turned off in your function app after 48 hours. After that point, you need to turn remote debugging back on.
 
 ### Attach the debugger
 
-The way you attach the debugger depends on your execution mode. When debugging an isolated worker process app, you currently need to attach the remote debugger to a separate .NET process, and several other configuration steps are required.
+::: zone pivot="isolated"
 
-When you're done, you should [disable remote debugging](#disable-remote-debugging).
+When you debug an isolated worker process app, you currently need to attach the remote debugger to a separate .NET process. Several other configuration steps are also required.
 
-::: zone pivot="isolated" 
-To attach a remote debugger to a function app running in a process separate from the Functions host:
-
-1. On the **Publish** tab, go to the **Hosting** section. Select the ellipses (**...**), and then select **Download publish profile**. This action downloads a copy of the publish profile and opens the download location. You need this file, which contains the credentials used to attach to your isolated worker process running in Azure.
-
-    > [!CAUTION]
-    > The *.publishsettings* file contains your credentials (unencoded) that are used to administer your function app. The security best practice for this file is to store it temporarily outside your source directories (for example in the Libraries\Documents folder), and then delete it after it's no longer needed. A malicious user who gains access to the *.publishsettings* file can edit, create, and delete your function app.
+To attach a remote debugger to a function app running in a process separate from the Functions host, take the following steps:
 
 1. On the **Publish** tab, go to the **Hosting** section. Select the ellipses (**...**), and then select **Attach debugger**.  
 
     Visual Studio connects to your function app and enables remote debugging, if not already enabled. 
 
     > [!NOTE]
-    > Because the remote debugger isn't able to connect to the host process, you could see an error. In any case, the default debugging doesn't break into your code. 
-
-1. On the **Publish** tab, go to the **Hosting** section. Next to **Site**, copy the URL.
+    > Because the remote debugger can't connect to the host process, you might see an error message. In any case, the default debugging doesn't break into your code. 
 
 1. On the Visual Studio **Debug** menu, select **Attach to Process**.
 
@@ -366,38 +365,31 @@ To attach a remote debugger to a function app running in a process separate from
 
 1. If prompted, allow Visual Studio access through your local firewall.
 
-1. Back in the **Attach to Process** dialog, select **Show process from all users**. Select **dotnet.exe**, and then select **Attach**. When the operation finishes, you're attached to your C# class library code running in an isolated worker process. At this point, you can debug your function app as normal.
+1. Back in the **Attach to Process** dialog, select **Show processes for all users**. Select **dotnet.exe**, and then select **Attach**.
 
-1. Probably skip this step. Paste the URL in the **Connection Target**, remove `https://` and append the port `:4024`. 
+   :::image type="content" source="media/functions-develop-vs/attach-to-process-dialog.png" alt-text="Screenshot of the Attach to Process dialog. The connection type is Microsoft Azure App Services. In the process table, dotnet.exe is selected.":::
 
-    Verify that your target looks like `<FUNCTION_APP>.azurewebsites.net:4024` and press **Enter**.
+When the operation finishes, you're attached to your C# class library code running in an isolated worker process. At this point, you can debug your function app as normal.
 
-    :::image type="content" source="media/functions-develop-vs/attach-to-process-dialog.png" alt-text="Screenshot that shows the attach to process dialog box.":::
-
-1. If prompted, allow Visual Studio access through your local firewall.
-
-1. Probably skip this step. When prompted for credentials, instead of local user credentials choose a different account (**More choices** on Windows). Provide the values of **userName** and **userPWD** from the published profile for **Email address** and **Password** in the authentication dialog on Windows. After a secure connection is established with the deployment server, the available processes are shown.
-
-    :::image type="content" source="media/functions-develop-vs/creds-dialog.png" alt-text="Screenshot that shows the dialog box to enter credentials.":::
-
-1. Check **Show process from all users** and then choose **dotnet.exe** and select **Attach**. When the operation completes, you're attached to your C# class library code running in an isolated worker process. At this point, you can debug your function app as normal.
 ::: zone-end  
 ::: zone pivot="in-proc" 
 
-To attach a remote debugger to a function app running in-process with the Functions host:
+To attach a remote debugger to a function app running in-process with the Functions host, take the following steps.
 
-+ From the **Publish** tab, select the ellipses (**...**) in the **Hosting** section, and then choose **Attach debugger**.  
+On the **Publish** tab, go to the **Hosting** section. Select the ellipses (**...**), and then select **Attach debugger**.  
 
 Visual Studio connects to your function app and enables remote debugging, if not already enabled. It also locates and attaches the debugger to the host process for the app. At this point, you can debug your function app as normal. 
 ::: zone-end  
+
+When you finish debugging, follow the steps in the next section to turn off remote debugging.
 
 ### Disable remote debugging
 
 After you're done remote debugging your code, you should disable remote debugging in the [Azure portal](https://portal.azure.com). Remote debugging is automatically disabled after 48 hours, in case you forget. 
 
-1. In the **Publish** tab in your project, select the ellipses (**...**) in the **Hosting** section, and choose **Open in Azure portal**. This action opens the function app in the Azure portal to which your project is deployed. 
+1. On the **Publish** tab, go to the **Hosting** section. Select the ellipses (**...**), and then select **Open in Azure portal**. This action opens the function app in the Azure portal to which your project is deployed. 
 
-1. In the functions app, select **Configuration** under **settings**, choose **General Settings**, set **Remote Debugging** to **Off**, and select **Save** then **Continue**.
+1. In the functions app, select **Configuration** under **settings**, choose **General settings**, set **Remote debugging** to **Off**, and select **Save** then **Continue**.
 
 After the function app restarts, you can no longer remotely connect to your remote processes. You can use this same tab in the Azure portal to enable remote debugging outside of Visual Studio.
 
