@@ -1,7 +1,7 @@
---
+---
 title: Information on VMMD
 description: Virtual Machine Metablob Disk
-author: rakeshginjupalli
+author: linuxelf001
 ms.topic: include
 ms.service: azure-virtual-machines
 ms.subservice: sizes
