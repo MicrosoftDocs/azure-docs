@@ -2,13 +2,13 @@
 title: Slurm Scheduler Integration
 description: Slurm scheduler configuration in Azure CycleCloud.
 author: KimliW
-ms.date: 07/01/2025
+ms.date: 09/05/2025
 ms.author: adjohnso
 ---
 
 # Slurm
 
-[//]: # (Need to link to the scheduler README on GitHub)
+[CycleCloud Slurm Cluster Project README](https://github.com/Azure/cyclecloud-slurm?tab=readme-ov-file#cyclecloud-slurm)
 
 Slurm is a highly configurable open source workload manager. For more information, see the overview on the [Slurm project site](https://www.schedmd.com/).
 

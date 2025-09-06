@@ -2,13 +2,13 @@
 title: OpenPBS Integration
 description: OpenPBS scheduler configuration in Azure CycleCloud.
 author: adriankjohnson
-ms.date: 07/01/2025
+ms.date: 09/05/2025
 ms.author: adjohnso
 ---
 
 # OpenPBS
 
-[//]: # (Need to link to the scheduler README on GitHub)
+[CycleCloud Open PBS and PBS Professional Cluster Project README](https://github.com/Azure/cyclecloud-pbspro/?tab=readme-ov-file#azure-cyclecloud-openpbs-project)
 
 ::: moniker range="=cyclecloud-7"
 You can enable [OpenPBS](http://openpbs.org/) on a CycleCloud cluster by changing the `run_list` in the configuration section of your cluster definition. A PBS Professional (PBS Pro) cluster has two main parts: the **primary** node, which runs the software on a shared filesystem, and the **execute** nodes, which mount that filesystem and run the submitted jobs. For example, a simple cluster template snippet might look like:

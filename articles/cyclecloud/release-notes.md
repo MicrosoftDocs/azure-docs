@@ -2,13 +2,13 @@
 title: Current Release Notes - Azure CycleCloud 8.7.x
 description: Read the product release notes for the current Azure CycleCloud release. This article covers releases 8.7.x, 8.6.x, 8.5.x, 8.4.x, 8.2.x and 8.1.x.
 author: adriankjohnson
-ms.date: 07/01/2025
+ms.date: 09/05/2025
 ms.author: adjohnso
 ---
 
 # Azure CycleCloud 8.x
 
-The current version is 8.7.1.
+The current version is 8.7.3.
 
 ## Azure CycleCloud 8.x release highlights
 
@@ -33,6 +33,8 @@ The following table lists the release notes for the individual 8.x releases:
 
 | CycleCloud Release Notes Version  | Release date  |
 | :-------------------------------: | :-----------: |
+| [**8.7.3**](release-notes/8-7-3.md) | 09/05/25 |
+| [**8.7.2**](release-notes/8-7-2.md) | 07/01/25 |
 | [**8.7.1**](release-notes/8-7-1.md) | 02/11/25 |
 | [**8.7.0**](release-notes/8-7-0.md) | 12/18/24 |
 | [**8.6.5**](release-notes/8-6-5.md) | 10/24/24 |

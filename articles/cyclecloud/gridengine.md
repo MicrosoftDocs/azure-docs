@@ -2,15 +2,15 @@
 title: Grid Engine Scheduler Integration
 description: Grid Engine scheduler configuration in Azure CycleCloud.
 author: adriankjohnson
-ms.date: 06/10/2025
+ms.date: 09/05/2025
 ms.author: adjohnso
 ---
 
 # CycleCloud GridEngine Cluster
 
+[CycleCloud GridEngine Cluster Project README](https://github.com/Azure/cyclecloud-gridengine/?tab=readme-ov-file#cyclecloud-gridengine-project)
 ::: moniker range="=cyclecloud-7"
 
-[//]: # (Need to link to the scheduler README on Github)
 
 [Open Grid Scheduler (Grid Engine)](http://gridscheduler.sourceforge.net/) can easily be enabled on an Azure CycleCloud cluster by modifying the "run_list" in the cluster definition. A Grid Engine cluster consists of two primary components. The first is the 'master' node, which provides a shared filesystem where the Grid Engine software runs. The second is the set of 'execute' nodes, which are the hosts that mount the shared filesystem and run the jobs that are submitted. For example, a simple Grid Engine cluster template snippet may look like:
 
