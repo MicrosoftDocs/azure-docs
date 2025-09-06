@@ -62,8 +62,6 @@
     href: register-discover-mcp-server.md
   - name: Build and register Logic Apps MCP server
     href: /azure/logic-apps?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json
-  - name: MCP Center
-    href: https://mcp.azure.com
 - name: API governance
   items:
   - name: Use metadata for governance
@@ -122,3 +120,5 @@
     href: https://aka.ms/API-Security-EBook
   - name: Azure updates
     href: https://aka.ms/apic/updates
+  - name: MCP Center
+    href: https://mcp.azure.com
