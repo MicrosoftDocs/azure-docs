@@ -15,7 +15,7 @@ LSF is an IBM licensed product. To use LSF in CycleCloud, you need an entitlemen
 > [!NOTE]
 > * LSF is an IBM licensed product. To use LSF in CycleCloud, you need an entitlement file that IBM provides to its customers. Add the LSF binaries and entitlement file to the `blobs/` directory to use the fully automated cluster or the VM image builder in this project.
 > * To use the fully automated cluster or the VM image builder in this project, add the LSF binaries and entitlement file to the `blobs/` directory.
-> * LSF depends upon the ``ed`` package which is not installed in recent releases of the Azure HPC Image by default. If your selected VM Image does not include ``ed``, then we suggest using [cloud-init](~/how-to/cloud-init.md) to add the package. For example, on RedHat Enterprise Linux, AlmaLinux or CentOS you can add the following to your cluster template (or in the CycleCloud GUI via the Cluster Edit dialog):
+> * LSF depends upon the ``ed`` package which is not installed in recent releases of the Azure HPC Image by default. If your selected VM Image does not include ``ed``, then we suggest using [cloud-init](./how-to/cloud-init.md) to add the package. For example, on RedHat Enterprise Linux, AlmaLinux or CentOS you can add the following to your cluster template (or in the CycleCloud GUI via the Cluster Edit dialog):
 > 
 ```ini
 [node defaults]
