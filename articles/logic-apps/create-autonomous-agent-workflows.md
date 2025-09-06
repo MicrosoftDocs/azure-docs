@@ -499,7 +499,7 @@ The following example shows how the **Get subscribers** tool might look:
 
 [!INCLUDE [best-practices-agent-workflows](includes/best-practices-agent-workflows.md)]
 
-[!INCLUDE [troubleshooting-agent-workflows](includes/troubleshooting-agent-workflows.md)]
+[!INCLUDE [troubleshoot-agent-workflows](includes/troubleshoot-agent-workflows.md)]
 
 [!INCLUDE [clean-up-resources](includes/clean-up-resources.md)]
 

@@ -26,7 +26,7 @@ The workflow run history provides useful information that helps you learn what h
 
 1. To get tool execution data at a specific point, find that point in the agent log, and select the tool execution reference, for example:
 
-   :::image type="content" source="media/troubleshooting-agent-workflows/tool-reference-links.png" alt-text="Screenshot shows agent log and selected tool execution link." lightbox="media/troubleshooting-agent-workflows/tool-reference-links.png":::
+   :::image type="content" source="media/troubleshoot-agent-workflows/tool-reference-links.png" alt-text="Screenshot shows agent log and selected tool execution link." lightbox="media/troubleshoot-agent-workflows/tool-reference-links.png":::
 
    This action moves you to the matching tool in monitoring view. The agent shows the current iteration count.
 
@@ -34,7 +34,7 @@ The workflow run history provides useful information that helps you learn what h
 
    The following example shows a selected action for the previously selected tool execution:
 
-   :::image type="content" source="media/troubleshooting-agent-workflows/tool-execution-data.png" alt-text="Screenshot shows monitoring view, current agent loop iteration, and selected action with inputs and outputs at this point in time." lightbox="media/troubleshooting-agent-workflows/tool-execution-data.png":::
+   :::image type="content" source="media/troubleshoot-agent-workflows/tool-execution-data.png" alt-text="Screenshot shows monitoring view, current agent loop iteration, and selected action with inputs and outputs at this point in time." lightbox="media/troubleshoot-agent-workflows/tool-execution-data.png":::
 
    If you select the agent, you can review the following information that passes into the model and returns from the model, for example:
 
