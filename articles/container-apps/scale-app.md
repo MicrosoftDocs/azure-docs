@@ -317,6 +317,8 @@ Not supported in the Azure portal. Use the [Azure CLI](scale-app.md?pivots=azure
 
 You can create a custom Container Apps scaling rule based on any [ScaledObject](https://keda.sh/docs/latest/concepts/scaling-deployments/)-based [KEDA scaler](https://keda.sh/docs/latest/scalers/) with these defaults:
 
+**Note:** The KEDA cooldownPeriod only applies when scaling down to 0 instances and is not enforced for scale-down operations where the number of replicas decreases from N to a value greater than 0; whereas scaling up from 1 to N replicas is managed by the Kubernetes Horizontal Pod Autoscaler.
+
 | Defaults | Seconds |
 |--|--|
 | Polling interval | 30 |
