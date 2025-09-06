@@ -1,3 +1,16 @@
+--
+title: Information on VMMD
+description: Virtual Machine Metablob Disk
+author: rakeshginjupalli
+ms.topic: include
+ms.service: azure-virtual-machines
+ms.subservice: sizes
+ms.date: 09/05/2025
+ms.author: raginjup
+ms.reviewer: raginjup
+ms.custom: include file
+---
+
 This article outlines the changes to be aware when using confidential VMs with Virtual Machine Metadata (VMMD) blob.
 
 > [!NOTE]
