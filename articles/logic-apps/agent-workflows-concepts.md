@@ -37,7 +37,7 @@ You can build workflows that use autonomous or conversational agents. The agent 
 
 With [1,400+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that you can use to build tools for an agent to use, agent workflows support a vast range of scenarios that greatly benefit from agent and model capabilities. Based on your scenario, create either an autonomous agent workflow without human interaction or a conversational agent workflow with human interaction to best suit your solution's needs.
 
-This conceptual guide describes key concepts, differences between autonomous and conversational agent workflows, differences between agent workflows and regular workflows, agent structure, other example scenarios, and basic billing information.
+This conceptual guide describes key concepts, differences between autonomous and conversational agent workflows, differences between agent workflows and nonagent workflows, agent structure, other example scenarios, and basic billing information.
 
 For more information, see the following documentation:
 
@@ -105,13 +105,13 @@ The following screenshot shows the integrated chat interface that you can access
 
 :::image type="content" source="media/agents-workflows-concepts/conversational-agent-chat.png" alt-text="Screenshot shows Azure portal and workflow integrated chat interface." lightbox="media/agents-workflows-concepts/conversational-agent-chat.png":::
 
-## Differences between agent and non-agent workflows
+## Agent versus nonagent workflows
 
-Workflows that use agents can evolve beyond the limits imposed on non-agent workflows. Agent workflows can adapt to environments where unexpected events happen, choose which tools to use based on prompts, inputs, and available data, continuously improve their performance, handle unstructured data, support complex scenarios, and provide a higher level of adaptability and flexibility. Non-agent workflows function best in stable environments, follow predefined rules, and perform tasks that are static, predictable, and repetitive.
+Workflows that use agents can evolve beyond the limits imposed on nonagent workflows. Agent workflows can adapt to environments where unexpected events happen, choose which tools to use based on prompts, inputs, and available data, continuously improve their performance, handle unstructured data, support complex scenarios, and provide a higher level of adaptability and flexibility. Nonagent workflows function best in stable environments, follow predefined rules, and perform tasks that are static, predictable, and repetitive.
 
-The following table provides more comparisons between agent workflows and non-agent workflows:
+The following table provides more comparisons between agent workflows and nonagent workflows:
 
-| Aspect | Agent | Non-agent |
+| Aspect | Agent | Nonagent |
 |--------|-------|-----------|
 | **Logic** | Make informed choices about the tasks to perform, based on inputs and other available information, and take actions. | Follow predefined rules and fixed sequences. |
 | **Task management** | Treat tasks as separate entities  | Not applicable |
