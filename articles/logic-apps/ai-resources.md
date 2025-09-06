@@ -1,17 +1,17 @@
 ---
-title: AI playbook, examples, and samples
+title: AI Playbook, Examples, and Samples
 description: Learn about AI integration examples, samples, and other resources using Standard and Consumption workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
-ms.date: 09/07/2025
+ms.date: 09/08/2025
 ms.update-cycle: 180-days
 #CustomerIntent: I want a guide that introduces starting points, building blocks, examples, samples, and other resources to help me learn about using AI in my integration solutions using Standard and Consumption workflows in Azure Logic Apps.
 ---
 
-# AI playbook, examples, and other resources for workflows in Azure Logic Apps
+# AI playbook, examples, samples, and other resources for workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
@@ -21,27 +21,27 @@ This guide provides building blocks, examples, samples, and other resources that
 
 ## AI agent and model-powered workflows (Preview)
 
-Azure Logic Apps supports Standard logic app workflows that complete tasks by using *agents* with *large language models* (LLMs) in Azure OpenAI Service. An agent uses an iterative looped process to solve complex, multi-step problems. A large language model is a program that's trained to recognize patterns and perform jobs without human interaction, for example:
+Azure Logic Apps supports Standard logic app workflows that complete tasks by using *agents* with *large language models* (LLMs). An agent uses an iterative looped process to solve complex, multi-step problems. An LLM is a trained program that recognizes patterns and performs jobs without human interaction, for example:
 
 - Analyze, interpret, and reason about information such as instructions, prompts, inputs, and other data.
 - Make decisions, based on results and available data.
 - Formulate and return answers back to the prompter, based on the agent's instructions.
 
-After you create your Standard logic app, add a workflow that uses the **Agent** workflow type. The **Agent** type creates a partial workflow that includes a default agent. This agent works autonomously, but you can set up the agent to interact with you through a chat interface. The agent uses natural language to communicate with you and the connected model. The agent also uses model-generated outputs to do work - with or without human interaction. The model helps the agent provide the following capabilities:
+After you create your Standard logic app, add a workflow that uses the **Autonomous Agents** or **Conversational Agents** workflow type. Either type creates a partial workflow that includes an empty **Agent** action. Based on the workflow type you selected, this agent works autonomously or interactively through an integrated chat interface. The agent can use natural language to communicate either through previously provided instructions or real-time human interactions and the connected model. The agent also uses model-generated outputs to do work - with or without human interaction. The model helps the agent provide the following capabilities:
 
-- Accept information about what the agent does, how to operate, and how to respond.
-- Receive and respond to requests (prompts) autonomously or through chat.
+- Accept information about the agent's role, how to operate, and how to respond.
+- Receive and respond to instructions and requests, or *prompts*.
 - Process inputs, analyze data, and make choices, based on available information.
-- Choose tools to complete the tasks necessary to fulfill requests. Basically, a *tool* is a sequence with one or more actions that complete a task. A tool can use only actions, not triggers.
+- Choose tools to complete the tasks necessary to fulfill requests. A *tool* is basically a sequence with one or more actions that complete a task.
 - Adapt to environments that require flexibility and are fluid, dynamic, unpredictable, or unstable.
 
-With [1,400+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that you can use to build tools in an agent, agent workflows support a vast range of scenarios that can greatly benefit from agent and model capabilities. Based on your use cases, the agent can perform work with or without human interaction.
+With [1,400+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that you can use to build tools for an agent, agent workflows support a vast range of scenarios that can greatly benefit from agent and model capabilities. Based on your use cases, the agent can perform work with or without human interaction.
 
 For more information, see the following resources:
 
 | Resource type | Link |
 |---------------|------|
-| **Documentation** | - [Workflows with AI agents and models in Azure Logic Apps](agent-workflows-concepts.md) <br><br>- [Create autonomous agent workflows in Azure Logic Apps](create-autonomous-agent-workflows.md) |
+| **Documentation** | - [Workflows with AI agents and models in Azure Logic Apps](agent-workflows-concepts.md) <br><br>- [Create autonomous agent workflows in Azure Logic Apps](create-autonomous-agent-workflows.md) <br><br>- [Create conversational agent workflows in Azure Logic Apps](create-conversational-agent-workflows.md) |
 | **Blog article** | [Announcing agent loop: Build AI Agents in Azure Logic Apps](https://techcommunity.microsoft.com/blog/integrationsonazureblog/%F0%9F%93%A2announcing-agent-loop-build-ai-agents-in-azure-logic-apps-%F0%9F%A4%96/4415052) |
 | **Blog article** | [Agent Loop Demos for Azure Logic Apps](https://techcommunity.microsoft.com/blog/integrationsonazureblog/%F0%9F%A4%96-agent-loop-demos-%F0%9F%A4%96/4414770) |
 | **Video overview** | [Getting Ready for Agents in Azure Logic Apps](https://youtu.be/EMXLB4thdhg) |
