@@ -79,7 +79,7 @@ The following high-level steps describe the behavior for a basic autonomous agen
 
 The following screenshot shows a basic example autonomous agent workflow:
 
-:::image type="content" source="media/agents-workflows-concepts/weather-example-autonomous.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and example basic utonomous agent workflow." lightbox="media/agents-workflows-concepts/weather-example.png":::
+:::image type="content" source="media/agents-workflows-concepts/weather-example-autonomous.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and example basic utonomous agent workflow." lightbox="media/agents-workflows-concepts/weather-example-autonomous.png":::
 
 ### Conversational agent workflow
 

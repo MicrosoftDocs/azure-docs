@@ -58,4 +58,4 @@ If your agent's log history exceeds the model's *context length*, or the maximum
 
 Try reducing the limit on the number of tokens or messages that your agent keeps in log and passes into the model for the next interaction. For this example, you might select **Token count reduction** and set **Maximum Token Count** to a number below the error's stated maximum context length, which is **4097**.
 
-For more information, see [Manage chat history context length](best-practices-agent-workflows.md#manage-chat-history-context-length).
+For more information, see [Manage chat history context length](#manage-chat-history-context-length).
