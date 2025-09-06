@@ -4,7 +4,7 @@ description: Learn how workflows benefit from using AI agents with models to com
 author: ecfan
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, divswa, karansin, krmitta, kewear, azla
+ms.reviewer: estfan, divswa, karansin, krmitta, azla
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.date: 09/08/2025
@@ -95,13 +95,15 @@ The following high-level steps describe the behavior for a basic conversational 
 
 1. Based on the agent instructions, the model helps plan which tools that the agent invokes for the necessary tasks.
 
-1. The agent returns the results from the tools and responds to the workflow caller or the specified recipient.
-
-1. The agent returns the tool results and responds through the chat interface to the human actor.
+1. The agent returns the tool results and responds through the chat interface to the human prompter.
 
 The following screenshot shows a basic example conversational agent workflow:
 
 :::image type="content" source="media/agents-workflows-concepts/weather-example-conversational.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and example basic conversational agent workflow." lightbox="media/agents-workflows-concepts/weather-example-conversational.png":::
+
+The following screenshot shows the integrated chat interface that you can access from the designer toolbar or the workflow sidebar menu under **Tools**:
+
+:::image type="content" source="media/agents-workflows-concepts/conversational-agent-chat.png" alt-text="Screenshot shows Azure portal and workflow integrated chat interface." lightbox="media/agents-workflows-concepts/conversational-agent-chat.png":::
 
 ## Differences between agent and non-agent workflows
 
@@ -191,11 +193,12 @@ To support an internal facilities team, a work order agent performs the followin
 
 ## Billing
 
-Although agent workflows don't incur extra charges in Azure Logic Apps, model usage in Azure OpenAI Service incurs charges. For more information, see [Azure OpenAI Service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/#pricing).
+Although agent workflows don't incur extra charges in Azure Logic Apps, model usage in Azure OpenAI Service and Azure AI Foundry projects incur charges. For more information, see the following pages:
 
-## Next steps
+- [Azure OpenAI Service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/#pricing)
+- [Azure AI Foundry pricing](https://azure.microsoft.com/pricing/details/ai-foundry/)
 
-In this overview, you learned about the benefits that agent workflows provide and how they differ from non-agent workflows. To get started creating an agent workflow, see the following how-to guide:
+## Related content
 
-> [!div class="nextstepaction"]
-> [Create agent workflows in Azure Logic Apps](/azure/logic-apps/create-agent-workflows)
+- [Create autonomous agent workflows in Azure Logic Apps](/azure/logic-apps/create-autonomous-agent-workflows)
+- [Create conversational agent workflows in Azure Logic Apps](/azure/logic-apps/create-conversational-agent-workflows)
