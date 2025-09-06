@@ -10,6 +10,7 @@ ms.author: raginjup
 ms.reviewer: raginjup
 ms.custom: include file
 ---
+# **New capabilities for managing confidential VM disks**
 
 This article outlines the changes to be aware when using confidential VMs with Virtual Machine Metadata (VMMD) blob.
 
@@ -37,7 +38,7 @@ To get the VMMD SAS URI using the Azure REST API, use the `beginGetAccess` endpo
 Grant access to a confidential VM disk
   * API: beginGetAccess
   * New in response: securityMetadataAccessSAS
-    
+
 **Sample HTTP Request:**
 
 ```http
@@ -61,7 +62,7 @@ Status code: 200
   "securityMetadataAccessSAS": "VM Metadata SAS URI"
 }
 ```
-Detailed documentation and more examples using Java, Go, JavaScript or dotnet [are available here.](https://learn.microsoft.com/en-us/rest/api/compute/disks/create-or-update?view=rest-compute-2025-01-02&tabs=HTTP#create-a-managed-disk-from-importsecure-create-option-with-metadata-uri-for-confidential-vm)
+Detailed documentation and more examples using Java, Go, JavaScript or dotnet [are available here.](/rest/api/compute/disks/create-or-update?view=rest-compute-2025-01-02&tabs=HTTP#create-a-managed-disk-from-importsecure-create-option-with-metadata-uri-for-confidential-vm&preserve-view=true)
 
 ### [Azure CLI](#tab/cli-access)
 
@@ -116,12 +117,12 @@ Grant-AzDiskAccess `
 ```
 ## **Create**
 
-### [Azure REST API](#tab/rest-access)
+### [Azure REST API](#tab/rest-create)
 
 To create a confidential VM disk with VMMD URI
   * API: createOption ImportSecure
   * Include: securityMetadataUri in the request
-    
+
 **Sample HTTP Request:**
 
 ```http
@@ -171,9 +172,9 @@ Status code: 200
   }
 }
 ```
-Detailed documentation and more examples using Java, Go, JavaScript or dotnet [are available here.](https://learn.microsoft.com/en-us/rest/api/compute/disks/create-or-update?view=rest-compute-2025-01-02&tabs=HTTP#create-a-managed-disk-from-importsecure-create-option-with-metadata-uri-for-confidential-vm)
+Detailed documentation and more examples using Java, Go, JavaScript or dotnet [are available here.](/rest/api/compute/disks/create-or-update?view=rest-compute-2025-01-02&tabs=HTTP#create-a-managed-disk-from-importsecure-create-option-with-metadata-uri-for-confidential-vm&preserve-view=true)
 
-### [Azure CLI](#tab/cli-access)
+### [Azure CLI](#tab/cli-create)
 
 To create a confidential VM disk with VMMD URI
   * Include the --security-metadata-uri parameter.
@@ -195,7 +196,7 @@ az disk create -n $diskName -g $resourceGroup -l $location --os-type Windows --h
 }
 ```
 
-### [Azure PowerShell](#tab/powershell-access)
+### [Azure PowerShell](#tab/powershell-create)
 
 With Azure PowerShell version 14.4.0 or later, the `Grant-AzDiskAccess` cmdlet now returns an object that includes the `securityMetadataAccessSAS`.
 
@@ -231,14 +232,14 @@ When using UploadPreparedSecure, upload the VMMD blob in addition to the OS and 
 
 **A:** The VMMD (Virtual Machine Metadata) blob contains metadata for a confidential VM.
 
-For more, see our [confidential VM FAQ](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-vm-faq) and our [managed disk FAQ](https://learn.microsoft.com/en-us/azure/virtual-machines/faq-for-disks)
+For more, see our [confidential VM FAQ](/azure/confidential-computing/confidential-vm-faq) and our [managed disk FAQ](/azure/virtual-machines/faq-for-disks)
 
 ## **Next Steps**
 
-* [Deploy a confidential VM from Azure](https://learn.microsoft.com/en-us/azure/confidential-computing/quick-create-confidential-vm-portal)
-* [Azure confidential computing documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/)
+* [Deploy a confidential VM from Azure](/azure/confidential-computing/quick-create-confidential-vm-portal)
+* [Azure confidential computing documentation](/azure/confidential-computing/)
 
 ## **Related Articles**
 
-* [Azure managed disks overview](https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview)
-* [Managed disk migration guide](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/convert-unmanaged-to-managed-disks)
+* [Azure managed disks overview](/azure/virtual-machines/managed-disks-overview)
+* [Managed disk migration guide](/azure/virtual-machines/linux/convert-unmanaged-to-managed-disks) 
