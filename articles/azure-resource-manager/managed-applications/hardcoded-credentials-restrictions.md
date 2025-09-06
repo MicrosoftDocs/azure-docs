@@ -7,7 +7,7 @@ ms.date: 08/21/2025
 
 # Restrictions on hardcoded credentials
 
-Azure Applications enforces strict security policies prohibiting the use of hardcoded credentials (for example, usernames, passwords, keys, SAS URIs) in managed applications and solution templates. This restriction is mandated under [Marketplace Certification Policy 300.4.4 Parameters](https://learn.microsoft.com/legal/marketplace/certification-policies#30044-parameters).
+Azure Applications enforces strict security policies prohibiting the use of hardcoded credentials (for example, usernames, passwords, keys, SAS URIs) in managed applications and solution templates. This restriction is mandated under [Marketplace Certification Policy 300.4.4 Parameters](/legal/marketplace/certification-policies#30044-parameters).
 
 ## Security risks of hardcoded credentials
 
@@ -43,4 +43,4 @@ API keys/Storage keys:
 
 ## References
 
-To learn more about Marketplace policies, refer to the [Commercial marketplace certification policies](https://learn.microsoft.com/legal/marketplace/certification-policies) documentation.
+To learn more about Marketplace policies, refer to the [Commercial marketplace certification policies](/legal/marketplace/certification-policies) documentation.
