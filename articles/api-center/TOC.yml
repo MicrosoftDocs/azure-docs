@@ -52,12 +52,18 @@
     href: design-api-github-copilot-azure.md
   - name: Register APIs - GitHub Actions
     href: register-apis-github-actions.md
-  - name: Register and discover MCP servers
-    href: register-discover-mcp-server.md
   - name: Export API from API Center to Copilot Studio
     href: export-to-copilot-studio.yml
   - name: Track API dependencies
     href: track-resource-dependencies.md
+- name: MCP servers
+  items:
+  - name: Register and discover MCP servers
+    href: register-discover-mcp-server.md
+  - name: Build and register Logic Apps MCP server
+    href: /azure/logic-apps?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json
+  - name: MCP Center
+    href: https://mcp.azure.com
 - name: API governance
   items:
   - name: Use metadata for governance
