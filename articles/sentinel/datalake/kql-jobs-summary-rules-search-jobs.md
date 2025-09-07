@@ -75,7 +75,7 @@ If you have any of the following requirements, use search jobs:
 
 ## Related articles
 
-- [KQL and the Microsoft Sentinel data lake (preview)](kql-overview.md)
-- [Jupyter notebooks and the Microsoft Sentinel data lake (preview)](notebooks-overview.md)
+- [KQL and the Microsoft Sentinel data lake](kql-overview.md)
+- [Jupyter notebooks and the Microsoft Sentinel data lake](notebooks-overview.md)
 - [Aggregate Microsoft Sentinel data with summary rules](../summary-rules.md)
 - [Search for specific events across large datasets in Microsoft Sentinel](../search-jobs.md)  
