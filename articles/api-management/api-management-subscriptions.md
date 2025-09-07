@@ -3,7 +3,6 @@ title: Subscriptions in Azure API Management | Microsoft Docs
 description: Learn about the concept of subscriptions in Azure API Management. Consumers commonly get access to APIs by using subscriptions in Azure API Management.
 services: api-management
 author: dlepow
- 
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 09/03/2024
@@ -110,7 +109,7 @@ A subscriber can use an API Management subscription key in one of two ways:
 
 ## Enable or disable subscription requirement for API or product access
 
-By default when you create an API, a subscription key is required for API access. Similarly, when you create a product, by default a subscription key is required to access any API that's added to the product. Under certain scenarios, an API publisher might want to publish a product or a particular API to the public without the requirement of subscriptions. While a publisher could choose to enable unsecured (anonymous) access to certain APIs, configuring another mechanism to secure client access is recommended.
+By default when you create an API, a subscription key is required for API access. Similarly, when you create a product, by default a subscription key is required to access any API that's added to the product. Under certain scenarios, an API publisher might want to publish a product or a particular API to the public without the requirement of subscriptions. While a publisher could choose to enable unsecured (anonymous) access to certain APIs, configuring another mechanism to secure client access is recommended.å
 
 > [!CAUTION]
 > Use care when configuring a product or an API that doesn't require a subscription. This configuration may be overly permissive and may make an API more vulnerable to certain [API security threats](mitigate-owasp-api-threats.md#security-misconfiguration).
@@ -173,6 +172,125 @@ The following table summarizes how the gateway handles API requests with or with
 -	API access in a product context is the same, whether the product is published or not. Unpublishing the product hides it from the developer portal, but it doesn’t invalidate new or existing subscription keys.
 -   If an API doesn't require subscription authentication, any API request that includes a subscription key is treated the same as a request without a subscription key. The subscription key is ignored.
 -	API access "context" means the policies and access controls that are applied at a particular scope (for example, API or product).
+
+## Client-Side and Mobile Apps
+
+For client-side web applications (e.g., single-page apps) and mobile apps, embedding subscription keys in client code or app binaries can pose security risks, as they may be exposed through browser tools, network inspection, or reverse engineering. Additionally, subscription keys are not tied to individual users, limiting their use for user-specific access control. The **OAuth 2.0 Authorization Code Flow with Proof Key for Code Exchange (PKCE)** provides a secure, user-centric alternative to subscription keys for accessing APIs managed by Azure API Management, leveraging Microsoft Entra ID’s public keys (Entra) for authentication.
+
+> [!CAUTION]
+> Secrets and subscriptions keys should not be stored in your client-side application code.
+
+
+### Why Use OAuth 2.0 with PKCE?
+
+- **Security**: Uses short-lived access tokens (JWTs) instead of static keys, reducing exposure risks. PKCE prevents authorization code interception, making it safe for public clients like browsers and mobile apps.
+- **User-Specific Access**: Tokens are issued for authenticated users, enabling fine-grained authorization based on user identity or roles.
+- **No Subscription Keys**: Access tokens replace subscription keys, validated by Azure API Management's `validate-jwt` policy.
+- **Modern Experience**: Supports single sign-on (SSO) and seamless authentication via Microsoft Entra ID, and supports Azure B2C.
+
+### How It Works
+
+1. The app redirects the user to an Microsoft Entra ID login page (or mobile system browser) for authentication.
+2. Microsoft Entra ID returns an authorization code, secured by a PKCE `code_verifier` and `code_challenge`.
+3. The app exchanges the code for an access token (and optionally a refresh token) via Microsoft Entra ID's token endpoint.
+4. The app sends the access token in the `Authorization: Bearer <token>` header to the Azure API Management API.
+5. Azure API Management validates the token against Microsoft Entra ID’s public keys and forwards the request to the backend API if valid.
+
+### Configuring Azure API Management and Microsoft Entra ID/Azure B2C
+
+1. **Register the App in Entra**:
+   - In the Azure Portal, go to **Microsoft Entra** > **App registrations** > **New registration**.
+   - Set a redirect URI (e.g., `https://yourapp.com/auth/callback` for web, `myapp://auth` for mobile).
+   - Enable public client flows under **Authentication**.
+   - Note the **Application (client) ID**.
+
+2. **Expose the API in Microsoft Entra ID**:
+   - Register the API and define a scope (e.g., `api://<api-client-id>/access`).
+   - Authorize the client app to request tokens for this scope.
+
+3. **Configure Azure API Management**:
+   - Add or import your API in Azure API Management and set the backend URL.
+   - Under **Settings**, select **Microsoft Entra** as the identity provider and enter the API’s Microsoft Entra ID client ID.
+   - Apply a `validate-jwt` policy:
+
+     ```xml
+     <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized">
+         <openid-config url="https://login.microsoftonline.com/{tenant-id}/v2.0/.well-known/openid-configuration" />
+         <audiences>
+             <audience>api://<api-client-id></audience>
+         </audiences>
+         <issuers>
+             <issuer>https://sts.windows.net/{tenant-id}/</issuer>
+         </issuers>
+     </validate-jwt>
+     ```
+
+   - Disable **Subscription required** under **Settings** to bypass subscription keys. (Optionally) you can enable this but you will be storing your subscription key inside your web app code accesible web browser whether authenticated or anonymous.
+
+4. **Implement Authentication**:
+   - Use **MSAL.js** (web) or **MSAL Mobile** (iOS/Android) for PKCE flows.
+   - Example for a web app:
+
+     ```javascript
+     import { PublicClientApplication } from "@azure/msal-browser";
+     const msalInstance = new PublicClientApplication({
+         auth: {
+             clientId: "<client-id>",
+             authority: "https://login.microsoftonline.com/<tenant-id>",
+             redirectUri: "https://yourapp.com/auth/callback"
+         }
+     });
+     async function getToken() {
+         const response = await msalInstance.loginPopup({
+             scopes: ["api://<api-client-id>/access"]
+         });
+         return response.accessToken;
+     }
+     ```
+
+5. **Call the API**:
+   - Include the token in requests:
+
+     ```javascript
+     fetch("https://<apim-gateway>.azure-api.net/api/endpoint", {
+         headers: { Authorization: `Bearer ${token}` }
+     });
+     ```
+
+### Best Practices
+
+- **Token Storage**: Store access tokens in memory (web) or secure storage (mobile, e.g., Keychain/Keystore). Avoid localStorage to prevent XSS attacks.
+- **CORS**: Configure Azure API Management’s CORS policy:
+
+  ```xml
+  <cors>
+      <allowed-origins>
+          <origin>https://yourapp.com</origin>
+      </allowed-origins>
+      <allowed-methods>
+          <method>GET</method>
+          <method>POST</method>
+      </allowed-methods>
+      <allowed-headers>
+          <header>Authorization</header>
+      </allowed-headers>
+  </cors>
+
+- **Error Handling**: Handle 401 errors by refreshing tokens or redirecting to login.
+- **Monitoring**: Use Azure API Management analytics and Microsoft Entra ID logs to track token usage.
+
+## How this mitigates the need for Subscription Keys in Client-side and Mobile Applications
+
+OAuth 2.0 with PKCE eliminates the need for subscription keys by:
+Using dynamic tokens instead of static keys, reducing exposure risks.
+
+- Enabling user-specific access control via Microsoft Entra ID.
+- Simplifying management with Azure API Management’s validate-jwt policy.
+- Supporting secure, modern authentication flows.
+- For mixed scenarios, configure a policy to accept either tokens or keys:
+
+For detailed setup, see Protect a backend API using OAuth 2.0 [API Management Protection Of Backend via Entra](api-management-howto-protect-backend-with-aad.md).
+
 
 ## Related content
 Get more information on API Management:
