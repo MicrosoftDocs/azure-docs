@@ -48,7 +48,7 @@ To onboard to Microsoft Sentinel by using the API, see the latest supported vers
 
 ## Create a Log Analytics workspace
 
-Microsoft Sentinel must be added to a workspace. Create one using the instructions below or go to [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace) for a more detailed explanation. If you already have a Log Analytics workspace, skip to [adding Microsoft Sentinel to your Log Analytics workspace](#add-microsoft-sentinel-to-your-log-analytics-workspace).
+Microsoft Sentinel must be added to a workspace. If you don't already have a Log Analytics workspace, you can create one using the instructions below or go to [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace) for a more detailed explanation. If you already have a Log Analytics workspace, skip to [adding Microsoft Sentinel to your Log Analytics workspace](#add-microsoft-sentinel-to-your-log-analytics-workspace).
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -67,7 +67,6 @@ Microsoft Sentinel must be added to a workspace. Create one using the instructio
 1. Give the workspace a name and select a region, then select **Review + Create**. (See [which regions Log Analytics is available in](https://azure.microsoft.com/regions/services/).)
 
 1. After validation has passed, select **Create**. Wait until your deployment is complete.
-
 
 ## Add Microsoft Sentinel to your Log Analytics workspace
 
@@ -115,8 +114,6 @@ The content hub in Microsoft Sentinel is the centralized location to discover an
    #### [Azure portal](#tab/azure-portal)
 
    :::image type="content" source="media/quickstart-onboard/content-hub-azure-activity.png" alt-text="Screenshot of the content hub in the Azure portal with the solution for Azure Activity selected.":::
-
-   ---
 
 1. On the solution details pane on the side, select **Install**. 
 
