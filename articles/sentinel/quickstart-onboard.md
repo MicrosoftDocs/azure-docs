@@ -48,7 +48,7 @@ To onboard to Microsoft Sentinel by using the API, see the latest supported vers
 
 ## Create a Log Analytics workspace
 
-Microsoft Sentinel must be added to a workspace. You can create one using these instructions or go to [Create a Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace) for a more detailed description. If you already have one, skip to [adding Microsoft Sentinel to your Log Analytics workspace](#add-microsoft-sentinel-to-your-log-analytics-workspace).
+Microsoft Sentinel must be added to a workspace. Create one using the instructions below or go to [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace) for a more detailed explanation. If you already have a Log Analytics workspace, skip to [adding Microsoft Sentinel to your Log Analytics workspace](#add-microsoft-sentinel-to-your-log-analytics-workspace).
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -61,10 +61,10 @@ Microsoft Sentinel must be added to a workspace. You can create one using these 
 1. Select **Create a new workspace**.
     :::image type="content" source="media/quickstart-onboard/log-analytics-workspace-create-a-new-workspace.png" alt-text="Screenshot of selecting Create a new workspace.":::
 
-1. Under **Subscription** > **Resource group**, select **Create new**. Enter a name for your resource group and select **OK**
+1. Under **Subscription** > **Resource group**, select **Create new**. Enter a name for your resource group and select **OK**.
     :::image type="content" source="media/quickstart-onboard/log-analytics-workspace-resource-group-create-new-with-name-both-selected.png" alt-text="Screenshot of creating a Log Analytics workspace screen. Under Subscription and resource group, Create New is selected.":::
 
-1. Give the workspace a name and select a region, then select **Review + Create**. See [which regions Log Analytics is available in](https://azure.microsoft.com/regions/services/). 
+1. Give the workspace a name and select a region, then select **Review + Create**. (See [which regions Log Analytics is available in](https://azure.microsoft.com/regions/services/).)
 
 1. After validation has passed, select **Create**. Wait until your deployment is complete.
 
