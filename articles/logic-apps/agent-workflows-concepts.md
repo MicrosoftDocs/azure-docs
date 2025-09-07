@@ -59,7 +59,7 @@ The following table provides basic introductions to key concepts:
 
 ## Autonomous versus conversational agent workflows
 
-To better understand how these agent workflow types differ, the following diagrams show examples for each agent workflow type. Both workflows use an agent and tools to get the current weather and send that information in email. All agents have an information pane where you set up the agent with the model you want and provide instructions about what the agent does.
+To help you better understand how these agent workflow types differ, the following sections describe and show examples for each agent workflow type. Both workflow types use an agent and tools to get the current weather and send that information in email. All agents have an information pane where you set up the agent with the model you want and provide instructions about the agent's roles, its functions, and the way to respond.
 
 ### Autonomous agent workflow
 
