@@ -46,48 +46,40 @@ To onboard to Microsoft Sentinel by using the API, see the latest supported vers
 
 <a name="enable"></a>
 
-## Enable Microsoft Sentinel
+## Create a Log Analytics workspace
 
-### Create a Log Analytics workspace
-
-To get started, create a Log Analytics workspace. If you already have one, skip to the next section.
+Microsoft Sentinel must be added to a workspace. You can create one using these instructions or go to [Create a Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace) for a more detailed description. If you already have one, skip to [adding Microsoft Sentinel to your Log Analytics workspace](#add-microsoft-sentinel-to-your-log-analytics-workspace).
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Search for and select **Microsoft Sentinel**.
-
-    :::image type="content" source="media/quickstart-onboard/search-product.png" alt-text="Screenshot of searching for a service while enabling Microsoft Sentinel.":::   
-    :::image type="content" source="media/quickstart-onboard/search-sentinel.png" alt-text="Screenshot of searching and selecting Microsoft Sentinel from the Azure portal.":::
+1. Search for and select **Microsoft Sentinel**.  
+    :::image type="content" source="media/quickstart-onboard/search-sentinel.png" alt-text="Screenshot of searching for and selecting Microsoft Sentinel from the Azure portal.":::
 
 1. Select **Create**.
-    :::image type="content" source="media/quickstart-onboard/log-analytics-workspace-create.png" alt-text="Select Create to create a new Log Analytics workspace":::
+    :::image type="content" source="media/quickstart-onboard/log-analytics-workspace-create.png" alt-text="Screenshot of selecting Create to start creating a new Log Analytics workspace.":::
 
 1. Select **Create a new workspace**.
-    :::image type="content" source="media/quickstart-onboard/log-analytics-workspace-create-a-new-workspace.png" alt-text="Select Create a new workspace":::
+    :::image type="content" source="media/quickstart-onboard/log-analytics-workspace-create-a-new-workspace.png" alt-text="Screenshot of selecting Create a new workspace.":::
 
-1. Under **Subscription** > **Resource group** > select **Create new**.
-    :::image type="content" source="media/quickstart-onboard/log-analytics-workspace-resource-group-create-new.png" alt-text="Create a new resource group":::
+1. Under **Subscription** > **Resource group**, select **Create new**. Enter a name for your resource group and select **OK**
+    :::image type="content" source="media/quickstart-onboard/log-analytics-workspace-resource-group-create-new-with-name-both-selected.png" alt-text="Screenshot of creating a Log Analytics workspace screen. Under Subscription and resource group, Create New is selected.":::
 
-1. Enter a name for the resource group and select **OK**.
-    :::image type="content" source="media/quickstart-onboard/log-analytics-workspace-resource-group-create-new-with-name-both-selected.png" alt-text="Create a new resource group and give it a name.":::
-
-1. Give the workspace a name and select a region, then select **Review + Create**.
+1. Give the workspace a name and select a region, then select **Review + Create**. See [which regions Log Analytics is available in](https://azure.microsoft.com/regions/services/). 
 
 1. After validation has passed, select **Create**. Wait until your deployment is complete.
 
 
-### Add Sentinel to your Log Analytics workspace
+## Add Microsoft Sentinel to your Log Analytics workspace
 
 1. From the [Azure portal](https://portal.azure.com/), search for and select **Microsoft Sentinel**.
 
-1. Select **Create**
+1. Select **Create**.
+    :::image type="content" source="media/quickstart-onboard/log-analytics-workspace-create.png" alt-text="Screenshot of selecting Create to create a new Log Analytics workspace.":::
 
-1. Select the workspace you want to use. You can run Microsoft Sentinel on more than one workspace, but data is isolated to a single workspace.
+1. Select the workspace you want to use and select **Add**. You can run Microsoft Sentinel on more than one workspace, but data is isolated to a single workspace.
  
    - The default workspaces created by Microsoft Defender for Cloud aren't shown in the list. You can't install Microsoft Sentinel on these workspaces.
    - Once deployed on a workspace, Microsoft Sentinel **doesn't support** moving that workspace to another resource group or subscription.
-
-1. Select **Add**.<!--this can be added to previous step, unless the info above needs to be beforehand.-->
 
 > [!NOTE]
 > If your workspace isn't automatically onboarded to the Defender portal, we recommend onboarding for a unified experience in managing security operations (SecOps) across both Microsoft Sentinel and other Microsoft security services. For more information, see [Onboard Microsoft Sentinel to the Defender portal](/unified-secops-platform/microsoft-sentinel-onboard).
@@ -95,8 +87,6 @@ To get started, create a Log Analytics workspace. If you already have one, skip 
 > If your workspace is automatically onboarded, or if you decide to onboard your workspace now, you can continue the procedures in this article from the Defender portal. If this is your first time using the Defender portal, there will be a delay of a few minutes while the process completes.
 
 ## Access Microsoft Sentinel in the Defender portal
-
-This procedure is relevant if you're automatically onboarded to the Defender portal, or if you choose to [onboard your workspace to the Defender portal](/unified-secops-platform/microsoft-sentinel-onboard) after enabling Microsoft Sentinel.
 
 **To access Microsoft Sentinel in the Defender portal:**
 
