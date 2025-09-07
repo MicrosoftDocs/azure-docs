@@ -96,17 +96,17 @@ You can extend the MCP Server's capabilities by creating custom tools tailored t
 
 1. Open PowerShell or Azure Cloud Shell.
 1. Run the following commands:
-
-  ```powershell
-  az login --tenant <your-tenant-id>
-  az account get-access-token --scope https://securityplatform.microsoft.com/.default --query accessToken -o tsv | clip
-  ```
-
+  
+    ```powershell
+    az login --tenant <your-tenant-id>
+    az account get-access-token --scope https://securityplatform.microsoft.com/.default  --query accessToken -o tsv | clip
+    ```
+  
 1. The bearer token is now in your clipboard. Store it securely as you would a password.
 
 ### Create a collection and tools
 
-You can use either Insomnia (recommended) or any REST client to create custom tools.
+You can use [Insomnia](https://developer.konghq.com/insomnia/) (recommended) or any REST client to create custom tools.
 
 #### [Using Insomnia](#tab/insomnia)
 
