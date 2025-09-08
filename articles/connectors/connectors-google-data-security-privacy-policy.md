@@ -50,17 +50,17 @@ Here are some examples that use the Gmail connector with built-in triggers and a
 
 - This logic app workflow uses the Gmail connector with the HTTP built-in trigger:
 
-  ![Screenshot shows a non-compliant workflow that uses a Google email action.](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-1.png)
+  :::image type="content" source="./media/connectors-google-data-security-privacy-policy/not-compliant-gmail-connector.png" alt-text="Screenshot shows a non-compliant workflow that uses a Google email action.":::
   
   The workflow also uses the Google Calendar connector, which is approved.
 
 - This workflow uses the Gmail connector with the Azure Blob Storage connector:
 
-  ![Screenshot shows a non-compliant workflow that uses a Google action with a create blob action.](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-2.png)
+  :::image type="content" source="./media/connectors-google-data-security-privacy-policy/not-compliant-blob-storgage.png" alt-text="Screenshot shows a non-compliant workflow that uses a Google action with a create blob action.":::
 
 - This workflow uses the Gmail connector with the X connector:
 
-  ![Screenshot shows a non-compliant workflow that uses an X action.](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-3.png)
+  :::image type="content" source="./media/connectors-google-data-security-privacy-policy/not-compliant-retweet.png" alt-text="Screenshot shows a non-compliant workflow that uses an X action.":::
 
 For the most recent information, see the [Gmail connector's technical reference documentation](/connectors/gmail/).
 
@@ -82,7 +82,7 @@ To set up a project for your client app, use the [Google API Console wizard](htt
 
 When you're done, your screen looks like this example except that you have your own **Client ID** and **Client secret** values, which you later use in your logic app.
 
-![Screenshot shows the GoogleAPIs partner site with client ID and client secret for your Google client app.](./media/connectors-google-data-security-privacy-policy/google-api-console.png)
+:::image type="content" source="./media/connectors-google-data-security-privacy-policy/google-api-console.png" alt-text="Screenshot shows the GoogleAPIs partner site with client ID and client secret for your Google client app.":::
 
 ### Use client app settings in logic app
 
@@ -96,11 +96,11 @@ To use the client ID and client secret from your Google client app in your Gmail
 
 1. In **Change connection**, select **Add new**:
 
-   ![Screenshot shows the Change connection page where you can add a new connection.](./media/connectors-google-data-security-privacy-policy/change-gmail-connection.png)
+   :::image type="content" source="./media/connectors-google-data-security-privacy-policy/change-gmail-connection.png" alt-text="Screenshot shows the Change connection page where you can add a new connection.":::
 
 1. Enter a name for the connection and then provide your connection information: 
 
-   ![Screenshot shows the Create connection page.](./media/connectors-google-data-security-privacy-policy/authentication-type-bring-your-own.png)
+   :::image type="content" source="./media/connectors-google-data-security-privacy-policy/authentication-type-bring-your-own.png" alt-text="Screenshot shows the Create connection page.":::
 
    | Property | Value | Description |
    |----------|-------|-------------|
@@ -112,7 +112,7 @@ To use the client ID and client secret from your Google client app in your Gmail
 
    A page appears that shows the client app that you created. If you're using a Gmail consumer account, you might get a page that shows that Google can't verify your client app. It prompts you to first allow access to your Google account.
 
-   ![Screenshot shows the prompt for access to your Google account.](./media/connectors-google-data-security-privacy-policy/allow-access-authorized-domain.png)
+   :::image type="content" source="./media/connectors-google-data-security-privacy-policy/allow-access-authorized-domain.png" alt-text="Screenshot shows the prompt for access to your Google account.":::
 
 1. If necessary, select **Allow**.
 
