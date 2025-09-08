@@ -1,5 +1,5 @@
 ---
-title: How the agent performs an action in Azure SRE Agent (preview)
+title: How the agent performs an action in Azure SRE Agent Preview
 description: Learn how the agent gets your consent for elevated credentials to take action on write operations.
 author: craigshoemaker
 ms.author: cshoe
@@ -8,7 +8,7 @@ ms.date: 09/08/2025
 ms.service: azure
 ---
 
-# How the agent performs an action in Azure SRE Agent (preview)
+# How the agent performs an action in Azure SRE Agent Preview
 
 As Azure SRE Agent works within your environment, there are two questions at the core of every write action the agent takes:
 
@@ -79,4 +79,3 @@ Consider the following key takeaways when working in an autonomous incident reso
 ## Related content
 
 * [Incident management](incident-management.md)
-* [Security context](security-context.md)
