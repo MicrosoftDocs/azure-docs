@@ -36,7 +36,7 @@ Benefits of using AOSM cluster registry:
 * Decreases the number of image pulls on AOSM artifact store, since each cluster node now pulls images only from the local registry.
 * Overcomes issues with malformed registry URLs, by using a mutating webhook to substitute the proper local registry URL path.
 
-## How cluster registry works
+## Cluster registry command syntax
 AOSM cluster registry is enabled using the Network Function Operator (NFO) Arc K8s extension. The following CLI shows how cluster registry is enabled on a Nexus K8s cluster.
 ```bash
 az k8s-extension create --cluster-name
@@ -68,43 +68,22 @@ When the cluster registry feature is enabled in the Network Function Operator Ar
 > [!NOTE]
 > If the user doesn't provide any input, a default persistent volume of 100 GB is used.
 
-### Cluster registry components
+## Cluster registry components
 The cluster registry feature deploys helper pods on the target edge cluster to assist the NFO extension.
 
-#### Component reconciler
+### Component reconciler
 * This main pod takes care of reconciling component Custom Resource Objects (CROs) created by K8sBridge with the help of the Microsoft.Kubernetes resource provider (RP), Hybrid Relay, and Arc agent running on the cluster.
 
-#### Pod mutating webhook
+### Pod mutating webhook
 * These pods implement Kubernetes mutating admission webhooks, serving an instance of the mutate API. The mutate API does two things:
   * It modifies the image registry path to the local registry IP, substituting out the AOSM artifact store Azure Container Registry (ACR).
   * It creates an Artifact CR on the edge cluster.
 
-#### Artifact reconciler
+### Artifact reconciler
 * This pod reconciles artifact CROs created by the mutating webhook.
 
-#### Registry
+### Registry
 * This pod stores and retrieves container images for CNF.
-
-### Cluster registry garbage collection
-AOSM cluster extension runs a background garbage collection (GC) job to regularly clean up container images. This job runs based on a schedule, check if the cluster registry usage reaches the specified threshold, and if so, initiate the garbage collection process. The end-user configures the job schedule and threshold, but by default the job runs once per day at a 0% utilization threshold. 
-
-#### Clean up garbage image manifests
-AOSM maintains references between pod owner resource and consuming images in cluster registry. Upon initiating the images cleanup process, images unlinked to any pods are identified and a soft delete is issued to remove them from cluster registry. This type of soft delete doesn't immediately free cluster registry storage space. Actual image files removal depends on the actual registry garbage collection settings.
-
-> [!NOTE]
-> The reference between a pod's owner and its container images ensures that AOSM does not mistakenly delete images. For example, if a replicaset pod goes down, AOSM doesn't dereference the container images. AOSM only dereferences container images when the replicaset is deleted. The same principle applies to pods managed by Kubernetes jobs and daemonsets.
-
-#### CNCF garbage collection distribution
-AOSM sets up the cluster registry using open source [CNCF distribution registry](https://distribution.github.io/distribution/). Therefore, AOSM relies on garbage collection capabilities that provided by [Garbage collection | Public Distribution](https://distribution.github.io/distribution/about/garbage-collection/#:~:text=About%20garbage%20collection,considerable%20amounts%20of%20disk%20space.). Overall, it follows standard 2 phase “mark and sweep” process to delete image files to free registry storage space.
-
-> [!NOTE]
-> This process requires the cluster registry in read-only mode. If images are uploaded when registry not in read-only mode, there is the risk that images layers are mistakenly deleted leading to a corrupted image. Registry requires lock in read-only mode for a duration of up to 1 minute. AOSM will defer other NF deployment when cluster registry in read-only mode.
-
-#### Garbage collection configuration parameters
-The following parameters configure the schedule and threshold for the garbage collection job.
-* global.networkfunctionextension.clusterRegistry.clusterRegistryGCCadence
-* global.networkfunctionextension.clusterRegistry.clusterRegistryGCThreshold
-* For more configuration details, refer to the latest [Network function extension installation instructions](manage-network-function-operator.md)
 
 ## High availability and resiliency considerations 
 The AOSM NF extension relies uses a mutating webhook and edge registry to support key features. 
@@ -112,8 +91,8 @@ The AOSM NF extension relies uses a mutating webhook and edge registry to suppor
 * A local cluster registry to accelerate pod operations and enable disconnected-mode support.
 These essential components need to be highly available and resilient.
 
-### Summary of changes for HA
-With HA, cluster registry and webhook pods now support a replicaset with a minimum of three replicas and a maximum of five replicas. The replicaset key configuration is as follows:  
+### HA opearting mode details
+With HA enabled, cluster registry and webhook pods support a replicaset with a minimum of three replicas and a maximum of five replicas. The replicaset key configuration is as follows:  
 * Gradual rollout upgrade strategy is used.
 * PodDisruptionBudgets (PDB) are used for availability during voluntary disruptions.
 * Pod Anti-affinity is used to spread pods evenly across nodes.
@@ -123,15 +102,19 @@ With HA, cluster registry and webhook pods now support a replicaset with a minim
 
 #### Replicas
 * A cluster running multiple copies, or replicas, of an application provides the first level of redundancy. Both cluster registry and webhook are defined as 'kind:deployment' with a minimum of three replicas and maximum of 5 replicas.
+
 #### DeploymentStrategy
 * A rollingUpdate strategy is used to help achieve zero downtime upgrades and support gradual rollout of applications. Default maxUnavailable configuration allows only one pod to be taken down at a time, until enough pods are created to satisfying redundancy policy.
+
 #### Pod Disruption Budget
 * A policy disruption budget (PDB) protects pods from voluntary disruption and is deployed alongside Deployment, ReplicaSet, or StatefulSet objects. For AOSM operator pods, a PDB with minAvailable parameter of 2 is used.
+
 #### Pod anti-affinity
 * Pod anti-affinity controls distribution of application pods across multiple nodes in your cluster. With HA enabled, AOSM implements the following anti-affinity rules:
   * A preferredDuringSchedulingIgnoredDuringExecution(Soft) rule type is used. With soft scheduling, topologies that meet the preference criteria are available, Kubernetes schedules the pod. If no such topologies are available, the pod can still be scheduled on other nodes that do not meet the preference. 
   * A topology key is used based on the value of kubernetes.io/hostname.
   * A weight of 100 is used.
+
 #### Node affinity
 Nexus node placement is spread evenly across zones by design, resulting in zonal redundancy. AOSM further spreads pods evenly across nodes, using the following rules:  
 * Prefer nodes without 'control-plane' role (weight: 10)
@@ -162,6 +145,27 @@ All AOSM operator containers are configured with appropriate request, limit for 
 * Nexus AKS (NAKS) clusters with single active node in system agent pool are not suitable for highly available. Nexus production topology must use at least three active nodes in system agent pool.
 * The nexus-shared storage class is a network file system (NFS) storage service. This NFS storage service is available per Cloud Service Network (CSN). Any Nexus Kubernetes cluster attached to the CSN can provision persistent volume from this shared storage pool. The storage pool is currently limited to a maximum size of 1 TiB as of Network Cloud (NC) 3.10 where-as NC 3.12 has a 16-TiB option.
 * Pod Anti affinity only deals with the initial placement of pods, subsequent pod scaling, and repair, follows standard K8s scheduling logic.
+
+## Cluster registry automated cleanup
+When enabled, the AOSM NFO extension runs a background garbage collection (GC) job to regularly clean up the NAKS cluster registry. Garbage collection is the process of removing blobs from the filesystem when they are no longer referenced by a manifest. With garbage collection, a user can better manage the disk space used by cluster registry. Garbage collection is also a security consideration, when it is desirable to ensure that certain layers no longer exist on the filesystem. The GC job runs based on a schedule, checks if the cluster registry usage reaches the specified threshold, and if so, initiates a “mark and sweep” garbage collection process.
+
+### Clean up unused image manifests
+AOSM maintains references between pod owner resource and consuming artifacts in cluster registry. Upon initiating the cleanup process, artifacts unlinked to any pods are identified and a soft delete is issued to remove them from cluster registry. This type of soft delete doesn't immediately free cluster registry storage space. Actual image files removal depends on the actual registry garbage collection settings.
+
+> [!NOTE]
+> The reference between a pod's owner and its container artifacts ensures that AOSM does not mistakenly delete artifacts. For example, if a replicaset pod goes down, AOSM doesn't dereference the artifacts. AOSM only dereferences artifacts when the replicaset is deleted. The same principle applies to pods managed by Kubernetes jobs and daemonsets.
+
+### CNCF garbage collection distribution
+AOSM depends on garbage collection capabilities provided by [Garbage collection | Public Distribution](https://distribution.github.io/distribution/about/garbage-collection/#:~:text=About%20garbage%20collection,considerable%20amounts%20of%20disk%20space.). AOSM implements a CNCF standard 2-phase “mark and sweep” process to delete artifacts and free registry storage space. First, eligble images will be marked, and then later, will be purged during a sweep only if certain criterea is met.
+
+> [!NOTE]
+> The GC process requires the cluster registry to be in read-only mode. Otheriwse, there is the risk that artifacts can be mistakenly deleted, leading to corruptiong. When GC runs, it will lock the registry in read-only mode for up to 1 minute. During this time, AOSM will defer new operations until the registry lock is released.
+
+### Clustery registry automated cleanup parameters
+The following parameters configure the schedule and threshold for the garbage collection job.
+* global.networkfunctionextension.clusterRegistry.clusterRegistryGCCadence
+* global.networkfunctionextension.clusterRegistry.clusterRegistryGCThreshold
+* For more configuration details, refer to the latest [Network function extension installation instructions](manage-network-function-operator.md)
 
 ## Frequently Asked Questions
 #### Can I use AOSM cluster registry with a CNF application previously deployed?
