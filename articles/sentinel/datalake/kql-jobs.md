@@ -78,9 +78,7 @@ You can create jobs to run on a schedule or one-time. When you create a job, you
 
 1. Enter a **Job Description** providing the context and purpose of the job. 
 
-1. Select the destination tier for the job results. You can write to either the analytics tier or the data lake tier.
-
-1. From the **Select workspace** dropdown, select the destination workspace in the selected tier. This is the workspace that you want to write the query results to.
+1. From the **Select workspace** dropdown, select the destination workspace. This is the workspace in the analytics tier that you want to write the query results to.
 
 1. Select the destination table:
     1. To create a new table, select **Create a new table** and enter a table name. Tables created by KQL jobs have the suffix *_KQL_CL* appended to the table name.
