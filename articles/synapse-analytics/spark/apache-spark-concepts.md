@@ -4,8 +4,8 @@ description: Introduction to core concepts for Apache Spark in Azure Synapse Ana
 ms.service: azure-synapse-analytics
 ms.subservice: spark
 ms.topic: overview
-author: guyhay
-ms.author: guyhay
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 04/02/2024 
 ---
 

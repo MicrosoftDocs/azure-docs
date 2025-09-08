@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.custom: subject-cost-optimization
 ms.service: azure-synapse-analytics
 ms.subservice: overview
-ms.author: guyhay
-author: guyhay
+ms.author: ajagadish
+author: ajagadish-24
 ms.date: 02/09/2023
 ---
 

@@ -1,8 +1,8 @@
 ---
 title: Automatically scale Apache Spark instances
 description: Use the Azure Synapse Analytics autoscale feature to automatically scale Apache Spark Pools
-author: guyhay
-ms.author: guyhay
+author: ajagadish-24
+ms.author: ajagadish
 ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
