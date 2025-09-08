@@ -1,10 +1,10 @@
 ---
 title: Anomalies detected by the Microsoft Sentinel machine learning engine
 description: Learn about the anomalies detected by Microsoft Sentinel's machine learning engines.
-author: yelevin
 ms.topic: reference
-ms.date: 03/17/2024
-ms.author: yelevin
+ms.date: 09/08/2024
+author: guywi-ms
+ms.author: guywild
 
 
 #Customer intent: As a security analyst, I want to understand the types of anomalies detected by machine learning models in my SIEM solution so that I can effectively monitor and respond to potential security threats.
