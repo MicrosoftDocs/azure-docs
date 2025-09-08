@@ -95,10 +95,12 @@ Premium V4 is available in the following regions:
 
 - Australia East
 - Canada Central
+- Central India
 - Central US
 - East US
 - East US 2
 - France Central
+- Italy North
 - Japan East
 - Korea Central
 - North Central US

@@ -14,6 +14,13 @@ zone_pivot_groups: front-door-tiers
 
 Front Door's features work best when traffic only flows through Front Door. You should configure your origin to block traffic that hasn't been sent through Front Door. Otherwise, traffic might bypass Front Door's web application firewall, DDoS protection, and other security features.
 
+| Approach | Supported tiers | 
+|--|--|
+| Private Link | Premium |
+| Managed Identities | Standard, Premium |
+| IP address filtering | Classic, Standard, Premium |
+| Front Door identifier | Classic, Standard, Premium |
+
 ::: zone pivot="front-door-classic"
 
 > [!NOTE]
@@ -25,7 +32,7 @@ Front Door's features work best when traffic only flows through Front Door. You 
 
 Front Door provides several approaches that you can use to restrict your origin traffic.
 
-## Private Link origins
+## Private Link enabled origins
 
 When you use the premium SKU of Front Door, you can use Private Link to send traffic to your origin. [Learn more about Private Link origins.](private-link.md)
 

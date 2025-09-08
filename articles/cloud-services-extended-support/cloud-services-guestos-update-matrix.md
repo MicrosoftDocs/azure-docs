@@ -7,9 +7,9 @@ author: jejackson
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: azure-cloud-services-classic
 ms.topic: concept-article
-ms.date: 08/07/2025
+ms.date: 09/08/2025
 ms.update-cycle: 3650-days
-ms.author: jejackson
+ms.author: acastoldi
 ms.custom: compute-evergreen
 # Customer intent: As a cloud services administrator, I want to stay updated on the latest Guest OS releases and their compatibility, so that I can plan timely upgrades and ensure my applications remain secure and functional before any deprecation deadlines.
 ---
@@ -39,6 +39,9 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 
 ## News updates
+
+###### **September 6, 2025**
+The August 2025 Guest OS released.
 
 ###### **July 30, 2025**
 The July 2025 Guest OS released.
@@ -298,9 +301,10 @@ The September Guest OS released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+|  WA-GUEST-OS-7.55_202508-01 |  September 6, 2025  |  Post 7.58  |
 |  WA-GUEST-OS-7.54_202507-01 |  July 30, 2025  |  Post 7.57  |
 |  WA-GUEST-OS-7.53_202506-01 |  July 6, 2025  |  Post 7.56  |
-|  WA-GUEST-OS-7.52_202505-01 |  June 4, 2025  |  Post 7.55  |
+|~~WA-GUEST-OS-7.52_202505-01~~|  June 4, 2025  |  Post 7.55  |
 |~~WA-GUEST-OS-7.51_202504-01~~|  May 1, 2025  |  July 30, 2025  |
 |~~WA-GUEST-OS-7.50_202503-01~~|  March 28, 2025  |  July 6, 2025  |
 |~~WA-GUEST-OS-7.49_202502-01~~|  February 26, 2025  |  June 4, 2025  |
@@ -357,9 +361,10 @@ The September Guest OS released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+|  WA-GUEST-OS-6.85_202508-01 |  September 6, 2025  |  Post 6.88  |
 |  WA-GUEST-OS-6.84_202507-01 |  July 30, 2025  |  Post 6.87  |
 |  WA-GUEST-OS-6.83_202506-01 |  July 6, 2025  |  Post 6.86  |
-|  WA-GUEST-OS-6.82_202505-01 |  June 4, 2025  |  Post 6.85  |
+|~~WA-GUEST-OS-6.82_202505-01~~|  June 4, 2025  |  Post 6.85  |
 |~~WA-GUEST-OS-6.81_202504-01~~|  May 1, 2025  |  July 30, 2025  |
 |~~WA-GUEST-OS-6.80_202503-01~~|  March 28, 2025  |  July 6, 2025  |
 |~~WA-GUEST-OS-6.79_202502-01~~|  February 26, 2025  |  June 4, 2025  |
@@ -450,9 +455,10 @@ The September Guest OS released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+|  WA-GUEST-OS-5.109_202508-01 |  September 6, 2025  |  Post 5.111  |
 |  WA-GUEST-OS-5.108_202507-01 |  July 30, 2025  |  Post 5.110  |
 |  WA-GUEST-OS-5.107_202506-01 |  July 6, 2025  |  Post 5.109  |
-|  WA-GUEST-OS-5.106_202505-01 |  June 4, 2025  |  Post 5.108  |
+|~~WA-GUEST-OS-5.106_202505-01~~|  June 4, 2025  |  Post 5.108  |
 |~~WA-GUEST-OS-5.105_202504-01~~|  May 1, 2025  |  July 30, 2025  |
 |~~WA-GUEST-OS-5.104_202503-01~~|  March 28, 2025  |  July 6, 2025  |
 |~~WA-GUEST-OS-5.103_202502-01~~|  February 26, 2025  |  June 4, 2025  |
