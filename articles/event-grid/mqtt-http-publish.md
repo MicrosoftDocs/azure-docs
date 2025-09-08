@@ -98,13 +98,13 @@ Notes:
 
 ## High-level steps for using HTTP Publish
 
-- **Step 1:** Prepare your Microsoft Entra ID bearer token for authentication.
-- **Step 2:** Construct your HTTP `POST` request to your Event Grid MQTT broker endpoint.
-- **Step 3:** Include required query parameters, like topic.
-- **Step 4:** Add optional headers for QoS, the `RETAIN` flag, response topic, and user properties.
-- **Step 5**: Add your payload as the HTTP body.
-- **Step 6:** Send the request.
-- **Step 7:** Confirm delivery via logs and metrics in the Event Grid portal.
+1. Prepare your Microsoft Entra ID bearer token for authentication.
+2. Construct your HTTP `POST` request to your Event Grid MQTT broker endpoint.
+3. Include required query parameters, like topic.
+4. Add optional headers for QoS, the `RETAIN` flag, response topic, and user properties.
+5. Add your payload as the HTTP body.
+6. Send the request.
+7. Confirm delivery via logs and metrics in the Event Grid portal.
 
 ## Authentication and authorization
 
@@ -115,12 +115,13 @@ Notes:
 
 ## Routing and observability
 
-- Metrics and logs include:
-  - Protocol: `http-publish`
-  - Request ID
-  - Topic
-  - Source IP
-  - Authorization principal
+Metrics and logs include:
+
+- Protocol: `http-publish`
+- Request ID
+- Topic
+- Source IP
+- Authorization principal
 
 ## Best practices
 
@@ -134,4 +135,4 @@ HTTP Publish counts toward your overall MQTT throughput quota. Monitor your usag
 
 ## Related content
 
-See [Publish MQTT messages by using HTTP with Azure Event Grid](mqtt-how-to-http-publish.md).
+- [Publish MQTT messages by using HTTP with Azure Event Grid](mqtt-how-to-http-publish.md)
