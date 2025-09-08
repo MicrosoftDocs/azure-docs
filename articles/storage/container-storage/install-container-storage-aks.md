@@ -84,7 +84,7 @@ If the resource group was created successfully, you'll see output similar to thi
 
 ## Ensure VM type for your cluster meets the installation criteria
 
-Follow these guidelines when choosing a VM type for the cluster nodes. You must choose a VM type that supports [Azure premium storage](/azure/virtual-machines/premium-storage-performance).
+Follow these guidelines when choosing a VM type for the cluster nodes.
 
 - Choose a VM SKU that supports local NVMe data disks, for example, [Storage optimized VM SKUs](/azure/virtual-machines/sizes/overview#storage-optimized) or [GPU accelerated VM SKUs](/azure/virtual-machines/sizes/overview#gpu-accelerated).
 - Choose the OS type for the VMs in the node pools as Linux OS. Windows OS isn't currently supported.

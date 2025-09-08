@@ -4,7 +4,7 @@ description: Connect to a Linux-based Azure Kubernetes Service (AKS) cluster and
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 09/03/2025
+ms.date: 09/08/2025
 ms.author: kendownie
 ms.custom: references_regions
 # Customer intent: As a cloud engineer, I want to install Azure Container Storage on my AKS cluster, so that I can manage container volumes efficiently and choose the appropriate storage options for my workloads.
@@ -81,7 +81,7 @@ To connect to the cluster, use the Kubernetes command-line client, `kubectl`. It
 
 ## Ensure VM type for your cluster meets the following criteria
 
-Follow these guidelines when choosing a VM type for the cluster nodes. You must choose a VM type that supports [Azure premium storage](/azure/virtual-machines/premium-storage-performance).
+Follow these guidelines when choosing a VM type for the cluster nodes.
 
 - Choose a VM SKU that supports local NVMe data disks, for example, [Storage optimized VM SKUs](/azure/virtual-machines/sizes/overview#storage-optimized) or [GPU accelerated VM SKUs](/azure/virtual-machines/sizes/overview#gpu-accelerated).
 
