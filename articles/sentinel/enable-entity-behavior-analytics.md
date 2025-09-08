@@ -70,7 +70,7 @@ To enable or disable this feature (these prerequisites aren't required to use th
 
 1. On the **Entity behavior configuration** page, toggle **Turn on UEBA feature**.
 
-    :::image type="content" source="media/enable-entity-behavior-analytics/ueba-configuration.png" alt-text="Screenshot of UEBA configuration settings.":::
+    :::image type="content" source="media/enable-entity-behavior-analytics/ueba-configuration.png" alt-text="Screenshot of UEBA configuration settings." lightbox="true":::
 
 1. Select the directory services from which you want to synchronize user entities with Microsoft Sentinel.
 
@@ -101,7 +101,14 @@ To enable or disable this feature (these prerequisites aren't required to use th
     > [!NOTE]
     > After enabling UEBA, you can enable supported data sources for UEBA directly from the data connector pane, or from the Defender portal Settings page, as described in this article.
 
-1. Select **Apply**. 
+1. Select **Connect**. 
+
+1. Enable anomaly detection in your Sentinel workspace:
+
+    1. From the Microsoft Defender portal navigation menu, select **Settings** > **Microsoft Sentinel** > **SIEM workspaces**.
+    1. Select the workspace you want to configure.
+    1. From the workspace configuration page, select **Anomalies** > **Detect Anomalies**. 
+
 
 ## Next steps
 

@@ -40,7 +40,7 @@ In the [Anomalies](/azure/azure-monitor/reference/tables/anomalies) table:
 
 Sentinel UEBA detects anomalies based on dynamic baselines created for each entity across various data inputs. Each entity's baseline behavior is set according to its own historical activities, those of its peers, and those of the organization as a whole. Anomalies can be triggered by the correlation of different attributes such as action type, geo-location, device, resource, ISP, and more.
 
-You must [enable the UEBA feature](enable-entity-behavior-analytics.md) to detect UEBA anomalies.
+You must [enable UEBA and anomaly detection in your Sentinel workspace](enable-entity-behavior-analytics.md) to detect UEBA anomalies.
 
 UEBA detects anomalies based on these anomaly rules:
 
