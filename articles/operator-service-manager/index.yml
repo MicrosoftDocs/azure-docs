@@ -116,7 +116,7 @@ landingContent:
             url: helm-requirements.md 
           - text: Best Practices Onboard and Deploy
             url: best-practices-onboard-deploy.md
-          - text: Publisher resource cleanup management
+          - text: Publisher Resource Cleanup Management
             url: resource-cleanup-management.md
           - text: Workload Configuration Management
             url: configuration-guide.md
