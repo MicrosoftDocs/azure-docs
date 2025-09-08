@@ -63,10 +63,10 @@ The Azure Functions project template in Visual Studio creates a C# class library
 
     | Setting      | Action  | Description                      |
     | ------------ | ------ |--------------------------------- |
-    | **Functions worker** | Select **.NET 8.0 In-process (Long Term Support)**. | This value creates a function project that runs in-process with version 4.x of the Azure Functions runtime. For more information, see [Azure Functions runtime versions overview](functions-versions.md).   |
-    | **Function** | Select **Http trigger**. | This value creates a function triggered by an HTTP request. |
-    | **Use Azurite for runtime storage account (AzureWebJobsStorage)**  | Select this checkbox. | Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use an Azure Storage account connection string; all other trigger types require a valid Azure Storage account connection string. |
-    | **Authorization level** | Select **Anonymous** | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth). |
+    | **Functions worker** | Select **.NET 8.0 In-process (Long Term Support)**. | When you select this value, Visual Studio creates a function project that runs in-process with version 4.x of the Azure Functions runtime. For more information, see [Azure Functions runtime versions overview](functions-versions.md).   |
+    | **Function** | Select **Http trigger**. | With this value, Visual Studio creates a function triggered by an HTTP request. |
+    | **Use Azurite for runtime storage account (AzureWebJobsStorage)**  | Select this checkbox. | Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use an Azure Storage account connection string. All other trigger types require a valid Azure Storage account connection string. |
+    | **Authorization level** | Select **Anonymous** | With this value, the created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth). |
 
     :::image type="content" source="media/functions-develop-vs/functions-project-settings.png" alt-text="Screenshot of the Visual Studio Additional information dialog that shows selected settings like an in-process .NET version for the Functions worker.":::
 
@@ -84,15 +84,15 @@ After you create an Azure Functions project, the project template creates a C# p
 ::: zone-end 
 The new project has the following files:
 
-* **host.json**: Lets you configure the Functions host. These settings apply both when running locally and in Azure. For more information, see [host.json reference](functions-host-json.md).
+* *host.json*: This file provides a way for you to configure the Functions host. These settings apply both when running locally and in Azure. For more information, see [host.json reference](functions-host-json.md).
 
-* **local.settings.json**: Maintains settings used when running functions locally. These settings aren't used when running in Azure. For more information, see [Local settings file](#local-settings).
+* *local.settings.json*: This file maintains settings that you use when you run functions locally. These settings aren't used when your app runs in Azure. For more information, see [Local settings file](#local-settings).
 
   > [!IMPORTANT]
   > Because the *local.settings.json* file can contain secrets, you must exclude it from your project source control. In the **Properties** dialog for this file, make sure the **Copy to Output Directory** setting is set to **Copy if newer**.
 
 ::: zone pivot="isolated" 
-For more information, see [Project structure](dotnet-isolated-process-guide.md#project-structure) in the Isolated worker guide.
+For more information, see [Project structure](dotnet-isolated-process-guide.md#project-structure) in the isolated worker guide.
 ::: zone-end  
 ::: zone pivot="in-proc" 
 For more information, see [Functions class library project](functions-dotnet-class-library.md#functions-class-library-project).
@@ -106,21 +106,28 @@ Your code can also read the function app settings values as environment variable
 
 ## Configure the project for local development
 
-The Functions runtime uses an Azure Storage account internally. For all trigger types other than HTTP and webhooks, set the `Values.AzureWebJobsStorage` key to a valid Azure Storage account connection string. Your function app can also use the [Azurite emulator](../storage/common/storage-use-azurite.md) for the `AzureWebJobsStorage` connection setting required by the project. To use the emulator, set the value of `AzureWebJobsStorage` to `UseDevelopmentStorage=true`. Change this setting to an actual storage account connection string before deployment. For more information, see [Local storage emulator](functions-develop-local.md#local-storage-emulator).
+The Functions runtime uses an Azure Storage account internally. During development, you can use a valid Azure Storage account for this internal account, or you can use the [Azurite emulator](../storage/common/storage-use-azurite.md).
 
-To set the storage account connection string:
+For all trigger types other than HTTP and webhooks, you need to set the value of the `Values.AzureWebJobsStorage` key in the *local.settings.json* file:
 
-1. In the Azure portal, navigate to your storage account.
+- For an Azure Storage account, set the value to the connection string of your storage account.
+- For the emulator, set the value to `UseDevelopmentStorage=true`.
 
-1. In the **Access keys** tab, below **Security + networking**, copy the **Connection string** of **key1**.
+If you use the emulator, change this setting to an actual storage account connection string before deployment. For more information, see [Local storage emulator](functions-develop-local.md#local-storage-emulator).
 
-1. In your project, open the *local.settings.json* file and set the value of the `AzureWebJobsStorage` key to the connection string you copied.
+To set the storage account connection string, take the following steps:
+
+1. Sign in to the Azure portal, and then go to your storage account.
+
+1. Select **Security + networking** > **Access keys**. Under **key1**, copy the **Connection string** value.
+
+1. In your Visual Studio project, open the *local.settings.json* file. Set the value of the `AzureWebJobsStorage` key to the connection string you copied.
 
 1. Repeat the previous step to add unique keys to the `Values` array for any other connections required by your functions. 
 
 ## Add a function to your project
 
-In C# class library functions, the bindings used by the function are defined by applying attributes in the code. When you create your function triggers from the provided templates, the trigger attributes are applied for you. 
+In C# class library functions, the bindings that the functions use are defined by applying attributes in the code. When you create your function triggers from the provided templates, the trigger attributes are applied for you. 
 
 1. In **Solution Explorer**, right-click your project node and select **Add** > **New Azure Function**. 
 
@@ -130,12 +137,12 @@ In C# class library functions, the bindings used by the function are defined by 
 
     :::image type="content" source="media/functions-develop-vs/functions-visual-studio-tools-create-queue-trigger.png" alt-text="Screenshot that shows the setting to create a Queue storage trigger function.":::
 
-1. Select **Add**. If you selected the checkbox for configuring a storage connection in the previous step, the **Connect to dependency** page appears. Select an Azurite storage emulator or **Azure Storage**, and then select **Next**.
+1. Select **Add**. If you select the checkbox for configuring a storage connection in the previous step, the **Connect to dependency** page appears. Select an Azurite storage emulator or **Azure Storage**, and then select **Next**.
    - If you select an Azurite storage emulator, the **Connect to Storage Azurite emulator** page appears. Take the following steps:
      1. Select **Next**.
      1. On the **Summary of changes** page, select **Finish**. Visual Studio configures the dependency and creates the trigger class.
    - If you select **Azure Storage**, the **Connect to Azure Storage** page appears. Take the following steps:
-     1.Select a storage account, and then select **Next**. Visual Studio tries to connect to your Azure account and retrieve an endpoint.
+     1. Select a storage account, and then select **Next**. Visual Studio tries to connect to your Azure account and retrieve an endpoint.
      1. Select **Next**.
      1. On the **Summary of changes** page, select **Finish**. Visual Studio configures the dependency and creates the trigger class.
 
@@ -166,11 +173,11 @@ Use the preceding procedure to add more functions to your function app project. 
 
 ## Add bindings
 
-As with triggers, input and output bindings are added to your function as binding attributes. Add bindings to a function as follows:
+As with triggers, input and output bindings are added to your function as binding attributes. To add bindings to a function, take the following steps:
 
 1. Make sure you [configure the project for local development](#configure-the-project-for-local-development).
 
-1. Add the appropriate NuGet extension package for the specific binding by finding the binding-specific NuGet package requirements in the reference article for the binding. For example, find package requirements for the Event Hubs trigger in the [Event Hubs binding reference article](functions-bindings-event-hubs.md).
+1. Add the appropriate NuGet extension package for the specific binding. For binding-specific NuGet package requirements, see the reference article for the binding. For example, for package requirements for the Event Hubs trigger, see [Azure Event Hubs trigger and bindings for Azure Functions](functions-bindings-event-hubs.md).
 
 1. Use the following command in the Package Manager Console to install a specific package:
 
@@ -184,7 +191,7 @@ As with triggers, input and output bindings are added to your function as bindin
     Install-Package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE> -Version <TARGET_VERSION>
     ```
     ::: zone-end  
-    In this example, replace `<BINDING_TYPE>` with the name specific to the binding extension and `<TARGET_VERSION>` with a specific version of the package, such as `4.0.0`. Valid versions are listed on the individual package pages at [NuGet.org](https://nuget.org). 
+    In this code, replace `<BINDING_TYPE>` with the specific name of the binding extension, and replace `<TARGET_VERSION>` with a specific version of the package, such as `4.0.0`. Valid versions are listed on the individual package pages at [NuGet.org](https://nuget.org). 
 
 1. If there are app settings that the binding needs, add them to the `Values` collection in the [local setting file](functions-develop-local.md#local-settings-file). 
 
