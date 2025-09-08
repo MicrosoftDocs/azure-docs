@@ -340,17 +340,19 @@ To use the `restore` command, you must have [Bicep CLI](./install.md#visual-stud
 
 To manually restore the external modules for a file, use:
 
-# [Bicep CLI(#tab/bicep-cli)]
+### [Bicep CLI](#tab/bicep-cli)
 
+```bicepcli
 bicep restore <bicep-file>
+```
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az bicep restore --file <bicep-file> [--force]
 ```
 
---- 
+---
 
 The Bicep file you provide is the file you wish to deploy. It must contain a module that links to a registry. For example, you can restore the following file:
 
@@ -389,7 +391,7 @@ The `restore` command doesn't refresh the cache if a module is already cached. T
 
 The `upgrade` command updates your installed version with the latest version. This command is only available through the Azure CLI.
 
-# [Bicep CLI(#tab/bicep-cli)]
+# [Bicep CLI](#tab/bicep-cli)
 
 N/A
 
@@ -405,9 +407,9 @@ az bicep upgrade
 
 The `version` command returns your installed version:
 
-# [Bicep CLI(#tab/bicep-cli)]
+# [Bicep CLI](#tab/bicep-cli)
 
-```Bicep CLI
+```bicepcli
 bicep --version
 ```
 
