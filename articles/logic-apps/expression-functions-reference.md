@@ -402,7 +402,7 @@ action().outputs.body.<property>
 
 | Return value | Type | Description |
 | ------------ | -----| ----------- |
-| <*action-output*> | Object | The JSON Object output from the current action or property |
+| <*action-output*> | Object | The JSON object output from the current action or property |
 
 <a name="actions"></a>
 
