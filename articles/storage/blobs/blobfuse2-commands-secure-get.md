@@ -51,7 +51,7 @@ The following flags apply only to command `blobfuse2 secure get` command:
 ## Examples
 
 > [!NOTE]
-> The following examples assume you have already created a encrypted configuration file in the current directory.
+> The following examples assume you have already created an encrypted configuration file in the current directory.
 
 Get the value of parameter `logging.log_level` from an encrypted BlobFuse2 configuration file using a passphrase:
 
