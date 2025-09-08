@@ -156,7 +156,7 @@ AOSM maintains references between pod owner resource and consuming artifacts in 
 > The reference between a pod's owner and its container artifacts ensures that AOSM doesn't mistakenly delete artifacts. For example, if a replicaset pod goes down, AOSM doesn't dereference the artifacts. AOSM only dereferences artifacts when the replicaset is deleted. The same principle applies to pods managed by Kubernetes jobs and daemonsets.
 
 ### Garbage collection distribution
-AOSM depends on garbage collection capabilities provided by [Garbage collection | Public Distribution](https://distribution.github.io/distribution/about/garbage-collection/#:~:text=About%20garbage%20collection,considerable%20amounts%20of%20disk%20space.). AOSM implements a standard two-phase 'mark and sweep' process to delete artifacts and free registry storage space. First, eligible images are marked, and then later, are purged during a sweep only if certain criterea is met.
+AOSM depends on garbage collection capabilities provided by [Garbage collection | Public Distribution](https://distribution.github.io/distribution/about/garbage-collection/#:~:text=About%20garbage%20collection,considerable%20amounts%20of%20disk%20space.). AOSM implements a standard two-phase 'mark and sweep' process to delete artifacts and free registry storage space. First, eligible images are marked, and then later, are purged during a sweep only if certain criteria are met.
 
 > [!NOTE]
 > The GC process requires the cluster registry to be in read-only mode. Otherwise, there's the risk that artifacts can be mistakenly deleted, leading to artifact corruption. When GC runs, it locks the registry in read-only mode for up to 1 minute. During this time, AOSM defers new operations until the registry lock is released.
