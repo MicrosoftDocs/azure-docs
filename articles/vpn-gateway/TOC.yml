@@ -340,6 +340,8 @@
           href: vpn-gateway-ipsecikepolicy-rm-powershell.md
 - name: Security
   items:
+    - name: Secure VPN gateway
+      href: secure-vpn-gateway.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/vpn-gateway-security-baseline?toc=/azure/vpn-gateway/TOC.json
     - name: About cryptographic requirements
