@@ -6,8 +6,9 @@ ms.author: cephalin
 ms.date: 07/21/2025
 ms.topic: tutorial
 ms.custom:
-  - devx-track-dotnet
+  - devx-track-javascript
 ms.collection: ce-skilling-ai-copilot
+ms.service: azure-app-service
 ---
 
 # Add an App Service app as a tool in Azure AI Foundry Agent Service (Node.js)
@@ -22,7 +23,7 @@ If your web application already has useful features, like shopping, hotel bookin
 > * Add OpenAPI functionality to your web app.
 > * Make sure OpenAPI schema compatible with Azure AI Foundry Agent Service.
 > * Register your app as an OpenAPI tool in Azure AI Foundry Agent Service.
-> * Test your agent in the the agents playground.
+> * Test your agent in the agents playground.
 
 ## Prerequisites
 

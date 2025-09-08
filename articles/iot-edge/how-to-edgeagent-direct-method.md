@@ -1,8 +1,8 @@
 ---
 title: Communicate with IoT Edge Agent Using Direct Methods
 description: Discover how to use IoT Edge agent direct methods to monitor device status, restart modules, and troubleshoot deployments remotely.
-author: PatAltimore
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.date: 05/08/2025
 ms.topic: concept-article
 ms.service: azure-iot-edge

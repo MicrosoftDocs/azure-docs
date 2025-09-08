@@ -19,7 +19,7 @@ ms.topic: overview
 
 Update Manager is a unified service to help manage and govern updates for all your machines (running a server operating system). You can monitor Windows and Linux update compliance across your machines in Azure, and on-premises or other cloud environments (connected by [Azure Arc](/azure/azure-arc/)) from a single pane of management. You can also use Update Manager to make real-time updates or schedule them within a defined maintenance window. 
 
-You can use Azure Update Manager for :
+You can use Azure Update Manager for:
 
 - **Unified Update Management** - Monitor update compliance across Windows and Linux machines (running a server operating system) from a single dashboard, including machines in Azure, and on-premises or other cloud environments (connected by Azure Arc).
 - **Flexible patching options**:
@@ -33,12 +33,12 @@ You can use Azure Update Manager for :
 - **Custom Reporting and Alerts** - Build custom dashboards to report update status and [configure alerts](manage-alerts.md) to notify you of update statuses and any issues that arise. 
 - **Granular Access Control** - Use role-based access control (RBAC) to delegate permissions for patch management tasks at a per-resource level. 
 - **Software updates including application updates**: 
-    - That are available in Microsoft Updates  
-    - That are available in Linux packages 
-    - That are published to [Windows Server Update Services (WSUS)](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) 
+    - That are available in Microsoft updates.  
+    - That are available in Linux packages.
+    - That are published to [Windows Server Update Services (WSUS)](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus).
 - Patching diverse resources 
     - Azure Virtual Machines (VMs): both Windows and Linux VMs in Azure (including SQL servers). VMs also include the ones which are created by Azure Migrate, Azure Backup, and Azure Site Recovery. 
-    - [Hybrid machines](/azure/azure-arc/servers/) (including SQL Arc servers) and Windows IoT Enterprise on Arc enabled servers 
+    - [Hybrid machines](/azure/azure-arc/servers/) (including SQL Arc servers) and Windows IoT Enterprise on Arc enabled servers. 
     - [VMware machines](/azure/azure-arc/vmware-vsphere/)
     - [System Center Virtual Machine Manager (SCVMM) machines](/azure/azure-arc/system-center-virtual-machine-manager/) 
     - [Azure Local clusters](/azure/azure-local/)

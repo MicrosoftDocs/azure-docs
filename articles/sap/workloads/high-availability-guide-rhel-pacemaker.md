@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.custom: linux-related-content
-ms.date: 10/28/2024
+ms.date: 08/01/2025
 ms.author: radeltch
 # Customer intent: "As a system administrator managing RHEL clusters on Azure, I want to configure a high availability cluster using Pacemaker, so that I can ensure redundancy and fault tolerance for my applications."
 ---
@@ -377,7 +377,7 @@ On the cluster nodes, connect and discover iSCSI device that was created in the 
        SBD_STARTMODE=always
        [...]
        # # In some cases, a longer delay than the default "msgwait" seconds is needed. So, set a specific delay value, in seconds. See, `man sbd` for more information. 
-       SBD_DELAY_START=216
+       SBD_DELAY_START=186
        [...]
        ```
 
@@ -394,17 +394,17 @@ On the cluster nodes, connect and discover iSCSI device that was created in the 
     systemctl restart systemd-modules-load
     ```
 
-16. **[A]** The SBD service timeout value is set to 90 s by default. However, if the `SBD_DELAY_START` value is set to `yes`, the SBD service will delay its start until after the `msgwait` timeout. Therefore, the SBD service timeout value should exceed the `msgwait` timeout when `SBD_DELAY_START` is enabled.
+16. **[A]** The SBD service timeout value is set to 90 seconds by default. However, if the `SBD_DELAY_START` value is set to `yes`, the SBD service will delay its start until after the `msgwait` timeout. Therefore, the SBD service timeout value should exceed the `msgwait` timeout when `SBD_DELAY_START` is enabled.
 
     ```bash
     sudo mkdir /etc/systemd/system/sbd.service.d
-    echo -e "[Service]\nTimeoutSec=259" | sudo tee /etc/systemd/system/sbd.service.d/sbd_delay_start.conf
+    echo -e "[Service]\nTimeoutSec=223" | sudo tee /etc/systemd/system/sbd.service.d/sbd_delay_start.conf
     sudo systemctl daemon-reload
     
     systemctl show sbd | grep -i timeout
-    # TimeoutStartUSec=4min 19s
-    # TimeoutStopUSec=4min 19s
-    # TimeoutAbortUSec=4min 19s
+    # TimeoutStartUSec=3min 43s
+    # TimeoutStopUSec=3min 43s
+    # TimeoutAbortUSec=3min 43s
     ```
 
 ## SBD with an Azure shared disk
@@ -520,7 +520,7 @@ foreach ($vmName in $vmNames) {
       SBD_STARTMODE=always
       [...]
       # In some cases, a longer delay than the default "msgwait" seconds is needed. So, set a specific delay value, in seconds. See, `man sbd` for more information. 
-      SBD_DELAY_START=216
+      SBD_DELAY_START=186
       [...]
       ```
 
@@ -541,13 +541,13 @@ foreach ($vmName in $vmNames) {
 
    ```bash
    sudo mkdir /etc/systemd/system/sbd.service.d
-   echo -e "[Service]\nTimeoutSec=259" | sudo tee /etc/systemd/system/sbd.service.d/sbd_delay_start.conf
+   echo -e "[Service]\nTimeoutSec=223" | sudo tee /etc/systemd/system/sbd.service.d/sbd_delay_start.conf
    sudo systemctl daemon-reload
    
    systemctl show sbd | grep -i timeout
-   # TimeoutStartUSec=4min 19s
-   # TimeoutStopUSec=4min 19s
-   # TimeoutAbortUSec=4min 19s
+   # TimeoutStartUSec=3min 43s
+   # TimeoutStopUSec=3min 43s
+   # TimeoutAbortUSec=3min 43s
    ```
 
 ## Azure fence agent configuration
@@ -578,7 +578,7 @@ The fencing device uses either a managed identity for Azure resource or a servic
    1. Make a note of the **Value**. It's used as the **password** for the service principal.
    1. Select **Overview**. Make a note of the **Application ID**. It's used as the username (**login ID** in the following steps) of the service principal.
 
-   ---
+    ---
 
 2. Create a custom role for the fence agent
 
@@ -622,7 +622,7 @@ The fencing device uses either a managed identity for Azure resource or a servic
 
    Make sure to assign the role for both cluster nodes.
 
-   ---
+    ---
 
 ## Cluster installation
 

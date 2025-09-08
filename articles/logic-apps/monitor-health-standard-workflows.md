@@ -55,13 +55,13 @@ After Health Check removes the unhealthy instance, the feature continues to ping
 
 - Changes in the specified path for Health Check cause your logic app to restart. To reduce the impact on production apps, [set up and use deployment slots](set-up-deployment-slots.md).
 
-- Health Check doesn't follow redirects for the **302** status code So, avoid redirects, and make sure to select a valid path that exists in your app.
+- Health Check doesn't follow redirects for the **302** status code. So, avoid redirects and make sure to select a path that exists in your app.
 
 ## Set up Health Check
 
 1. In the [Azure portal](https://portal.azure.com), go to your Standard logic app resource.
 
-1. On the logic app menu, under Monitoring**, select **Health check**. On the **Health check** page, on the **Health check** tab, select **Enable**.
+1. On the logic app menu, under **Monitoring**, select **Health check**. On the **Health check** page, on the **Health check** tab, select **Enable**.
 
    :::image type="content" source="media/monitor-health-standard-workflows/health-check.png" alt-text="Screenshot shows Azure portal, page for Health check, and selected option for Enable." lightbox="media/monitor-health-standard-workflows/health-check.png":::
 

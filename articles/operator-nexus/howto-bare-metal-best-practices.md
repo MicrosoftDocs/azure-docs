@@ -1,7 +1,7 @@
 ---
 title: Best practices for Bare Metal Machine operations
 description: Steps that should be taken before executing any Bare Metal Machine replace, or reimage actions. Highlight essential prerequisites and common pitfalls to avoid.
-ms.date: 05/22/2025
+ms.date: 08/12/2025
 ms.topic: how-to
 ms.service: azure-operator-nexus
 ms.custom: template-how-to, best-practices
@@ -67,7 +67,7 @@ See related articles:
 - [How to monitor interface In and Out packet rate for network fabric devices]
 - [How to configure diagnostic settings and monitor configuration differences in Nexus Network Fabric].
 
-Evaluate for any Bare Metal Machine warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems.
+Evaluate for any Bare Metal Machine warnings or degraded conditions that could indicate the need to resolve hardware, network, or server configuration problems.
 For more information, see [Troubleshoot Degraded Status Errors on Bare Metal Machines] and [Troubleshoot Bare Metal Machine Warning Status].
 
 #### Determine if firmware update jobs are running
@@ -88,7 +88,7 @@ az networkcloud baremetalmachine run-read-command \
   --output-directory .
 ```
 
-Here's an example output from the `racadm jobqueue view` command which shows `Firmware Update`.
+Here's an example output from the `racadm jobqueue view` command that shows `Firmware Update`.
 
 ```
 [Job ID=JID_833540920066]
@@ -125,58 +125,60 @@ Message=[SYS043: Successfully exported Server Configuration Profile]
 Percent Complete=[100]
 ```
 
-#### Monitor progress using `run-read-command`
+#### Monitor status in Bare Metal Machine JSON properties
 
-In version 2506.2 and above, you can monitor the progress of long running Bare Metal Machine actions using a `run-read-command`.
+In version 2509.1 and above, you can view the status of any recent or in progress actions in the `JSON View` of the corresponding Bare Metal Machine (Operator Nexus) resource. This information is visible in the `actionStates` field of the Bare Metal Machine JSON properties, when using API Version `2025-07-01-preview` or higher. The following information is available.
 
-- Some long running actions such as `Replace` or `Reimage` are composed of multiple steps, for example, `Hardware Validation`, `Deprovisioning`, or `Provisioning`.
-- The following `run-read-command` shows how to view the different steps in each action, and the progress or status of each step including any potential errors.
-- This information is available on the BareMetalMachine kubernetes resource during or after the action is completed.
-- For more information about the `run-read-command` feature, see [BareMetal Run-Read Execution](./howto-baremetal-run-read.md).
+- Start and end time of the action.
+- Status of the action (`Succeeded`, `Failed`, or `InProgress`).
+- Any extra context or error message associated with the status.
+- The Correlation ID for the original operation, as shown in the Azure Activity log.
+- An ordered list of steps and their status - such as `Hardware Validation`, `Deprovisioning`, `Provisioning`, and `Cloud Init` for a BMM Replace action.
 
-Example `run-read-command` to view action progress on Bare Metal Machine `rack2compute08`:
+The most recent occurrence of each action type is shown, including any currently in-progress action.
 
-```azurecli
-az networkcloud baremetalmachine run-read-command \
-  -g <ResourceGroup_Name> \
-  -n <Control Node BMM Name> \
-  --limit-time-seconds 60 \
-  --commands "[{command:'kubectl get',arguments:[-n,nc-system,bmm,rack2compute08,-o,json]}]" \
-  --output-directory .
-```
-
-Example output for a Replace action:
+Example `actionStates` output for a Bare Metal Machine Replace action:
 
 ```json
-[
-  {
-    "correlationId": "961a6154-4342-4831-9693-27314671e6a7",
-    "endTime": "2025-05-15T21:20:44Z",
-    "startTime": "2025-05-15T20:16:19Z",
-    "status": "Completed",
-    "stepStates": [
+{
+  "properties": {
+    "actionStates": [
       {
-        "endTime": "2025-05-15T20:25:51Z",
-        "name": "Hardware Validation",
-        "startTime": "2025-05-15T20:16:19Z",
-        "status": "Completed"
-      },
-      {
-        "endTime": "2025-05-15T20:26:21Z",
-        "name": "Deprovisioning",
-        "startTime": "2025-05-15T20:25:51Z",
-        "status": "Completed"
-      },
-      {
-        "endTime": "2025-05-15T21:20:44Z",
-        "name": "Provisioning",
-        "startTime": "2025-05-15T20:26:21Z",
-        "status": "Completed"
+        "actionType": "Microsoft.NetworkCloud/bareMetalMachines/replace",
+        "correlationId": "25d678cb-353c-41f4-8231-1135064ae582",
+        "endTime": "2025-08-12T17:00:58Z",
+        "startTime": "2025-08-12T15:32:12Z",
+        "status": "Completed",
+        "stepStates": [
+          {
+            "endTime": "2025-08-12T15:41:22Z",
+            "startTime": "2025-08-12T15:32:12Z",
+            "status": "Completed",
+            "stepName": "Hardware Validation"
+          },
+          {
+            "endTime": "2025-08-12T16:25:39Z",
+            "startTime": "2025-08-12T15:41:22Z",
+            "status": "Completed",
+            "stepName": "Deprovisioning"
+          },
+          {
+            "endTime": "2025-08-12T16:48:27Z",
+            "startTime": "2025-08-12T16:25:39Z",
+            "status": "Completed",
+            "stepName": "Provisioning"
+          },
+          {
+            "endTime": "2025-08-12T17:00:58Z",
+            "startTime": "2025-08-12T16:48:27Z",
+            "status": "Completed",
+            "stepName": "Cloud Init"
+          }
+        ]
       }
-    ],
-    "type": "Microsoft.NetworkCloud/bareMetalMachines/replace"
+    ]
   }
-]
+}
 ```
 
 ## Best practices for a Bare Metal Machine reimage
@@ -200,7 +202,7 @@ Before initiating any `reimage` operation, ensure the following preconditions ar
 
 - Make sure the Bare Metal Machine's workloads are drained using the [`cordon`](./howto-baremetal-functions.md#make-a-bare-metal-machine-unschedulable-cordon) command with the parameter `evacuate` set to `True`.
 - Perform high level checks covered in the article [Troubleshoot Bare Metal Machine Provisioning].
-- Evaluate any Bare Metal Machine warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems before a `reimage` operation.
+- Evaluate any Bare Metal Machine warnings or degraded conditions that could indicate the need to resolve hardware, network, or server configuration problems before a `reimage` operation.
   For more information, read [Troubleshoot Degraded Status Errors on Bare Metal Machines] and [Troubleshoot Bare Metal Machine Warning Status].
 - If the Bare Metal Machine reports a failed state with the reason of hardware validation (seen in the Bare Metal Machine `Detailed Status` and `Detailed Status Message` fields), then the Bare Metal Machine needs a `replace` instead.
   See the [Best Practices for a Bare Metal Machine Replace](#best-practices-for-a-bare-metal-machine-replace).
@@ -228,9 +230,10 @@ Before initiating any `replace` operation, ensure the following preconditions ar
 
 - Make sure the Bare Metal Machine's workloads are drained using the [`cordon`](./howto-baremetal-functions.md#make-a-bare-metal-machine-unschedulable-cordon) command with the parameter `evacuate` set to `True`.
 - Perform high level checks covered in the article [Troubleshoot Bare Metal Machine Provisioning].
-- Evaluate any Bare Metal Machine warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems before a `replace` operation.
+- Evaluate any Bare Metal Machine warnings or degraded conditions that could indicate the need to resolve hardware, network, or server configuration problems before a `replace` operation.
   For more information, see [Troubleshoot Degraded Status Errors on Bare Metal Machines] and [Troubleshoot Bare Metal Machine Warning Status].
 - Validate Bare Metal Machine is powered on.
+- A `replace` on a healthy (powered on, ready, provisioned, joined to cluster) Bare Metal Machine made using the API version `2025-07-01-preview` and later is rejected under the default safeguard mode. If a `replace` is truly required (for example after hardware component replacement), then this rejection can be overridden with `--safeguard-mode None`.
 - Validate that there are no running firmware upgrade jobs.
   Follow steps in section [Determine if Firmware Update Jobs are Running](#determine-if-firmware-update-jobs-are-running).
 

@@ -2,7 +2,7 @@
 title: Support matrix for Azure Data Lake Storage Vaulted Backup (preview)
 description: Learn about the  regional availability, supported scenarios, and limitations for vaulted backups of Azure Data Lake Storage (preview).
 ms.topic: reference
-ms.date: 06/04/2025
+ms.date: 08/26/2025
 ms.custom:
   - references_regions
   - engagement-fy24
@@ -17,9 +17,11 @@ ms.author: v-mallicka
 
 This article summarizes the regional availability, supported scenarios, and limitations for vaulted backups of Azure Data Lake Storage (preview).
 
+For more insights on Azure Backup’s support for vaulted backups in Azure Data Lake Storage (preview) that enables secure, long-term, and isolated data protection, see the [Microsoft Community Hub blog](https://azure.microsoft.com/updates?id=488835).
+
 ## Supported regions
 
-Vaulted backups of Azure Data Lake Storage are available in the following regions: France South, India West, West Central US, East Asia, India Central.
+Vaulted backups of Azure Data Lake Storage are available in the following regions: France South, India West, West Central US, East Asia, India Central, South East Asia.
 
 >[!Note]
 >- This feature is currently in limited preview and is available in specific regions only. See the [supported regions](azure-data-lake-storage-backup-support-matrix.md#supported-regions).
@@ -56,7 +58,7 @@ Azure Data Lake Storage protection (preview) has the following supported and uns
 - Backup vaults with User-Assigned Managed Identity (UAMI) aren't compatible with Azure Blob Vaulted backups. Only System-Assigned Managed Identity (SAMI) works, because the vault needs to access the storage account where the blobs are stored. The vault uses its system-assigned managed identity for this access.
 - You can protect the storage account with the vault in another subscription but in the same region as storage account.
 - Archive tier for vault is currently not supported.
-
+- Azure Data Lake Storage accounts support both Blob and Data File System (DFS) APIs. The system captures operations through Change Feed and uses directory snapshots to ensure consistent recovery.
 
 ## Backup limits
 

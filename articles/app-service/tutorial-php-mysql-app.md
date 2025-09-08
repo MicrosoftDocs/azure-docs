@@ -16,6 +16,7 @@ ms.custom:
   - build-2025
 zone_pivot_groups: app-service-portal-azd
 ms.collection: ce-skilling-ai-copilot
+ms.service: azure-app-service
 ---
 
 # Tutorial: Deploy a PHP, MySQL, and Redis app to Azure App Service

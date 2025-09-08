@@ -23,8 +23,13 @@ This page is updated with the details about the upcoming release approximately a
 
 <hr width = 100%>
 
+## August 2025
+### Compliant with M25 OSDU&reg; release
+Azure Data Manager for Energy has now been upgraded with the supported set of services with the M25 OSDU&reg; milestone release. With this release, you can take advantage of the key improvements made in the OSDU&reg; latest 
+ community features and capabilities available in the [OSDU&reg; M25](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M25-Release-Notes). The upgrade with the OSDU&reg; M25 release is limited to the services available and supported and you can refer [here](osdu-services-on-adme.md) for a detailed list of services available and unavailable on Azure Data Manager for Energy. See the [updated API Swaggers here](https://microsoft.github.io/adme-samples/).
+
 ## July 2025
-### Azure Data Manager for Energy available in two new regions
+### Azure Data Manager for Energy available in Central India and Indonesia Central
 Azure Data Manager for Energy is now available in two new regions: **Central India** and **Indonesia Central**. This expansion allows customers and partners in these regions to deploy and manage energy data solutions closer to their operations, supporting improved performance and compliance with local regulations. Both Standard and Developer tiers are supported.
 
 Central India is available for select customers and partners only. Please reach out to your designated Microsoft account team member to unlock access. Once access is provided, you can select "Central India" as your preferred region when creating Azure Data Manager for Energy resource, using the Azure portal or your preferred provisioning method.
