@@ -33,7 +33,7 @@ in the instructions on how to connect, you are missing authorization piece which
 
 ### Prerequisites
 
-Before you can connect your DevOps repository to resources in SRE Agent, you need to configure DevOPs to allow the agent's Managed Identity access to your repo.
+- **Managed Identity access**: Before you can connect your DevOps repository to resources in SRE Agent, you need to configure DevOps to allow the agent's Managed Identity access to your repo.
 
 ### Connect to Azure DevOps
 
@@ -41,39 +41,39 @@ Before you can connect your DevOps repository to resources in SRE Agent, you nee
 
 1. Open your instance of SRE Agent in the Azure portal.
 
-1. Select the **Resource mapping** tab.
+2. Select the **Resource mapping** tab.
 
-1. Select **Grid view** radio button.
+3. Select **Grid view** radio button.
 
-1. Expand the section for the resource you in which want to connect a repository.
+4. Expand the section for the resource you in which want to connect a repository.
 
-1. Select **Connect repository**
+5. Select **Connect repository**
 
 ::: zone pivot="azure-devops"
 
-1. Enter the repository URL in the box.
+6. Enter the repository URL in the box.
 
     The URL needs to match the following format:
 
     `https://dev.azure.com/organization/<PROJECT_NAME>/_git/<REPO_NAME>`
 
-1. Select **Connect repository**.
+7. Select **Connect repository**.
 
 ::: zone-end
 
 ::: zone pivot="github"
 
-1. Enter the repository URL in the box.
+6. Enter the repository URL in the box.
 
     The URL needs to match the following format:
 
     `https://github.com/<OWNER>/<REPO_NAME>`
 
-1. Select **Connect repository**.
+7. Select **Connect repository**.
 
     A new panel now appears on the right with profile details for the resource.
 
-1. Scroll down the panel and select **Authorize repository access** and follow the authorization flow to connect your repository.
+8. Scroll down the panel and select **Authorize repository access** and follow the authorization flow to connect your repository.
 
 ::: zone-end
 
