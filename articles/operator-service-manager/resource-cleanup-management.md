@@ -1,5 +1,5 @@
 ---
-title: Resource cleanup management best practices
+title: Publisher resource cleanup management best practices
 description: Learn about best practices for resource management cleanup with Azure Operator Service Manager.
 author: msftadam
 ms.author: adamdor
@@ -8,8 +8,8 @@ ms.topic: concept-article
 ms.service: azure-operator-service-manager
 ---
 
-# Overview
-Managing resources is hard. They take up alot of space. It's hard to tell if they are still being used.
+# Publisher resource cleanup management
+Managing publisher resources is difficult. They take up alot of space. It's hard to tell if they are still being used.
 
 ## Introduction 
 To cleanup AOSM resources, ARG queries are used to find if a target resource is referenced in other resource, E.g., NSDV is referenced in any SNS. When references are none, implies the target resource can be deleted.  As of today, usage of artifacts cannot be determined from AOSM resource references and artifact cleanup becomes a challenge. Rest of the resource-types usage is identifiable. This document describes updates in AOSM service to allow detecting unused artifacts and its cleanup.
