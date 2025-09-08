@@ -143,7 +143,7 @@ Sentinel uses enriched data from the BehaviorAnalytics table to identify UEBA an
 | **Data sources:**                | Okta Cloud Logs                                                    |
 | **MITRE ATT&CK tactics:**        |  Persistence, Privilege Escalation                                |
 | **MITRE ATT&CK techniques:**     | T1098 - Account Manipulation, T1556 - Modify Authentication Process |
-'user.session.impersonation.grant'<br>'user.session.impersonation.initiate'<br>'user.session.start'<br>'app.oauth2.admin.consent.grant_success'<br>'app.oauth2.authorize.code_success'<br>'device.desktop_mfa.recovery_pin.generate'<br>'user.authentication.auth_via_mfa'<br>'user.mfa.attempt_bypass'<br>'user.mfa.factor.deactivate'<br>'user.mfa.factor.reset_all'<br>'user.mfa.factor.suspend'<br>'user.mfa.okta_verify' |
+| **Activity:**                    |  'user.session.impersonation.grant'<br>'user.session.impersonation.initiate'<br>'user.session.start'<br>'app.oauth2.admin.consent.grant_success'<br>'app.oauth2.authorize.code_success'<br>'device.desktop_mfa.recovery_pin.generate'<br>'user.authentication.auth_via_mfa'<br>'user.mfa.attempt_bypass'<br>'user.mfa.factor.deactivate'<br>'user.mfa.factor.reset_all'<br>'user.mfa.factor.suspend'<br>'user.mfa.okta_verify' |
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
@@ -245,7 +245,7 @@ Sentinel uses enriched data from the BehaviorAnalytics table to identify UEBA an
 | **Data sources:**                | Okta Cloud Logs                                                    |
 | **MITRE ATT&CK tactics:**        | Persistence, Privilege Escalation                               |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts, T1556 - Modify Authentication Process  |
-| **Activity:**                    | 'app.oauth2.admin.consent.grant_success'<br>'app.oauth2.authorize.code_success'<br>'device.desktop_mfa.recovery_pin.generate'<br>'user.authentication.auth_via_mfa'<br>'user.mfa.attempt_bypass'<br>'user.mfa.factor.deactivate'<br>'user.mfa.factor.reset_all'<br>'user.mfa.factor.suspend'<br>'user.mfa.okta_verify' |
+| **Activity:**                    | app.oauth2.admin.consent.grant_success<br>app.oauth2.authorize.code_success<br>device.desktop_mfa.recovery_pin.generate<br>user.authentication.auth_via_mfa<br>user.mfa.attempt_bypass<br>user.mfa.factor.deactivate<br>user.mfa.factor.reset_all<br>user.mfa.factor.suspend<br>user.mfa.okta_verify |
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
