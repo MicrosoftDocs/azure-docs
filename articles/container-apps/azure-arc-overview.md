@@ -61,7 +61,7 @@ The following features are supported:
 > [!IMPORTANT]
 > If deploying onto **AKS on Azure Local** ensure that you have [setup HAProxy as your load balancer](/azure/aks/hybrid/configure-load-balancer)  before attempting to install the extension.Additionally, make sure that custom CoreDNS is enabled. 
 > 
-> For guidance on enabling AKS custom CoreDNS, please refer to this [documentation](https://learn.microsoft.com/en-us/cli/azure/containerapp/arc?view=azure-cli-latest).
+> For guidance on enabling AKS custom CoreDNS, please refer to this [documentation](/cli/azure/containerapp/arc).
 
 ## Resources created by the Container Apps extension
 
