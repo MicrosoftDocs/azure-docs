@@ -73,7 +73,7 @@ items:
   - name: Migrate from Azure Cloud Services (extended support)
     items:
     - name: Frequently asked questions (FAQ)
-      href: https://learn.microsoft.com/azure/service-fabric/service-fabric-cloud-services-migration-faq?toc=/azure/cloud-services-extended-support/toc.json
+      href: /azure/service-fabric/service-fabric-cloud-services-migration-faq?toc=/azure/cloud-services-extended-support/toc.json
     - name: Cloud Services migration decision matrix
       href: https://learn.microsoft.com/azure/service-fabric/cloud-services-migration-decision-matrix?toc=/azure/cloud-services-extended-support/toc.json
     - name: Migration guide
