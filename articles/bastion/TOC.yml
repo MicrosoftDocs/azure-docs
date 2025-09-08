@@ -45,6 +45,8 @@
       href: ../reliability/reliability-bastion.md?toc=/azure/bastion/TOC.json
 - name: Security
   items:
+  - name: Secure Bastion
+    href: secure-bastion.md
   - name: Security baseline
     href: /security/benchmark/azure/baselines/bastion-security-baseline?toc=/azure/bastion/TOC.json
   - name: Azure Security blog

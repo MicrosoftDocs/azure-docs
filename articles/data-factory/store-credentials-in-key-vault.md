@@ -6,6 +6,7 @@ ms.subservice: security
 ms.topic: how-to
 ms.date: 04/28/2025
 ms.author: abnarain
+ms.custom: sfi-image-nochange
 ---
 
 # Store credentials in Azure Key Vault
