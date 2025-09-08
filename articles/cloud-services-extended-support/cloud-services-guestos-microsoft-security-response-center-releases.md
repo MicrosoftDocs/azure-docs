@@ -65,7 +65,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 25-07 | [4494175] | January '20 Microcode | [5.108] | 01-Sep-20
 | Rel 25-07 | [4494175] | January '20 Microcode | [6.84] | 01-Sep-20
 
-
 [5062560]: https://support.microsoft.com/kb/5062560
 [5062557]: https://support.microsoft.com/kb/5062557
 [5062572]: https://support.microsoft.com/kb/5062572
