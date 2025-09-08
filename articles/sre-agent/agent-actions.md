@@ -4,7 +4,7 @@ description: Learn how the agent gets your consent for elevated credentials to t
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: conceptual
-ms.date: 08/26/2025
+ms.date: 09/08/2025
 ms.service: azure
 ---
 
@@ -36,7 +36,7 @@ When the agent is working in *review* mode, it works on your behalf to create an
 
 The following diagram depicts the decision flow of how an agent gets both consent and the right credentials to operate in review mode.
 
-:::image type="content" source="media/consent-credentials-flow/azure-sre-agent-consent-credentials-flow-review-mode.png" alt-text="Diagram of the consent and credentials request flow in review mode for Azure SRE Agent.":::
+:::image type="content" source="media/agent-actions/azure-sre-agent-agent-actions-review-mode.png" alt-text="Diagram of the consent and credentials request flow in review mode for Azure SRE Agent.":::
 
 | Step | Description | Example scenario |
 |---|---|---|
@@ -60,7 +60,7 @@ When the agent is working in *autonomous* mode inside an incident resolution wor
 
 The following diagram depicts the decision flow of how an agent gets credentials in autonomous mode.
 
-:::image type="content" source="media/consent-credentials-flow/azure-sre-agent-consent-credentials-flow-autonomous-mode.png" alt-text="Diagram showing how the credentials request flow works in autonomous mode in Azure SRE Agent.":::
+:::image type="content" source="media/agent-actions/azure-sre-agent-agent-actions-autonomous-mode.png" alt-text="Diagram showing how the credentials request flow works in autonomous mode in Azure SRE Agent.":::
 
 | Step | Description | Example scenario |
 |---|---|---|
