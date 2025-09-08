@@ -3,13 +3,13 @@ title: List of updates applied to the Azure Guest OS | Microsoft Docs
 description: This article lists the Microsoft Security Response Center updates applied to different Azure Guest OS. See if an update applies to your Guest OS.
 services: cloud-services
 ms.subservice: guest-os-patching
-author: acastoldi
+author: avcastoldi
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: azure-cloud-services-classic
 ms.topic: concept-article
 ms.date: 06/09/2025
 ms.update-cycle: 3650-days
-ms.author: acastoldi
+ms.author: avcastoldi
 ms.custom: compute-evergreen
 ---
 
