@@ -192,4 +192,4 @@ If publishing succeeds, you see:
 
 ## Related content
 
-For an overview of this feature, see [HTTP Publish of MQTT messages with Azure Event Grid](mqtt-http-publish.md).
+- For an overview of this feature, see [HTTP Publish of MQTT messages with Azure Event Grid](mqtt-http-publish.md).
