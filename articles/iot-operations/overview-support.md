@@ -43,7 +43,7 @@ This list applies only to the region you use to connect your cluster to Azure Ar
 
 Azure IoT Operations depends on these support services and features:
 
-* [Azure Device Registry](./discover-manage-assets/overview-manage-assets.md#store-assets-as-azure-resources-in-a-centralized-registry)
+* [Azure Device Registry](./discover-manage-assets/overview-manage-assets.md#azure-device-registry)
 * [Schema registry](./connect-to-cloud/concept-schema-registry.md)
 * [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview)
 * [Azure Key Vault Secret Store extension](/azure/azure-arc/kubernetes/secret-store-extension)
