@@ -9,7 +9,7 @@ ms.service: azure-cloud-services-classic
 ms.topic: concept-article
 ms.date: 06/09/2025
 ms.update-cycle: 3650-days
-ms.author: avcastoldi
+ms.author: acastoldi
 ms.custom: compute-evergreen
 ---
 
