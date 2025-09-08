@@ -36,7 +36,7 @@ Any entity trying to access Microsoft Entra identity services via the TLS/SSL pr
 | [DigiCert Global Root G2](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt) | 0x033af1e6a711a9a0bb2864b11d09fae5<br>DF3C24F9BFD666761B268073FE06D1CC8D4F82A4 |
 | [DigiCert Global Root G3](https://cacerts.digicert.com/DigiCertGlobalRootG3.crt) | 0x055556bcf25ea43535c3a40fd5ab4572<br>7E04DE896A3E666D00E687D33FFAD93BE83D349E |
 | [DigiCert TLS ECC P384 Root G5](https://cacerts.digicert.com/DigiCertTLSECCP384RootG5.crt) | 0x09e09365acf7d9c8b93e1c0b042a2ef3<br>17F3DE5E9F0F19E98EF61F32266E20C407AE30EE|
-| [DigiCert TLS RSA 4096 Root G5](https://cacerts.digicert.com/DigiCertG5TLSRSA4096SHA3842021CA1-1.crt) | 0x08f9b478a8fa7eda6a333789de7ccf8a<br>A78849DC5D7C758C8CDE399856B3AAD0B2A57135 |
+| [DigiCert TLS RSA 4096 Root G5](https://cacerts.digicert.com/DigiCertTLSRSA4096RootG5.crt) | 0x08f9b478a8fa7eda6a333789de7ccf8a<br>A78849DC5D7C758C8CDE399856B3AAD0B2A57135 |
 | [Microsoft ECC Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20ECC%20Root%20Certificate%20Authority%202017.crt) | 0x66f23daf87de8bb14aea0c573101c2ec<br>999A64C37FF47D9FAB95F14769891460EEC4C3C5 |
 | [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20RSA%20Root%20Certificate%20Authority%202017.crt) | 0x1ed397095fd8b4b347701eaabe7f45b3<br>73A5E64A3BFF8316FF0EDCCC618A906E4EAE4D74 |
 | [Microsoft TLS RSA Root G2](https://caissuers.microsoft.com/pkiops/certs/Microsoft%20TLS%20RSA%20Root%20G2%20-%20xsign.crt) | 0b0c6b2c466917b04773c647d4afc0c8<br>B5EE89E77326AB2BF1775BD99C19A28947FF8184 |
