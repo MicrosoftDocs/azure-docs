@@ -9,6 +9,9 @@ ms.date: 01/10/2025
 ms.author: godonnell
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 
 #Customer intent: As a developer, I want to learn how to create user flows and custom policies in the Azure portal to enable sign up, sign in, and user profile editing for my applications in Azure Active Directory B2C.
 
