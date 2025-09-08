@@ -17,7 +17,7 @@ In Azure, a *resource* is a manageable item that you create and configure within
 
 - **Storage accounts**, offered by the `Microsoft.Storage` resource provider. Storage accounts are top-level resources that represent a shared pool of storage, IOPS, and throughput in which you can deploy **classic file shares** or other storage resources, depending on the storage account kind. All storage resources that are deployed into a storage account share the limits that apply to that storage account. Classic file shares support both the SMB and NFS file sharing protocols.
 
-- **File shares** (preview), offered by the `Microsoft.FileShares` resource provider. File shares are a new top-level resource that simplify the deployment of Azure Files by eliminating the storage account. Unlike classic file shares, which must be deployed into a storage account, file shares are deployed directly into the resource group like storage accounts themselves, or other Azure resources you may be familiar with like virtual machines, disks, or virtual networks. File shares support the NFS file sharing protocol - if you require SMB, choose classic file shares for your deployment.
+- **File shares** (preview), offered by the `Microsoft.FileShares` resource provider. File shares are a new top-level resource type that simplifies the deployment of Azure Files by eliminating the storage account. Unlike classic file shares, which must be deployed into a storage account, file shares are deployed directly into the resource group like storage accounts themselves, or other Azure resources you may be familiar with like virtual machines, disks, or virtual networks. File shares support the NFS file sharing protocol - if you require SMB, choose classic file shares for your deployment.
 
 ## Classic file share scale targets (Microsoft.Storage)
 There are two types of limits that apply to storage accounts and classic file shares:
@@ -146,7 +146,7 @@ There are two types of limits that apply to file shares:
 
 - Data plane limits, which are enforced by the Azure storage platform, and apply to things like creating and deleting files and folders via the NFS file sharing protocol.
 
-### Microsoft.FileShares control plane targets
+### Microsoft.FileShares control plane limits
 The following limits apply to the file share and to child resources of the file share such as file share snapshots. 
 
 | Attribute | Limit |
@@ -157,7 +157,7 @@ The following limits apply to the file share and to child resources of the file 
 | Management write operations<sup>1</sup> | Maximum of 300 requests per second, refilled at a rate of 15 requests per second |
 | Management delete operations<sup>1</sup> | Maximum of 300 requests per second, refilled at a rate of 15 requests per second |
 
-<sup>1</sup> `Microsoft.FileShares` uses a similar throttling algorithm for management requests as Azure Resource Manager itself uses. API throttling is managed using a [token bucket algorithm](https://en.wikipedia.org/wiki/Token_bucket). The token bucket represents the maximum number of requests that you can send for each second. When you reach the maximum number of requests, the refill rate determines how quickly new requests are added to the `bucket`.
+<sup>1</sup> `Microsoft.FileShares` uses a similar throttling algorithm for management requests as Azure Resource Manager itself uses. API throttling is managed using a [token bucket algorithm](https://en.wikipedia.org/wiki/Token_bucket). The token bucket represents the maximum number of requests that you can send for each second. When you reach the maximum number of requests, the refill rate determines how quickly new requests are added to the 'bucket'.
 
 ### File share data plane targets
 The following limits apply at the file share level and are enforced at the data plane. File shares use the provisioned v2 billing model.
