@@ -16,7 +16,12 @@ ms.date: 09/08/2025
 
 This article explains how to grant administrators and developers access to Microsoft Dev Box projects. Use Azure role-based access control (Azure RBAC) to assign the built-in DevCenter roles at the project level.
 
-Use the DevCenter Project Admin role to delegate project administration. Use the DevCenter Dev Box User role to grant developers the ability to create and manage dev boxes.
+Dev Box has two built-in roles: *DevCenter Project Admin* and *DevCenter Dev Box User*. The following table describes the roles:
+
+| Role                        | Permissions                                                                                           |
+|-----------------------------|-------------------------------------------------------------------------------------------------------|
+| **DevCenter Project Admin** | - View network connections attached to the dev center<br>- View dev box definitions attached to the dev center<br>- Create, view, update, and delete dev box pools in the project |
+| **DevCenter Dev Box User**  | - View pools within a project<br>- Create dev boxes<br>- Connect to a dev box<br>- Manage dev boxes they created<br>- Delete dev boxes they created |
 
 ## Prerequisites
 
