@@ -24,7 +24,7 @@ ms.author: glenga
 | [Deployment slots](/azure/azure-functions/functions-deployment-slots) per app<sup>12</sup> |  n/a | 3 | 1-20<sup>11</sup> | not supported |2 |
 | Storage (temporary)<sup>5</sup> |  0.8 GB | 21-140 GB |11-140 GB | n/a |0.5 GB |
 | Storage (persisted) |  0 GB<sup>7</sup> | 250 GB |10-1000 GB<sup>11</sup> | n/a |1 GB<sup>6,7</sup> |
-| Custom domains per app</a> | 500 | 500 | 500 | not supported |500<sup>7</sup> |
+| Custom domains per app</a> | 25<sup>8</sup> | 500 | 500 | not supported |500<sup>8</sup> |
 | Custom domain [TSL/SSL support](/azure/app-service/configure-ssl-bindings) | unbounded SNI SSL and one IP SSL connection included | unbounded SNI SSL and one IP SSL connection included |unbounded SNI SSL and one IP SSL connection included | not supported |unbounded SNI SSL connection included |
 
 Notes on service limits:

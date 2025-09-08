@@ -35,7 +35,7 @@ Classic file shares, or file shares deployed in storage accounts, are the tradit
 
 - **Shared settings**: Many important settings, such as network and security rules, are applied at the storage account level, so as a result, placing classic file shares in the same storage account requires careful consideration. You should consider the storage account to be a trust boundary and only place classic file shares in the same storage account if you're ok with them having the same security settings.
 
-- **Scaling complexity**: Large scale deployments of Azure Files can require managing many Azure subscriptions due the constraints on storage accounts from the `Microsoft.Storage` resource provider. See [storage account limits](./storage-files-scale-targets.md#storage-account-scale-targets) for more information.
+- **Scaling complexity**: Large scale deployments of Azure Files can require managing many Azure subscriptions due the constraints on storage accounts from the `Microsoft.Storage` resource provider. See [storage account limits](./storage-files-scale-targets.md#storage-account-data-plane-limits) for more information.
 
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
 
@@ -71,9 +71,13 @@ Currently, creating a file share with Microsoft.FileShares (preview) is availabl
 - Korea South
 - Australia Central
 
+Currently, private endpoint support for file share with Microsoft.FileShares (preview) is available in the following regions:
+
+- East Asia
+
 #### Comparing resource providers: Microsoft.Storage versus Microsoft.FileShares
 
-| Feature | Classic file shares ![fileshareclassicicon1](./media/storage-files-planning/icon-service-Azure-Fileshares.svg) | File shares (Microsoft.FileShares) ![mfsicon](./media/storage-files-planning/icon-service-Managed-File-Shares.svg) |
+| Feature | Classic file shares ![fileshareclassicicon1](./media/storage-files-planning/icon-service-file-share.svg) | File shares (Microsoft.FileShares) ![mfsicon](./media/storage-files-planning/icon-service-Managed-File-Shares.svg) |
 |-|-|-|
 | Support guarantee | General available | Public preview |
 | Top level resource for the service | Storage account ![fileshareclassicicon2](./media/storage-files-planning/icon-service-Storage-Accounts.svg) | File Shares ![mfsicon](./media/storage-files-planning/icon-service-Managed-File-Shares.svg) |

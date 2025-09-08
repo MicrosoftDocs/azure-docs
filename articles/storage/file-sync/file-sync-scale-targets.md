@@ -1,5 +1,5 @@
 ---
-title: Azure Files scalability and performance targets
+title: Azure File sync scalability and performance targets
 description: Learn about the scalability and performance targets for Azure File Sync, management and namespace limits.
 author: khdownie
 ms.service: azure-file-storage

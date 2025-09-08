@@ -6,7 +6,7 @@ metadata:
   ms.author: halkazwini
   ms.service: azure-network-watcher
   ms.topic: faq
-  ms.date: 08/20/2025
+  ms.date: 09/03/2025
 title: "Network Watcher frequently asked questions (FAQ)"
 summary: |
   This article provides answers to the most frequently asked questions about Azure Network Watcher.
@@ -188,7 +188,7 @@ sections:
       - question: |
           What is the difference between NSG flow logs and NSG diagnostics?
         answer: |
-          Network security group flow logs log traffic flowing through a network security group. On the other hand, NSG diagnostics returns all network security groups that your traffic is traversing and the rules of each network security group that are applied to this traffic. Use NSG diagnostics to verify that your network security group rules are being applied as expected.
+          Network security group flow logs record traffic flowing through a network security group. On the other hand, NSG diagnostics returns all network security groups that your traffic is traversing and the rules of each network security group that are applied to this traffic. Use NSG diagnostics to verify that your network security group rules are being applied as expected.
 
       - question: |
           Can I log ESP and AH traffic using network security group flow logs?
@@ -226,6 +226,26 @@ sections:
           4. Enable flow logs by creating a flow log for your target resource using the storage account. For more information, see [Create a flow log](vnet-flow-logs-manage.md#create-a-flow-log).
           
           You can check the storage logs after a few minutes. You should see an updated TimeStamp or a new JSON file created.
+
+      - question: |
+          How many retention policy rules can a storage account have?
+        answer: |
+          Currently, a storage account supports 100 rules, and each rule can accommodate 10 blob prefixes. If you reach the limit, you can set the retention policy to ***0*** when you enable new virtual network flow logs, and then manually add a retention rule for the subscription.
+
+          To create a retention policy subscription rule, follow these steps:
+          1. Go to the storage account by entering the storage account's name in the search box at the top of the portal.
+          1. Under **Data management**, select **Lifecycle management**.
+          1. Select **+ Add rule**.
+          1. In the **Details** section, select the following settings: **Rule scope:** *Limit blobs with filters*, **Blob type:** *Block blobs*, and **Blob subtype:** *Base blobs*.
+          1. In the **Base blobs** section, configure your retention settings.
+          1. In the **Filter set** section, format the **Blob prefix** as the following:
+          `"insights-logs-flowlogflowevent/flowLogResourceID=/<yourSubscriptionId>_NETWORKWATCHERRG"`
+          1. Select **Add**.
+
+      - question: |
+           What happens if I have both a flow log retention policy rule and a subscription-level rule at the same time?
+        answer: |
+          The rule with shorter retention period takes precedence.
 
       - question: |
           Why do I see some 403 errors in storage account activity logs?
@@ -287,7 +307,7 @@ sections:
       - question: |
           Can I restrict public access to the data collection endpoint (DCE) resource created by traffic analytics?
         answer: |
-          Yes, you can disable public access to restrict public inbound traffic to the DCE resource.
+          Yes, you can disable public access to the data collection endpoint (DCE) resource to block public inbound traffic to it. Ingestion continues to work without associating the DCE resource with an Azure Monitor Private Link scope.
 
       - question: |
           Can I use an existing workspace?
@@ -327,7 +347,7 @@ sections:
       - question: |
           What if I can't configure a network security group for traffic analytics due to a "Not found" error?
         answer: |
-          Select a supported region. If you select a non-supported region, you receive a "Not found" error. For more information, see [Traffic analytics supported regions](./supported-region-traffic-analytics.md).
+          Select a supported region. If you select a nonsupported region, you receive a "Not found" error. For more information, see [Traffic analytics supported regions](./supported-region-traffic-analytics.md).
 
       - question: |
           What if I'm getting the status: “Failed to load” in the flow logs page?
@@ -380,7 +400,7 @@ sections:
       - question: |
           Can I apply locks to the DCE and DCR resources created by traffic analytics? 
         answer: |
-          It is not recommended to apply locks to DCR and DCE resources created by traffic analytics as these resources are managed by the service. Notably, locked resources would not be cleaned up upon deletion of the related flow logs. If you perform any operation on these resources, traffic analytics might not function as expected. For more information, see [Data aggregation in traffic analytics](./traffic-analytics-schema.md#data-aggregation).
+          It isn't recommended to apply locks to DCR and DCE resources created by traffic analytics as these resources are managed by the service. Locked resources aren't cleaned up upon deletion of the related flow logs. If you perform any operation on these resources, traffic analytics might not function as expected. For more information, see [Data aggregation in traffic analytics](./traffic-analytics-schema.md#data-aggregation).
 
       - question: |
           How does traffic analytics decide that an IP is malicious? 
@@ -397,6 +417,11 @@ sections:
           - Use the [traffic analytics schema](traffic-analytics-schema.md) to write your queries.
           - Select **New alert rule** to create the alert.
           - See [Create a new alert rule](/azure/azure-monitor/alerts/alerts-log) to create the alert.
+
+      - question: |
+          Is traffic analytics supported in a Log Analytics workspace with Network Security Perimeter enabled?
+        answer: |
+          No, it's currently not supported. If a Log Analytics workspace is deployed behind a network security perimeter, traffic analytics won't be able to ingest data from it.
 
   - name: Network diagnostic tools
     questions:

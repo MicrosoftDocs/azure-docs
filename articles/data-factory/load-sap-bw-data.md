@@ -7,6 +7,7 @@ ms.author: ulrichchrist
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.date: 05/15/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Copy data from SAP Business Warehouse with Azure Data Factory or Synapse Analytics
