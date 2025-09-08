@@ -28,7 +28,7 @@ Understanding the difference between these policies is critical for assigning ph
 A **primary calling policy** is directly tied to a single user account (or a dedicated resource account). It represents the default and individual assignment of a phone number to a user or resource.  
 
 ### Emergency Call Behavior for Primary Calling Policy  
-- When a user is assigned a primary calling policy, a unique direct inward dial (DID) number is associated with that user.  
+- When a user is assigned a primary calling policy, a unique phone number is associated with that user.  
 - If the user places an emergency call (for example, 911 in the U.S.), the call is routed to the emergency services provider along with the user’s number and registered emergency location.  
 - If the emergency call drops, the emergency call agent can call back the user’s number directly. Because the number is uniquely assigned, the callback routes back to the same user who initiated the emergency call.  
 
