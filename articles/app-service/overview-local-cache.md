@@ -6,7 +6,7 @@ tags: optional
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: conceptual
 ms.date: 04/17/2025
-ms.update-cycle: 1095-days
+ms.update-cycle: 180-days
 ms.custom: UpdateFrequency3
 ms.author: msangapu
 author: msangapu-msft
@@ -71,7 +71,7 @@ Configuring a local cache causes these changes:
 - The default content view of the SCM site continues to reflect the shared content store.
 
 > [!NOTE]
-> If you're using Java (Java SE, Tomcat, or JBoss EAP), then by default, the Java artifacts (.jar, .war, and .ear files) are copied locally to the worker. If your Java application depends on read-only access to additional files, set `JAVA_COPY_ALL` to `true` so that those files are also copied. If a local cache is enabled, it takes precedence over this Java-specific behavior.
+> If you're using Java (Java SE, Tomcat, or JBoss EAP), then by default, the Java artifacts (.jar, .war, and .ear files) are copied locally to the worker. If your Java application depends on read-only access to additional files, set `JAVA_COPY_ALL` to `true` so that those files are also copied. If a local cache is enabled, it takes precedence over this Java-specific behavior. `JAVA_COPY_ALL` is not compatible with the legacy convention of deploying to `/home/site/wwwroot/webapps`.
 
 ## Methods for enabling a local cache
 

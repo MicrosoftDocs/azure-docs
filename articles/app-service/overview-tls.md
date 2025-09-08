@@ -3,8 +3,8 @@ title: What Is TLS/SSL in Azure App Service?
 description: Learn how TLS and SSL work in App Service, including TLS version support, certificate management, bindings, and mutual authentication to protect web app traffic.
 keywords: Azure App Service, SSL, TLS, HTTPS, certificate management, TLS mutual authentication, secure bindings, SSL certificates, App Service Certificates, SSL in code, TLS versions
 ms.topic: overview
-ms.date: 08/25/2025
-ms.update-cycle: 1095-days
+ms.date: 09/08/2025
+ms.update-cycle: 180-days
 ms.author: msangapu
 author: msangapu-msft
 ms.service: azure-app-service

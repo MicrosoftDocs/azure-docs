@@ -11,7 +11,9 @@ ms.topic: quickstart
 ms.date: 02/23/2023
 ms.author: godonnell
 ms.subservice: b2c
-ms.custom: mode-other
+ms.custom:
+  - mode-other
+  - sfi-image-nochange
 
 #Customer Intent: As a developer building a single-page app, I want to set up sign-in functionality using Azure Active Directory B2C, so that I can authenticate users with social accounts and call a protected web API to retrieve user information.
 

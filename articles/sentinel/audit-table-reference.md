@@ -18,11 +18,6 @@ This article describes the fields in the SentinelAudit tables, which are used fo
 
 Learn how to [query and use the audit table](monitor-analytics-rule-integrity.md) for deeper monitoring and visibility of actions in your environment.
 
-> [!IMPORTANT]
->
-> The *SentinelAudit* data table is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-
 Microsoft Sentinel's audit feature currently covers only the analytics rule resource type, though other types may be added later. Many of the data fields in the following tables will apply across resource types, but some have specific applications for each type. The descriptions below will indicate one way or the other.
 
 ## SentinelAudit table columns schema

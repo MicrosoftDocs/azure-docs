@@ -4,7 +4,7 @@ description: Learn how the Microsoft Azure Network Adapter can improve the netwo
 author: mattmcinnes
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 07/10/2023
+ms.date: 09/04/2025
 ms.author: mattmcinnes
 # Customer intent: As a cloud administrator, I want to implement the Azure Network Adapter to optimize networking performance for my virtual machines, so that I can ensure better stability and availability in our cloud infrastructure.
 ---
@@ -25,16 +25,12 @@ Several [Azure Marketplace](/marketplace/azure-marketplace-overview) images have
 
 #### Linux
 
-- Ubuntu 22.04 LTS
+- Ubuntu 22.04 LTS (with linux-azure kernel >= 6.8.0-1033)
 - Ubuntu 24.04 LTS
-- Red Hat Enterprise Linux 8.8
-- Red Hat Enterprise Linux 8.10
-- Red Hat Enterprise Linux 9.2
-- Red Hat Enterprise Linux 9.4
-- SUSE Linux Enterprise Server 15 SP4
+- SUSE Linux Enterprise Server 15 SP5 and above
 - Debian 12 "Bookworm"
-- Oracle Linux 8.0 UEK R7
-- Oracle Linux 9.0 UEK R7
+- Debian 13 "Trixie"
+- Oracle Linux 9.0 UEK R8
 
 > [!NOTE]
 > Newer MANA features are under active development and Linux distribution vendors partner with Microsoft to update their kernels with upstream changes. Cadence of updates varies by distribution vendor. The newer your distribution and kernel is, the more likely it is to have the latest updates. 
