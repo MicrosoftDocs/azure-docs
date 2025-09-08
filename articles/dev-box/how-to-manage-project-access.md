@@ -20,7 +20,7 @@ Use the DevCenter Project Admin role to delegate project administration. Use the
 
 ## Prerequisites
 
-- You must have an Azure account with permission to assign roles at the project level.
+- You must have an Azure account with permission to create role assignments on the project. Typically this means you are assigned the **Owner** or **User Access Administrator** role at the project scope (or higher).
 - You must have an existing dev center and at least one project.
 
 ## Assign DevCenter Project Admin role
@@ -47,13 +47,15 @@ To grant a user project admin permission in Microsoft Dev Box, assign the DevCen
    | --- | --- |
    | **Role** | Select **DevCenter Project Admin**. |
    | **Assign access to** | Select **User, group, or service principal**. |
-   | **Members** | Select the users or groups that need administrative access to the project. |
+   | **Members** | Select the users or groups that need admin access to the project. |
 
    :::image type="content" source="media/how-to-project-admin/add-role-assignment-admin.png" alt-text="Screenshot of the Add role assignment pane with DevCenter Project Admin role selected in the Azure portal.":::
 
 The users can now manage the project and create dev box pools within it.
 
 [!INCLUDE [permissions note](./includes/note-permission-to-create-dev-box.md)]
+
+Verify the role assignment: On the project's Access Control (IAM) page, confirm the new member appears for the DevCenter Project Admin role.
 
 ## Assign DevCenter Dev Box User role
 
@@ -86,6 +88,14 @@ Users can now view the project and all pools within it. Dev box users can create
 [!INCLUDE [supported accounts note](./includes/note-supported-accounts.md)]
 
 [!INCLUDE [dev box runs on creation note](./includes/note-dev-box-runs-on-creation.md)]
+
+Verify the role assignment: On the project's Access Control (IAM) page, confirm the new member appears for the DevCenter Dev Box User role.
+
+## Troubleshooting
+
+- Role assignment propagation can take a minute; refresh the portal and wait a short time before retrying.
+- If you get an authorization error, confirm your account has Microsoft.Authorization/roleAssignments/write at the project or parent scope.
+- If the user doesn't see the project or pools after a successful assignment, check that the assignment was made at the correct scope (project vs. subscription/resource group) and that the user has a supported account type.
 
 ## Clean up resources
 
