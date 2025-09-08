@@ -130,7 +130,7 @@ Sentinel uses enriched data from the BehaviorAnalytics table to identify UEBA an
 | **Data sources:**                | GCP Audit Logs                                                     |
 | **MITRE ATT&CK tactics:**        |  Discovery                                  |
 | **MITRE ATT&CK techniques:**     | T1087 – Account Discovery, T1069 – Permission Groups Discovery                      |
-| **Activity:**                    |                         |
+| **Activity:**                    |  iam.googleapis.com                       |
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
@@ -144,7 +144,7 @@ Sentinel uses enriched data from the BehaviorAnalytics table to identify UEBA an
 | **Data sources:**                | Okta Cloud Logs                                                    |
 | **MITRE ATT&CK tactics:**        |  Persistence, Privilege Escalation                                |
 | **MITRE ATT&CK techniques:**     | T1098 - Account Manipulation, T1556 - Modify Authentication Process |
-| **Activity:**                    |  |
+'user.session.impersonation.grant'<br>'user.session.impersonation.initiate'<br>'user.session.start'<br>'app.oauth2.admin.consent.grant_success'<br>'app.oauth2.authorize.code_success'<br>'device.desktop_mfa.recovery_pin.generate'<br>'user.authentication.auth_via_mfa'<br>'user.mfa.attempt_bypass'<br>'user.mfa.factor.deactivate'<br>'user.mfa.factor.reset_all'<br>'user.mfa.factor.suspend'<br>'user.mfa.okta_verify' |
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
@@ -231,7 +231,7 @@ Sentinel uses enriched data from the BehaviorAnalytics table to identify UEBA an
 | **Data sources:**                | AWS CloudTrail logs                                                |
 | **MITRE ATT&CK tactics:**        |  Initial Access                           |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts  |                                          |
-| **Activity:**                    |              |
+| **Activity:**                    |  signin.amazonaws.com            |
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
@@ -246,7 +246,7 @@ Sentinel uses enriched data from the BehaviorAnalytics table to identify UEBA an
 | **Data sources:**                | Okta Cloud Logs                                                    |
 | **MITRE ATT&CK tactics:**        | Persistence, Privilege Escalation                               |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts, T1556 - Modify Authentication Process  |
-| **Activity:**                    |                       |
+| **Activity:**                    | 'app.oauth2.admin.consent.grant_success'<br>'app.oauth2.authorize.code_success'<br>'device.desktop_mfa.recovery_pin.generate'<br>'user.authentication.auth_via_mfa'<br>'user.mfa.attempt_bypass'<br>'user.mfa.factor.deactivate'<br>'user.mfa.factor.reset_all'<br>'user.mfa.factor.suspend'<br>'user.mfa.okta_verify' |
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
