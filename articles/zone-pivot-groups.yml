@@ -1936,3 +1936,12 @@ groups:
     title: Elastic Observability
   - id: elastic-security
     title: Elastic Security
+# Owner: jodowns
+- id: sql-managed-instance-tiers
+  title: Tier
+  prompt: Choose a service tier
+  pivots:
+  - id: general-purpose
+    title: General Purpose
+  - id: business-critical
+    title: Business Critical

@@ -10,7 +10,9 @@ ms.topic: reference
 ms.date: 10/11/2024
 ms.author: kengaderdus
 ms.subservice: b2c
-ms.custom: "b2c-support"
+ms.custom:
+  - "b2c-support"
+  - sfi-image-nochange
 
 
 #Customer intent: As a developer building a single-page application, I want to configure Azure AD B2C authentication in my application, so that users can sign up, sign in, and access protected resources using the OIDC PKCE flow.
