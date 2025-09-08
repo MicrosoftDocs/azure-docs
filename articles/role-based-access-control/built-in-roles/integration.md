@@ -979,7 +979,6 @@ Allows read-only access to Azure API Center service.
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
-
 ## Azure Relay Listener
 
 Allows for listen access to Azure Relay resources.

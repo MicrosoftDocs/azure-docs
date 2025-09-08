@@ -6,6 +6,7 @@ ms.author: jianleishen
 ms.topic: tutorial
 ms.date: 10/03/2024
 ms.subservice: data-movement
+ms.custom: sfi-image-nochange
 ---
 
 # Copy data from Azure Blob storage to a SQL Database by using the Copy Data tool
