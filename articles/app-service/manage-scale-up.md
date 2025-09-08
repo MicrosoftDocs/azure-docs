@@ -88,7 +88,7 @@ For a table of service limits, quotas, and constraints, and supported features i
 ## Related content
 
 * [Get started with autoscale in Azure](/azure/azure-monitor/autoscale/autoscale-get-started)
-* [Configure Premium V3 tier for App Service](app-service-configure-premium-v3-tier.md)
+* [Configure Premium V3 tier for App Service](app-service-configure-premium-v4-tier.md)
 * [Tutorial: Run a load test to identify performance bottlenecks in a web app](../app-testing/load-testing/tutorial-identify-bottlenecks-azure-portal.md)
 <!-- LINKS -->
 [vmsizes]:https://azure.microsoft.com/pricing/details/app-service/
