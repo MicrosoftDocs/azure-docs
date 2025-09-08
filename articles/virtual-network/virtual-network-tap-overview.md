@@ -65,9 +65,6 @@ Please note, limitations tagged with **[Temporary]** will be resolved at GA.
 
 ### Coming soon
 - US Central
-- Eruope West
-- Europe North
-- US West 3
 - Australia East
 - Korean Central
 - Canada Central
