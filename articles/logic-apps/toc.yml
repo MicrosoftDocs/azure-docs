@@ -125,6 +125,8 @@ items:
       href: add-run-powershell-scripts.md
     - name: Create and register MCP servers and tools
       href: create-mcp-server-api-center.md
+    - name: Set up Standard logic apps as MCP servers
+      href: set-up-model-context-protocol-server-standard.md
     - name: Create AI agent workflows
       href: create-agent-workflows.md
     - name: Parse or chunk content
