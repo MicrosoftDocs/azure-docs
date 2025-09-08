@@ -37,4 +37,4 @@ The ability to export data is only provided through the IoT Central administrati
 
 ## Next steps
 
-For more information about account administration, including role definitions, see [How to administer your application](howto-administer.md).
+For more information about account administration, including role definitions, see [Change IoT Central application settings](howto-administer.md).
