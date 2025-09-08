@@ -108,7 +108,7 @@ From the list of discovered assets, you can import an asset into your Azure IoT 
 
     :::image type="content" source="media/howto-detect-opc-ua-assets/provisioned-asset.png" alt-text="Screenshot that shows how to view the imported asset.":::
 
-To learn more about managing asset configurations, see [Manage asset configurations](howto-manage-assets-devices.md).
+To learn more about managing asset configurations, see [Manage asset configurations](howto-use-operations-experience.md).
 
 ## Review the asset definitions in the Azure portal (optional)
 

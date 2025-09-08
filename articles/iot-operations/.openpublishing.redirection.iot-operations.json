@@ -587,7 +587,12 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/discover-manage-assets/howto-manage-assets-remotely.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-manage-assets-devices",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-use-operations-experience",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/howto-manage-assets-devices.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-use-operations-experience",
             "redirect_document_id": true
         },
         {

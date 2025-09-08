@@ -357,7 +357,7 @@ az iot ops ns asset delete --name thermostat -g {your resource group name} --ins
 
 ## Related content
 
-- [Manage asset and device configurations](howto-manage-assets-devices.md)
+- [Manage asset and device configurations](howto-use-operations-experience.md)
 - [Connector for OPC UA overview](overview-opc-ua-connector.md)
 - [az iot ops asset](/cli/azure/iot/ops/asset)
 - [az iot ops device](/cli/azure/iot/ops/asset/endpoint)
