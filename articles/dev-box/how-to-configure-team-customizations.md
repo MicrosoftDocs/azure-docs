@@ -249,7 +249,7 @@ Make changes to the image definition file and create a new dev box to test them.
 
 ## Next step
 
-Now that you have an image definition file that configures and creates dev boxes for your development team, learn how to optimize dev box creation time with Dev Box imaging.
+Now that you have an image definition file that configures and creates dev boxes for your development team, learn how to optimize dev box creation time with dev center imaging.
 
 > [!div class="nextstepaction"]
-> [Configure Dev Box imaging](how-to-configure-dev-box-imaging.md)
+> [Configure dev center imaging](how-to-configure-dev-center-imaging.md)
