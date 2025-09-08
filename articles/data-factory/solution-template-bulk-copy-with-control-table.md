@@ -6,6 +6,7 @@ ms.author: yexu
 ms.topic: conceptual
 ms.date: 10/03/2024
 ms.subservice: data-movement
+ms.custom: sfi-image-nochange
 ---
 
 # Bulk copy from a database with a control table
