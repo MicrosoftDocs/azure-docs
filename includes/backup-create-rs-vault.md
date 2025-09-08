@@ -13,7 +13,7 @@ ms.author: jsuri
 
 ## Create a Recovery Services vault
 
-An Azure Recovery Services vault is a management entity that stores recovery points that are created over time, and it provides an interface to perform backup-related operations. These operations include taking on-demand backups, performing restores, and creating backup policies.
+An Azure Recovery Services vault is a management entity that stores recovery points that are created over time. It provides an interface to perform backup-related operations. These operations include taking on-demand backups, performing restores, and creating backup policies.
 
 To create a Recovery Services vault:
 
@@ -39,7 +39,7 @@ To create a Recovery Services vault:
    - **Region**: Select the geographic region for the vault. For you to create a vault to help protect any data source, the vault *must* be in the same region as the data source.
 
       > [!IMPORTANT]
-      > If you're not sure of the location of your data source, close the window. Go to the list of your resources in the portal. If you have data sources in multiple regions, create a Recovery Services vault for each region. Create the vault in the first location before you create a vault in another location. There's no need to specify storage accounts to store the backup data. The Recovery Services vault and Azure Backup handle that automatically.
+      > If you're not sure of the location of your data source, close the window. Go to the list of your resources in the portal. If you have data sources in multiple regions, create a Recovery Services vault for each region. Create the vault in the first location before you create a vault in another location. You don't need to specify storage accounts to store the backup data. The Recovery Services vault and Azure Backup handle that step automatically.
       
       ![Screenshot that shows fields for configuring a Recovery Services vault.](./media/backup-create-rs-vault/backup-center-add-vault-details.png)
 
@@ -51,5 +51,5 @@ To create a Recovery Services vault:
 
     ![Screenshot that shows the button for refreshing the list of backup vaults.](./media/backup-create-rs-vault/refresh-button.png)
 
->[!Note]
+>[!NOTE]
 Backup now supports immutable vaults that help you ensure that after recovery points are created, they can't be deleted before their expiry according to the backup policy. You can make the immutability irreversible for maximum protection to protect your backup data from various threats, including ransomware attacks and malicious actors. [Learn more about Backup immutable vaults](/azure/backup/backup-azure-immutable-vault-concept).
