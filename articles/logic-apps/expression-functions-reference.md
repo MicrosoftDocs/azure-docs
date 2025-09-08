@@ -436,7 +436,7 @@ actions('<actionName>').outputs.body.<property>
 
 | Return value | Type | Description |
 | ------------ | -----| ----------- |
-| <*action-output*> | Object | The JSON Object output from the specified action or property |
+| <*action-output*> | Object | The JSON object output from the specified action or property |
 
 *Example*
 
