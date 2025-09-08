@@ -91,21 +91,21 @@ Service principal Object ID:
 ![Screenshot of Microsoft Entra ID properties.](./media/how-to-register-appliance-using-entra-app/entra-id-properties.png)
 -	Navigate to Microsoft Entra ID -> Enterprise applications -> Manage all applications and copy the service principal object ID.
 
-![Screenshot of Microsoft Entra ID properties.](./media/how-to-register-appliance-using-entra-app/service-principal.png)
+![Screenshot of Microsoft Entra ID ServicePrincipal properties.](./media/how-to-register-appliance-using-entra-app/service-principal.png)
 
 ## 5.	Install the private certificate in Appliance machine
 1. Sign in to the appliance machine and go to the folder where private certificate is saved. Double select on the certificate file to start the installation. 
 
-![Screenshot of procedure to install certificate in Appliance.](./media/how-to-register-appliance-using-entra-app/install-private-certificate-01.png)
+![Screenshot of procedure to install certificate in Appliance step 1.](./media/how-to-register-appliance-using-entra-app/install-private-certificate-01.png)
 2. Choose store location as Local machine. 
 3. Select next and specify the file path of the certificate. 
 
-![Screenshot of procedure to install certificate in Appliance.](./media/how-to-register-appliance-using-entra-app/install-private-certificate-02.png)
+![Screenshot of procedure to install certificate in Appliance step 3.](./media/how-to-register-appliance-using-entra-app/install-private-certificate-02.png)
 
 4. Enter the password created while exporting the private key.
 5. Select Personal as the certificate store location and select Finish to complete the installation.
 
-![Screenshot of procedure to install certificate in Appliance.](./media/how-to-register-appliance-using-entra-app/install-private-certificate-03.png)
+![Screenshot of procedure to install certificate in Appliance step 5.](./media/how-to-register-appliance-using-entra-app/install-private-certificate-03.png)
 
 ## 7.	Update the registry values in Appliance machine
 1. Run the following PowerShell script in Appliance machine to update the registry values. 
