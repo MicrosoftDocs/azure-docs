@@ -21,7 +21,7 @@
         href: helm-requirements.md
       - name: Onboarding and Deployment Considerations
         href: best-practices-onboard-deploy.md
-      - name: Resource Cleanup Management Best Practices
+      - name: Publisher Resource Cleanup Management
         href: resource-cleanup-management.md
       - name: Workload Configuration Management 
         href: configuration-guide.md
@@ -137,4 +137,5 @@
     href: glossary.md
   - name: REST API
     href: /rest/api/hybridnetwork
+
 
