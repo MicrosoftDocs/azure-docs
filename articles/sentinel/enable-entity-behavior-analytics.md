@@ -70,7 +70,7 @@ To enable or disable this feature (these prerequisites aren't required to use th
 
 1. On the **Entity behavior configuration** page, toggle on **Turn on UEBA feature**.
 
-    :::image type="content" source="media/enable-entity-behavior-analytics/ueba-configuration.png" alt-text="Screenshot of UEBA configuration settings." lightbox="true":::
+    :::image type="content" source="media/enable-entity-behavior-analytics/ueba-configuration.png" alt-text="Screenshot of UEBA configuration settings." lightbox="media/enable-entity-behavior-analytics/ueba-configuration.png":::
 
 1. Select the directory services from which you want to synchronize user entities with Microsoft Sentinel.
 
