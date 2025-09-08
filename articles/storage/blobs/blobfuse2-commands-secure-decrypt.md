@@ -43,7 +43,7 @@ The following flags are inherited from parent command [`blobfuse2 secure`](blobf
 ## Examples
 
 > [!NOTE]
-> The following examples assumes that you have already created a encrypted configuration file in the current directory.
+> The following examples assume that you have already created an encrypted configuration file in the current directory.
 
 Decrypt a BlobFuse2 configuration file using a passphrase:
 
