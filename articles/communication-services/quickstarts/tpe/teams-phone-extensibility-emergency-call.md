@@ -52,6 +52,22 @@ For more details on shared calling plans, see [Shared Calling Plan](https://lear
 
 This ensures that emergency services can reconnect directly with the user, even though they are operating under a shared calling policy. 
 
+## Restricted Emergency Calling Capabilities  
+
+During an active emergency call, certain mid-call operations are restricted. The following features are **not available** while an emergency call is in progress:
+
+| Operation          |
+|--------------------|
+| Hold               |
+| Local Mute         |
+| Transfer           |
+| Start Recording    |
+| Stop Recording     |
+| Remote Mute        |
+| Add Participant    |
+| Remove Participant |
+
+
 
 ## Related articles
 
