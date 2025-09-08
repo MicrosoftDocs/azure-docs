@@ -1,6 +1,6 @@
 ---
-title: Add Environments and Deployments for APIs
-description: Learn how to augment the API inventory in your API center by adding information about API environments and deployments.
+title: Tutorial - Add Environments and Deployments for APIs
+description: Augment the API inventory in your API center by adding information about API environments and deployments.
 author: dlepow
 ms.service: azure-api-center
 ms.topic: tutorial
@@ -90,6 +90,12 @@ Here you add a deployment by associating one of your APIs with the environment y
 
 1. Select **Create**. The deployment appears on the list of deployments.
 
-## Next step
+In this tutorial, you learned how to use the portal to:
+> [!div class="checklist"]
+> * Add information about API environments 
+> * Add information about API deployments
+
+## Related content
 
 * [Learn more about Azure API Center](key-concepts.md)
+* [Track API resource dependencies](track-resource-dependencies.md)

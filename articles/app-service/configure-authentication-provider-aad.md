@@ -23,7 +23,7 @@ This article shows you how to configure authentication for Azure App Service or 
 
 Before your application can sign in users, you need to register it in a workforce tenant or an external tenant. If you're making your app available to employee or business guests, register your app in a workforce tenant. If your app is for consumers and business customers, register it in an external tenant.
 
-1. Sign in to the [Azure portal] and go to your app.
+1. Sign in to the [Azure portal] and go to your App Service app or Functions app.
 
 1. On your app's left menu, select **Settings** > **Authentication**, and then select **Add identity provider**.
 
