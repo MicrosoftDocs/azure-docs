@@ -112,7 +112,7 @@ SQL Managed Instance achieves zone redundancy by placing replicas of your SQL ma
 
 ### Requirements
 
-To enable zone redundancy, your SQL managed instance **Backup storage redundancy** must use *ZRS* or *Geo-zone-redundant* storage.
+To enable zone redundancy for your SQL managed instance, set the **Backup storage redundancy** option to *ZRS* or *Geo-zone-redundant storage* (GZRS).
 
 ### Region support
 
@@ -140,7 +140,7 @@ This section explains how to configure availability zone support for your SQL ma
 
 ### Normal operations
 
-The following section describes what to expect when your SQL managed instance is configured to be zone redundant and all availability zones are operational:
+This section describes what to expect when your SQL managed instance is configured to be zone redundant and all availability zones are operational:
 
 ::: zone pivot="general-purpose"
 
@@ -235,11 +235,11 @@ To learn how to configure a failover group, see [Configure a failover group for 
 
 During a failover, traffic is redirected to a secondary SQL managed instance. It's important that your secondary SQL managed instance is ready to receive traffic. Create a secondary SQL managed instance with the same service tier, hardware generation, and compute size as the primary instance.
 
-When scaling SQL managed instances in a failover group, follow the guidance in [Scale instances](/azure/azure-sql/managed-instance/failover-group-sql-mi#scale-instances).
+For more information about scaling SQL managed instances in a failover group, see [Scale instances](/azure/azure-sql/managed-instance/failover-group-sql-mi#scale-instances).
 
 ### Normal operations
 
-This section describes what to expect when SQL managed instances are configured to use multi-region failover groups and all regions are operational.
+This section describes what to expect when SQL managed instances are configured to use multi-region failover groups and all regions are operational:
 
 - **Traffic routing between regions:** During normal operations, read-write requests go to the single primary instance in the primary region.
 
