@@ -106,4 +106,4 @@ The following features are released as public preview features:
 
 ## Related content
 
-For an overview of Event Grid, see [Azure Event Grid overview](overview.md).
+- For an overview of Event Grid, see [Azure Event Grid overview](overview.md).
