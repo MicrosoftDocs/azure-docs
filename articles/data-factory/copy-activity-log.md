@@ -6,6 +6,7 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.date: 01/05/2024
 ms.author: yexu
+ms.custom: sfi-image-nochange
 ---
 #  Session log in a Copy activity
 

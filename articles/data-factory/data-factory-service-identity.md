@@ -7,8 +7,10 @@ ms.subservice: security
 ms.topic: conceptual
 ms.date: 02/13/2025
 ms.author: abnarain 
-ms.custom: subject-rbac-steps
 ai-usage: ai-assisted
+ms.custom:
+  - subject-rbac-steps
+  - sfi-image-nochange
 ---
 
 # Managed identity for Azure Data Factory

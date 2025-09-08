@@ -234,6 +234,8 @@
       href: howto-variant-feature-flags-python.md
     - name: JavaScript
       href: howto-variant-feature-flags-javascript.md
+    - name: Go Gin
+      href: howto-variant-feature-flags-go.md
   - name: Enable telemetry for feature flags
     items:
     - name: Overview
@@ -268,6 +270,8 @@
   items:
   - name: Move a resource between Azure regions
     href: howto-move-resource-between-regions.md
+  - name: Move a resource between subscriptions or resource groups
+    href: howto-move-resource-between-subscriptions-resource-groups.md
   - name: Preview API life cycle
     href: concept-preview-api-life-cycle.md
 - name: Security
@@ -413,6 +417,8 @@
     - name: Go
       items:
       - name: Feature reference
+        href: ./reference-go-provider.md
+      - name: API reference
         href: https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration
       - name: Azure SDK for Go
         href: https://go.microsoft.com/fwlink/?linkid=2270866
