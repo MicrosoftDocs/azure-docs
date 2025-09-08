@@ -5,8 +5,10 @@ ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.author: lle
 author: lrtoyou1223
-ms.custom: devx-track-azurepowershell
 ms.date: 02/13/2025
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 ---
 
 # Create a shared self-hosted integration runtime in Azure Data Factory

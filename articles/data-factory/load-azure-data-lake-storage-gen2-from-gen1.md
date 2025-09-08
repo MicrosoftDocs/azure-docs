@@ -6,6 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.date: 02/13/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Copy data from Azure Data Lake Storage Gen1 to Gen2 with Azure Data Factory

@@ -7,6 +7,7 @@ ms.reviewer: makromer
 ms.topic: conceptual
 ms.date: 10/03/2024
 ms.subservice: data-flows
+ms.custom: sfi-image-nochange
 ---
 
 # Transform data securely by using mapping data flow

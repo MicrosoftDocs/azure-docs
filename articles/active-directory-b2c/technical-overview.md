@@ -8,6 +8,7 @@ ms.topic: overview
 ms.date: 01/10/2025
 ms.author: godonnell
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 #Customer intent: As an IT admin or developer, I need to understand in more detail the technical aspects and features of Azure AD B2C and how it can help me build a customer-facing application.
 

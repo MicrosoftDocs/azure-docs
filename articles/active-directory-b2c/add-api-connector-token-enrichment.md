@@ -9,6 +9,7 @@ ms.date: 01/17/2023
 ms.author: godonnell
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 # Customer intent: I want to enrich tokens with claims from external identity data sources using APIs or outbound webhooks.
 

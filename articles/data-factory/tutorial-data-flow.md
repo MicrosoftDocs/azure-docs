@@ -7,6 +7,7 @@ ms.reviewer: makromer
 ms.subservice: data-flows
 ms.topic: tutorial
 ms.date: 04/18/2025
+ms.custom: sfi-image-nochange
 
 #customer intent: As a data factory user, I want to know the basics of creating a data flow so that I can apply these principals to my own data and begin using Data Factory for our workflows.
 

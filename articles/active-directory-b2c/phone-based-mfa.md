@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 10/23/2024
 ms.author: kengaderdus
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 
 

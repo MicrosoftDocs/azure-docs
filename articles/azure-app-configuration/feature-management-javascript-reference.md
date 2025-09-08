@@ -360,7 +360,6 @@ This filter provides the capability to enable a feature based on a time window. 
 ]     
 ```
 
-
 The time window can be configured to recur periodically. This can be useful for the scenarios where one may need to turn on a feature during a low or high traffic period of a day or certain days of a week. To expand the individual time window to recurring time windows, the recurrence rule should be specified in the `Recurrence` parameter.
 
 > [!NOTE]
@@ -496,7 +495,6 @@ There are three possible recurrence range types: `NoEnd`, `EndDate` and `Numbere
 To create a recurrence rule, you must specify both `Pattern` and `Range`. Any pattern type can work with any range type.
 
 **Advanced:** The time zone offset of the `Start` property is applied to the recurrence settings.
-
 
 ### Microsoft.Targeting
 

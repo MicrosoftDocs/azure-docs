@@ -4,9 +4,11 @@ description: Use Azure Data Factory with Copy Activity to copy data from a sourc
 author: jianleishen
 ms.author: jianleishen
 ms.topic: tutorial
-ms.custom: devx-track-azurepowershell
 ms.date: 10/03/2024
 ms.subservice: data-movement
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-ropc-nochange
 ---
 
 # Copy multiple tables in bulk by using Azure Data Factory using PowerShell

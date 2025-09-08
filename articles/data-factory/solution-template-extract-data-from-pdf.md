@@ -6,6 +6,7 @@ ms.author: noelleli
 ms.topic: conceptual
 ms.date: 10/03/2024
 ms.subservice: data-flows
+ms.custom: sfi-image-nochange
 ---
 
 # Extract data from PDF

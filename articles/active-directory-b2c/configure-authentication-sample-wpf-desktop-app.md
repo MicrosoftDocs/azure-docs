@@ -10,7 +10,9 @@ ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: b2c
-ms.custom: "b2c-support"
+ms.custom:
+  - "b2c-support"
+  - sfi-image-nochange
 
 
 #Customer intent: As a developer creating a WPF desktop app, I want to configure authentication using Azure AD B2C, so that I can securely sign users into my application and call a protected web API.

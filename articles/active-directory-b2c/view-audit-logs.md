@@ -12,7 +12,9 @@ ms.topic: how-to
 ms.date: 01/22/2024
 ms.author: kengaderdus
 ms.subservice: b2c
-ms.custom: fasttrack-edit
+ms.custom:
+  - fasttrack-edit
+  - sfi-image-nochange
 
 
 #Customer intent: As an Azure AD B2C administrator, I want to access and view the audit logs for my Azure AD B2C tenant, so that I can monitor activity, track user sign-ins, and troubleshoot any issues related to B2C resources and applications.

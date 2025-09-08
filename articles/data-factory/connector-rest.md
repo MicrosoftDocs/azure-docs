@@ -4,10 +4,12 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to use Copy Activity to copy data and use Data Flow to transform data from a cloud or on-premises REST source to supported sink data stores, or from supported source data store to a REST sink in Azure Data Factory or Azure Synapse Analytics pipelines. 
 author: jianleishen
 ms.subservice: data-movement
-ms.custom: synapse
 ms.topic: conceptual
 ms.date: 01/02/2025
 ms.author: makromer
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Copy and transform data from and to a REST endpoint by using Azure Data Factory

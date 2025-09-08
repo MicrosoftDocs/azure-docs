@@ -9,6 +9,7 @@ ms.topic: tutorial
 ms.date: 10/10/2024
 ms.author: godonnell
 ms.subservice: b2c
+ms.custom: sfi-ropc-nochange
 
 #Customer intent: As a developer or IT admin, I want to register my web application in Azure AD B2C so that I can enable my users to sign up, sign in, and manage their profiles.
 

@@ -8,7 +8,10 @@ ms.subservice: data-movement
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 02/13/2025
-ms.custom: devx-track-python, mode-api
+ms.custom:
+  - devx-track-python
+  - mode-api
+  - sfi-ropc-nochange
 ---
 
 # Quickstart: Create a data factory and pipeline using Python

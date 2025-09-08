@@ -7,6 +7,7 @@ ms.date: 10/03/2024
 ms.subservice: data-movement
 ms.author: jianleishen
 ai-usage: ai-assisted
+ms.custom: sfi-image-nochange
 ---
 
 # Copy data securely from Azure Blob storage to a SQL database by using private endpoints

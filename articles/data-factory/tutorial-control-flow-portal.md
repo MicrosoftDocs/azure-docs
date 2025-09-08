@@ -7,6 +7,7 @@ ms.reviewer: whhender
 ms.topic: tutorial
 ms.date: 10/03/2024
 ms.subservice: orchestration
+ms.custom: sfi-image-nochange
 ---
 
 # Copy data and send email notifications on success and failure

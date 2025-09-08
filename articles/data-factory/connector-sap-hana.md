@@ -6,8 +6,11 @@ author: jianleishen
 ms.author: ulrichchrist
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: synapse
 ms.date: 09/25/2024
+ms.custom:
+  - synapse
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Copy data from SAP HANA using Azure Data Factory or Synapse Analytics

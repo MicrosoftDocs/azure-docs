@@ -11,6 +11,7 @@ ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: b2c
+ms.custom: sfi-ropc-nochange
 
 
 #Customer intent: As an Azure AD B2C user, I want to understand the new App registrations experience, so that I can manage all my app registrations in one place and take advantage of new features like unified app list, API permissions, and support for different account types.

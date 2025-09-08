@@ -6,6 +6,7 @@ ms.subservice: security
 ms.topic: conceptual
 ms.date: 10/20/2023
 ms.author: abnarain
+ms.custom: sfi-image-nochange
 ---
 
 # Changing a password for a Workflow Orchestration Manager environment

@@ -6,6 +6,7 @@ author: jianleishen
 ms.topic: tutorial
 ms.date: 10/03/2024
 ms.subservice: data-movement
+ms.custom: sfi-image-nochange
 ---
 
 # Copy multiple tables in bulk by using Azure Data Factory in the Azure portal

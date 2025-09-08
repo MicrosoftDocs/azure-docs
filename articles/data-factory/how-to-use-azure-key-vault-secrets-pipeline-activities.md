@@ -6,6 +6,7 @@ ms.author: abnarain
 ms.subservice: security
 ms.topic: conceptual
 ms.date: 02/13/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Use Azure Key Vault secrets in pipeline activities

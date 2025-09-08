@@ -89,7 +89,7 @@ To mount the file share permanently by adding the mount commands in '/etc/fstab'
 
 ```bash
 vi /etc/fstab
-sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1  aznfs noresvport,vers=4,minorversion=1,nconnect=4,sec=sys,_netdev  0  0
+sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1  aznfs noresvport,vers=4,minorversion=1,sec=sys,_netdev  0  0
 
 # Mount the file systems
 mount -a

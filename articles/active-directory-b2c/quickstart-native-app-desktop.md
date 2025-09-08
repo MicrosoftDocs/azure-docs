@@ -8,10 +8,13 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: quickstart
-ms.custom: mvc, mode-other
 ms.date: 01/24/2023
 ms.author: godonnell
 ms.subservice: b2c
+ms.custom:
+  - mvc
+  - mode-other
+  - sfi-image-nochange
 
 #Customer Intent: As a developer building a desktop app, I want to set up sign-in functionality using Azure Active Directory B2C, so that I can authenticate users with social and enterprise accounts and protect my application and customer data.
 

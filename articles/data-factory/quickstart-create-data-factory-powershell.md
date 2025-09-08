@@ -8,7 +8,10 @@ ms.topic: quickstart
 ms.date: 06/06/2025
 ms.author: whhender
 ms.reviewer: jianleishen
-ms.custom: devx-track-azurepowershell, mode-api
+ms.custom:
+  - devx-track-azurepowershell
+  - mode-api
+  - sfi-ropc-nochange
 ---
 # Quickstart: Create an Azure Data Factory using PowerShell
 

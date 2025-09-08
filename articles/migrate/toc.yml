@@ -39,6 +39,8 @@ items:
     items:
     - name: Appliance requirements
       href: migrate-appliance.md
+    - name: Register appliance using pre-configured Entra app
+      href: how-to-register-appliance-using-entra-app.md
     - name: Discover VMware
       items:
       - name: Discover VMware estate

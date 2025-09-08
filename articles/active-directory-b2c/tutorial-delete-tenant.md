@@ -11,6 +11,9 @@ ms.topic: tutorial
 ms.date: 09/11/2024
 ms.author: kengaderdus
 ms.subservice: b2c
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ga-nochange
 
 
 #Customer intent: As an Azure AD B2C administrator, I want to delete the tenant and all associated resources, so that I can clean up after completing tutorials or testing.

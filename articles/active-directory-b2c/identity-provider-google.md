@@ -13,6 +13,7 @@ ms.date: 01/05/2025
 ms.author: godonnell
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-ga-nochange
 
 #Customer intent: As a developer or IT administrator, I want to add sign-up and sign-in with a Google account, so that users can authenticate with their Google accounts.
 ---

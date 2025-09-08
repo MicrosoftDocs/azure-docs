@@ -12,6 +12,7 @@ ms.topic: reference
 ms.date: 01/17/2024
 ms.author: kengaderdus
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 #Customer intent: As a developer integrating customer-facing apps with Azure AD B2C, I want to learn how to define a CAPTCHA display control for Azure AD B2C's custom policies so that I can protect my authentication flows from automated attacks. 
 ---

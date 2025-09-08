@@ -10,6 +10,7 @@ ms.date: 07/31/2024
 ms.author: gasinh
 ms.reviewer: kengaderdus
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 # Customer intent: I'm a developer integrating WhoIAM Rampart with Azure AD B2C. I need to configure and integrate Rampart with Azure AD B2C using custom policies. My goal is to enable an integrated helpdesk and invitation-gated user registration experience for my application.
 

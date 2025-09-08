@@ -9,6 +9,7 @@ ms.topic: concept-article
 ms.date: 01/05/2025
 ms.author: godonnell
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 #Customer Intent: As a developer integrating Azure AD B2C into my application, I want to understand the different sign-in options available so that I can choose the appropriate method for my users and configure the sign-in flow accordingly.
 

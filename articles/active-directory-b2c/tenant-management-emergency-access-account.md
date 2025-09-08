@@ -8,10 +8,12 @@ manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: tutorial
 ms.date: 09/11/2024
-ms.custom: b2c-docs-improvements
 ms.reviewer: yoelh
 ms.author: kengaderdus
 ms.subservice: b2c
+ms.custom:
+  - b2c-docs-improvements
+  - sfi-ga-nochange
 
 
 #Customer intent: As an Azure AD B2C administrator, I want to create emergency access accounts with strong authentication and exclude them from conditional access policies, so that I can prevent accidental lockouts and ensure administrative access to the organization in case of emergencies.

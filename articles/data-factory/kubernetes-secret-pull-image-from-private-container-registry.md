@@ -7,6 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.date: 10/03/2024
 ms.subservice: security
+ms.custom: sfi-image-nochange
 ---
 
 # Add a Kubernetes secret to access a private container registry

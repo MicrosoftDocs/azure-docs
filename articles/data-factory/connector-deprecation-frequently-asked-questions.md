@@ -9,6 +9,7 @@ ms.topic: concept-article
 ms.date: 07/11/2025
 ms.custom:
   - build-2025
+  - sfi-image-nochange
 ---
 
 # Connector upgrade FAQ
