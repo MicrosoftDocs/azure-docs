@@ -38,7 +38,7 @@ Like scaling, concurrency also affects how your function app responds to load ch
 
 ## Static concurrency
 
-By default, most triggers support a static concurrency configuration model. In this model, each trigger type has a per-instance concurrency limit. You can override the concurrency defaults for most triggers by setting a specific per-instance concurrency for that trigger type in the [host.json file](functions-host-json.md). For example, the [Azure Service Bus trigger](./functions-bindings-service-bus-trigger.md) provides both a `MaxConcurrentCalls` and a `MaxConcurrentSessions` setting in host.json. These settings work together to control the maximum number of messages that each function app processes concurrently on each instance. Other trigger types have built-in mechanisms for load-balancing invocations across instances. For example, Azure Event Hubs and Azure Cosmos DB both use a partition-based scheme.
+By default, most triggers support a static concurrency configuration model. In this model, each trigger type has a per-instance concurrency limit. You can override the concurrency defaults for most triggers by setting a specific per-instance concurrency for that trigger type in the [host.json file](functions-host-json.md). For example, the [Azure Service Bus trigger](./functions-bindings-service-bus-trigger.md) provides both a `MaxConcurrentCalls` and a `MaxConcurrentSessions` setting in _host.json_. These settings work together to control the maximum number of messages that each function app processes concurrently on each instance. Other trigger types have built-in mechanisms for load-balancing invocations across instances. For example, Azure Event Hubs and Azure Cosmos DB both use a partition-based scheme.
 
 For trigger types that support concurrency configuration, the settings in the _host.json_ file are applied to all running instances. This way, you can control the maximum concurrency for your functions on each instance. For example, when your function is CPU-intensive or resource-intensive, you might choose to limit concurrency to keep instances healthy. In this case, you can rely on scaling to handle increased loads. Similarly, when your function makes requests to a downstream service that's being throttled, you should also consider limiting concurrency to avoid overloading the downstream service. 
 
@@ -90,11 +90,11 @@ Dynamic concurrency provides the following benefits:
 
 ### Dynamic concurrency configuration
 
-You can turn on dynamic concurrency at the host level in the *host.json* file. When it's turned on, the concurrency levels of any binding extensions that support this feature are adjusted automatically as needed. In these cases, dynamic concurrency settings override any manually configured concurrency settings. 
+You can turn on dynamic concurrency at the host level in the _host.json_ file. When it's turned on, the concurrency levels of any binding extensions that support this feature are adjusted automatically as needed. In these cases, dynamic concurrency settings override any manually configured concurrency settings. 
 
 By default, dynamic concurrency is turned off. When you turn on dynamic concurrency, concurrency starts at a level of one for each function. The concurrency level is adjusted up to an optimal value, which the host determines.
 
-You can turn on dynamic concurrency in your function app by adding the following settings to your *host.json* file: 
+You can turn on dynamic concurrency in your function app by adding the following settings to your _host.json_ file: 
 
 ```json
     { 
