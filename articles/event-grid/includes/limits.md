@@ -38,55 +38,55 @@ Throughput units define the ingress and egress event rate capacity in namespaces
 
 | Limit description                            | Limit                                                                             |
 |----------------------------------------------|-----------------------------------------------------------------------------------|
-| MQTT sessions per Event Grid namespace               | 10,000 per TU.                                                                     |
-| Sessions per Event Grid namespace                       | 10,000 per TU.                                                                     |
-| Session expiry interval                      | 8 hours, [configurable on the Event Grid namespace](../mqtt-support.md#maximum-session-expiry-interval-configuration).|
-| Inbound MQTT publishing requests per Event Grid namespace  | 1,000 messages per second per TU.                                                         |
-| Inbound MQTT bandwidth per Event Grid namespace         | 1 MB per second per TU.                                                            |
-| Inbound MQTT publishing requests per session | 1,000 messages per second.                                                           |
-| Inbound MQTT bandwidth per session        | 1 MB per second.                                                                   |
-| Inbound in-flight MQTT messages*        | 1,000 messages.                                                                   |
-| Inbound in-flight MQTT bandwidth*         | 64 KB.                                                             |
-| Inbound HTTP publishing requests per Event Grid namespace | 500 messages per second per TU. |
-| Inbound HTTP bandwidth per Event Grid namespace           | 512 KB per second per TU.       |
-| Inbound HTTP publishing requests per session              | 500 messages per second.        |
-| Inbound HTTP bandwidth per session                        | 512 KB per second.              |
-| Inbound in-flight HTTP messages*                          | 500 messages.                   |
-| Maximum Retain message size**                               | 64 KB.                          |
-| Maximum Retain message per TU          | 10,000 messages or 640 MB (whichever is reached first). |
-| Total Retain storage per TU                               | 640 MB.                         |
-| Retain message expiry (MQTT 3.1.1)                        | 365 days (default).             |
-| Retain message expiry (MQTT 5.0)                          | Configurable by using the message expiry interval with a range of 0 to 31,536,000 seconds (365 days). |
-| Outbound MQTT publishing requests per Event Grid namespace | 1,000 messages per second per TU.                                                         |
-| Outbound MQTT bandwidth per Event Grid namespace        | 1 MB per second per TU.                                                            |
-| Outbound MQTT publishing requests per session| 100 messages per second.                                                           |
-| Outbound MQTT bandwidth per session       | 1 MB per second.                                                                   |
-| Outbound in-flight MQTT messages*        | 100 messages.                                                                   |
-| Outbound in-flight MQTT bandwidth*         | 64 KB.                                                             |
-| Maximum message size                             | 512 KB.                                                                            |
-| Segments per topic/topic filter             | 15.                                                                                 |
-| Topic size                                   | 256 B.                                                                             |
-| MQTTv5 response topic                        | 256 B.                                                                             |
-| MQTTv5 topic aliases                         | 10 per session.                                                                 |
-| MQTTv5 total size of all user properties     | 32 KB.                                                                              |
-| MQTT connect rate per client session |  1 connection attempt per second per client session. | 
-| MQTTv5 content type size                     | 256 B.                                                                             |
-| MQTTv5 correlation data size                 | 256 B.                                                                             |
-| Connect requests                             | 200 requests per second per TU.                                                    |
-| MQTTv5 authentication data size              | 8 KB.                                                                              |
-| Maximum Keep Alive interval                  | 1,160.                                                                              |
-| Topic filters per MQTT SUBSCRIBE packet      | 10.                                                                                |
-| Subscribe and unsubscribe requests per Event Grid namespace | 200 requests per second.                                                       |
-| Subscribe and unsubscribe requests per session | 5 requests per second.                                                        |
-| Subscriptions per MQTT session            | 50.                                                                                |
-| Subscriptions per Event Grid namespace                  | 1 million.                                                                         |
-| Subscriptions per MQTT topic                 | Unlimited, if they don't exceed the limit for subscriptions per Event Grid namespace or session.|
-| Registered client resources                  | 10,000 clients per TU.                                                             |
-| Certificate Authority certificates                              | 10.                                                                                 |
-| Client groups                                | 10.                                                                                |
-| Topic spaces                                 | 10.                                                                                |
-| Topic templates                              | 10 per topic space.                                                                |
-| Permission bindings                          | 100.                                                                               |
+| MQTT sessions per Event Grid namespace               | 10,000 per TU                                                                     |
+| Sessions per Event Grid namespace                       | 10,000 per TU                                                                     |
+| Session expiry interval                      | 8 hours, [configurable on the Event Grid namespace](../mqtt-support.md#maximum-session-expiry-interval-configuration)|
+| Inbound MQTT publishing requests per Event Grid namespace  | 1,000 messages per second per TU                                                         |
+| Inbound MQTT bandwidth per Event Grid namespace         | 1 MB per second per TU                                                           |
+| Inbound MQTT publishing requests per session | 1,000 messages per second                                                           |
+| Inbound MQTT bandwidth per session        | 1 MB per second                                                                   |
+| Inbound in-flight MQTT messages*        | 1,000 messages                                                                   |
+| Inbound in-flight MQTT bandwidth*         | 64 KB                                                             |
+| Inbound HTTP publishing requests per Event Grid namespace | 500 messages per second per TU |
+| Inbound HTTP bandwidth per Event Grid namespace           | 512 KB per second per TU       |
+| Inbound HTTP publishing requests per session              | 500 messages per second        |
+| Inbound HTTP bandwidth per session                        | 512 KB per second              |
+| Inbound in-flight HTTP messages*                          | 500 messages                   |
+| Maximum Retain message size**                               | 64 KB                          |
+| Maximum Retain message per TU          | 10,000 messages or 640 MB (whichever is reached first) |
+| Total Retain storage per TU                               | 640 MB                         |
+| Retain message expiry (MQTT 3.1.1)                        | 365 days (default)             |
+| Retain message expiry (MQTT 5.0)                          | Configurable by using the message expiry interval with a range of 0 to 31,536,000 seconds (365 days) |
+| Outbound MQTT publishing requests per Event Grid namespace | 1,000 messages per second per TU                                                         |
+| Outbound MQTT bandwidth per Event Grid namespace        | 1 MB per second per TU                                                            |
+| Outbound MQTT publishing requests per session| 100 messages per second                                                           |
+| Outbound MQTT bandwidth per session       | 1 MB per second                                                                   |
+| Outbound in-flight MQTT messages*        | 100 messages                                                                   |
+| Outbound in-flight MQTT bandwidth*         | 64 KB                                                             |
+| Maximum message size                             | 512 KB                                                                            |
+| Segments per topic/topic filter             | 15                                                                                 |
+| Topic size                                   | 256 B                                                                             |
+| MQTTv5 response topic                        | 256 B                                                                             |
+| MQTTv5 topic aliases                         | 10 per session                                                                 |
+| MQTTv5 total size of all user properties     | 32 KB                                                                              |
+| MQTT connect rate per client session |  1 connection attempt per second per client session | 
+| MQTTv5 content type size                     | 256 B                                                                             |
+| MQTTv5 correlation data size                 | 256 B                                                                             |
+| Connect requests                             | 200 requests per second per TU                                                    |
+| MQTTv5 authentication data size              | 8 KB                                                                              |
+| Maximum Keep Alive interval                  | 1,160                                                                              |
+| Topic filters per MQTT SUBSCRIBE packet      | 10                                                                                |
+| Subscribe and unsubscribe requests per Event Grid namespace | 200 requests per second                                                       |
+| Subscribe and unsubscribe requests per session | 5 requests per second                                                        |
+| Subscriptions per MQTT session            | 50                                                                                |
+| Subscriptions per Event Grid namespace                  | 1 million                                                                         |
+| Subscriptions per MQTT topic                 | Unlimited, if they don't exceed the limit for subscriptions per Event Grid namespace or session|
+| Registered client resources                  | 10,000 clients per TU                                                             |
+| Certificate Authority certificates                              | 10                                                                                 |
+| Client groups                                | 10                                                                                |
+| Topic spaces                                 | 10                                                                                |
+| Topic templates                              | 10 per topic space                                                                |
+| Permission bindings                          | 100                                                                               |
 
 \* For MQTTv5, learn more about [flow control support](../mqtt-support.md#flow-control).
 
@@ -116,7 +116,7 @@ The following limits apply to Event Grid custom topic, system topic, and partner
 |--------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | Custom topics per Azure subscription                   | 100<br/>When the limit is reached, you can consider a different region or consider using domains, which can support 100,000 topics. |
 | Event subscriptions per topic                          | 500<br/>This limit can't be increased.                                                                                              |
-| Publish rate for a custom or a partner topic (ingress) | 5,000 events or 5 MB per second (whichever comes first).<br/>An event is counted for limits and pricing purposes as a 64-KB data chunk. So, if the event is 128 KB, it counts as two events. |
+| Publish rate for a custom or a partner topic (ingress) | 5,000 events or 5 MB per second (whichever comes first)<br/>An event is counted for limits and pricing purposes as a 64-KB data chunk. So, if the event is 128 KB, it counts as two events. |
 | Event size                                             | 1 MB<br/>This limit can't be increased.                                                                                             |
 | Maximum event retention on topics              | 1 day<br/>This limit can't be increased. |
 | Number of incoming events per batch                    | 5,000<br/>This limit can't be increased.                                                                                             |
@@ -133,7 +133,7 @@ The following limits apply to the Event Grid domain resource.
 | Topics per domain                             | 100,000                                                            |
 | Event subscriptions per topic within a domain | 500<br/>This limit can't be increased.                              |
 | Domain scope event subscriptions              | 50<br/>This limit can't be increased.                               |
-| Publish rate for a domain (ingress)           | 5,000 events or 5 MB per second (whichever comes first).<br/>An event is counted for limits and pricing purposes as a 64-KB data chunk. So, if the event is 128 KB, it counts as two events. |
+| Publish rate for a domain (ingress)           | 5,000 events or 5 MB per second (whichever comes first)<br/>An event is counted for limits and pricing purposes as a 64-KB data chunk. So, if the event is 128 KB, it counts as two events. |
 | Maximum event retention on domain topics              | 1 day<br/>This limit can't be increased. |
 | Private endpoint connections per domain       | 64                                                                 |
 | IP firewall rules per topic                   | 128                                                                |
