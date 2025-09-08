@@ -7,7 +7,7 @@ ms.workload: identity
 author: jenniferf-skc    
 manager: pmwongera
 ms.author: jfields
-ms.date: 06/30/2025
+ms.date: 09/03/2025
 ms.custom: generated
 ---
 
@@ -722,6 +722,52 @@ Lets you update everything in cluster/namespace, except (cluster)roles and (clus
     }
   ],
   "roleName": "Azure Arc Kubernetes Writer",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+## Azure Container Instances Contributor Role
+
+Grants read/write access to container groups provided by Azure Container Instances
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ContainerInstance](../permissions/containers.md#microsoftcontainerinstance)/containerGroups/* | Create and manage container groups |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants read/write access to container groups provided by Azure Container Instances",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/5d977122-f97e-4b4d-a52f-6b43003ddb4d",
+  "name": "5d977122-f97e-4b4d-a52f-6b43003ddb4d",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerInstance/containerGroups/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Container Instances Contributor Role",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

@@ -21,9 +21,10 @@ With this generation, you can directly create the private cloud using the AV64 S
 
 Before you begin, these items are required to create an Azure VMware Solution Gen 2 private cloud:
 
+- Read through the [Gen 2 design considerations](native-network-design-consideration.md) before deploying your private cloud.
 - Enable the Azure VMware Solution Fleet Rp Service Principal as described in the [enable Azure VMware Solution Fleet Rp service Principal](native-first-party-principle-security.md).
 - Ensure you have appropriate administrative rights and permission to create a private cloud. You must be at minimum Owner or User Access Administrator on the subscription.
-- Hosts provisioned and the "Microsoft.AVS" resource provider is registered.
+- Hosts provisioned and the "Microsoft.AVS" and "Microsoft.BareMetal" resource provider is registered.
 - Deploy or use an existing Azure Virtual Network with a minimum network address space of a /22 or four /24s.
 - The newly created Azure Virtual Network and your Azure VMware Solution Gen 2 private cloud must be in the same Resource Group.
 - Ensure you have sufficient AV64 quota allocated to your subscription in the desired region before your deployment. 
