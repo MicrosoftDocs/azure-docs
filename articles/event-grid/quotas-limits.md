@@ -16,4 +16,4 @@ This article lists quotas and limits in Azure Event Grid.
 
 ## Related content
 
-For quotas and limits of all Azure services, see [Azure subscription and service limits, quotas, and constraints](..//azure-resource-manager/management/azure-subscription-service-limits.md).
+- For quotas and limits of all Azure services, see [Azure subscription and service limits, quotas, and constraints](..//azure-resource-manager/management/azure-subscription-service-limits.md).
