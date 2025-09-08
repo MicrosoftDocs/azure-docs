@@ -1087,7 +1087,7 @@ groups:
 # Owner: cshoe
 - id: sre-agent-code-repo
   title: Code repository
-  prompt: Select a code repository type
+  prompt: Select a code repository hosting platform
   pivots:
   - id: azure-devops
     title: Azure DevOps
