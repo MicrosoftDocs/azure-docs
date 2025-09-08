@@ -3,6 +3,7 @@ title: Event replication task patterns - Azure Event Hubs | Microsoft Docs
 description: This article provides detail guidance for implementing specific event replication task patterns
 ms.topic: article
 ms.date: 09/28/2021
+ms.custom: sfi-ropc-nochange
 ---
 
 # Event replication tasks patterns
