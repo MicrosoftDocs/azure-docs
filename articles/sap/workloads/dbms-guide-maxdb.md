@@ -461,7 +461,4 @@ If you configure the SAP Content Server to store files in the SAP MaxDB database
 If you configure the SAP Content Server to store files in the file system, one option is to execute manual backup/restore of the whole file structure where the documents are located. Similar to SAP MaxDB backup/restore, it is recommended to have a dedicated disk volume for backup purpose. 
 
 #### Other
-Other SAP Content Server-specific settings are transparent to Azure VMs and are described in various documents and SAP Notes:
-
-* [SAP NetWeaver](https://www.sap.com/products/technology-platform/netweaver.html)
-* SAP Note [1619726]
+Other SAP Content Server-specific settings are transparent to Azure VMs and are described in SAP Note [1619726].
