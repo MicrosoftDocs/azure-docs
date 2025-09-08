@@ -2,7 +2,7 @@
 title: Bicep CLI commands 
 description: Learn about the commands that you can use in the Bicep CLI. These commands include building JSON Azure Resource Manager templates from Bicep.
 ms.topic: reference
-ms.date: 01/10/2025
+ms.date: 09/08/2025
 ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-arm-template
 ---
 
@@ -336,13 +336,21 @@ When your Bicep file uses modules that are published to a registry, the `restore
 
 To restore external modules to the local cache, the account must have the correct profile and permissions to access the registry. You can configure the [profile and credential precedence](./bicep-config-modules.md#configure-profiles-and-credentials) for authenticating to the registry in the Bicep config file.
 
-To use the `restore` command, you must have [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.14.X or later. At this time, this command is only available when calling the Bicep CLI directly. It isn't currently available through the Azure CLI.
+To use the `restore` command, you must have [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.14.X or later.
 
 To manually restore the external modules for a file, use:
+
+# [Bicep CLI(#tab/bicep-cli)]
+
+bicep restore <bicep-file>
+
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az bicep restore --file <bicep-file> [--force]
 ```
+
+--- 
 
 The Bicep file you provide is the file you wish to deploy. It must contain a module that links to a registry. For example, you can restore the following file:
 
@@ -381,31 +389,43 @@ The `restore` command doesn't refresh the cache if a module is already cached. T
 
 The `upgrade` command updates your installed version with the latest version. This command is only available through the Azure CLI.
 
+# [Bicep CLI(#tab/bicep-cli)]
+
+N/A
+
+# [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az bicep upgrade
 ```
+
+---
 
 ## version
 
 The `version` command returns your installed version:
 
-```azurecli
-az bicep version
-```
-
-The command shows the version number:
-
-```azurecli
-Bicep CLI version 0.22.6 (d62b94db31)
-```
-
-To call this command directly through the Bicep CLI, use:
+# [Bicep CLI(#tab/bicep-cli)]
 
 ```Bicep CLI
 bicep --version
 ```
 
 If the Bicep CLI hasn't been installed, you'll see an error message stating that the Bicep CLI wasn't found.
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az bicep version
+```
+
+---
+
+The command shows the version number:
+
+```console
+Bicep CLI version 0.29.45 (57a44c0230)
+```
 
 ## Next steps
 
