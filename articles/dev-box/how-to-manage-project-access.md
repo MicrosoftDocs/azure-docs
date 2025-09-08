@@ -46,7 +46,7 @@ To grant a user project admin permission in Microsoft Dev Box, assign the DevCen
 
 1. Select **Add** > **Add role assignment**.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/role-based-access-control/role-assignments-portal.yml).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/role-based-access-control/role-assignments-portal).
 
    | Setting | Value |
    | --- | --- |
@@ -78,7 +78,7 @@ To grant a user access to create and manage a dev box in Microsoft Dev Box, assi
 
 1. Select **Add** > **Add role assignment**.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/role-based-access-control/role-assignments-portal.yml).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/role-based-access-control/role-assignments-portal).
 
    | Setting | Value |
    | --- | --- |
