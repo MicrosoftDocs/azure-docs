@@ -18,4 +18,4 @@ ms.custom: template-how-to
 >
 > Thank you for engaging with Azure Data Manager for Agriculture (Preview) and for leading with innovation during this early phase. 
 >
-> Have questions? Get answers from community experts in [Microsoft Q&A](https://learn.microsoft.com/answers/tags/133/azure). If you have a support plan and need technical help, [create a support request](/azure/azure-portal/supportability/how-to-create-azure-support-request). 
+> Have questions? Get answers from community experts in [Microsoft Q&A](/answers/tags/133/azure). If you have a support plan and need technical help, [create a support request](/azure/azure-portal/supportability/how-to-create-azure-support-request). 
