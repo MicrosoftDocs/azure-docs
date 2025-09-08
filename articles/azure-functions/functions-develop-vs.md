@@ -153,9 +153,16 @@ In C# class library functions, the bindings used by the function are defined by 
     :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/QueueTrigger-CSharp-4.x/QueueTriggerCSharp.cs" :::
     ::: zone-end  
 
-A binding-specific attribute is applied to each binding parameter supplied to the entry point method. The attribute takes the binding information as parameters. In the previous example, the first parameter has a `QueueTrigger` attribute applied, indicating a Queue storage trigger function. The queue name and connection string setting name are passed as parameters to the `QueueTrigger` attribute. For more information, see [Azure Queue storage bindings for Azure Functions](functions-bindings-storage-queue-trigger.md).
+A binding-specific attribute is applied to each binding parameter supplied to the entry point method. The attribute takes the binding information as parameters.
 
-Use the previous procedure to add more functions to your function app project. Each function in the project can have a different trigger, but a function must have exactly one trigger. For more information, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
+In the preceding code, the first parameter has a `QueueTrigger` attribute applied, which indicates a Queue storage trigger function. The queue name and connection string setting name are passed as parameters to the `QueueTrigger` attribute. In your class:
+
+- The queue name parameter should match the name of the queue you used when creating the trigger, such as `myqueue-items`.
+- The connection string setting name should match the one you used when creating the trigger, such as `QueueStorage`.
+
+For more information, see [Azure Queue storage trigger for Azure Functions](functions-bindings-storage-queue-trigger.md).
+
+Use the preceding procedure to add more functions to your function app project. Each function in the project can have a different trigger, but a function must have exactly one trigger. For more information, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
 ## Add bindings
 
@@ -294,7 +301,7 @@ Use the following steps to publish your project to a function app in Azure.
 
     When deployment is completed, the root URL of the function app in Azure is shown on the **Publish** tab.
 
-1. On the **Publish** tab, go to the **Hosting** section. Select the ellipses (**...**), and then select **Open in Azure portal**. The new function app Azure resource opens in the Azure portal.
+1. On the **Publish** tab, go to the **Hosting** section. Select the ellipsis (**...**), and then select **Open in Azure portal**. The new function app Azure resource opens in the Azure portal.
 
     :::image type="content" source="media/functions-develop-vs/visual-studio-tools-functions-publish-complete.png" alt-text="Screenshot of the publish profile page. In the Hosting section, the ellipsis shortcut menu is open, and Open in Azure portal is highlighted.":::
 
@@ -302,7 +309,7 @@ Use the following steps to publish your project to a function app in Azure.
 
 Visual Studio doesn't upload app settings automatically when you publish your project. If you add settings to the *local.settings.json* file, you must also add them to the function app in Azure.
 
-The easiest way to upload the required settings to your function app in Azure is to manage them in Visual Studio. On the **Publish** tab, go to the **Hosting** section. Select the ellipses (**...**), and then select **Manage Azure App Service settings**.
+The easiest way to upload the required settings to your function app in Azure is to manage them in Visual Studio. On the **Publish** tab, go to the **Hosting** section. Select the ellipsis (**...**), and then select **Manage Azure App Service settings**.
 
 :::image type="content" source="./media/functions-develop-vs/visual-studio-tools-manage-app-settings.png" alt-text="Screenshot of the publish profile page Hosting section. The ellipsis shortcut menu is open, and Manage Azure App Service settings is highlighted.":::
 
@@ -348,7 +355,7 @@ When you debug an isolated worker process app, you currently need to attach the 
 
 To attach a remote debugger to a function app running in a process separate from the Functions host, take the following steps:
 
-1. On the **Publish** tab, go to the **Hosting** section. Select the ellipses (**...**), and then select **Attach debugger**.  
+1. On the **Publish** tab, go to the **Hosting** section. Select the ellipsis (**...**), and then select **Attach debugger**.  
 
     Visual Studio connects to your function app and enables remote debugging, if not already enabled. 
 
@@ -376,7 +383,7 @@ When the operation finishes, you're attached to your C# class library code runni
 
 To attach a remote debugger to a function app running in-process with the Functions host, take the following steps.
 
-On the **Publish** tab, go to the **Hosting** section. Select the ellipses (**...**), and then select **Attach debugger**.  
+On the **Publish** tab, go to the **Hosting** section. Select the ellipsis (**...**), and then select **Attach debugger**.  
 
 Visual Studio connects to your function app and enables remote debugging, if not already enabled. It also locates and attaches the debugger to the host process for the app. At this point, you can debug your function app as normal. 
 ::: zone-end  
@@ -387,30 +394,30 @@ When you finish debugging, follow the steps in the next section to turn off remo
 
 After you're done remote debugging your code, you should disable remote debugging in the [Azure portal](https://portal.azure.com). Remote debugging is automatically disabled after 48 hours, in case you forget. 
 
-1. On the **Publish** tab, go to the **Hosting** section. Select the ellipses (**...**), and then select **Open in Azure portal**. This action opens the function app in the Azure portal to which your project is deployed. 
+1. On the **Publish** tab, go to the **Hosting** section. Select the ellipsis (**...**), and then select **Open in Azure portal**. This action opens the function app in the Azure portal to which your project is deployed. 
 
 1. In the functions app, select **Configuration** under **settings**, choose **General settings**, set **Remote debugging** to **Off**, and select **Save** then **Continue**.
 
 After the function app restarts, you can no longer remotely connect to your remote processes. You can use this same tab in the Azure portal to enable remote debugging outside of Visual Studio.
 
-## Monitoring functions
+## Monitor functions
 
-The recommended way to monitor the execution of your functions is by integrating your function app with Azure Application Insights. You should enable this integration when you create your function app during Visual Studio publishing. 
+The recommended way to monitor the execution of your functions is by integrating your function app with Application Insights. You should enable this integration when you create your function app during Visual Studio publishing. 
 
-If for some reason the integration wasn't done during publishing, you should still [enable Application Insights integration](configure-monitoring.md#enable-application-insights-integration) for your function app in Azure.
+If the integration isn't done during publishing for some reason, you should still [enable Application Insights integration](configure-monitoring.md#enable-application-insights-integration) for your function app in Azure.
 
-To learn more about monitoring using Application Insights, see [Monitor Azure Functions](functions-monitoring.md).
+For more information about using Application Insights for monitoring, see [Monitor Azure Functions](functions-monitoring.md).
 
 ::: zone pivot="in-proc" 
-## Testing functions
+## Test functions
 
-This section describes how to create a C# in-process model project that you can test with [xUnit](https://github.com/xunit/xunit), which is an open-source unit testing tool for .NET.
+This section describes how to create a C# in-process model project that you can test by using [xUnit](https://github.com/xunit/xunit), which is an open-source unit testing tool for .NET.
 
 ### Step 1: Setup
 
 Follow these steps to configure the environment, including the app project and functions, required to support your tests:
 
-1. In Visual Studio, create a functions app project named **Functions**.
+1. In Visual Studio, create an Azure Functions project named **Functions**.
 
 1. Create an HTTP function from the template by taking the following steps:
    1. In **Solution Explorer**, right-click the **Functions** project, and then select **Add** > **New Azure Function**. 
@@ -441,9 +448,9 @@ Follow these steps to configure the environment, including the app project and f
 
 In this section, you create the classes that you use to run the automated tests.
 
-Each function takes an instance of [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger) to handle message logging. Some tests either don't log messages or have no concern for how logging is implemented. Other tests need to evaluate messages logged to determine whether a test is passing.
+Each function takes an implementation of [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger) to handle message logging. Some tests don't log messages, or it doesn't matter how logging is implemented. Other tests need to evaluate logged messages to determine whether a test should pass.
 
-1. Create a new class in your *Functions.Tests* project named *NullScope.cs* and add the following code. This class provides a mock scope. In a later step, you create an implementation of `ILogger` that uses this scope.
+1. Create a class in your *Functions.Tests* project named `NullScope` and add the following code. This class provides a mock scope. In a later step, you create an implementation of `ILogger` that uses this scope.
 
     ```csharp
     using System;
@@ -461,7 +468,7 @@ Each function takes an instance of [`ILogger`](/dotnet/api/microsoft.extensions.
     }
     ```
 
-1. Create a class in your *Functions.Tests* project named *ListLogger.cs* and add this code. Create a class named `ListLogger`, which holds an internal list of messages to evaluate during testing. To implement the required `ILogger` interface, the class uses the mock scope from *NullScope.cs*. The test cases pass the mock scope to the `ListLogger` class.
+1. Create a class in your *Functions.Tests* project named `ListLogger` and add the following code. This class maintains an internal list of messages to evaluate during testing. To implement the required `ILogger` interface, the class uses the mock scope from the `NullScope` class. The test cases pass the mock scope to the `ListLogger` class.
 
     ```csharp
     using Microsoft.Extensions.Logging;
@@ -497,17 +504,15 @@ Each function takes an instance of [`ILogger`](/dotnet/api/microsoft.extensions.
     }
     ```
 
-    The `ListLogger` class implements the following members as contracted by the `ILogger` interface:
+    The `ListLogger` class implements the following members, as contracted by the `ILogger` interface:
 
-    - `BeginScope`: Scopes add context to your logging. In this case, the test just points to the static instance on the `NullScope` class to allow the test to function.
-
+    - `BeginScope`: Scopes add context to your logging. In this case, the test points to the static instance on the `NullScope` class to allow the test to function.
     - `IsEnabled`: A default value of `false` is provided.
-
     - `Log`: This method uses the provided `formatter` function to format the message and then adds the resulting text to the `Logs` collection.
 
     The `Logs` collection is an instance of `List<string>` and is initialized in the constructor.
 
-1. Create a code file in *Functions.Tests* project named *LoggerTypes.cs* and add this code:
+1. Create a code file in the *Functions.Tests* project named *LoggerTypes.cs* and add the following code:
 
     ```csharp
     namespace Functions.Tests
@@ -522,7 +527,7 @@ Each function takes an instance of [`ILogger`](/dotnet/api/microsoft.extensions.
 
     This enumeration specifies the type of logger used by the tests.
 
-1. Create a class in *Functions.Tests* project named *TestFactory.cs* and add this code:
+1. Create a class in the *Functions.Tests* project named `TestFactory` and add the following code:
 
     ```csharp
     using Microsoft.AspNetCore.Http;
@@ -540,9 +545,9 @@ Each function takes an instance of [`ILogger`](/dotnet/api/microsoft.extensions.
             {
                 return new List<object[]>
                 {
-                    new object[] { "name", "Bill" },
-                    new object[] { "name", "Paul" },
-                    new object[] { "name", "Steve" }
+                    new object[] { "name", "Bernardo" },
+                    new object[] { "name", "Ananya" },
+                    new object[] { "name", "Vlad" }
     
                 };
             }
@@ -585,15 +590,12 @@ Each function takes an instance of [`ILogger`](/dotnet/api/microsoft.extensions.
 
     The `TestFactory` class implements the following members:
 
-    - `Data`: This property returns an [IEnumerable](/dotnet/api/system.collections.ienumerable) collection of sample data. The key value pairs represent values that are passed into a query string.
+    - `Data`: This property returns an [IEnumerable](/dotnet/api/system.collections.ienumerable) collection of sample data. The key-value pairs represent values that are passed into a query string.
+    - `CreateDictionary`: This method accepts a key-value pair as arguments. It returns a new instance of `Dictionary` that's used to create an instance of `QueryCollection` to represent query string values.
+    - `CreateHttpRequest`: This method creates an HTTP request that's initialized with the given query string parameters.
+    - `CreateLogger`: This method returns an implementation of `ILogger` that's used for testing. The `ILogger` implementation depends on the specified logger type. If a list type is specified, the `ListLogger` instance keeps track of logged messages that are available for evaluation in tests.
 
-    - `CreateDictionary`: This method accepts a key/value pair as arguments and returns a new `Dictionary` used to create `QueryCollection` to represent query string values.
-
-    - `CreateHttpRequest`: This method creates an HTTP request initialized with the given query string parameters.
-
-    - `CreateLogger`: Based on the logger type, this method returns a logger class used for testing. The `ListLogger` keeps track of logged messages available for evaluation in tests.
-
-1. Create a class in *Functions.Tests* project named *FunctionsTests.cs* and add this code:
+1. Create a class in the *Functions.Tests* project named `FunctionsTests` and add the following code:
 
     ```csharp
     using Microsoft.AspNetCore.Mvc;
@@ -609,9 +611,9 @@ Each function takes an instance of [`ILogger`](/dotnet/api/microsoft.extensions.
             [Fact]
             public async void Http_trigger_should_return_known_string()
             {
-                var request = TestFactory.CreateHttpRequest("name", "Bill");
+                var request = TestFactory.CreateHttpRequest("name", "Bernardo");
                 var response = (OkObjectResult)await MyHttpTrigger.Run(request, logger);
-                Assert.Equal("Hello, Bill. This HTTP triggered function executed successfully.", response.Value);
+                Assert.Equal("Hello, Bernardo. This HTTP triggered function executed successfully.", response.Value);
             }
     
             [Theory]
@@ -635,25 +637,23 @@ Each function takes an instance of [`ILogger`](/dotnet/api/microsoft.extensions.
     }
     ```
 
-    The members implemented in this class are:
+    This class implements the following members:
 
-    - `Http_trigger_should_return_known_string`: This test creates a request with the query string values of `name=Bill` to an HTTP function and checks that the expected response is returned.
-
+    - `Http_trigger_should_return_known_string`: This test uses the query string value `name=Bernardo` to create a request to an HTTP function. This test checks that the expected response is returned.
     - `Http_trigger_should_return_string_from_member_data`: This test uses xUnit attributes to provide sample data to the HTTP function.
-
     - `Timer_should_log_message`: This test creates an instance of `ListLogger` and passes it to a timer function. Once the function is run, then the log is checked to make sure the expected message is present.
 
 1. To access application settings in your tests, you can [inject](functions-dotnet-dependency-injection.md) an `IConfiguration` instance with mocked environment variable values into your function.
 
 ### Step 3: Run tests
 
-To run the tests, navigate to the **Test Explorer** and select **Run All Tests in View**.
+To run the tests in Visual Studio, select **View** > **Test Explorer**. In **Test Explorer**, select **Run** > **Run All Tests in View**.
 
 :::image type="content" source="media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png" alt-text="Screenshot that shows testing Azure Functions with C# in Visual Studio.":::
 
 ### Step 4: Debug tests
 
-To debug the tests, set a breakpoint on a test, then navigate to the **Test Explorer** and select **Run > Debug Last Run**.
+To debug the tests, set a breakpoint on a test. In **Test Explorer**, select **Run** > **Debug Last Run**.
 ::: zone-end
 
 ## Related content
