@@ -28,7 +28,6 @@ In the [Anomalies](/azure/azure-monitor/reference/tables/anomalies) table:
 - The `score` column contains a numerical value between 0 and 1, which quantifies the degree of deviation from the expected behaviour. Higher scores indicate greater deviation from the baseline and are more likely to be true anomalies. Lower scores might still be anomalous, but are less likely to be significant or actionable.
 
 
-
 > [!NOTE]
 > These anomaly detections are discontinued as of March 26, 2024, due to low quality of results:
 > - Domain Reputation Palo Alto anomaly

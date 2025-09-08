@@ -68,7 +68,7 @@ To enable or disable this feature (these prerequisites aren't required to use th
 
     ---
 
-1. On the **Entity behavior configuration** page, toggle **Turn on UEBA feature**.
+1. On the **Entity behavior configuration** page, toggle on **Turn on UEBA feature**.
 
     :::image type="content" source="media/enable-entity-behavior-analytics/ueba-configuration.png" alt-text="Screenshot of UEBA configuration settings." lightbox="true":::
 
@@ -107,7 +107,7 @@ To enable or disable this feature (these prerequisites aren't required to use th
 
     1. From the Microsoft Defender portal navigation menu, select **Settings** > **Microsoft Sentinel** > **SIEM workspaces**.
     1. Select the workspace you want to configure.
-    1. From the workspace configuration page, select **Anomalies** > **Detect Anomalies**. 
+    1. From the workspace configuration page, select **Anomalies** and toggle on **Detect Anomalies**. 
 
 
 ## Next steps
