@@ -13,13 +13,9 @@ ms.author: jsuri
 
 Azure Site Recovery now provides alternative virtual machine (VM) size guidance to help you improve the chances of successful VM allocation in your target location during disaster recovery events or drills. This helps you assess the VM capacity and increase the chances of VM allocation during failover process by providing you with alternative VM size recommendations in your target location, in case current configured target VM size has less likelihood of allocation success. 
 
-## Why this guidance matters 
-
-We continually invest in additional infrastructure and features to make sure that we always have all VM types available to support customer demand. However, you might occasionally experience resource allocation failures because of unprecedented growth in demand for Azure services in specific regions.  Failover failures may happen in such cases and disrupt your business continuity. The new guidance feature helps you reduce this risk by validating if there is sufficient capacity for requested VM size and recommending alternative VM sizes. 
-
 ## How alternative VM size capacity guidance works 
 
-You can select any one of the alternative based on your recommendation, and then select **Save**. You can then proceed with the failover or test failover. 
+You can select any one of the alternatives based on your recommendation, and then select **Save**. You can then proceed with the failover or test failover. 
 
 - **Capacity validation**: When you reach failover or test failover screen in the Azure Site Recovery portal experience, Azure Site Recovery checks whether target location has sufficient capacity for configured VM size. 
 
@@ -27,20 +23,21 @@ You can select any one of the alternative based on your recommendation, and then
 
 - **Selection and proceeding**: You can choose to select an alternative recommendation and proceed with failover or test failover. 
 
-- **Pricing information**: Prices for recommended VM sizes are shown and may vary. It is always recommended to verify the price from the Azure price page.  
+- **Pricing information**: Prices for recommended VM sizes are shown and may vary. It's always recommended to verify the price from the Azure price page.  
 
 >[!NOTE]
->- If you select a recommendation, that VM size will be used for all further failovers and test failovers. You can choose to change the target VM size by going to the Compute section of Azure Site Recovery protected item. 
+>- If you select a recommendation, that VM size is used for all further failovers and test failovers. You can choose to change the target VM size by going to the Compute section of Azure Site Recovery protected item. 
+> :::image type="content" source="./media/alternative-vm-size-failover-flow/replicated-items.png" alt-text="Diagram that shows the replicated items screen.":::
 > - Sometimes, the capacity issues might be temporary and retrying the failover after a short period can resolve the problem. This is because enough resources may have been freed in the cluster, region, or zone to accommodate your request. 
 
 ## Limitations 
 
 Recommendations aren't provided: 
 
-- If there are target Availability Sets, target Virtual Machine Scale Set (VMSS), or target Proximity Placement Groups (PPG) configured. 
-- In case there is on-demand capacity reservation configured for target. 
+- If there is target Availability Sets, target Virtual Machine Scale Set (VMSS), or target Proximity Placement Groups (PPG) configured. 
+- In case there's on-demand capacity reservation configured for target. 
 - When failover is triggered via Recovery plans.  
-- For VMWare-to-Azure Site Recovery, HyperV-to-Azure Site Recovery. 
+- For VMware-to-Azure Site Recovery, Hyper-V-to-Azure Site Recovery. 
 
 >[!NOTE]
 >Only Azure-to-Azure scenario is currently supported. 
@@ -48,4 +45,4 @@ Recommendations aren't provided:
 ## Best Practices 
 
 - For critical workloads, consider using On-Demand capacity reservations to guarantee VM availability during failover. You can also [combine it with Reserved Instances to reduce the cost](https://techcommunity.microsoft.com/blog/azuregovernanceandmanagementblog/ensure-failover-capacity-at-optimal-cost-with-azure-site-recovery/4337357).
-- Monitor failover health using ASR validator and take necessary actions in case failover health is not green. 
+- Monitor failover health using ASR validator and take necessary actions in case failover health isn't green. 
