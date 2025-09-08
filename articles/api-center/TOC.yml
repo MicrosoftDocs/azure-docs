@@ -61,7 +61,7 @@
   - name: Register and discover MCP servers
     href: register-discover-mcp-server.md
   - name: Build and register Logic Apps MCP server
-    href: /azure/logic-apps?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json
+    href: ../logic-apps/create-mcp-server-api-center.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json
 - name: API governance
   items:
   - name: Use metadata for governance
