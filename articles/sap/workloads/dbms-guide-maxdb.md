@@ -458,7 +458,7 @@ Here you have two options:
 #### Backup / Restore
 If you configure the SAP Content Server to store files in the SAP MaxDB database, the backup/restore procedure and performance considerations are already described in SAP MaxDB chapters of this document. 
 
-If you configure the SAP Content Server to store files in the file system, one option is to execute manual backup/restore of the whole file structure where the documents are located. Similar to SAP MaxDB backup/restore, it is recommended to have a dedicated disk volume for backup purpose. 
+If you configure the SAP Content Server to store files in the file system, one option is to execute manual backup/restore of the whole file structure where the documents are located. Similar to SAP MaxDB backup/restore, it's recommended to have a dedicated disk volume for backup purpose. 
 
 #### Other
 Other SAP Content Server-specific settings are transparent to Azure VMs and are described in SAP Note [1619726].
