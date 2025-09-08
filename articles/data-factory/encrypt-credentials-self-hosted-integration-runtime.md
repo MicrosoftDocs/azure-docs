@@ -6,7 +6,9 @@ ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.date: 05/15/2024
 ms.author: lle
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-ropc-nochange
 ---
 
 # Encrypt credentials for on-premises data stores in Azure Data Factory

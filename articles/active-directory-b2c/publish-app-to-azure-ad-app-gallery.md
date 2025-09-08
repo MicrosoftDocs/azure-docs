@@ -12,6 +12,7 @@ ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a developer of an Azure Active Directory B2C app, I want to publish my app to the Microsoft Entra app gallery, so that customers can easily find and deploy my app, enable single sign-on, and automate user setup within their Microsoft Entra tenant.
