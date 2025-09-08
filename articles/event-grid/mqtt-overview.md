@@ -13,7 +13,7 @@ ms.custom:
 
 # Overview of the MQTT broker feature in Azure Event Grid
 
-Azure Event Grid enables your Message Queuing Telemetry Transport (MQTT) clients to communicate with each other and with Azure services to support your Internet of Things (IoT) solutions. You can use the Event Grid MQTT broker feature to accomplish the following scenarios. For code samples that demonstrate these scenarios, see [this repository](https://github.com/Azure-Samples/MqttApplicationSamples):
+Azure Event Grid enables your Message Queuing Telemetry Transport (MQTT) clients to communicate with each other and with Azure services to support your Internet of Things (IoT) solutions. You can use the Event Grid MQTT broker feature to accomplish the following scenarios. For code samples that demonstrate these scenarios, see [this repository](https://github.com/Azure-Samples/MqttApplicationSamples).
 
 - Ingest telemetry by using a many-to-one messaging pattern. This pattern enables the application to offload the burden of managing the high number of connections with devices to Event Grid.
 - Control your MQTT clients by using the request-response (one-to-one) messaging pattern. This pattern enables any client to communicate with any other client without restrictions, regardless of the clients' roles.
@@ -101,9 +101,9 @@ With Event Grid, you can route your MQTT messages to Azure services or webhooks 
 
 :::image type="content" source="media/mqtt-overview/routing-high-res.png" alt-text="Diagram that shows MQTT message routing in Event Grid." border="false":::
 
-### MQTT events to Microsoft Fabric event streams (preview)
+### MQTT events to Microsoft Fabric eventstreams (preview)
 
-Route MQTT messages and cloud events from an Event Grid namespace to Microsoft Fabric event streams for real-time analytics, storage, and visualization of IoT data.
+Route MQTT messages and cloud events from an Event Grid namespace to Microsoft Fabric eventstreams for real-time analytics, storage, and visualization of IoT data.
 
 :::image type="content" source="./media/mqtt-overview/route-mqtt-events-to-fabric.png" alt-text="Diagram that shows how MQTT events are routed to Microsoft Fabric." lightbox="./media/mqtt-overview/route-mqtt-events-to-fabric.png":::
 
