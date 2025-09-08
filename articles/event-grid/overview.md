@@ -57,7 +57,7 @@ Highlights of MQTT messaging support in Event Grid:
 - **Transport Layer Security (TLS) 1.2 and TLS 1.3 support**: Secures your client communication by using robust encryption protocols.
 - **Multi-session support**: Connects your applications with multiple active sessions to ensure reliability and scalability.
 - **MQTT over WebSocket**: Enables connectivity for clients in firewall-restricted environments.
-- **Custom domain names**: Allows users to assign their own domain names to Event Grid namespace's MQTT endpoints, which enhances security and simplifies client configuration.
+- **Custom domain names**: Allows users to assign their own domain names to an Event Grid namespace's MQTT endpoints, which enhances security and simplifies client configuration.
 - **Client life-cycle events**: Allows applications to react to events about the client connection status or the client resource operations.
 - [HTTP Publish](mqtt-http-publish.md): Enables devices and services to send MQTT messages to Event Grid over HTTPS, which simplifies integration with non-MQTT clients.
 - [MQTT Retain](mqtt-retain.md): Ensures that the last known message on a topic is automatically delivered to new subscribers, which enables instant state synchronization.
@@ -107,7 +107,7 @@ HTTP model highlights:
 - **Advanced filtering**: Filter on event type or other event attributes to make sure your event handlers or consumer apps receive only relevant events.
 - **Reliability**: Push delivery features a 24-hour retry mechanism with exponential backoff to make sure that events are delivered. If you use pull delivery, your application has full control over event consumption.
 - **High throughput**: Build high-volume integrated solutions with Event Grid.
-- **Custom domain names**: Allow users to assign their own domain names to Event Grid namespace's HTTP endpoints, which enhances security and simplifies client configuration.
+- **Custom domain names**: Allow users to assign their own domain names to an Event Grid namespace's HTTP endpoints, which enhances security and simplifies client configuration.
 
 For more information, see the following articles:
 
