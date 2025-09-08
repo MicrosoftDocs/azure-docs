@@ -39,22 +39,19 @@ Casing rules: Always lowercase.
 
 Applies to: Device Provisioning Service
 
+### Akri services
+
+In [Azure IoT Operations](#azure-iot-operations---enabled-by-azure-arc), Akri services enable dynamic discovery, configuration, and integration of edge devices and assets into Kubernetes clusters. Akri services support various connectivity protocols, simplify device onboarding, and integrate with Azure IoT Operations for asset management and telemetry ingestion. Akri services is a Microsoft implementation of the open-source Akri project.
+
+Casing rules: Always capitalize as *Akri services*.
+
+Applies to: Azure IoT Operations
+
 ### Asset
 
-A physical or virtual item of value that you want to manage, monitor, and collect data from. An asset can be a machine, a device, a software component, an entire system, or a physical object of value such as a field of crops, or a building. Assets are typically in a location that you control (such as a factory) and typically can't connect to the public internet.
+In the context of IoT in general, physical item of value that you want to manage, monitor, and collect data from. An asset can be a machine, a device, a software component, an entire system, or a physical object of value such as a field of crops, or a building.
 
-The following items are examples of IoT assets:
-- robotic arms, conveyor belts, elevators
-- industrial CNC machines, lathes, saws, drills
-- medical diagnostic imaging machines
-- security video cameras
-- software or software components
-- programmable logic controllers (PLC)
-- entire manufacturing systems
-- buildings
-- agricultural crops
-
-In Azure IoT Operations, an [asset](../iot-operations/manage-devices-assets/overview-manage-assets.md) is a core element of a solution.
+In the context of Azure IoT Operations, an asset is also a virtual representation of a physical item that you want to manage, monitor, and collect data from. The virtual representation exits in the Azure IoT Operations edge run time, and in Azure Device Registry.
 
 Casing rules: Always lowercase when you're referring to a specific asset.
 
@@ -368,21 +365,45 @@ Applies to: IoT Hub
 
 ### Device
 
-In the context of IoT, a device is a piece of computer hardware that can collect or generate data, and send or exchange data with other devices and systems. Devices can connect to edge or cloud solutions. Typically, a device might be in a location you don't control (such as a third party business) and connects to the public internet.
+In the context of IoT, a device is a piece of computer hardware that can collect or generate data, and send or exchange data with other devices and systems.
 
-The following items are examples of IoT devices:
-- consumer wearables
-- connected cars
-- smart coffee machines
-- smart vending machines
-- crop sensors
-- connected thermostats
-- computers, phones, or tablets
-- other computer hardware with microcontroller units (MCUs) or microprocessor units (MPUs).
+It's helpful to categorize IoT devices as follows:
+
+- **Device category 1**: Devices that connect directly to the cloud. This category includes devices that connect to cloud services such as IoT Hub using standard protocols such as HTTP, MQTT, or AMQP. These devices aren't relevant in edge-based solutions such as Azure IoT Operations.
+
+- **Device category 2**: Devices that connect to the cloud through an edge-based proxy or gateway. Examples in this category include devices that:
+
+  - Connect indirectly to the cloud through the MQTT broker in Azure IoT Operations.
+  - Connect indirectly to IoT Hub through an Azure IoT Edge gateway.
+
+- **Device category 3**: These devices connect to an edge-based runtime through a connector that enables the devices to use a specific protocol. For example, an OPC UA server and its attached devices connect through a connector for OPC UA. These devices aren't relevant in cloud-based solutions such as Azure IoT Hub.
+
+The following items are examples of category 1 and 2 IoT devices:
+
+- Consumer wearables
+- Connected cars
+- Smart coffee machines
+- Smart vending machines
+- Crop sensors
+- Connected thermostats
+- Computers, phones, or tablets
+- Other computer hardware with microcontroller units (MCUs) or microprocessor units (MPUs).
+
+The following items are examples of category 3 devices:
+
+- Robotic arms and conveyor belts.
+- Industrial CNC machines, lathes, saws, and drills.
+- Medical diagnostic imaging machines.
+- Security video cameras.
+- Programmable logic controllers.
+
+In the context of Azure IoT Operations v2.x.x and later, a device is a configuration in Azure Device Registry that encapsulates the information, such as address and authentication credentials, required to connect to a physical device or asset. Previous versions of Azure IoT Operations used *asset endpoints* to perform a similar role.
+
+First and subsequent mentions: On first mention, always use *namespace asset*. If the context is clear on subsequent mentions, use *asset*.
 
 Casing rules: Always lowercase.
 
-Applies to: IoT Hub, IoT Central, IoT Edge, Device Provisioning Service
+Applies to: IoT Hub, IoT Central, IoT Edge, Device Provisioning Service, Azure IoT Operations, Azure Device Registry
 
 ### Device Provisioning Service
 
@@ -958,6 +979,26 @@ Similar to [device twin](#device-twin), a [module](#module) twin is JSON documen
 Casing rules: Always lowercase.
 
 Applies to: IoT Hub
+
+## N
+
+### Namespace
+
+In the context of Azure IoT Operations, Azure Device Registry  uses *namespaces* to organize assets and devices. Each Azure IoT Operations instance uses a single namespace for its assets and devices. Multiple instances can share a single namespace.
+
+Casing rules: Always lowercase.
+
+Applies to: Azure IoT Operations, Azure Device Registry
+
+### Namespace asset
+
+In the context of Azure IoT Operations v2.x.x and later, Azure IoT Operations uses *namespaces* to organize assets and devices. An asset that exists in a namespace is referred to as a *namespace asset*. This contrasts with assets created in previous versions of Azure IoT Operations, which are not associated with a namespace.
+
+First and subsequent mentions: On first mention, always use *namespace asset*. If the context is clear on subsequent mentions, use *asset*.
+
+Casing rules: Always lowercase.
+
+Applies to: Azure IoT Operations, Azure Device Registry
 
 ## O
 

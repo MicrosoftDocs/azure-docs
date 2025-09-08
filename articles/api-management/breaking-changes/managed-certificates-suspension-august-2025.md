@@ -1,6 +1,6 @@
 ---
-title: Azure API Management - Managed certificates suspension for new custom domains (August 2025)
-description: Azure API Management is temporarily suspending managed certificates for new custom domains from August 15, 2025 to March 15, 2026 due to industry-wide changes in domain validation.
+title: Azure API Management - Managed certificates suspension for custom domains (August 2025)
+description: Azure API Management is temporarily suspending creation of managed certificates for custom domains from August 15, 2025 to March 15, 2026 due to industry-wide changes in domain validation.
 services: api-management
 author: dlepow
 ms.service: azure-api-management
@@ -10,21 +10,23 @@ ms.date: 07/18/2025
 ms.author: danlep
 ---
 
-# Managed certificates suspension for new custom domains (August 2025)
+# Creation of managed certificates temporarily suspended for custom domains (August 2025 - March 2026)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-Azure managed certificates for new custom domains in API Management will be temporarily turned off from August 15, 2025 to March 15, 2026. Existing managed certificates will be autorenewed and remain unaffected.
+Creation of Azure-managed certificates for custom domains in API Management will be temporarily turned off from August 15, 2025 to March 15, 2026. Existing managed certificates will be autorenewed and remain unaffected.
 
-In the classic service tiers, Azure API Management offers [free, managed TLS certificates for custom domains](../configure-custom-domain.md#domain-certificate-options), allowing customers to secure their endpoints without purchasing and managing their own certificates. Because of an industry-wide deprecation of CNAME-based Domain Control Validation (DCV), our Certificate Authority (CA), DigiCert, will migrate to a new validation platform to meet Multi-Perspective Issuance Corroboration (MPIC) requirements. This migration requires a temporary suspension of managed certificates for new custom domains.
+In the classic service tiers, Azure API Management offers [free, managed TLS certificates for custom domains](../configure-custom-domain.md#domain-certificate-options) (preview), allowing customers to secure their endpoints without purchasing and managing their own certificates. Because of an industry-wide deprecation of CNAME-based Domain Control Validation (DCV), our Certificate Authority (CA), DigiCert, is moving to a new open-source software (OSS) domain control validation (DCV) platform that provides transparency and accountability increasing the trustworthiness of domain validation. As part of this transition, DigiCert will deprecate support for the legacy CNAME Delegation DCV workflow. This migration requires us to temporarily suspend the creation of managed certificates for custom domains.
+
+Note that this does not impact the standard CNAME DCV workflow (where DigiCert validates a random value in the CNAME record) which is still supported in the OSS validation system. This change affects several Azure services that currently rely on the soon-to-be deprecated CNAME for automated certificate issuance and renewal.
 
 ## Is my service affected by this?
 
-You're affected if you plan to create new managed certificates for new custom domains in Azure API Management between August 15, 2025 and March 15, 2026. Existing managed certificates will be autorenewed before August 15, 2025 and will continue to function normally. There's no impact to existing managed certificates or custom domains already using them.
+You're affected if you plan to create new managed certificates for custom domains in Azure API Management between August 15, 2025 and March 15, 2026. Existing managed certificates will be autorenewed before August 15, 2025 and will continue to function normally. There's no impact to existing managed certificates or custom domains already using them.
 
 ## What is the deadline for the change?
 
-The suspension of managed certificates for new custom domains will be enforced from August 15, 2025 to March 15, 2026. The capability to create managed certificates will resume after the migration to the new validation platform is complete.
+The suspension of managed certificates for custom domains will be enforced from August 15, 2025 to March 15, 2026. The capability to create managed certificates will resume after the migration to the new validation platform is complete.
 
 ## What do I need to do?
 

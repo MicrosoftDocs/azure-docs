@@ -1,9 +1,9 @@
 ---
-title: Configure Premium V4 tier
+title: Configure Premium V4 Tier
 description: Learn how to better performance for your web, mobile, and API app in Azure App Service by scaling to the new Premium V4 pricing tier.
 keywords: app service, azure app service, scale, scalable, app service plan, app service cost
-ms.topic: article
-ms.date: 07/17/2025
+ms.topic: how-to
+ms.date: 08/22/2025
 ms.author: msangapu
 author: msangapu-msft
 ms.custom:
@@ -12,13 +12,10 @@ ms.custom:
   - devx-track-azurepowershell
   - build-2025
 #customer intent: As a deployment engineer, I want to understand the process and the benefits of scaling up apps to the Premium V4 pricing tier in Azure App Service.
+ms.service: azure-app-service
 ---
 
 # Configure Premium V4 tier for Azure App Service
-
-> [!NOTE]
-> The Premium V4 tier for App Service is in preview.
->
 
 The new Premium V4 pricing tier provides faster processors, NVMe local storage, and memory-optimized options. It offers up to double the memory-to-core ratio of previous tiers. This performance advantage can save money by running apps on fewer instances. This article explains how to create or scale up an app to the Premium V4 tier.
 
@@ -33,7 +30,7 @@ To scale-up an app to Premium V4:
 
 ## Premium V4 availability
 
-The Premium V4 tier is available for source code applications on Windows, and both source code applications and custom containers on Linux. The Premium V4 tier isn't available for Windows containers. While in public preview, Premium V4 supports production workloads.
+The Premium V4 tier is available for source code applications on Windows, and both source code applications and custom containers on Linux. The Premium V4 tier isn't available for Windows containers.
 
 > [!NOTE]
 > The Premium V4 tier lacks stable outbound IP addresses. This behavior is intentional. Although Premium V4 apps can make outbound calls, the platform doesn't provide stable outbound IPs for this tier. This differs from previous App Service tiers. The portal shows "Dynamic" for outbound IP addresses for Premium V4 apps. ARM and CLI calls return empty strings for *outboundIpAddresses* and *possibleOutboundIpAddresses*. If Premium V4 apps need stable outbound IPs, use [Azure NAT Gateway](overview-nat-gateway-integration.md) for predictable outbound IPs.
@@ -66,7 +63,7 @@ To see all the Premium V4 options, select **Explore pricing plans**, then select
 
 ## Scaling out an app service plan on the Premium V4 tier
 
-Although Premium V4 fully integrates with autoscale, during its public preview, limit individual scale-out requests to two or fewer instances per synchronous operation. For higher target counts, iterate through incremental requests. For example, to add 10 instances, loop through five separate scale-out requests of two instances each until all succeed. If a scale-out request fails, wait five minutes and retry.
+Although Premium V4 fully integrates with autoscale, limit individual scale-out requests to two or fewer instances per synchronous operation. For higher target counts, iterate through incremental requests. For example, to add 10 instances, loop through five separate scale-out requests of two instances each until all succeed. If a scale-out request fails, wait five minutes and retry.
 
 ## Scale up an existing app to Premium V4 tier
 
@@ -98,11 +95,14 @@ Premium V4 is available in the following regions:
 
 - Australia East
 - Canada Central
+- Central India
 - Central US
 - East US
 - East US 2
 - France Central
+- Italy North
 - Japan East
+- Korea Central
 - North Central US
 - North Europe
 - Norway East
@@ -160,4 +160,4 @@ New-AzAppServicePlan -ResourceGroupName <resource_group_name> `
 ## Related content
 
 - [Scale up an app in Azure App Service](manage-scale-up.md)
-- [Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)
+- [Run a load test to identify performance bottlenecks in a web app](../app-testing/load-testing/tutorial-identify-bottlenecks-azure-portal.md)

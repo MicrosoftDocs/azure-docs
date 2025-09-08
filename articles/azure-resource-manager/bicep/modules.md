@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.custom:
   - devx-track-bicep
   - build-2025
-ms.date: 05/09/2025
+ms.date: 07/25/2025
 ---
 
 # Bicep modules
@@ -69,7 +69,7 @@ The path can be either a local file or a file in a registry. The local file can 
 
 The `name` property is optional. It becomes the name of the nested deployment resource in the generated template. If no name is provided, a GUID will be generated as the name for the nested deployment resource.
 
-If a module with a static name is deployed concurrently to the same scope, there's the potential for one deployment to interfere with the output from the other deployment. For example, if two Bicep files use the same module with the same static name (`examplemodule`) and are targeted to the same resource group, one deployment might show the wrong output. If you're concerned about concurrent deployments to the same scope, give your module a unique name. Another way to ensure unique module names is to leave out the `name` property, an unique module name will be generated automatically.
+If a module with a static name is deployed concurrently to the same scope, there's the potential for one deployment to interfere with the output from the other deployment. For example, if two Bicep files use the same module with the same static name (`examplemodule`) and are targeted to the same resource group, one deployment might show the wrong output. If you're concerned about concurrent deployments to the same scope, give your module a unique name. Another way to ensure unique module names is to leave out the `name` property, a unique module name will be generated automatically.
 
 The following example concatenates the deployment name to the module name. If you provide a unique name for the deployment, the module name is also unique.
 
@@ -80,7 +80,7 @@ module stgModule 'storageAccount.bicep' = {
 }
 ```
 
-Not providing any module name is also valid. A GUID will be generate as the module name.
+Not providing any module name is also valid. A GUID will be generated as the module name.
 
 ```bicep
 module stgModule 'storageAccount.bicep' = {
@@ -353,7 +353,7 @@ param location string
 
 var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 
-resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2025-01-01' = {
   name: uniqueStorageName
   location: location
   sku: {
@@ -377,7 +377,7 @@ targetScope = 'subscription'
 @maxLength(11)
 param namePrefix string
 
-resource demoRG 'Microsoft.Resources/resourceGroups@2024-03-01' existing = {
+resource demoRG 'Microsoft.Resources/resourceGroups@2025-04-01' existing = {
   name: 'demogroup1'
 }
 
@@ -411,7 +411,7 @@ param location string = deployment().location
 
 var resourceGroupName = '${namePrefix}rg'
 
-resource newRG 'Microsoft.Resources/resourceGroups@2024-03-01' = {
+resource newRG 'Microsoft.Resources/resourceGroups@2025-04-01' = {
   name: resourceGroupName
   location: location
 }
@@ -433,11 +433,11 @@ The next example deploys storage accounts to two different resource groups. Both
 ```bicep
 targetScope = 'subscription'
 
-resource firstRG 'Microsoft.Resources/resourceGroups@2024-03-01' existing = {
+resource firstRG 'Microsoft.Resources/resourceGroups@2025-04-01' existing = {
   name: 'demogroup1'
 }
 
-resource secondRG 'Microsoft.Resources/resourceGroups@2024-03-01' existing = {
+resource secondRG 'Microsoft.Resources/resourceGroups@2025-04-01' existing = {
   name: 'demogroup2'
 }
 
@@ -507,7 +507,7 @@ param location string
 
 var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 
-resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2025-01-01' = {
   name: uniqueStorageName
   location: location
   sku: {
@@ -531,7 +531,7 @@ targetScope = 'subscription'
 @maxLength(11)
 param namePrefix string
 
-resource demoRG 'Microsoft.Resources/resourceGroups@2024-03-01' existing = {
+resource demoRG 'Microsoft.Resources/resourceGroups@2025-04-01' existing = {
   name: 'demogroup1'
 }
 

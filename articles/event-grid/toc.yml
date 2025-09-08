@@ -57,6 +57,10 @@ items:
           href: mqtt-client-groups.md      
         - name: Topic spaces
           href: mqtt-topic-spaces.md
+        - name: MQTT Retain
+          href: mqtt-retain.md
+        - name: HTTP Publish
+          href: mqtt-http-publish.md
         - name: Routing MQTT messages
           href: mqtt-routing.md          
           items:
@@ -118,6 +122,8 @@ items:
           href: mqtt-request-response-messages.md                
         - name: Assign custom domain name to a namespace
           href: assign-custom-domain-name.md
+        - name: Publish using HTTP
+          href: mqtt-how-to-http-publish.md
         - name: Monitor
           items:
           - name: Monitor Event Grid namespaces

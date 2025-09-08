@@ -1,6 +1,156 @@
 {
   "redirections": [
     {
+      "source_path": "articles/managed-ccf/application-scenarios.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/confidential-consortium-framework-overview.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/faq.yml",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/get-started.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/how-to-activate-members.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/how-to-backup-restore-resource.md",
+      "redirect_url": "/previous-versions/azure/managed-ccf/how-to-backup-restore-resource",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/how-to-enable-azure-monitor.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/how-to-manage-members.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/how-to-update-application.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/how-to-update-javascript-runtime-options.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/how-to-view-members.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/index.yml",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/overview.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/quickstart-cli.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/quickstart-deploy-application.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/quickstart-go.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/quickstart-java.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/quickstart-net.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/quickstart-portal.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/quickstart-python.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/quickstart-typescript.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storsimple/index.yml",
+      "redirect_url": "/previous-versions/azure/storsimple/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storsimple/storsimple-overview.md",
+      "redirect_url": "/previous-versions/azure/storsimple/storsimple-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-troubleshooting-arp-classic.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-troubleshooting-arp-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-howto-circuit-classic.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-howto-circuit-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-howto-routing-classic.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-howto-routing-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-howto-linkvnet-classic.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-howto-linkvnet-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-howto-move-arm.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-howto-move-arm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-move.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-move",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-migration-classic-resource-manager.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-migration-classic-resource-manager",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/api-center/discover-shadow-apis-dev-proxy.md",
       "redirect_url": "/previous-versions/azure/api-center/discover-shadow-apis-dev-proxy",
       "redirect_document_id": false
@@ -4000,8 +4150,53 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/expressroute/quickstart-create-expressroute-vnet-template.md",
+      "redirect_url": "/azure/expressroute/expressroute-howto-circuit-resource-manager-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/expressroute/expressroute-howto-expressroute-direct-cli.md",
+      "redirect_url": "/azure/expressroute/how-to-expressroute-direct-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/expressroute/expressroute-howto-erdirect.md",
+      "redirect_url": "/azure/expressroute/how-to-expressroute-direct-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/expressroute/how-to-routefilter-cli.md",
+      "redirect_url": "/azure/expressroute/how-to-routefilter-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/expressroute/how-to-routefilter-powershell.md",
+      "redirect_url": "/azure/expressroute/how-to-routefilter-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/expressroute/work-remotely-support.md",
+      "redirect_url": "/azure/networking/working-remotely-support",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/expressroute/working-remotely-support.md",
       "redirect_url": "/azure/expressroute/work-remotely-support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/expressroute/expressroute-howto-add-ipv6-powershell.md",
+      "redirect_url": "/azure/expressroute/expressroute-howto-add-ipv6",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/expressroute/expressroute-howto-add-ipv6-cli.md",
+      "redirect_url": "/azure/expressroute/expressroute-howto-add-ipv6",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/expressroute/expressroute-howto-add-ipv6-portal.md",
+      "redirect_url": "/azure/expressroute/expressroute-howto-add-ipv6",
       "redirect_document_id": false
     },
     {
@@ -6235,6 +6430,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/service-connector/quickstart-cli-spring-cloud-connection.md",
+      "redirect_url": "/azure/service-connector/quickstart-portal-spring-cloud-connection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/service-connector/quickstart-cli-app-service-connection.md",
+      "redirect_url": "/azure/service-connector/quickstart-portal-app-service-connection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/service-connector/quickstart-cli-aks-connection.md",
+      "redirect_url": "/azure/service-connector/quickstart-portal-aks-connection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/service-connector/quickstart-cli-container-apps.md",
+      "redirect_url": "/azure/service-connector/quickstart-portal-container-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/service-connector/quickstart-cli-functions-connection.md",
+      "redirect_url": "/azure/service-connector/quickstart-portal-functions-connection",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/load-balancer/move-across-regions-external-load-balancer-portal.md",
       "redirect_url": "/azure/load-balancer/move-across-regions-azure-load-balancer",
       "redirect_document_id": false
@@ -6860,6 +7080,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/reliability/availability-zones-migration-overview.md",
+      "redirect_url": "/azure/reliability/availability-zones-enable-zone-resiliency",
+      "redirect_document_id": false
+    },
+    {  
       "source_path": "articles/app-service/sre-agent-overview.md",
       "redirect_url": "/azure/sre-agent/overview",
       "redirect_document_id": false
@@ -6867,6 +7092,11 @@
     {
       "source_path": "articles/app-service/sre-agent-usage.md",
       "redirect_url": "/azure/sre-agent/usage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sre-agent/incident-management-tools.md",
+      "redirect_url": "/azure/sre-agent/overview",
       "redirect_document_id": false
     },
     {
@@ -6908,7 +7138,30 @@
       "source_path": "articles/signups/startup-programs.md",
       "redirect_url": "/azure/signups/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/migrate-sql-database.md",
+      "redirect_url": "/azure/azure-sql/database/enable-zone-redundancy",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/reliability/migrate-app-gateway-v2.md",
+      "redirect_url": "/azure/reliability/reliability-application-gateway-v2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/migrate-storage.md",
+      "redirect_url": "/azure/storage/common/redundancy-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/reliability-operator-nexus.md",
+      "redirect_url": "/azure/reliability/overview-reliability-guidance",
+      "redirect_document_id": false
     }
+
+
+
     
   ]
 }

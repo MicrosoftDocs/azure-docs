@@ -4,7 +4,7 @@ description: Significant updates to Azure Automation updated each month.
 services: automation
 ms.subservice:
 ms.topic: overview
-ms.date: 06/27/2025
+ms.date: 08/12/2025
 ms.custom: references_regions
 ms.author: v-jasmineme
 author: jasminemehndir
@@ -22,6 +22,12 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Automation](whats-new-archive.md).
+
+## August 2025
+
+### Deployment resumption: Azure Automation revised Service and Subscription limits
+
+After a brief hiatus, Azure Automation is resuming deployments of the revised Service and Subscription limits from August 11, 2025. This update will ensure fair distribution of cloud resources across all customers and further improve reliability and performance of the service. Since the resource requirements vary across organizations and evolve over time, we are empowering customers to configure their quotas based on actual usage. You can find the complete list of Azure Automation limits [here](automation-subscription-limits-faq.md). You can check the current usage and limits for Automation accounts and concurrently running jobs and request for changes by creating a support request under the category Service and Subscription limits (Quotas) -> Azure Automation. [Learn more](automation-limits-quotas.md).
 
 ## June 2025
 

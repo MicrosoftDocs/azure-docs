@@ -54,7 +54,7 @@ Your subscription admins and coadmins can change this setting, making them admin
 Organizations that control VM access and setup improve their overall VM security.
 
 ## Use Virtual Machine Scale Sets for high availability
-If your VM runs critical applications that need to have high availability, we strongly recommend that you use [Virtual Machine Scale Sets](https://learn.microsoft.com/azure/virtual-machine-scale-sets/overview).
+If your VM runs critical applications that need to have high availability, we strongly recommend that you use [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview).
 
 Virtual Machine Scale Sets let you create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide high availability to your applications, and allow you to centrally manage, configure, and update many VMs. There is no cost for the scale set itself, you only pay for each VM instance that you create.
 

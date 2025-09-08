@@ -60,9 +60,11 @@ List of available regions for the resource type:
 - France Central
 - UK south, UK west
 - Central India, South India, Jio India West
+- Indonesia Central
 - Italy North
 - Japan East, Japan West
 - Korea Central, Korea South
+- Malaysia West
 - Mexico Central 
 - North Europe
 - Norway East
@@ -108,11 +110,13 @@ The supported locations:
 - East US, East US2
 - France Central, France South
 - Germany West Central
+- Indonesia Central
 - Israel Central 
 - Italy North
 - Japan East, Japan West
 - Jio India West
 - Korea Central, Korea South
+- Malaysia West
 - Mexico Central
 - North Central US
 - North Europe

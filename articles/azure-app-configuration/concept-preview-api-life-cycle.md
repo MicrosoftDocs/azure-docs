@@ -4,9 +4,9 @@ titleSuffix: Azure App Configuration
 description: Learn about the preview API life cycle.
 services: azure-app-configuration
 author: amerjusupovic
-ms.author: ajusupovic
+ms.author: jimmyca
 ms.service: azure-app-configuration
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/01/2025
 ---
 

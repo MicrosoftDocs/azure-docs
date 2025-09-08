@@ -2,7 +2,7 @@
 title: Overview of Backup center for Azure Backup and Azure Site Recovery
 description: This article provides an overview of Backup center for Azure.
 ms.topic: overview
-ms.date: 12/24/2024
+ms.date: 08/22/2025
 ms.service: azure-backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS

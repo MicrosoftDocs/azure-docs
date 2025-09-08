@@ -253,6 +253,10 @@ After you submit the application for a short-code program brief in the Azure por
 > [!IMPORTANT]
 > Effective *June 30, 2024*, traffic is blocked from unregistered alphanumeric sender IDs that send messages to UK phone numbers. To prevent the blocking of this traffic, submit a [registration application](https://forms.office.com/r/pK8Jhyhtd4) and wait for it to be approved.
 
+> [!IMPORTANT]
+> Effective **July 3, 2025**, unregistered alphanumeric sender IDs sending messages to Ireland phone numbers will have its messages marked as "Spam" for recipients. To prevent this, a [registration application](https://forms.office.com/r/pK8Jhyhtd4) needs to be submitted. If your Sender ID isn't registered by **October 3, 2025**, all traffic from the unregistered Sender IDs will be blocked entirely.
+
+
 ### How should an alphanumeric sender ID be formatted?
 
 An alphanumeric sender ID:
@@ -432,3 +436,12 @@ As with similar Azure services, customers are notified at least 30 days before t
 Azure Communication Services doesn't support text-to-911 functionality in the United States, but it's possible that you might have an obligation to do so under the rules of the Federal Communications Commission (FCC). You should assess whether the FCC's text-to-911 rules apply to your service or application.
 
 To the extent that these rules affect you, you're responsible for routing 911 text messages to emergency call centers that request them. You're free to determine your own text-to-911 delivery model. One approach that the FCC accepts involves automatically opening the native dialer on the user's mobile device to deliver 911 texts through the underlying mobile carrier.
+
+## Messaging Connect
+
+### How can I send SMS to countries not directly supported by Azure Communication Services?
+
+You can use **Messaging Connect**, a partner-powered solution that enables global SMS delivery through trusted aggregators. It allows you to acquire phone numbers or sender IDs from partner networks and send messages using the same ACS APIs and SDKs you already use—extending your messaging reach while staying fully integrated with Azure.
+
+To learn more, see [Messaging Connect](../sms/messaging-connect.md).
+

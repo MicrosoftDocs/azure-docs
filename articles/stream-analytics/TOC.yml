@@ -878,6 +878,6 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-stream-analytics
   - name: Videos
-    href: https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest
+    href: https://azure.microsoft.com/resources/videos/?services=stream-analytics&sort=newest
   - name: Customer case studies
     href: https://www.microsoft.com/customers/search?filters=product%3Aazure&q=stream+analytics

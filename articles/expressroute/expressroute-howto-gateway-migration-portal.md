@@ -13,7 +13,7 @@ ms.author: duau
 
 # Migrate to an availability zone-enabled ExpressRoute virtual network gateway in Azure portal
 
-When creating an ExpressRoute virtual network gateway, you must select a [gateway SKU](expressroute-about-virtual-network-gateways.md#gateway-types). Higher-level SKUs allocate more CPUs and network bandwidth, enabling the gateway to support higher throughput and more reliable connections to the virtual network.
+When creating an ExpressRoute virtual network gateway, you must select a [gateway SKU](expressroute-about-virtual-network-gateways.md). Higher-level SKUs allocate more CPUs and network bandwidth, enabling the gateway to support higher throughput and more reliable connections to the virtual network.
 
 ## Prerequisites
 
@@ -35,15 +35,15 @@ Follow these steps to migrate to a new gateway using the Azure portal:
 
     :::image type="content" source="media/gateway-migration/validate-step.png" alt-text="Screenshot of the validate step for migrating a virtual network gateway." lightbox="media/gateway-migration/validate-step.png":::
 
-1. Once validation succeeds, proceed to the **Prepare** stage. A new virtual network gateway is created. Under **Virtual Network Gateway Details**, provide the following information:
-
-    :::image type="content" source="media/gateway-migration/gateway-prepare-stage.png" alt-text="Screenshot of the Prepare stage for migrating a virtual network gateway." lightbox="media/gateway-migration/gateway-prepare-stage.png":::
+1. After successful validation, move to the **Prepare** stage. At this point, a new virtual network gateway will be created, and its Public IP address will be provisioned and [managed by Microsoft](expressroute-about-virtual-network-gateways.md#auto-assigned-public-ip). In the **Virtual Network Gateway Details** section, enter the following information:
+1. 
+    :::image type="content" source="media/gateway-migration/gateway-prepare-update.png" alt-text="Screenshot of the Prepare stage for migrating a virtual network gateway." lightbox="media/gateway-migration/gateway-prepare-update.png":::
 
     | Setting | value |
     |--|--|
     | **Gateway name** | Enter a name for the new gateway. |
     | **Gateway SKU** | Select the SKU for the new gateway. |
-    | **Public IP address** | Select **Add new**, provide a name for the new public IP, choose an availability zone, and select **OK**. |
+
 
     > [!NOTE]
     > During this process, your existing virtual network gateway is locked, preventing the creation or modification of connections.

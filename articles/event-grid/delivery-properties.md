@@ -17,6 +17,8 @@ You can set custom headers on the events that are delivered to the following des
 - Azure Functions
 - Azure Relay Hybrid Connections
 
+> [!NOTE]
+> Non-conformant values in well-known headers cause the header to be dropped during event delivery to webhook destinations, but not during webhook validation.
 
 When creating an event subscription in the Azure portal, you can use the **Delivery Properties** tab to set custom HTTP headers. This page lets you set fixed and dynamic header values.
 
