@@ -7,6 +7,7 @@ author: yeturis
 ms.author: sairamyeturi
 ms.reviewer: nijelsf
 ms.date: 02/14/2024
+ms.custom: sfi-ropc-nochange
 ---
 
 # Secure Spark and Kafka – Spark streaming integration scenario

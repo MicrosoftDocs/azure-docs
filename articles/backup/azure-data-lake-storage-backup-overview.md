@@ -2,7 +2,7 @@
 title: About Azure Data Lake Storage Vaulted Backup (preview)
 description: Learn how the Azure Data Lake Storage vaulted backup works
 ms.topic: overview
-ms.date: 06/20/2025
+ms.date: 08/26/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.custom: engagement-fy24
@@ -12,6 +12,8 @@ ms.custom: engagement-fy24
 # About Azure Data Lake Storage vaulted backup (preview)
 
 [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) vaulted backup (preview) is a streamlined, cloud-native solution to back up and restore general-purpose v2 storage accounts with a [hierarchical namespace](/azure/storage/blobs/data-lake-storage-namespace). It allows selective backup and restoration of containers, and store backups in a dedicated vault for granular control.
+
+For more insights on Azure Backup’s support for vaulted backups in Azure Data Lake Storage (preview) that enables secure, long-term, and isolated data protection, see the [Microsoft Community Hub blog](https://azure.microsoft.com/updates?id=488835).
 
 >[!Note]
 >- This feature is currently in limited preview and is available in specific regions only. See the [supported regions](azure-data-lake-storage-backup-support-matrix.md#supported-regions).

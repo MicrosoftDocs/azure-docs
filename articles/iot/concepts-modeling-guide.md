@@ -4,6 +4,7 @@ description: Understand the Digital Twins Definition Language (DTDL) modeling la
 author: dominicbetts
 ms.author: dobett
 ms.date: 08/30/2024
+ms.update-cycle: 1095-days
 ms.topic: conceptual
 ms.service: azure-iot
 

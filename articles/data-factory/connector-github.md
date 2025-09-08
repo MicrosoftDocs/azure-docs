@@ -4,10 +4,12 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Use GitHub to specify your Common Data Model entity references
 author: jianleishen
 ms.subservice: data-movement
-ms.custom: synapse
 ms.topic: conceptual
 ms.date: 10/20/2023
 ms.author: jianleishen
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Use GitHub to read Common Data Model entity references

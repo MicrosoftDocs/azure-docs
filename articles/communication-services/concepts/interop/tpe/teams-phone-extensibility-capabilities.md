@@ -6,9 +6,9 @@ author: jacadd
 manager: chpalm
 services: azure-communication-services
 ms.author: jacadd
-ms.date: 05/20/2025
+ms.date: 09/01/2025
 ms.topic: conceptual
-ms.custom: public_preview
+ms.custom: general_availability
 ms.service: azure-communication-services
 ---
 
@@ -16,7 +16,6 @@ ms.service: azure-communication-services
     
 This article describes which Microsoft Teams Phone capabilities Azure Communication Services Calling and Call Automation SDKs support for Teams Phone extensibility.
 
-[!INCLUDE [public-preview-notice.md](../../../includes/public-preview-include-document.md)]
 
 ## Prerequisites
 
@@ -65,6 +64,7 @@ The following list of capabilities is supported for scenarios where at least one
 | | Stream real-time transcript of the call to a WebSocket | N/A | ✔️ |
 | | Mute other VoIP participants (such as other agents) | ✔️ | ✔️ |
 | | Mute other PSTN users | ❌ | ❌ |
+| | [Dial-pad commands](/microsoftteams/audio-conferencing-common-questions#what-in-meeting-dial-pad-commands-are-supported) for PSTN users | ❌ | ❌ |
 | | Place call on hold and take call off hold (1:1 call only) | ✔️ | ❌ |
 | | Play music to the participant put on hold | ❌ | ✔️ |
 | | Developer/agent can stream real-time audio out of the call to a WebSocket| N/A | ✔️ |
@@ -111,8 +111,8 @@ The following list of capabilities is supported for scenarios where at least one
 
 - [Microsoft Teams Phone overview](/microsoftteams/what-is-phone-system-in-office-365)
 - [Set up Microsoft Teams Phone in your organization](/microsoftteams/setting-up-your-phone-system)
-- [Access a user's Teams Phone separate from their Teams client](https://github.com/Azure/communication-preview/blob/master/Teams%20Phone%20Extensibility/teams-phone-extensibility-access-teams-phone.md)
-- [Answer Teams Phone calls from Call Automation](https://github.com/Azure/communication-preview/blob/master/Teams%20Phone%20Extensibility/teams-phone-extensibility-answer-teams-calls.md)
+- [Access a user's Teams Phone separate from their Teams client](../../../quickstarts/tpe/teams-phone-extensibility-access-teams-phone.md)
+- [Answer Teams Phone calls from Call Automation](../../../quickstarts/tpe/teams-phone-extensibility-answer-teams-calls.md)
 
 ## Related articles
 

@@ -7,7 +7,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.custom: devx-track-azurecli
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/04/2025
 ---
 
