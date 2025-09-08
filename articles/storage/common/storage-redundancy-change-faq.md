@@ -23,14 +23,14 @@ Current: 99 (3350/0)
 
 There are many different factors that can drive the need to change your storage accounts' redundancy options. The correct redundancy option balances your organization's data availability, disaster recovery, performance, and cost requirements. These requirements are weighed against the risks and benefits associated with the various redundancy options. Regular assessment and adjustment are necessary to ensure an optimal and resilient data storage strategy.
 
-There are also many considerations to consider when changing redundancy options, especially from a time and cost perspective. The time it takes to change redundancy options can vary based on the specific options being changed and the size of the data involved. There might also be costs associated with data transfer and increased storage requirements during a transition.
+There are also many factors to consider when changing redundancy options, especially from a time and cost perspective. The time it takes to change redundancy options can vary based on the specific options being changed, the size of your account, current resource demands within a region, and other factors. There might also be costs associated with data transfer and increased storage requirements during a transition.
 
 This article contains answers to frequently asked questions about the process of changing Azure Storage redundancy options for your storage accounts.
 
 > [!IMPORTANT]
 > In practice, a storage account *conversion* can refer to changing a storage account's SKU, or type. For example, you might convert a legacy general-purpose v1 storage account to standard general-purpose v2, allowing for enhanced availability, resilience, and features.
 >
-> For the purposes of this article, a storage account *conversion* refers specifically to changing a storage account's zone-redundancy level. These changes include only upgrade or downgrade operations involving zone-redundant storage (ZRS), geo-zone-redundant storage (GZRS), or read-access geo-zone-redundant storage (RA-GZRS).
+> For the purposes of this article, a storage account *conversion* refers specifically to changing a storage account's redundancy configuration.
 
 ### What charges are associated with a SKU conversion? 
 
@@ -144,7 +144,7 @@ Zonal conversions involve adding or removing availability zone options to your a
 - **NFSv4 accounts with public endpoints:** You might encounter issues when attempting to migrate a storage account with a public endpoint. You should disable access to the storage account's public endpoints before retrying your conversion. You can read more about changing account replication in the [Change how a storage account is replicated](redundancy-migration.md) article.
 - **Routing choice, internet Routing:** You should set your routing preference to *Microsoft network routing*. For details, see [Configure network routing preference](storage-configure-network-routing.md).
 - **Accounts with boot diagnostics enabled:** Boot diagnostics for virtual machines (VMs) isn't supported for *ZRS*. Migrations including *LRS* **to** *ZRS*; *GRS* **to** *GZRS*; and *RA-GRS* **to** *RA-GZRS* are blocked. You can disable boot diagnostics on your account before migrating, but you can't re-enable them after the conversion is complete. For details, see the [Boot diagnostics for VMs in Azure](/troubleshoot/azure/virtual-machines/windows/boot-diagnostics) article.
-- **Unsupported target:** Although your account's region might support a particular SKU, not all regions support zonal migrations. Attempting to convert within an unsupported region might generate errors. For example, Mexico Central doesn't support GZRS; attempting to convert your account from GRS to GZRS generates a failure.
+- **Unsupported target:** Although your account's region might support a particular SKU, not all regions support zonal migrations. Attempting to convert within an unsupported region might generate errors. For example, the *Canada East* region doesn't support GZRS; attempting to convert your account from GRS to GZRS generates a failure. To learn more about which SKUs are supported in a specific region, refer to the [List of Azure Regions](https://learn.microsoft.com/azure/reliability/regions-list) article.
 - **Conflicting conversion:** Your account might currently have a conflicting migration in process. For example, you might already have an *LRS* **to** *GRS* migration in progress. Attempting to perform an *LRS* **to** *ZRS* conversion fails. Wait for the original migration to complete before submitting a new conversion request.
 - **Account is failed over:** If your account is failed over, you can fail back your account to its original primary region then resubmit the request.
 
