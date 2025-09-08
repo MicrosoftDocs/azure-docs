@@ -26,7 +26,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 25-08 | [5063877] | Latest Cumulative Update(LCU) | [6.85] | 06-Sep-25 
 | Rel 25-08 | [5063880] | Latest Cumulative Update(LCU) | [7.55] | 06-Sep-25
 | Rel 25-08 | [5063871] | Latest Cumulative Update(LCU) | [5.109] | 06-Sep-25
-
 | Rel 25-08 | [5049608] | .NET Framework DotNet        | [6.85]  | 06-Sep-25
 | Rel 25-08 | [5049617] | .NET Framework 4.8 Security and Quality Rollup LKG | [7.55] | 06-Sep-25
 | Rel 25-08 | [5062799] | Servicing Stack Update       | [5.109]  | 06-Sep-25
@@ -35,6 +34,21 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 25-08 | [5063880] | Servicing Stack Update       | [7.55]   | 06-Sep-25 
 | Rel 25-08 | [5063877] | Servicing Stack Update       | [6.85]   | 06-Sep-25  
 | Rel 25-08 | [5049614] | .NET Framework 4.8 Security and Quality Rollup LKG | [5.109]  | 06-Sep-25
+
+[5063877]: https://support.microsoft.com/kb/5063877
+[5063880]: https://support.microsoft.com/kb/5063880
+[5063871]: https://support.microsoft.com/kb/5063871
+[5049608]: https://support.microsoft.com/kb/5049608
+[5049617]: https://support.microsoft.com/kb/5049617
+[5062799]: https://support.microsoft.com/kb/5062799
+[4494175]: https://support.microsoft.com/kb/4494175
+[5063880]: https://support.microsoft.com/kb/5063880
+[5063877]: https://support.microsoft.com/kb/5063877
+[5049614]: https://support.microsoft.com/kb/5049614
+
+[5.109]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.85]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.55]: ./cloud-services-guestos-update-matrix.md#family-7-releases
 
 ## July 2025 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -51,16 +65,17 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 25-07 | [4494175] | January '20 Microcode | [5.108] | 01-Sep-20
 | Rel 25-07 | [4494175] | January '20 Microcode | [6.84] | 01-Sep-20
 
-[5063877]: https://support.microsoft.com/kb/5063877
-[5063880]: https://support.microsoft.com/kb/5063880
-[5063871]: https://support.microsoft.com/kb/5063871
+
+[5062560]: https://support.microsoft.com/kb/5062560
+[5062557]: https://support.microsoft.com/kb/5062557
+[5062572]: https://support.microsoft.com/kb/5062572
+[5049614]: https://support.microsoft.com/kb/5049614
 [5049608]: https://support.microsoft.com/kb/5049608
 [5049617]: https://support.microsoft.com/kb/5049617
 [5062799]: https://support.microsoft.com/kb/5062799
+[5062557]: https://support.microsoft.com/kb/5062557
+[5062572]: https://support.microsoft.com/kb/5062572
 [4494175]: https://support.microsoft.com/kb/4494175
-[5063880]: https://support.microsoft.com/kb/5063880
-[5063877]: https://support.microsoft.com/kb/5063877
-[5049614]: https://support.microsoft.com/kb/5049614
 
 [5.108]: ./cloud-services-guestos-update-matrix.md#family-5-releases
 [6.84]: ./cloud-services-guestos-update-matrix.md#family-6-releases
