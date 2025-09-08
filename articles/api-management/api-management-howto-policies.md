@@ -105,7 +105,7 @@ When configuring a policy, you must first select the scope at which the policy a
 * Not all policies are supported at each scope and policy section.
 * When configuring policy definitions at more than one scope, you control policy inheritance and the policy evaluation order in each policy section by placement of the `base` element.
     > [!IMPORTANT]
-    > As a best practice, include a `base` element at the beginning of each policy section to inherit policies from the parent scope. This ensures that any policies defined at a higher level are not inadvertently overridden or ignored. A built-in [Azure Policy definition](policy-reference.md) (`API Management policies should inherit parent scope policies using <base\>`) is available to audit or enforce this best practice.
+    > As a best practice, include a `base` element at the beginning of each policy section to inherit policies from the parent scope. This ensures that any policies defined at a higher level are not inadvertently overridden or ignored. A built-in [Azure Policy definition](policy-reference.md) (`API Management policies should inherit parent scope policies using <base/>`) is available to audit or enforce this best practice.
 
 * Policies applied to API requests are also affected by the request context, including the presence or absence of a subscription key used in the request, the API or product scope of the subscription key, and whether the API or product requires a subscription. 
 
