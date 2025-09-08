@@ -301,7 +301,7 @@ The September Guest OS released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-|  WA-GUEST-OS-7.55_202507-01 |  September 6, 2025  |  Post 7.58  |
+|  WA-GUEST-OS-7.55_202508-01 |  September 6, 2025  |  Post 7.58  |
 |  WA-GUEST-OS-7.54_202507-01 |  July 30, 2025  |  Post 7.57  |
 |  WA-GUEST-OS-7.53_202506-01 |  July 6, 2025  |  Post 7.56  |
 |~~WA-GUEST-OS-7.52_202505-01~~|  June 4, 2025  |  Post 7.55  |
