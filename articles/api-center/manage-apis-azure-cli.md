@@ -1,18 +1,18 @@
 ---
-title: Manage API inventory in Azure API Center - Azure CLI
+title: Manage API Inventory in Azure API Center - Azure CLI
 description: Use the Azure CLI to create and update APIs, API versions, and API definitions in your Azure API center.
 author: dlepow
 ms.service: azure-api-center
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 06/28/2024
+ms.date: 08/28/2025
 ms.author: danlep 
 # Customer intent: As an API program manager, I want to automate processes to register and update APIs in my Azure API center.
 ---
 
 # Use the Azure CLI to manage your API inventory
 
-This article shows how to use [`az apic api`](/cli/azure/apic/api) commands in the Azure CLI to add and configure APIs in your [API center](overview.md) inventory. Use commands in the Azure CLI to script operations to manage your API inventory and other aspects of your API center.  
+This article shows how to use [az apic api](/cli/azure/apic/api) commands in the Azure CLI to add and configure APIs in your [Azure API center](overview.md) inventory. Use commands in the Azure CLI to script operations to manage your API inventory and other aspects of your API center.  
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ The following steps show how to create an API and associate a single API version
 
 ### Create an API
 
-Use the [az apic api create](/cli/azure/apic/api#az_apic_api_create) command to create an API in your API center. 
+Use the [az apic api create](/cli/azure/apic/api#az-apic-api-create) command to create an API in your API center. 
 
 The following example creates an API named *Petstore API* in the *myResourceGroup* resource group and *myAPICenter* API center. The API is a REST API.
 
@@ -41,7 +41,7 @@ az apic api create  --resource-group myResourceGroup \
 
 ### Create an API version
 
-Use the [az apic api version create](/cli/azure/apic/api/version#az_apic_api_version_create) command to create a version for your API. 
+Use the [az apic api version create](/cli/azure/apic/api/version#az-apic-api-version-create) command to create a version for your API. 
 
 The following example creates an API version named *v1-0-0* for the *petstore-api* API that you created in the previous section. The version is set to the *testing* lifecycle stage.
 
@@ -57,7 +57,7 @@ Use the [az apic api definition](/cli/azure/apic/api/definition) commands to add
 
 #### Create a definition
 
-The following example uses the [az apic api definition create](/cli/azure/apic/api/definition#az_apic_api_definition_create) command to create a definition named *openapi* for the *petstore-api* API version that you created in the previous section. 
+The following example uses the [az apic api definition create](/cli/azure/apic/api/definition#az-apic-api-definition-create) command to create a definition named *openapi* for the *petstore-api* API version that you created in the previous section. 
 
 ```azurecli-interactive
 az apic api definition create --resource-group myResourceGroup \
@@ -67,10 +67,9 @@ az apic api definition create --resource-group myResourceGroup \
 
 #### Import a specification file
 
-Import a specification file to the definition using the [az apic api definition import-specification](/cli/azure/apic/api/definition#az_apic_api_definition_import_specification) command.
+Import a specification file to the definition by using the [az apic api definition import-specification](/cli/azure/apic/api/definition#az-apic-api-definition-import-specification) command.
 
 The following example imports an OpenAPI specification file from a publicly accessible URL to the *openapi* definition that you created in the previous step. The `name` and `version` properties of the specification resource are passed as JSON. 
-
 
 ```azurecli-interactive
 az apic api definition import-specification \
@@ -86,7 +85,7 @@ az apic api definition import-specification \
 
 ### Export a specification file
 
-To export an API specification from your API center to a local file, use the [az apic api definition export-specification](/cli/azure/apic/api/definition#az_apic_api_definition_export_specification) command.
+To export an API specification from your API center to a local file, use the [az apic api definition export-specification](/cli/azure/apic/api/definition#az-apic-api-definition-export-specification) command.
 
 The following example exports the specification file from the *openapi* definition that you created in the previous section to a local file named *specificationFile.json*.
 
@@ -99,10 +98,9 @@ az apic api definition export-specification \
 
 ## Register API from a specification file - single step
 
-You can register an API from a local specification file in a single step by using the [az apic api register](/cli/azure/apic/api#az-apic-api-register) command. With this option, a default API version and definition are created automatically for the API.
+By using the [az apic api register](/cli/azure/apic/api#az-apic-api-register) command, you can register an API from a local specification file in a single step. With this option, a default API version and definition are created automatically for the API.
 
 The following example registers an API in the *myAPICenter* API center from a local OpenAPI definition file named *specificationFile.json*.
-
 
 ```azurecli-interactive
 az apic api register --resource-group myResourceGroup \
@@ -115,7 +113,7 @@ az apic api register --resource-group myResourceGroup \
 
 ## Update API properties
 
-After registering an API, you can update the API's properties by using the [az apic api update](/cli/azure/apic/api#az_apic_api_update), [az apic api version update](/cli/azure/apic/api/version#az_apic_api_version_update), and [az apic api definition update](/cli/azure/apic/api/definition#az_apic_api_definition_update) commands.
+After registering an API, you can update the API's properties by using the [az apic api update](/cli/azure/apic/api#az-apic-api-update), [az apic api version update](/cli/azure/apic/api/version#az-apic-api-version-update), and [az apic api definition update](/cli/azure/apic/api/definition#az-apic-api-definition-update) commands.
 
 The following example updates the title of the *petstore-api* API to *Petstore API v2*.
 
@@ -125,7 +123,7 @@ az apic api update --resource-group myResourceGroup \
     --title "Petstore API v2"
 ```
 
-The following example sets the API's Boolean *internal* custom property to *false*.
+The following example sets the API's Boolean `internal` custom property to *false*.
 
 ```azurecli-interactive
 az apic api update --resource-group myResourceGroup \
@@ -135,7 +133,7 @@ az apic api update --resource-group myResourceGroup \
 
 ## Delete API resources
 
-Use the [az apic api delete](/cli/azure/apic/api#az_apic_api_delete) command to delete an API and all of its version and definition resources. For example:
+Use the [az apic api delete](/cli/azure/apic/api#az-apic-api-delete) command to delete an API and all of its version and definition resources. For example:
 
 ```azurecli-interactive
 az apic api delete \
@@ -147,7 +145,7 @@ To delete individual API versions and definitions, use [az apic api version dele
 
 ## Related content
 
-* See the [Azure CLI reference for Azure API Center](/cli/azure/apic) for a complete command list, including commands to manage [environments](/cli/azure/apic/environment), [deployments](/cli/azure/apic/api/deployment), [metadata schemas](/cli/azure/apic/metadata), and [services](/cli/azure/apic).
+* See the reference for Azure API Center commands, including commands to manage [environments](/cli/azure/apic/environment), [deployments](/cli/azure/apic/api/deployment), [metadata schemas](/cli/azure/apic/metadata), and [services](/cli/azure/apic).
 * [Import APIs to your API center from API Management](import-api-management-apis.md)
-* [Use the Visual Studio extension for API Center](build-register-apis-vscode-extension.md) to build and register APIs from Visual Studio Code.
+* [Build and register APIs with the Azure API Center extension for Visual Studio Code](build-register-apis-vscode-extension.md)
 * [Register APIs in your API center using GitHub Actions](register-apis-github-actions.md)

@@ -9,7 +9,7 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 01/17/2025
+ms.date: 07/27/2025
 ---
 
 # View and download your Azure usage and charges

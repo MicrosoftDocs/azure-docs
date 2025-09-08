@@ -1,7 +1,7 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 04/08/2025
+ms.date: 09/08/2025
 ms.service: azure-bastion
 ms.topic: include
 ms.custom: references_regions
@@ -32,16 +32,15 @@ Bastion Developer is currently available in the following regions:
 * North Central US
 * North Europe
 * Norway East
-* Poland Central
 * South Africa North
 * South India
 * Spain Central
-* Southeast Asia
 * Sweden Central
 * Switzerland North
+* Southeast Asia
 * UAE North
 * UK South
 * UK West
+* West Central US
 * West Europe
 * West US
-* West Central US

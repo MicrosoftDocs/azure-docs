@@ -6,6 +6,7 @@ ms.author: mbender
 ms.reviewer: prwilk, chkittel
 ms.date: 08/12/2025
 ms.topic: conceptual
+ms.service: azure
 ms.collection:
  - migration
  - aws-to-azure
