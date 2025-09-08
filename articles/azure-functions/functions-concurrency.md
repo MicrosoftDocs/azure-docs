@@ -14,35 +14,43 @@ ms.author: cachai
 
 # Concurrency in Azure Functions
 
-In Azure Functions, a single instance of a function app can have multiple executing processes that run concurrently. These processes run on the same compute instance, so they share memory, CPU, and connection resources. As a result, each function app needs a way to manage the number of concurrent executions.
+In Azure Functions, a single function app instance has multiple executing processes that run concurrently. Because these processes run on the same compute instance, they share memory, CPU, and connection resources. In certain hosting plans, high demand on a specific instance causes the Functions host to automatically create new instances to handle the increased load. In these _dynamic scale_ plans, there's a tradeoff between concurrency and scaling behaviors. To provide more control over how your app runs, Functions provides a way for you to manage the number of concurrent executions.
 
 Functions provides two main ways of managing concurrency:
 
 - [Static concurrency](#static-concurrency): You can configure host-level limits on concurrency that are specific to individual triggers. This model is the default concurrency behavior for Functions.
 - [Dynamic concurrency](#dynamic-concurrency): For certain trigger types, the Functions host can automatically determine the best level of concurrency for that trigger in your function app. You must [opt in to this concurrency model](#dynamic-concurrency-configuration). 
 
-This article describes the concurrency behaviors of event-driven triggers in Functions. It also compares the static and dynamic concurrency models.
+This article describes the concurrency behaviors of event-driven triggers in Functions and how these behaviors affect scaling in dynamic plans. It also compares the static and dynamic concurrency models.
 
-## Scaling and concurrency
+## Scaling versus concurrency
 
-To handle increases in load, you can scale out a function app to multiple instances.
+For functions that use event-based triggers or respond to HTTP requests, you can quickly reach the limits of concurrent executions during periods of high demand. During such periods, you must be able to scale your function app by adding instances to avoid a backlog in processing incoming requests. The way that you scale your app depends on your hosting plan:
 
-- When you host your function app in a dynamic scale plan (Consumption, Flex Consumption, or Premium), the host scales resources. Specifically, the host scales the number of function app instances up or down based on the number of incoming events. For more information, see [Event-driven scaling in Azure Functions](./event-driven-scaling.md).
-- When you host your function app in a Dedicated (App Service) plan, you must manually configure your instances or [set up an autoscale scheme](dedicated-plan.md#scaling).
+| Scale type | Hosting plans | Description |
+| ----- | ---- | ---- |
+| Dynamic (event-driven) scaling |[Consumption](consumption-plan.md)<br/>[Flex Consumption](flex-consumption-plan.md)<br/>[Premium](functions-premium-plan.md)|  In a dynamic scale plan, the host scales the number of function app instances up or down based on the number of incoming events. For more information, see [Event-driven scaling in Azure Functions](./event-driven-scaling.md). |
+| Manual scaling | [Dedicated (App Service) plans](dedicated-plan.md) | When you host your function app in a Dedicated plan, you must manually configure your instances during periods of higher load or [set up an autoscale scheme](dedicated-plan.md#scaling). |
+
+The balance of scale versus concurrency you try to achieve in your app depends on where bottlenecks might occur: in processing (CPU-intensive process limitations) or in a downstream service (I/O-based limitations).
 
 Like scaling, concurrency also affects how your function app responds to load changes. With concurrency, your function app can handle multiple invocations of the same type in a single instance. As a result, the concurrency of executions on a given instance directly impacts scale decisions. For instance, when an app in a dynamic scale plan hits a concurrency limit, it might need to scale to keep up with incoming demand.
 
 ## Static concurrency
 
-By default, most triggers support a host-level static configuration model. In this model, each trigger type has a per-instance concurrency limit. However, for most triggers, you can also request a specific per-instance concurrency for that trigger type. For example, the [Azure Service Bus trigger](./functions-bindings-service-bus-trigger.md) provides both a `MaxConcurrentCalls` and a `MaxConcurrentSessions` setting in the [host.json file](functions-host-json.md). These settings work together to control the maximum number of messages that each function app processes concurrently on each instance. Other trigger types have built-in mechanisms for load-balancing invocations across instances. For example, Azure Event Hubs and Azure Cosmos DB both use a partition-based scheme. 
+By default, most triggers support a static concurrency configuration model. In this model, each trigger type has a per-instance concurrency limit. You can override the concurrency defaults for most triggers by setting a specific per-instance concurrency for that trigger type in the [host.json file](functions-host-json.md). For example, the [Azure Service Bus trigger](./functions-bindings-service-bus-trigger.md) provides both a `MaxConcurrentCalls` and a `MaxConcurrentSessions` setting in host.json. These settings work together to control the maximum number of messages that each function app processes concurrently on each instance. Other trigger types have built-in mechanisms for load-balancing invocations across instances. For example, Azure Event Hubs and Azure Cosmos DB both use a partition-based scheme.
 
-For trigger types that support concurrency configuration, the settings you choose are applied to all running instances. This way, you can control the maximum concurrency for your functions on each instance. For example, when your function is CPU-intensive or resource-intensive, you might choose to limit concurrency to keep instances healthy. In this case, you can rely on scaling to handle increased loads. Similarly, when your function makes requests to a downstream service that's being throttled, you should also consider limiting concurrency to avoid overloading the downstream service. 
+For trigger types that support concurrency configuration, the settings in the _host.json_ file are applied to all running instances. This way, you can control the maximum concurrency for your functions on each instance. For example, when your function is CPU-intensive or resource-intensive, you might choose to limit concurrency to keep instances healthy. In this case, you can rely on scaling to handle increased loads. Similarly, when your function makes requests to a downstream service that's being throttled, you should also consider limiting concurrency to avoid overloading the downstream service. 
 
 ## HTTP trigger concurrency
 
 _Applies only to the Flex Consumption plan (preview)_ 
 
-The Flex Consumption plan scales all HTTP trigger functions together as a group. For more information, see [Per-function scaling](event-driven-scaling.md#per-function-scaling). The following table indicates the default concurrency setting for HTTP triggers on a given instance, based on the configured [instance memory size](./flex-consumption-plan.md#instance-memory).
+HTTP trigger concurrency is a special type of static concurrency. In HTTP trigger concurrency, the default concurrency also depends on the [instance memory size](./flex-consumption-plan.md#instance-memory).
+
+The Flex Consumption plan scales all HTTP trigger functions together as a group. For more information, see [Per-function scaling](event-driven-scaling.md#per-function-scaling).
+
+The following table indicates the default concurrency setting for HTTP triggers on a given instance, based on the configured instance memory size:
 
 | Instance size (MB) | Default concurrency<sup>*</sup> |
 | ---- | ---- |
