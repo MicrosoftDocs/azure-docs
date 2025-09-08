@@ -29,7 +29,7 @@ All the benefits of UEBA are available in the Microsoft Defender portal.
 
 ## What is UEBA?
 
-As Microsoft Sentinel collects logs and alerts from all of your connected data sources, UEBA uses articifial intelligence (AI) to build baseline behavioral profiles of your organization’s entities - such as users, hosts, IP addresses, and applications - over time and across peer groups. UEBA then identifies anomalous activity and helps you determine whether an asset is compromised. 
+As Microsoft Sentinel collects logs and alerts from all of your connected data sources, UEBA uses artificial intelligence (AI) to build baseline behavioral profiles of your organization’s entities - such as users, hosts, IP addresses, and applications - over time and across peer groups. UEBA then identifies anomalous activity and helps you determine whether an asset is compromised. 
 
 UEBA also determines the relative sensitivity of particular assets, identifies peer groups of assets, and evaluates the potential impact of any given compromised asset - its “blast radius”. This information lets you prioritize your investigation, hunting, and incident handling effectively.
 

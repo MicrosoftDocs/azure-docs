@@ -25,7 +25,7 @@ This article lists the anomalies that Microsoft Sentinel detects using various m
 
 In the [Anomalies](/azure/azure-monitor/reference/tables/anomalies) table:
 - The `rulename` column indicates the rule Sentinel used to identify each anomaly. 
-- The `score` column contains a numerical value between 0 and 1, which quantifies the degree of deviation from the expected behaviour. Higher scores indicate greater deviation from the baseline and are more likely to be true anomalies. Lower scores might still be anomalous, but are less likely to be significant or actionable.
+- The `score` column contains a numerical value between 0 and 1, which quantifies the degree of deviation from the expected behavior. Higher scores indicate greater deviation from the baseline and are more likely to be true anomalies. Lower scores might still be anomalous, but are less likely to be significant or actionable.
 
 
 > [!NOTE]
@@ -135,7 +135,7 @@ Sentinel uses enriched data from the BehaviorAnalytics table to identify UEBA an
 
 ### UEBA Anomalous Activity in Okta_CL (Preview)
 
-**Description:** Unexpected authentication activity or security-related configuration changes in Okta, including modifications to sign-on rules, multi-factor authentication (MFA) enforcement, or administrative privileges. Such activity might indicate attempts to alter identity security controls or maintain access through privileged changes.
+**Description:** Unexpected authentication activity or security-related configuration changes in Okta, including modifications to sign-on rules, multifactor authentication (MFA) enforcement, or administrative privileges. Such activity might indicate attempts to alter identity security controls or maintain access through privileged changes.
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
