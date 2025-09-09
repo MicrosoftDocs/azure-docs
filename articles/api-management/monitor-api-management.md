@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure API Management
 description: Learn how to monitor Azure API Management using Azure Monitor, including data collection, analysis, and alerting.
-ms.date: 07/09/2025
+ms.date: 09/09/2025
 ms.custom:
   - horz-monitor
   - build-2025
@@ -45,10 +45,8 @@ Azure API Management provides analytics for your APIs so that you can analyze th
 - In the classic API Management service tiers, your API Management instance also includes *legacy built-in analytics* in the Azure portal, and analytics data can be accessed using the API Management REST API. Closely similar data is shown in the Azure Monitor-based dashboard and built-in analytics.
 
 > [!IMPORTANT]
-> The Azure Monitor-based dashboard is the recommended way to access analytics data. Built-in (classic) analytics isn't available in the v2 tiers.
-
-> [!IMPORTANT]
-> Effective March 2027, the dashboard and reports associated with API Management built-in analytics will be [retired](.breaking-changes/analytics-dashboard-retirement-march-2027). We recommend transitioning to the Azure Monitor-based dashboard that replaces it.
+> * The Azure Monitor-based dashboard is the recommended way to access analytics data.
+> * Effective March 2027, the dashboard and reports associated with API Management built-in analytics in the classsic tiers will be [retired](.breaking-changes/analytics-dashboard-retirement-march-2027). We recommend transitioning to the Azure Monitor-based dashboard that replaces it.
 
 With API analytics, analyze the usage and performance of the APIs in your API Management instance across several dimensions, including:
 
@@ -99,7 +97,7 @@ In certain API Management service tiers, built-in analytics (also called *legacy
 
 To access the built-in (classic) analytics in the Azure portal:
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance./
+1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left-hand menu, under **Monitoring**, select **Analytics (classic)**.
 1. Select a time range for data, or enter a custom time range.
 1. Select a report category for analytics data, such as **Timeline**, **Geography**, and so on.
