@@ -1,124 +1,145 @@
 ---
-title: Create a firmware analysis workspace using Terraform
-description: In this article, you learn how to create a firmware analysis workspace using Terraform.
+title: Create a firmware analysis workspace using Bicep
+description: In this article, you learn how to create a firmware analysis workspace using Bicep.
 ms.topic: quickstart
 ms.date: 09/08/2025
-ms.custom: devx-track-terraform
 author: karengu0
 ms.author: karenguo
-ai-usage: ai-assisted
 ms.service: azure
-content_well_notification: 
-  - AI-contribution
-#customer intent: I am a Terraform user who wants to create an Azure firmware analysis workspace
+ms.topic: quickstart-bicep
+ms.custom: subject-bicepqs
+ms.date: 09/09/
 ---
 
-# Create a firmware analysis workspace using Terraform
+# Create a firmware analysis workspace using Bicep
 
-In this quickstart, you create a firmware analysis workspace using Terraform. Firmware analysis is a security service designed to help you analyze and protect firmware for IoT and embedded devices. Organizations commonly use this service to get a deeper visibility into firmware vulnerabilities. Doing so enables them to identify and mitigate security risks before deploying devices. By automating firmware analysis, the service helps strengthen the overall security posture of IoT solutions.
+In this quickstart, you use Bicep to deploy a firmware analysis workspace so your team can upload and analyze IoT/OT device firmware for potential vulnerabilities and weaknesses.
 
-[!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
+/azure/azure-resource-manager/includes/resource-manager-quickstart-bicep-introduction.md]
 
-In this article, you learn how to:
-
-> [!div class="checklist"]
-> * Create an Azure resource group with a random name  
-> * Create a firmware analysis workspace  
-> * Output the randomly generated values
-> * Use Azure CLI and Azure PowerShell to view the new workspace
+[Bicep](../../articles/azure-resource-manager/bicep/overview.md) is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. It provides concise syntax, reliable type safety, and support for code reuse. Bicep offers the best authoring experience for your infrastructure-as-code solutions in Azure.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- **Permissions**: `Owner` or `Contributor` on the target resource group (or higher) to deploy resources.  
+- **Azure CLI**: Install the /cli/azure/install-azure-cli and sign in with `az login`. If you use `az deployment group create`, use Azure CLI **2.6.0 or later**. Check with `az --version`.  
+- **Azure PowerShell**: Install the /powershell/azure/install-azure-powershell and sign in with `Connect-AzAccount`.
+- **Register the resource provider** (one-time per subscription):  
+  - Azure CLI: `az provider register --namespace Microsoft.IoTFirmwareDefense`  
+  - PowerShell: `Register-AzResourceProvider -ProviderNamespace Microsoft.IoTFirmwareDefense`
 
-- [Terraform](/azure/developer/terraform/quickstart-configure)
+## Review the Bicep file
 
-## Implement the Terraform code
+The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://learn.microsoft.com/samples/azure/azure-quickstart-templates/firmwareanalysis-create-workspace/).
 
-The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-firmware-analysis). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-firmware-analysis/TestRecord.md). See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
+:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.firmwareanalysis/firmwareanalysis-create-workspace/main.bicep":::
 
-1. Create a directory in which to test and run the sample Terraform code, and make it the current directory.
+The following resource is defined in the Bicep file:
 
-1. Create a file named `main.tf` and insert the following code.
-    :::code language="Terraform" source="~/terraform_samples/quickstart/101-firmware-analysis/main.tf":::
+- **[Microsoft.firmwareanalysis/firmwareanalysis-create-workspace](/azure/templates/microsoft.firmwareanalysis/service)**
 
-1. Create a file named `outputs.tf` and insert the following code.
-    :::code language="Terraform" source="~/terraform_samples/quickstart/101-firmware-analysis/outputs.tf":::
 
-1. Create a file named `providers.tf` and insert the following code.
-    :::code language="Terraform" source="~/terraform_samples/quickstart/101-firmware-analysis/providers.tf":::
+## Deploy the Bicep file
 
-1. Create a file named `variables.tf` and insert the following code.
-    :::code language="Terraform" source="~/terraform_samples/quickstart/101-firmware-analysis/variables.tf":::
+Save the Bicep file as main.bicep to your local computer.
 
-> [!IMPORTANT]
-> If you're using the 4.x azurerm provider, you must [explicitly specify the Azure subscription ID](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#specifying-subscription-id-is-now-mandatory) to authenticate to Azure before running the Terraform commands.
->
-> One way to specify the Azure subscription ID without putting it in the `providers` block is to specify the subscription ID in an environment variable named `ARM_SUBSCRIPTION_ID`.
->
-> For more information, see the [Azure provider reference documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#argument-reference).
 
-## Initialize Terraform
-
-[!INCLUDE [terraform-init.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-init.md)]
-
-## Create a Terraform execution plan
-
-[!INCLUDE [terraform-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan.md)]
-
-## Apply a Terraform execution plan
-
-[!INCLUDE [terraform-apply-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-apply-plan.md)]
-
-## Verify the results
+Deploy the Bicep file by using either Azure CLI or Azure PowerShell.
+Azure CLI is recommended.
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Get the resource group and workspace names.
+```azurecli
+# Variables
+rgName=rg-fw-analysis-qs
+location=westeurope          # or your preferred region
+workspaceName=fa-workspace-001
 
-    ```console
-    resource_group=$(terraform output -raw resource_group_name)
-    workspace_name=$(terraform output -raw workspace_name)
-    ```
+# Create resource group
+az group create --name $rgName --location $location
 
-1. Run [`az firmwareanalysis workspace show`](/cli/azure/firmwareanalysis/workspace?#az-firmwareanalysis-workspace-show) to view the newly created firmware analysis workspace.
-
-    ```azurecli
-    az firmwareanalysis workspace show --resource-group $resource_group --name $workspace_name
-    ```
+# Deploy
+az deployment group create \
+  --resource-group $rgName \
+  --template-file ./main.bicep \
+  --parameters workspaceName=$workspaceName location=$location
+```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-1. Get the resource group and workspace names.
+```azure powershell
 
-    ```powershell
-    $resource_group_name = $(terraform output -raw resource_group_name)
-    $workspace_name = $(terraform output -raw workspace_name)
-    ```
+# Variables
+$rgName = 'rg-fw-analysis-qs'
+$location = 'westeurope'      # or your preferred region
+$workspaceName = 'fa-workspace-001'
 
-1. Run [Get-AzFirmwareAnalysisWorkspace](/powershell/module/az.firmwareanalysis/get-azfirmwareanalysisworkspace) to view the Azure firmware analysis workspace.
+# Create resource group
+New-AzResourceGroup -Name $rgName -Location $location
 
-    ```azurepowershell
-    $params = @{
-        ResourceGroupName = $resource_group_name
-        ResourceType      = "Microsoft.IoTFirmwareDefense/workspaces"
-        ResourceName      = $workspace_name
-    }
+# Deploy
+$params = @{ workspaceName = $workspaceName; location = $location }
+New-AzResourceGroupDeployment -ResourceGroupName $rgName -TemplateFile ./main.bicep -TemplateParameterObject $params
 
-    Get-AzResource @params
-    ```
+```
 
----
+## Review deployed resources
+
+### [Azure CLI](#tab/azure-cli)
+
+```azure cli
+
+az resource show \
+  --resource-group rg-fw-analysis-qs \
+  --name fa-workspace-001 \
+  --resource-type Microsoft.IoTFirmwareDefense/workspaces
+
+# Or list all workspaces in the resource group
+az resource list --resource-group rg-fw-analysis-qs --resource-type Microsoft.IoTFirmwareDefense/workspaces -o table
+
+```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+```azure powershell
+
+# Show a specific workspace
+Get-AzResource -ResourceGroupName rg-fw-analysis-qs `
+  -ResourceType 'Microsoft.IoTFirmwareDefense/workspaces' `
+  -Name fa-workspace-001 | Format-List
+
+# List all workspaces in the resource group
+Get-AzResource -ResourceGroupName rg-fw-analysis-qs `
+  -ResourceType 'Microsoft.IoTFirmwareDefense/workspaces'
+
+```
 
 ## Clean up resources
 
-[!INCLUDE [terraform-plan-destroy.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan-destroy.md)]
+### [Azure CLI](#tab/azure-cli)
 
-## Troubleshoot Terraform on Azure
+```azure cli
 
-[Troubleshoot common problems when using Terraform on Azure](/azure/developer/terraform/troubleshoot).
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
 
-## Next step
+```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+```azure powershell
+
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+Write-Host "Press [ENTER] to continue..."
+
+```
+
+## Next steps
 
 > [!div class="nextstepaction"]
-> [See more articles about Azure firmware analysis](/search/?terms=Azure%20iot%20firmware%20analysis%20and%20terraform)
+> [Analyze firmware images in the Azure portal](/azure/firmware-analysis/quickstart-firmware-analysis-portal)
+
