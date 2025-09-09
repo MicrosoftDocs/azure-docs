@@ -42,7 +42,7 @@ The current list of supported commands are
   - `Debug` - debug logs
 
 > [!WARNING]
-> As of the `v20250701preview` API version and above, this command will no longer be supported by the non-restricted `run-data-extract` command. To run `mde-agent-information`, See [Executing a run-data-extracts-restricted Command](#executing-a-run-data-extracts-restricted-command)
+> As of the `v20250701preview` API version and above, this command will no longer be supported by the non-restricted `run-data-extract` command. To run `mde-agent-information`, See [Executing a run-data-extracts-restricted Command](#executing-a-run-data-extracts-restricted-command).
 
 - [Collect Microsoft Defender for Endpoints (MDE) agent information](#collect-mde-agent-information)\
   Command Name: `mde-agent-information`\
@@ -57,7 +57,7 @@ The current list of supported commands are
   Arguments: None
 
 > [!WARNING]
-> As of the `v20250701preview` API version and above, this command will no longer be supported by the non-restricted `run-data-extract` command. To run `cluster-cve-report`, See [Executing a run-data-extracts-restricted Command](#executing-a-run-data-extracts-restricted-command)
+> As of the `v20250701preview` API version and above, this command will no longer be supported by the non-restricted `run-data-extract` command. To run `cluster-cve-report`, See [Executing a run-data-extracts-restricted Command](#executing-a-run-data-extracts-restricted-command).
 
 - [Generate Cluster Common Vulnerabilities and Exposures (CVE) Report](#generate-cluster-cve-report)\
   Command Name: `cluster-cve-report`\
@@ -690,7 +690,7 @@ The command provides a link (if using cluster manager storage) or another comman
 ## Executing a run-data-extracts-restricted Command
 
 ### Prerequisites
-* minimum supported API of v20250701preview` or `v20250901` and above
+* minimum supported API of `v20250701preview` or `v20250901` and above
 * Storage Blob Container has been configured
 * The target bare metal machine is on and ready.
 * Required `az networkcloud` CLI extension version 4.0.0b1+ version .
@@ -698,7 +698,7 @@ The command provides a link (if using cluster manager storage) or another comman
 
 The `run-data-extracts-restricted` command functionality mirrors non-restricted run-data-extracts command and includes fine-grained access control via RBAC (Role-Based Access Control). It allows customers to run sensitive data extraction operations on BareMetalMachines with elevated privileges.
 
-The `run-data-extracts-restricted` is implemented as a new and separate API action. The action is to be introduced in the `v20250701preview` and `v20250901` GA API, and is designed to mirror the behavior of the original command but with restricted access to specific sub-commands.The following list contains the allowed sub commands for`run-data-extracts-restricted`:
+The `run-data-extracts-restricted` is implemented as a new and separate API action. The action is to be introduced in the `v20250701preview` and `v20250901` GA API, and is designed to mirror the behavior of the original command but with restricted access to specific sub-commands. The following list contains the allowed sub commands for`run-data-extracts-restricted`:
 
 - [Collect Microsoft Defender for Endpoints (MDE) agent information](#collect-mde-agent-information)\
   Command Name: `mde-agent-information`\
