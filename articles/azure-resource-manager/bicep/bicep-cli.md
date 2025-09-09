@@ -537,6 +537,7 @@ For example:
 
 ```bicepcli
 bicep publish storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1 --documentationUri https://www.contoso.com/exampleregistry.html
+```
 
 # [Azure CLI](#tab/azure-cli)
 
