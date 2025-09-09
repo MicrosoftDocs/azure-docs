@@ -20,7 +20,7 @@ This article helps you migrate a Basic SKU public IP address to a Standard SKU f
 
 During the public IP address SKU migration process, your Basic SKU public IP address resource is migrated to a Standard SKU public IP address resource. The IP address assigned to your gateway doesn't change.
 
-Additionally, if your VPN Gateway gateway SKU is VpnGw 1-5, your gateway SKU is migrated to a VPN Gateway AZ SKU (VpnGw 1-5 AZ). For more information, see [About VPN Gateway SKU consolidation and migration](gateway-sku-consolidation.md).
+Additionally, if your VPN Gateway gateway SKU is VpnGw 1-5, your gateway SKU might be migrated to a VPN Gateway AZ SKU (VpnGw 1-5 AZ). For more information, see [About VPN Gateway SKU consolidation and migration](gateway-sku-consolidation.md).
 
 > [!NOTE]
 > Migration functionality is rolling out to regions. If you don't see the **Migrate** tab in the Azure portal, it means that the migration process isn't available yet in your region. For more information, see the [VPN Gateway - What's New](whats-new.md#upcoming-projected-changes) article.
