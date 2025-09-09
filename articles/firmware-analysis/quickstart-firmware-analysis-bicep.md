@@ -11,13 +11,11 @@ ms.custom: subject-bicepqs
 ms.date: 09/09/
 ---
 
-# Create a firmware analysis workspace using Bicep
+# Quickstart: Create a firmware analysis workspace using Bicep
 
 In this quickstart, you use Bicep to deploy a firmware analysis workspace so your team can upload and analyze IoT/OT device firmware for potential vulnerabilities and weaknesses.
 
-/azure/azure-resource-manager/includes/resource-manager-quickstart-bicep-introduction.md]
-
-[Bicep](../../articles/azure-resource-manager/bicep/overview.md) is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. It provides concise syntax, reliable type safety, and support for code reuse. Bicep offers the best authoring experience for your infrastructure-as-code solutions in Azure.
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
@@ -37,7 +35,7 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](http
 
 The following resource is defined in the Bicep file:
 
-- **[Microsoft.firmwareanalysis/firmwareanalysis-create-workspace](/azure/templates/microsoft.firmwareanalysis/service)**
+- **[Microsoft.IoTFirmwareDefense/workspaces](/azure/templates/microsoft.iotfirmwaredefense/workspaces)**
 
 
 ## Deploy the Bicep file

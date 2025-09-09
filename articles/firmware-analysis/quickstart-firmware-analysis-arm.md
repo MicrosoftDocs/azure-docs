@@ -12,36 +12,31 @@ ms.date: 08/26/2025
 # Customer intent: As a cloud administrator, I want a quick method to deploy an Azure resource for production environments or to evaluate the service's functionality.
 ---
 
-# Quickstart: Deploy a firmware analysis workspace by using an ARM template
+# Quickstart: Create a firmware analysis workspace using ARM
 
 This quickstart describes how to use an Azure Resource Manager template (ARM template) to create a **firmware analysis** workspace. A workspace is the Azure resource that stores your firmware uploads and analysis results for the firmware analysis service.
 
-../../includes/resource-manager-quickstart-introduction.md]
+[!INCLUDE [api-management-quickstart-intro](../../includes/api-management-quickstart-intro.md)]
 
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
-
----
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a https://azure.microsoft.com/free/?WT.mc_id=A261C142F before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 > [!NOTE]
-> The firmware analysis experience in the portal is currently **in PREVIEW**. Role requirements for working with firmware (for example, **Firmware Analysis Admin** or **Security Admin**) are described in the service documentation.
+> Role requirements for working with firmware (for example, **Firmware Analysis Admin** or **Security Admin**) are described in the service documentation.
 
----
 
 ## Review the template
 
-The template used in this quickstart is from https://azure.microsoft.com/resources/templates/.
+The template used in this quickstart is from [Azure Quickstart Templates](https://learn.microsoft.com/samples/azure/azure-quickstart-templates/firmwareanalysis-create-workspace/).
 
-:::code language="json" source="azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.firmwareanalysis/firmwareanalysis-create-workspace/azuredeploy.json":::
 
-This template deploys the following resource:
+The following resource is defined in the template:
 
-- /azure/templates/microsoft.iotfirmwaredefense/workspaces: Creates a Firmware analysis workspace.
+- **[Microsoft.IoTFirmwareDefense/workspaces](/azure/templates/microsoft.iotfirmwaredefense/workspaces)**
 
----
 
 ## **Deploy the template**
 
