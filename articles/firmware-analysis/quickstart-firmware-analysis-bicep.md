@@ -64,7 +64,7 @@ az deployment group create \
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-```azure powershell
+```azurepowershell
 
 # Variables
 $rgName = 'rg-fw-analysis-qs'
@@ -84,7 +84,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $rgName -TemplateFile ./main.bi
 
 ### [Azure CLI](#tab/azure-cli)
 
-```azure cli
+```azurecli
 
 az resource show \
   --resource-group rg-fw-analysis-qs \
@@ -98,7 +98,7 @@ az resource list --resource-group rg-fw-analysis-qs --resource-type Microsoft.Io
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-```azure powershell
+```azurepowershell
 
 # Show a specific workspace
 Get-AzResource -ResourceGroupName rg-fw-analysis-qs `
@@ -115,7 +115,7 @@ Get-AzResource -ResourceGroupName rg-fw-analysis-qs `
 
 ### [Azure CLI](#tab/azure-cli)
 
-```azure cli
+```azurecli
 
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
@@ -126,7 +126,7 @@ echo "Press [ENTER] to continue ..."
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-```azure powershell
+```azurepowershell
 
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName

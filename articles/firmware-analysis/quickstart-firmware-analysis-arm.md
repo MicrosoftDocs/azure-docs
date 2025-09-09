@@ -40,7 +40,8 @@ The following resource is defined in the template:
 You can deploy the template by using the **Azure CLI**, **Azure PowerShell**, or the **Azure portal**.
 
 ### [Azure CLI](#tab/azure-cli)
-```az cli
+
+```azurecli
 az group create --name fa-rg --location eastus
 az deployment group create \
   --resource-group fa-rg \
@@ -52,7 +53,8 @@ az account set --subscription "<your-subscription-id>"
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
-```azure powershell
+
+```azurepowershell
 
 Connect-AzAccount
 Set-AzContext -Subscription "<your-subscription-id>"
@@ -73,7 +75,7 @@ Use any of the following methods:
 
 ### [Azure CLI](#tab/azure-cli)
 
-```azure cli
+```azurecli
 
 az resource list \
   --resource-group fa-rg \
@@ -83,7 +85,7 @@ az resource list \
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-```azure powershell
+```azurepowershell
 
 Get-AzResource -ResourceGroupName fa-rg `
   -ResourceType Microsoft.IoTFirmwareDefense/workspaces
@@ -93,12 +95,14 @@ Get-AzResource -ResourceGroupName fa-rg `
 When no longer needed, delete the resource group:
 
 ### [Azure CLI](#tab/azure-cli)
-```azure cli
+
+```azurecli
 az group delete --name fa-rg --yes --no-wait
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
-```azure powershell
+
+```azurepowershell
 Remove-AzResourceGroup -Name fa-rg -Force
 ```
 
