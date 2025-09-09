@@ -325,6 +325,7 @@ New-AzConfigurationAssignment `
 ```
 ---
 
+
 ## Remove machine from the schedule
 
 To remove a machine from the schedule, get all the configuration assignment names for the machine that you have created to associate the machine with the current schedule from the Azure Resource Graph as listed:
