@@ -276,11 +276,11 @@ This section provides external links for the user resource setup that needs to o
 
 #### Log Analytics Workspaces setup
 
-1. Create a Log Analytics Workspace (LAW), or identify an existing LAW that you want to use. See [Create a Log Analytics Workspace](/azure/azure-monitor/logs/quick-create-workspace).
+- Create a Log Analytics Workspace (LAW), or identify an existing LAW that you want to use. See [Create a Log Analytics Workspace](/azure/azure-monitor/logs/quick-create-workspace).
 
 #### Key Vault setup
 
-1. Create a Key Vault, or identify an existing Key Vault that you want to use. See [Create a Key Vault](/azure/key-vault/general/quick-create-cli).
+- Create a Key Vault, or identify an existing Key Vault that you want to use. See [Create a Key Vault](/azure/key-vault/general/quick-create-cli).
 
 ### Create the Cluster with a SAMI and user provided resources
 
@@ -389,7 +389,7 @@ These updates are applicable post Cluster creation or update to ensure that the 
 
 #### Log Analytics Workspaces setup
 
-1. Assign the `Log Analytics Contributor` role to the SAMI for the log analytics workspace. See [Manage access to Log Analytics workspaces](/azure/azure-monitor/logs/manage-access?tabs=portal).
+- Assign the `Log Analytics Contributor` role to the SAMI for the log analytics workspace. See [Manage access to Log Analytics workspaces](/azure/azure-monitor/logs/manage-access?tabs=portal).
 
 #### Key Vault setup
 
