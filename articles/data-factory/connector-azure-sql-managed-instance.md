@@ -6,8 +6,11 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
-ms.custom: synapse
 ms.date: 06/17/2024
+ms.custom:
+  - synapse
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Copy and transform data in Azure SQL Managed Instance using Azure Data Factory or Synapse Analytics
