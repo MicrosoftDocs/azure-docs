@@ -9,6 +9,7 @@ ms.topic: whats-new
 ms.author: kengaderdus
 author: kengaderdus
 manager: CelesteDG
+ms.custom: sfi-ropc-nochange
 
 #Customer intent: As a developer using Azure Active Directory B2C, I want to stay updated on the latest documentation changes and new features, so that I can effectively use and implement the B2C service in my applications.
 ---

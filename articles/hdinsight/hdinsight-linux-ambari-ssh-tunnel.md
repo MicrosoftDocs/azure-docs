@@ -3,11 +3,14 @@ title: Use SSH tunneling to access Azure HDInsight
 description: Learn how to use an SSH tunnel to securely browse web resources hosted on your Linux-based HDInsight nodes.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive, linux-related-content
 author: apurbasroy
 ms.author: apsinhar
 ms.reviewer: sairamyeturi
 ms.date: 06/13/2024
+ms.custom:
+  - hdinsightactive
+  - linux-related-content
+  - sfi-image-nochange
 ---
 
 # Use SSH tunneling to access Apache Ambari web UI, JobHistory, NameNode, Apache Oozie, and other UIs

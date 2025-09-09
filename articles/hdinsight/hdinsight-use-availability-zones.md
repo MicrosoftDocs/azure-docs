@@ -3,8 +3,10 @@ title: Create an Azure HDInsight cluster that uses Availability Zones
 description: Learn how to create an Azure HDInsight cluster that uses Availability Zones.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.custom: references_regions
 ms.date: 12/03/2024
+ms.custom:
+  - references_regions
+  - sfi-image-nochange
 ---
 
 # Create an HDInsight cluster that uses Availability Zones
