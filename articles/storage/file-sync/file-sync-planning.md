@@ -30,26 +30,28 @@ The files are stored in the cloud in [Azure file shares](../files/storage-files-
 - **Cache an Azure file share on-premises by using Azure File Sync**: With Azure File Sync, you can centralize your organization's file shares in Azure Files while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms an on-premises (or cloud) Windows Server instance into a quick cache of your Azure file share.
 
 ## Management concepts
+In Azure, a *resource* is a manageable item that you create and configure within your Azure subscriptions and resource groups. Resources are offered by *resource providers*, which are management services that deliver specific types of resources. To deploy Azure File Sync, you will work with two key resources:
 
-An Azure File Sync deployment has three fundamental management objects:
+- **Storage accounts**, offered by the `Microsoft.Storage` resource provider. Storage accounts are top-level resources that represent a shared pool of storage, IOPS, and throughput in which you can deploy **classic file shares** or other storage resources, depending on the storage account kind. All storage resources that are deployed into a storage account share the limits that apply to that storage account. Classic file shares support both the SMB and NFS file sharing protocols, but you can only use Azure File Sync with SMB file shares.
+    
+    > [!NOTE]
+    > Azure Files also supports deploying file shares as a top-level Azure resources through the `Microsoft.FileShares` resource provider, however, these file shares only support the NFS file system protocol aren't supported by Azure File Sync.
 
-- **Azure file share**: A serverless cloud file share. It provides the *cloud endpoint* of a sync relationship in Azure File Sync.
+- **Storage Sync Services**, offered by the `Microsoft.StorageSync` resource provider. Storage Sync Services act as management containers that enable you to register Windows File Servers and define the sync relationships for Azure File Sync.
 
-  You can access files in an Azure file share directly by using the SMB or FileREST protocol. However, we encourage you to primarily access the files through the Windows Server cache when you're using the Azure file share with Azure File Sync. The reason is that Azure Files lacks an efficient change detection mechanism like Windows Server has. Direct changes to the Azure file share take time to propagate back to the server endpoints.
-- **Server endpoint**: The path on the Windows Server instance that's being synced to an Azure file share. It can be a specific folder on a volume or the root of the volume. Multiple server endpoints can exist on the same volume if their namespaces don't overlap.
-- **Sync group**: The object that defines the sync relationship between a cloud endpoint (Azure file share) and a server endpoint. Endpoints within a sync group are kept in sync with each other. For example, if you want to manage two distinct sets of files by using Azure File Sync, you create two sync groups and add different endpoints to each sync group.
-
-### Management concepts for Azure file shares
+### Azure file share management concepts
+Classic file shares, or file shares deployed in storage accounts, are the traditional way to deploy file shares for Azure Files. They support all of the key features that Azure Files supports including SMB and NFS, SSD and HDD media tiers, every redundancy type, and in every region. To learn more about classic file shares, see [classic file shares](../files/storage-files-planning.md#classic-file-shares-microsoftstorage).
 
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
 
-### Management concepts for Azure File Sync
+### Azure File Sync management concepts
+Within a Storage Sync Service, you can deploy:
 
-Sync groups are deployed into *storage sync services*. These top-level objects register servers for use with Azure File Sync and contain the sync group relationships. A storage sync service is a peer resource of the storage account resource, and it can similarly be deployed to Azure resource groups. A storage sync service can create sync groups that contain Azure file shares across multiple storage accounts and multiple registered Windows Server installations.
+- **Registered servers**, which represents a Windows File Server with a trust relationship with the Storage Sync Service. Registered servers can be either an individual server or cluster, however a server/cluster can only be registered with only one Storage Sync Service at a time.
 
-Before you can create a sync group in a storage sync service, you must register a Windows Server instance with the storage sync service. This task creates a *registered server* object, which represents a trust relationship between your server or cluster and the storage sync service. To register a storage sync service, you must first install the Azure File Sync agent on the server. An individual server or cluster can be registered with only one storage sync service at a time.
-
-A sync group contains one cloud endpoint (Azure file share) and at least one server endpoint. The server endpoint object contains the settings that configure the *cloud tiering* capability, which provides the caching capability of Azure File Sync. To sync with an Azure file share, the storage account that contains the Azure file share must be in the same Azure region as the storage sync service.
+- **Sync groups**, which defines the sync relationship between a cloud endpoint and one or more server endpoints. Endpoints within a sync group are kept in sync with each other. If for example, you have two distinct sets of files that you want to manage with Azure File Sync, you would create two sync groups and add different endpoints to each sync group.
+    - **Cloud endpoints**, which represent Azure file shares.
+    - **Server endpoints**, which represent paths on registered servers that are synced to Azure Files. A registered server can contain multiple server endpoints if their namespaces don't overlap.
 
 > [!IMPORTANT]
 > You can make changes to the namespace of any cloud endpoint or server endpoint in the sync group and have your files synced to the other endpoints in the sync group. If you make a change to the cloud endpoint (Azure file share) directly, an Azure File Sync change detection job first needs to discover changes. A change detection job for a cloud endpoint starts only once every 24 hours. For more information, see [Frequently asked questions about Azure Files and Azure File Sync](../files/storage-files-faq.md?toc=/azure/storage/filesync/toc.json#afs-change-detection).
@@ -121,7 +123,7 @@ The following table provides both the size of the namespace and a conversion to 
 | 50       | 23.3    | 16       | 64  (initial sync)/ 32 (typical churn)  |
 | 100*     | 46.6    | 32       | 128 (initial sync)/ 32 (typical churn)  |
 
-\*We don't recommend syncing more than 100 million files and directories. This soft limit is based on our tested thresholds. For more information, see [Azure File Sync scale targets](../files/storage-files-scale-targets.md?toc=/azure/storage/filesync/toc.json#azure-file-sync-scale-targets).
+\*Syncing more than 100 million files & directories isn't recommended. This is a soft limit based on our tested thresholds. For more information, see [Azure File Sync scale targets](./file-sync-scale-targets.md).
 
 > [!TIP]
 > Initial synchronization of a namespace is an intensive operation. We recommend allocating more memory until initial sync is complete. This approach isn't required but might speed up initial sync.
@@ -337,13 +339,7 @@ Because the Azure File Sync agent runs on a Windows Server machine that connects
 
 Azure File Sync works on the file level. The performance characteristics of a solution based on Azure File Sync is better measured in the number of objects (files and directories) processed per second.
 
-Changes made to the Azure file share via the Azure portal or SMB aren't immediately detected and replicated like changes to the server endpoint. Azure Files doesn't have change notifications or journaling, so there's no way to automatically initiate a sync session when files are changed. On Windows Server, Azure File Sync uses [Windows USN journaling](/windows/win32/fileio/change-journals) to automatically initiate a sync session when files change.
-
-To detect changes to the Azure file share, Azure File Sync uses a change detection job. A change detection job enumerates every file in the file share, and then compares it to the sync version for that file. When the change detection job determines that files changed, Azure File Sync initiates a sync session.
-
-The change detection job runs every 24 hours. Because the change detection job works by enumerating every file in the Azure file share, change detection takes longer in larger namespaces than in smaller namespaces. For large namespaces, it might take longer than once every 24 hours to determine which files changed.
-
-For more information, see [Azure File Sync performance metrics](../files/storage-files-scale-targets.md?toc=/azure/storage/filesync/toc.json#azure-file-sync-performance-metrics) and [Azure File Sync scale targets](../files/storage-files-scale-targets.md?toc=/azure/storage/filesync/toc.json#azure-file-sync-scale-targets).
+For more information, see [Azure File Sync performance metrics](./file-sync-scale-targets.md#azure-file-sync-performance-metrics) and [Azure File Sync scale targets](./file-sync-scale-targets.md#azure-file-sync-scale-targets)
 
 ## Identity
 
