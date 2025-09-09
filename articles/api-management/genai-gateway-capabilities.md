@@ -18,43 +18,59 @@ ms.custom:
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-This article introduces the AI gateway capabilities in Azure API Management that help you operationalize and manage AI model deployments and AI APIs. These capabilities help you secure, scale, and manage models, APIs, and MCP servers that serve your AI apps and agents, whether they're accessed from [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry), [Azure OpenAI in AI Foundry Models](/azure/ai-foundry/openai/overview), [Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api), or other AI providers.
+This article introduces the AI gateway capabilities in Azure API Management that help you manage your AI APIs effectively. These capabilities help you secure, scale, and govern AI model deployments, APIs, and MCP servers that serve your AI apps and agents, whether they're accessed from [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry), [Azure OpenAI in AI Foundry Models](/azure/ai-foundry/openai/overview), [Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api), or other providers.
 
 :::image type="content" source="media/genai-gateway-capabilities/capabilities-summary.png" alt-text="Diagram summarizing AI gateway capabilities of Azure API Management.":::
 
+> [!NOTE]
+> AI gateway capabilities, including [MCP server capabilities](mcp-server-overview.md) are features of API Management's existing API gateway, not a separate gateway. For more information, see [Azure API Management overview](api-management-key-concepts.md).
+
+
 ## Why use an AI gateway?
 
-AI adoption involves several phases:
-* Defining requirements and evaluating models
-* Building AI apps and agents
-* Operationalizing and deploying to production
+AI adoption in organizations involves several phases:
 
-An AI gateway particularly helps with operationalizing and deployment, addressing key challenges such as:
-* Managing token usage and quotas across multiple applications
+* Defining requirements and evaluating AI models
+* Building AI apps and agents that need access to AI models and services
+* Operationalizing and deploying AI apps and backends to production
+
+As your AI adoption matures, the AI gateway capabilities in API Management address key challenges with operations and deployment such as:
+
 * Authenticating and authorizing access to AI services
 * Load balancing across multiple AI endpoints
 * Monitoring and logging AI interactions
+* Managing token usage and quotas across multiple applications
 * Enabling self-service for developer teams
 
-> [!NOTE]
-> AI gateway capabilities are features of API Management's existing API gateway, not a separate gateway. For more information, see [Azure API Management overview](api-management-key-concepts.md).
 
 ## Traffic mediation and control
 
-Manage and control AI API traffic effectively:
+With the AI gateway capabilities, you can:
 
-* Support models from Azure OpenAI, Azure AI Foundry, and OpenAI-compatible providers
-* Handle chat completions, responses, and realtime APIs
-* Expose REST APIs as Model Context Protocol (MCP) servers, and support passthrough to MCP servers
+* Quickly import and configure OpenAI-compatible or passthrough AI model endpoints as APIs
+* Manage models deployed in Azure AI Foundry or providers such as Amazon Bedrock
+* Govern chat completions, responses, and realtime APIs
+* Expose your existing REST APIs as Model Context Protocol (MCP) servers, and support passthrough to MCP servers
+
+More information:
+
+* [Import an AI Foundry API](azure-ai-foundry-api.md)
+* [Import a language model API](openai-compatible-llm-api.md)
+* [Export a REST API as an MCP server](export-rest-mcp-server.md)
+* [Expose and govern an existing MCP server](mcp-server-passthrough.md)
+
 
 ## Security and safety
 
-Protect and control access to your AI APIs:
+A key capability of an AI gateway is to secure and control access to your AI APIs. With API Management, you can:
 
 * Use keyless managed identities to authenticate to Azure AI services
 * Configure OAuth 2.0 authorization for AI apps and agents to access APIs using API Management's credential manager
-* Apply content safety policies to automatically moderate prompts using [Azure AI Content Safety](/azure/ai-services/content-safety/overview)
+* Apply policies to automatically moderate prompts using [Azure AI Content Safety](/azure/ai-services/content-safety/overview)
 
+More information:
+
+* [Authenticate and authorize access to Azure OpenAI APIs](api-management-authenticate-authorize-azure-openai.md)
 ## Resiliency and scalability
 
 Ensure your AI APIs are resilient and can handle high loads:
