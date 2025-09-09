@@ -2,7 +2,7 @@
 title: Bicep CLI commands 
 description: Learn about the commands that you can use in the Bicep CLI. These commands include building JSON Azure Resource Manager templates from Bicep.
 ms.topic: reference
-ms.date: 09/08/2025
+ms.date: 09/09/2025
 ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-arm-template
 ---
 
@@ -25,27 +25,67 @@ Using any of following Bicep features automatically enables language version 2.0
 
 The following example converts a Bicep file named _main.bicep_ to an ARM template named _main.json_. The new file is created in the same directory as the Bicep file:
 
+# [Bicep CLI](#tab/bicep-cli)
+
+```bicepcli
+bicep build main.bicep
+```
+
+# [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az bicep build --file main.bicep
 ```
 
+---
+
 The next example saves _main.json_ to a different directory:
+
+# [Bicep CLI](#tab/bicep-cli)
+
+```bicepcli
+bicep build main.bicep --outdir c:\jsontemplates
+```
+
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az bicep build --file main.bicep --outdir c:\jsontemplates
 ```
 
+---
+
 The next example specifies the name and location of the file to be created:
+
+# [Bicep CLI](#tab/bicep-cli)
+
+```bicepcli
+bicep build main.bicep --outfile c:\jsontemplates\azuredeploy.json
+```
+
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az bicep build --file main.bicep --outfile c:\jsontemplates\azuredeploy.json
 ```
 
+---
+
 To print the file to `stdout`, use:
+
+# [Bicep CLI](#tab/bicep-cli)
+
+```bicepcli
+bicep build main.bicep --stdout
+```
+
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az bicep build --file main.bicep --stdout
 ```
+
+---
 
 If your Bicep file includes a module that references an external registry, the `build` command automatically calls [`restore`](#restore). The `restore` command gets the file from the registry and stores it in the local cache.
 
@@ -54,9 +94,21 @@ If your Bicep file includes a module that references an external registry, the `
 
 To not call restore automatically, use the `--no-restore` switch:
 
+# [Bicep CLI](#tab/bicep-cli)
+
+```bicepcli
+bicep build --no-restore <bicep-file>
+```
+
+To use the `--no-restore` switch, you must have [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.4.X or later.
+
+# [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az bicep build --no-restore <bicep-file>
 ```
+
+---
 
 The build process with the `--no-restore` switch fails if one of the external modules isn't already cached:
 
@@ -66,15 +118,23 @@ The module with reference "br:exampleregistry.azurecr.io/bicep/modules/storage:v
 
 When you get this error, either run the `build` command without the `--no-restore` switch, or run `bicep restore` first.
 
-To use the `--no-restore` switch, you must have [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.4.X or later.
-
 ## build-params
 
 The `build-params` command builds a `.bicepparam` file into a JSON parameters file:
 
+# [Bicep CLI](#tab/bicep-cli)
+
+```bicepcli
+bicep build-params params.bicepparam
+```
+
+# [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az bicep build-params --file params.bicepparam
 ```
+
+---
 
 This command converts a _params.bicepparam_ parameters file into a _params.json_ JSON parameters file.
 
@@ -82,9 +142,19 @@ This command converts a _params.bicepparam_ parameters file into a _params.json_
 
 The `decompile` command converts a JSON ARM template to a Bicep file:
 
+# [Bicep CLI](#tab/bicep-cli)
+
+```bicepcli
+bicep decompile main.json
+```
+
+# [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az bicep decompile --file main.json
 ```
+
+---
 
 This command creates a file named _main.bicep_ in the same directory as _main.json_. If _main.bicep_ exists in the same directory, use the **--force** switch to overwrite the existing Bicep file.
 
@@ -94,33 +164,73 @@ For more information about using this command, see [Decompile JSON ARM template 
 
 The `decompile-params` command decompiles a JSON parameters file to a `.bicepparam` parameters file.
 
+# [Bicep CLI](#tab/bicep-cli)
+
+```bicepcli
+bicep decompile-params azuredeploy.parameters.json --bicep-file ./dir/main.bicep
+```
+
+# [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az bicep decompile-params --file azuredeploy.parameters.json --bicep-file ./dir/main.bicep
 ```
+
+---
 
 This command decompiles an _azuredeploy.parameters.json_ parameters file into an _azuredeploy.parameters.bicepparam_ file. `--bicep-file` specifies the path to the Bicep file (relative to the `.bicepparam` file) that's referenced in the `using` declaration.
 
 ## format
 
-The `format` command formats a Bicep file. It has the same function as the `SHIFT+ALT+F` shortcut in Visual Studio Code.
+The `format` command formats a Bicep file so that it follows the recommended style conventions. Think of it like a "code formatter" or "prettier" for your Bicep files. It has the same function as the `SHIFT+ALT+F` shortcut in Visual Studio Code.
+
+# [Bicep CLI](#tab/bicep-cli)
+
+```bicepcli
+bicep format main.bicep
+```
+
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az bicep format --file main.bicep
 ```
 
+---
+
 ## generate-params
 
 The `generate-params` command builds a parameters file from the given Bicep file, updates if there's an existing parameters file.
+
+# [Bicep CLI](#tab/bicep-cli)
+
+```bicepcli
+bicep generate-params main.bicep --output-format bicepparam --include-params all
+```
+
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az bicep generate-params --file main.bicep --output-format bicepparam --include-params all
 ```
 
+---
+
 This command creates a Bicep parameters file named _main.bicepparam_. The parameters file contains all parameters in the Bicep file, whether configured with default values or not.
+
+# [Bicep CLI](#tab/bicep-cli)
+
+```bicepcli
+bicep generate-params main.bicep --outfile main.parameters.json
+```
+
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az bicep generate-params --file main.bicep --outfile main.parameters.json
 ```
+
+---
 
 This command creates a parameters file named _main.parameters.json_. The parameters file only contains the parameters without default values configured in the Bicep file.
 
@@ -130,15 +240,31 @@ The `install` command adds the Bicep CLI to your local environment, and it's onl
 
 To install the latest version, use:
 
+# [Bicep CLI](#tab/bicep-cli)
+
+N/A
+
+# [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az bicep install
 ```
 
+---
+
 To install a specific version:
 
+# [Bicep CLI](#tab/bicep-cli)
+
+N/A
+
+# [Azure CLI](#tab/azure-cli)
+
 ```azurecli
-az bicep install --version v0.3.255
+az bicep install --version v0.37.4
 ```
+
+---
 
 ## jsonrpc
 
@@ -191,23 +317,47 @@ For an example establishing a JSONRPC connection and interacting with Bicep file
 
 Use the following syntax to connect to an existing named pipe as a JSONRPC client:
 
+# [Bicep CLI](#tab/bicep-cli)
+
 ```bicep cli
 bicep jsonrpc --pipe <named_pipe>`
 ```
 
 `<named_pipe>` is an existing named pipe to connect the JSONRPC client to.
 
+# [Azure CLI](#tab/azure-cli)
+
+N/A
+
+---
+
 To connect to a named pipe on OSX/Linux :
+
+# [Bicep CLI](#tab/bicep-cli)
 
 ```bicep cli
 bicep jsonrpc --pipe /tmp/bicep-81375a8084b474fa2eaedda1702a7aa40e2eaa24b3.sock
 ```
 
+# [Azure CLI](#tab/azure-cli)
+
+N/A
+
+---
+
 To connect to a named pipe on Windows :
+
+# [Bicep CLI](#tab/bicep-cli)
 
 ```bicep cli
 bicep jsonrpc --pipe \\.\pipe\\bicep-81375a8084b474fa2eaedda1702a7aa40e2eaa24b3.sock`
 ```
+
+# [Azure CLI](#tab/azure-cli)
+
+N/A
+
+--- 
 
 For more examples, see [C#](https://github.com/Azure/bicep/blob/096c32f9d5c42bfb85dff550f72f3fe16f8142c7/src/Bicep.Cli.IntegrationTests/JsonRpcCommandTests.cs#L24-L50) and [node.js](https://github.com/anthony-c-martin/bicep-node/blob/4769e402f2d2c1da8d27df86cb3d62677e7a7456/src/utils/jsonrpc.ts#L117-L151).
 
@@ -215,31 +365,67 @@ For more examples, see [C#](https://github.com/Azure/bicep/blob/096c32f9d5c42bfb
 
 Use the following syntax to connect to an existing TCP socket as a JSONRPC client:
 
+# [Bicep CLI](#tab/bicep-cli)
+
 ```bicep cli
 bicep jsonrpc --socket <tcp_socket>
 ```
 
 `<tcp_socket>` is the socket number to which the JSONRPC client connects.
 
+# [Azure CLI](#tab/azure-cli)
+
+N/A
+
+--- 
+
 To connect to a TCP socket:
 
-`bicep jsonrpc --socket 12345`
+# [Bicep CLI](#tab/bicep-cli)
+
+```bicep cli  
+bicep jsonrpc --socket 12345
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+N/A
+
+---
 
 ### Usage for stdin and stdout
 
 Use the following syntax and `stdin` and `stdout` for messages to run the JSONRPC interface:
 
+# [Bicep CLI](#tab/bicep-cli)
+
 ```bicep cli
 bicep jsonrpc --stdio
 ```
+
+# [Azure CLI](#tab/azure-cli)
+
+N/A
+
+---
 
 ## lint
 
 The `lint` command returns the errors and [linter rule](./linter.md) violations of a Bicep file.
 
+# [Bicep CLI](#tab/bicep-cli)
+
+```bicepcli
+bicep lint main.bicep
+```
+
+# [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az bicep lint --file main.bicep
 ```
+
+---
 
 If your Bicep file includes a module that references an external registry, the `lint` command automatically calls [`restore`](#restore). The `restore` command gets the file from the registry and stores it in the local cache.
 
@@ -248,9 +434,19 @@ If your Bicep file includes a module that references an external registry, the `
 
 To not call restore automatically, use the `--no-restore` switch:
 
+# [Bicep CLI](#tab/bicep-cli)
+
+```bicepcli
+bicep lint --no-restore <bicep-file>
+```
+
+# [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az bicep lint --no-restore <bicep-file>
 ```
+
+---
 
 The lint process with the `--no-restore` switch fails if one of the external modules isn't already cached:
 
@@ -263,6 +459,12 @@ When you get this error, either run the `lint` command without the `--no-restore
 ## list-versions
 
 The `list-versions` command returns all available versions of the Bicep CLI. Use this command to see if you want to [upgrade](#upgrade) or [install](#install) a new version. This command is only available through the Azure CLI.
+
+# [Bicep CLI](#tab/bicep-cli)
+
+N/A
+
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az bicep list-versions
@@ -305,6 +507,8 @@ The command returns an array of available versions:
 ]
 ```
 
+---
+
 ## publish
 
 The `publish` command adds a module to a registry. The Azure container registry must exist and the account publishing to the registry must have the correct permissions. For more information about setting up a module registry, see [Use private registry for Bicep modules](private-module-registry.md). To publish a module, the account must have the correct profile and permissions to access the registry. You can configure the profile and credential precedence for authenticating to the registry in the [Bicep config file](./bicep-config-modules.md#configure-profiles-and-credentials).
@@ -315,15 +519,32 @@ You must have [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) v
 
 To publish a module to a registry, use:
 
+# [Bicep CLI](#tab/bicep-cli)
+
+bicep publish <bicep-file> --target br:<registry-name>.azurecr.io/<module-path>:<tag> --documentationUri <documentation-uri>
+
+# [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az bicep publish --file <bicep-file> --target br:<registry-name>.azurecr.io/<module-path>:<tag> --documentationUri <documentation-uri>
 ```
 
+---
+
 For example:
+
+# [Bicep CLI](#tab/bicep-cli)
+
+```bicepcli
+bicep publish storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1 --documentationUri https://www.contoso.com/exampleregistry.html
+
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az bicep publish --file storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1 --documentationUri https://www.contoso.com/exampleregistry.html
 ```
+
+---
 
 The `publish` command doesn't recognize aliases specified in a [_bicepconfig.json_ file](bicep-config-modules.md). Provide the full module path.
 
