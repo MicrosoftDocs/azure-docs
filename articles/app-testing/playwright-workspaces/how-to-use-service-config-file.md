@@ -6,9 +6,9 @@ ms.topic: how-to
 ms.date: 08/07/2025
 ms.service: azure-app-testing
 ms.subservice: playwright-workspaces
-author: ninallam
-ms.author: ninallam
-ms.custom: playwright-workspaces-preview
+author: johnsta
+ms.author: johnsta
+ms.custom: playwright-workspaces
 zone_pivot_group_filename: app-testing/playwright-workspaces/zone-pivots-groups.json
 zone_pivot_groups: playwright-workspaces
 ---
@@ -29,33 +29,29 @@ If you don't have this file in your code, follow [Quickstart: Run end-to-end tes
 
 ::: zone-end
 
-> [!IMPORTANT]
-> Playwright Workspaces is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Prerequisites
 
-* Follow the Quickstart guide and set up a project to run with Playwright Workspaces. See, [Quickstart: Run end-to-end tests at scale with Playwright Workspaces Preview](./quickstart-run-end-to-end-tests.md) 
+* Follow the Quickstart guide and set up a project to run with Playwright Workspaces. See, [Quickstart: Run end-to-end tests at scale with Playwright Workspaces](./quickstart-run-end-to-end-tests.md) 
 
 ::: zone pivot="playwright-test-runner"
 
 Below is a complete example of a `playwright.service.config.ts` file showing all supported configuration options:
 
 ```typescript
-import { getServiceConfig, ServiceOS, ServiceAuth } from "@azure/playwright";
+import { createAzurePlaywrightConfig, ServiceOS, ServiceAuth } from "@azure/playwright";
 import { defineConfig } from "@playwright/test";
 import { AzureCliCredential } from "@azure/identity";
 import config from "./playwright.config";
 
 export default defineConfig(
   config,
-  getServiceConfig(config, {
+  createAzurePlaywrightConfig(config, {
     serviceAuthType: ServiceAuth.ACCESS_TOKEN // Use this option if authenticating with access tokens. This mode of authentication must be explicitly enabled in your workspace.
     os: ServiceOS.WINDOWS, // Specify the browser's OS your tests will automate.
-    runId: new Date().toISOString(), // Set a unique ID for every test run to distinguish them in the service portal.
+    runName: "Sample-Run-Name1", // Set a Name for every test run to distinguish them in the azure portal.
     credential: new AzureCliCredential(), // Select the authentication method you want to use with Entra.
-    useCloudHostedBrowsers: true, // Choose whether to use cloud-hosted browsers or the browsers on your client machine.
     exposeNetwork: '<loopback>', // Allows cloud browsers to access local resources from your Playwright test code without additional firewall config.
-    timeout: 30000 // Set the timeout for your tests (in milliseconds).
+    connectTimeout: 30000 // Set the timeout for your tests (in milliseconds).
   })
 );
 
@@ -86,11 +82,11 @@ export default defineConfig(
       os: ServiceOS.WINDOWS
       ```
 
-* **`runId`**:
+* **`runName`**:
     - **Description**: This setting allows you to set a custom name for every test run to distinguish them in the portal.
     - **Example**:
       ```typescript
-      runId: new Date().toISOString()
+      runName: "Sample-Run-Name1"
       ```
 
 * **`credential`**:
@@ -100,14 +96,6 @@ export default defineConfig(
       credential: new AzureCliCredential()
       ```
 
-* **`useCloudHostedBrowsers`**
-    - **Description**: This setting allows you to choose whether to use cloud-hosted browsers or the browsers on your client machine to run your Playwright tests. If you disable this option, your tests run on the browsers of your client machine instead of cloud-hosted browsers, and you don't incur any charges.
-    - **Default Value**: true
-    - **Example**:
-      ```typescript
-      useCloudHostedBrowsers: true
-      ```
-
 * **`exposeNetwork`**
     - **Description**: This setting allows you to connect to local resources from your Playwright test code without having to configure another firewall settings. To learn more, see [how to test local applications](./how-to-test-local-applications.md)
     - **Example**:
@@ -115,11 +103,11 @@ export default defineConfig(
       exposeNetwork: '<loopback>'
       ```
 
-* **`timeout`**
+* **`connectTimeout`**
     - **Description**: This setting allows you to set timeout for your tests connecting to the cloud-hosted browsers. 
     - **Example**:
       ```typescript
-      timeout: 30000,
+      connectTimeout: 30000,
       ```     
 ::: zone-end
 
@@ -144,7 +132,6 @@ public class PlaywrightServiceNUnitSetup : PlaywrightServiceBrowserNUnit
         credential: new ManagedIdentityCredential(), // Select the authentication method you want to use with Entra.
         options: new PlaywrightServiceBrowserClientOptions()
         {
-            UseCloudHostedBrowsers = true, // Choose whether to use cloud-hosted browsers or the browsers on your client machine.
             OS = OSPlatform.Linux, // Specify the browser's OS your tests will automate.
             ExposeNetwork = "<loopback>", // Allows cloud browsers to access local resources from your Playwright test code without additional firewall config.
             RunName = 'CustomRun', // Set a name for every test run to distinguish them in the portal.
@@ -173,15 +160,11 @@ public class PlaywrightServiceNUnitSetup : PlaywrightServiceBrowserNUnit
         - `OSPlatform.Linux` for Linux OS.
     - **Default Value**: `OSPlatform.Linux`
 
-* **`RunId`**:
+* **`RunName`**:
     - **Description**: This setting allows you to set a name for every test run to distinguish them in the service portal. If you don't set it, the service package will generate a unique ID every time you trigger a test run.
 
 * **`credential`**:
     - **Description**: This setting allows you to select the authentication method you want to use with Microsoft Entra ID. You must specify this if `ServiceAuth` is **not** set to `ServiceAuthType.AccessToken`.
-
-* **`UseCloudHostedBrowsers`**
-    - **Description**: This setting allows you to choose whether to use cloud-hosted browsers or the browsers on your client machine to run your Playwright tests. If you disable this option, your tests run on the browsers of your client machine instead of cloud-hosted browsers, and you don't incur any charges.
-    - **Default Value**: true
 
 * **`ExposeNetwork`**
     - **Description**: This setting allows you to connect to local resources from your Playwright test code without having to configure another firewall settings. To learn more, see [how to test local applications](./how-to-test-local-applications.md)

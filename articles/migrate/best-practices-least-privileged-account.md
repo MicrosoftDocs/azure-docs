@@ -366,11 +366,11 @@ For MySQL discovery, ensure the appliance's IP or domain is allowed by configuri
 Use the following commands to grant the necessary privileges to the MySQL user:
 
 ```Mysql
-GRANT USAGE ON *.* TO 'username@ip'; 
-GRANT PROCESS ON *.* TO 'username@ip'; 
-GRANT SELECT (User, Host, Super_priv, File_priv, Create_tablespace_priv, Shutdown_priv) ON mysql.user TO 'username@ip';
-GRANT SELECT ON information_schema.* TO 'username@ip';
-GRANT SELECT ON performance_schema.* TO 'username@ip';
+GRANT USAGE ON *.* TO 'username'@'ip';
+GRANT PROCESS ON *.* TO 'username'@'ip';
+GRANT SELECT (User, Host, Super_priv, File_priv, Create_tablespace_priv, Shutdown_priv) ON mysql.user TO 'username'@'ip';
+GRANT SELECT ON information_schema.* TO 'username'@'ip';
+GRANT SELECT ON performance_schema.* TO 'username'@'ip';  
 
 ```
 

@@ -2,7 +2,7 @@
 title: Turn off local (access key) authentication
 description: Learn how to turn off local access key authentication and use only Microsoft Entra authorization for your Azure Web PubSub resource.
 author: terencefan
-ms.author: tefa
+ms.author: lianwei
 ms.date: 08/16/2024
 ms.service: azure-web-pubsub
 ms.custom: devx-track-arm-template

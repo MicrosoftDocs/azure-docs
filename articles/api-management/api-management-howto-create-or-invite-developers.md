@@ -7,6 +7,7 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 12/04/2024
 ms.author: danlep
+ms.custom: sfi-image-nochange
 ---
 # How to manage user accounts in Azure API Management
 

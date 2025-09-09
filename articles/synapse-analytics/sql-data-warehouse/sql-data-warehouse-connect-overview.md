@@ -11,6 +11,7 @@ ms.custom:
   - azure-synapse
   - devx-track-csharp
   - kr2b-contr-experiment
+  - sfi-image-nochange
 ---
 
 # Connect to a SQL pool in Azure Synapse

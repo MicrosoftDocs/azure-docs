@@ -4,9 +4,12 @@ description: Learn how to copy data from an on-premises data store to the Azure 
 author: nabhishek
 ms.author: abnarain
 ms.topic: tutorial
-ms.custom: devx-track-azurepowershell
 ms.date: 10/03/2024
 ms.subservice: data-movement
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Tutorial: Copy data from a SQL Server database to Azure Blob storage

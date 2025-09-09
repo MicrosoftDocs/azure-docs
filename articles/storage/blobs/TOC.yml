@@ -466,8 +466,10 @@ items:
         href: immutable-policy-configure-container-scope.md
       - name: Configure version-level policies
         href: immutable-policy-configure-version-scope.md
-  - name: Availability and disaster recovery
+  - name: Reliability
     items:
+    - name: Reliability in Azure Blob Storage
+      href: ../../reliability/reliability-storage-blob.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Design highly available applications
       href: ../common/geo-redundant-design.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: 'Tutorial: Design applications for high availability'
@@ -973,9 +975,15 @@ items:
     - name: Test with a storage emulator
       items:
       - name: Use the Azurite open-source emulator
-        href: ../common/storage-use-azurite.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Use Azurite to run automated tests
-        href: use-azurite-to-run-automated-tests.md
+        items:
+        - name: About Azurite
+          href: ../common/storage-use-azurite.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        - name: Install and run Azurite
+          href: ../common/storage-install-azurite.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        - name: Connect to Azurite with SDKs and tools
+          href: ../common/storage-connect-azurite.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        - name: Use Azurite to run automated tests
+          href: use-azurite-to-run-automated-tests.md
       - name: Use the Azure Storage emulator (deprecated)
         href: ../common/storage-use-emulator.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Change feed and events

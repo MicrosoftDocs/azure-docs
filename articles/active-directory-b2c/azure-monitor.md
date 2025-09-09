@@ -12,7 +12,10 @@ ms.topic: how-to
 ms.author: kengaderdus
 ms.subservice: b2c
 ms.date: 09/11/2024
-ms.custom: "b2c-support"
+ms.custom:
+  - "b2c-support"
+  - sfi-image-nochange
+  - sfi-ga-nochange
 
 
 #Customer intent: As an Azure AD B2C administrator, I want to monitor sign-in and auditing logs using Azure Monitor, so that I can route the logs to different monitoring solutions and gain insights into my environment.

@@ -23,11 +23,6 @@ For guidance on upgrading Basic SKU public IP addresses for other networking ser
 > [!IMPORTANT]
 >On September 30, 2025, Basic SKU public IPs will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/). If you're currently using Basic SKU public IPs, make sure to upgrade to Standard SKU public IPs prior to the retirement date. 
 
-## Gateway SKUs
-The **ErGw1Az**, **ErGw2Az**, **ErGw3Az**, and **ErGwScale** (Preview) SKUs are known as Availability Zone (Az)-enabled SKUs. These SKUs allow deployment across multiple availability zones, increasing resiliency and high availability by distributing gateway resources across zones.
-
-By comparison, the **Standard**, **HighPerformance**, and **UltraPerformance** SKUs are non-Az-enabled. They're typically used with Basic public IP addresses and don't support availability zone distribution.
-
 ## Gateway migration experience
 
 The gateway migration experience allows you to deploy a second virtual network gateway in the same GatewaySubnet, with Azure [automatically assigning a new public IP-](expressroute-about-virtual-network-gateways.md#auto-assigned-public-ip) eliminating the need for manual IP creation—while configurations are migrated from the old gateway to the new one; both gateways run simultaneously to minimize disruption, though brief connectivity interruptions may still occur.
@@ -130,8 +125,11 @@ During the migration process, traffic is rerouted seamlessly. There is no expect
 ### What should I do if the Prepare step fails due to a cross-region connection on a Basic SKU circuit during gateway migration?
 
 If the Prepare step fails because your Basic SKU circuit has a cross-region connection, **abort** the gateway migration and **upgrade** the circuit SKU before trying again. This configuration is unsupported, and migration will continue to fail until the circuit SKU is upgraded.
+
 ## Next Steps
 
 - Troubleshoot migration  issues with [Troubleshooting Gateway Migration](gateway-migration-error-messaging.md).
 - Learn how to [migrate using the Azure portal](expressroute-howto-gateway-migration-portal.md).
 - Learn how to [migrate using PowerShell](expressroute-howto-gateway-migration-powershell.md).
+
+
