@@ -40,7 +40,7 @@ If your vault is configured with [network restrictions](/azure/key-vault/general
 
 1. Make sure that the application has outbound networking capabilities configured, as described in [App Service networking features](./networking-features.md) and [Azure Functions networking options](../azure-functions/functions-networking-options.md).
 
-   Currently, Linux applications that connect to private endpoints must be explicitly configured to route all traffic through the virtual network. To configure this setting, run the following command:
+   Currently, Linux applications not on the Azure Functions Flex Consumption plan that connect to private endpoints must be explicitly configured to route all traffic through the virtual network. For Flex Consumption the routing is done automatically and this setting isn't required. To configure this setting, run the following command:
 
    # [Azure CLI](#tab/azure-cli)
 
