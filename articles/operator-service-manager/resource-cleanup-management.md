@@ -24,7 +24,7 @@ To make artifact clean-up more reliable and less error prone, this new feature l
 After resource provider API version `2025-03-30`, AOSM will support querying on AOSM artifacts to discover any remaining references, and if none are found, will delete the unused artifacts. The artifacts, including helm charts or images, are easily identifiable as unused, implying they contain no references in any Network Function Design Version (NFDV) or NSDV. The resource type `artifact-manifest` is expanded to promote cohesive grouping of artifacts per version. All images used by one nfApp are kept in one artifact manifest version. This change builds connections between artifacts and nfApps that are used by ARG queries to identify unused resources.
 
 ## Artifact manifest resource type changes
-In order to support the expanded `artifact-manifest` resource type, changes are introduced in resource provider API version `2025-03-30`. The following sections describe the behavior of AOSM before and after implementing this change. Migration to this new resource type is optional, but all versions after `2025-03-30` will include this support.
+In order to support the expanded `artifact-manifest` resource type, changes are introduced in resource provider API version `2025-03-30`. The following sections describe the behavior of AOSM before and after implementing this change. Migration to this new resource type is optional, but all versions after `2025-03-30` include this support.
 
 ### Artifact manifest uses strong correlation
 The `artifact manifest` resource type has a strong correlation to helm artifacts (images and charts) uploaded into an artifact-store backing ACR. All artifacts used by a nfApp are kept uniquely versioned artifact manifest instances. This builds reference connections between artifacts and nfApps. 
@@ -98,7 +98,7 @@ The `artifact manifest` resource type can be deleted only if no referring resour
 No condition prevented deletion of `artifact manifest` resource type.
 
 #### From `2025-03-30`
-For succesful deleteion, the `artifact manifest` must not contain any tagged resource references.
+For successful deletion, the `artifact manifest` must not contain any tagged resource references.
 
 ### Artifact manifest purge untagged
 Purge untagged artifacts using Azure CLI command `az acr purge` given appropriate scheduling parameters.
@@ -134,7 +134,7 @@ The NSDV and NFDV reference the `artfact manifest` resource type.
 ```
 
 ### NDSV/NFDV API version
-The NSDV and NFDV refernceed `artifact manifest` must be created with `2025-03-30` version or higher.
+The NSDV and NFDV referenced `artifact manifest` must be created with `2025-03-30` version or higher.
 
 #### Before `2025-03-30` 
 No such restriction.
@@ -145,7 +145,7 @@ The proper API version must be used to create the `artifact manifest` resource t
 ## Expanded artifact manifest migration steps
 Complete the following task to migrate a deployed `artifact manifest` resource, created before API version '20025-03-30', to the new `artifact manifest` resource type, available after API version `2025-03-30` or later:
 * Prepare platform by installing network function operator (NFO) extension version, at least 3.0.3131-220 or later.
-* For existing resources created with older APIs, the NSDVs, NFDVs and `artifact-manifest` should be updated to newer API version.
+* For existing resources created with older APIs, the NSDVs, NFDVs, and `artifact-manifest` should be updated to newer API version.
   * First change the artifact store references to `artifact-manifest` references.
   * Then update the `artifact-manifests` with the expanded artifact references.
   * Finally upload the artifacts to the proper `artifact-manifest` path. 
