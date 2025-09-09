@@ -6,9 +6,9 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 03/06/2025
-ms.custom:
-  - build-2025
+ms.date: 08/11/2025
+ms.custom: build-2025
+
 # Customer intent: "As a web application security administrator, I want to manage DRS and CRS rule sets in the web application firewall, so that I can customize security settings and protect against a broad range of vulnerabilities effectively."
 ---
 
@@ -70,12 +70,15 @@ Use the following guidance to tune WAF while you get started with DRS 2.1 on App
 
 ## Core rule set 3.2
 
-The recommended managed rule set is the Default Rule Set 2.1, which is baselined off the Open Web Application Security Project (OWASP) Core Rule Set (CRS) 3.3.2 and includes additional proprietary protections rules developed by Microsoft Threat Intelligence team and updates to signatures to reduce false positives. As an alternative to DRS 2.1, you can use CRS 3.2 which is based off OWASP CRS 3.2.0 version.
+The recommended managed rule set is the Default Rule Set 2.1, which is baselined off the Open Web Application Security Project (OWASP) Core Rule Set (CRS) 3.3.2 and includes additional proprietary protections rules developed by Microsoft Threat Intelligence team and updates to signatures to reduce false positives. As an alternative to DRS 2.1, you can use CRS 3.2 that is based off OWASP CRS 3.2.0 version.
 
 CRS 3.2 includes 14 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled. 
 
 > [!NOTE]
-> CRS 3.2 is only available on the WAF_v2 SKU. Because CRS 3.2 runs on the new Azure WAF engine, you can't downgrade to CRS 3.1 or earlier. If you need to downgrade, [contact Azure Support](https://aka.ms/azuresupportrequest).
+> CRS 3.2 is only available on the WAF_v2 SKU. You can't downgrade to CRS 3.1 or earlier because CRS 3.2 runs on the new Azure WAF engine. If you need to downgrade, [contact Azure Support](https://aka.ms/azuresupportrequest).
+
+> [!NOTE]
+> Web Application Firewall (WAF) running on Application Gateway for Containers doesn't support the Core Ruleset (CRS).
 
 |Rule group name|Threat Type|
 |---|---|
@@ -96,11 +99,11 @@ CRS 3.2 includes 14 rule groups, as shown in the following table. Each group con
 
 ## Tuning of Managed rule sets
 
-Both DRS and CRS are enabled by default in Detection mode in your WAF policies. You can disable or enable individual rules within the Managed Rule Set to meet your application requirements. You can also set specific actions per rule. The DRS/CRS supports block, log and anomaly score actions. The Bot Manager ruleset supports the allow, block, and log actions.
+Both DRS and CRS are enabled by default in Detection mode in your WAF policies. You can disable or enable individual rules within the Managed Rule Set to meet your application requirements. You can also set specific actions per rule. The DRS/CRS supports block, log, and anomaly score actions. The Bot Manager ruleset supports the allow, block, and log actions.
 
 Sometimes you might need to omit certain request attributes from a WAF evaluation. A common example is Active Directory-inserted tokens that are used for authentication. You can configure exclusions to apply when specific WAF rules are evaluated, or to apply globally to the evaluation of all WAF rules. Exclusion rules apply to your whole web application. For more information, see [Web Application Firewall (WAF) with Application Gateway exclusion lists](application-gateway-waf-configuration.md).
 
-By default, DRS version 2.1 / CRS version 3.2 and above uses anomaly scoring when a request matches a rule. CRS 3.1 and below blocks matching requests by default. Additionally, custom rules can be configured in the same WAF policy if you want to bypass any of the preconfigured rules in the Core Rule Set.
+By default, Azure WAF uses anomaly scoring when a request matches a rule. Additionally, you can configure custom rules in the same WAF policy if you want to bypass any of the preconfigured rules in the Core Rule Set.
 
 Custom rules are always applied before rules in the Core Rule Set are evaluated. If a request matches a custom rule, the corresponding rule action is applied. The request is either blocked or passed through to the back-end. No other custom rules or the rules in the Core Rule Set are processed. 
 
@@ -121,7 +124,7 @@ For example, a single *Critical* rule match is enough for the WAF to block a req
 
 ## Paranoia level
 
-Each rule is asigned in a specific Paranoia Level (PL). Rules configured in Paranoia Level 1 (PL1) are less aggressive and hardly ever trigger a false positive. They provide baseline security with minimal need for fine tuning. Rules in PL2 detect more attacks, but they are expected to trigger false positives which should be fine-tuned.
+Each rule is asigned in a specific Paranoia Level (PL). Rules configured in Paranoia Level 1 (PL1) are less aggressive and hardly ever trigger a false positive. They provide baseline security with minimal need for fine tuning. Rules in PL2 detect more attacks, but they're expected to trigger false positives that should be fine-tuned.
 
 By default, DRS 2.1 and CRS 3.2 rule versions are pre-configured in Paranoia Level 2, including rules assigned in both PL1 and in PL2.
 If you want to use WAF exclusively with PL1, you can disable any or all PL2 rules or change their action to 'log'. PL3 and PL4 are currently not supported in Azure WAF.
@@ -142,6 +145,9 @@ CRS 3.1 includes 14 rule groups, as shown in the following table. Each group con
 
 > [!NOTE]
 > CRS 3.1 is only available on the WAF_v2 SKU.
+
+> [!NOTE]
+> Web Application Firewall (WAF) running on Application Gateway for Containers doesn't support the Core Ruleset (CRS).
 
 |Rule group name|Description|
 |---|---|
@@ -865,6 +871,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941100|XSS Attack Detected via libinjection|
 |941101|XSS Attack Detected via libinjection.<br />This rule detects requests with a *Referer* header|
 |941110|XSS Filter - Category 1 = Script Tag Vector|
+|941120|XSS Filter - Category 2 = Event Handler Vector|
 |941130|XSS Filter - Category 3 = Attribute Vector|
 |941140|XSS Filter - Category 4 = JavaScript URI Vector|
 |941150|XSS Filter - Category 5 = Disallowed HTML Attributes|
@@ -951,9 +958,14 @@ The following rule groups and rules are available when using Web Application Fir
 
 |RuleId|Description|
 |---|---|
+|944100|Remote Command Execution: Apache Struts, Oracle WebLogic|
+|944110|Detects potential payload execution|
 |944120|Possible payload execution and remote command execution|
 |944130|Suspicious Java classes|
 |944200|Exploitation of Java deserialization Apache Commons|
+|944210|Possible use of Java serialization|
+|944240|Remote Command Execution: Java serialization and Log4j vulnerability ([CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046))|
+|944250|Remote Command Execution: Suspicious Java method detected|
 
 # [Bot Manager 1.0](#tab/bot)
 
@@ -1073,6 +1085,7 @@ The following rulesets - CRS 3.0 and CRS 2.2.9  groups and rules are no longer s
 |RuleId|Description|
 |---|---|
 |920100|Invalid HTTP Request Line|
+|920120|Attempted multipart/form-data bypass|
 |920130|Failed to parse request body|
 |920140|Multipart request body failed strict validation|
 |920160|Content-Length HTTP header isn't numeric|
@@ -1092,12 +1105,6 @@ The following rulesets - CRS 3.0 and CRS 2.2.9  groups and rules are no longer s
 |920330|Empty User Agent Header|
 |920340|Request Containing Content but Missing Content-Type header|
 |920350|Host header is a numeric IP address|
-|920380|Too many arguments in request|
-|920360|Argument name too long|
-|920370|Argument value too long|
-|920390|Total arguments size exceeded|
-|920400|Uploaded file size too large|
-|920410|Total uploaded files size too large|
 |920420|Request content type isn't allowed by policy|
 |920430|HTTP protocol version isn't allowed by policy|
 |920440|URL file extension is restricted by policy|
@@ -1151,9 +1158,14 @@ The following rulesets - CRS 3.0 and CRS 2.2.9  groups and rules are no longer s
 
 |RuleId|Description|
 |---|---|
+|932100|Remote Command Execution: Unix Command Injection|
+|932105|Remote Command Execution: Unix Command Injection|
+|932110|Remote Command Execution: Windows Command Injection|
+|932115|Remote Command Execution: Windows Command Injection|
 |932120|Remote Command Execution = Windows PowerShell Command Found|
 |932130|**Application Gateway WAF v2**: Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889)) Found<br><br>**Application Gateway WAF v1**: Remote Command Execution: Unix Shell Expression|
 |932140|Remote Command Execution = Windows FOR/IF Command Found|
+|932150|Remote Command Execution: Direct Unix Command Execution|
 |932160|Remote Command Execution = Unix Shell Code Found|
 |932170|Remote Command Execution = Shellshock (CVE-2014-6271)|
 |932171|Remote Command Execution = Shellshock (CVE-2014-6271)|
@@ -1166,8 +1178,10 @@ The following rulesets - CRS 3.0 and CRS 2.2.9  groups and rules are no longer s
 |933110|PHP Injection Attack = PHP Script File Upload Found|
 |933120|PHP Injection Attack = Configuration Directive Found|
 |933130|PHP Injection Attack = Variables Found|
+|933140|PHP Injection Attack: I/O Stream Found|
 |933150|PHP Injection Attack = High-Risk PHP Function Name Found|
 |933160|PHP Injection Attack = High-Risk PHP Function Call Found|
+|933170|PHP Injection Attack: Serialized Object Injection|
 |933180|PHP Injection Attack = Variable Function Call Found|
 |933151|PHP Injection Attack = Medium-Risk PHP Function Name Found|
 |933131|PHP Injection Attack = Variables Found|
@@ -1180,9 +1194,12 @@ The following rulesets - CRS 3.0 and CRS 2.2.9  groups and rules are no longer s
 |---|---|
 |941100|XSS Attack Detected via libinjection|
 |941110|XSS Filter - Category 1 = Script Tag Vector|
+|941120|XSS Filter - Category 2: Event Handler Vector|
 |941130|XSS Filter - Category 3 = Attribute Vector|
 |941140|XSS Filter - Category 4 = JavaScript URI Vector|
 |941150|XSS Filter - Category 5 = Disallowed HTML Attributes|
+|941160|NoScript XSS InjectionChecker: HTML Injection|
+|941170|
 |941180|Node-Validator Blocklist Keywords|
 |941190|XSS using style sheets|
 |941200|XSS using VML frames|
@@ -1190,6 +1207,7 @@ The following rulesets - CRS 3.0 and CRS 2.2.9  groups and rules are no longer s
 |941220|XSS using obfuscated VB Script|
 |941230|XSS using 'embed' tag|
 |941240|XSS using 'import' or 'implementation' attribute|
+|941250|IE XSS Filters - Attack Detected|
 |941260|XSS using 'meta' tag|
 |941270|XSS using 'link' href|
 |941280|XSS using 'base' tag|
@@ -1207,17 +1225,24 @@ The following rulesets - CRS 3.0 and CRS 2.2.9  groups and rules are no longer s
 |---|---|
 |942100|SQL Injection Attack Detected via libinjection|
 |942110|SQL Injection Attack: Common Injection Testing Detected|
+|942120|SQL Injection Attack: SQL Operator Detected|
 |942130|SQL Injection Attack: SQL Tautology Detected|
 |942140|SQL Injection Attack = Common DB Names Detected|
 |942160|Detects blind sqli tests using sleep() or benchmark()|
 |942170|Detects SQL benchmark and sleep injection attempts including conditional queries|
+|942180|Detects basic SQL authentication bypass attempts 1/3|
 |942190|Detects MSSQL code execution and information gathering attempts|
 |942200|Detects MySQL comment-/space-obfuscated injections and backtick termination|
+|942210|Detects chained SQL injection attempts 1/2|
+|942220|Looking for intiger overflow attacks, these are taken from skipfish, except 3.0.00738585072007e-308 is the \"magic number\" crash'|
 |942230|Detects conditional SQL injection attempts|
+|942240|Detects MySQL charset switch and MSSQL DoS attempts|
+|942250|Detects MATCH AGAINST, MERGE and EXECUTE IMMEDIATE injections|
 |942260|Detects basic SQL authentication bypass attempts 2/3|
 |942270|Looking for basic sql injection. Common attack string for mysql oracle and others|
+|942280|Detects Postgres pg_sleep injection, waitfor delay attacks and database shutdown attempts|
 |942290|Finds basic MongoDB SQL injection attempts|
-|942300|Detects MySQL comments, conditions and ch(a)r injections|
+|942300|Detects MySQL comments, conditions, and ch(a)r injections|
 |942310|Detects chained SQL injection attempts 2/2|
 |942320|Detects MySQL and PostgreSQL stored procedure/function injections|
 |942330|Detects classic SQL injection probings 1/2|
@@ -1225,9 +1250,16 @@ The following rulesets - CRS 3.0 and CRS 2.2.9  groups and rules are no longer s
 |942350|Detects MySQL UDF injection and other data/structure manipulation attempts|
 |942360|Detects concatenated basic SQL injection and SQLLFI attempts|
 |942370|Detects classic SQL injection probings 2/2|
+|942380|SQL Injection Attack|
+|942390|SQL Injection Attack|
+|942400|SQL Injection Attack|
 |942150|SQL Injection Attack|
 |942410|SQL Injection Attack|
+|942420|Restricted SQL Character Anomaly Detection (cookies): # of special characters exceeded (8)|
+|942421|Restricted SQL Character Anomaly Detection (cookies): # of special characters exceeded (3)|
 |942430|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)|
+|942431|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (6)|
+|942432|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (2)|
 |942440|SQL Comment Sequence Detected|
 |942450|SQL Hex Encoding Identified|
 |942251|Detects HAVING injections|

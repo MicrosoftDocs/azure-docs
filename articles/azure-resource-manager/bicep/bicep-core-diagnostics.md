@@ -7,7 +7,7 @@ ms.custom:
   - devx-track-bicep
   - devx-track-arm-template
   - build-2025
-ms.date: 06/19/2025
+ms.date: 07/16/2025
 ---
 
 # Bicep core diagnostics
@@ -152,7 +152,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP141' />BCP141 | Error | The expression can't be used as a decorator as it isn't callable. |
 | <a id='BCP142' />BCP142 | Error | Property value for-expressions can't be nested. |
 | <a id='BCP143' />BCP143 | Error | For-expressions can't be used with properties whose names are also expressions. |
-| <a id='BCP144' />BCP144 | Error | Directly referencing a resource or module collection isn't currently supported here. Apply an array indexer to the expression. |
+| <a id='BCP144' />[BCP144](./diagnostics/bcp144.md) | Error | Directly referencing a resource or module collection isn't currently supported here. Apply an array indexer to the expression. |
 | <a id='BCP145' />BCP145 | Error | Output `{identifier}` is declared multiple times. Remove or rename the duplicates. |
 | <a id='BCP147' />[BCP147](./diagnostics/bcp147.md) | Error | Expected a parameter declaration after the decorator. |
 | <a id='BCP148' />BCP148 | Error | Expected a variable declaration after the decorator. |
@@ -306,7 +306,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP315' />BCP315 | Error | An object type may have at most one additional properties declaration. |
 | <a id='BCP316' />BCP316 | Error | The `{LanguageConstants.ParameterSealedPropertyName}` decorator may not be used on object types with an explicit additional properties type declaration. |
 | <a id='BCP317' />BCP317 | Error | Expected an identifier, a string, or an asterisk at this location. |
-| <a id='BCP318' />BCP318 | Warning | The value of type `{possiblyNullType}` may be null at the start of the deployment, which would cause this access expression (and the overall deployment with it) to fail. If you don't know whether the value will be null and the template would handle a null value for the overall expression, use a `.?` (safe dereference) operator to short-circuit the access expression if the base expression's value is null: `{accessExpression.AsSafeAccess().ToString()}`. If you know the value won't be null, use a non-null assertion operator to inform the compiler that the value won't be null: `{SyntaxFactory.AsNonNullable(expression).ToString()}`. |
+| <a id='BCP318' />[BCP318](./diagnostics/bcp318.md) | Warning | The value of type `<possible-null-type>` may be null at the start of the deployment, which would cause this access expression (and the overall deployment with it) to fail.  |
 | <a id='BCP319' />BCP319 | Error | The type at `{errorSource}` couldn't be resolved by the ARM JSON template engine. Original error message: `{message}` |
 | <a id='BCP320' />BCP320 | Error | The properties of module output resources can't be accessed directly. To use the properties of this resource, pass it as a resource-typed parameter to another module and access the parameter's properties therein. |
 | <a id='BCP321' />BCP321 | Warning | Expected a value of type `{expectedType}`, but the provided value is of type `{actualType}`. If you know the value won't be null, use a non-null assertion operator to inform the compiler that the value won't be null: `{SyntaxFactory.AsNonNullable(expression).ToString()}`. |

@@ -1,10 +1,10 @@
 ---
-title: Improve SMB Azure file share performance
+title: Improve SMB Azure File Share Performance
 description: Learn about ways to improve performance and throughput for SSD (premium) SMB Azure file shares, including SMB Multichannel and metadata caching.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 06/19/2025
+ms.date: 07/21/2025
 ms.author: kendownie
 ms.custom:
   - build-2025
@@ -34,23 +34,23 @@ This article explains how you can improve performance for SSD (premium) SMB Azur
 
 The following tips might help you optimize performance:
 
-- Ensure that your storage account and your client are co-located in the same Azure region to reduce network latency.
-- Use multi-threaded applications and spread load across multiple files.
-- Performance benefits of SMB Multichannel increase with the number of files distributing load.
-- SSD share performance is bound by provisioned share size, including IOPS and throughput and single file limits. For details, see [understanding the provisioning v1 model](understanding-billing.md#provisioned-v1-model).
-- Maximum performance of a single VM client is still bound to VM limits. For example, [Standard_D32s_v3](/azure/virtual-machines/dv3-dsv3-series) can support a maximum bandwidth of approximately 1.86 GiB / sec, egress from the VM (writes to storage) is metered. Ingress (reads from storage) is not. File share performance is subject to machine network limits, CPUs, internal storage available network bandwidth, IO sizes, parallelism, and other factors.
+- Ensure that your storage account and your client are in the same Azure region to reduce network latency.
+- Use multi-threaded applications and spread the load across multiple files.
+- Performance benefits of SMB Multichannel increase with the number of files distributing the load.
+- SSD share performance is bound by provisioned share size, including IOPS and throughput, and single file limits. For details, see [understanding the provisioning v1 model](understanding-billing.md#provisioned-v1-model).
+- Maximum performance of a single VM client is still bound to VM limits. For example, [Standard_D32s_v3](/azure/virtual-machines/dv3-dsv3-series) supports a maximum bandwidth of approximately 1.86 GiB/sec. Egress from the VM (writes to storage) is metered, but ingress (reads from storage) isn't. File share performance is subject to machine network limits, CPUs, internal storage available network bandwidth, IO sizes, parallelism, and other factors.
 - The initial test is usually a warm-up. Discard the results and repeat the test.
-- If performance is limited by a single client and workload is still below provisioned share limits, you can achieve higher performance by spreading load over multiple clients.
+- If performance is limited by a single client and workload is still below provisioned share limits, you can achieve higher performance by spreading the load over multiple clients.
 
 ### The relationship between IOPS, throughput, and I/O sizes
 
 **Throughput = IO size * IOPS**
 
-Higher I/O sizes drive higher throughput and will have higher latencies, resulting in a lower number of net IOPS. Smaller I/O sizes drive higher IOPS, but will result in lower net throughput and latencies. To learn more, see [Understand Azure Files performance](understand-performance.md).
+Higher I/O sizes drive higher throughput and have higher latencies, resulting in a lower number of net IOPS. Smaller I/O sizes drive higher IOPS but result in lower net throughput and latencies. To learn more, see [Understand Azure Files performance](understand-performance.md).
 
 ## SMB Multichannel
 
-SMB Multichannel enables an SMB client to establish multiple network connections to an SMB file share. Azure Files supports SMB Multichannel on SSD file shares for Windows clients. On the service side, SMB Multichannel is now enabled by default for all newly created storage accounts in all Azure regions. There's no other cost for enabling SMB Multichannel.
+SMB Multichannel enables an SMB client to establish multiple network connections to an SMB file share. Azure Files supports SMB Multichannel on SSD file shares for Windows clients. On the service side, SMB Multichannel is now enabled by default for all newly created storage accounts in all Azure regions. There's no extra cost for enabling SMB Multichannel.
 
 ### Benefits
 
@@ -67,7 +67,7 @@ SMB Multichannel enables clients to use multiple network connections that provid
 - **Cost optimization**:
     Workloads can achieve higher scale from a single VM, or a small set of VMs, while connecting to SSD file shares. This could reduce the total cost of ownership by reducing the number of VMs necessary to run and manage a workload.
 
-To learn more about SMB Multichannel, refer to the [Windows documentation](/azure-stack/hci/manage/manage-smb-multichannel).
+For more information about SMB Multichannel, see the [Windows documentation](/azure-stack/hci/manage/manage-smb-multichannel).
 
 This feature provides greater performance benefits to multi-threaded applications but typically doesn't help single-threaded applications. See the [Performance comparison](#performance-comparison) section for more details.
 
@@ -77,7 +77,7 @@ SMB Multichannel for Azure file shares currently has the following restrictions:
 
 - Only available for SSD file shares. Not available for HDD Azure file shares.
 - Only supported on clients that are using SMB 3.1.1. Ensure SMB client operating systems are patched to recommended levels.
-- Maximum number of channels is four, for details see [here](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/files/toc.json#cause-4-number-of-smb-channels-exceeds-four).
+- Maximum number of channels is four. For details, see [here](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/files/toc.json#cause-4-number-of-smb-channels-exceeds-four).
 
 ### Configuration
 
@@ -93,7 +93,7 @@ If SMB Multichannel isn't enabled on your Azure storage account, see [SMB Multic
 
 ### Disable SMB Multichannel
 
-In most scenarios, particularly multi-threaded workloads, clients should see improved performance with SMB Multichannel. However, for some specific scenarios such as single-threaded workloads or for testing purposes, you might want to disable SMB Multichannel. See [Performance comparison](#performance-comparison) and [SMB Multichannel status](files-smb-protocol.md#smb-multichannel) for more details.
+In most scenarios, particularly multi-threaded workloads, clients see improved performance with SMB Multichannel. However, for some specific scenarios such as single-threaded workloads or for testing purposes, you might want to disable SMB Multichannel. See [Performance comparison](#performance-comparison) and [SMB Multichannel status](files-smb-protocol.md#smb-multichannel) for more details.
 
 ### Verify SMB Multichannel is configured correctly
 
@@ -113,9 +113,9 @@ There are two categories of read/write workload patterns: single-threaded and mu
 - **Multi-threaded/multiple files**:
     Depending on the workload pattern, you should see significant performance improvement in read and write I/Os over multiple channels. The performance gains vary from anywhere between 2x to 4x in terms of IOPS, throughput, and latency. For this category, SMB Multichannel should be enabled for the best performance.
 - **Multi-threaded/single file**:
-    For most use cases in this category, workloads benefit from having SMB Multichannel enabled, especially if the workload has an average I/O size > ~16k. A few example scenarios that benefit from SMB Multichannel are backup or recovery of a single large file. An exception where you might want to disable SMB Multichannel is if your workload is heavy on small I/Os. In that case, you might observe a slight performance loss of ~10%. Depending on the use case, consider spreading load across multiple files, or disable the feature. See the [Configuration](#configuration) section for details.
+    For most use cases in this category, workloads benefit from having SMB Multichannel enabled, especially if the workload has an average I/O size greater than 16 KiB. A few example scenarios that benefit from SMB Multichannel are backup or recovery of a single large file. An exception where you might want to disable SMB Multichannel is if your workload is heavy on small I/Os. In that case, you might observe a slight performance loss of 10%. Depending on the use case, consider spreading load across multiple files, or disable the feature. See the [Configuration](#configuration) section for details.
 - **Single-threaded/multiple files or single file**:
-    For most single-threaded workloads, there are minimum performance benefits due to lack of parallelism. Usually there is a slight performance degradation of ~10% if SMB Multichannel is enabled. In this case, it's ideal to disable SMB Multichannel, with one exception. If the single-threaded workload can distribute load across multiple files and uses on an average larger I/O size (> ~16k), then there should be slight performance benefits from SMB Multichannel.
+    For most single-threaded workloads, there are minimum performance benefits due to lack of parallelism. Usually there is a slight performance degradation of 10% if SMB Multichannel is enabled. In this case, it's ideal to disable SMB Multichannel, with one exception. If the single-threaded workload can distribute load across multiple files and uses on an average larger I/O size (greater than 16 KiB), then there should be slight performance benefits from SMB Multichannel.
 
 ### Performance test configuration
 
@@ -131,7 +131,7 @@ Load was generated against 10 files with various IO sizes. The scale up test res
 
 - On a single NIC, for reads, performance increase of 2x-3x was observed and for writes, gains of 3x-4x in terms of both IOPS and throughput.
 - SMB Multichannel allowed IOPS and throughput to reach VM limits even with a single NIC and the four channel limit.
-- Since egress (or reads to storage) is not metered, read throughput was able to exceed the VM published limit of approximately 1.86 GiB / sec. The test achieved >2.7 GiB / sec. Ingress (or writes to storage) are still subject to VM limits.
+- Because egress (or reads to storage) isn't metered, read throughput was able to exceed the VM published limit of approximately 1.86 GiB / sec. The test achieved greater than 2.7 GiB / sec. Ingress (or writes to storage) are still subject to VM limits.
 - Spreading load over multiple files allowed for substantial improvements.
 
 An example command used in this testing is: 
@@ -146,15 +146,15 @@ The load was generated against a single 128 GiB file. With SMB Multichannel enab
 
 :::image type="content" source="media/smb-performance/diagram-smb-multi-channel-single-file-compared-to-single-channel-throughput-performance.png" alt-text="Diagram of single file throughput performance." lightbox="media/smb-performance/diagram-smb-multi-channel-single-file-compared-to-single-channel-throughput-performance.png":::
 
-- On a single NIC with larger average I/O size (> ~16k), there were significant improvements in both reads and writes.
-- For smaller I/O sizes, there was a slight impact of ~10% on performance with SMB Multichannel enabled. This could be mitigated by spreading the load over multiple files, or disabling the feature.
+- On a single NIC with larger average I/O size (greater than 16 KiB), there were significant improvements in both reads and writes.
+- For smaller I/O sizes, there was a slight impact of approximately 10% on performance with SMB Multichannel enabled. This could be mitigated by spreading the load over multiple files, or disabling the feature.
 - Performance is still bound by [single file limits](storage-files-scale-targets.md#file-scale-targets).
 
 ## Metadata caching for SSD file shares
 
-Metadata caching is an enhancement for SSD Azure file shares aimed to improve the following:
+Metadata caching is an enhancement for SSD Azure file shares that reduces metadata latency and raises metadata scale limits. The feature increases latency consistency and available IOPS, and it boosts network throughput.
 
-- Reduce metadata latency
+This feature improves the performance of the following metadata APIs. Both Windows and Linux clients can use it:
 - Raised metadata scale limits
 - Increase latency consistency, available IOPS, and boost network throughput
 
@@ -165,7 +165,7 @@ This feature improves the following metadata APIs and can be used from both Wind
 - Close
 - Delete
 
-Currently this feature is only available for SSD file shares. There are no extra costs associated with using this feature. You can also [register to increase file handle limits for SSD file shares (preview)](#register-for-increased-file-handle-limits-preview).
+Currently, the feature is only available for SSD file shares. There are no extra costs associated with using this feature. You can also [register to increase file handle limits for SSD file shares (preview)](#register-for-increased-file-handle-limits-preview).
 
 ### Register for the metadata caching feature
 
@@ -174,9 +174,9 @@ To get started, register for the feature using the Azure portal or Azure PowerSh
 # [Azure portal](#tab/portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true).
-2. Search for and select **Preview features**.
-3. Select the **Type** filter and select **Microsoft.Storage**.
-4. Select **Azure Premium Files Metadata Cache** and then select **Register**.
+1. Search for and select **Preview features**.
+1. Select the **Type** filter and select **Microsoft.Storage**.
+1. Select **Azure Premium Files Metadata Cache** and then select **Register**.
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -230,9 +230,9 @@ To increase the maximum number of concurrent handles per file and directory for 
 # [Azure portal](#tab/portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true).
-2. Search for and select **Preview features**.
-3. Select the **Type** filter and select **Microsoft.Storage**.
-4. Select **Azure Premium Files Increased Maximum Opened Handles Count** and then select **Register**.
+1. Search for and select **Preview features**.
+1. Select the **Type** filter and select **Microsoft.Storage**.
+1. Select **Azure Premium Files Increased Maximum Opened Handles Count** and then select **Register**.
 
 # [Azure PowerShell](#tab/powershell)
 

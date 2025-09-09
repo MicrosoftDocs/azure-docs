@@ -5,9 +5,9 @@ metadata:
   ms.reviewer: srinathv
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 06/27/2025
-  author: jyothisuri
-  ms.author: jsuri
+  ms.date: 07/17/2025
+  author: AbhishekMallick-MS
+  ms.author: v-mallicka
 
 title: Azure Backup Server and DPM - FAQ
 summary: |
@@ -98,3 +98,8 @@ additionalContent: |
 
   - [Learn more](backup-support-matrix-mabs-dpm.md) about Azure Backup Server and DPM support matrix.
   - [Learn more](backup-azure-mabs-troubleshoot.md) about the Azure Backup Server and DPM troubleshooting guidelines.
+
+  ## Related content
+
+  - [Back up a SharePoint farm on Azure Stack](backup-mabs-sharepoint-azure-stack.md).
+  - [Back up SQL Server on Azure Stack](backup-mabs-sql-azure-stack.md).

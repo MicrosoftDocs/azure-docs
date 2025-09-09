@@ -2,8 +2,8 @@
 title: Tutorial - Perform image classification at the edge with Custom Vision Service
 description: Build and deploy an image classifier with Azure IoT Edge and Custom Vision to process data locally on edge devices.
 services: iot-edge
-author: PatAltimore
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.date: 05/06/2025
 ms.topic: tutorial
 

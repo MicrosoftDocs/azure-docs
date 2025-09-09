@@ -8,6 +8,7 @@ ms.date: 10/19/2022
 author: sagarkeswani
 ms.author: sagarkeswani
 #Customer intent: As a developer, I want to set up monitoring for my Virtual Instance for SAP solutions, so that I can monitor the health and status of my SAP system in Azure Center for SAP solutions.
+# Customer intent: "As a systems administrator, I want to monitor the health and status of my SAP system from the Azure portal, so that I can ensure optimal performance and quickly address any issues that arise."
 ---
 
 # Monitor SAP system from Azure portal 

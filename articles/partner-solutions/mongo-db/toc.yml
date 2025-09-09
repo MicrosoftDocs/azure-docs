@@ -18,7 +18,23 @@ items:
   items:
   - name: Manage a resource
     href: manage.md
+  - name: Troubleshoot a resource
+    href: /troubleshoot/azure/partner-solutions/marketplace-purchases-errors
   - name: Get support
     href: https://www.mongodb.com/company/contact
-  - name: Troubleshoot
-    href: troubleshoot.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/mongo-db
+  - name: Azure PowerShell
+    href: /powershell/module/az.mongodb
+  - name: .NET
+    href: /dotnet/api/overview/azure/resourcemanager.mongodbatlas-readme
+  - name: Java
+    href: /java/api/overview/azure/resourcemanager-mongodbatlas-readme
+  - name: Javascript
+    href: /javascript/api/overview/azure/arm-mongodbatlas-readme
+  - name: Python
+    href: /python/api/overview/azure/mgmt-mongodbatlas-readme
+  - name: Go
+    href: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/mongodbatlas/armmongodbatlas

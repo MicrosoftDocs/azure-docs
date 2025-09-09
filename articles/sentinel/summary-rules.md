@@ -1,10 +1,10 @@
 ---
-title: Aggregate Microsoft Sentinel data with summary rules (Preview)
+title: Aggregate Microsoft Sentinel data with summary rules
 description: Learn how to aggregate large sets of Microsoft Sentinel data across log tiers with summary rules.
 author: guywi-ms
 ms.author: guywild
 ms.topic: how-to #Don't change
-ms.date: 05/25/2025
+ms.date: 07/01/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -14,9 +14,10 @@ ms.collection: usx-security
 
 ---
 
-# Aggregate Microsoft Sentinel data with summary rules (Preview)
+# Aggregate Microsoft Sentinel data with summary rules
 
-Use prebuilt or custom [summary rules](/azure/azure-monitor/logs/summary-rules) in Microsoft Sentinel to aggregate insights at a regular cadence from large sets of data in any log tier, including the [auxiliary log tier](billing.md#auxiliary-logs). Working with summarized data enhances query performance and helps optimize your data for:
+
+Use [summary rules](/azure/azure-monitor/logs/summary-rules) in Microsoft Sentinel to aggregate large sets of data in the background for a smoother security operations experience across all log tiers. Summary data is precompiled in custom log tables and provide fast query performance, including queries run on data derived from [low-cost log tiers](billing.md#data-lake-tier). Summary rules can help optimize your data for:
 
 - **Analysis and reports**, especially over large data sets and time ranges, as required for security and incident analysis, month-over-month or annual business reports, and so on. 
 - **Cost savings** on verbose logs, which you can retain for as little or as long as you need in a less expensive log tier, and send as summarized data only to an Analytics table for analysis and reports.
@@ -27,10 +28,7 @@ Microsoft Sentinel stores summary rule results in custom tables with the **Analy
 This article explains how to create summary rules or deploy pre-built summary rule templates in Microsoft Sentinel, and provides examples of common scenarios for using summary rules.
 
 > [!IMPORTANT]
-> Summary rules are currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 > [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
->
 
 ## Prerequisites
 
@@ -50,9 +48,9 @@ Create a new summary rule to aggregate a specific large set of data into a dynam
 
 1. Open the Summary rule wizard: 
 
-    - In the Defender portal, select **Microsoft Sentinel > Configuration > Summary rules (Preview)**. 
-    
-    - In the Azure portal, from the Microsoft Sentinel navigation menu, under **Configuration**, select **Summary rules (Preview)**. For example:
+    - In the Defender portal, select **Microsoft Sentinel > Configuration > Summary rules**.
+
+    - In the Azure portal, from the Microsoft Sentinel navigation menu, under **Configuration**, select **Summary rules**. For example:
 
         :::image type="content" source="media/summary-rules/summary-rules-azure.png" alt-text="Screenshot of the Summary rules page in the Azure portal." lightbox="media/summary-rules/summary-rules-azure.png":::
 
@@ -100,7 +98,7 @@ Create a new summary rule to aggregate a specific large set of data into a dynam
 
 1. Select **Next: Review + create >** > **Save** to complete the summary rule.
 
-Existing summary rules are listed on the **Summary rules (Preview)** page, where you can review your rule status. For each rule, select the options menu at the end of the row to take any of the following actions:
+Existing summary rules are listed on the **Summary rules** page, where you can review your rule status. For each rule, select the options menu at the end of the row to take any of the following actions:
 
 - View the rule's current data in the **Logs** page, as if you were to run the query immediately
 - View the run history for the selected rule
@@ -143,7 +141,7 @@ To deploy a summary rule template:
 
 ## Sample summary rule scenarios in Microsoft Sentinel
 
-This section reviews common scenarios for creating summary rules in Microsoft Sentinel, and our recommendations for how to configure each rule. For more information and examples, see [Summarize insights from raw data in an Auxiliary table to an Analytics table in Microsoft Sentinel (Preview)](./summary-rules-tutorial.md) and [Log sources to use for Auxiliary Logs ingestion](basic-logs-use-cases.md).
+This section reviews common scenarios for creating summary rules in Microsoft Sentinel, and our recommendations for how to configure each rule. For more information and examples, see [Summarize insights from raw data in an Auxiliary table to an Analytics table in Microsoft Sentinel](./summary-rules-tutorial.md) and [Log sources to use for Auxiliary Logs ingestion](basic-logs-use-cases.md).
 
 ### Quickly find a malicious IP address in your network traffic
 

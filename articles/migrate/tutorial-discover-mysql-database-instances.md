@@ -58,16 +58,22 @@ The following table lists the regions that support MySQL Discovery and Assessmen
    > - Ensure that the user corresponding to the added MySQL credentials have the following privileges: 
    >    - Select permission on information_schema tables.
    >    - Select permission on mysql.users table.
+   > - For MySQL discovery, ensure the appliance's IP or domain is allowed by configuring the necessary firewall rules and MySQL user privileges. The bind-address in my.cnf should also be set to allow external connections if needed.
    
    > - Use the following commands to grant the necessary privileges to the MySQL user
    > ```
-   >  GRANT USAGE ON *.* TO 'newuser'@'localhost';
-   >  GRANT PROCESS ON *.* TO 'newuser'@'localhost';
-   >  GRANT SELECT (User, Host, Super_priv, File_priv, Create_tablespace_priv, Shutdown_priv) ON mysql.user TO 'newuser'@'localhost';
-   >  FLUSH PRIVILEGES; 
+   >  GRANT USAGE ON *.* TO 'username'@'ip';
+   >  GRANT PROCESS ON *.* TO 'username'@'ip';
+   >  GRANT SELECT (User, Host, Super_priv, File_priv, Create_tablespace_priv, Shutdown_priv) ON mysql.user TO 'username'@'ip';
+   >  GRANT SELECT ON information_schema.* TO 'username'@'ip';
+   >  GRANT SELECT ON performance_schema.* TO 'username'@'ip';  
 
+You can review the discovered MySQL databases after around 24 hours of discovery initiation, through the **Discovered servers** view. To expedite the discovery of your MySQL instances follow the steps:
 
-You can review the discovered MySQL databases after around 24 hours of discovery initiation, through the **Discovered servers** view.
+- After adding the MySQL credentials on the appliance configuration manager restart the discovery services on appliance.
+- In your Azure Migrate project navigate to Servers, databases and Web apps blade. On this tab locate Appliances in the right side of Assessment tools section.
+- Select the number projected against total. This will take you to the Appliances blade. Select the appliance where the credentials were added.
+- Select the Refresh services link available at the bottom of the appliance screen. This will restart all the services and MySQL instances will start appearing in the inventory after the refresh. 
 
 1. On the **Azure Migrate: Discovery and assessment** tile on the Hub page, select the number below the **Discovered servers**.
 

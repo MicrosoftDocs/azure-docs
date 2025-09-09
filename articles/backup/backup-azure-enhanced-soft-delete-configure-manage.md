@@ -4,8 +4,8 @@ description: This article describes about how to configure and manage enhanced s
 ms.topic: how-to
 ms.date: 05/26/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a backup administrator, I want to configure enhanced soft delete for my backup vault, so that I can protect my backup data from accidental deletion and ensure its recoverability over a specified retention period.
 ---
 

@@ -5,11 +5,14 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: sample
-ms.date: 03/14/2025
-ms.custom: template-concept
+ms.date: 07/16/2025
+ms.custom:
+  - references_regions
 ---
 
 # Automate virtual network IP Address Management with Azure IPAM Pools
+
+[!INCLUDE [virtual-network-manager-ipam](../../includes/virtual-network-manager-ipam.md)]
 
 IPAM Pools in Azure Virtual Network Manager allow you to manage IP address spaces for your virtual networks. This feature helps you avoid overlapping address spaces and ensures that your VNets are created with the correct IP address ranges.
 

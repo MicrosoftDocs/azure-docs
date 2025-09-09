@@ -81,7 +81,7 @@ Azure has a growing ecosystem of partners offering their network appliances for 
 
 **Ali Bidabadi - Senior Director, Global Cloud Consulting & Architecture**
 
-[Learn more](https://fusecommunity.fortinet.com/blogs/daniel1/2021/10/19/deploy-fortigate-with-azure-gateway)
+[Learn more](https://www.fortinet.com/content/dam/fortinet/assets/solutions/azure/QSG-FortiWeb-for-Microsoft-Azure-Quick-Start-Guide.pdf)
 
 ### Glasnostic
 

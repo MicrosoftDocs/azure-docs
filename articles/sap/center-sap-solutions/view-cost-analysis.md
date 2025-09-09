@@ -8,6 +8,7 @@ ms.date: 10/19/2022
 ms.author: kanamudu
 author: kalyaninamuduri
 #Customer intent: As an SAP Basis Admin, I want to understand the cost incurred for running SAP systems on Azure.
+# Customer intent: As an SAP Basis Admin, I want to view the post-deployment costs of my SAP systems in Azure, so that I can effectively manage and optimize my cloud expenses.
 ---
 
 # View post-deployment cost analysis for SAP system

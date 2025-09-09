@@ -19,6 +19,15 @@ This article summarizes support settings and limitations for migrating VMware vS
 > [!CAUTION]
 > This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
+
+> [!CAUTION]
+> This article references Windows Server versions that have reached End of Support (EOS).Microsoft has officially ended support for the following operating systems:
+> - Windows Server 2003
+> - Windows Server 2008 (including SP2 and R2 SP1)
+> - Windows Server 2012
+> - Windows Server 2012 R2
+As a result, Azure Migrate doesn’t guarantee consistent or reliable outcomes for these OS versions. Customers may face problems and are strongly advised to upgrade to a supported Windows Server version before starting migration.
+
 ## Migration options
 
 You can migrate VMware vSphere VMs in a couple of ways:

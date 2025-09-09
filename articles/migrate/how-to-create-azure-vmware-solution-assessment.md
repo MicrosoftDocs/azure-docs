@@ -13,7 +13,7 @@ ms.date: 11/07/2024
 
 This article describes how to create an Azure VMware Solution assessment for on-premises VMs in a VMware vSphere environment with Azure Migrate: Discovery and assessment.
 
-[Azure Migrate](migrate-services-overview.md) helps you to migrate to Azure. Azure Migrate provides a centralized hub to track discovery, assessment, and migration of on-premises infrastructure, applications, and data to Azure. The hub provides Azure tools for assessment and migration, as well as Partner independent software vendor (ISV) offerings.
+[Azure Migrate](migrate-services-overview.md) helps you to migrate to Azure. Azure Migrate provides a centralized hub to track discovery, assessment, and migration of on-premises infrastructure, applications, and data to Azure. The hub offers Azure Migrate tools for assessment and migration, along with partner independent software vendor (ISV) offerings.
 
 ## Before you start
 
@@ -51,7 +51,7 @@ There are two types of sizing criteria that you can use to create Azure VMware S
 
 1. In **Azure Migrate: Discovery and assessment**, select **Assess**.
 
-1. In **Assess servers** > **Assessment type**, select **Azure VMware Solution (AVS)**.
+1. In **Assess**, select **Azure VMware Solution (AVS)**.
 
 1. In **Discovery source**:
 
@@ -63,19 +63,29 @@ There are two types of sizing criteria that you can use to create Azure VMware S
     :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-servers.png" alt-text="Page for selecting the assessment settings":::
  
 
-1. In **Assessment properties** > **Target Properties**:
+1. In **Assessment settings** > **Target settings**:
 
+    - In **Assessment type**, specify "New SDDC" if you are creating a new SDDC. Use "AVS SDDC expansion" if you already have an AVS SDDC with hosts deployed and want to add more VMs to the existing SDDC. When assessing for expanding an SDDC, it will not consider the available capacity in the AVS SDDC but will consider the capacity requirements for management appliances.
     - In **Target location**, specify the Azure region to which you want to migrate.
        - Size and cost recommendations are based on the location that you specify.
-    - The **Storage type** is defaulted to **vSAN** and **Azure NetApp Files (ANF) - Standard**, **ANF - Premium**, and **ANF - Ultra** tiers. ANF is an external storage type in AVS that will be used when storage is the limiting factor considering the configuration/performance of the incoming VMs. When performance metrics are provided using the Azure Migrate appliance or the CSV, the assessment selects the tier that satisfies the performance requirements of the incoming VMs’ disks. If the assessment is performed using a RVTools file or without providing performance metrics like throughput and IOPS, **ANF - Standard** tier is used for assessment by default. 
+    - The **Storage type** is defaulted to **vSAN** and **Azure NetApp Files (ANF) - Standard**, **ANF - Premium**, and **ANF - Ultra** tiers. ANF is an external storage type in AVS that will be used when storage is the limiting factor considering the configuration/performance of the incoming VMs. **Elastic SAN** can be selected if assessment needs to be performed using vSAN & elastic SAN as the storage datastores. When performance metrics are provided (IOPS and throughput) in settings or via the imported CSV file, the assessment selects the tier that satisfies the performance requirements of the incoming VMs’ disks. If the assessment is performed using the Azure Migrate appliance or an RVTools file or without providing performance metrics like throughput and IOPS, **ANF - Standard** tier is used for assessment by default.
    - In **Reserved Instances**, specify whether you want to use reserve instances for Azure VMware Solution nodes when you migrate your VMs.
     - If you select to use a reserved instance, you can't specify '**Discount (%)**. [Learn more](../azure-vmware/reserved-instance.md).
-1. In **VM Size**:
-    - The **Node type** is defaulted to **AV36**. Azure Migrate recommends the number of nodes needed to migrate the servers to Azure VMware Solution.
-    - In **FTT setting, RAID level**, select the Failure to Tolerate and RAID combination. The selected FTT option, combined with the on-premises server disk requirement, determines the total vSAN storage required in AVS.
-    - In **CPU Oversubscription**, specify the ratio of virtual cores associated with one physical core in the AVS node. Oversubscription of greater than 4:1 might cause performance degradation, but can be used for web server type workloads.
-    - In **Memory overcommit factor**, specify the ratio of memory over commit on the cluster. A value of 1 represents 100% memory use, 0.5, for example, is 50%, and 2 would be using 200% of available memory. You can only add values from 0.5 to 10 up to one decimal place.
+
+1. In **Storage Settings**:
+    - In **FTT setting, RAID level**, select the Failure to Tolerate and RAID combination. **FTT 1, RAID 1 & FTT 2, RAID 6** are selected by default. The selected FTT option, combined with the on-premises server disk requirement, determines the total vSAN storage required in AVS.
     - In **Dedupe and compression factor**, specify the anticipated deduplication and compression factor for your workloads. Actual value can be obtained from on-premises vSAN or storage config and this might vary by workload. A value of 3 would mean 3x so for 300 GB disk only 100 GB storage would be used. A value of 1 would mean no dedupe or compression. You can only add values from 1 to 10 up to one decimal place.
+    - In **IOPS per GiB**, select the expected average read and write speed per gibibyte of the external storage device. This, along with the disk capacity requirement, helps Azure Migrate determine the external storage capacity needs.
+    - In **Throughput per GiB**, select the expected average amount of data transfer speed per gibibyte of the storage device. This, along with the disk capacity requirement would help Azure Migrate determine the external storage capacity requirements.
+1. In **Elastic SAN Settings**:
+    - The **Networking ingress/egress cost** is used to determine the networking cost of attaching the elastic SAN datastore to the AVS SDDC. It's defaulted to **11%**.
+1. In **CPU Settings**:
+    - In **CPU Oversubscription**, specify the ratio of virtual cores associated with one physical core in the AVS node. Oversubscription of greater than 4:1 might cause performance degradation, but can be used for web server type workloads.
+    - In **CPU headroom**, specify the CPU headroom you want to reserve for planned & unplanned management operations.
+1. In **VM Size**:
+    - The **Node type** is defaulted to use **AV36, AV36P, AV52 & AV64**. Azure Migrate attempts to get the minimum number of nodes needed to migrate the servers to Azure VMware Solution.
+    - In **Memory overcommit factor**, specify the ratio of memory over commit on the cluster. A value of 1 represents 100% memory use, 0.5, for example, is 50%, and 2 would be using 200% of available memory. You can only add values from 0.5 to 10 up to one decimal place.
+    - In **Memory overcommit factor**, specify the ratio of memory over commit on the cluster. A value of 1 represents 100% memory use, 0.5, for example, is 50%, and 2 would be using 200% of available memory. You can only add values from 0.5 to 10 up to one decimal place.
 1. In **Node Size**: 
     - In **Sizing criterion**, select if you want to base the assessment on static metadata, or on performance-based data. If you use performance data:
         - In **Performance history**, indicate the data duration on which you want to base the assessment
@@ -94,7 +104,7 @@ There are two types of sizing criteria that you can use to create Azure VMware S
 
 1. Select **Save** if you make changes.
 
-    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-view-all-inline.png" alt-text="Assessment properties" lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/avs-view-all-expanded.png":::
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-edit-assessment-settings-with-storage-dropdown.png" alt-text="Assessment properties" lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/avs-edit-assessment-settings-with-storage-dropdown.png":::
 
 1. In **Assess Servers**, select **Next**.
 

@@ -10,6 +10,7 @@ ms.topic: article
 ms.date: 12/19/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
+# Customer intent: As an SAP administrator, I want to configure storage for SAP HANA on Azure using Premium SSD v2, so that I can ensure optimal performance and cost-effectiveness for my workload while accommodating varying storage needs.
 ---
 
 # SAP HANA Azure virtual machine Premium SSD v2 storage configurations

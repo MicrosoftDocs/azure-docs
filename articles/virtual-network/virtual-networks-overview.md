@@ -1,20 +1,18 @@
 ---
 title: What is Azure Virtual Network?
-description: Learn about Azure Virtual Network concepts and features, including address space, subnets, regions, and subscriptions. 
+description: Discover how Azure Virtual Network enables secure communication between cloud resources, on-premises networks, and the internet. Learn key concepts, features, and implementation strategies for your Azure infrastructure.
 author: asudbring
 # Customer intent: As someone with a basic network background who is new to Azure, I want to understand the capabilities of Azure Virtual Network so that my Azure resources can securely communicate with each other, the internet, and my on-premises resources.
 ms.service: azure-virtual-network
 ms.topic: overview
-ms.date: 03/31/2025
+ms.date: 07/17/2025
 ms.author: allensu
 ms.custom: ai-video-concept
 ---
 
 # What is Azure Virtual Network?
 
-Azure Virtual Network is a service that provides the fundamental building block for your private network in Azure. An instance of the service (a virtual network) enables many types of Azure resources to securely communicate with each other, the internet, and on-premises networks. These Azure resources include virtual machines (VMs).
-
-A virtual network is similar to a traditional network that you'd operate in your own datacenter. But it brings extra benefits of the Azure infrastructure, such as scale, availability, and isolation.
+Azure Virtual Network provides the fundamental building block for your private network in Azure. This service enables Azure resources like virtual machines (VMs) to securely communicate with each other, the internet, and on-premises networks. Virtual networks deliver the scale, availability, and isolation benefits of Azure infrastructure while maintaining the familiar networking concepts you use in traditional datacenters.
 
 > [!VIDEO https://learn-video.azurefd.net/vod/player?id=6b5b138e-8406-406e-8b34-40bdadf9fc6d]
 

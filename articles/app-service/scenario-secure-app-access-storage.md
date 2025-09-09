@@ -12,7 +12,6 @@ ms.reviewer: stsoneff
 ms.devlang: csharp
 # ms.devlang: csharp, azurecli
 ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, devx-track-dotnet, AppServiceIdentity
-ms.subservice: web-apps
 #Customer intent: As an application developer, I want to learn how to access Azure Storage for an app by using managed identities.
 ---
 

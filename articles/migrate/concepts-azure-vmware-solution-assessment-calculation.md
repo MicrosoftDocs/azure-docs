@@ -10,7 +10,7 @@ ms.custom: engagement-fy25
 
 # Assessment overview (migrate to Azure VMware Solution)
 
-[Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment, and migration of your on-premises apps and workloads. It also tracks your private and public cloud instances to Azure. The hub offers Azure Migrate tools for assessment and migration, as well as partner independent software vendor (ISV) offerings.
+[Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment, and migration of your on-premises apps and workloads. It also tracks your private and public cloud instances to Azure. The hub offers Azure Migrate tools for assessment and migration, along with partner independent software vendor (ISV) offerings.
 
 Discovery and assessment tool in Azure Migrate assesses on-premises servers for migration to Azure virtual machines and Azure VMware Solution. This article provides information about how Azure VMware Solution assessments are calculated.
 
@@ -42,22 +42,21 @@ Azure VMware Solution assessment provides two sizing criteria options:
 
 There are a couple of ways to run an assessment.
 
-- Assess servers by using server metadata collected by a lightweight Azure Migrate appliance. The appliance discovers on-premises servers. It then sends server metadata and performance data to Azure Migrate. This allows for more precision.
+- Assess servers by using server metadata that's imported in an RVTools XLSX file.
 - Assess servers by using server metadata that's imported in a comma-separated values (CSV) format.
+- Assess servers by using server metadata collected by a lightweight Azure Migrate appliance. The appliance discovers on-premises servers and sends the metadata and performance data to Azure Migrate, allowing for more precision.
 
-## How do I assess with the appliance?
 
-If you're deploying an Azure Migrate appliance to discover on-premises servers, do the following steps:
+## How do I assess with data imported using an RVTools file?
 
-1. Set up Azure and your on-premises environment to work with Azure Migrate.
-2. Create an Azure project and add the Discovery and assessment tool to it if you're creating your first assessment.
-3. Deploy a lightweight Azure Migrate appliance. The appliance continuously discovers on-premises vSphere servers and sends server metadata and performance data to Azure Migrate. Deploy the appliance as a VM. You don't need to install anything on servers that you want to assess.
+If you're assessing servers by using an RVTools file, you don't need an appliance. Instead, do the following steps:
 
-After the appliance begins server discovery, you can gather servers you want to assess into a group and run an assessment for the group with assessment type **Azure VMware Solution (AVS)**.
+1. Set up Azure to work with Azure Migrate.
+2. For your first assessment, create an Azure Migrate project and add the Discovery and assessment tool to it.
+3. Import your RVTools XLSX file into Azure Migrate.
+4. Discover servers added with the import, gather them into a group, and run an assessment for the group with assessment type **Azure VMware Solution (AVS)**.
 
-Create your first Azure VMware Solution assessment by following the steps [here](how-to-create-azure-vmware-solution-assessment.md).
-
-## How do I assess with imported data?
+## How do I assess with data using a CSV file?
 
 If you're assessing servers by using a CSV file, you don't need an appliance. Instead, do the following steps:
 
@@ -65,7 +64,19 @@ If you're assessing servers by using a CSV file, you don't need an appliance. In
 2. For your first assessment, create an Azure project and add the Discovery and assessment tool to it.
 3. Download a CSV template and add server data to it.
 4. Import the template into Azure Migrate.
-5. Discover servers added with the import, gather them into a group, and run an assessment for the group with assessment type **Azure VMware Solution (AVS)**.
+5. Discover the servers added with the import, group them, and run an assessment for the group with the assessment type **Azure VMware Solution (AVS)**.
+
+## How do I assess with the appliance?
+
+To deploy an Azure Migrate appliance to discover on-premises servers, follow these steps:
+
+1. Set up Azure and your on-premises environment to work with Azure Migrate.
+2. Create an Azure project and add the Discovery and assessment tool if this is your first assessment.
+3. Deploy a lightweight Azure Migrate appliance, which continuously discovers on-premises vSphere servers and sends their metadata and performance data to Azure Migrate. Deploy the appliance as a VM; you don't need to install anything on the servers you want to assess.
+
+After the appliance begins discovering servers, you can group the servers you want to assess and run an assessment for the group with the assessment type **Azure VMware Solution (AVS)**.
+
+Follow these steps to create your first [Azure VMware Solution assessment]((how-to-create-azure-vmware-solution-assessment.md)
 
 ## What data does the appliance collect?
 
@@ -114,7 +125,7 @@ Here's what's included in an Azure VMware Solution assessment:
 **Property** | **Details**
 --- | --- 
 **Target location** | Specifies the Azure VMware Solution private cloud location to which you want to migrate.
-**Storage type** | Specifies the storage engine to be used in Azure VMware Solution. vSAN is part of all AVS SKUs' storage. Azure NetApp Files (Standard, Premium, and Ultra tiers) is used by default in the assessment if external storage can optimize the number of AVS nodes required.
+**Storage type** | Specifies the storage engine for Azure VMware Solution. vSAN is included in all AVS SKUs' storage. By default, Azure NetApp Files (Standard, Premium, and Ultra tiers) is used in the assessment if external storage can optimize the number of AVS nodes required. Alternatively, you can use Elastic SAN instead of Azure NetApp Files to assess the cost using Elastic SAN as the external storage option.
 **Reserved Instances (RIs)** | This property helps you specify Reserved Instances in Azure VMware Solution if purchased and the term of the Reserved Instance. Your cost estimates take the option chosen into account. [Learn more](../azure-vmware/reserved-instance.md) <br/><br/> If you select reserved instances, you can't specify "Discount (%)".
 **Node type** | Specifies the [Azure VMware Solution Node type](../azure-vmware/architecture-private-clouds.md) used to be used in Azure. By default, all node types available in the selected region are used for the assessment. Currently, AV64 node type can only be used along with AV36, AV36P, or AV52 and can't be used as a single node type in an SDDC. The node type available for use depends on the capacity availability of the SKU in the region.
 **FTT Setting, RAID Level** | Specifies the valid combination of Failures to Tolerate and Raid combinations. The selected FTT option combined with RAID level and the on-premises vSphere VM disk requirement will determine the total vSAN storage required in Azure VMware Solution. Total available storage after calculations also includes (a) space reserved for management objects such as vCenter Server and (b) 25% storage slack required for vSAN operations.
@@ -157,7 +168,7 @@ After a vSphere server is marked as ready for Azure VMware Solution, Azure VMwar
 - If the assessment uses *performance-based sizing*, Azure Migrate considers the performance history of the server to make the appropriate sizing recommendation for Azure VMware Solution. This method is especially helpful if you've over-allocated the on-premises vSphere VM, but utilization is low and you want to right-size the VM in Azure VMware Solution to save costs. This method helps you optimize the sizes during migration.
 
 > [!NOTE] 
->If your import serves by using a CSV file, the performance values you specify (CPU utilization, Memory utilization, Storage in use, Disk IOPS, and throughput) are used if you choose performance-based sizing. You will not be able to provide performance history and percentile information.
+>If you import servers using a CSV file, the specified performance values (CPU utilization, Memory utilization, Storage in use, Disk IOPS, and throughput) are used for performance-based sizing. However, you won't be able to provide performance history and percentile information.
 
 - If you don't want to consider the performance data for VM sizing and want to take the on-premises vSphere servers as-is to Azure VMware Solution, you can set the sizing criteria to *as on-premises*. Then, the assessment sizes the VMs based on the on-premises vSphere configuration without considering the utilization data.
 
@@ -186,13 +197,13 @@ For performance-based sizing, Azure Migrate appliance profiles the on-premises v
 
 After the effective utilization value is determined, the storage, network, and compute sizing is handled as follows.
 
-**Storage sizing**: Azure Migrate uses the total on-premises VM disk space as a calculation parameter to determine Azure VMware Solution vSAN storage requirements in addition to the customer-selected FTT setting. FTT - Failures to tolerate as well as requiring a minimum number of nodes per FTT option will determine the total vSAN storage required combined with the VM disk requirement. If your import serves by using a CSV file, storage utilization is taken into consideration when you create a performance based assessment. If you create an as-on-premises assessment, the logic only looks at allocated storage per VM.
+**Storage sizing**: Azure Migrate uses the total on-premises VM disk space and the customer-selected FTT setting to determine Azure VMware Solution vSAN storage requirements. FTT (Failures to Tolerate) and the minimum number of nodes per FTT option determine the total vSAN storage required, combined with the VM disk requirement. If you import servers using a CSV or RVTools file, storage utilization is considered when creating a performance-based assessment.
 
 **Network sizing**:  Azure VMware Solution assessments currently don't take any network settings into consideration for node sizing. While migrating to Azure VMware Solution, minimums and maximums as per VMware NSX- T Data Center standards are used.
 
 **Compute sizing**: After it calculates storage requirements (FTT Sizing Parameters), Azure VMware Solution assessment considers CPU and memory requirements to determine the number of nodes required for Azure VMware Solution based on the node type.
 
-- Based on the sizing criteria, Azure VMware Solution assessment looks at either the performance-based VM data or the on-premises vSphere VM configuration. The comfort factor setting allows for specifying growth factor of the cluster. Currently by default, hyperthreading is enabled and thus a 36 core nodes will have 72 vCores. 4 vCores per physical is used to determine CPU thresholds per cluster using the VMware standard of not exceeding 80% utilization to allow for maintenance or failures to be handled without compromising cluster availability. There's currently no override available to change the oversubscription values and we might have this in future versions.
+- Based on the sizing criteria, Azure VMware Solution assessment looks at either the performance-based VM data or the on-premises vSphere VM configuration. The comfort factor setting allows for specifying growth factor of the cluster. Currently by default, hyperthreading is enabled and thus a 36 core nodes has 72 vCores. There are provisions to adjust the CPU headroom (for planned & unplanned maintenance operations) in the assessment settings as well configuring CPU oversubscription.
 
 ### As on-premises sizing
 
@@ -223,11 +234,11 @@ Storage utilization is calculated based on the following sequence:
 5. Apply required 25% slack for vSAN
 6. Result available storage for VMs out of total storage including management overhead.
 
-The available storage on a 3 node cluster will be based on the default storage policy, which is Raid-1 and uses thick provisioning. When calculating for erasure coding or Raid-5 for example, a minimum of 4 nodes is required. Note that in Azure VMware Solution, the storage policy for customer workload can be changed by the administrator or Run Command(Currently in Preview). [Learn more](/azure/azure-vmware/configure-storage-policy).
+The available storage on a 3 node cluster will be based on the default storage policy, which is FTT-1 & RAID-1. When calculating for erasure coding or RAID-5 for example, a minimum of 4 nodes is required.
 
 ### Limiting factor
 
-The limiting factor shown in assessments could be CPU or memory or storage resources based on the utilization on nodes. It's the resource, which is limiting or determining the number of hosts/nodes required to accommodate the resources. For example, in an assessment if it was found that after migrating 8 VMware VMs to Azure VMware Solution, 50% of CPU resources will be utilized, 14% of memory is utilized and 18% of storage will be utilized on the 3 Av36 nodes and thus CPU is the limiting factor.
+The limiting factor shown in assessments could be CPU or memory or storage resources based on the utilization on nodes. It's the resource, which is limiting or determining the number of hosts/nodes required to accommodate the resources. For example, in an assessment if it was found that after migrating 8 VMware VMs to Azure VMware Solution, 50% of CPU resources will be utilized, 14% of memory is utilized and 18% of storage will be utilized on the 3 AV36 nodes and thus CPU is the limiting factor.
 
 ## Confidence ratings
 
@@ -285,7 +296,7 @@ As the pricing for Azure VMware Solution is per node, the total cost doesn't hav
 In the Azure readiness report for Azure VMware Solution assessment, you can see the following suggested tools:
 
 - **VMware HCX or Enterprise**: For VMware vSphere servers, VMware Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises vSphere workload to your Azure VMware Solution private cloud. [Learn More](../azure-vmware/install-vmware-hcx.md).
-- **Unknown**: For servers imported via a CSV file, the default migration tool is unknown. Though for VMware vSphere servers, it's recommended to use the VMware Hybrid Cloud Extension (HCX) solution.
+- **Unknown**: For servers imported using a CSV or RVTools file, the default migration tool is unknown. However, for VMware vSphere servers, it is recommended to use the VMware Hybrid Cloud Extension (HCX) solution.
 
 ## Next steps
 

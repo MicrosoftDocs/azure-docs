@@ -37,6 +37,8 @@ using Azure.Identity;
 using Azure.ResourceManager;
 using Azure.ResourceManager.Compute;
 using Azure.ResourceManager.Resources;
+using Azure.ResourceManager.Communication;
+using Azure.ResourceManager.Communication.Models;
 
 ArmClient client = new ArmClient(new DefaultAzureCredential());
 ```
