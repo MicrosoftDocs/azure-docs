@@ -2,13 +2,11 @@
 title: Create a firmware analysis workspace using Bicep
 description: In this article, you learn how to create a firmware analysis workspace using Bicep.
 ms.topic: quickstart
-ms.date: 09/08/2025
+ms.date: 09/09/2025
 author: karengu0
 ms.author: karenguo
 ms.service: azure
-ms.topic: quickstart-bicep
 ms.custom: subject-bicepqs
-ms.date: 09/09/2025
 ---
 
 # Quickstart: Create a firmware analysis workspace using Bicep
@@ -29,7 +27,7 @@ In this quickstart, you use Bicep to deploy a firmware analysis workspace so you
 
 ## Review the Bicep file
 
-The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://learn.microsoft.com/samples/azure/azure-quickstart-templates/firmwareanalysis-create-workspace/).
+The Bicep file used in this quickstart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/firmwareanalysis-create-workspace/).
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.firmwareanalysis/firmwareanalysis-create-workspace/main.bicep":::
 

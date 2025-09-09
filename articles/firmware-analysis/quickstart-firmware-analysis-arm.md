@@ -1,13 +1,13 @@
 ---
 title: Create a firmware analysis workspace using Azure Resource Manager
 description: Learn how to create a firmware analysis workspace by using Azure Resource Manager.
-services: azure-resource-manager
-ms.service: azure-resource-manager
+ms.topic: quickstart
+ms.date: 09/09/2025
 author: karengu0
 ms.author: karenguo
-ms.topic: quickstart-arm
+ms.service: azure
 ms.custom: subject-armqs
-ms.date: 09/09/2025
+
 ---
 
 # Quickstart: Create a firmware analysis workspace using ARM
