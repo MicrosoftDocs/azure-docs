@@ -17,7 +17,10 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
-The `llm-content-safety` policy enforces content safety checks on large language model (LLM) requests (prompts) by transmitting them to the [Azure AI Content Safety](/azure/ai-services/content-safety/overview) service before sending to the backend LLM API. When the policy is enabled and Azure AI Content Safety detects malicious content, API Management blocks the request and returns a `403` error code. 
+The `llm-content-safety` policy enforces content safety checks on large language model (LLM) requests (prompts) by transmitting them to the [Azure AI Content Safety](/azure/ai-services/content-safety/overview) service before sending to the backend LLM API. When the policy is enabled, and Azure AI Content Safety detects malicious content, API Management blocks the request and returns a `403` error code. 
+
+> [!NOTE]
+> The terms _category_ and _categories_ used in API Management are synonymous with _harm category_ and _harm categories_ in the Azure AI Content Safety service. Details can be found on the [Harm categories in Azure AI Content Safety](/azure/ai-services/content-safety/concepts/harm-categories) page.
 
 Use the policy in scenarios such as the following:
 
@@ -31,7 +34,6 @@ Use the policy in scenarios such as the following:
 
 * An [Azure AI Content Safety](/azure/ai-services/content-safety/) resource. 
 * An API Management [backend](backends.md) configured to route content safety API calls and authenticate to the Azure AI Content Safety service, in the form `https://<content-safety-service-name>.cognitiveservices.azure.com`. Managed identity with Cognitive Services User role is recommended for authentication.
-
 
 ## Policy statement
 
@@ -78,7 +80,7 @@ Use the policy in scenarios such as the following:
 | Attribute           | Description                                                                                           | Required | Default |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | name	| Specifies the name of this category. The attribute must have one of the following values: `Hate`, `SelfHarm`, `Sexual`, `Violence`. Policy expressions are allowed.	| Yes	| N/A |
-| threshold	| Specifies the threshold value for this category at which request are blocked. Requests with content severities less than the threshold aren't blocked. The value must be between 0 and 7. Policy expressions are allowed.	| Yes	| N/A |
+| threshold	| Specifies the threshold value for this category at which request are blocked. Requests with content severities less than the threshold aren't blocked. The value must be between 0 (most restrictive) and 7 (least restrictive). Policy expressions are allowed.	| Yes	| N/A |
 
 
 ## Usage
@@ -108,6 +110,8 @@ The following example enforces content safety checks on LLM requests using the A
         </llm-content-safety>
     </inbound>
 </policies>
+
+Lowering a category's threshold filters out more prompts and consequently blocks requests, whereas raising a threshold results in more prompts passing evaluation. 
 
 ```
 
