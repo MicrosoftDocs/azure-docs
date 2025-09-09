@@ -6,11 +6,12 @@ ms.subservice: data-movement
 ms.topic: concept-article
 ms.author: jianleishen
 author: jianleishen
+ms.date: 07/25/2025
+ai-usage: ai-assisted
 ms.custom:
   - synapse
   - build-2025
-ms.date: 07/25/2025
-ai-usage: ai-assisted
+  - sfi-image-nochange
 ---
 # Copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM using Azure Data Factory or Azure Synapse Analytics
 

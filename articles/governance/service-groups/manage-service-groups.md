@@ -2,7 +2,7 @@
 title: "Manage resources across subscriptions and resource groups with Azure Service Groups - Azure Governance" 
 description: "Learn how to create, update, read, and delete Azure Service Groups and members"
 author: rthorn17
-ms.author: rithorn
+ms.author: kenieva
 ms.service: azure-policy 
 ms.topic: how-to
 ms.date: 05/19/2025

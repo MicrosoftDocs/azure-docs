@@ -10,6 +10,7 @@ ms.date: 01/24/2024
 ms.author: godonnell
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 #Customer Intent: As a developer integrating Azure AD B2C with a SAML identity provider, I want to configure the SAML technical profile and map the claims, so that users can sign in to my application using an existing social or enterprise identity.
 

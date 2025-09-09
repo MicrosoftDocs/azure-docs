@@ -74,9 +74,10 @@ When using a vector database for storing content, you should also install at lea
 
 ::: zone-end
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
-
+<!---At GA, replace with:
 [!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
-
+-->
+[!INCLUDE [functions-extension-bundles-json-preview](../../includes/functions-extension-bundles-json-preview.md)]  
 ::: zone-end
 
 ## Connecting to OpenAI
