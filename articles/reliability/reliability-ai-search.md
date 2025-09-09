@@ -166,13 +166,12 @@ For more information, see [Multi-region deployments in Azure AI Search](/azure/s
 
 ## Backups
 
-For most solutions, you shouldn't rely exclusively on backups. Instead, use the other capabilities described in this guide to support your resiliency requirements. However, backups protect against some risks that other approaches don't. For more information, see [Redundancy, replication, and backup](concept-redundancy-replication-backup.md).
 
 Because AI Search isn't a primary data storage solution, it doesn't provide self-service backup and restore options. However, you can use the `index-backup-restore` sample for [.NET](https://github.com/Azure-Samples/azure-search-dotnet-utilities/tree/main/index-backup-restore) or [Python](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python/code/utilities/index-backup-restore) to back up your index definition and its documents to a series of JSON files, which are then used to restore the index.
 
 However, if you accidentally delete the index and don't have a backup, you can [rebuild the index](/azure/search/search-howto-reindex). Rebuilding involves recreating the index on your search service and then reloading it by retrieving data from your primary data store.
 
-## SLA
+## Service-level agreement
 
 [!INCLUDE [SLA description](includes/reliability-service-level-agreement-include.md)]
 
