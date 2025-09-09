@@ -7,6 +7,7 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 04/17/2025
 ms.author: danlep
+ms.custom: sfi-image-nochange
 ---
 
 # Deploy your Azure API Management instance to a virtual network - internal mode

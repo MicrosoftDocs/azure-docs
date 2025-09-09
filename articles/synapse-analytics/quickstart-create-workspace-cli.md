@@ -7,7 +7,10 @@ ms.topic: quickstart
 ms.subservice: workspace
 ms.date: 02/04/2022
 ms.author: juluczni
-ms.custom: mode-api, devx-track-azurecli
+ms.custom:
+  - mode-api
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create an Azure Synapse Analytics workspace with the Azure CLI
