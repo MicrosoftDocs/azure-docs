@@ -103,6 +103,6 @@ Remove-AzResourceGroup -Name fa-rg -Force
 ```
 
 ## Next steps
-For a step-by-step tutorial that guides you through the process of creating a template, see:
+
 > [!div class="nextstepaction"]
-> /azure/azure-resource-manager/templates/template-tutorial-create-first-template
+> [Analyze firmware images in the Azure portal](/azure/firmware-analysis/quickstart-firmware-analysis-portal)

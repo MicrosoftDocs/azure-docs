@@ -10,7 +10,7 @@ ai-usage: ai-assisted
 ms.service: azure
 content_well_notification: 
   - AI-contribution
-#customer intent: I am a Terraform user who wants to create an Azure firmware analysis workspace
+#customer intent: I am a Terraform user who wants to create a firmware analysis workspace
 ---
 
 # Create a firmware analysis workspace using Terraform
@@ -96,7 +96,7 @@ The sample code for this article is located in the [Azure Terraform GitHub repo]
     $workspace_name = $(terraform output -raw workspace_name)
     ```
 
-1. Run [Get-AzFirmwareAnalysisWorkspace](/powershell/module/az.firmwareanalysis/get-azfirmwareanalysisworkspace) to view the Azure firmware analysis workspace.
+1. Run [Get-AzFirmwareAnalysisWorkspace](/powershell/module/az.firmwareanalysis/get-azfirmwareanalysisworkspace) to view the firmware analysis workspace.
 
     ```azurepowershell
     $params = @{
@@ -121,4 +121,4 @@ The sample code for this article is located in the [Azure Terraform GitHub repo]
 ## Next step
 
 > [!div class="nextstepaction"]
-> [See more articles about Azure firmware analysis](/search/?terms=Azure%20iot%20firmware%20analysis%20and%20terraform)
+> [Analyze firmware images in the Azure portal](/azure/firmware-analysis/quickstart-firmware-analysis-portal)
