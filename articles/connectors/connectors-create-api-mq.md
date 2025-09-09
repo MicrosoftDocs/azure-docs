@@ -6,7 +6,9 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 01/08/2025
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 ---
 
 # Connect to an IBM MQ server from a workflow in Azure Logic Apps

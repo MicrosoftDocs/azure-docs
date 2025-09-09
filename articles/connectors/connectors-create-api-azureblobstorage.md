@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 06/18/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Connect to Azure Blob Storage from workflows in Azure Logic Apps

@@ -6,7 +6,9 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 12/16/2024
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 ---
 
 # Connect to Azure Service Bus from workflows in Azure Logic Apps

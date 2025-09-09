@@ -9,25 +9,33 @@ ms.service: azure-operator-service-manager
 ---
 
 # Publisher resource clean-up management
-Managing publisher resources is difficult. It's hard to tell if they're still being used and they take up expensive storage space. This article describes new Azure Operator Service Manager (AOSM) features that detect unused artifacts and automate publisher resource clean-up. These features help to reduce size of resource storage, lowering overall service costs. These features also help to improve security, by purging unnecessary resources, preventing further access or tampering.
+This article describes a new Azure Operator Service Manager (AOSM) feature that detects unused publisher artifacts and automates  resource deletion. This feature helps to reduce the size of resource storage, lowering overall service costs. This feature also  improves security, by purging unnecessary resources in a timely manner, preventing further access or potential tampering.
 
-## Publisher resource clean-up use-case 
-The general best practice to clean-up AOSM publisher resources is to first execute an Azure Resource Graph (ARG) query against a target resource to check for remaining references by any other resources. For example, check to see if a Network Service Design Version (NSDV) is referenced in any Site Network Services (SNS). If the ARG query responds with no references, then second, delete the target resource. While most resource types support discovery of references via querying, before these features artifact references couldn't be determined, making artifact clean-up challenging.
+## Publisher resource clean-up historic approach 
+Prior to this feature, to clean-up AOSM publisher resources it's recommended to first execute an Azure Resource Graph (ARG) query to check for in-use references of target resources. For example, check to see if a Network Service Design Version (NSDV) is still used by a Site Network Services (SNS). If the ARG query responds with no references, then second, delete the target resource. 
 
 ## Publisher resource clean-up issues 
-To make artifact clean-up more reliable and less error prone, this new feature looks to address shortcomings identified in resource provider API versions before `2025-03-30`:
+While most resource types support reference discovery via querying, before this feature artifact references in an artfact-store didn't, making safe artifact clean-up challenging. Other shortcomings addressed by this new feature include:
 * NSDV and NFDV have only artifact-store references, making querying for discovery of artifact references impossible.
 * Artifacts that are directly uploaded to artifact-store backing Azure Container Registry (ACR) don't build any references to the artifact-store.  
 * Where helm charts reference artifacts in non-Azure ACRs, it's difficult to figure out current references current using queries. 
 
 ## Publisher resource clean-up expanded specification
-After resource provider API version `2025-03-30`, AOSM will support querying on AOSM artifacts to discover any remaining references, and if none are found, will delete the unused artifacts. The artifacts, including helm charts or images, are easily identifiable as unused, implying they contain no references in any Network Function Design Version (NFDV) or NSDV. The resource type `artifact-manifest` is expanded to promote cohesive grouping of artifacts per version. All images used by one nfApp are kept in one artifact manifest version. This change builds connections between artifacts and nfApps that are used by ARG queries to identify unused resources.
+With this new feature, AOSM supports background querying on artifacts to discover in-use references, and if none are found, artifacts are automatically marked for deletion. The artifacts, which include helm charts or images, are identified as unused during pre-flight command validation, ensuring they contain no references to any Network Function Design Version (NFDV) or NSDV. 
+
+To support this capability, the resource type `artifact-manifest` is expanded to track cohesive grouping of artifacts. All images used by one nfApp version are kept in one `artifact manifest` version. A reference connection is built between the artifacts and the nfApp, which can now be checked during delete pre-flight validation.
+
+Upon attemped deletion of an `artifact manifest`, if pre-flight validation passes, artifacts will be marked for deleteion and a success message will be returned. If pre-flight validation fails, the deletion request fails and no changes are made. An error message is emitted including reference to the first artifact found to be in-use along with what is still using it. THe following is an example of a failure message:
+
+```azurecli
+The resource '<artifactmanifest resourceId>' has some resources attached to it. The dependent resources are :"<NSDV/NFDV resource ids>"
+```
 
 ## Artifact manifest resource type changes
-In order to support the expanded `artifact-manifest` resource type, changes are introduced in resource provider API version `2025-03-30`. The following sections describe the behavior of AOSM before and after implementing this change. Migration to this new resource type is optional, but all versions after `2025-03-30` include this support.
+In order to support the expanded `artifact-manifest` resource type specifications, changes are introduced to the resource provider API, starting with version `2025-03-30`. The following sections describe the behavior of AOSM before, and after, implementing this feature change. Migration to this new expanded resource type is optional and migration is discussed laster in this article.
 
 ### Artifact manifest uses strong correlation
-The `artifact manifest` resource type has a strong correlation to helm artifacts (images and charts) uploaded into an artifact-store backing ACR. All artifacts used by a nfApp are kept uniquely versioned artifact manifest instances. This builds reference connections between artifacts and nfApps. 
+The `artifact manifest` resource type has a strong correlation to helm artifacts (images and charts) uploaded into an artifact-store backing ACR. All artifacts used by a nfApp are kept in uniquely versioned artifact manifest instances. This builds reference connections between artifacts and nfApps. 
 
 #### Before `2025-03-30` 
 No strong correlation exists in the `artifact manifest` resource type.
@@ -142,13 +150,13 @@ No such restriction.
 #### From `2025-03-30`
 The proper API version must be used to create the `artifact manifest` resource types.
 
-## Expanded artifact manifest migration steps
-Complete the following task to migrate a deployed `artifact manifest` resource, created before API version '20025-03-30', to the new `artifact manifest` resource type, available after API version `2025-03-30` or later:
+## Artifact manifest migration steps
+Complete the following task to migrate a deployed `artifact manifest` resource, created before API version '20025-03-30', to the new `artifact manifest` resource type, available after API version `2025-03-30`:
 * Prepare platform by installing network function operator (NFO) extension version, at least 3.0.3131-220 or later.
-* For existing resources created with older APIs, the NSDVs, NFDVs, and `artifact-manifest` should be updated to newer API version.
-  * First change the artifact store references to `artifact-manifest` references.
-  * Then update the `artifact-manifests` with the expanded artifact references.
-  * Finally upload the artifacts to the proper `artifact-manifest` path. 
+* For existing resources created with older APIs, the NSDVs, NFDVs, and `artifact manifest` should be updated to newer API version.
+  * First change the artifact store references to `artifact manifest` references.
+  * Then update the `artifact manifests` with the expanded artifact references.
+  * Finally upload the artifacts to the proper `artifact manifest` path. 
 * The publisher clean-up action only supports resources created with API version `2025-03-30`
   * Resources created in older version can be updated to `2025-03-30` version.
   * Only artifacts uploaded after the upgrade are considered for clean-up.

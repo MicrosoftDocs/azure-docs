@@ -5,8 +5,10 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, edwardhe, azla
 ms.topic: how-to
-ms.custom: devx-track-azurepowershell
 ms.date: 07/12/2025
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 ---
 
 # Enable stateful mode for stateless built-in connectors in Azure Logic Apps

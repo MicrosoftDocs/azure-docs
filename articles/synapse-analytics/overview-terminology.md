@@ -1,12 +1,12 @@
 ---
 title: Terminology - Azure Synapse Analytics
 description: Learn about basic concepts and terminology for Azure Synapse Analytics in this reference guide.
-author: guyhay
+author: ajagadish-24
 ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: overview
 ms.date: 01/23/2025
-ms.author: guyhay
+ms.author: ajagadish
 ---
 
 # Azure Synapse Analytics terminology

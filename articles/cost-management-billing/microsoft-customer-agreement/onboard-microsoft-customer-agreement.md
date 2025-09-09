@@ -5,7 +5,7 @@ author: KennyDay
 ms.service: cost-management-billing
 ms.subservice: microsoft-customer-agreement
 ms.topic: conceptual
-ms.date: 08/14/2025
+ms.date: 09/09/2025
 ms.author: kenday
 ms.reviewer: clionabolger
 ---
@@ -226,7 +226,8 @@ This section of the onboarding guide describes the steps you follow to migrate f
 - **Cost Management** using third-party providers like Cloud health and Cloud easier - Organizations transitioning to MCA need to update their provider that they're transitioning to MCA. Most of them have a documented process to pull the MCA cost data.
 - **Historical data** – It isn’t available to account owners or users with the Subscription owner Azure role-based access control (RBAC) role after migration. Access for existing users, groups, or service principals that was assigned using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) isn't affected during the transition.
     - Cost data transition - Cost data before the transition remains in the EA scope. It doesn't move to the MCA scope. You can access the data by switching scopes.
-- **Reservations** - When there's a currency change during or after an enrollment transfer, reservations paid for monthly are canceled for the source enrollment. Cancellation happens at the time of the next monthly payment for an individual reservation. The cancellation is intentional and only affects monthly reservation purchases. You can repurchase them after migration.
+- **Reservations** - When there's a currency change during or after an enrollment transfer, reservations paid for monthly are canceled for the source enrollment. Cancellation happens at the time of the next monthly payment for an individual reservation. The cancellation is intentional and only affects monthly reservation purchases. You can repurchase them after migration.**Reservations cancellations triggered by this migration do not count toward the cancellation threshold of USD 50,000 within a rolling 12-month window**. For the cancellation policy, please refer to [Self-service exchanges and refunds for Azure Reservations](../reservations/exchange-and-refund-azure-reservations.md)
+- Reserved Instance (RI) charges may appear under the primary invoice section. To ensure accurate billing, customers should verify the placement of RI charges immediately. If adjustments are needed, submit a transfer request to update the invoice section.
 - **Savings Plans** - If they were purchased in a non-USD currency, they get canceled during migration. You can repurchase them after migration.
 - **API changes** - API endpoints differ between EA and MCA. Existing EA API calls don't work with MCA. You need to use Microsoft Cost Management APIs instead if using consumption APIs. For more information, see:
     - [Migrate EA to Microsoft Customer Agreement APIs](../costs/migrate-cost-management-api.md)

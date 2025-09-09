@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 06/19/2025
+ms.custom: sfi-image-nochange
 ## As a developer, I want to access my SQL database from my logic app workflow.
 ---
 
