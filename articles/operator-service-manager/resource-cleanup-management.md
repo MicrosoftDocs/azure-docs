@@ -64,7 +64,7 @@ The expanded `artifact manifest` resource type checks artifacts in `artifact man
         ]
 ```
 
-### Artifact Manifest scope map token
+### Artifact manifest scope map token
 The `artifact manifest` resource type creates scope map tokens with artifact name included in the path. 
 
 #### Before `2025-03-30` 
@@ -73,7 +73,7 @@ No scope map tokens were created.
 #### From `2025-03-30`
 Scope map tokens are created at the same time as the `artifact manifest`.
 
-### Artifact Manifest upload path
+### Artifact manifest upload path
 All images that belong to an `artifact manifest` are uploaded using the `artifact manifest` name in the target path. For example, given ngnix included in `artifact manifest` 'cnfmanifest' needs to be uploaded using path 'cnfmanifest/ngnix'. 
 
 #### Before `2025-03-30` 
