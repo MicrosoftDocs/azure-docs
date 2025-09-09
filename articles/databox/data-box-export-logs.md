@@ -8,6 +8,7 @@ ms.service: azure-databox
 ms.topic: how-to
 ms.date: 03/06/2025
 ms.author: shaas
+ms.custom: sfi-image-nochange
 # Customer intent: As a cloud operations manager, I want to track and log events associated with Azure Data Box export orders, so that I can ensure data security and compliance throughout the data transfer process.
 ---
 

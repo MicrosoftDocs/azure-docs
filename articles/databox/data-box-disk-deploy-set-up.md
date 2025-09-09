@@ -5,10 +5,12 @@ services: databox
 author: stevenmatthew
 
 ms.service: azure-data-box-disk
-ms.custom: linux-related-content
 ms.topic: tutorial
 ms.date: 04/09/2024
 ms.author: shaas
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
 

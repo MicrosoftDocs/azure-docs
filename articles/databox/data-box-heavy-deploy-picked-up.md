@@ -8,6 +8,7 @@ ms.service: azure-data-box-heavy
 ms.topic: tutorial
 ms.date: 10/29/2021
 ms.author: shaas
+ms.custom: sfi-image-nochange
 
 # Customer intent: As an IT admin, I need to be able to return Data Box Heavy to upload on-premises data from my server onto Azure.
 ---
