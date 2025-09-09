@@ -39,7 +39,7 @@ The following resource is defined in the template:
 
 You can deploy the template by using the **Azure CLI**, **Azure PowerShell**, or the **Azure portal**.
 
-### [CLI](#tab/CLI)
+### [Azure CLI](#tab/azure-cli)
 ```az cli
 az group create --name fa-rg --location eastus
 az deployment group create \
@@ -51,7 +51,7 @@ az login
 az account set --subscription "<your-subscription-id>"
 ```
 
-### [PowerShell](#tab/PowerShell)
+### [Azure PowerShell](#tab/azure-powershell)
 ```azure powershell
 
 Connect-AzAccount
@@ -71,7 +71,7 @@ Use any of the following methods:
 
 - Azure portal: Search for firmware analysis, then select firmware workspaces.
 
-### [CLI](#tab/CLI)
+### [Azure CLI](#tab/azure-cli)
 
 ```azure cli
 
@@ -81,7 +81,7 @@ az resource list \
   --output table
 ```
 
-### [PowerShell](#tab/PowerShell)
+### [Azure PowerShell](#tab/azure-powershell)
 
 ```azure powershell
 
@@ -92,12 +92,12 @@ Get-AzResource -ResourceGroupName fa-rg `
 ## Clean up resources
 When no longer needed, delete the resource group:
 
-### [CLI](#tab/CLI)
+### [Azure CLI](#tab/azure-cli)
 ```azure cli
 az group delete --name fa-rg --yes --no-wait
 ```
 
-### [PowerShell](#tab/PowerShell)
+### [Azure PowerShell](#tab/azure-powershell)
 ```azure powershell
 Remove-AzResourceGroup -Name fa-rg -Force
 ```
