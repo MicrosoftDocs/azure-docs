@@ -25,7 +25,7 @@ ONNX is an open model format. In this preview, inference runs on CPU only throug
 > [!IMPORTANT]
 > Data flow graphs currently only support MQTT (Message Queuing Telemetry Transport), Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage aren't supported. For more information, see [Known issues](../troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).
 
-## Overview
+## Why use in-band ONNX interference
 
 With Azure IoT Operations data flow graphs, you can embed small ONNX model inference directly in the pipeline instead of calling an external prediction service. This approach offers several practical advantages:
 
@@ -35,8 +35,8 @@ With Azure IoT Operations data flow graphs, you can embed small ONNX model infer
   - Inline with multi-source stream processing where features are already collocated in the graph
   - Aligned with event-time semantics so inference uses the same timestamps as other operators
   - Kept small enough to embed with the module without exceeding practical WASM size and memory constraints
-- **Simple updates**: Ship a new module with WASM and embedded model, then update the graph definition reference. No separate model registry or external endpoint change is required.
-- **Hardware constraints**: Uses the ONNX backend through `wasi-nn` on CPU only in this preview. No GPU/TPU targets; only supported ONNX operators run.
+- **Simple updates**: Ship a new module with WASM and embedded model, then update the graph definition reference. No need to have a separate model registry or external endpoint change.
+- **Hardware constraints**: In this preview, ONNX backend runs on CPU through WebAssembly System Interface (WASI) `wasi-nn`. No GPU/TPU targets; only supported ONNX operators run.
 - **Horizontal scaling**: Inference scales as the data flow graph scales. When the runtime adds more workers for throughput, each worker loads the embedded model and participates in load balancing.
 
 ## When to use in-band ONNX inference
@@ -54,21 +54,21 @@ Avoid in-band inference when you have these requirements:
 - Models that require multiple tensor inputs, key-value caching, or unsupported ONNX operators
 
 > [!NOTE]
-> Keep modules and embedded models small. Large models and memory-heavy workloads aren't supported. Favor compact architectures and modest input sizes like 224×224 for image classification.
+> You want to keep modules and embedded models small. Large models and memory-heavy workloads aren't supported. Use compact architectures and small input sizes like 224×224 for image classification.
 
 ## Prerequisites
 
 Before you begin, ensure you have:
 
-- An Azure IoT Operations deployment with data flow graphs capability
-- Access to a container registry like Azure Container Registry
-- Development environment set up for WebAssembly module development
+- An Azure IoT Operations deployment with data flow graphs capability.
+- Access to a container registry like Azure Container Registry.
+- Development environment set up for WebAssembly module development.
 
 For detailed setup instructions, see [Develop WebAssembly modules](howto-develop-wasm-modules.md).
 
 ## Architecture pattern
 
-The common pattern for ONNX inference in data flow graphs:
+The common pattern for ONNX inference in data flow graphs includes:
 
 1. **Preprocess data**: Transform raw input data to match your model's expected format. For image models, this process typically involves:
    - Decoding image bytes.
@@ -84,10 +84,10 @@ The common pattern for ONNX inference in data flow graphs:
    - Map prediction indices to human-readable labels.
    - Format results for downstream consumption.
 
-Public samples demonstrate this pattern:
+In the [IoT samples for Rust WASM Operator](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples/) you can find two samples that follow this pattern:
 
-- `format` module: decodes and resizes images to RGB24 224×224. [Sample code](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples/format)
-- `snapshot` module: embeds a MobileNet v2 ONNX model, runs CPU inference, and computes softmax. [Sample code](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples/snapshot)
+-  [Data transformation "format" sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples/format): decodes and resizes images to RGB24 224×224. 
+- [Image/Video processing "snapshot" sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples/snapshot): embeds a MobileNet v2 ONNX model, runs CPU inference, and computes softmax.
 
 ## Configure graph definition
 
@@ -206,7 +206,7 @@ Follow these steps to embed your model and associated resources:
 1. **Implement inference loop**: For each incoming message, preprocess inputs to match model requirements, set input tensors, execute inference, retrieve outputs, and apply postprocessing.
 1. **Handle errors gracefully**: Implement proper error handling for model loading failures, unsupported operators, and runtime inference errors.
 
-For a complete implementation pattern, see the `snapshot` sample linked in the [Architecture pattern](#architecture-pattern) section.
+For a complete implementation pattern, see the ["snapshot" sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples/snapshot).
 
 ### Recommended project structure
 
@@ -229,7 +229,7 @@ src/
 
 ### Example file references
 
-Use the following file layout from the public snapshot sample as a reference:
+Use the following file layout from the "snapshot" sample as a reference:
 
 - [Labels directory](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples/snapshot/src/fixture/labels) - Contains various label mapping files
 - [Models directory](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples/snapshot/src/fixture/models) - Contains ONNX model files and metadata
@@ -256,7 +256,7 @@ fn init_model() -> Result<(), anyhow::Error> {
 
 ### Performance optimization
 
-To avoid recreating the ONNX graph and execution context for every message, initialize it once and reuse it. The public sample uses a static `LazyLock`:
+To avoid recreating the ONNX graph and execution context for every message, initialize it once and reuse it. The [public sample](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/rust/examples/snapshot/src/lib.rs) uses a static `LazyLock`:
 
 ```rust
 use std::sync::LazyLock;
@@ -278,8 +278,8 @@ fn run_inference(/* input tensors, etc. */) {
 
 Reuse the streamlined sample builders or build locally:
 
-- [Rust Docker builder](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust#using-the-streamlined-docker-builder)
-- General deployment and registry steps: [Use WebAssembly with data flow graphs](howto-dataflow-graph-wasm.md)
+- To use the streamlined Docker builder, see [Rust Docker builder sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust#using-the-streamlined-docker-builder)
+- For a general WebAssembly deployment and registry steps, see [Use WebAssembly with data flow graphs](howto-dataflow-graph-wasm.md)
 
 Follow this deployment process:
 
@@ -290,10 +290,8 @@ Follow this deployment process:
 
 ## Example: MobileNet image classification
 
-The public samples provide two modules wired into a graph for image classification:
+The IoT public samples provide two samples wired into a graph for image classification:  the ["format" sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples/format) provides image decode and resize functionality, and the ["snapshot" sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples/snapshot) provides ONNX inference and softmax processing.
 
-- `format:1.0.0` provides image decode and resize functionality
-- `snapshot:1.0.0` provides ONNX inference and softmax processing
 
 To deploy this example, pull the artifacts from the public registry, push them to your registry, and deploy a data flow graph as shown in [Example 2: Deploy a complex graph](howto-dataflow-graph-wasm.md#example-2-deploy-a-complex-graph). The complex graph uses these modules to process image snapshots and emit classification results.
 
