@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.date: 09/08/2025
 ms.update-cycle: 180-days
-# Customer intent: As an integration developer, I want to build workflows that complete tasks by using AI agents and other AI capabilities without human interactions for my integration solutions with Azure Logic Apps.
+# Customer intent: As an AI developer, I want to build workflows that complete tasks by using AI agents and other AI capabilities without human interactions for my integration solutions with Azure Logic Apps.
 ---
 
 # Create autonomous agent workflows that don't use human interactions in Azure Logic Apps (Preview)
@@ -197,13 +197,17 @@ To create a partial workflow with an empty **Agent**, follow these steps:
 
 ### Add an agent to a nonagent workflow
 
+For an existing **Stateful** workflow, you can add an **Agent** action to include automomous agent and LLM capabilities by following these steps:
+
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
 1. On the logic app menu, under **Workflows**, select **Workflows**.
 
 1. On the **Workflows** page, select the **Stateful** workflow where you want to an add an agent.
 
-1. After the designer opens, follow the [general steps to add an action named **Agent** to your workflow](add-trigger-action-workflow.md?tabs=standard#add-action).
+1. After the designer opens, follow the [general steps to add an action named **Agent** to your workflow](add-trigger-action-workflow.md?tabs=standard#add-action), for example:
+
+   :::image type="content" source="media/create-autonomous-agent-workflows/add-agent.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, existing workflow, and option to add an agent." lightbox="media/create-autonomous-agent-workflows/add-agent.png":::
 
 1. Continue with the next section to connect the agent to your model.
 
