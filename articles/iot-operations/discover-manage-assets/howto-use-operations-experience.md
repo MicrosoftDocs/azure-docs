@@ -36,8 +36,6 @@ To use the operations experience, make sure you have a running instance of Azure
 
 ## Sign in
 
-# [Operations experience](#tab/portal)
-
 To sign in to the operations experience, go to the [operations experience](https://iotoperations.azure.com) in your browser and sign in by using your Microsoft Entra ID credentials.
 
 ## Select your site

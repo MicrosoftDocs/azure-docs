@@ -74,15 +74,12 @@ items:
           - name: Understand namespace assets and devices
             href: discover-manage-assets/concept-assets-devices.md
             displayName: data points, events, operations, experience, southbound
-          - name: Understand Akri connectors
+          - name: Understand Akri services
             href: discover-manage-assets/overview-akri.md
             displayName: OPC UA, akri, discover, detect, device, registry, southbound
           - name: Use the operations experience UI
             href: discover-manage-assets/howto-use-operations-experience.md
             displayName: operations, experience, site, instance, device, data points, events, CLI, kubectl, southbound
-          - name: Use asset endpoints to manage assets
-            href: /previous-versions/azure/iot-operations/discover-manage-assets/overview-manage-assets
-            displayName: connector, tags, southbound, asset endpoint profile
           - name: Connect to OPC UA servers
             items:
               - name: Understand the connector for OPC UA
@@ -100,15 +97,18 @@ items:
               - name: Configure OPC UA application authentication
                 href: discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md
                 displayName: connector, X.509, certificate, instance, trusted, issuer, cert-manager, enterprise, CA, auth, authn, southbound
-          - name: Use the media connector
+          - name: Connect to media sources
             href: discover-manage-assets/howto-use-media-connector.md
             displayName: image, video, camera, stream, snapshot, RTSP, RTCP, RTP, MJPEG, container, storage, southbound
-          - name: Use the connector for ONVIF
+          - name: Connect to ONVIF-compliant cameras
             href: discover-manage-assets/howto-use-onvif-connector.md
             displayName: camera, PTZ, pan, tilt, zoom, DiscoveredAsset, DiscoveredAssetEndpointProfile, media, events, stream, southbound
-          - name: Use the connector for REST/HTTP
+          - name: Connect to REST/HTTP endpoints
             href: discover-manage-assets/howto-use-http-connector.md
             displayName: HTTP, REST, API, southbound
+          - name: Use asset endpoints to manage assets
+            href: /previous-versions/azure/iot-operations/discover-manage-assets/overview-manage-assets
+            displayName: connector, tags, southbound, asset endpoint profile
       - name: Manage MQTT broker
         items:
           - name: Broker overview
