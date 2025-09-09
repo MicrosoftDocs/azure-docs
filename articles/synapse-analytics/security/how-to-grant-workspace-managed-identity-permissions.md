@@ -7,7 +7,9 @@ ms.date: 02/11/2025
 ms.service: azure-synapse-analytics
 ms.subservice: security
 ms.topic: how-to
-ms.custom: subject-rbac-steps
+ms.custom:
+  - subject-rbac-steps
+  - sfi-image-nochange
 ---
 
 # Grant permissions to workspace managed identity

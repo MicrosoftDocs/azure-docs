@@ -18,8 +18,6 @@ The Microsoft Sentinel data lake, available in the Microsoft Defender portal, is
 
 For more information, see [What is Microsoft Sentinel data lake (preview)](sentinel-lake-overview.md).
 
-Onboarding makes the following changes:
-
 Onboarding makes the following changes once complete:
 
 + Your data lake is provisioned for your selected subscription and resource group. 

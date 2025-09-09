@@ -23,6 +23,9 @@ You can create exclusions at the following scopes:
 - **Rule group**: These exclusions apply to all the rules of a particular category within a rule set. For example, you can configure an exclusion that applies to all the SQL injection rules.
 - **Rule**: These exclusions apply to a single rule.
 
+> [!TIP]
+> It's a good practice to make exclusions as narrow and specific as possible, to avoid accidentally leaving room for attackers to exploit your system. When you need to add an exclusion rule, use per-rule exclusions wherever possible.
+
 ## Exclusion selectors
 
 Exclusion selectors identify the parts of requests to which the exclusion applies. The WAF ignores any detections that it finds in the specified parts of the request. You can specify multiple exclusion selectors in a single exclusion.

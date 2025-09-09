@@ -9,6 +9,7 @@ ms.author: kengaderdus
 author: kengaderdus
 manager: mwongerapk
 ms.collection: M365-identity-device-management
+ms.custom: sfi-ropc-nochange
 
 #Customer intent: As an Azure AD B2C application owner, I want to enhance the security of my applications by using Identity Protection and Conditional Access, so that I can detect and respond to risky authentications and enforce organizational policies.
 
