@@ -6,9 +6,13 @@ author: cephalin
 ms.service: azure-app-service
 ms.author: cephalin
 ms.devlang: csharp
-ms.custom: devx-track-azurecli, devx-track-dotnet, AppServiceConnectivity
 ms.topic: tutorial
 ms.date: 07/10/2025
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-dotnet
+  - AppServiceConnectivity
+  - sfi-ropc-nochange
 ---
 # Tutorial: Connect an App Service app to SQL Database on behalf of the signed-in user
 

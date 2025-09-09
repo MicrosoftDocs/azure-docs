@@ -8,6 +8,8 @@ items:
       href: overview.md
     - name: Use Azure SRE Agent
       href: usage.md
+    - name: Ask the agent for help
+      href: ask-agent.md
     - name: Tutorials
       items:
       - name: Troubleshoot App Service
