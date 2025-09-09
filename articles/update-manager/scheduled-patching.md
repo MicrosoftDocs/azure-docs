@@ -13,7 +13,7 @@ ms.author: v-uhabiba
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-Azure Update Manager uses Maintenance Configurations to control and manage updates for many Azure VM resources. See the [Guest](https://learn.microsoft.com/azure/virtual-machines/maintenance-configurations#guest) documentation for more details.
+Azure Update Manager uses Maintenance Configurations to control and manage updates for many Azure VM resources. See the [Guest](/azure/virtual-machines/maintenance-configurations#guest) documentation for more details.
 
 **Concept** You can use Azure Update Manager to create and save recurring deployment schedules. You can create a schedule on a daily, weekly, or hourly cadence. You can specify the machines that must be updated as part of the schedule and the updates to be installed. These are saved as Maintenance Configurations.
 
