@@ -185,7 +185,7 @@ The following table illustrates a few examples of these formulas for various pro
 The provisioned v2 billing model is available for both resource types used by Azure Files. You can create a provisioned v2 file share as either a classic file share either within a storage account (`Microsoft.Storage`) or directly as top-level file share (`Microsoft.FileShares`).
 
 #### Provisioned v2 classic file shares (Microsoft.Storage)
-To create a classic file share using the provisioned v2 model, your storage account must use one of the the following combinations of settings:
+To create a classic file share using the provisioned v2 model, your storage account must use one of the following combinations of settings:
 
 | Storage account kind | Storage account SKU | Type of classic file share available |
 |-|-|-|
@@ -462,7 +462,7 @@ Selecting the appropriate access tier for your use case allows you to considerab
 
 Similarly, if you put a highly accessed workload in the cool access tier, you pay a lot more in transaction costs, but less for data storage costs. This can lead to a situation where the increased costs from the transaction prices increase outweigh the savings from the decreased data storage price, and you might pay more for cool than you would have paid for transaction optimized. For some usage levels, it's possible that the hot access tier will be the most cost efficient, and the cool access tier will be more expensive than transaction optimized.
 
-Your workload and activity level determine the most cost efficient access tier for your pay-as-you-go clasic file share. In practice, the best way to pick the most cost efficient access tier involves looking at the actual resource consumption of the share (data stored, write transactions, etc.). For pay-as-you-go classic file shares, we recommend starting in the transaction optimized tier during the initial migration into Azure Files, and then picking the correct access tier based on usage after the migration is complete. Transaction usage during migration typically isn't indicative of normal transaction usage.
+Your workload and activity level determine the most cost efficient access tier for your pay-as-you-go classic file share. In practice, the best way to pick the most cost efficient access tier involves looking at the actual resource consumption of the share (data stored, write transactions, etc.). For pay-as-you-go classic file shares, we recommend starting in the transaction optimized tier during the initial migration into Azure Files, and then picking the correct access tier based on usage after the migration is complete. Transaction usage during migration typically isn't indicative of normal transaction usage.
 
 ### What are transactions?
 When you mount a classic file share using the pay-as-you-go model on a computer using SMB, the classic file share is exposed on your computer as if it were local storage. This means that applications, scripts, and other programs on your computer can access the files and folders on the classic file share without needing to know that they're stored in Azure.
