@@ -46,7 +46,7 @@ Azure API Management provides analytics for your APIs so that you can analyze th
 
 > [!IMPORTANT]
 > * The Azure Monitor-based dashboard is the recommended way to access analytics data.
-> * Effective March 2027, the dashboard and reports associated with API Management built-in analytics in the classic tiers will be [retired](./breaking-changes/analytics-dashboard-retirement-march-2027). We recommend transitioning to the Azure Monitor-based dashboard that replaces it.
+> * Effective March 2027, the dashboard and reports associated with API Management built-in analytics in the classic tiers will be [retired](./breaking-changes/analytics-dashboard-retirement-march-2027.md). We recommend transitioning to the Azure Monitor-based dashboard that replaces it.
 
 With API analytics, analyze the usage and performance of the APIs in your API Management instance across several dimensions, including:
 
