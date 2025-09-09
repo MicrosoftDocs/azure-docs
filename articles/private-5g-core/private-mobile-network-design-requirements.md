@@ -7,8 +7,10 @@ ms.author: alzam
 ms.service: azure-private-5g-core
 ms.topic: conceptual 
 ms.date: 03/30/2023
-ms.custom: template-concept 
 zone_pivot_groups: ase-pro-version
+ms.custom:
+  - template-concept
+  - sfi-image-nochange
 ---
 
 # Private mobile network design requirements
