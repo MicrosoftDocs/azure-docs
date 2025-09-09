@@ -389,7 +389,7 @@ Classic file shares created in the same storage account share that storage accou
 
 To correctly do a deployment of Azure Files with the provisioned v1 billing model on classic file shares, you need to consider the following dimensions of capacity planning:
 
-- **How much provisioned storage, IOPS, and throughput do you need for each classic file share? How do these requirements change over time?**
+- **How much provisioned storage, IOPS, and throughput do you need for each classic file share? How do these requirements change over time?**  
     Because of the shared storage account limits, when you allocate classic file shares to storage accounts, you need to consider the needs of each classic file share both now and over time. The provisioning logic for the provisioned v1 model prevents you from provisioning more storage than the storage account supports. While you are allowed to provision more IOPS and throughput than the storage account provides, you can't use more than the storage account's limits for IOPS and throughput. To avoid unexpected throttling, don't provision more IOPS or throughput than the storage account supports. 
     
     In addition, placing too many classic file shares in a storage account can restrict future growth. Once a storage account is full, you can't expand existing classic file shares without first migrating some to another storage account. To reduce this risk, plan enough headroom in your storage accounts that you can maintain the mappings of classic file shares to storage accounts for at least 3 to 5 years.
