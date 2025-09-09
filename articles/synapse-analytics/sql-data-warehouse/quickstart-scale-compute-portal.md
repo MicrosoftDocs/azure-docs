@@ -10,6 +10,7 @@ ms.topic: quickstart
 ms.custom:
   - azure-synapse
   - mode-ui
+  - sfi-image-nochange
 ---
 
 # Quickstart: Scale compute for an Azure Synapse dedicated SQL pool (formerly SQL DW) with the Azure portal

@@ -5,10 +5,13 @@ ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 08/29/2016
-ms.custom: devx-track-csharp, devx-track-dotnet
 ms.author: cephalin
 author: cephalin
 ms.service: azure-app-service
+ms.custom:
+  - devx-track-csharp
+  - devx-track-dotnet
+  - sfi-image-nochange
 
 # Customer intent: As a developer, I want to get an overview of Visual Studio tools for debugging apps in App Service so that I can more effectively debug my apps. 
 

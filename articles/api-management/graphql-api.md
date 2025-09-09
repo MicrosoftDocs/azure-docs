@@ -6,7 +6,10 @@ author: dlepow
 ms.author: danlep
 ms.topic: how-to
 ms.date: 04/10/2023
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Import a GraphQL API

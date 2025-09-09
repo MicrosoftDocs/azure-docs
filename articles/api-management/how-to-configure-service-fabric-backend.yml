@@ -5,6 +5,7 @@ metadata:
   description: How to create a Service Fabric service backend in Azure API Management using the Azure portal
   author: dlepow
   ms.custom:
+    - sfi-image-nochange
     - ge-structured-content-pilot
 
   ms.service: azure-api-management

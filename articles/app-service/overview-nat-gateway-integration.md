@@ -8,8 +8,10 @@ ms.service: azure-app-service
 ms.topic: overview
 ms.date: 04/08/2022
 ms.author: jordanselig
-ms.custom: devx-track-azurecli
 ms.devlang: azurecli
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Azure NAT Gateway integration

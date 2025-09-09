@@ -4,10 +4,11 @@ description: Configure a WordPress plugin (preview) for the developer portal in 
 services: api-management
 author: dlepow
 ms.service: azure-api-management
-ms.custom: 
 ms.topic: how-to
 ms.date: 01/10/2025
 ms.author: danlep
+ms.custom:
+  - sfi-image-nochange
 ---
 
 # Customize the API Management developer portal on WordPress

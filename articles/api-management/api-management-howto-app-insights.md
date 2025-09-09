@@ -13,6 +13,7 @@ ms.custom:
   - devx-track-arm-template
   - devx-track-bicep
   - build-2025
+  - sfi-image-nochange
 ---
 
 # How to integrate Azure API Management with Azure Application Insights

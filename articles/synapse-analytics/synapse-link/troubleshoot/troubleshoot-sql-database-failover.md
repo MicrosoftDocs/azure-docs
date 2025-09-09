@@ -7,6 +7,7 @@ ms.date: 08/06/2024
 ms.service: azure-synapse-analytics
 ms.subservice: synapse-link
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Troubleshoot: Azure Synapse Link for Azure SQL Database after failover of an Azure SQL Database

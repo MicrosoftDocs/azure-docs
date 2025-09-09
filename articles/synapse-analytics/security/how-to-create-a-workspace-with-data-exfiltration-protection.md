@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.subservice: security 
 ms.date: 09/19/2022 
 ms.author: mesrivas
+ms.custom: sfi-image-nochange
 ---
 
 # Create a workspace with data exfiltration protection enabled

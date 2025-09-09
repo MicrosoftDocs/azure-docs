@@ -7,7 +7,9 @@ ms.topic: how-to
 ms.date: 01/20/2023
 ms.author: msangapu
 ms.devlang: php
-ms.custom: linux-related-content
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
 # Customer intent: As a developer, I want to migrate WordPress to App Service on Linux. 
 ---
 

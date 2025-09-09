@@ -9,6 +9,7 @@ ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.topic: how-to
 ms.date: 02/14/2025
 ms.service: azure-app-service
+ms.custom: sfi-image-nochange
 ---
 # Migrate an existing domain to Azure App Service
 

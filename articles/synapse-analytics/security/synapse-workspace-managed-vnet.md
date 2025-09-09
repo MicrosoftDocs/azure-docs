@@ -7,6 +7,7 @@ ms.topic: overview
 ms.subservice: security
 ms.date: 01/22/2025
 ms.author: seshin
+ms.custom: sfi-image-nochange
 
 ---
 

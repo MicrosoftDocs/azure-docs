@@ -5,9 +5,10 @@ author: seligj95
 ms.topic: quickstart
 ms.date: 05/07/2025
 ms.author: jordanselig
+ms.service: azure-app-service
 ms.custom:
   - build-2025
-ms.service: azure-app-service
+  - sfi-image-nochange
 
 # As a developer, I want to create an App Service Environment so that I can integrate App Service with an Azure virtual network.
 

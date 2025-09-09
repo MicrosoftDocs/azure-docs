@@ -5,9 +5,12 @@ author: cephalin
 ms.author: cephalin
 ms.topic: overview
 ms.date: 07/06/2024
-ms.custom: AppServiceConnectivity
 #customer intent: As a developer, I want to learn how to securely connect to Azure resources from Azure App Service so that I can protect sensitive data and ensure secure communication.
 ms.service: azure-app-service
+ms.custom:
+  - AppServiceConnectivity
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 # Secure connectivity to Azure services and databases from Azure App Service
 

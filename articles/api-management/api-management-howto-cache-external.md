@@ -8,6 +8,7 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 01/13/2025
 ms.author: danlep
+ms.custom: sfi-image-nochange
 
 ---
 

@@ -6,6 +6,7 @@ author: msangapu-msft
 ms.author: msangapu
 ms.date: 07/18/2025
 ms.service: azure-app-service
+ms.custom: sfi-image-nochange
 ---
 
 # Tutorial: Use a custom domain and a managed certificate to secure your app

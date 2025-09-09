@@ -7,11 +7,12 @@ ms.topic: how-to
 ms.date: 07/07/2025
 ms.update-cycle: 1095-days
 ms.author: jordanselig
+#customer intent: As an app developer, I want to understand the usage of Hybrid Connections to provide access to apps in Azure App Service.
+ms.service: azure-app-service
 ms.custom:
   - "UpdateFrequency3, fasttrack-edit"
   - build-2025
-#customer intent: As an app developer, I want to understand the usage of Hybrid Connections to provide access to apps in Azure App Service.
-ms.service: azure-app-service
+  - sfi-image-nochange
 ---
 
 # Create and use hybrid connections in Azure App Service

@@ -10,6 +10,7 @@ ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:
   - synapse-analytics
+  - sfi-image-nochange
 ---
 
 # Tutorial: Load data to  Azure Synapse Analytics SQL pool

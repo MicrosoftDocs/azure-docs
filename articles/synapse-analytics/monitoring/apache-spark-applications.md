@@ -9,7 +9,9 @@ ms.subservice: monitoring
 ms.date: 06/01/2022
 ms.author: harmeetgill
 ms.reviewer: mahi
-ms.custom: kr2b-contr-experiment
+ms.custom:
+  - kr2b-contr-experiment
+  - sfi-image-nochange
 ---
 
 # Use Synapse Studio to monitor your Apache Spark applications

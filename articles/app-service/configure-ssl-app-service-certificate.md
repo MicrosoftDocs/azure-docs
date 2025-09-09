@@ -10,6 +10,7 @@ ms.reviewer: yutlin
 ms.author: msangapu
 author: msangapu-msft
 ms.service: azure-app-service
+ms.custom: sfi-image-nochange
 ---
 
 # Buy and manage App Service certificates

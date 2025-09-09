@@ -4,9 +4,11 @@ description: Learn how Azure Monitor and Log Analytics help you monitor your App
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
-ms.custom: devx-track-azurecli
 ms.date: 06/29/2023
 ms.service: azure-app-service
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 # Tutorial: Troubleshoot an App Service app with Azure Monitor
 

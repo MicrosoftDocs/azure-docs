@@ -5,12 +5,15 @@ author: seligj95
 ms.author: jordanselig
 ms.topic: how-to
 ms.date: 02/03/2025
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.assetid: 3be1f4bd-8a81-4565-8a56-528c037b24bd
 
 #customer intent: As an app deployment engineer, I need to understand options for controlling access to our apps by using Azure App Service.
 
 ms.service: azure-app-service
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 # Set up Azure App Service access restrictions
 

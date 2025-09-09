@@ -4,6 +4,9 @@ ms.author: daberry
 ms.topic: include
 ms.date: 01/29/2022
 ms.service: azure-app-service
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 Applications can be deployed to Azure by creating and uploading a ZIP file of the application code to Azure. ZIP files can be uploaded to Azure using the Azure CLI or an HTTP client like [cURL](https://curl.se/).
 

@@ -32,7 +32,7 @@ For example, suppose you have a Standard logic app-based MCP server that runs in
 - The inputs that go in through the MCP client to the agent or model
 - The outputs from the agent or model that go out through the MCP client
 
-:::image type="content" source="media/set-up-model-context-protocol-server-standard/mcp-arch.png" alt-text="Diagram that shows agent interactions with related components." lightbox="media/set-up-model-context-protocol-server-standard/mcp-arch.png":::
+:::image type="content" source="media/set-up-model-context-protocol-server-standard/mcp-server-architecture.png" alt-text="Diagram that shows agent or model interactions with MCP client and MCP server components." lightbox="media/set-up-model-context-protocol-server-standard/mcp-server-architecture.png":::
 
 For more information, see the following articles:
 

@@ -4,12 +4,16 @@ description: Learn how to use GitHub Actions to deploy your custom Linux contain
 ms.topic: how-to
 ms.date: 02/14/2025
 ms.reviewer: ushan
-ms.custom: github-actions-azure, devx-track-azurecli, linux-related-content
 ms.devlang: azurecli
 author: cephalin
 ms.author: cephalin
 zone_pivot_groups:  app-service-containers-github-actions
 ms.service: azure-app-service
+ms.custom:
+  - github-actions-azure
+  - devx-track-azurecli
+  - linux-related-content
+  - sfi-ropc-nochange
 
 # customer intent: As a developer, I want to deploy a custom Linux container to App Service from a CI/CD pipeline so that I can create an automated software development workflow.
 

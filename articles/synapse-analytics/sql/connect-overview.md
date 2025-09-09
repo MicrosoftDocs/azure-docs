@@ -8,7 +8,9 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 09/23/2024
 ms.reviewer:  stefanazaric
-ms.custom: devx-track-csharp
+ms.custom:
+  - devx-track-csharp
+  - sfi-image-nochange
 ---
 # Connect to Synapse SQL
 

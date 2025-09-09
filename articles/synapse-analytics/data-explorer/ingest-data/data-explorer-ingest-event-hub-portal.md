@@ -8,6 +8,7 @@ ms.author: shsagir
 ms.reviewer: tzgitlin
 ms.service: azure-synapse-analytics
 ms.subservice: data-explorer
+ms.custom: sfi-image-nochange
 
 # Customer intent: As a database administrator, I want to ingest data into Azure Synapse Data Explorer from an Event Hub, so I can analyze streaming data.
 ---

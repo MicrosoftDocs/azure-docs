@@ -5,9 +5,11 @@ author: im-microsoft
 ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
-ms.custom: engagement-fy23
 ms.date: 07/30/2024
 ms.author: imotiwala
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 ---
 
 # Get started with Azure Synapse Link for SQL Server 2022

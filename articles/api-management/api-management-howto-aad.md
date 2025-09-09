@@ -8,7 +8,10 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 09/19/2024
 ms.author: danlep
-ms.custom: engagement-fy23, devx-track-azurecli
+ms.custom:
+  - engagement-fy23
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Authorize developer accounts by using Microsoft Entra ID in Azure API Management

@@ -9,9 +9,17 @@ ms.role: developer
 ms.devlang: javascript
 ms.author: msangapu
 author: msangapu-msft
-ms.custom: scenarios:getting-started, languages:javascript, devx-track-js, devdivchpfy22, AppServiceConnectivity, devx-track-extended-azdevcli
 zone_pivot_groups: app-service-portal-azd
 ms.collection: ce-skilling-ai-copilot
+ms.custom:
+  - scenarios:getting-started
+  - languages:javascript
+  - devx-track-js
+  - devdivchpfy22
+  - AppServiceConnectivity
+  - devx-track-extended-azdevcli
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Tutorial: Deploy a Node.js + MongoDB web app to Azure

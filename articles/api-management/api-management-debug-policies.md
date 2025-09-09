@@ -8,6 +8,7 @@ ms.date: 03/27/2025
 ms.update-cycle: 180-days
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
+ms.custom: sfi-image-nochange
 ---
 
 # Create, understand, and debug Azure API Management policies in Visual Studio Code

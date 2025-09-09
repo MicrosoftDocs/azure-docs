@@ -6,6 +6,7 @@ ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 05/30/2025
 ms.author: mibudz
+ms.custom: sfi-ropc-nochange
 ---
 
 # Recommendations to mitigate OWASP API Security Top 10 threats using API Management

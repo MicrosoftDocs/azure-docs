@@ -8,7 +8,9 @@ ms.topic: quickstart
 ms.date: 02/29/2024
 author: nelgson
 ms.author: negust
-ms.custom: mode-other
+ms.custom:
+  - mode-other
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create a new Azure Machine Learning linked service in Synapse

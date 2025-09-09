@@ -10,6 +10,8 @@ ms.topic: quickstart
 ms.custom:
   - azure-synapse
   - mode-ui
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Quickstart: Create a dedicated SQL pool workload classifier using the Azure portal

@@ -39,9 +39,12 @@ Choose from Microsoft Sentinel solution add-ons build by SAP for SAP.
 
 ### Solutions provided by specialized SAP security vendors
 
+Add-ons streamline detection and response by translating SAP-specific risks into actionable insights using capabilities from Microsoft Sentinel Solution for SAP.
+
 | Name | Description | Azure Marketplace link |
 |------|-------------|-------------------|
-| SecurityBridge | SecurityBridge provides advanced SAP security monitoring and threat detection solutions with native integration into Microsoft Sentinel Solution for SAP and Microsoft Entra ID. Specialized in SAP vulnerability management, ABAP code scanning, and real-time security monitoring across SAP landscapes. | [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/securitybridge1647511278080.securitybridge-sentinel-app-1?tab=Overview) |
+| SecurityBridge | SecurityBridge provides advanced SAP security monitoring, threat detection, and compliance solutions with native integration into Microsoft Sentinel Solution for SAP and Microsoft Entra ID. Specialized in SAP vulnerability management, ABAP code scanning, and real-time security monitoring across SAP landscapes | [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/securitybridge1647511278080.securitybridge-sentinel-app-1?tab=Overview) |
+| Onapsis | Onapsis provides comprehensive SAP security and compliance solutions with native integration into Microsoft Sentinel Solution for SAP. Onapsis supports ABAP code scanning, vulnerability management, and real-time monitoring across SAP environments. | [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/onapsis.azure-sentinel-solution-onapsis-defend?tab=Overview) |
 
 ### Solutions provided by the community
 

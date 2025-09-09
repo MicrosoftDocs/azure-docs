@@ -7,7 +7,9 @@ ms.date: 02/04/2020
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: how-to
-ms.custom: azure-synapse
+ms.custom:
+  - azure-synapse
+  - sfi-image-nochange
 ---
 # Continuous integration and deployment for dedicated SQL pool in Azure Synapse Analytics
 

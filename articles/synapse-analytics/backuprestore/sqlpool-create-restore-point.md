@@ -8,6 +8,7 @@ ms.date: 01/23/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 # User-defined restore points
 

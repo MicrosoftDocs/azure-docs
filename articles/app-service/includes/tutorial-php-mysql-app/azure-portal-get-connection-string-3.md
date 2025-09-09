@@ -4,6 +4,7 @@ ms.author: cephalin
 ms.topic: include
 ms.date: 07/07/2022
 ms.service: azure-app-service
+ms.custom: sfi-ropc-nochange
 ---
 
 Back in the Application settings tab:

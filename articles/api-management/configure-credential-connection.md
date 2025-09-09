@@ -7,6 +7,7 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 11/08/2023
 ms.author: danlep
+ms.custom: sfi-image-nochange
 ---
 
 # Configure multiple connections

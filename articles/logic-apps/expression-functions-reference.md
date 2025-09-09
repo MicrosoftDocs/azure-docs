@@ -402,7 +402,7 @@ action().outputs.body.<property>
 
 | Return value | Type | Description |
 | ------------ | -----| ----------- |
-| <*action-output*> | String | The output from the current action or property |
+| <*action-output*> | Object | The JSON object output from the current action or property |
 
 <a name="actions"></a>
 
@@ -414,9 +414,6 @@ which you can assign to an expression. By default,
 the function references the entire action object,
 but you can optionally specify a property whose value that you want.
 For shorthand versions, see [body()](#body). For the current action, see [action()](#action).
-
-> [!TIP]
-> The `actions()` function returns output as a string. If you need to work with a returned value as a JSON object, you first need to convert the string value. You can transform the string value into a JSON object using the [Parse JSON action](logic-apps-perform-data-operations.md#parse-json-action).
 
 > [!NOTE]
 > Previously, you could use the `actions()` function or
@@ -439,7 +436,7 @@ actions('<actionName>').outputs.body.<property>
 
 | Return value | Type | Description |
 | ------------ | -----| ----------- |
-| <*action-output*> | String | The output from the specified action or property |
+| <*action-output*> | Object | The JSON object output from the specified action or property |
 
 *Example*
 

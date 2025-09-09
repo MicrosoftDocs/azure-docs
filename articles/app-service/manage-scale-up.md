@@ -6,9 +6,10 @@ ms.topic: how-to
 ms.date: 08/29/2025
 ms.author: msangapu
 author: msangapu-msft
+ms.service: azure-app-service
 ms.custom:
   - build-2025
-ms.service: azure-app-service
+  - sfi-image-nochange
 ---
 # Scale up an app in Azure App Service
 
