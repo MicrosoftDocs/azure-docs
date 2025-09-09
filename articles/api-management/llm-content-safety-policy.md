@@ -97,7 +97,7 @@ Use the policy in scenarios such as the following:
 
 ## Example
 
-The following example enforces content safety checks on LLM requests using the Azure AI Content Safety service. The policy blocks requests that contain speech in the `Hate` or `Violence` category with a severity level of 4 or higher. The `shield-prompt` attribute is set to `true` to check for adversarial attacks.
+The following example enforces content safety checks on LLM requests using the Azure AI Content Safety service. The policy blocks requests that contain speech in the `Hate` or `Violence` category with a severity level of 4 or lower. Lowering a category's threshold filters out more prompts and consequently blocks requests, whereas raising a threshold results in more prompts passing evaluation. The `shield-prompt` attribute is set to `true` to check for adversarial attacks.
 
 ```xml
 <policies>
@@ -110,9 +110,6 @@ The following example enforces content safety checks on LLM requests using the A
         </llm-content-safety>
     </inbound>
 </policies>
-
-Lowering a category's threshold filters out more prompts and consequently blocks requests, whereas raising a threshold results in more prompts passing evaluation. 
-
 ```
 
 ## Related policies
