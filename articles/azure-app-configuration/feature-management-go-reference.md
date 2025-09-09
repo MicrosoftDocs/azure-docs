@@ -30,11 +30,11 @@ Here are some of the benefits of using Go feature management library:
   * Toggle on/off features
   * Dynamically evaluate state of feature based on call to server
 
-  The Go feature management library is open source. For more information, visit the [GitHub repo](https://github.com/microsoft/FeatureManagement-Go).
+The Go feature management library is open source. For more information, visit the [GitHub repo](https://github.com/microsoft/FeatureManagement-Go).
 
 ## Feature flags
 
-Feature flags are composed of two parts, a name and a list of feature-filters that are used to turn on the feature.
+Feature flags can be either enabled or disabled. The state of a flag can be made conditional through the use of feature filters.
 
 ### Feature filters
 
@@ -114,7 +114,9 @@ The following example shows the format used to set up feature flags in a JSON fi
 }
 ```
 
-The `feature_management` section of the json document is used by convention to load feature flag settings. The `feature_flags` section is a list of the feature flags that are loaded into the library. In the section above, we see three different features. Features define their feature filters using the `client_filters` property, inside of `conditions`. In the feature filters for `FeatureT`, we see `enabled` is `true` with no filters defined, resulting in `FeatureT` always returning `true` . `FeatureU` is the same as `FeatureT` but with `enabled` is `false` resulting in the feature always returning `false`. `FeatureV` specifies a feature filter named `Microsoft.TimeWindow`. `FeatureV` is an example of a configurable feature filter. We can see in the example that the filter has a `parameters` property. The `parameters` property is used to configure the filter. In this case, the start and end times for the feature to be active are configured.
+The `feature_management` section of the JSON document is used by convention to load feature flag settings. Feature flag objects must be listed in the `feature_flags` array under the `feature_management` section. 
+
+In the section above, we see three different features. A feature flag has `id` and `enabled` properties. The `id` is the name used to identify and reference the feature flag. The `enabled` property specifies the enabled state of the feature flag. A feature is *OFF* if enabled is false. If `enabled` is true, then the state of the feature depends on the conditions. If there are no conditions, then the feature is *ON*. If there are conditions, and they're met, then the feature is *ON*. If there are conditions and they aren't met then the feature is *OFF*. The conditions property declares the conditions used to dynamically enable the feature. Features define their feature filters in the *client_filters* array. `FeatureV` specifies a feature filter named `Microsoft.TimeWindow`. This filter is an example of a configurable feature filter. We can see in the example that the filter has a `Parameters` property. This property is used to configure the filter. In this case, the start and end times for the feature to be active are configured.
 
 The detailed schema of the `feature_management` section can be found [here](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureManagement.v2.0.0.schema.json).
 
@@ -122,7 +124,7 @@ The detailed schema of the `feature_management` section can be found [here](http
 
 #### On/off declaration
  
-The following snippet demonstrates an alternative way to define a feature that can be used for on/off features. 
+The following snippet demonstrates an alternative way to define a feature for simple on/off features.
 
 ``` json
 {
@@ -214,7 +216,7 @@ if enabled {
 
 ## Implementing a feature filter
 
-Creating a feature filter provides a way to enable features based on criteria that you define. To implement a feature filter, the `FeatureFilter` interface must be implemented. `FeatureFilter` has a single method named `Evaluate`. When a feature specifies that it can be enabled for a feature filter, the `Evaluate` method is called. If `Evaluate` returns `true`, it means the feature should be enabled.
+Creating a feature filter provides a way to enable features based on criteria that you define. To implement a feature filter, the `FeatureFilter` interface must be implemented. `FeatureFilter` has a method named `Evaluate`. When a feature is associated with a filter, the `Evaluate` method is invoked during evaluation. If `Evaluate` returns `true`, the feature is considered enabled.
 
 ```golang
 type FeatureFilter interface {
@@ -271,7 +273,7 @@ if err != nil {
 
 ### Filter alias attribute
 
-When a feature filter is registered for a feature flag, the name of the filter is used as the alias by default. The identifier for the feature filter can be overridden by implementing the `Name()` method to declare the name that should be used in configuration to reference this feature filter within a feature flag.
+When a feature filter is registered for a feature flag, its name is used as the default alias. You can override this identifier by implementing the `Name()` method, which specifies the name to be used in configuration when referencing the filter within a feature flag.
 
 ### Missing feature filters
 
