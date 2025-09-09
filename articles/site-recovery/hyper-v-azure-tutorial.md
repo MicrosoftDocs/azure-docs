@@ -3,7 +3,7 @@ title: Set up Hyper-V disaster recovery by using Azure Site Recovery
 description: Learn how to set up disaster recovery of on-premises Hyper-V VMs (without SCVMM) to Azure by using Site Recovery and MARS.
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 05/04/2023
+ms.date: 09/09/2025
 ms.custom: MVC, engagement-fy23
 ms.author: jsuri
 author: jyothisuri
@@ -159,6 +159,31 @@ You can track progress in your Azure portal notifications. When the job finishes
 
     :::image type="content" source="./media/hyper-v-azure-tutorial/enable-replication-policy.png" alt-text="Screenshot that shows the replication policy pane.":::
 1. On the **Review** tab, review your selections, and then select **Enable Replication**.
+
+## Unmanaged disk deprecation
+
+Azure [retires unmanaged disks](/azure/virtual-machines/unmanaged-disks-deprecation) by March 31, 2026 and you will no longer be able to start IaaS VMs using unmanaged disks. Any running or allocated VMs with unmanaged disks are stopped and deallocated. 
+
+This change impacts Azure Site Recovery (ASR) operations, especially for failover scenarios. If your target disks are configured as unmanaged, failovers fail after unmanaged disks deprecation as ASR attempts to create unmanaged VMs that are no longer supported.
+
+### What’s changing for Hyper-V-to-Azure (H2A)
+
+#### New ASR Enablement
+
+All new ASR configurations for H2A from Azure portal creates target disks as Managed disks. When you enable replication of a Hyper-V VM from Azure portal, the target disk is always a Managed disk, regardless of whether the replica is a blob or a Managed disk.
+
+On the Azure portal, during enable replication, **Replica Storage Account** setting is selected as **Managed Disk** by default. In that case, both your replica and target are of Managed disk type. You can also select **Storage Account** from the dropdown menu, where your replica is unmanaged disk type, and target disk is Managed disk type.
+
+### Existing ASR Configurations
+
+If you have an existing H2A configuration with unmanaged disks as the target, you are recommended to update your protection settings to use Managed disks as the target to ensure failover after the deprecation of unmanaged disks. Navigate to **Protected Items** page > **Compute and Network** and change **Use managed disks** from **No** to **Yes** if not done already, to ensure failed over Azure VMs use managed disks.
+ 
+>[!NOTE]
+>Changing **Use managed disks** from **No** to **Yes** means disks created after failover are *Managed*, with their type (Standard SSD LRS or Premium SSD LRS) based on the replica's storage account. Standard accounts result in Standard SSD LRS disks; Premium accounts yield Premium SSD LRS disks.
+
+### Failback
+
+Failback from Azure to on-premises is possible when the target disk is Managed, regardless of whether the replica uses unmanaged or managed disks. MARS (Recovery Services agent) version 2.0.9214 or higher is required for failback.
 
 ## Next steps
 
