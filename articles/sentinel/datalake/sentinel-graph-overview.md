@@ -16,7 +16,10 @@ ms.subservice: sentinel-graph
 
 Microsoft Sentinel Graph is a unified graph capability within Microsoft Sentinel platform powering graph-based experiences across security, compliance, identity, and the entire ecosystem. Empowering security teams to model, analyze, and visualize complex relationships across their digital estate. Unlike traditional tabular data approaches, Sentinel graph enables defenders and AI agents to reason over interconnected assets, identities, activities, and threat intelligence—unlocking deeper insights and accelerating response to evolving cyber threats across prebreach and post breach. Graphs natively represent the real-world web of users, devices, cloud resources, data flows, activities, and attacker actions. By viewing these relationships as nodes and edges, security teams can answer questions that are slow or impossible with tables, such as what could happen if a specific user account is compromised? Or what is the blast radius of a compromised document? Sentinel graph offers interconnected security graphs to help you at every stage of defense from prebreach to post breach.
 
-[!INCLUDE [sentinel-graph-preview](includes/sentinel-graph-preview.md)]
+<!--- [!INCLUDE [sentinel-graph-preview](includes/sentinel-graph-preview.md)] --->
+
+> [!IMPORTANT]
+> Microsoft Sentinel Graph is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Why graph representation matters in security
 
