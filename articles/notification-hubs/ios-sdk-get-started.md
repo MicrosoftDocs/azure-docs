@@ -6,6 +6,7 @@ ms.author: sethm
 ms.date: 05/01/2025
 ms.topic: tutorial
 ms.service: azure-notification-hubs
+ms.custom: sfi-image-nochange
 
 ---
 

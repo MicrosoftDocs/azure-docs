@@ -13,6 +13,7 @@ ms.date: 11/07/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/07/2019
+ms.custom: sfi-ropc-nochange
 ---
 
 # Tutorial: Send push notifications to specific iOS devices using Azure Notification Hubs
