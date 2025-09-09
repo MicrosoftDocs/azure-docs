@@ -33,4 +33,4 @@ This article explains the assessment properties on the **General** tab that you 
 
 ## Next steps
 
-- Learn about [PostgreSQL assesssmemt rules](assessment-rules-postgresql.md).
+- Learn about [PostgreSQL assesssmemt rules](assessment-rules-for-postgresql.md).
