@@ -20,8 +20,6 @@ This article highlights log sources to consider configuring as data lake tier on
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
-[!INCLUDE [sentinel-lake-preview](includes/sentinel-lake-preview.md)]
-
 ## Storage access logs for cloud providers
 
 Storage access logs can provide a secondary source of information for investigations that involve exposure of sensitive data to unauthorized parties. These logs can help you identify issues with system or user permissions granted to the data.
