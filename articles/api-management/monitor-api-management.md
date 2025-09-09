@@ -47,6 +47,9 @@ Azure API Management provides analytics for your APIs so that you can analyze th
 > [!IMPORTANT]
 > The Azure Monitor-based dashboard is the recommended way to access analytics data. Built-in (classic) analytics isn't available in the v2 tiers.
 
+> [!IMPORTANT]
+> Effective March 2027, the dashboard and reports associated with API Management built-in analytics will be [retired](.breaking-changes/analytics-dashboard-retirement-march-2027). We recommend transitioning to the Azure Monitor-based dashboard that replaces it.
+
 With API analytics, analyze the usage and performance of the APIs in your API Management instance across several dimensions, including:
 
 - Timeline
@@ -96,7 +99,7 @@ In certain API Management service tiers, built-in analytics (also called *legacy
 
 To access the built-in (classic) analytics in the Azure portal:
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
+1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance./
 1. In the left-hand menu, under **Monitoring**, select **Analytics (classic)**.
 1. Select a time range for data, or enter a custom time range.
 1. Select a report category for analytics data, such as **Timeline**, **Geography**, and so on.
