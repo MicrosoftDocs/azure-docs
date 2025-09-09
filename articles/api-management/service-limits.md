@@ -4,7 +4,7 @@ description: Learn about service limits in Azure API Management, including their
 author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 08/29/2025
+ms.date: 09/09/2025
 ms.author: danlep
 ai-usage: ai-assisted
 ---

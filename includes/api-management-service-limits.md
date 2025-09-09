@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: include
-ms.date: 08/12/2025
+ms.date: 09/09/2025
 ms.author: danlep
 ms.custom: Include file
 ---
@@ -82,5 +82,5 @@ ms.custom: Include file
 <sup>3</sup> The number of nodes (or replicas) associated with a self-hosted gateway resource is unlimited in the Premium tier and capped at a single node in the Developer tier.<br/>
 <sup>4</sup> Up to a maximum of 60,000 connections.<br/>
 <sup>5</sup> This is a hard limit and cannot be adjusted.<br/>
-<sup>6</sup> Limit introduced starting July 2025. Existing services that already exceed the limit are not impacted.
+<sup>6</sup> Limit introduced starting November 2025. Existing services that already exceed the limit are not impacted.
 
