@@ -5,7 +5,9 @@ author: RogerBestMSFT
 ms.service: azure-lab-services
 ms.date: 07/04/2022
 ms.topic: how-to
-ms.custom: devdivchpfy22
+ms.custom:
+  - devdivchpfy22
+  - sfi-image-nochange
 ---
 
 # Cost management for Azure Lab Services
