@@ -414,7 +414,7 @@ Classic file shares provisioned using the provisioned v1 billing model are bille
 - **Premium Provisioned**: The amount of storage provisioned in GiB.
 - **Premium Snapshots**: The amount of used snapshots and used soft-deleted capacity.
 
-Consumption against the provisioned v1 billing meters are emitted hourly in terms of monthly units. For example, for a share with 1,024 GiB provisioned, you should see:
+Consumption against the provisioned v1 billing meters is emitted hourly in terms of monthly units. For example, for a share with 1,024 GiB provisioned, you should see:
 
 - A variable number of units for an individual hour depending on the number of days in the month:
     - 28 day month (normal February): 1.5238 units against the **Premium Provisioned** meter.
@@ -591,7 +591,7 @@ Consumption units against the **Data Stored** and **Metadata** billing meters ar
     - 31 day month: 33.0323 units against the **Data Stored** meter.
 - 1,024 units against the **Data Stored** meter if aggregated for a month.
 
-Consumption against the other meters (ex. **Write Operations** or **Data Retrieval**) are emitted hourly, but since they aren't emitted in terms of a timeframe, don't have any special unit transformations to be aware of.
+Consumption against the other meters (ex. **Write Operations** or **Data Retrieval**) is emitted hourly, but since these meters don't have a specific timeframe associated with them, they don't have any special unit transformations to be aware of.
 
 ## Provisioned/quota, logical size, and physical size
 Azure Files tracks three distinct quantities with respect to share capacity:
