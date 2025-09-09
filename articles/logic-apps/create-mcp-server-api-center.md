@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.date: 09/08/2025
 ms.update-cycle: 180-days
-#Customer intent: I want to create and register an MCP server that provides tools that I build from connector actions in Azure Logic Apps through API Center. AI agents and models can use these tools to complete tasks.
+#Customer intent: As an AI developer, I want to create and register an MCP server that provides tools that I build from connector actions in Azure Logic Apps through API Center. AI agents and models can use these tools to complete tasks.
 ---
 
 # Build MCP and register servers in API Center to provide tools driven by Azure Logic Apps (Preview)
@@ -47,7 +47,7 @@ The following diagram shows relationships between the different components at wo
 - The inputs that go in through the MCP client to the agent or model
 - The outputs from the agent or model that go out through the MCP client
 
-:::image type="content" source="media/create-mcp-server-api-center/mcp-server-api-center-portal-arch.png" alt-text="Diagram shows relationship between MCP server and tools in Azure API Center portal, agent, and MCP client.":::
+:::image type="content" source="media/create-mcp-server-api-center/mcp-server-api-center-portal-architecture.png" alt-text="Diagram shows relationship between MCP server and tools in Azure API Center portal, agent, MCP client, and Azure Logic Apps." lightbox="media/create-mcp-server-api-center/mcp-server-api-center-portal-architecture.png":::
 
 MCP is an open standard that lets AI components such as LLMs, agents, and MCP clients use tools to work with external services and systems in a secure, discoverable, and structured way. This standard defines how to describe, run, and authenticate access to tools so that AI components can interact with real-world services, systems, databases, APIs, and business workflows. An MCP server acts like a bridge between AI components and the tools that they can use.
 

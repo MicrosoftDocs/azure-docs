@@ -4,6 +4,7 @@ ms.service: service-connector
 ms.topic: include
 ms.date: 11/13/2023
 ms.author: xiaofanzhou
+ms.custom: sfi-ropc-nochange
 ---
 
 # [.NET](#tab/dotnet-mysql-mi)

@@ -7,6 +7,7 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 07/07/2025
 ms.author: danlep
+ms.custom: sfi-image-nochange
 ---
 
 # Deploy an Azure API Management instance to multiple Azure regions
