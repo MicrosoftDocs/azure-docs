@@ -8,7 +8,9 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 05/19/2025
 ms.author: danlep
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 
 #customer intent: As an API developer, I want to create managed identities so that API Management can access other resources. 
 ---

@@ -5,12 +5,17 @@ keywords: azure app service, web app, windows, oss, java, tomcat, jboss, spring 
 ms.devlang: java
 ms.topic: how-to
 ms.date: 07/17/2024
-ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java, linux-related-content
 zone_pivot_groups: app-service-java-hosting
 adobe-target: true
 author: cephalin
 ms.author: cephalin
 ms.service: azure-app-service
+ms.custom:
+  - devx-track-java
+  - devx-track-azurecli
+  - devx-track-extended-java
+  - linux-related-content
+  - sfi-ropc-nochange
 
 # customer intent: As a developer, I want to configure APM platforms for Tomcat, JBoss, or Java SE apps so that I can monitor my apps. 
  
