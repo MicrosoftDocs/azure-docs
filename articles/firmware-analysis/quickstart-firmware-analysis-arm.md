@@ -16,8 +16,7 @@ ms.date: 09/09/2025
 
 This quickstart describes how to use an Azure Resource Manager template (ARM template) to create a **firmware analysis** workspace. A workspace is the Azure resource that stores your firmware uploads and analysis results for the firmware analysis service.
 
-[!INCLUDE [api-management-quickstart-intro](../../includes/api-management-quickstart-intro.md)]
-
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 ## Prerequisites
 
