@@ -9,6 +9,7 @@ ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 06/04/2025
 ms.author: danlep 
+ms.custom: sfi-image-nochange
 ---
 
 # Overview of the developer portal
