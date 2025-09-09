@@ -8,7 +8,7 @@ ms.author: karenguo
 ms.service: azure
 ms.topic: quickstart-bicep
 ms.custom: subject-bicepqs
-ms.date: 09/09/
+ms.date: 09/09/2025
 ---
 
 # Quickstart: Create a firmware analysis workspace using Bicep
