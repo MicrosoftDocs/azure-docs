@@ -27,7 +27,7 @@ This article describes the costs associated with each SKU and it's recommended t
 Application Gateway V2 and WAF V2 SKUs support autoscaling and guarantee high availability by default. V2 SKUs are billed based on the consumption and constitute of two parts:
 
 - **Fixed costs**: These costs are based on the time the Application Gateway V2 or WAF V2 is provisioned and available for processing requests. This ensures high availability. There's an associated cost even if zero instances are reserved by specifying `0` in the minimum instance count, as part of autoscaling. 
-    - The fixed cost also includes the cost associated with the public IP address attached to the application gateway. 
+    - The fixed cost does not includes the cost associated with the public IP address attached to the application gateway. 
     - The number of instances running at any point of time isn't considered in calculating fixed costs for V2 SKUs. The fixed costs of running a Standard_V2 (or WAF_V2) are the same per hour, regardless of the number of instances running within the same Azure region.
 - **Capacity unit costs**: These costs are based on the number of capacity units that are either reserved or utilized - as required for processing the incoming requests. Consumption based costs are computed hourly.
 
