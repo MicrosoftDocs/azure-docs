@@ -7,7 +7,9 @@ ms.date: 03/04/2024
 ms.topic: how-to
 ms.service: azure-iot-central
 services: iot-central
-ms.custom: device-developer
+ms.custom:
+  - device-developer
+  - sfi-image-nochange
 ---
 
 # How to connect devices through an IoT Edge transparent gateway

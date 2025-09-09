@@ -7,6 +7,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 06/18/2024
 ms.topic: how-to
+ms.custom: sfi-ropc-nochange
 
 #customer intent: As a developer, I want to learn how to use the REST API to manage IoT Central applications so that I can automate application management tasks.
 ---
