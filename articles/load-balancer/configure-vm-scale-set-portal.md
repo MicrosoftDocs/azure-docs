@@ -6,7 +6,10 @@ ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 09/11/2024
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: As an IT administrator, I want to configure a Virtual Machine Scale Set with an existing load balancer using the Azure portal, CLI, or PowerShell, so that I can efficiently manage and scale my virtual machine instances.
 ---
 
