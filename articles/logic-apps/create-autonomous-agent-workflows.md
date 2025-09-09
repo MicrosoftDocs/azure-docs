@@ -21,9 +21,9 @@ ms.update-cycle: 180-days
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-When your scenario requires workflows with agents that can make decisions and complete tasks without human interactions, you can create an *autonomous* agent workflow in Azure Logic Apps. These workflows are the best option for scenarios where agents need to make independent decisions, might need to run longer, and require stronger governance, isolation, and automated rollback or compensation strategies.
+When your scenario requires workflows that support natural language and use agents connected to large language models (LLMs) to make decisions and complete tasks without human interactions, create an *autonomous* agent workflow in Azure Logic Apps. This workflow type is the best option for scenarios where agents must work with without human intervention, might need to run for a long time, and require stronger governance, isolation, and automated rollback or compensation strategies.
 
-All agent workflows perform tasks by using at least one agent connected to a large language models (LLM). An agent uses an iterative looped process to solve complex, multi-step problems. An LLM is a trained program that recognizes patterns and performs jobs without human interaction. By including an agent connected to a model, an agent workflow lets you separate an agent's decision logic, meaning the model, prompts, and orchestration, from integration and task execution.
+All agent workflows perform tasks by using an agent connected to an LLM. The agent uses an iterative looped process to solve complex, multi-step problems. An LLM is a trained program that recognizes patterns and performs jobs without human interaction. An agent workflow lets you separate an agent's decision logic, which includes the LLM, prompts, and orchestration, from the integration and task execution components.
 
 An agent provides the following capabilities and benefits when connected to a model:
 
@@ -41,7 +41,7 @@ The following screenshot shows an example autonomous agent workflow that you cre
 
 For the high-level steps that describe how the agent works and more overview information about agent workflows, see [AI agent workflows in Azure Logic Apps](/azure/logic-apps/agent-workflows-concepts).
 
-This guide shows how to create an example Standard logic app workflow with the **Autonomous Agents** type, which works without human interaction or inputs. To fulfill requests, the agent uses tools that you create to complete the necessary tasks.
+This guide shows how to create an example Standard logic app workflow with the **Autonomous Agents** type, which works without human interaction or inputs, and how to update an existing stateful workflow to include an agent. To fulfill requests, the agent uses tools that you create to complete the necessary tasks.
 
 ## Prerequisites
 
@@ -135,14 +135,18 @@ The following table describes the current limitations and any known issues in th
 
 | Limitation | Description |
 |------------|-------------|
-| Supported workflow types | To create an autonomous agent workflow, you must select the **Autonomous Agents** workflow type. You can't start with the **Stateful** or **Stateless** workflow type, and then add an agent. |
+| Supported workflow types | To create an autonomous agent workflow, select the **Autonomous Agents** workflow type or add an **Agent** action to an existing **Stateful** workflow. You can't use the **Stateless** workflow type, and then add an agent. |
 | Authentication | For managed identity authentication, you can use only the system-assigned managed identity at this time. Support is currently unavailable for the user-assigned managed identity. <br><br>**Note**: For Azure AI Foundry projects, you must use managed identity authentication. |
 | Agent tools | - To create tools, you can use only actions, not triggers. <br><br>- A tool starts with action and always contains at least one action. <br><br>- A tool works only inside the agent where that tool exists. <br><br>- Control flow actions are unsupported. |
 | General limits | For general information about the limits in Azure OpenAI Service, Azure AI Foundry, and Azure Logic Apps, see the following articles: <br><br>- [Azure OpenAI Service quotas and limits](/azure/ai-services/openai/quotas-limits) <br>- [Azure OpenAI in Azure AI Foundry Models quotas and limits](/azure/ai-foundry/openai/quotas-limits) <br>- [Azure Logic Apps limits and configuration](/azure/logic-apps/logic-apps-limits-and-config) |
 
 ## Create an autonomous agent workflow
 
-Follow these steps to create a partial workflow with an empty **Agent**.
+You can start with either a new workflow or [add an agent to a nonagent **Stateful** workflow](#add-agent-nonagent-workflow).
+
+### Create a new workflow
+
+To create a partial workflow with an empty **Agent**, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
@@ -166,30 +170,44 @@ Follow these steps to create a partial workflow with an empty **Agent**.
 
    :::image type="content" source="media/create-autonomous-agent-workflows/agent-workflow-start.png" alt-text="Screenshot shows workflow designer with Add a trigger and empty Agent." lightbox="media/create-autonomous-agent-workflows/agent-workflow-start.png":::
 
-1. Continue to the next section.
+1. Now, add a trigger to your workflow.
 
-## Add a trigger
+   Your workflow requires a trigger to control when the workflow starts running. You can use any trigger that fits your scenario. For more information, see [Triggers](/azure/connectors/introduction#triggers).
 
-Your workflow requires a trigger to control when the workflow starts running. You can use any trigger that fits your scenario. For more information, see [Triggers](/azure/connectors/introduction#triggers).
+   1. On the designer, select **Add trigger**.
 
-1. On the designer, select **Add trigger**.
+   1. On the **Add a trigger** pane, follow these [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-trigger) to add the best trigger for your scenario.
 
-1. On the **Add a trigger** pane, follow these [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-trigger) to add the best trigger for your scenario.
+      This example uses the **Request** trigger named **When a HTTP request is received**. For this article, you don't need any other trigger setup.
 
-   This example uses the **Request** trigger named **When a HTTP request is received**. For this article, you don't need any other trigger setup.
+      :::image type="content" source="media/create-autonomous-agent-workflows/request-trigger.png" alt-text="Screenshot shows workflow designer with Request trigger and Agent action." lightbox="media/create-autonomous-agent-workflows/request-trigger.png":::
 
-   :::image type="content" source="media/create-autonomous-agent-workflows/request-trigger.png" alt-text="Screenshot shows workflow designer with Request trigger and Agent action." lightbox="media/create-autonomous-agent-workflows/request-trigger.png":::
+   1. Continue to the next section so you can set up the connection between your agent and your model.
 
-1. Continue to the next section so you can set up the connection between your agent and your model.
+      > [!NOTE]
+      >
+      > If you try to save the workflow now, the designer toolbar shows a red dot on the **Errors** 
+      > button. The designer alerts you to this error condition because the agent requires setup 
+      > before you can save any changes. However, you don't have to set up the agent now. You can 
+      > continue to create your workflow. Just remember to set up the agent before you save your workflow.
+      >
+      > :::image type="content" source="media/create-autonomous-agent-workflows/error-missing-agent-settings.png" alt-text="Screenshot shows workflow designer toolbar with Errors button with red dot and error in the agent action information pane." lightbox="media/create-autonomous-agent-workflows/error-missing-agent-settings.png":::
 
-   > [!NOTE]
-   >
-   > If you try to save the workflow now, the designer toolbar shows a red dot on the **Errors** 
-   > button. The designer alerts you to this error condition because the agent requires setup 
-   > before you can save any changes. However, you don't have to set up the agent now. You can 
-   > continue to create your workflow. Just remember to set up the agent before you save your workflow.
-   >
-   > :::image type="content" source="media/create-autonomous-agent-workflows/error-missing-agent-settings.png" alt-text="Screenshot shows workflow designer toolbar with Errors button with red dot and error in the agent action information pane." lightbox="media/create-autonomous-agent-workflows/error-missing-agent-settings.png":::
+<a name="add-agent-nonagent-workflow"></a>
+
+### Add an agent to a nonagent workflow
+
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
+
+1. On the logic app menu, under **Workflows**, select **Workflows**.
+
+1. On the **Workflows** page, select the **Stateful** workflow where you want to an add an agent.
+
+1. After the designer opens, follow the [general steps to add an action named **Agent** to your workflow](add-trigger-action-workflow.md?tabs=standard#add-action).
+
+1. Continue with the next section to connect the agent to your model.
+
+<a name="connect-agent-to-model"></a>
 
 ## Connect the agent to your model
 
