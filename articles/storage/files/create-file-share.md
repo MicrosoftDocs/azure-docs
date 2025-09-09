@@ -57,7 +57,7 @@ Click **+ Create** to create a new file share.
 
 The first tab to complete creating a file share is labeled **Basics**, which contains the required fields to create a file share.
 
-![A screenshot of the Azure portal for create flow 1 for file share.](./media/storage-how-to-create-microsoft-fileshares/file-share-createflow-basic.png)
+![A screenshot of the Azure portal for create flow 1 for file share.](./media/storage-how-to-create-microsoft-fileshares/file-share-create-flow-basic.png)
 
 
 | **Field name**                  | **Input type**         | **Values**                                                                                                                                                                                                                   | **Meaning**                                                                                                                                                                                                                                                                       |
@@ -77,7 +77,7 @@ The first tab to complete creating a file share is labeled **Basics**, which con
 
 The **Advanced** tab is optional, but provides more granular settings for the file share. Currently you can choose to set up root squash options or specify a mount name for the file share. See [nfs root squash options](./nfs-root-squash.md) to learn more. Mount name allows you to choose a different name to use to mount the file share. By default, it's the same as the file share name. Customize it if you want a unique mount name. The same rules still apply to the naming policy. See [Naming rules and restrictions for Azure resources](../../azure-resource-manager/management/resource-name-rules.md) to learn more.
 
-![A screenshot of the  of the advanced tab.](./media/storage-how-to-create-microsoft-fileshares/file-share-createflow-advanced.png)
+![A screenshot of the  of the advanced tab.](./media/storage-how-to-create-microsoft-fileshares/file-share-create-flow-advanced.png)
 
 ### Networking
 
