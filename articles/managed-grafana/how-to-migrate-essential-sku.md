@@ -1,16 +1,16 @@
 ---
-title: Migrate from Azure Managed Grafana Essential SKU Before Retirement
+title: Migrate from Azure Managed Grafana Essential Service Tier
 ms.service: azure-managed-grafana
-description: Migrate from Azure Managed Grafana Essential SKU before retirement. Step-by-step guide to upgrade to Standard SKU or move to Azure Monitor dashboards with Grafana.
+description: Migrate from Azure Managed Grafana Essential service tier before retirement. Step-by-step guide to upgrade to Standard tier or move to Azure Monitor dashboards with Grafana.
 author: maud-lv
 ms.topic: how-to
 ms.date: 09/03/2025
 ms.author: malev
 ---
 
-# Migrate from Azure Managed Grafana Essential SKU before retirement
+# Migrate from Azure Managed Grafana Essential service tier
 
-The Azure Managed Grafana Essential SKU is being retired due to resource limitations. This article outlines the retirement timeline, guides you through the recommended upgrade to Standard SKU, and details an alternative migration path.
+The Azure Managed Grafana Essential service tier is being transitioned to Azure Monitor dashboards with Grafana (available for free in Azure portal) and/or to Azure Managed Grafana Standard service tier. This article outlines the transition timeline, guides you through the transition options.
 
 Two migration paths are available to ensure continuity of your Grafana dashboards and monitoring capabilities:
 
@@ -19,7 +19,7 @@ Two migration paths are available to ensure continuity of your Grafana dashboard
 
 Choose the option that best fits your requirements and budget.
 
-We recommend that you plan your migration before the following key retirement dates to prevent disruption:
+We recommend that you plan your migration before the following key dates to prevent disruption:
 
 - October 31, 2025: Portal support for creating new Essential (preview) workspaces ends.
 - March 31, 2026: The Essential SKU is fully retired and existing Essential workspaces stop functioning.
@@ -29,8 +29,9 @@ We recommend that you plan your migration before the following key retirement da
 
 Upgrading to the Standard SKU ensures continued reliability, SLA coverage, and enhanced features:
 
-- SLA-backed service and enterprise-level reliability.
+- SLA-backed service and enterprise-level reliability with access to more data sources.
 - Two instance sizes available: X1 (default) and X2 (more capacity and alert rules).
+- A similar provisioning flow as Managed Grafana Essential service tier.
 - Additional features: zone redundancy, private endpoints, reporting, alerts, and more.
 
 For pricing details, see [Azure Managed Grafana pricing](https://azure.microsoft.com/pricing/details/managed-grafana/).
