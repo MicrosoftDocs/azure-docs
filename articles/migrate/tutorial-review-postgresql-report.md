@@ -10,7 +10,7 @@ ms.custom: engagement-fy24
 # Customer intent: Customers want to assess on-premises PostgreSQL workloads using Azure Migrate to prepare for migration to Azure Database for PostgreSQL flexible server. They aim to evaluate cloud readiness, risks, and costs through configuration-based assessments.
 ---
 
-# Tutorial: Review PostgreSQL assessment results and Migration recommendations (preview)
+# Tutorial: Review PostgreSQL assessment results and migration recommendations (preview)
 
 This article describes the key components of a PostgreSQL assessment and shows you how to review results, explore migration options, and evaluate cost and readiness for migrating to Azure.
 
@@ -25,7 +25,7 @@ To view the assessment, you create, follow these steps:
 1. Go to the **Assessment** and select **View all reports** under **Overview** or select **Assessments** under the **Decide and plan**.
 1. Select the assessment you want to view, for example, azmigrate-demo.
 
-    :::image type="content" source="./media/tutorial-review-postgresql-properties/select-assessment.png" alt-text="Screenshot shows how to select the assessment" lightbox="./media/tutorial-review-postgresql-properties/select-assessment.png":::
+    :::image type="content" source="./media/tutorial-review-postgresql-properties/select-assessment.png" alt-text="Screenshot shows how to select the assessment." lightbox="./media/tutorial-review-postgresql-properties/select-assessment.png":::
 
 1. Review the summary of the assessment. You can also edit the assessment settings or recalculate the assessment.
 
@@ -67,16 +67,16 @@ Readiness report:
 
 The **Supportability** section shows the support status of the PostgreSQL versions identified during the assessment. The Discovery Details section provides a visual summary of the number of discovered PostgreSQL instances, categorized by version.
 
-1. To view the list of assessed PostgreSQL instances, select the graph in the **Supportability**.
-1. The **Database instance version support status** column indicates whether the PostgreSQL version is in mainstream support or out of support.
-1. To view detailed support information, select the support status. A pane opens on the right and shows the following details:
+- To view the list of assessed PostgreSQL instances, select the graph in the **Supportability**.
+- The **Database instance version support status** column indicates whether the PostgreSQL version is in mainstream support or out of support.
+- To view detailed support information, select the support status. A pane opens on the right and shows the following details:
     - Type of support status (Mainstream or Out of support)
     - Remaining support duration
     - Recommended actions to help secure workloads.
-1. To view the remaining support duration (in months) for each PostgreSQL version:
+- To view the remaining support duration (in months) for each PostgreSQL version:
     - Select **Columns** > **Support ends in** > **Submit**.
     - The **Support ends** in column shows the number of months remaining for support.
-1. Support status categories: 
+- Support status categories: 
     - **Mainstream support**: The PostgreSQL version is actively supported and receives regular updates.
     - **Out of support**: The PostgreSQL version no longer receives updates and should be upgraded to a supported version.
 
@@ -87,7 +87,7 @@ The **Supportability** section shows the support status of the PostgreSQL versio
 
 Assess the migration readiness of your PostgreSQL instances, identify potential issues, and review recommendations to ensure a smooth transition to Azure.
 
-:::image type="content" source="./media/tutorial-review-postgresql-properties/review-readiness-for-diff-migrations.png" alt-text="Screenshot shows how to review the readiness for different migrations" lightbox="./media/tutorial-review-postgresql-properties/review-readiness-for-diff-migrations.png":::
+:::image type="content" source="./media/tutorial-review-postgresql-properties/review-readiness-for-diff-migrations.png" alt-text="Screenshot shows how to review the readiness for different migrations." lightbox="./media/tutorial-review-postgresql-properties/review-readiness-for-diff-migrations.png":::
 
 To review readiness reports for different migration strategies, follow these steps:
 

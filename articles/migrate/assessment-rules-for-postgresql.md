@@ -12,7 +12,7 @@ ms.custom: engagement-fy24
 
 # PostgreSQL migration assessment for Azure: Identify compatibility issues and blockers (preview)
 
-The assessment rules help identify compatibility issues and migration blockers when you move PostgreSQL instances to Azure Database for PostgreSQL flexible server. You can evaluate the source environment for resource limits, feature support, security settings, and configuration gaps. This evaluation categorises the findings as Issues (blockers you must fix) or Warnings (items you should address), and recommend changes needed for the database, application, and architecture to ensure a successful migration.
+The assessment rules help identify compatibility issues and migration blockers when you move PostgreSQL instances to Azure Database for PostgreSQL flexible server. You can evaluate the source environment for resource limits, feature support, security settings, and configuration gaps. This evaluation categorizes the findings as Issues (blockers you must fix) or Warnings (items you should address), and recommend changes needed for the database, application, and architecture to ensure a successful migration.
 
 ## Migration assessment rules summary
 
