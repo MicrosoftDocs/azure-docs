@@ -46,7 +46,7 @@ Save the Bicep file as main.bicep to your local computer.
 Deploy the Bicep file by using either Azure CLI or Azure PowerShell.
 Azure CLI is recommended.
 
-### [Azure CLI](#tab/azure-cli)
+### [CLI](#tab/CLI)
 
 ```azurecli
 # Variables
@@ -64,7 +64,7 @@ az deployment group create \
   --parameters workspaceName=$workspaceName location=$location
 ```
 
-### [Azure PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/PowerShell)
 
 ```azure powershell
 
@@ -84,7 +84,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $rgName -TemplateFile ./main.bi
 
 ## Review deployed resources
 
-### [Azure CLI](#tab/azure-cli)
+### [CLI](#tab/CLI)
 
 ```azure cli
 
@@ -98,7 +98,7 @@ az resource list --resource-group rg-fw-analysis-qs --resource-type Microsoft.Io
 
 ```
 
-### [Azure PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/PowerShell)
 
 ```azure powershell
 
@@ -115,7 +115,7 @@ Get-AzResource -ResourceGroupName rg-fw-analysis-qs `
 
 ## Clean up resources
 
-### [Azure CLI](#tab/azure-cli)
+### [CLI](#tab/CLI)
 
 ```azure cli
 
@@ -126,7 +126,7 @@ echo "Press [ENTER] to continue ..."
 
 ```
 
-### [Azure PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/PowerShell)
 
 ```azure powershell
 
