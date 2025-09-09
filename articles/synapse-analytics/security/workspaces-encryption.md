@@ -8,6 +8,7 @@ ms.date: 07/31/2024
 ms.service: azure-synapse-analytics
 ms.subservice: security
 ms.topic: conceptual
+ms.custom: sfi-image-nochange
 ---
 
 # Encryption for Azure Synapse Analytics workspaces

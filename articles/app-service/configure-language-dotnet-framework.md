@@ -3,13 +3,17 @@ title: Configure ASP.NET Apps
 description: Learn how to configure an ASP.NET app in Azure App Service. This article shows the most common configuration tasks. 
 
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-dotnet
 ms.topic: concept-article
 ms.date: 07/07/2025
 author: cephalin
 ms.author: cephalin
 #customer intent: As an ASP.NET developer, I want to configure an ASP.NET app using Azure App Service to take advantage the Azure features.
 ms.service: azure-app-service
+ms.custom:
+  - devx-track-csharp
+  - devx-track-azurecli
+  - devx-track-dotnet
+  - sfi-ropc-nochange
 ---
 
 # Configure an ASP.NET app for Azure App Service
