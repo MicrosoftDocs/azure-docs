@@ -8,6 +8,7 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 05/02/2024
 ms.author: danlep
+ms.custom: sfi-image-nochange
 ---
 
 # Configure a GraphQL resolver
