@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://learn.microsoft.com/samples/azure/azure-quickstart-templates/firmwareanalysis-create-workspace/).
+The template used in this quickstart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/firmwareanalysis-create-workspace/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.firmwareanalysis/firmwareanalysis-create-workspace/azuredeploy.json":::
 
