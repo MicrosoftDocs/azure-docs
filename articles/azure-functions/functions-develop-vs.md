@@ -52,24 +52,24 @@ The Azure Functions project template in Visual Studio creates a C# class library
 
    | Setting      | Action  | Description                      |
    | ------------ | ------ |--------------------------------- |
-   | **Functions worker** | Select **.NET 8.0 Isolated (Long Term Support)**. | When you select this value, Visual Studio creates a function project that runs in an [isolated worker process](dotnet-isolated-process-guide.md). The isolated worker process also supports other versions of .NET and .NET Framework that don't offer long term support (LTS). For more information, see [Azure Functions runtime versions overview](functions-versions.md).   |
-   | **Function** | Select **Http trigger**. | When you select this value, Visual Studio creates a function triggered by an HTTP request. |
+   | **Functions worker** | Select **.NET 8.0 Isolated (Long Term Support)**. | Visual Studio creates a function project that runs in an [isolated worker process](dotnet-isolated-process-guide.md). The isolated worker process also supports other versions of .NET and .NET Framework that don't offer long term support (LTS). For more information, see [Azure Functions runtime versions overview](functions-versions.md).   |
+   | **Function** | Select **Http trigger**. | Visual Studio creates a function triggered by an HTTP request. |
    | **Use Azurite for runtime storage account (AzureWebJobsStorage)**  | Select this checkbox. | Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use a Storage account connection string. All other trigger types require a valid Storage account connection string. |
-   | **Authorization level** | Select **Anonymous**. | When you select this value, any client can trigger the created function without providing a key. This authorization setting makes it easy to test your new function. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth).|
+   | **Authorization level** | Select **Anonymous**. | When you use this authorization setting, any client can trigger the created function without providing a key. This configuration makes it easy to test your new function. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth).|
 
-   :::image type="content" source="media/functions-develop-vs/functions-project-settings-v4-isolated.png" alt-text="Screenshot of the Visual Studio Additional information dialog that shows configured settings like an isolated .NET version for the Functions worker.":::
+   :::image type="content" source="media/functions-develop-vs/functions-project-settings-v4-isolated.png" alt-text="Screenshot of the Visual Studio Additional information dialog that shows configured settings like an isolated .NET version for the Functions worker." lightbox="media/functions-develop-vs/functions-project-settings-v4-isolated.png":::
 
    ::: zone-end  
    ::: zone pivot="in-proc"  
 
    | Setting      | Action  | Description                      |
    | ------------ | ------ |--------------------------------- |
-   | **Functions worker** | Select **.NET 8.0 In-process (Long Term Support)**. | When you select this value, Visual Studio creates a function project that runs in-process with version 4.x of the Functions runtime. For more information, see [Azure Functions runtime versions overview](functions-versions.md).   |
-   | **Function** | Select **Http trigger**. | When you select this value, Visual Studio creates a function triggered by an HTTP request. |
+   | **Functions worker** | Select **.NET 8.0 In-process (Long Term Support)**. | Visual Studio creates a function project that runs in-process with version 4.x of the Functions runtime. For more information, see [Azure Functions runtime versions overview](functions-versions.md).   |
+   | **Function** | Select **Http trigger**. | Visual Studio creates a function triggered by an HTTP request. |
    | **Use Azurite for runtime storage account (AzureWebJobsStorage)**  | Select this checkbox. | Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use a Storage account connection string. All other trigger types require a valid Storage account connection string. |
-   | **Authorization level** | Select **Anonymous** | When you select this value, any client can trigger the created function without providing a key. This authorization setting makes it easy to test your new function. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth). |
+   | **Authorization level** | Select **Anonymous** | When you use this authorization setting, any client can trigger the created function without providing a key. This configuration makes it easy to test your new function. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth). |
 
-   :::image type="content" source="media/functions-develop-vs/functions-project-settings.png" alt-text="Screenshot of the Visual Studio Additional information dialog that shows configured settings like an in-process .NET version for the Functions worker.":::
+   :::image type="content" source="media/functions-develop-vs/functions-project-settings.png" alt-text="Screenshot of the Visual Studio Additional information dialog that shows configured settings like an in-process .NET version for the Functions worker." lightbox="media/functions-develop-vs/functions-project-settings.png":::
 
    ::: zone-end
 
@@ -87,7 +87,7 @@ The new project has the following files:
 
 - *host.json*: This file provides a way for you to configure the Functions host. These settings apply both when running locally and in Azure. For more information, see [host.json reference](functions-host-json.md).
 
-- *local.settings.json*: This file maintains settings that you use when you run functions locally. These settings aren't used when your app runs in Azure. For more information, see [Local settings file](#local-settings).
+- *local.settings.json*: This file maintains settings that you use when you run functions locally. These settings aren't used when your app runs in Azure. For more information, see [Work with app settings locally](#local-settings).
 
   > [!IMPORTANT]
   > Because the *local.settings.json* file can contain secrets, you must exclude it from your project source control. In the **Properties** dialog for this file, make sure the **Copy to Output Directory** setting is set to **Copy if newer**.
@@ -178,7 +178,7 @@ As with triggers, input and output bindings are added to your function as bindin
 
 1. Make sure you [configure the project for local development](#configure-the-project-for-local-development).
 
-1. Add the appropriate NuGet extension package for each specific binding. For binding-specific NuGet package requirements, see the reference article for the binding. For example, for package requirements for the Event Hubs trigger, see [Azure Event Hubs trigger and bindings for Azure Functions](functions-bindings-event-hubs.md).
+1. Add the appropriate NuGet extension package for each specific binding. For binding-specific NuGet package requirements, see the reference article for the binding. For example, for package requirements for the Azure Event Hubs trigger, see [Azure Event Hubs trigger and bindings for Azure Functions](functions-bindings-event-hubs.md).
 
 1. Use the following command in the Package Manager Console to install a specific package:
 
@@ -248,7 +248,7 @@ For a full list of the bindings supported by Functions, see [Supported bindings]
 
 ## Run functions locally
 
-You can use Azure Functions Core Tools to run Functions projects on your local development computer. When you select **F5** to debug a Functions project, the local Functions host (func.exe) starts to listen on a local port (usually 7071). Any callable function endpoints are written to the output, and you can use these endpoints for testing your functions. For more information, see [Develop Azure Functions locally using Core Tools](functions-run-local.md). You're prompted to install these tools the first time you start a function from Visual Studio.
+You can use Azure Functions Core Tools to run Functions projects on your local development computer. When you select **F5** to debug a Functions project, the local Functions host (`func.exe`) starts to listen on a local port (usually 7071). Any callable function endpoints are written to the output, and you can use these endpoints for testing your functions. For more information, see [Develop Azure Functions locally using Core Tools](functions-run-local.md). You're prompted to install these tools the first time you start a function from Visual Studio.
 
 ::: zone pivot="in-proc" 
 
@@ -271,7 +271,7 @@ For a more detailed testing scenario that uses Visual Studio, see [Test function
 
 ## Publish to Azure
 
-When you publish your Functions project to Azure, Visual Studio uses [zip deployment](functions-deployment-technologies.md#zip-deploy) to deploy the project files. When possible, you should also select **Run-From-Package** so that the project runs in the deployment (.zip) package. For more information, see [Run your functions from a package file in Azure](run-functions-from-deployment-package.md).
+When you publish your Functions project to Azure, Visual Studio uses [zip deployment](functions-deployment-technologies.md#zip-deploy) to deploy the project files. When possible, you should also select **Run from package file** so that the project runs in the deployment (.zip) package. For more information, see [Run your functions from a package file in Azure](run-functions-from-deployment-package.md).
 
 Don't deploy to Functions by using Web Deploy (`msdeploy`). 
 
@@ -311,7 +311,7 @@ Use the following steps to publish your project to a function app in Azure:
 
 1. On the publish profile page, go to the **Hosting** section. Select the ellipsis (**...**), and then select **Open in Azure portal**. The new function app Azure resource opens in the Azure portal.
 
-   :::image type="content" source="media/functions-develop-vs/visual-studio-tools-functions-publish-complete.png" alt-text="Screenshot of the publish profile page. In the Hosting section, the ellipsis shortcut menu is open, and Open in Azure portal is highlighted.":::
+   :::image type="content" source="media/functions-develop-vs/visual-studio-tools-functions-publish-complete.png" alt-text="Screenshot of the publish profile page. In the Hosting section, the ellipsis shortcut menu is open, and Open in Azure portal is highlighted." lightbox="media/functions-develop-vs/visual-studio-tools-functions-publish-complete.png":::
 
 ## Function app settings
 
@@ -319,7 +319,7 @@ Visual Studio doesn't upload app settings automatically when you publish your pr
 
 The easiest way to upload the required settings to your function app in Azure is to manage them in Visual Studio. On the publish profile page, go to the **Hosting** section. Select the ellipsis (**...**), and then select **Manage Azure App Service settings**.
 
-:::image type="content" source="media/functions-develop-vs/visual-studio-tools-manage-app-settings.png" alt-text="Screenshot of the publish profile page Hosting section. The ellipsis shortcut menu is open, and Manage Azure App Service settings is highlighted.":::
+:::image type="content" source="media/functions-develop-vs/visual-studio-tools-manage-app-settings.png" alt-text="Screenshot of the publish profile page Hosting section. The ellipsis shortcut menu is open, and Manage Azure App Service settings is highlighted." lightbox="media/functions-develop-vs/visual-studio-tools-manage-app-settings.png":::
 
 When you make the selection, the **Application settings** dialog opens for the function app. You can use this dialog to add application settings or modify existing ones.
 
@@ -327,7 +327,7 @@ When you make the selection, the **Application settings** dialog opens for the f
 
 For each setting, the **Local** value is the value in the *local.settings.json* file, and the **Remote** value is the value in the function app in Azure.
 
-- To create an app setting. select **Add setting**.
+- To create an app setting, select **Add setting**.
 - To copy a setting value from the **Local** field to the **Remote** field, select **Insert value from Local**.
 
 Pending changes are written to the local settings file and the function app when you select **OK**.
@@ -350,11 +350,11 @@ This section assumes a debug configuration to your function app is published.
 ### Remote debugging considerations
 
 - Remote debugging isn't recommended on a production service.
-- If you have the Just My Code feature turned on, turn it off. For instructions, see [Enable or disable Just My Code](/visualstudio/debugger/just-my-code#BKMK_Enable_or_disable_Just_My_Code).
+- If you have the Just My Code feature turned on in Visual Studio, turn it off. For instructions, see [Enable or disable Just My Code](/visualstudio/debugger/just-my-code#BKMK_Enable_or_disable_Just_My_Code).
 - Avoid long stops at breakpoints when you use remote debugging. When a process is stopped for longer than a few minutes, Azure treats it as an unresponsive process and shuts it down.
 - While you're debugging, the server sends data to Visual Studio, which can affect bandwidth charges. For information about bandwidth rates, see [Pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 - Remote debugging is automatically turned off in your function app after 48 hours. After that point, you need to turn remote debugging back on.
-- To use remote debugging, you must host your function app in a Premium or App Service plan. Remote debugging also currently requires Windows for the .NET stack.
+- To use remote debugging, you must host your function app in a Premium or App Service plan. For the .NET stack, remote debugging also currently requires Windows.
 
 ### Attach the debugger
 
@@ -413,9 +413,9 @@ After the function app restarts, you can no longer remotely connect to your remo
 
 The recommended way to monitor your functions is by integrating your function app with Application Insights. You should turn on this integration when you create your function app during Visual Studio publishing. 
 
-If the integration isn't set up during publishing for some reason, you should still [enable Application Insights integration](configure-monitoring.md#enable-application-insights-integration) for your function app in Azure.
+If the integration isn't set up during publishing for some reason, you should still turn on [Application Insights integration](configure-monitoring.md#enable-application-insights-integration) for your function app in Azure.
 
-For more information about using Application Insights for monitoring, see [Monitor Azure Functions](functions-monitoring.md).
+For more information about using Application Insights for monitoring, see [Monitor executions in Azure Functions](functions-monitoring.md).
 
 ::: zone pivot="in-proc" 
 ## Test functions
