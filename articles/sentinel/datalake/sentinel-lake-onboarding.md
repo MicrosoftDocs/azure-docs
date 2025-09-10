@@ -18,7 +18,7 @@ The Microsoft Sentinel data lake, available in the Microsoft Defender portal, is
 
 For more information, see [What is Microsoft Sentinel data lake (preview)](sentinel-lake-overview.md).
 
-Onboarding makes the following changes once complete:
+Onboarding makes the following changes once complete: 
 
 + Your data lake is provisioned for your selected subscription and resource group. 
 
@@ -160,6 +160,6 @@ Resolution: Check your Azure [policies](#policy-exemption-for-microsoft-sentinel
 ## Related content
 
 - [Microsoft Sentinel data lake overview (preview)](sentinel-lake-overview.md)
-- [Microsoft Sentinel data lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview)
+- [Microsoft Sentinel data lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake)
 - [Microsoft Sentinel data lake billing](../billing.md)
 - [Create custom roles with Microsoft Defender XDR Unified role-based access control (RBAC)](/defender-xdr/create-custom-rbac-roles)

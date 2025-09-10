@@ -109,6 +109,6 @@ To get started with Microsoft Sentinel data lake, follow these steps in the [onb
 For more information on using the Microsoft Sentinel data lake, see the following articles:
 + [Jupyter notebooks in the Microsoft Sentinel data lake (preview)](notebooks-overview.md).
 + [KQL and the Microsoft Sentinel data lake (preview)](kql-overview.md)
-+ [Permissions for the Microsoft Sentinel data lake (preview)](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview) 
++ [Permissions for the Microsoft Sentinel data lake (preview)](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake) 
 + [Manage data tiers and retention in Microsoft Defender Portal (preview)](https://aka.ms/manage-data-defender-portal-overview) 
 + [Manage and monitor costs for Microsoft Sentinel](../billing-monitor-costs.md)
