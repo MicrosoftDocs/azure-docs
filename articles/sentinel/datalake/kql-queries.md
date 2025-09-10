@@ -28,7 +28,7 @@ You can run KQL queries in the Microsoft Defender portal after completing the on
 
 ### Permissions
 
-Microsoft Entra ID roles let you access all workspaces in the data lake. Alternatively, you can grant access to individual workspaces using Azure RBAC roles. Users with Azure RBAC permissions for Microsoft Sentinel workspaces can run KQL queries against those workspaces in the data lake tier. For more information on roles and permissions, see [Microsoft Sentinel data lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
+Microsoft Entra ID roles let you access all workspaces in the data lake. Alternatively, you can grant access to individual workspaces using Azure RBAC roles. Users with Azure RBAC permissions for Microsoft Sentinel workspaces can run KQL queries against those workspaces in the data lake tier. For more information on roles and permissions, see [Microsoft Sentinel data lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake).
 
 
 ## Write KQL queries
@@ -40,15 +40,17 @@ Writing queries for the data lake is similar to writing queries in the advanced 
 
 Select **New query** to create a new query tab. The last query in each tab is saved. Switch between tabs to work on multiple queries simultaneously.   
 
+The **Query history** tab shows a list of your previously run queries, query processing time and completion state. You can open a previous query in a new tab by selecting it from the list. The query history is saved for 30 days. Select a query to edit or run it again.
+
 :::image type="content" source="media/kql-queries/query-editor.png" alt-text="Screenshot of the Kql queries page in the Defender portal." lightbox="media/kql-queries/query-editor.png":::
 
 ### Select workspaces
 
-Queries can run against a single workspace or multiple workspaces. The editor defaults to the Sentinel primary workspace. Select workspaces in the upper right corner of the query editor using the **Selected workspaces** dropdown. The workspaces you select determine the tables available for querying. The selected workspaces apply to all query tabs in the query editor. When using multiple workspaces, the `union()` operator is applied by default to tables with the same name and schema from different workspaces. Use the `workspace()` operator to query a table from a specific workspace, for example `workspace("MyWorkspace").AuditLogs`.
+Queries can run against a single workspace or multiple workspaces.  Select workspaces in the upper right corner of the query editor using the **Selected workspaces** dropdown. The workspaces you select determine the tables available for querying. The selected workspaces apply to all query tabs in the query editor. When using multiple workspaces, the `union()` operator is applied by default to tables with the same name and schema from different workspaces. Use the `workspace()` operator to query a table from a specific workspace, for example `workspace("MyWorkspace").AuditLogs`. 
+
+If you select a single, empty workspace or a workspace in the process of onboarding, no tables are displayed in the schema browser.
 
 :::image type="content" source="media/kql-queries/select-a-workspace.png" lightbox="media/kql-queries/select-a-workspace.png" alt-text="A screenshot showing the workspaces selection panel.":::
-
-
 
 ### Time range selection
 Use the time picker above the query editor to select the time range for your query. Using the **Custom time range** option, you can set a specific start and end time. Time ranges can be up to 12 years in duration.

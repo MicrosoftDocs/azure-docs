@@ -21,7 +21,7 @@ ms.collection: ms-security
 
 Use the following checklist to resolve common issues when working with KQL (Kusto Query Language) queries and jobs in Microsoft Sentinel data lake.
 
-+ Check for prerequisites before running queries or jobs. For more information, see [Roles and permissions for the Microsoft Sentinel data lake](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
++ Check for prerequisites before running queries or jobs. For more information, see [Roles and permissions for the Microsoft Sentinel data lake](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake).
 
 + Ensure that you selected the correct workspaces before executing KQL queries or jobs.
 + Confirm that all referenced tables and workspaces exist and are accessible.
@@ -30,7 +30,7 @@ Use the following checklist to resolve common issues when working with KQL (Kust
 
 Job-specific validation:
 
-+ Verify that you have the correct role for the target workspace when creating new custom tables via jobs. For more information, see [Roles and permissions for the Microsoft Sentinel data lake](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
++ Verify that you have the correct role for the target workspace when creating new custom tables via jobs. For more information, see [Roles and permissions for the Microsoft Sentinel data lake](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake).
 + Test queries in a KQL editor to catch syntax and logic errors before submitting them as jobs.
 + Ensure job names are unique across all jobs in the tenant, including Notebooks jobs.
 + Validate that the query output schema aligns with the destination table in column names, and data types.
@@ -47,7 +47,7 @@ Job-specific validation:
 ## KQL query error messages
 | Error message | Root cause | Suggested actions |
 |-------------------|------------|-------------------|
-| **Table could not be found or is empty.** | The referenced table doesn't exist, is empty, or the user doesn't have the required permissions. | Verify the table name, confirm data availability, and ensure the user has appropriate access. For more information, see [Roles and permissions for the Microsoft Sentinel data lake](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview). |
+| **Table could not be found or is empty.** | The referenced table doesn't exist, is empty, or the user doesn't have the required permissions. | Verify the table name, confirm data availability, and ensure the user has appropriate access. For more information, see [Roles and permissions for the Microsoft Sentinel data lake](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake). |
 | **Cannot access a disposed object.** | An internal service error occurred in the backend service. | Retry. Open a support ticket if the issue persists. |
 | **Queries timing out at Gateway.** | Long-running queries without time filters. | Enforce time filters or apply extra filters. |
 | **No time range set. Add a time parameter to control query cost and avoid timeouts.** | Queries that have unrestricted lookback, can cause timeouts. | Enforce time filters or apply extra filters. |

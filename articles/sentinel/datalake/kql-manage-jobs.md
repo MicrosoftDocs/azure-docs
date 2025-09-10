@@ -36,7 +36,7 @@ The Jobs management page provides the following functions:
 
 ## Permissions
 
-Microsoft Entra ID roles provide broad access across all workspaces in the data lake. To read tables across all workspaces, write to the analytics tier, and schedule jobs using KQL queries, you must have one of the supported Microsoft Entra ID roles. For more information on roles and permissions, see [Microsoft Sentinel data lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
+Microsoft Entra ID roles provide broad access across all workspaces in the data lake. To read tables across all workspaces, write to the analytics tier, and schedule jobs using KQL queries, you must have one of the supported Microsoft Entra ID roles. For more information on roles and permissions, see [Microsoft Sentinel data lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake).
 
 
 ## Manage jobs
@@ -101,4 +101,4 @@ For information on considerations and limitations when managing KQL jobs in the 
 - [Overview of the Microsoft Sentinel data lake](sentinel-lake-overview.md)
 - [Create jobs in the Microsoft Sentinel data lake using KQL](kql-jobs.md)
 - [Data lake exploration - KQL queries](kql-queries.md)
-- [Microsoft Sentinel data lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview)
+- [Microsoft Sentinel data lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake)

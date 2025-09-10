@@ -17,7 +17,7 @@ ms.subservice: sentinel-graph
  
 This article presents some sample code snippets that demonstrate how to interact with Microsoft Sentinel lake data using Jupyter notebooks to analyze security data in the Microsoft Sentinel data lake. These examples illustrate how to access and analyze data from various tables, such as Microsoft Entra ID sign-in logs, group information, and device network events. The code snippets are designed to run in Jupyter notebooks within Visual Studio Code using the Microsoft Sentinel extension.
 
-To run these examples, must have the required permissions and Visual Studio Code installed with the Microsoft Sentinel extension. For more information, see [Microsoft Sentinel data lake permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview) and  [Use Jupyter notebooks with Microsoft Sentinel data lake](./notebooks.md).
+To run these examples, must have the required permissions and Visual Studio Code installed with the Microsoft Sentinel extension. For more information, see [Microsoft Sentinel data lake permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake) and  [Use Jupyter notebooks with Microsoft Sentinel data lake](./notebooks.md).
 
 ## Failed sign-in attempts analysis
 
@@ -454,7 +454,7 @@ plt.show()
 
 + [Microsoft Sentinel Provider class reference](./sentinel-provider-class-reference.md)
 + [Microsoft Sentinel data lake overview](./sentinel-lake-overview.md)
-+ [Microsoft Sentinel data lake permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview)
++ [Microsoft Sentinel data lake permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake)
 + [Explore the Microsoft Sentinel data lake using Jupyter notebooks](./notebooks.md)
 + [Jupyter notebooks and the Microsoft Sentinel data lake](./notebooks-overview.md)
 
