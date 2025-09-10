@@ -521,7 +521,10 @@ To publish a module to a registry, use:
 
 # [Bicep CLI](#tab/bicep-cli)
 
+
+```bicepcli
 bicep publish <bicep-file> --target br:<registry-name>.azurecr.io/<module-path>:<tag> --documentationUri <documentation-uri>
+```
 
 # [Azure CLI](#tab/azure-cli)
 
