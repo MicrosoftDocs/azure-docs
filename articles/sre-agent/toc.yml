@@ -19,6 +19,8 @@ items:
 - name: Key concepts
   expanded: true
   items:
+    - name: How agent performs actions
+      href: agent-actions.md
     - name: Access management
       href: access-management.md
     - name: Incident management
