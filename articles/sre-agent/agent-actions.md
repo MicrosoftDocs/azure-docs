@@ -4,7 +4,7 @@ description: Learn how the agent gets your consent for elevated credentials to t
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: conceptual
-ms.date: 09/08/2025
+ms.date: 09/10/2025
 ms.service: azure
 ---
 
