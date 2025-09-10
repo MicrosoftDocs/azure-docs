@@ -8,7 +8,7 @@ metadata:
   ms.topic: landing-page
   author: SoniaLopezBravo
   ms.author: sonialopez
-  ms.date: 06/16/2025
+  ms.date: 09/10/2025
 
 landingContent:
  - title: Learn about IoT Hub
@@ -76,7 +76,7 @@ landingContent:
    - linkListType: concept
      links:
      - text: Security best practices
-       url: ../iot/iot-overview-security.md?context=/azure/iot-hub/rc/rc
+       url: secure-azure-iot-hub.md
      - text: Control access to IoT Hub by using Microsoft Entra ID
        url: iot-hub-devguide-security.md
 

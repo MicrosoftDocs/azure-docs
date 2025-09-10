@@ -16,6 +16,10 @@ ms.custom: engagement-fy24
 
 As part of your migration journey to Azure, discover your on-premises SAP inventory and workloads.
 
+>[!IMPORTANT]
+> This discovery and assessment tool is being deprecated. "Deprecated" means we intend to remove the feature. The feature will remain working and will be fully supported until it's officially removed. This deprecation notification might span a few months. After removal, the tool won't work. We're notifying you now so that you have sufficient time to plan before the tool is removed.
+
+
 This tutorial explains how to prepare an import file with server inventory details and to discover the SAP systems within Azure Migrate.
 
 In this tutorial, you learn how to:
@@ -71,7 +75,7 @@ To download the template, follow these steps:
     :::image type="content" source="./media/tutorial-discover-sap-systems/download-template.png" alt-text="Screenshot that shows how to download a template." lightbox="./media/tutorial-discover-sap-systems/download-template.png":::
 
 > [!Note]
-   > To avoid any duplication or inadvertent errors affecting from one discovery file to another discovery file, we recommend you use a new file for every discovery that you plan to run.
+> To avoid any duplication or inadvertent errors affecting from one discovery file to another discovery file, we recommend you use a new file for every discovery that you plan to run.
 
 ### Add on-premises SAP infrastructure details
 

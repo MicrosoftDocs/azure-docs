@@ -7,6 +7,7 @@ ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 02/18/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Add a new endpoint with Front Door manager

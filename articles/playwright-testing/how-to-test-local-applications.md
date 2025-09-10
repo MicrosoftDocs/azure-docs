@@ -10,8 +10,7 @@ zone_pivot_groups: microsoft-playwright-testing
 
 # Use cloud-hosted browsers for locally deployed or privately hosted apps with Microsoft Playwright Testing Preview
 
-> [!NOTE]
-> Playwright Testing is now part of [Azure App Testing](https://aka.ms/AzureAppTesting), a unified service for functional and performance tests. Learn more about how to [get started](https://aka.ms/AzureAppTesting/announcement).
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 Learn how to use Microsoft Playwright Testing Preview to run end-to-end tests for locally deployed applications. Microsoft Playwright Testing uses cloud-hosted, remote browsers for running Playwright tests at scale. You can use the service to run tests for apps on localhost, or that you host on your infrastructure.
 

@@ -8,7 +8,9 @@ manager: KumudD
 ms.service: azure-frontdoor
 ms.topic: quickstart
 ms.date: 11/12/2024
-ms.custom: mode-ui
+ms.custom:
+  - mode-ui
+  - sfi-image-nochange
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 

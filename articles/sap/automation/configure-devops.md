@@ -8,7 +8,10 @@ ms.date: 12/1/2022
 ms.topic: concept-article
 ms.service: sap-on-azure
 ms.subservice: sap-automation
-ms.custom: devx-track-arm-template, devx-track-azurecli
+ms.custom:
+  - devx-track-arm-template
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 # Customer intent: As an DevOps engineer, I want to configure Azure DevOps Services for the SAP Deployment Automation Framework, so that I can automate the deployment and management of SAP applications across different environments efficiently.
 ---
 

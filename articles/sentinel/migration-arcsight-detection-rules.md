@@ -5,6 +5,7 @@ author: EdB-MSFT
 ms.author: edbaynash
 ms.topic: how-to
 ms.date: 05/03/2022
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a security engineer, I want to migrate ArcSight detection rules to Microsoft Sentinel so that analysts can leverage advanced analytics and machine learning for more effective threat detection and response.

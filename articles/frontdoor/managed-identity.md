@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 05/12/2025
 ms.custom:
   - build-2025
+  - sfi-image-nochange
 ---
 
 # Use managed identities to access Azure Key Vault certificates

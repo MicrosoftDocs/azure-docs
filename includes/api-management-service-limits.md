@@ -6,14 +6,14 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: include
-ms.date: 08/04/2025
+ms.date: 09/09/2025
 ms.author: danlep
 ms.custom: Include file
 ---
 
 <!-- Limits - API Management classic tiers -->
 
-To request a limit increase, create a support request from the Azure portal. For more information, see [Azure support plans](https://azure.microsoft.com/support/options/).
+[!INCLUDE [api-management-service-limits-mitigation](api-management-service-limits-mitigation.md)]
 
 | Resource | Consumption | Developer | Basic | Standard | Premium |
 | ---------| ----------- | ----------- | ----------- | ----------- | ------------ |
@@ -27,7 +27,7 @@ To request a limit increase, create a support request from the Azure portal. For
 | Custom gateway domains | N/A | 20 | N/A | N/A | 20 |
 | CA certificates<sup>5</sup> | N/A | 10 | 10 | 10 | 10 |
 | Client certificates<sup>6</sup> | 50 | 100 | 100 | 100 | 100 |
-| APIs (including revisions)<sup>6</sup> | 150 | 150 | 150 | 500 | 2,500 |
+| APIs (including versions and revisions)<sup>6</sup> | 150 | 150 | 150 | 500 | 2,500 |
 | API releases<sup>6</sup> | 100 | 100 | 100 | 100 | 100 |
 | API operations<sup>6</sup> | 3,000 | 3,000 | 3,000 | 10,000 | 20,000 |
 | API operations per API<sup>6</sup> | 100 | 100 | 100 | 100 | 100 |
@@ -82,11 +82,5 @@ To request a limit increase, create a support request from the Azure portal. For
 <sup>3</sup> The number of nodes (or replicas) associated with a self-hosted gateway resource is unlimited in the Premium tier and capped at a single node in the Developer tier.<br/>
 <sup>4</sup> Up to a maximum of 60,000 connections.<br/>
 <sup>5</sup> This is a hard limit and cannot be adjusted.<br/>
-<sup>6</sup> Limit introduced starting July 2025. Existing services that already exceed the limit are not impacted.
+<sup>6</sup> Limit introduced starting November 2025. Existing services that already exceed the limit are not impacted.
 
-<!-- Uncliear limits in table:
-
-APIs (including revisions)?
-APIs per product
-Operations
--->

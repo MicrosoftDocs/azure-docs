@@ -9,7 +9,10 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.date: 08/29/2024
 ms.author: juergent
-ms.custom: H1Hack27Feb2017, linux-related-content
+ms.custom:
+  - H1Hack27Feb2017
+  - linux-related-content
+  - sfi-image-nochange
 # Customer intent: "As an IT administrator managing SAP workloads, I want to deploy IBM Db2 on Azure virtual machines, so that I can leverage cloud infrastructure while maintaining compatibility with on-premises development and administration tools."
 ---
 

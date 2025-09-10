@@ -4,12 +4,16 @@ description: Learn how to establish high availability of SAP HANA with Azure Net
 services: virtual-machines-windows,virtual-network,storage
 author: apmsft
 manager: juergent
-ms.custom: linux-related-content, devx-track-azurecli, devx-track-azurepowershell
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.date: 06/18/2024
 ms.author: ampatel
+ms.custom:
+  - linux-related-content
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: "As an IT administrator, I want to configure high availability for SAP HANA on SUSE Linux using NFS shares from Azure NetApp Files, so that I can ensure system resiliency and minimize downtime in our enterprise applications."
 ---
 

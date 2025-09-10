@@ -10,6 +10,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.date: 3/9/2023
 ms.author: radeltch
+ms.custom: sfi-image-nochange
 # Customer intent: As a system administrator managing SAP high-availability solutions, I want to configure outbound connectivity options for Azure VMs without exposing them to public endpoints, so that I can ensure compliance with security requirements while maintaining necessary Azure service accessibility.
 ---
 

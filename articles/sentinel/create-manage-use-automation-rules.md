@@ -9,6 +9,7 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a SOC analyst, I want to manage automation rules for incident and alert responses so that I can enhance the efficiency and effectiveness of my security operations center.

@@ -4,10 +4,12 @@ description: This article provides answers to frequently asked questions about A
 author: rdeltcheva
 ms.service: sap-on-azure
 ms.subservice: sap-monitor
-ms.custom: linux-related-content
 ms.topic: concept-article
 ms.date: 08/22/2024
 ms.author: radeltch
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
 #Customer intent: As a developer, I want to learn what providers are available for Azure Monitor for SAP solutions so that I can connect to these providers.
 # Customer intent: As a system administrator, I want to understand the different provider types available for Azure Monitor for SAP solutions so that I can configure data collection effectively from various SAP components in my environment.
 ---

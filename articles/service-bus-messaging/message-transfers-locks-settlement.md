@@ -123,6 +123,7 @@ The typical mechanism for identifying duplicate message deliveries is by checkin
 >   * OS update
 >   * Changing properties on the entity (Queue, Topic, Subscription) while holding the lock.
 >   * If the Service Bus Client application loses its connection to the Service Bus for any reason.
+>   * When using sessions and the SessionIdleTimeout is shorter than the message lock duration, and no operation is performed on the message within the sessionIdletimeout period, the session will expire, and the message lock will be lost.
 >
 > When the lock is lost, Azure Service Bus generates a MessageLockLostException or SessionLockLostException, which surfaces in the client application. In this case, the client's default retry logic should automatically kick in and retry the operation. Moreover, the delivery count of the message isn't incremented.
 

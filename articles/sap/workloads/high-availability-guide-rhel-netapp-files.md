@@ -3,12 +3,16 @@ title: Azure Virtual Machines HA for SAP NW on RHEL with Azure NetApp Files| Mic
 description: Establish high availability (HA) for SAP NetWeaver on Azure Virtual Machines Red Hat Enterprise Linux (RHEL) with Azure NetApp Files.
 author: rdeltcheva
 manager: juergent
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.date: 04/29/2025
 ms.author: radeltch
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - linux-related-content
+  - sfi-image-nochange
 # Customer intent: "As an IT administrator managing SAP applications on Azure, I want to configure high availability for SAP NetWeaver on RHEL using shared storage, so that I can ensure reliable performance and minimize downtime."
 ---
 

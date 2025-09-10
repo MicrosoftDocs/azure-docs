@@ -5,6 +5,7 @@ author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.date: 02/12/2025
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a security analyst, I want to handle false positives in my SIEM system so that I can reduce noise and focus on genuine threats.
