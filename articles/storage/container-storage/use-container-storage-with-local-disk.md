@@ -41,7 +41,7 @@ Local NVMe Disk is only available in certain types of VMs, for example, [Storage
 
 Run the following command to get the VM type that's used with your node pool. Replace `<resource group>` and `<cluster name>` with your own values. You don't need to supply values for `PoolName` or `VmSize`, so keep the query as shown here.
 
-```azurecli-interactive
+```azurecli
 az aks nodepool list --resource-group <resource group> --cluster-name <cluster name> --query "[].{PoolName:name, VmSize:vmSize}" -o table
 ```
 
@@ -82,7 +82,7 @@ Follow these steps to create a storage class using local NVMe.
 
 1. Apply the YAML manifest file to create the storage pool.
 
-   ```azurecli-interactive
+   ```azurecli
    kubectl apply -f storageclass.yaml
    ```
 
@@ -90,7 +90,7 @@ Follow these steps to create a storage class using local NVMe.
 
 Run the following command to verify that the storage class is created:
 
-```azurecli-interactive
+```azurecli
 kubectl get storageclass local
 ```
 
@@ -139,7 +139,7 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
 
 1. Apply the YAML manifest file to deploy the pod.
    
-   ```azurecli-interactive
+   ```azurecli
    kubectl apply -f fiopod.yaml
    ```
 
@@ -147,13 +147,13 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
 
 Check that the pod is running:
 
-```azurecli-interactive
+```azurecli
 kubectl get pod fiopod
 ```
 
 You should see the pod in the Running state. Once running, you can execute a Fio benchmark test:
 
-```azurecli-interactive
+```azurecli
 kubectl exec -it fiopod -- fio --name=benchtest --size=800m --filename=/volume/test --direct=1 --rw=randrw --ioengine=libaio --bs=4k --iodepth=16 --numjobs=8 --time_based --runtime=60
 ```
 
@@ -185,7 +185,7 @@ If you haven't already created a storage class that uses local NVMe in the previ
 
 1. Apply the YAML manifest file to create the storage pool.
 
-   ```azurecli-interactive
+   ```azurecli
    kubectl apply -f storageclass.yaml
    ```
 
@@ -243,7 +243,7 @@ spec:
 
 Save and apply this YAML to create the stateful set with persistent volumes:
 
-```azurecli-interactive
+```azurecli
 kubectl apply -f statefulset-pvc.yaml
 ```
 
@@ -257,7 +257,7 @@ An ephemeral volume is allocated on a single node. When you configure the size o
 
 Run the following commands to check the available capacity of ephemeral disk for a single node.
 
-```azurecli-interactive
+```azurecli
 kubectl get csistoragecapacities.storage.k8s.io -n kube-system \
   -o=jsonpath='{.items[?(@.storageClassName=="local")]}' | \
 kubectl get -o custom-columns=NAME:.metadata.name,\
@@ -280,7 +280,7 @@ Because ephemeral disk storage uses local resources on the AKS cluster nodes, ex
 
 To add a node to your cluster, run the following command. Replace `<cluster-name>`, `<nodepool-name>`, `<resource-group>`, and `<new-count>` with your values.
 
-```azurecli-interactive
+```azurecli
 az aks nodepool scale --cluster-name <cluster-name> --name <nodepool-name> --resource-group <resource-group> --node-count <new-count>
 ```
 
@@ -290,7 +290,7 @@ To clean up storage resources, you must first delete all PersistentVolumeClaims 
 
 To delete a storage class named **local**, run the following command:
 
-```azurecli-interactive
+```azurecli
 kubectl delete storageclass local
 ```
 
