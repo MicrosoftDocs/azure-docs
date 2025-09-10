@@ -19,7 +19,7 @@ ms.collection: ms-security
 
 This article compares KQL jobs, summary rules, and search jobs in Microsoft Sentinel. These features let you query and analyze data in Microsoft Sentinel, and each serves different purposes and use cases.
 
->[!NOTE]
+> [!NOTE]
 > KQL jobs require onboarding to the Microsoft Sentinel data lake. For more information, see [Onboard to the Microsoft Sentinel data lake (preview)](./sentinel-lake-onboarding.md).
 
 + **KQL jobs**: Run one-time or scheduled asynchronous queries on data stored in the Microsoft Sentinel data lake. KQL jobs are best for incident investigations using historical logs, enrichment using low-fidelity logs, and scenarios that need queries with joins or unions across multiple tables. For more information, see [KQL jobs](kql-jobs.md).
