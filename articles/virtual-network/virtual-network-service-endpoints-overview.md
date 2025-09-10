@@ -91,8 +91,6 @@ Service endpoints provide the following benefits:
 
 ![Securing Azure services to virtual networks](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
-:::image type="content" source="./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png" alt-text="Screenshot of diagram showing virtual network service endpoints securing Azure services to virtual networks.":::
-
 ### Configuration
 
 - Configure service endpoints on a subnet in a virtual network. Endpoints work with any type of compute instances running within that subnet.
