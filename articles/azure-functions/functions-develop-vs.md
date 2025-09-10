@@ -277,41 +277,7 @@ Don't deploy to Functions by using Web Deploy (`msdeploy`).
 
 Use the following steps to publish your project to a function app in Azure:
 
-1. In **Solution Explorer**, right-click the project and select **Publish**.
-
-1. On the **Publish** page, make the following selections:
-   - For **Target**, select **Azure**, and then select **Next**.
-   - For **Specific target**, select **Azure Function App**, and then select **Next**.  
-   - For **Functions instance**, select **Create new**.
-
-   :::image type="content" source="media/functions-develop-vs/visual-studio-tools-functions-instance.png" alt-text="Screenshot of the Publish page. In the Functions instance section, a resource group is visible, and Create new is highlighted.":::
-
-1. Create a new instance by using the values specified in the following table:
-
-   | Setting      | Value  | Description                                |
-   | ------------ |  ------- | -------------------------------------------------- |
-   | **Name** | A globally unique name | The name must uniquely identify your new function app. Accept the suggested name or enter a new name. The following characters are valid: `a-z`, `0-9`, and `-`. |
-   | **Subscription name** | The name of your subscription | The function app is created in an Azure subscription. Accept the default subscription or select a different one from the list. |
-   | **[Resource group](../azure-resource-manager/management/overview.md)** | The name of your resource group |  The function app is created in a resource group. Select **New** to create a new resource group. You can also select an existing resource group from the list. |
-   | **[Plan Type](functions-scale.md)** | **Premium** or **App service plan** | When you create a function app, you must select a hosting option. Remote debugging currently requires the Premium or App Service option. |
-   | **Hosting Plan** | The name of your hosting plan | Your function app runs within an instance of your selected hosting option. Select **New** to create a new plan. You can also select an existing plan from the list. |
-   | **Operating System** | **Windows** | Support for your function app operating system depends on your hosting option and the features you want to use. Remote debugging currently requires Windows for the .NET stack. |
-   | **[Azure Storage](storage-considerations.md)** | A general-purpose storage account | The Functions runtime requires a Storage account. Select **New** to configure a general-purpose storage account. You can also use an existing account that meets the [storage account requirements](storage-considerations.md#storage-account-requirements).  |
-   | **[Application Insights](functions-monitoring.md)** | An Application Insights instance | You should turn on Application Insights integration for your function app. Select **New** to create a new instance, either in a new or in an existing Log Analytics workspace. You can also use an existing instance.  |
-
-   :::image type="content" source="media/functions-develop-vs/visual-studio-tools-create-function-app.png" alt-text="Screenshot of the Function App Create new dialog. Fields for the name, subscription, resource group, plan, and other settings are filled in.":::
-
-1. Select **Create** to create a function app and its related resources in Azure. The status of resource creation is shown in the lower-left corner of the window.
-
-1. Select **Finish**. The **Publish profile creation progress** window appears. When the profile is created, select **Close**.
-
-1. On the publish profile page, select **Publish** to deploy the package that contains your project files to your new function app in Azure.
-
-   When deployment is complete, the root URL of the function app in Azure is shown on the publish profile page.
-
-1. On the publish profile page, go to the **Hosting** section. Select the ellipsis (**...**), and then select **Open in Azure portal**. The new function app Azure resource opens in the Azure portal.
-
-   :::image type="content" source="media/functions-develop-vs/visual-studio-tools-functions-publish-complete.png" alt-text="Screenshot of the publish profile page. In the Hosting section, the ellipsis shortcut menu is open, and Open in Azure portal is highlighted." lightbox="media/functions-develop-vs/visual-studio-tools-functions-publish-complete.png":::
+[!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
 ## Function app settings
 
