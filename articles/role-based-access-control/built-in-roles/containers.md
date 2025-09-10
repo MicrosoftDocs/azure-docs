@@ -1917,7 +1917,7 @@ Allows users to create and manage Azure Kubernetes Service namespace resources.
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/managedNamespaces/* | Create and manage namespaces |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/apps/deployments/* |  |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
