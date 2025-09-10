@@ -6,8 +6,12 @@ author: whhender
 ms.subservice: data-movement
 ms.author: whhender 
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.date: 06/06/2025
+ms.custom:
+  - subject-armqs
+  - mode-arm
+  - devx-track-bicep
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create an Azure Data Factory using Bicep

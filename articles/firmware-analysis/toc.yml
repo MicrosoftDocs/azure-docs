@@ -22,6 +22,8 @@
     href: quickstart-firmware-analysis-bicep.md
   - name: Create a firmware workspace using ARM templates
     href: quickstart-firmware-analysis-arm.md
+  - name: Create a firmware workspace using Terraform
+    href: quickstart-firmware-analysis-terraform.md
   expanded: true
 - name: Tutorial using firmware analysis with the Azure portal 
   href: tutorial-analyze-firmware.md

@@ -8,7 +8,9 @@ ms.author: shsagir
 ms.reviewer: shsagir
 ms.service: azure-synapse-analytics
 ms.subservice: data-explorer
-ms.custom: mode-ui
+ms.custom:
+  - mode-ui
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create a Data Explorer pool using Synapse Studio (Preview)
