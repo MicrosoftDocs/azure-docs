@@ -11,6 +11,7 @@ ms.custom:
   - devx-track-azurepowershell
   - azure-synapse
   - mode-api
+  - sfi-image-nochange
 ---
 
 # Quickstart: Pause and resume compute in dedicated SQL pool (formerly SQL DW) with Azure PowerShell

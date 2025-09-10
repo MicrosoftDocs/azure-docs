@@ -6,7 +6,9 @@ author: dlepow
 ms.author: danlep
 ms.topic: how-to
 ms.date: 02/18/2025
-ms.custom: template-how-to
+ms.custom:
+  - template-how-to
+  - sfi-image-nochange
 ---
 
 # Import a WebSocket API
