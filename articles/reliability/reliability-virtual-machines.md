@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-virtual-machines
-ms.date: 08/07/2025
+ms.date: 09/10/2025
 ---
 
 # Reliability in Virtual Machines
@@ -14,6 +14,10 @@ ms.date: 08/07/2025
 Azure Virtual Machines (VMs) provides on-demand, scalable compute resources. As a foundational infrastructure service, VMs are designed to deliver enterprise-grade reliability and availability for mission-critical workloads.
 
 This article describes reliability support in [Azure Virtual Machines](/azure/virtual-machines/overview), including support for availability zones, backups, and maintaining reliability during platform maintenance.
+
+
+[!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
+
 
 [!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
@@ -123,9 +127,9 @@ This section describes what to expect when virtual machine instances are configu
 
     If you've configured a zone-resilient load balancer and it performs health checks, the load balancer typically detects failed VMs and can route traffic to other VM instances in healthy zones.
 
-### Failback
+### Zone recovery
 
-Once the zone is healthy, VMs in the zone restart. You're responsible for any failback procedures and data synchronization as required by your workloads.
+Once the zone is healthy, VMs in the zone restart. You're responsible for any zone recovery procedures and data synchronization as required by your workloads.
 
 ### Testing for zone failures
 
@@ -173,7 +177,7 @@ You can customize how frequently backups are taken, how long they're retained fo
 
 Azure Backup also supports disks that are attached to VMs. To learn more, see [Azure Disk Backup](/azure/backup/disk-backup-overview).
 
-## SLAs
+## Service-level agreement
 
 The service-level agreement (SLA) for Azure Virutal Machines describes the expected availability of the service and the conditions that must be met to achieve that availability expectation.
 
