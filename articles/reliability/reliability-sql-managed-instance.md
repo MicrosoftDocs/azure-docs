@@ -65,9 +65,9 @@ By default, SQL Managed Instance achieves redundancy by spreading compute nodes 
 
 - Problems and datacenter outages that involve the following components:
 
-    - The *rack* that hosts the machines that power your service
+    - The *rack* where the machines that power your service are running
 
-    - The *physical machine* that hosts the virtual machine (VM) that runs the SQL Database Engine
+    - The *physical machine* that hosts the virtual machine (VM) running the SQL Database Engine.
 
     - The *VM* that runs the SQL Database Engine
 
@@ -170,7 +170,7 @@ This section describes what to expect when your SQL managed instance is configur
 
 - **Notification:** Zone failure events can be monitored through [Azure Service Health](/azure/service-health/overview) and [Azure Resource Health](/azure/service-health/resource-health-overview). Set up alerts on these services to receive notifications of zone-level problems. For more information, see [Create Service Health alerts in the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal) and [Create and configure Resource Health alerts](/azure/service-health/resource-health-alert-arm-template-guide).
 
-- **Active requests:** When an availability zone is unavailable, any requests that are being processed in the faulty availability zone are terminated and must be retried. Make your applications [resilient to these types of problems](#transient-faults).
+- **Active requests:** When an availability zone is unavailable, any requests that are being processed in the faulty availability zone are terminated and must be retried. To make your applications resilient to these types of problems, see [transient fault handling guidance](#transient-faults).
 
 ::: zone pivot="general-purpose"
 
