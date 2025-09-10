@@ -18,7 +18,7 @@ ms.collection: ms-security
 
 Microsoft Sentinel data lake is a purpose-built, cloud-native security data lake that transforms how organizations manage and analyze security data. Designed as a true data lake, it ingests, stores, and analyzes large volumes of diverse security data at scale. By centralizing security data into a single, open-format, extensible platform, it provides deep visibility, long-term retention, and advanced analytics.
 
-[!INCLUDE [sentinel-graph-preview](includes/sentinel-graph-preview.md)]
+[!INCLUDE [sentinel-graph-preview](../includes/sentinel-graph-preview.md)]
 
 The data lake lets you bring all your security data into Microsoft Sentinel cost-effectively, removing the need to choose between coverage and cost. You can retain more data for longer, detect threats with greater context and historical depth, and respond faster without compromising security.  
 
