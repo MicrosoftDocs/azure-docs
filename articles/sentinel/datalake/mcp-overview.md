@@ -12,7 +12,7 @@ ms.subservice: sentinel-graph
 #customer intent: As a security analyst, I want to understand
 ---
 
-# What is Model Context Protocol (MCP)?
+# What is Microsoft Sentinel MCP (Model Context Protocol)?
 
 MCP, or Model Context Protocol, is a framework designed to enhance the interoperability and contextual understanding of security models within Microsoft Sentinel. By providing a standardized way to represent and share contextual information about security entities, MCP enables more effective collaboration and analysis across different security tools and platforms.
 
