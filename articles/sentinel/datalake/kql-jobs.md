@@ -36,7 +36,7 @@ Jobs are also used to promote the data from the data lake tier to the analytics 
 > [!NOTE] 
 > Storage in the analytics tier incurs higher billing rates than in the data lake tier. To reduce costs, only promote data that you need to analyze further. Use the KQL in your query to project only the columns you need, and filter the data to reduce the amount of data promoted to the analytics tier.  
 
-When promoting data to the analytics tier, make sure that the destination workspace is visible in the advanced hunting query editor. In the advanced hunting query editor you can only query connected workspaces. You won't be able to see data promoted to workspaces that aren't connected or to the default workspace in advance hunting. For more information on connected workspaces, see [Connect a workspace](/defender-xdr/advanced-hunting-microsoft-defender#connect-a-workspace). You can promote data to a new table or append the results to an existing table in the analytics tier. When creating a new table, the table name is suffixed with *_KQL_CL* to indicate that the table was created by a KQL job.  
+You can promote data to a new table or append the results to an existing table in the analytics tier. When creating a new table, the table name is suffixed with *_KQL_CL* to indicate that the table was created by a KQL job.  
 
 ## Prerequisites
 
@@ -89,7 +89,7 @@ You can create jobs to run on a schedule or one-time. When you create a job, you
     :::image type="content" source="media/kql-jobs/enter-job-details.png" alt-text="A screenshot showing the new job details page." lightbox="media/kql-jobs/enter-job-details.png":::
 
 1. Review or write your query in the **Prepare the query** panel. Check that the time picker is set to the required time range for the job if the date range isn't specified in the query.
-1. Select the workspaces to run the query against from the **Selected workspaces** drop-down. These are the source workspaces that you want to query.
+1. Select the workspaces to run the query against from the **Selected workspaces** drop-down. These are the source workspaces whose tables you want to query. The workspaces you select determine the tables available for querying. The selected workspaces apply to all query tabs in the query editor. When using multiple workspaces, the `union()` operator is applied by default to tables with the same name and schema from different workspaces. Use the `workspace()` operator to query a table from a specific workspace, for example `workspace("MyWorkspace").AuditLogs`. 
 
     > [!NOTE]
     > If you're writing to an existing table, the query must return results with a schema that matches the destination table schema. If the query doesn't return results with the correct schema, the job will fail when it runs.
@@ -98,9 +98,9 @@ You can create jobs to run on a schedule or one-time. When you create a job, you
 
     :::image type="content" source="media/kql-jobs/review-query.png" alt-text="A screenshot showing the review query panel." lightbox="media/kql-jobs/review-query.png":::
  
-    On the **Schedule the query job** page, select whether you want to run the job once or on a schedule. If you select **On demand**, the job runs as soon as the job definition is complete. If you select **Schedule**, you can specify a date and time for the job to run, or run the job on a recurring schedule.
+    On the **Schedule the query job** page, select whether you want to run the job once or on a schedule. If you select **One time**, the job runs as soon as the job definition is complete. If you select **Schedule**, you can specify a date and time for the job to run, or run the job on a recurring schedule.
 
-1. Select **On demand** or **Scheduled job**.
+1. Select **One time** or **Scheduled job**.
     > [!NOTE]
     > Editing a one-time job will immediately trigger its execution.
 
@@ -131,8 +131,8 @@ When creating jobs in the Microsoft Sentinel data lake, consider the following l
 
 + All KQL operators and functions are supported except for the following:
   + `adx()`
-  + `externaldata()`
   + `arg()`
+  + `externaldata()`
   + `ingestion_time()`
 
 

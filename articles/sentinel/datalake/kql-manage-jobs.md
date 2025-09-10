@@ -23,6 +23,9 @@ A KQL job is a one-time or scheduled task that runs a KQL (Kusto Query Language)
 The Jobs management page provides the following functions:
 
 + View all jobs in the Microsoft Sentinel data lake. You can view jobs created in the KQL queries editor or jobs created for notebooks. 
++ View a summary of KQL and Notebook jobs.
++ View details of all jobs and apply filter to narrow down the list.
++ View recent job health issues.
 + Create a new job to run a KQL query. For more information on creating jobs, see [Create jobs in the Microsoft Sentinel data lake using KQL](kql-jobs.md).
 + Edit job details. You can view but can't edit a notebook job from the jobs page. For more information on editing notebook jobs, see [Notebook notebooks](notebook-jobs.md).
 + Disable a job, preventing it from running until you enable it again.

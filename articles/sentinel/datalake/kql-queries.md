@@ -44,7 +44,7 @@ Select **New query** to create a new query tab. The last query in each tab is sa
 
 ### Select workspaces
 
-Queries can run against a single workspace or multiple workspaces. The editor defaults to the Sentinel primary workspace. Select workspaces in the upper right corner of the query editor using the **Selected workspaces** dropdown. The workspaces you select determine the tables available for querying. The selected workspaces apply to all query tabs in the query editor. When using multiple workspaces, the `union()` operator is applied by default to tables with the same name and schema from different workspaces. Use the `workspace()` operator to query specific workspaces, for example `workspace("MyWorkspace").AuditLogs`. 
+Queries can run against a single workspace or multiple workspaces. The editor defaults to the Sentinel primary workspace. Select workspaces in the upper right corner of the query editor using the **Selected workspaces** dropdown. The workspaces you select determine the tables available for querying. The selected workspaces apply to all query tabs in the query editor. When using multiple workspaces, the `union()` operator is applied by default to tables with the same name and schema from different workspaces. Use the `workspace()` operator to query a table from a specific workspace, for example `workspace("MyWorkspace").AuditLogs`.
 
 :::image type="content" source="media/kql-queries/select-a-workspace.png" lightbox="media/kql-queries/select-a-workspace.png" alt-text="A screenshot showing the workspaces selection panel.":::
 
@@ -65,7 +65,7 @@ You can also specify a time range in the KQL query syntax, for example:
 
 ### View schema information
 
-The schema browser provides a list of available tables and their columns for the selected workspaces, grouped by category. Custom tables have `_CL`, `_KQL_CL`, `_SPARK`,`_SPARK_CL` are grouped the **Custom logs** category. Use the schema browser to explore the data available in your data lake and discover tables and columns. Use the search box to quickly find specific tables.
+The schema browser provides a list of available tables and their columns for the selected workspaces, grouped by category. System tables appear in the **Assets** category. Custom tables have `_CL`, `_KQL_CL`, `_SPARK`,`_SPARK_CL` are grouped the **Custom logs** category. Use the schema browser to explore the data available in your data lake and discover tables and columns. Use the search box to quickly find specific tables.
 
 :::image type="content" source="media/kql-queries/schema-browser.png" lightbox="media/kql-queries/schema-browser.png" alt-text="A screenshot showing the schema browser panel in the KQL editor.":::
 
@@ -114,6 +114,7 @@ external_table("AADRiskyUsers")
 + All KQL operators and functions are supported except for the following:
     + `adx()`
     + `arg()`
+    + `externaldata()`
     + `ingestion_time()`
 
 
