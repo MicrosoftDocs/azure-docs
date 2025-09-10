@@ -101,7 +101,11 @@ A key scenario for Functions is file processing of files in a blob container, su
 
 ### Trigger on a blob container
 
-There are several ways to run your function code based on changes to blobs in a storage container. Use the following table to determine which function trigger best fits your needs:
+There are several ways to run your function code based on changes to blobs in a storage container, as indicated by this diagram: 
+
+:::image type="content" source="media/storage-considerations/functions-blob-storage-trigger-options.png" alt-text="Diagram that shows the various options for triggering a function when items are added or updated in a Blob Storage container in Azure":::
+
+Use the following table to determine which function trigger best fits your needs for processing added or updated blobs in a container:
 
 | Strategy | Container (polling) | Container (events) | Queue trigger | Event Grid | 
 | ----- | ----- | ----- | ----- | ---- |
