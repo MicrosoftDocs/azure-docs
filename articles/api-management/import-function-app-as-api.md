@@ -8,6 +8,7 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 03/28/2025
 ms.author: danlep
+ms.custom: sfi-image-nochange
 
 #customer intent: As an API developer, I want to import an Azure function app as an API in API Management. 
 ---

@@ -6,6 +6,7 @@ ms.author: arali
 ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 05/23/2022
+ms.custom: sfi-image-nochange
 ---
 
 # Synapse POC playbook: Big data analytics with Apache Spark pool in Azure Synapse Analytics

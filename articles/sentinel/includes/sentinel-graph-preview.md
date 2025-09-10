@@ -5,7 +5,6 @@ author: EdB-MSFT
 ms.author: edbayansh
 ms.topic: include
 ms.date: 07/15/2025
-formatting.
 services: microsoft-sentinel
 ---
 
