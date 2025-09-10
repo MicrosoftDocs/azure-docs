@@ -1041,7 +1041,9 @@
         "articles/copilot/*.md": "180-days",
         "articles/copilot/*.yml": "180-days",
         "articles/iot-central/**/*.md": "1095-days",
-        "articles/iot-central/**/*.yml": "1095-days"
+        "articles/iot-central/**/*.yml": "1095-days",
+        "articles/azure-cache-for-redis/**/*.md": "1095-days",
+        "articles/azure-cache-for-redis/**/*.yml": "1095-days"
       },
       "ms.service": {
         "articles/advisor/**/*.md": "azure-advisor",
