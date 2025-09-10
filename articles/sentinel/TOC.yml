@@ -8,6 +8,8 @@
   - name: Microsoft Sentinel data lake overview
     href: datalake/sentinel-lake-overview.md
     displayName: data lake
+  - name: Microsoft Sentinel graph overview
+    href: datalake/sentinel-graph-overview.md
   - name: What's new
     href: whats-new.md
   - name: Best practices
