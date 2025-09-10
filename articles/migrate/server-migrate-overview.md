@@ -76,4 +76,4 @@ Learn more about [Migrating Physical and Cloud-based Servers (AWS, GCP, Xen, KVM
 
 - Learn more about [architecture overview for VMware Agentless migration](concepts-vmware-agentless-migration.md).
 - Learn more about [architecture overview for Hyper-v migration](hyper-v-migration-architecture.md).
-- Learn more about [architecture overview for Agent-based (physical or other) migration](/azure/site-recovery/vmware-azure-architecture-modernized).
+- Learn more about [architecture overview for Agent-based (physical or other) migration](../site-recovery/vmware-azure-architecture-modernized.md).
