@@ -23,7 +23,7 @@ Current: 99 (3350/0)
 
 There are many different factors that can drive the need to change your storage accounts' redundancy options. The correct redundancy option balances your organization's data availability, disaster recovery, performance, and cost requirements. These requirements are weighed against the risks and benefits associated with the various redundancy options. Regular assessment and adjustment are necessary to ensure an optimal and resilient data storage strategy.
 
-There are also many factors to consider when changing redundancy options, especially from a time and cost perspective. The time it takes to change redundancy options can vary based on the specific options being changed, the size of your account, current resource demands within a region, and other factors. There might also be costs associated with data transfer and increased storage requirements during a transition.
+There are also many factors to consider when changing redundancy options, especially from a time and cost perspective. The time it takes to change redundancy options can vary based on several factors. These factors can include the options being changed, the size of your account, and the current resource demands within a region. There might also be costs associated with data transfer and increased storage requirements during and after a transition.
 
 This article contains answers to frequently asked questions about the process of changing Azure Storage redundancy options for your storage accounts.
 
@@ -31,6 +31,14 @@ This article contains answers to frequently asked questions about the process of
 > In practice, a storage account *conversion* can refer to changing a storage account's SKU, or type. For example, you might convert a legacy general-purpose v1 storage account to standard general-purpose v2, allowing for enhanced availability, resilience, and features.
 >
 > For the purposes of this article, a storage account *conversion* refers specifically to changing a storage account's redundancy configuration.
+
+### How are geo- and zonal-conversions different?
+
+The terms *geo* and *zonal* refer to two different types of strategies for providing extra data redundancy within Azure. To address these strategies, Azure offers two distinct types of redundancy option changes: those involving *geo-redundant storage* (GRS), and those involving *zone-redundant storage* (ZRS).
+
+Zonal redundancy replicates data across multiple availability zones, or isolated data centers with independent power, cooling, and networking, within a single region. Geo-redundancy conversions replicate data to a secondary, geographically distant region. As their names imply, zonal redundancy protects against zone failures, while geo-redundancy protects against large-scale regional disasters.
+
+When you change a storage account's redundancy option, the type of conversion you initiate affects the duration of the process, potential costs, and conflicting features or scenarios. For more information, see the [Change the redundancy option for a storage account](redundancy-migration.md) article.
 
 ### What charges are associated with a SKU conversion? 
 
@@ -52,11 +60,11 @@ You can learn more about changing a storage account's replication options in the
 
 The type of account conversion you initiate affects the duration of the process. To understand the timeline better, it's important to know the differences between zonal and geo redundancy.
 
-Geo-redundancy replicates data to a secondary, geographically distant region. Zonal redundancy replicates data across multiple availability zones, or isolated data centers with independent power, cooling, and networking, within a single region. As their names imply, zonal redundancy protects against zone failures, while geo-redundancy protects against large-scale regional disasters.
+You can typically expect a zonal conversion to complete within a few days, while a geo conversion can take several weeks. However, the actual time it takes to complete either type of conversion can vary based on several factors. You can read more about the differences between conversions and the factors affecting SKU conversion times in the [How are geo- and zonal-conversions different](#how-are-geo--and-zonal-conversions-different) section.
 
 #### Zonal conversion
 
-Zonal redundancy conversions such as *LRS* **to, or from,** *ZRS*; *GRS* **to, or from,** *GZRS*; or *RA-GRS* **to, or from,** *RA-GZRS* typically begin within a few days after a request is validated. However, it might take weeks to complete, depending on current resource demands in the region, account size, and other factors.
+Zonal redundancy conversions such as *LRS* **to, or from,** *ZRS*; *GRS* **to, or from,** *GZRS*; or *RA-GRS* **to, or from,** *RA-GZRS* typically begin within a few days after a request is validated. However, it might take weeks to complete, depending on current resource demands in the region, account size, and other factors. The conversion's progress changes to `In progress` when data movement begins.
 
 There's currently no service level agreement (SLA) for completion of a SKU conversion, and the conversion process can't be expedited by submitting a support request. The conversion progress status changes to `In progress` when data movement begins.
 
@@ -77,7 +85,7 @@ You can read more about the factors affecting SKU conversion times in the [Initi
 
 The SKU conversion process typically completes within a few days but can take up to a few weeks depending on the current resource demands in the region, account size along with various other factors. 
 
-There's currently no SLA for completion of either a geo or zonal SKU conversion, and it isn't possible to expedite the process by submitting a support request. The conversion's progress changes to `In progress` when data movement begins.
+There's currently no SLA for completion of either a geo or zonal SKU conversion, and it isn't possible to expedite the process by submitting a support request. 
 
 If you need more control over a conversion's timeline, such as when it starts and finishes, consider performing a *manual migration*. Manual migrations utilize a feature or tool such as AzCopy to migrate the data of your current storage account to a different storage account with the desired redundancy.
 
