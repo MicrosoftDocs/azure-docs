@@ -1,12 +1,12 @@
 ---
 title: AI Playbook, Examples, and Samples
-description: Learn about AI integration examples, samples, and other resources using Standard and Consumption workflows in Azure Logic Apps.
+description: Learn about AI integration examples, samples, and other resources for Standard and Consumption workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
-ms.date: 09/08/2025
+ms.date: 09/10/2025
 ms.update-cycle: 180-days
 #Customer intent: As an AI developer, I want a guide that introduces starting points, building blocks, examples, samples, and other resources so I can learn how I can use AI in my integration solutions using Standard and Consumption workflows in Azure Logic Apps.
 ---
@@ -29,14 +29,14 @@ For example, an LLM can perfom the following tasks:
 - Make decisions based on results and available data.
 - Formulate and return answers to the prompter based on the agent's instructions.
 
-After you create a Standard logic app, you can add a workflow that uses the **Autonomous Agents** or **Conversational Agents** workflow type. These workflow types create a partial workflow that includes an empty **Agent** action. The agent works without or with human interaction, which happens through an integrated chat interface, based on the workflow type that you select.
+After you create a Standard logic app, you can add a workflow that uses the **Autonomous Agents** or **Conversational Agents** workflow type. These workflow types create a partial workflow that includes an empty **Agent** action. Based on your selected workflow type, you can then set up the agent to work without or with human interaction, which happens through an integrated chat interface.
 
 > [!TIP]
 >
 > If you choose to start with a nonagent **Stateful** workflow, 
 > you can always add an **Agent** action later.
 
-The agent uses natural language and the connected LLM to interpret through previously provided instructions or real-time human interactions, respectively. The agent also uses model-generated outputs to do work - with or without human interaction. The model helps the agent provide the following capabilities:
+The agent uses natural language and the connected LLM to interpret previously provided instructions or real-time human interactions, respectively. The agent also uses model-generated outputs to do work. The model helps the agent provide the following capabilities:
 
 - Accept information about the agent's role, how to operate, and how to respond.
 - Receive and respond to instructions and prompt requests.
@@ -44,7 +44,7 @@ The agent uses natural language and the connected LLM to interpret through previ
 - Choose *tools* to complete the tasks necessary to fulfill requests. In AI scenarios, a tool is a sequence with one or more actions that complete a task.
 - Adapt to environments that require flexibility and are fluid, dynamic, unpredictable, or unstable.
 
-With [1,400+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) available to help you build tools for agents, agent workflows support many scenarios that greatly benefit from agent and model capabilities. 
+With [1,400+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) available to help you build tools for agents to use, agent workflows support many scenarios that greatly benefit from agent and model capabilities.
 
 For more information, see the following resources:
 
@@ -79,7 +79,7 @@ For more information, see the following resources:
 |---------------|------|
 | **Video overview** | - [Modernize enterprise integration with Azure Integration Services](https://www.youtube.com/watch?v=FneX7J4Zj_k) <br><br>- [Integrate AI into your workflows with Azure Logic Apps](https://www.youtube.com/live/Lxw9epgl_FM) <br><br>- [Accelerate generative AI development with Azure Logic Apps - Integrate 2024](https://youtu.be/HSl8OI-aT3A) |
 
-#### Prep your content
+#### Prepare your content
 
 The following operations help you prepare content for consumption by AI services, data ingestion, and chat interactions:
 

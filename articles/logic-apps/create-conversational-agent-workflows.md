@@ -7,7 +7,7 @@ ms.suite: integration
 ms.reviewer: estfan, divswa, krmitta, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 09/08/2025
+ms.date: 09/10/2025
 ms.update-cycle: 180-days
 # Customer intent: As an AI developer, I want to build workflows that complete tasks by using AI agents, large language models (LLMs), natural language, and human interactions through chat conversations for my integration solutions by using Azure Logic Apps.
 ---
@@ -39,7 +39,7 @@ The following screenshot shows an example conversational agent workflow that you
 
 For the high-level steps that describe how the agent works and more overview information about agent workflows, see [AI agent workflows in Azure Logic Apps](/azure/logic-apps/agent-workflows-concepts).
 
-This guide shows how to create an example Standard logic app workflow with the **Conversational Agents** type, which works through human-provided interactions or inputs. To fulfill requests, the agent uses tools that you create to complete the necessary tasks.
+This guide shows how to create an example Standard logic app workflow with the **Conversational Agents** type, which works through human-provided interactions or inputs. To fulfill requests, the agent uses tools that you build to complete the necessary tasks in real-world services and systems.
 
 ## Prerequisites
 

@@ -7,7 +7,7 @@ ms.suite: integration
 ms.reviewer: estfan, divswa, krmitta, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 09/08/2025
+ms.date: 09/10/2025
 ms.update-cycle: 180-days
 # Customer intent: As an AI developer, I want to build workflows that complete tasks by using AI agents and other AI capabilities without human interactions for my integration solutions with Azure Logic Apps.
 ---
@@ -23,7 +23,7 @@ ms.update-cycle: 180-days
 
 When your scenario requires workflows that support natural language and use agents connected to large language models (LLMs) to make decisions and complete tasks without human interactions, create an *autonomous* agent workflow in Azure Logic Apps. This workflow type is the best option for scenarios where agents must work with without human intervention, might need to run for a long time, and require stronger governance, isolation, and automated rollback or compensation strategies.
 
-All agent workflows perform tasks by using an agent connected to an LLM. The agent uses an iterative looped process to solve complex, multi-step problems. An LLM is a trained program that recognizes patterns and performs jobs without human interaction. An agent workflow lets you separate an agent's decision logic, which includes the LLM, prompts, and orchestration, from the integration and task execution components.
+All agent workflows perform tasks by using an agent connected to an LLM. The agent uses an iterative looped process to solve complex, multistep problems. An LLM is a trained program that recognizes patterns and performs jobs without human interaction. An agent workflow lets you separate an agent's decision logic, which includes the LLM, prompts, and orchestration, from the integration and task execution components.
 
 An agent provides the following capabilities and benefits when connected to a model:
 
@@ -41,7 +41,7 @@ The following screenshot shows an example autonomous agent workflow that you cre
 
 For the high-level steps that describe how the agent works and more overview information about agent workflows, see [AI agent workflows in Azure Logic Apps](/azure/logic-apps/agent-workflows-concepts).
 
-This guide shows how to create an example Standard logic app workflow with the **Autonomous Agents** type, which works without human interaction or inputs, and how to update an existing stateful workflow to include an agent. To fulfill requests, the agent uses tools that you create to complete the necessary tasks.
+This guide shows how to create an example Standard logic app workflow with the **Autonomous Agents** type, which works without human interaction or inputs, and how to update an existing stateful workflow to include an agent. To fulfill requests, the agent uses tools that you build to complete the necessary tasks in real-world services and systems.
 
 ## Prerequisites
 
