@@ -143,7 +143,7 @@ const { size, color } = appConfig.get("font");
 
 ### Load specific key-values using selectors
 
-By default, the `load` method will load all configurations with no label from the configuration store. You can configure the behavior of the `load` method through the optional parameter of [`AzureAppConfigurationOptions`](https://github.com/Azure/AppConfiguration-JavaScriptProvider/blob/main/src/AzureAppConfigurationOptions.ts) type.
+By default, the `load` method will load all configurations with no label from the configuration store. You can configure the behavior of the `load` method through the optional parameter of [`AzureAppConfigurationOptions`](https://github.com/Azure/AppConfiguration-JavaScriptProvider/blob/main/src/appConfigurationOptions.ts) type.
 
 To refine or expand the configurations loaded from the App Configuration store, you can specify the key or label selectors under the `AzureAppConfigurationOptions.selectors` property.
 
