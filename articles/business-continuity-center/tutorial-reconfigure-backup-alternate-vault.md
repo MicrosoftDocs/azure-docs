@@ -21,7 +21,7 @@ This tutorial describes how to reconfigure backup for data sources in Azure Busi
 > - Old recovery points remain protected with the original configurations and retention. This capability also applies to immutable vaults.
 > - Immutable vaults remain secure when using this feature. You can only stop protection by retaining data, and older recovery points continue to be protected as per the selected retention option.
 
-## Cost Implications
+## Price Implications
 
 The implications of reconfiguring backup for data sources in an alternate vault incurs the following charges:
 
@@ -47,37 +47,52 @@ To suspend the active backup for a datasource on Recovery Services vault, follow
 
 1. Go to **Business Continuity Center**, and then select **Protection inventory** > **Protected items**.
 
+   :::image type="content" source="./media/tutorial-reconfigure-backup-alternate-vault/view-protected-items.png" alt-text="Screenshot shows how to view the protected items." lightbox="./tutorial-reconfigure-backup-alternate-vault/view-protected-items.png":::
+
 1.  On the **Protected items** pane, select a protected item from the list.
  
 1. On the selected protected item pane, select the associated item from the list.
 1. On the associated item pane, select **Stop backup**.
  
+   :::image type="content" source="./media/tutorial-reconfigure-backup-alternate-vault/initiate-stop-backup.png" alt-text="Screenshot shows how to initiate the stop backup operation." lightbox="./media/tutorial-reconfigure-backup-alternate-vault/initiate-stop-backup.png":::
+
 1. On the **Stop Backup** pane, choose a **Stop backup level** from the dropdown, enter a reason, and then select **Stop backup**.
 
    For **Immutable vaults** you can only choose **Retain backup data as per policy** or **Retain forever**. Non-immutable vaults can also choose to **Delete backup data**. 
+
+   :::image type="content" source="./media/tutorial-reconfigure-backup-alternate-vault/stop-backup.png" alt-text="Screenshot shows the option to choose the reason and stop backup." lightbox="./media/tutorial-reconfigure-backup-alternate-vault/stop-backup.png":::
  
 After the backup stops, the **Last backup status** changes to **Warning (Backup disabled)**.
 
 ## Unregister the underlying storage account
 
- - for SQL in VM, SAP in VM and AFS workloads only. This step is not needed for VM.
+To unregister the underlying storage accounts for the Mercury datasources, follow these steps:
+
+>[!Note]
+> This process is applicable only for Mercury datasources (SQL database in Azure VM, SAP HANA database in Azure VM, Azure files), and not applicable for Azure VM.
+
+1. Go to the **Recovery Services vault** from where you want to unregister the underlying datasources, and then select **Manage** > **Backup Infrastructure**.
+1. On the **Backup Infrastructure** pane, select **Workload in Azure VM** for SQL or SAP database in Azure VM.
+
+   For Azure Files, select **Azure Storage Accounts** > **Storage Accounts** > the **more options icon** corresponding to the required container, and then select **Unregister**.
+
+   :::image type="content" source="./media/tutorial-reconfigure-backup-alternate-vault/unregister-protected-item.png" alt-text="Screenshot shows how to unregister a protected item ." lightbox="./media/tutorial-reconfigure-backup-alternate-vault/unregister-protected-item.png":::
+
+1. On the **Protected Servers** pane, select the **more options icon** corresponding to the required container, and then select **Unregister**.
 
 
-a.	Go to the parent vault of the concerned datasource.
-b.	Go to Manage> Backup Infrastructure
-c.	Select Workload in Azure VM for SQL/ SAP in VM or select Azure Storage Accounts> Storage Accounts for AFS.
-d.	Click on the 3 dots for the concerned container and Unregister the container.
+## Reconfigure backup in an alternate vault
 
+To reconfigure backup in an alternate vault, follow these steps:
 
-## Reconfigure backup
-
-a.	Go to the backup item view of the concerned datasource and select “Resume Backup”
+1. Go to the backup item view of the concerned datasource and select “Resume Backup”
 b.	To re-configure backup in an alternate vault than the existing choose “Alternate Vault”. This will help re-direct you to the configure backup flow for that datasource. 
 c.	In the configure backup flow, please choose the alternate vault of choice with the required redundancy. Add a policy of choice.
 d.	Complete with any other settings and tags of choice.
 
 After the backup reconfiguration is complete, the different backup items associated with the protected item in Azure Business Continuity Center appear. Only one backup stays active at any point of time.
 
+:::image type="content" source="./media/tutorial-reconfigure-backup-alternate-vault/reconfigure-backup.png" alt-text="Screenshot shows the backup reconfiguration is complete." lightbox="./media/tutorial-reconfigure-backup-alternate-vault/reconfigure-backup.png":::
 
 ## Related content
 
