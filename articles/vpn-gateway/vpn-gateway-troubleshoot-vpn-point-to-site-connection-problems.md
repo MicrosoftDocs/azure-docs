@@ -6,7 +6,7 @@ author: chadmath
 ms.service: azure-vpn-gateway
 ms.topic: troubleshooting
 ms.date: 04/03/2025
-ms.author: genli
+ms.author: cherylmc
 # Customer intent: As a network administrator, I want to troubleshoot common point-to-site VPN connection issues, so that I can ensure seamless connectivity and resolve client errors effectively.
 ---
 # Troubleshooting: Azure point-to-site connection problems
