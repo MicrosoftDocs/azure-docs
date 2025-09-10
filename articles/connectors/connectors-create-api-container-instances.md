@@ -10,6 +10,7 @@ ms.manager: gwallace
 ms.reviewer: estfan, macolso
 ms.topic: how-to
 ms.date: 01/04/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Deploy and manage Azure Container Instances by using Azure Logic Apps

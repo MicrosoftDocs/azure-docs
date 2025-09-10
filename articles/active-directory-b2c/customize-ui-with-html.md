@@ -10,6 +10,7 @@ ms.date: 02/17/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a developer integrating apps with Azure Active Directory B2C, I want to learn how to customize the default user interfaces by using my own HTML, CSS files and JavaScript, so that I can provide a branded and seamless user experience in my application.
