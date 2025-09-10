@@ -39,34 +39,48 @@ The following resource is defined in the template:
 
 You can deploy the template by using the **Azure CLI**, **Azure PowerShell**, or the **Azure portal**.
 
----
 
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group create --name fa-rg --location eastus
-az deployment group create \
-  --resource-group fa-rg \
-  --name deploy-fa-workspace \
-  --template-file ./azuredeploy.json \
-  --parameters @./azuredeploy.parameters.json### Deploy by using Azure CLI
+# Variables
+rgName=fa-rg
+location=eastus
+deploymentName=deploy-fa-workspace
+
+# Login (if needed)
 az login
 az account set --subscription "<your-subscription-id>"
+
+# Create resource group
+az group create --name $rgName --location $location
+
+# Deploy
+az deployment group create \
+  --resource-group $rgName \
+  --name $deploymentName \
+  --template-file ./azuredeploy.json \
+  --parameters @./azuredeploy.parameters.json
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
+# Variables
+$rgName = 'fa-rg'
+$location = 'eastus'
+$deploymentName = 'deploy-fa-workspace'
 
 Connect-AzAccount
 Set-AzContext -Subscription "<your-subscription-id>"
-New-AzResourceGroup -Name fa-rg -Location eastus
+
+New-AzResourceGroup -Name $rgName -Location $location
+
 New-AzResourceGroupDeployment `
-  -ResourceGroupName fa-rg `
-  -Name deploy-fa-workspace `
+  -ResourceGroupName $rgName `
+  -Name $deploymentName `
   -TemplateFile .\azuredeploy.json `
   -TemplateParameterFile .\azuredeploy.parameters.json
-
 ```
 
 ---
@@ -80,9 +94,8 @@ Use any of the following methods:
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-
 az resource list \
-  --resource-group fa-rg \
+  --resource-group $rgName \
   --resource-type Microsoft.IoTFirmwareDefense/workspaces \
   --output table
 ```
@@ -90,8 +103,7 @@ az resource list \
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-
-Get-AzResource -ResourceGroupName fa-rg `
+Get-AzResource -ResourceGroupName $rgName `
   -ResourceType Microsoft.IoTFirmwareDefense/workspaces
 ```
 
@@ -103,13 +115,15 @@ When no longer needed, delete the resource group:
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group delete --name fa-rg --yes --no-wait
+# Delete resource group
+az group delete --name $rgName --yes --no-wait
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Remove-AzResourceGroup -Name fa-rg -Force
+# Delete resource group
+Remove-AzResourceGroup -Name $rgName -Force
 ```
 
 ---

@@ -44,7 +44,6 @@ Save the Bicep file as main.bicep to your local computer.
 Deploy the Bicep file by using either Azure CLI or Azure PowerShell.
 Azure CLI is recommended.
 
----
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -61,7 +60,7 @@ az group create --name $rgName --location $location
 az deployment group create \
   --resource-group $rgName \
   --template-file ./main.bicep \
-  --parameters workspaceName=$workspaceName location=$location
+  --parameters workspaceName=$workspaceName 
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -78,7 +77,8 @@ New-AzResourceGroup -Name $rgName -Location $location
 
 # Deploy
 $params = @{ workspaceName = $workspaceName; location = $location }
-New-AzResourceGroupDeployment -ResourceGroupName $rgName -TemplateFile ./main.bicep -TemplateParameterObject $params
+New-AzResourceGroupDeployment -ResourceGroupName $rgName `
+  -TemplateFile ./main.bicep -TemplateParameterObject $params
 
 ```
 
@@ -89,30 +89,28 @@ New-AzResourceGroupDeployment -ResourceGroupName $rgName -TemplateFile ./main.bi
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-
+# Show a specific workspace
 az resource show \
-  --resource-group rg-fw-analysis-qs \
-  --name fa-workspace-001 \
+  --resource-group $rgName \
+  --name $workspaceName \
   --resource-type Microsoft.IoTFirmwareDefense/workspaces
 
 # Or list all workspaces in the resource group
-az resource list --resource-group rg-fw-analysis-qs --resource-type Microsoft.IoTFirmwareDefense/workspaces -o table
-
+az resource list --resource-group $rgName `
+  --resource-type Microsoft.IoTFirmwareDefense/workspaces -o table
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-
 # Show a specific workspace
-Get-AzResource -ResourceGroupName rg-fw-analysis-qs `
+Get-AzResource -ResourceGroupName $rgName `
   -ResourceType 'Microsoft.IoTFirmwareDefense/workspaces' `
-  -Name fa-workspace-001 | Format-List
+  -Name $workspaceName | Format-List
 
 # List all workspaces in the resource group
-Get-AzResource -ResourceGroupName rg-fw-analysis-qs `
+Get-AzResource -ResourceGroupName $rgName `
   -ResourceType 'Microsoft.IoTFirmwareDefense/workspaces'
-
 ```
 
 ---
@@ -122,22 +120,15 @@ Get-AzResource -ResourceGroupName rg-fw-analysis-qs `
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-az group delete --name $resourceGroupName &&
-echo "Press [ENTER] to continue ..."
-
+# Delete the resource group (non-interactive example)
+az group delete --name $rgName --yes --no-wait
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-Remove-AzResourceGroup -Name $resourceGroupName
-Write-Host "Press [ENTER] to continue..."
-
+# Delete the resource group
+Remove-AzResourceGroup -Name $rgName -Force
 ```
 
 ---
