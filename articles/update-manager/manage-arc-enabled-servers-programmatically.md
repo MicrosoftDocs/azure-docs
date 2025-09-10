@@ -21,7 +21,7 @@ Support for Azure REST API to manage Azure Arc-enabled servers is available thro
 
 To trigger an update assessment on your Azure Arc-enabled server, specify the following POST request:
 
-# [Azure CLI](#tab/azurecli)
+# [Azure CLI](#tab/cli)
 
 To specify the POST request, you can use the Azure CLI [az rest](/cli/azure/reference-index#az_rest) command.
 
@@ -97,7 +97,7 @@ POST on 'subscriptions/subscriptionI/resourceGroups/resourceGroupName/providers/
 
 ```
 
-# [Azure CLI](#tab/azurecli)
+# [Azure CLI](#tab/cli)
 
 To specify the POST request, you can use the Azure CLI [az rest](/cli/azure/reference-index#az_rest) command.
 
@@ -232,7 +232,7 @@ PUT on '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/atsca
 }'
 ```
 
-# [Azure CLI](#tab/azurecli)
+# [Azure CLI](#tab/cli)
 
 ```azurecli-interactive
 az maintenance configuration create \
@@ -298,7 +298,7 @@ PUT on '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/atsca
 }'
 ```
 
-# [Azure CLI](#tab/azurecli)
+# [Azure CLI](#tab/cli)
 
 ```azurecli-interactive
 az maintenance assignment create \
@@ -330,7 +330,7 @@ New-AzConfigurationAssignment `
 
 To remove a machine from the schedule, get all the configuration assignment names for the machine that you have created to associate the machine with the current schedule from the Azure Resource Graph as listed:
 
-# [Azure CLI](#tab/azurecli)
+# [Azure CLI](#tab/cli)
 
 ```azurecli-interactive
 az maintenance configuration delete \
