@@ -174,15 +174,25 @@ az network vnet subnet update --resource-group rgname --name subnetname --vnet-n
 * Associate a Standard public IP to any of the virtual machine's network interfaces.
 * Add a Firewall or Network Virtual Appliance (NVA) to your virtual network and point traffic to it using a User Defined Route (UDR).
 
->[!NOTE]
-> There's a NIC-level parameter (defaultOutboundConnectivityEnabled) which tracks if default outbound access is being utilized. The Advisor "Add explicit outbound method to disable default outbound" operates by checking for this parameter.
-
->[!IMPORTANT]
-> A stop/deallocate of applicable virtual machines in a subnet is required for changes to be reflected and the action to clear. (This is also true in the reverse; in order for a machine to be given a default outbound IP after having the subnet-level parameter set to false, a stop/deallocate of the virtual machine is required.)
-
 #### Use flexible orchestration mode for Virtual Machine Scale Sets
  
 * Flexible scale sets are secure by default. Any instances created via Flexible scale sets don't have the default outbound access IP associated with them, so an explicit outbound method is required. For more information, see [Flexible orchestration mode for Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#what-has-changed-with-flexible-orchestration-mode)
+
+### FAQs: Clearing Default Outbound IP Alert
+
+#### Why do I see an alert showing I have a default outbound IP on my VM?
+
+There's a NIC-level parameter (defaultOutboundConnectivityEnabled) which tracks if default outbound IP is allocated to a VM/VMSS instance. This is used to generate an Azure portal banner for VM/VMSS that flags this state.  The VM Advisor "Add explicit outbound method to disable default outbound" also operates by checking for this parameter.
+
+#### How do I clear this alert?
+
+1. An explicit method of outbound must be utilized for the flagged VM/VMSS. See the section above for different options.
+2. The subnet should be made private to prevent new default outbound IPs from being created.
+3. Any applicable virtual machines in the subnet with the flag must be stopped and deallocated for the changes to be reflected in the NIC-level parameter and the flag to clear. (Note this is also true in the reverse; in order for a machine to be given a default outbound IP after having the subnet-level parameter set to false, a stop/deallocate of the virtual machine is required.)
+
+#### I already am using an explicit method of outbound, so why do I still see this alert?
+
+In some cases, a default outbound IP is still assigned to virtual machines in a nonprivate subnet, even when an explicit outbound method—such as a NAT Gateway or a UDR directing traffic to an NVA/firewall—is configured. This doesn't mean the default outbound IPs are used for egress unless those explicit methods are removed. To completely remove the default outbound IPs (and remove the alert), the subnet must be made private, and the virtual machines must be stopped and deallocated.
 
 ### FAQs: Default Behavior Change to Private Subnets
 

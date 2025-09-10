@@ -76,8 +76,8 @@
       href: api-management-howto-autoscale.md
     - name: Plan and manage costs
       href: plan-manage-costs.md
-    - name: Reduce environmental impact
-      href: sustainability.md
+    - name: Understand service limits
+      href: service-limits.md
     - name: Configure a custom domain
       href: configure-custom-domain.md
     - name: Use an external cache
@@ -95,6 +95,8 @@
       href: api-management-howto-use-managed-service-identity.md
     - name: Send events to Event Grid
       href: how-to-event-grid.md
+    - name: Reduce environmental impact
+      href: sustainability.md
   - name: Network isolation
     items:
     - name: Networking options

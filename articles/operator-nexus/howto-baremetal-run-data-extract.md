@@ -41,6 +41,9 @@ The current list of supported commands are
   - `TTYLog` - Storage TTYLog data
   - `Debug` - debug logs
 
+> [!WARNING]
+> As of the `v20250701preview` API version and above, this command will no longer be supported by the non-restricted `run-data-extract` command. To run `mde-agent-information`, See [Executing a run-data-extracts-restricted Command](#executing-a-run-data-extracts-restricted-command).
+
 - [Collect Microsoft Defender for Endpoints (MDE) agent information](#collect-mde-agent-information)\
   Command Name: `mde-agent-information`\
   Arguments: None
@@ -52,6 +55,9 @@ The current list of supported commands are
 - [Collect Dell Hardware Rollup Status](#hardware-rollup-status)\
   Command Name: `hardware-rollup-status`\
   Arguments: None
+
+> [!WARNING]
+> As of the `v20250701preview` API version and above, this command will no longer be supported by the non-restricted `run-data-extract` command. To run `cluster-cve-report`, See [Executing a run-data-extracts-restricted Command](#executing-a-run-data-extracts-restricted-command).
 
 - [Generate Cluster Common Vulnerabilities and Exposures (CVE) Report](#generate-cluster-cve-report)\
   Command Name: `cluster-cve-report`\
@@ -672,3 +678,49 @@ TriggeredBy: ● atop-rotate.timer
 [!INCLUDE [command-output-view](./includes/run-commands/command-output-view.md)]
 
 The downloaded tar.gz file contains the full output and the zipped extract command file outputs.
+
+The command provides a link (if using cluster manager storage) or another command (if using user provided storage) to download the full output. The tar.gz file also contains the zipped extract command file outputs. Download the output file from the storage blob to a local directory by specifying the directory path in the optional argument `--output-directory`.
+
+> [!WARNING]
+> Using the `--output-directory` argument overwrites any files in the local directory that have the same name as the new files being created.
+
+> [!NOTE]
+> Storage Account could be locked resulting in `403 This request is not authorized to perform this operation.` due to networking or firewall restrictions. Refer to the [user managed storage](#send-command-output-to-a-user-specified-storage-account) sections for procedures to verify access.
+
+## Executing a run-data-extracts-restricted Command
+
+### Prerequisites
+* minimum supported API of `v20250701preview` or `v20250901` and above
+* Storage Blob Container has been configured
+* The target bare metal machine is on and ready.
+* Required `az networkcloud` CLI extension version 4.0.0b1+ version .
+* Get the Cluster Managed Resource group name (cluster_MRG) that you created for Cluster resource.
+
+The `run-data-extracts-restricted` command functionality mirrors non-restricted run-data-extracts command and includes fine-grained access control via RBAC (Role-Based Access Control). It allows customers to run sensitive data extraction operations on BareMetalMachines with elevated privileges.
+
+The `run-data-extracts-restricted` is implemented as a new and separate API action. The action is to be introduced in the `v20250701preview` and `v20250901` GA API, and is designed to mirror the behavior of the original command but with restricted access to specific sub-commands. The following list contains the allowed sub commands for`run-data-extracts-restricted`:
+
+- [Collect Microsoft Defender for Endpoints (MDE) agent information](#collect-mde-agent-information)\
+  Command Name: `mde-agent-information`\
+  Arguments: None
+
+- [Generate Cluster Common Vulnerabilities and Exposures (CVE) Report](#generate-cluster-cve-report)\
+  Command Name: `cluster-cve-report`\
+  Arguments: None
+
+Command execution can be performed using `az networkcloud baremetalmachine run-data-extracts-restricted` and it accepts arguments similarly to the `run-data-extract`.
+
+**Example**
+
+```azurecli-interactive
+az networkcloud baremetalmachine run-data-extracts-restricted --name "<machine-name>"  \
+  --resource-group "<cluster_MRG>" \
+  --subscription "<subscriptionID>" \
+  --commands '[{"arguments":["--min-severity=8"],"command":"cluster-cve-report"}]'  \
+  --limit-time-seconds "600"
+  --output-directory ~/path/to/my/output/directory
+```
+
+
+### Storage and Output
+Output from run command executions are by default stored in the blob container defined by the `commandOutputSettings`. Override of the `commandOutputSettings` value is supported per command output type (i.e.BareMetalMachineRunDataExtractsRestricted). For how to specify the commandOutputSettings override for runcommand see [Azure Operator Nexus Cluster support for managed identities and user provided resources](./howto-cluster-managed-identity-user-provided-resources.md).

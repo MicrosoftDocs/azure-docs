@@ -4,7 +4,7 @@ description: Learn about gateway features in Azure API Management that help redu
 author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 09/05/2025
+ms.date: 09/10/2025
 ms.author: danlep
 ai-usage: ai-assisted
 #customer intent: As an IT admin, I want to shift API traffic to backend regions with lower carbon intensity so that I can minimize emissions from my services.
@@ -27,7 +27,7 @@ Organizations are increasingly focused on reducing their environmental impact th
 
 API Management lets you achieve these goals with features that help:
 
-* [Shift and load-balance API traffic](#traffic-shifting) to backend regions with lower carbon intensity
+* [Shift and load-balance API traffic](#traffic-shifting) to backend regions based on their carbon intensity
 * [Shape API traffic](#traffic-shaping) based on carbon emissions in your API Management service's region
 
 By optimizing how your APIs handle traffic based on environmental factors, you can:
@@ -39,16 +39,14 @@ By optimizing how your APIs handle traffic based on environmental factors, you c
 
 ## Traffic shifting
 
-Traffic shifting requires configuring a [backend](backends.md) resource in a [supported Azure region](#region-availability). Then, in a load-balanced backend pool, specify the maximum acceptable carbon emission level for the regionalized backend, using one of the [carbon intensity categories](#carbon-intensity-categories).
+Traffic shifting requires configuring a [backend](backends.md) resource in a [supported Azure region](#region-availability) that provides carbon intensity information. Then, in a load-balanced backend pool, specify the maximum acceptable carbon emission level for the regionalized backend, using one of the [carbon intensity categories](#carbon-intensity-categories).
 
-This capability, combined with your existing load balancing and routing strategies, helps you prioritize backends in regions with relatively lower carbon emissions.
+This capability, combined with your existing load balancing and routing strategies, helps you exclude traffic to backends in regions with relatively higher carbon emissions.
 
 At runtime:
 
-* API Management automatically routes traffic to "greener" backends -  those with emissions below your specified threshold.
-* When emissions exceed the specified thresholds for all backends, API Management routes traffic to all backends based on their remaining load balancing configuration to ensure service availability.
-
-<!--Is there an updated diagram? -->
+* API Management makes a best effort to route traffic to "green" backends (in regions with emissions below your specified thresholds) and excludes "dirty" backends (in regions with emissions above specified thresholds).
+* To ensure service continuity in cases when all backends are "dirty" and have the same priority, API Management routes traffic to all backends.
 
 :::image type="content" source="media/sustainability/traffic-shifting.png" alt-text="Diagram of shifting traffic to a backend with lower emissions in load-balanced pool.":::
 
@@ -59,7 +57,7 @@ First, configure a backend that is preferred based on carbon intensity in a [sup
 ```json
 {
     "type": "Microsoft.ApiManagement/service/backends", 
-    "apiVersion": "2023-09-01-preview", 
+    "apiVersion": "2024-10-01-preview", 
     "name": "sustainable-backend", 
     "properties": {
         "url": "https://mybackend.example.com",
@@ -70,7 +68,9 @@ First, configure a backend that is preferred based on carbon intensity in a [sup
 }
 ```
 
-Then, use the regionalized backend in a load-balanced pool and define the emission threshold using a `preferredCarbonEmission` property. In this example, if the carbon intensity exceeds `Medium`, the `sustainable-backend` is deprioritized compared with the other backend in the pool.
+Then, use the regionalized backend in a load-balanced pool and define the emission threshold using a `preferredCarbonEmission` property. In this example, if the carbon intensity in the `westeurope` region exceeds `Medium`, traffic to the `sustainable-backend` is excluded compared with the other backends in the pool.
+
+
 
 
 ```json
@@ -88,7 +88,13 @@ Then, use the regionalized backend in a load-balanced pool and define the emissi
                     "preferredCarbonEmission": "Medium"
                 }
                 {
+                    
                     "id": "<regular-backend-id>",
+                    "weight": 1,
+                    "priority": 1
+                }
+                {
+                    "id": "<fallback-backend-id>",
                     "weight": 1,
                     "priority": 2
                 }
@@ -102,6 +108,8 @@ Then, use the regionalized backend in a load-balanced pool and define the emissi
 
 Traffic shaping lets you adjust API behavior based on relative carbon emission levels in your API Management service's region (or regions). API Management exposes the `context.Deployment.SustainabilityInfo.CurrentCarbonIntensity` [context variable](api-management-policy-expressions.md#ContextVariables), which indicates the current [carbon intensity category](#carbon-intensity-categories) for your API Management instance. 
 
+In [multi-region deployments](api-management-howto-deploy-multi-region.md), the gateway provides the carbon intensity of the respective region it runs in.
+
 Use this context variable in your policies to enable more intensive traffic processing during periods of low carbon emissions, or reduce processing during high carbon emissions.
 
 ### Example: Adjust behavior in high carbon emission periods
@@ -113,13 +121,13 @@ In the following example, API Management extends cache durations, implements str
     <inbound>
         <base />
         <choose>
-          <when condition="@(context.Deployment.SustainabilityInfo.CurrentCarbonIntensity == 'High')">
+          <when condition="@(context.Deployment.SustainabilityInfo.CurrentCarbonIntensity == CarbonIntensityCategory.High)">
             <!-- Policies for high carbon emission periods -->
             <cache-store duration="3600" />
             <rate-limit-by-key calls="100" renewal-period="60" counter-key="@(context.Request.IpAddress)" />
             <set-variable name="enableDetailedLogging" value="false" />
           </when>
-          <when condition="@(context.Deployment.SustainabilityInfo.CurrentCarbonIntensity == 'Medium')">
+          <when condition="@(context.Deployment.SustainabilityInfo.CurrentCarbonIntensity == CarbonIntensityCategory.Medium)">
             <!-- Policies for medium carbon emission periods -->
             <cache-store duration="1800" />
             <rate-limit-by-key calls="200" renewal-period="60" counter-key="@(context.Request.IpAddress)" />
@@ -160,7 +168,7 @@ In the following example, API Management extends cache durations, implements str
 </policies>
 ```
 
-### Example: Expose carbon intensity information in logs or a custom trace
+### Example: Propagate carbon intensity information to backend or in logs
 
 The following example shows how to access the current carbon intensity and propagate it to the backend or in logs.
 
@@ -177,16 +185,27 @@ The following example shows how to access the current carbon intensity and propa
 </policies>
 ```
 
-The following example shows how to send the current carbon intensity information as a custom [trace](trace-policy.md).
+### Example: Adjust trace verbosity based on carbon intensity
+
+The following example shows how to use the current carbon intensity information to adjust the amount of information propagated in a custom [trace](trace-policy.md).
 
 ```xml
 <policies>
     [...]
     <inbound>
         <base />
-        <trace source="SustainabilityInfo" severity="information">
-            <message>@(context.Deployment.SustainabilityInfo.CurrentCarbonIntensity.ToString())</message>
-        </trace>
+        <choose>
+            <when condition="@(context.Deployment.SustainabilityInfo.CurrentCarbonIntensity >= CarbonIntensityCategory.High)">
+                <trace source="Orders API" severity="verbose">
+                    <message>Lead Created</message>
+                </trace>
+            </when>
+            <otherwise>
+                <trace source="Orders API" severity="information">
+                    <message>Lead Created</message>
+                </trace>
+            </otherwise>
+        </choose>
     </inbound>
     [...]    
 </policies>
@@ -194,62 +213,93 @@ The following example shows how to send the current carbon intensity information
 
 ## Region availability
 
-The API Management environmental sustainability features are supported in the following Azure regions.
+The following table indicates:
 
-* Australia East
-* Australia Southeast
-* Brazil South
-* Canada East
-* Central India
-* Central US
-* Central US EUAP
-* East US
-* East US EUAP
-* East US 2
-* France South
-* Germany West Centrals
-* Indonesia Central
-* Israel Central
-* Italy North
-* Japan East
-* Japan West
-* Jio India West
-* Mexico Central
-* New Zealand North
-* North Europe
-* Norway East
-* Poland Central
-* Qatar Central
-* South Africa North
-* South India
-* Spain Central
-* Sweden Central
-* Switzerland North
-* Switzerland West
-* Taiwan North
-* UAE North
-* UK South
-* UK West
-* West Central US
-* West Europe
-* West US
-* West US 2
-* West US 3
+* Regions where instances in the API Management Classic tiers (Developer, Basic, Standard, Premium) support sustainability features
+* Regions where information about the intensity of carbon emissions is available, for example, for creating regionalized backends for traffic shifting
+
+
+| Region | API Management support | Carbon intensity information |
+|--------|------------------------|------------------------------|
+| Australia Central | | ✅ |
+| Australia Central 2 | | ✅ |
+| Australia East | ✅ | ✅ |
+| Australia Southeast | ✅ | ✅ |
+| Brazil North East | | ✅ |
+| Brazil South | ✅ | ✅ |
+| Brazil Southeast | | ✅ |
+| Canada Central | ✅ | |
+| Canada East | ✅ | ✅ |
+| Central India | ✅ | ✅ |
+| Central US | ✅ | ✅ |
+| Central US EUAP | ✅ | ✅ |
+| Chile Central | | ✅ |
+| East Asia | ✅ | |
+| East US | ✅ | ✅ |
+| East US 2 | ✅ | ✅ |
+| East US 2 EUAP | | ✅ |
+| East US EUAP | ✅ | |
+| France Central | | ✅ |
+| France South | ✅ | ✅ |
+| Germany North | | ✅ |
+| Germany West Central | ✅ | ✅ |
+| Indonesia Central | ✅ | |
+| Israel Central | ✅ | ✅ |
+| Italy North | ✅ | ✅ |
+| Japan East | ✅ | ✅ |
+| Japan West | ✅ | ✅ |
+| Jio India Central | | ✅ |
+| Jio India West | ✅ | ✅ |
+| Korea Central | | ✅ |
+| Korea South | | ✅ |
+| Malaysia South | | ✅ |
+| Mexico Central | ✅ | ✅ |
+| New Zealand North | ✅ | ✅ |
+| North Central US | | ✅ |
+| North Europe | ✅ | ✅ |
+| Norway East | ✅ | ✅ |
+| Norway West | | ✅ |
+| Poland Central | ✅ | ✅ |
+| Qatar Central | ✅ | ✅ |
+| South Africa North | ✅ | ✅ |
+| South Africa West | | ✅ |
+| South Central US | | ✅ |
+| South India | ✅ | ✅ |
+| Southeast Asia | ✅ | |
+| Spain Central | ✅ | ✅ |
+| Sweden Central | ✅ | ✅ |
+| Sweden South | | ✅ |
+| Switzerland North | ✅ | ✅ |
+| Switzerland West | ✅ | ✅ |
+| Taiwan North | ✅ | ✅ |
+| Taiwan Northwest | ✅ | |
+| Taiwan West | | ✅ |
+| UAE Central | | ✅ |
+| UAE North | ✅ | ✅ |
+| UK South | ✅ | ✅ |
+| UK West | ✅ | ✅ |
+| West Central US | ✅ | ✅ |
+| West Europe | ✅ | ✅ |
+| West India | | ✅ |
+| West US | ✅ | ✅ |
+| West US 2 | ✅ | ✅ |
+| West US 3 | ✅ | ✅ |
+
 
 
 ## Carbon intensity categories
 
-The following table explains the carbon intensity categories used in the traffic shifting and traffic shaping features. Values are in kg CO₂e per MWh for [scope 2 emissions](/industry/sustainability/calculate-scope2).
+The following table explains the carbon intensity categories used in the traffic shifting and traffic shaping features. Values are in grams CO₂e per KWh for [scope 2 emissions](/industry/sustainability/calculate-scope2).
 
-
-| Category | kg CO₂e |
+| Category | g CO₂e |
 |-------------------|------------|
-| Very Low | ≤ 150 |
+| Not Available | N/A |
+| VeryLow | ≤ 150 |
 | Low | 151-300 |
 | Medium | 301-500 |
 | High | 501-700 |
-| Very High | > 700 |
-| Not Available | N/A |
+| VeryHigh | > 700 |
+
 
 
 ## Related content
