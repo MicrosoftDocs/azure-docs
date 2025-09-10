@@ -4,10 +4,13 @@ description: In this tutorial, you learn how to protect your API in API Manageme
 
 author: dlepow    
 ms.service: azure-api-management
-ms.custom: mvc, devdivchpfy22
 ms.topic: tutorial
 ms.date: 11/25/2024
 ms.author: danlep
+ms.custom:
+  - mvc
+  - devdivchpfy22
+  - sfi-image-nochange
 ---
 
 # Tutorial: Transform and protect your API

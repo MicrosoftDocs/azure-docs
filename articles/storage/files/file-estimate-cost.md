@@ -25,7 +25,7 @@ For this scenario, we are using the recommended IOPS and throughput based on our
 - 13,240 IOPS
 - 1,125 MiB/sec throughput
 
-|                 |           Provisioned v1 SSD            |                             Provisioned v2 SSD                             |
+|         Cost        |           Provisioned v1 SSD            |                             Provisioned v2 SSD                             |
 | --------------- | :-------------------------------------: | :------------------------------------------------------------------------: |
 | Cost components | 10,240 used GiB × $0.16/GiB = $1,638.40 |    Provisioned storage: 10,240 GiB × $0.000137 /GiB × 730hr = $1024.10     |
 |                 |                                         |   Provisioned IOPS: (13,240 – 3,000) × $0.000037/IOPS × 730hr = $276.58    |
@@ -49,7 +49,7 @@ Assume we're making a price comparison in the following relational database work
 
 To meet both requirements, in Provisioned v1, we need to provision 17,000 GiB to meet all three criteria.
 
-|                 |           Provisioned v1 SSD           |                             Provisioned v2 SSD                             |
+|          Cost       |           Provisioned v1 SSD           |                             Provisioned v2 SSD                             |
 | --------------- | :------------------------------------: | :------------------------------------------------------------------------: |
 | Cost components | 17,000 used GiB × $0.16/GiB = $2720.00 |     Provisioned storage: 4,096 GiB × $0.000137 /GiB × 730hr = $409.64      |
 |                 |                                        |   Provisioned IOPS: (20,000 – 3,000) × $0.000037/IOPS × 730hr = $ 459.17   |
@@ -73,7 +73,7 @@ For this scenario, if we're using the provisioned v1 billing model, we must foll
 - IOPS limit will be 102,400 + 3,000 = 105,400 IOPS
 - Throughput limit will be 102,400\*0.1+100=10,340 MiB / sec
 
-|                 |            Provisioned v1 SSD             |                             Provisioned v2 SSD                             |
+|     Cost            |            Provisioned v1 SSD             |                             Provisioned v2 SSD                             |
 | --------------- | :---------------------------------------: | :------------------------------------------------------------------------: |
 | Cost components | 102,400 used GiB × $0.16/GiB = $16,384.00 |   Provisioned storage: 102,400 GiB × $0.000137 /GiB × 730hr = $10241.02    |
 |                 |                                           |   Provisioned IOPS: (15,000 – 3,000) × $0.000037/IOPS × 730hr = $ 324.12   |

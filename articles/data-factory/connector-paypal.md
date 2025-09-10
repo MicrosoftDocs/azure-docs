@@ -4,10 +4,12 @@ description: Learn how to copy data from PayPal to supported sink data stores us
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.subservice: data-movement
-ms.custom: synapse
 ms.topic: conceptual
 ms.date: 01/26/2025
 ms.author: jianleishen
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 # Copy data from PayPal using Azure Data Factory or Synapse Analytics (Preview)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

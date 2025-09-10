@@ -4,11 +4,14 @@ description: Learn how to configure Microsoft Entra authentication as an identit
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: how-to
 ms.date: 03/28/2025
-ms.custom: fasttrack-edit, AppServiceIdentity
 author: cephalin
 ms.author: cephalin
 #customer intent: As an app deployment engineer, I want configure Microsoft Entra authentication for my apps in App Service and understand how to migrate older apps to Microsoft Graph.
 ms.service: azure-app-service
+ms.custom:
+  - fasttrack-edit
+  - AppServiceIdentity
+  - sfi-ropc-nochange
 ---
 
 # Configure your App Service or Azure Functions app to use Microsoft Entra sign-in
