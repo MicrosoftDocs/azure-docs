@@ -115,8 +115,10 @@ items:
       href: native-network-design-consideration.md
   - name: Security
     items:
-    - name: Enable first-party application service principal for Gen 2 
+    - name: Enable first-party application service principal
       href: native-first-party-principle-security.md
+    - name: Configure identities role assignments manually 
+      href: native-role-assignment.md
   - name: Networking
     items:
     - name: Connectivity to an Azure Virtual Network
@@ -131,6 +133,11 @@ items:
       href: native-connect-private-cloud-previous-edition.md
     - name: Public and Private DNS forward lookup zone configuration
       href: native-dns-forward-lookup-zone.md
+    - name: Route architecture for Gen 2
+      href: native-network-routing-architecture.md
+    - name: Automatic peering sync for Gen 2 (Preview)
+      href: native-auto-peering-sync.md
+      
 - name: Cost optimization
   items:
   - name: ESUs for SQL Server and Windows Server in Azure VMware Solution VMs

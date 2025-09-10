@@ -8,7 +8,7 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.topic: overview
-ms.date: 08/21/2025
+ms.date: 09/04/2025
 ms.author: anfdocs
 # Customer intent: As a cloud administrator, I want to learn about the latest enhancements in Azure NetApp Files, so that I can effectively utilize new features for improved data security, resilience, and operational efficiency in my organization's cloud storage solutions.
 ---
@@ -16,6 +16,24 @@ ms.author: anfdocs
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
+
+## September 2025
+
+* [Azure NetApp Files datastore support in Azure VMware Solution Generation 2](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md)
+
+  [Azure NetApp Files datastore](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) is now supported in [Azure VMware Solution (AVS) Generation 2](../azure-vmware/native-introduction.md). AVS Generation&nbsp;2 private clouds are deployed inside an Azure virtual network. This means that ExpressRoute is no longer needed to connect the Azure VMware Solution to Azure NetApp Files datastores. This deployment simplifies networking architecture, enhances data transfer speeds, reduces latency for workloads, and improves performance when accessing other Azure services. This capability is supported in all regions where Azure VMware Solution Generation 2 and Azure NetApp Files are available.
+
+* [Azure NetApp Files migration assistant](migrate-volumes.md) is now generally available (GA)
+
+    Azure NetApp Files [migration assistant](migrate-data.md) enables you to accelerate and simplify migrations of business-critical applications and data to Azure. Migration assistant offers efficient and cost-effective data migration, leveraging ONTAP's built-in replication engine for seamless transition from on-premises storage or Cloud Volumes ONTAP to Azure NetApp Files. It's a storage-efficient data transfer that reduces network transfer costs for both baseline and incremental updates. Migration assistant also offers a low cutover/downtime window, ensuring faster and more efficient final updates, minimizing disruption to operations. Volume migration using migration assistant includes source volume snapshots for primary data protection, and directory and file metadata maintaining security attributes.
+
+* [Cross-tenant customer-managed keys for Azure NetApp Files volume encryption](customer-managed-keys-cross-tenant.md) is now generally available (GA)
+
+    Cross-tenant customer-managed keys for Azure NetApp Files volume encryption enables you to manage your own keys across different tenancies. In scenarios such as SaaS provider/user configurations, this feature ensures the end user retains full control of their keys rather than the SaaS provider. This capability provides SaaS providers with the flexibility to offer customers customizable key management options. This feature is available in all Azure NetApp Files supported regions. This feature is now generally available (GA).
+    
+* [Security enhancement: new required permissions for Azure NetApp Files datastore with Azure VMware Solution (AVS)](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md#prerequisites)
+
+    Due to security enhancements in Azure, new role requirements have been introduced to perform create, update, and delete operations on Azure NetApp Files datastores for AVS. Pre-defined roles, such as the [Contributor role](../role-based-access-control/built-in-roles.md#privileged), might have the correct permissions, however custom roles might not. Ensure you meet the [new requirements](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md#prerequisites) for your Azure NetApp Files datastores.
 
 ## August 2025
 

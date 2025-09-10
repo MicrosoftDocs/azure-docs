@@ -7,6 +7,7 @@ ms.reviewer: whhender
 ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 1/11/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Monitor SSIS operations with Azure Monitor
