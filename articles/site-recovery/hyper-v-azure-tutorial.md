@@ -174,11 +174,15 @@ All new ASR configurations for H2A from Azure portal creates target disks as Man
 
 On the Azure portal, during enable replication, **Replica Storage Account** setting is selected as **Managed Disk** by default. In that case, both your replica and target are of Managed disk type. You can also select **Storage Account** from the dropdown menu, where your replica is unmanaged disk type, and target disk is Managed disk type.
 
+:::image type="content" source="./media/hyper-v-azure-tutorial/enable-replication.png" alt-text="Screenshot of Enable replication page.":::  
+
 ### Existing ASR Configurations
 
 If you have an existing H2A configuration with unmanaged disks as the target, we recommended you update your protection settings to use Managed disks as the target to ensure failover after the deprecation of unmanaged disks. 
 
 To do this, navigate to **Protected Items** page > **Compute and Network** and change **Use managed disks** from **No** to **Yes**.
+
+:::image type="content" source="./media/hyper-v-azure-tutorial/compute-network.png" alt-text="Screenshot of Compute and Network page.":::  
  
 >[!NOTE]
 >Changing **Use managed disks** from **No** to **Yes** means disks created after failover are *Managed*, with their type (Standard SSD LRS or Premium SSD LRS) based on the replica's storage account. Standard accounts result in Standard SSD LRS disks; Premium accounts yield Premium SSD LRS disks.
