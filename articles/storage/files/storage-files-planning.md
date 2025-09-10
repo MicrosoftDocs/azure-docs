@@ -30,7 +30,8 @@ In Azure, a *resource* is a manageable item that you create and configure within
 
 This video provides a comprehensive overview of the differences between the storage account and file share management models:
 
-[!VIDEO https://www.youtube-nocookie.com/embed/T5eKHDwZe3M]
+> [!VIDEO https://www.youtube-nocookie.com/embed/T5eKHDwZe3M]
+
 
 ### Classic file shares (Microsoft.Storage)
 Classic file shares, or file shares deployed in storage accounts, are the traditional way to deploy file shares for Azure Files. They support all of the key features that Azure Files supports including SMB and NFS, SSD and HDD media tiers, every redundancy type, and in every region. While classic file shares support the entire breadth of Azure Files features, they have important key limitations:
