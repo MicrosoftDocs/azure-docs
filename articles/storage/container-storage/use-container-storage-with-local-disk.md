@@ -4,7 +4,7 @@ description: Configure Azure Container Storage for use with local NVMe on the Az
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 09/05/2025
+ms.date: 09/10/2025
 ms.author: kendownie
 ms.custom: references_regions
 # Customer intent: "As a Kubernetes administrator, I want to configure Azure Container Storage to use local NVMe for ephemeral volumes, so that I can optimize storage performance for my applications requiring low latency that don't require data durability using standard Kubernetes patterns."
@@ -25,7 +25,13 @@ Azure Container Storage supports the use of *generic ephemeral volumes* by defau
 
 ## Prerequisites
 
-[!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+- This article requires the latest version (2.77.0 or later) of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). Don't use Azure Cloud Shell, because `az upgrade` isn't available in Cloud Shell. Be sure to run the commands in this article with administrative privileges.
+
+- You'll need the Kubernetes command-line client, `kubectl`. You can install it locally by running the `az aks install-cli` command.
+
+- Check if your target region is supported in [Azure Container Storage regions](../articles/storage/container-storage/container-storage-introduction.md#regional-availability).
 
 - You can now use clusters with a single node, though multi-node configurations are still recommended.
 
@@ -68,7 +74,7 @@ Follow these steps to create a storage class using local NVMe.
    kind: StorageClass
    metadata:
      name: local
-     provisioner: localdisk.csi.acstor.io
+   provisioner: localdisk.csi.acstor.io
    reclaimPolicy: Delete
    volumeBindingMode: WaitForFirstConsumer
    allowVolumeExpansion: true
@@ -171,7 +177,7 @@ If you haven't already created a storage class that uses local NVMe in the previ
    kind: StorageClass
    metadata:
      name: local
-     provisioner: localdisk.csi.acstor.io
+   provisioner: localdisk.csi.acstor.io
    reclaimPolicy: Delete
    volumeBindingMode: WaitForFirstConsumer
    allowVolumeExpansion: true
@@ -243,30 +249,7 @@ kubectl apply -f statefulset-pvc.yaml
 
 ## Manage storage
 
-In this section, you'll learn how to check the available capacity of ephemeral disk for a single node, how to expand storage capacity, and how to delete storage resources.
-
-### Check node ephemeral disk capacity
-
-An ephemeral volume is allocated on a single node. When you configure the size of your ephemeral volumes, the size should be less than the available capacity of the single node's ephemeral disk.
-
-Run the following commands to check the available capacity of ephemeral disk for a single node.
-
-```azurecli-interactive
-kubectl get csistoragecapacities.storage.k8s.io -n kube-system \
-  -o=jsonpath='{.items[?(@.storageClassName=="local")]}' | \
-kubectl get -o custom-columns=NAME:.metadata.name,\
-STORAGE_CLASS:.storageClassName,\
-CAPACITY:.capacity,\
-NODE:.nodeTopology.matchLabels."topology\.localdisk\.csi\.acstor\.io/node" -f -
-```
-
-You should see output similar to this:
-
-```output
-NAME          STORAGE_CLASS   CAPACITY    NODE
-csisc-2pkx4   local           1373172Mi   aks-storagepool-31410930-vmss000001
-csisc-gnmm9   local           1373172Mi   aks-storagepool-31410930-vmss000000
-```
+In this section, you'll learn how to expand storage capacity and how to delete storage resources.
 
 ### Expand storage capacity
 

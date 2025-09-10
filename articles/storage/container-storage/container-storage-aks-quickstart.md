@@ -4,7 +4,7 @@ description: Connect to a Linux-based Azure Kubernetes Service (AKS) cluster and
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 09/08/2025
+ms.date: 09/10/2025
 ms.author: kendownie
 ms.custom: references_regions
 # Customer intent: As a cloud engineer, I want to install Azure Container Storage on my AKS cluster, so that I can manage container volumes efficiently and choose the appropriate storage options for my workloads.
@@ -21,19 +21,15 @@ ms.custom: references_regions
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- This article requires the latest version (2.77.0 or later) of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). If you're using the Bash environment in Azure Cloud Shell, the latest version is already installed. If you plan to run the commands locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges. For more information, see [Get started with Azure Cloud Shell](/azure/cloud-shell/get-started).
+- This article requires the latest version (2.77.0 or later) of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). Don't use Azure Cloud Shell, because `az upgrade` isn't available in Cloud Shell. Be sure to run the commands in this article with administrative privileges.
 
-- You'll need the Kubernetes command-line client, `kubectl`. It's already installed if you're using Azure Cloud Shell, or you can install it locally by running the `az aks install-cli` command.
+- You'll need the Kubernetes command-line client, `kubectl`. You can install it locally by running the `az aks install-cli` command.
 
 - Check if your target region is supported in [Azure Container Storage regions](container-storage-introduction.md#regional-availability).
 
 - If you haven't already created an AKS cluster, follow the instructions for [Installing an AKS Cluster](install-container-storage-aks.md).
 
-## Getting started
-
-- [Launch Azure Cloud Shell](https://shell.azure.com), or if you're using a local installation, sign in to Azure by using the [az login](/cli/azure/reference-index#az-login) command.
-
-- If you're using Azure Cloud Shell, you might be prompted to mount storage. Select the Azure subscription where you want to create the storage account and select **Create**.
+- Sign in to Azure by using the [az login](/cli/azure/reference-index#az-login) command.
 
 ## Install the required extension
 
@@ -53,7 +49,7 @@ az account set --subscription <subscription-id>
 
 ## Connect to the cluster
 
-To connect to the cluster, use the Kubernetes command-line client, `kubectl`. It's already installed if you're using Azure Cloud Shell, or you can install it locally by running the `az aks install-cli` command.
+To connect to the cluster, use the Kubernetes command-line client, `kubectl`.
 
 1. Configure `kubectl` to connect to your cluster using the `az aks get-credentials` command. The following command:
 
