@@ -217,8 +217,6 @@ After the zone recovers, the Azure platform automatically restarts container gro
 
 There's no way to simulate an outage of the availability zone that contains your container group. However, you can manually configure upstream gateways or load balancers to redirect traffic to a different container group in a different availability zone.
 
-<!-- PG: Please advise if you have anything more to say here. -->
-
 ## Multi-region support
 
 Azure Container Instances is a single-region service. If the region becomes unavailable, your container groups and its containers are also unavailable.
