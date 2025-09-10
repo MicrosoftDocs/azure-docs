@@ -14,6 +14,10 @@ Microsoft regularly applies important updates to the Azure VMware Solution for n
 
 ## September 2025
 
+**Azure VMware Solution Generation 2 Private Clouds**
+
+Azure VMware Solution Generation 2 Private Clouds is now generally available in East US, UK South, Switzerland North, and Japan East on the AV64 SKU. With this capability, we've achieved infrastructure innovation, powered by Azure Boost, simplifying networking, delivering 100 Gbps throughput, lowering latency, and boosting performance for VMware vSphere workloads. Private clouds are deployed inside a virtual network, enabling your private cloud with standard Azure Networking. Azure ExpressRoute is no longer required. [Learn more](native-introduction.md)
+
 **Security enhancement: new required permissions for Azure NetApp Files datastore with Azure VMware Solution**
 
 To enhance security, appropriate permissions are needed across Azure VMware Solution and Azure NetApp Files resources when working with datastores. Pre-defined roles, such as the [Contributor role](../role-based-access-control/built-in-roles.md#privileged), have the correct permissions, however custom roles might not. Ensure you meet the [new requirements](attach-azure-netapp-files-to-azure-vmware-solution-hosts.md#prerequisites) for your Azure NetApp Files datastores. 
