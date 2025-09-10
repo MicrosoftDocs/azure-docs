@@ -88,7 +88,7 @@ Use Notebook jobs if any of the following apply:
 
 Use summary rules if you have any of the following requirements:
 
-+ Data is in a workspace that isn't onboarded to Microsoft Sentinel data lake, for example data may still reside in Auxiliary or Basic tiers.
++ Data is in a workspace that isn't onboarded to Microsoft Sentinel data lake, for example, data in Auxiliary or Basic tiers.
 + You need frequent summarization, for example, every 20 minutes.
 + You want to use out-of-the-box summary rules templates.
 
