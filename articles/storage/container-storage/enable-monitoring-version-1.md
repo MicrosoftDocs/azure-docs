@@ -84,15 +84,15 @@ To view Azure Container Storage metrics, follow these steps:
 
 1. From the service menu, under **Monitoring**, select **Insights**, and then select **Monitor Settings**.
 
-   :::image type="content" source="media/enable-monitoring-version-1/monitor-settings.png" alt-text="Screenshot showing how to find Monitor Settings in the Azure portal." lightbox="media/enable-monitoring-version-1/monitor-settings.png":::
+   :::image type="content" source="media/monitor-settings.png" alt-text="Screenshot showing how to find Monitor Settings in the Azure portal." lightbox="media/enable-monitoring-version-1/monitor-settings.png":::
 
 1. Under **Managed Prometheus**, select the appropriate Azure Monitor workspace instance. On the instance overview page, select the **Metrics** section, and query the desired metrics.
 
-   :::image type="content" source="media/enable-monitoring-version-1/metrics.png" alt-text="Screenshot showing how to query Azure Container Storage metrics using the Azure portal." lightbox="media/enable-monitoring-version-1/metrics.png":::
+   :::image type="content" source="media/metrics.png" alt-text="Screenshot showing how to query Azure Container Storage metrics using the Azure portal." lightbox="media/enable-monitoring-version-1/metrics.png":::
 
 1. Alternatively, you can select the Managed Grafana instance, and on the instance overview page, click on the endpoint URL. This will navigate to the Grafana portal where you can query the metrics. The data source will be automatically configured for you to query metrics from the associated Azure Monitor workspace.
 
-   :::image type="content" source="media/enable-monitoring-version-1/dashboard.png" alt-text="Screenshot of an Azure Managed Prometheus dashboard and metrics browser." lightbox="media/enable-monitoring-version-1/dashboard.png":::
+   :::image type="content" source="media/dashboard.png" alt-text="Screenshot of an Azure Managed Prometheus dashboard and metrics browser." lightbox="media/enable-monitoring-version-1/dashboard.png":::
 
 To learn more about querying Prometheus metrics from Azure Monitor workspace, see [Use Azure Monitor managed service for Prometheus as data source for Grafana](/azure/azure-monitor/essentials/prometheus-grafana).
 
