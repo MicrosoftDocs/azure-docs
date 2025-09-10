@@ -179,6 +179,9 @@ Next, deploy the NFS shares in the storage account you created. In this example,
 
 The SAP file systems that don't need to be mounted via NFS can also be deployed on [Azure disk storage](/azure/virtual-machines/disks-types#premium-ssds). In this example, you can deploy `/usr/sap/NW1/D02` and `/usr/sap/NW1/D03` on Azure disk storage.
 
+> [!Note]
+> Azure Files NFS supports Encryption in Transit (EiT). If you would like to use Encryption in Transit, read [Azure Files NFS Encryption in Transit for SAP on Azure Systems](./sap-azure-files-nfs-encryption-in-transit-guide.md) to learn how to configure and deploy.
+
 ### Important considerations for NFS on Azure Files shares
 
 When you plan your deployment with NFS on Azure Files, consider the following important points:  
@@ -298,6 +301,9 @@ The following items are prefixed with:
     mount -a 
     ```
 
+    > [!Note]
+    > For Encryption in Transit enabled File systems, use ‘aznfs’ as filesystem type in the mount command syntax. Read [Azure Files NFS Encryption in Transit for SAP on Azure Systems](./sap-azure-files-nfs-encryption-in-transit-guide.md), to learn how to enable Encryption in Transit and mounting the file systems.
+
 7. **[A]** Configure the SWAP file.
 
     ```bash
@@ -354,6 +360,9 @@ The following items are prefixed with:
       --group g-NW1_ASCS
     ```
 
+   > [!Note]
+   > For Encryption in Transit enabled File systems for ‘/usr/sap/NW1/ASCS00’, use fstype=’aznfs’ as filesystem type in the cluster resource agent setup command syntax. Read [Azure Files NFS Encryption in Transit for SAP on Azure Systems](./sap-azure-files-nfs-encryption-in-transit-guide.md), to learn how to enable Encryption in Transit and mounting the file systems.
+
    Make sure that the cluster status is okay and that all resources are started. Which node the resources are running on isn't important.
 
     ```bash
@@ -409,6 +418,9 @@ The following items are prefixed with:
     sudo pcs resource create nc_NW1_AERS azure-lb port=62101 \
      --group g-NW1_AERS
     ```
+
+   > [!Note]
+   > For Encryption in Transit enabled File systems for ‘/usr/sap/NW1/ERS01’, use fstype=’aznfs’ as filesystem type in the cluster resource agent setup command syntax. Read [Azure Files NFS Encryption in Transit for SAP on Azure Systems](./sap-azure-files-nfs-encryption-in-transit-guide.md), to learn how to enable Encryption in Transit and mounting the file systems.
 
    Make sure that the cluster status is okay and that all resources are started. Which node the resources are running on isn't important.
 
@@ -689,6 +701,9 @@ The following items are prefixed with:
     # Mount the file systems
     mount -a 
     ```
+
+    > [!Note]
+    > For Encryption in Transit enabled File systems, use ‘aznfs’ as filesystem type in the mount command syntax. Read [Azure Files NFS Encryption in Transit for SAP on Azure Systems](./sap-azure-files-nfs-encryption-in-transit-guide.md), to learn how to enable Encryption in Transit and mounting the file systems.
 
 1. **[A]** Configure the SWAP file.
 
