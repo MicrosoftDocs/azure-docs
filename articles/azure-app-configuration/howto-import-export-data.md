@@ -259,9 +259,13 @@ For more optional parameters and examples, go to [az appconfig kv import](/cli/a
 
 ---
 
-### Import data from Azure Kubernetes Service configMaps
+### Import data from Azure Kubernetes Service ConfigMaps
 
-Follow the steps below to import key-values from Azure Kubernetes Service configMaps.
+Follow the steps below to import key-values from Azure Kubernetes Service ConfigMaps. Portal support for this feature is in development, please use Azure CLI to import from AKS.
+
+#### [Portal](#tab/azure-portal)
+
+The Azure portal support for this feature is in development.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -274,8 +278,8 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
     | `--name`               | Enter the name of the App Configuration store you want to import data to.                                                                        | `my-app-config-store`                                                                                                  |
     | `--source`             | Enter `aks` to indicate that you're importing app configuration data from Azure Kubernetes Service.                                              | `aks`                                                                                                                  |
     | `--aks-cluster`        | Enter the Azure Kubernetes Service's ARM ID or use the name of the Azure Kubernetes Service, if it's in the same subscription and resource group as the App Configuration. | `/subscriptions/123/resourceGroups/my-resource-group/providers/Microsoft.ContainerService/managedClusters/my-aks-cluster` or `my-aks-cluster` |
-    | `--configmap-namespace`| Enter the namespace of the configMap you want to import.                                                                                          | `default`                                                                                                              |
-    | `--configmap-name`     | Enter the name of the configMap you want to import.                                                                                               | `my-configmap`                                                                                                         |
+    | `--configmap-namespace`| Enter the namespace of the ConfigMap you want to import.                                                                                          | `default`                                                                                                              |
+    | `--configmap-name`     | Enter the name of the ConfigMap you want to import.                                                                                               | `my-configmap`                                                                                                         |
 
 1. Optionally also add the following parameters:
 
@@ -284,13 +288,13 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
     | `--prefix`       | Optional. A key prefix is the beginning part of a key-value's "key" property. Prefixes can be used to manage groups of key-values in a configuration store. This prefix will be appended to the front of the "key" property of each imported key-value.        | `TestApp:`                 |
     | `--label`        | Optional. Enter a label that will be assigned to your imported key-values. If you don't specify a label, the null label will be assigned to your key-values.                                      | `test`                    |
     | `--content-type` | Optional. Enter appconfig/kvset or application/json to state that the imported content consists of a Key Vault reference or a JSON file.                                                   | `application/json` |
-    | `--format`       | Optional. Enter yaml, properties, or json to indicate the format of configMap you're importing. | `json`                              |
+    | `--format`       | Optional. Enter yaml, properties, or json to indicate the format of ConfigMap you're importing. | `json`                              |
     | `--separator`    | Optional. The separator is the delimiter for flattening the key-values. It's required for exporting hierarchical structure and will be ignored for property files and feature flags. Select one of the following options: `.`, `,`, `:`, `;`, `/`, `-`, `_`, `—`. | `;`              |
 
 
     To get the value for `--aks-cluster`, use the command `az aks show --resource-group <resource-group> --name <aks-cluster-name>`.
 
-    Example: import all settings from your AKS configmap as key-values with the label "test", to your App Configuration store, and add a "TestApp:" prefix.
+    Example: import all settings from your AKS Configmap as key-values with the label "test", to your App Configuration store, and add a "TestApp:" prefix.
 
     ```azurecli
     az appconfig kv import --name my-app-config-store --source aks --aks-cluster /subscriptions/123/resourceGroups/my-resource-group/providers/Microsoft.ContainerService/managedClusters/my-aks-cluster --configmap-namespace default --configmap-name my-configmap --label test --prefix TestApp:
@@ -300,7 +304,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
 
     :::image type="content" source="./media/import-export/continue-import-aks-prompt.png" alt-text="Screenshot of the CLI. Import from AKS confirmation prompt.":::
 
-You imported all application settings from your AKS configMap as key-values, assigned them the label "test", and added a "TestApp:" prefix.
+You imported all settings from your AKS ConfigMap as key-values, assigned them the label "test", and added a "TestApp:" prefix.
 
 For more optional parameters and examples, go to [az appconfig kv import](/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-import&preserve-view=true).
 
