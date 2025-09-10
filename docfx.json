@@ -1344,7 +1344,7 @@
         "articles/backup/**/*.yml": ["Azure","Azure Backup"],
         "articles/cost-management-billing/**/*.md": ["Azure","Cost Management Billing"],
         "articles/cost-management-billing/**/*.yml": ["Azure","Cost Management Billing"],
-        "articles/cyclecloud/**/*.md": ["Azure","CycleCloud"],
+        "articles/cyclecloud/**/*.md": ["CycleCloud"],
         "articles/cyclecloud/**/*.yml": ["Azure","CycleCloud"],
         "articles/data-catalog/**/*.md": ["Azure","Azure Data Catalog"],
         "articles/data-catalog/**/*.yml": ["Azure","Azure Data Catalog"],
