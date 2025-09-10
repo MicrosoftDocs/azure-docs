@@ -207,9 +207,9 @@ Firmware versions are logged as informational. The following component firmware 
 - Complex Programmable Logic Device (CPLD)
 - Redundant Array of Independent Disks (RAID) controller
 - Backplane
+- Broadcom/Mellanox/NVIDIA Network Interface Card (NIC)
 
-The HWV framework identifies problematic firmware versions and attempts to fix them automatically.
-The following example shows a successful iDRAC firmware fix. (The versions and task ID are for illustration only.)
+The HWV framework identifies problematic firmware versions and attempts to fix them automatically. HWV auto fix component versions are release based. The following example shows a successful iDRAC firmware fix. (The versions and task ID are for illustration only.)
 
 ```json
 {
@@ -229,6 +229,9 @@ The following example shows a successful iDRAC firmware fix. (The versions and t
   }
 }
 ```
+
+> [!NOTE]
+> The HWV firmware auto fix framework was expanded to include BIOS for Ice Lake models in release 2509.1 (NC4.6.0).
 
 ### Drive info category
 

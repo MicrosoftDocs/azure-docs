@@ -8,6 +8,7 @@ ms.service: azure-virtual-network
 ms.topic: concept-article
 ms.date: 07/16/2025
 ms.author: allensu
+ms.custom: sfi-image-nochange
 # Customer intent: As a cloud architect, I need to know how to use virtual network peering for connecting virtual networks. This knowledge will allow me to design connectivity correctly and understand future scalability options and limitations.
 ---
 

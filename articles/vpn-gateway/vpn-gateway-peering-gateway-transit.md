@@ -7,7 +7,9 @@ ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 06/19/2024
 ms.author: cherylmc 
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 
 # Customer intent: As a network administrator, I want to configure gateway transit for virtual network peering, so that I can enable efficient connectivity between multiple Azure virtual networks and optimize network resource usage.
 ---

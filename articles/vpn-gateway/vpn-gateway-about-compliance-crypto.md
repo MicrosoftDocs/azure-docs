@@ -7,6 +7,7 @@ ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.date: 01/26/2024
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 
 # Customer intent: "As a network administrator, I want to configure custom IPsec/IKE policies for Azure VPN gateways, so that I can meet specific cryptographic requirements for secure cross-premises and VNet-to-VNet connections."
 ---

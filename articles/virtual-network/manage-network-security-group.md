@@ -8,7 +8,12 @@ ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 07/26/2025
 ms.author: allensu
-ms.custom: template-how-to, engagement-fy23, devx-track-azurepowershell, devx-track-azurecli
+ms.custom:
+  - template-how-to
+  - engagement-fy23
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - sfi-image-nochange
 # Customer intent: As a network administrator, I want to create, change, or delete network security groups so that I can control the flow of network traffic and enhance the security of my virtual networks.
 ---
 

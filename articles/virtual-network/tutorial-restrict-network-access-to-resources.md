@@ -6,13 +6,14 @@ ms.author: allensu
 ms.service: azure-virtual-network
 ms.topic: tutorial
 ms.date: 08/15/2024
-ms.custom: 
-  - template-tutorial
-  - devx-track-azurecli
-  - devx-track-azurepowershell
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
+ms.custom:
+  - template-tutorial
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 
 # Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ---

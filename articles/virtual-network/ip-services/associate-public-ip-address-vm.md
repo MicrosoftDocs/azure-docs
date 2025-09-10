@@ -9,7 +9,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 12/11/2024
 ms.author: mbender
-ms.custom: template-how-to, engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
+  - template-how-to
+  - engagement-fy23
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: "As a cloud administrator, I want to associate a public IP address to a virtual machine so that I can enable external connectivity for the VM and manage network traffic effectively."
 ---
 

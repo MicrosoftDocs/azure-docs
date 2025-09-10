@@ -3,21 +3,23 @@
 
 - name: "Overview"
   items:
-  - name: Overview of firmware analysis (preview)
+  - name: Overview
     href: overview-firmware-analysis.md
-  - name: Firmware analysis frequently asked questions 
+  - name: FAQ
     href: firmware-analysis-faq.md
   - name: What's new?
     href: release-notes.md
   expanded: true
 - name: Quickstarts
   items:
-  - name: Quickstart to use firmware analysis with Azure CLI
+  - name: Analyze firmware images using Azure CLI
     href: quickstart-upload-firmware-using-azure-command-line-interface.md
-  - name: Quickstart to use firmware analysis with Azure PowerShell
+  - name: Analyze firmware images using Azure PowerShell
     href: quickstart-upload-firmware-using-powershell.md
-  - name: Quickstart to use firmware analysis with a Python script
+  - name: Analyze firmware images using a Python script
     href: quickstart-upload-firmware-using-python.md
+  - name: Create a firmware workspace using Terraform
+    href: quickstart-firmware-analysis-terraform.md
   expanded: true
 - name: Tutorial using firmware analysis with the Azure portal 
   href: tutorial-analyze-firmware.md

@@ -11,8 +11,9 @@ metadata:
   ms.service: azure-virtual-network
   ms.topic: how-to
   ms.custom:
-    - linux-related-content
+    - sfi-image-nochange
     - ge-structured-content-pilot
+    - linux-related-content
 
   #customer intent: As a <role>, I want <what> so that <why>.
 

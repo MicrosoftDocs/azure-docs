@@ -6,6 +6,7 @@ ms.service: azure-virtual-network
 ms.topic: concept-article
 ms.date: 03/25/2023
 ms.author: allensu
+ms.custom: sfi-image-nochange
 # Customer intent: "As a Kubernetes administrator, I want to implement network policies using the Azure Network Policy Manager, so that I can secure pod communications within my cluster and monitor traffic effectively."
 ---
 

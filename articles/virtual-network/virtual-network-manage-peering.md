@@ -12,6 +12,7 @@ ms.custom:
   - devx-track-azurepowershell
   - devx-track-azurecli
   - build-2025
+  - sfi-image-nochange
 # Customer intent: As a network administrator, I want to create, modify, or delete virtual network peerings, so that I can improve connectivity and manage traffic flow between virtual networks across regions using the Azure backbone network.
 ---
 

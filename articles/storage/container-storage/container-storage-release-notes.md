@@ -1,10 +1,10 @@
 ---
-title: Azure Container Storage release notes
+title: Azure Container Storage Release Notes
 description: Release notes for Azure Container Storage
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: release-notes
-ms.date: 11/26/2024
+ms.date: 09/03/2025
 ms.author: kendownie
 # Customer intent: "As a cloud administrator, I want to review the latest release notes for Azure Container Storage so that I can stay informed about new features, bug fixes, and support status for proper planning and management of my storage deployments."
 ---
@@ -18,13 +18,14 @@ The following Azure Container Storage versions are supported:
 
 | Milestone | Status |
 |----|----------------|
+|2.0.0- Major Release | Supported |
 |1.3.1- Patch Release | Supported |
 |1.3.0- Minor Release | Supported |
 |1.2.1- Patch Release | Supported |
 |1.2.0- Minor Release | Supported |
 |1.1.2- Patch Release | Supported |
 |1.1.1- Patch Release | Supported |
-|1.1.0- General Availability| Supported |
+|1.1.0- General Availability | Supported |
 
 ## Unsupported versions
 
@@ -33,6 +34,25 @@ The following Azure Container Storage versions are no longer supported: 1.0.6-pr
 ## Major vs. minor vs. patch releases
 
 A **major release** introduces significant changes, often including new features, architectural updates, or breaking changes; for example, moving from version 1.1.0 to 2.0.0. A **minor release** adds enhancements or new functionality that are backward-compatible, such as moving from version 1.2.0 to 1.3.0. Lastly, a **patch release** focuses on resolving critical bugs, security issues, or minor optimizations while maintaining backward compatibility, such as moving from version 1.1.1 to 1.1.2, and is intended to ensure stability and reliability without introducing new features.
+
+## Version 2.0.0
+
+### Breaking changes
+
+- **StoragePool custom resource removed**: Azure Container Storage version 2.0.0 eliminates the StoragePool custom resource. Users now create standard Kubernetes StorageClasses directly, aligning with native Kubernetes patterns. Existing StoragePools from version 1.x.x will need to be migrated to StorageClasses.
+- **CSI driver naming changes**: The CSI driver provisioner has changed from `containerstorage.csi.azure.com` to `localdisk.csi.acstor.io` for local NVMe storage. Existing PVCs using the old provisioner will need to be recreated.
+- **Annotation changes**: The ephemeral storage annotation has changed from `acstor.azure.com/accept-ephemeral-storage: "true"` to `localdisk.csi.acstor.io/accept-ephemeral-storage: "true"`.
+- **No built-in Prometheus Operator**: We've removed the bundled Prometheus operator to avoid conflicts with existing monitoring setups. Azure Container Storage now exposes metrics that can be scraped by Azure Monitor or existing Prometheus instances without deploying its own monitoring components.
+
+### Improvements and new features
+
+- **Improved performance with reduced resource usage**: Azure Container Storage version 2.0.0 delivers improved local NVMe performance without the need for users to configure performance tiers.
+- **Smaller cluster support**: Azure Container Storage now supports clusters with just one or two nodes, removing the previous requirement of a minimum of three nodes for ephemeral drives.
+- **Simplified deployment**: Azure Container Storage now runs in the kube-system namespace and no longer depends on cert-manager for webhooks, using a built-in certificate approach instead.
+
+### Migration guidance
+
+There are significant breaking changes in version 2.0.0. Users looking to migrate from version 1.x.x to version 2.0.0 should completely [remove prior versions](remove-container-storage-version-1.md) of Azure Container Storage and review the new setup guides to get started.
 
 ## Version 1.3.1
 
@@ -97,13 +117,14 @@ Azure Container Storage follows a transparent and predictable support lifecycle 
 
 | Release version | Release Date  | End of Life | Supported Kubernetes Versions |
 |----|----------------| ------------| -------- |
+|2.0.0- Major Release | 09/09/2025 | | 1.32, 1.31, 1.30 |
 |1.3.1- Patch Release | 07/02/2025 | 04/27/2026 | 1.32, 1.31, 1.30 |
 |1.3.0- Minor Release | 04/28/2025 | 04/27/2026 | 1.32, 1.31, 1.30 |
 |1.2.1- Patch Release| 02/10/2025 | 11/10/2025| 1.30, 1.29, 1.28|
 |1.2.0- Minor Release | 11/11/2024 | 11/10/2025 | 1.30, 1.29, 1.28 |
 |1.1.2- Patch Release | 10/16/2024 | 07/29/2025 | 1.29, 1.28, 1.27 |
 |1.1.1- Patch Release | 09/20/2024 | 07/29/2025 | 1.29, 1.28, 1.27 |
-|1.1.0- General Availability| 07/30/2024 | 07/29/2025 | 1.29, 1.28, 1.27 |
+|1.1.0- General Availability | 07/30/2024 | 07/29/2025 | 1.29, 1.28, 1.27 |
 
 ### Kubernetes version compatibility
 
@@ -132,7 +153,7 @@ az k8s-extension update --cluster-type managedClusters --cluster-name <cluster-n
 
 Remember to replace `<cluster-name>` and `<resource-group>` with your own values and `<version>` with the desired supported version. 
 
-Please note that preview versions are no longer supported, and customers should promptly upgrade to the GA versions to ensure continued stability and access to the latest features and fixes. If you're installing Azure Container Storage for the first time on the cluster, proceed instead to [Install Azure Container Storage and create a storage pool](container-storage-aks-quickstart.md#install-azure-container-storage-and-create-a-storage-pool). You can also [Install Azure Container Storage on specific node pools](container-storage-aks-quickstart.md#install-azure-container-storage-on-specific-node-pools).
+Please note that preview versions are no longer supported, and customers should promptly upgrade to the GA versions to ensure continued stability and access to the latest features and fixes. If you're installing Azure Container Storage for the first time on the cluster, proceed instead to [Install Azure Container Storage and create a storage pool](container-storage-aks-quickstart-version-1.md#install-azure-container-storage-and-create-a-storage-pool). You can also [Install Azure Container Storage on specific node pools](container-storage-aks-quickstart-version-1.md#install-azure-container-storage-on-specific-node-pools).
 
 ## Auto-upgrade policy
 

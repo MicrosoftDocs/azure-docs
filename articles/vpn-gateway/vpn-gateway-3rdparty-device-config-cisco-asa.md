@@ -7,6 +7,7 @@ ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 03/31/2025
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 
 # Customer intent: "As a network engineer, I want to connect Cisco ASA devices to Azure VPN gateways, so that I can establish secure Site-to-Site VPN tunnels for seamless on-premises network integration."
 ---
