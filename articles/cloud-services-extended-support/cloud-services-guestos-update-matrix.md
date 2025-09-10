@@ -8,6 +8,7 @@ ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: azure-cloud-services-classic
 ms.topic: concept-article
 ms.date: 08/07/2025
+ms.update-cycle: 3650-days
 ms.author: jejackson
 ms.custom: compute-evergreen
 # Customer intent: As a cloud services administrator, I want to stay updated on the latest Guest OS releases and their compatibility, so that I can plan timely upgrades and ensure my applications remain secure and functional before any deprecation deadlines.

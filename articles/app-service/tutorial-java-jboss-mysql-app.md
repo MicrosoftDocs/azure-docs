@@ -17,6 +17,9 @@ ms.service: azure-app-service
 
 This tutorial shows how to build, configure, and deploy a secure JBoss application in Azure App Service that connects to a MySQL database (using [Azure Database for MySQL](/azure/mysql/)). Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux. When you're finished, you'll have a JBoss app running on [Azure App Service on Linux](overview.md).
 
+> [!NOTE]
+> JBoss EAP on App Service now supports "Bring Your Own License" (BYOL) billing, this allows customers with existing Red Hat subscriptions to apply those licenses directly to their JBoss EAP deployments on Azure App Service. [Learn more](https://aka.ms/byol-eap-jboss).
+
 :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-browse-app-2.png" alt-text="Screenshot of JBoss application storing data in MySQL.":::
 
 In this tutorial, you learn how to:

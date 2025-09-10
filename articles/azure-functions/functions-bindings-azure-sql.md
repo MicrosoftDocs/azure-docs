@@ -79,7 +79,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Sql --prerelease
 ::: zone pivot="programming-language-javascript, programming-language-powershell,programming-language-python,programming-language-java"
 [!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 
-If your app needs to use preview functionality, you should instead reference the latest version of the preview bundle. For more information, see [Preview extension bundles](extension-bundles.md#preview-extension-bundles).
+If your app needs to use preview functionality, you should instead reference the latest version of the preview bundle. For more information, see [Work with preview extension bundles](extension-bundles.md#work-with-preview-extension-bundles).
 
 You can view preview functionality on the [Azure Functions SQL Extensions release page](https://github.com/Azure/azure-functions-sql-extension/releases).
 
