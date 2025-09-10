@@ -18,10 +18,10 @@
     href: quickstart-upload-firmware-using-powershell.md
   - name: Analyze firmware images using a Python script
     href: quickstart-upload-firmware-using-python.md
+  - name: Create a firmware workspace using Bicep files
+    href: quickstart-firmware-analysis-bicep.md
   - name: Create a firmware workspace using ARM templates
     href: quickstart-firmware-analysis-arm.md
-  - name: Create a firmware workspace using Bicep templates
-    href: quickstart-firmware-analysis-bicep.md
   expanded: true
 - name: Tutorial using firmware analysis with the Azure portal 
   href: tutorial-analyze-firmware.md

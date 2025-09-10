@@ -67,6 +67,8 @@ New-AzResourceGroupDeployment `
 
 ```
 
+---
+
 ## Review deployed resources
 
 Use any of the following methods:
@@ -91,6 +93,8 @@ Get-AzResource -ResourceGroupName fa-rg `
   -ResourceType Microsoft.IoTFirmwareDefense/workspaces
 ```
 
+---
+
 ## Clean up resources
 When no longer needed, delete the resource group:
 
@@ -105,6 +109,8 @@ az group delete --name fa-rg --yes --no-wait
 ```azurepowershell
 Remove-AzResourceGroup -Name fa-rg -Force
 ```
+
+---
 
 ## Next steps
 For a step-by-step tutorial that guides you through the process of creating a template, see:

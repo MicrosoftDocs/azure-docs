@@ -80,6 +80,8 @@ New-AzResourceGroupDeployment -ResourceGroupName $rgName -TemplateFile ./main.bi
 
 ```
 
+---
+
 ## Review deployed resources
 
 ### [Azure CLI](#tab/azure-cli)
@@ -111,6 +113,8 @@ Get-AzResource -ResourceGroupName rg-fw-analysis-qs `
 
 ```
 
+---
+
 ## Clean up resources
 
 ### [Azure CLI](#tab/azure-cli)
@@ -133,6 +137,8 @@ Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
 
 ```
+
+---
 
 ## Next steps
 
