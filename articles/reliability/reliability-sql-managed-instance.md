@@ -35,13 +35,13 @@ For most production deployments of SQL Managed Instance, consider the following 
 
 ::: zone pivot="general-purpose"
 
-General purpose SQL managed instances run on a single node that [Azure Service Fabric](/azure/service-fabric/service-fabric-azure-clusters-overview) manages. Whenever the database engine or the operating system is upgraded, or a failure is detected, SQL Managed Instance works with Service Fabric to move the stateless database engine process to another stateless compute node that has sufficient free capacity. Database files are stored in Azure Blob Storage, which has built-in redundancy features. Data and log files are detached from the original compute node and attached to the newly initialized database engine process.
+General Purpose SQL managed instances run on a single node that [Azure Service Fabric](/azure/service-fabric/service-fabric-azure-clusters-overview) manages. Whenever the database engine or the operating system is upgraded, or a failure is detected, SQL Managed Instance works with Service Fabric to move the stateless database engine process to another stateless compute node that has sufficient free capacity. Database files are stored in Azure Blob Storage, which has built-in redundancy features. Data and log files are detached from the original compute node and attached to the newly initialized database engine process.
 
 ::: zone-end
 
 ::: zone pivot="business-critical"
 
-Business critical SQL managed instances use multiple replicas in a cluster. The cluster includes two types of replicas:
+Business Critical SQL managed instances use multiple replicas in a cluster. The cluster includes two types of replicas:
 
 - A single *primary replica* that can be accessed for read-write customer workloads
 
@@ -49,7 +49,7 @@ Business critical SQL managed instances use multiple replicas in a cluster. The 
 
 The primary replica continually and sequentially pushes changes to the secondary replicas, which ensures that data is persisted on a sufficient number of secondary replicas before committing each transaction. This process guarantees that if the primary replica or a readable secondary replica become unavailable, a fully synchronized replica is always available for failover.
 
-SQL Managed Instance and [Service Fabric](/azure/service-fabric/service-fabric-azure-clusters-overview) initiate failover between replicas. After a secondary replica becomes the new primary replica, another secondary replica is created to ensure that the cluster has a sufficient number of replicas to maintain quorum. After failover completes, Azure SQL connections are automatically redirected to the new primary replica, or the readable secondary replica based on the connection string.
+SQL Managed Instance and [Service Fabric](/azure/service-fabric/service-fabric-azure-clusters-overview) initiate failover between replicas. After a secondary replica becomes the new primary replica, another secondary replica is created to ensure that the cluster has a sufficient number of replicas to maintain quorum. After failover completes, Azure SQL connections are automatically redirected to the new primary replica, or the readable secondary replica, based on the connection string.
 
 ::: zone-end
 
@@ -90,7 +90,7 @@ When an instance is patched or fails over, the downtime has minimal effect if yo
 ::: zone pivot="general-purpose"
 
 > [!NOTE]
-> Zone redundancy isn't currently available for the Next-Gen General Purpose (GP) service tier.
+> Zone redundancy isn't currently available for the Next-gen General Purpose service tier.
 
 ::: zone-end
 
@@ -182,7 +182,7 @@ This section describes what to expect when your SQL managed instance is configur
 
 ::: zone pivot="business-critical"
 
-- **Traffic rerouting:** SQL Managed Instance works with Service Fabric to select a suitable replica in another availability zone to become the primary replica. After a secondary replica becomes the new primary replica, another secondary replica is created to ensure that the cluster has a sufficient number of replicas to maintain quorum. After failover completes, new connections are automatically redirected to the new primary replica, or the readable secondary replica based on the connection string.
+- **Traffic rerouting:** SQL Managed Instance works with Service Fabric to select a suitable replica in another availability zone to become the primary replica. After a secondary replica becomes the new primary replica, another secondary replica is created to ensure that the cluster has a sufficient number of replicas to maintain quorum. After failover completes, new connections are automatically redirected to the new primary replica, or the readable secondary replica, based on the connection string.
 
 ::: zone-end
 
@@ -289,7 +289,7 @@ For more information, see [Perform DR drills](/azure/azure-sql/managed-instance/
 
 ## Backups
 
-Take backups of your databases to protect against various risks, including loss of data. Backups can be restored to recover from accidental data loss, corruption, or other problems. Backups aren't same thing as geo-replication for redundancy purposes, and they have different purposes and mitigate different risks.
+Take backups of your databases to protect against various risks, including loss of data. Backups can be restored to recover from accidental data loss, corruption, or other problems. Backups aren't the same thing as geo-replication, and they have different purposes and mitigate different risks.
 
 SQL Managed Instance automatically takes full, differential, and transaction log backups of your databases. For more information about the types of backups, their frequency, restore capabilities, storage costs, and backup encryption, see [Automated backups in SQL Managed Instance](/azure/azure-sql/managed-instance/automated-backups-overview). 
 
