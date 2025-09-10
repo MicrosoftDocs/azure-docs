@@ -3,7 +3,7 @@ title: Set up Hyper-V disaster recovery by using Azure Site Recovery
 description: Learn how to set up disaster recovery of on-premises Hyper-V VMs (without SCVMM) to Azure by using Site Recovery and MARS.
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2025
+ms.date: 09/10/2025
 ms.custom: MVC, engagement-fy23
 ms.author: jsuri
 author: jyothisuri
@@ -176,7 +176,9 @@ On the Azure portal, during enable replication, **Replica Storage Account** sett
 
 ### Existing ASR Configurations
 
-If you have an existing H2A configuration with unmanaged disks as the target, you are recommended to update your protection settings to use Managed disks as the target to ensure failover after the deprecation of unmanaged disks. Navigate to **Protected Items** page > **Compute and Network** and change **Use managed disks** from **No** to **Yes** if not done already, to ensure failed over Azure VMs use managed disks.
+If you have an existing H2A configuration with unmanaged disks as the target, we recommended you update your protection settings to use Managed disks as the target to ensure failover after the deprecation of unmanaged disks. 
+
+To do this, navigate to **Protected Items** page > **Compute and Network** and change **Use managed disks** from **No** to **Yes**.
  
 >[!NOTE]
 >Changing **Use managed disks** from **No** to **Yes** means disks created after failover are *Managed*, with their type (Standard SSD LRS or Premium SSD LRS) based on the replica's storage account. Standard accounts result in Standard SSD LRS disks; Premium accounts yield Premium SSD LRS disks.
