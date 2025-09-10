@@ -881,6 +881,9 @@ If you're using NFS on Azure Files, use the following instructions to prepare th
    mount -a
    ```
 
+   > [!Note]
+   > For Encryption in Transit enabled File systems, use ‘aznfs’ as filesystem type in the mount command syntax. Read [Azure Files NFS Encryption in Transit for SAP on Azure Systems](./sap-azure-files-nfs-encryption-in-transit-guide.md), to learn how to enable Encryption in Transit and mounting the file systems.
+
 If you're using NFS on Azure NetApp Files, use the following instructions to prepare the SAP directories on the SAP application server VMs:
 
 1. Create the mount points.
