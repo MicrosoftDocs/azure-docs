@@ -43,7 +43,7 @@ The following limitations apply to Azure Container Apps on Azure Arc enabled Kub
 | Node OS requirement | **Linux** only. | 
 | Feature: Managed identities | [Not available](#are-managed-identities-supported) |
 | Feature: Pull images from ACR with managed identity | Not available (depends on managed identities) |
-| Feature: Azure File Storage | [SMB driver (>= v1.18.0)](https://github.com/kubernetes-csi/csi-driver-smb) should be installed before using azure file smb storage |
+| Feature: Azure File Storage | [SMB driver (>= v1.18.0)](https://github.com/kubernetes-csi/csi-driver-smb) should be installed before using Azure file SMB storage |
 | Logs | Log Analytics must be configured with cluster extension; not per-application |
 
 The following features are supported:
@@ -61,7 +61,7 @@ The following features are supported:
 > [!IMPORTANT]
 > If deploying onto **AKS on Azure Local** ensure that you have [setup HAProxy as your load balancer](/azure/aks/hybrid/configure-load-balancer)  before attempting to install the extension.Additionally, make sure that custom CoreDNS is enabled. 
 > 
-> For guidance on enabling AKS custom CoreDNS, please refer to this [documentation](/cli/azure/containerapp/arc).
+> For information on enabling AKS custom CoreDNS, see the [`az containerapp arc`](/cli/azure/containerapp/arc) CLI documentation.
 
 ## Resources created by the Container Apps extension
 
@@ -132,7 +132,7 @@ As you create an Azure Container Apps connected environment resource, some subsc
 
 ### How can I install SMB Driver?
 
-You can install the SMB driver using the following Helm command. For additional installation methods, please refer to [Install driver on a Kubernetes cluster](https://github.com/kubernetes-csi/csi-driver-smb/tree/master/charts).
+You can install the SMB driver using the following Helm command. For additional installation methods, see [Install driver on a Kubernetes cluster](https://github.com/kubernetes-csi/csi-driver-smb/tree/master/charts).
 ```
 helm repo add csi-driver-smb https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
 helm install csi-driver-smb csi-driver-smb/csi-driver-smb --namespace kube-system --version v1.18.0
