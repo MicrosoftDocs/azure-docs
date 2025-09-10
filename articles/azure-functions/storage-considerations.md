@@ -118,12 +118,12 @@ Use the following table to determine which function trigger best fits your needs
 | Requires [event subscription](../event-grid/concepts.md#event-subscriptions) | No | Yes | No | Yes |
 | Supports [Flex Consumption plan](flex-consumption-plan.md) | No | Yes | Yes | Yes |
 | Supports high-scale² | No | Yes | Yes | Yes |
-| Works with [inbound access restrictions](./functions-networking-options.md#inbound-access-restrictions) | Yes | No | Yes | No<sup>3</sup> | 
+| Works with [inbound access restrictions](./functions-networking-options.md#inbound-access-restrictions) | Yes | No | Yes | Yes<sup>3</sup> | 
 | Description | Default trigger behavior, which relies on polling the container for updates. For more information, see the examples in the [Blob storage trigger reference](./functions-bindings-storage-blob-trigger.md#example). | Consumes blob storage events from an event subscription. Requires a `Source` parameter value of `EventGrid`. For more information, see [Tutorial: Trigger Azure Functions on blob containers using an event subscription](./functions-event-grid-blob-trigger.md). | Blob name string is manually added to a storage queue when a blob is added to the container. A Queue storage trigger passes this value directly to a Blob storage input binding on the same function. | Provides the flexibility of triggering on events besides those events that come from a storage container. Use when need to also have nonstorage events trigger your function. For more information, see [How to work with Event Grid triggers and bindings in Azure Functions](event-grid-how-tos.md). |
 
 1. Blob storage input and output bindings support blob-only accounts.
 2. High scale can be loosely defined as containers that have more than 100,000 blobs in them or storage accounts that have more than 100 blob updates per second.
-3. You can workaround inbound access restrictions by having the event subscription deliver events over an encrypted channel and a known user identity using public IP space. For more information, see [Deliver events securely using managed identities](../event-grid/deliver-events-using-managed-identity.md).
+3. You can workaround inbound access restrictions by having the event subscription deliver events over an encrypted channel in public IP space using a known user identity. For more information, see [Deliver events securely using managed identities](../event-grid/deliver-events-using-managed-identity.md).
 
 ## Storage data encryption
 
