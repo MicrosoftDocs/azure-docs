@@ -10,6 +10,7 @@ ms.topic: quickstart
 ms.custom:
   - azure-synapse
   - mode-other
+  - sfi-ropc-nochange
 ---
 
 # Quickstart: Configure workload isolation in a dedicated SQL pool using T-SQL

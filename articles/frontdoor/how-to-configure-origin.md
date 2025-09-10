@@ -7,6 +7,7 @@ ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 02/18/2025
+ms.custom: sfi-image-nochange
 ---
 
 # How to configure an origin for Azure Front Door
