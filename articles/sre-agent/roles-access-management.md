@@ -20,7 +20,7 @@ how can agent perform actions
 
 The Azure SRE Agent features a flexible model for managing roles and access management based on Azure RBAC and the [Principle of Least Privilege](/entra/identity-platform/secure-least-privileged-access). The security model implemented in SRE Agent ensures that users only interact with the agent and managed resources according to the overall permission model.
 
-Azure SRE Agent uses different roles that grant different levels of access to resources in your environment. There are three different RBAC-enforced roles associated with Azure SRE Agent:
+Azure SRE Agent uses RBAC-enforced roles that grant different levels of access to resources in your environment.
 
 - **SRE Agent Admin**: Has full control of the agent’s lifecycle. Can approve and execute fixes proposed by the agent.
 
@@ -29,28 +29,28 @@ Azure SRE Agent uses different roles that grant different levels of access to re
 - **SRE Agent Reader**: Has read-only access to dashboards, logs, and reports.
 
 > [!NOTE]
-> The Administrator role is automatically assigned to the user creating the agent. That user can then delegate roles to other users.
+> The *SRE Agent Admin* role is automatically assigned to the user creating the agent. That user can then delegate roles to other users.
 
 The following table maps roles to types of users to the key actions associated with how they use the agent.
 
 | Role | Typical users | Key actions |
 |---|---|---|
-| SRE Agent Admin | Cloud Admins, SRE managers | Full lifecycle, approve actions |
-| SRE Agent User | L1 Ops, L2 SREs, specialists, first responders | Chat with the agent, initiate diagnostics, initiate write actions |
-| SRE Agent Reader | Auditors, monitoring | View chats, configs, logs |
+| *SRE Agent Admin* | Cloud Admins, SRE managers | Full lifecycle, approve actions |
+| *SRE Agent User* | L1 Ops, L2 SREs, specialists, first responders | Chat with the agent, initiate diagnostics, initiate write actions |
+| *SRE Agent Reader* | Auditors, monitoring | View chats, configs, logs |
 
 ## Example workflow
 
-To demonstrate the security model enforced by SRE Agent, the following table describes the typical security flow from agent creation to usage.
+To demonstrate the security model enforced by SRE Agent, the following table describes a hypothetical security flow from agent creation to usage. This example uses App Service as an example, but the result is the same for any Azure service managed by the agent. 
 
 | Step | Actor & role | Action | What happens | Enforcement |
 |---|---|---|---|---|
-| 1. Create agent | Azure Subscription Owner | Deploys a new SRE Agent via the Azure portal or Bicep template. | A managed identity is created for the agent. | The creator is automatically assigned the *SRE Agent Admin* role in the agent. |
-| 2. Assign roles | Azure Subscription Owner or default SRE Agent admin (assigned after creation) | Uses Azure RBAC to grant:<br><br>– SRE Agent Reader to Audit group<br><br>– SRE Agent User to standard users<br><br>– SRE Agent Admin to other Admins | Users are now segmented by access role in the agent. | Azure RBAC enforces role assignment. User Access Roles inside the agent restrict which agent capabilities they can invoke. |
-| 3. Triage | SRE Agent User (L1 Engineer) with Contributor RBAC on App Service | Asks agent: "Why is my web app returning 500 errors?" | Agent runs diagnostics via its managed identity (with Privileged rights on the App Service). Detects that `AzureWebJobsStorage` connection string is invalid. | Agent action limited to its managed identity RBAC (Contributor in this case). |
-| 4. Request Fix | SRE Agent User (L1 Engineer) | Requests: "Fix the configuration issue." | Agent drafts a remediation plan: update `AzureWebJobsStorage` setting and restart App Service. | User’s SRE Agent User role doesn't allow approval/execution of fixes. The agent sends the execution plan to Admin for review. |
-| 5. Approval & execution | SRE Agent Admin | Reviews and approves agent’s proposed change plan. | Agent executes the configuration update and restarts App Service using its Contributor RBAC on the App Service. | Execution succeeds because the agent identity has the required Azure RBAC rights. |
-| 6. Monitoring | SRE Agent Reader | Opens SRE Agent and sees: "App Service is reporting HTTP 500 errors." | Auditor can view compliance and health metrics. | Agent enforces View-Only action, so auditor can't request fixes despite RBAC access on resources. |
+| **1. Create agent** | Azure subscription *Owner* | Deploys a new SRE Agent via the Azure portal or Bicep template. | A managed identity is created for the agent. | The creator is automatically assigned the *SRE Agent Admin* role in the agent. |
+| **2. Assign roles** | Azure subscription *Owner* or default *SRE Agent Admin* (assigned after creation) | Uses Azure RBAC to grant:<br><br>– *SRE Agent Reader* to *Audit* group<br><br>– *SRE Agent User* to standard users<br><br>– *SRE Agent Admin* to other administrators | Users are segmented by access role in the agent. | Azure RBAC enforces role assignment. User access roles inside the agent restrict which agent capabilities they can invoke. |
+| **3. Triage** | *SRE Agent User* (L1 Engineer) with *Contributor* RBAC on App Service | User asks the agent: "Why is my web app returning 500 errors?" | Agent runs diagnostics via its managed identity with privileged rights on the App Service instance. The agent detects that `AzureWebJobsStorage` connection string is invalid. | Agent action limited to its managed identity RBAC (*Contributor* in this case). |
+| **4. Request fix** | *SRE Agent User* (L1 Engineer) | User issues the request, "Fix the configuration issue." | Agent drafts a remediation plan to update `AzureWebJobsStorage` setting and restart App Service. | User’s *SRE Agent User* role doesn't allow approval/execution of fixes. The agent sends the execution plan to an *SRE Agent Admin* for review. |
+| **5. Approval & execution** | *SRE Agent Admin* | Administrator reviews and approves the agent’s proposed change plan. | Agent executes the configuration update and restarts App Service using its *Contributor* RBAC on the App Service. | Execution succeeds because the agent identity has the required Azure RBAC rights. |
+| **6. Monitoring** | *SRE Agent Reader* | User opens SRE Agent and sees, "App Service is reporting HTTP 500 errors." | Auditor can view compliance and health metrics. | Agent enforces view-only action, so auditor can't request fixes despite RBAC access on resources. |
 
 :::image type="content" source="media/roles-access-management/azure-sre-agent-roles-onboarding.png" alt-text="Diagram of Azure SRE Agent roles onboarding flow.":::
 
@@ -92,7 +92,7 @@ Here's a few example scenarios that can help illustrate how the security model i
 
 ## Assign agent roles
 
-SRE Agent Subscription Owners use Azure RBAC to grant the following roles for different types of people using the agent:
+SRE Agent subscription owners can use Azure RBAC to grant the following roles for different types of people who use the agent:
 
 – *SRE Agent Reader* to the *Audit* group  
 – *SRE Agent User* to any standard users  
