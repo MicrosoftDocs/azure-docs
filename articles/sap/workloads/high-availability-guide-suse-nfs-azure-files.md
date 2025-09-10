@@ -7,9 +7,13 @@ manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ms.date: 11/19/2024
 ms.author: radeltch
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - linux-related-content
+  - sfi-image-nochange
 # Customer intent: As a system administrator, I want to configure high availability for SAP NetWeaver on Azure VMs using NFS on Azure Files, so that I can ensure reliable performance and resilience for critical SAP applications running on SUSE Linux Enterprise Server.
 ---
 
