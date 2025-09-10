@@ -39,6 +39,8 @@ The following resource is defined in the template:
 
 You can deploy the template by using the **Azure CLI**, **Azure PowerShell**, or the **Azure portal**.
 
+---
+
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli

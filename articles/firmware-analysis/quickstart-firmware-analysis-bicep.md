@@ -44,6 +44,8 @@ Save the Bicep file as main.bicep to your local computer.
 Deploy the Bicep file by using either Azure CLI or Azure PowerShell.
 Azure CLI is recommended.
 
+---
+
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
