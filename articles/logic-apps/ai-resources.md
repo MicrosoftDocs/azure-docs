@@ -8,34 +8,43 @@ ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.date: 09/08/2025
 ms.update-cycle: 180-days
-#CustomerIntent: I want a guide that introduces starting points, building blocks, examples, samples, and other resources to help me learn about using AI in my integration solutions using Standard and Consumption workflows in Azure Logic Apps.
+#Customer intent: As an AI developer, I want a guide that introduces starting points, building blocks, examples, samples, and other resources so I can learn how I can use AI in my integration solutions using Standard and Consumption workflows in Azure Logic Apps.
 ---
 
-# AI playbook, examples, samples, and other resources for workflows in Azure Logic Apps
+# Playbook, examples, samples, and other resources for AI workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-AI capabilities play a fast and growing role in applications and other software by performing useful, time-saving, or novel tasks, such as chat interactions. These capabilities also help you build integration workloads across services, systems, apps, and data in your enterprise or organization.
+AI capabilities play a fast and growing role in applications and other software by performing useful, time-saving, or novel tasks like chat interactions. These capabilities can also work with other services, systems, apps, and data sources to help build integration workloads for enterprises and organizations.
 
-This guide provides building blocks, examples, samples, and other resources that help show how to use AI services, such as Azure OpenAI and Azure AI Search, alongside other services, systems, apps, and data that work together in integration solutions built as automated workflows in Azure Logic Apps.
+This guide provides building blocks, examples, and other resources that show how to use AI services like Azure OpenAI, Azure AI Foundry, and Azure AI Search with Azure Logic Apps to build automated workflows for AI integration solutions.
 
 ## AI agent and model-powered workflows (Preview)
 
-Azure Logic Apps supports Standard logic app workflows that complete tasks by using *agents* with *large language models* (LLMs). An agent uses an iterative looped process to solve complex, multi-step problems. An LLM is a trained program that recognizes patterns and performs jobs without human interaction, for example:
+Azure Logic Apps supports Standard logic app workflows that complete tasks by using *agents* with *large language models* (LLMs). An agent uses an iterative looped process to solve complex, multistep problems. An LLM is a trained program that recognizes patterns and performs jobs without human interaction.
 
-- Analyze, interpret, and reason about information such as instructions, prompts, inputs, and other data.
-- Make decisions, based on results and available data.
-- Formulate and return answers back to the prompter, based on the agent's instructions.
+For example, an LLM can perfom the following tasks:
 
-After you create your Standard logic app, add a workflow that uses the **Autonomous Agents** or **Conversational Agents** workflow type. Either type creates a partial workflow that includes an empty **Agent** action. Based on the workflow type you selected, this agent works autonomously or interactively through an integrated chat interface. The agent can use natural language to communicate either through previously provided instructions or real-time human interactions and the connected model. The agent also uses model-generated outputs to do work - with or without human interaction. The model helps the agent provide the following capabilities:
+- Analyze, interpret, and reason about information such as instructions, prompts, and inputs.
+- Make decisions based on results and available data.
+- Formulate and return answers to the prompter based on the agent's instructions.
+
+After you create a Standard logic app, you can add a workflow that uses the **Autonomous Agents** or **Conversational Agents** workflow type. These workflow types create a partial workflow that includes an empty **Agent** action. The agent works without or with human interaction, which happens through an integrated chat interface, based on the workflow type that you select.
+
+> [!TIP]
+>
+> If you choose to start with a nonagent **Stateful** workflow, 
+> you can always add an **Agent** action later.
+
+The agent uses natural language and the connected LLM to interpret through previously provided instructions or real-time human interactions, respectively. The agent also uses model-generated outputs to do work - with or without human interaction. The model helps the agent provide the following capabilities:
 
 - Accept information about the agent's role, how to operate, and how to respond.
-- Receive and respond to instructions and requests, or *prompts*.
-- Process inputs, analyze data, and make choices, based on available information.
-- Choose tools to complete the tasks necessary to fulfill requests. A *tool* is basically a sequence with one or more actions that complete a task.
+- Receive and respond to instructions and prompt requests.
+- Process inputs, analyze data, and make choices based on available information.
+- Choose *tools* to complete the tasks necessary to fulfill requests. In AI scenarios, a tool is a sequence with one or more actions that complete a task.
 - Adapt to environments that require flexibility and are fluid, dynamic, unpredictable, or unstable.
 
-With [1,400+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that you can use to build tools for an agent, agent workflows support a vast range of scenarios that can greatly benefit from agent and model capabilities. Based on your use cases, the agent can perform work with or without human interaction.
+With [1,400+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) available to help you build tools for agents, agent workflows support many scenarios that greatly benefit from agent and model capabilities. 
 
 For more information, see the following resources:
 
