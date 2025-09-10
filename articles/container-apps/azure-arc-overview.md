@@ -59,7 +59,7 @@ The following features are supported:
 - App container console
 
 > [!IMPORTANT]
-> If deploying onto **AKS on Azure Local** ensure that you have [setup HAProxy as your load balancer](/azure/aks/hybrid/configure-load-balancer)  before attempting to install the extension.Additionally, make sure that custom CoreDNS is enabled. 
+> If deploying onto **AKS on Azure Local** ensure that you have [setup HAProxy as your load balancer](/azure/aks/hybrid/configure-load-balancer)  before attempting to install the extension. Additionally, make sure that custom CoreDNS is enabled. 
 > 
 > For information on enabling AKS custom CoreDNS, see the [`az containerapp arc`](/cli/azure/containerapp/arc) CLI documentation.
 
@@ -133,6 +133,7 @@ As you create an Azure Container Apps connected environment resource, some subsc
 ### How can I install SMB Driver?
 
 You can install the SMB driver using the following Helm command. For additional installation methods, see [Install driver on a Kubernetes cluster](https://github.com/kubernetes-csi/csi-driver-smb/tree/master/charts).
+
 ```
 helm repo add csi-driver-smb https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
 helm install csi-driver-smb csi-driver-smb/csi-driver-smb --namespace kube-system --version v1.18.0
