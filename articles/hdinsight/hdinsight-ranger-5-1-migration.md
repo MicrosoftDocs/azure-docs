@@ -3,8 +3,8 @@ title: Upgrade to Apache Ranger in Azure HDInsight
 description: Learn how to upgrade to Apache Ranger in Azure HDInsight 
 ms.service: azure-hdinsight
 ms.topic: how-to
-author: anuj1905
-ms.author: anujsharda
+author: apurbasroy
+ms.author: apsinhar
 ms.reviewer: nijelsf
 ms.date: 09/10/2024
 ---

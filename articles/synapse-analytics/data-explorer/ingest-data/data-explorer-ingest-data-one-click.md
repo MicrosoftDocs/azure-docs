@@ -8,7 +8,9 @@ ms.author: shsagir
 ms.reviewer: tzgitlin
 ms.service: azure-synapse-analytics
 ms.subservice: data-explorer
-ms.custom: mode-other
+ms.custom:
+  - mode-other
+  - sfi-image-nochange
 ---
 
 # Quickstart: Ingest data using One-click (Preview)
