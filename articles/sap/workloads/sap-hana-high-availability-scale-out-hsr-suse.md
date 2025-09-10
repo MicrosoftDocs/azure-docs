@@ -224,6 +224,9 @@ In this example, the following Azure Files NFS shares were used:
 * share **hn1**-shared-s1 (sapnfsafs.file.core.windows.net:/sapnfsafs/hn1-shared-s1)
 * share **hn1**-shared-s2 (sapnfsafs.file.core.windows.net:/sapnfsafs/hn1-shared-s2)
 
+> [!Note]
+> Azure Files NFS supports Encryption in Transit (EiT). If you would like to use Encryption in Transit, read [Azure Files NFS Encryption in Transit for SAP on Azure Systems](./sap-azure-files-nfs-encryption-in-transit-guide.md) to learn how to configure and deploy.
+
 ## Operating system configuration and preparation
 
 The instructions in the next sections are prefixed with one of the following abbreviations:
@@ -400,7 +403,7 @@ In this example, the shared HANA file systems are deployed on NFS on Azure Files
     mkdir -p /hana/shared
     ```
 
-2. **[AH1]** Mount the shared Azure NetApp Files volumes on the SITE1 HANA DB VMs.  
+2. **[AH1]** Mount the shared Azure Files NFS volumes on the SITE1 HANA DB VMs.  
 
     ```bash
     sudo vi /etc/fstab
@@ -410,7 +413,10 @@ In this example, the shared HANA file systems are deployed on NFS on Azure Files
     sudo mount -a 
     ```
 
-3. **[AH2]** Mount the shared Azure NetApp Files volumes on the SITE2 HANA DB VMs.  
+    > [!Note]
+    > For Encryption in Transit enabled File systems, use ‘aznfs’ as filesystem type in the mount command syntax. Read [Azure Files NFS Encryption in Transit for SAP on Azure Systems](./sap-azure-files-nfs-encryption-in-transit-guide.md), to learn how to enable Encryption in Transit and mounting the file systems.
+
+3. **[AH2]** Mount the shared Azure Files NFS volumes on the SITE2 HANA DB VMs.  
 
     ```bash
     sudo vi /etc/fstab
@@ -419,6 +425,9 @@ In this example, the shared HANA file systems are deployed on NFS on Azure Files
     # Mount the volume
     sudo mount -a 
     ```
+
+    > [!Note]
+    > For Encryption in Transit enabled File systems, use ‘aznfs’ as filesystem type in the mount command syntax. Read [Azure Files NFS Encryption in Transit for SAP on Azure Systems](./sap-azure-files-nfs-encryption-in-transit-guide.md), to learn how to enable Encryption in Transit and mounting the file systems.
 
 4. **[AH]** Verify that the corresponding `/hana/shared/` file systems are mounted on all HANA DB VMs with NFS protocol version **NFSv4.1**.  
 
