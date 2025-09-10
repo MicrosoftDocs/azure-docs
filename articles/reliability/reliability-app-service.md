@@ -45,7 +45,7 @@ For **Premium v2 to v4 tiers**, you can configure App Service as *zone redundant
 
 ### Region support
 
-- For App Service **Premium v2 to v3** plans, zone redundancy is supported in [any region that supports availability zones](./regions-list.md).
+- For App Service **Premium v2 and v3** plans, zone redundancy is supported in [any region that supports availability zones](./regions-list.md).
 
 - For App Service **Premium v4** plans, zone redundancy is supported in [select regions only](/azure/app-service/app-service-configure-premium-v4-tier#regions).
 
