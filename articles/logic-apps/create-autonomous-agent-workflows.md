@@ -138,6 +138,7 @@ The following table describes the current limitations and any known issues in th
 | Supported workflow types | To create an autonomous agent workflow, select the **Autonomous Agents** workflow type or add an **Agent** action to an existing **Stateful** workflow. You can't use the **Stateless** workflow type, and then add an agent. |
 | Authentication | For managed identity authentication, you can use only the system-assigned managed identity at this time. Support is currently unavailable for the user-assigned managed identity. <br><br>**Note**: For Azure AI Foundry projects, you must use managed identity authentication. |
 | Agent tools | - To create tools, you can use only actions, not triggers. <br><br>- A tool starts with action and always contains at least one action. <br><br>- A tool works only inside the agent where that tool exists. <br><br>- Control flow actions are unsupported. |
+| Documentation | This guide covers the basic steps to create an autonomous agent workflow. Documentation for advanced features is in progress. |
 | General limits | For general information about the limits in Azure OpenAI Service, Azure AI Foundry, and Azure Logic Apps, see the following articles: <br><br>- [Azure OpenAI Service quotas and limits](/azure/ai-services/openai/quotas-limits) <br>- [Azure OpenAI in Azure AI Foundry Models quotas and limits](/azure/ai-foundry/openai/quotas-limits) <br>- [Azure Logic Apps limits and configuration](/azure/logic-apps/logic-apps-limits-and-config) |
 
 ## Create an autonomous agent workflow

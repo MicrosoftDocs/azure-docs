@@ -134,6 +134,7 @@ The following table describes the current limitations and any known issues in th
 | Supported workflow types | To create a conversational agent workflow, you must select the **Conversational Agents** workflow type. You can't start with the **Stateful** or **Stateless** workflow type, and then add an agent. |
 | Authentication | For managed identity authentication, you can use only the system-assigned managed identity at this time. Support is currently unavailable for the user-assigned managed identity. |
 | Agent tools | - To create tools, you can use only actions, not triggers. <br><br>- A tool starts with action and always contains at least one action. <br><br>- A tool works only inside the agent where that tool exists. <br><br>- Control flow actions are currently unsupported. |
+| Documentation | This guide covers the basic steps to create a conversational agent workflow. Documentation for advanced features is in progress. |
 | General limits | For general information about the limits in Azure OpenAI Service and Azure Logic Apps, see the following articles: <br><br>- [Azure OpenAI Service quotas and limits](/azure/ai-services/openai/quotas-limits) <br>- [Azure Logic Apps limits and configuration](/azure/logic-apps/logic-apps-limits-and-config) |
 
 ## Create a conversational agent workflow
