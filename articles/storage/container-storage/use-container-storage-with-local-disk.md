@@ -31,7 +31,7 @@ Azure Container Storage supports the use of *generic ephemeral volumes* by defau
 
 - You'll need the Kubernetes command-line client, `kubectl`. You can install it locally by running the `az aks install-cli` command.
 
-- Check if your target region is supported in [Azure Container Storage regions](../articles/storage/container-storage/container-storage-introduction.md#regional-availability).
+- Check if your target region is supported in [Azure Container Storage regions](container-storage-introduction.md#regional-availability).
 
 - You can now use clusters with a single node, though multi-node configurations are still recommended.
 
