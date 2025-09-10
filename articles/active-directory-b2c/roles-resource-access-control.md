@@ -12,6 +12,7 @@ ms.topic: concept-article
 ms.date: 02/24/2023
 ms.author: godonnell
 ms.subservice: b2c
+ms.custom: sfi-ga-blocked
 
 #Customer Intent: As an Azure AD B2C administrator, I want to assign users the least privileged role required to access resources, so that I can ensure proper access control and security within my tenant.
 

@@ -6,8 +6,10 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: synapse
-ms.date: 05/07/2025
+ms.date: 08/11/2025
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Copy data from ServiceNow V2 using Azure Data Factory or Synapse Analytics
@@ -36,7 +38,9 @@ The service provides a built-in driver to enable connectivity. Therefore you don
 
 ## Prerequisite
 
-To use this connector, you need to have a role with at least read access to *sys_db_object* and *sys_dictionary* tables in ServiceNow.
+To use this connector, you need to have a role with at least read access to *sys_db_object*, *sys_db_view* and *sys_dictionary* tables in ServiceNow.
+
+To access views in ServiceNow, you need to have a role with at least read access to *sys_db_view_table* and *sys_db_view_table_field* tables.
 
 ## Getting started
 
@@ -261,6 +265,9 @@ Here is an example of the source JSON using the expression parameter:
 ]
 ```
 
+> [!NOTE]
+> The column `sys_tags` and its derived columns cannot be obtained due to ServiceNow API limitations.
+    
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).

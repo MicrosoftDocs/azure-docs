@@ -3,12 +3,16 @@ title: Azure VMs high availability for SAP NW on RHEL with NFS on Azure Files| M
 description: Establish high availability for SAP NetWeaver on Azure Virtual Machines Red Hat Enterprise Linux (RHEL) with NFS on Azure Files.
 author: rdeltcheva
 manager: juergent
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.date: 04/29/2025
 ms.author: radeltch
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - linux-related-content
+  - sfi-image-nochange
 # Customer intent: "As a system architect, I want to configure high availability for SAP NetWeaver on Azure VMs using NFS on Azure Files, so that I can ensure resilience and fault tolerance for critical enterprise applications."
 ---
 
@@ -170,28 +174,31 @@ Next, deploy the NFS shares in the storage account you created. In this example,
 1. On the resource menu for **sapafsnfs**, under **Data storage**, select **File shares**.
 1. On the **File shares** page, select **File share**.
    1. For **Name**, enter `sapnw1`, `saptrans`.
-   1. Select an appropriate share size. For example, **128 GB**.  Consider the size of the data stored on the share and IOPS and throughput requirements. For more information, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets).
+   1. Select an appropriate share size. For example, **128 GB**.  Consider the size of the data stored on the share and IOPS and throughput requirements. For more information, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md).
    1. Select **NFS** as the protocol.
    1. Select **No root Squash**. Otherwise, when you mount the shares on your VMs, you can't see the file owner or group.
 
 > [!IMPORTANT]
-> The preceding share size is only an example. Make sure to size your shares appropriately. Size is not only based on the size of the of data stored on the share but also based on the requirements for IOPS and throughput. For more information, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets).  
+> The preceding share size is only an example. Make sure to size your shares appropriately. Size is not only based on the size of the of data stored on the share but also based on the requirements for IOPS and throughput. For more information, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md).  
 
 The SAP file systems that don't need to be mounted via NFS can also be deployed on [Azure disk storage](/azure/virtual-machines/disks-types#premium-ssds). In this example, you can deploy `/usr/sap/NW1/D02` and `/usr/sap/NW1/D03` on Azure disk storage.
+
+> [!Note]
+> Azure Files NFS supports Encryption in Transit (EiT). If you would like to use Encryption in Transit, read [Azure Files NFS Encryption in Transit for SAP on Azure Systems](./sap-azure-files-nfs-encryption-in-transit-guide.md) to learn how to configure and deploy.
 
 ### Important considerations for NFS on Azure Files shares
 
 When you plan your deployment with NFS on Azure Files, consider the following important points:  
 
 * The minimum share size is 100 GiB. You only pay for the [capacity of the provisioned shares](../../storage/files/understanding-billing.md#provisioned-v1-model).
-* Size your NFS shares not only based on capacity requirements but also on IOPS and throughput requirements. For more information, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets).
+* Size your NFS shares not only based on capacity requirements but also on IOPS and throughput requirements. For more information, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md).
 * Test the workload to validate your sizing and ensure that it meets your performance targets. To learn how to troubleshoot performance issues with NFS on Azure Files, see [Troubleshoot Azure file share performance](../../storage/files/files-troubleshoot-performance.md).
 * For SAP J2EE systems, it's not supported to place `/usr/sap/<SID>/J<nr>` on NFS on Azure Files.
 * If your SAP system has a heavy batch jobs load, you might have millions of job logs. If the SAP batch job logs are stored in the file system, pay special attention to the sizing of the `sapmnt` share. As of SAP_BASIS 7.52, the default behavior for the batch job logs is to be stored in the database. For more information, see [Job log in the database][2360818].
 * Deploy a separate `sapmnt` share for each SAP system.
 * Don't use the `sapmnt` share for any other activity, such as interfaces, or `saptrans`.
 * Don't use the `saptrans` share for any other activity, such as interfaces, or `sapmnt`.
-* Avoid consolidating the shares for too many SAP systems in a single storage account. There are also [storage account performance scale targets](../../storage/files/storage-files-scale-targets.md#storage-account-scale-targets). Be careful not to exceed the limits for the storage account, too.
+* Avoid consolidating the shares for too many SAP systems in a single storage account. There are also [storage account performance scale targets](../../storage/files/storage-files-scale-targets.md#storage-account-data-plane-limits). Be careful not to exceed the limits for the storage account, too.
 * In general,  don't consolidate the shares for more than five SAP systems in a single storage account. This guideline helps avoid exceeding the storage account limits and simplifies performance analysis.
 * In general, avoid mixing shares like `sapmnt` for nonproduction and production SAP systems in the same storage account.
 * We recommend that you deploy on RHEL 8.4 or higher to benefit from [NFS client improvements](../../storage/files/files-troubleshoot-linux-nfs.md#ls-hangs-for-large-directory-enumeration-on-some-kernels).
@@ -298,6 +305,9 @@ The following items are prefixed with:
     mount -a 
     ```
 
+    > [!Note]
+    > For Encryption in Transit enabled File systems, use ‘aznfs’ as filesystem type in the mount command syntax. Read [Azure Files NFS Encryption in Transit for SAP on Azure Systems](./sap-azure-files-nfs-encryption-in-transit-guide.md), to learn how to enable Encryption in Transit and mounting the file systems.
+
 7. **[A]** Configure the SWAP file.
 
     ```bash
@@ -354,6 +364,9 @@ The following items are prefixed with:
       --group g-NW1_ASCS
     ```
 
+   > [!Note]
+   > For Encryption in Transit enabled File systems for ‘/usr/sap/NW1/ASCS00’, use fstype=’aznfs’ as filesystem type in the cluster resource agent setup command syntax. Read [Azure Files NFS Encryption in Transit for SAP on Azure Systems](./sap-azure-files-nfs-encryption-in-transit-guide.md), to learn how to enable Encryption in Transit and mounting the file systems.
+
    Make sure that the cluster status is okay and that all resources are started. Which node the resources are running on isn't important.
 
     ```bash
@@ -409,6 +422,9 @@ The following items are prefixed with:
     sudo pcs resource create nc_NW1_AERS azure-lb port=62101 \
      --group g-NW1_AERS
     ```
+
+   > [!Note]
+   > For Encryption in Transit enabled File systems for ‘/usr/sap/NW1/ERS01’, use fstype=’aznfs’ as filesystem type in the cluster resource agent setup command syntax. Read [Azure Files NFS Encryption in Transit for SAP on Azure Systems](./sap-azure-files-nfs-encryption-in-transit-guide.md), to learn how to enable Encryption in Transit and mounting the file systems.
 
    Make sure that the cluster status is okay and that all resources are started. Which node the resources are running on isn't important.
 
@@ -689,6 +705,9 @@ The following items are prefixed with:
     # Mount the file systems
     mount -a 
     ```
+
+    > [!Note]
+    > For Encryption in Transit enabled File systems, use ‘aznfs’ as filesystem type in the mount command syntax. Read [Azure Files NFS Encryption in Transit for SAP on Azure Systems](./sap-azure-files-nfs-encryption-in-transit-guide.md), to learn how to enable Encryption in Transit and mounting the file systems.
 
 1. **[A]** Configure the SWAP file.
 

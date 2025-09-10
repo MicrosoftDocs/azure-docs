@@ -8,6 +8,9 @@ ms.topic: how-to
 ms.date: 11/06/2024
 ms.author: liud 
 ms.reviewer: pimorano
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Continuous integration and delivery for an Azure Synapse Analytics workspace

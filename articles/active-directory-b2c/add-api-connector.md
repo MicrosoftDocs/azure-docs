@@ -9,8 +9,11 @@ ms.date: 01/24/2024
 author: garrodonnell
 ms.author: godonnell
 manager: CelesteDG
-ms.custom: it-pro, b2c-support
 zone_pivot_groups: b2c-policy-type
+ms.custom:
+  - it-pro
+  - b2c-support
+  - sfi-image-nochange
 
 #Customer Intent: As a developer or IT administrator, I want to use API connectors to integrate sign-up user flows with REST APIs to customize the sign-up experience and integrate with external systems.
 

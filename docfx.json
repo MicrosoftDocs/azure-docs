@@ -1043,7 +1043,12 @@
         "articles/iot-central/**/*.md": "1095-days",
         "articles/iot-central/**/*.yml": "1095-days",
         "articles/azure-cache-for-redis/**/*.md": "1095-days",
-        "articles/azure-cache-for-redis/**/*.yml": "1095-days"
+        "articles/azure-cache-for-redis/**/*.yml": "1095-days",
+        "articles/iot-central/**/*.yml": "1095-days",
+        "articles/digital-twins/**/*.md": "1095-days",
+        "articles/digital-twins/**/*.yml": "1095-days",
+        "articles/deployment-environments/**/*.md": "1095-days",
+        "articles/deployment-environments/**/*.yml": "1095-days"
       },
       "ms.service": {
         "articles/advisor/**/*.md": "azure-advisor",
