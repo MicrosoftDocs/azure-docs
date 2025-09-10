@@ -7,7 +7,9 @@ ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
 ms.date: 10/18/2024
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - sfi-image-nochange
 # Customer intent: As a network administrator, I want to analyze traffic patterns and security insights across my environment, so that I can optimize performance, enhance security, and ensure proper traffic management.
 ---
 
