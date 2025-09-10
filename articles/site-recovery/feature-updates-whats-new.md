@@ -15,6 +15,9 @@ The Azure Site Recovery service is updated and improved on an ongoing basis. To 
 
 You can follow and subscribe to Site Recovery update notifications in the [Azure updates channel](https://azure.microsoft.com/updates/?product=site-recovery).
 
+## Updates (September 2025)
+Azure Site Recovery support for Virtual Machines with Premium SSD v2 and Ultra disks is in general availability. [Learn more](azure-to-azure-support-matrix.md).
+
 ## Updates (June 2025)
 
 ### Azure Site Recovery for Virtual Machines with Premium SSD v2 disks

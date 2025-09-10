@@ -148,7 +148,7 @@ When you replicate a new VM and specify a new Automation Account name, the vault
 
 Azure Site Recovery uses this new Automation Account to manage the site recovery extension on all replicated VMs.
 
-### Premium SSD v2 disks (preview)
+### Premium SSD v2 disks
 
 #### If the source disk IOPS is changed after enable replication, will it reflect during failover?
 
