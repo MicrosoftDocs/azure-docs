@@ -33,7 +33,10 @@ Use the policy in scenarios such as the following:
 ## Prerequisites
 
 * An [Azure AI Content Safety](/azure/ai-services/content-safety/) resource. 
-* An API Management [backend](backends.md) configured to route content safety API calls and authenticate to the Azure AI Content Safety service, in the form `https://<content-safety-service-name>.cognitiveservices.azure.com`. Managed identity with Cognitive Services User role is recommended for authentication.
+* An API Management [backend](backends.md) configured to route content safety API calls and authenticate to the Azure AI Content Safety service:
+    * API Management's managed identity must be configured on the Azure AI Content Safety service with Cognitive Services User role.
+    * The Azure AI Content Safety backend URL, referenced by `backend-id` in the `llm-content-safety` policy, needs to be in the form `https://<content-safety-service-name>.cognitiveservices.azure.com`.
+    * The Azure AI Content Safety backend's authorization credentials need to be set to Managed Identity enabled with an exact resource ID of `https://cognitiveservices.azure.com`. 
 
 ## Policy statement
 
