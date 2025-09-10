@@ -80,7 +80,7 @@ After you edit the job, select **Submit** to save the changes. The job is update
 
 ### View a job's run history
 
-To view the history of a job, select **View history** in the job details panel. The job history panel opens, showing a list of job run times and statuses and row counts.
+To view the history of a job, select **View history** in the job details panel. The job history panel opens, showing a list of job run times and statuses. The row count reflects the number of rows sent to the destination table in the analytics tier.
 
 :::image type="content" source="media/kql-manage-jobs/job-history.png" lightbox="media/kql-manage-jobs/job-history.png" alt-text="A screenshot showing the job history panel.":::
 
