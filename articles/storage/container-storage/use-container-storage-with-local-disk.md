@@ -103,7 +103,7 @@ local   localdisk.csi.acstor.io    Delete          WaitForFirstConsumer   true  
 
 ### 3. Deploy a pod with generic ephemeral volume
 
-Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for benchmarking and workload simulation, that uses a generic ephemeral volume.
+Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for benchmarking and workload simulation that uses a generic ephemeral volume.
 
 1. Use your favorite text editor to create a YAML manifest file such as `code fiopod.yaml`.
 
