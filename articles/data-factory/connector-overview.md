@@ -49,7 +49,7 @@ The following file formats are supported. Refer to each article for format-based
 
 ## Support TLS 1.3
 
-Transport Layer Security (TLS) is a widely adopted security protocol that's designed to secure connections and communications between servers and clients. In Azure App Service, you can use TLS and Secure Sockets Layer (SSL) certificates to help secure incoming requests in your web apps. TLS 1.3 is the latest and most secure version. For more information, see this [article](/azure/app-service/overview-tls#tls-version-support). In Azure Data Factory, the following connectors support TLS 1.3 for Copy activity:
+Transport Layer Security (TLS) is a widely adopted security protocol that's designed to secure connections and communications between servers and clients. In Azure App Service, you can use TLS and Secure Sockets Layer (SSL) certificates to help secure incoming requests in your web apps. TLS 1.3 is the latest and most secure version. For more information, see this [article](/azure/app-service/overview-tls). In Azure Data Factory, the following connectors support TLS 1.3 for Copy activity:
  
 - [Amazon RDS for SQL Server (version 2.0)](connector-amazon-rds-for-sql-server.md)
 - [Azure Data Explorer](connector-azure-data-explorer.md)
