@@ -4,7 +4,9 @@ ms.author: mazha
 ms.service: azure-cdn
 ms.topic: include
 ms.date: 11/21/2018
-ms.custom: include file
+ms.custom:
+  - include file
+  - sfi-image-nochange
 ---
 
 ## Prerequisites

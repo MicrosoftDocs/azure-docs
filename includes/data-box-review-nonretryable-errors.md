@@ -4,6 +4,7 @@ ms.service: azure-databox
 ms.topic: include
 ms.date: 05/07/2021
 ms.author: shaas
+ms.custom: sfi-image-nochange
 ---
 
 To review non-retryable errors and proceed with your order, do the following:

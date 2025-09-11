@@ -4,6 +4,7 @@ ms.service: azure-site-recovery
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: ankitadutta
+ms.custom: sfi-image-nochange
 ---
 1. Launch the Azure Site Recovery UnifiedSetup.exe
 2. In **Before you begin**, select **Add additional process servers to scale out deployment**.

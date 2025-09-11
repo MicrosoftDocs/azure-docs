@@ -5,6 +5,7 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 02/25/2025
 ms.author: kengaderdus
+ms.custom: sfi-ropc-blocked
 # Used by the ROPC configuration articles for both user flows and custom policies.
 ---
 To register an application in your Azure AD B2C tenant, you can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](../articles/active-directory-b2c/app-registrations-training-guide.md).
