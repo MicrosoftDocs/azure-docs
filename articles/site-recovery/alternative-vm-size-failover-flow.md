@@ -15,7 +15,7 @@ Azure Site Recovery now provides alternative virtual machine (VM) size guidance 
 
 ## How alternative VM size capacity guidance works 
 
-:::image type="content" source="./media/alternative-vm-size-failover-flow/failover-recommendations.png" alt-text="Diagram that shows the failover-recommendations screen." lightbox="./media/alternative-vm-size-failover-flow/failover-recommendations.png":::
+:::image type="content" source="./media/alternative-vm-size-failover-flow/failover-recommendations-inline.png" alt-text="Diagram that shows the failover-recommendations screen." lightbox="./media/alternative-vm-size-failover-flow/failover-recommendations-expanded.png":::
 
 Select any one of the alternatives as per your preference, and then select **Save**. You can then proceed with the failover or test failover. 
 
