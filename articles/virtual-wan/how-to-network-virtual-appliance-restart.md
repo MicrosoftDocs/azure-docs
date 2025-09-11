@@ -6,6 +6,7 @@ ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 04/08/2024
 ms.author: wellee
+ms.custom: sfi-image-nochange
 # Customer intent: As someone who has deployed a Network Virtual Appliance (NVA) in Virtual WAN, I want to restart the NVAs running in Virtual WAN.
 ---
 
