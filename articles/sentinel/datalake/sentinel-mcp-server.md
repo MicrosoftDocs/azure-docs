@@ -6,8 +6,7 @@ ms.author: monaberdugo
 ms.reviewer: mlichtinger
 ms.service: microsoft-sentinel
 ms.topic: how-to
-ms.date: 01/15/2025
-ms.custom: template-how-to
+ms.date: 09/11/2025
 
 #customer intent: As a security analyst, I want to configure Microsoft Sentinel MCP Server so that I can use natural language to query security data and accelerate investigations.
 ---
@@ -26,7 +25,7 @@ The [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-
 - **MCP Server**: Exposes security data and context as semantically accessible tools with natural language inputs/outputs
 - **MCP Client**: Connects to the server through agent frameworks or IDE extensions to discover and invoke available tools
 
-This integration eliminates the need for bespoke API integrations, reduces AI hallucinations through strongly typed schemas, and makes tool discovery predictable across any agent runtime.
+This integration eliminates the need for bespoke API integrations, reduces errors and improves accuracy through strongly typed schemas, and makes tool discovery predictable across any agent runtime.
 
 ## Prerequisites
 

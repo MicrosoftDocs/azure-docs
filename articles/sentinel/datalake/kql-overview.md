@@ -1,12 +1,12 @@
 ---  
-title: KQL and the Microsoft Sentinel data lake (preview)
+title: KQL and the Microsoft Sentinel data lake
 titleSuffix: Microsoft Security  
 description: Exploring and interacting with the Microsoft Sentinel data lake using KQL
 author: EdB-MSFT  
 ms.service: microsoft-sentinel
 ms.topic: conceptual
 ms.subservice: sentinel-graph
-ms.date: 07/09/2025
+ms.date: 08/27/2025
 ms.author: edbaynash  
 
 ms.collection: ms-security  
@@ -15,7 +15,7 @@ ms.collection: ms-security
 
 ---
 
-# KQL and the Microsoft Sentinel data lake (preview)
+# KQL and the Microsoft Sentinel data lake
  
 With Microsoft Sentinel data lake, you can store and analyze high-volume, low-fidelity logs like firewall or DNS data, asset inventories, and historical records for up to 12 years. Because storage and compute are decoupled, you can query the same copy of data using multiple tools, without moving or duplicating it.
 
@@ -25,7 +25,7 @@ This article introduces the core concepts and scenarios of data lake exploration
 
 ## KQL interactive queries
 
-Use Kusto Query Language (KQL) to run interactive queries directly on the data lake. 
+Use Kusto Query Language (KQL) to run interactive queries directly on the data lake over multiple workspaces. 
 
 Using KQL, analysts can:
 
@@ -33,19 +33,18 @@ Using KQL, analysts can:
 + Enrich investigations with high-volume logs: Leverage noisy or low-fidelity data stored in the data lake to add context and depth to security investigations.
 + Correlate asset and logs data in the data lake: Query asset inventories and identity logs to connect user activity with resources and uncover broader attack.
 
-Use **KQL queries** under  **Microsoft Sentinel** > **Data lake exploration** in the Defender portal to run ad-hoc interactive KQL queries directly on long-term data. **Data lake exploration** is available after the [onboarding](sentinel-lake-onboarding.md) process has been completed. KQL queries are ideal for SOC analysts investigating incidents where data may no longer reside in the analytics tier. Queries enable forensic analysis using familiar queries without rewriting code. To get started with KQL queries see [Data lake exploration - KQL queries (preview)](kql-queries.md). 
+Use **KQL queries** under  **Microsoft Sentinel** > **Data lake exploration** in the Defender portal to run ad-hoc interactive KQL queries directly on long-term data. **Data lake exploration** is available after the [onboarding](sentinel-lake-onboarding.md) process has been completed. KQL queries are ideal for SOC analysts investigating incidents where data may no longer reside in the analytics tier. Queries enable forensic analysis using familiar queries without rewriting code. To get started with KQL queries see [Data lake exploration - KQL queries](kql-queries.md). 
 
 ## KQL jobs 
 
-KQL jobs run queries against the data in the data lake tier and promote the results to the analytics tier. A job can be a one-time or a repeating scheduled task. 
-
-Analysts can use KQL jobs to:
+KQL jobs are one-time or scheduled asynchronous KQL queries on data in the Microsoft Sentinel data lake. Jobs are useful for investigative and analytical scenarios for example; 
++ Long-running one-time queries for incident investigations and incident response (IR)
++ Data aggregation tasks that support enrichment workflows using low-fidelity logs
++ Historical threat intelligence (TI) matching scans for retrospective analysis
++ Anomaly detection scans that identify unusual patterns across multiple tables
 + Promote data from the data lake to the analytics tier to enable incident investigation or log correlation.
-+ Schedule recurring jobs to enrich investigations using long-term, high-volume, low-fidelity logs or asset data stored only in the data lake.
-+ Automate insights from historical or noisy logs to support threat hunting, create baselines, or use for compliance requirements.
 
-Run one-time KQL jobs on the data lake to promote specific historical data from the data lake tier to the analytics tier. Promoting data is useful for root cause analysis or zero-day detection when investigating incidents that span beyond the hot tier window. Submit a scheduled job on data lake to automate recurring queries to detect anomalies or build baselines using historical data. Threat hunters can use this to monitor for unusual patterns over time and feed results into detections or dashboards. For more information, see [Create jobs in the Microsoft Sentinel data lake](kql-jobs.md) and [Manage jobs in the Microsoft Sentinel data lake](kql-manage-jobs.md).
-
+Run one-time KQL jobs on the data lake to promote specific historical data from the data lake tier to the analytics tier, or create custom summary tables in the data lake tier. Promoting data is useful for root cause analysis or zero-day detection when investigating incidents that span beyond the analytics tier window. Submit a scheduled job on data lake to automate recurring queries to detect anomalies or build baselines using historical data. Threat hunters can use this to monitor for unusual patterns over time and feed results into detections or dashboards. For more information, see [Create jobs in the Microsoft Sentinel data lake](kql-jobs.md) and [Manage jobs in the Microsoft Sentinel data lake](kql-manage-jobs.md).
 
 
 ## Exploration scenarios
@@ -63,8 +62,8 @@ The following scenarios illustrate how KQL queries in the Microsoft Sentinel dat
 
 ## Related content
 
-- [Microsoft Sentinel data lake overview (preview)](sentinel-lake-overview.md)
-- [Onboarding to Microsoft Sentinel data lake (preview)](sentinel-lake-onboarding.md)
-- [Create jobs in the Microsoft Sentinel data lake (preview)](kql-jobs.md)
-- [Manage jobs in the Microsoft Sentinel data lake (preview)](kql-manage-jobs.md)
-- [Create and run notebooks in the Microsoft Sentinel data lake (preview)](notebooks-overview.md)
+- [Microsoft Sentinel data lake overview](sentinel-lake-overview.md)
+- [Onboarding to Microsoft Sentinel data lake](sentinel-lake-onboarding.md)
+- [Create jobs in the Microsoft Sentinel data lake](kql-jobs.md)
+- [Manage jobs in the Microsoft Sentinel data lake](kql-manage-jobs.md)
+- [Create and run notebooks in the Microsoft Sentinel data lake](notebooks-overview.md)

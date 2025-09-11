@@ -13,11 +13,10 @@ ms.author: edbaynash
 ms.collection: ms-security  
 ---  
 
-
 # What is Microsoft Sentinel data lake (preview)?
 
 Microsoft Sentinel data lake is a purpose-built, cloud-native security data lake that transforms how organizations manage and analyze security data. Designed as a true data lake, it ingests, stores, and analyzes large volumes of diverse security data at scale. By centralizing security data into a single, open-format, extensible platform, it provides deep visibility, long-term retention, and advanced analytics.
-  
+
 The data lake lets you bring all your security data into Microsoft Sentinel cost-effectively, removing the need to choose between coverage and cost. You can retain more data for longer, detect threats with greater context and historical depth, and respond faster without compromising security.  
 
 The Microsoft Sentinel data lake is fully managed, so you don't need to deploy or maintain data infrastructure. It provides a unified data platform for end-to-end threat analysis and response. It stores a single copy of security data across assets, activity logs, and threat intelligence in the lake and leverages multiple analytics tools like KQL and Jupyter notebooks for deep security analytics.
@@ -110,6 +109,6 @@ To get started with Microsoft Sentinel data lake, follow these steps in the [onb
 For more information on using the Microsoft Sentinel data lake, see the following articles:
 + [Jupyter notebooks in the Microsoft Sentinel data lake (preview)](notebooks-overview.md).
 + [KQL and the Microsoft Sentinel data lake (preview)](kql-overview.md)
-+ [Permissions for the Microsoft Sentinel data lake (preview)](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview) 
++ [Permissions for the Microsoft Sentinel data lake (preview)](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake) 
 + [Manage data tiers and retention in Microsoft Defender Portal (preview)](https://aka.ms/manage-data-defender-portal-overview) 
 + [Manage and monitor costs for Microsoft Sentinel](../billing-monitor-costs.md)

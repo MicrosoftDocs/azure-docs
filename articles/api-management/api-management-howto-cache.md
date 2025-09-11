@@ -6,6 +6,7 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 05/15/2025
 ms.author: danlep
+ms.custom: sfi-image-nochange
 
 #customer intent: As an API developer, I want to use caching so that I can improve performance in API Management.
 ---

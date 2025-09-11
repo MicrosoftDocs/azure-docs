@@ -93,6 +93,9 @@ Premium V4 is available in the following regions:
 
 ### Azure Public
 
+>[!IMPORTANT]
+> Not all Premium V4 regions offer availability zone support. To see which regions support availability zones, see [Regions with availability zones](../reliability/regions-list.md).
+
 - Australia East
 - Canada Central
 - Central India
