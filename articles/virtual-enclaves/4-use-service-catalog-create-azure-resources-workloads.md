@@ -3,7 +3,6 @@ title: Create Azure resources from the service catalog in an AVE workload
 description: Create Azure resources from the service catalog in an AVE workload.
 author: aserfass-msft
 ms.author: aserfass
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ---
