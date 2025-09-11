@@ -6,7 +6,7 @@ ms.author: monaberdugo
 ms.reviewer: mlichtinger
 ms.service: microsoft-sentinel
 ms.topic: how-to
-ms.date: 09/11/2025
+ms.date: 09/10/2025
 
 #customer intent: As a security analyst, I want to configure Microsoft Sentinel MCP Server so that I can use natural language to query security data and accelerate investigations.
 ---
