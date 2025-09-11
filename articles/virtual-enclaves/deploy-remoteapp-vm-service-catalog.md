@@ -38,20 +38,21 @@ The RemoteApp template can be deployed in multiple configurations:
 ## Prerequisites
 There are guardrail requirements on the enclaves to ensure enclave resources are using Customer-Managed Keys (CMK) encryption. This requires a key and identity to access the key to be accessible in the enclave. Create the CMK (optional Key Vault) and Managed Identity in the [Common Dependencies service catalog template](./deploy-common-dependencies-service-catalog.md)
 
-1. Subnet for Private Endpoints: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation. The private endpoint subnet should have no [subnet delegation](../virtual-network/subnet-delegation-overview.md) for the private endpoints to work properly.
+1. Subnet for Private Endpoints: You can create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation. The private endpoint subnet should have no [subnet delegation](../virtual-network/subnet-delegation-overview.md) for the private endpoints to work properly.
 2. Quickly create these [Private DNS Zones](./deploy-private-dns-zones-service-catalog.md) based on what you create next:
     - `Key Vault` required when creating a Key Vault from this template or the more customizable [Key Vault template](./deploy-key-vault-service-catalog.md).
     - `Storage File`, `Storage Queue`, `Storage Blob`, and `Storage Table` are required when making a Storage Account from this template or the more customizable [Storage Account template](./deploy-storage-account-service-catalog.md).
 3. A Key Vault, Customer Managed Key (CMK), and Managed Identity are required for this template. Create a Key Vault, CMK, and Managed Identity in the [Common Dependencies service catalog quickstart](./deploy-common-dependencies-service-catalog.md) or create your own.
     - These resources should be created inside a [workload resource group](./create-workload-portal.md#create-workload-resource-groups)
     - After creating the User Managed Identity, ensure it has access to the CMK key
-        - Assign the `Key Vault Crypto Service Encryption User` RBAC role to the managed identity scoped to the key vault with [these instructions](./create-user-managed-identity.md#assign-role-to-managed-identity). This allows you to then assign the managed identity to another resource, like a Virtual Machine, and that Virtual Machine can encrypt the operating system disk with the CMK in the key vault without having permissions to do other operations on the key vault following least privilege.
-4. (optional) An existing domain to join if the Admin VM will be domain joined.
+        - Assign the `Key Vault Crypto Service Encryption User` role to the managed identity scoped to the key vault with [these instructions](./create-user-managed-identity.md#assign-role-to-managed-identity). This role allows you to then assign the managed identity to another resource, like a Virtual Machine. Then that Virtual Machine can encrypt the operating system disk with the CMK in the key vault without having permissions to do other operations on the key vault. This is a least privilege best practice.
+4. (optional) An existing domain to join if the Admin VM is domain joined.
 
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
 2. Select `+Add an Azure Service` button.
-3. Select the `RemoteApp VM` service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
+3. Select the `RemoteApp VM` service template from the [service catalog list](./list-service-catalog-templates.md) dropdown
+4. Confirm the version you need (default: `latest`) and select `Next`.
 
 ![Screenshot showing the RemoteApp VM (aka Virtual Machine) template selected from the service catalog list.](./media/service-catalog-list-virtual-machine.png)
 
@@ -61,7 +62,7 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
 7. (Optional) [Publish your RemoteApp](#publish-remoteapp-optional) to other users.
 8. (Optional) [Domain join](#domain-join-virtual-machine-optional) your RemoteApp VM.
 9. (Optional) [Install application](#install-remoteapp-optional) to your RemoteApp.
-10. Select `Review + Create`, if all validations have passed, select `Create`.
+10. Select `Review + Create`, if all validations passed, select `Create`.
 
 ## Domain join virtual machine (optional)
 1. Should you choose to Domain Join your RemoteApp, you need to select which domain join option you want (Active Directory or Microsoft Entra ID) on the Basic tab and enter the domain joining information.
@@ -75,7 +76,7 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
    * Organization Unit (OU) path should be in the format of `OU=Organizations,DC=contoso,DC=com` and can be left blank if the default `Computers` OU path is fine.
    * `Domain admin username` and `Domain admin password` should match the domain joining credentials for the domain controller
 
-3. For the `Microsoft Entra ID` Domain join option
+3. For the `Microsoft Entra ID` Domain join option,
    * First you need to [deploy an Microsoft Entra Domain Services managed domain](/entra/identity/domain-services/tutorial-create-instance)
    * Next you need to use the domain you created to [create an OU](/entra/identity/domain-services/create-ou) or use the default OU of `Computers`
    * Use the previously created OU and Domain to fill in these respective parameters for your virtual machine
@@ -145,7 +146,7 @@ Install an application on your RemoteApp VM using one of these methods or a meth
         > 
         > If in Microsoft Azure for U.S. Government, do the following steps: 
         > For the `AzCopy File URI` add the URI to the azcopy.exe from the container.
-    7. Select `Review + Create`, if all validations have passed, select `Create`.
+    7. Select `Review + Create`, if all validations passed, select `Create`.
 
 Otherwise, start using the RemoteApp VM 
 
