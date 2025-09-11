@@ -1,7 +1,7 @@
 ---
 title: Concurrency in Azure Functions
 description: Become familiar with concurrency behavior of event-driven triggers in Azure Functions. Find information about fixed per-instance and dynamic concurrency models.
-author: cachai2
+author: nzthiago
 ms.topic: concept-article
 ms.custom:
   - build-2024
