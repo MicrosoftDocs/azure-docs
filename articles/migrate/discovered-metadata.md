@@ -12,7 +12,7 @@ ms.custom: engagement-fy25, devx-track-extended-java
 
 # Metadata that an Azure Migrate appliance discovers
 
-The Azure Migrate Discovery and Assessment tool uses the lightweight [Azure Migrate appliance](migrate-appliance.md) to discover servers running in your environment and send server configuration and performance metadata to Azure.
+The Azure Migrate Discovery and Assessment tool uses the lightweight [Azure Migrate appliance](migrate-appliance.md) to discover servers running in your environment and send server configuration and performance metadata to Azure. 
 
 This article provides details about the metadata that the Azure Migrate appliance discovers. This metadata helps you assess server readiness for migration to Azure, right-size servers, and plan costs. Microsoft doesn't use this data in any license compliance audit.
 
