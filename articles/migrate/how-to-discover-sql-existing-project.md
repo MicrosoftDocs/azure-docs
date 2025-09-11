@@ -53,7 +53,7 @@ This discovery process is agentless that is, nothing is installed on the target 
 
          :::image type="content" source="./media/how-to-discover-sql-existing-project/appliance-services-version.png" alt-text="Screenshot of the appliance version.":::
          
-    - To discover SQL Server instances and databases, the Windows/ Domain account, or SQL Server account [requires these low privilege read permissions](#migrate-support-matrix-vmware.md) for each SQL Server instance. You can use the [low-privilege account provisioning utility](least-privilege-credentials.md) to create custom accounts or use any existing account that is a member of the sysadmin server role for simplicity.
+    - To discover SQL Server instances and databases, the Windows/ Domain account, or SQL Server account [requires these low privilege read permissions](migrate-support-matrix-vmware.md) for each SQL Server instance. You can use the [low-privilege account provisioning utility](least-privilege-credentials.md) to create custom accounts or use any existing account that is a member of the sysadmin server role for simplicity.
     - Web apps discovery works with both domain and non-domain Windows OS credentials as long as the account used has local admin privileges on servers.
     You can leverage the automatic credential-mapping feature of the appliance, as highlighted [here](./tutorial-discover-vmware.md#start-continuous-discovery).    
 
