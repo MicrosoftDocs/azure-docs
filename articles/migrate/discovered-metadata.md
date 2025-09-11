@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: concept-article
-ms.date: 02/06/2025
+ms.date: 09/11/2025
 ms.custom: engagement-fy25, devx-track-extended-java
 # Customer intent: As a systems administrator, I want to understand the metadata collected by the Azure Migrate appliance for server discovery, so that I can assess server readiness for migration to the cloud and optimize resource allocation.
 ---
@@ -209,7 +209,7 @@ Disk details | `cat /proc/diskstats`
 
 ## Software inventory data
 
-The appliance collects data about installed applications, roles, and features (software inventory) from servers running in a VMware environment or Hyper-V environment, from physical servers, or from servers running on other clouds (like AWS or GCP).
+The appliance collects data about installed applications, roles, and features (software inventory) and pending updates from servers running in a VMware environment or Hyper-V environment, from physical servers, or from servers running on other clouds (like AWS or GCP).
 
 ### Windows server application data
 
@@ -252,6 +252,18 @@ Edition  | `HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\<InstanceName>\Set
 Service pack  | `HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\<InstanceName>\Setup`  | `SP`
 Version  | `HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\<InstanceName>\Setup`  | `Version`
 
+### Windows Server pending updates data
+
+Here's the pending updates data that the appliance collects from each discovered Windows server:
+
+Data | PowerShell cmdlet | Property
+--- | --- | ---
+Update Title | `New-Object -com "Microsoft.Update.Session"` | `Title`
+Update ID | `New-Object -com "Microsoft.Update.Session"` | `Identity.UpdateID`
+Update Version(KB-ID) | `New-Object -com "Microsoft.Update.Session"` | `KBArticleIDs`
+Classification/Severity | `New-Object -com "Microsoft.Update.Session"` | `Categories.CatergoryID`
+Published date | `New-Object -com "Microsoft.Update.Session"` | `LastDeploymentChangeTime`
+
 ### Linux server application data
 
 Here's the software inventory data that the appliance collects from each discovered Linux server. Based on the operating system of the server, one or more of the commands are run.
@@ -270,6 +282,18 @@ Data  | Commands
 --- | ---
 Name/version | Gathered from one or more of the following files:<br/> <br/>`/etc/os-release`  <br> `/usr/lib/os-release`  <br> `/etc/enterprise-release`  <br> `/etc/redhat-release`  <br> `/etc/oracle-release`  <br> `/etc/SuSE-release`  <br> `/etc/lsb-release`  <br> `/etc/debian_version`
 Architecture | `uname`
+
+### Linux Server pending updates data
+
+Here's the pending updates data that the appliance collects from each discovered Linux server:
+
+Data | Commands
+--- | ---
+Update Title | `apt-get -s dist-upgrade, yum -q check-update, zypper list-updates`
+Update ID | `apt-get -s dist-upgrade, yum -q check-update, zypper list-updates`
+Updated Software version | `apt-get -s dist-upgrade, yum -q check-update, zypper list-updates`
+Classification/Severity | `apt-get -s dist-upgrade, yum -q check-update, zypper list-updates`
+Published date | `apt-get -s dist-upgrade, yum -q check-update, zypper list-updates`
 
 ## SQL Server instance and database data
 
