@@ -2,13 +2,40 @@
 title: Bicep functions for Bicep parameters files 
 description: Learn about the functions that can be used in Bicep parameters files.
 ms.topic: reference
-ms.date: 02/12/2025
+ms.date: 09/11/2025
 ms.custom: devx-track-bicep
 ---
 
 # Bicep functions for Bicep parameters files
 
-Bicep provides a function called `readEnvironmentVariable()` that allows you to retrieve values from environment variables. It also offers the flexibility to set a default value if the environment variable doesn't exist. This function can only be used in `.bicepparam` files.
+This article describes the Bicep functions that can be used in [Bicep parameters files (`.bicepparam`)](./parameter-files.md).
+
+## externalInput
+
+`externalInput(name, config)`
+
+With Bicep version 0.37.4 and later, this function lets your Bicep file pull values from outside the template itself, instead of requiring them to be known when you compile.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| name | Yes | string | The name of the external source you want to pull input values from. |
+| config | No | any | Extra configuration for the external source, if it needs parameters. |
+
+### Return value
+
+The actual value retrieved from the external source at deployment time.
+
+### Example
+
+The following `.bicepparam` file grabs the value from the environment variable named `foo`.
+
+```bicep
+using './main.bicep'
+
+param foo = externalInput('sys.envVar', 'foo')
+```
 
 ## getSecret
 
