@@ -391,6 +391,8 @@
           href: troubleshoot-control-plane-quorum.md
         - name: Troubleshoot Cluster heartbeat connection status disconnected
           href: troubleshoot-cluster-heartbeat-connection-status-disconnected.md
+        - name: Troubleshoot Nexus logs disrupted post prolonged disconnection period
+          href: troubleshoot-logs-disrupted-post-prolonged-disconnection.md
     - name: Network Fabric
       expanded: false
       items:

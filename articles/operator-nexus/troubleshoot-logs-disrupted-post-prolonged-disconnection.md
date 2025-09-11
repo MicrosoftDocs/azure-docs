@@ -1,5 +1,5 @@
 ---
-title: "Azure Operator Nexus: Logs disrupted after 48-hour disconnection"
+title: "Azure Operator Nexus: Logs Disrupted After 48-hour Disconnection"
 description: Learn how to troubleshoot log disruption Issue post a disconnection period of more than two days.
 author: neilverse
 ms.author: soumyamaitra
@@ -10,7 +10,7 @@ ms.date: 09/11/2025
 # ms.custom: template-include
 ---
 
-# Troubleshoot Nexus Logs Disrupted Post Prolonged Disconnection Period
+# Troubleshoot Nexus logs disrupted post prolonged disconnection period
 
 Nexus resources stream logs through an observability pipeline that collects logs from the on-premises resources and sends them over to Azure. At the time of a disconnection from Azure, this pipeline is disrupted and fails to send the logs to Azure. If the disconnection period is less than 48 hours, then the most recent logs are sent to Azure once the connection is restored. However, if the disconnection period is more than 48 hours, a token expiration occurs and the logs fail to flow even after the connection is restored. This issue is being targeted for resolution in a future release. In the meantime, you can follow the following steps to resolve this issue.
 
