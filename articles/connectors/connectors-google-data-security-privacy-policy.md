@@ -50,17 +50,17 @@ Here are some examples that use the Gmail connector with built-in triggers and a
 
 - This logic app workflow uses the Gmail connector with the HTTP built-in trigger:
 
-  :::image type="content" source="./media/connectors-google-data-security-privacy-policy/not-compliant-gmail-connector.png" alt-text="Screenshot shows a non-compliant workflow that uses a Google email action.":::
+  :::image type="content" source="./media/connectors-google-data-security-privacy-policy/noncompliant-gmail-connector.png" alt-text="Screenshot shows a noncompliant workflow that uses a Google email action.":::
   
   The workflow also uses the Google Calendar connector, which is approved.
 
 - This workflow uses the Gmail connector with the Azure Blob Storage connector:
 
-  :::image type="content" source="./media/connectors-google-data-security-privacy-policy/not-compliant-blob-storgage.png" alt-text="Screenshot shows a non-compliant workflow that uses a Google action with a create blob action.":::
+  :::image type="content" source="./media/connectors-google-data-security-privacy-policy/noncompliant-blob-storgage.png" alt-text="Screenshot shows a noncompliant workflow that uses a Google action with a create blob action.":::
 
 - This workflow uses the Gmail connector with the X connector:
 
-  :::image type="content" source="./media/connectors-google-data-security-privacy-policy/not-compliant-retweet.png" alt-text="Screenshot shows a non-compliant workflow that uses an X action.":::
+  :::image type="content" source="./media/connectors-google-data-security-privacy-policy/noncompliant-retweet.png" alt-text="Screenshot shows a noncompliant workflow that uses an X action.":::
 
 For the most recent information, see the [Gmail connector's technical reference documentation](/connectors/gmail/).
 
