@@ -1,6 +1,6 @@
 ---
 title: Concurrency in Azure Functions
-description: Become familiar with the concurrency behavior of event-driven triggers in Azure Functions. Find information about static and dynamic concurrency models.
+description: Become familiar with concurrency behavior of event-driven triggers in Azure Functions. Find information about fixed per-instance and dynamic concurrency models.
 author: cachai2
 ms.topic: concept-article
 ms.custom:
@@ -14,14 +14,14 @@ ms.author: cachai
 
 # Concurrency in Azure Functions
 
-In Azure Functions, a single function app instance has multiple executing processes that run concurrently. Because these processes run on the same compute instance, they share memory, CPU, and connection resources. In certain hosting plans, high demand on a specific instance causes the Functions host to automatically create new instances to handle the increased load. In these _dynamic scale_ plans, there's a tradeoff between concurrency and scaling behaviors. To provide more control over how your app runs, Functions provides a way for you to manage the number of concurrent executions.
+In Azure Functions, a single function app instance allows for multiple events to be processed concurrently. Because these run on the same compute instance, they share memory, CPU, and connection resources. In certain hosting plans, high demand on a specific instance causes the Functions host to automatically create new instances to handle the increased load. In these _dynamic scale_ plans, there's a tradeoff between concurrency and scaling behaviors. To provide more control over how your app runs, Functions provides a way for you to manage the number of concurrent executions.
 
 Functions provides two main ways of managing concurrency:
 
-- [Static concurrency](#static-concurrency): You can configure host-level limits on concurrency that are specific to individual triggers. This model is the default concurrency behavior for Functions.
+- [Fixed per-instance concurrency](#fixed-per-instance-concurrency): You can configure host-level limits on concurrency that are specific to individual triggers. This model is the default concurrency behavior for Functions.
 - [Dynamic concurrency](#dynamic-concurrency): For certain trigger types, the Functions host can automatically determine the best level of concurrency for that trigger in your function app. You must [opt in to this concurrency model](#dynamic-concurrency-configuration). 
 
-This article describes the concurrency behaviors of event-driven triggers in Functions and how these behaviors affect scaling in dynamic plans. It also compares the static and dynamic concurrency models.
+This article describes the concurrency behaviors of event-driven triggers in Functions and how these behaviors affect scaling in dynamic plans. It also compares the fixed per-instance and dynamic concurrency models.
 
 ## Scaling versus concurrency
 
@@ -36,17 +36,21 @@ The balance of scale versus concurrency you try to achieve in your app depends o
 
 Like scaling, concurrency also affects how your function app responds to load changes. With concurrency, your function app can handle multiple invocations of the same type in a single instance. As a result, the concurrency of executions on a given instance directly impacts scale decisions. For instance, when an app in a dynamic scale plan hits a concurrency limit, it might need to scale to keep up with incoming demand.
 
-## Static concurrency
+## Fixed per-instance concurrency
 
-By default, most triggers support a static concurrency configuration model. In this model, each trigger type has a per-instance concurrency limit. You can override the concurrency defaults for most triggers by setting a specific per-instance concurrency for that trigger type in the [host.json file](functions-host-json.md). For example, the [Azure Service Bus trigger](./functions-bindings-service-bus-trigger.md) provides both a `MaxConcurrentCalls` and a `MaxConcurrentSessions` setting in _host.json_. These settings work together to control the maximum number of messages that each function app processes concurrently on each instance. Other trigger types have built-in mechanisms for load-balancing invocations across instances. For example, Azure Event Hubs and Azure Cosmos DB both use a partition-based scheme.
+By default, most triggers support a fixed per-instance concurrency configuration model. In this model, each trigger type has a per-instance concurrency limit.
 
-For trigger types that support concurrency configuration, the settings in the _host.json_ file are applied to all running instances. This way, you can control the maximum concurrency for your functions on each instance. For example, when your function is CPU-intensive or resource-intensive, you might choose to limit concurrency to keep instances healthy. In this case, you can rely on scaling to handle increased loads. Similarly, when your function makes requests to a downstream service that's being throttled, you should also consider limiting concurrency to avoid overloading the downstream service. 
+You can override the concurrency default values for most triggers by setting a specific per-instance concurrency for that trigger type. For many triggers, you configure concurrency settings in the [host.json file](functions-host-json.md). For example, the [Azure Service Bus trigger](./functions-bindings-service-bus-trigger.md) provides both a `MaxConcurrentCalls` and a `MaxConcurrentSessions` setting in _host.json_. These settings work together to control the maximum number of messages that each function app processes concurrently on each instance.
+
+In certain target-based scaling scenarios, such as when you use an Apache Kafka or Azure Cosmos DB trigger, the concurrency configuration is in the function declaration, not in the _host.json_ file. Other trigger types have built-in mechanisms for load balancing invocations across instances. For example, Azure Event Hubs and Azure Cosmos DB both use a partition-based scheme.
+
+For trigger types that support concurrency configuration, the concurrency settings are applied to all running instances. This way, you can control the maximum concurrency for your functions on each instance. For example, when your function is CPU-intensive or resource-intensive, you might choose to limit concurrency to keep instances healthy. In this case, you can rely on scaling to handle increased loads. Similarly, when your function makes requests to a downstream service that's being throttled, you should also consider limiting concurrency to avoid overloading the downstream service. 
 
 ## HTTP trigger concurrency
 
-_Applies only to the Flex Consumption plan (preview)_ 
+_Applies only to the Flex Consumption plan_ 
 
-HTTP trigger concurrency is a special type of static concurrency. In HTTP trigger concurrency, the default concurrency also depends on the [instance memory size](./flex-consumption-plan.md#instance-memory).
+HTTP trigger concurrency is a special type of fixed per-instance concurrency. In HTTP trigger concurrency, the default concurrency also depends on the [instance memory size](./flex-consumption-plan.md#instance-memory).
 
 The Flex Consumption plan scales all HTTP trigger functions together as a group. For more information, see [Per-function scaling](event-driven-scaling.md#per-function-scaling).
 
@@ -66,13 +70,15 @@ If you need to fine-tune the HTTP concurrency, you can do so by using the Azure 
 
 The default concurrency values in the preceding table apply only when you don't set your own HTTP concurrency setting. When you don't explicitly set an HTTP concurrency setting, the default concurrency increases as shown in the table when you change the instance size. After you specifically set an HTTP concurrency value, that value is maintained despite changes in the instance size.
 
-## Determine optimal static concurrency
+## Determine optimal fixed per-instance concurrency
 
-Static concurrency configurations give you control of certain trigger behaviors, such as throttling your functions. But it can be difficult to determine the optimal values for these settings. Generally, you have to arrive at acceptable values by an iterative process of load testing. Even after you determine a set of values that work for a particular load profile, the number of events that arrive from your connected services can change from day to day. This variability can cause your app to run with suboptimal values. For example, your function app might process demanding message payloads on the last day of the week, which requires you to throttle concurrency down. However, during the rest of the week, the message payloads might be lighter, which means you can use a higher concurrency level the rest of the week. 
+Fixed per-instance concurrency configurations give you control of certain trigger behaviors, such as throttling your functions. But it can be difficult to determine the optimal values for these settings. Generally, you have to arrive at acceptable values by an iterative process of load testing. Even after you determine a set of values that work for a particular load profile, the number of events that arrive from your connected services can change from day to day. This variability can cause your app to run with suboptimal values. For example, your function app might process demanding message payloads on the last day of the week, which requires you to throttle concurrency down. However, during the rest of the week, the message payloads might be lighter, which means you can use a higher concurrency level the rest of the week. 
 
 Ideally, the system should allow instances to process as much work as they can while keeping each instance healthy and latencies low. Dynamic concurrency is designed for that purpose.
 
 ## Dynamic concurrency
+
+_Applies only to the Consumption, Premium, App Service, and Container Apps plans_
 
 Functions provides a dynamic concurrency model that simplifies configuring concurrency for all function apps that run in the same plan. 
 
@@ -110,7 +116,7 @@ You can turn on dynamic concurrency in your function app by adding the following
 
 ### Concurrency manager 
 
-Behind the scenes, when dynamic concurrency is turned on, a concurrency manager process runs in the background. This manager constantly monitors instance health metrics, like CPU and thread utilization, and changes throttles as needed. When one or more throttles are turned on, function concurrency is adjusted down until the host is healthy again. When throttles are turned off, concurrency can increase. Various heuristics are used to intelligently adjust concurrency up or down as needed based on these throttles. Over time, concurrency for each function stabilizes to a particular level. 
+Behind the scenes, when dynamic concurrency is turned on, a concurrency manager process runs in the background. This manager constantly monitors instance health metrics, like CPU and thread utilization, and changes throttles as needed. When one or more throttles are turned on, function concurrency is adjusted down until the host is healthy again. When throttles are turned off, concurrency can increase. Various heuristics are used to intelligently adjust concurrency up or down as needed based on these throttles. Over time, concurrency for each function stabilizes to a particular level. Because it can take time to determine the optimal concurrency value, use dynamic concurrency only if a suboptimal value is acceptable for your solution initially or after a period of inactivity.
 
 Concurrency levels are managed for each individual function. Specifically, the system balances between resource-intensive functions that require a low level of concurrency and more lightweight functions that can handle higher concurrency. The balance of concurrency for each function helps to maintain the overall health of the function app instance.  
 
@@ -122,9 +128,9 @@ Dynamic concurrency is enabled for a function app at the host level, and any ext
 
 | Extension | Version | Description |
 | --- | --- | --- |
-| **Queue Storage** | [Version 5.x](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) (Storage extension) | The Queue Storage trigger has its own message polling loop. When you use a static configuration, the `BatchSize` and `NewBatchThreshold` configuration options govern concurrency. When you use dynamic concurrency, those configuration values are ignored. Dynamic concurrency is integrated into the message loop, so the number of messages retrieved per iteration is dynamically adjusted. When throttles are turned on, the host is overloaded. Message processing is paused until the throttles are turned off. When the throttles are turned off, concurrency increases. |
+| **Queue Storage** | [Version 5.x](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) (Storage extension) | The Queue Storage trigger has its own message polling loop. When you use a fixed per-instance configuration, the `BatchSize` and `NewBatchThreshold` configuration options govern concurrency. When you use dynamic concurrency, those configuration values are ignored. Dynamic concurrency is integrated into the message loop, so the number of messages retrieved per iteration is dynamically adjusted. When throttles are turned on, the host is overloaded. Message processing is paused until the throttles are turned off. When the throttles are turned off, concurrency increases. |
 | **Blob Storage** |  [Version 5.x](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) (Storage extension) | Internally, the Blob Storage trigger uses the same infrastructure that the Queue Storage trigger uses. When new or updated blobs need to be processed, messages are written to a platform-managed control queue. That queue is processed by using the same logic used for the Queue Storage trigger. When dynamic concurrency is turned on, concurrency for the processing of that control queue is dynamically managed. |
-| **Service Bus** |  [Version 5.x](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) | The Service Bus trigger currently supports three execution models. Dynamic concurrency affects these execution models in the following ways:<li>**Single dispatch topic/queue processing**: Each invocation of your function processes a single message. When you use a static configuration, the `MaxConcurrentCalls` configuration option governs concurrency. When you use dynamic concurrency, that configuration value is ignored, and concurrency is adjusted dynamically.</li><li>**Session-based single dispatch topic/queue processing**: Each invocation of your function processes a single message. Depending on the number of active sessions for your topic or queue, each instance leases one or more sessions. Messages in each session are processed serially, to guarantee ordering in a session. When you don't use dynamic concurrency, the `MaxConcurrentSessions` setting governs concurrency. When dynamic concurrency is turned on, the `MaxConcurrentSessions` value is ignored, and the number of sessions that each instance processes is dynamically adjusted.</li><li>**Batch processing**: Each invocation of your function processes a batch of messages, governed by the `MaxMessageCount` setting. Because batch invocations are serial, concurrency for your batch-triggered function is always one, and dynamic concurrency doesn't apply.</li> |
+| **Service Bus** |  [Version 5.x](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) | The Service Bus trigger currently supports three execution models. Dynamic concurrency affects these execution models in the following ways:<li>**Single dispatch topic/queue processing**: Each invocation of your function processes a single message. When you use a fixed per-instance configuration, the `MaxConcurrentCalls` configuration option governs concurrency. When you use dynamic concurrency, that configuration value is ignored, and concurrency is adjusted dynamically.</li><li>**Session-based single dispatch topic/queue processing**: Each invocation of your function processes a single message. Depending on the number of active sessions for your topic or queue, each instance leases one or more sessions. Messages in each session are processed serially, to guarantee ordering in a session. When you don't use dynamic concurrency, the `MaxConcurrentSessions` setting governs concurrency. When dynamic concurrency is turned on, the `MaxConcurrentSessions` value is ignored, and the number of sessions that each instance processes is dynamically adjusted.</li><li>**Batch processing**: Each invocation of your function processes a batch of messages, governed by the `MaxMessageCount` setting. Because batch invocations are serial, concurrency for your batch-triggered function is always one, and dynamic concurrency doesn't apply.</li> |
 
 ## Next steps
 
