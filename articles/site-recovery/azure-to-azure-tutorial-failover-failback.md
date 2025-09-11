@@ -87,7 +87,7 @@ Before you start this tutorial, you should have:
 
 
 >[!NOTE]
->You may also get alternative virtual machine SKU recommendation during failover. [Learn more](alternative-vm-size-failover-flow.md).
+>You may also get alternative virtual machine SKU recommendation during test failover. [Learn more](alternative-vm-size-failover-flow.md).
 
 ## Reprotect the VM
 
