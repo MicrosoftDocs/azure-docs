@@ -86,6 +86,8 @@ When HTTPS is selected in the Backend Settings of Azure Application Gateway, the
    
 The default validation settings ensure secure TLS communication between the gateway and backend services. In certain scenarios, it may be necessary to adjust one or more of these validation settings. To accommodate diverse customer requirements, Application Gateway offers the following configurable options. You can use either or both options as needed.
 
+:::image source="media/configuration-http-settings/backend-tls-validations.png" alt-text="A diagram showing portal view of the TLS validation controls available for customers.":::
+
 | Properties  | Values | 
 | ---------- | ---------- |
 | validateCertChainAndExpiry  | Type: Boolean (true or false). The default setting is true. This verifies or skips both certificate chain and expiry verifications. | 
