@@ -7,6 +7,7 @@ ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 11/21/2023
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 ---
 
 # Download global and hub VPN profiles for User VPN clients
