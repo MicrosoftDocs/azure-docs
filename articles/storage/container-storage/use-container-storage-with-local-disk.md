@@ -53,7 +53,7 @@ PoolName    VmSize
 nodepool1   standard_l8s_v3
 ```
 
-We recommend that each VM have a minimum of four virtual CPUs (vCPUs). With Azure Container Storage (version 2.x.x), you can now use single-node clusters, though multi-node configurations are still recommended.
+With Azure Container Storage (version 2.x.x), you can now use single-node clusters, though multi-node configurations are still recommended.
 
 ## Create and attach generic ephemeral volumes
 
