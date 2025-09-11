@@ -351,7 +351,7 @@ items:
             displayName: contains,empty,intersection,items,json,length,objectKeys,shallowMerge,union
           - name: Parameters file functions
             href: bicep-functions-parameters-file.md
-            displayName: getSecret,readEnvironmentVariable
+            displayName: externalInput,getSecret,readEnvironmentVariable
           - name: Resource functions
             href: bicep-functions-resource.md
             displayName: extensionResourceId,getSecret,listAccountSas,ListKeys,listSecrets,list,managementGroupResourceId,pickZones,providers,reference,resourceId,subscriptionResourceId,tenantResourceId,toLogicalZone,toLogicalZones,toPhysicalZone,toPhysicalZones
