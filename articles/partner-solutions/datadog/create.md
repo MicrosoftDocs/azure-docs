@@ -8,6 +8,7 @@ ms.custom:
   - ai-gen-docs-bap
   - ai-gen-desc
   - ai-seo-date:12/03/2024
+  - sfi-image-nochange
 ---
 
 # QuickStart: Get started with Datadog

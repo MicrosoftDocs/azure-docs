@@ -6,6 +6,7 @@ ms.author: dandennis
 ms.service: defender-easm
 ms.date: 07/14/2022
 ms.topic: tutorial
+ms.custom: sfi-image-nochange
 ---
 
 # Discovering your attack surface

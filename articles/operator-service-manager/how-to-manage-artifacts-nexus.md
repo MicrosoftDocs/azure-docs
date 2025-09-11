@@ -7,6 +7,7 @@ ms.date: 03/18/2024
 ms.topic: how-to
 ms.service: azure-operator-service-manager
 ms.custom:
+  - sfi-image-nochange
 ---
 # Push and pull images and other artifacts to/from an Azure Container Registry (ACR) backed artifact store
 
