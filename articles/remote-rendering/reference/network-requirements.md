@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: reference
+ms.custom: sfi-image-nochange
 ---
 
 # Network requirements
