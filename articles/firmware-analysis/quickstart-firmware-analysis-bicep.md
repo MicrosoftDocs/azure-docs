@@ -18,12 +18,25 @@ In this quickstart, you use Bicep to deploy a firmware analysis workspace so you
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- **Permissions**: `Owner` or `Contributor` on the target resource group (or higher) to deploy resources.  
-- **Azure CLI**: Install the /cli/azure/install-azure-cli and sign in with `az login`. If you use `az deployment group create`, use Azure CLI **2.6.0 or later**. Check with `az --version`.  
-- **Azure PowerShell**: Install the /powershell/azure/install-azure-powershell and sign in with `Connect-AzAccount`.
+
+- **Azure CLI**:  [Install](/cli/azure/install-azure-cli) Azure CLI and sign in with `az login`. If you use `az deployment group create`, use Azure CLI **2.6.0 or later**. Check with `az --version`.
+- **Azure PowerShell**: [Install](/powershell/azure/install-azure-powershell) and sign in with `Connect-AzAccount`.
+
 - **Register the resource provider** (one-time per subscription):  
-  - Azure CLI: `az provider register --namespace Microsoft.IoTFirmwareDefense`  
-  - PowerShell: `Register-AzResourceProvider -ProviderNamespace Microsoft.IoTFirmwareDefense`
+  ### [Azure CLI](#tab/azure-cli)
+  ```azurecli
+  az provider register --namespace Microsoft.IoTFirmwareDefense
+  ```
+
+  ### [Azure PowerShell](#tab/azure-powershell)
+  ```azurepowershell
+  Register-AzResourceProvider -ProviderNamespace Microsoft.IoTFirmwareDefense
+  ```
+
+  ---
+
+- **Permissions**: `Owner` or `Contributor` on the target resource group (or higher) to deploy resources. For more information, visit the [service documentation](firmware-analysis-rbac.md#overview-of-azure-role-based-access-control-for-firmware-analysis).
+
 
 ## Review the Bicep file
 
@@ -40,18 +53,18 @@ The following resource is defined in the Bicep file:
 
 Save the Bicep file as main.bicep to your local computer.
 
-
 Deploy the Bicep file by using either Azure CLI or Azure PowerShell.
-Azure CLI is recommended.
+
+Replace `{provide-the-rg-name}` and the curly braces `{}` with your resource group name. Replace `{provide-the-workspace-name}` and the curly braces `{}` with your workspace name. 
 
 
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 # Variables
-rgName=rg-fw-analysis-qs
+rgName={provide-the-rg-name}
 location=westeurope          # or your preferred region
-workspaceName=fa-workspace-001
+workspaceName={provide-the-workspace-name}
 
 # Create resource group
 az group create --name $rgName --location $location
@@ -68,9 +81,9 @@ az deployment group create \
 ```azurepowershell
 
 # Variables
-$rgName = 'rg-fw-analysis-qs'
+$rgName = '{provide-the-rg-name}'
 $location = 'westeurope'      # or your preferred region
-$workspaceName = 'fa-workspace-001'
+$workspaceName = '{provide-the-workspace-name}'
 
 # Create resource group
 New-AzResourceGroup -Name $rgName -Location $location
