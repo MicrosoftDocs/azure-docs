@@ -25,16 +25,16 @@ This article describes the concurrency behaviors of event-driven triggers in Fun
 
 ## Scaling versus concurrency
 
-For functions that use event-based triggers or respond to HTTP requests, you can quickly reach the limits of concurrent executions during periods of high demand. During such periods, you must be able to scale your function app by adding instances to avoid a backlog in processing incoming requests. The way that you scale your app depends on your hosting plan:
+For functions that use event-based triggers or respond to HTTP requests, you can quickly reach the limits of concurrent executions during periods of high demand. During such periods, you must be able to scale your function app by adding instances to avoid a backlog in processing incoming requests. The way that we scale your app depends on your hosting plan:
 
 | Scale type | Hosting plans | Description |
 | ----- | ---- | ---- |
 | Dynamic (event-driven) scaling |[Consumption](consumption-plan.md)<br/>[Flex Consumption](flex-consumption-plan.md)<br/>[Premium](functions-premium-plan.md)|  In a dynamic scale plan, the host scales the number of function app instances up or down based on the number of incoming events. For more information, see [Event-driven scaling in Azure Functions](./event-driven-scaling.md). |
 | Manual scaling | [Dedicated (App Service) plans](dedicated-plan.md) | When you host your function app in a Dedicated plan, you must manually configure your instances during periods of higher load or [set up an autoscale scheme](dedicated-plan.md#scaling). |
 
-The balance of scale versus concurrency you try to achieve in your app depends on where bottlenecks might occur: in processing (CPU-intensive process limitations) or in a downstream service (I/O-based limitations).
+Before any scaling might occur, your function app attempts to handle increases in load by handling multiple invocations of the same type in a single instance. As a result, these concurrent executions on a given instance directly impact scale decisions. For instance, when an app in a dynamic scale plan hits a concurrency limit, it might need to scale to keep up with incoming demand.
 
-Like scaling, concurrency also affects how your function app responds to load changes. With concurrency, your function app can handle multiple invocations of the same type in a single instance. As a result, the concurrency of executions on a given instance directly impacts scale decisions. For instance, when an app in a dynamic scale plan hits a concurrency limit, it might need to scale to keep up with incoming demand.
+The balance of scale versus concurrency you try to achieve in your app depends on where bottlenecks might occur: in processing (CPU-intensive process limitations) or in a downstream service (I/O-based limitations).
 
 ## Fixed per-instance concurrency
 
