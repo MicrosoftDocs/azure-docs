@@ -1,13 +1,12 @@
 ---
 title: AI gateway capabilities in Azure API Management
-description: Learn about Azure API Management's policies and features to manage generative AI APIs, such as token rate limiting, load balancing, and semantic caching.
+description: Learn about Azure API Management's policies and features to manage, secure, scale, monitor, and govern LLM deployments, AI APIs, and MCP servers.
 services: api-management
 author: dlepow
-
 ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.topic: concept-article
-ms.date: 09/08/2025
+ms.date: 09/10/2025
 ms.update-cycle: 180-days
 ms.author: danlep
 ms.custom:
@@ -18,12 +17,12 @@ ms.custom:
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-This article introduces the AI gateway capabilities in Azure API Management that help you manage your AI APIs effectively. These capabilities help you secure, scale, and govern LLM model deployments, AI APIs, and MCP servers that serve your AI apps and agents, whether they're accessed from [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry), [Azure OpenAI in AI Foundry Models](/azure/ai-foundry/openai/overview), [Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api), or other providers.
+This article introduces the AI gateway capabilities in Azure API Management that help you manage your AI backends effectively. These capabilities help you secure, scale, and govern LLM deployments, AI APIs, and Model Context Protocol (MCP) servers that back your AI apps and agents. Use the AI gateway capabilities to manage AI endpoints available in [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry), [Azure OpenAI in AI Foundry Models](/azure/ai-foundry/openai/overview), [Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api), MCP server registries, non-Microsoft providers, or your own endpoints.
 
 :::image type="content" source="media/genai-gateway-capabilities/capabilities-summary.png" alt-text="Diagram summarizing AI gateway capabilities of Azure API Management.":::
 
 > [!NOTE]
-> AI gateway capabilities, including [MCP server capabilities](mcp-server-overview.md) are features of API Management's existing API gateway, not a separate gateway. For an introduction, see [Azure API Management overview](api-management-key-concepts.md). Some related features are in [Azure API Center](../api-center/overview.md).
+> AI gateway capabilities, including [MCP server capabilities](mcp-server-overview.md), are features of API Management's existing API gateway, not a separate gateway. For an introduction, see [Azure API Management overview](api-management-key-concepts.md). Related governance and developer features are in [Azure API Center](../api-center/overview.md).
 
  
 ## Why use an AI gateway?
@@ -34,41 +33,41 @@ AI adoption in organizations involves several phases:
 * Building AI apps and agents that need access to AI models and services
 * Operationalizing and deploying AI apps and backends to production
 
-As your AI adoption matures, the AI gateway capabilities in API Management address key challenges with operations and deployment such as:
+As your AI adoption matures, the AI gateway capabilities in API Management address key challenges with operations and deployment, helping you to:
 
-* Authenticating and authorizing access to AI services
-* Load balancing across multiple AI endpoints
-* Monitoring and logging AI interactions
-* Managing token usage and quotas across multiple applications
-* Enabling self-service for developer teams
+* Authenticate and authorize access to AI services
+* Load balance across multiple AI endpoints
+* Monitor and log AI interactions
+* Manage token usage and quotas across multiple applications
+* Enable self-service for developer teams
 
 
 ## Traffic mediation and control
 
 With the AI gateway capabilities, you can:
 
-* Quickly import and configure OpenAI-compatible or passthrough AI model endpoints as APIs
+* Quickly import and configure OpenAI-compatible or passthrough LLM endpoints as APIs
 * Manage models deployed in Azure AI Foundry or providers such as Amazon Bedrock
 * Govern chat completions, responses, and realtime APIs
-* Expose your existing REST APIs as Model Context Protocol (MCP) servers, and support passthrough to MCP servers
+* Expose your existing REST APIs as MCP servers, and support passthrough to MCP servers
 
-For example, for models deployed in AI Foundry, API Management streamlines the onboarding process by providing a wizard to import the OpenAPI schema and set up authentication to the AI Foundry endpoint using managed identity, removing the need for manual configuration. Within the same user-friendly experience, you can preconfigure API policies for token limits, emitting token metrics, and semantic caching of LLM responses.
+For example, to onboard models deployed in AI Foundry, API Management provides a streamlined wizard to import the OpenAPI schema and set up authentication to the AI Foundry endpoint by using managed identity, removing the need for manual configuration. Within the same user-friendly experience, you can preconfigure API policies for scalability, security, and observability.
 
 More information:
 
 * [Import an AI Foundry API](azure-ai-foundry-api.md)
 * [Import a language model API](openai-compatible-llm-api.md)
 * [Export a REST API as an MCP server](export-rest-mcp-server.md)
-* [Expose and govern an existing MCP server](mcp-server-passthrough.md)
+* [Expose and govern an existing MCP server](expose-existing-mcp-server.md)
 
 
 ## Security and safety
 
-A key capability of an AI gateway is to secure and control access to your AI APIs. With API Management, you can:
+An AI gateway secures and controls access to your AI APIs. With the AI gateway, you can:
 
-* Use managed identities to authenticate to Azure AI services, avoiding use of API keys for authentication
-* Configure OAuth 2.0 authorization for AI apps and agents to access APIs using API Management's credential manager
-* Apply policies to automatically moderate LLM prompts using [Azure AI Content Safety](/azure/ai-services/content-safety/overview)
+* Use managed identities to authenticate to Azure AI services, so you don't need API keys for authentication
+* Configure OAuth authorization for AI apps and agents to access APIs by using API Management's credential manager
+* Apply policies to automatically moderate LLM prompts by using [Azure AI Content Safety](/azure/ai-services/content-safety/overview)
 
 More information:
 
@@ -78,14 +77,16 @@ More information:
 
 ## Scalability
 
-One of the main resources you have in generative AI services is *tokens*. Azure AI Foundry and other providers assign quotas for your model deployments expressed in tokens-per-minute (TPM) which is then distributed across your model consumers - for example, different applications, developer teams, departments within the company, etc.
+One of the main resources in generative AI services is *tokens*. Azure AI Foundry and other providers assign quotas for your model deployments as tokens-per-minute (TPM). You distribute these tokens across your model consumers, such as different applications, developer teams, or departments within the company.
 
-If you have a single app connecting to an AI service backend, you can manage token consumption with a TPM limit configured directly on the model deployment level. However, when you start growing your application portfolio, you're presented with multiple apps calling single or even multiple AI service endpoints deployed as pay-as-you-go or[Provisioned Throughput Units](/aure/ai-services/openai/concepts/provisioned-throughput) (PTU) instances. That comes with challenges you ensure that a single app doesn't consume the whole TPM quota, leaving other apps with no option to use related models. THere are also challenges with [tracking token usage](#observability-and-governance) across multiple applications, and [distributing load](#resiliency) across multiple AI service endpoints.
+If you have a single app connecting to an AI service backend, you can manage token consumption with a TPM limit that you set directly on the model deployment. However, when your application portfolio grows, you might have multiple apps calling single or multiple AI service endpoints. These endpoints can be pay-as-you-go or [Provisioned Throughput Units](/azure/ai-services/openai/concepts/provisioned-throughput) (PTU) instances. You need to make sure that one app doesn't use the whole TPM quota and block other apps from accessing the backends they need.
+
+<!-- There are also challenges with [tracking token usage](#observability-and-governance) across multiple applications, and [distributing load](#resiliency) across multiple AI service endpoints. -->
 
 
 ### Token rate limiting and quotas
 
-Configure the [LLM token limit policy](llm-token-limit-policy.md) on your AI APIs to manage and enforce limits per API consumer based on the usage of AI service tokens. With this policy you can set a rate limit, expressed in tokens-per-minute (TPM). You can also set a token quota over a specified period, such as hourly, daily, weekly, monthly, or yearly. 
+Configure the [LLM token limit policy](llm-token-limit-policy.md) on your LLM APIs to manage and enforce limits per API consumer based on the usage of AI service tokens. With this policy, you can set a rate limit, expressed in tokens-per-minute (TPM). You can also set a token quota over a specified period, such as hourly, daily, weekly, monthly, or yearly. 
 
 <!-- Update image for LLM token limit policy and generic/Foundry backend? -->
 
@@ -101,23 +102,28 @@ The following basic example demonstrates how to set a TPM limit of 500 per subsc
 </llm-token-limit>
 ```
 
+More information:
+
+* [LLM token limit policy](llm-token-limit-policy.md)
+
 ### Semantic caching
 
-Semantic caching is a technique that can be used to improve the performance of AI services by caching the results of previous requests and reusing them for similar requests. This can help reduce the number of calls made to the AI service backend and improve response times for end users.
+Semantic caching is a technique that improves the performance of LLM APIs by caching the results (completions) of previous prompts and reusing them for similar requests. This technique reduces the number of calls made to the AI service backend and improves response times for end users.
 
-In API Management, enable semantic caching by using Azure Redis Enterprise, Azure Managed Redis, or another [external cache](api-management-howto-cache-external.md) compatible with RediSearch and onboarded to Azure API Management. By using the AI Embeddings API, the [llm-semantic-cache-store](llm-semantic-cache-store-policy.md) and [llm-semantic-cache-lookup](llm-cache-lookup-policy.md) policies store and retrieve semantically similar prompt completions from the cache. This approach ensures completions reuse, resulting in reduced token consumption and improved response performance. 
+In API Management, enable semantic caching by using [Azure Managed Redis](/azure/redis/overview) or another external cache compatible with RediSearch and onboarded to Azure API Management. By using the Embeddings API, the [llm-semantic-cache-store](llm-semantic-cache-store-policy.md) and [llm-semantic-cache-lookup](llm-semantic-cache-lookup-policy.md) policies store and retrieve semantically similar prompt completions from the cache. This approach ensures completions reuse, resulting in reduced token consumption and improved response performance. 
 
 :::image type="content" source="media/genai-gateway-capabilities/semantic-caching.png" alt-text="Diagram of semantic caching in API Management.":::
 
 More information:
 
+* [ Set up an external cache in Azure API Management](api-management-howto-cache-external.md)
 * [Enable semantic caching for AI APIs in Azure API Management](azure-openai-enable-semantic-caching.md)
 
-<!--Update article for generic LLM backends? For example, use Azure AI Foundry Embeddings API? -->
+<!--Update linked article for generic LLM backends? For example, use Azure AI Foundry Embeddings API? -->
 
 ### Native scaling features in API Management
 
-API Management also provides built-in scaling features to help the gateway handle high volumes of requests to your AI APIs, including automatic or manual addition of gateway *scale units* and addition of regional gateways for multi-region deployments. Specific capabilities depend on the API Management service tier.
+API Management also provides built-in scaling features to help the gateway handle high volumes of requests to your AI APIs. These features include automatic or manual addition of gateway *scale units* and addition of regional gateways for multiregion deployments. Specific capabilities depend on the API Management service tier.
  
 More information:
 
@@ -125,17 +131,15 @@ More information:
 * [Deploy an API Management instance in multiple regions](api-management-howto-deploy-multi-region.md)
 
 > [!NOTE]
-> While API Management can scale gateway capacity, you also need to scale and distribute traffic to you AI backends to accommodate increased load (see [Resiliency](#resiliency)). For example, to take advantage of geographical distribution of your system in a multi-region configuration, you should deploy backend AI services in the same regions as your API Management gateways.
-
-<!-- Link to next section? -->
+> While API Management can scale gateway capacity, you also need to scale and distribute traffic to your AI backends to accommodate increased load (see the [Resiliency](#resiliency) section). For example, to take advantage of geographical distribution of your system in a multiregion configuration, you should deploy backend AI services in the same regions as your API Management gateways.
 
 ## Resiliency
 
-One of the challenges when building intelligent applications is to ensure that the applications are resilient to backend failures and can handle high loads. By configuring your LLM endpoints using [backends](backends.md) in Azure API Management, you can balance the load across them. You can also define circuit breaker rules to stop forwarding requests to AI service backends if they're not responsive. 
+One challenge when building intelligent applications is ensuring that the applications are resilient to backend failures and can handle high loads. By configuring your LLM endpoints with [backends](backends.md) in Azure API Management, you can balance the load across them. You can also define circuit breaker rules to stop forwarding requests to AI service backends if they're not responsive. 
 
 ### Load balancer 
 
-The backend [load balancer](backends.md#backends-in-api-management) supports round-robin, weighted, priority-based, and session-aware load balancing, giving you flexibility to define a load distribution strategy that meets your specific requirements. For example, define priorities within the load balancer configuration to ensure optimal utilization of specific Azure AI Foundry endpoints, particularly those purchased as PTU instances. 
+The backend [load balancer](backends.md#backends-in-api-management) supports round-robin, weighted, priority-based, and session-aware load balancing. You can define a load distribution strategy that meets your specific requirements. For example, define priorities within the load balancer configuration to ensure optimal utilization of specific Azure AI Foundry endpoints, particularly those purchased as PTU instances. 
 
 <!-- Update image for generic/Foundry backends? -->
 
@@ -143,25 +147,17 @@ The backend [load balancer](backends.md#backends-in-api-management) supports rou
 
 ### Circuit breaker
 
-The backend [circuit breaker](backends.md#circuit-breaker) features dynamic trip duration, applying values from the `Retry-After` header provided by the backend. This ensures precise and timely recovery of the backends, maximizing the utilization of your priority backends.
+The backend [circuit breaker](backends.md#circuit-breaker) features dynamic trip duration, applying values from the `Retry-After` header provided by the backend. This feature ensures precise and timely recovery of the backends, maximizing the utilization of your priority backends.
 
 :::image type="content" source="media/genai-gateway-capabilities/backend-circuit-breaker.png" alt-text="Diagram of using backend circuit breaker in API Management.":::
 
+More information:
 
-<!--
-## MCP server support
-
-API Management can expose AI APIs as MCP servers, enabling:
-* Standardized API access across different AI providers
-* Self-registration of MCP servers in API Center
-* Passthrough to other MCP servers
-* Private MCP server registry in API Center
-
--->
+* [API Management backends](backends.md)
 
 ## Observability and governance
 
-Monitor, analyze, and control AI API usage:
+API Management provides comprehensive monitoring and analytics capabilities to track token usage patterns, optimize costs, ensure compliance with your AI governance policies, and troubleshoot issues with your AI APIs. Use these capabilities to:
 
 * Log prompts and completions to Azure Monitor
 * Track token metrics per consumer in Application Insights
@@ -169,7 +165,7 @@ Monitor, analyze, and control AI API usage:
 * Configure policies with custom expressions
 * Manage token quotas across applications
 
-Example of emitting token metrics with the [llm-emit-token-metric](llm-emit-token-metric-policy.md) policy:
+For example, you can emit token metrics with the [llm-emit-token-metric](llm-emit-token-metric-policy.md) policy and add custom dimensions you can use to filter the metric in Azure Monitor. The following example emits token metrics with dimensions for client IP address, API ID, and user ID (from a custom header):
 
 ```xml
 <llm-emit-token-metric namespace="llm-metrics">
@@ -181,36 +177,44 @@ Example of emitting token metrics with the [llm-emit-token-metric](llm-emit-toke
 
 :::image type="content" source="media/genai-gateway-capabilities/emit-token-metrics.png" alt-text="Diagram of emitting token metrics using API Management.":::
 
+
+Also, enable logging for LLM APIs in Azure API Management to track token usage, prompts, and completions for billing and auditing. After you enable logging, you can analyze the logs in Application Insights and use a built-in dashboard in API Management to view token consumption patterns across your AI APIs.
+
+:::image type="content" source="media/api-management-howto-llm-logs/analytics-workbook-small.png" alt-text="Screenshot of analytics for language model APIs in the portal." lightbox="media/api-management-howto-llm-logs/analytics-workbook.png":::
+
+
 More information: 
 
 * [Logging token usage, prompts, and completions](api-management-howto-llm-logs.md)
+* [Emit token consumption metrics](llm-emit-token-metric-policy.md)
 
 ## Developer experience
 
-Streamline development and deployment of you AI APIs and MCP servers with:
+Use the AI gateway and [Azure API Center](../apic-center/overview.md) to streamline development and deployment of your AI APIs and MCP servers. In addition to the user-friendly import and policy configuration experiences for common AI scenarios in API Management, you can take advantage of:
 
-* Wizard-based policy configuration for common AI scenarios
-* Self-service API/MCP server access through developer portals in API Management and API Center
+* Easy registration of APIs and MCP servers in an organizational catalog in Azure API Center
+* Self-service API and MCP server access through developer portals in API Management and API Center
 * API Management policy toolkit for customization
 * API Center Copilot Studio connector
-* Latest features through the AI Gateway release channel
 
 More information:
 
-* [Configure service update settings for your API Management instances](configure-service-update-settings.md)
+* [Register and discover MCP servers in API Center](../api-center/register-discover-mcp-server.md)
+* [Synchronize APIs and MCP servers between API Management and API Center](../api-center/synchronize-api-management-apis.md)
+* [API Management developer portal](developer-portal-overview.md)
+* [API Center portal](../api-center/set-up-api-center-portal.md)
 * [Azure API Management policy toolkit](https://github.com/Azure/azure-api-management-policy-toolkit/)
 * [API Center Copilot Studio connector](../api-center/export-to-copilot-studio.yml)
 
 
-## Getting started
+## Early access to AI gateway features    
 
-To start using AI gateway capabilities:
+As an API Management customer, you can get early access to new features and capabilities through the *AI Gateway release channel*. This access lets you try out the latest innovations before they're generally available and provide feedback to help shape the product. 
 
-1. [Import an API from Azure OpenAI Service](azure-openai-api-from-specification.md)
-2. Configure security and token management policies
-3. Set up monitoring and logging
-4. Enable semantic caching if needed
-5. Configure MCP server support through API Center
+More information:
+
+* [Configure service update settings for your API Management instances](configure-service-update-settings.md)
+
 
 ## Code samples and hands-on learning
 
@@ -232,4 +236,3 @@ To start using AI gateway capabilities:
 * [Blog: Integrating Azure Content Safety with API Management](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/integrating-azure-content-safety-with-api-management-for-azure/ba-p/4202505)
 * [Training: Manage your generative AI APIs](/training/modules/api-management)
 * [Smart load balancing for OpenAI endpoints](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/smart-load-balancing-for-openai-endpoints-and-azure-api/ba-p/3991616)
-* [Authenticate and authorize access to Azure OpenAI APIs](api-management-authenticate-authorize-azure-openai.md)
