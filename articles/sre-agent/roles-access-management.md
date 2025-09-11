@@ -16,7 +16,7 @@ how can agent perform actions
 
 # Azure SRE Agent Preview roles and access management
 
-The Azure SRE Agent features a flexible model for managing roles and access management based on Azure RBAC and the [Principle of Least Privilege](/entra/identity-platform/secure-least-privileged-access). The security model implemented in SRE Agent ensures that users only interact with the agent and managed resources according to permissions set in the overall permission model.
+The Azure SRE Agent features a flexible model for managing roles and access management based on Azure role-based access control (RBAC) and the [Principle of Least Privilege](/entra/identity-platform/secure-least-privileged-access). The security model implemented in SRE Agent ensures that users only interact with the agent and managed resources according to permissions set in the overall permission model.
 
 The security model enforced by Azure SRE Agent is influenced by both agent and user permissions.
 
@@ -24,7 +24,7 @@ The security model enforced by Azure SRE Agent is influenced by both agent and u
 
 Azure SRE Agent has its own managed identity that gives the agent the required credentials to act on your behalf as it manages assigned resource groups. You have full control over the roles and permissions applied to this managed identity.
 
-When you create an agent from the portal, you can apply one of the following permission levels. Choose the level that's better suited for your situation.
+When you create an agent from the portal, you can apply one of the following permission levels. Choose the level best suited for your situation.
 
 | Permission level | Description |
 |---|---|
@@ -59,9 +59,21 @@ The following table maps roles to types of users to the key actions associated w
 | *SRE Agent User* | L1 Ops, L2 SREs, specialists, first responders | Chat with the agent, initiate diagnostics, initiate write actions |
 | *SRE Agent Reader* | Auditors, monitoring | View chats, configs, logs |
 
-This diagram depicts how how roles are associated with users starting from agent creation.
+This diagram depicts how roles are associated with users starting from agent creation.
 
 :::image type="content" source="media/roles-access-management/azure-sre-agent-roles-onboarding.png" alt-text="Diagram of Azure SRE Agent roles onboarding flow.":::
+
+1. Users with the subscription *Owner* role create a new SRE Agent resource.
+
+1. The user account that created the agent is automatically assigned the *SRE Agent Admin* role.
+
+1. To grant other users access to the agent, the account used to create the agent then assigns either *SRE Agent User* or *SRE Agent Reader* roles to the appropriate accounts.
+
+1. New users get an onboarding email notifying them of access granted to the agent.
+
+1. Users log in and access the agent.
+
+1. RBAC security is enforced throughout agent use.
 
 ## Agent actions
 
@@ -85,7 +97,7 @@ Azure RBAC enforces security at the resource, resource group, or subscription le
 
 Consider the following questions:
 
-- What happens when a user's permission level doesn't match what they are trying to do in the agent?
+- What happens when a user's permission level doesn't match what they're trying to do in the agent?
 
 - What happens when a user is more restricted inside the agent than they are outside the agent?
 
