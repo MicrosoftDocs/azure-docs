@@ -7,6 +7,7 @@ ms.service: azure-virtual-wan
 ms.topic: tutorial
 ms.date: 03/10/2025
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 # Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
 # Tutorial: Create a site-to-site connection using Azure Virtual WAN
