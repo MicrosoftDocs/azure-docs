@@ -32,7 +32,7 @@ This article explains how to publish MQTT messages via HTTP with Event Grid.
 
 ## Role Assignments
 
-The identity used to make the HTTP Publish request must have the Azure RBAC role [`EventGrid TopicSpaces Publisher`](mqtt-client-microsoft-entra-token-and-rbac.md) for MQTT message publisher access.
+The identity used to make the HTTP Publish request must have the Azure RBAC role [`EventGrid TopicSpaces Publisher`](mqtt-client-microsoft-entra-token-and-rbac.md#authorization-to-grant-access-permissions) for MQTT message publisher access.
 
 ## Get a bearer token
 
