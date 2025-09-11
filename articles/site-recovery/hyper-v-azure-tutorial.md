@@ -162,7 +162,7 @@ You can track progress in your Azure portal notifications. When the job finishes
 
 ## Unmanaged disk deprecation
 
-Azure [retires unmanaged disks](/azure/virtual-machines/unmanaged-disks-deprecation) by March 31, 2026 and you will no longer be able to start IaaS VMs using unmanaged disks. Any running or allocated VMs with unmanaged disks are stopped and deallocated. 
+Azure [retires unmanaged disks](/azure/virtual-machines/unmanaged-disks-deprecation) and you will no longer be able to start IaaS VMs using unmanaged disks. Any running or allocated VMs with unmanaged disks are stopped and deallocated. 
 
 This change impacts Azure Site Recovery (ASR) operations, especially for failover scenarios. If your target disks are configured as unmanaged, failovers fail after unmanaged disks deprecation as ASR attempts to create unmanaged VMs that are no longer supported.
 
@@ -189,7 +189,7 @@ To do this, navigate to **Protected Items** page > **Compute and Network** and c
 
 ### Failback
 
-Failback from Azure to on-premises is possible when the target disk is Managed, regardless of whether the replica uses unmanaged or managed disks. MARS (Recovery Services agent) version 2.0.9214 or higher is required for failback.
+Failback from Azure to on-premises is possible when the target disk is Managed, regardless of whether the replica uses unmanaged or managed disks. MARS (Recovery Services agent) version [2.0.9214 or higher](site-recovery-whats-new.md) is required for failback.
 
 ## Next steps
 
