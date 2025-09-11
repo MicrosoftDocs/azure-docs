@@ -158,6 +158,8 @@ items:
             href: ../../iot-hub/quickstart-bicep-route-messages.md?toc=/azure/azure-resource-manager/bicep/toc.json
           - name: IoT Hub Device Provisioning Service
             href: ../../iot-dps/quick-setup-auto-provision-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+          - name: Firmware analysis
+            href: ../../firmware-analysis/quickstart-firmware-analysis-bicep.md
       - name: Management and Governance
         items:
           - name: Advisor

@@ -194,6 +194,8 @@ items:
       href: ../../iot-hub/horizontal-arm-route-messages.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: IoT Hub Device Provisioning Service
       href: ../../iot-dps/quick-setup-auto-provision-rm.md?toc=/azure/azure-resource-manager/templates/toc.json
+    - name: Firmware analysis
+      href: ../../firmware-analysis/quickstart-firmware-analysis-arm.md
   - name: Management and Governance
     items:
     - name: Advisor
