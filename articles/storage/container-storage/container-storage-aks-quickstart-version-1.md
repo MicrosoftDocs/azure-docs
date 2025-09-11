@@ -4,7 +4,7 @@ description: Connect to a Linux-based Azure Kubernetes Service (AKS) cluster, in
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 09/03/2025
+ms.date: 09/10/2025
 ms.author: kendownie
 ms.custom: devx-track-azurecli, linux-related-content
 # Customer intent: As a cloud engineer, I want to install Azure Container Storage (version 1.x.x) on my AKS cluster, so that I can manage container volumes efficiently and choose the appropriate storage options for my workloads.
@@ -147,6 +147,8 @@ Running this command will enable Azure Container Storage on the system node pool
 
 > [!IMPORTANT]
 > **If you created your AKS cluster using the Azure portal:** The cluster will likely have a user node pool and a system/agent node pool. However, if your cluster consists of only a system node pool, which is the case with test/dev clusters created with the Azure portal, you'll need to first [add a new user node pool](/azure/aks/create-node-pools#add-a-node-pool) and then label it. This is because when you create an AKS cluster using the Azure portal, a taint `CriticalAddOnsOnly` is added to the system/agent node pool, which blocks installation of Azure Container Storage on the system node pool. This taint isn't added when an AKS cluster is created using Azure CLI.
+>
+> **If you're using a multi-zone AKS cluster with Azure Elastic SAN:** You'll need to use a zone-redundant storage (ZRS) Elastic SAN. The default for an Elastic SAN storage pool is locally redundant storage (LRS). To enable ZRS for Elastic SAN, use `elasticSan` for the storage pool type and append the `--storage-pool-sku Premium_ZRS` flag to the following CLI command.
 
 ```azurecli-interactive
 az aks update -n <cluster-name> -g <resource-group> --enable-azure-container-storage <storage-pool-type> --container-storage-version 1
