@@ -4,7 +4,7 @@ description: Learn how to migrate to SMB Azure file shares and choose from a tab
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 07/14/2025
+ms.date: 08/28/2025
 ms.author: kendownie
 # Customer intent: "As a system administrator, I want to understand the migration process to SMB Azure file shares, so that I can efficiently move our data with full fidelity and select the appropriate tools for a seamless transition to cloud storage."
 ---
@@ -27,7 +27,7 @@ The goal is to move the data from existing file share locations to Azure. In Azu
 
 Azure offers different types of cloud storage. A fundamental aspect of file migrations to Azure is determining which Azure storage option is right for your data.
 
-[Azure file shares](storage-files-introduction.md) are suitable for general-purpose file data. This data includes anything you use an on-premises SMB share for. With [Azure File Sync](../file-sync/file-sync-planning.md), you can cache the contents of several Azure file shares on servers running Windows Server on-premises.
+[Azure file shares](storage-files-introduction.md) are suitable for general-purpose file data. This data includes anything you use an on-premises SMB share for. With [Azure File Sync](../file-sync/file-sync-planning.md), you can cache the contents of several Azure file shares on Windows Servers, either on-premises or in Azure.
 
 For an app that currently runs on an on-premises server, storing files in an Azure file share might be a good choice. You can move the app to Azure and use Azure file shares as shared storage. You can also consider [Azure Disks](/azure/virtual-machines/managed-disks-overview) for this scenario.
 
@@ -138,7 +138,11 @@ You'll also need to decide how your servers and users in Azure and outside of Az
 
 ## Migration guides
 
-Selecting the right tools for your migration scenario is crucial. The following table lists suggested tool combinations for migrating to SMB Azure file shares.
+Selecting the right tools for your migration scenario is crucial. The following diagram shows what migration tool or tool combination you should use based on your SMB data source and whether or not you want to use Azure File Sync.
+
+:::image type="content" source="media/storage-files-migration-overview/smb-migration-flowchart.png" alt-text="Decision flowchart showing which migration tool you should choose based on your SMB data source." lightbox="media/storage-files-migration-overview/smb-migration-flowchart.png" border="false":::
+
+The following table lists the suggested migration tool combinations and includes links to tool-specific migration guides.
 
 How to use the table:
 
@@ -196,7 +200,7 @@ The following table classifies Microsoft tools and their current suitability for
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| [Azure Storage Migration Program](../solution-integration/validated-partners/data-management/azure-file-migration-program-solutions.md) | Supported. | Full fidelity.* |
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| Storage Migration Service | Indirectly supported. Azure file shares can be mounted as network drives on SMS target servers. | Full fidelity.* |
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| Data Box (including the [data copy service](../../databox/data-box-deploy-copy-data-via-copy-service.md) to load files onto the device)| Supported. </br>(Data Box Disks doesn't support large file shares) | Data Box and Data Box Heavy fully support metadata. </br>Data Box Disks does not preserve file metadata. |
-|![Not fully recommended](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| AzCopy </br>latest version | Supported but not fully recommended. | Doesn't support differential copies at scale, and some file fidelity might be lost. </br>[Learn how to use AzCopy with Azure file shares](../common/storage-use-azcopy-files.md) |
+|![Not fully recommended](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| AzCopy </br>latest version | Supported but not fully recommended. | AzCopy sync supports up to 10 million files per AzCopy job and some file fidelity might be lost as AzCopy uses the Azure Files REST APIs for copying content to your Azure Files share. </br>[Learn how to use AzCopy with Azure file shares](../common/storage-use-azcopy-files.md) |
 |![Not fully recommended](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Azure Storage Explorer </br>latest version | Supported but not recommended. | Loses most file fidelity, like ACLs. Supports timestamps. |
 |![Not recommended](media/storage-files-migration-overview/circle-red-x.png)| Azure Data Factory | Supported. | Doesn't copy metadata. |
 |||||

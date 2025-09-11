@@ -5,7 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: concept-article
-ms.date: 09/09/2025
+ms.custom: sfi-image-nochange
+ms.date: 09/12/2025
 #Customer intent: As an integration developer who works with Google connector in Azure Logic Apps, I need to know how google's policies affect workflows that work with Google services, such as Gmail.
 ---
 

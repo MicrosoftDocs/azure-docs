@@ -1,36 +1,40 @@
 ---
 title: Overview of Azure Native Integrations
-description: Learn about the Azure Native Integrations' features and benefits, including unified operations and integrations.
+description: Learn about Azure Native Integrations, including their features and supported solution areas.
 ms.topic: overview
-ms.date: 04/14/2025
+ms.date: 08/06/2025
+ai-usage: ai-assisted
 
 ---
+# What are Azure Native Integrations?
 
-# Azure Native Integrations overview
+Azure Native Integrations are services that Microsoft and software development companies jointly develop and natively integrate into the Azure platform. Customers manage and operate these services through Azure, which provides a consistent experience for deployment, management, and monitoring.
 
-Easily provision, manage, and tightly integrate *independent software vendor (ISV)* software and services on Azure with Azure Native Integrations. Microsoft and the ISV work together to develop and manage the service. 
+## Purpose
 
-Currently, services are publicly available in these areas: 
-
-- AI
-- Observability
-- Data and storage
-- Networking and security
-
-For a list of available partner services, see [Extend Azure with Azure Native Integrations](partners.md).
+Customers use Azure Native Integrations to deploy and manage partner solutions directly within Azure. Azure Native Integrations enable unified operations without requiring custom integration or other infrastructure.
 
 ## Features
 
-Each Azure Native Integration offers unified operations and integrations. 
+Azure Native Integrations provide:
 
-### Unified operations
+- Integrated onboarding through Azure Resource Manager templates, SDKs, the Azure CLI, and the Azure portal.
+- Automatic resource discovery for monitoring.
+- Integration of logs and metrics with Azure Monitor.
+- Centralized management through the Azure portal.
+- Single sign-on (SSO) with Microsoft Entra ID.
+- Consolidated billing through Azure Marketplace.
+- Security features such as private data plane access and virtual network injection.
+- Operational consistency via Azure tools and processes.
 
-- **Integrated onboarding:** Use ARM template, SDK, CLI, and the Azure portal to create and manage services.
-- **Unified management:** Manage the service's entire lifecycle through the Azure portal.
-- **Unified access:** Utilize Single Sign-on (SSO) through [Microsoft Entra ID](/entra/fundamentals/whatis). 
+## Available solution areas
 
-### Integrations
+Azure Native Integrations are available in the following areas:
 
-- **Logs and metrics:** Seamlessly direct logs and metrics from Azure Monitor to the Azure Native Integration using just a few gestures. You can configure autodiscovery of resources to monitor, and set up automatic log forwarding and metrics shipping. You can easily do the setup in Azure, without needing to create more infrastructure or write custom code.
-- **Virtual network injection:** Provides private data plane access to Azure Native Integrations from customers’ virtual networks.
-- **Unified billing:** Engage with a single entity, Microsoft Azure Marketplace, for billing. No separate license is required to use Azure Native Integrations.
+- **AI**: Integrate advanced AI capabilities.
+- **Observability**: Gain insights into application and infrastructure performance.
+- **Data and storage**: Manage and analyze data at scale.
+- **Networks**: Enhance connectivity and network management.
+- **Security**: Strengthen security posture.
+
+For a complete list of available partner services, see [Azure Native Integrations partner solutions](partners.md).

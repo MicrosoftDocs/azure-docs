@@ -9,6 +9,7 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a security analyst, I want to use Jupyter notebooks with MSTICPy in Microsoft Sentinel so that I can efficiently perform threat hunting and data analysis with minimal coding.

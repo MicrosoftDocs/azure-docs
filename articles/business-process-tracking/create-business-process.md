@@ -4,9 +4,10 @@ description: Model a business process to visualize and map transactions to Azure
 ms.service: azure-business-process-tracking
 ms.topic: how-to
 ms.reviewer: estfan, azla
-ms.date: 06/09/2025
+ms.date: 09/11/2025
+ms.update-cycle: 365-days
 
-# CustomerIntent: As a business analyst or business SME, I want a way to visualize my organization's business processes so I can map them to the actual resources that implement these business use cases and scenarios.
+# Customer intent: As a business analyst or business SME, I want a way to visualize my organization's business processes so I can map them to the actual resources that implement these business use cases and scenarios.
 ---
 
 # Create a business process to add business context about Azure resources using Azure Business Process Tracking

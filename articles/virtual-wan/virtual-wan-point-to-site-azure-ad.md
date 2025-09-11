@@ -8,6 +8,7 @@ ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 02/25/2025
 ms.author: cherylmc 
+ms.custom: sfi-image-nochange
 
 #Audience ID values are not sensitive data.
 

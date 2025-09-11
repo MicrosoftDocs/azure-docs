@@ -66,7 +66,7 @@ An Azure IoT Operations deployment can include an optional built-in OPC PLC simu
 
 # [Azure CLI](#tab/cli)
 
-Run the following command:
+Run the following commands:
 
 ```azurecli
 az iot ops ns device create -n opc-ua-connector-cli -g {your resource group name} --instance {your instance name} 
@@ -74,10 +74,7 @@ az iot ops ns device create -n opc-ua-connector-cli -g {your resource group name
 az iot ops ns device endpoint inbound add opcua --device opc-ua-connector-cli -g {your resource group name} -i {your instance name} --name opc-ua-connector-0 --endpoint-address "opc.tcp://opcplc-000000:50000"
 ```
 
-> [!TIP]
-> Use `az connectedk8s list` to list the clusters you have access to.
-
-To learn more, see [az iot ops device](/cli/azure/iot/ops/asset/endpoint).
+To learn more, see [az iot ops ns device](/cli/azure/iot/ops/ns/device).
 
 ---
 

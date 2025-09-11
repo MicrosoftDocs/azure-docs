@@ -8,6 +8,8 @@ ms.custom: playwright-testing-preview
 
 # Manage workspaces in Microsoft Playwright Testing Preview
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 In this article, you create, view, and delete Microsoft Playwright Testing Preview workspaces. You can access and manage a workspace in the Azure portal or in the Playwright portal.
 
 The following table lists the differences in functionality, based on how you access Microsoft Playwright Testing:

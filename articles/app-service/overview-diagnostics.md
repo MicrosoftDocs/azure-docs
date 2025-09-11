@@ -7,8 +7,11 @@ ms.date: 04/23/2025
 ms.update-cycle: 1095-days
 ms.author: msangapu
 author: msangapu-msft
-ms.custom: UpdateFrequency3
 #customer intent: As an app developer, I want to understand the diagnostic tools that I can use with Azure App Service.
+ms.service: azure-app-service
+ms.custom:
+  - UpdateFrequency3
+  - sfi-image-nochange
 ---
 # Diagnostics in Azure App Service
 
@@ -141,4 +144,4 @@ Post your questions or feedback at [Share your ideas](https://feedback.azure.com
 
 ## Related content
 
-- [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)
+- [Tutorial: Run a load test to identify performance bottlenecks in a web app](../app-testing/load-testing/tutorial-identify-bottlenecks-azure-portal.md)

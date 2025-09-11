@@ -9,6 +9,7 @@ ms.custom: devx-track-csharp, vs-azure, devx-track-dotnet
 ms.date: 06/24/2021
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
+ms.service: azure-app-service
 ---
 
 # Develop and deploy WebJobs using Visual Studio

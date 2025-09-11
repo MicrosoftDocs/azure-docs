@@ -14,6 +14,7 @@ adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-java-uiex
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
 ---
 
 # Quickstart: Create a Java app on Azure App Service

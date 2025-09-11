@@ -212,7 +212,7 @@ See [Azure Functions hosting options](../../azure-functions/functions-scale.md) 
 
 ## Azure Load Testing limits
 
-See [Service limits in Azure Load Testing](../../load-testing/resource-limits-quotas-capacity.md) for Azure Load Testing limits. 
+See [Service limits in Azure Load Testing](../../app-testing/load-testing/resource-limits-quotas-capacity.md) for Azure Load Testing limits. 
 
 ## Azure Machine Learning limits
 

@@ -7,6 +7,7 @@ ms.topic: tutorial
 ms.date: 07/15/2024
 author: midesa
 ms.author: midesa
+ms.custom: sfi-ropc-nochange
 ---
 
 # Tutorial: Distributed Training with Horovod Estimator and PyTorch (deprecated)
