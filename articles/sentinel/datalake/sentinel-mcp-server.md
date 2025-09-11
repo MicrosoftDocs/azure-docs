@@ -35,7 +35,7 @@ Before you begin, make sure you have:
 - An Azure account with at least **Security Reader** role for using tools, or **Security Operator** role for creating custom tools
 - [Visual Studio Code](https://code.visualstudio.com/) installed
 - [GitHub Copilot](https://github.com/features/copilot) enabled in Visual Studio Code
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) installed (for custom tool development)
+- [Azure CLI](/cli/azure/install-azure-cli) installed (for custom tool development)
 
 ## Collections and tools
 
