@@ -240,6 +240,15 @@ Name  | `Win32_operatingsystem`  | `Caption`
 Version  | `Win32_operatingsystem`  | `Version`
 Architecture  | `Win32_operatingsystem`  | `OSArchitecture`
 
+### Linux server operating system data
+
+Here's the operating system data that the appliance collects from each discovered Linux server:
+
+Data  | Commands
+--- | ---
+Name/version | Gathered from one or more of the following files:<br/> <br/>`/etc/os-release`  <br> `/usr/lib/os-release`  <br> `/etc/enterprise-release`  <br> `/etc/redhat-release`  <br> `/etc/oracle-release`  <br> `/etc/SuSE-release`  <br> `/etc/lsb-release`  <br> `/etc/debian_version`
+Architecture | `uname`
+
 ### SQL Server data
 
 Here's the SQL Server data that the appliance collects from each discovered Windows server:
@@ -260,15 +269,6 @@ Data  | Commands
 Name | `rpm`, `dpkg-query`, `snap`
 Version | `rpm`, `dpkg-query`, `snap`
 Provider | `rpm`, `dpkg-query`, `snap`
-
-### Linux server operating system data
-
-Here's the operating system data that the appliance collects from each discovered Linux server:
-
-Data  | Commands
---- | ---
-Name/version | Gathered from one or more of the following files:<br/> <br/>`/etc/os-release`  <br> `/usr/lib/os-release`  <br> `/etc/enterprise-release`  <br> `/etc/redhat-release`  <br> `/etc/oracle-release`  <br> `/etc/SuSE-release`  <br> `/etc/lsb-release`  <br> `/etc/debian_version`
-Architecture | `uname`
 
 ### Windows server pending updates data
 
