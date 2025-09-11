@@ -23,7 +23,7 @@ You can use this capability to:
 - Discover PostgreSQL instances and their attributes within your environment. 
 - Assess the readiness of these instances for migration to Azure Database for PostgreSQL flexible server.
 - Obtain recommendations on suitable compute and storage options, along with the associated costs.
-- Analyse configuration compatibility including server parameters, extensions, and authentication methods.
+- Analyze configuration compatibility including server parameters, extensions, and authentication methods.
 - Review migration blockers and receive remediation guidance for seamless migration.
 
   Key features include:
