@@ -7,7 +7,6 @@ ms.topic: overview
 ms.date: 09/2/2025
 ms.author: monaberdugo
 ms.service: microsoft-sentinel
-ms.subservice: sentinel-mcp
 
 #customer intent: As a security analyst, I want to understand
 ---
