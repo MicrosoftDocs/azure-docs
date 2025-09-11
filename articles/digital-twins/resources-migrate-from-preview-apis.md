@@ -8,6 +8,7 @@ ms.date: 06/17/2025
 ms.topic: concept-article
 ms.service: azure-digital-twins
 services: digital-twins
+ms.custom: sfi-ropc-nochange
 ---
 
 # Migrate from Azure Digital Twins preview control plane APIs to a stable GA version 

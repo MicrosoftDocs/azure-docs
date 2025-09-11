@@ -6,6 +6,7 @@ ms.author: jixin
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ms.date: 01/12/2024
+ms.custom: sfi-ropc-nochange
 ---
 
 #  Azure Web PubSub trigger and bindings for Azure Functions

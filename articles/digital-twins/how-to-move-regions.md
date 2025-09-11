@@ -6,8 +6,10 @@ author: baanders
 ms.author: baanders
 ms.date: 06/19/2025
 ms.topic: how-to
-ms.custom: subject-moving-resources
 ms.service: azure-digital-twins
+ms.custom:
+  - subject-moving-resources
+  - sfi-image-nochange
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.reviewer: MSFT-alias-of-reviewer

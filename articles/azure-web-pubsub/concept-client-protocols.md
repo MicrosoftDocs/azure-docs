@@ -6,6 +6,7 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual 
 ms.date: 11/08/2021
+ms.custom: sfi-ropc-nochange
 ---
 
 #  WebSocket client protocols for Azure Web PubSub
