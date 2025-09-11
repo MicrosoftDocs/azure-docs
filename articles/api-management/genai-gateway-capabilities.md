@@ -190,7 +190,7 @@ More information:
 
 ## Developer experience
 
-Use the AI gateway and [Azure API Center](../apic-center/overview.md) to streamline development and deployment of your AI APIs and MCP servers. In addition to the user-friendly import and policy configuration experiences for common AI scenarios in API Management, you can take advantage of:
+Use the AI gateway and [Azure API Center](../api-center/overview.md) to streamline development and deployment of your AI APIs and MCP servers. In addition to the user-friendly import and policy configuration experiences for common AI scenarios in API Management, you can take advantage of:
 
 * Easy registration of APIs and MCP servers in an organizational catalog in Azure API Center
 * Self-service API and MCP server access through developer portals in API Management and API Center
