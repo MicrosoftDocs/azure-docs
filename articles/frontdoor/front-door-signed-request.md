@@ -102,7 +102,8 @@ This allows you to build complex access control logic.
 * Use server variables to dynamically capture and validate request metadata.
 
 ## Limitations
-
+**IMPORTANT:** If the signed requests rules are not the first set of rules in the rules engine, they will not be evaluated. Ensure that the signed requests rules are at the top of the rules engine configuration.
+Presently, the edit key group capability is not supported in the Azure portal. You can delete and recreate the key group to update it.
 For information about quota limits, refer to [Front Door limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-standard-and-premium-service-limits).
 
 ## Next steps
