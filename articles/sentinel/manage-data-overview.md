@@ -1,5 +1,5 @@
 ---
-title: Manage data tiers and retention in Microsoft Sentinel (preview)
+title: Manage data tiers and retention in Microsoft Sentinel
 description: Manage log data in Microsoft Sentinel and with Microsoft Defender XDR services in the Microsoft Defender portal to optimize security operations and cost efficiency.
 ms.reviewer: dzatakovi
 ms.author: guywild
@@ -9,7 +9,7 @@ ms.date: 07/16/2025
 # Customer intent: As an Microsoft Defender Portal administrator or subscription owner, I want to configure log table tiers and data retention settings to optimize security operations needs and cost efficiency.
 ---
 
-# Manage data tiers and retention in Microsoft Sentinel (preview)
+# Manage data tiers and retention in Microsoft Sentinel
 
 Data you collect into Microsoft Sentinel (SIEM) and Microsoft Defender XDR is stored in tables. The Microsoft Defender portal lets you manage the retention period and the store costs associated with your data. You can manage retention and costs when you:
 
@@ -126,43 +126,7 @@ In the following examples, XDR data is available through advanced hunting for at
 | 30 days with connector enabled | 180 days | Costs apply for analytics tier ingestion. | No additional costs; 90 days included free. | Costs apply for 150 days of additional data lake retention (180 - 30 days). |
 | 180 days | 1 year | Costs apply for analytics tier ingestion. | Costs apply for 90 days of additional analytics tier retention. | Costs apply for 185 days of additional data lake retention (365 - 180 days). |
 
-  
-## Preview limitations
-
-As part of the public preview:
-
-- Microsoft Sentinel tables with the Basic plan can only be managed from the Log Analytics workspace. For more information, see [Manage tables in a Log Analytics workspace](/azure/azure-monitor/logs/manage-logs-tables). 
-
-  To manage retention and tiering from the Microsoft Defender portal, change the table plan to analytics from the Log Analytics workspace.
  
-- Some Microsoft Defender XDR tables can only be viewed in the Microsoft Defender portal. Currently, the Microsoft Defender portal supports managing these Microsoft Defender XDR tables:
-
-  - AlertEvidence
-  - AlertInfo
-  - CampaignInfo
-  - CloudAppEvents
-  - DeviceEvents
-  - DeviceFileCertificateInfo
-  - DeviceFileEvents
-  - DeviceImageLoadEvents
-  - DeviceInfo
-  - DeviceLogonEvents
-  - DeviceNetworkEvents
-  - DeviceNetworkInfo
-  - DeviceProcessEvents
-  - DeviceRegistryEvents
-  - EmailAttachmentInfo
-  - EmailEvents
-  - EmailPostDeliveryEvents
-  - EmailUrlInfo
-  - FileMaliciousContentInfo
-  - IdentityDirectoryEvents
-  - IdentityLogonEvents
-  - IdentityQueryEvents
-  - SecurityAlert
-  - SecurityIncident
-  - UrlClickEvents
-
 ## Next steps
 
 Learn more about:

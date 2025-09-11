@@ -1,5 +1,5 @@
 ---  
-title: Asset data tables in Microsoft Sentinel data lake (Preview)
+title: Asset data tables in Microsoft Sentinel data lake
 titleSuffix: Microsoft Security  
 description: Asset data tables in security data lake
 author: mberdugo  
@@ -14,7 +14,7 @@ ms.collection: ms-security
 # Customer intent: As a Microsoft Sentinel user, I want to view the asset data tables in the Microsoft Sentinel data lake so that I can understand the structure and content of the data available for analysis.
 ---
 
-# Asset data tables in Microsoft Sentinel data lake (Preview)
+# Asset data tables in Microsoft Sentinel data lake
 
 The following table mappings are available in the Microsoft Sentinel data lake for asset data.
 

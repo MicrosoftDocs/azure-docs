@@ -86,7 +86,7 @@ The following are errors that you might encounter during the onboarding process.
 
 ## Related content
 
-+ [Microsoft Sentinel data lake overview (preview)](sentinel-lake-overview.md)
++ [Microsoft Sentinel data lake overview](sentinel-lake-overview.md)
 + [Microsoft Sentinel data lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake)
 + [Microsoft Sentinel data lake billing](../billing.md)
 + [Create custom roles with Microsoft Defender XDR Unified role-based access control (RBAC)](/defender-xdr/create-custom-rbac-roles)
