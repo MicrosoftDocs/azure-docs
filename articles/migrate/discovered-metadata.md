@@ -3,17 +3,16 @@ title: Discovered Metadata
 description: Get details about the metadata that the Azure Migrate appliance discovers.
 author: Vikram1988
 ms.author: vibansa
-ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: concept-article
-ms.date: 02/06/2025
+ms.date: 09/11/2025
 ms.custom: engagement-fy25, devx-track-extended-java
 # Customer intent: As a systems administrator, I want to understand the metadata collected by the Azure Migrate appliance for server discovery, so that I can assess server readiness for migration to the cloud and optimize resource allocation.
 ---
 
 # Metadata that an Azure Migrate appliance discovers
 
-The Azure Migrate Discovery and Assessment tool uses the lightweight [Azure Migrate appliance](migrate-appliance.md) to discover servers running in your environment and send server configuration and performance metadata to Azure.
+The Azure Migrate Discovery and Assessment tool uses the lightweight [Azure Migrate appliance](migrate-appliance.md) to discover servers running in your environment and send server configuration and performance metadata to Azure. 
 
 This article provides details about the metadata that the Azure Migrate appliance discovers. This metadata helps you assess server readiness for migration to Azure, right-size servers, and plan costs. Microsoft doesn't use this data in any license compliance audit.
 
@@ -209,7 +208,7 @@ Disk details | `cat /proc/diskstats`
 
 ## Software inventory data
 
-The appliance collects data about installed applications, roles, and features (software inventory) from servers running in a VMware environment or Hyper-V environment, from physical servers, or from servers running on other clouds (like AWS or GCP).
+The appliance collects data about installed applications, roles, and features (software inventory) and pending updates from servers running in a VMware environment or Hyper-V environment, from physical servers, or from servers running on other clouds (like AWS or GCP).
 
 ### Windows server application data
 
@@ -241,6 +240,29 @@ Name  | `Win32_operatingsystem`  | `Caption`
 Version  | `Win32_operatingsystem`  | `Version`
 Architecture  | `Win32_operatingsystem`  | `OSArchitecture`
 
+
+
+### Linux server operating system data
+
+Here's the operating system data that the appliance collects from each discovered Linux server:
+
+Data  | Commands
+--- | ---
+Name/version | Gathered from one or more of the following files:<br/> <br/>`/etc/os-release`  <br> `/usr/lib/os-release`  <br> `/etc/enterprise-release`  <br> `/etc/redhat-release`  <br> `/etc/oracle-release`  <br> `/etc/SuSE-release`  <br> `/etc/lsb-release`  <br> `/etc/debian_version`
+Architecture | `uname`
+
+### Windows server pending updates data
+
+Here's the pending updates data that the appliance collects from each discovered Windows server:
+
+Data | PowerShell cmdlet | Property
+--- | --- | ---
+Update Title | `New-Object -com "Microsoft.Update.Session"` | `Title`
+Update ID | `New-Object -com "Microsoft.Update.Session"` | `Identity.UpdateID`
+Update Version(KB-ID) | `New-Object -com "Microsoft.Update.Session"` | `KBArticleIDs`
+Classification/Severity | `New-Object -com "Microsoft.Update.Session"` | `Categories.CatergoryID`
+Published date | `New-Object -com "Microsoft.Update.Session"` | `LastDeploymentChangeTime`
+
 ### SQL Server data
 
 Here's the SQL Server data that the appliance collects from each discovered Windows server:
@@ -262,14 +284,17 @@ Name | `rpm`, `dpkg-query`, `snap`
 Version | `rpm`, `dpkg-query`, `snap`
 Provider | `rpm`, `dpkg-query`, `snap`
 
-### Linux server operating system data
+### Linux server pending updates data
 
-Here's the operating system data that the appliance collects from each discovered Linux server:
+Here's the pending updates data that the appliance collects from each discovered Linux server:
 
-Data  | Commands
+Data | Commands
 --- | ---
-Name/version | Gathered from one or more of the following files:<br/> <br/>`/etc/os-release`  <br> `/usr/lib/os-release`  <br> `/etc/enterprise-release`  <br> `/etc/redhat-release`  <br> `/etc/oracle-release`  <br> `/etc/SuSE-release`  <br> `/etc/lsb-release`  <br> `/etc/debian_version`
-Architecture | `uname`
+Update Title | `apt-get -s dist-upgrade, yum -q check-update, zypper list-updates`
+Update ID | `apt-get -s dist-upgrade, yum -q check-update, zypper list-updates`
+Updated Software version | `apt-get -s dist-upgrade, yum -q check-update, zypper list-updates`
+Classification/Severity | `apt-get -s dist-upgrade, yum -q check-update, zypper list-updates`
+Published date | `apt-get -s dist-upgrade, yum -q check-update, zypper list-updates`
 
 ## SQL Server instance and database data
 
