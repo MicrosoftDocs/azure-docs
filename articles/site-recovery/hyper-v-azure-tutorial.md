@@ -3,7 +3,7 @@ title: Set up Hyper-V disaster recovery by using Azure Site Recovery
 description: Learn how to set up disaster recovery of on-premises Hyper-V VMs (without SCVMM) to Azure by using Site Recovery and MARS.
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 09/10/2025
+ms.date: 09/11/2025
 ms.custom: MVC, engagement-fy23
 ms.author: jsuri
 author: jyothisuri
