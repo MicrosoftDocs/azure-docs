@@ -214,8 +214,6 @@ To configure protection for resources in a vault, follow these steps:
 1. On the **Datasources** tab, select the **Snapshot resource group**, and then select **validate**.
 1. On the **Review + configure** tab, review the configuration details, and then select **Configure Backup**.
 
-
-
 ## Create a  backup vault using Azure Business Continuity Center Copilot
 
 Azure Business Continuity Center Copilot enables you to make informed decisions when setting up backup vaults. During vault creation, Copilot recommends enabling Cross Region Restore and Immutability, the essential features for ensuring resiliency and protecting against ransomware threats. The “Create Backup Vault” prompt provides intelligent defaults based on your most-used subscriptions and regions, helping maintain backup availability across regions while safeguarding data from deletion or modification. Additionally, Copilot simplifies vault configuration by suggesting frequently used values for subscription, resource group, and region, which you can easily adjust to meet your specific requirements.
@@ -230,6 +228,8 @@ To create a Backup vault using Azure Business Continuity Center Copilot, follow 
 
 1. On the**Create Backup Vault** pane, select **Help me create a vault**.
 
+   :::image type="content" source="./media/tutorial-manage-data-using-copilot/select-vault-subscription.png" alt-text="Screenshot shows how to start creating vault using Copilot." lightbox="./media/tutorial-manage-data-using-copilot/select-vault-subscription.png":::
+
 1. On the **Copilot** pane, the frequently used subscription appears. To use the suggested subscription, select **Continue**.
 
    For choosing a different subscription, click **Select Subscription**, select a subscription from the dropdown, and then select **Submit**.
@@ -238,31 +238,32 @@ To create a Backup vault using Azure Business Continuity Center Copilot, follow 
 
     To select a different resource group, click **Select Resource Group**, select a resource group from the dropdown, and then select **Submit**.
 
+   :::image type="content" source="./media/tutorial-manage-data-using-copilot/select-vault-resource-group.png" alt-text="Screenshot shows how to apply resource group using Copilot for vault creation." lightbox="./media/tutorial-manage-data-using-copilot/select-vault-resource-group.png":::
+
 
 1. After the resource group applies successfully, apply the suggested vault name, and then select **Submit.
 
-   To modify the suggested vault name, **on the **Create Backup Vault** pane, on the **Basics** tab, enter a **Backup vault name**.
+   To modify the suggested vault name, on the **Create Backup Vault** pane, on the **Basics** tab, enter a **Backup vault name**.
 
 1. On the **Copilot** pane,  apply the suggested region by selecting **Continue**.
 
    To select a different region, click **Select Region** to choose a region from the dropdown, and then select **Submit**.
 
-1. To set the redundancy type, select an appropriate redundancy option from the list, and then select **Submit**.
+1. To set the redundancy type, on the **Copilot** pane, select an appropriate redundancy option from the list, and then select **Submit**.
 
-1. On the **Vault Properties** tab, configure the required security, managed identity, encryption, and restore settings.
+   :::image type="content" source="./media/tutorial-manage-data-using-copilot/select-vault-redundancy-type.png" alt-text="Screenshot shows how to apply vault redundancy type using Copilot for vault creation." lightbox="./media/tutorial-manage-data-using-copilot/select-vault-redundancy-type.png":::
+
+1. Select **Continue to Vault Properties tab** to configure the required security, managed identity, encryption, and restore settings.
+
+   :::image type="content" source="./media/tutorial-manage-data-using-copilot/set-vault-properties.png" alt-text="Screenshot shows how to apply vault properties using Copilot for vault creation." lightbox="./media/tutorial-manage-data-using-copilot/set-vault-properties.png":::
+
+1. After configuring the **Vault Properties**, select **Go to Review + create tab**.
 
 1. On the **Review + create** tab, select **Create** to start creating the vault.
 
-
-
-
-
-
-
-
 ## Copy a Backup vault to another region
 
-Azure Business Continuity Center now enables you to easily copy vault configurations across regions. With the integrated Copilot solution, this process is streamlined and automated, providing greater simplicity, consistency, and reliability when managing Backup vaults; thus eliminates the need for manual reconfiguration in the target region..
+Azure Business Continuity Center now enables you to easily copy vault configurations across regions. With the integrated Copilot solution, this process is streamlined and automated, providing greater simplicity, consistency, and reliability when managing Backup vaults; thus eliminates the need for manual reconfiguration in the target region.
 
 To copy a Backup vault to another region, follow these steps:
 
@@ -274,22 +275,21 @@ To copy a Backup vault to another region, follow these steps:
 
 1. On the**Create Backup Vault** pane, select **Help me copy an existing vault settings**.
 
+   :::image type="content" source="./media/tutorial-manage-data-using-copilot/copy-vault-settings.png" alt-text="Screenshot shows how to start copying vault using Copilot." lightbox="./media/tutorial-manage-data-using-copilot/copy-vault-settings.png":::
+
 1. On the **Copilot** pane, a vault from the frequently used region appears. To use the suggested vault to copy the settings, select **Continue**.
 
    For choosing a vault from a different region, click **Select Region**, select a region from the dropdown, and then select **Confirm**.
 
 1. After the vault settings copy successfully, on the **Create Backup Vault** pane, on the **Basics** tab, enter a **Backup vault name**, and then select an alternate **Region** from the dropdown.
 
-   >[!Note]
-   >For creating a vault in the same region, ensure that you enter a unique vault name.
+   :::image type="content" source="./media/tutorial-manage-data-using-copilot/select-alternate-region.png" alt-text="Screenshot shows how to select an alternate region for the vault creation." lightbox="./media/tutorial-manage-data-using-copilot/select-alternate-region.png":::
 
-1. On the **Vault Properties** tab, review the copied vault settings.
+   A few vault properties, such as monitoring settings and Multi-user authorization, don't get copied during vault creation. You can configure these **Vault Properties** after the vault creation is complete.
 
 1. On the **Review + create** tab, select **Create** to start copying the vault to alternate region.
 
-
-
-
+   :::image type="content" source="./media/tutorial-manage-data-using-copilot/create-copy-vault.png" alt-text="Screenshot shows how to start copying vault to an alternate region." lightbox="./media/tutorial-manage-data-using-copilot/create-copy-vault.png":::
 
 ## Delete Recovery Services vault and Backup vault using Copilot 
 
