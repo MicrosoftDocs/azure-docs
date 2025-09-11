@@ -121,7 +121,7 @@ In the following example, the initial request is dispatched to the primary backe
         interval="1"
         first-fast-retry=true>
            <set-variable name="attempt-count" value="@(context.Variables.GetValueOrDefault<int>("attempt-count", 0)+1)" />
-           <set-backend-service backend-id="@(context.Variables.GetValue<int>("attempt-count") < 2 ? "primary-backend" : "secondary-backend" )" />
+           <set-backend-service backend-id="@(context.Variables.GetValueOrDefault<int>("attempt-count") < 2 ? "primary-backend" : "secondary-backend" )" />
            <forward-request />
     </retry>
 </backend>
