@@ -59,7 +59,7 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
 5. For `OS Disk Encryption Name` and `OS Disk Encryption Resource Group Name`, enter the names used in the prerequisites section.
 6. Adjust the prepopulated parameters as needed. 
 7. (Optional) [Publish your RemoteApp](#publish-remoteapp-optional) to other users.
-8. (Optional) [Domain join](#join-vm-to-domain-optional) your RemoteApp VM.
+8. (Optional) [Domain join](#domain-join-virtual-machine-optional) your RemoteApp VM.
 9. (Optional) [Install application](#install-remoteapp-optional) to your RemoteApp.
 10. Select `Review + Create`, if all validations have passed, select `Create`.
 
