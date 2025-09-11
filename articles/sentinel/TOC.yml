@@ -10,6 +10,8 @@
     displayName: data lake
   - name: Microsoft Sentinel graph overview
     href: datalake/sentinel-graph-overview.md
+  - name: Microsoft Sentinel MCP overview
+    href: datalake/sentinel-mcp-overview.md
   - name: What's new
     href: whats-new.md
   - name: Best practices
