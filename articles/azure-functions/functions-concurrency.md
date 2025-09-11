@@ -78,8 +78,6 @@ Ideally, the system should allow instances to process as much work as they can w
 
 ## Dynamic concurrency
 
-_Applies only to the Consumption, Premium, App Service, and Container Apps plans_
-
 Functions provides a dynamic concurrency model that simplifies configuring concurrency for all function apps that run in the same plan. 
 
 > [!NOTE]
