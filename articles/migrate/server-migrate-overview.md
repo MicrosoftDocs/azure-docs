@@ -17,9 +17,8 @@ This article provides migration methods across major fabrics and provides guidan
 
 Comparing migration methods 
 
-| Col 1 | Col 2 | Col 3 |
+| **Fabric** |  **Recommended method**  | **Alternate method(s)**|
 | --- | --- | --- |
-| **Fabric** | **Recommended method**  | **Alternate method(s)**  | 
 | VMware vSphere  | Use **Agentless** replication with the Azure Migrate appliance. This method doesn’t require in-guest agents and is recommended for most VMware scenarios.    | Use **Agent-based** replication with the Replication appliance and the Mobility service agent (one agent per VM). Choose this method when agentless prerequisites or limits aren’t met   | 
 | HyperV  | Use **Agentless** replication. Providers run on Hyper-V hosts or cluster nodes, so no installation is required inside individual VMs.   | Use **Agent-based** replication (treat the VM as a physical server) when host access isn’t available or agentless requirements can’t be met    | 
 | **Physical & other platforms** (AWS/GCP VMs, Xen, KVM, private clouds)  | Use **Agent-based** replication with the Replication appliance and the Mobility service agent (one agent per VM). This method is recommended for non-VMware and non-Hyper-V sources  |  | 
