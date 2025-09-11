@@ -4,7 +4,7 @@ description: Learn how to improve the latency, bandwidth consumption, and web se
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 05/15/2025
+ms.date: 09/11/2025
 ms.author: danlep
 
 #customer intent: As an API developer, I want to use caching so that I can improve performance in API Management.
@@ -16,10 +16,14 @@ ms.author: danlep
 
 APIs and operations in API Management can be configured with response caching. Response caching can significantly reduce latency for API callers and backend load for API providers. This article describes how to add caching to your APIs. 
 
+* For background and scenarios for caching, see [Caching overview](caching-overview.md). 
+* For information about using an external cache, see [Use an external Redis-compatible cache in Azure API Management](api-management-howto-cache-external.md).
+* For more detailed information about caching, see [API Management caching policies](api-management-policies.md#ca**ng) and [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
+
+
 > [!IMPORTANT]
 > Built-in cache is volatile and is shared by all units in the same region in the same API Management instance. Regardless of the cache type used (internal or external), if cache-related operations fail to connect to the cache because of the volatility of the cache or for any other reason, the API call that uses the cache-related operation doesn't raise an error, and the cache operation completes successfully. In the case of a read operation, a null value is returned to the calling policy expression. Your policy code should be designed to ensure that there's a fallback mechanism to retrieve data that's not found in the cache.
 
-For more detailed information about caching, see [API Management caching policies](api-management-policies.md#caching) and  [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
 
 :::image type="content" source="media/api-management-howto-cache/cache-policies.png" alt-text="Screenshot that shows cache policies in API Management." lightbox="media/api-management-howto-cache/cache-policies.png":::
 

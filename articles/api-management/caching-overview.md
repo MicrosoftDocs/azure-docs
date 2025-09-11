@@ -6,7 +6,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
 ai-usage: ai-assisted
-ms.date: 07/28/2025
+ms.date: 09/11/2025
 ms.author: danlep
 ---
 
@@ -143,7 +143,7 @@ Cache specific data values for reuse across multiple requests.
 
 ### Rate limiting protection
 
-Combine cache lookup with rate limiting to protect backend services.
+As a best practice, combine cache lookup with rate limiting to protect backend services.
 
 ```xml
 <policies>
