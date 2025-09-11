@@ -44,7 +44,7 @@ In Xcode, create a new project:
 1. Add the following code to your Podfile. Replace `UILibraryQuickStart` with your project name.
 
     ```ruby
-    platform :ios, '15.0'
+    platform :ios, '16.0'
     
     target 'UILibraryQuickStart' do
         use_frameworks!
