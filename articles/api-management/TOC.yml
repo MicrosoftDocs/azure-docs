@@ -76,6 +76,8 @@
       href: api-management-howto-autoscale.md
     - name: Plan and manage costs
       href: plan-manage-costs.md
+    - name: Understand service limits
+      href: service-limits.md
     - name: Configure a custom domain
       href: configure-custom-domain.md
     - name: Use an external cache
@@ -252,6 +254,8 @@
       href: azure-openai-enable-semantic-caching.md
     - name: Authenticate and authorize to Azure OpenAI
       href: api-management-authenticate-authorize-azure-openai.md
+    - name: Log LLM tokens, requests, and responses
+      href: api-management-howto-llm-logs.md
   - name: Manage MCP servers
     items:
     - name: MCP server capabilities

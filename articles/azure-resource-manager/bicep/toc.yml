@@ -730,6 +730,8 @@ items:
             href: diagnostics/bcp302.md
           - name: BCP311
             href: diagnostics/bcp311.md
+          - name: BCP318
+            href: diagnostics/bcp318.md
           - name: BCP327
             href: diagnostics/bcp327.md
           - name: BCP328

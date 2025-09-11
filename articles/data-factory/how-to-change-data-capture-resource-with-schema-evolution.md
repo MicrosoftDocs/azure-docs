@@ -6,6 +6,7 @@ ms.author: krirukm
 ms.topic: conceptual
 ms.date: 05/15/2024
 ms.subservice: authoring
+ms.custom: sfi-image-nochange
 ---
 
 # Capture changed data with schema evolution from Azure SQL Database to a Delta sink by using a change data capture resource

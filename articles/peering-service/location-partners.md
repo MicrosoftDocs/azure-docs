@@ -24,7 +24,7 @@ The following table provides information on the Peering Service connectivity par
 
 | Partner | Markets |
 |----------|--------|
-| [AMS-IX](https://www.ams-ix.net/ams/service/microsoft-azure-peering-service-maps) | Europe |
+| [AMS-IX](https://www.ams-ix.net/ams/service/cloud-access) | Europe |
 | [Atman](https://atman.pl/en/connectivity/internet/atman-internet-with-microsoft-azure-peering-service/) | Europe |
 | [BBIX](https://www.bbix.net/en/service/) | Japan |
 | [CCL](https://concepts.co.nz/news) | Oceania |
@@ -100,7 +100,7 @@ The following table provides information on the Peering Service connectivity par
 
 | Metro | Partners (IXPs) |
 |-------|-----------------|
-| Amsterdam | [AMS-IX](https://www.ams-ix.net/ams/service/microsoft-azure-peering-service-maps) |
+| Amsterdam | [AMS-IX](https://www.ams-ix.net/ams/service/cloud-access) |
 | Ashburn | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) , [LINX](https://www.linx.net/services/microsoft-azure-peering/) |
 | Atlanta | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
 | Barcelona | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/) |

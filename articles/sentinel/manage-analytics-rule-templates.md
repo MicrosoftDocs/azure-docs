@@ -5,6 +5,7 @@ author: yelevin
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a security analyst, I want to manage and update analytics rule templates so that I can ensure my threat detection rules are current and effective.

@@ -6,7 +6,9 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 08/25/2025
+ms.custom: sfi-image-nochange
 #Customer intent: As a technical worker who maintains file systems using FTP, I want to use Azure Logic Apps to respond to changes in an FTP repo.
+
 ---
 
 # Connect to an FTP server from workflows in Azure Logic Apps

@@ -7,9 +7,11 @@ ms.date: 04/23/2025
 ms.update-cycle: 1095-days
 ms.author: msangapu
 author: msangapu-msft
-ms.custom: UpdateFrequency3
 #customer intent: As an app developer, I want to understand the diagnostic tools that I can use with Azure App Service.
 ms.service: azure-app-service
+ms.custom:
+  - UpdateFrequency3
+  - sfi-image-nochange
 ---
 # Diagnostics in Azure App Service
 

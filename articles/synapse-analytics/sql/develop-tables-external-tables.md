@@ -8,6 +8,7 @@ ms.date: 02/19/2025
 ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: concept-article
+ms.custom: sfi-image-nochange
 ---
 
 # Use external tables with Synapse SQL
