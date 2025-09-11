@@ -4,9 +4,11 @@ description: In this article, learn how to remove dependencies and then delete a
 ms.topic: how-to
 ms.date: 06/23/2025
 ms.service: azure-backup
-ms.custom: devx-track-azurepowershell
 author: AbhishekMallick-MS
 ms.author: v-mallicka
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: As a cloud administrator, I want to successfully delete a Recovery Services vault, so that I can ensure the removal of unnecessary resources and maintain an organized backup infrastructure.
 ---
 # Delete an Azure Backup Recovery Services vault
