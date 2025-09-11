@@ -8,11 +8,13 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: how-to
-ms.custom: b2c-docs-improvements
 ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: b2c
+ms.custom:
+  - b2c-docs-improvements
+  - sfi-image-nochange
 
 
 #Customer intent: As a developer using Azure Active Directory B2C, I want to create and read user accounts using custom policies, so that I can store and retrieve user information from Microsoft Entra ID storage and issue JWTs.

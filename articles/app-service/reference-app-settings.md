@@ -5,9 +5,10 @@ ms.topic: conceptual
 ms.date: 03/28/2025
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
 ms.custom:
   - build-2025
-ms.service: azure-app-service
+  - sfi-ropc-nochange
 ---
 
 # Environment variables and app settings in Azure App Service
@@ -229,7 +230,7 @@ AZURE_SITE_APP_BASE
 | `PORT` | Read-only. For Linux apps, the port that the Node.js app listens to in the container. |
 | `WEBSITE_ROLE_INSTANCE_ID` | Read-only. ID of the current instance. |
 | `PM2HOME` | |
-| `WEBSITE_NODE_DEFAULT_VERSION` | For native Windows apps, the default node version that the app is using. You can use any of the [supported Node.js versions](configure-language-nodejs.md#show-nodejs-version) here. |
+| `WEBSITE_NODE_DEFAULT_VERSION` | For native Windows apps, the default node version that the app is using. You can use any of the [supported Node.js versions](configure-language-nodejs.md#show-the-nodejs-version) here. |
 
 <!-- APPSVC_REMOTE_DEBUGGING
 APPSVC_REMOTE_DEBUGGING_BREAK

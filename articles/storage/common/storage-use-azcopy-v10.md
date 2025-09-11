@@ -4,7 +4,7 @@ description: AzCopy is a command-line utility that you can use to copy data to, 
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 01/27/2025
+ms.date: 09/01/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: ai-video-demo
@@ -239,6 +239,37 @@ To find example commands, see any of these articles.
 |Amazon S3|[Copy data from Amazon S3 to Azure Storage](storage-use-azcopy-s3.md)|
 |Google Cloud Storage|[Copy data from Google Cloud Storage to Azure Storage (preview)](storage-use-azcopy-google-cloud.md)|
 |Azure Stack storage|[Transfer data with AzCopy and Azure Stack storage](/azure-stack/user/azure-stack-storage-transfer#azcopy)|
+
+AzCopy uses the `--from-to` parameter to explicitly define the source and destination resource types when automatic detection may fail-such as in piping scenarios or emulators. This helps AzCopy understand the context of the transfer and optimize accordingly.
+
+| FromTo Value           | Description                                                                           |
+|------------------------|---------------------------------------------------------------------------------------|
+| `BlobBlob`             | Copy between two Azure Blob Storage locations                                         | 
+| `BlobBlobFS`           | Copy from Azure Blob Storage to Azure Data Lake Gen2 (BlobFS)                         |
+| `BlobFSBlob`           | Copy from Azure Data Lake Gen2 (BlobFS) to Azure Blob Storage                         |
+| `BlobFSBlobFS`         | Copy between two Azure Data Lake Gen2 (BlobFS) locations                              |
+| `BlobFSFile`           | Copy from Azure Data Lake Gen2 (BlobFS) to Azure File Storage                         |
+| `BlobFSLocal`          | Download from Azure Data Lake Gen2 (BlobFS) to local file system                      |
+| `BlobFile`             | Copy from Azure Blob Storage to Azure File Storage                                    |
+| `BlobLocal`            | Download from Azure Blob Storage to local file system                                 |
+| `BlobPipe`             | Stream data from Azure Blob Storage to a pipe                                         |
+| `FileBlob`             | Copy from Azure File Storage to Azure Blob Storage                                    |
+| `FileBlobFS`           | Copy from Azure File Storage to Azure Data Lake Gen2 (BlobFS)                         |
+| `FileSMBFileSMB`       | Copy between two SMB shares in Azure File Storage                                     |
+| `FileSMBLocal`         | Download from SMB share in Azure File Storage to local file system                    |
+| `FileNFSFileNFS`       | Copy between two NFS shares in Azure File Storage                                     |
+| `FileNFSLocal`         | Download from NFS share in Azure File Storage to local file system (Linux only)       |
+| `FilePipe`             | Stream data from Azure File Storage to a pipe                                         |
+| `FileSMBFileSMB`       | Copy between SMB shares (duplicate of above for completeness)                         |
+| `FileSMBLocal`         | Download from SMB share to local file system                                          |
+| `GCPBlob`              | Copy from Google Cloud Storage to Azure Blob Storage                                  |
+| `LocalBlob`            | Upload from local file system to Azure Blob Storage                                   |
+| `LocalBlobFS`          | Upload from local file system to Azure Data Lake Gen2 (BlobFS)                        |
+| `LocalFileSMB`         | Upload from local file system to SMB share in Azure File Storage                      |
+| `LocalFileNFS`         | Upload from local file system (Linux only) to NFS share in Azure File Storage         |
+| `PipeBlob`             | Stream data from a pipe to Azure Blob Storage                                         |
+| `PipeFile`             | Stream data from a pipe to Azure File Storage                                         |
+| `S3Blob`               | Copy from Amazon S3 to Azure Blob Storage                                             |
 
 ## Get command help
 

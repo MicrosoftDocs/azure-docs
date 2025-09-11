@@ -6,6 +6,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.date: 08/21/2025
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 # Customer intent: "As a system administrator managing virtual machines, I want to enable alerts using Update Manager, so that I can efficiently monitor and respond to update-related events across my hybrid cloud environment."
 ---
 
@@ -17,10 +18,10 @@ This article provides steps to enable Alerts (preview) with [Azure Update Manage
 
 Azure Update Manager is a unified service that allows you to manage and govern updates for all your Windows and Linux virtual machines across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. It's designed as a standalone Azure service to provide SaaS experience to manage hybrid environments in Azure.
 
-Logs created from patching operations such as update assessments and installations are stored by Azure Update Manager in Azure Resource Graph (ARG). You can view up to last seven days of assessment data, and up to last 30 days of update installation results.
+Logs created from patching operations such as update assessments and installations are stored by Azure Update Manager in Azure Resource Graph (ARG). You can view up to last seven days of assessment data, and up to last 30 days of updated installation results.
 
 > [!NOTE]
-> This feature isn't available in Azure US Government and Azure China operated by 21 Vianet.
+> This feature isn't available in Azure US Government and Azure operated by 21 Vianet.
 
 ## Prerequisite
 
@@ -33,31 +34,42 @@ To enable alerts (Preview) with Azure Update Manager through Azure portal, follo
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 1. Under **Monitoring**, select **New alerts rule (Preview)** to create a new alert rule.
    
-   :::image type="content" source="./media/manage-alerts/access-alerts-inline.png" alt-text="Screenshot that shows how to access alerts feature." lightbox="./media/manage-alerts/access-alerts-expanded.png":::
+   :::image type="content" source="./media/manage-alerts/create-new-alert-rule.png" alt-text="Screenshot that shows how to create new alerts rule." lightbox="./media/manage-alerts/create-new-alert-rule.png":::
  
-1. On **Azure Update Manager | New alerts rule (Preview)** page, provide the following details:
-    1. Select a **Subscription** from the dropdown that will be the scope of the alert rule.
-    1. From the **Azure Resource Group query** dropdown, select a predefined alerting query option. 
-    1. You can select **Custom query** option to edit or write a custom query.
+    1. From the dropdown list, select the **Subscription** that defines the scope of the alert rule.
+    1. Select a **Resource Group** from the dropdown. Alert will be created in this resource group.
+    1. Select a **Location** from the dropdown. Alert will be created at this location. 
+    1. In the **Azure Resource Group** query dropdown, select one of the predefined alerting query options.
+    1. You can select **Custom query** option to edit or write a custom query and then select **Skip to custom alert rules**.
     
-       :::image type="content" source="./media/manage-alerts/create-alert-rule-inline.png" alt-text="Screenshot that shows how to create alert rule." lightbox="./media/manage-alerts/create-alert-rule-expanded.png":::
+       :::image type="content" source="./media/manage-alerts/create-alert-rule-custom.png" alt-text="Screenshot that shows how to create alert custom rules." lightbox="./media/manage-alerts/create-alert-rule-custom.png":::
     
-    1. Select **View result and edit query in Logs** to run a selected alerting query option or to edit a query.
+    1. Select **Preview or edit query in Logs** to run a selected alerting query option or to edit a query.
     
-       :::image type="content" source="./media/manage-alerts/edit-query-inline.png" alt-text="Screenshot that shows how to edit query in logs." lightbox="./media/manage-alerts/edit-query-expanded.png":::
-    
-    1. Select **Run** to run the query to enable **Continue Editing Alert**.
-    
-      :::image type="content" source="./media/manage-alerts/run-query-inline.png" alt-text="Screenshot that shows how to run the query." lightbox="./media/manage-alerts/run-query-expanded.png":::
-      
-1.  If you don't want to run a selected query or edit a query, select **Continue to create a new alert rule** to move to the alert rule create flow where you can set up the advanced alert rule configuration. 
-   
-    :::image type="content" source="./media/manage-alerts/advance-alert-rule-configuration-inline.png" alt-text="Screenshot that shows how to configure advanced alert rule." lightbox="./media/manage-alerts/advance-alert-rule-configuration-expanded.png":::
+       :::image type="content" source="./media/manage-alerts/edit-query-inline.png" alt-text="Screenshot that shows how to edit query in logs." lightbox="./media/manage-alerts/edit-query-inline.png":::
 
+    1. Select **Run** to run the query and to enable **Continue Editing Alert**.
+   
+         :::image type="content" source="./media/manage-alerts/query-inline.png" alt-text="Screenshot that shows how to run the query." lightbox="./media/manage-alerts/query-inline.png":::
+
+    1. Select the **Scope and filters** you want to apply.
+    1. Select **Identify, Threshold, and Frequency** of evaluation as per your requirement.
+    1. Enter your preferences in the **Notify me** section.
+    1. Select **Quick create a new rule**.     
+
+## Edits alerts 
+
+To edit the alerts, follow these steps:
+
+1. To edit or write a custom query, select the **Custom query** option.
+1. Select **Skip to custom alert rules** to go directly to the alert rule creation flow, where you can configure advanced alert rule settings.
+      
+   :::image type="content" source="./media/manage-alerts/advance-alert-rule-configuration-inline.png" alt-text="Screenshot that shows how to configure advanced alert rule." lightbox="./media/manage-alerts/advance-alert-rule-configuration-expanded.png":::
+   
 1. Select **Review + create** to create alert. For more information, see [Create Azure Monitor alert rules](/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-alert-rule-conditions).
+    
     - To identify alerts & alert rules created for Azure Update Manager, provide unique **Alert rule name** in the **Details** tab.
         :::image type="content" source="./media/manage-alerts/unique-alert-name-inline.png" alt-text="Screenshot that shows how to create unique alert name." lightbox="./media/manage-alerts/unique-alert-name-expanded.png":::
-
 
 ## View alerts
 
@@ -75,8 +87,8 @@ To view the alerts, follow these steps:
 
 
 > [!NOTE]
-> - Azure Resource Graph query used for alerts can return at maximum of 1000 rows.
-> - By default, Azure Resource Graph query will return response as per the access provided via the users managed identity and user need to filter out by subscriptions, resource groups and other criteria as per the requirement.
+> - Azure Resource Graph query used for alerts can return to a maximum of 1000 rows.
+> - By default, Azure Resource Graph query will return response as per the access provided via the users managed identity and user need to filter out by subscriptions, resource groups, and other criteria as per the requirement.
 ## Next steps
 
 * [An overview on Azure Update Manager](overview.md)

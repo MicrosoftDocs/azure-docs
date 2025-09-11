@@ -4,6 +4,7 @@ description: Learn how to configure outbound network traffic restriction for Azu
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.date: 03/03/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Configure outbound network traffic for Azure HDInsight clusters using Firewall

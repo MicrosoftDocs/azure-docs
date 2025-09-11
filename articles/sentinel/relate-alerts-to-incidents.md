@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 01/17/2023
 appliesto:
     - Microsoft Sentinel in the Azure portal
+ms.custom: sfi-image-nochange
 #Customer intent: As a security analyst, I want to relate alerts to incidents in Microsoft Sentinel so that I can refine and expand the scope of my investigations efficiently.
 ---
 

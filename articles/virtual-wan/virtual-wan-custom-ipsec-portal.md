@@ -8,6 +8,7 @@ ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 12/12/2024
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 
 ---
 # Configure a custom IPsec policy for Virtual WAN using the portal

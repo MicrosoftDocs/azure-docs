@@ -8,7 +8,10 @@ ms.topic: how-to
 ms.subservice: spark
 ms.date: 09/11/2024
 ms.author: jingzh 
-ms.custom: devx-track-python
+ms.custom:
+  - devx-track-python
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Create, develop, and maintain Synapse notebooks

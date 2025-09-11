@@ -13,7 +13,7 @@ appliesto:
 ---
 # Quickstart: Create an Azure Managed Redis Instance
 
-Azure Managed Redis provides fully integrated and managed [Redis Enterprise](https://redislabs.com/redis-enterprise/) on Azure. There are four tiers of Azure Managed Redis, each with different performance characteristics:
+Azure Managed Redis provides fully integrated and managed [Redis Enterprise](https://redis.io) on Azure. There are four tiers of Azure Managed Redis, each with different performance characteristics:
 
 Three tiers are for in-memory data:
 

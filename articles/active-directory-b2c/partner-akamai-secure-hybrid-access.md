@@ -12,6 +12,7 @@ ms.date: 11/23/2022
 ms.author: gasinh
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 #Customer Intent: As a developer building a desktop app, I want to set up sign-in functionality using Azure Active Directory B2C, so that I can authenticate users with social and enterprise accounts and protect my application and customer data.
 

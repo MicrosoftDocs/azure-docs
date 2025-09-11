@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path": "articles/storage/files/storage-how-to-create-file-share.md",
+      "redirect_url": "/azure/storage/files/create-classic-file-share",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/files/storage-files-quick-create-use-linux.md",
+      "redirect_url": "/azure/storage/files/create-file-share",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/managed-ccf/application-scenarios.md",
       "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
       "redirect_document_id": false
@@ -2593,7 +2603,7 @@
       "source_path_from_root": "/articles/app-service/app-service-configure-premium-tier.md",
       "redirect_url": "/azure/app-service/app-service-configure-premium-v4-tier",
       "redirect_document_id": false
-    },           
+    },
     {
       "source_path_from_root": "/articles/public-multi-access-edge-compute-mec/tutorial-create-vm-using-python-sdk.md",
       "redirect_url": "/previous-versions/azure/public-multi-access-edge-compute-mec/tutorial-create-vm-using-python-sdk",
@@ -6455,6 +6465,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/service-connector/tutorial-python-aks-openai-connection-string.md",
+      "redirect_url": "/azure/service-connector/tutorial-python-aks-openai-workload-identity",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/load-balancer/move-across-regions-external-load-balancer-portal.md",
       "redirect_url": "/azure/load-balancer/move-across-regions-azure-load-balancer",
       "redirect_document_id": false
@@ -7130,9 +7145,9 @@
       "redirect_document_id": true
     },
     {
-       "source_path": "articles/private-5g-core/disconnected-mode.md",
-       "redirect_url": "/azure/private-5g-core/azure-stack-edge-disconnects",
-       "redirect_document_id": true
+      "source_path": "articles/private-5g-core/disconnected-mode.md",
+      "redirect_url": "/azure/private-5g-core/azure-stack-edge-disconnects",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/signups/startup-programs.md",
@@ -7143,7 +7158,7 @@
       "source_path": "articles/reliability/migrate-sql-database.md",
       "redirect_url": "/azure/azure-sql/database/enable-zone-redundancy",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/reliability/migrate-app-gateway-v2.md",
       "redirect_url": "/azure/reliability/reliability-application-gateway-v2",
@@ -7153,6 +7168,16 @@
       "source_path": "articles/reliability/migrate-storage.md",
       "redirect_url": "/azure/storage/common/redundancy-migration",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/migrate-container-instances.md",
+      "redirect_url": "/azure/reliability/reliability-container-instances",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/reliability-containers.md",
+      "redirect_url": "/azure/reliability/reliability-container-instances",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/reliability/reliability-operator-nexus.md",
@@ -7165,4 +7190,3 @@
     
   ]
 }
-

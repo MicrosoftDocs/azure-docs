@@ -7,7 +7,9 @@ ms.subservice: security
 ms.topic: quickstart
 ms.date: 04/10/2025
 ms.reviewer: mariozi
-ms.custom: mode-other
+ms.custom:
+  - mode-other
+  - sfi-image-nochange
 ---
 # Encrypt Azure Data Factory with customer-managed keys
 
