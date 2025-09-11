@@ -6,6 +6,7 @@ author: jyothisuri
 ms.date: 07/25/2025
 ms.topic: faq
 ms.service: azure-site-recovery
+ms.custom: sfi-image-nochange
 
 # Customer intent: As a cloud administrator, I want to understand the disaster recovery options for Azure virtual machines using replication, so that I can implement effective strategies for failover and data protection across regions.
 ---
