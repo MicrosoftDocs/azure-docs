@@ -152,14 +152,14 @@ items:
             href: ../../service-bus-messaging/service-bus-resource-manager-namespace-queue-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
       - name: Internet of Things
         items:
+          - name: Firmware analysis
+            href: ../../firmware-analysis/quickstart-firmware-analysis-bicep.md
           - name: IoT Edge
             href: ../../iot-edge/how-to-install-iot-edge-ubuntuvm-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
           - name: IoT Hub
             href: ../../iot-hub/quickstart-bicep-route-messages.md?toc=/azure/azure-resource-manager/bicep/toc.json
           - name: IoT Hub Device Provisioning Service
             href: ../../iot-dps/quick-setup-auto-provision-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
-          - name: Firmware analysis
-            href: ../../firmware-analysis/quickstart-firmware-analysis-bicep.md
       - name: Management and Governance
         items:
           - name: Advisor
