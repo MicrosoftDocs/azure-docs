@@ -22,7 +22,7 @@ This article shows how to assign the built-in DevCenter Project Admin role for p
 
 ## Permissions required
 
-To create role assignments you need permission to create role assignments on the target resource. Specifically:
+To create role assignments, you need permission to create role assignments on the target resource. Specifically:
 
 - Required permission actions:
   - Microsoft.Authorization/roleAssignments/write
@@ -53,7 +53,7 @@ Use this role for dev team leads who manage project environment types.
 
 1. Select **Save**.
 
-:::image type="content" source="media/configure-project-admin/add-role-assignment-admin.png" alt-text="Screenshot that shows the Add role assignment pane with DevCenter Project Admin selected." lightbox="media/configure-project-admin/add-role-assignment-admin.png":::
+:::image type="content" source="media/configure-project-admin/add-role-assignment-admin.png" alt-text="Screenshot of the Add role assignment pane with DevCenter Project Admin selected." lightbox="media/configure-project-admin/add-role-assignment-admin.png":::
 
 Verify the role assignment: On the project's Access control (IAM) page, confirm the new member appears for the DevCenter Project Admin role.
 
@@ -64,7 +64,7 @@ Verify the role assignment: On the project's Access control (IAM) page, confirm 
 1. Select **Add** > **Add role assignment**.
 1. Assign **DevCenter Project Admin** to the desired users or groups and select **Save**.
 
-:::image type="content" source="media/configure-project-admin/project-environment-types.png" alt-text="Screenshot that shows the environment types associated with a project." lightbox="media/configure-project-admin/project-environment-types.png":::
+:::image type="content" source="media/configure-project-admin/project-environment-types.png" alt-text="Screenshot of the environment types associated with a project." lightbox="media/configure-project-admin/project-environment-types.png":::
 
 ## Assign Deployment Environments User (developers)
 
@@ -84,7 +84,7 @@ Use this role for developers who need to create and manage their own environment
 
 1. Select **Save**.
 
-:::image type="content" source="media/configure-deployment-environments-user/add-role-assignment.png" alt-text="Screenshot that shows the Add role assignment pane with Deployment Environments User selected." lightbox="media/configure-deployment-environments-user/add-role-assignment.png":::
+:::image type="content" source="media/configure-deployment-environments-user/add-role-assignment.png" alt-text="Screenshot of the Add role assignment pane with Deployment Environments User selected." lightbox="media/configure-deployment-environments-user/add-role-assignment.png":::
 
 Verify the role assignment: On the project's Access control (IAM) page, confirm the new member appears for the Deployment Environments User role.
 
@@ -95,7 +95,7 @@ Verify the role assignment: On the project's Access control (IAM) page, confirm 
 1. Select **Add** > **Add role assignment**.
 1. Assign **Deployment Environments User** to the desired users or groups and select **Save**.
 
-:::image type="content" source="media/configure-deployment-environments-user/project-environment-types.png" alt-text="Screenshot that shows the environment types associated with a project." lightbox="media/configure-deployment-environments-user/project-environment-types.png":::
+:::image type="content" source="media/configure-deployment-environments-user/project-environment-types.png" alt-text="Screenshot of the environment types associated with a project." lightbox="media/configure-deployment-environments-user/project-environment-types.png":::
 
 [!INCLUDE [note-deployment-environments-user](includes/note-deployment-environments-user.md)]
 
@@ -104,7 +104,7 @@ Verify the role assignment: On the project's Access control (IAM) page, confirm 
 - Role assignment propagation can take up to a minute; refresh the portal.
 - If you get an authorization error, confirm your account has Microsoft.Authorization/roleAssignments/write at the project scope or a parent scope.
 - Prefer assigning roles to groups rather than individuals for easier lifecycle management.
-- If a role doesn't appear, confirm you are viewing the correct scope (project vs. environment type) and that the role definition exists in the subscription.
+- If a role doesn't appear, confirm you're viewing the correct scope (project vs. environment type) and that the role definition exists in the subscription.
 
 ## Clean up resources
 
