@@ -39,7 +39,7 @@ appliesto:
 
 ## Set up virtual network support
 
-Refer to [az redis create](/cli/azure/redis).
+Refer to [az redis create](/cli/azure/redis#az-redis-create).
 
 ## Azure Cache for Redis virtual network FAQ
 
