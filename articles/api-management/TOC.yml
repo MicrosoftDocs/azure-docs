@@ -76,6 +76,8 @@
       href: api-management-howto-autoscale.md
     - name: Plan and manage costs
       href: plan-manage-costs.md
+    - name: Understand service limits
+      href: service-limits.md
     - name: Configure a custom domain
       href: configure-custom-domain.md
     - name: Use an external cache

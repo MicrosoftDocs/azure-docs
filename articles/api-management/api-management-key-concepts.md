@@ -124,6 +124,7 @@ API Management is offered in a variety of pricing tiers to meet the needs of dif
 **More information**:
 * [Feature-based comparison of the Azure API Management tiers](api-management-features.md)
 * [V2 service tiers](v2-service-tiers-overview.md)
+* [Understanding API Management limits](service-limits.md)
 * [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/)
 
 ## Integration with Azure services
