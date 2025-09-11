@@ -52,6 +52,7 @@ The `azure-openai-semantic-cache-store` policy caches responses to Azure OpenAI 
 
 - This policy can only be used once in a policy section.
 - If the cache lookup fails, the API call that uses the cache-related operation doesn't raise an error, and the cache operation completes successfully. 
+- [!INCLUDE [api-management-cache-rate-limit](../../includes/api-management-cache-rate-limit.md)]
 
 ## Examples
 

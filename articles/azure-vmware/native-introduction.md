@@ -51,7 +51,15 @@ Gen 2 private clouds are supported on the following SKU type:
 
 ## Regional availability
 
-Gen 2 is available in specific Azure public regions. SLAs are region specific. Contact your Microsoft account team or Microsoft Support to confirm coverage.
+Gen 2 is available in the following Azure public regions. 
+
+- East US
+- Canada Central
+- Canada East
+- North Europe
+- UK West
+
+Beyond these regions, SLAs are region specific. Contact your Microsoft account team or Microsoft Support to confirm coverage.
 
 ## Next steps
 

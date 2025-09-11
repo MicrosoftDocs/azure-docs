@@ -62,7 +62,10 @@ With the caching policies shown in this example, the first request to a test ope
        <vary-by-header>Accept-Charset</vary-by-header>
        <vary-by-header>Authorization</vary-by-header>
    </cache-lookup>
+   <rate-limit calls="10" renewal-period="60" />
    ```
+    > [!NOTE]
+    > [!INCLUDE [api-management-cache-availability](../../includes/api-management-cache-availability.md)]
 
 1. In the `outbound` element, add the following policy:
 

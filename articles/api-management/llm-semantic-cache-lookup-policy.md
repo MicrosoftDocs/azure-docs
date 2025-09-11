@@ -72,6 +72,7 @@ Use the `llm-semantic-cache-lookup` policy to perform cache lookup of responses 
 - Score threshold above 0.2 may lead to cache mismatch. Consider using lower value for sensitive use cases.
 - Control cross-user access to cache entries by specifying `vary-by`with specific user or user-group identifiers.
 - Consider adding [llm-content-safety](./llm-content-safety-policy.md) policy with prompt shield to protect from prompt attacks.
+- [!INCLUDE [api-management-cache-rate-limit](../../includes/api-management-cache-rate-limit.md)]
 
 
 ## Examples

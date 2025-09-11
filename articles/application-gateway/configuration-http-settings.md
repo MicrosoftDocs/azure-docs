@@ -168,6 +168,21 @@ This capability replaces the *host* header in the incoming request on the applic
 
 For example, if *www.contoso.com* is specified in the **Host name** setting, the original request *`https://appgw.eastus.cloudapp.azure.com/path1` is changed to *`https://www.contoso.com/path1` when the request is forwarded to the backend server.
 
+### Dedicated Backend Connection
+
+Azure Application Gateway, by default, reuses idle backend connections to optimize the resource utilization of TCP connections for both the Application Gateway and the backend server.
+To support security functions in customer data paths that necessitate unique backend connections per client, Azure Application Gateway V2 provides dedicated connections to backend servers. This capability establishes direct, one-to-one mapping between frontend and backend connections, ensuring persistent connectivity for each individual client.
+
+
+<img width="644" height="641" alt="image" src="https://github.com/user-attachments/assets/1eaa735c-04fb-4451-b048-2267884be4be" />
+
+>[!IMPORTANT]
+>Dedicated backend connection leads to an increase in the number of backend connections and hence could require more resources to support the increased concurrent connections on Application Gateway and the backend servers. On Application Gateway, you must consider increasing the number of instances or enabling auto scale.
+>
+>When the backend is a remote server, Application Gateway instances utilize SNAT ports for every connection. As each client connection establishes a dedicated backend connection, SNAT port consumption correspondingly increases. Therefore, it is important to account for potential SNAT port exhaustion. Visit the [architecture best practices](/azure/well-architected/service-guides/azure-application-gateway#design-checklist) for guidance.
+>
+>Dedicated Backend connection is not supported with HTTP/2.
+
 ## [Backend Settings](#tab/backendsettings)
 
 ### Port
