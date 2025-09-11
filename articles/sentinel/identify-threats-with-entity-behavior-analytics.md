@@ -9,6 +9,7 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a security analyst, I want to leverage User and Entity Behavior Analytics (UEBA) so that I can efficiently detect and prioritize sophisticated threats within my organization.

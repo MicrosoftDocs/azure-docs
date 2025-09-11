@@ -26,7 +26,7 @@ The following are some of the key features and benefits of MCP:
 
 - **Accelerated Agent Development**: MCP exposes standardized tools, which allows developers to build and deploy AI agents faster. These agents can discover, invoke, and reuse tools without needing to understand every schema or API endpoint.
 
-- **Improved Accuracy and Reduced Hallucinations**: MCP uses strongly typed schemas and predictable tool discovery, which helps reduce AI hallucinations and ensures more reliable outputs during investigations and automation.
+- **Improved Accuracy and Reliability**: MCP uses strongly typed schemas and predictable tool discovery, which helps ensure AI agents generate more accurate and trustworthy outputs during investigations and automation.
 
 - **Custom Tool Creation**: Security teams can author and convert KQL or GQL queries into reusable MCP tools. These tools can then be invoked via natural language, enabling flexible and scalable automation.
 
@@ -40,6 +40,3 @@ Here are some examples of how MCP can be used to enhance security operations:
 - **Agent Creation**: You can build agents using YAML files, form-based UI in the Security Copilot Portal, or directly through MCP endpoints (discover, build, publish).
 - **Custom Tool Creation**: Convert KQL or GQL queries into reusable tools that can be invoked via natural language. For example, you could create a tool that queries the data lake for all failed sign-in attempts and returns the results in a specific format.
 
-## Next Steps
-
-To get started using MCP go to...

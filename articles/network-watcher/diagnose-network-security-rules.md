@@ -7,7 +7,10 @@ ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 10/30/2024
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - sfi-image-nochange
 # Customer intent: As a network administrator, I want to use NSG diagnostics to verify security rules on my virtual machine, so that I can troubleshoot traffic access issues effectively.
 ---
 

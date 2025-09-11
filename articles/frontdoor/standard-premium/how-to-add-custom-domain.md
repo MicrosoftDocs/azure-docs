@@ -7,6 +7,7 @@ ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 03/26/2025
+ms.custom: sfi-image-nochange
 
 #Customer intent: As a website owner, I want to add a custom domain to my Azure Front Door configuration so that my users can use my custom domain to access my content.
 ---

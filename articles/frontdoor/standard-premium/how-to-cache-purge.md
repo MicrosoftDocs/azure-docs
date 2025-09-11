@@ -7,6 +7,7 @@ manager: KumudD
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 11/15/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Cache purging in Azure Front Door

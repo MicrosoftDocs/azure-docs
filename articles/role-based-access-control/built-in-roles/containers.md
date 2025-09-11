@@ -1906,6 +1906,86 @@ Grants access to read and write Azure Kubernetes Service clusters
 }
 ```
 
+## Azure Kubernetes Service Namespace Contributor
+
+Allows users to create and manage Azure Kubernetes Service namespace resources.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/managedNamespaces/* | Create and manage namespaces |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* | Writes resourcequotas |
+
+```json
+{
+  "Name": "Azure Kubernetes Service Namespace Contributor",
+  "Id": "289d8817-ee69-43f1-a0af-43a45505b488",
+  "IsCustom": false,
+  "Description": "Allows users to create and manage Azure Kubernetes Service namespace resources.",
+  "Actions": [
+    "Microsoft.Authorization/*/read",
+    "Microsoft.Insights/alertRules/*",
+    "Microsoft.Resources/subscriptions/resourceGroups/read",
+    "Microsoft.ContainerService/managedClusters/managedNamespaces/*",
+    "Microsoft.Resources/deployments/*"
+  ],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/"
+  ],
+  "Condition": null,
+  "ConditionVersion": null
+}
+```
+
+## Azure Kubernetes Service Namespace User
+
+Allows users to read Azure Kubernetes Service namespace resources. In-cluster namespace access further requires assignment of Azure Kubernetes Service RBAC roles to the namespace resource for an Entra ID enabled cluster.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/managedNamespaces/read | Reads namespaces |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/managedNamespaces/listCredential/action | List credentials for the given namespace |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* | Writes resourcequotas |
+
+```json
+{
+  "Name": "Azure Kubernetes Service Namespace User",
+  "Id": "c9f76ca8-b262-4b10-8ed2-09cf0948aa35",
+  "IsCustom": false,
+  "Description": "Allows users to read Azure Kubernetes Service namespace resources. In-cluster namespace access further requires assignment of Azure Kubernetes Service RBAC roles to the namespace resource for an Entra ID enabled cluster.",
+  "Actions": [
+    "Microsoft.ContainerService/managedClusters/managedNamespaces/read",
+    "Microsoft.ContainerService/managedClusters/managedNamespaces/listCredential/action"
+  ],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/"
+  ],
+  "Condition": null,
+  "ConditionVersion": null
+}
+```
+
 ## Azure Kubernetes Service RBAC Admin
 
 Lets you manage all resources under cluster/namespace, except update or delete resource quotas and namespaces.
