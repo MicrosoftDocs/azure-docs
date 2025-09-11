@@ -240,6 +240,8 @@ Name  | `Win32_operatingsystem`  | `Caption`
 Version  | `Win32_operatingsystem`  | `Version`
 Architecture  | `Win32_operatingsystem`  | `OSArchitecture`
 
+
+
 ### Linux server operating system data
 
 Here's the operating system data that the appliance collects from each discovered Linux server:
@@ -248,6 +250,18 @@ Data  | Commands
 --- | ---
 Name/version | Gathered from one or more of the following files:<br/> <br/>`/etc/os-release`  <br> `/usr/lib/os-release`  <br> `/etc/enterprise-release`  <br> `/etc/redhat-release`  <br> `/etc/oracle-release`  <br> `/etc/SuSE-release`  <br> `/etc/lsb-release`  <br> `/etc/debian_version`
 Architecture | `uname`
+
+### Windows server pending updates data
+
+Here's the pending updates data that the appliance collects from each discovered Windows server:
+
+Data | PowerShell cmdlet | Property
+--- | --- | ---
+Update Title | `New-Object -com "Microsoft.Update.Session"` | `Title`
+Update ID | `New-Object -com "Microsoft.Update.Session"` | `Identity.UpdateID`
+Update Version(KB-ID) | `New-Object -com "Microsoft.Update.Session"` | `KBArticleIDs`
+Classification/Severity | `New-Object -com "Microsoft.Update.Session"` | `Categories.CatergoryID`
+Published date | `New-Object -com "Microsoft.Update.Session"` | `LastDeploymentChangeTime`
 
 ### SQL Server data
 
@@ -269,18 +283,6 @@ Data  | Commands
 Name | `rpm`, `dpkg-query`, `snap`
 Version | `rpm`, `dpkg-query`, `snap`
 Provider | `rpm`, `dpkg-query`, `snap`
-
-### Windows server pending updates data
-
-Here's the pending updates data that the appliance collects from each discovered Windows server:
-
-Data | PowerShell cmdlet | Property
---- | --- | ---
-Update Title | `New-Object -com "Microsoft.Update.Session"` | `Title`
-Update ID | `New-Object -com "Microsoft.Update.Session"` | `Identity.UpdateID`
-Update Version(KB-ID) | `New-Object -com "Microsoft.Update.Session"` | `KBArticleIDs`
-Classification/Severity | `New-Object -com "Microsoft.Update.Session"` | `Categories.CatergoryID`
-Published date | `New-Object -com "Microsoft.Update.Session"` | `LastDeploymentChangeTime`
 
 ### Linux server pending updates data
 
