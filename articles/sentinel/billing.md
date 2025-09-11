@@ -81,7 +81,7 @@ The data lake tier incurs charges based on usage of various data like capabiliti
 	  + When data is ingested using a data connector that performs transformation. If you're unsure if the connector you're using includes transformation, consult the connector provider.
 
   + Data processing charges aren't incurred under the following conditions:  
-    + When data is ingested into a custom table - a table using the Azure Monitor Log Ingestion API for ingestion. Custom table names have a `_CL` suffix.
+    + When data is ingested into a custom table using the Azure Monitor Log Ingestion API for ingestion.
     + When data ingested into a custom table doesn't use KQL query transformations defined within a data collection rule (DCR).
 
 - **Data lake query** charges are incurred per gigabyte (GB) of data analyzed using data lake exploration KQL queries, KQL jobs, or Search.
