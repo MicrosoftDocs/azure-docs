@@ -68,21 +68,21 @@ The following are errors that you might encounter during the onboarding process.
 
 ### DL101
 
-**Error**: Can’t complete setup.
-**Description**: Your primary Microsoft Sentinel workspace region and your Microsoft Entra tenant home geographic region are different.
-**Resolution**: For preview, the geographic regions must be the same. Ensure that you have a primary workspace in the same geographic region as your Microsoft Entra tenant.
+- **Error**: Can’t complete setup.
+- **Description**: Your primary Microsoft Sentinel workspace region and your Microsoft Entra tenant home geographic region are different.
+- **Resolution**: For preview, the geographic regions must be the same. Ensure that you have a primary workspace in the same geographic region as your Microsoft Entra tenant.
 
 ### DL102
 
-**Error**: Can’t complete setup.
-**Description**: There’s a lack of Azure resources in the region at the time of provisioning.
-**Resolution**: Select the retry button to start the setup again.
+- **Error**: Can’t complete setup.
+- **Description**: There’s a lack of Azure resources in the region at the time of provisioning.
+- **Resolution**: Select the retry button to start the setup again.
 
 ### DL103
 
-**Error**: Can’t complete setup.
-**Description**: There are policies enabled that prevent the creation of the Azure managed resources needed to enable the data lake.
-**Resolution**: Check your Azure [policies](./sentinel-lake-onboarding.md#policy-exemption-for-microsoft-sentinel-data-lake-onboarding) to allow for creation of Azure managed resources.
+- **Error**: Can’t complete setup.
+- **Description**: There are policies enabled that prevent the creation of the Azure managed resources needed to enable the data lake.
+- **Resolution**: Check your Azure [policies](./sentinel-lake-onboarding.md#policy-exemption-for-microsoft-sentinel-data-lake-onboarding) to allow for creation of Azure managed resources.
 
 ## Related content
 
