@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, wsilveira
 ms.topic: how-to
-ms.date: 08/25/2025
+ms.date: 09/12/2025
 
 #Customer intent: As a logic app developer, I want to set up deployment slots on my logic app resource so that I can deploy with zero downtime.
 ---
@@ -163,7 +163,7 @@ The following options are available for you to swap a deployment slot with the c
 
 ### [Portal](#tab/portal)
 
-1. In [Azure portal](https://portal.azure.com), open your Standard logic app resource where you want to swap slots.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource where you want to swap slots.
 1. On the resource menu, under **Deployment**, select **Deployment slots**.
 1. On the toolbar, select **Swap**.
 1. On the **Swap** pane, under **Source**, select the deployment slot that you want to activate.
