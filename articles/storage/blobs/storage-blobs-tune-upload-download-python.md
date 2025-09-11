@@ -101,7 +101,7 @@ The following arguments can be tuned based on the needs of your app:
 - `max_chunk_get_size`: The maximum chunk size used for downloading a blob. Defaults to 4 MiB.
 - `max_concurrency`: The maximum number of subtransfers that may be used in parallel.
 - `max_single_get_size`: The maximum size for a blob to be downloaded in a single call. If the total blob size exceeds the `max_single_get_size`, the remainder of the blob data is downloaded in chunks. Defaults to 32 MiB.
-- `connection_data_block_size`: The block size of data sent over the connection. Defaults to 4 KiB.
+- `connection_data_block_size`: Specifies the size of data blocks read from the network stream. Defaults to 4 KiB.
 #### Code example
 
 ```python
