@@ -74,7 +74,7 @@ It can take up to 30 minutes to finish all resource creation. Wait for the deplo
 Go to the specified resource group to confirm the intended resources were created.
 
 ## Deploy Web App Quickstart (Optional)
-Azure App Service has quickstarts for many languages such as the [python quickstart](/azure/app-service/quickstart-python.md?tabs=flask%2Cwindows%2Cazure-cli%2Cazure-cli-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli) or [deploy from a zip file](/azure/app-service/deploy-zip)
+Azure App Service has quickstarts for many languages such as the [python quickstart](/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-cli%2Cazure-cli-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli) or [deploy from a zip file](/azure/app-service/deploy-zip)
 
 ## Clean up resources
 
