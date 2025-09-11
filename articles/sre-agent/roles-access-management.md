@@ -1,19 +1,17 @@
 ---
 title: Azure SRE Agent Preview roles and access management
-description: TODO.
+description: Learn how agent and user permissions affect how SRE Agent behaves.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 09/00/2025
+ms.date: 09/11/2025
 ms.author: cshoe
 ms.service: azure-sre-agent
 ---
 
 <!-- 
-
 who can create agent
 who can access agent
 how can agent perform actions
-
  -->
 
 # Azure SRE Agent Preview roles and access management
@@ -39,6 +37,30 @@ As resource groups are added or removed from the agent's scope, the managed iden
 
 > [!NOTE]
 > You can't directly remove specific permissions from the agent. To restrict the agent's access, you must remove the entire resource group from the agent's scope.
+
+The agent behaves differently depending on the assigned permissions, the execution mode, and the type of action that it attempts to make.
+
+### Read-only actions
+
+The following table details how the agent behaves when it attempts to conduct a read-only operation that requires elevated permissions.
+
+| Agent has permission? | Execution mode | Agent behavior |
+|---|---|---|
+| Yes | Review | Uses its permissions to perform the action |
+| No | Review | Prompts for temporary access to perform the action [on behalf of the user](/entra/identity-platform/v2-oauth2-on-behalf-of-flow) |
+| Yes | Automatic | Uses its permissions to perform the action |
+| No | Automatic | Prompts for temporary access to perform the action [on behalf of the user](/entra/identity-platform/v2-oauth2-on-behalf-of-flow) |
+
+### Write actions
+
+The following table details how the agent behaves when it attempts to conduct a write operation.
+
+| Agent has permission? | Execution mode | Agent behavior |
+|---|---|---|
+| Yes | Review | Prompts for approval to take action, and then uses its permissions to perform the action upon approval |
+| No | Review | Prompts for approval to take action, and then prompts for temporary access to perform the action [on behalf of the user](/entra/identity-platform/v2-oauth2-on-behalf-of-flow) |
+| Yes | Automatic | Uses its permissions to perform the action |
+| No | Automatic | Prompts for temporary access to perform the action [on behalf of the user](/entra/identity-platform/v2-oauth2-on-behalf-of-flow) |
 
 ## User permissions
 
@@ -101,6 +123,16 @@ Here's a few example scenarios that can help illustrate how the security model i
 | User is an owner to a resource, but is only a user of the agent. | *SRE Agent User* | *Owner* on an AKS cluster managed by SRE Agent | The user, outside the agent, can directly scale the cluster via CLI or Azure portal since this user has the *Owner* role to the AKS cluster. However, within the agent, their *SRE Agent Reader* role restricts them to only triage, diagnostics, and escalation requests.<br><br>This user can't approve mitigations inside the agent, even with elevated privileges outside the agent. Only *SRE Agent Admin* users can perform these privileged actions. |
 | User is an administrator to the agent, but it has limited access to resources managed by the agent. | *SRE Agent Admin* | User *doesn't* have *Contributor* or *Owner* access to an App Service instance managed by the agent | A request fails when this user tries to roll back the App Service instance. This operation fails because the agent’s managed identity doesn't have *Contributor* permissions on the App Service instance.<br><br>The *SRE Agent Admin* role gives the user authority in the agent, but Azure RBAC rules enforce boundaries limit what the user can do outside the agent. |
 
+### Roles
+
+The agent's managed identity is often preconfigured with the following role assignments for a managed resource group:
+
+- Log Analytics Reader
+- Azure Reader
+- Monitoring Reader
+
+These assignments are in addition to any required roles related to specific Azure services in resource groups that the agent manages.
+
 ## Example workflow
 
 To demonstrate the security model enforced by SRE Agent, the following table describes a hypothetical security flow from agent creation to usage. This example uses App Service as an example, but the result is the same for any Azure service managed by the agent.
@@ -113,42 +145,6 @@ To demonstrate the security model enforced by SRE Agent, the following table des
 | **4. Request fix** | *SRE Agent User* (L1 Engineer) | User issues the request, "Fix the configuration issue." | Agent drafts a remediation plan to update `AzureWebJobsStorage` setting and restart App Service. | User’s *SRE Agent User* role doesn't allow approval/execution of fixes. The agent sends the execution plan to an *SRE Agent Admin* for review. |
 | **5. Approval & execution** | *SRE Agent Admin* | Administrator reviews and approves the agent’s proposed change plan. | Agent executes the configuration update and restarts App Service using its *Contributor* RBAC on the App Service. | Execution succeeds because the agent identity has the required Azure RBAC rights. |
 | **6. Monitoring** | *SRE Agent Reader* | User opens SRE Agent and sees, "App Service is reporting HTTP 500 errors." | Auditor can view compliance and health metrics. | Agent enforces view-only action, so auditor can't request fixes despite RBAC access on resources. |
-
-### Roles
-
-The agent's managed identity is often preconfigured with the following role assignments for a managed resource group:
-
-- Log Analytics Reader
-- Azure Reader
-- Monitoring Reader
-
-These assignments are in addition to any required roles related to specific Azure services in resource groups that the agent manages.
-
-## Agent behavior
-
-The agent behaves differently depending on the assigned permissions, the execution mode, and the type of action that it attempts to make.
-
-### Read-only actions
-
-The following table details how the agent behaves when it attempts to conduct a read-only operation that requires elevated permissions.
-
-| Agent has permission? | Execution mode | Agent behavior |
-|---|---|---|
-| Yes | Review | Uses its permissions to perform the action |
-| No | Review | Prompts for temporary access to perform the action [on behalf of the user](/entra/identity-platform/v2-oauth2-on-behalf-of-flow) |
-| Yes | Automatic | Uses its permissions to perform the action |
-| No | Automatic | Prompts for temporary access to perform the action [on behalf of the user](/entra/identity-platform/v2-oauth2-on-behalf-of-flow) |
-
-### Write actions
-
-The following table details how the agent behaves when it attempts to conduct a write operation.
-
-| Agent has permission? | Execution mode | Agent behavior |
-|---|---|---|
-| Yes | Review | Prompts for approval to take action, and then uses its permissions to perform the action upon approval |
-| No | Review | Prompts for approval to take action, and then prompts for temporary access to perform the action [on behalf of the user](/entra/identity-platform/v2-oauth2-on-behalf-of-flow) |
-| Yes | Automatic | Uses its permissions to perform the action |
-| No | Automatic | Prompts for temporary access to perform the action [on behalf of the user](/entra/identity-platform/v2-oauth2-on-behalf-of-flow) |
 
 ## Assign agent roles
 
