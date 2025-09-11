@@ -10,6 +10,7 @@ ms.custom:
   - references_regions
   - ignite-2024
   - build-2025
+  - sfi-image-nochange
 ---
 
 # Secure your Origin with Private Link in Azure Front Door Premium
@@ -61,8 +62,8 @@ Azure Front Door private link is available in the following regions:
 | East US | Norway East | | Korea Central |
 | East US 2 | UK South | | East Asia |
 | South Central US | West Europe | | South East Asia |
-| West US 2 | Sweden Central | | |
-| West US 3 | | | |
+| West US 2 | Sweden Central | | China East 3 |
+| West US 3 | | | China North 3 |
 | US Gov Arizona | | | |
 | US Gov Texas | | | |
 | US Gov Virginia | | | |
