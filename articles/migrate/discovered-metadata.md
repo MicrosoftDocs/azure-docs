@@ -3,7 +3,6 @@ title: Discovered Metadata
 description: Get details about the metadata that the Azure Migrate appliance discovers.
 author: Vikram1988
 ms.author: vibansa
-ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 09/11/2025
