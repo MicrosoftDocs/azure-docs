@@ -18,6 +18,8 @@
     href: best-practices.md
   - name: Experience in Defender portal
     href: microsoft-sentinel-defender-portal.md
+  - name: Enable asset data (Preview)
+    href: graph/enable-data-connectors.md
 - name: Data lake exploration
   items:  
   - name: Compare KQL jobs, summary rules, and search jobs
@@ -838,6 +840,8 @@
     href: /rest/api/securityinsights/
   - name: OOTB content centralization changes
     href: sentinel-content-centralize.md
+  - name: Asset data tables in Microsoft Sentinel data lake (Preview)
+    href: graph/asset-data-tables.md
   - name: Management references
     items:
     - name: Microsoft Sentinel Logic Apps connector
