@@ -4,10 +4,10 @@ description: This article lists the Azure built-in roles for Azure role-based ac
 ms.service: role-based-access-control
 ms.topic: generated-reference
 ms.workload: identity
-author: jenniferf-skc    
+author: rolyon    
 manager: pmwongera
-ms.author: jfields
-ms.date: 06/30/2025
+ms.author: rolyon
+ms.date: 09/03/2025
 ms.custom: generated
 ---
 
@@ -722,6 +722,52 @@ Lets you update everything in cluster/namespace, except (cluster)roles and (clus
     }
   ],
   "roleName": "Azure Arc Kubernetes Writer",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+## Azure Container Instances Contributor Role
+
+Grants read/write access to container groups provided by Azure Container Instances
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ContainerInstance](../permissions/containers.md#microsoftcontainerinstance)/containerGroups/* | Create and manage container groups |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants read/write access to container groups provided by Azure Container Instances",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/5d977122-f97e-4b4d-a52f-6b43003ddb4d",
+  "name": "5d977122-f97e-4b4d-a52f-6b43003ddb4d",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerInstance/containerGroups/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Container Instances Contributor Role",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -1857,6 +1903,86 @@ Grants access to read and write Azure Kubernetes Service clusters
   "roleName": "Azure Kubernetes Service Contributor Role",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Kubernetes Service Namespace Contributor
+
+Allows users to create and manage Azure Kubernetes Service namespace resources.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/managedNamespaces/* | Create and manage namespaces |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* | Writes resourcequotas |
+
+```json
+{
+  "Name": "Azure Kubernetes Service Namespace Contributor",
+  "Id": "289d8817-ee69-43f1-a0af-43a45505b488",
+  "IsCustom": false,
+  "Description": "Allows users to create and manage Azure Kubernetes Service namespace resources.",
+  "Actions": [
+    "Microsoft.Authorization/*/read",
+    "Microsoft.Insights/alertRules/*",
+    "Microsoft.Resources/subscriptions/resourceGroups/read",
+    "Microsoft.ContainerService/managedClusters/managedNamespaces/*",
+    "Microsoft.Resources/deployments/*"
+  ],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/"
+  ],
+  "Condition": null,
+  "ConditionVersion": null
+}
+```
+
+## Azure Kubernetes Service Namespace User
+
+Allows users to read Azure Kubernetes Service namespace resources. In-cluster namespace access further requires assignment of Azure Kubernetes Service RBAC roles to the namespace resource for an Entra ID enabled cluster.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/managedNamespaces/read | Reads namespaces |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/managedNamespaces/listCredential/action | List credentials for the given namespace |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* | Writes resourcequotas |
+
+```json
+{
+  "Name": "Azure Kubernetes Service Namespace User",
+  "Id": "c9f76ca8-b262-4b10-8ed2-09cf0948aa35",
+  "IsCustom": false,
+  "Description": "Allows users to read Azure Kubernetes Service namespace resources. In-cluster namespace access further requires assignment of Azure Kubernetes Service RBAC roles to the namespace resource for an Entra ID enabled cluster.",
+  "Actions": [
+    "Microsoft.ContainerService/managedClusters/managedNamespaces/read",
+    "Microsoft.ContainerService/managedClusters/managedNamespaces/listCredential/action"
+  ],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/"
+  ],
+  "Condition": null,
+  "ConditionVersion": null
 }
 ```
 

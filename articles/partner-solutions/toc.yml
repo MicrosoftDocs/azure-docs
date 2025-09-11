@@ -5,6 +5,8 @@ items:
     href: overview.md
   - name: Partner services
     href: partners.md
+  - name: Frequently asked questions
+    href: faq.yml
 - name: Partner services documentation
   expanded: true
   items:
@@ -32,7 +34,7 @@ items:
     href: ./new-relic/index.yml
   - name: Palo Alto Network
     href: ./palo-alto/index.yml
-  - name: Pure Storage Cloud (preview)
+  - name: Pure Storage Cloud
     href: ./pure-storage/index.yml
   - name: NGINX
     href: ./nginx/index.yml

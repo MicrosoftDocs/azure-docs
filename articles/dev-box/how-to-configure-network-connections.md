@@ -1,12 +1,12 @@
 ---
-title: Configure network connections
+title: Configure Network Connections
 titleSuffix: Microsoft Dev Box
 description: Learn how to manage network connections for a dev center in Microsoft Dev Box. Connect to a virtual network or enable connecting to on-premises resources.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 01/12/2024
+ms.date: 08/27/2025
 ms.topic: how-to
 #Customer intent: As a platform engineer, I want to be able to manage network connections so that I can enable dev boxes to connect to my existing networks and deploy them in the desired region.
 ---
@@ -31,7 +31,7 @@ When you're planning network connectivity for your dev boxes, consider the follo
 
 ### Verify your permissions
 
-To manage a network connection, confirm that you have the following permissions:
+To manage a network connection, confirm you have the following permissions:
 
 | Action | Role | Permissions required |
 |---|---|---|
@@ -41,35 +41,37 @@ To manage a network connection, confirm that you have the following permissions:
 
 ## Create a virtual network and subnet
 
-To create a network connection, you need an existing virtual network and subnet. If you don't have a virtual network and subnet available, use the following steps to create them:
+To create a network connection, you need an existing virtual network and subnet. If you don't have a virtual network and subnet available, use the following steps to create these resources:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box, enter **virtual network**. In the list of results, select **Virtual Network**.
+1. In the search box, enter **virtual network**. In the list of results, select **Virtual networks**.
 
-1. On the **Virtual Network** page, select **Create**.
+1. On the **Virtual networks** page, select **+ Create**.
 
-1. On the **Create virtual network** pane, on the **Basics** tab, enter the following values:
+1. On the **Create virtual network** pane, configure the following values on the **Basics** tab:
 
-    | Setting | Value |
-    |---|---|
-    | **Subscription** | Select your subscription. |
-    | **Resource group** | Select an existing resource group, or create a new one by selecting **Create new**, entering a name, and then selecting **OK**. |
-    | **Name** | Enter a name for the virtual network. |
-    | **Region** | Select the region for the virtual network and dev boxes. |
+   | Setting | Value |
+   |---|---|
+   | **Subscription** | Select your subscription. |
+   | **Resource group** | Select an existing resource group, or create a new resource by selecting **Create new**, entering a name, and then selecting **OK**. |
+   | **Virtual network name** | Enter a name for the virtual network. |
+   | **Region** | Select the region for the virtual network and dev boxes. |
 
-    :::image type="content" source="./media/how-to-manage-network-connection/example-basics-tab.png" alt-text="Screenshot of the Basics tab on the pane for creating a virtual network in the Azure portal." lightbox="./media/how-to-manage-network-connection/example-basics-tab.png":::
+   :::image type="content" source="./media/how-to-manage-network-connection/example-basics-tab.png" border="false"  alt-text="Screenshot of the Basics tab on the pane for creating a virtual network in the Azure portal." lightbox="./media/how-to-manage-network-connection/example-basics-tab.png":::
 
    > [!IMPORTANT]
    > The region you select for the virtual network is where Azure deploys the dev boxes.
 
-1. On the **IP Addresses** tab, accept the default settings.
-
 1. On the **Security** tab, accept the default settings.
+
+1. On the **IP addresses** tab, accept the default settings.
 
 1. On the **Review + create** tab, review the settings.
 
-1. Select **Create**.
+1. After validation passes for your configuration, select **Create**.
+
+This procedure creates a virtual network and a default subnet.
 
 ## Allow access to Microsoft Dev Box endpoints from your network
 
@@ -79,47 +81,50 @@ If your organization routes egress traffic through a firewall, you need to open 
 
 ## Plan a network connection
 
-The following sections show you how to create and configure a network connection in Microsoft Dev Box.
+The following sections show how to create and configure a network connection in Microsoft Dev Box.
 
 ### Review types of Active Directory join
 
-Microsoft Dev Box requires a configured and working Active Directory join, which defines how dev boxes join your domain and access resources. There are two choices: Microsoft Entra join and Microsoft Entra hybrid join.
+Microsoft Dev Box requires a configured and working Active Directory join, which defines how dev boxes join your domain and access resources. You have two choices:
 
-- **Microsoft Entra join**. If your organization uses Microsoft Entra ID, you can use a Microsoft Entra join (sometimes called a _native_ Microsoft Entra join). Dev box users sign in to Microsoft Entra joined dev boxes by using their Microsoft Entra account. They access resources based on the permissions assigned to that account. Microsoft Entra join enables access to cloud-based and on-premises apps and resources. For more information, see [Plan your Microsoft Entra join deployment](../active-directory/devices/device-join-plan.md).
+- **Microsoft Entra join**: If your organization uses Microsoft Entra ID, you can use a Microsoft Entra join (sometimes called a _native_ Microsoft Entra join). Dev box users sign in to Microsoft Entra joined dev boxes by using their Microsoft Entra account. They access resources based on the permissions assigned to that account. Microsoft Entra join enables access to cloud-based and on-premises apps and resources. For more information, see [Plan your Microsoft Entra join deployment](../active-directory/devices/device-join-plan.md).
 
-- **Microsoft Entra hybrid join**. If your organization has an on-premises Active Directory implementation, you can still benefit from some of the functionality in Microsoft Entra ID by using Microsoft Entra hybrid joined dev boxes. These dev boxes are joined to your on-premises Active Directory instance and registered with Microsoft Entra ID. Microsoft Entra hybrid joined dev boxes require network line of sight to your on-premises domain controllers periodically. Without this connection, devices become unusable. For more information, see [Plan your Microsoft Entra hybrid join deployment](../active-directory/devices/hybrid-join-plan.md).
+- **Microsoft Entra hybrid join**: If your organization has an on-premises Active Directory implementation, you can still benefit from some of the functionality in Microsoft Entra ID by using Microsoft Entra hybrid joined dev boxes. These dev boxes are joined to your on-premises Active Directory instance and registered with Microsoft Entra ID. Microsoft Entra hybrid joined dev boxes require network line of sight to your on-premises domain controllers periodically. Without this connection, devices become unusable. For more information, see [Plan your Microsoft Entra hybrid join deployment](../active-directory/devices/hybrid-join-plan.md).
 
 ### Create a network connection
+
+Use the following procedures to create a network connection for your dev box configuration.
+
 <a name='azure-ad-join'></a>
 
 # [**Microsoft Entra join**](#tab/AzureADJoin/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box, enter **network connections**. In the list of results, select **Network Connections**.
+1. In the search box, enter **network connections**. In the list of results, select **Network connections**.
 
-1. On the **Network Connections** page, select **Create**.
+1. On the **Network connections** page, select **+ Create**:
 
-   :::image type="content" source="./media/how-to-manage-network-connection/network-connections-empty.png" alt-text="Screenshot that shows the Create button on the page for network connections." lightbox="./media/how-to-manage-network-connection/network-connections-empty.png":::
+   :::image type="content" source="./media/how-to-manage-network-connection/network-connections-empty.png" alt-text="Screenshot that shows how to select Create on the Network connections pane.":::
 
-1. On the **Create a network connection** pane, on the **Basics** tab, enter the following values:
+1. On the **Create a network connection** pane, configure the following values on the **Basics** tab:
 
    | Setting | Value |
    |---|---|
-   | **Domain join type** | Select **Microsoft Entra join**. |
+   | **Domain join type** | Select **Azure active directory join** (for _Microsoft Entra join_). |
    | **Subscription** | Select the subscription in which you want to create the network connection. |
    | **Resource group** | Select an existing resource group, or select **Create new** and then enter a name for the new resource group. |
    | **Name** | Enter a descriptive name for the network connection. |
    | **Virtual network** | Select the virtual network that you want the network connection to use. |
    | **Subnet** | Select the subnet that you want the network connection to use. |
 
-   :::image type="content" source="./media/how-to-manage-network-connection/create-native-network-connection-full-blank.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a network connection, with the option for Microsoft Entra join selected." lightbox="./media/how-to-manage-network-connection/create-native-network-connection-full-blank.png":::
+   :::image type="content" source="./media/how-to-manage-network-connection/create-native-network-connection-full-blank.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a network connection, with the option for Microsoft Entra join selected.":::
 
-1. Select **Review + Create**.
+1. On the **Review + create** tab, review the settings.
 
-1. On the **Review** tab, select **Create**.
+1. After validation passes for your configuration, select **Create**.
 
-1. When the deployment completes, select **Go to resource**. Confirm the connection appears on the **Network Connections** page.
+1. After the deployment completes, select **Go to resource**. Confirm the connection appears on the **Network connections** page.
 
 <a name='hybrid-azure-ad-join'></a>
 
@@ -127,34 +132,34 @@ Microsoft Dev Box requires a configured and working Active Directory join, which
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box, enter **network connections**. In the list of results, select **Network Connections**.
+1. In the search box, enter **network connections**. In the list of results, select **Network connections**.
 
-1. On the **Network Connections** page, select **Create**.
+1. On the **Network connections** page, select **+ Create**:
 
-   :::image type="content" source="./media/how-to-manage-network-connection/network-connections-empty.png" alt-text="Screenshot that shows the Create button on the page that lists network connections." lightbox="./media/how-to-manage-network-connection/network-connections-empty.png":::
+   :::image type="content" source="./media/how-to-manage-network-connection/network-connections-empty.png" alt-text="Screenshot that shows the Create option highlighted on the Network connections pane.":::
 
-1. On the **Create a network connection** pane, on the **Basics** tab, enter the following values:
+1. On the **Create a network connection** pane, configure the following values on the **Basics** tab:
 
    | Setting | Value |
    |---|---|
-   | **Domain join type** | Select **Microsoft Entra hybrid join**. |
+   | **Domain join type** | Select **Hybrid Azure active directory join** (for _Microsoft Entra hybrid join_). |
    | **Subscription** | Select the subscription in which you want to create the network connection. |
-   | **ResourceGroup** | Select an existing resource group, or select **Create new** and then enter a name for the new resource group. |
+   | **Resource group** | Select an existing resource group, or select **Create new** and then enter a name for the new resource group. |
    | **Name** | Enter a descriptive name for the network connection. |
    | **Virtual network** | Select the virtual network that you want the network connection to use. |
    | **Subnet** | Select the subnet that you want the network connection to use. |
-   | **AD DNS domain name**| Enter the DNS name of the Active Directory domain that you want to use for connecting and provisioning Cloud PCs. For example: `corp.contoso.com`. |
+   | **AD DNS domain name**| Enter the domain name system (DNS) name of the Active Directory domain that you want to use for connecting and provisioning cloud computers, such as `corp.contoso.com`. |
    | **Organizational unit** | Enter the organizational unit (OU). An OU is a container within an Active Directory domain that can hold users, groups, and computers. |
-   | **AD username UPN** | Enter the username, in user principal name (UPN) format, that you want to use for connecting Cloud PCs to your Active Directory domain. For example: `svcDomainJoin@corp.contoso.com`. This service account must have permission to join computers to the domain and the target OU (if one is set). |
+   | **AD username UPN** | Enter the username, in user principal name (UPN) format, that you want to use for connecting cloud computers to your Active Directory domain, such as `svcDomainJoin@corp.contoso.com`. This service account must have permission to join computers to the domain and the target OU (if one is set). |
    | **AD domain password** | Enter the password for the user. |
 
-   :::image type="content" source="./media/how-to-manage-network-connection/create-hybrid-network-connection-full-blank.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a network connection, with the option for Microsoft Entra hybrid join selected." lightbox="./media/how-to-manage-network-connection/create-hybrid-network-connection-full-blank.png":::
+   :::image type="content" source="./media/how-to-manage-network-connection/create-hybrid-network-connection-full-blank.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a network connection, with the option for Microsoft Entra hybrid join selected.":::
 
-1. Select **Review + Create**.
+1. On the **Review + create** tab, review the settings.
 
-1. On the **Review** tab, select **Create**.
+1. After validation passes for your configuration, select **Create**.
 
-1. When the deployment completes, select **Go to resource**. Confirm the connection appears on the **Network connections** page.
+1. After the deployment completes, select **Go to resource**. Confirm the connection appears on the **Network connections** page.
 
 ---
 

@@ -402,7 +402,7 @@ action().outputs.body.<property>
 
 | Return value | Type | Description |
 | ------------ | -----| ----------- |
-| <*action-output*> | String | The output from the current action or property |
+| <*action-output*> | Object | The JSON object output from the current action or property |
 
 <a name="actions"></a>
 
@@ -414,9 +414,6 @@ which you can assign to an expression. By default,
 the function references the entire action object,
 but you can optionally specify a property whose value that you want.
 For shorthand versions, see [body()](#body). For the current action, see [action()](#action).
-
-> [!TIP]
-> The `actions()` function returns output as a string. If you need to work with a returned value as a JSON object, you first need to convert the string value. You can transform the string value into a JSON object using the [Parse JSON action](logic-apps-perform-data-operations.md#parse-json-action).
 
 > [!NOTE]
 > Previously, you could use the `actions()` function or
@@ -439,7 +436,7 @@ actions('<actionName>').outputs.body.<property>
 
 | Return value | Type | Description |
 | ------------ | -----| ----------- |
-| <*action-output*> | String | The output from the specified action or property |
+| <*action-output*> | Object | The JSON object output from the specified action or property |
 
 *Example*
 
@@ -2079,7 +2076,7 @@ formatNumber(<number>, <format>, <locale>?)
 Suppose that you want to format the number `1234567890`. This example formats that number as the string "1,234,567,890.00".
 
 ```
-formatNumber(1234567890, '0,0.00', 'en-us')
+formatNumber(1234567890, '#,##0.00', 'en-US')
 ```
 
 *Example 2"
@@ -2087,7 +2084,7 @@ formatNumber(1234567890, '0,0.00', 'en-us')
 Suppose that you want to format the number `1234567890`. This example formats the number to the string "1.234.567.890,00".
 
 ```
-formatNumber(1234567890, '0,0.00', 'is-is')
+formatNumber(1234567890, '#,##0.00', 'is-IS')
 ```
 
 *Example 3*
@@ -2103,7 +2100,7 @@ formatNumber(17.35, 'C2')
 Suppose that you want to format the number `17.35`. This example formats the number to the string "17,35 kr".
 
 ```
-formatNumber(17.35, 'C2', 'is-is')
+formatNumber(17.35, 'C2', 'is-IS')
 ```
 
 ## G

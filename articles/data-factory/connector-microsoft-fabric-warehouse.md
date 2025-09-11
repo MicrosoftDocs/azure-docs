@@ -6,8 +6,10 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: synapse
-ms.date: 04/24/2025
+ms.date: 08/25/2025
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Copy and transform data in Microsoft Fabric Warehouse using Azure Data Factory or Azure Synapse Analytics
@@ -40,6 +42,8 @@ This Microsoft Fabric Warehouse connector is supported for the following capabil
 The Microsoft Fabric Warehouse connector supports the following authentication types. See the corresponding sections for details:
 
 - [Service principal authentication](#service-principal-authentication)
+- [System-assigned managed identity authentication](#managed-identity)
+- [User-assigned managed identity authentication](#user-assigned-managed-identity-authentication)
 
 ### Service principal authentication
 
@@ -51,20 +55,7 @@ To use service principal authentication, follow these steps.
     - Client secret value, which is the service principal key in the linked service.
     - Tenant ID
 
-1. Grant the service principal at least the **Contributor** role in Microsoft Fabric workspace. Follow these steps:
-    1. Go to your Microsoft Fabric workspace, select **Manage access** on the top bar. Then select **Add people or groups**.
-
-        :::image type="content" source="media/connector-microsoft-fabric-warehouse/fabric-workspace-manage-access.png" alt-text="Screenshot shows selecting Fabric workspace Manage access."::: 
-
-        :::image type="content" source="media/connector-microsoft-fabric-warehouse/manage-access-pane.png" alt-text=" Screenshot shows Fabric workspace Manage access pane."::: 
-
-    1. In **Add people** pane, enter your service principal name, and select your service principal from the drop-down list.
-
-    1. Specify the role as **Contributor** or higher (Admin, Member), then select **Add**.
-
-        :::image type="content" source="media/connector-microsoft-fabric-warehouse/select-workspace-role.png" alt-text="Screenshot shows adding Fabric workspace role."::: 
-
-    1. Your service principal is displayed on **Manage access** pane.
+1. Grant the service principal at least the **Contributor** role in Microsoft Fabric workspace. Follow the steps in [Grant permissions in Microsoft Fabric workspace](#grant-permissions-in-microsoft-fabric-workspace).
 
 These properties are supported for the linked service:
 
@@ -108,6 +99,114 @@ You can also store service principal key in Azure Key Vault.
     }
 }
 ```
+
+### <a name="managed-identity"></a> System-assigned managed identity authentication
+
+A data factory or Synapse pipeline can be associated with a [system-assigned managed identity for Azure resources](data-factory-service-identity.md#system-assigned-managed-identity), which represents that resource for authentication to other Azure services. You can directly use this system-assigned managed identity for Microsoft Fabric Warehouse authentication, which is similar to using your own service principal. It allows this designated resource to access and copy data from or to Microsoft Fabric Warehouse. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+
+To use managed identities for Azure resource authentication, follow these steps:
+
+1. [Retrieve system-assigned managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the system-assigned managed identity object ID generated along with your factory or Synapse workspace.
+
+2. Grant the system-assigned managed identity at least the **Contributor** role in Microsoft Fabric workspace. Follow the steps in [Grant permissions in Microsoft Fabric workspace](#grant-permissions-in-microsoft-fabric-workspace)
+
+These properties are supported for a Microsoft Fabric Warehouse linked service:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The **type** property must be set to **Warehouse**. | Yes |
+| endpoint | The endpoint of Microsoft Fabric Warehouse server. | Yes |
+| workspaceId | The Microsoft Fabric workspace ID. | Yes |
+| artifactId |  The Microsoft Fabric Warehouse object ID. | Yes |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is in a private network. If not specified, the default Azure integration runtime is used. |No |
+
+**Example:**
+
+```json
+{
+    "name": "MicrosoftFabricWarehouseLinkedService",
+    "properties": {
+        "type": "Warehouse",
+        "typeProperties": {
+            "endpoint": "<Microsoft Fabric Warehouse server endpoint>",
+            "workspaceId": "<Microsoft Fabric workspace ID>",
+            "artifactId": "<Microsoft Fabric Warehouse object ID>",
+            "authenticationType": "SystemAssignedManagedIdentity"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+> [!NOTE]
+> This authentication type is not supported on the self-hosted integration runtime.
+
+### User-assigned managed identity authentication
+
+A data factory can be assigned with one or multiple [user-assigned managed identities](data-factory-service-identity.md#user-assigned-managed-identity). You can use this user-assigned managed identity for Microsoft Fabric Warehouse authentication, which allows to access and copy data from or to Microsoft Fabric Warehouse. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+
+ To use user-assigned managed identity authentication, follow these steps:
+
+1. [Create one or multiple user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+
+1. Grant the user-assigned managed identity at least the **Contributor** role in Microsoft Fabric workspace. Follow the steps in [Grant permissions in Microsoft Fabric workspace](#grant-permissions-in-microsoft-fabric-workspace).
+     
+1. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](credentials.md) for each user-assigned managed identity. 
+
+These properties are supported for a Microsoft Fabric Warehouse linked service:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The **type** property must be set to **Warehouse**. | Yes |
+| endpoint | The endpoint of Microsoft Fabric Warehouse server. | Yes |
+| workspaceId | The Microsoft Fabric workspace ID. | Yes |
+| artifactId |  The Microsoft Fabric Warehouse object ID. | Yes |
+| credentials | Specify the user-assigned managed identity as the credential object. | Yes |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | No |
+
+**Example:**
+
+```json
+{
+    "name": "MicrosoftFabricWarehouseLinkedService",
+    "properties": {
+        "type": "Warehouse",
+        "typeProperties": {
+            "endpoint": "<Microsoft Fabric Warehouse server endpoint>",            
+            "workspaceId": "<Microsoft Fabric workspace ID>",
+            "artifactId": "<Microsoft Fabric Warehouse object ID>",
+            "authenticationType": "UserAssignedManagedIdentity",
+            "credential": {
+                "referenceName": "credential1",
+                "type": "CredentialReference"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### Grant permissions in Microsoft Fabric workspace
+
+You need to grant the service principal/system-assigned managed identity/user-assigned managed identity at least the **Contributor** role in Microsoft Fabric workspace. Follow these steps:
+
+1. Go to your Microsoft Fabric workspace, select **Manage access** on the top bar. Then select **Add people or groups**.
+
+    :::image type="content" source="media/connector-microsoft-fabric-warehouse/fabric-workspace-manage-access.png" alt-text="Screenshot shows selecting Fabric workspace Manage access."::: 
+    :::image type="content" source="media/connector-microsoft-fabric-warehouse/manage-access-pane.png" alt-text=" Screenshot shows Fabric workspace Manage access pane."::: 
+
+1. In **Add people** pane, enter your service principal/system-assigned managed identity/user-assigned managed identity name, and select it from the drop-down list.
+
+1. Specify the role as **Contributor** or higher (Admin, Member), then select **Add**.
+    
+    :::image type="content" source="media/connector-microsoft-fabric-warehouse/select-workspace-role.png" alt-text="Screenshot shows adding Fabric workspace role."::: 
+
+1. Your service principal/system-assigned managed identity/user-assigned managed is displayed on **Manage access** pane.
 
 ## Create a Microsoft Fabric Warehouse linked service using UI
 
@@ -533,7 +632,7 @@ Settings specific to Microsoft Fabric Warehouse are available in the Settings ta
 | :--------------------------- | :----------------------------------------------------------- | :------- |:-------------------- |:------- |
 | Update method                         | Determines what operations are allowed on your database destination. The default is to only allow inserts. To update, upsert, or delete rows, an alter-row transformation is required to tag rows for those actions. For updates, upserts and deletes, a key column or columns must be set to determine which row to alter. | Yes      | true or false    | insertable deletable upsertable updateable |
 | Table action              | Determines whether to recreate or remove all rows from the destination table prior to writing.• None: No action will be done to the table. • Recreate: The table will get dropped and recreated. Required if creating a new table dynamically.• Truncate: All rows from the target table will get removed. | No       | None or recreate or truncate | recreate: true truncate: true |
-| Enable staging          | The staging storage is configured in [Execute Data Flow activity](control-flow-execute-data-flow-activity.md). When you use managed identity authentication for your storage linked service, learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively.If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#impact-of-using-virtual-network-service-endpoints-with-azure-storage).| No       | true or false |staged: true |
+| Enable staging          | The staging storage is configured in [Execute Data Flow activity](control-flow-execute-data-flow-activity.md). When you use managed identity authentication for your storage linked service, learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively. If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#impact-of-using-virtual-network-service-endpoints-with-azure-storage).| No       | true or false |staged: true |
 | Batch size               | Controls how many rows are being written in each bucket. Larger batch sizes improve compression and memory optimization, but risk out of memory exceptions when caching data. | No       | Numeral values | batchSize: 1234|
 | Use sink schema             | By default, a temporary table will be created under the sink schema as staging. You can alternatively uncheck the **Use sink schema** option and instead, in **Select user DB schema**, specify a schema name under which Data Factory will create a staging table to load upstream data and automatically clean them up upon completion. Make sure you have create table permission in the database and alter permission on the schema. | No       | true or false | stagingSchemaName|
 | Pre and Post SQL scripts   | Enter multi-line SQL scripts that will execute before (pre-processing) and after (post-processing) data is written to your Sink database| No       | SQL scripts | preSQLs:['set IDENTITY_INSERT mytable ON'] postSQLs:['set IDENTITY_INSERT mytable OFF'],|

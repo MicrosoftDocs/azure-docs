@@ -32,33 +32,13 @@ Function app resources are langauge-specific. Make sure to choose your preferred
 
 + While not required to create a Flex Consumption plan app, you need a code project to be able to deploy to and validate a new function app. Complete the first part of one of these quickstart articles, where you create a code project with an HTTP triggered function:
 
-    ::: zone pivot="programming-language-csharp"  
-    + [Create an Azure Functions project from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-csharp)   
-    + [Create an Azure Functions project using Visual Studio Code](create-first-function-vs-code-csharp.md) 
-    ::: zone-end   
-    ::: zone pivot="programming-language-javascript"  
-    + [Create an Azure Functions project from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-javascript)  
-    + [Create an Azure Functions project using Visual Studio Code](create-first-function-vs-code-node.md) 
-    ::: zone-end  
+    + [Create an Azure Functions project from the command line](how-to-create-function-azure-cli.md)   
+    + [Create an Azure Functions project using Visual Studio Code](how-to-create-function-vs-code.md) 
+ 
     ::: zone pivot="programming-language-java" 
-    + [Create an Azure Functions project from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-java)  
-    + [Create an Azure Functions project using Visual Studio Code](create-first-function-vs-code-java.md)
-    
-     To create an app in a new Flex Consumption plan during a Maven deployment, you must create your local app project and then update the project's pom.xml file. For more information, see [Create a Java Flex Consumption app using Maven](#create-and-deploy-your-app-using-maven)   
+    To create an app in a new Flex Consumption plan during a Maven deployment, you must create your local app project and then update the project's pom.xml file. For more information, see [Create a Java Flex Consumption app using Maven](#create-and-deploy-your-app-using-maven)   
     ::: zone-end   
-    ::: zone pivot="programming-language-typescript"  
-    + [Create an Azure Functions project from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-typescript)  
-    + [Create an Azure Functions project using Visual Studio Code](create-first-function-vs-code-typescript.md) 
-    ::: zone-end   
-    ::: zone pivot="programming-language-python"  
-    + [Create an Azure Functions project from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-python)  
-    + [Create an Azure Functions project using Visual Studio Code](create-first-function-vs-code-python.md) 
-    ::: zone-end   
-    ::: zone pivot="programming-language-powershell"  
-    + [Create an Azure Functions project from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-powershell)  
-    + [Create an Azure Functions project using Visual Studio Code](create-first-function-vs-code-powershell.md) 
-    ::: zone-end   
-
+ 
     Return to this article after you create and run the local project, but before you're asked to create Azure resources. You create the function app and other Azure resources in the next section.
 
 ## Create a Flex Consumption app
@@ -297,7 +277,7 @@ You can use Maven to create a Flex Consumption hosted function app and required 
 1. Create a Java code project by completing the first part of one of these quickstart articles:
         
     + [Create an Azure Functions project from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-java)  
-    + [Create an Azure Functions project using Visual Studio Code](create-first-function-vs-code-java.md) 
+    + [Create an Azure Functions project using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-java) 
 
 1. In your Java code project, open the pom.xml file and make these changes to create your function app in the Flex Consumption plan: 
 

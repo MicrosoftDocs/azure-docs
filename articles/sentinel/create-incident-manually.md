@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 10/16/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
+ms.custom: sfi-image-nochange
 #Customer intent: As a security analyst, I want to manually create incidents in Microsoft Sentinel so that I can investigate and respond to threats not automatically detected or ingested from external systems.
 ---
 

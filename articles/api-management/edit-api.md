@@ -7,6 +7,7 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 01/19/2022
 ms.author: danlep
+ms.custom: sfi-image-nochange
 ---
 # Edit an API
 

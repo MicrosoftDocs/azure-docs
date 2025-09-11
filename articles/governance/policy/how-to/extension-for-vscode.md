@@ -282,7 +282,7 @@ From the menu bar, go to **View** > **Command Palette**, and then enter **Azure:
 
 ## Next steps
 
-- Review examples at [Azure Policy samples](../samples/index.md).
+- Review examples at [Azure Policy samples](/azure/governance/policy/samples/index).
 - Study the [Azure Policy definition structure](../concepts/definition-structure-basics.md).
 - Read [Understanding policy effects](../concepts/effect-basics.md).
 - Understand how to [programmatically create policy definitions](programmatically-create.md).

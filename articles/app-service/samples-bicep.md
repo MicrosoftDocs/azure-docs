@@ -8,6 +8,7 @@ ms.topic: sample
 ms.date: 11/18/2022
 ms.author: jordanselig
 ms.custom: mvc, fasttrack-edit, devx-track-bicep
+ms.service: azure-app-service
 ---
 # Bicep files for App Service
 

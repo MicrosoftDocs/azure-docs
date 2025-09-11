@@ -9,6 +9,7 @@ ms.subservice: data-movement
 ms.collection:
  - migration
  - aws-to-azure
+ms.custom: sfi-image-nochange
 ---
 
 # Migrate data from Amazon S3 to Azure Data Lake Storage Gen2

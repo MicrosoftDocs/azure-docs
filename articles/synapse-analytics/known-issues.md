@@ -36,6 +36,7 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 |Azure Synapse serverless SQL pool|[Storage access issues due to authorization header being too long](#storage-access-issues-due-to-authorization-header-being-too-long)|Has workaround|
 |Azure Synapse serverless SQL pool|[Querying a view shows unexpected results](#querying-a-view-shows-unexpected-results)|Has workaround|
 |Azure Synapse serverless SQL pool|[Queries longer than 7,500 characters may not appear in Log Analytics](#queries-longer-than-7500-characters-may-not-appear-in-log-analytics)|Has workaround|
+|Azure Synapse serverless SQL pool|[Proxied connections can be affected by Gateway, resulting in connection failures](#proxied-connections-may-result-in-failure-due-to-gateway)|No workaround|
 |Azure Synapse Workspace|[Blob storage linked service with User Assigned Managed Identity (UAMI) isn't getting listed](#blob-storage-linked-service-with-user-assigned-managed-identity-uami-is-not-getting-listed)|Has workaround|
 |Azure Synapse Workspace|[Failed to delete Synapse workspace & Unable to delete virtual network](#failed-to-delete-synapse-workspace--unable-to-delete-virtual-network)|Has workaround|
 |Azure Synapse Workspace|[REST API PUT operations or ARM/Bicep templates to update network settings fail](#rest-api-put-operations-or-armbicep-templates-to-update-network-settings-fail)|Has workaround|
@@ -100,6 +101,12 @@ Other option is to retry the deployment after several minutes. During the wait t
 When making a change to the [tags](../azure-resource-manager/management/tag-resources-portal.md) of a dedicated SQL pool through Azure portal or other methods, an error message can appear even though the change is made successfully.
 
 **Workaround**: You can confirm that the change to the tags was successful and ignore/suppress the error message as needed.
+
+### Proxied connections may result in failure due to gateway
+
+When establishing a connection from outside of the Azure network boundary, all connections are proxied through the gateway as per the Default [Connection policy](security/connectivity-settings.md) for Synapse Workspaces. The same is applied when utilizing Private Endpoints in Synapse workspaces. Due to this policy, this can lead to increased latency and reduced throughput when communicating with the dedicated pool and be affected by gateway outages.
+
+**Workaround**: Currently there is no workaround for scenario. 
 
 ## Azure Synapse workspace active known issues summary
 

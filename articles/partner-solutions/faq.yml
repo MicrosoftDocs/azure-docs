@@ -1,0 +1,25 @@
+### YamlMime:FAQ
+metadata:
+  title: "Azure Native Integrations: Frequently asked questions"
+  description: Frequently asked questions about Azure Native Integrations. 
+  author: ProfessorKendrick
+  ms.author: kkendrick
+  ms.service: partner-services
+  ms.topic: faq 
+  ms.date: 05/21/2025
+
+title: Azure Native Integrations frequently asked questions
+summary: |
+  This article provides answers to some of the most common questions about Azure Native Integrations. 
+sections:
+  - name: General
+    questions:  
+      - question: Who should I contact for support for Azure Native Integrations?
+        answer: |
+          Customer support is provided by the partner service. Contact the partner's support team directly for assistance. See the [partner's documentation](partners.md) for details. 
+      - question: Can I move my resources to different resource groups?
+        answer: |
+          No. Currently, [resource movement](../azure-resource-manager/management/move-resource-group-and-subscription.md) isn't supported within or across subscriptions for Azure Native Integrations.
+additionalContent: |
+    ## Related content
+    To learn more, see [Azure Native Integrations overview](overview.md).

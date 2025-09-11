@@ -1,8 +1,8 @@
 ---
-title: An overview of Dynamic Scoping 
+title: An Overview of Dynamic Scoping 
 description: This article provides information about Dynamic Scoping, its purpose and advantages.
 ms.service: azure-update-manager
-ms.date: 09/06/2024
+ms.date: 08/21/2025
 ms.topic: overview
 author: habibaum
 ms.author: v-uhabiba

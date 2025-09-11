@@ -10,7 +10,7 @@ ms.author: fauhse
 ms.custom: references_regions
 ---
 
-# Azure Storage Discovery concepts
+# Azure Storage Discovery preview concepts
 
 The concepts and terminology used throughout this documentation are defined below.
 
