@@ -21,7 +21,7 @@ Support for Azure REST API to manage Azure Arc-enabled servers is available thro
 
 To trigger an update assessment on your Azure Arc-enabled server, specify the following POST request:
 
-# [Azure CLI](#tab/cli)
+# [Azure CLI](#tab/azure-cli)
 
 To specify the POST request, you can use the Azure CLI [az rest](/cli/azure/reference-index#az_rest) command.
 
@@ -67,7 +67,7 @@ The following table describes the elements of the request body:
 | `linuxParameters - packageNameMasksToExclude` | List of Linux packages that are available to the machine and should **not** be installed. If you've included any 'classificationsToInclude', the packages available in the category will be installed. 'packageNameMasksToExclude' is an option to provide list of specific packages that you want to ensure don't get installed. For example: `mysql, libc=1.0.1.1, kernel*` |
 
 
-# [Azure REST API](#tab/rest)
+# [Azure REST API](#tab/rest-api)
 
 To specify the POST request, you can use the following Azure REST API call with valid parameters and values. 
 
@@ -97,7 +97,7 @@ POST on 'subscriptions/subscriptionI/resourceGroups/resourceGroupName/providers/
 
 ```
 
-# [Azure CLI](#tab/cli)
+# [Azure CLI](#tab/azure-cli)
 
 To specify the POST request, you can use the Azure CLI [az rest](/cli/azure/reference-index#az_rest) command.
 
@@ -130,7 +130,7 @@ The format of the request body for version 2020-08-15 is as follows:
   }
 ```
 
-# [Azure PowerShell](#tab/azurepowershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMethod](/powershell/module/az.accounts/invoke-azrestmethod) cmdlet.
 
@@ -190,7 +190,7 @@ The following table describes the elements of the request body:
 | `tags` | Gets or sets tags of the resource |
 | `type` | Type of the resource |
 
-# [Azure REST API](#tab/rest)
+# [Azure REST API](#tab/rest-api)
 
 To specify the POST request, you can use the following Azure REST API call with valid parameters and values. 
 
@@ -232,7 +232,7 @@ PUT on '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/atsca
 }'
 ```
 
-# [Azure CLI](#tab/cli)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az maintenance configuration create \
@@ -250,7 +250,7 @@ az maintenance configuration create \
    --extension-properties InGuestPatchMode="User"
 ```
 
-# [Azure PowerShell](#tab/azurepowershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 You can use the `New-AzMaintenanceConfiguration` cmdlet to create your configuration.
 
@@ -283,7 +283,7 @@ To associate a VM with a maintenance configuration schedule, specify the followi
 PUT on `<ARC or Azure VM resourceId>/providers/Microsoft.Maintenance/configurationAssignments/<configurationAssignment name>?api-version=2021-09-01-preview`
 ```
 
-# [Azure REST API](#tab/rest)
+# [Azure REST API](#tab/rest-api)
 
 To specify the PUT request, you can use the following Azure REST API call with valid parameters and values. 
 
@@ -298,7 +298,7 @@ PUT on '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/atsca
 }'
 ```
 
-# [Azure CLI](#tab/cli)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az maintenance assignment create \
@@ -311,7 +311,7 @@ az maintenance assignment create \
    --maintenance-configuration-id "/subscriptions/{subscription ID}/resourcegroups/myMaintenanceRG/providers/Microsoft.Maintenance/maintenanceConfigurations/myConfig"
 ```
 
-# [Azure PowerShell](#tab/azurepowershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzConfigurationAssignment `
@@ -330,7 +330,7 @@ New-AzConfigurationAssignment `
 
 To remove a machine from the schedule, get all the configuration assignment names for the machine that you have created to associate the machine with the current schedule from the Azure Resource Graph as listed:
 
-# [Azure CLI](#tab/cli)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az maintenance configuration delete \
@@ -343,7 +343,7 @@ az maintenance configuration delete \
    --maintenance-configuration-id "/subscriptions/{subscription ID}/resourcegroups/myMaintenanceRG/providers/Microsoft.Maintenance/maintenanceConfigurations/myConfig"
 ```
 
-# [Azure REST API](#tab/rest)
+# [Azure REST API](#tab/rest-api)
 
 ```rest
 DELETE on `<ARC or Azure VM resourceId>/providers/Microsoft.Maintenance/configurationAssignments/<configurationAssignment name>?api-version=2021-09-01-preview`
