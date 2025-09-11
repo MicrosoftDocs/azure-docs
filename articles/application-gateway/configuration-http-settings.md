@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 05/15/2025
+ms.date: 09/11/2025
 ms.author: mbender
 ms.custom:
   - build-2025
@@ -74,7 +74,31 @@ This setting specifies the port where the backend servers listen to traffic from
 
 When selecting the HTTPS protocol in the backend settings, the application gateway resource utilizes its default Trusted Root CA certificate store to verify the chain and authenticity of the certificate provided by the backend server.
 
-By default, the Application Gateway resource includes popular CA certificates, allowing seamless backend TLS connections when the backend server certificate is issued by a Public CA. However, if you intend to use a Private CA or a self-generated certificate, you must provide the corresponding Root CA certificate (.cer) in this Backend Settings configuration.
+By default, the Application Gateway resource includes popular CA certificates, allowing seamless backend TLS connections when the backend server certificate is issued by a Public CA. However, if you intend to use a Private CA or a self-generated certificate with complete TLS validation, you must provide the corresponding Root CA certificate (.cer) in the Backend Settings configuration.
+
+### Backend HTTPS validation settings
+
+When HTTPS is selected in the Backend Settings of Azure Application Gateway, the gateway performs complete TLS handshake validation while establishing a secure connection with backend servers. These validations include:
+
+1.	Verifying certificate chain to ensure the certificate is trusted.
+2.	Verifying the Subject Name of certificate against the Server Name Indication (SNI) that was sent by the Application Gateway.
+3.	Verifying the certificate expiry to confirm if the certificate is still valid.
+   
+The default validation settings ensure secure TLS communication between the gateway and backend services. In certain scenarios, it may be necessary to adjust one or more of these validation settings. To accommodate diverse customer requirements, Application Gateway offers the following configurable options. You can use either or both options as needed.
+
+:::image source="media/configuration-http-settings/backend-tls-validations.png" alt-text="A diagram showing portal view of the TLS validation controls available for customers.":::
+
+| Properties  | Values | 
+| ---------- | ---------- |
+| validateCertChainAndExpiry  | Type: Boolean (true or false). The default setting is true. This verifies or skips both certificate chain and expiry verifications. | 
+| validateSNI | Type: Boolean (true or false). The default setting is true. It verifies if the Common Name of the certificate provided by the backend server matches the Server Name Indication (SNI) value that was sent by the Application Gateway. |
+| sniName | Type: String. This property is required only when validateSNI is set as true. You can specify an SNI value to match the common name of the certificate on the backend. By default, the application gateway uses the incoming request’s host header as the SNI. |
+
+> [!NOTE]
+> - We recommend keeping all validations enabled for production environments. Disabling some or all validations is suggested only for testing and development purposes, such as when self-signed certificates are used.
+> - These settings don't apply to test probe functionality when adding a custom Health Probe. As a result, you may see differences in the results when comparing to periodic health probes.
+> - Currently, unsupported for TLS/TCP proxy.
+
 
 ### Request timeout
 
