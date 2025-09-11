@@ -54,13 +54,13 @@ Azure Data Manager for Energy is currently compliant with the M25 OSDU® milesto
 
 ## OSDU&reg; services unavailable on Azure Data Manager for Energy
 Note: The following OSDU&reg; services are currently unavailable on Azure Data Manager for Energy.
-- **Geospatial Consumption Zone** Note: Users can alternatively [deploy the Geospatial Consumption Zone](how-to-deploy-gcz.md) service integrated with ADME.
-- **Partition** Note: Operations can still be performed using the available data partition APIs or through Azure portal.
-- **Schema Upgrade** Note: Users can alternatively [deploy the Schema Upgrade Tool](https://github.com/EirikHaughom/ADME/tree/main/Guides/Schema%20Upgrade%20Tool) integrated with ADME.
+- **Geospatial Consumption Zone** Users can alternatively [deploy the Geospatial Consumption Zone](how-to-deploy-gcz.md) service integrated with ADME.
+- **Partition** Operations can still be performed using the available data partition APIs or through Azure portal.
+- **Schema Upgrade** Users can alternatively [deploy the Schema Upgrade Tool](https://github.com/EirikHaughom/ADME/tree/main/Guides/Schema%20Upgrade%20Tool) integrated with ADME.
+- **Rock and Fluid Sample DDMS** Users can deploy the sample [Rock and Fluid Sample DDMS](https://github.com/EirikHaughom/ADME/tree/main/Guides/Connected%20Rock%20and%20Fluid%20DDMS) connected to their ADME instance.
+- **Production DDMS (Historian or Core)** Users can alternatively [deploy the Production DDMS](https://github.com/EirikHaughom/ADME/tree/main/Guides/Connected%20Production%20DDMS) to test functionality standalone.
 - **Energistcs Parser DAG (WITSML Parser v2, Resqml Parser, ProdML Parser)**
 - **Manifest Ingestion by Reference DAG**
 - **Policy Service**
-- **Production DDMS (Historian or Core)**
-- **Rock and Fluid Sample DDMS**
 - **Seismic DDMS v4 APIs**
 - **WITSML Parser DAG**

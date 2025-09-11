@@ -6,9 +6,11 @@ author: kromerm
 ms.author: makromer
 ms.reviewer: whhender
 ms.subservice: orchestration
-ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/26/2024
+ms.custom:
+  - synapse
+  - sfi-ropc-nochange
 ---
 
 # Execute Pipeline activity in Azure Data Factory and Synapse Analytics

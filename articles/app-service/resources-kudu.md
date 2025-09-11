@@ -5,6 +5,7 @@ author: msangapu-msft
 ms.author: msangapu
 ms.date: 03/17/2021
 ms.topic: reference
+ms.service: azure-app-service
 ---
 
 # Kudu service overview

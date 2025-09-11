@@ -5,11 +5,15 @@ description: Enable two sample Dapr applications to communicate and leverage Azu
 author: hhunter-ms
 ms.author: hannahhunter
 ms.service: azure-container-apps
-ms.custom: devx-track-dotnet, devx-track-js, devx-track-python
 ms.topic: how-to
 ms.date: 08/02/2024
 zone_pivot_group_filename: container-apps/dapr-zone-pivot-groups.json
 zone_pivot_groups: dapr-languages-set
+ms.custom:
+  - devx-track-dotnet
+  - devx-track-js
+  - devx-track-python
+  - sfi-image-nochange
 ---
 
 # Tutorial: Microservices communication using Dapr Service Invocation

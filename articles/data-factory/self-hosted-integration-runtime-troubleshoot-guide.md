@@ -4,10 +4,12 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot self-hosted integration runtime issues in Azure Data Factory and Azure Synapse Analytics pipelines. 
 author: lrtoyou1223
 ms.subservice: integration-runtime
-ms.custom: synapse
 ms.topic: troubleshooting
 ms.date: 02/13/2025
 ms.author: lle
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Troubleshoot self-hosted integration runtime

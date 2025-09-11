@@ -75,7 +75,7 @@ To create your codespace and cluster, use the following steps:
    | --------- | ----- |
    | SUBSCRIPTION_ID | Your Azure subscription ID. |
    | RESOURCE_GROUP | A name for a new Azure resource group where your cluster will be created. |
-   | LOCATION | An Azure region close to you. For the list of currently supported regions, see [Supported regions](../overview-iot-operations.md#supported-regions). |
+   | LOCATION | An Azure region close to you. For the list of currently supported regions, see [Supported regions](../overview-support.md#supported-regions). |
 
    >[!TIP]
    >The values you provide as secrets in this step get saved on your GitHub account to be used in this and future Codespaces. They're added as environment variables in the codespace terminal, and you can use those environment variables in the CLI commands in the next section.
@@ -152,6 +152,14 @@ To connect your cluster to Azure Arc:
    ```azurecli
    az connectedk8s enable-features -n $CLUSTER_NAME -g $RESOURCE_GROUP --custom-locations-oid $OBJECT_ID --features cluster-connect custom-locations
    ```
+
+## Install the preview version of `az iot ops`
+
+This quickstart uses the latest preview version of Azure IoT Operations. To install the preview version you need the latest version of the Azure IoT Operations CLI extension:
+
+```azurecli
+az extension add --upgrade --name azure-iot-ops --allow-preview True
+```
 
 ## Create storage account and schema registry
 

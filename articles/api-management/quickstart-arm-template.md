@@ -5,9 +5,13 @@ services: azure-resource-manager
 author: dlepow
 ms.service: azure-api-management
 ms.topic: quickstart-arm
-ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.author: danlep
 ms.date: 03/25/2024
+ms.custom:
+  - subject-armqs
+  - mode-arm
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create a new Azure API Management service instance using an ARM template

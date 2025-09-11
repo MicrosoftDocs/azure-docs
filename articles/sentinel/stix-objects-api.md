@@ -162,7 +162,7 @@ All the objects you import with the upload API share these common properties.
 |Property Name    |Type |    Description |
 |----|----|----|
 |`id` (required)| string | An ID used to identify the STIX object. See section [2.9](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_64yvzeku5a5c) for specifications on how to create an `id`. The format looks something like `indicator--<UUID>`|
-|`spec_version` (optional) | string | STIX object version. This value is required in the STIX specification, but since this API only supports STIX 2.0 and 2.1, when this field isn't set, the API defaults to `2.1`|
+|`spec_version` (optional) | string | STIX object version. This value is required in the STIX specification, but since this API only supports STIX 2.0 and 2.1, when this field isn't set, the API defaults to `2.0`|
 |`type` (required)|    string | The value of this property *must* be a supported STIX object.|
 |`created` (required) | timestamp | See section [3.2](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_xzbicbtscatx) for specifications of this common property.|
 |`created_by_ref` (optional) | string | The created_by_ref property specifies the ID property of the entity that created this object.<br><br>If this attribute is omitted, the source of this information is undefined. For object creators who wish to remain anonymous, keep this value undefined.|

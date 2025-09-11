@@ -5,13 +5,13 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 07/28/2025
+ms.date: 09/01/2025
 ms.author: anfdocs
 ms.custom: references_regions
 # Customer intent: As a storage administrator, I want to enable file access logs on Azure NetApp Files volumes so that I can monitor file access operations and troubleshoot access issues effectively.
 ---
 
-# Manage file access logs in Azure NetApp Files (preview)
+# Manage file access logs in Azure NetApp Files
 
 File access logs provide file access logging for individual volumes, capturing file system operations on selected volumes. The logs capture [standard file operation](#recognized-events). File access logs provide insights beyond the platform logging captured in the [Azure Activity Log](/azure/azure-monitor/essentials/activity-log).
 
@@ -38,7 +38,7 @@ File access logs provide file access logging for individual volumes, capturing f
     * System access control list (SACL) settings for logging should be used sparingly. Frequent operations (for example, READ or GET) can have significant performance impact, but have limited logging value. It's recommended that SACL setting not log these frequent operations to conserve performance. 
     * SACL policy additions aren't currently supported with file access logs. 
 * With clubbing events such as READ/WRITE, only a handful of operation per file read or write are captured to reduce event logging rate.  
-* File access logs support a [log generation rate metric](azure-netapp-files-metrics.md). The log generation rate shouldn't exceed 64 MiB/minute.
+* File access logs support a [log generation rate metric](azure-netapp-files-metrics.md). 
 
     If the rate of file access event generation exceeds 64 MiB/minute, the [Activity log](monitor-azure-netapp-files.md) sends a message stating that the rate of file access log generation is exceeding the limit. If log generation exceeds the limit, logging events can be delayed or dropped. If you're approaching this limit, disable noncritical auditing ACLs to reduce the event generation rate. As a precaution, you can [create an alert](/azure/azure-monitor/alerts/alerts-create-activity-log-alert-rule) for this event.
  
@@ -75,10 +75,10 @@ The events capture in file access logs depend on the protocol of your volume.
 * Set attribute 
 * Unlink
 * Write
-
+<!--
 ## Register the feature
 
-The file access logs feature is currently in preview. If you're using this feature for the first time, you need to register the feature first. 
+If you're using file access logs for the first time, you need to register the feature. 
 
 1. Register the feature:
 
@@ -96,7 +96,7 @@ The file access logs feature is currently in preview. If you're using this featu
     ```
 
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.
-
+-->
 ## Supported regions
 
 Availability for file access log is limited to the following regions: 
@@ -124,7 +124,6 @@ Availability for file access log is limited to the following regions:
 - Switzerland North
 - Switzerland West
 - UK South
-- US Gov Virginia
 - West Europe
 - West US
 - West US 2
@@ -157,7 +156,7 @@ To enable logging access on individual files and directories, complete the follo
 
 For NFSv4.1, both discretionary and system ACEs are stored in the same ACL, not separate discretionary ACLs and SACLs. Exercise caution when adding audit ACEs to an existing ACL to avoid overwriting and losing an existing ACL. The order in which you add audit ACEs to an existing ACL doesn't matter. 
 
-Whe configuring the Audit ACE, ensure you use the `U:` prefix to denote it's an Audit ACE. **For steps**, see [Configure access control lists on NFSv4.1 volumes](configure-access-control-lists.md).
+When configuring the Audit ACE, ensure you use the `U:` prefix to denote it's an Audit ACE. **For steps**, see [Configure access control lists on NFSv4.1 volumes](configure-access-control-lists.md).
 
 ---
 

@@ -68,7 +68,6 @@ The SDKs provide many components available for simplicity and ease of use:
 
 Read further about the underlying terminology and different components of the SDKs:
 
-* [Terminology](https://github.com/Azure/iot-operations-sdks/blob/main/doc/terminology.md) - Understand the different terms used to describe the concepts and construction of the SDKs.
 * [Components](https://github.com/Azure/iot-operations-sdks/blob/main/doc/components.md) - An outline of each component and their function.
 
 ## Applications types
@@ -77,11 +76,11 @@ The SDKs supports the following application types:
 
 | Application type | Description |
 |-|-|
-| [Edge application](https://github.com/Azure/iot-operations-sdks/blob/main/doc/edge_application/README.md) | A generic edge application that needs to interface with various Azure IoT Operations services such as the MQTT broker and state store. The SDKs provides convenient clients to simplify the development experience. </br></br>*An Edge Application is a customer managed artifact, including deployment to the cluster and monitoring execution.* |
-| [Akri connector](https://github.com/Azure/iot-operations-sdks/blob/main/doc/akri_connector/README.md)</br>*(in development)*| A specialized edge application deployed by the Akri Operator and designed to interface with on-premises devices. The Akri connector is responsible for discovering assets available via the endpoint, and relaying information to and from those assets. </br></br>*The Akri connector's deployment is managed automatically by the Akri Operator.* |
+| [Edge application](https://github.com/Azure/iot-operations-sdks/blob/main/doc/edge_application/README.md) | Generic edge applications that need to interface with various Azure IoT Operations services such as the MQTT broker and state store. The SDKs provide convenient clients to simplify the development experience. </br></br>*An Edge application is a customer managed artifact, including deployment to the cluster and monitoring execution.* |
+| [Akri connector](../discover-manage-assets/overview-akri.md#connector-deployment-and-lifecycle-management)</br>*(in development)*| Specialized edge applications deployed by the _Akri operator_ service and designed to interface with on-premises devices. An Akri connector is responsible for discovering assets available via the endpoint, and relaying information to and from those assets. </br></br>*An Akri connector's deployment is managed automatically by the Akri operator service.* |
 
 > [!NOTE]
-> The Akri connector is part of the Akri services (preview), which is under active development and will be available soon.
+> Akri connectors are part of the [Akri services (preview)](../discover-manage-assets/overview-akri.md), which is under active development and will be available soon.
 
 ## Samples and tutorials
 
@@ -91,7 +90,7 @@ To deploy a fully functional application to a cluster and see the SDKs in action
 
 ## SDKs reference documentation
 
-For documentation related to the implementation of the SDKs, it's fundamentals primitives and protocols as well as the underlying topic and payload structure used for communication over MQTT, see [Azure IoT Operations SDKs reference documentation](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/README.md).
+For documentation related to the implementation of the SDKs, it's fundamentals primitives and protocols as well as the underlying topic and payload structure used for communication over MQTT, see [Azure IoT Operations SDKs GitHub documentation](https://github.com/Azure/iot-operations-sdks/tree/main/doc).
 
 ## Next step
 

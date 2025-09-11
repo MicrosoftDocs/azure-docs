@@ -1,12 +1,12 @@
 ---
 title: What is a network security perimeter?
 titleSuffix: Azure Private Link
-description: Learn how Azure Network Security Perimeter secures PaaS resources with logical network boundaries. Control public access, prevent data exfiltration, and manage access rules for Storage, SQL Database, and Key Vault.
+description: Learn how Azure Network Security Perimeter secures PaaS resources with logical network boundaries. Control public access, prevent data exfiltration, and manage access rules for Storage, Azure AI Search, and Key Vault.
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
 ms.topic: overview
-ms.date: 07/29/2025
+ms.date: 08/01/2025
 ms.custom:
   - references_regions, ignite-2024
   - ai-gen-docs-bap
@@ -16,7 +16,7 @@ ms.custom:
 
 # What is a network security perimeter?
 
-Azure Network Security Perimeter creates logical network boundaries around your platform-as-a-service (PaaS) resources that are deployed outside your virtual networks. Network security perimeter helps you control public network access to resources like Azure Storage accounts and SQL Database servers by establishing a secure perimeter.
+Azure Network Security Perimeter creates logical network boundaries around your platform-as-a-service (PaaS) resources that are deployed outside your virtual networks. Network security perimeter helps you control public network access to resources like Azure Storage accounts and Azure Key Vault by establishing a secure perimeter.
 
 By default, network security perimeter restricts public access to PaaS resources within the boundary. You can grant exceptions through explicit access rules for inbound and outbound traffic. This approach helps prevent data exfiltration while maintaining necessary connectivity for your applications.
 
@@ -88,27 +88,37 @@ When a network security perimeter is created and the PaaS resources are associat
 
 Access rules can be used to approve public inbound and outbound traffic outside the perimeter. Public inbound access can be approved using Network and Identity attributes of the client such as source IP addresses, subscriptions. Public outbound access can be approved using FQDNs (Fully Qualified Domain Names) of the external destinations. 
 
-For example, upon creating a network security perimeter and associating a set of PaaS resources with the perimeter like Azure Key Vault and SQL DB in enforced mode, all incoming and outgoing public traffic is denied to these PaaS resources by default. To allow any access outside the perimeter, necessary access rules can be created. Within the same perimeter, profiles can be created to group PaaS resources with similar set of inbound and outbound access requirements.
+For example, upon creating a network security perimeter and associating a set of PaaS resources with the perimeter like Azure Key Vault and Azure Storage in enforced mode, all incoming and outgoing public traffic is denied to these PaaS resources by default. To allow any access outside the perimeter, necessary access rules can be created. Within the same perimeter, profiles can be created to group PaaS resources with similar set of inbound and outbound access requirements.
 
 ## Onboarded private link resources
 
 A network security perimeter-aware private link resource is a PaaS resource that can be associated with a network security perimeter. Currently the list of onboarded private link resources are as follows:
 
-| Private link resource name | Resource type | Resources |
-|---------------------------|---------------|-----------|
-| [Azure Monitor](/azure/azure-monitor/essentials/network-security-perimeter)             | Microsoft.Insights/dataCollectionEndpoints</br>Microsoft.Insights/ScheduledQueryRules</br>Microsoft.Insights/actionGroups</br>Microsoft.OperationalInsights/workspaces | Log Analytics Workspace, Application Insights, Alerts, Notification Service |
-| [Azure AI Search](/azure/search/search-security-network-security-perimiter)          | Microsoft.Search/searchServices | - |
-| [Cosmos DB](/azure/cosmos-db/how-to-configure-nsp)                | Microsoft.DocumentDB/databaseAccounts | - |
-| [Event Hubs](/azure/event-hubs/network-security-perimeter)                | Microsoft.EventHub/namespaces | - |
-| [Key Vault](/azure/key-vault/general/network-security#network-security-perimeter-preview)                 | Microsoft.KeyVault/vaults | - |
-| [SQL DB](/azure/azure-sql/database/network-security-perimeter)                    | Microsoft.Sql/servers | - |
-| [Storage](/azure/storage/common/storage-network-security#network-secuirty-perimeter-preview)               | Microsoft.Storage/storageAccounts | - |
-| [Azure OpenAI service](/azure/ai-services/openai/how-to/network-security-perimeter) | Microsoft.CognitiveServices | - |
+| Private link resource name | Resource type | Resources | Availability |
+|---------------------------|---------------|-----------| --------- |
+| [Azure Monitor](/azure/azure-monitor/essentials/network-security-perimeter)             | Microsoft.Insights/dataCollectionEndpoints</br>Microsoft.Insights/ScheduledQueryRules</br>Microsoft.Insights/actionGroups</br>Microsoft.OperationalInsights/workspaces | Log Analytics Workspace, Application Insights, Alerts, Notification Service | Generally available |
+| [Azure AI Search](/azure/search/search-security-network-security-perimiter)          | Microsoft.Search/searchServices | | Generally Available |
+| [Cosmos DB](/azure/cosmos-db/how-to-configure-nsp)                | Microsoft.DocumentDB/databaseAccounts | | Public Preview |
+| [Event Hubs](/azure/event-hubs/network-security-perimeter)                | Microsoft.EventHub/namespaces | | Generally Available |
+| [Key Vault](/azure/key-vault/general/network-security#network-security-perimeter-preview)                 | Microsoft.KeyVault/vaults | | Generally Available |
+| [SQL DB](/azure/azure-sql/database/network-security-perimeter)                    | Microsoft.Sql/servers | | Public Preview |
+| [Storage](/azure/storage/common/storage-network-security#network-secuirty-perimeter-preview)               | Microsoft.Storage/storageAccounts | | Generally Available |
+| [Azure OpenAI service](/azure/ai-services/openai/how-to/network-security-perimeter) | Microsoft.CognitiveServices | | Public Preview |
+
+> [!IMPORTANT]
+> The following onboarded services are in public preview with Network Security Perimeter:
+> - Cosmos DB
+> - SQL DB
+> - Azure Open AI Service
+>   
+> These previews are provided without a service level agreement, and it's not recommended for production workloads.
+> Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
 > Refer to the respective private link resource documentation for information on currently unsupported scenarios.
 
-## Supported access rules' types
+## Supported access rule types
 
 Network security perimeter supports the following access rule types:
 

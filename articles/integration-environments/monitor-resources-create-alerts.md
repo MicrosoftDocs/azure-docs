@@ -5,8 +5,9 @@ ms.service: azure
 ms.subservice: azure-integration-environments
 ms.topic: how-to
 ms.reviewer: estfan, divswa, azla
-ms.date: 07/08/2025
-# CustomerIntent: As an integration developer, I want to check the performance and health for Azure resources organized as applications based on my organization's integration solutions by creating alerts.
+ms.date: 09/11/2025
+ms.update-cycle: 1095-days
+# Customer intent: As an integration developer, I want to check the performance and health for Azure resources organized as applications based on my organization's integration solutions by creating alerts.
 ---
 
 # Monitor health and performance for Azure resources in applications (preview)

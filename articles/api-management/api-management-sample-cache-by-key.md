@@ -57,7 +57,11 @@ API Management stores the `enduserid` value in a context variable for later use.
 <cache-lookup-value
 key="@("userprofile-" + context.Variables["enduserid"])"
 variable-name="userprofile" />
+<rate-limit calls="10" renewal-period="60" />
 ```
+
+> [!NOTE]
+> [!INCLUDE [api-management-cache-availability](../../includes/api-management-cache-availability.md)]
 
 If there is no entry in the cache that corresponds to the key value, then no `userprofile` context variable is created. API Management checks the success of the lookup using the `choose` control flow policy.
 
@@ -131,6 +135,7 @@ Once you combine these steps, the end result is a policy that looks like the fol
         <cache-lookup-value
           key="@("userprofile-" + context.Variables["enduserid"])"
           variable-name="userprofile" />
+        <rate-limit calls="10" renewal-period="60" />
 
         <!-- If API Management doesn’t find it in the cache, make a request for it and store it -->
         <choose>
@@ -192,7 +197,11 @@ API Management then does a cache lookup to see whether it already retrieved the 
 <cache-lookup-value
 key="@("clientversion-" + context.Variables["clientid"])"
 variable-name="clientversion" />
+<rate-limit calls="10" renewal-period="60" />
 ```
+
+> [!NOTE]
+> [!INCLUDE [api-management-cache-availability](../../includes/api-management-cache-availability.md)]
 
 Then, API Management checks to see if it didn't find it in the cache.
 
@@ -245,6 +254,7 @@ The complete policy is as follows:
     <base />
     <set-variable name="clientid" value="@(context.Subscription.Key)" />
     <cache-lookup-value key="@("clientversion-" + context.Variables["clientid"])" variable-name="clientversion" />
+    <rate-limit calls="10" renewal-period="60" />
 
     <!-- If API Management doesn’t find it in the cache, make a request for it and store it -->
     <choose>

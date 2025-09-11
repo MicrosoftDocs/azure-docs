@@ -7,6 +7,7 @@ ms.date: 06/19/2025
 ms.author: jordanselig
 ms.custom:
   - build-2025
+ms.service: azure-app-service
 ---
 # Configure gateway-required virtual network integration
 

@@ -1,6 +1,4 @@
 ---
- title: include file
- description: include file
  author: anaharris-ms
  ms.service: azure
  ms.topic: include
@@ -9,4 +7,10 @@
  ms.custom: include file
 ---
 
-This feature is useful if it's hard to redeploy your code, or if you store state on disk. For most solutions, you shouldn't rely exclusively on backups. Instead, use the other capabilities described in this guide to support your resiliency requirements. However, backups protect against some risks that other approaches don't. For more information, see [Back up and restore your app in App Service](/azure/app-service/manage-backup).
+These capabilities help when it's difficult to redeploy code or when you store state on disk. Most solutions shouldn't rely exclusively on backups. Instead, use the other capabilities in this guide to support your resiliency requirements. However, backups protect against some risks that other approaches don't.  
+
+>[!IMPORTANT]
+> Starting **March 31, 2028**, Azure App Service custom backups will **no longer support backing up linked databases**. See [Deprecation of linked database backups](/azure/app-service/manage-backup?tabs=portal#deprecation-of-linked-database-backups) for more information. 
+>
+>Instead, use the native backup and restore tools of your linked database. For more information, see [Back up and restore your app in App Service](/azure/app-service/manage-backup).
+>

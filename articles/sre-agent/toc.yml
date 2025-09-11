@@ -8,6 +8,8 @@ items:
       href: overview.md
     - name: Use Azure SRE Agent
       href: usage.md
+    - name: Ask the agent for help
+      href: ask-agent.md
     - name: Tutorials
       items:
       - name: Troubleshoot App Service
@@ -17,17 +19,17 @@ items:
 - name: Key concepts
   expanded: true
   items:
-    - name: Security context
-      href: security-context.md
+    - name: Access management
+      href: access-management.md
     - name: Incident management
       href: incident-management.md
-    - name: Troubleshooting
-      href: troubleshoot.md
+    - name: FAQ
+      href: faq.md
     - name: Billing
       href: billing.md
 - name: Reference
   items:
     - name: Starter prompts
       href: prompts.md
-    - name: Incident management tools
-      href: incident-management-tools.md
+    - name: Data residency and privacy
+      href: data-privacy.md

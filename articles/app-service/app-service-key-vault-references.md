@@ -6,8 +6,11 @@ author: cephalin
 ms.topic: how-to
 ms.date: 03/20/2025
 ms.author: cephalin
-ms.custom: AppServiceConnectivity
 #customer intent: As an app developer, I want to implement Azure Key Vault as part of my approach to apps in Azure App Service.
+ms.service: azure-app-service
+ms.custom:
+  - AppServiceConnectivity
+  - sfi-ropc-nochange
 ---
 
 # Use Key Vault references as app settings in Azure App Service and Azure Functions
@@ -37,7 +40,7 @@ If your vault is configured with [network restrictions](/azure/key-vault/general
 
 1. Make sure that the application has outbound networking capabilities configured, as described in [App Service networking features](./networking-features.md) and [Azure Functions networking options](../azure-functions/functions-networking-options.md).
 
-   Currently, Linux applications that connect to private endpoints must be explicitly configured to route all traffic through the virtual network. To configure this setting, run the following command:
+   With the exception of function apps running in the Flex Consumption plan, Linux applications that connect to private endpoints must be explicitly configured to route all traffic through the virtual network. When running in a Flex Consumption plan, this routing is done automatically, and additional configuration isn't required. Run the following command to configure virtual network routing by setting [vnetRouteAllEnabled](../azure-functions/functions-app-settings.md#vnetrouteallenabled) to `true`:
 
    # [Azure CLI](#tab/azure-cli)
 
