@@ -5,7 +5,7 @@ services: site-recovery
 author: jyothisuri
 ms.service: azure-site-recovery
 ms.topic: concept-article
-ms.date: 09/10/2025
+ms.date: 09/11/2025
 ms.author: jsuri
 ---
 
@@ -14,6 +14,8 @@ ms.author: jsuri
 Azure Site Recovery now provides alternative virtual machine (VM) size guidance to help you improve the chances of successful VM allocation in your target location during disaster recovery events or drills. This helps you assess the VM capacity and increase the chances of VM allocation during failover process by providing you with alternative VM size recommendations in your target location, in case current configured target VM size has less likelihood of allocation success. 
 
 ## How alternative VM size capacity guidance works 
+
+:::image type="content" source="./media/alternative-vm-size-failover-flow/failover-recommendations.png" alt-text="Diagram that shows the failover-recommendations screen.":::
 
 Select any one of the alternatives as per your preference, and then select **Save**. You can then proceed with the failover or test failover. 
 
