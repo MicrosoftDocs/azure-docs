@@ -173,22 +173,26 @@ items:
 #         href: review-sap-assessment.md
 - name: Execute Migrations
   items:
-  - name: Server Migrations
+  - name: Migration overview
     items: 
     - name: Overview of Migration method
       href: server-migrate-overview.md
-    - name: Agent-based migrations
-      items:
-      - name: Agent-based migration using portal
-        href: tutorial-migrate-vmware-agent.md
-      - name: Hydration process 
-        href: hydration-process.md
-    - name: Agentless migrations
-      items:
-      - name: Agentless migrations using portal
-        href: tutorial-migrate-vmware.md
-      - name: Agentless migrations using scripts
-        href: tutorial-migrate-vmware-powershell.md
+    - name: VMware agentless
+      href: migrate-support-matrix-vmware-migration.md
+    - name: Hyper-V support matrix
+      href: migrate-support-matrix-hyper-v-migration.md
+  # - name: Agent-based migrations
+  #   items:
+  #   - name: Agent-based migration using portal
+  #     href: tutorial-migrate-vmware-agent.md
+  #   - name: Hydration process 
+  #     href: hydration-process.md
+  # - name: Agentless migrations
+  #   items:
+  #   - name: Agentless migrations using portal
+  #     href: tutorial-migrate-vmware.md
+  #   - name: Agentless migrations using scripts
+  #     href: tutorial-migrate-vmware-powershell.md
 #   - name: Limitations
 - name: Modernize applications
   items:
@@ -577,8 +581,6 @@ items:
 #     items:
 #     - name: Build a migration plan
 #       href: concepts-migration-planning.md
-#     - name: VMware migration support
-#       href: migrate-support-matrix-vmware-migration.md
 #     - name: Hyper-V migration support
 #       href: migrate-support-matrix-hyper-v-migration.md
 #     - name: Physical server migration support
