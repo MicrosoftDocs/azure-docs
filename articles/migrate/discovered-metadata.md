@@ -251,18 +251,6 @@ Edition  | `HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\<InstanceName>\Set
 Service pack  | `HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\<InstanceName>\Setup`  | `SP`
 Version  | `HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\<InstanceName>\Setup`  | `Version`
 
-### Windows Server pending updates data
-
-Here's the pending updates data that the appliance collects from each discovered Windows server:
-
-Data | PowerShell cmdlet | Property
---- | --- | ---
-Update Title | `New-Object -com "Microsoft.Update.Session"` | `Title`
-Update ID | `New-Object -com "Microsoft.Update.Session"` | `Identity.UpdateID`
-Update Version(KB-ID) | `New-Object -com "Microsoft.Update.Session"` | `KBArticleIDs`
-Classification/Severity | `New-Object -com "Microsoft.Update.Session"` | `Categories.CatergoryID`
-Published date | `New-Object -com "Microsoft.Update.Session"` | `LastDeploymentChangeTime`
-
 ### Linux server application data
 
 Here's the software inventory data that the appliance collects from each discovered Linux server. Based on the operating system of the server, one or more of the commands are run.
@@ -282,7 +270,19 @@ Data  | Commands
 Name/version | Gathered from one or more of the following files:<br/> <br/>`/etc/os-release`  <br> `/usr/lib/os-release`  <br> `/etc/enterprise-release`  <br> `/etc/redhat-release`  <br> `/etc/oracle-release`  <br> `/etc/SuSE-release`  <br> `/etc/lsb-release`  <br> `/etc/debian_version`
 Architecture | `uname`
 
-### Linux Server pending updates data
+### Windows server pending updates data
+
+Here's the pending updates data that the appliance collects from each discovered Windows server:
+
+Data | PowerShell cmdlet | Property
+--- | --- | ---
+Update Title | `New-Object -com "Microsoft.Update.Session"` | `Title`
+Update ID | `New-Object -com "Microsoft.Update.Session"` | `Identity.UpdateID`
+Update Version(KB-ID) | `New-Object -com "Microsoft.Update.Session"` | `KBArticleIDs`
+Classification/Severity | `New-Object -com "Microsoft.Update.Session"` | `Categories.CatergoryID`
+Published date | `New-Object -com "Microsoft.Update.Session"` | `LastDeploymentChangeTime`
+
+### Linux server pending updates data
 
 Here's the pending updates data that the appliance collects from each discovered Linux server:
 
