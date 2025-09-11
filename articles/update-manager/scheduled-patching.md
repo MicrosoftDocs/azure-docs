@@ -6,6 +6,7 @@ ms.date: 08/21/2025
 ms.topic: how-to
 author: habibaum
 ms.author: v-uhabiba
+ms.custom: sfi-image-nochange
 # Customer intent: "As an IT administrator, I want to schedule recurring updates for my virtual machines using Azure Update Manager, so that I can ensure they are consistently maintained and secure without manual intervention."
 ---
 
