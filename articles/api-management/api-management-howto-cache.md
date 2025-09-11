@@ -19,7 +19,7 @@ APIs and operations in API Management can be configured with response caching. R
 
 * For background and scenarios for caching, see [Caching overview](caching-overview.md). 
 * For information about using an external cache, see [Use an external Redis-compatible cache in Azure API Management](api-management-howto-cache-external.md).
-* For more detailed information about caching, see [API Management caching policies](api-management-policies.md#ca**ng) and [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
+* For more detailed information about caching, see [API Management caching policies](api-management-policies.md#caching) and [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
 
 
 > [!IMPORTANT]
