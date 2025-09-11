@@ -228,7 +228,7 @@ To run the script:
 * The new WAFv2 is configured to use CRS 3.0 by default. However, since CRS 3.0 is on the path to deprecation, we recommend upgrading to the latest rule set, DRS 2.1 post migration. For more details, refer [CRS and DRS rule groups and rules](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md)
 
 > [!NOTE]
-> NTLM and Kerberos passthrough authentication is supported by Application Gateway V2. For more details, refer [Dedicated backend connections](/configuration-http-settings.md?tabs=backendhttpsettings#dedicated-backend-connection)
+> NTLM and Kerberos passthrough authentication is supported by Application Gateway V2. For more details, refer [Dedicated backend connections](/configuration-http-settings?tabs=backendhttpsettings#host-name-override)
 
 ## Traffic migration
 
