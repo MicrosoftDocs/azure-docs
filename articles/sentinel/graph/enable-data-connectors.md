@@ -45,7 +45,7 @@ The following table describes the various asset data sources and their data conn
 
 To manage asset data connectors, you need to meet the following prerequisites:
 
-- Ensure you have the necessary [access and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview) to Microsoft Sentinel, as specified *Permissions* column of the previous table.
+- Ensure you have the necessary [access and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake) to Microsoft Sentinel, as specified *Permissions* column of the previous table.
 - Search for the relevant solution containing the data connector in the Content Hub. Content Hub can be found under the **Microsoft Sentinel** menu **Content Management** > **Content Hub**. Install the solution if not already installed.  
 
 :::image type="content" source="./media/enable-data-connectors/data-connectors.png" alt-text="Screenshot of Sentinel Defender data connectors page with the Azure Resource Graph data connector displayed.":::
