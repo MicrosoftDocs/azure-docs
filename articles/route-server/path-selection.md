@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-route-server
 ms.topic: concept-article
 ms.date: 02/07/2025
+ms.custom: sfi-image-nochange
 
 #CustomerIntent: As a network administrator, I want to control how traffic is routed from Azure to my on-premises network.
 ---

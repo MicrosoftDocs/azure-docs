@@ -7,6 +7,7 @@ ms.author: halkazwini
 ms.service: azure-route-server
 ms.topic: concept-article
 ms.date: 02/10/2025
+ms.custom: sfi-image-nochange
 
 #CustomerIntent: As an Azure administrator, I want to use the frontend IP address of the load balancer as the next hop IP so packets are routed to the load balancer to get to the NVAs that are in the backend pool.
 ---

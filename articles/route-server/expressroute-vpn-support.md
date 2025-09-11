@@ -7,6 +7,7 @@ ms.author: halkazwini
 ms.service: azure-route-server
 ms.topic: concept-article
 ms.date: 09/17/2024
+ms.custom: sfi-image-nochange
 
 #CustomerIntent: As an Azure administrator, I want to deploy Azure Route Server with ExpressRoute and Azure VPN so that routes can be exchanged between the two on-premises networks.
 ---

@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-route-server
 ms.topic: how-to
 ms.date: 05/02/2024
+ms.custom: sfi-image-nochange
 
 #CustomerIntent: As an Azure administrator, I want to monitor Azure Route Server so that I'm aware of its metrics like the number of routes advertised and learned.
 ---

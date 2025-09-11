@@ -8,7 +8,9 @@ ms.date: 08/27/2024
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: rest-sdk
-ms.custom: devx-track-dotnet
+ms.custom:
+  - devx-track-dotnet
+  - sfi-image-nochange
 ---
 
 # C# REST SDK Developers Guide
