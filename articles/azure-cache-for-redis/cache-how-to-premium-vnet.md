@@ -4,7 +4,7 @@ description: Learn how to create and manage virtual network support for your Pre
 
 
 ms.topic: conceptual
-ms.date: 12/17/2024
+ms.date: 09/11/2025
 appliesto:
   - ✅ Azure Cache for Redis
 
@@ -38,7 +38,7 @@ appliesto:
 - Azure portal does not support configuring VNET injection during resource create
 
 ## Set up virtual network support
-Please refer to [az redis create](https://learn.microsoft.com/cli/azure/redis?view=azure-cli-latest#az-redis-create)
+Please refer to [az redis create](../cli-ref-azure/redis.md#az-redis-create)
 
 ## Azure Cache for Redis virtual network FAQ
 
