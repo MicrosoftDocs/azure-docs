@@ -88,6 +88,8 @@ The default validation settings ensure secure TLS communication between the gate
 
 :::image source="media/configuration-http-settings/backend-tls-validations.png" alt-text="A diagram showing portal view of the TLS validation controls available for customers.":::
 
+media/configuration-http-settings/backend-tls-validations.png
+
 | Properties  | Values | 
 | ---------- | ---------- |
 | validateCertChainAndExpiry  | Type: Boolean (true or false). The default setting is true. This verifies or skips both certificate chain and expiry verifications. | 
