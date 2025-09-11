@@ -7,6 +7,7 @@ ms.subservice: authoring
 ms.date: 04/23/2025
 ms.author: whhender
 ms.reviewer: xupzhou
+ms.custom: sfi-image-nochange
 
 #customer intent: As a new data factory customer, I want to create a data factory instance so I can test its functions for my organization, or get started using it.
 

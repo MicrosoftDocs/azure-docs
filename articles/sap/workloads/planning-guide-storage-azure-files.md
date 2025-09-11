@@ -56,6 +56,7 @@ Carefully consider when consolidating multiple activities into one file share or
 - We recommend that you deploy on SLES 15 SP2 or higher, RHEL 8.4 or higher to benefit from [NFS client improvements](/azure/storage/files/storage-troubleshooting-files-nfs#ls-hangs-for-large-directory-enumeration-on-some-kernels).
 - Mount the NFS shares with [documented mount](/azure/storage/files/storage-files-how-to-mount-nfs-shares) options, with [troubleshooting](/azure/storage/files/storage-troubleshooting-files-nfs#cannot-connect-to-or-mount-an-nfs-azure-file-share) information available for mount or connection problems.
 - For SAP J2EE systems, placing `/usr/sap/<SID>/J<nr>` on NFS on Azure Files isn't supported.
+- Azure Files NFS supports [Encryption in Transit (EiT)](./sap-azure-files-nfs-encryption-in-transit-guide.md) and can be used for all the supported scenarios of Azure Files shares for SAP workloads. 
 
 ## SMB additional considerations
 

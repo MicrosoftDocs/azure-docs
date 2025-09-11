@@ -6,6 +6,7 @@ ms.author: yexu
 ms.topic: tutorial
 ms.date: 10/03/2024
 ms.subservice: data-movement
+ms.custom: sfi-image-nochange
 ---
 
 # Incrementally load data from Azure SQL Database to Azure Blob storage using the Azure portal

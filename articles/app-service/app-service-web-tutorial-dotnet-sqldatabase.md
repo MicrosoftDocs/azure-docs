@@ -5,10 +5,16 @@ ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/26/2025
-ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, AppServiceConnectivity
 author: cephalin
 ms.author: cephalin
 ms.service: azure-app-service
+ms.custom:
+  - devx-track-csharp
+  - mvc
+  - devcenter
+  - vs-azure
+  - AppServiceConnectivity
+  - sfi-image-nochange
 ---
 
 # Tutorial: Deploy an ASP.NET app with Azure SQL database to Azure

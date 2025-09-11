@@ -6,8 +6,10 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
-ms.custom: synapse
 ms.date: 07/12/2024
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Copy data from Amazon Marketplace Web Service using Azure Data Factory or Synapse Analytics (Deprecated)
