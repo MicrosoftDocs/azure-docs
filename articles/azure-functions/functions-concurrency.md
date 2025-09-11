@@ -38,7 +38,7 @@ Like scaling, concurrency also affects how your function app responds to load ch
 
 ## Fixed per-instance concurrency
 
-By default, most triggers support a fixed per-instance concurrency configuration model. In this model, each trigger type has a per-instance concurrency limit.
+By default, most triggers support a fixed per-instance concurrency configuration model via [target-based scaling](functions-target-based-scaling.md). In this model, each trigger type has a per-instance concurrency limit.
 
 You can override the concurrency default values for most triggers by setting a specific per-instance concurrency for that trigger type. For many triggers, you configure concurrency settings in the [host.json file](functions-host-json.md). For example, the [Azure Service Bus trigger](./functions-bindings-service-bus-trigger.md) provides both a `MaxConcurrentCalls` and a `MaxConcurrentSessions` setting in _host.json_. These settings work together to control the maximum number of messages that each function app processes concurrently on each instance.
 
