@@ -58,22 +58,27 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
 4. Enter all the required parameters on each of the tabs.
 5. For `OS Disk Encryption Name` and `OS Disk Encryption Resource Group Name`, enter the names used in the prerequisites section.
 6. Adjust the prepopulated parameters as needed. 
-7. (Optional) [Publish your RemoteApp](#publish-remoteapp-optional) to other users
+7. (Optional) [Publish your RemoteApp](#publish-remoteapp-optional) to other users.
 8. (Optional) [Domain join](#join-vm-to-domain-optional) your RemoteApp VM.
 9. (Optional) [Install application](#install-remoteapp-optional) to your RemoteApp.
-10. Select `Review + Create`, if all validations have passed, select `Create`
+10. Select `Review + Create`, if all validations have passed, select `Create`.
 
-## Join VM to Domain (Optional)
+## Domain join virtual machine (optional)
 1. Should you choose to Domain Join your RemoteApp, you need to select which domain join option you want (Active Directory or Microsoft Entra ID) on the Basic tab and enter the domain joining information.
 2. For the `Active Directory` Domain join options, see the following examples
+   > [!NOTE]
+   > 
+   > If the domain controller is inside an enclave, you need an enclave endpoint for the enclave with the domain controller to allow domain joining in the domain controller subnet, `TCP, UDP` protocols, and these ports `53,88,135,138,139,389,443,445,464,636,686,3268`.
+   > You need a DNS Forwarder in your enclave forwarding DNS traffic to your Domain Controller.
+
    * The Domain name should be in the format of `contoso.com`
-   * OU path should be in the format of `OU=Organizations,DC=contoso,DC=com`
+   * Organization Unit (OU) path should be in the format of `OU=Organizations,DC=contoso,DC=com` and can be left blank if the default `Computers` OU path is fine.
    * `Domain admin username` and `Domain admin password` should match the domain joining credentials for the domain controller
 
 3. For the `Microsoft Entra ID` Domain join option
    * First you need to [deploy an Microsoft Entra Domain Services managed domain](/entra/identity/domain-services/tutorial-create-instance)
-   * Next you need to use this domain to [create an OU](/entra/identity/domain-services/create-ou)
-   * Use the previously created OU and Domain to fill in these respective parameters
+   * Next you need to use the domain you created to [create an OU](/entra/identity/domain-services/create-ou) or use the default OU of `Computers`
+   * Use the previously created OU and Domain to fill in these respective parameters for your virtual machine
 
 ## Publish RemoteApp (Optional)
 If you publish your application, all of the following fields on this tab must be filled out.
@@ -81,7 +86,7 @@ If you publish your application, all of the following fields on this tab must be
 
 > [!NOTE]
 > 
-> When testing domain join for the first time, it might be easiest to deploy a VM without domain joining, remotely sign in to the VM (for example, via Bastion) and manually domain join to observe the errors and troubleshoot more quickly.
+> The file paths should use forward slashes even for Windows file paths.
 
 It can take 20+ minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 
