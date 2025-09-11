@@ -30,7 +30,7 @@ Classic experience to protect VMware and physical machines to Azure using Site R
 
 - If you do not migrate your machines by March 30, 2026, the replication health of your machines may be disrupted and you will no longer be able to view, manage, or perform any disaster recovery-related operations through the Azure Site Recovery experience in the Azure portal.
 
-- Enable replication for Classic Appliance from portal is blocked and PowerShell will be blocked by Jan 31, 2026.
+- Enable replication for Classic Appliance from portal is blocked and PowerShell will be blocked by January 31, 2026.
 
 
 ## Alternatives 
