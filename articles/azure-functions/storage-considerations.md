@@ -107,7 +107,7 @@ There are several ways to run your function code based on changes to blobs in a 
 
 Use the following table to determine which function trigger best fits your needs for processing added or updated blobs in a container:
 
-| Strategy | Container (polling) | Container (events) | Queue trigger | Event Grid | 
+| Strategy | Blob trigger (polling) | Blob trigger (event-driven) | Queue trigger | Event Grid trigger | 
 | ----- | ----- | ----- | ----- | ---- |
 | Latency | High (up to 10 min) | Low | Medium  | Low | 
 | [Storage account](../storage/common/storage-account-overview.md#types-of-storage-accounts) limitations | Blob-only accounts not supported¹  | general purpose v1 not supported  | none | general purpose v1 not supported |
