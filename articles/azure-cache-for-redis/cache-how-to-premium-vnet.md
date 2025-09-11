@@ -35,10 +35,11 @@ appliesto:
 - When using a VNet injected cache, you must keep your VNet updated to allow access to cache dependencies, such as Certificate Revocation Lists, Public Key Infrastructure, Azure Key Vault, Azure Storage, Azure Monitor, and more.
 - VNet injected caches are only available for Premium-tier Azure Cache for Redis, not other tiers.
 - You can't inject an existing Azure Cache for Redis instance into a Virtual Network. You must select this option when you _create_ the cache.
-- Azure portal does not support configuring VNET injection during resource create
+- Azure portal doesn't support configuring VNET injection during resource create
 
 ## Set up virtual network support
-Please refer to [az redis create](../cli-ref-azure/redis.md#az-redis-create)
+
+Refer to [az redis create](../cli-ref-azure/redis.md#az-redis-create)
 
 ## Azure Cache for Redis virtual network FAQ
 
@@ -216,7 +217,7 @@ You must also have enough IP addresses available in the subnet.
 
 Azure reserves some IP addresses within each subnet, and these addresses can't be used. The first and last IP addresses of the subnets are reserved for protocol conformance, along with three more addresses used for Azure services. For more information, see [Are there any restrictions on using IP addresses within these subnets?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 
-In addition to the IP addresses used by the Azure virtual network infrastructure, each Azure Cache for Redis instance in the subnet uses two IP addresses per cluster shard, plus IP addresses for additional replicas, if any. One more IP address is used for the load balancer. A non-clustered cache is considered to have one shard.
+In addition to the IP addresses used by the Azure virtual network infrastructure, each Azure Cache for Redis instance in the subnet uses two IP addresses per cluster shard, plus IP addresses for more replicas, if any. One more IP address is used for the load balancer. A non-clustered cache is considered to have one shard.
 
 ### Can I connect to my cache from a peered virtual network?
 
@@ -244,7 +245,7 @@ By default, a newly created ExpressRoute circuit doesn't use forced tunneling (a
 
 A common customer configuration is to use forced tunneling (advertise a default route), which forces outbound internet traffic to instead flow on-premises. This traffic flow breaks connectivity with Azure Cache for Redis if the outbound traffic is then blocked on-premises such that the Azure Cache for Redis instance isn't able to communicate with its dependencies.
 
-The solution is to define one or more user-defined routes (UDRs) on the subnet that contains the Azure Cache for Redis instance. A UDR defines subnet-specific routes that will be honored instead of the default route.
+The solution is to define one or more user-defined routes (UDRs) on the subnet that contains the Azure Cache for Redis instance. A UDR defines subnet-specific routes that are honored instead of the default route.
 
 If possible, use the following configuration:
 
