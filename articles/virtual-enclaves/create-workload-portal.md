@@ -3,7 +3,6 @@ title: Create a workload in Azure
 description: Create a workload in Azure
 author: jadean-msft
 ms.author: jadean
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ---
@@ -45,7 +44,7 @@ Sign-in to the [Azure portal](https://portal.azure.com).
 
 6. You can also create new resource groups on this page view or later after workload creation. You can also move existing resource groups into your workload after the workload is created. To add a new resource group select `Add`, provide a name, and repeat as needed.
 
-7. Select `Next` and enter any [Tags](../azure-resource-manager/management/tag-resources.md) for your workload.
+7. Select `Next` and enter any [Tags](/azure/azure-resource-manager/management/tag-resources) for your workload.
 
 8. Select `Review + create` and validate the details for your workload are correct, then select `Create`.
 

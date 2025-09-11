@@ -4,7 +4,6 @@ titlesuffix: Azure Virtual Enclaves
 description: Disaster Recovery Planning within Azure Virtual Enclaves.
 author: aserfass-msft
 ms.author: aserfass
-# ms.service: Azure Virtual Enclaves
 ms.topic: how-to
 ms.date: 04/08/2025
 ---

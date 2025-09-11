@@ -4,7 +4,6 @@ titleSuffix: Azure Virtual Enclaves
 description: Just-in-time Access.
 author: jadean-msft
 ms.author: jadean
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ---
@@ -96,11 +95,11 @@ By integrating Azure PIM's access approval workflows with Azure Virtual Enclave'
 
 ## Resources to Learn More
 
-- [Privileged Identity Management Overview](../active-directory/privileged-identity-management/pim-configure.md)
-- [Azure Conditional Access Policies](../active-directory/conditional-access/overview.md)
+- [Privileged Identity Management Overview](/azure/active-directory/privileged-identity-management/pim-configure)
+- [Azure Conditional Access Policies](/azure/active-directory/conditional-access/overview)
 - [Azure Virtual Enclaves Documentation](./what-azure-virtual-enclaves.md)
 - [Azure Monitor for Logging and Diagnostics](/azure/azure-monitor/fundamentals/overview)
-- [Microsoft Sentinel Integration](../sentinel/overview.md)
+- [Microsoft Sentinel Integration](/azure/sentinel/overview)
 
 
 Configure just-in-time access with Privileged Identity Management and Azure Virtual Enclaves to provide a secure, scalable framework for managing temporary permissions. This approach supports operational flexibility while maintaining a robust security posture and compliance with organizational standards.

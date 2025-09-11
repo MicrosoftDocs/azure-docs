@@ -3,7 +3,6 @@ title: List of service catalog templates
 description: List of service catalog templates.
 author: aserfass-msft
 ms.author: aserfass
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ---
@@ -46,9 +45,9 @@ Description: This template creates the resources needed to secure the other reso
 
 Documentation:
   - [Key Vault](/azure/key-vault/general/overview)
-  - [Customer Managed Key (CMK)](../storage/common/customer-managed-keys-overview.md) for encryption
+  - [Customer Managed Key (CMK)](/azure/storage/common/customer-managed-keys-overview) for encryption
   - [Disk Encryption Set (DES)](/azure/virtual-machines/disk-encryption#full-control-of-your-keys) for disk encryption
-  - [Storage Account](../storage/common/storage-account-overview.md) quickstart. See the separate Storage Account service catalog template for more deployment customization
+  - [Storage Account](/azure/storage/common/storage-account-overview) quickstart. See the separate Storage Account service catalog template for more deployment customization
   - [Managed Identity](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) to securely access your resources within Azure Virtual Enclaves
 
 ## Private DNS Zones
@@ -69,7 +68,7 @@ Documentation:
 ## Storage Account
 [How to create an AVE compliant Storage Account](./deploy-storage-account-service-catalog.md)
 
-Description: This template deploys an Azure storage account available from the virtual network inside the Azure virtual enclave. The template deploys the storage account with customer managed keys and other policies required to operate inside an Azure virtual enclave. [Learn more](../storage/common/storage-account-overview.md)
+Description: This template deploys an Azure storage account available from the virtual network inside the Azure virtual enclave. The template deploys the storage account with customer managed keys and other policies required to operate inside an Azure virtual enclave. [Learn more](/azure/storage/common/storage-account-overview)
 
 ## Key Vault
 Description: Azure Key Vault is one of several key management solutions in Azure, and helps solve the following problems:
@@ -85,12 +84,12 @@ Documentation:
 ## App Service Web App
 [How to create an AVE compliant App Service Web App](./deploy-app-service-web-app-service-catalog.md)
 
-Description: Azure Web Apps provides a fully managed platform for building and hosting web applications using popular programming languages such as .NET, Java, Node.js, Python, and PHP. [Learn more](../app-service/overview.md)
+Description: Azure Web Apps provides a fully managed platform for building and hosting web applications using popular programming languages such as .NET, Java, Node.js, Python, and PHP. [Learn more](/azure/app-service/overview)
 
 ## App Service Function App
 [How to create an AVE compliant App Service Function](./deploy-app-service-function-app-service-catalog.md)
 
-Description: Azure Functions is a serverless solution that allows you to write less code, maintain less infrastructure, and save on costs. Instead of worrying about deploying and maintaining servers, the cloud infrastructure provides all the up-to-date resources needed to keep your applications running. [Learn more](../azure-functions/functions-overview.md)
+Description: Azure Functions is a serverless solution that allows you to write less code, maintain less infrastructure, and save on costs. Instead of worrying about deploying and maintaining servers, the cloud infrastructure provides all the up-to-date resources needed to keep your applications running. [Learn more](/azure/azure-functions/functions-overview)
 
 ## Azure SQL
 [How to create an AVE compliant Azure SQL](./deploy-azure-sql-service-catalog.md)
@@ -115,7 +114,7 @@ Description: Azure Cosmos DB simplifies and expedites your application developme
 ## Service Bus
 [How to create an AVE compliant Service Bus](./deploy-service-bus-service-catalog.md)
 
-Description: Azure Service Bus is a fully managed enterprise message broker with message [queues](../service-bus-messaging/service-bus-queues-topics-subscriptions.md#queues) and [topics and subscriptions](../service-bus-messaging/service-bus-queues-topics-subscriptions.md#topics-and-subscriptions). Service Bus is used to decouple applications and services from each other. [Learn more](../service-bus-messaging/service-bus-messaging-overview.md)
+Description: Azure Service Bus is a fully managed enterprise message broker with message [queues](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions.md#queues) and [topics and subscriptions](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions.md#topics-and-subscriptions). Service Bus is used to decouple applications and services from each other. [Learn more](/azure/service-bus-messaging/service-bus-messaging-overview)
 
 ## Request new service
 Submit a feature request using [this form](https://aka.ms/ave/scask)

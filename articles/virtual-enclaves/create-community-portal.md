@@ -3,7 +3,6 @@ title: Create a community
 description: Create a community.
 author: jadean-msft
 ms.author: jadean
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ---
@@ -46,7 +45,7 @@ To access Azure Virtual Enclaves, you need an Azure subscription. If you don't a
 > - Options: This setting declares whether the service is:
 > - - Allow: The service is allowed in the policies
 > - - Deny: The service isn't allowed in the policies
-> - - ExceptionOnly: The service isn't allowed in the policies, but manual [Policy Exemptions](../governance/policy/concepts/exemption-structure.md) can be made.
+> - - ExceptionOnly: The service isn't allowed in the policies, but manual [Policy Exemptions](/azure/governance/policy/concepts/exemption-structure) can be made.
 
 7. Select `Next` and on the `Community Administration` page select users, groups that should have privileged access over the managed resource group for the community.
 
@@ -56,7 +55,7 @@ To access Azure Virtual Enclaves, you need an Azure subscription. If you don't a
 
 ![Screenshot showing community create maintenance mode input page.](./media/create-community-tab-4-maintenance-mode.png)
 
-8. Select `Next` and enter any [Tags](../azure-resource-manager/management/tag-resources.md) for your community.
+8. Select `Next` and enter any [Tags](/azure/azure-resource-manager/management/tag-resources) for your community.
 9. Select `Next`.
 10. Select `Review + create` and validate the details for your community are correct, then select `Create`.
 
@@ -66,4 +65,4 @@ To access Azure Virtual Enclaves, you need an Azure subscription. If you don't a
 - [What is a community?](./what-community.md)
 - [Create an enclave](./create-enclave-portal.md)
 - [Best practices](./best-practices.md)
-- [Name resolution for resources in Azure Virtual Networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
+- [Name resolution for resources in Azure Virtual Networks](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)

@@ -4,7 +4,6 @@ titlesuffix: Azure Virtual Enclaves
 description: Deploy Community and Enclaves from a quickstart template.
 author: aserfass-msft
 ms.author: aserfass
-# ms.service: Azure Virtual Enclaves
 ms.topic: how-to
 ms.date: 04/08/2025
 ---

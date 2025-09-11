@@ -3,7 +3,6 @@ title: Azure Virtual Enclaves Resource Groups
 description: Azure Virtual Enclaves Resource Groups.
 author: aserfass-msft
 ms.author: aserfass
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ---

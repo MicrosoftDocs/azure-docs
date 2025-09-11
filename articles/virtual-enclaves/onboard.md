@@ -3,7 +3,6 @@ title: Onboard to Azure Virtual Enclaves
 description: Onboard to Azure Virtual Enclaves
 author: aserfass-msft
 ms.author: aserfass
-# ms.service: Azure Virtual Enclaves
 ms.topic: how-to
 ms.date: 04/08/2025
 ---
@@ -136,4 +135,4 @@ Now the Azure Virtual Enclaves resource provider can begin deploying Azure Virtu
 
   - Create resources within your workloads to meet your objectives.
     - Create resources from the [Service Catalog](./list-service-catalog-templates.md)
-    - Create resources with an [template](../azure-resource-manager/templates/deploy-to-resource-group.md) or [bicep template](../azure-resource-manager/bicep/deploy-to-resource-group.md) from [these examples](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts)
+    - Create resources with an [template](/azure/azure-resource-manager/templates/deploy-to-resource-group) or [bicep template](/azure/azure-resource-manager/bicep/deploy-to-resource-group) from [these examples](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts)

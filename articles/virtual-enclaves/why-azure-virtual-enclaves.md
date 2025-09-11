@@ -3,7 +3,6 @@ title: Why Azure Virtual Enclaves?
 description: Why Azure Virtual Enclaves?
 author: mitchellly-msft
 ms.author: mitchellly
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ---

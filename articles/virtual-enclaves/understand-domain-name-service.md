@@ -3,7 +3,6 @@ title: Understanding Domain Name Service in Azure Virtual Enclaves
 description: Understanding DNS in AVE.
 author: jadean-msft
 ms.author: jadean
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ---
@@ -12,7 +11,7 @@ ms.date: 04/08/2025
 
 When creating a [Community](./what-community.md) using Azure Virtual Enclaves, you also specify a list of DNS servers. This list of DNS servers is then passed down to all [Enclaves](./what-enclave.md) created within the community. 
 
-Workloads and resources created in enclaves follow existing [name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+Workloads and resources created in enclaves follow existing [name resolution for resources in Azure virtual networks](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
 
 ## Common Design Patterns
 For some enterprise systems, this level of DNS doesn't fully satisfy all use-cases for a controlled, customer-managed, shared private DNS for all resources living in a community. This is because, by default, the enclave virtual networks wouldn't be able to resolve private endpoints within their own virtual network as they would be configured to use the DNS servers listed in the community. In these use-cases, AVE advises customers to:
@@ -44,4 +43,4 @@ You can also ensure that the private link resolves to an IP address by running:
 In your PowerShell window. This should return an IP address (using `privatelink.azurewebsites.net` as the name of the private link).
 
 ## References
-- [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
+- [Name resolution for resources in Azure virtual networks](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)

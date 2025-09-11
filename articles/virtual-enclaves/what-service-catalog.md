@@ -3,7 +3,6 @@ title: What is the service catalog?
 description: What is the service catalog?
 author: aserfass-msft
 ms.author: aserfass
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ---

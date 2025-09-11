@@ -4,7 +4,6 @@ titleSuffix: Azure Virtual Enclaves
 description: Application Installation on RemoteApp Virtual Machine.
 author: aserfass-msft
 ms.author: aserfass
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ---
@@ -28,11 +27,11 @@ The application installation scripting supports the following scenarios:
 The RemoteApp template supports scripting to automate the process of installing applications and configuring the VM. Before you can start using the RemoteAppVM app installation, you need to make sure you have the following:
 - You need a [community](./what-community.md), [enclave](./what-enclave.md), [workload](./what-workload.md), and at least one [workload resource group](./what-workload.md#workload-resource-group) and permissions to create resources inside the workload resource group.
 - Enable `Advanced` [maintenance mode](./maintenance-mode.md) for your enclave so you can add the Private Link resources to your enclave managed resource group.
-- A [container](../storage/blobs/blob-containers-portal.md) (artifacts) within the [storage account](./deploy-storage-account-service-catalog.md).
+- A [container](/azure/storage/blobs/blob-containers-portal) (artifacts) within the [storage account](./deploy-storage-account-service-catalog.md).
 - A [community endpoint](./create-community-endpoint-portal.md) to the storage account and AzToolBox.
 - A copy of AzCopy.exe
     1. Get AzCopy from the [AzToolBox](./application-deployment-using-remote-app-vm.md). Create a [community endpoint](./create-community-endpoint-portal.md) to the storage account and AzToolBox.
-    2. Use my copy of [AzCopy.exe](../storage/common/storage-use-azcopy-v10.md#download-azcopy) in my Storage Account/Container.
+    2. Use my copy of [AzCopy.exe](/azure/storage/common/storage-use-azcopy-v10.md#download-azcopy) in my Storage Account/Container.
         - Upload the AzCopy installer to the storage account at the same level as your app folder.
         - File Structure: 
             ```md

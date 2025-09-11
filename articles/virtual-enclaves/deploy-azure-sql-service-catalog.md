@@ -3,7 +3,6 @@ title: Deploy Azure SQL from the service catalog into a workload
 description: Deploy Azure SQL from the service catalog into a workload.
 author: aserfass-msft
 ms.author: aserfass
-# ms.service: Azure Virtual Enclaves
 ms.topic: how-to
 ms.date: 04/08/2025
 ---

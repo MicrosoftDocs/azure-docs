@@ -3,7 +3,6 @@ title: Deploy Template from the service catalog using Azure CLI
 description: Deploy Template from the service catalog using Azure CLI.
 author: aserfass-msft
 ms.author: aserfass
-# ms.service: Azure Virtual Enclaves
 ms.topic: how-to
 ms.date: 04/08/2025
 ---

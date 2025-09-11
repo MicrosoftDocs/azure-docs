@@ -62,10 +62,10 @@ You pay for:
 3.	Any workloads the customer deploys within their enclaves.
 
 Managed resources for Azure Virtual Enclaves include:
-  - [Virtual WAN](../virtual-wan/virtual-wan-about.md) required for the community
-  - [Azure Firewall](../firewall/overview.md) required for the community
-  - [Virtual Network](../virtual-network/virtual-networks-overview.md) required for the enclave
-  - [Azure DNS](../dns/private-dns-overview.md) required for the enclave
+  - [Virtual WAN](/azure/virtual-wan/virtual-wan-about) required for the community
+  - [Azure Firewall](/azure/firewall/overview) required for the community
+  - [Virtual Network](/azure/virtual-network/virtual-networks-overview) required for the enclave
+  - [Azure DNS](/azure/dns/private-dns-overview) required for the enclave
   - [Log Analytics](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-overview) user selectable for community, enclave, or both.
 
 Visit the Azure Virtual Enclaves community and enclave documentation for a complete list of managed resources and visit the Azure Virtual Enclaves pricing page for current costs.

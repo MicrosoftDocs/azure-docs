@@ -3,7 +3,6 @@ title: Maintenance mode
 description: Maintenance mode explanation.
 author: jadean-msft
 ms.author: jadean
-# ms.service: Azure Virtual Enclaves
 ms.topic: conceptual
 ms.date: 04/08/2025
 ---

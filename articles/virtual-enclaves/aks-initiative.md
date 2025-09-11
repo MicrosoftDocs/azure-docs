@@ -3,7 +3,6 @@ title: Azure Kubernetes Service Initiative
 description: Azure Kubernetes Service Initiative.
 author: jadean-msft
 ms.author: jadean
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ---

@@ -3,7 +3,6 @@ title: What is an enclave connection?
 description: What is an enclave connection?
 author: jadean-msft
 ms.author: jadean
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ---

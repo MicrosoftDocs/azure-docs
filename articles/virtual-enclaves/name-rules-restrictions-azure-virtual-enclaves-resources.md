@@ -3,7 +3,6 @@ title: Naming rules and restrictions for Azure Virtual Enclaves resources
 description: Naming rules and restrictions for Azure Virtual Enclaves resources.
 author: jadean-msft
 ms.author: jadean
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ---
@@ -12,7 +11,7 @@ ms.date: 04/08/2025
 
 This article summarizes naming rules and restrictions for Azure Virtual Enclave resources. There are also other considerations that should be adhered to when naming Azure Virtual Enclaves resources for sensitive workloads, see [Considerations for naming Azure Government resources](/azure/azure-government/documentation-government-concept-naming-resources). For recommendations about how to name Azure resources, see [Recommended naming and tagging conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
-This article lists resources by resource provider namespace. For a list of how resource providers match Azure services, see [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md).
+This article lists resources by resource provider namespace. For a list of how resource providers match Azure services, see [Resource providers for Azure services](/azure/azure-resource-manager/management/azure-services-resource-providers).
 
 > [!NOTE]
 > 
@@ -28,7 +27,7 @@ In the following tables, the term alphanumeric refers to:
 
 > [!NOTE]
 > 
-> All resources with a public endpoint can't include reserved words or trademarks in the name. For a list of the blocked words, see [Resolve reserved resource name errors](../azure-resource-manager/troubleshooting/error-reserved-resource-name.md).
+> All resources with a public endpoint can't include reserved words or trademarks in the name. For a list of the blocked words, see [Resolve reserved resource name errors](/azure/azure-resource-manager/troubleshooting/error-reserved-resource-name).
 
 ## Azure Virtual Enclaves resource provider naming rules
 There are naming rules for each Azure Virtual Enclaves resource under the `Microsoft.Mission` resource provider.

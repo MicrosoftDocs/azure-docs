@@ -3,7 +3,6 @@ title: Create a community endpoint in the Azure portal
 description: Create a community endpoint in the Azure portal.
 author: jadean-msft
 ms.author: jadean
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ---

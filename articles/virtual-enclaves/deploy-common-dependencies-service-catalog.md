@@ -3,7 +3,6 @@ title: Deploy Common Dependencies from the service catalog into a workload
 description: Deploy Common Dependencies from the service catalog into a workload.
 author: aserfass-msft
 ms.author: aserfass
-# ms.service: Azure Virtual Enclaves
 ms.topic: how-to
 ms.date: 04/08/2025
 ---
@@ -14,9 +13,9 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 
 Deploy a service catalog template for Common Dependencies when deploying Azure services into an existing workload from the Portal. The template includes the options to create a:
   - [Key Vault](/azure/key-vault/general/overview)
-  - [Customer Managed Key (CMK)](../storage/common/customer-managed-keys-overview.md) for encryption
+  - [Customer Managed Key (CMK)](/azure/storage/common/customer-managed-keys-overview) for encryption
   - [Disk Encryption Set (DES)](/azure/virtual-machines/disk-encryption#full-control-of-your-keys) for disk encryption
-  - [Storage Account](../storage/common/storage-account-overview.md) quickstart. See the separate Storage Account service catalog template for more deployment customization
+  - [Storage Account](/azure/storage/common/storage-account-overview) quickstart. See the separate Storage Account service catalog template for more deployment customization
   - [Managed Identity](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) to securely access your resources within Azure Virtual Enclaves
 
 > [!NOTE]
@@ -61,13 +60,13 @@ Go to the specified resource group to confirm the intended resources were create
 If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the resource group, the whole resource group can be deleted.
 
 ## Recommendations
-- [Add tags](../azure-resource-manager/management/tag-resources.md) to service catalog deployments to track important information for that resource such as:
+- [Add tags](/azure/azure-resource-manager/management/tag-resources) to service catalog deployments to track important information for that resource such as:
   - Owner: `<main POC>`
   - Deployer: `<yourName>`
   - Purpose: `<publish abc app to users>`
   - Service Catalog Name: `<RemoteApp>`
   - Service Catalog Version: `<version you deployed>`
-- Consider adding an [Azure Policy to enforce and inherit tags](../azure-resource-manager/management/tag-policies.md)
+- Consider adding an [Azure Policy to enforce and inherit tags](/azure/azure-resource-manager/management/tag-policies)
 
 ## Troubleshooting
 

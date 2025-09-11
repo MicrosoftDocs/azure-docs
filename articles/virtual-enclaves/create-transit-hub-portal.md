@@ -3,7 +3,6 @@ title: Create a transit hub from the Azure portal
 description: Create a transit hub from the Azure portal
 author: jadean-msft
 ms.author: jadean
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ---
@@ -30,9 +29,9 @@ Sign-in to the [Azure portal](https://portal.azure.com).
 
 Refer to this guidance for more information on the different types of transit hub connections:
 
-- [Express Route](../virtual-wan/virtual-wan-expressroute-portal.md)
-- [VPN Gateway](../virtual-wan/virtual-wan-site-to-site-portal.md)
-- [Virtual network Peering](../virtual-network/tutorial-connect-virtual-networks-portal.md)
+- [Express Route](/azure/virtual-wan/virtual-wan-expressroute-portal)
+- [VPN Gateway](/azure/virtual-wan/virtual-wan-site-to-site-portal)
+- [Virtual network Peering](/azure/virtual-network/tutorial-connect-virtual-networks-portal)
 
 ![Screenshot showing the basics input page for creating a new transit hub.](./media/create-transit-hub-tab-1-basics.png)
 

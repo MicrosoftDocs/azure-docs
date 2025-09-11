@@ -3,7 +3,6 @@ title: Monitor your enclaves in Azure Virtual Enclaves
 description: Monitor your enclaves in Azure Virtual Enclaves.
 author: aserfass-msft
 ms.author: aserfass
-# ms.service: Azure Virtual Enclaves
 ms.topic: tutorial
 ms.date: 04/08/2025
 ---

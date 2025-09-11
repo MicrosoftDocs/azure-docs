@@ -3,7 +3,6 @@ title: Azure Virtual Enclaves Best Practices
 description: Azure Virtual Enclaves Best Practices.
 author: jadean-msft
 ms.author: jadean
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ---
@@ -33,23 +32,23 @@ AVE brings together the capabilities and flexibility of several Azure networking
 AVE makes the following overall recommendations:
 1. [Communities](./what-community.md) should be deployed when you have networking requirements to provide an [Azure Firewall](https://aka.ms/azurefirewall), which is Azure's intelligent firewall security Platform-as-a-Service.
 2. Communities should be deployed when you have organizational or data sensitivity requirements to separate a hub-and-spoke virtual wide-area-network (VWAN) from another hub-and-spoke VWAN.
-3. Communities should be deployed when you have networking requirements to support systems spanning [multiple Azure regions](/azure/cloud-adoption-framework/ready/azure-setup-guide/regions), in which each region requires its own Azure Firewall. [Learn more about multi-hub Azure Firewall use-cases](../firewall/firewall-multi-hub-spoke.md). 
-4. Communities should be deployed when you have networking requirements to support a very large number of systems on a distributed, hub-and-spoke wide area network. Learn more about [Azure VWAN](../virtual-wan/virtual-wan-faq.md).
+3. Communities should be deployed when you have networking requirements to support systems spanning [multiple Azure regions](/azure/cloud-adoption-framework/ready/azure-setup-guide/regions), in which each region requires its own Azure Firewall. [Learn more about multi-hub Azure Firewall use-cases](/azure/firewall/firewall-multi-hub-spoke). 
+4. Communities should be deployed when you have networking requirements to support a very large number of systems on a distributed, hub-and-spoke wide area network. Learn more about [Azure VWAN](/azure/virtual-wan/virtual-wan-faq).
 5. [Enclaves](./what-enclave.md) should be deployed when you have networking requirements to deploy similar workloads as part of the same private network.
 6. Enclaves should be deployed when you have a planned workload requirement that needs to be within the same VWAN as an existing community for ease of network management.
 
 #### Community network design considerations
 AVE advises customers to follow, wherever possible, underlying Azure service best practices documentation when planning their community networks. Some, but not all, of these best practices documentation are provided below:
-- [Azure Firewall best practices](../firewall/firewall-best-practices.md)
-- [Azure Firewall multi-hub-and-spoke](../firewall/firewall-multi-hub-spoke.md)
+- [Azure Firewall best practices](/azure/firewall/firewall-best-practices)
+- [Azure Firewall multi-hub-and-spoke](/azure/firewall/firewall-multi-hub-spoke)
 - [Hub-and-spoke Azure VWAN Architecture](/azure/architecture/networking/hub-spoke-vwan-architecture)
 - [Azure VWAN Network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/virtual-wan-network-topology)
-- [Azure VWAN FAQ](../virtual-wan/virtual-wan-faq.md)
+- [Azure VWAN FAQ](/azure/virtual-wan/virtual-wan-faq)
 
 #### Enclave network design considerations
 AVE advises customers to follow, wherever possible, underlying Azure service best practices documentation when planning their enclave networks. Some, but not all, of these best practices documentation are provided below:
-- [Azure Virtual Network concepts and best practices](../virtual-network/concepts-and-best-practices.md)
-- [Network security groups overview](../virtual-network/network-security-groups-overview.md)
+- [Azure Virtual Network concepts and best practices](/azure/virtual-network/concepts-and-best-practices)
+- [Network security groups overview](/azure/virtual-network/network-security-groups-overview)
 
 Learn more about overall [Azure networking best practices](/azure/security/fundamentals/network-best-practices).
 
@@ -67,7 +66,7 @@ AVE employs a defense-in-depth approach when it comes to cybersecurity. When you
 ### Shared security responsibilities
 As a service on Azure, AVE also is committed to upholding the [shared responsibility model](/azure/security/fundamentals/shared-responsibility) in the cloud. For AVE specifically, [workloads](./what-workload.md) are the customer's responsibility. Platform shared responsibility is inherited in workloads if the customer deployed PaaS services into their workloads.
 
-Customer instances of [communities](./what-community.md) and [enclaves](./what-enclave.md) represent a shared responsibility. Communities and enclaves are shared responsibilities in that the AVE Resource Provider will initially deploy a secured, pre-configured hub-and-spoke network environment for the customer. This network environment can then be managed by the customer by creating [enclave endpoints](./create-enclave-endpoint-portal.md), [community endpoints](./create-community-endpoint-portal.md), [transit hubs](./create-transit-hub-portal.md), or [enclave connections](./create-enclave-connection-portal.md). Certain preview versions of AVE also allow the customer to manually make changes to the network through underlying controls provided by [Azure VWAN](../virtual-wan/virtual-wan-about.md), [Azure Virtual Network](../virtual-network/virtual-networks-overview.md), and other underlying Azure networking services.
+Customer instances of [communities](./what-community.md) and [enclaves](./what-enclave.md) represent a shared responsibility. Communities and enclaves are shared responsibilities in that the AVE Resource Provider will initially deploy a secured, pre-configured hub-and-spoke network environment for the customer. This network environment can then be managed by the customer by creating [enclave endpoints](./create-enclave-endpoint-portal.md), [community endpoints](./create-community-endpoint-portal.md), [transit hubs](./create-transit-hub-portal.md), or [enclave connections](./create-enclave-connection-portal.md). Certain preview versions of AVE also allow the customer to manually make changes to the network through underlying controls provided by [Azure VWAN](/azure/virtual-wan/virtual-wan-about), [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview), and other underlying Azure networking services.
 
 AVE [governance](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring) is also a shared responsibility. The AVE Resource Provider will initially establish a secured, pre-configured list of [Azure Policy initiatives](/azure/virtual-enclaves/aks-initiative) per [workload](./what-workload.md) deployment. However, [communities](./what-community.md) now have the capability to configure their own list of Azure Policy Initiatives, which will override the pre-configured list for the workload. Despite this, customers retain the ability to make manual [exemptions](./policy-compliance-exemptions.md) to these Azure Policy Initiative assignments depending on their compliance or governance requirements.
 

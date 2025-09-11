@@ -3,7 +3,6 @@ title: Quota and region availability in Azure Virtual Enclaves
 description: Quota and region availability in Azure Virtual Enclaves
 author: jadean-msft
 ms.author: jadean
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ---
