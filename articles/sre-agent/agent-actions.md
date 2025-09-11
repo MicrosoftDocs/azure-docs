@@ -4,7 +4,7 @@ description: Learn how the agent gets your consent for elevated credentials to t
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: conceptual
-ms.date: 09/10/2025
+ms.date: 09/11/2025
 ms.service: azure
 ---
 
@@ -76,6 +76,31 @@ Consider the following key takeaways when working in an autonomous incident reso
 * The agent first attempts to take action. If the agent is met with a security challenge, then it requests temporary access to your credentials.
 * Any access to user credentials are revoked once the action is complete.
 
+The agent behaves differently depending on the assigned permissions, the execution mode, and the type of action that it attempts to make.
+
+### Read-only actions
+
+The following table details how the agent behaves when it attempts to conduct a read-only operation that requires elevated permissions.
+
+| Agent has permission? | Execution mode | Agent behavior |
+|---|---|---|
+| Yes | Review | Uses its permissions to perform the action |
+| No | Review | Prompts for temporary access to perform the action [on behalf of the user](/entra/identity-platform/v2-oauth2-on-behalf-of-flow) |
+| Yes | Automatic | Uses its permissions to perform the action |
+| No | Automatic | Prompts for temporary access to perform the action [on behalf of the user](/entra/identity-platform/v2-oauth2-on-behalf-of-flow) |
+
+### Write actions
+
+The following table details how the agent behaves when it attempts to conduct a write operation.
+
+| Agent has permission? | Execution mode | Agent behavior |
+|---|---|---|
+| Yes | Review | Prompts for approval to take action, and then uses its permissions to perform the action upon approval |
+| No | Review | Prompts for approval to take action, and then prompts for temporary access to perform the action [on behalf of the user](/entra/identity-platform/v2-oauth2-on-behalf-of-flow) |
+| Yes | Automatic | Uses its permissions to perform the action |
+| No | Automatic | Prompts for temporary access to perform the action [on behalf of the user](/entra/identity-platform/v2-oauth2-on-behalf-of-flow) |
+
 ## Related content
 
 * [Incident management](incident-management.md)
+* [Roles and access management](roles-access-management.md)

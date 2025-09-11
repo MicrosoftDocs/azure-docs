@@ -38,30 +38,6 @@ As resource groups are added or removed from the agent's scope, the managed iden
 > [!NOTE]
 > You can't directly remove specific permissions from the agent. To restrict the agent's access, you must remove the entire resource group from the agent's scope.
 
-The agent behaves differently depending on the assigned permissions, the execution mode, and the type of action that it attempts to make.
-
-### Read-only actions
-
-The following table details how the agent behaves when it attempts to conduct a read-only operation that requires elevated permissions.
-
-| Agent has permission? | Execution mode | Agent behavior |
-|---|---|---|
-| Yes | Review | Uses its permissions to perform the action |
-| No | Review | Prompts for temporary access to perform the action [on behalf of the user](/entra/identity-platform/v2-oauth2-on-behalf-of-flow) |
-| Yes | Automatic | Uses its permissions to perform the action |
-| No | Automatic | Prompts for temporary access to perform the action [on behalf of the user](/entra/identity-platform/v2-oauth2-on-behalf-of-flow) |
-
-### Write actions
-
-The following table details how the agent behaves when it attempts to conduct a write operation.
-
-| Agent has permission? | Execution mode | Agent behavior |
-|---|---|---|
-| Yes | Review | Prompts for approval to take action, and then uses its permissions to perform the action upon approval |
-| No | Review | Prompts for approval to take action, and then prompts for temporary access to perform the action [on behalf of the user](/entra/identity-platform/v2-oauth2-on-behalf-of-flow) |
-| Yes | Automatic | Uses its permissions to perform the action |
-| No | Automatic | Prompts for temporary access to perform the action [on behalf of the user](/entra/identity-platform/v2-oauth2-on-behalf-of-flow) |
-
 ## User permissions
 
 Azure SRE Agent uses RBAC-enforced roles that grant different levels of access to resources in your environment.
