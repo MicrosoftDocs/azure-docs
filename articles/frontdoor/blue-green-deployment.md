@@ -7,6 +7,7 @@ ms.reviewer: gamullen, hmb
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 11/18/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Blue/Green Deployments Using Azure Front Door

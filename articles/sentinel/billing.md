@@ -4,13 +4,15 @@ titleSuffix: Microsoft Sentinel
 description: Learn how to plan your Microsoft Sentinel costs, and understand pricing and billing using the pricing calculator and other methods.
 author: EdB-MSFT
 ms.author: edbaynash
-ms.custom: subject-cost-optimization
 ms.topic: concept-article
 ms.date: 07/09/2025
 ms.collection: usx-security
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
+ms.custom:
+  - subject-cost-optimization
+  - sfi-image-nochange
 
 
 #Customer intent: As a SOC manager, I want to understand Microsoft Sentinel's pricing and billing models so that I can optimize costs and accurately forecast expenses.

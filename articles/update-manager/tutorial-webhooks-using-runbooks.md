@@ -6,6 +6,7 @@ ms.date: 08/21/2025
 ms.topic: tutorial 
 author: habibaum
 ms.author: v-uhabiba
+ms.custom: sfi-image-nochange
 # Customer intent: As an IT administrator, I want to implement pre and post event webhooks with Automation runbooks, so that I can manage VM operations effectively during scheduled patching processes.
 ---
 

@@ -10,6 +10,7 @@ ms.custom:
   - references_regions
   - ignite-2024
   - build-2025
+  - sfi-image-nochange
 ---
 
 # Secure your Origin with Private Link in Azure Front Door Premium
