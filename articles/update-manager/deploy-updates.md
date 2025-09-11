@@ -6,7 +6,9 @@ ms.date: 03/07/2025
 ms.topic: how-to
 author: habibaum
 ms.author: v-uhabiba
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - sfi-image-nochange
 # Customer intent: "As a system administrator, I want to deploy updates across multiple virtual machines, so that I can ensure they are secure and compliant with the latest software requirements."
 ---
 

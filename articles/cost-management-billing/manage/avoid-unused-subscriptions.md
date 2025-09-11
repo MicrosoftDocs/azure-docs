@@ -1,13 +1,13 @@
 ---
 title: Avoid unused subscriptions
 description: Learn how to prevent unused subscriptions from getting automatically blocked or deleted due to inactivity.
-author: preetione
-ms.reviewer: presharm
+author: Nicholak-MS
+ms.author: nicholak
+ms.reviewer: nicholak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
 ms.date: 07/25/2025
-ms.author: presharm
 # customer intent: As a billing administrator, I want to prevent my subscriptions from getting blocked or deleted.
 ---
 

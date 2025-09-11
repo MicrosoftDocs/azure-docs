@@ -9,6 +9,7 @@ ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 10/25/2024
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 
 ---
 # Scenario: Secure traffic between Application Gateway and backend pools

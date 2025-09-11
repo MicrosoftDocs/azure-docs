@@ -35,7 +35,7 @@ ms.custom: references_regions
 
 Add or upgrade to the latest version of `k8s-extension` by running the following command.
 
-```azurecli-interactive
+```azurecli
 az extension add --upgrade --name k8s-extension
 ```
 
@@ -43,7 +43,7 @@ az extension add --upgrade --name k8s-extension
 
 Set your Azure subscription context using the `az account set` command. You can view the subscription IDs for all the subscriptions you have access to by running the `az account list --output table` command. Remember to replace `<subscription-id>` with your subscription ID.
 
-```azurecli-interactive
+```azurecli
 az account set --subscription <subscription-id>
 ```
 
@@ -56,13 +56,13 @@ To connect to the cluster, use the Kubernetes command-line client, `kubectl`.
     * Downloads credentials and configures the Kubernetes CLI to use them.
     * Uses `~/.kube/config`, the default location for the Kubernetes configuration file. You can specify a different location for your Kubernetes configuration file using the *--file* argument.
 
-    ```azurecli-interactive
+    ```azurecli
     az aks get-credentials --resource-group <resource-group> --name <cluster-name>
     ```
 
 2. Verify the connection to your cluster using the `kubectl get` command. This command returns a list of the cluster nodes.
 
-    ```azurecli-interactive
+    ```azurecli
     kubectl get nodes
     ```
 
@@ -87,7 +87,7 @@ Follow these guidelines when choosing a VM type for the cluster nodes.
 
 Run the following command to install Azure Container Storage on the cluster. Replace `<cluster-name>` and `<resource-group>` with your own values.
 
-```azurecli-interactive
+```azurecli
 az aks update -n <cluster-name> -g <resource-group> --enable-azure-container-storage
 ```
 

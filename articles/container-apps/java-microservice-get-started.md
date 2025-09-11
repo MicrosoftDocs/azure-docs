@@ -6,9 +6,11 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: yiliu6
 ms.service: azure-container-apps
-ms.custom: devx-track-java
 ms.topic: quickstart
 ms.date: 11/25/2024
+ms.custom:
+  - devx-track-java
+  - sfi-image-nochange
 ---
 
 # Quickstart: Launch your first Java microservice application with managed Java components in Azure Container Apps

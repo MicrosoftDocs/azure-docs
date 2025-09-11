@@ -4,10 +4,12 @@ description: View your container app's log stream.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 06/25/2025
 ms.author: cshoe
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # View log streams in Azure Container Apps

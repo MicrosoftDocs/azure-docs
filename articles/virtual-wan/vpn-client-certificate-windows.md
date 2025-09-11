@@ -7,6 +7,7 @@ ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 03/20/2025
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 ---
 
 # Configure Azure VPN Client for User VPN P2S certificate authentication connections - Windows

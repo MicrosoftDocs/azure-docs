@@ -8,7 +8,9 @@ ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 10/25/2024
 ms.author: cherylmc
-ms.custom: fasttrack-edit
+ms.custom:
+  - fasttrack-edit
+  - sfi-image-nochange
 ---
 
 # Scenario: Route traffic through NVAs by using custom settings

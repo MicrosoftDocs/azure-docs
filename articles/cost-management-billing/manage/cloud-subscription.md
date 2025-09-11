@@ -1,13 +1,13 @@
 ---
 title: What is a cloud subscription?
 description: Learn about cloud subscriptions, how they help manage Microsoft products and services, and the benefits of organizing resources with multiple subscriptions.
-author: kendayMS
+author: Nicholak-MS
+ms.author: nicholak
 ms.reviewer: nicholak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
 ms.date: 08/13/2025
-ms.author: presharm
 ms.custom:
 - build-2025
 ---

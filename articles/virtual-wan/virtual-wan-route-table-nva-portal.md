@@ -7,6 +7,7 @@ ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 03/27/2025
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 # Customer intent: As someone with a networking background, I want to create a route table using the portal.
 ---
 

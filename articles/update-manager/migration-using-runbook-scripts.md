@@ -6,6 +6,7 @@ ms.author: v-uhabiba
 ms.service: azure-update-manager
 ms.topic: how-to
 ms.date: 08/21/2025
+ms.custom: sfi-image-nochange
 
 # Customer intent: "As a system administrator managing machine schedules, I want to use migration runbooks to transfer workloads from Automation Update Management to Azure Update Manager, so that I can streamline updates and improve management efficiency across my automation accounts."
 ---

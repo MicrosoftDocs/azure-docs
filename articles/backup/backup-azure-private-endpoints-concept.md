@@ -6,6 +6,7 @@ ms.service: azure-backup
 ms.date: 09/09/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
+ms.custom: sfi-image-nochange
 # Customer intent: As an IT administrator, I want to implement private endpoints for Azure Backup, so that I can secure backup and restore operations within my virtual network and enhance the protection of sensitive data.
 ---
 

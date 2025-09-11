@@ -4,9 +4,10 @@ description: Learn why modeling and mapping business processes help add business
 ms.service: azure-business-process-tracking
 ms.topic: overview
 ms.reviewer: estfan, azla
-ms.date: 06/09/2025
+ms.date: 09/11/2025
+ms.update-cycle: 365-days
 
-# CustomerIntent: As a developer or business analyst with a solution that has multiple or different Azure resources that integrate various services and systems, I want a way to visualize my organization's business processes and map them to the actual Azure resources that implement those use cases. For our business, I also want to record key business data that moves through these resources to gain better insight about how our solutions perform.
+# Customer intent: As a developer or business analyst with a solution that has multiple or different Azure resources that integrate various services and systems, I want a way to visualize my organization's business processes and map them to the actual Azure resources that implement those use cases. For our business, I also want to record key business data that moves through these resources to gain better insight about how our solutions perform.
 ---
 
 # What is Azure Business Process Tracking?

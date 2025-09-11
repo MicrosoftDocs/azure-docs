@@ -7,7 +7,9 @@ ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 03/04/2024
 ms.author: cherylmc
-ms.custom: references_region
+ms.custom:
+  - references_region
+  - sfi-image-nochange
 
 ---
 # How to configure Route-maps

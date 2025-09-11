@@ -9,6 +9,7 @@ ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 10/25/2024
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 
 ---
 # Configure Azure Firewall in a Virtual WAN hub

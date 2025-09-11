@@ -6,6 +6,7 @@ ms.date: 08/19/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
+ms.custom: sfi-ropc-nochange
 # Customer intent: "As a database administrator, I want to restore SAP HANA database instances from snapshots on Azure virtual machines, so that I can recover critical data efficiently and ensure business continuity."
 ---
 

@@ -4,10 +4,12 @@ description: Learn to integrate Admin for Spring with Eureka Server for Spring i
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.custom: devx-track-extended-java
 ms.topic: conceptual
 ms.date: 11/19/2024
 ms.author: cshoe
+ms.custom:
+  - devx-track-extended-java
+  - sfi-image-nochange
 ---
 
 # Tutorial: Integrate Admin for Spring with Eureka Server for Spring in Azure Container Apps

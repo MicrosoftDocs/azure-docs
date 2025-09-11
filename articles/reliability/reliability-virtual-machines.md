@@ -6,161 +6,189 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-virtual-machines
-ms.date: 10/31/2024
+ms.date: 09/10/2025
 ---
 
 # Reliability in Virtual Machines
 
-This article contains detailed information on VM regional resiliency with [availability zones](#availability-zone-support) and [cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). 
+Azure Virtual Machines (VMs) provides on-demand, scalable compute resources. As a foundational infrastructure service, VMs are designed to deliver enterprise-grade reliability and availability for mission-critical workloads.
 
+This article describes reliability support in [Azure Virtual Machines](/azure/virtual-machines/overview), including support for availability zones, backups, and maintaining reliability during platform maintenance.
+
+
+[!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
+
+
+[!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
+
+> [!IMPORTANT]
+> When you consider the reliability of a VM, you also need to consider the reliability of your disks, your network infrastructure, and the applications that run on your VMs. Even if you increase the resiliency of a VM, that increase might not be impactful if your other resources and applications aren't also resilient. Depending on your resiliency requirements, you may need to make configuration changes across multiple areas.
+
+## Production deployment recommendations
+
+To learn about how to deploy VMs to support your solution's reliability requirements, and how reliability affects other aspects of your architecture, see [Architecture best practices for Azure Virtual Machines and scale sets in the Azure Well-Architected Framework](/azure/well-architected/service-guides/virtual-machines).
+
+## Reliability architecture overview
+
+VMs are the fundamental compute unit in Azure, whether you provision the VMs yourself or use other Azure compute services that transparently provision and manage them for you.
+
+An individual VM is sometimes called a *single instance VM*. It runs on a specific host, which is a physical server. Most VMs share their host with other VMs.
+
+When you create your VMs, you can influence where your VMs run in the underlying infrastructure. Generally, you'll make your choices based on your requirements for reliability, latency, and isolation. Azure offers the following configuration options that affect the placement of your VMs:
+
+- **Region:** You can select which [Azure region](./regions-overview.md) your VM should run in. A region is a geographic area that might contain multiple datacenters, each with a large number of hosts.
+
+- **Availability zone:** [Availability zones](/azure/reliability/availability-zones-overview) are physically separate groups of datacenters within each Azure region. [In regions that support availability zones](./availability-zones-overview.md), you can select which zone the VM runs in. To learn more, see [Availability zone support](#availability-zone-support) later in this article.
+
+- **Availability sets:** An availability set is a logical grouping of VMs that allows Azure to understand how your application is built to provide for redundancy and availability.
+
+    When you use availability sets, you tell Azure to distribute a group of VMs across different [fault domains](/azure/virtual-machines/availability-set-overview#fault-domains). This distribution minimizes the risk of localized hardware failures by grouping virtual machines that share a common power source and network switch.
+
+    Availabilty sets can also place different VMs in different [update domains](/azure/virtual-machines/availability-set-overview#update-domains), which controls how the Azure platform rolls out platform updates. By using update domains, you can ensure that only a subset of your VMs is restarted for updates at one time.
+
+- **Proximity placement groups:** For workloads that need to achieve the lowest possible latency between VMs, you can use a [proximity placement group](/azure/virtual-machines/co-location) to ensure Azure places the VMs physically close to each other. However, proximity placement means that an outage of the datacenter can affect all of the VMs in the group. To achieve high reliability you might need to provision multiple proximity placement groups in different availability zones.
+
+- **Dedicated hosts:** You can use [Azure Dedicated Hosts](/azure/virtual-machines/dedicated-hosts) to provision your own physical server that runs one or more VMs, such as for strict compliance requirements. However, when you provision a dedicated host, an outage in its datacenter can affect all of the VMs on that host. To achieve high reliability you might need to provision multiple dedicated hosts in different availability zones.
+
+If you're creating a set of VMs that perform similar functions, consider using [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) to create and manage the VMs as a group. Scale sets also provide more reliability options, such as spreading the VMs across multiple availability zones for you.
+
+To learn more about availability for VMs, see [Availability options for Azure Virtual Machines](/azure/virtual-machines/availability).
+
+## Transient faults
+
+[!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
+
+Applications running on your VMs should implement appropriate fault-handling strategies to ensure that any temporary interruptions in service don't impact your workload.
 
 ## Availability zone support
 
-[!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
+[!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
 
-Virtual machines support availability zones with three availability zones per supported Azure region and are also zone-redundant and zonal. For more information, see [Azure services with availability zones](availability-zones-service-support.md). The customer is responsible for configuring and migrating their virtual machines for availability. 
+An individual VM can be deployed in a *zonal* configuration, which means it's pinned to a single availability zone that you select. By itself, a zonal VM isn't resilient to zone outages. However, you can create multiple VMs and place them in different availability zones, then spread your applications and data across the VM instances. Alternatively, you can use [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) to create a set of virtual machines and spread them across zones.
 
-To learn more about availability zone readiness options, see:
+If you don't configure a VM to be zonal then it's considered to be *nonzonal* or *regional*. Nonzonal VMs might be placed in any availability zone within the region. If any availability zone in the region experiences an outage, nonzonal VMs might be in the affected zone and could experience downtime.
 
-- See [availability options for VMs](/azure/virtual-machines/availability)
-- Review [availability zone service support](./availability-zones-service-support.md) and [region support](regions-list.md)
-- [Migrate existing VMs](migrate-vm.md) to availability zones
+### Region support
 
- 
-### Prerequisites
+Zonal VMs can be deployed into [any region that supports availability zones](./regions-list.md).
 
-- Your virtual machine SKUs must be available across the zones in for your region. To review which regions support availability zones, see the [list of supported regions](regions-list.md).
+However, some VM types and sizes are only available in specific regions, or specific zones within a region. To check which regions and zones support the VM types you need, use these resources:
 
-- Your VM SKUs must be available across the zones in your region. To check for VM SKU availability, use one of the following methods:
+- [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/) to check the VM types available in each region.
+- [Check VM SKU availability](/azure/virtual-machines/linux/create-cli-availability-zone#check-vm-sku-availability) to check the supported VM types and sizes within each zone of a specific region.
 
-    - Use PowerShell to [Check VM SKU availability](/azure/virtual-machines/windows/create-powershell-availability-zone#check-vm-sku-availability).
-    - Use the Azure CLI to [Check VM SKU availability](/azure/virtual-machines/linux/create-cli-availability-zone#check-vm-sku-availability).
-    - Go to [Azure services with availability zone support](availability-zones-service-support.md).
-    
+### Cost
 
-### SLA improvements
+There is no cost difference between a zonal and nonzonal VM.
 
-Because availability zones are physically separate and provide distinct power source, network, and cooling, SLAs (Service-level agreements) increase. For more information, see the [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/).
+### Configure availability zone support
 
-### Create a resource with availability zones enabled
+This section explains how to configure availability zone support for your virtual machine instance.
 
-Get started by creating a virtual machine (VM) with availability zone enabled from the following deployment options below:
-- [Azure CLI](/azure/virtual-machines/linux/create-cli-availability-zone)
-- [PowerShell](/azure/virtual-machines/windows/create-powershell-availability-zone)
-- [Azure portal](/azure/virtual-machines/create-portal-availability-zone)
+> [!NOTE]
+> [!INCLUDE [Availability zone numbering](./includes/reliability-availability-zone-numbering-include.md)]
 
-### Zonal failover support
+- **Create a zonal virtual machine**: You can create a zonal virtual machine using the following guides:
+    - Azure portal: [Create virtual machines in an availability zone using the Azure portal](/azure/virtual-machines/create-portal-availability-zone)
+    - Azure CLI: [Create a virtual machine in an availability zone using Azure CLI](/azure/virtual-machines/linux/create-cli-availability-zone)
+    - Azure PowerShell: [Create a virtual machine in an availability zone using Azure PowerShell](/azure/virtual-machines/windows/create-powershell-availability-zone)
 
-You can set up virtual machines to fail over to another zone using the Site Recovery service. For more information, see [Site Recovery](../site-recovery/site-recovery-overview.md).
+- **Convert existing virtual machines to a zonal configuration:** You can move from a nonzonal VM to a zonal VM. This process creates a new VM in the target availability zone, and requires that the VM be stopped during the move process. To learn more, see [Move Azure single instance VMs from regional to zonal target availability zones](/azure/virtual-machines/move-virtual-machines-regional-zonal-portal).
 
-### Fault tolerance
+- **Change the availability zone of an existing zonal virtual machine:** Zonal VMs can't be moved to a different availability zone. You need to deploy a new zonal VM in the desired availability zone instead.
 
-Virtual machines can fail over to another server in a cluster, with the VM's operating system restarting on the new server. You should refer to the failover process for disaster recovery, gathering virtual machines in recovery planning, and running disaster recovery drills to ensure their fault tolerance solution is successful.
+- **Convert a zonal VM to nonzonal:** Zonal VMs can't be converted to a nonzonal configuration. You need to deploy a new nonzonal VM instead.
 
-For more information, see the [site recovery processes](../site-recovery/site-recovery-failover.md#before-you-start).
+### Normal operations
 
+This section describes what to expect when virtual machine instances are configured with availability zone support and all availability zones are operational.
 
-### Zone down experience
+- **Traffic routing between zones:** You're responsible for routing traffic between VMs, including VMs that are in different availability zones. Common approaches include Azure Load Balancer and Azure Application Gateway. For more information on Azure load balancing options, see [Azure Architecture Center - Load balancing options](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
-During a zone-wide outage, you should expect a brief degradation of performance until the virtual machine service self-healing rebalances underlying capacity to adjust to healthy zones. Self-healing isn't dependent on zone restoration; it's expected that the Microsoft-managed service self-healing state compensates for a lost zone, using capacity from other zones.
+- **Data replication between zones:** You're responsible for any data replication that needs to happen between VMs, including across VMs in different availability zones. Databases and other similar stateful applications that run on VMs often provide capabilities to replicate data.
 
-You should also prepare for the possibility that there's an outage of an entire region. If there's a service disruption for an entire region, the locally redundant copies of your data would temporarily be unavailable. If geo-replication is enabled, three other copies of your Azure Storage blobs and tables are stored in a different region. When there's a complete regional outage or a disaster in which the primary region isn't recoverable, Azure remaps all of the DNS entries to the geo-replicated region.
+### Zone-down experience
 
-#### Zone outage preparation and recovery
+This section describes what to expect when virtual machine instances are configured with availability zone support and there's an outage in its availability zone.
 
-The following guidance is provided for Azure virtual machines during a service disruption of the entire region where your Azure virtual machine application is deployed:
+- **Detection and response**: You're responsible for detecting and responding to zone failures that affect your virtual machines.
 
-- Configure [Azure Site Recovery](/azure/virtual-machines/virtual-machines-disaster-recovery-guidance#option-1-initiate-a-failover-by-using-azure-site-recovery) for your VMs
-- Check the [Azure Service Health Dashboard](/azure/virtual-machines/virtual-machines-disaster-recovery-guidance#option-2-wait-for-recovery) status if Azure Site Recovery hasn't been configured
-- Review how the [Azure Backup service](../backup/backup-azure-vms-introduction.md) works for VMs
-    - See the [support matrix](../backup/backup-support-matrix-iaas.md) for Azure VM backups
-- Determine which [VM restore option and scenario](../backup/about-azure-vm-restore.md) works best for your environment
+- **Notification**: Use [Azure Resource Health](/azure/service-health/resource-health-overview) to detect zone failures and trigger failover processes.
 
-### Low-latency design
+- **Active requests**: Any active requests or other work happening on the VM during the zone failure are likely to be terminated.
 
-Cross Region (secondary region), Cross Subscription (preview), and Cross Zonal (preview) are available options to consider when designing a low-latency virtual machine solution. For more information on these options, see the [supported restore methods](../backup/backup-support-matrix-iaas.md#supported-restore-methods).
+- **Expected data loss**: Zonal VM disks might be unavailable during a zone failure.
 
->[!IMPORTANT]
->By opting out of zone-aware deployment, you forego protection from isolation of underlying faults. Use of SKUs that don't support availability zones or opting out from availability zone configuration forces reliance on resources that don't obey zone placement and separation (including underlying dependencies of these resources). These resources shouldn't be expected to survive zone-down scenarios. Solutions that leverage such resources should define a disaster recovery strategy and configure a recovery of the solution in another region.
+    If you use zone-redundant disks and your VM is affected by an outage, you can [force detach](/rest/api/compute/virtual-machines/attach-detach-data-disks?tabs=HTTP#diskdetachoptiontypes) your ZRS disks from the failed VM, allowing you to then attach the ZRS disks to another VM.
 
-### Safe deployment techniques
+- **Expected downtime**: VMs remain down until the availability zone recovers.
 
-When you opt for availability zones isolation, you should utilize safe deployment techniques for application code and application upgrades. In addition to [configuring Azure Site Recovery](#zone-outage-preparation-and-recovery), and implement any one of the following safe deployment techniques for VMs:
+- **Traffic rerouting**: You're responsible for rerouting traffic to other VMs in healthy zones.
 
-- [Virtual Machine Scale Sets](/azure/virtual-machines/flexible-virtual-machine-scale-sets)
-- [Azure Load Balancer](../load-balancer/load-balancer-overview.md)
-- [Azure Storage Redundancy](../storage/common/storage-redundancy.md)
+    If you've configured a zone-resilient load balancer and it performs health checks, the load balancer typically detects failed VMs and can route traffic to other VM instances in healthy zones.
 
+### Zone recovery
 
-As Microsoft periodically performs planned maintenance updates, there may be rare instances when these updates require a reboot of your virtual machine to apply the required updates to the underlying infrastructure. To learn more, see [availability considerations](/azure/virtual-machines/maintenance-and-updates#availability-considerations-during-scheduled-maintenance) during scheduled maintenance. 
+Once the zone is healthy, VMs in the zone restart. You're responsible for any zone recovery procedures and data synchronization as required by your workloads.
 
-Before you upgrade your next set of nodes in another zone, you should perform the following tasks:
+### Testing for zone failures
 
-- Check the [Azure Service Health Dashboard](https://azure.microsoft.com/status/) for the virtual machines service status for your expected regions.
-- Ensure that [replication](../site-recovery/azure-to-azure-quickstart.md) is enabled on your VMs.
+You can use Azure Chaos Studio to simulate the loss of a VM as part of an experiment. Chaos Studio provides [built-in faults for VMs](/azure/chaos-studio/chaos-studio-fault-library#virtual-machines-service-direct), including to shut down a VM. You can use these capabilities to simulate zone failures and test your failover processes.
 
+### Alternative multi-zone approaches
 
-### Migrate to availability zone support
+When you deploy multiple VMs into different zones, you're responsible for configuring and managing replication, load balancing, failover, and failback processes.
 
-To learn how to migrate a VM to availability zone support, see [Migrate Virtual Machines and Virtual Machine Scale Sets to availability zone support](./migrate-vm.md).
+Some applications provide built-in capabilities that can help when you deploy across multiple VMs. For example, [SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview) provides a set of capabilities to simplify your configuration and management processes across availability zones.
 
-- Move a VM to another subscription or resource group
-    - [CLI](/azure/azure-resource-manager/management/move-resource-group-and-subscription#use-the-azure-cli)
-    - [PowerShell](/azure/azure-resource-manager/management/move-resource-group-and-subscription#use-azure-powershell)
-- [Azure Resource Mover](/azure/resource-mover/tutorial-move-region-virtual-machines)
-- [Move Azure VMs to availability zones](../site-recovery/move-azure-vms-avset-azone.md)
-- [Move region maintenance configuration resources](/azure/virtual-machines/move-region-maintenance-configuration-resources)
-  
-## Cross-region disaster recovery and business continuity
+You can consider using [Azure Site Recovery zone-to-zone disaster recovery](/azure/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery) when your application runs in a single zone at a time, and where you don't require near-instant failover between zones. Zone-to-zone disaster recovery has some important limitations to be aware of, so review your requirements thoroughly.
 
-[!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
+## Multi-region support
 
-You can use Cross Region restore to restore Azure VMs via paired regions. With Cross Region restore, you can restore all the Azure VMs for the selected recovery point if the backup is done in the secondary region. For more information on Cross Region restore, refer to the Cross Region table row entry in our [restore options](../backup/backup-azure-arm-restore-vms.md#restore-options).
+Azure Virtual Machines are single-region resources. If the region becomes unavailable, your VM is also unavailable.
 
-### Disaster recovery in multi-region geography
+### Alternative multi-region approaches
 
+You can deploy multiple VMs into different regions, but you need to implement replication, load balancing, and failover processes.
 
-In the case of a region-wide service disruption, Microsoft works diligently to restore the virtual machine service. However, you still must rely on other application-specific backup strategies to achieve the highest level of availability. For more information, see the section on [Data strategies for disaster recovery](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan).
+Azure Site Recovery is a service that enables disaster recovery by replicating VMs and their data to a secondary region. To learn more, see [Azure to Azure disaster recovery architecture](/azure/site-recovery/azure-to-azure-architecture).
 
-#### Outage detection, notification, and management
+Some applications create clusters or other constructs to replicate data and distribute work across multiple VMs, including in different regions. These applications can simplify the configuration of a multi-region solution.
 
-Hardware or physical infrastructure for the virtual machine may fail unexpectedly. Unexpected failures can include local network failures, local disk failures, or other rack level failures. When detected, the Azure platform automatically migrates (heals) your virtual machine to a healthy physical machine in the same data center. During the healing procedure, virtual machines experience downtime (reboot) and in some cases loss of the temporary drive. The attached OS and data disks are always preserved.
+For an example architecture that illustrates using VMs across multiple regions, see [Multi-region load balancing with Traffic Manager, Azure Firewall, and Application Gateway](/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway).
 
-For more detailed information on virtual machine service disruptions, see [disaster recovery guidance](/azure/virtual-machines/virtual-machines-disaster-recovery-guidance).
+## Reliability during service maintenance
 
-#### Set up disaster recovery and outage detection 
+Azure performs regular periodic maintenance on VMs to ensure reliability. There are multiple ways you can ensure your workloads remain operational during maintenance activities:
 
-When setting up disaster recovery for virtual machines, understand what [Azure Site Recovery provides](../site-recovery/site-recovery-overview.md#what-does-site-recovery-provide). Enable disaster recovery for virtual machines with the below methods:
+- When you use availability sets or virtual machine scale sets, you can configure update domains. Update domains help to distribute maintenance activities across different VMs at different times, so that your VMs don't all restart simultaneously.
 
-- Set up disaster recovery to a [secondary Azure region for an Azure VM](../site-recovery/azure-to-azure-quickstart.md)
-- Create a Recovery Services vault
-    - [Bicep](../site-recovery/quickstart-create-vault-bicep.md)
-    - [ARM template](../site-recovery/quickstart-create-vault-template.md)
-- Enable disaster recovery for [Linux virtual machines](/azure/virtual-machines/linux/tutorial-disaster-recovery)
-- Enable disaster recovery for [Windows virtual machines](/azure/virtual-machines/windows/tutorial-disaster-recovery)
-- Fail over virtual machines to [another region](../site-recovery/azure-to-azure-tutorial-failover-failback.md)
-- Fail over virtual machines to the [primary region](../site-recovery/azure-to-azure-tutorial-failback.md#fail-back-to-the-primary-region)
+- You can customise the timing that maintenance is applied to your VMs by using *maintenance control*. You can use maintenance configurations to schedule it at a time that suits your workload.
 
-### Disaster recovery in single-region geography
+- You can receive notifications of upcoming maintenance activities.
 
-With disaster recovery setup, Azure VMs continuously replicate to a different target region. If an outage occurs, you can fail over VMs to the secondary region, and access them from there.
+For more information, see [Guest updates and host maintenance overview](/azure/virtual-machines/updates-maintenance-overview).
 
-When you replicate Azure VMs using [Site Recovery](../site-recovery/site-recovery-overview.md), all the VM disks are continuously replicated to the target region asynchronously. The recovery points are created every few minutes, which grants you a Recovery Point Objective (RPO) in the order of minutes. You can conduct disaster recovery drills as many times as you want, without affecting the production application or the ongoing replication. For more information, see [Run a disaster recovery drill to Azure](../site-recovery/tutorial-dr-drill-azure.md).
+## Backup
 
-For more information, see [Azure VMs architectural components](../site-recovery/azure-to-azure-architecture.md#architectural-components) and [region pairing](/azure/virtual-machines/regions#region-pairs).
+Azure Virtual Machines natively support backup through the Azure Backup service. Azure Backup provides a native solution for protecting Azure Virtual Machines by creating and managing backups, with application-consistent protection for the entire virtual machine including all attached disks. This approach is ideal when you need coordinated backup of multiple disks or application-aware backups. For database workloads, consider application-specific backup solutions that provide transaction-consistent protection and faster recovery options.
 
-### Capacity and proactive disaster recovery resiliency
+You can customize how frequently backups are taken, how long they're retained for, and how the backups are stored. For more information, see [Azure Backup for VMs](../backup/backup-azure-vms-introduction.md).
 
-Microsoft and its customers operate under the [Shared Responsibility Model](./concept-shared-responsibility.md). Shared responsibility means that for customer-enabled DR (customer-responsible services), you must address DR for any service they deploy and control. To ensure that recovery is proactive, you should always pre-deploy secondaries because there's no guarantee of capacity at time of impact for those who haven't preallocated.
+Azure Backup also supports disks that are attached to VMs. To learn more, see [Azure Disk Backup](/azure/backup/disk-backup-overview).
 
-For deploying virtual machines, you can use [flexible orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration) mode on Virtual Machine Scale Sets. All VM sizes can be used with flexible orchestration mode. Flexible orchestration mode also offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains either within a region or within an availability zone.
+## Service-level agreement
+
+The service-level agreement (SLA) for Azure Virutal Machines describes the expected availability of the service and the conditions that must be met to achieve that availability expectation.
+
+The SLA provides a base level of availability for VMs. The uptime percentage defined in the SLA increases when you have two or more VMs, and you:
+- Configure those VMs to be deployed across two or more availability zones, or
+- Configure those VMs to be deployed into an availability set
+
+For more information, see [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 ## Next steps
 
-- [Well-Architected Framework for virtual machines](/azure/architecture/framework/services/compute/virtual-machines/virtual-machines-review)
-- [Azure to Azure disaster recovery architecture](/azure/site-recovery/azure-to-azure-architecture)
-- [Accelerated networking with Azure VM disaster recovery](/azure/site-recovery/azure-vm-disaster-recovery-with-accelerated-networking)
-- [Express Route with Azure VM disaster recovery](../site-recovery/azure-vm-disaster-recovery-with-expressroute.md)
-- [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)
-- [Reliability in Azure](/azure/reliability/availability-zones-overview)
-
+- [Virtual machines in Azure](/azure/virtual-machines/overview)
+- [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview)
+- [Reliability in Azure](./overview.md)

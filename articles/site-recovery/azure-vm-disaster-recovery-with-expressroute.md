@@ -6,6 +6,7 @@ ms.service: azure-site-recovery
 ms.topic: concept-article
 ms.date: 12/14/2023
 ms.author: jsuri
+ms.custom: sfi-image-nochange
 
 # Customer intent: "As a cloud administrator, I want to set up disaster recovery for Azure virtual machines using ExpressRoute and Site Recovery, so that I can ensure minimal downtime and efficient recovery processes during regional outages."
 ---

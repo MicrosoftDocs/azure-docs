@@ -20,7 +20,8 @@ ms.custom: devx-track-azurecli, references_regions
 > [!div class="checklist"]
 > * Create a resource group
 > * Ensure VM type for your cluster meets the installation criteria
-> * Create an AKS cluster & Install Azure Container Storage
+> * Create an AKS cluster
+> * Install Azure Container Storage
 
 ## Prerequisites
 
@@ -38,7 +39,7 @@ ms.custom: devx-track-azurecli, references_regions
 
 Add or upgrade to the latest version of `k8s-extension` by running the following command.
 
-```azurecli-interactive
+```azurecli
 az extension add --upgrade --name k8s-extension
 ```
 
@@ -46,7 +47,7 @@ az extension add --upgrade --name k8s-extension
 
 Set your Azure subscription context using the `az account set` command. You can view the subscription IDs for all the subscriptions you have access to by running the `az account list --output table` command. Remember to replace `<subscription-id>` with your subscription ID.
 
-```azurecli-interactive
+```azurecli
 az account set --subscription <subscription-id>
 ```
 
@@ -59,7 +60,7 @@ An Azure resource group is a logical group that holds your Azure resources that 
 
 Create a resource group using the `az group create` command. Replace `<resource-group-name>` with the name of the resource group you want to create, and replace `<location>` with an Azure region such as *eastus*, *westus2*, *westus3*, or *westeurope*.
 
-```azurecli-interactive
+```azurecli
 az group create --name <resource-group-name> --location <location>
 ```
 
@@ -91,7 +92,7 @@ If you already have an AKS cluster deployed, follow the installation instruction
 
 Run the following command to create a new AKS cluster and install Azure Container Storage. Replace `<cluster-name>` and `<resource-group>` with your own values, and specify which VM type you want to use.
 
-```azurecli-interactive
+```azurecli
 az aks create -n <cluster-name> -g <resource-group> --node-vm-size Standard_L8s_v3 --enable-azure-container-storage --generate-ssh-keys
 ```
 

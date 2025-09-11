@@ -7,7 +7,11 @@ ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 02/28/2025
 ms.author: cshoe
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, build-2023
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - build-2023
+  - sfi-ropc-nochange
 ---
 
 # Manage secrets in Azure Container Apps

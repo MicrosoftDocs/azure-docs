@@ -9,6 +9,7 @@ ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 11/21/2023
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 
 ---
 # Configure a packet capture for Virtual WAN site-to-site VPN: Azure portal

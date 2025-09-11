@@ -6,6 +6,7 @@ ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 03/26/2025
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 # Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
 ---
 # How to create a Network Virtual Appliance in an Azure Virtual WAN hub

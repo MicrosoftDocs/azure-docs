@@ -7,6 +7,7 @@ ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 12/10/2024
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 ---
 # Virtual hub routing preference
 

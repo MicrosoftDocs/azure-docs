@@ -7170,6 +7170,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/reliability/migrate-container-instances.md",
+      "redirect_url": "/azure/reliability/reliability-container-instances",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/reliability-containers.md",
+      "redirect_url": "/azure/reliability/reliability-container-instances",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/reliability/reliability-operator-nexus.md",
       "redirect_url": "/azure/reliability/overview-reliability-guidance",
       "redirect_document_id": false

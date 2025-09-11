@@ -7,6 +7,7 @@ ms.service: azure-site-recovery
 ms.topic: concept-article
 ms.date: 09/18/2024
 ms.author: jsuri
+ms.custom: sfi-image-nochange
 
 # Customer intent: "As an IT administrator, I want to analyze the Deployment Planner report for Hyper-V VMs, so that I can understand my disaster recovery requirements and ensure successful replication to Azure."
 ---

@@ -6,6 +6,7 @@ ms.date: 09/11/2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
+ms.custom: sfi-ropc-nochange
 # Customer intent: As a system administrator, I want to restore the System State of a Windows Server from an Azure backup, so that I can recover the server to a previous stable configuration efficiently.
 ---
 # Restore System State to Windows Server
