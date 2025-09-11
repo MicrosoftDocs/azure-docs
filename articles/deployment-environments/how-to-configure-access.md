@@ -5,12 +5,12 @@ ms.service: azure-deployment-environments
 ms.author: rosemalcolm
 author: RoseHJM
 ms.topic: how-to
-ms.date: 09/09/2025
+ms.date: 09/11/2025
 
 #customer intent: As a platform engineer, I want to assign and verify project and environment-type roles so team leads and developers can manage and use projects.
 ---
 
-# Configure access to Azure Deployment Environments projects
+# Configure access to Azure Deployment Environments resources
 
 This article shows how to assign the built-in DevCenter Project Admin role for project administrators (team leads) and the Deployment Environments User role for developers. Assign roles at the project level or at a specific environment-type scope to control access.
 
@@ -64,7 +64,7 @@ Verify the role assignment: On the project's Access control (IAM) page, confirm 
 1. Select **Add** > **Add role assignment**.
 1. Assign **DevCenter Project Admin** to the desired users or groups and select **Save**.
 
-:::image type="content" source="media/configure-project-admin/project-environment-types.png" alt-text="Screenshot of the environment types associated with a project." lightbox="media/configure-project-admin/project-environment-types.png":::
+:::image type="content" source="media/configure-project-admin/project-environment-types.png" alt-text="Screenshot of the Environment types page showing how to assign DevCenter Project Admin to a specific environment type." lightbox="media/configure-project-admin/project-environment-types.png":::
 
 ## Assign Deployment Environments User (developers)
 
@@ -95,7 +95,7 @@ Verify the role assignment: On the project's Access control (IAM) page, confirm 
 1. Select **Add** > **Add role assignment**.
 1. Assign **Deployment Environments User** to the desired users or groups and select **Save**.
 
-:::image type="content" source="media/configure-deployment-environments-user/project-environment-types.png" alt-text="Screenshot of the environment types associated with a project." lightbox="media/configure-deployment-environments-user/project-environment-types.png":::
+:::image type="content" source="media/configure-deployment-environments-user/project-environment-types.png" alt-text="Screenshot of the Environment types page showing how to assign Deployment Environments User to a specific environment type." lightbox="media/configure-deployment-environments-user/project-environment-types.png":::
 
 [!INCLUDE [note-deployment-environments-user](includes/note-deployment-environments-user.md)]
 
