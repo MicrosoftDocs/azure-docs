@@ -59,7 +59,7 @@ POST on 'subscriptions/subscriptionI/resourceGroups/resourceGroupName/providers/
 
 ```
 
-# [Azure PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMethod-Path](/powershell/module/az.accounts/invoke-azrestmethod) cmdlet.
 
