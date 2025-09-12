@@ -19,10 +19,6 @@ items:
 - name: Key concepts
   expanded: true
   items:
-    - name: How agent performs actions
-      href: agent-actions.md
-    - name: Access management
-      href: access-management.md
     - name: Incident management
       href: incident-management.md
     - name: FAQ
@@ -36,6 +32,8 @@ items:
       href: user-access-roles.md
     - name: Agent and user permissions
       href: agent-user-permissions.md
+    - name: How agent performs actions
+      href: agent-actions.md
 - name: Reference
   items:
     - name: Starter prompts
