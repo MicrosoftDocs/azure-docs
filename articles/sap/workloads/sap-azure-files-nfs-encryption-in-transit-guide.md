@@ -141,15 +141,15 @@ fast_stop=no op start interval=0 timeout=60 op stop interval=0 timeout=120 op mo
 >
 > For RHEL 8
 >
-> - RHEL 8.8.z : `resource-agents-4.9.0-40.el8_8.10` or later
-> - RHEL 8.10.z: `resource-agents-4.9.0-54.el8_10.13` or later
+> - RHEL 8.8 : `resource-agents-4.9.0-40.el8_8.10` or later
+> - RHEL 8.10: `resource-agents-4.9.0-54.el8_10.13` or later
 >
 > For RHEL 9
 >
-> - RHEL 9.0.z: `resource-agents-4.10.0-9.el9_0.13` or later
-> - RHEL 9.2.z: `resource-agents-4.10.0-34.el9_2.10` or later
-> - RHEL 9.4.z: `resource-agents-4.10.0-52.el9_4.8` or later
-> - RHEL 9.6.z: `resource-agents-4.10.0-71.el9_6.5` or later
+> - RHEL 9.0: `resource-agents-4.10.0-9.el9_0.13` or later
+> - RHEL 9.2: `resource-agents-4.10.0-34.el9_2.10` or later
+> - RHEL 9.4: `resource-agents-4.10.0-52.el9_4.8` or later
+> - RHEL 9.6: `resource-agents-4.10.0-71.el9_6.5` or later
 
 ---
 
