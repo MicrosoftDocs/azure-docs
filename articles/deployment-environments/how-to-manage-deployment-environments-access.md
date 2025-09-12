@@ -1,11 +1,12 @@
 ---
-title: Configure access to Azure Deployment Environments projects
+title: Grant access to Azure Deployment Environments
 description: Assign built-in roles so team leads and developers can manage projects and create deployment environments.
 ms.service: azure-deployment-environments
 ms.author: rosemalcolm
 author: RoseHJM
+ms.custom: peer-review-program
 ms.topic: how-to
-ms.date: 09/11/2025
+ms.date: 09/12/2025
 
 #customer intent: As a platform engineer, I want to assign and verify project and environment-type roles so team leads and developers can manage and use projects.
 ---
@@ -18,14 +19,16 @@ The following built-in roles are commonly used with Azure Deployment Environment
 
 | Role | Description |
 | --- | --- |
-| DevCenter Project Admin | Full project-level management for Deployment Environments projects. Project admins can manage project settings, environment types, and perform administrative actions across all environments in the project. |
-| Deployment Environments User | Allows users to create, start, stop, and manage their own environments within a project. Intended for developers who need to provision and work with environments. |
-| Deployment Environments Reader | Read-only access to environment and project resources. Use this role to grant users or service principals visibility into environments without modification rights. |
+| **DevCenter Project Admin** | Full project-level management for Deployment Environments projects. Project admins can manage project settings, environment types, and perform administrative actions across all environments in the project. |
+| **Deployment Environments User** | Allows users to create, start, stop, and manage their own environments within a project. Intended for developers who need to provision and work with environments. |
+| **Deployment Environments Reader** | Read-only access to environment and project resources. Use this role to grant users or service principals visibility into environments without modification rights. |
+
+You can create multiple projects that are associated with your dev center to align with each team's requirements. By using the built-in DevCenter Project Admin role, you can delegate project administration to a member of a team. DevCenter Project Admin users can configure project environment types to enable developers to create various types of environments. They can also apply settings to each environment type.
 
 ## Prerequisites
 
 - You must have an Azure account with permission to create role assignments on the project. 
-- You must have an existing dev center and at least one project.
+- You must have a dev center and at least one project.
 
 ## Permissions required
 
@@ -42,9 +45,12 @@ To create role assignments, you need permission to create role assignments on th
 
 If your organization uses custom roles, ensure the role includes Microsoft.Authorization/roleAssignments/write for the intended scope.
 
-## Assign DevCenter Project Admin (project administrators)
+## Grant permissions for dev team leads
 
-Use this role for dev team leads who manage project environment types.
+Assign the DevCenter Project Admin role to a team lead either at the project level or at one or more environment-type scopes. Project-level assignment grants admin rights across all environment types in that project; environment-type assignment limits admin rights to only the selected environment type.
+
+### Assign project-level role
+Assign the DevCenter Project Admin role at the project level to team leads who manage the project, its environment types, and the environments within it.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to Azure Deployment Environments.
 1. In the left menu, select **Projects**, then select the project you want to manage.
@@ -62,9 +68,9 @@ Use this role for dev team leads who manage project environment types.
 
    :::image type="content" source="media/configure-project-admin/add-role-assignment-admin.png" alt-text="Screenshot of the Add role assignment pane with DevCenter Project Admin selected." lightbox="media/configure-project-admin/add-role-assignment-admin.png":::
 
-Verify the role assignment: On the project's Access control (IAM) page, confirm the new member appears for the DevCenter Project Admin role.
+### Assign environment type-level role
 
-### Assign DevCenter Project Admin for a specific environment type
+Assign the role at the environment type scope so a team lead can manage only environments of that type.
 
 1. In the project, select **Environment types**.
 1. Select the ellipsis (**...**) next to the environment type, and choose **Access control**.
@@ -73,9 +79,15 @@ Verify the role assignment: On the project's Access control (IAM) page, confirm 
 
    :::image type="content" source="media/configure-project-admin/project-environment-types.png" alt-text="Screenshot of the Environment types page showing how to assign DevCenter Project Admin to a specific environment type." lightbox="media/configure-project-admin/project-environment-types.png":::
 
-## Assign Deployment Environments User (developers)
+## Grant permissions for developers
 
-Use this role for developers who need to create and manage their own environments.
+Assign the DevCenter Deployment Environments User or DevCenter Deployment Environments Reader role to a developer either at the project level or at one or more environment-type scopes. Project-level assignment grants permissions across all environment types in that project; environment-type assignment limits permissions to only the selected environment type(s).
+
+### Assign roles at the project-level
+
+Assign DevCenter Deployment Environments User role to developers who need to create and manage their own environments.
+
+Assign DevCenter Deployment Environments Reader role to developers who need to view environments of a specific environment type.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to Azure Deployment Environments.
 1. In the left menu, select **Projects**, then select the project your developers need to access.
@@ -93,9 +105,11 @@ Use this role for developers who need to create and manage their own environment
 
    :::image type="content" source="media/configure-deployment-environments-user/add-role-assignment.png" alt-text="Screenshot of the Add role assignment pane with Deployment Environments User selected." lightbox="media/configure-deployment-environments-user/add-role-assignment.png":::
 
-Verify the role assignment: On the project's Access control (IAM) page, confirm the new member appears for the Deployment Environments User role.
+### Assign roles for a specific environment type
 
-### Assign Deployment Environments User for a specific environment type
+Assign DevCenter Deployment Environments User role to developers who need to create and manage environments of a specific environment type.
+
+Assign DevCenter Deployment Environments Reader role to developers who need to view environments of a specific environment type.
 
 1. In the project, select **Environment types**.
 1. Select the ellipsis (**...**) next to the environment type and choose **Access control**.

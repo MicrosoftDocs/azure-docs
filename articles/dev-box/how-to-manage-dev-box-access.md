@@ -1,32 +1,36 @@
 ---
-title: Grant access to Microsoft Dev Box projects
-description: "Grant administrators and developers access to Microsoft Dev Box projects by assigning DevCenter roles at the project level."
+title: Grant access to Microsoft Dev Box
+description: Assign built-in roles so team leads and developers can manage projects and create dev boxes.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
 ms.custom: peer-review-program
 ms.topic: how-to
-ms.date: 09/11/2025
+ms.date: 09/12/2025
 
 #customer intent: As a platform engineer, I want to assign the correct roles so that team members can manage projects and create dev boxes.
 
 ---
 
-# Grant access to Microsoft Dev Box projects
+# Configure access to Microsoft Dev Box projects
 
 This article explains how to grant administrators and developers access to Microsoft Dev Box projects. Use Azure role-based access control (Azure RBAC) to assign the built-in DevCenter roles at the project level.
 
-Dev Box has two built-in roles: *DevCenter Project Admin* and *DevCenter Dev Box User*. The following table describes the roles:
+Dev Box has the following built-in roles:
 
-| Role                        | Permissions                                                                                           |
-|-----------------------------|-------------------------------------------------------------------------------------------------------|
+| Role | Description |
+|---|---|
 | **DevCenter Project Admin** | - View network connections attached to the dev center<br>- View dev box definitions attached to the dev center<br>- Create, view, update, and delete dev box pools in the project |
 | **DevCenter Dev Box User**  | - View pools within a project<br>- Create dev boxes<br>- Connect to a dev box<br>- Manage dev boxes they created<br>- Delete dev boxes they created |
+
+You can create multiple Microsoft Dev Box projects in the dev center to align with each team's specific requirements. By using the built-in DevCenter Project Admin role, you can delegate project administration to a member of a team. Project admins can use the network connections and dev box definitions configured at the dev center level to create and manage dev box pools within their project.
+
+Team members must have access to a specific Microsoft Dev Box project before they can create dev boxes. Use the built-in DevCenter Dev Box User role to assign permissions to Active Directory users or groups. You assign the role at the project level in Microsoft Dev Box.
 
 ## Prerequisites
 
 - You must have an Azure account with permission to create role assignments on the project. 
-- You must have an existing dev center and at least one project.
+- You must have a dev center and at least one project.
 
 ## Permissions required
 
@@ -79,7 +83,7 @@ Verify the role assignment: On the project's Access Control (IAM) page, confirm 
 
 ## Assign DevCenter Dev Box User role
 
-To grant a user access to create and manage a dev box in Microsoft Dev Box, assign the DevCenter Dev Box User role at the project level.
+To grant a user access to create and manage dev boxes in Microsoft Dev Box, assign the DevCenter Dev Box User role at the project level.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -109,7 +113,6 @@ Users can now view the project and all pools within it. Dev box users can create
 
 [!INCLUDE [dev box runs on creation note](./includes/note-dev-box-runs-on-creation.md)]
 
-Verify the role assignment: On the project's Access Control (IAM) page, confirm the new member appears for the DevCenter Dev Box User role.
 
 ## Troubleshooting
 
@@ -119,7 +122,10 @@ Verify the role assignment: On the project's Access Control (IAM) page, confirm 
 
 ## Clean up resources
 
-- If you created temporary role assignments for testing, remove them when you finish.
+If you created test role assignments that you no longer need:
+
+1. In the project's **Access control (IAM)** pane, locate the role assignment.
+1. Select **Remove** and confirm.
 
 ## Related content
 
