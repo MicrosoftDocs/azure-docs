@@ -1,49 +1,54 @@
 ---
 title: Reliability in Azure Container Instances
-description: Find out about reliability in Azure Container Instances
+description: Find out about reliability in Azure Container Instances, including availability zones and multi-region deployments.
 author: tomvcassidy
 ms.author: tomcassidy
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-container-instances
 ms.date: 08/26/2025
-#Customer intent: I want to understand reliability support in Azure Container Instances so that I can respond to and/or avoid failures in order to minimize downtime and data loss.
+#Customer intent: As an engineer responsible for business continuity, I want to understand who needs to understand the details of how Azure Container Instances works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow during different kinds of situations. 
 ---
 
 # Reliability in Azure Container Instances
 
-[Azure Container Instances](/azure/container-instances/container-instances-overview) offers the fastest and simplest way to run Linux or Windows containers in Azure, without having to manage any virtual machines and without having to adopt a more complex higher-level service.
+This article describes reliability support in Azure Container Instances, covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
 
-This article describes reliability support in Container Instances, covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
+[Container Instances](/azure/container-instances/container-instances-overview) provides a straightforward way to run Linux or Windows containers in Azure, without the need to manage virtual machines (VMs) or adopt a more complex, higher-level service.
 
 [!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
 ## Production deployment recommendations
 
-To increase the reliability of production applications built on Container Instances, we recommend you do the following:
+To increase the reliability of production applications built on Container Instances, we recommend that you take the following actions:
 
 - Run your applications across [multiple availability zones](#availability-zone-support).
+
 - Consider whether to also run separate container groups in [multiple regions](#multi-region-support).
+
 - Use [liveness probes](/azure/container-instances/container-instances-liveness-probe) to detect and automatically restart unhealthy containers.
+
 - Use [readiness probes](/azure/container-instances/container-instances-readiness-probe) to wait until your containers are ready before they receive traffic.
-- If you use NGroups, use rolling upgrades to progressively apply changes, which reduces the likelihood of downtime due to upgrades.
-- Review [Best practices and considerations for Azure Container Instances](/azure/container-instances/container-instances-best-practices-and-considerations).
+
+- Use rolling upgrades to progressively apply changes if you use NGroups. This approach reduces the likelihood of downtime because of upgrades.
+
+- Review [Best practices and considerations for Container Instances](/azure/container-instances/container-instances-best-practices-and-considerations).
 
 ## Reliability architecture overview
 
-To use Container Instances, you deploy a *container group*, which contains one or more *containers*. Each container is created from a *container image*, which is stored in a registry such as [Azure Container Registry](/azure/container-registry/).
+To use Container Instances, deploy a *container group*, which contains one or more *containers*. Each container is created from a *container image*, which is stored in a registry such as [Azure Container Registry](/azure/container-registry/).
 
-All containers in a container group are deployed together as a single logical unit. All share the same physical infrastructure.
+All containers in a container group are deployed together as a single logical unit and share the same physical infrastructure.
 
-The following diagram shows the relationship between container groups, containers, and images:
+The following diagram shows the relationship between container groups, containers, and images.
 
-:::image type="content" source="./media/reliability-containers/container-groups-containers.png" alt-text="Diagram that shows a container group with two containers, each using a separate image in a registry." border="false":::
+:::image type="content" source="./media/reliability-containers/container-groups-containers.png" alt-text="Diagram that shows a container group with two containers. Each container uses a separate image in a registry." border="false":::
 
-Additionally, Container Instances provides the following features to manage container groups:
+Container Instances provides the following features to manage container groups:
 
 - **[NGroups](/azure/container-instances/container-instance-ngroups/container-instances-about-ngroups) (preview)** provides a set of capabilities to manage multiple related container groups. When you create an NGroup, you define the number of container groups to create. Container Instances provides capabilities such as automated upgrade rollouts and spreading container groups across availability zones.
 
-- **[Standby pools](/azure/container-instances/container-instances-standby-pool-overview)** creates a pool of pre-provisioned container groups that can be used in response to incoming traffic. Standby pools are designed to optimize the creation of container groups, and are not intended to increase your resiliency.
+- **[Standby pools](/azure/container-instances/container-instances-standby-pool-overview)** creates a pool of pre-provisioned container groups that can be used in response to incoming traffic. Standby pools are designed to optimize the creation of container groups and aren't intended to increase your resiliency.
 
 ## Transient faults
 
@@ -51,7 +56,8 @@ Additionally, Container Instances provides the following features to manage cont
 
 Microsoft-provided SDKs usually handle transient faults. Because you host your own applications on Container Instances, take steps to reduce the chance of transient faults:
 
-- Run multiple container groups for important workloads, to ensure that a failure in one container or container group doesn't affect your entire application.
+- Run multiple container groups for important workloads to ensure that a failure in one container or container group doesn't affect your entire application.
+
 - Build your application code to be resilient to transient faults in services that you connect to, such as by using retry policies with backoff strategies.
 
 For more information about other errors that might occur at runtime and how to respond to them, see [Issues during container group runtime](/azure/container-instances/container-instances-troubleshooting#issues-during-container-group-runtime).
@@ -60,26 +66,26 @@ For more information about other errors that might occur at runtime and how to r
 
 [!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
-Container Instances supports availability zones in different ways depending on how you deploy your container groups:
+Container Instances supports availability zones in different ways, depending on how you deploy your container groups:
 
-- *Manually created container groups:* An individual container group is a *zonal* resource, which means it can be deployed into a single availability zone that you select. All containers within the group are deployed into the same availability zone. If that availability zone has an outage, the container group and all of its containers might experience downtime.
+- *Manually created container groups:* An individual container group is a *zonal* resource, which means that it can be deployed into a single availability zone that you select. All containers within the group are deployed into the same availability zone. If that availability zone has an outage, the container group and all of its containers might experience downtime.
 
     > [!NOTE]
-    > To ensure that your application remains running whenever any single zone in the region experiences an outage, we recommend that you create a minimum of two container groups across two different availability zones. 
+    > To ensure that your application continues to run when any single zone in the region experiences an outage, we recommend that you create a minimum of two container groups across two different availability zones. 
 
     :::image type="content" source="./media/reliability-containers/container-groups-containers-zonal.png" alt-text="Diagram that shows a container group with two containers deployed into a single availability zone." border="false":::
 
-    If you don't specify availability zones to use for your container group, it's *nonzonal* or *regional*, which means it might be placed in any availability zone within the region, or within the same zone. If any availability zone in the region has a problem, your container group might experience downtime.
+    If you don't specify availability zones to use for your container group, it's *nonzonal* or *regional*, which means that it might be placed in any availability zone within the region or within the same zone. If any availability zone in the region has a problem, your container group might experience downtime.
 
-- *NGroups:* When you deploy an NGroup, you can specify one or more zones to deploy it to. If you deploy it to two or more zones, it's a *zone-redundant* NGroup, and an outage of one availability zone only causes problems for the container groups within the affected zone.
+- *NGroups:* When you deploy an NGroup, you can specify one or more zones to deploy it to. If you deploy an NGroup to two or more zones, it's a *zone-redundant* NGroup, and an outage of one availability zone only causes problems for the container groups within the affected zone.
 
     :::image type="content" source="./media/reliability-containers/ngroup-zone-redundant.png" alt-text="Diagram that shows an NGroup with three container groups, deployed into three availability zones." border="false":::
 
     If you don't specify availability zones to use for your NGroup, it's nonzonal and might experience downtime if any availability zone in the region has a problem.
 
-- *Standby pools:* When you deploy a standby pool, you can optionally specify one or more zones. The platform might request containers across the zones you select.
+- *Standby pools:* When you deploy a standby pool, you can optionally specify one or more zones. The platform might request containers across the zones that you select.
 
-    However, standby pools aren't zone-redundant or zone-resilient because there's no guarantee that containers are created in multiple zones. If a zone outage occurs, it's possible that all of the containers in the pool might have been placed in the affected zone.
+    However, standby pools aren't zone-redundant or zone-resilient because there's no guarantee that containers are created in multiple zones. If a zone outage occurs, it's possible that all of the containers in the pool might be placed in the affected zone.
 
     Because standby pools aren't designed to support resiliency to zone failures, this guide doesn't describe the detailed behavior of standby pools with availability zones.
 
@@ -93,19 +99,20 @@ Zonal container group deployments are supported in [all regions with availabilit
 ### Requirements
 
 - Zonal deployments are available for Linux and Windows Server 2019 container groups.
+
 - To select an availability zone, you must use the Standard SKU. Zonal container groups aren't available with the Confidential SKU.
 
 ### Considerations
 
-[Spot containers](/azure/container-instances/container-instances-spot-containers-overview) don't support availability zones, and are always nonzonal.
+[Spot containers](/azure/container-instances/container-instances-spot-containers-overview) don't support availability zones and are always nonzonal.
 
 ### Cost
 
-There's no additional cost to configuring availability zones for a container group.
+There's no extra cost to configure availability zones for a container group.
 
 ### Configure availability zone support
 
-- **Create container groups with availability zone support:** The approach you use to configure availability zones depends on how you create container groups.
+- **Create container groups with availability zone support.** The approach that you use to configure availability zones depends on how you create container groups.
 
     - *Manually created container groups:* To create a zonal container group in a specific zone, you can use one of the following methods:
 
@@ -113,15 +120,15 @@ There's no additional cost to configuring availability zones for a container gro
        - [Azure CLI](/azure/container-instances/container-instances-quickstart)
        - [PowerShell](/azure/container-instances/container-instances-quickstart-powershell)
        - [Bicep](/azure/container-instances/container-instances-quickstart-bicep)
-       - [ARM template](/azure/container-instances/container-instances-quickstart-template)
+       - [Azure Resource Manager template (ARM template)](/azure/container-instances/container-instances-quickstart-template)
        - [Terraform](/azure/container-instances/container-instances-quickstart-terraform)
        - [Docker CLI](/azure/container-instances/container-instances-quickstart-docker-cli)
 
-    - *NGroups:* You can deploy a zone-redundant NGroup by using an Azure Resource Manager template (ARM template), and specifying multiple zones. For more information, see [NGroups with zones sample](/azure/container-instances/container-instance-ngroups/container-instances-about-ngroups#ngroups-with-zones-sample).
+    - *NGroups:* You can deploy a zone-redundant NGroup by using an ARM template and specifying multiple zones. For more information, see [NGroups with zones sample](/azure/container-instances/container-instance-ngroups/container-instances-about-ngroups#ngroups-with-zones-sample).
     
-    - *Standby pools:* You can deploy a standby pool that uses availability zones by specifying one or more zones when you create or update the pool. However, there's no guarantee that containers will be created in multiple zones. Standby pools shouldn't be used for workloads that require resilience to zone failures. For more information, see [Create a standby pool for Azure Container Instances](/azure/container-instances/container-instances-standby-pool-create).
+    - *Standby pools:* You can deploy a standby pool that uses availability zones by specifying one or more zones when you create or update the pool. However, there's no guarantee that containers will be created in multiple zones. Standby pools shouldn't be used for workloads that require resilience to zone failures. For more information, see [Create a standby pool for Container Instances](/azure/container-instances/container-instances-standby-pool-create).
 
-- **Enable availability zone support on existing resources:** The approach you use to configure availability zones depends on how you create container groups.
+- **Enable availability zone support on existing resources.** The approach that you use to configure availability zones depends on how you create container groups.
 
     - *Manually created container groups:* You can't enable availability zones on an existing nonzonal container group. You must delete the container group and create a zonal container group.
 
@@ -129,9 +136,9 @@ There's no additional cost to configuring availability zones for a container gro
 
     - *Standby pools:* You can't enable availability zones on an existing nonzonal standby pool. You must delete the container group and create a new standby pool that uses multiple availability zones.
 
-- **Move container groups between zones or disable availability zone support:** The approach you use to modify availability zones depends on how you create container groups.
+- **Move container groups between zones or disable availability zone support.** The approach that you use to modify availability zones depends on how you create container groups.
 
-    - *Manually created container groups:* To change a container group's availability zone, you must delete the container group and create another container group with the new availability zone. To learn how to delete the container group, see:
+    - *Manually created container groups:* To change a container group's availability zone, you must delete the container group and create another container group with the new availability zone. To learn how to delete the container group, see the following resources:
     
        - [Portal](/azure/container-instances/container-instances-quickstart-portal#clean-up-resources)
        - [Azure CLI](/azure/container-instances/container-instances-quickstart#clean-up-resources)
@@ -153,17 +160,17 @@ The way container groups are distributed across availability zones depends on ho
 
 - *NGroups:* During scale-in operations, NGroups randomly deletes instances, which might not maintain a spread across availability zones. Scale-out operations try to rebalance the spread across zones.
 
-- *Standby pools:* A standby pool can create containers in any of the availability zones you configure on the pool. However, there's no guarantee that containers will be created in multiple zones. Standby pools shouldn't be used for workloads that require resilience to zone failures.
+- *Standby pools:* A standby pool can create containers in any of the availability zones that you configure on the pool. However, there's no guarantee that containers will be created in multiple zones. Standby pools shouldn't be used for workloads that require resilience to zone failures.
 
 ### Capacity planning and management
 
-To prepare for availability zone failure, consider *over-provisioning* the number of container groups you deploy. This approach allows the solution to tolerate some capacity loss and continue to function without degraded performance. For more information, see [Manage capacity by using over-provisioning](./concept-redundancy-replication-backup.md#manage-capacity-with-over-provisioning).
+To prepare for availability zone failure, consider *overprovisioning* the number of container groups that you deploy. This approach allows the solution to tolerate some capacity loss and continue to function without degraded performance. For more information, see [Manage capacity by using overprovisioning](./concept-redundancy-replication-backup.md#manage-capacity-with-over-provisioning).
 
-The approach you use to over-provision container groups depends on how you deploy your container groups.
+The approach that you use to overprovision container groups depends on how you deploy your container groups.
 
-- *Manually created container groups:* You're responsible for planning the capacity of your manually created container groups, including planning how many to deploy in each zone.
+- *Manually created container groups:* You're responsible for planning the capacity of your manually created container groups, including planning how many container groups to deploy in each zone.
 
-- *NGroup:* Consider *over-provisioning* the capacity of your NGroup to tolerate the loss of a zone.
+- *NGroup:* Consider *overprovisioning* the capacity of your NGroup to tolerate the loss of a zone.
 
 - *Standby pools:* Standby pools aren't designed to be resilient to zone failures. Consider using multiple standby pools in different zones, or use NGroups.
 
@@ -173,9 +180,9 @@ This section describes what to expect when Container Instances resources are con
 
 - **Traffic routing between zones:** You're responsible for routing traffic to your containers. For example, you can use [Azure Application Gateway](/azure/container-instances/container-instances-application-gateway) as a gateway and load balancer for your container groups.
     
-    If you use NGroups or standby pools, you're also responsible for load balancing across each container, and for configuring your traffic routing system to detect the health of each container group and redirect traffic to an alternative container group.
+    If you use NGroups or standby pools, you're responsible for load balancing across each container. You also need to configure your traffic routing system to detect the health of each container group and redirect traffic to an alternative group when necessary.
 
-- **Data replication between zones:** Containers and container groups are stateless. You can attach your own file share, or connect to databases or other storage services from within your applications. You're responsible for ensuring those file shares and storage services are zone-resilient. Review the [reliability guides](./overview-reliability-guidance.md) for each service to understand how to make each component zone-resilient.
+- **Data replication between zones:** Containers and container groups are stateless. You can attach your own file share, or connect to databases or other storage services from within your applications. You're responsible for ensuring that those file shares and storage services are zone-resilient. Review the [reliability guides](./overview-reliability-guidance.md) for each service to understand how to make each component zone-resilient.
 
 ### Zone-down experience
 
@@ -187,27 +194,27 @@ This section describes what to expect when Container Instances resources are con
     
     - *NGroups:* The Container Instances platform is responsible for detecting a failure in an availability zone and responding.
     
-        However, you're responsible for ensuring traffic is routed to containers in a healthy zone.
+        However, you're responsible for ensuring that traffic is routed to containers in a healthy zone.
 
     - *Standby pools:* The Container Instances platform isn't guaranteed to respond to zone failures for standby pools. Standby pools shouldn't be used for workloads that require resilience to zone failures.
 
-- **Notification**: Container Instances doesn't notify you when a zone is down. However, you can use [Azure Service Health](/azure/service-health/overview) to understand the overall health of the Container Instances service, including any zone failures.
+- **Notification Container Instances:** Container Instances doesn't notify you when a zone is down. However, you can use [Azure Service Health](/azure/service-health/overview) to understand the overall health of the Container Instances service, including any zone failures.
   
     Set up alerts to receive notifications of zone-level problems. For more information, see [Create Service Health alerts in the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal).
 
-- **Active requests:** If a zone fails, any containers running within that zone are likely to terminate, and any work they're doing will stop.
+- **Active requests:** If a zone fails, any containers running within that zone are likely to terminate, and any work that they're doing stops.
 
-- **Expected data loss:** Because containers and container groups are stateless, there's no data loss expected from a zone failure. However, you're responsible for ensuring that each component in your workload, including storage services and databases, are zone-resilient.
+- **Expected data loss:** Because containers and container groups are stateless, there's no data loss expected from a zone failure. However, you're responsible for ensuring that each component in your workload are zone-resilient, including storage services and databases.
 
-- **Expected downtime:** The downtime you can expect from a zone failure depends on how you deploy your container groups.
+- **Expected downtime:** The downtime that you can expect from a zone failure depends on how you deploy your container groups.
 
     - *Manually created container groups:* For zonal container groups, when a zone is unavailable, your container group and its containers are unavailable until the availability zone recovers.
 
     - *NGroups:* For NGroups, if one zone goes down, your application remains available because the remaining container groups within the NGroups continue to run in other zones. No downtime is expected.
     
-    - *Standby pools:* Standby pools don't provide zone resiliency. If all of the container groups in the standby pool are in a single zone, it's possible that all of the container groups and their containers could be unavailable until the availability zone recovers.
+    - *Standby pools:* Standby pools don't provide zone resiliency. If all container groups in the standby pool are in a single zone, it's possible that all container groups and their containers become unavailable until the availability zone recovers.
 
-- **Traffic rerouting:** Because you're responsible for routing traffic to your containers, you're also responsible for rerouting traffic if a container group fails due to an availability zone outage.
+- **Traffic rerouting:** Because you're responsible for routing traffic to your containers, you're also responsible for rerouting traffic if a container group fails because of an availability zone outage.
 
 ### Zone recovery
 
@@ -219,7 +226,7 @@ There's no way to simulate an outage of the availability zone that contains your
 
 ## Multi-region support
 
-Azure Container Instances is a single-region service. If the region becomes unavailable, your container groups and its containers are also unavailable.
+Container Instances is a single-region service. If the region becomes unavailable, your container groups and its containers are also unavailable.
 
 ### Alternative multi-region approaches
 
@@ -229,6 +236,6 @@ You can optionally deploy separate container groups in multiple regions. You're 
 
 [!INCLUDE [SLA description](includes/reliability-service-level-agreement-include.md)]
 
-## Next steps
+## Related content
 
 - [Reliability in Azure](./overview.md)
