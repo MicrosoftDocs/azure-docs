@@ -233,8 +233,7 @@ JSON Web Token (JWT) authentication supports obtaining tokens via username/passw
     },
     "TokenEndpoint": "https://token_endpoint.contoso.com",
     "IsJsonRequest": true,
-    "JwtTokenJsonPath": "$.access_token",
-    "ApiKeyName": "Authorization"
+    "JwtTokenJsonPath": "$.access_token"
 }
 ```
 **Credentials in POST Body (default):**
@@ -256,8 +255,7 @@ JSON Web Token (JWT) authentication supports obtaining tokens via username/passw
     },
     "IsCredentialsInHeaders": false,
     "IsJsonRequest": true,
-    "JwtTokenJsonPath": "$.access_token",
-    "ApiKeyName": "Authorization"
+    "JwtTokenJsonPath": "$.access_token"
 }
 ```
 **Credentials in Headers (Basic Auth):**
@@ -279,7 +277,6 @@ JSON Web Token (JWT) authentication supports obtaining tokens via username/passw
     "IsCredentialsInHeaders": true,
     "IsJsonRequest": true,
     "JwtTokenJsonPath": "$.access_token",
-    "ApiKeyName": "Authorization",
     "RequestTimeoutInSeconds": 30
 }
 ```
@@ -298,18 +295,19 @@ __Authentication Flow:__
 
 |Field |Required |Type |Description	|
 | ---- | ---- | ---- | ---- |
-| **type**                      | True      | String   | Must be "JwtToken" |
-| **userName**                  | True      | Object   | Key-value pair for username credential |
-| **password**                  | True      | Object   | Key-value pair for password credential |
-| **TokenEndpoint**             | True      | String   | URL endpoint to obtain JWT token |
-| **IsCredentialsInHeaders**    |           | Boolean  | Send credentials as Basic Auth header (true) vs POST body (false). Default: false |
-| **IsJsonRequest**             |           | Boolean  | Send request as JSON vs form-encoded. Default: false |
-| **JwtTokenJsonPath**          |           | String   | JSONPath to extract token from response (e.g., "$.access_token") |
-| **JwtTokenInResponseHeader**  |           | Boolean  | Extract token from response header vs body. Default: false |
-| **JwtTokenHeaderName**        |           | String   | Header name when token is in response header. Default: "Authorization" |
-| **ApiKeyName**                |           | String   | Header name for API requests using the JWT token. Default: "Authorization" |
-| **Headers**                   |           | Object   | Additional headers for token request |
-| **RequestTimeoutInSeconds**   |           | Integer  | Request timeout. Default: 30 |
+| **type**                      | True      | String   | Must be `JwtToken` |
+| **userName**                  | True      | Object   | Key-value pair for username credential. If `userName` and `password` are sent in header request, specify the `value` property with the user name. If `userName` and `password` sent in body request, specify the `Key` and `Value` |
+| **password**                  | True      | Object   | Key-value pair for password credential. If `userName` and `password` are sent in header request, specify the `value` property with the user name. If`userName` and `password` sent in body request, specify the `Key` and `Value` |
+| **TokenEndpoint**             | True      | String   | URL endpoint to obtain the JWT token |
+| **IsCredentialsInHeaders**    |           | Boolean  | Send credentials as Basic Auth header (`true`) vs POST body (`false`). Default: `false` |
+| **IsJsonRequest**             |           | Boolean  | Send request as JSON (header `Content-Type = application/json`) vs form-encoded (header `Content-Type = application/x-www-form-urlencoded`). Default: `false` |
+| **JwtTokenJsonPath**          |           | String   | JSONPath to extract the token from response (e.g., "`$.access_token`") |
+| **JwtTokenInResponseHeader**  |           | Boolean  | Extract token from the response header vs body. Default: `false` |
+| **JwtTokenHeaderName**        |           | String   | Header name when token is in the response header. Default: "`Authorization`" |
+| **JwtTokenIdentifier**        |           | String   | Identifier used to extract the JWT from a prefixed token string |
+| **QueryParameters**           |           | Object   | Custom query parameters to include when sending the request to the token endpoint |
+| **Headers**                   |           | Object   | Custom headers to include when sending the request to the token endpoint |
+| **RequestTimeoutInSeconds**   |           | Integer  | Request timeout in seconds. Default: `100`, Max `180` |
 
 __Authentication Flow:__
 
