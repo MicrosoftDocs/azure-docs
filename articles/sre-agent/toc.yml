@@ -29,6 +29,13 @@ items:
       href: faq.md
     - name: Billing
       href: billing.md
+- name: Roles, permissions, and actions
+  expanded: true
+  items:
+    - name: User access roles
+      href: user-access-roles.md
+    - name: Agent and user permissions
+      href: agent-user-permissions.md
 - name: Reference
   items:
     - name: Starter prompts
