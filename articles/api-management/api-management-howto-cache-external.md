@@ -8,6 +8,7 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 01/13/2025
 ms.author: danlep
+ms.custom: sfi-image-nochange
 
 ---
 
@@ -48,7 +49,7 @@ To complete this tutorial, you need to:
 
 ### Redis cache for Kubernetes
 
-For an API Management self-hosted gateway, caching requires an external cache. For caching to be effective, a self-hosted gateway and the cache it relies on must be located close to each other to minimize lookup and store latencies. Deploying a Redis cache into the same Kubernetes cluster or in a separate cluster nearby are the best options. Learn how to [deploy Redis cache to a Kubernetes cluster](https://github.com/kubernetes/examples/tree/master/guestbook).
+For an API Management self-hosted gateway, caching requires an external cache. For caching to be effective, a self-hosted gateway and the cache it relies on must be located close to each other to minimize lookup and store latencies. Deploying a Redis cache into the same Kubernetes cluster or in a separate cluster nearby are the best options. Learn how to [deploy Redis cache to a Kubernetes cluster](https://kubernetes.io/docs/tutorials/configuration/configure-redis-using-configmap/).
 
 ## Add an external cache
 

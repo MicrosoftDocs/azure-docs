@@ -7,6 +7,7 @@ ms.author: makromer
 ms.reviewer: whhender
 ms.topic: conceptual
 ms.date: 01/29/2025
+ms.custom: sfi-ropc-nochange
 ---
 
 # Use custom parameters with the Resource Manager template
