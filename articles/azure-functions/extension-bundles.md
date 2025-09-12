@@ -49,7 +49,7 @@ Keep these considerations in mind when you work with extension bundles:
 - When possible, you should set a `version` range value in `host.json` from the preceding table, such as `[4.0.0, 5.0.0)`, instead of defining a custom range.
 - Use the latest version range to obtain optimal app performance and access to the latest features.
 - In the unlikely event that you can't use an extension bundle, you must instead [explicitly install extensions](./functions-bindings-register.md#explicitly-install-extensions).
-- Some versions of the extension bundles are available on Azure Function App instances. However, if the required version is not present, the system will attempt to download it from the `cdn.functions.azure.com` endpoint. Therefore, it is advised to allow access to this endpoint through your firewall.
+- When updating the extensions used by a deployed app, Functions downloads new extension versions from the `cdn.functions.azure.com` endpoint. For extension updates to succeed, the `cdn.functions.azure.com` endpoint must be accessible to your function app. 
 
 ## Upgrade extension bundles
 
