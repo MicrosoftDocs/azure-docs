@@ -24,7 +24,7 @@ ms.date: 04/08/2025
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
-- A [resource manager template](/azure/azure-resource-manager/templates/overview) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment.
+- A [Azure Resource Manager (ARM) template](/azure/azure-resource-manager/templates/overview) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment.
 
 - If your environment meets the prerequisites and you're familiar with ARM templates, select Deploy to Azure to open the template in the Azure portal.
 
@@ -46,7 +46,7 @@ The template used in this quickstart can be found [here](https://github.com/Azur
         - `bing.com`
         - `outlook.com`
 - Enclave endpoint:
-    - `ADDS-TCP` and `ADDS-UDP` - Ports/Protocols covering a fake AD DS instance
+    - `ADDS-TCP` and `ADDS-UDP` - Ports/Protocols covering a fake Active Directory Doman Services (AD DS) instance
 - Transit Hub:
     - Input parameter to a remote virtual network; covering Gateway connection
 - Enclave connections
@@ -58,7 +58,7 @@ The template used in this quickstart can be found [here](https://github.com/Azur
       | Community (via Transit hub) | Enclave 1 Endpoint `ADDS-TCP/UDP` |
 
 ## Deploy the template
-1. Log in to the Azure Portal, search and select the **Template Specs** service. Select **Create template spec**. In the ARM Template section, upload or copy and paste the above ARM template.
+1. Sign in to the Azure portal, search and select the **Template Specs** service. Select **Create template spec**. In the ARM Template section upload or copy and paste the above ARM template.
 
 ![Screenshot showing the template spec page with the create button highlighted.](./media/create-template-spec.png)
 
@@ -72,9 +72,9 @@ The template used in this quickstart can be found [here](https://github.com/Azur
 
 3. Select `Review + Create` and then `Create`.
 
-4. Once the template is created and available on the **Template Specs** page, select newly created ARM template and then click on **Deploy**.  
+4. Once the template is created and available on the **Template Specs** page, select newly created ARM template and then select **Deploy**.  
 
-5. On the **Deploy** page for the template spec, leave default values and configure the following parameters:
+5. On the **Deploy** page for the template spec, note the default values and configure the following parameters:
    - **Community Name**: Name of the Community (ex: `My-Community`)
    - **Enclave Name**: Name of the Enclave (ex: `My-Enclave`)
    - **Endpoint name**: Name of the enclave endpoint (ex: `endpoint-bingdotcom`)
@@ -91,4 +91,4 @@ Learn more about what gets deployed in a [community](./what-community.md) and wh
 Learn more about how to access resources within your enclave from the Enclave Admin Workstation [here](./understand-admin-vm.md).
 
 ## Delete the deployment
-If you do not plan on keeping these resources, remove unnecessary resources to avoid Azure charges.
+If you don't plan on keeping these resources, remove unnecessary resources to avoid Azure charges.
