@@ -120,7 +120,7 @@ op monitor interval=20s timeout=40s
 ```
 
 > [!Important]
-> To use `aznfs` as filesystem type in pacemaker cluster resource agent, maintain the version of the `resource-agents` package based on the operating system release.
+> To use `aznfs` as filesystem type in pacemaker cluster resource agent, maintain the required version of the `resource-agents` package based on the operating system release.
 >
 > - SLES 15 SP4: resource-agents-4.10.0+git40.0f4de473-150400.3.34.2 or later
 > - SLES 15 SP5: resource-agents-4.12.0+git30.7fd7c8fa-150500.3.15.3 or later
@@ -137,7 +137,7 @@ fast_stop=no op start interval=0 timeout=60 op stop interval=0 timeout=120 op mo
 ```
 
 > [!Important]
-> To use `aznfs` as filesystem type in pacemaker cluster resource agent, maintain the version of the `resource-agents` package based on the operating system release.
+> To use `aznfs` as filesystem type in pacemaker cluster resource agent, maintain the required version of the `resource-agents` package based on the operating system release.
 >
 > For RHEL 8
 >
