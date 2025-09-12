@@ -3,7 +3,6 @@ title: Deploy Admin Virtual Machine from the service catalog into a workload
 description: Deploy Admin Virtual Machine from the service catalog into a workload.
 author: aserfass-msft
 ms.author: aserfass
-# ms.service: Azure Virtual Enclaves
 ms.topic: how-to
 ms.date: 04/08/2025
 ---
@@ -38,7 +37,7 @@ The Admin VM template can be deployed in multiple configurations:
 ## Prerequisites
 There are guardrail requirements on the enclaves to ensure enclave resources are using Customer-Managed Keys (CMK) encryption. This requires a key and identity to access the key to be accessible in the enclave. Create the CMK (optional Key Vault) and Managed Identity in the [Common Dependencies service catalog template](./deploy-common-dependencies-service-catalog.md)
 
-1. Subnet for Private Endpoints: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation. The private endpoint subnet should have no [subnet delegation](../virtual-network/subnet-delegation-overview.md) for the private endpoints to work properly.
+1. Subnet for Private Endpoints: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation. The private endpoint subnet should have no [subnet delegation](/azure/virtual-network/subnet-delegation-overview) for the private endpoints to work properly.
 2. Quickly create these [Private DNS Zones](./deploy-private-dns-zones-service-catalog.md) based on what you create next:
     - `Key Vault` required when creating a Key Vault from this template or the more customizable [Key Vault template](./deploy-key-vault-service-catalog.md).
     - `Storage File`, `Storage Queue`, `Storage Blob`, and `Storage Table` are required when making a Storage Account from this template or the more customizable [Storage Account template](./deploy-storage-account-service-catalog.md).
@@ -80,11 +79,11 @@ If you don't plan on keeping these resources, clean up unnecessary resources to 
 
 ## Recommendations
 - Session host or VM [Sizing](/windows-server/remote/remote-desktop-services/virtual-machine-recs)
-- [Add tags](../azure-resource-manager/management/tag-resources.md) to service catalog deployments to track important information for that resource such as:
+- [Add tags](/azure/azure-resource-manager/management/tag-resources) to service catalog deployments to track important information for that resource such as:
   - Owner: `<main POC>`
   - Deployer: `<yourName>`
   - Purpose: `<publish abc app to users>`
   - Service Catalog Name: `<RemoteApp>`
   - Service Catalog Version: `<version you deployed>`
-- Consider adding an [Azure Policy to enforce and inherit tags](../azure-resource-manager/management/tag-policies.md)
+- Consider adding an [Azure Policy to enforce and inherit tags](/azure/azure-resource-manager/management/tag-policies)
 - [Collect Custom Logs](/azure/azure-monitor/agents/data-sources-custom-logs) from applications

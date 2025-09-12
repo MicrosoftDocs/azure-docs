@@ -3,7 +3,6 @@ title: Host a publicly accessible application in an enclave
 description: Host a publicly accessible application in an enclave.
 author: aserfass-msft
 ms.author: aserfass
-# ms.service: Azure Virtual Enclaves
 ms.topic: tutorial
 ms.date: 04/08/2025
 ---

@@ -4,7 +4,6 @@ titleSuffix: Azure Virtual Enclaves
 description: Create new Subnet within an Enclave Virtual Network.
 author: jadean-msft
 ms.author: jadean
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ---
@@ -14,8 +13,8 @@ ms.date: 04/08/2025
 This guides you through replacing the existing AVE Enclave virtual network subnet `AzureVirtualEnclaveSubnet` with a replacement `AzureVirtualEnclaveSubnet` subnet and a new subnet of your choice. This is an important step to perform early after the Enclave is created so there are no resources attached to the existing subnet. An existing subnet can't be deleted until there are no resources attached to it.
 
 > [!NOTE]
-> * You aren't able to resize a virtual network with existing connections. [Official Docs](../virtual-network/virtual-network-manage-subnet.md?tabs=azure-portal#change-subnet-settings). If you need to resize an existing subnet you'll need to move any connected devices out first, resize, then move them back.
-> * Remember when sizing your subnets that five IP addresses per subnet are reserved by Azure. See [official documentation](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets).
+> * You aren't able to resize a virtual network with existing connections. [Official Docs](/azure/virtual-network/virtual-network-manage-subnet.md?tabs=azure-portal#change-subnet-settings). If you need to resize an existing subnet you'll need to move any connected devices out first, resize, then move them back.
+> * Remember when sizing your subnets that five IP addresses per subnet are reserved by Azure. See [official documentation](/azure/virtual-network/virtual-networks-faq#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets).
 
 ## Size Table Reference
 The subnet size determines how many usable IP addresses are in the subnet.

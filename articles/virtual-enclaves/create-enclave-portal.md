@@ -3,7 +3,6 @@ title: Create an Enclave in the Azure portal
 description: Create an Enclave in the Azure portal
 author: jadean-msft
 ms.author: jadean
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ---
@@ -47,7 +46,7 @@ Enclave deployments will take around 30-45 minutes to complete. Once it complete
 
 ![Screenshot showing Enclave create logging and monitoring input page.](./media/create-enclave-tab-2-monitoring.png)
 
-7. Select `Next` and on the `Networking` page select the network size, if Enclave subnet communication is allowed by default, create subnets, and enable Azure Bastion as needed. Learn more about [Azure best practices regarding Azure Virtual Networks](../virtual-network/concepts-and-best-practices.md), and how to use [Plan Azure Virtual Networks](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+7. Select `Next` and on the `Networking` page select the network size, if Enclave subnet communication is allowed by default, create subnets, and enable Azure Bastion as needed. Learn more about [Azure best practices regarding Azure Virtual Networks](/azure/virtual-network/concepts-and-best-practices), and how to use [Plan Azure Virtual Networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 
 ![Screenshot showing Enclave create networking input page.](./media/create-enclave-tab-3-networking.png)
 
@@ -67,7 +66,7 @@ Enclave deployments will take around 30-45 minutes to complete. Once it complete
 
 ![Screenshot showing Enclave create Workload Administration input page.](./media/create-enclave-tab-6-workload-administration.png)
 
-11. Select `Next` and create any [Tags](../azure-resource-manager/management/tag-resources.md) for your Enclave.
+11. Select `Next` and create any [Tags](/azure/azure-resource-manager/management/tag-resources) for your Enclave.
 
 12. Select `Review + create` and validate the details for your Enclave are correct, then select `Create`.
 
@@ -75,5 +74,5 @@ Enclave deployments will take around 30-45 minutes to complete. Once it complete
 - [What is an Enclave](./what-enclave.md)
 - [Create a community](./create-community-portal.md)
 - [Best practices](./best-practices.md)
-- [Azure best practices regarding Azure Virtual Networks](../virtual-network/concepts-and-best-practices.md)
-- [Plan Azure Virtual Networks](../virtual-network/virtual-network-vnet-plan-design-arm.md)
+- [Azure best practices regarding Azure Virtual Networks](/azure/virtual-network/concepts-and-best-practices)
+- [Plan Azure Virtual Networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm)

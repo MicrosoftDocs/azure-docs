@@ -4,7 +4,6 @@ titleSuffix: Azure Virtual Enclaves
 description: Create a User Managed Identity.
 author: aserfass-msft
 ms.author: aserfass
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ---
@@ -39,4 +38,4 @@ Create a user-assigned managed identity to grant least privileges to specific se
 
 ## References
 - [How to create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp)
-- [Manage user-assigned identity](../operator-service-manager/how-to-create-user-assigned-managed-identity.md)
+- [Manage user-assigned identity](/azure/operator-service-manager/how-to-create-user-assigned-managed-identity)

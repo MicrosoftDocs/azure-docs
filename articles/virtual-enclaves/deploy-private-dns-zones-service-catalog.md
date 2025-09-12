@@ -3,7 +3,6 @@ title: Deploy private DNS zones from the service catalog into a workload
 description: Deploy private DNS zones from the service catalog into a workload.
 author: aserfass-msft
 ms.author: aserfass
-# ms.service: Azure Virtual Enclaves
 ms.topic: how-to
 ms.date: 04/08/2025
 ---
@@ -12,7 +11,7 @@ ms.date: 04/08/2025
 
 Azure Virtual Enclaves (AVE) is a cloud networking service that provides organizations with highly sensitive data the ability to quickly deploy and manage workloads across Commercial and air-gapped Azure clouds at scale. In this quickstart, you:
 
-- Deploy a service catalog template for Private DNS Zones into an existing enclave from the Portal. The template includes the options to create private DNS zones for Azure storage, key vault, SQL, container registry, or a specified private DNS zone name like one you created or another one from this [list of Azure Private DNS Zones](../private-link/private-endpoint-dns.md). This allows you to connect privately and securely to the Azure service. [Learn more](../private-link/private-link-overview.md)
+- Deploy a service catalog template for Private DNS Zones into an existing enclave from the Portal. The template includes the options to create private DNS zones for Azure storage, key vault, SQL, container registry, or a specified private DNS zone name like one you created or another one from this [list of Azure Private DNS Zones](/azure/private-link/private-endpoint-dns). This allows you to connect privately and securely to the Azure service. [Learn more](/azure/private-link/private-link-overview)
 
 > [!NOTE]
 >
@@ -66,10 +65,10 @@ This template has multiple options you can select based on the resources you wan
 - Additional: optional array of DNS zone names to deploy. Example: ["privatelink.table.cosmos.azure.com","privatezone1.com"] where the first name is for Cosmos DB and the second name is a custom name created by you.
 
 ## Recommendations
-- [Add tags](../azure-resource-manager/management/tag-resources.md) to service catalog deployments to track important information for that resource such as:
+- [Add tags](/azure/azure-resource-manager/management/tag-resources) to service catalog deployments to track important information for that resource such as:
   - Owner: `<main POC>`
   - Deployer: `<yourName>`
   - Purpose: `<publish abc app to users>`
   - Service Catalog Name: `<RemoteApp>`
   - Service Catalog Version: `<version you deployed>`
-- Consider adding an [Azure Policy to enforce and inherit tags](../azure-resource-manager/management/tag-policies.md)
+- Consider adding an [Azure Policy to enforce and inherit tags](/azure/azure-resource-manager/management/tag-policies)

@@ -3,7 +3,6 @@ title: What's new in Azure Virtual Enclaves?
 description: Learn what's new with Azure Virtual Enclaves such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 author: aserfass-msft
 ms.author: aserfass
-# ms.service: azure-virtual-enclave
 ms.topic: concept-article
 ms.date: 04/08/2025
 ---
@@ -12,10 +11,7 @@ ms.date: 04/08/2025
 
 Azure Virtual Enclaves is updated regularly. Stay up to date with the latest announcements. This article provides you with information about:
 
-* [Recent releases](#recent-releases)
 * [Previews](#preview) underway with known limitations (if applicable)
-* [Known issues](#known-issues)
-* Deprecated functionality (if applicable)
 
 You can also find the latest Azure Virtual WAN updates and subscribe to the [RSS feed](https://azure.microsoft.com/updates?filters=%5B%22Virtual+Enclaves%22%5D).
 

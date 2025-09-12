@@ -3,7 +3,6 @@ title: Create an enclave endpoint in the Azure portal
 description: Create an enclave endpoint in the Azure portal
 author: jadean-msft
 ms.author: jadean
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ---
@@ -45,8 +44,8 @@ Sign-in to the [Azure portal](https://portal.azure.com).
 
 > [!NOTE]
 >
-> Endpoints are primarily based on another underlying Azure service called [Network security groups](../virtual-network/network-security-groups-overview.md).
+> Endpoints are primarily based on another underlying Azure service called [Network security groups](/azure/virtual-network/network-security-groups-overview).
 
-9. Select `Next` and enter any [Tags](../azure-resource-manager/management/tag-resources.md) for your Endpoint.
+9. Select `Next` and enter any [Tags](/azure/azure-resource-manager/management/tag-resources) for your Endpoint.
 
 10.  Select `Review + create` and validate the details for your Endpoint are correct, then select `Create`.

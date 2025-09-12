@@ -4,7 +4,6 @@ titleSuffix: Azure Virtual Enclaves
 description: Create a Domain Name Service forwarder within an Azure Virtual Enclave.
 author: jadean-msft
 ms.author: jadean
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ---

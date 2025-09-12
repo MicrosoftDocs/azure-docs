@@ -3,7 +3,6 @@ title: Create Azure resources from the service catalog in an AVE workload
 description: Create Azure resources from the service catalog in an AVE workload.
 author: aserfass-msft
 ms.author: aserfass
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ---
@@ -75,7 +74,7 @@ It can take up to 30 minutes to finish all resource creation. Wait for the deplo
 Go to the specified resource group to confirm the intended resources were created.
 
 ## Deploy Web App Quickstart (Optional)
-Azure App Service has quickstarts for many languages such as the [python quickstart](../app-service/quickstart-python.md?tabs=flask%2Cwindows%2Cazure-cli%2Cazure-cli-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli) or [deploy from a zip file](../app-service/deploy-zip.md)
+Azure App Service has quickstarts for many languages such as the [python quickstart](/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-cli%2Cazure-cli-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli) or [deploy from a zip file](/azure/app-service/deploy-zip)
 
 ## Clean up resources
 
@@ -90,10 +89,10 @@ In the [next tutorial](./5-create-enclave-endpoint-connections.md), you'll learn
 ## Recommendations
 
 - Review an architecture example for a [basic web application](/azure/architecture/web-apps/app-service/architectures/basic-web-app)
-- [Add tags](../azure-resource-manager/management/tag-resources.md) to service catalog deployments to track important information for that resource such as:
+- [Add tags](/azure/azure-resource-manager/management/tag-resources) to service catalog deployments to track important information for that resource such as:
   - Owner: `main POC`
   - Deployer: `yourName`
   - Purpose: `publish abc app to users`
   - Service Catalog Name: `RemoteApp`
   - Service Catalog Version: `version you deployed`
-- Consider adding an [Azure Policy to enforce and inherit tags](../azure-resource-manager/management/tag-policies.md)
+- Consider adding an [Azure Policy to enforce and inherit tags](/azure/azure-resource-manager/management/tag-policies)

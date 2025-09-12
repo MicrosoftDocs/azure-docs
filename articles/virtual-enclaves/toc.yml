@@ -86,6 +86,8 @@
     href: 8-migrate-workload-resources.md
 - name: Governance, Security, and Compliance
   items:
+  - name: Observability
+    href: observability.md
   - name: Just-in-time access
     href: just-in-time-access.md
 #     - name: Dynamic Access Controls
@@ -94,6 +96,8 @@
 #       href: attribute-based-access-controls.md
   - name: Access controls in enclaves
     href: access-controls-enclaves.md
+  - name: Role-based Access Controls (RBAC)
+    href: role-based-access-controls.md
   - name: Create a user-assigned managed identity
     href: create-user-managed-identity.md
   # - name: Use Managed Identity

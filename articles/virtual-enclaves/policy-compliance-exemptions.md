@@ -4,7 +4,6 @@ titleSuffix: Azure Virtual Enclaves
 description: Policy compliance exemptions within Azure Virtual Enclaves.
 author: jadean-msft
 ms.author: jadean
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ---
@@ -19,10 +18,10 @@ Currently, this example would be expected behavior for governance on a workload.
 
 ## Overview
 
-First enclave owners must identify which [Azure Policy Initiative assignment](../governance/policy/concepts/assignment-structure.md) in their workload needs custom exemption behavior. [Policy exemptions](../governance/policy/concepts/exemption-structure.md) allow administrators to exempt a resource hierarchy or an individual resource from evaluation of initiatives or definitions.
+First enclave owners must identify which [Azure Policy Initiative assignment](/azure/governance/policy/concepts/assignment-structure) in their workload needs custom exemption behavior. [Policy exemptions](/azure/governance/policy/concepts/exemption-structure) allow administrators to exempt a resource hierarchy or an individual resource from evaluation of initiatives or definitions.
 
 Once these Initiative assignments have been identified, enclave owners can create and manage their own Policy Exemptions. For more details on how to perform these steps, learn more on how to [Create and manage exemptions
-](../governance/policy/concepts/exemption-structure.md#exemption-creation-and-management)
+](/azure/governance/policy/concepts/exemption-structure#exemption-creation-and-management)
 
 In this image, a Policy initiative assignment within the `contoso4-aadconnect` workload in the `contoso4` Enclave requires an exemption.
 
@@ -35,7 +34,7 @@ Should further troubleshooting be required to investigate Azure Policy exemption
 - [Best Practices](./best-practices.md)
 - [What is an Enclave?](./what-enclave.md)
 - [What is a workload?](./what-workload.md)
-- [Azure Policy initiatives](../governance/policy/concepts/initiative-definition-structure.md)
-- [Azure Policy assignment structure](../governance/policy/concepts/assignment-structure.md)
-- [Azure Policy exemptions](../governance/policy/concepts/exemption-structure.md)
+- [Azure Policy initiatives](/azure/governance/policy/concepts/initiative-definition-structure)
+- [Azure Policy assignment structure](/azure/governance/policy/concepts/assignment-structure)
+- [Azure Policy exemptions](/azure/governance/policy/concepts/exemption-structure)
 - [Azure Support](https://azure.microsoft.com/support/)

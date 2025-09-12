@@ -3,7 +3,6 @@ title: What is Azure Virtual Enclaves?
 description: What is Azure Virtual Enclaves?
 author: jadean-msft
 ms.author: jadean
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/03/2025
 ---

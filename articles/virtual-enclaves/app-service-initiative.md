@@ -3,7 +3,6 @@ title: App Service Initiative
 description: App Service Initiative.
 author: jadean-msft
 ms.author: jadean
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ---
@@ -18,7 +17,7 @@ This article describes the Policy guardrails in place to ensure Azure App Servic
 ## App Service Policies Built in
 
 | Name | Description | Version | Type | Effect | Policy definition |
-| :---- | :---- | :---- | :---- |
+| :---- | :---- | :---- | :---- | :---- | :---- |
 | App Service apps should only be accessible over HTTPS | Use of HTTPS ensures server/service authentication and protects data in transit from network layer eavesdropping attacks. | 4.0.0 | Built-in | AuditDeny | [Link](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fa4af4a39-4135-47fb-b175-47fbdf85311d) |
 | Function apps should only be accessible over HTTPS | Use of HTTPS ensures server/service authentication and protects data in transit from network layer eavesdropping attacks. | 5.0.0 | Built-in | AuditDeny | [Link](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6d555dd1-86f2-4f1c-8ed7-5abae7c6cbab) |
 | Function app slots should only be accessible over HTTPS | Use of HTTPS ensures server/service authentication and protects data in transit from network layer eavesdropping attacks. | 2.0.0 | Built-in | AuditDeny | [Link](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f5e5dbe3f-2702-4ffc-8b1e-0cae008a5c71) |
@@ -38,10 +37,10 @@ This article describes the Policy guardrails in place to ensure Azure App Servic
 ## App Service Policies Custom
 
 | Name | Description | Version | Type | Effect | Policy definition |
-| :---- | :---- | :---- | :---- |
-| App Service apps should disable public network access | Disabling public network access improves security by ensuring that the App Service isn't exposed on the public internet. Creating private endpoints can limit exposure of an App Service. Learn more at: <https://aka.ms/app-service-private-endpoint>. | 1.0.0 | Custom | AuditDeny | N/A |
-| App Service app slots should disable public network access | Disabling public network access improves security by ensuring that the App Service isn't exposed on the public internet. Creating private endpoints can limit exposure of an App Service. Learn more at: <https://aka.ms/app-service-private-endpoint>. | 1.0.0 | Custom | AuditDeny | N/A |
-| App Service Environment should have internal encryption enabled | Setting InternalEncryption to true encrypts the pagefile, worker disks, and internal network traffic between the front ends and workers in an App Service Environment. To learn more, see </azure/app-service/environment/app-service-app-service-environment-custom-settings#enable-internal-encryption>. | 1.0.1 | Custom | Audit | N/A |
+| :---- | :---- | :---- | :---- | :---- | :---- |
+| App Service apps should disable public network access | Disabling public network access improves security by ensuring that the App Service isn't exposed on the public internet. Creating private endpoints can limit exposure of an App Service. Learn more at: `https://aka.ms/app-service-private-endpoint`. | 1.0.0 | Custom | AuditDeny | N/A |
+| App Service app slots should disable public network access | Disabling public network access improves security by ensuring that the App Service isn't exposed on the public internet. Creating private endpoints can limit exposure of an App Service. Learn more at: `https://aka.ms/app-service-private-endpoint`. | 1.0.0 | Custom | AuditDeny | N/A |
+| App Service Environment should have internal encryption enabled | Setting InternalEncryption to true encrypts the pagefile, worker disks, and internal network traffic between the front ends and workers in an App Service Environment. To learn more, see `/azure/app-service/environment/app-service-app-service-environment-custom-settings#enable-internal-encryption`. | 1.0.1 | Custom | Audit | N/A |
 | App Service app slots should use the latest TLS version | Periodically, newer versions are released for TLS either due to security flaws, include additional functionality, and enhance speed. Upgrade to the latest TLS version for App Service apps to take advantage of security fixes, if any, and/or new functionalities of the latest version. | 1.0.0 | Custom | AuditIfNotExist | N/A |
 | App Service app slots should use latest 'HTTP Version' | Periodically, newer versions are released for HTTP either due to security flaws or to include additional functionality. Using the latest HTTP version for web apps to take advantage of security fixes, if any, and/or new functionalities of the newer version. | 1.0.0 | Custom | AuditIfNotExist | N/A |
 | Configure Function apps to only be accessible over HTTPS | Use of HTTPS ensures server/service authentication and protects data in transit from network layer eavesdropping attacks. | 2.0.0 | Custom | Modify | N/A |
@@ -62,8 +61,8 @@ This article describes the Policy guardrails in place to ensure Azure App Servic
 | App Service app slots should use managed identity | Use a managed identity for enhanced authentication security | 1.0.0 | Custom | AuditIfNotExist | N/A |
 | App Service apps should have authentication enabled | Azure App Service Authentication is a feature that can prevent anonymous HTTP requests from reaching the web app, or authenticate those that have tokens before they reach the web app. | 2.0.1 | Custom | AuditIfNotExist | N/A |
 | Function apps should have authentication enabled | Azure App Service Authentication is a feature that can prevent anonymous HTTP requests from reaching the Function app, or authenticate those that have tokens before they reach the Function app. | 3.0.0 | Custom | AuditIfNotExist | N/A |
-| Function app slots should disable public network access | Disabling public network access improves security by ensuring that the Function app isn't exposed on the public internet. Creating private endpoints can limit exposure of a Function App. Learn more at: <https://aka.ms/app-service-private-endpoint>. | 1.0.0 | Custom | AuditDeny | N/A |
-| Function apps should disable public network access | Disabling public network access improves security by ensuring that the Function app isn't exposed on the public internet. Creating private endpoints can limit exposure of a Function App. Learn more at: <https://aka.ms/app-service-private-endpoint>. | 1.0.0 | Custom | AuditDeny | N/A |
-| Configure Function apps to disable public network access | Disable public network access for your Function apps so that it isn't accessible over the public internet. This can reduce data leakage risks. Learn more at: <https://aka.ms/app-service-private-endpoint>. | 1.1.0 | Custom | Modify | N/A |
-| Configure Function app slots to disable public network access | Disable public network access for your Function apps so that it isn't accessible over the public internet. This can reduce data leakage risks. Learn more at: <https://aka.ms/app-service-private-endpoint>. | 1.1.0 | Custom | Modify | N/A |
-| Configure App Service apps to disable public network access | Disable public network access for your App Services so that it isn't accessible over the public internet. This can reduce data leakage risks. Learn more at: <https://aka.ms/app-service-private-endpoint>. | 1.1.0 | Custom | Modify | N/A |
+| Function app slots should disable public network access | Disabling public network access improves security by ensuring that the Function app isn't exposed on the public internet. Creating private endpoints can limit exposure of a Function App. Learn more at: `https://aka.ms/app-service-private-endpoint`. | 1.0.0 | Custom | AuditDeny | N/A |
+| Function apps should disable public network access | Disabling public network access improves security by ensuring that the Function app isn't exposed on the public internet. Creating private endpoints can limit exposure of a Function App. Learn more at: `https://aka.ms/app-service-private-endpoint`. | 1.0.0 | Custom | AuditDeny | N/A |
+| Configure Function apps to disable public network access | Disable public network access for your Function apps so that it isn't accessible over the public internet. This can reduce data leakage risks. Learn more at: `https://aka.ms/app-service-private-endpoint`. | 1.1.0 | Custom | Modify | N/A |
+| Configure Function app slots to disable public network access | Disable public network access for your Function apps so that it isn't accessible over the public internet. This can reduce data leakage risks. Learn more at: `https://aka.ms/app-service-private-endpoint`. | 1.1.0 | Custom | Modify | N/A |
+| Configure App Service apps to disable public network access | Disable public network access for your App Services so that it isn't accessible over the public internet. This can reduce data leakage risks. Learn more at: `https://aka.ms/app-service-private-endpoint`. | 1.1.0 | Custom | Modify | N/A |

@@ -4,7 +4,6 @@ titleSuffix: Azure Virtual Enclaves
 description: Transfer or move data into my enclave
 author: jadean-msft
 ms.author: jadean
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ---

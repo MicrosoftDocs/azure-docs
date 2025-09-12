@@ -3,7 +3,6 @@ title: Understanding Admin VMs in Azure Virtual Enclaves
 description: Understanding Admin VMs in Azure Virtual Enclaves.
 author: aserfass-msft
 ms.author: aserfass
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ---
@@ -26,7 +25,7 @@ Azure portal access is restricted by default for enclaves. This means you need t
 - [Create enclave in the Azure portal](./create-enclave-connection-portal.md)
 
 ### Accessing enclaves through Azure Bastion
-AVE natively uses existing Azure user interface controls to allow for access into Admin VMs. [Learn more on how to Connect to a Windows VM using RDP - Azure Bastion](../bastion/bastion-connect-vm-rdp-windows.md).
+AVE natively uses existing Azure user interface controls to allow for access into Admin VMs. [Learn more on how to Connect to a Windows VM using RDP - Azure Bastion](/azure/bastion/bastion-connect-vm-rdp-windows).
 
 For certain community and enclave owners, this default access model might not be granular enough. For example, some enclave owners might have regulatory requirements for their workloads that do not authorize Azure Bastion. 
 
@@ -72,5 +71,5 @@ Community and enclave owners might also have concerns regarding the default VM i
 - [What is an Enclave?](./what-enclave.md)
 - [What is a workload?](./what-workload.md)
 - [Azure Bastion](https://aka.ms/bastion)
-- [Connect to a Windows VM using RDP - Azure Bastion](../bastion/bastion-connect-vm-rdp-windows.md)
+- [Connect to a Windows VM using RDP - Azure Bastion](/azure/bastion/bastion-connect-vm-rdp-windows)
 - [Azure Support](https://azure.microsoft.com/support/)

@@ -3,14 +3,13 @@ title: What is a workload?
 description: What is a workload?
 author: aserfass-msft
 ms.author: aserfass
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ---
 
 # What is a workload?
 
-Workloads are logical groups of Azure resources that you define to create and audit connections in Azure Virtual Enclaves. Only community and enclave owners can view the workloads and networks that have network access to their data. Workloads aren't discoverable to external networks. Enclave owners can deploy Azure resources or services into workloads. Workloads are created within an enclave. Maintenance of customer workloads belongs to the customer, following the standard [Shared responsibility model in the cloud](../security/fundamentals/shared-responsibility.md). 
+Workloads are logical groups of Azure resources that you define to create and audit connections in Azure Virtual Enclaves. Only community and enclave owners can view the workloads and networks that have network access to their data. Workloads aren't discoverable to external networks. Enclave owners can deploy Azure resources or services into workloads. Workloads are created within an enclave. Maintenance of customer workloads belongs to the customer, following the standard [Shared responsibility model in the cloud](/azure/security/fundamentals/shared-responsibility). 
 
 Workloads also automatically inherit security posture and policies of their enclave. Workloads can also, by default, utilize community services reachable from their Enclave.
 
@@ -38,6 +37,6 @@ The managed resource group functions just like an Azure resource group with the 
 - [What is Azure Virtual Enclaves?](./what-azure-virtual-enclaves.md)
 - [What is a community?](./what-community.md)
 - [What is an Enclave?](./what-enclave.md)
-- [Shared responsibility model in the cloud](../security/fundamentals/shared-responsibility.md)
+- [Shared responsibility model in the cloud](/azure/security/fundamentals/shared-responsibility)
 - [Best practices](./best-practices.md)
 - [Tutorial: Create a workload](./3-create-workloads-inside-enclave.md)

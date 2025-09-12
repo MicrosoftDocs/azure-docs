@@ -1,53 +1,35 @@
 ---
 title: Why Azure Virtual Enclaves?
 description: Why Azure Virtual Enclaves?
-author: jadean-msft
-ms.author: jadean
-# ms.service: Azure Virtual Enclaves
+author: mitchellly-msft
+ms.author: mitchellly
 ms.topic: overview
 ms.date: 04/08/2025
 ---
 
 # Why Azure Virtual Enclaves?
-"Azure Virtual Enclaves (AVE) provides secure Azure computing environments for the most sensitive mission workloads."
+Azure Virtual Enclaves (AVE) accelerates and eases the deployment and management of secure, isolated, and compliant cloud environments for your most sensitive mission workloads.
 
-AVE is a platform service that enables users to quickly deploy and manage a dynamic self-governing security boundary with built-in protections to ensure your environments meets the highest levels of security standards and best practices that exist and are followed by highly regulated industries with the most sensitive data requirements.
+## The value of AVE
+Azure Virtual Enclaves provides value in multiple ways, including:
 
-- Quick and simple deployment of secure, isolated Azure environments
-- Secure & isolated boundary protection: Provides boundary isolation, enclave management, and governance
-- Workload & connection management: Manages workload and enclave connectivity and access such as VDI, COTS/GOTS, and PaaS
-- Observability, security, & compliance: Enables visibility into enclave and workload configuration and security posture
+- Simplify securely connecting workloads and data: Manage secure workloads (for example, Virtual Desktops, DevSecOps apps, and commercial or government software) and enclave connectivity and access. Allows you to create connections to trusted endpoints, destinations, and mission partners.
 
-## The Value of AVE
+- Deploy a secure, compliant Azure environment quickly: Provides boundary isolation, enclave management, and governance with platform-managed creation of secure environments and templates to accelerate your path to authorization and production.
 
-- Ability to quickly deploy secure & compliant Azure environments
-- Zero-trust networking isolation by default with built-in connection management  
-- Simplified governance with automatic policy compliance security posture
-- Accelerated workload deployment and configuration via service catalog
-- Support for highly regulated industries and customers that need high degree of security, isolation, and governance
+- Gain visibility to governance and compliance: Enables visibility into enclave and workload configuration, and security posture. Automates collection of platform-logging and compliance telemetry to help you create intuitive dashboards, workbooks, and alerts to avoid drift.
 
-## Azure Cloud Availability
+## Key capabilities
+Azure Virtual Enclaves provides capabilities to help you quickly create and manage the secure resources you need for your critical worklaods.
 
-Azure Commercial, Gov, Secret, and Top Secret
+### Secure research and development
 
-## Comparison to other Microsoft Products
-- Azure Landing Zones (ALZ)
-- Mission Landing Zones (MLZ)
-- Sovereign Landing Zones (SLZ)
-- MS-ISR
-- MSWB
+Conduct R&D on sensitive projects and help ensure all data remains secure and compliant with regulatory requirements. Also, engage with partners who couldn't meet rigorous compliance requirements enabling access to a larger talent pool.
 
-* Templates combine existing Azure products together in a best-practice fashion. RPs provide new functionality that can also be added to templates.
+### Classified collaboration
 
-|  | AVE | MLZ | ALZ | SLZ | MSISR | MSWB     |
-|-------------------------|-------|-------|-------|-------|-------|-------|
-| **Deploy Method**                   | RP       | Template | Template | Template |          | RP       |
-| **Approvals**                       | X        |          |          |          |          |          |
-| **Service Catalog**                 | X        |          |          |          |          |          |
-| **Connection Manager**              | X        |          |          |          |          |          |
-| **Maturity**                        |          |          |          |          |          |          |
-| **Flexibility**                     |          |          |          |          |          |          |
-| **Highly Opinionated Architecture** | X  | X        | X        |          |          |          |
-| **SCCA**                            |          |          |          |          |          |          |
+Facilitate secure collaboration on classified missions, enhancing operational efficiency without compromising security. Quickly create environments to bring multiple organizations together to drive real mission solutions.
 
-SCCA = [Secure Cloud Computing Architecture](../azure-government/compliance/secure-azure-computing-architecture.md)
+### Compliance-driven projects
+
+Conduct all activities within a secure and compliant environment with robust security and compliance features. Enables organizations that were unable to participate in highly regulated projects due to high barrier of entry.

@@ -3,7 +3,6 @@ title: PostgreSQL Initiative
 description: PostgreSQL Initiative.
 author: jadean-msft
 ms.author: jadean
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ---
@@ -18,13 +17,13 @@ This article describes the Policy guardrails in place to ensure Azure PostgreSQL
 ## PostgreSQL Policies Built in
 
 | Name | Description | Version | Type | Effect | Policy definition |
-| :---- | :---- | :---- | :---- |
+| :---- | :---- | :---- | :---- | :---- | :---- |
 | Configure Advanced Threat Protection to be enabled on Azure database for PostgreSQL servers | Enable Advanced Threat Protection on your non-Basic tier Azure database for PostgreSQL servers to detect anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. | 1.1.0 | Built in | Deploy | [Link](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fdb048e65-913c-49f9-bb5f-1084184671d3) |
 
 ## PostgreSQL Policies Custom
 
 | Name | Description | Version | Type | Effect | Policy definition |
-| :---- | :---- | :---- | :---- |
+| :---- | :---- | :---- | :---- | :---- | :---- |
 | Enforce Secure Sockets Layer (SSL) connections should be enabled for PostgreSQL database servers | Azure Database for PostgreSQL supports connecting your Azure Database for PostgreSQL server to client applications using SSL. Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application. This configuration enforces that SSL is always enabled for accessing your database server. | 1.0.1 | Custom | Audit | N/A |
 | Public network access should be disabled for PostgreSQL servers | Disable the public network access property to improve security and ensure your Azure Database for PostgreSQL can only be accessed from a private endpoint. This configuration disables access from any public address space outside of Azure IP range, and denies all logins that match IP or virtual network-based firewall rules. | 2.0.1 | Custom | AuditDeny | N/A |
 | Log duration should be enabled for PostgreSQL database servers | This policy helps audit any PostgreSQL databases in your environment without log_duration setting enabled. | 1.0.0 | Custom | AuditIfNotExist | N/A |

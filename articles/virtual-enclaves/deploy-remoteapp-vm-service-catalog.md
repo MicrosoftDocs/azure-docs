@@ -3,12 +3,11 @@ title: Deploy RemoteApp VM from the service catalog into a workload
 description: Deploy RemoteApp VM from the service catalog into a workload.
 author: aserfass-msft
 ms.author: aserfass
-# ms.service: Azure Virtual Enclaves
 ms.topic: how-to
 ms.date: 04/08/2025
 ---
 
-# Deploy RemoteApp VM from the service catalog into a workload
+# Deploy RemoteApp virtual machine (VM) from the service catalog into a workload
 The RemoteApp template allows customers to install an application they want to publish to one or more users without installing that application on each users' desktop.
 
 In this article, you:
@@ -24,7 +23,6 @@ The RemoteApp template can be deployed in multiple configurations:
 1. Virtual Machine (~10 min)
 2. Virtual Machine domain-joined (~12 min)
 3. Virtual Machine domain-joined and published as a RemoteApp (~20 min)
-4. (future) Virtual Machine domain-joined and published as a Remote Desktop (~20 min)
 
 ## Before you begin
 - This quickstart assumes a basic understanding of networking and Azure Virtual Enclaves concepts. For more information, see [Concepts and best practices of Azure Virtual Enclaves](./best-practices.md).
@@ -38,42 +36,48 @@ The RemoteApp template can be deployed in multiple configurations:
 ## Prerequisites
 There are guardrail requirements on the enclaves to ensure enclave resources are using Customer-Managed Keys (CMK) encryption. This requires a key and identity to access the key to be accessible in the enclave. Create the CMK (optional Key Vault) and Managed Identity in the [Common Dependencies service catalog template](./deploy-common-dependencies-service-catalog.md)
 
-1. Subnet for Private Endpoints: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation. The private endpoint subnet should have no [subnet delegation](../virtual-network/subnet-delegation-overview.md) for the private endpoints to work properly.
+1. Subnet for Private Endpoints: You can create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation. The private endpoint subnet should have no [subnet delegation](/azure/virtual-network/subnet-delegation-overview) for the private endpoints to work properly.
 2. Quickly create these [Private DNS Zones](./deploy-private-dns-zones-service-catalog.md) based on what you create next:
     - `Key Vault` required when creating a Key Vault from this template or the more customizable [Key Vault template](./deploy-key-vault-service-catalog.md).
     - `Storage File`, `Storage Queue`, `Storage Blob`, and `Storage Table` are required when making a Storage Account from this template or the more customizable [Storage Account template](./deploy-storage-account-service-catalog.md).
 3. A Key Vault, Customer Managed Key (CMK), and Managed Identity are required for this template. Create a Key Vault, CMK, and Managed Identity in the [Common Dependencies service catalog quickstart](./deploy-common-dependencies-service-catalog.md) or create your own.
     - These resources should be created inside a [workload resource group](./create-workload-portal.md#create-workload-resource-groups)
     - After creating the User Managed Identity, ensure it has access to the CMK key
-        - Assign the `Key Vault Crypto Service Encryption User` RBAC role to the managed identity scoped to the key vault with [these instructions](./create-user-managed-identity.md#assign-role-to-managed-identity). This allows you to then assign the managed identity to another resource, like a Virtual Machine, and that Virtual Machine can encrypt the operating system disk with the CMK in the key vault without having permissions to do other operations on the key vault following least privilege.
-4. (optional) An existing domain to join if the Admin VM will be domain joined.
+        - Assign the `Key Vault Crypto Service Encryption User` role to the managed identity scoped to the key vault with [these instructions](./create-user-managed-identity.md#assign-role-to-managed-identity). This role allows you to then assign the managed identity to another resource, like a Virtual Machine. Then that Virtual Machine can encrypt the operating system disk with the CMK in the key vault without having permissions to do other operations on the key vault. Assigning a managed identity in this way is a least privilege best practice.
+4. (optional) An existing domain to join if the Admin VM is domain joined.
 
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
 2. Select `+Add an Azure Service` button.
-3. Select the `RemoteApp VM` service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
+3. Select the `RemoteApp VM` service template from the [service catalog list](./list-service-catalog-templates.md) dropdown
+4. Confirm the version you need (default: `latest`) and select `Next`.
 
 ![Screenshot showing the RemoteApp VM (aka Virtual Machine) template selected from the service catalog list.](./media/service-catalog-list-virtual-machine.png)
 
 4. Enter all the required parameters on each of the tabs.
 5. For `OS Disk Encryption Name` and `OS Disk Encryption Resource Group Name`, enter the names used in the prerequisites section.
 6. Adjust the prepopulated parameters as needed. 
-7. (Optional) [Publish your RemoteApp](#publish-remoteapp-optional) to other users
-8. (Optional) [Domain join](#join-vm-to-domain-optional) your RemoteApp VM.
+7. (Optional) [Publish your RemoteApp](#publish-remoteapp-optional) to other users.
+8. (Optional) [Join a domain](#join-a-domain-optional) on your virtual machine.
 9. (Optional) [Install application](#install-remoteapp-optional) to your RemoteApp.
-10. Select `Review + Create`, if all validations have passed, select `Create`
+10. Select `Review + Create`, if all validations passed, select `Create`.
 
-## Join VM to Domain (Optional)
+## Join a domain (optional)
 1. Should you choose to Domain Join your RemoteApp, you need to select which domain join option you want (Active Directory or Microsoft Entra ID) on the Basic tab and enter the domain joining information.
 2. For the `Active Directory` Domain join options, see the following examples
+   > [!NOTE]
+   > 
+   > If the domain controller is inside an enclave, you need an enclave endpoint for the enclave with the domain controller to allow domain joining in the domain controller subnet, `TCP, UDP` protocols, and these ports `53,88,135,138,139,389,443,445,464,636,686,3268`.
+   > You need a DNS Forwarder in your enclave forwarding DNS traffic to your Domain Controller.
+
    * The Domain name should be in the format of `contoso.com`
-   * OU path should be in the format of `OU=Organizations,DC=contoso,DC=com`
+   * Organization Unit (OU) path should be in the format of `OU=Organizations,DC=contoso,DC=com` and can be left blank if the default `Computers` OU path is fine.
    * `Domain admin username` and `Domain admin password` should match the domain joining credentials for the domain controller
 
-3. For the `Microsoft Entra ID` Domain join option
+3. For the `Microsoft Entra ID` Domain join option,
    * First you need to [deploy an Microsoft Entra Domain Services managed domain](/entra/identity/domain-services/tutorial-create-instance)
-   * Next you need to use this domain to [create an OU](/entra/identity/domain-services/create-ou)
-   * Use the previously created OU and Domain to fill in these respective parameters
+   * Next you need to use the domain you created to [create an OU](/entra/identity/domain-services/create-ou) or use the default OU of `Computers`
+   * Use the previously created OU and Domain to fill in these respective parameters for your virtual machine
 
 ## Publish RemoteApp (Optional)
 If you publish your application, all of the following fields on this tab must be filled out.
@@ -81,7 +85,7 @@ If you publish your application, all of the following fields on this tab must be
 
 > [!NOTE]
 > 
-> When testing domain join for the first time, it might be easiest to deploy a VM without domain joining, remotely sign in to the VM (for example, via Bastion) and manually domain join to observe the errors and troubleshoot more quickly.
+> The file paths should use forward slashes even for Windows file paths.
 
 It can take 20+ minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 
@@ -105,7 +109,7 @@ Install an application on your RemoteApp VM using one of these methods or a meth
 
 - [Install via RemoteApp VM](./application-deployment-using-remote-app-vm.md) (install or configure an application for RemoteApp publishing)
 - Prerequisites:
-    1. A [container](../storage/blobs/blob-containers-portal.md) (artifacts) within the [storage account](./deploy-storage-account-service-catalog.md).
+    1. A [container](/azure/storage/blobs/blob-containers-portal) (artifacts) within the [storage account](./deploy-storage-account-service-catalog.md).
         - **Private or Public Container**
             - *Private Container* - securely store installers, main script, and any supporting scripts. 
                 - You might want to choose this option if your scripts or installers can’t be shared with others who have access to that storage account container.
@@ -135,12 +139,12 @@ Install an application on your RemoteApp VM using one of these methods or a meth
         - For `Main Script` add the name of the main script (ex: main.ps1) in the app folder that installs the application.
         - Private Container: 
             - For `Storage Container Resource ID` add the [resource ID ](./application-deployment-using-remote-app-vm.md) of the container.
-            - For `App folder in private container` select "true". This allows reader role access to the storage account via the VM. 
+            - For `App folder in private container` select "true". If it is a private container, this enables reader role access to the storage account via the VM. 
         > [!NOTE] 
         > 
         > If in Microsoft Azure for U.S. Government, do the following steps: 
         > For the `AzCopy File URI` add the URI to the azcopy.exe from the container.
-    7. Select `Review + Create`, if all validations have passed, select `Create`.
+    7. Select `Review + Create`, if all validations passed, select `Create`.
 
 Otherwise, start using the RemoteApp VM 
 
@@ -149,11 +153,11 @@ If you don't plan on keeping these resources, clean up unnecessary resources to 
 
 ## Recommendations
 - Session host or VM [Sizing](/windows-server/remote/remote-desktop-services/virtual-machine-recs)
-- [Add tags](../azure-resource-manager/management/tag-resources.md) to service catalog deployments to track important information for that resource such as:
+- [Add tags](/azure/azure-resource-manager/management/tag-resources) to service catalog deployments to track important information for that resource such as:
   - Owner: `<main POC>`
   - Deployer: `<yourName>`
   - Purpose: `<publish abc app to users>`
   - Service Catalog Name: `<RemoteApp>`
   - Service Catalog Version: `<version you deployed>`
-- Consider adding an [Azure Policy to enforce and inherit tags](../azure-resource-manager/management/tag-policies.md)
+- Consider adding an [Azure Policy to enforce and inherit tags](/azure/azure-resource-manager/management/tag-policies)
 - [Collect Custom Logs](/azure/azure-monitor/agents/data-sources-custom-logs) from applications

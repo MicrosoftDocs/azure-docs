@@ -3,7 +3,6 @@ title: Deploy a community on Azure Virtual Enclaves
 description: Deploy a community on Azure Virtual Enclaves.
 author: aserfass-msft
 ms.author: aserfass
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ms.custom: references_region

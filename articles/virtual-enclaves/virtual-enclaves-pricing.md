@@ -3,7 +3,6 @@ title: Azure Virtual Enclaves Pricing
 description: Description of Azure Virtual Enclaves pricing.
 author: aserfass-msft
 ms.author: aserfass
-# ms.service: azure-virtual-enclave
 ms.topic: concept-article
 ms.date: 04/08/2025
 ---

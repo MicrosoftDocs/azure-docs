@@ -4,7 +4,6 @@ titleSuffix: Azure Virtual Enclaves
 description: Setup Customer Managed Key (CMK) Encryption within an Enclave.
 author: jadean-msft
 ms.author: jadean
-# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ---
@@ -39,9 +38,9 @@ Examples of setting-up CMK encryption are provided in the next steps, with more 
 - [Learn more](/azure/virtual-machines/windows/disk-encryption-windows)
 
 ### Azure PaaS example (Storage account)
-- [Customer Managed Keys overview](../storage/common/customer-managed-keys-overview.md)
-- [Existing storage accounts](../storage/common/customer-managed-keys-configure-existing-account.md)
-- [New storage accounts](../storage/common/customer-managed-keys-configure-new-account.md)
+- [Customer Managed Keys overview](/azure/storage/common/customer-managed-keys-overview)
+- [Existing storage accounts](/azure/storage/common/customer-managed-keys-configure-existing-account)
+- [New storage accounts](/azure/storage/common/customer-managed-keys-configure-new-account)
 
 ## Create CMK from the Service Catalog (fastest and easiest)
 Follow these instructions to create a [key vault](./deploy-key-vault-service-catalog.md) from the Service Catalog of validated templates for common Azure services.
@@ -88,4 +87,4 @@ Key vault access is restricted to the KV virtual network so the key vault Key ne
 - [Configure Disk Encryption](/azure/virtual-machines/windows/disk-encryption-overview)
 Read More:
 - [Generate Keys on Windows](/windows-server/administration/openssh/openssh_keymanagement)
-- [Configure Key Vault for Storage Account CMK](../storage/common/customer-managed-keys-configure-new-account.md)
+- [Configure Key Vault for Storage Account CMK](/azure/storage/common/customer-managed-keys-configure-new-account)
