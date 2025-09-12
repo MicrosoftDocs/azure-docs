@@ -1961,10 +1961,12 @@ And returns this result: `10000.333`
 Examples of unexpectedly valid inputs:
 
 ```
-float('12,3,4,5678')  //Returns  12345678
-float('1234567,8+')   //Returns  12345678
-float('12345,6,78,-') //Returns -12345678
-float('-12,345,678,') //Returns -12345678
+float('12,3,4,5678')  //Returns   12345678
+float('1234567,8+')   //Returns   12345678
+float('12345,6,78,-') //Returns  -12345678
+float('-12,345,678,') //Returns  -12345678
+float('12345678.-')   //Returns  -12345678
+float('.12345678')    //Returns 0.12345678
 ```
 
 <a name="formatDateTime"></a>
