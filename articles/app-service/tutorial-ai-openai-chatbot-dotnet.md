@@ -16,7 +16,7 @@ ms.service: azure-app-service
 
 # Tutorial: Build a chatbot with Azure App Service and Azure OpenAI (.NET)
 
-In this tutorial, you'll build an intelligent AI application by integrating Azure OpenAI with a Java Spring Boot application and deploying it to Azure App Service. You'll create a Razor page that sends chat completion requests to a model in Azure OpneAI and streams the response back to the page.
+In this tutorial, you'll build an intelligent AI application by integrating Azure OpenAI with a .NET application and deploying it to Azure App Service. You'll create a Razor page that sends chat completion requests to a model in Azure OpneAI and streams the response back to the page.
 
 :::image type="content" source="media/tutorial-ai-openai-chatbot-dotnet/chat-in-browser.png" alt-text="Screenshot showing chatbot running in Azure App Service.":::
 
