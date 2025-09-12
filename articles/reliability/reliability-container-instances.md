@@ -142,11 +142,11 @@ There's no extra cost to configure availability zones for a container group.
     
        - The [Azure portal](/azure/container-instances/container-instances-quickstart-portal#clean-up-resources)
        - The [Azure CLI](/azure/container-instances/container-instances-quickstart#clean-up-resources)
-       - [PowerShell](/azure/container-instances/container-instances-quickstart#clean-up-resources)
+       - [Azure PowerShell](/azure/container-instances/container-instances-quickstart#clean-up-resources)
        - [Bicep](/azure/container-instances/container-instances-quickstart-bicep#clean-up-resources)
        - An [ARM template](/azure/container-instances/container-instances-quickstart-template#clean-up-resources)
        - [Terraform](/azure/container-instances/container-instances-quickstart-terraform#clean-up-resources)
-       - [Docker CLI](/azure/container-instances/container-instances-quickstart-docker-cli#clean-up-resources)
+       - The [Docker CLI](/azure/container-instances/container-instances-quickstart-docker-cli#clean-up-resources)
 
     - *NGroups:* You can add zones to an NGroup, but you can't remove zones.
 
