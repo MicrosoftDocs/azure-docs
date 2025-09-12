@@ -107,7 +107,7 @@ landingContent:
           - text: AI gateway capabilities
             url: genai-gateway-capabilities.md
           - text: Manage MCP servers
-            url: manage-mcp-servers.md   
+            url: mcp-server-overview.md
       -  linkListType: how-to-guide
          links:
           - text: Import Azure AI Foundry API
