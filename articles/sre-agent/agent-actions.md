@@ -54,7 +54,7 @@ Consider the following key takeaways when working in review mode:
 * The agent first attempts to take action. If the agent is met with a security challenge, then it requests temporary access to your credentials.
 * Any access to user credentials are revoked once the action is complete.
 
-### Autonomous mode
+## Autonomous mode
 
 When the agent is working in *autonomous* mode inside an incident resolution workflow, it has implicit approval to work on your behalf against execution plans. If the agent doesn't have the appropriate permissions, the then it requests temporary access to your credentials.
 
