@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 07/25/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
-# Customer intent: As an IT administrator managing Azure VMs, I want to configure agentless multidisk crash-consistent backups, so that I can ensure robust data protection with minimal impact on performance.
+# Customer intent: As an IT administrator managing Azure VMs, I want to configure agentless multidisk crash-consistent backups so that I can ensure robust data protection with minimal impact on performance.
 ---
 
 # Back up Azure VM with agentless multidisk crash-consistent backup

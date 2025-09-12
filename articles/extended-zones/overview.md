@@ -16,7 +16,7 @@ Azure Extended Zones are part of the Microsoft global network that provides secu
 
 ## Key scenarios
 
-The key scenarios Azure Extended Zones enable are: 
+The key scenarios that Azure Extended Zones enable are: 
 
 - **Latency**: users want to run their resources, for example, media editing software, remotely with low latency.
 

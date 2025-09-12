@@ -38,7 +38,7 @@ A recovery point is created as soon as the snapshot is finished. You can use thi
 
 * The snapshots are stored along with the disks to boost recovery point creation and to speed up restore operations. As a result, you see storage costs that correspond to snapshots taken during this period.
 * For the Standard policy, all snapshots are incremental in nature and are stored as page blobs. All the users who use unmanaged disks are charged for the snapshots that are stored in their local storage account. Because the restore point collections used by managed VM backups use blob snapshots at the underlying storage level, for managed disks you see costs that correspond to blob snapshot pricing and they're incremental.
-* For Premium storage accounts, the snapshots taken for instant recovery points count toward the 10-TB limit of allocated space. For the Enhanced policy, only Managed VM backups are supported. The initial snapshot is a full copy of the disks. The subsequent snapshots are incremental in nature and occupy only delta changes to disks since the last snapshot. When you use an Instant Restore recovery point, you must restore the VM or disks to a subscription and resource group that don't require disks encrypted by customer-managed keys via Azure Policy.
+* For Premium storage accounts, the snapshots taken for instant recovery points count toward the 10-TB limit of allocated space. For the Enhanced policy, only managed VM backups are supported. The initial snapshot is a full copy of the disks. The subsequent snapshots are incremental in nature and occupy only delta changes to disks since the last snapshot. When you use an Instant Restore recovery point, you must restore the VM or disks to a subscription and resource group that don't require disks encrypted by customer-managed keys via Azure Policy.
 * When you perform instant restores for unmanaged disks, ensure that the storage account that hosts the snapshot/VHD files has public network access or similar enabled. If the necessary network access from the storage account isn't available, then a standard recovery point restore is triggered, which causes a slower restore time.
 * The [Standard policy](backup-instant-restore-capability.md) starts with an incremental backup, which lacks a full recovery point if the original disk is lost. In contrast, the [Enhanced policy](backup-azure-vms-enhanced-policy.md) makes the first backup a full recovery point, which ensures complete recovery and improved data integrity.
 
@@ -68,9 +68,9 @@ For example, a VM with 100 GB in size has a change rate of 2% and a retention of
 
 [!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
-In the Azure portal, under the **Instant Restore** section, you can see a field that was added on the **VM Backup Policy** pane. You can change the snapshot retention duration on the **VM Backup Policy** pane for all the VMs that are associated with the specific backup policy.
+In the Azure portal, in the **Instant Restore** section, you can see a field that was added on the **VM Backup Policy** pane. You can change the snapshot retention duration on the **VM Backup Policy** pane for all the VMs that are associated with the specific backup policy.
 
-![Screenshot that shows the Instant Restore capability](./media/backup-azure-vms/instant-restore-capability.png).
+![Screenshot that shows the Instant Restore capability.](./media/backup-azure-vms/instant-restore-capability.png)
 
 ### Use PowerShell
 
@@ -103,7 +103,7 @@ For the Standard policy, each day that a new snapshot is taken there are five in
 
 For the Standard policy, snapshots taken as a part of the Instant Restore capability are incremental snapshots. For the Enhanced policy, the initial snapshot is a full snapshot. Subsequent snapshots are incremental in nature.
 
-### How can I calculate the approximate cost increase owing to Instant Restore?
+### How can I calculate the approximate cost increase based on using Instant Restore?
 
 It depends on the churn of the VM.
 
@@ -124,9 +124,9 @@ If the recovery point has a snapshot and it's the latest recovery point availabl
 
 ### Why do I see more snapshots than my retention policy?
 
-In a scenario where a retention policy is set as "1," you can find two snapshots. The policy mandates that at least one latest recovery point should always be present in case all subsequent backups fail because of an issue in the VM. This requirement can cause the presence of two snapshots.
+In a scenario where a retention policy is set as `1`, you can find two snapshots. The policy mandates that at least one latest recovery point should always be present in case all subsequent backups fail because of an issue in the VM. This requirement can cause the presence of two snapshots.
 
-So, if the policy is set for "n" snapshots, you can find "n+1" snapshots at times. Further, you can even find "n+1+2" snapshots if there's a delay in garbage collection. This behavior occurs at rare times when:
+So, if the policy is set for `n` snapshots, you can find `n+1` snapshots at times. Further, you can even find `n+1+2` snapshots if there's a delay in garbage collection. This rare behavior occurs when:
 
 - You clean up snapshots that are past retention.
 - The garbage collector in the back end is under heavy load.

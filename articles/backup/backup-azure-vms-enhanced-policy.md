@@ -72,7 +72,7 @@ Follow these steps:
    :::image type="content" source="./media/backup-azure-vms-enhanced-policy/enhanced-backup-policy-settings.png" alt-text="Screenshot that shows how to configure the Enhanced backup policy.":::
 
    >[!Note]
-   >The maximum limit of the instant recovery point retention range depends on the number of snapshots that you take per day. If the snapshot count is more (for example, a frequency of every 4 hours in a duration of 24 hours, so 6 scheduled snapshots), then the maximum allowed days for retention reduces.
+   >The maximum limit of the instant recovery point retention range depends on the number of snapshots that you take per day. If the snapshot count is more (for example, a frequency of every 4 hours in a duration of 24 hours, so six scheduled snapshots), then the maximum allowed days for retention reduces.
    >
    >If you choose the lower RPO of 12 hours, the snapshot retention increases to 30 days.  
 

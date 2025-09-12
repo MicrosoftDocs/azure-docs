@@ -19,8 +19,6 @@ Backup protects VM data with independent, isolated backups. It stores backups in
 
 ## Prerequisites
 
-Before you back up an Azure VM, review the following prerequisites:
-
 - [Understand the Azure Backup workflow](backup-architecture.md#how-does-azure-backup-work)
 - [Get an overview of Azure VM backup](backup-azure-vms-introduction.md)
 - [Verify the VM backup support requirements](backup-support-matrix.md#azure-vm-backup-support)

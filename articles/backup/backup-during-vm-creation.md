@@ -1,5 +1,5 @@
 ---
-title: Enable Backup During Azure VM Creation Using Azure Backup
+title: Enable Backup During Azure VM Creation by Using Azure Backup
 description: This article describes how to enable backup when you create an Azure VM with Azure Backup.
 ms.topic: how-to
 ms.date: 05/16/2025
@@ -66,8 +66,7 @@ Points to note:
 
 - Use the default name of the RG or customize the name according to organizational requirements.
 
-  >[!NOTE]
-  >When Backup creates an RG, a numeric is appended to the name of the RG and used for restore point collection.
+  When Backup creates an RG, a numeric is appended to the name of the RG and used for restore point collection.
 
 - Provide the RG name pattern as input during VM backup policy creation. Use the following format for the RG name:
 
@@ -108,4 +107,4 @@ After the VM protection is finished, learn how to manage and restore them:
 - [Manage and monitor VMs](backup-azure-manage-vms.md)
 - [Restore VMs](backup-azure-arm-restore-vms.md)
 
-If you encounter any issues, see the [troubleshooting guide](backup-azure-vms-troubleshoot.md).
+If you encounter any issues, see [Troubleshooting backup failures on Azure virtual machines](backup-azure-vms-troubleshoot.md).
