@@ -32,11 +32,12 @@ Key RBAC concepts:
 - **Role**: A collection of permissions (actions) that define what operations are allowed.
 - **Principal**: The user, group, or application being granted the role.
 
-## Built-in Roles for AVE
+## Built-in roles for AVE
 
 The following roles are built into the AVE resource provider to align with common operational patterns. These roles allow customers to follow the principle of least privilege by assigning access only to what is needed.
 
-### Community-Level Roles
+### Community roles
+Roles applicable at the community level.
 
 | Role Name                 | Description                                                                                    |
 |---------------------------|------------------------------------------------------------------------------------------------|
@@ -44,7 +45,8 @@ The following roles are built into the AVE resource provider to align with commo
 | **Community Contributor** | Can create and manage enclave resources within the community but can't assign roles.           |
 | **Community Reader**      | View-only access to the Community and all enclaves within it.                                  |
 
-### Enclave-Level Roles
+### Enclave roles
+Roles applicable at the enclave level.
 
 | Role Name                | Description                                                                                      |
 |--------------------------|--------------------------------------------------------------------------------------------------|
@@ -53,11 +55,10 @@ The following roles are built into the AVE resource provider to align with commo
 | **Enclave Reader**       | View-only access to enclave metadata, endpoints, and associated workloads.                       |
 | **Enclave Approver**     | Can view enclave details and approve deployment or update requests within gated workflows.       |
 
-### Workload-Level Access
-
+### Workload access
 AVE doesn't introduce new workload-specific roles. Instead, customers use standard Azure RBAC roles (for example, Contributor, Reader, Owner) at the workload resource group level to control access to deployed applications and services.
 
-## Isolating Access Across the AVE Stack
+## Isolating access within AVE
 
 RBAC in AVE is intentionally layered to allow you to assign discrete teams or personas to different scopes:
 
@@ -68,7 +69,7 @@ RBAC in AVE is intentionally layered to allow you to assign discrete teams or pe
 
 This model ensures strict separation of concerns and minimizes negative consequences due to misconfiguration or compromise.
 
-## Role Assignment Best Practices
+## Role assignment best practices
 
 To implement secure and effective access control in AVE:
 
@@ -77,7 +78,7 @@ To implement secure and effective access control in AVE:
 - Monitor role assignments regularly using Azure Policy and audit logs.
 - Consider pairing AVE roles with Azure PIM (Privileged Identity Management) for just-in-time access.
 
-## Next Steps
+## Next steps
 
 - [Deploy a community in Azure Virtual Enclaves](https://learn.microsoft.com/azure/virtual-enclaves/deploy-community)
 - [Monitor enclave activity using Log Analytics](https://learn.microsoft.com/azure/virtual-enclaves/observability)
