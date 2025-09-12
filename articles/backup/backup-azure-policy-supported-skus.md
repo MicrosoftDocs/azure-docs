@@ -108,4 +108,4 @@ OpenLogic | CentOS–SRIOV | 6.X, 7.X
 cloudera | cloudera-centos-os | 7.X
 
 >[!NOTE]
-This policy only supports certain VM SKUs because some backup features depend on platform-specific capabilities. Custom images, even with the same OS, may not be supported if they don’t include the required platform components for backup.
+> * This policy only supports certain VM SKUs because some backup features depend on platform-specific capabilities. Custom images, even with the same OS, may not be supported if they don’t include the required platform components for backup.
