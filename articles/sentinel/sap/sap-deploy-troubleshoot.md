@@ -60,8 +60,8 @@ If you see an error that you have incomplete SAP user master data or no data in 
 
 If you see sudden spikes in message volumes and processing times on SAP Cloud Integration, consider filtering responsible sources on the NetWeaver side. There are two options available.
 
-1. Use transaction SM19 and SAP's best practices to apply filter settings on Users and message classes causing the spike
-1. Use the filter capabilities of the Sentinel package on SAP Cloud Integration to apply filtering on log read
+1. Use transaction [SM19 and SAP's best practices](https://community.sap.com/t5/application-development-and-automation-blog-posts/analysis-and-recommended-settings-of-the-security-audit-log-sm19-rsau/ba-p/13297094) to apply filter settings on Users and message classes causing the spike
+1. Use the [filter capabilities](/deploy-data-connector-agent-container?tabs=managed-identity&pivots=connection-agentless#customize-data-connector-behavior-optional) of the Sentinel package on SAP Cloud Integration to apply filtering on log read
 
 Note that log filters on NetWeaver impact what is written to the audit log on the source while a filter on SAP Cloud Integration only chooses not to read the problematic entries.
 
