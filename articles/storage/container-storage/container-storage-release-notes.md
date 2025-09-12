@@ -40,7 +40,7 @@ A **major release** introduces significant changes, often including new features
 - **StoragePool custom resource removed**: Azure Container Storage version 2.0.0 eliminates the StoragePool custom resource. Users now create standard Kubernetes StorageClasses directly, aligning with native Kubernetes patterns. Existing StoragePools from version 1.x.x needs to be migrated to StorageClasses.
 - **CSI driver naming changes**: The CSI driver provisioner is changed from `containerstorage.csi.azure.com` to `localdisk.csi.acstor.io` for local NVMe storage. Existing PVCs using the old provisioner needs to be recreated.
 - **Annotation changes**: The ephemeral storage annotation is changed from `acstor.azure.com/accept-ephemeral-storage: "true"` to `localdisk.csi.acstor.io/accept-ephemeral-storage: "true"`.
-- **No built-in Prometheus Operator**: We removed the bundled Prometheus operator to avoid conflicts with existing monitoring setups. Azure Container Storage now exposes metrics that can be scraped by Azure Monitor or existing Prometheus instances without deploying its own monitoring components.
+- **No built-in Prometheus Operator**: We removed the bundled Prometheus operator to avoid conflicts with existing monitoring setups. Azure Monitor or existing Prometheus instances can now scrape metrics exposed by Azure Container Storage without deploying its own monitoring components.
 
 ### Improvements and new features
 
@@ -56,17 +56,17 @@ There are significant breaking changes in version 2.0.0. Users looking to migrat
 
 ### Improvements and issues that are fixed
 
-- Upgrade components to address security vulnerabilities.
-- Clean dirty flag once snapshot deletion is failed.
-- Fix IO errors during detach when a pod that mounts with mountPropagation set to None restarts.
-- Enhancements of volume handling in cluster restart scenario.
+- Addressed security vulnerabilities with component updates.
+- Cleaned dirty flag once snapshot deletion is failed.
+- Fixed IO errors during detach when a pod that mounts with mountPropagation set to None restarts.
+- Added enhancements of volume handling in cluster restart scenario.
 
 ## Version 1.3.1
 
 ### Improvements and issues that are fixed
 
-- **Bug fixes and recovery improvements**: We made important updates to make etcd recovery stable and reliable. Now, the process includes enhanced retries making cluster restoration smoother and easier to manage. We fixed bugs in Azure Disks and Azure Elastic SAN storage pool creation and addressed upgrade failures caused by Kubernetes job name length limits. This release also addresses an issue where Azure Container Storage extension installation with Azure Elastic SAN was failing due to a missing etcd certificate by ensuring that etcd components aren't deployed unless necessary.
-- **Expanded platform compatibility and scheduling fixes**: We resolved issues with Azure Container Storage pods being incorrectly scheduled to Windows nodes in mixed OS clusters by enforcing node affinity rules. Additionally, we added support for Elastic SAN on Azure Linux 3.0 nodes.
+- **Bug fixes and recovery improvements**: We made important updates to make etcd recovery stable and reliable. Now, the process includes enhanced retries making cluster restoration smoother and easier to manage. We fixed bugs in Azure Disks and Azure Elastic SAN storage pool creation and addressed upgrade failures caused by Kubernetes job name length limits. To improve reliability, this release fixes a failure during Azure Container Storage extension installation with Azure Elastic SAN. The issue was caused by a missing etcd certificate. Now, etcd components are only deployed when needed.
+- **Expanded platform compatibility and scheduling fixes**: To improve scheduling accuracy, this release ensures Azure Container Storage pods are no longer placed on Windows nodes in mixed OS clusters. We fixed this by enforcing node affinity rules. Additionally, we added support for Elastic SAN on Azure Linux 3.0 nodes.
 - **Safeguards to prevent storage pool deletion**: Measures are implemented to prevent the deletion of storage pools with existing persistent volumes when created through custom storage classes.
   
 ## Version 1.3.0
@@ -111,7 +111,7 @@ There are significant breaking changes in version 2.0.0. Users looking to migrat
 
 - **Security Enhancements**: This update addresses vulnerabilities in container environments, enhancing security enforcement to better protect workloads. 
 - **Data plane stability**: We improved the stability of data-plane components, ensuring more reliable access to Azure Container Storage volumes and storage pools. It also enhances the management of data replication between storage nodes.
-- **Volume management improvements**: The update resolves issues with volume detachment during node drain scenarios, ensuring that volumes are safely and correctly detached, and allowing workloads to migrate smoothly without interruptions or data access issues.
+- **Volume management improvements**: To improve workload stability, this update fixes volume detachment issues during node drain. Volumes now detach safely, so workloads can move without disruption or data loss.
 
 ## Azure Container Storage support policy
 
@@ -139,9 +139,9 @@ Azure Container Storage follows a transparent and predictable support lifecycle,
 Azure Container Storage aligns with AKS support for Kubernetes versions using the N-2 practice. When releasing a major or minor version, Azure Container Storage validates the latest three available Kubernetes versions in AKS and updates the supported Kubernetes versions accordingly. For each release:
 
 - It supports the latest Kubernetes version generally available with AKS and the two prior versions. 
-- If compatibility isn't possible due to deprecation or breaking API changes, the release notes will explicitly call out these exceptions.
+- If compatibility isn't possible due to deprecation or breaking API changes, the release notes explicitly call out these exceptions.
 
-Before upgrading the Kubernetes version in your AKS cluster, we recommend checking if the version is included in the Azure Container Storage version support list. If the latest Azure Container Storage version doesn't yet support it, consider deferring the upgrade. As a general best practice, validate your workloads with the new version of Kubernetes or the new version of dependent components in a staging environment before upgrading in the production environment. 
+Before upgrading the Kubernetes version in your AKS cluster, we recommend checking if the version is included in the Azure Container Storage version support list. If the latest Azure Container Storage version doesn't yet support it, consider deferring the upgrade. Before upgrading in production, test your workloads with the new version of Kubernetes or its components in a staging environment.
 
 ### Important guidance for version synchronization
 
@@ -165,7 +165,7 @@ Note that preview versions are no longer supported, and customers should promptl
 
 ## Auto-upgrade policy
 
-To receive the latest features and fixes for Azure Container Storage in future versions, you can enable auto-upgrade. However, it might result in a brief interruption in the I/O operations of applications using PVs with Azure Container Storage during the upgrade process. To minimize potential impact, we recommend setting the auto-upgrade window to a time period with low activity or traffic, ensuring that upgrades occur during less critical times.  
+To receive the latest features and fixes for Azure Container Storage in future versions, you can enable auto-upgrade. However, it might result in a brief interruption in the I/O operations of applications using persistent volumes with Azure Container Storage during the upgrade process. To minimize potential impact, we recommend setting the auto-upgrade window to a time period with low activity or traffic, ensuring that upgrades occur during less critical times.  
 
 To enable auto-upgrade, run the following command:
 
