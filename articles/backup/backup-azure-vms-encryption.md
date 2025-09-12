@@ -97,13 +97,13 @@ To configure a backup policy, follow these steps:
 
       ![Screenshot that shows selecting encrypted VMs.](./media/backup-azure-vms-encryption/selected-encrypted-vms.png)
 
-1. If you're using Key Vault, on the vault page, you see a message that Backup needs read-only access to the keys and secrets in the key vault.
+1. If you're using Key Vault, on the vault page, you see a message that Backup needs read-only access to the keys and secrets in the key vault:
 
-    - If you receive this message, no action is required.
+    - If you receive this message, no action is required:
 
         ![Screenshot that shows the access is OK.](./media/backup-azure-vms-encryption/access-ok.png)
 
-    - If you receive this message, set permissions as described in the [following procedure](#provide-permissions).
+    - If you receive this message, set permissions as described in the [following procedure](#provide-permissions):
 
         ![Screenshot that shows the access warning.](./media/backup-azure-vms-encryption/access-warning.png)
 
@@ -126,11 +126,11 @@ For Azure RBAC-enabled key vaults, you can create a custom role with the followi
 
 | Action | Description |
 | --- | --- |
-| Microsoft.KeyVault/vaults/keys/backup/action | Creates the backup file of a key.  |
-| Microsoft.KeyVault/vaults/secrets/backup/action | Creates the backup file of a secret.  |
-| Microsoft.KeyVault/vaults/secrets/getSecret/action | Gets the value of a secret.  |
-| Microsoft.KeyVault/vaults/keys/read | Lists keys in the specified vault or reads properties and public materials.  |
-| Microsoft.KeyVault/vaults/secrets/readMetadata/action | Lists or views the properties of a secret, but not its values.    |
+| `Microsoft.KeyVault/vaults/keys/backup/action` | Creates the backup file of a key.  |
+|` Microsoft.KeyVault/vaults/secrets/backup/action` | Creates the backup file of a secret.  |
+| `Microsoft.KeyVault/vaults/secrets/getSecret/action` | Gets the value of a secret.  |
+| `Microsoft.KeyVault/vaults/keys/read` | Lists keys in the specified vault or reads properties and public materials.  |
+| `Microsoft.KeyVault/vaults/secrets/readMetadata/action` | Lists or views the properties of a secret, but not its values.    |
 
 ```json
 "permissions": [

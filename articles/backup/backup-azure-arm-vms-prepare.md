@@ -57,7 +57,7 @@ To modify the storage replication type, follow these steps:
     ![Screenshot that shows setting the storage configuration for a new vault.](./media/backup-azure-arm-vms-prepare/full-blade.png)
 
 > [!NOTE]
-   > You can't modify the storage replication type after the vault is set up and contains backup items. If you want to modify the type, you need to re-create the vault.
+> You can't modify the storage replication type after the vault is set up and contains backup items. If you want to modify the type, you need to re-create the vault.
 
 ## Apply a backup policy
 
@@ -91,12 +91,12 @@ To apply a backup policy to your Azure VMs, follow these steps:
 
      ![Screenshot that shows the Select virtual machines pane.](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
-    > [!NOTE]
-    > All the VMs in the same region and subscription as that of the vault are available to configure backup. When you configure backup, browse to the VM name and its resource group, even though you don't have the required permission on those VMs. If your VM is in a soft-deleted state, it doesn't appear in this list.
+    >[!NOTE]
+    >All the VMs in the same region and subscription as that of the vault are available to configure backup. When you configure backup, browse to the VM name and its resource group, even though you don't have the required permission on those VMs. If your VM is in a soft-deleted state, it doesn't appear in this list.
     >
-        > If you need to reprotect the VM, wait for the soft-deleted period to expire. You can also restore the VM from the soft-deleted list. For more information, see [Soft delete for VMs by using the Azure portal](soft-delete-virtual-machines.md#soft-delete-for-vms-using-azure-portal).
+    >If you need to reprotect the VM, wait for the soft-deleted period to expire. You can also restore the VM from the soft-deleted list. For more information, see [Soft delete for VMs by using the Azure portal](soft-delete-virtual-machines.md#soft-delete-for-vms-using-azure-portal).
     >
-    > To change the Recovery Services vault of a VM, stop the backup. Then assign a new vault to the VM.
+    >To change the Recovery Services vault of a VM, stop the backup. Then assign a new vault to the VM.
 
 1. In **Backup**, select **Enable backup**. This action deploys the policy to the vault and the VMs and installs the backup extension on the VM agent that runs on the Azure VM.
 
@@ -128,7 +128,7 @@ To create a new backup policy, fill in the following policy settings:
 
 Backup doesn't support automatic clock adjustment for daylight-saving time changes for Azure VM backups. As time changes occur, modify backup policies manually as required.
 
-If you want hourly backups, configure the Enhanced backup policy. For more information, see [Back up an Azure VM by using the Enhanced policy](backup-azure-vms-enhanced-policy.md#create-an-enhanced-policy-and-configure-vm-backup).
+If you want hourly backups, configure the Enhanced backup policy. For more information, see [Back up an Azure VM by using the Enhanced policy](backup-azure-vms-enhanced-policy.md#create-an-enhanced-policy-and-configure-the-vm-backup).
 
 ## Trigger the initial backup
 

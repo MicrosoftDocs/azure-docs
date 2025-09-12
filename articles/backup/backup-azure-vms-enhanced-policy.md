@@ -12,11 +12,11 @@ ms.author: v-mallicka
 ---
 # Back up an Azure VM by using the Enhanced policy
 
-Azure Backup now supports the Enhanced policy for Azure VM backup that offers:
+Azure Backup now supports the Enhanced policy for Azure virtual machine (VM) backup that offers:
 
 - Zonal resiliency by using zone-redundant storage for Instant Restore snapshots.
 - Multiple backups per days. You can schedule backups as frequently as every 4 hours for Azure VMs.
-- Support for new Azure offerings, including Trusted Launch virtual machines (VMs), Premium solid-state drive (SSD) v2 and Ultra SSD disks, and multidisk crash-consistent snapshot support.
+- Support for new Azure offerings, including Trusted Launch VMs, Premium solid-state drive (SSD) v2 and Ultra SSD disks, and multidisk crash-consistent snapshot support.
 - Longer retention in snapshot (operational) tier up to 30 days.
 
 >[!Note]
@@ -33,8 +33,7 @@ The following screenshot shows that multiple backups occurred in a day.
 
 :::image type="content" source="./media/backup-azure-vms-enhanced-policy/multiple-backups-per-day-inline.png" alt-text="Screenshot that shows the multiple backup instances that occurred in a day." lightbox="./media/backup-azure-vms-enhanced-policy/multiple-backups-per-day-expanded.png":::
 
->[!Note]
->The preceding screenshot shows that one of the backups is transferred to the Vault-Standard tier.
+The preceding screenshot shows that one of the backups is transferred to the **Vault-Standard** tier.
 
 ## Create an Enhanced policy and configure the VM backup
 
@@ -250,7 +249,7 @@ You can exclude noncritical disks from backup by using selective disk backup to 
 
 ## Related content
 
-- [Run a backup immediately](./backup-azure-vms-first-look-arm.md#run-an-on-demand-backup-of-azure-vm)
-- [Verify Backup job status](./backup-azure-arm-vms-prepare.md#verify-backup-job-status)
+- [Run a backup immediately](./backup-azure-vms-first-look-arm.md#run-an-on-demand-backup-of-azure-vms)
+- [Verify Backup job status](./backup-azure-arm-vms-prepare.md#verify-the-backup-job-status)
 - [Restore Azure virtual machines](./backup-azure-arm-restore-vms.md#restore-disks)
 - [Troubleshoot VM backup](backup-azure-vms-troubleshoot.md#usererrormigrationfromtrustedlaunchvm-tonontrustedvmnotallowed)

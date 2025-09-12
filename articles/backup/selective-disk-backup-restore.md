@@ -30,7 +30,7 @@ Selective disk backup and restore is supported for the Enhanced and Standard pol
 
 ## Scenarios
 
-This solution is useful particularly in the following scenarios:
+This solution is particularly useful in the following scenarios:
 
 - If you have critical data to be backed up on only one disk or a subset of the disks. You don't want to back up the rest of the disks attached to a VM to minimize the backup storage costs.
 - If you have other backup solutions for part of your VM or data. For example, you want to back up your databases or data by using a different workload backup solution. You want to use Azure VM-level backup for the rest of the data or disks to build an efficient and robust system by using the best capabilities that are available.
@@ -317,7 +317,7 @@ When you enable backup by using the Azure portal, select the **OS Disk Only** op
 When you enable the backup operation by using the Azure portal, choose the data disks that you want to include in the backup. (The OS disk is always included.) You can also choose to include disks that are added in the future for automatic backup by enabling the **Include future disks** option.
 
 >[!NOTE]
->Currently, you can configure a set of disks in a portal only when the VM is protected for the first time. You need to use the [CLI](selective-disk-backup-restore.md#modify-protection-for-already-backed-up-vms-with-azure-cli) or [PowerShell](selective-disk-backup-restore.md#modify-protection-for-already-backed-up-vms-with-powershell) commands to edit the set of disks that are backed up after protection or during a *resume protection* operation.
+>Currently, you can configure a set of disks in a portal only when the VM is protected for the first time. You need to use the [CLI](selective-disk-backup-restore.md#modify-protection-for-already-backed-up-vms-with-the-cli) or [PowerShell](selective-disk-backup-restore.md#modify-protection-for-already-backed-up-vms-with-powershell) commands to edit the set of disks that are backed up after protection or during a *resume protection* operation.
 
 ## Use the Azure REST API
 
@@ -362,7 +362,7 @@ If you use the Enhanced policy, protected instance (PI) costs, snapshot costs, a
 | OS type | Limitation |
 | --- | --- |
 | Windows | **Spanned volumes**: For spanned volumes (volumes spread across more than one physical disk), ensure that all disks are included in the backup. If not, Backup might not be able to reliably restore the data and exclude it in billing. <br><br> **Storage pool**: If you use disks carved out of a storage pool and if a *LUN number* included for backup is common across virtual disks and data disks, the size of the virtual disk is also included in the backup size in addition to the data disks. |
-|	Linux | **Logical volumes**: For logical volumes spread across more than one disk, ensure that all disks are included in the backup. If not, Backup might not be able to reliably restore the data and exclude it in billing. <br><br> **Distro support**: Backup uses `lsscsi` and `lsblk` to determine the disks being excluded for backup and to estimate the size of the data backed up for the [PI fee](selective-disk-backup-restore.md#how-is-protected-instance-pi-cost-calculated-for-only-os-disk-backup-in-windows-and-linux) calculation. If your distro (Debian 8.11, 10.13, and so on) doesn't support `lsscsi`, install it by using `sudo apt install lsscsi` to ensure that selective disk backup works. If not, the PI fee is calculated based on the backup data transferred instead of using `lsscsi` and `lsblk`. |
+|	Linux | **Logical volumes**: For logical volumes spread across more than one disk, ensure that all disks are included in the backup. If not, Backup might not be able to reliably restore the data and exclude it in billing. <br><br> **Distro support**: Backup uses `lsscsi` and `lsblk` to determine the disks being excluded for backup and to estimate the size of the data backed up for the [PI fee](selective-disk-backup-restore.md#how-is-pi-cost-calculated-for-only-os-disk-backup-in-windows-and-linux) calculation. If your distro (Debian 8.11, 10.13, and so on) doesn't support `lsscsi`, install it by using `sudo apt install lsscsi` to ensure that selective disk backup works. If not, the PI fee is calculated based on the backup data transferred instead of using `lsscsi` and `lsblk`. |
 
 If you select the CRR feature, the [CRR pricing](https://azure.microsoft.com/pricing/details/backup/) applies on the backup storage cost after excluding the disk.
 

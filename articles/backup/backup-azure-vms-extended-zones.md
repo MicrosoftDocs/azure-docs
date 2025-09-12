@@ -157,7 +157,7 @@ Linux | Install by using an RPM or a DEB package from your distribution's packag
 
 When no longer needed, you can disable protection on the VM, and remove the restore points and Recovery Services vault. Then you can delete the resource group and associated VM resources.
 
-If you want to restore the VM by using the recovery points, skip the steps in this section and go to [Related content](#next-steps).
+If you want to restore the VM by using the recovery points, skip the steps in this section and go to [Related content](#related-content).
 
 1. Select the **Backup** option for your VM.
 

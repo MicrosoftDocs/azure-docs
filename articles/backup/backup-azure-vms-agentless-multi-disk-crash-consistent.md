@@ -23,7 +23,7 @@ Review the supported scenarios and limitations of agentless multidisk crash-cons
 
 ## Configure backup for a new Azure VM with agentless multidisk crash-consistent backup
 
-You need to set *crash-consistent backup* explicitly in this policy because *application/file-system-consistent backup* is the default setting.
+You need to set *crash-consistent backup* explicitly in this policy because *application/file system-consistent backup* is the default setting.
 
 The agentless crash-consistent backup is available with the *Enhanced VM backup policy* only.
 
@@ -37,18 +37,18 @@ To configure backup for a new Azure VM with agentless multidisk crash-consistent
 
 1. Select **OK**.
 
-## Move a VM from application/file-system-consistent to crash-consistent backup
+## Move a VM from application/file system-consistent to crash-consistent backup
 
-If you have VMs that are backed up with the Enhanced policy, you can move them from agent-based application/file-system-consistent backups to agentless crash-consistent backups:
+If you have VMs that are backed up with the Enhanced policy, you can move them from agent-based application/file system-consistent backups to agentless crash-consistent backups:
 
 - Change their associated backup policy (recommended).
 - Edit the policy setting directly.
 
-### Option 1: Change the VM backup policy to switch from application/file-system-consistent backup to crash-consistent backup (recommended)
+### Option 1: Change the VM backup policy to switch from application/file system-consistent backup to crash-consistent backup (recommended)
 
 Follow these steps:
 
-1. Go to a Recovery Services vault, and then select **Manage** > **Backup policies** to check the policy for the VMs that you want to move to *crash-consistent backup*.
+1. Go to a Recovery Services vault, and then select **Manage** > **Backup policies** to check the policy for the VMs that you want to move to crash-consistent backup.
 
    :::image type="content" source="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/vault-locate-policy.png" alt-text="Screenshot that shows how to locate all backup policies present in a vault." lightbox="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/vault-locate-policy.png":::
 
@@ -88,7 +88,7 @@ Follow these steps:
 
    :::image type="content" source="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/modify-vm-protection-policy-success-notification.png" alt-text="Screenshot that shows the success status for change in VM backup policy." lightbox="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/modify-vm-protection-policy-success-notification.png":::
 
-### Option 2: Modify the backup policy to change from application/file-system-consistent backup to crash-consistent backup
+### Option 2: Modify the backup policy to change from application/file system-consistent backup to crash-consistent backup
 
 If you don't want to create a new policy and move only specific VMs, edit the **Consistency type** option in the existing policy.
 
@@ -98,7 +98,7 @@ Follow these steps:
 
    :::image type="content" source="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/vault-locate-policy.png" alt-text="Screenshot that shows how to check for all backup policies present in a vault." lightbox="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/vault-locate-policy.png":::
 
-1. On the **Modify policy**, select **Associated items**.
+1. On the **Modify policy** pane, select **Associated items**.
 
    :::image type="content" source="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/policy-settings.png" alt-text="Screenshot that shows how to check the associated items in a backup policy." lightbox="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/policy-settings.png":::
 
@@ -110,7 +110,7 @@ Follow these steps:
 
    :::image type="content" source="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/modify-policy-crash-consistent.png" alt-text="Screenshot that shows how to check for the change in policy settings." lightbox="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/modify-policy-crash-consistent.png":::
 
-   You can monitor the *Modify backup policy* job on the **Backup Jobs** pane. The *Configure backup jobs* triggered for each VM in the policy appear.
+   You can monitor the **Modify backup policy** job on the **Backup Jobs** pane. The **Configure backup jobs** triggered for each VM in the policy appear.
 
    :::image type="content" source="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/modify-policy-jobs.png" alt-text="Screenshot that shows how to monitor the policy change operation." lightbox="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/modify-policy-jobs.png":::
 
@@ -118,4 +118,4 @@ If the job fails for an unsupported VM, revert the policy to opt out of crash-co
 
 ## Related content
 
-[Run an on-demand backup of Azure VM](backup-azure-vms-first-look-arm.md#run-an-on-demand-backup-of-azure-vm)
+[Run an on-demand backup of Azure VM](backup-azure-vms-first-look-arm.md#run-an-on-demand-backup-of-azure-vms)
