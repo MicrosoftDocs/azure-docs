@@ -6,7 +6,7 @@ ms.author: rosemalcolm
 ms.service: dev-box
 ms.custom: peer-review-program
 ms.topic: how-to
-ms.date: 09/08/2025
+ms.date: 09/11/2025
 
 #customer intent: As a platform engineer, I want to assign the correct roles so that team members can manage projects and create dev boxes.
 
@@ -25,8 +25,23 @@ Dev Box has two built-in roles: *DevCenter Project Admin* and *DevCenter Dev Box
 
 ## Prerequisites
 
-- You must have an Azure account with permission to create role assignments on the project. Typically this means you are assigned the **Owner** or **User Access Administrator** role at the project scope (or higher).
+- You must have an Azure account with permission to create role assignments on the project. 
 - You must have an existing dev center and at least one project.
+
+## Permissions required
+
+To create role assignments, you need permission to create role assignments on the target resource. Specifically:
+
+- Required permission actions:
+  - Microsoft.Authorization/roleAssignments/write
+  - Microsoft.Authorization/roleAssignments/read (for verification)
+  - Microsoft.Authorization/roleDefinitions/read (to list available roles)
+
+- Recommended built-in roles that include these actions:
+  - Owner
+  - User Access Administrator
+
+If your organization uses custom roles, ensure the role includes Microsoft.Authorization/roleAssignments/write for the intended scope.
 
 ## Assign DevCenter Project Admin role
 

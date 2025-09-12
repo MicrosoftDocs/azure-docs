@@ -12,13 +12,20 @@ ms.date: 09/11/2025
 
 # Configure access to Azure Deployment Environments resources
 
-This article shows how to assign the built-in DevCenter Project Admin role for project administrators (team leads) and the Deployment Environments User role for developers. Assign roles at the project level or at a specific environment-type scope to control access.
+This article shows how to assign the built-in DevCenter Project Admin role for project administrators and the Deployment Environments User role for developers. Assign roles at the project level or at a specific environment-type scope to control access.
+
+The following built-in roles are commonly used with Azure Deployment Environments:
+
+| Role | Description |
+| --- | --- |
+| DevCenter Project Admin | Full project-level management for Deployment Environments projects. Project admins can manage project settings, environment types, and perform administrative actions across all environments in the project. |
+| Deployment Environments User | Allows users to create, start, stop, and manage their own environments within a project. Intended for developers who need to provision and work with environments. |
+| Deployment Environments Reader | Read-only access to environment and project resources. Use this role to grant users or service principals visibility into environments without modification rights. |
 
 ## Prerequisites
 
-- An Azure account with permission to create role assignments at the project, resource-group, or subscription scope.
-- Access to the Azure portal: https://portal.azure.com.
-- A project created in Azure Deployment Environments.
+- You must have an Azure account with permission to create role assignments on the project. 
+- You must have an existing dev center and at least one project.
 
 ## Permissions required
 
@@ -53,7 +60,7 @@ Use this role for dev team leads who manage project environment types.
 
 1. Select **Save**.
 
-:::image type="content" source="media/configure-project-admin/add-role-assignment-admin.png" alt-text="Screenshot of the Add role assignment pane with DevCenter Project Admin selected." lightbox="media/configure-project-admin/add-role-assignment-admin.png":::
+   :::image type="content" source="media/configure-project-admin/add-role-assignment-admin.png" alt-text="Screenshot of the Add role assignment pane with DevCenter Project Admin selected." lightbox="media/configure-project-admin/add-role-assignment-admin.png":::
 
 Verify the role assignment: On the project's Access control (IAM) page, confirm the new member appears for the DevCenter Project Admin role.
 
@@ -64,7 +71,7 @@ Verify the role assignment: On the project's Access control (IAM) page, confirm 
 1. Select **Add** > **Add role assignment**.
 1. Assign **DevCenter Project Admin** to the desired users or groups and select **Save**.
 
-:::image type="content" source="media/configure-project-admin/project-environment-types.png" alt-text="Screenshot of the Environment types page showing how to assign DevCenter Project Admin to a specific environment type." lightbox="media/configure-project-admin/project-environment-types.png":::
+   :::image type="content" source="media/configure-project-admin/project-environment-types.png" alt-text="Screenshot of the Environment types page showing how to assign DevCenter Project Admin to a specific environment type." lightbox="media/configure-project-admin/project-environment-types.png":::
 
 ## Assign Deployment Environments User (developers)
 
@@ -84,7 +91,7 @@ Use this role for developers who need to create and manage their own environment
 
 1. Select **Save**.
 
-:::image type="content" source="media/configure-deployment-environments-user/add-role-assignment.png" alt-text="Screenshot of the Add role assignment pane with Deployment Environments User selected." lightbox="media/configure-deployment-environments-user/add-role-assignment.png":::
+   :::image type="content" source="media/configure-deployment-environments-user/add-role-assignment.png" alt-text="Screenshot of the Add role assignment pane with Deployment Environments User selected." lightbox="media/configure-deployment-environments-user/add-role-assignment.png":::
 
 Verify the role assignment: On the project's Access control (IAM) page, confirm the new member appears for the Deployment Environments User role.
 
@@ -95,7 +102,7 @@ Verify the role assignment: On the project's Access control (IAM) page, confirm 
 1. Select **Add** > **Add role assignment**.
 1. Assign **Deployment Environments User** to the desired users or groups and select **Save**.
 
-:::image type="content" source="media/configure-deployment-environments-user/project-environment-types.png" alt-text="Screenshot of the Environment types page showing how to assign Deployment Environments User to a specific environment type." lightbox="media/configure-deployment-environments-user/project-environment-types.png":::
+   :::image type="content" source="media/configure-deployment-environments-user/project-environment-types.png" alt-text="Screenshot of the Environment types page showing how to assign Deployment Environments User to a specific environment type." lightbox="media/configure-deployment-environments-user/project-environment-types.png":::
 
 [!INCLUDE [note-deployment-environments-user](includes/note-deployment-environments-user.md)]
 
@@ -115,6 +122,4 @@ If you created test role assignments that you no longer need:
 
 ## Related content
 
-* [Provide access for dev team leads to Deployment Environments projects](./how-to-configure-project-admin.md)
-* [Provide access for developers to Deployment Environments projects](./how-to-configure-deployment-environments-user.md)
-* [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml)
+- [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml)

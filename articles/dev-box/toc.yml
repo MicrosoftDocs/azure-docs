@@ -115,7 +115,7 @@ items:
   - name: Security
     items:
       - name: Manage project access
-        href: how-to-manage-project-access.md
+        href: how-to-manage-dev-box-project-access.md
         displayName: project access, RBAC, roles, permissions
       - name: Configure conditional access policies
         href: how-to-configure-intune-conditional-access-policies.md
