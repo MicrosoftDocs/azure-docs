@@ -68,12 +68,3 @@ You can configure diagnostic settings through the Azure portal, CLI, or Bicep/AR
 | **Regulated enclave with strict data controls** | Keep diagnostics within the enclave-specific Log Analytics workspace |
 | **Long-term retention for audit purposes**      | Send logs to a Storage Account with policy-controlled retention settings |
 | **Network investigation or threat hunting**     | Use the enclave workspace to analyze default virtual network flow logs |
-
-## Next steps
-
-To configure logging in your environment, see:
-
-- [Enable diagnostics for an enclave](./configure-diagnostics-enclave.md)
-- [Configure centralized logging for your community](./configure-diagnostics-community.md)
-- [Analyze virtual network Flow Logs in Log Analytics](./analyze-vnet-flows.md)
-- [Integrate Log Analytics with Microsoft Sentinel](./connect-loganalytics-sentinel.md)
