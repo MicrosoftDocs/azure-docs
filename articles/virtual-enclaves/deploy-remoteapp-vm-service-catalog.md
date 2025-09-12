@@ -43,7 +43,7 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
 3. A Key Vault, Customer Managed Key (CMK), and Managed Identity are required for this template. Create a Key Vault, CMK, and Managed Identity in the [Common Dependencies service catalog quickstart](./deploy-common-dependencies-service-catalog.md) or create your own.
     - These resources should be created inside a [workload resource group](./create-workload-portal.md#create-workload-resource-groups)
     - After creating the User Managed Identity, ensure it has access to the CMK key
-        - Assign the `Key Vault Crypto Service Encryption User` role to the managed identity scoped to the key vault with [these instructions](./create-user-managed-identity.md#assign-role-to-managed-identity). This role allows you to then assign the managed identity to another resource, like a Virtual Machine. Then that Virtual Machine can encrypt the operating system disk with the CMK in the key vault without having permissions to do other operations on the key vault. This is a least privilege best practice.
+        - Assign the `Key Vault Crypto Service Encryption User` role to the managed identity scoped to the key vault with [these instructions](./create-user-managed-identity.md#assign-role-to-managed-identity). This role allows you to then assign the managed identity to another resource, like a Virtual Machine. Then that Virtual Machine can encrypt the operating system disk with the CMK in the key vault without having permissions to do other operations on the key vault. Assigning a managed identity in this way is a least privilege best practice.
 4. (optional) An existing domain to join if the Admin VM is domain joined.
 
 ## Deploy the template
@@ -58,7 +58,7 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
 5. For `OS Disk Encryption Name` and `OS Disk Encryption Resource Group Name`, enter the names used in the prerequisites section.
 6. Adjust the prepopulated parameters as needed. 
 7. (Optional) [Publish your RemoteApp](#publish-remoteapp-optional) to other users.
-8. (Optional) [Join a domain](#join-a-domain-optional) on you virtual machine.
+8. (Optional) [Join a domain](#join-a-domain-optional) on your virtual machine.
 9. (Optional) [Install application](#install-remoteapp-optional) to your RemoteApp.
 10. Select `Review + Create`, if all validations passed, select `Create`.
 
@@ -139,7 +139,7 @@ Install an application on your RemoteApp VM using one of these methods or a meth
         - For `Main Script` add the name of the main script (ex: main.ps1) in the app folder that installs the application.
         - Private Container: 
             - For `Storage Container Resource ID` add the [resource ID ](./application-deployment-using-remote-app-vm.md) of the container.
-            - For `App folder in private container` select "true". This allows reader role access to the storage account via the VM. 
+            - For `App folder in private container` select "true". If it is a provate container, this enables reader role access to the storage account via the VM. 
         > [!NOTE] 
         > 
         > If in Microsoft Azure for U.S. Government, do the following steps: 

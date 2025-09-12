@@ -66,12 +66,12 @@ AVE employs a defense-in-depth approach when it comes to cybersecurity. When you
 ### Shared security responsibilities
 As a service on Azure, AVE also is committed to upholding the [shared responsibility model](/azure/security/fundamentals/shared-responsibility) in the cloud. For AVE specifically, [workloads](./what-workload.md) are the customer's responsibility. Platform shared responsibility is inherited in workloads if the customer deployed PaaS services into their workloads.
 
-Customer instances of [communities](./what-community.md) and [enclaves](./what-enclave.md) represent a shared responsibility. Communities and enclaves are shared responsibilities in that the AVE Resource Provider creates a secured, pre-configured hub-and-spoke network environment for the customer. This network environment can then be managed by the customer by creating [enclave endpoints](./create-enclave-endpoint-portal.md), [community endpoints](./create-community-endpoint-portal.md), [transit hubs](./create-transit-hub-portal.md), or [enclave connections](./create-enclave-connection-portal.md). Certain preview versions of AVE also allow the customer to manually make changes to the network through underlying controls provided by [Azure VWAN](/azure/virtual-wan/virtual-wan-about), [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview), and other underlying Azure networking services.
+Customer instances of [communities](./what-community.md) and [enclaves](./what-enclave.md) represent a shared responsibility. Communities and enclaves are shared responsibilities in that the AVE Resource Provider creates a secured, preconfigured hub-and-spoke network environment for the customer. This network environment can then be managed by the customer by creating [enclave endpoints](./create-enclave-endpoint-portal.md), [community endpoints](./create-community-endpoint-portal.md), [transit hubs](./create-transit-hub-portal.md), or [enclave connections](./create-enclave-connection-portal.md). Certain preview versions of AVE also allow the customer to manually make changes to the network through underlying controls provided by [Azure VWAN](/azure/virtual-wan/virtual-wan-about), [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview), and other underlying Azure networking services.
 
-AVE [governance](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring) is also a shared responsibility. The AVE Resource Provider creates a secured, pre-configured list of [Azure Policy initiatives](/azure/virtual-enclaves/aks-initiative) per [workload](./what-workload.md) deployment. However, [communities](./what-community.md) now have the capability to configure their own list of Azure Policy Initiatives, which overrides the pre-configured list for the workload. Despite this, customers retain the ability to make manual [exemptions](./policy-compliance-exemptions.md) to these Azure Policy Initiative assignments depending on their compliance or governance requirements.
+AVE [governance](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring) is also a shared responsibility. The AVE Resource Provider creates a secured, preconfigured list of [Azure Policy initiatives](/azure/virtual-enclaves/aks-initiative) per [workload](./what-workload.md) deployment. However, [communities](./what-community.md) now have the capability to configure their own list of Azure Policy Initiatives, which overrides the preconfigured list for the workload. Despite this, customers retain the ability to make manual [exemptions](./policy-compliance-exemptions.md) to these Azure Policy Initiative assignments depending on their compliance or governance requirements.
 
 ### Azure Security best practices
-AVE recommends following [Microsoft Azure Security best practices and patterns](/azure/security/fundamentals/best-practices-and-patterns) for deploying Azure resources and implementing workloads. Certain exclusions to the general rule apply where the recommendation has either already been implemented as part of the default settings deployed by the AVE Resource Provider or was slightly modified as part of the broader hub-and-spoke network architecture and design patterns of AVE.
+AVE recommends following [Microsoft Azure Security best practices and patterns](/azure/security/fundamentals/best-practices-and-patterns) for deploying Azure resources and implementing workloads. Certain exclusions to the general rule apply where the recommendation was implemented as part of the default settings deployed by the AVE Resource Provider or was slightly modified as part of the broader hub-and-spoke network architecture and design patterns of AVE.
 
 Customers are also recommended to follow the [Azure security best practices - Cloud Adoption Framework](/azure/cloud-adoption-framework/secure/security-top-10) for organizing their systems, cloud infrastructure, IT personnel and teaming structures, and corporate cybersecurity awareness trainings.
 
@@ -81,14 +81,14 @@ The resource groups that contain resources managed by Azure Virtual Enclaves.
 ### Community managed resource group
 The _Community managed resource group_ contains the infrastructure resources described in [What is a community?](./what-community.md).
 
-The community managed resource group name follow this naming convention `myCommunityName-HostedResources-<GUID>`. Every community deployment creates this resource group and create the community infrastructure inside. When you delete your community, the Azure Virtual Enclaves resource provider automatically deletes the community managed resource group.
+The community managed resource group name follow this naming convention `myCommunityName-HostedResources-<GUID>`. Every community deployment creates this resource group and creates the community infrastructure inside. When you delete your community, the Azure Virtual Enclaves resource provider automatically deletes the community managed resource group.
 
 ![Screenshot showing an example of the community resources managed by Azure Virtual Enclaves.](./media/fabrikam-hosted-resources.png)
 
 The community managed resource group has the following limitations:
 - You can't specify an existing resource group for the community managed resource group.
 - You can't specify a different subscription for the community managed resource group.
-- You can't change the community managed resource group name after the community has been created.
+- You can't change the community managed resource group name after the community is created.
 - You can't specify names for the managed resources within the community managed resource group.
 - You can't modify or delete Azure-created tags of managed resources within the community managed resource group.
 
@@ -103,7 +103,7 @@ A common scenario where customers want to modify resources is through tags. Azur
 ### Enclave managed resource group
 The _Enclave managed resource group_ contains the infrastructure resources described in [What is an Enclave?](./what-enclave.md).
 
-The enclave managed resource group name follow this naming convention `myEnclaveName-HostedResources-<GUID>`. Every enclave deployment creates this resource group and create the enclave infrastructure inside. When you delete your enclave, the Azure Virtual Enclaves resource provider automatically deletes the enclave managed resource group.
+The enclave managed resource group name follow this naming convention `myEnclaveName-HostedResources-<GUID>`. Every enclave deployment creates this resource group and creates the enclave infrastructure inside. When you delete your enclave, the Azure Virtual Enclaves resource provider automatically deletes the enclave managed resource group.
 
 ![Screenshot showing an example of the enclave resources managed by Azure Virtual Enclaves.](./media/enclave-webapp-hosted-resources.png)
 
@@ -131,7 +131,7 @@ Adding a new resource group normally requires the user to have permissions to cr
   - Option 2: Involves manual intervention by the user to [grant our `Mission Enclave` app ownership at the subscription level](./onboard.md), which might not align with all customers’ preferences.
   - Option 3: Requires no permissions for either the user or our FPA, making it the easiest method but imposing a strict 1:1 relationship between the resource group and workload.
 
-Each option has benefits and limitations, balancing control, convenience, and flexibility to fit varying needs. These options are each evaluated starting with Option 1 and the first option to succeed will proceed to create the new resource group.
+Each option has benefits and limitations, balancing control, convenience, and flexibility to fit varying needs. These options are each evaluated starting with Option 1 and the first option to succeed is used to create the new resource group.
 
 After you create on workload resource group using Option 3, a warning will be displayed to alert you that method #1 or #2 will be needed for more workload resource groups on this workload. You can also create a new workload and then create a new workload resource group using Option 3 again.
 
@@ -145,7 +145,7 @@ Add a resource group to your enclave:
 #### How is a workload resource group different from other Azure resource groups?
 A workload resource group is a critical component of the Azure Virtual Enclaves security and compliance because that is where important customer resources are created. Since these workload resource groups are linked to a workload, and the workload is linked to an enclave, [deletion of the workload managed resource groups](#workload-deletion) is managed by Azure Virtual Enclaves.
 
-Additionally, policy is applied to the workload resource groups. Similar to how the community policies flow down to the enclave, the enclave policies flow down to the [workload](./what-workload.md) resources and [workload resource groups](./what-workload.md#workload-resource-group). When you create a new workload resource group, the roles are set at the enclave level and inherited from the subscription. Some of these policies are inherited from the community and you can also create policies on the enclave that will flow down to workloads and workload resource groups.
+Additionally, policy is applied to the workload resource groups. Similar to how the community policies flow down to the enclave, the enclave policies flow down to the [workload](./what-workload.md) resources and [workload resource groups](./what-workload.md#workload-resource-group). When you create a new workload resource group, the roles are set at the enclave level and inherited from the subscription. Some of these policies are inherited from the community and you can also create policies on the enclave that flow down to workloads and workload resource groups.
 
 #### Organizing resources in workload resource groups
 If you wanted to split your resources into two resource groups, you can choose either of these options:
@@ -154,9 +154,9 @@ If you wanted to split your resources into two resource groups, you can choose e
 - split those resources between two workloads each having one or more resource groups 
 
 #### Workload deletion
-When a workload deletion is requested, the workload resource groups are checked to make sure they are empty. If the workload resource groups contain resources, the requested workload deletion with fail and show an error. If you want to delete the workload and workload resource groups, the workload resource groups need to be empty. This help to avoid deleting important resources by accident.
+When a workload deletion is requested, the workload resource groups are checked to make sure they're empty. If the workload resource groups contain resources, the requested workload deletion with fail and show an error. If you want to delete the workload and workload resource groups, the workload resource groups need to be empty. This help to avoid deleting important resources by accident.
 
-Deletion of a resource that is linked to the workload will also follow this same behavior. For example: if a Community deletion is requested but all of the workload resource groups are not empty, the operation shows an error. Empty the workload resource groups and try again.
+Deletion of a resource that is linked to the workload also follows this same behavior. For example: if a Community deletion is requested but all of the workload resource groups aren't empty, the operation shows an error. Empty the workload resource groups and try again.
 
 The workload managed resource group has the following limitations:
 - You can't specify an existing resource group for the workload managed resource group.
