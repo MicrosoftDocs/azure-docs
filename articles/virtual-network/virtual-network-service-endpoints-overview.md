@@ -90,8 +90,6 @@ Service endpoints provide the following benefits:
 
   ExpressRoute: If you're using [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for Microsoft peering from your premises, identify the NAT IP addresses that you're using. The NAT IP addresses are either customer provided or provided by the service provider. To allow access to your service resources, you must allow these public IP addresses in the resource IP firewall setting. For more information about NAT for ExpressRoute Microsoft peering, see [ExpressRoute NAT requirements](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-![Securing Azure services to virtual networks](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
-
 :::image type="content" source="./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png" alt-text="Screenshot of diagram showing virtual network service endpoints securing Azure services to virtual networks.":::
 
 ### Configuration
