@@ -6,7 +6,6 @@ summary: Learn how to use Azure Virtual Enclaves. Get started with quickstarts, 
 metadata:
   title: Azure Virtual Enclaves Documentation - Tutorials, Quickstarts, API References
   description: Learn how to use Azure Virtual Enclaves. Quickstarts, tutorials, samples, and best practices for deploying, securing, and managing enclaves.
-  # ms.service: azure-virtual-enclaves
   ms.topic: landing-page
   author: aserfass-msft
   ms.author: aserfass

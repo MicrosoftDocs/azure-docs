@@ -139,7 +139,7 @@ Install an application on your RemoteApp VM using one of these methods or a meth
         - For `Main Script` add the name of the main script (ex: main.ps1) in the app folder that installs the application.
         - Private Container: 
             - For `Storage Container Resource ID` add the [resource ID ](./application-deployment-using-remote-app-vm.md) of the container.
-            - For `App folder in private container` select "true". If it is a provate container, this enables reader role access to the storage account via the VM. 
+            - For `App folder in private container` select "true". If it is a private container, this enables reader role access to the storage account via the VM. 
         > [!NOTE] 
         > 
         > If in Microsoft Azure for U.S. Government, do the following steps: 

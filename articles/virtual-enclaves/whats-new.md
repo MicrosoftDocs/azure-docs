@@ -3,7 +3,6 @@ title: What's new in Azure Virtual Enclaves?
 description: Learn what's new with Azure Virtual Enclaves such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 author: aserfass-msft
 ms.author: aserfass
-# ms.service: azure-virtual-enclave
 ms.topic: concept-article
 ms.date: 04/08/2025
 ---

@@ -3,7 +3,6 @@ title: Azure Virtual Enclaves FAQ
 description: See answers to frequently asked questions (FAQ) about Azure Virtual Enclaves.
 author: aserfass-msft
 ms.author: aserfass
-# ms.service: azure-virtual-enclave
 ms.topic: concept-article
 ms.date: 04/08/2025
 ---

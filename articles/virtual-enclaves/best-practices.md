@@ -30,12 +30,12 @@ The AVE product group, engineering teams, and field teams contributed to, wrote,
 AVE brings together the capabilities and flexibility of several Azure networking products such as Azure Virtual WAN, Azure Firewall, Azure Virtual Network, and Network Security Groups in a simplified user interface.
 
 AVE makes the following overall recommendations:
-1. [Communities](./what-community.md) should be deployed when you have networking requirements to provide an [Azure Firewall](https://aka.ms/azurefirewall), which is Azure's intelligent firewall security Platform-as-a-Service.
-2. Communities should be deployed when you have organizational or data sensitivity requirements to separate a hub-and-spoke virtual wide-area-network (VWAN) from another hub-and-spoke VWAN.
-3. Communities should be deployed when you have networking requirements to support systems spanning [multiple Azure regions](/azure/cloud-adoption-framework/ready/azure-setup-guide/regions), in which each region requires its own Azure Firewall. [Learn more about multi-hub Azure Firewall use-cases](/azure/firewall/firewall-multi-hub-spoke). 
-4. Communities should be deployed when you have networking requirements to support a large number of systems on a distributed, hub-and-spoke wide area network. Learn more about [Azure VWAN](/azure/virtual-wan/virtual-wan-faq).
-5. [Enclaves](./what-enclave.md) should be deployed when you have networking requirements to deploy similar workloads as part of the same private network.
-6. Enclaves should be deployed when you have a planned workload requirement that needs to be within the same VWAN as an existing community for ease of network management.
+  - [Communities](./what-community.md) should be deployed when you have networking requirements to provide an [Azure Firewall](https://aka.ms/azurefirewall), which is Azure's intelligent firewall security Platform-as-a-Service.
+  - Communities should be deployed when you have organizational or data sensitivity requirements to separate a hub-and-spoke virtual wide-area-network (VWAN) from another hub-and-spoke VWAN.
+  - Communities should be deployed when you have networking requirements to support systems spanning [multiple Azure regions](/azure/cloud-adoption-framework/ready/azure-setup-guide/regions), in which each region requires its own Azure Firewall. [Learn more about multi-hub Azure Firewall use-cases](/azure/firewall/firewall-multi-hub-spoke). 
+  - Communities should be deployed when you have networking requirements to support a large number of systems on a distributed, hub-and-spoke wide area network. Learn more about [Azure VWAN](/azure/virtual-wan/virtual-wan-faq).
+  - [Enclaves](./what-enclave.md) should be deployed when you have networking requirements to deploy similar workloads as part of the same private network.
+  - Enclaves should be deployed when you have a planned workload requirement that needs to be within the same VWAN as an existing community for ease of network management.
 
 #### Community network design considerations
 AVE advises customers to follow, wherever possible, underlying Azure service best practices documentation when planning their community networks. Including these best practices:

@@ -3,7 +3,6 @@ title: Role-based Access Controls
 description: Learn how to use built-in roles in Azure Virtual Enclaves to isolate and delegate access across communities, enclaves, and workloads.
 author: jadean-msft
 ms.author: jadean
-#ms.service: azure-virtual-enclaves
 ms.topic: how-to
 ms.date: 07/24/2025
 ---
