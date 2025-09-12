@@ -96,7 +96,7 @@ Azure PowerShell is used to deploy the template. You can also use the Azure port
 - *Environment type name*: The name of the environment type for both the dev center and the project.
 - *User object ID*: The object ID of a user that's granted the *Deployment Environments User* role.
 
-Alternatively, you can provide access to the deployment environments project in the Azure portal. See [Provide user access to Azure Deployment Environments projects](./how-to-configure-deployment-environments-user.md).
+Alternatively, you can provide access to the deployment environments project in the Azure portal. See [Provide user access to Azure Deployment Environments projects](./how-to-manage-deployment-environments-access.md).
 
 ## Review deployed resources
 
