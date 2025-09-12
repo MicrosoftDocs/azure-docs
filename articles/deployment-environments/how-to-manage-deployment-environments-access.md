@@ -81,7 +81,7 @@ Assign the role at the environment type scope so a team lead can manage only env
 
 ## Grant permissions for developers
 
-Assign the DevCenter Deployment Environments User or DevCenter Deployment Environments Reader role to a developer either at the project level or at one or more environment-type scopes. Project-level assignment grants permissions across all environment types in that project; environment-type assignment limits permissions to only the selected environment type(s).
+Assign the DevCenter Deployment Environments User or DevCenter Deployment Environments Reader role to a developer either at the project level or at one or more environment-type scopes. Project-level assignment grants permissions across all environment types in that project; environment-type assignment limits permissions to only the selected environment type.
 
 ### Assign roles at the project-level
 
