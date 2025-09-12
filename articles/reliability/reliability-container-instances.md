@@ -68,29 +68,29 @@ For more information about other errors that might occur at runtime and how to r
 
 Container Instances supports availability zones in different ways, depending on how you deploy your container groups:
 
-- *Manually created container groups:* An individual container group is a *zonal* resource, which means that it can be deployed into a single availability zone that you select. All containers within the group are deployed into the same availability zone. If that availability zone has an outage, the container group and all of its containers might experience downtime.
+- **Manually created container groups:** An individual container group is a *zonal* resource, which means that it can be deployed into a single availability zone that you select. All containers within the group are deployed into the same availability zone. If that availability zone has an outage, the container group and all of its containers might experience downtime.
+
+    :::image type="content" source="./media/reliability-containers/container-groups-containers-zonal.png" alt-text="Diagram that shows a container group with two containers deployed into a single availability zone." border="false":::
 
     > [!NOTE]
     > To ensure that your application continues to run when any single zone in the region experiences an outage, we recommend that you create a minimum of two container groups across two different availability zones. 
 
-    :::image type="content" source="./media/reliability-containers/container-groups-containers-zonal.png" alt-text="Diagram that shows a container group with two containers deployed into a single availability zone." border="false":::
-
     If you don't specify availability zones to use for your container group, it's *nonzonal* or *regional*, which means that it might be placed in any availability zone within the region or within the same zone. If any availability zone in the region has a problem, your container group might experience downtime.
 
-- *NGroups:* When you deploy an NGroup, you can specify one or more zones to deploy it to. If you deploy an NGroup to two or more zones, it's a *zone-redundant* NGroup, and an outage of one availability zone only causes problems for the container groups within the affected zone.
+- **NGroups:** When you deploy an NGroup, you can specify one or more zones to deploy it to. If you deploy an NGroup to two or more zones, it's a *zone-redundant* NGroup, and an outage of one availability zone only causes problems for the container groups within the affected zone.
 
     :::image type="content" source="./media/reliability-containers/ngroup-zone-redundant.png" alt-text="Diagram that shows an NGroup with three container groups, deployed into three availability zones." border="false":::
 
     If you don't specify availability zones to use for your NGroup, it's nonzonal and might experience downtime if any availability zone in the region has a problem.
 
-- *Standby pools:* When you deploy a standby pool, you can optionally specify one or more zones. The platform might request containers across the zones that you select.
+- **Standby pools:** When you deploy a standby pool, you can optionally specify one or more zones. The platform might request containers across the zones that you select.
 
     However, standby pools aren't zone redundant or zone resilient because there's no guarantee that containers are created in multiple zones. If a zone outage occurs, it's possible that all of the containers in the pool might be placed in the affected zone.
 
     Because standby pools aren't designed to support resiliency to zone failures, this guide doesn't describe the detailed behavior of standby pools with availability zones.
 
     > [!IMPORTANT]
-    > Standby pools aren't designed to be zone-resilient. They shouldn't be used for workloads that require resilience to zone failures.
+    > Standby pools aren't designed to be zone resilient. They shouldn't be used for workloads that require resilience to zone failures.
 
 ### Region support
 
@@ -156,11 +156,11 @@ There's no extra cost to configure availability zones for a container group.
 
 The way container groups are distributed across availability zones depends on how you deploy your container groups.
 
-- *Manually created container groups:* You're responsible for distributing your manually created container groups across multiple availability zones.
+- **Manually created container groups:** You're responsible for distributing your manually created container groups across multiple availability zones.
 
-- *NGroups:* During scale-in operations, NGroups randomly deletes instances, which might not maintain a spread across availability zones. Scale-out operations try to rebalance the spread across zones.
+- **NGroups:** During scale-in operations, NGroups randomly deletes instances, which might not maintain a spread across availability zones. Scale-out operations try to rebalance the spread across zones.
 
-- *Standby pools:* A standby pool can create containers in any of the availability zones that you configure on the pool. However, containers might not be created in multiple zones. Standby pools shouldn't be used for workloads that require resilience to zone failures.
+- **Standby pools:** A standby pool can create containers in any of the availability zones that you configure on the pool. However, containers might not be created in multiple zones. Standby pools shouldn't be used for workloads that require resilience to zone failures.
 
 ### Capacity planning and management
 
@@ -168,11 +168,11 @@ To prepare for availability zone failure, consider *overprovisioning* the number
 
 The approach that you use to overprovision container groups depends on how you deploy your container groups.
 
-- *Manually created container groups:* You're responsible for planning the capacity of your manually created container groups, including planning how many container groups to deploy in each zone.
+- **Manually created container groups:** You're responsible for planning the capacity of your manually created container groups, including planning how many container groups to deploy in each zone.
 
-- *NGroup:* Consider *overprovisioning* the capacity of your NGroup to tolerate the loss of a zone.
+- **NGroup:** Consider *overprovisioning* the capacity of your NGroup to tolerate the loss of a zone.
 
-- *Standby pools:* Standby pools aren't designed to be resilient to zone failures. Consider using multiple standby pools in different zones, or use NGroups.
+- **Standby pools:** Standby pools aren't designed to be resilient to zone failures. Consider using multiple standby pools in different zones, or use NGroups.
 
 ### Normal operations
 
@@ -232,7 +232,7 @@ Container Instances is a single-region service. If the region becomes unavailabl
 
 You can optionally deploy separate container groups in multiple regions. You're responsible for deploying and configuring the container groups in each region. You also need to configure load balancing by using a service like Azure Traffic Manager or Azure Front Door. You're responsible for any data synchronization, failover, and failback.
 
-## Service-level agreement (SLA)
+## Service-level agreement
 
 [!INCLUDE [SLA description](includes/reliability-service-level-agreement-include.md)]
 
