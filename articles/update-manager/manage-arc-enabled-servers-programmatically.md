@@ -25,15 +25,45 @@ To trigger an update assessment on your Azure Arc-enabled server, specify the fo
 
 To specify the POST request, you can use the Azure CLI [az rest](/cli/azure/reference-index#az_rest) command.
 
-```azurecli
+```azurecli-interactive
 az rest --method post --url https://management.azure.com/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.HybridCompute/machines/machineName/assessPatches?api-version=2020-08-15-preview --body @body.json
+```
+
+# [Azure REST API](#tab/rest-api)
+
+```rest
+To specify the POST request, you can use the following Azure REST API call with valid parameters and values.
+
+POST on 'subscriptions/subscriptionI/resourceGroups/resourceGroupName/providers/Microsoft.HybridCompute/machines/machineName/installPatches?api-version=2020-08-15-preview
+
+{
+        "maximumDuration": "PT120M",
+        "rebootSetting": "IfRequired",
+        "windowsParameters": {
+          "classificationsToInclude": [
+            "Security",
+            "UpdateRollup",
+            "FeaturePack",
+            "ServicePack"
+          ],
+          "kbNumbersToInclude": [
+            "11111111111",
+            "22222222222222"
+          ],
+          "kbNumbersToExclude": [
+            "333333333333",
+            "55555555555"
+          ]
+        }
+  }'
+
 ```
 
 # [Azure PowerShell](#tab/powershell)
 
 To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMethod-Path](/powershell/module/az.accounts/invoke-azrestmethod) cmdlet.
 
-```azurepowershell
+```azurepowershell-interactive
 Invoke-AzRestMethod-Path
   "/subscriptions/subscriptionId/resourceGroups/resourcegroupname/providers/Microsoft.HybridCompute/machines/machinename/assessPatches?api-version=2020-08-15-preview"
   -Payload '{}' -Method POST
@@ -66,42 +96,11 @@ The following table describes the elements of the request body:
 | `linuxParameters - packageNameMasksToInclude` | List of Linux packages that are available to the machine and need to be installed. If you've included any 'classificationsToInclude', the packages available in the category will be installed. 'packageNameMasksToInclude' is an option to provide list of packages over and above that you want to get installed. For example: `mysql, libc=1.0.1.1, kernel*` |
 | `linuxParameters - packageNameMasksToExclude` | List of Linux packages that are available to the machine and should **not** be installed. If you've included any 'classificationsToInclude', the packages available in the category will be installed. 'packageNameMasksToExclude' is an option to provide list of specific packages that you want to ensure don't get installed. For example: `mysql, libc=1.0.1.1, kernel*` |
 
-
-# [Azure REST API](#tab/rest-api)
-
-To specify the POST request, you can use the following Azure REST API call with valid parameters and values. 
-
-```rest
-POST on 'subscriptions/subscriptionI/resourceGroups/resourceGroupName/providers/Microsoft.HybridCompute/machines/machineName/installPatches?api-version=2020-08-15-preview
-
-{
-        "maximumDuration": "PT120M",
-        "rebootSetting": "IfRequired",
-        "windowsParameters": {
-          "classificationsToInclude": [
-            "Security",
-            "UpdateRollup",
-            "FeaturePack",
-            "ServicePack"
-          ],
-          "kbNumbersToInclude": [
-            "11111111111",
-            "22222222222222"
-          ],
-          "kbNumbersToExclude": [
-            "333333333333",
-            "55555555555"
-          ]
-        }
-  }'
-
-```
-
 # [Azure CLI](#tab/azure-cli)
 
 To specify the POST request, you can use the Azure CLI [az rest](/cli/azure/reference-index#az_rest) command.
 
-```azurecli
+```azurecli-interactive
 az rest --method post --url https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/Test/providers/Microsoft.HybridCompute/machines/WIN-8/installPatches?api-version=2020-08-15-preview @body.json
 ```
 
@@ -130,11 +129,41 @@ The format of the request body for version 2020-08-15 is as follows:
   }
 ```
 
+# [Azure REST API](#tab/rest-api)
+
+To specify the POST request, you can use the following Azure REST API call with valid parameters and values.
+
+```rest
+POST on 'subscriptions/subscriptionI/resourceGroups/resourceGroupName/providers/Microsoft.HybridCompute/machines/machineName/installPatches?api-version=2020-08-15-preview
+
+{
+        "maximumDuration": "PT120M",
+        "rebootSetting": "IfRequired",
+        "windowsParameters": {
+          "classificationsToInclude": [
+            "Security",
+            "UpdateRollup",
+            "FeaturePack",
+            "ServicePack"
+          ],
+          "kbNumbersToInclude": [
+            "11111111111",
+            "22222222222222"
+          ],
+          "kbNumbersToExclude": [
+            "333333333333",
+            "55555555555"
+          ]
+        }
+  }'
+
+```
+
 # [Azure PowerShell](#tab/azure-powershell)
 
 To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMethod](/powershell/module/az.accounts/invoke-azrestmethod) cmdlet.
 
-```azurepowershell
+```azurepowershell-interactive
 Invoke-AzRestMethod
 -Path "/subscriptions/subscriptionId/resourceGroups/resourcegroupname/providers/Microsoft.HybridCompute/machines/machinename/installPatches?api-version=2020-08-15-preview"
 -Payload '{
@@ -190,9 +219,27 @@ The following table describes the elements of the request body:
 | `tags` | Gets or sets tags of the resource |
 | `type` | Type of the resource |
 
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az maintenance configuration create \
+   --resource-group myMaintenanceRG \
+   --resource-name myConfig \
+   --maintenance-scope InGuestPatch \
+   --location eastus \
+   --maintenance-window-duration "02:00" \
+   --maintenance-window-recur-every "20days" \
+   --maintenance-window-start-date-time "2022-12-30 07:00" \
+   --maintenance-window-time-zone "Pacific Standard Time" \
+   --install-patches-linux-parameters package-name-masks-to-exclude="ppt" package-name-masks-to-include="apt" classifications-to-include="Other" \
+   --install-patches-windows-parameters kb-numbers-to-exclude="KB123456" kb-numbers-to-include="KB123456" classifications-to-include="FeaturePack" \
+   --reboot-setting "IfRequired" \
+   --extension-properties InGuestPatchMode="User"
+```
+
 # [Azure REST API](#tab/rest-api)
 
-To specify the POST request, you can use the following Azure REST API call with valid parameters and values. 
+To specify the POST request, you can use the following Azure REST API call with valid parameters and values.
 
 ```rest
 PUT on '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/atscalepatching/providers/Microsoft.Maintenance/maintenanceConfigurations/TestAzureInGuestAdv2?api-version=2021-09-01-preview
@@ -232,24 +279,6 @@ PUT on '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/atsca
 }'
 ```
 
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli-interactive
-az maintenance configuration create \
-   --resource-group myMaintenanceRG \
-   --resource-name myConfig \
-   --maintenance-scope InGuestPatch \
-   --location eastus \
-   --maintenance-window-duration "02:00" \
-   --maintenance-window-recur-every "20days" \
-   --maintenance-window-start-date-time "2022-12-30 07:00" \
-   --maintenance-window-time-zone "Pacific Standard Time" \
-   --install-patches-linux-parameters package-name-masks-to-exclude="ppt" package-name-masks-to-include="apt" classifications-to-include="Other" \
-   --install-patches-windows-parameters kb-numbers-to-exclude="KB123456" kb-numbers-to-include="KB123456" classifications-to-include="FeaturePack" \
-   --reboot-setting "IfRequired" \
-   --extension-properties InGuestPatchMode="User"
-```
-
 # [Azure PowerShell](#tab/azure-powershell)
 
 You can use the `New-AzMaintenanceConfiguration` cmdlet to create your configuration.
@@ -283,21 +312,6 @@ To associate a VM with a maintenance configuration schedule, specify the followi
 PUT on `<ARC or Azure VM resourceId>/providers/Microsoft.Maintenance/configurationAssignments/<configurationAssignment name>?api-version=2021-09-01-preview`
 ```
 
-# [Azure REST API](#tab/rest-api)
-
-To specify the PUT request, you can use the following Azure REST API call with valid parameters and values. 
-
-```rest
-PUT on '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/atscalepatching/providers/Microsoft.Compute/virtualMachines/win-atscalepatching-1/providers/Microsoft.Maintenance/configurationAssignments/TestAzureInGuestAdv?api-version=2021-09-01-preview
-
-{
-  "properties": {
-    "maintenanceConfigurationId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/atscalepatching/providers/Microsoft.Maintenance/maintenanceConfigurations/TestAzureInGuestIntermediate2"
-  },
-  "location": "eastus2euap"
-}'
-```
-
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
@@ -309,6 +323,21 @@ az maintenance assignment create \
    --provider-name Microsoft.Compute \
    --configuration-assignment-name myConfig \
    --maintenance-configuration-id "/subscriptions/{subscription ID}/resourcegroups/myMaintenanceRG/providers/Microsoft.Maintenance/maintenanceConfigurations/myConfig"
+```
+
+# [Azure REST API](#tab/rest-api)
+
+To specify the PUT request, you can use the following Azure REST API call with valid parameters and values.
+
+```rest
+PUT on '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/atscalepatching/providers/Microsoft.Compute/virtualMachines/win-atscalepatching-1/providers/Microsoft.Maintenance/configurationAssignments/TestAzureInGuestAdv?api-version=2021-09-01-preview
+
+{
+  "properties": {
+    "maintenanceConfigurationId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/atscalepatching/providers/Microsoft.Maintenance/maintenanceConfigurations/TestAzureInGuestIntermediate2"
+  },
+  "location": "eastus2euap"
+}'
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -347,6 +376,12 @@ az maintenance configuration delete \
 
 ```rest
 DELETE on `<ARC or Azure VM resourceId>/providers/Microsoft.Maintenance/configurationAssignments/<configurationAssignment name>?api-version=2021-09-01-preview`
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Remove-AzMaintenanceConfiguration -ResourceGroupName rgname -Name maintenanceconfigname
 ```
 ---
 
