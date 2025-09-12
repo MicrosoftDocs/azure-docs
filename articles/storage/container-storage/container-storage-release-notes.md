@@ -37,10 +37,10 @@ A **major release** introduces significant changes, often including new features
 
 ### Breaking changes
 
-- **StoragePool custom resource removed**: Azure Container Storage version 2.0.0 eliminates the StoragePool custom resource. Users now create standard Kubernetes StorageClasses directly, aligning with native Kubernetes patterns. Existing StoragePools from version 1.x.x will need to be migrated to StorageClasses.
-- **CSI driver naming changes**: The CSI driver provisioner has changed from `containerstorage.csi.azure.com` to `localdisk.csi.acstor.io` for local NVMe storage. Existing PVCs using the old provisioner will need to be recreated.
-- **Annotation changes**: The ephemeral storage annotation has changed from `acstor.azure.com/accept-ephemeral-storage: "true"` to `localdisk.csi.acstor.io/accept-ephemeral-storage: "true"`.
-- **No built-in Prometheus Operator**: We've removed the bundled Prometheus operator to avoid conflicts with existing monitoring setups. Azure Container Storage now exposes metrics that can be scraped by Azure Monitor or existing Prometheus instances without deploying its own monitoring components.
+- **StoragePool custom resource removed**: Azure Container Storage version 2.0.0 eliminates the StoragePool custom resource. Users now create standard Kubernetes StorageClasses directly, aligning with native Kubernetes patterns. Existing StoragePools from version 1.x.x needs to be migrated to StorageClasses.
+- **CSI driver naming changes**: The CSI driver provisioner is changed from `containerstorage.csi.azure.com` to `localdisk.csi.acstor.io` for local NVMe storage. Existing PVCs using the old provisioner needs to be recreated.
+- **Annotation changes**: The ephemeral storage annotation is changed from `acstor.azure.com/accept-ephemeral-storage: "true"` to `localdisk.csi.acstor.io/accept-ephemeral-storage: "true"`.
+- **No built-in Prometheus Operator**: We removed the bundled Prometheus operator to avoid conflicts with existing monitoring setups. Azure Container Storage now exposes metrics that can be scraped by Azure Monitor or existing Prometheus instances without deploying its own monitoring components.
 
 ### Improvements and new features
 
@@ -65,29 +65,29 @@ There are significant breaking changes in version 2.0.0. Users looking to migrat
 
 ### Improvements and issues that are fixed
 
-- **Bug fixes and recovery improvements**: We’ve made important updates to make etcd recovery stable and reliable. Now, the process includes enhanced retries making cluster restoration smoother and easier to manage. We have also fixed bugs in Azure Disks and Azure Elastic SAN storage pool creation and addressed upgrade failures caused by Kubernetes job name length limits. This release also addresses an issue where Azure Container Storage extension installation with Azure Elastic SAN was failing due to a missing etcd certificate by ensuring that etcd components aren't deployed unless necessary.
-- **Expanded platform compatibility and scheduling fixes**: We've resolved issues with Azure Container Storage pods being incorrectly scheduled to Windows nodes in mixed OS clusters by enforcing node affinity rules. Additionally, we've added support for Elastic SAN on Azure Linux 3.0 nodes.
-- **Safeguards to prevent storage pool deletion**: Measures have been implemented to prevent the deletion of storage pools with existing persistent volumes when created through custom storage classes.
+- **Bug fixes and recovery improvements**: We made important updates to make etcd recovery stable and reliable. Now, the process includes enhanced retries making cluster restoration smoother and easier to manage. We fixed bugs in Azure Disks and Azure Elastic SAN storage pool creation and addressed upgrade failures caused by Kubernetes job name length limits. This release also addresses an issue where Azure Container Storage extension installation with Azure Elastic SAN was failing due to a missing etcd certificate by ensuring that etcd components aren't deployed unless necessary.
+- **Expanded platform compatibility and scheduling fixes**: We resolved issues with Azure Container Storage pods being incorrectly scheduled to Windows nodes in mixed OS clusters by enforcing node affinity rules. Additionally, we added support for Elastic SAN on Azure Linux 3.0 nodes.
+- **Safeguards to prevent storage pool deletion**: Measures are implemented to prevent the deletion of storage pools with existing persistent volumes when created through custom storage classes.
   
 ## Version 1.3.0
 
 ### Improvements and issues that are fixed
 
-- **Bug fixes-Prometheus Operator**: In previous versions, some customers faced difficulties disabling Azure Container Storage’s default Prometheus operator when using a custom Prometheus deployment. This issue has now been fixed, allowing users to successfully turn off the built-in operator without conflict.
-- **Performance Tuning for SQL-based Databases**: Running MySQL and PostgreSQL on Azure Container Storage is up to 5x faster on ephemeral disks. For more information and examples, refer to the [PostgreSQL on AKS deployment guide](/azure/aks/postgresql-ha-overview).
+- **Bug fixes-Prometheus Operator**: In previous versions, some customers faced difficulties disabling Azure Container Storage’s default Prometheus operator when using a custom Prometheus deployment. This issue is fixed, allowing users to successfully turn off the built-in operator without conflict.
+- **Performance Tuning for SQL-based Databases**: Running MySQL and PostgreSQL on Azure Container Storage is up to 5x faster on ephemeral disks. For more information and examples, see [PostgreSQL on AKS deployment guide](/azure/aks/postgresql-ha-overview).
   
 ## Version 1.2.1
 
 ### Improvements and issues that are fixed
 
 - **Bug fixes and performance improvements**: The version improved security and resilience by addressing vulnerabilities, updating Azure Linux base images, and reinforcing container security. These updates enhance threat mitigation and compliance. 
-- **Node taints toleration**: Node taints can prevent pods from being deployed on a node pool. See more information in [AKS Node Taints](/azure/aks/use-node-taints). When node taints are configured on the node pool, the installation of Azure Container Storage components is blocked. With node taints toleration, Azure Container Storage component pods can be deployed successfully without the need to temporarily remove the taints as a mitigation. This feature is built-in without configuration, and is supported **only for ephemeral storage pools**.
+- **Node taints toleration**: Node taints can prevent pods from being deployed on a node pool. See more information in [AKS Node Taints](/azure/aks/use-node-taints). When node taints are configured on the node pool, the installation of Azure Container Storage components is blocked. With node taints toleration, Azure Container Storage component pods can be deployed successfully without the need to temporarily remove the taints as a mitigation. This feature is built in without configuration, and is supported **only for ephemeral storage pools**.
 
 ## Version 1.2.0
 
 ### Improvements and issues that are fixed
 
-- **Bug fixes and performance improvements**: We've made general stability improvements to address key recovery issues, especially during upgrade scenarios. These updates are designed to ensure more reliable recovery processes and prevent unexpected service interruptions, delivering a smoother and more consistent experience.  
+- **Bug fixes and performance improvements**: We made general stability improvements to address key recovery issues, especially during upgrade scenarios. These updates are designed to ensure more reliable recovery processes and prevent unexpected service interruptions, delivering a smoother and more consistent experience.  
 - **Ephemeral Disk Performance Enhancements**: We improved overall performance for Azure Container Storage with ephemeral NVMe disks as the backing storage option, delivering up to a 100% increase in write IOPS in setups with replication enabled. For more details, read about ephemeral disk performance [using local NVMe](/azure/storage/container-storage/use-container-storage-with-local-disk#optimize-performance-when-using-local-nvme) and [using local NVMe with replication](/azure/storage/container-storage/use-container-storage-with-local-nvme-replication#optimize-performance-when-using-local-nvme).
 
 ## Version 1.1.2
@@ -103,19 +103,19 @@ There are significant breaking changes in version 2.0.0. Users looking to migrat
 ### Improvements and issues that are fixed
 
 - This patch release addresses specific issues that some customers experienced during the creation of Azure Elastic SAN storage pools. It resolves exceptions that were causing disruptions in the setup process, enabling smoother and more reliable storage pool creation.
-- We've also made improvements to cluster restart scenarios. Previously, some corner-case situations caused cluster restarts to fail. This update ensures that cluster restarts are more reliable and resilient.
+- We made improvements to cluster restart scenarios. Previously, some corner-case situations caused cluster restarts to fail. This update ensures that cluster restarts are more reliable and resilient.
 
 ## Version 1.1.0
 
 ### Improvements and issues that are fixed
 
 - **Security Enhancements**: This update addresses vulnerabilities in container environments, enhancing security enforcement to better protect workloads. 
-- **Data plane stability**: We've also improved the stability of data-plane components, ensuring more reliable access to Azure Container Storage volumes and storage pools. This also enhances the management of data replication between storage nodes.
+- **Data plane stability**: We improved the stability of data-plane components, ensuring more reliable access to Azure Container Storage volumes and storage pools. It also enhances the management of data replication between storage nodes.
 - **Volume management improvements**: The update resolves issues with volume detachment during node drain scenarios, ensuring that volumes are safely and correctly detached, and allowing workloads to migrate smoothly without interruptions or data access issues.
 
 ## Azure Container Storage support policy
 
-Azure Container Storage follows a transparent and predictable support lifecycle which is aligned with the overall AKS extension guidance on product lifecycle and support plan. In this way, we ensure you can plan your deployments and upgrades effectively. This section outlines the lifecycle, support commitment, and Kubernetes version compatibility for each Azure Container Storage release. 
+Azure Container Storage follows a transparent and predictable support lifecycle, which is aligned with the overall AKS extension guidance on product lifecycle and support plan. In this way, we ensure you can plan your deployments and upgrades effectively. This section outlines the lifecycle, support commitment, and Kubernetes version compatibility for each Azure Container Storage release. 
 
 ### Lifecycle and patch support
 
@@ -147,9 +147,9 @@ Before upgrading the Kubernetes version in your AKS cluster, we recommend checki
 
 To maintain compatibility and avoid unvalidated combinations of Azure Container Storage and AKS: 
 
-- All patch releases within a minor version (for example, 1.1.x) will support the same Kubernetes versions as the initial minor release (for example, 1.2.1). 
+- All patch releases within a minor version (for example, 1.1.x) support the same Kubernetes versions as the initial minor release (for example, 1.2.1). 
 
-- New minor releases (for example, 1.2.0 and subsequent 1.2.x) will support a sliding window of Kubernetes versions, advancing to the next version with each new minor release (for example, 1.2.0 supports 1.28, 1.29, and 1.30). 
+- New minor releases (for example, 1.2.0 and subsequent 1.2.x) support a sliding window of Kubernetes versions, advancing to the next version with each new minor release (for example, 1.2.0 supports 1.28, 1.29, and 1.30). 
 
 ## Upgrade a preview installation to GA
 
@@ -161,11 +161,11 @@ az k8s-extension update --cluster-type managedClusters --cluster-name <cluster-n
 
 Remember to replace `<cluster-name>` and `<resource-group>` with your own values and `<version>` with the desired supported version. 
 
-Please note that preview versions are no longer supported, and customers should promptly upgrade to the GA versions to ensure continued stability and access to the latest features and fixes. If you're installing Azure Container Storage for the first time on the cluster, proceed instead to [Install Azure Container Storage and create a storage pool](container-storage-aks-quickstart-version-1.md#install-azure-container-storage-and-create-a-storage-pool). You can also [Install Azure Container Storage on specific node pools](container-storage-aks-quickstart-version-1.md#install-azure-container-storage-on-specific-node-pools).
+Note that preview versions are no longer supported, and customers should promptly upgrade to the GA versions to ensure continued stability and access to the latest features and fixes. If you're installing Azure Container Storage for the first time on the cluster, proceed instead to [Install Azure Container Storage and create a storage pool](container-storage-aks-quickstart-version-1.md#install-azure-container-storage-and-create-a-storage-pool). You can also [Install Azure Container Storage on specific node pools](container-storage-aks-quickstart-version-1.md#install-azure-container-storage-on-specific-node-pools).
 
 ## Auto-upgrade policy
 
-To receive the latest features and fixes for Azure Container Storage in future versions, you can enable auto-upgrade. However, this might result in a brief interruption in the I/O operations of applications using PVs with Azure Container Storage during the upgrade process. To minimize potential impact, we recommend setting the auto-upgrade window to a time period with low activity or traffic, ensuring that upgrades occur during less critical times.  
+To receive the latest features and fixes for Azure Container Storage in future versions, you can enable auto-upgrade. However, it might result in a brief interruption in the I/O operations of applications using PVs with Azure Container Storage during the upgrade process. To minimize potential impact, we recommend setting the auto-upgrade window to a time period with low activity or traffic, ensuring that upgrades occur during less critical times.  
 
 To enable auto-upgrade, run the following command:
 
