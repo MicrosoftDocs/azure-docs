@@ -2,7 +2,7 @@
   "redirections": [
     {
       "source_path": "articles/managed-grafana/how-to-api-calls.md",
-      "redirect_url": "/previous-versions/azure/managed-grafana/how-to-api-calls",
+      "redirect_url": "/azure/managed-grafana/how-to-service-accounts",
       "redirect_document_id": false
     },
     {
