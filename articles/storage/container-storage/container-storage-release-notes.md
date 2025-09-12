@@ -18,14 +18,12 @@ The following Azure Container Storage versions are supported:
 
 | Milestone | Status |
 |----|----------------|
-|2.0.0- Major Release | Supported |
-|1.3.1- Patch Release | Supported |
-|1.3.0- Minor Release | Supported |
-|1.2.1- Patch Release | Supported |
-|1.2.0- Minor Release | Supported |
-|1.1.2- Patch Release | Supported |
-|1.1.1- Patch Release | Supported |
-|1.1.0- General Availability | Supported |
+|2.0.0 - Major Release | Supported |
+|1.3.2 - Patch Release | Supported |
+|1.3.1 - Patch Release | Supported |
+|1.3.0 - Minor Release | Supported |
+|1.2.1 - Patch Release | Supported |
+|1.2.0 - Minor Release | Supported |
 
 ## Unsupported versions
 
@@ -53,6 +51,15 @@ A **major release** introduces significant changes, often including new features
 ### Migration guidance
 
 There are significant breaking changes in version 2.0.0. Users looking to migrate from version 1.x.x to version 2.0.0 should completely [remove prior versions](remove-container-storage-version-1.md) of Azure Container Storage and review the new setup guides to get started.
+
+## Version 1.3.2
+
+### Improvements and issues that are fixed
+
+- Upgrade components to address security vulnerabilities.
+- Clean dirty flag once snapshot deletion is failed.
+- Fix IO errors during detach when a pod that mounts with mountPropagation set to None restarts.
+- Enhancements of volume handling in cluster restart scenario.
 
 ## Version 1.3.1
 
@@ -117,14 +124,15 @@ Azure Container Storage follows a transparent and predictable support lifecycle 
 
 | Release version | Release Date  | End of Life | Supported Kubernetes Versions |
 |----|----------------| ------------| -------- |
-|2.0.0- Major Release | 09/10/2025 | 09/09/2026 | 1.33, 1.32, 1.31 |
-|1.3.1- Patch Release | 07/02/2025 | 04/27/2026 | 1.32, 1.31, 1.30 |
-|1.3.0- Minor Release | 04/28/2025 | 04/27/2026 | 1.32, 1.31, 1.30 |
-|1.2.1- Patch Release| 02/10/2025 | 11/10/2025| 1.30, 1.29, 1.28|
-|1.2.0- Minor Release | 11/11/2024 | 11/10/2025 | 1.30, 1.29, 1.28 |
-|1.1.2- Patch Release | 10/16/2024 | 07/29/2025 | 1.29, 1.28, 1.27 |
-|1.1.1- Patch Release | 09/20/2024 | 07/29/2025 | 1.29, 1.28, 1.27 |
-|1.1.0- General Availability | 07/30/2024 | 07/29/2025 | 1.29, 1.28, 1.27 |
+|2.0.0 - Major Release | 09/10/2025 | 09/09/2026 | 1.33, 1.32, 1.31 |
+|1.3.2 - Patch Release | 9/15/2025 | 04/27/2026 | 1.32, 1.31, 1.30 |
+|1.3.1 - Patch Release | 07/02/2025 | 04/27/2026 | 1.32, 1.31, 1.30 |
+|1.3.0 - Minor Release | 04/28/2025 | 04/27/2026 | 1.32, 1.31, 1.30 |
+|1.2.1 - Patch Release| 02/10/2025 | 11/10/2025| 1.30, 1.29, 1.28|
+|1.2.0 - Minor Release | 11/11/2024 | 11/10/2025 | 1.30, 1.29, 1.28 |
+|1.1.2 - Patch Release | 10/16/2024 | 07/29/2025 | 1.29, 1.28, 1.27 |
+|1.1.1 - Patch Release | 09/20/2024 | 07/29/2025 | 1.29, 1.28, 1.27 |
+|1.1.0 - General Availability | 07/30/2024 | 07/29/2025 | 1.29, 1.28, 1.27 |
 
 ### Kubernetes version compatibility
 
@@ -162,11 +170,19 @@ To receive the latest features and fixes for Azure Container Storage in future v
 To enable auto-upgrade, run the following command:
 
 ```azurecli-interactive
+# For v1.x, use azurecontainerstorage for extension name
 az k8s-extension update --cluster-name <cluster name> --resource-group <resource-group> --cluster-type managedClusters --auto-upgrade-minor-version true -n azurecontainerstorage
+
+# For v2.x, use acstor for extension name
+az k8s-extension update --cluster-name <cluster name> --resource-group <resource-group> --cluster-type managedClusters --auto-upgrade-minor-version true -n acstor
 ```
 
 If you'd like to disable auto-upgrades, run the following command:
 
 ```azurecli-interactive
+# For v1.x, use azurecontainerstorage for extension name
 az k8s-extension update --cluster-name <cluster name> --resource-group <resource-group> --cluster-type managedClusters --auto-upgrade-minor-version false -n azurecontainerstorage
+
+# For v2.x, use acstor for extension name
+az k8s-extension update --cluster-name <cluster name> --resource-group <resource-group> --cluster-type managedClusters --auto-upgrade-minor-version false -n acstor
 ```
