@@ -9,8 +9,8 @@ metadata:
   description: Get the most advanced set of governance capabilities of any major cloud provider.
   ms.service: azure-policy
   ms.topic: hub-page
-  author: jasongroce
-  ms.author: jasongroce
+  author: rmcmurray
+  ms.author: robmcm
   ms.date: 03/24/2025
   ms.custom: build-2025
 
