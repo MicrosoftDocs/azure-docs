@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 04/08/2025
 ---
 
-# Deploy RemoteApp VM from the service catalog into a workload
+# Deploy RemoteApp virtual machine (VM) from the service catalog into a workload
 The RemoteApp template allows customers to install an application they want to publish to one or more users without installing that application on each users' desktop.
 
 In this article, you:
@@ -23,7 +23,6 @@ The RemoteApp template can be deployed in multiple configurations:
 1. Virtual Machine (~10 min)
 2. Virtual Machine domain-joined (~12 min)
 3. Virtual Machine domain-joined and published as a RemoteApp (~20 min)
-4. (future) Virtual Machine domain-joined and published as a Remote Desktop (~20 min)
 
 ## Before you begin
 - This quickstart assumes a basic understanding of networking and Azure Virtual Enclaves concepts. For more information, see [Concepts and best practices of Azure Virtual Enclaves](./best-practices.md).
@@ -59,11 +58,11 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
 5. For `OS Disk Encryption Name` and `OS Disk Encryption Resource Group Name`, enter the names used in the prerequisites section.
 6. Adjust the prepopulated parameters as needed. 
 7. (Optional) [Publish your RemoteApp](#publish-remoteapp-optional) to other users.
-8. (Optional) [Domain join](#domain-join-virtual-machine-optional) your RemoteApp VM.
+8. (Optional) [Join a domain](#join-a-domain-optional) on you virtual machine.
 9. (Optional) [Install application](#install-remoteapp-optional) to your RemoteApp.
 10. Select `Review + Create`, if all validations passed, select `Create`.
 
-## Domain join virtual machine (optional)
+## Join a domain (optional)
 1. Should you choose to Domain Join your RemoteApp, you need to select which domain join option you want (Active Directory or Microsoft Entra ID) on the Basic tab and enter the domain joining information.
 2. For the `Active Directory` Domain join options, see the following examples
    > [!NOTE]

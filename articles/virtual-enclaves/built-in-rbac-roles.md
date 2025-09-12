@@ -8,18 +8,18 @@ ms.date: 11/21/2024
 ---
 
 # Mandatory Access Control for Azure Virtual Enclaves 
-Access to Azure Virtual enclave resources is primarily controlled using built-in Role Based Access Control (RBAC) role assignments. This built in RBAC functionality can be further expanded by using Azure Privileged Identity Management to grant just-in-time access to Virtual enclave resources. 
+Access to Azure Virtual enclave resources is primarily controlled using built-in Role Based Access Control (RBAC) role assignments. This built-in RBAC functionality can be further expanded by using Azure Privileged Identity Management to grant just-in-time access to Virtual enclave resources. 
 
 ## RBAC for community and Enclaves 
 Azure Virtual Enclaves provides built-in RBAC roles to control access at the **Community and Enclave** levels.
 
-- **Community owner** - Create/delete communities, enclaves, community endpoints, and transit hub resources. Read-only access to workloads, enclave connections, and enclave endpoints.
+- **Community owner** - Create and delete communities, enclaves, community endpoints, and transit hub resources. Read-only access to workloads, enclave connections, and enclave endpoints.
 - **Community contributor** - Same as above except for delete.
 - **Community reader** - Read-only access to communities, Enclaves, community endpoints, and transit hub.
 - **Enclave owner** - Creates, deletes, and manages workloads, endpoints, and connection resources for one or more enclaves
 - **Enclave contributor** - Creates, and manages workloads, endpoints, and connection resources for one or more enclaves
-- **Enclave reader** - Has read-only access to one or more enclave resources and underlying workloads, endpoints, and connections.
-- **Enclave approver** - Read-access to all AVE resource types and explicit permissions to approve actions that require approval.
+- **Enclave reader** - Read-only access to one or more enclave resources and underlying workloads, endpoints, and connections.
+- **Enclave approver** - Read-only access to all AVE resource types and explicit permissions to approve actions that require approval.
 
 |Built in Role          |Community              |Community Endpoint     |Transit Hub        |Enclave            |Workload           |Enclave Endpoint       |Enclave connection |Approvals      |
 |--|--|--|--|--|--|--|--|--|

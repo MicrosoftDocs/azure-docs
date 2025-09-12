@@ -21,7 +21,7 @@ Currently, this example would be expected behavior for governance on a workload.
 First enclave owners must identify which [Azure Policy Initiative assignment](/azure/governance/policy/concepts/assignment-structure) in their workload needs custom exemption behavior. [Policy exemptions](/azure/governance/policy/concepts/exemption-structure) allow administrators to exempt a resource hierarchy or an individual resource from evaluation of initiatives or definitions.
 
 Once these Initiative assignments have been identified, enclave owners can create and manage their own Policy Exemptions. For more details on how to perform these steps, learn more on how to [Create and manage exemptions
-](/azure/governance/policy/concepts/exemption-structure.md#exemption-creation-and-management)
+](/azure/governance/policy/concepts/exemption-structure#exemption-creation-and-management)
 
 In this image, a Policy initiative assignment within the `contoso4-aadconnect` workload in the `contoso4` Enclave requires an exemption.
 

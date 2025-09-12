@@ -18,7 +18,7 @@ It's important to note that the following considerations still apply when moving
 - Moving resources only moves those resources to a new resource group or subscription. It doesn't change the location of the resource.
 
 ## Checklist before moving resources
-For a more exhaustive and detailed checklist, see [Checklist before moving resources](/azure/azure-resource-manager/management/move-resource-group-and-subscription.md#checklist-before-moving-resources).
+For a more exhaustive and detailed checklist, see [Checklist before moving resources](/azure/azure-resource-manager/management/move-resource-group-and-subscription#checklist-before-moving-resources).
 - When you move a resource, the ID of the resource also changes. The standard format for a resource ID is `subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}`. 
     - When you move a resource to a new resource group or subscription, you change one or more values in that path.
     - If you use the resource ID anywhere (such as in custom dashboards, scripts, or templates) you need to change that value. 

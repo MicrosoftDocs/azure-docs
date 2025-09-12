@@ -31,7 +31,7 @@ The RemoteApp template supports scripting to automate the process of installing 
 - A [community endpoint](./create-community-endpoint-portal.md) to the storage account and AzToolBox.
 - A copy of AzCopy.exe
     1. Get AzCopy from the [AzToolBox](./application-deployment-using-remote-app-vm.md). Create a [community endpoint](./create-community-endpoint-portal.md) to the storage account and AzToolBox.
-    2. Use my copy of [AzCopy.exe](/azure/storage/common/storage-use-azcopy-v10.md#download-azcopy) in my Storage Account/Container.
+    2. Use my copy of [AzCopy.exe](/azure/storage/common/storage-use-azcopy-v10#download-azcopy) in my Storage Account/Container.
         - Upload the AzCopy installer to the storage account at the same level as your app folder.
         - File Structure: 
             ```md

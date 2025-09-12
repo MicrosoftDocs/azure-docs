@@ -14,7 +14,7 @@ This guides you through replacing the existing AVE Enclave virtual network subne
 
 > [!NOTE]
 > * You aren't able to resize a virtual network with existing connections. [Official Docs](/azure/virtual-network/virtual-network-manage-subnet.md?tabs=azure-portal#change-subnet-settings). If you need to resize an existing subnet you'll need to move any connected devices out first, resize, then move them back.
-> * Remember when sizing your subnets that five IP addresses per subnet are reserved by Azure. See [official documentation](/azure/virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets).
+> * Remember when sizing your subnets that five IP addresses per subnet are reserved by Azure. See [official documentation](/azure/virtual-network/virtual-networks-faq#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets).
 
 ## Size Table Reference
 The subnet size determines how many usable IP addresses are in the subnet.

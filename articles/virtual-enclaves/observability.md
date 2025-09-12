@@ -3,7 +3,6 @@ title: Observability in Azure Virtual Enclaves
 description: Understand how observability works using Log Analytics and storage accounts in Azure Virtual Enclaves.
 author: jadean-msft
 ms.author: jadean
-ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 06/19/2025
 ms.custom: references_region
