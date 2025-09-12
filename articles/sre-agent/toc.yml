@@ -32,7 +32,7 @@ items:
       href: user-access-roles.md
     - name: Agent and user permissions
       href: agent-user-permissions.md
-    - name: How agent performs actions
+    - name: Agent run modes
       href: agent-actions.md
 - name: Reference
   items:

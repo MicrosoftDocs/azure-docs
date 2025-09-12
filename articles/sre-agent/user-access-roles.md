@@ -31,7 +31,6 @@ Agent actions are categorized into the following categories:
 - Graph
 - Memory
 - Incident management
-- Extended agent
 
 The following table maps roles to types of users to the key actions associated with how they use the agent.
 
@@ -98,4 +97,5 @@ To assign roles to users, SRE Agent’s subscription owner uses the following pr
 
 ## Related content
 
-- []
+- [Agent actions](./agent-actions.md)
+- [Agent and user permissions](./agent-user-permissions.md)

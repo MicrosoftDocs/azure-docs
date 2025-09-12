@@ -1,14 +1,14 @@
 ---
-title: How the agent performs an action in Azure SRE Agent Preview
+title: Agent run modes in Azure SRE Agent Preview
 description: Learn how the agent gets your consent for elevated credentials to take action on write operations.
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: conceptual
-ms.date: 09/11/2025
+ms.date: 09/12/2025
 ms.service: azure
 ---
 
-# How the agent performs an action in Azure SRE Agent Preview
+# Agent run modes in Azure SRE Agent Preview
 
 As Azure SRE Agent works within your environment, there are two questions at the core of every write action the agent takes:
 
