@@ -20,7 +20,7 @@ Azure Container Apps allows you to use Service Connector to connect to cloud ser
 In this article, you learn to connect a container app to Azure Blob Storage.
 
 > [!IMPORTANT]
-> Support for Service Connector (preview) on Azure Container Apps will end on March 30, 2026. After that date, You will no longer be able to create new service connections using Service Connector (preview) through any interface. For more information please refer to the guidance [here](https://aka.ms/serviceconnectoraca).
+> Support for Service Connector (preview) on Azure Container Apps ends on March 30, 2026. After that date, new service connections using Service Connector (preview) aren't available through any interface. For more information, see [RETIREMENT: Service Connector (Preview) on Azure Container Apps](https://aka.ms/serviceconnectoraca).
 
 
 ## Prerequisites
