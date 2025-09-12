@@ -17,7 +17,7 @@ ms.custom:
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-The *AI gateway* in Azure API Management is a set of capabilities that help you manage your AI backends effectively. These capabilities help you manage, secure, scale, monitor, and govern large language model (LLM) deployments, AI APIs, and Model Context Protocol (MCP) servers that back your AI apps and agents.
+The *AI gateway* in Azure API Management is a set of capabilities that help you manage your AI backends effectively. These capabilities help you manage, secure, scale, monitor, and govern large language model (LLM) deployments, AI APIs, and Model Context Protocol (MCP) servers that back your intelligent apps and agents.
 
 Use the AI gateway to manage a wide range of AI endpoints, including:
 
