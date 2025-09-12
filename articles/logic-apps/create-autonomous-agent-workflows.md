@@ -292,6 +292,20 @@ To get the best results, make sure that your system instructions are prescriptiv
 
    :::image type="content" source="media/create-autonomous-agent-workflows/system-instructions-weather-agent.png" alt-text="Screenshot shows workflow designer, and agent with system instructions." lightbox="media/create-autonomous-agent-workflows/system-instructions-weather-agent.png":::
 
+1. Optionally, on the agent, you can provide user instructions that the agent can use as prompts or questions.
+
+   For better results, make each user instruction focus on a specific task, for example:
+
+   1. On the agent information pane, in the **User instructions** section, select **Add new item**.
+
+   1. In the **User instructions Item - 1** box, enter the question to ask the agent.
+
+   1. To add another instruction, select **Add new item** again.
+
+   1. In the **User instructions item - 2** box, enter another question to ask the agent.
+
+   1. Repeat until you finish adding all the questions to ask the agent.
+
 1. Now, you can save your workflow. On the designer toolbar, select **Save**.
 
 1. To make sure your workflow doesn't have errors at this stage, follow these steps:
