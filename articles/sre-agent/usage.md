@@ -1,103 +1,105 @@
 ---
-title: Create and use an Azure SRE Agent (preview)
-description: Learn to use an automated agent to resolve problems and keep your apps running in Azure.
+title: Create and Use an agent in Azure SRE Agent Preview
+description: Learn how to use an automated agent to resolve problems and keep your apps running in Azure.
 author: craigshoemaker
 ms.topic: how-to
 ms.date: 07/17/2025
 ms.author: cshoe
-ms.service: azure
+ms.service: azure-sre-agent
 ---
 
-# Create and use an Azure SRE Agent (preview)
+# Create and use an agent in Azure SRE Agent Preview
 
-An Azure SRE Agent helps you maintain the health and performance of your Azure resources through AI-powered monitoring and assistance. Agents continuously watch your resources for issues, provide troubleshooting help, and suggest remediation steps available through a natural language chat interface. To ensure accuracy and control, any agent action taken on your behalf requires your approval.
+Azure SRE Agent Preview helps you maintain the health and performance of your Azure resources through AI-powered monitoring and assistance. Agents continuously watch your resources for problems, provide troubleshooting help, and suggest remediation steps in a natural-language chat interface. To ensure accuracy and control, any action that an agent takes on your behalf requires your approval.
 
-This article demonstrates how to  create an SRE Agent, connect it to your resources to maintain optimal application performance.
+This article demonstrates how to create an agent and connect it to your resources to maintain optimal application performance.
 
-## Create an agent
+## Preview access
 
-Create an agent by associating resource groups you want to monitor to the agent.
+Access to SRE Agent is available only as a preview. To sign up for access, fill out the [SRE Agent application](https://go.microsoft.com/fwlink/?linkid=2319540).
 
-### Prerequisites
+> [!NOTE]
+> By using SRE Agent, you consent to the product-specific [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-You need to grant your agent the correct permissions and access to the right namespace.
+## Prerequisites
 
-* **Security context**: Before you can create a new agent, make sure your user account has the `Microsoft.Authorization/roleAssignments/write` permissions using either [Role Based Access Control Administrator](/azure/role-based-access-control/built-in-roles) or [User Access Administrator](/azure/role-based-access-control/built-in-roles).
+To create an agent, you need to grant your agent the correct permissions and access to the right namespace:
 
-* **Associate your allow list subscription ID**: Make sure your Azure CLI session is set to the subscription ID on the preview allow list. If you need to set the CLI context to your subscription ID, use the following command:
+* **Azure account**: You need an Azure account with an active subscription. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+* **Security context**: Make sure that your user account has the `Microsoft.Authorization/roleAssignments/write` permissions as either [Role Based Access Control Administrator](/azure/role-based-access-control/built-in-roles) or [User Access Administrator](/azure/role-based-access-control/built-in-roles).
+
+* **Subscription ID for your allow list**: Make sure that your Azure CLI session is set to the subscription ID in the preview allow list. If you need to set the Azure CLI context to your subscription ID, use the following command:
 
     ```azurecli  
     az account set --subscription "<SUBSCRIPTION_ID>"
     ```
 
-* **Namespace**: Using the cloud shell in the Azure portal, run the following command:
+* **Namespace**: By using Azure Cloud Shell in the Azure portal, run the following command to set up a namespace:
 
     ```azurecli  
     az provider register --namespace "Microsoft.App"
     ```
 
-* **Access to Sweden Central region**: During preview, the only allowed region for SRE Agent is Sweden Central. Make sure your user account has *owner* or *admin* permissions and permissions to create resources in the Sweden Central region.
+* **Access to the Sweden Central region**: During the preview, the only allowed region for SRE Agent is Sweden Central. Make sure that your user account has *owner* or *admin* permissions, along with permissions to create resources in the Sweden Central region.
 
-### Create
+## Create an agent
 
-To create an SRE Agent, follow these steps:
+Create an agent by associating resource groups that you want to monitor with the agent:
 
-1. Before you proceed, make sure to account for the [mandatory prerequisites](#prerequisites) so you can create an SRE Agent instance.
-
-1. Follow the link provided in your onboarding email to access the Azure SRE Agent in the Azure portal.
+1. Follow the link provided in your onboarding email to access Azure SRE Agent in the Azure portal.
 
 1. Select **Create**.
 
-1. Enter the following values in the *Create agent* window:
+1. On the **Create agent** pane, enter the following values. During this step, you create a new resource group specifically for your agent. It's independent of the resource group for your application.
 
-    During this step, you create a new resource group specifically for your agent which is independent of the resource group used for your application.
-
-    In the *Project details* section, enter the following values:
+    In the **Project details** section, enter these values:
 
     | Property | Value |
     |---|---|
-    | Subscription | Select your Azure subscription. |
-    | Resource group | Select an existing resource group or to create a new one, enter a name. |
+    | **Subscription** | Select your Azure subscription. |
+    | **Resource group** | Select an existing resource group, or enter a name to create a new one. |
 
-    In the *Agent details* section, enter the following values:
+    In the **Agent details** section, enter these values:
 
     | Property | Value |
     |---|---|
-    | Agent name | Enter a name for your agent. |
-    | Region | Select **Sweden Central**.<br><br>During preview, Azure SRE Agent is only available in the *Sweden Central* region, but the agent can monitor resources in any Azure region.<br><br>If you don't see any options in the dropdown, then you may not have permissions to access to the Sweden Central region. |
+    | **Agent name** | Enter a name for your agent. |
+    | **Region** | Select **Sweden Central**.<br><br>During the preview, Azure SRE Agent is available only in the Sweden Central region. However, the agent can monitor resources in any Azure region.<br><br>If no options appear in the dropdown list, you might not have permissions to access to the Sweden Central region. |
 
 1. Select **Choose resource groups**.
 
-1. In the *Choose resource groups to monitor* window, search for the resource group you want to monitor.
+1. On the **Choose resource groups to monitor** pane, search for the resource group that you want to monitor.
 
-    **Avoid selecting the resource group link.**
+    > [!NOTE]
+    > Avoid selecting the resource group link.
 
-    From the resource group picker you'll see a checkmark (:::image type="icon" source="media/blue-check.png" border="false":::) next to the group name indicating the group includes services with specialized support.
+    In the resource group picker, a check mark (:::image type="icon" source="media/blue-check.png" border="false":::) next to the group name indicates that the group includes services with specialized support.
 
-    To select a resource group, select the checkbox next to the resource group.
+    To select a resource group, select the checkbox next to it.
 
-1. Scroll to the bottom of the dialog window and select **Save**.
+1. Scroll to the bottom of the pane and select **Save**.
 
 1. Select **Create**.
 
-    Once you begin the create process, a page with the message *Deployment is in progress* is displayed.
+    After you begin the creation process, a **Deployment is in progress** message appears.
 
 ## Chat with your agent
 
-Your agent has access to any resource inside the resource group associated with the agent. Use the chat feature to help you inquire about and resolve issues related to your resources.
+Your agent has access to any resource inside the resource group that's associated with the agent. Use the chat feature to inquire about and resolve problems related to your resources:
 
-1. Go to the Azure portal, search for and select **Azure SRE Agent**.
+1. In the Azure portal, search for and select **Azure SRE Agent**.
 
-1. Locate your agent in the list and select the agent name.
+1. Locate your agent in the list and select it.
 
-Once the chat window loads, you can begin asking your agent questions. Here's a series of questions that can help you get started:
+When the chat window appears, you can begin asking your agent questions. Here's a series of questions that can help you get started:
 
 * What can you help me with?
 * What subscriptions/resource groups/resources are you managing?
 * What alerts should I set up for `<RESOURCE_NAME>`?
-* Show me visualization of `2xx` requests vs HTTP errors for my web apps across all subscriptions
+* Show me a visualization of `2xx` requests versus HTTP errors for my web apps across all subscriptions.
 
-If you have a specific problem in mind, you could ask questions like:
+If you have a specific problem in mind, you might ask questions like:
 
 * Why is `<RESOURCE_NAME>` slow?
 * Why is `<RESOURCE_NAME>` not working?
@@ -106,24 +108,22 @@ If you have a specific problem in mind, you could ask questions like:
 
 ## Update managed resource groups
 
-You can change the list of resource groups managed by your agent at any time. To change the list is of managed groups, go to your agent in the Azure portal and select the **Settings** tab and then **Managed resource groups**.
+You can change the list of resource groups that your agent manages at any time. To change it, go to your agent in the Azure portal, select the **Settings** tab, and then select **Managed resource groups**.
 
 > [!NOTE]
-> Removing resource groups from the list does not remove or otherwise adversely affect resource groups.
+> Removing resource groups from the list does not remove or adversely affect resource groups.
 
-## Incident management
+## Manage incidents
 
-You can diagnose incidents in Azure App Service, Azure Container Apps, Azure Function, Azure Kubernetes Service and Azure Database for PostgreSQL by chatting with the agent directly or by connecting an incident management platform.
+You can diagnose incidents your Azure services by setting up an incident response plan.
 
-By default SRE Agent connects to Azure Monitor, but you can also connect it to PagerDuty.
+SRE Agent connects to Azure Monitor alerts by default, but you can also use the following steps to connect it to PagerDuty. To set up SRE Agent with PagerDuty, you need a PagerDuty API key.
 
-### PagerDuty integration
+1. In your SRE Agent resource, select the **Incident management** tab.
 
-To set up SRE Agent with PagerDuty, you need a PagerDuty API key.  
+1. Select **Incident platform**
 
-1. In your SRE Agent resource, go to the *Settings* tab and select **Incident Management**.
-
-1. From the *Incident platform* dropdown, select **PagerDuty**.
+1. In the *Incident platform* dropdown list, select **PagerDuty**.
 
 1. Enter your API key.
 

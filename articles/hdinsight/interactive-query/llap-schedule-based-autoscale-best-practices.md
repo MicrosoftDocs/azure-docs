@@ -16,9 +16,9 @@ This document provides the onboarding steps to enable schedule-based autosca
 ## **Supportability**
 
 - Autoscale isn't supported in HDI 3.6 Interactive Query(LLAP) cluster.  
-- HDI 4.0 Interactive Query Cluster supports only Schedule-Based Autoscale. 
+- Interactive Query Cluster supports only Schedule-Based Autoscale. 
 
-Feature Supportability with HDInsight 4.0 Interactive Query(LLAP) Autoscale
+Feature Supportability with Interactive Query(LLAP) Autoscale
 
 | Feature  | Schedule-Based Autoscale  |
 |:---:|:---:|

@@ -60,7 +60,7 @@ Anomaly detection is available to every subscription monitored using Cost Analys
 
 ## Create an anomaly alert
 
-You can create an alert to automatically get notified when an anomaly is detected. Creating an anomaly alert requires the Cost Management Contributor or greater role or the `Microsoft.CostManagement/scheduledActions/write` permission for custom roles. For more information, see [Feature behavior for each role](../costs/understand-work-scopes.md#feature-behavior-for-each-role).
+You can create an alert to automatically get notified when an anomaly is detected. Creating an anomaly alert requires the Cost Management Contributor or greater role or the `Microsoft.CostManagement/scheduledActions/write` permission for custom roles. For more information, see [Feature behavior for each role](../costs/understand-work-scopes.md#feature-behavior-for-each-role-in-rbac-scopes).
 
 >[!NOTE]
 > Anomaly alerts are sent based on the current access of the rule creator at the time that the email is sent. If your organization has a policy that prohibits permanently assigning higher privileges to users, you can use a service principal and create the alert directly using the [Scheduled Actions API](/rest/api/cost-management/scheduled-actions/create-or-update-by-scope#createorupdateinsightalertscheduledactionbyscope).
@@ -77,6 +77,9 @@ An anomaly alert email is sent only once - at the time of detection.
 1. Enter all the required information, then select **Create**.  
     :::image type="content" source="./media/analyze-unexpected-charges/subscribe-emails.png" alt-text="Screenshot showing the Create alert rule page where you enter notification information for an alert." lightbox="./media/analyze-unexpected-charges/subscribe-emails.png" :::
   You can view and manage the anomaly alert rule by navigating to **Alert rules** in the left navigation menu.
+
+The alert will not appear in the UI if the viewId is set to null, as the system only displays alerts with a viewId that includes the identifier ms:DailyAnomalyByResourceGroup. To make the alert visible, there needs to be a PUT request sent with the correct viewId:
+/scope/providers/Microsoft.CostManagement/views/ms:DailyAnomalyByResourceGroup.
 
 Here's an example email generated for an anomaly alert.
 

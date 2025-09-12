@@ -6,6 +6,7 @@ ms.topic: conceptual
 author: chugugrace
 ms.author: chugu
 ms.date: 10/20/2023
+ms.custom: sfi-image-nochange
 ---
 
 # Manage packages with Azure-SSIS Integration Runtime package store

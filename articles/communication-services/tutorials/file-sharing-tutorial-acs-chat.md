@@ -370,7 +370,7 @@ If there were any issues during the download and the user needs to be notified, 
 
 ## Clean up resources
 
-If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You can find out more about [cleaning up Azure Communication Services resources](../quickstarts/create-communication-resource.md#clean-up-resources) and [cleaning Azure Function Resources](../../azure-functions/create-first-function-vs-code-csharp.md#clean-up-resources).
+If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You can find out more about [cleaning up Azure Communication Services resources](../quickstarts/create-communication-resource.md#clean-up-resources) and [cleaning Azure Function Resources](../../azure-functions/how-to-create-function-vs-code.md?pivot=programming-language-csharp#clean-up-resources).
 
 ## Next steps
 
@@ -381,7 +381,7 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 - [Add chat to your app](../quickstarts/chat/get-started.md)
 - [Creating user access tokens](../quickstarts/identity/access-tokens.md)
-- [Learn about client and server architecture](../concepts/identity-model.md#client-server-architecture)
+- [Learn about client and server architecture](../concepts/identity-model.md#client-server-architecture-for-the-bring-your-own-identity-byoi-model)
 - [Learn about authentication](../concepts/authentication.md)
 - [Add file sharing with UI Library in Teams Interoperability Chat](./file-sharing-tutorial-interop-chat.md)
 - [Add file sharing with UI Library in Azure Communication Services Chat](./file-sharing-tutorial-acs-chat.md)

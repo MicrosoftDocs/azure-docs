@@ -1,14 +1,15 @@
 ---
 title: Start an investigation by searching large datasets - Microsoft Sentinel
 description: Learn about search jobs and restoring data from long-term retention in Microsoft Sentinel.
-author: cwatson-cat
+author: EdB-MSFT
 ms.topic: conceptual
 ms.date: 03/03/2024
-ms.author: cwatson
+ms.author: edbaynash
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a security analyst, I want to search and restore log data from long-term retention so that I can conduct thorough investigations on historical events.

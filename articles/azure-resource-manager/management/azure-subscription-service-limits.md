@@ -204,7 +204,7 @@ See [Azure Functions hosting options](../../azure-functions/functions-scale.md) 
 
 [!INCLUDE [container-service-limits](~/reusable-content/ce-skilling/azure/includes/container-service-limits.md)]
 
-[!INCLUDE [container-quota-limits](~/reusable-content/ce-skilling/azure/includes/container-service-limits.md)]
+[!INCLUDE [container-quota-limits](~/reusable-content/ce-skilling/azure/includes/container-quota-limits.md)]
 
 ## Azure Lab Services
 
@@ -212,7 +212,7 @@ See [Azure Functions hosting options](../../azure-functions/functions-scale.md) 
 
 ## Azure Load Testing limits
 
-See [Service limits in Azure Load Testing](../../load-testing/resource-limits-quotas-capacity.md) for Azure Load Testing limits. 
+See [Service limits in Azure Load Testing](../../app-testing/load-testing/resource-limits-quotas-capacity.md) for Azure Load Testing limits. 
 
 ## Azure Machine Learning limits
 
@@ -382,7 +382,11 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ## Azure Key Vault limits
 
-[!INCLUDE [key-vault-limits](~/reusable-content/ce-skilling/azure/includes/key-vault-limits.md)]
+[!INCLUDE [key-vault-limits](~/reusable-content/ce-skilling/azure/includes/key-vault/key-vault-service-limits.md)]
+
+## Azure Key Vault: Managed HSM limits
+
+[!INCLUDE [key-vault-limits](~/reusable-content/ce-skilling/azure/includes/key-vault/managed-hsm-service-limits.md)]
 
 ## Azure Managed Identity limits
 

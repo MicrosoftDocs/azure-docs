@@ -101,7 +101,7 @@ tools:
   items:
     - title: Azure Policy
       imageSrc: ./media/azure-policy.svg
-      url: ./policy/samples/index.md
+      url: /azure/governance/policy/samples/index
     - title: Azure Blueprints
       imageSrc: ./media/azure-blueprints.svg
       url: ./blueprints/samples/index.md

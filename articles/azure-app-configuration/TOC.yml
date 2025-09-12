@@ -200,6 +200,8 @@
       href: howto-feature-filters-javascript.md
     - name: Python
       href: howto-feature-filters-python.md
+    - name: Go Gin
+      href: howto-feature-filters-go.md
   - name: Enable features on a schedule
     items:
     - name: Overview
@@ -208,6 +210,10 @@
       href: howto-timewindow-filter-aspnet-core.md
     - name: JavaScript
       href: howto-timewindow-filter-javascript.md
+    - name: Go Gin
+      href: howto-timewindow-filter-go.md
+    - name: Python
+      href: howto-time-window-filter-python.md
   - name: Roll out features to targeted audience
     items:
     - name: Overview
@@ -216,6 +222,8 @@
       href: howto-targetingfilter-aspnet-core.md
     - name: JavaScript
       href: howto-targetingfilter-javascript.md
+    - name: Go Gin
+      href: howto-targetingfilter-go.md
   - name: Use variant feature flags
     items:
     - name: Overview
@@ -226,6 +234,8 @@
       href: howto-variant-feature-flags-python.md
     - name: JavaScript
       href: howto-variant-feature-flags-javascript.md
+    - name: Go Gin
+      href: howto-variant-feature-flags-go.md
   - name: Enable telemetry for feature flags
     items:
     - name: Overview
@@ -260,6 +270,8 @@
   items:
   - name: Move a resource between Azure regions
     href: howto-move-resource-between-regions.md
+  - name: Move a resource between subscriptions or resource groups
+    href: howto-move-resource-between-subscriptions-resource-groups.md
   - name: Preview API life cycle
     href: concept-preview-api-life-cycle.md
 - name: Security
@@ -405,6 +417,8 @@
     - name: Go
       items:
       - name: Feature reference
+        href: ./reference-go-provider.md
+      - name: API reference
         href: https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration
       - name: Azure SDK for Go
         href: https://go.microsoft.com/fwlink/?linkid=2270866
@@ -443,6 +457,10 @@
       items:
       - name: Feature flag telemetry reference
         href: feature-flag-telemetry-reference.md
+  - name: Local emulator
+    items:
+    - name: Overview
+      href: emulator-overview.md
   - name: Deployment
     items:
     - name: ARM template

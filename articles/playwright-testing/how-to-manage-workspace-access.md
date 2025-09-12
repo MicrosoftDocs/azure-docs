@@ -8,6 +8,8 @@ ms.custom: playwright-testing-preview
 
 # Manage access to a workspace in Microsoft Playwright Testing Preview
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 In this article, you learn how to manage access to a workspace in Microsoft Playwright Testing Preview. The service uses [Azure role-based access control](/azure/role-based-access-control/overview) (Azure RBAC) to authorize access rights to your workspace. Role assignments are the way you control access to resources using Azure RBAC.
 
 > [!IMPORTANT]

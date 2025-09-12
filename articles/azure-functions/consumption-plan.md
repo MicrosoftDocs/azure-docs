@@ -39,7 +39,7 @@ Use the following links to learn how to create a serverless function app in a Co
 - [Azure portal](./functions-get-started.md)
 - [Azure Resource Manager template](functions-create-first-function-resource-manager.md)
 
-You can also create function apps in a Consumption plan when you publish a Functions project from [Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) or [Visual Studio](functions-create-your-first-function-visual-studio.md#publish-the-project-to-azure).
+You can also create function apps in a Consumption plan when you publish a Functions project from [Visual Studio Code](./how-to-create-function-vs-code.md#create-the-function-app-in-azure) or [Visual Studio](functions-create-your-first-function-visual-studio.md#publish-the-project-to-azure).
 
 ## Multiple apps in the same plan
 

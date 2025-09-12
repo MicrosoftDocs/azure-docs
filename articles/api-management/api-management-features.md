@@ -22,13 +22,14 @@ Each API Management [pricing tier](api-management-key-concepts.md#api-management
 > * The Developer tier is for non-production use cases and evaluations. It doesn't offer SLA.
 > * The Consumption tier isn't available in the US Government cloud or the Microsoft Azure operated by 21Vianet cloud. 
 > * For information about APIs supported in the API Management gateway available in different tiers, see [API Management gateways overview](api-management-gateways-overview.md#backend-apis).
+> * For information about resource limits in different tiers, see [API Management limits](/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/api-management/toc.json&bc=/azure/api-management/breadcrumb/toc.json#api-management-limits).
 
 
 | Feature                                                                                      | Consumption | Developer | Basic | Basic v2 |Standard | Standard v2 | Premium | Premium v2 (preview) |
 | -------------------------------------------------------------------------------------------- | ----------- | --------- | --------- | --------- | ----- | -------- | ------- | ------- | 
 | Microsoft Entra integration<sup>1</sup>                                                             | No          | Yes       | No    | Yes      | Yes      | Yes      | Yes     | Yes |
 | Virtual network injection support                                                               | No          | Yes       | No    | No       | No       | No       | Yes    | Yes |
-| Private endpoint support for inbound connections                                                               | No          | Yes       | Yes    | No       | Yes      | Yes (preview)       | Yes  | No   |
+| Private endpoint support for inbound connections                                                               | No          | Yes       | Yes    | No       | Yes      | Yes     | Yes  | No   |
 | Outbound virtual network integration support                                                             | No          | No       | No    | No       | No       | Yes       | No    | Yes |
 | Multi-region deployment                                                                      | No          | No        | No    | No       | No       | No       | Yes     | No |
 | Availability zones                                                                           | No          | No        | No    | No       | No       | No       | Yes     | No  |
@@ -39,7 +40,7 @@ Each API Management [pricing tier](api-management-key-concepts.md#api-management
 | Autoscaling                                                    | No         | No       | Yes   | No      | Yes      | No      |Yes     | No |
 | API analytics                                     | No          | Yes       | Yes   | Yes      | Yes      | Yes      | Yes     | Yes |
 | [Self-hosted gateway](self-hosted-gateway-overview.md)<sup>3</sup>                           | No          | Yes       | No    | No       | No       | No       | Yes     | No |
-| [Workspaces](workspaces-overview.md)                                                         | No          | No       | No    | No     | No     | No       | Yes     |  No |
+| [Workspaces](workspaces-overview.md)                                                         | No          | No       | No    | No     | No     | No       | Yes     |  Yes |
 | [TLS settings](api-management-howto-manage-protocols-ciphers.md)                             | Yes         | Yes       | Yes   | Yes      | Yes      | Yes      | Yes     | Yes |
 | [Client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) | Yes         | Yes       | Yes   | Yes      | Yes     | Yes      |Yes     | Yes |
 | [Policies](api-management-howto-policies.md)<sup>4</sup> | Yes         | Yes       | Yes   | Yes      | Yes      | Yes      | Yes     | Yes |
@@ -52,16 +53,17 @@ Each API Management [pricing tier](api-management-key-concepts.md#api-management
 | Static IP                                                                                    | No          | Yes       | Yes   | No          |Yes      | No          | Yes     | No |
 | Export API to Power Platform                                                         | Yes          | Yes       | Yes    | Yes       | Yes       | Yes       | Yes     | Yes |
 | Export API to Postman                                                         | Yes          | Yes       | Yes    | Yes       | Yes       | Yes       | Yes     | Yes |
-| Export API to MCP server (preview)                                                        | No          | No       | Yes    | No       | Yes       | No       | Yes     | No |
+| Export API to MCP server (preview)                                                        | No          | No       | Yes    | Yes       | Yes       | Yes       | Yes     | Yes |
+| Expose existing MCP server (preview)                                                      | No          | No       | Yes    | Yes       | Yes       | Yes       | Yes     | Yes |
 
 <sup>1</sup> Enables the use of Microsoft Entra ID (and Azure AD B2C or [Microsoft Entra External ID](/entra/external-id/customers/overview-customers-ciam)) as an identity provider for user sign in on the developer portal.<br/>
 <sup>2</sup> Including related functionality such as users, groups, issues, applications, and email templates and notifications.<br/>
 <sup>3</sup> See [Gateway overview](api-management-gateways-overview.md#feature-comparison-managed-versus-self-hosted-gateways) for a feature comparison of managed versus self-hosted gateways. In the Developer tier, self-hosted gateways are limited to a single gateway node. <br/>
-<sup>4</sup> See [Gateway overview](api-management-gateways-overview.md#policies) for differences in policy support in the classic, v2, consumption, and self-hosted gateways. <br/>
+<sup>4</sup> See [Gateway overview](api-management-gateways-overview.md#policies) for differences in policy support in the classic, v2, consumption, workspace, and self-hosted gateways. <br/>
 
 ## Related content
 
 * [Overview of Azure API Management](api-management-key-concepts.md)
-* [API Management limits](/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/api-management/toc.json&bc=/azure/api-management/breadcrumb/toc.json#api-management-limits)
+* [Understanding API Management limits](service-limits.md)
 * [V2 tiers overview](v2-service-tiers-overview.md)
 * [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/)

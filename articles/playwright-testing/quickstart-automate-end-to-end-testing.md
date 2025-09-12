@@ -10,6 +10,8 @@ zone_pivot_groups: microsoft-playwright-testing
 
 # Quickstart: Set up continuous end-to-end testing with Microsoft Playwright Testing Preview
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 In this quickstart, you set up continuous end-to-end testing with Microsoft Playwright Testing Preview to validate that your web app runs correctly across different browsers and operating systems with every code commit and troubleshoot tests easily using the service dashboard. Learn how to add your Playwright tests to a continuous integration (CI) workflow, such as GitHub Actions, Azure Pipelines, or other CI platforms.
 
 After you complete this quickstart, you have a CI workflow that runs your Playwright test suite at scale and helps you troubleshoot tests easily with Microsoft Playwright Testing.

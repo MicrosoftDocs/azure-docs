@@ -4,7 +4,7 @@ titlesuffix: Azure Managed Grafana
 description: Learn about current service limits, quotas, and constraints you may encounter using Azure Managed Grafana.
 ms.service: azure-managed-grafana
 ms.topic: troubleshooting
-ms.date: 12/17/2024
+ms.date: 08/19/2025
 ms.author: malev
 ms.custom: engagement-fy23
 author: maud-lv
@@ -34,7 +34,9 @@ Azure Managed Grafana has the following known limitations:
 
 * Only Azure subscriptions billed directly through Microsoft are eligible for the purchase of Grafana Enterprise. CSP subscriptions, i.e., Azure subscriptions billed through Cloud Solution Providers (CSP), are ineligible.
 
-## Current User authentication
+* An Azure Managed Grafana workspace can use only one managed identity: user-assigned or system-assigned.
+
+### Current User authentication
 
 The *Current User* authentication option triggers the following limitation. Grafana offers some automated features such as alerts and reporting, that are expected to run in the background periodically. The Current User authentication method relies on a user being logged in, in an interactive session, to connect a data source to a database. Therefore, when this authentication method is used and no user is logged in, automated tasks can't run in the background. To leverage automated tasks, we recommend setting up another data source with another authentication method or [configuring alerts in Azure Monitor](./how-to-use-azure-monitor-alerts.md).
 
@@ -64,10 +66,6 @@ Each data source also has its own limits that can be reflected in Azure Managed 
 
 * Refer to [Azure Monitor](/azure/azure-monitor/service-limits) to learn about Azure Monitor service limits including alerts, Prometheus metrics, data collection, logs and more.
 * Refer to [Azure Data Explorer](/azure/data-explorer/kusto/concepts/querylimits) to learn about Azure Data Explorer service limits.
-
-## Managed identities
-
-Each Azure Managed Grafana workspace can only be assigned one managed identity, user-assigned or system-assigned, but not both.
 
 ## Related links
 

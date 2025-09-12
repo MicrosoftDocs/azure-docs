@@ -18,8 +18,6 @@ ms.author: duau
 
 Virtual WAN hub deployments can now associate customer tenant public IP addresses with secured hub Azure Firewalls.
 
-The capability is available only to new deployments of secured hub Firewalls. For existing secured virtual WAN hubs, delete the hub firewall and redeploy a new Firewall during scheduled maintenance hours. You can use the Azure portal or Azure PowerShell to configure it.   
-
 The capability has the following benefits: 
 
 - You own and control the lifecycle of the Azure Firewall public IP addresses. 
@@ -28,23 +26,70 @@ The capability has the following benefits:
 
 - You can allocate Azure Firewall public IP addresses from an IP address prefix pool. 
 
-## Configuration
+The capability is available to new as well as existing deployments of secured hub Firewalls. 
+
+## Configure a new Secure Hub Azure Firewall with customer tenant public IP 
 
 You can configure this feature using either the Azure portal or Azure PowerShell.
 
-### Azure portal
+### [Portal](#tab/portal)
 
-You can associate a preexisting public IP address with a secured hub firewall. You should allocate public IP addresses from an IP prefix pool to simplify downstream security access control lists (ACLs).  
-
+You can associate a preexisting public IP address with a secured hub firewall. You should allocate public IP addresses from an IP prefix pool to simplify downstream security access control lists (ACLs).          
 :::image type="content" source="media/secured-hub-customer-public-ip/new-secured-hub-customer-public-ip.png" alt-text="Screenshot showing new secured virtual hub.":::
 
-### Azure PowerShell
-
-```azurepowershell
-$publicip = Get-AzPublicIpAddress -ResourceGroupName $rgName -Name $PIPName
-$virtualhub = get-azvirtualhub -ResourceGroupName $rgName -name $vwanhub
-New-AzFirewall -Name $azfwname -ResourceGroupName $rgName -Location westcentralus -SkuName AZFW_Hub -SkuTier $Tier -PublicIpAddress $publicip -VirtualHubId $virtualhub.Id
+### [PowerShell](#tab/powershell)
+    
+```powershell-interactive
+    $publicip = Get-AzPublicIpAddress -ResourceGroupName $rgName -Name $PIPName
+    $virtualhub = get-azvirtualhub -ResourceGroupName $rgName -name $vwanhub
+    New-AzFirewall -Name $azfwname -ResourceGroupName $rgName -Location westcentralus -SkuName AZFW_Hub -SkuTier $Tier -PublicIpAddress $publicip -VirtualHubId $virtualhub.Id
 ```
+
+***
+
+> [!Note]
+> For existing secured virtual WAN hubs, you have to remove all the public IPs assigned to the Hub, stop/deallocate the hub firewall. and allocate the Firewall with your public IP during scheduled maintenance hours.
+
+### Reconfigure an existing Secure Hub Azure Firewall with customer tenant public IP 
+
+To reconfigure an Azure Firewall with a public IP address, follow these steps:
+
+1. **Retrieve the existing firewall**  
+    Use the `Get-AzFirewall` cmdlet to retrieve the current Azure Firewall configuration:
+
+    ```powershell-interactive
+    $Azfw = Get-AzFirewall -ResourceGroupName rgName -Name azFw
+    ```
+
+2. **Set the current count of Firewall Public IPs to 0**  
+    Create a new public IP configuration with a count of 0 and update the firewall's hub IP addresses:
+
+    ```powershell-interactive
+    $hubIp = New-AzFirewallHubPublicIpAddress -Count 0
+    $AzFWHubIPs = New-AzFirewallHubIpAddress -PublicIP $hubIp
+    $Azfw.HubIpAddresses = $AzFWHubIPs
+    Set-AzFirewall -AzureFirewall $AzFw
+    ```
+
+3. **Deallocate the Firewall**  
+    Deallocate the firewall to prepare it for reconfiguration:
+
+    ```powershell-interactive
+    $AzFw.Deallocate()
+    Set-AzFirewall -AzureFirewall $AzFw
+    ```
+
+4. **Allocate the firewall with the Public IP**  
+    Retrieve the public IP address and virtual hub, then allocate the firewall with the new configuration:
+
+    ```powershell-interactive
+    $publicip = Get-AzPublicIpAddress -ResourceGroupName rgName -Name PIPWC2
+    $virtualhub = Get-AzVirtualHub -ResourceGroupName rgName -Name "LegacyHUB"
+    $AzFw.Allocate($virtualhub.Id, $publicip)
+
+    Set-AzFirewall -AzureFirewall $AzFw
+    ```
+
 
 ## Next steps
 

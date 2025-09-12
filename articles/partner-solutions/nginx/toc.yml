@@ -14,5 +14,11 @@ items:
   items:
   - name: Manage your NGINXaaS resource
     href: manage.md
-  - name: Troubleshoot NGINXaaS
-    href: troubleshoot.md
+- name: Troubleshoot
+  items:
+  - name: Get support
+    href: https://my.f5.com/manage/s/
+  - name: Troubleshoot
+    href: /troubleshoot/azure/partner-solutions/marketplace-purchases-errors
+  
+

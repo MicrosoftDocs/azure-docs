@@ -39,6 +39,8 @@ items:
     items:
     - name: Appliance requirements
       href: migrate-appliance.md
+    - name: Register appliance using pre-configured Entra app
+      href: how-to-register-appliance-using-entra-app.md
     - name: Discover VMware
       items:
       - name: Discover VMware estate
@@ -215,7 +217,7 @@ items:
         - name: Migrate to Azure Cloud
           href: tutorial-migrate-vmware.md
         - name: Migrate to Azure Local 
-          href: /azure/azure-local/migrate/migration-azure-migrate-vmware-overview?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
+          href: /azure/azure-local/migrate/migration-azure-migrate-vmware-overview?toc=/azure/migrate/toc.json
     - name: Migrate Hyper-V servers 
       items:
 #       - name: Create Business case and assessment
@@ -225,7 +227,8 @@ items:
         - name: Migrate to Azure Cloud
           href: tutorial-migrate-hyper-v.md
         - name: Migrate to Azure Local
-          href: /azure/azure-local/migrate/migration-azure-migrate-overview?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
+          href: /azure/azure-local/migrate/migration-azure-migrate-overview?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json      
+
     - name: Migrate physical servers
       items:
         - name: Assess Physical servers

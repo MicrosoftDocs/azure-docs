@@ -5,6 +5,7 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 01/17/2024
+ms.custom: sfi-image-nochange
 
 #Customer intent: As a security engineer, I want to ingest Google Cloud Platform log data into Microsoft Sentinel so that analysts can monitor and detect potential threats across my multicloud environment.
 

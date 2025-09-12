@@ -1,13 +1,13 @@
 ---
 title: Transfer an Azure subscription to an Enterprise Agreement
 description: This article helps you understand the steps to transfer a Microsoft Customer Agreement subscription or MOSP subscription to an Enterprise Agreement.
-author: presharm
-ms.reviewer: presharm
+author: Nicholak-MS
+ms.author: nicholak
+ms.reviewer: nicholak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 05/21/2025
-ms.author: presharm
+ms.date: 08/18/2025
 ---
 
 # Transfer an Azure subscription to an Enterprise Agreement (EA)
