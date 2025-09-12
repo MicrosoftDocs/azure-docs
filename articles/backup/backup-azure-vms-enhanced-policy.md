@@ -23,9 +23,9 @@ Azure Backup now supports the Enhanced policy for Azure virtual machine (VM) bac
 >- The Standard policy doesn't support protecting newer Azure offerings, such as Ultra SSD and Premium SSD v2. Only the Azure CLI (version 2.73.0 and later), PowerShell (version Az 14.0.0 and later), and the REST API (version 2025-01-01 and later) support Trusted Launch VM backup with the Standard policy.
 >- Backups for VMs fail for disks enabled with data access authentication.
 >- Protection of a VM with an enhanced policy incurs more snapshot costs. [Learn more about cost impact](backup-instant-restore-capability.md#cost-impact).
->- After you enable a VM backup with the Enhanced policy, Azure Backup doesn't allow changing the policy type to Standard.
+>- Backup doesn't allow changing the policy type to Standard after you enable a VM backup with the Enhanced policy.
 >- Backup now supports the migration to enhanced policy for the Azure VM backups by using the Standard policy. [Learn more about migrating Azure VM backups from the Standard to the Enhanced policy](backup-azure-vm-migrate-enhanced-policy.md).
->- You can exclude shared disks with the Enhanced policy and back up the other supported disks in the VM.
+>- The Enhanced policy supports excluding shared disks and backing up the other supported disks in the VM.
 
 :::image type="content" source="./media/backup-azure-vms-enhanced-policy/enhanced-backup-policy-settings.png" alt-text="Screenshot that shows the Enhanced backup policy options.":::
 
@@ -33,7 +33,7 @@ The following screenshot shows that multiple backups occurred in a day.
 
 :::image type="content" source="./media/backup-azure-vms-enhanced-policy/multiple-backups-per-day-inline.png" alt-text="Screenshot that shows the multiple backup instances that occurred in a day." lightbox="./media/backup-azure-vms-enhanced-policy/multiple-backups-per-day-expanded.png":::
 
-The preceding screenshot shows that one of the backups is transferred to the **Vault-Standard** tier.
+The preceding screenshot shows that one of the backups was transferred to the **Vault-Standard** tier.
 
 ## Create an Enhanced policy and configure the VM backup
 

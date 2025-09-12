@@ -78,4 +78,4 @@ Make sure that you add appropriate logging while you write your prescript and po
 
 ## Related content
 
-[Configure VM backup to a Recovery Services vault](./backup-azure-vms-first-look-arm.md)
+- [Configure VM backup to a Recovery Services vault](./backup-azure-vms-first-look-arm.md)

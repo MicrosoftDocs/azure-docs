@@ -46,8 +46,6 @@ If you have VMs that are backed up with the Enhanced policy, you can move them f
 
 ### Option 1: Change the VM backup policy to switch from application/file system-consistent backup to crash-consistent backup (recommended)
 
-Follow these steps:
-
 1. Go to a Recovery Services vault, and then select **Manage** > **Backup policies** to check the policy for the VMs that you want to move to crash-consistent backup.
 
    :::image type="content" source="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/vault-locate-policy.png" alt-text="Screenshot that shows how to locate all backup policies present in a vault." lightbox="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/vault-locate-policy.png":::
@@ -92,8 +90,6 @@ Follow these steps:
 
 If you don't want to create a new policy and move only specific VMs, edit the **Consistency type** option in the existing policy.
 
-Follow these steps:
-
 1. Go to the Recovery Services vault, select **Backup policies**, and then choose an existing policy.
 
    :::image type="content" source="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/vault-locate-policy.png" alt-text="Screenshot that shows how to check for all backup policies present in a vault." lightbox="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/vault-locate-policy.png":::
@@ -118,4 +114,4 @@ If the job fails for an unsupported VM, revert the policy to opt out of crash-co
 
 ## Related content
 
-[Run an on-demand backup of Azure VM](backup-azure-vms-first-look-arm.md#run-an-on-demand-backup-of-azure-vms)
+- [Run an on-demand backup of Azure VM](backup-azure-vms-first-look-arm.md#run-an-on-demand-backup-of-azure-vms)

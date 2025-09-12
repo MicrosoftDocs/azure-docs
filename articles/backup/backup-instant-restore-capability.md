@@ -56,11 +56,11 @@ For VMs that use unmanaged disks, you can see the snapshots on the menu for the 
 
 The Enhanced policy uses managed disk snapshots for Instant Restore functionality. The initial snapshot is a full copy of the disks. The subsequent snapshots are incremental in nature and occupy only delta changes to disks since the last snapshot. Pricing for managed disk snapshots is explained in [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
-For example, a VM with 100 GB in size has a change rate of 2% and a retention of five days for Instant Restore. In this case, the snapshot storage is billed as 108 GB (100 + 100 X 0.02 X 4).
+For example, a VM with 100 GB in size has a change rate of 2% and a retention of 5 days for Instant Restore. In this case, the snapshot storage is billed as 108 GB (100 + 100 X 0.02 X 4).
 
->[!NOTE]
->- Snapshot retention is fixed to 5 days for weekly policies for the Standard policy. Snapshot retention can vary from 5 to 20 days for the Enhanced policy.
->- Trusted Launch VMs with the Standard policy use managed disk snapshots for Instant Restore. In this scenario, you incur snapshot storage costs that are the same as the costs for the Enhanced policy.
+Snapshot retention is fixed to 5 days for weekly policies for the Standard policy. Snapshot retention can vary from 5 to 20 days for the Enhanced policy.
+
+Trusted Launch VMs with the Standard policy use managed disk snapshots for Instant Restore. In this scenario, you incur snapshot storage costs that are the same as the costs for the Enhanced policy.
 
 ## Configure snapshot retention
 
@@ -74,8 +74,7 @@ In the Azure portal, in the **Instant Restore** section, you can see a field tha
 
 ### Use PowerShell
 
->[!NOTE]
-> From the Az PowerShell version 1.6.0 and later, you can use PowerShell to update the instant restore snapshot retention period in the policy.
+From the Az PowerShell version 1.6.0 and later, you can use PowerShell to update the instant restore snapshot retention period in the policy.
 
 ```powershell
 $bkpPol = Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"

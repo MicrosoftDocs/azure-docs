@@ -115,7 +115,7 @@ The initial backup runs in accordance with the schedule in the backup policy. To
 
 Monitor the portal notifications. To monitor the job progress, go to **Business Continuity Center** > **Monitoring + Reporting** > **Jobs** and filter the list for **In progress** jobs. Depending on the size of your VM, creating the initial backup might take a while.
 
-The Backup job details for each VM backup consist of two phases. The **Snapshot** phase is followed by the **Transfer data to vault** phase.
+Backup job details for each VM backup consist of the following two phases:
 
 - **Snapshot**: Ensures that the availability of a recovery point is stored along with the disks for instant restores. They're available for a maximum of five days depending on the snapshot retention that the user configured.
 - **Transfer data to vault**: Creates a recovery point in the vault for long-term retention. This phase starts after the snapshot phase is finished.
@@ -126,9 +126,9 @@ Two subtasks run at the back end. One is for the front-end backup job that you c
 
    :::image type="content" source="./media/backup-azure-arm-vms-prepare/backup-job-phase.png" alt-text="Screenshot that shows backup job status subtasks." lightbox="./media/backup-azure-arm-vms-prepare/backup-job-phase.png":::
 
-The **Transfer data to vault** phase can take multiple days to complete depending on the size of the disks, churn per disk, and several other factors.
+Transfer data to vault can take multiple days to complete depending on the size of the disks, churn per disk, and several other factors.
 
-Job status can vary depending on the following scenarios.
+Job status can vary depending on the following scenarios:
 
 Snapshot | Transfer data to vault | Job status
 --- | --- | ---
@@ -138,7 +138,7 @@ Completed | Completed | Completed
 Completed | Failed | Completed with warning
 Failed | Failed | Failed
 
-With this capability, for the same VM, two backups can run in parallel, but only one subtask can run at a time in either the **Snapshot** phase or the **Transfer data to vault** phase. This decoupling prevents next-day backups from failing because of a backup job already in progress. Subsequent days' backups can have the snapshot completed, while **Transfer data to vault** is skipped if an earlier day's backup job is in an in-progress state.
+With this capability, for the same VM, two backups can run in parallel, but only one subtask can run at a time in either the snapshot phase or the transfer data to vault phase. This decoupling prevents next-day backups from failing because of a backup job already in progress. Subsequent days' backups can have the snapshot completed, while transfer data to vault is skipped if an earlier day's backup job is in an in-progress state.
 
 The incremental recovery point created in the vault captures all the churn from the most recent recovery point created in the vault. There's no cost impact on the user.
 

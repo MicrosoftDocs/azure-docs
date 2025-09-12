@@ -208,7 +208,7 @@ You can also set the access policy by using [PowerShell](./backup-azure-vms-auto
 
 ## Related content
 
-[Restore encrypted Azure virtual machines](restore-azure-encrypted-virtual-machines.md)
+- [Restore encrypted Azure virtual machines](restore-azure-encrypted-virtual-machines.md)
 
 If you run into any issues, review these articles:
 
