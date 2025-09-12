@@ -4,10 +4,10 @@ description: Learn about gateway features in Azure API Management that help redu
 author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 09/10/2025
+ms.date: 09/12/2025
 ms.author: danlep
 ai-usage: ai-assisted
-#customer intent: As an IT admin, I want to shift API traffic to backend regions with lower carbon intensity so that I can minimize emissions from my services.
+#customer intent: As an IT admin, I want to understand how to adjust API traffic based on carbon emissions in different Azure regions so that I can reduce emissions from my services.
 ---
 # Environmentally sustainable APIs in Azure API Management (preview)
 
@@ -16,10 +16,8 @@ ai-usage: ai-assisted
 This article introduces features in Azure API Management that help you reduce the carbon footprint of your API traffic. Use the features to adjust API traffic based on carbon emissions in different Azure regions.
 
 > [!NOTE]
-> * Environmental sustainability features are currently in limited preview. To sign up, complete the form. <!-- Link to form -->
+> * Environmental sustainability features are currently in limited preview. To sign up, [complete the form](https://aka.ms/apim/sustainability-preview). 
 > * These features are currently available in [select regions](#region-availability) in the Azure API Management classic tiers (Developer, Basic, Standard, Premium).
-
-<!--Required API versions? -->
 
 ## About sustainable APIs
 
@@ -46,13 +44,13 @@ This capability, combined with your existing load balancing and routing strategi
 At runtime:
 
 * API Management makes a best effort to route traffic to "green" backends (in regions with emissions below your specified thresholds) and excludes "dirty" backends (in regions with emissions above specified thresholds).
-* To ensure service continuity in cases when all backends are "dirty" and have the same priority, API Management routes traffic to all backends.
+* API Management routes traffic to "dirty" backends under certain conditions to ensure service continuity - for example, when all regionalized backends are "dirty", and other backends are unavailable.
 
 :::image type="content" source="media/sustainability/traffic-shifting.png" alt-text="Diagram of shifting traffic to a backend with lower emissions in load-balanced pool.":::
 
 ### Configuration example
 
-First, configure a backend that is preferred based on carbon intensity in a [supported Azure region](#region-availability) by setting the `azureRegion` property:
+First, configure a backend in a [supported Azure region](#region-availability) by setting the optional `azureRegion` property:
 
 ```json
 {
@@ -68,7 +66,9 @@ First, configure a backend that is preferred based on carbon intensity in a [sup
 }
 ```
 
-Then, use the regionalized backend in a load-balanced pool and define the emission threshold using a `preferredCarbonEmission` property. In this example, if the carbon intensity in the `westeurope` region exceeds `Medium`, traffic to the `sustainable-backend` is excluded compared with the other backends in the pool.
+Then, use the regionalized backend in a load-balanced pool and define the emission threshold using a `preferredCarbonEmission` property. 
+
+In this example, if the carbon intensity in the `westeurope` region exceeds `Medium`, traffic to the `sustainable-backend` is excluded compared with the other backends in the pool.
 
 
 
@@ -215,7 +215,7 @@ The following example shows how to use the current carbon intensity information 
 
 The following table indicates:
 
-* Regions where instances in the API Management Classic tiers (Developer, Basic, Standard, Premium) support sustainability features
+* Regions where instances in the API Management Classic tiers (Developer, Basic, Standard, Premium) support sustainability features (after sign-up for preview)
 * Regions where information about the intensity of carbon emissions is available, for example, for creating regionalized backends for traffic shifting
 
 
@@ -232,13 +232,10 @@ The following table indicates:
 | Canada East | ✅ | ✅ |
 | Central India | ✅ | ✅ |
 | Central US | ✅ | ✅ |
-| Central US EUAP | ✅ | ✅ |
 | Chile Central | | ✅ |
 | East Asia | ✅ | |
 | East US | ✅ | ✅ |
 | East US 2 | ✅ | ✅ |
-| East US 2 EUAP | | ✅ |
-| East US EUAP | ✅ | |
 | France Central | | ✅ |
 | France South | ✅ | ✅ |
 | Germany North | | ✅ |
