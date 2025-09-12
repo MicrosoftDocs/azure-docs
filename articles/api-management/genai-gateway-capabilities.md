@@ -149,8 +149,6 @@ One challenge when building intelligent applications is ensuring that the applic
 
 The backend [load balancer](backends.md#backends-in-api-management) supports round-robin, weighted, priority-based, and session-aware load balancing. You can define a load distribution strategy that meets your specific requirements. For example, define priorities within the load balancer configuration to ensure optimal utilization of specific Azure AI Foundry endpoints, particularly those purchased as PTU instances. 
 
-<!-- Update image for generic/Foundry backends? -->
-
 :::image type="content" source="media/genai-gateway-capabilities/backend-load-balancing.png" alt-text="Diagram of using backend load balancing in API Management.":::
 
 ### Circuit breaker
@@ -205,7 +203,7 @@ Use the AI gateway and [Azure API Center](../api-center/overview.md) to streamli
 * API Management policy toolkit for customization
 * API Center Copilot Studio connector
 
-:::image type="content" source="media/genai-gateway-capabilities/mcp-registry-api-center-small.png" alt-text="Screenshot of MCP servers in API Center in the portal." lightbox="media/genai-gateway-capabilities/mcp-registry-api-center.png":::
+:::image type="content" source="media/genai-gateway-capabilities/mcp-registry-api-center.png" alt-text="Screenshot of MCP servers in API Center in the portal." :::
 
 More information:
 
