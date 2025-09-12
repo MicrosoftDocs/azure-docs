@@ -144,7 +144,7 @@ There's no extra cost to configure availability zones for a container group.
        - The [Azure CLI](/azure/container-instances/container-instances-quickstart#clean-up-resources)
        - [PowerShell](/azure/container-instances/container-instances-quickstart#clean-up-resources)
        - [Bicep](/azure/container-instances/container-instances-quickstart-bicep#clean-up-resources)
-       - [ARM template](/azure/container-instances/container-instances-quickstart-template#clean-up-resources)
+       - An [ARM template](/azure/container-instances/container-instances-quickstart-template#clean-up-resources)
        - [Terraform](/azure/container-instances/container-instances-quickstart-terraform#clean-up-resources)
        - [Docker CLI](/azure/container-instances/container-instances-quickstart-docker-cli#clean-up-resources)
 
