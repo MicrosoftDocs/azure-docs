@@ -6,32 +6,31 @@ author: dlepow
 ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.topic: concept-article
-ms.date: 09/11/2025
+ms.date: 09/12/2025
 ms.update-cycle: 180-days
 ms.author: danlep
 ms.custom:
   - build-2025
 ---
 
-# Overview of AI gateway in Azure API Management
+# AI gateway in Azure API Management
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-The *AI gateway* in Azure API Management is a set of capabilities that help you manage your AI backends effectively. These capabilities help you manage, secure, scale, monitor, and govern large languate model (LLM) deployments, AI APIs, and Model Context Protocol (MCP) servers that back your AI apps and agents. 
+The *AI gateway* in Azure API Management is a set of capabilities that help you manage your AI backends effectively. These capabilities help you manage, secure, scale, monitor, and govern large language model (LLM) deployments, AI APIs, and Model Context Protocol (MCP) servers that back your AI apps and agents.
 
 Use the AI gateway to manage a wide range of AI endpoints, including:
 
 * [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) and [Azure OpenAI in AI Foundry Models](/azure/ai-foundry/openai/overview) deployments
-* [Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api) model deployments
+* [Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api) deployments
 * Remote MCP servers
-* Models and endpoints hosted by non-Microsoft providers
-* Self-hosted endpoints
+* OpenAI-compatible models and endpoints hosted by non-Microsoft providers
+* Self-hosted models and endpoints
 
 :::image type="content" source="media/genai-gateway-capabilities/capabilities-summary.png" alt-text="Diagram summarizing AI gateway capabilities of Azure API Management.":::
 
 > [!NOTE]
-> The AI gateway, including [MCP server capabilities](mcp-server-overview.md), extends API Management's existing API gateway; it isn't a separate offering. For an introduction, see [Azure API Management overview](api-management-key-concepts.md). Related governance and developer features are in [Azure API Center](../api-center/overview.md).
-
+> The AI gateway, including [MCP server capabilities](mcp-server-overview.md), extends API Management's existing [API gateway](api-management-key-concepts.md#api-gateway); it isn't a separate offering. Related governance and developer features are in [Azure API Center](../api-center/overview.md).
 
 ## Why use an AI gateway?
 
@@ -59,7 +58,7 @@ With the AI gateway, you can:
 * Govern chat completions, responses, and realtime APIs
 * Expose your existing REST APIs as MCP servers, and support passthrough to MCP servers
 
-For example, to onboard a model deployed in AI Foundry, API Management provides a streamlined wizard to import the OpenAPI schema and set up authentication to the AI Foundry endpoint by using a managed identity, removing the need for manual configuration. Within the same user-friendly experience, you can preconfigure API policies for scalability, security, and observability.
+For example, to onboard a model deployed in AI Foundry or another provider, API Management provides streamlined wizards to import the schema and set up authentication to the AI endpoint by using a managed identity, removing the need for manual configuration. Within the same user-friendly experience, you can preconfigure policies for API scalability, security, and observability.
 
 :::image type="content" source="media/genai-gateway-capabilities/ai-foundry-import.png" alt-text="Screenshot of AI Foundry import button in the Azure portal."::: 
 
@@ -77,12 +76,9 @@ One of the main resources in generative AI services is *tokens*. Azure AI Foundr
 
 If you have a single app connecting to an AI service backend, you can manage token consumption with a TPM limit that you set directly on the model deployment. However, when your application portfolio grows, you might have multiple apps calling single or multiple AI service endpoints. These endpoints can be pay-as-you-go or [Provisioned Throughput Units](/azure/ai-services/openai/concepts/provisioned-throughput) (PTU) instances. You need to make sure that one app doesn't use the whole TPM quota and block other apps from accessing the backends they need.
 
-<!-- There are also challenges with [tracking token usage](#observability-and-governance) across multiple applications, and [distributing load](#resiliency) across multiple AI service endpoints. -->
-
-
 ### Token rate limiting and quotas
 
-Configure a token limit policy on your LLM APIs to manage and enforce limits per API consumer based on the usage of AI service tokens. With this policy, you can set a rate limit, expressed in tokens-per-minute (TPM). You can also set a token quota over a specified period, such as hourly, daily, weekly, monthly, or yearly. 
+Configure a token limit policy on your LLM APIs to manage and enforce limits per API consumer based on the usage of AI service tokens. With this policy, you can set a TPM limit or a token quota over a specified period, such as hourly, daily, weekly, monthly, or yearly. 
 
 <!-- Update image for LLM token limit policy and generic/Foundry backend? -->
 
@@ -108,7 +104,7 @@ Semantic caching is a technique that improves the performance of LLM APIs by cac
 
 In API Management, enable semantic caching by using [Azure Managed Redis](/azure/redis/overview) or another external cache compatible with RediSearch and onboarded to Azure API Management. By using the Embeddings API, the [llm-semantic-cache-store](llm-semantic-cache-store-policy.md) and [llm-semantic-cache-lookup](llm-semantic-cache-lookup-policy.md) policies store and retrieve semantically similar prompt completions from the cache. This approach ensures completions reuse, resulting in reduced token consumption and improved response performance. 
 
-:::image type="content" source="media/genai-gateway-capabilities/semantic-caching.gif" alt-text="Diagram of semantic caching in API Management.":::
+:::image type="content" source="media/genai-gateway-capabilities/semantic-caching.png" alt-text="Diagram of semantic caching in API Management.":::
 
 More information:
 
@@ -136,7 +132,7 @@ An AI gateway secures and controls access to your AI APIs. With the AI gateway, 
 * Configure OAuth authorization for AI apps and agents to access APIs or MCP servers by using API Management's credential manager
 * Apply policies to automatically moderate LLM prompts by using [Azure AI Content Safety](/azure/ai-services/content-safety/overview)
 
-:::image type="content" source="media/genai-gateway-capabilities/content-safety.gif" alt-text="Animation of content safety policy in API Management.":::
+:::image type="content" source="media/genai-gateway-capabilities/content-safety.png" alt-text="Diagram of content safety policy in API Management.":::
 
 More information:
 
@@ -209,6 +205,8 @@ Use the AI gateway and [Azure API Center](../api-center/overview.md) to streamli
 * API Management policy toolkit for customization
 * API Center Copilot Studio connector
 
+:::image type="content" source="media/genai-gateway-capabilities/mcp-registry-api-center-small.png" alt-text="Screenshot of MCP servers in API Center in the portal." lightbox="media/genai-gateway-capabilities/mcp-registry-api-center.png":::
+
 More information:
 
 * [Register and discover MCP servers in API Center](../api-center/register-discover-mcp-server.md)
@@ -221,14 +219,14 @@ More information:
 
 ## Early access to AI gateway features    
 
-As an API Management customer, you can get early access to new features and capabilities through the *AI Gateway release channel*. This access lets you try out the latest innovations before they're generally available and provide feedback to help shape the product. 
+As an API Management customer, you can get early access to new features and capabilities through the *AI Gateway release channel*. This access lets you try out the latest AI gateway innovations before they're generally available and provide feedback to help shape the product. 
 
 More information:
 
 * [Configure service update settings for your API Management instances](configure-service-update-settings.md)
 
 
-## Code samples and hands-on learning
+## Labs and code samples
 
 * [AI gateway capabilities labs](https://github.com/Azure-Samples/ai-gateway)
 * [AI gateway workshop](https://aka.ms/ai-gateway/workshop)

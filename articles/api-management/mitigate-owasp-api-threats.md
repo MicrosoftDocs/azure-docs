@@ -102,7 +102,7 @@ More information about this threat: [API4:2023 Unrestricted Resource Consumptio
     - Configure alerts in Azure Monitor for excessive consumption of data by users.
 - For generative AI APIs:
     - Use [semantic caching](/azure/api-management/azure-openai-enable-semantic-caching) to reduce load on the backends.
-    - Use [token limiting](genai-gateway-capabilities.md#scalability) to control consumption and costs.
+    - Use [token limiting](genai-gateway-capabilities.md#scalability-and-performancey) to control consumption and costs.
     - Emit [token consumption metrics](genai-gateway-capabilities.md#observability-and-governance) to monitor token utilization and configure alerts.
 - Minimize the time it takes a backend service to respond. The longer the backend service takes to respond, the longer the connection is occupied in API Management, therefore reducing the number of requests that can be served in a given time frame.
     - Define `timeout` in the [forward-request](/azure/api-management/forward-request-policy) policy and strive for the shortest acceptable value.
