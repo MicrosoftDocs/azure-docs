@@ -28,6 +28,8 @@ items:
 - name: Roles, permissions, and actions
   expanded: true
   items:
+    - name: Overview
+      href: roles-permissions-overview.md
     - name: User access roles
       href: user-access-roles.md
     - name: Agent and user permissions

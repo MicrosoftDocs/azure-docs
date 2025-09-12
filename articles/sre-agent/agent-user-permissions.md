@@ -38,11 +38,9 @@ As resource groups are added or removed from the agent's scope, the managed iden
 > [!NOTE]
 > You can't directly remove specific permissions from the agent. To restrict the agent's access, you must remove the entire resource group from the agent's scope.
 
-## User permissions TODO
+## User permissions
 
-Define what actions a user is allowed to take on Azure resources directly.  
-
-Enforced by Azure RBAC at resource, resource group, or subscription scope.  
+The permissions associated with a user define what actions the user is allowed to take on Azure resources directly. The permissions are e enforced by Azure RBAC at resource, resource group, or subscription scope.  
 
 Examples: Contributor on an AKS cluster, Reader on a Storage Account, Owner on a Resource Group.
 
@@ -52,7 +50,9 @@ The agent can only take action when it has user consent and the appropriate RBAC
 
 Examples of agent actions include:
 
-- Create or update incidents in connected platforms (PagerDuty, ServiceNow, GitHub, Azure DevOps).
+- Update incidents in PagerDuty and ServiceNow.
+
+- Create work items in Azure DevOps and GitHub.
 
 - Run diagnostics on Azure resources (query logs, fetch metrics, inspect states).
 
@@ -79,7 +79,7 @@ Here's a few example scenarios that can help illustrate how the security model i
 | Scenario | SRE Agent role | Permissions on Azure resources | Description |
 |---|---|---|---|
 | User has elevated rights on the agent's resource group, but only has reader access to the agent. | *SRE Agent Reader* | *Owner* role on the agent's resource group | The RBAC rules normally would allow this user to create or delete resources in the resource group, however this user's capability is limited inside the agent. Since the user is only set as an *SRE Agent Reader*, the user can only view logs, chats, and configuration files. |
-| User is an owner to a resource, but is only a user of the agent. | *SRE Agent User* | *Owner* on an AKS cluster managed by SRE Agent | The user, outside the agent, can directly scale the cluster via CLI or Azure portal since this user has the *Owner* role to the AKS cluster. However, within the agent, their *SRE Agent Reader* role restricts them to only triage, diagnostics, and escalation requests.<br><br>This user can't approve mitigations inside the agent, even with elevated privileges outside the agent. Only *SRE Agent Admin* users can perform these privileged actions. |
+| User is an owner to a resource, but is only a user of the agent. | *SRE Agent Standard User* | *Owner* on an AKS cluster managed by SRE Agent | The user, outside the agent, can directly scale the cluster via CLI or Azure portal since this user has the *Owner* role to the AKS cluster. However, within the agent, their *SRE Agent Reader* role restricts them to only triage, diagnostics, and escalation requests.<br><br>This user can't approve mitigations inside the agent, even with elevated privileges outside the agent. Only *SRE Agent Admin* users can perform these privileged actions. |
 | User is an administrator to the agent, but the agent and the user have limited access to resources managed by the agent. | *SRE Agent Admin* | User *doesn't* have *Contributor* or *Owner* access to an App Service instance managed by the agent | A request fails when this user tries to roll back the App Service instance. This operation fails because the agent’s managed identity doesn't have *Contributor* permissions on the App Service instance.<br><br>The *SRE Agent Admin* role gives the user authority in the agent, but Azure RBAC rules enforce boundaries limit what the user can do outside the agent. |
 
 ## Related content
