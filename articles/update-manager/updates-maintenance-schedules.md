@@ -21,27 +21,6 @@ This article provides an overview of the various update options and orchestratio
 
 ## Update Options
 
-### Automatic OS image upgrade
-
-When you enable the [automatic OS image upgrades](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) on your [Azure Virtual Machine Scale Set](/azure/virtual-machine-scale-sets/overview), it helps ease update management by safely and automatically upgrade the OS disk for all instances in the scale set.
-
-Automatic OS upgrade has the following characteristics:
-- After you configure, the latest OS image published by the image publishers is automatically applied to the scale set without any user intervention.
-- It upgrades batches of instances in a rolling manner every time a new image is published by the publisher.
-- Integrates with application health probes and [Application Health extension](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
-- Works for all VM sizes, for both Windows and Linux images including the custom images through the [Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries).
-- Flexibility to opt out of automatic upgrades at any time. (OS upgrades can be initiated manually as well).
-- The OS Disk of a VM is replaced with the new OS Disk created with the latest image version. Configured extensions and custom data scripts are run while persisted data disks are retained.
-- Supports Extension sequencing.
-- You can enable on a scale set of any size.
-
-> [!NOTE]
-> We recommend that you check on the following:
-> - Requirements before you enable automatic OS image upgrades
-> - Supported OS images
-> - Requirements to support custom images. [Learn more](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)
-
-
 ### Automatic VM guest patching
 
 When you enable [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching) on your Azure VMs, patching of Security and Critical updates to your VMs will be handled by Azure, and you will not control the timing nor choose which classifications or updates to install.
