@@ -91,7 +91,7 @@ Yes. If a VNet peering is created between your hub VNet and spoke VNet, Azure Ro
 
 ### How is the 4000 route limit calculated on a BGP peering session between an NVA and Azure Route Server?
 
-Currently, Route Server can accept a maximum of 4000 routes from a single BGP peer. When processing BGP route updates, this limit is calculated as the number of current routes learnt from a BGP peer plus the number of routes coming in the BGP route update. For example, if an NVA initially advertises 2001 routes to Route Server and later re-advertises these 2001 routes in a BGP route update, the route server calculates this as 4002 routes and tear down the BGP session. 
+Currently, Route Server can accept a maximum of 4000 routes from a single BGP peer. When processing BGP route updates, this limit is calculated as the number of current routes learnt from a BGP peer plus the number of routes coming in the BGP route update. For example, if an NVA initially advertises 2001 routes to Route Server and later re-advertises these 2001 routes in a BGP route update, the route server calculates this as 4002 routes and tears down the BGP session. 
 
 ### What Autonomous System Numbers (ASNs) can I use?
 
