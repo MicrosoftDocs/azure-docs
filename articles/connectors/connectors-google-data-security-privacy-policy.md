@@ -37,7 +37,7 @@ For now, here are the Google-approved triggers, actions, and connectors that you
 
 - Azure Logic Apps built-in triggers and actions: Batch, Control, Data Operations, Date Time, Flat File, Liquid, Request, Schedule, Variables, and XML
 
-  Built-in triggers and actions that Google doesn't approve make a logic app noncompliant with the Gmail connector. The app can send or receive data from anywhere. These triggers and actions include HTTP, Azure Functions, and Azure Logic Apps.
+  Built-in triggers and actions that Google doesn't approve make a logic app noncompliant with the Gmail connector because the app can send or receive data from anywhere. These triggers and actions include HTTP, Azure Functions, and Azure Logic Apps.
 
 - Google services: Gmail, Google Calendar, Google Contacts, Google Drive, Google Sheets, and Google Tasks
 
