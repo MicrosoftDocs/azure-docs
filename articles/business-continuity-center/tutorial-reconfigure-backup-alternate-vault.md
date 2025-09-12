@@ -47,7 +47,7 @@ To suspend the active backup for a datasource on Recovery Services vault, follow
 
 1. Go to **Business Continuity Center**, and then select **Protection inventory** > **Protected items**.
 
-   :::image type="content" source="./media/tutorial-reconfigure-backup-alternate-vault/view-protected-items.png" alt-text="Screenshot shows how to view the protected items." lightbox="./tutorial-reconfigure-backup-alternate-vault/view-protected-items.png":::
+   :::image type="content" source="./media/tutorial-reconfigure-backup-alternate-vault/view-protected-items.png" alt-text="Screenshot shows how to view the protected items." lightbox="./media/tutorial-reconfigure-backup-alternate-vault/view-protected-items.png":::
 
 1.  On the **Protected items** pane, select a protected item from the list.
  
