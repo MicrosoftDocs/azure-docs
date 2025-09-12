@@ -19,11 +19,11 @@ ms.date: 09/10/2025
 
 If you're new to Standard workflows in Azure Logic Apps or updating an existing workflow, you might have questions about workflows, connectors, their operations, and other tasks. For example, Azure Logic Apps provides 1,000+ connectors for you to use. How do you choose the best ones for your workflow?
 
-In the Azure portal, in the Standard workflow designer, the workflow assistant offers a chat box so that you can ask questions about the currently open workflow or about Azure Logic Apps in general. The assistant generates answers and provides access to Azure Logic Apps documentation and best practices. When you use the assistant, you don't have to switch context to search or browse for documentation online.
+In the Azure portal, in the Standard workflow designer, the workflow assistant offers a chat box so that you can ask questions about you current workflow or about Azure Logic Apps in general. The assistant generates answers and provides access to Azure Logic Apps documentation and best practices. When you use the assistant, you don't have to switch context to search or browse for documentation online.
 
 :::image type="content" source="media/workflow-assistant-standard/overview.png" alt-text="Screenshot shows Azure portal, Standard logic app with workflow designer opened, and workflow assistant with example question and generated response." lightbox="media/workflow-assistant-standard/overview.png":::
 
-The workflow assistant delivers curated information based on reputable knowledge sources. Sources include Azure Logic Apps documentation on Microsoft Learn, connector schemas, and tech community blogs. The assistant can also build responses using the currently open workflow in the designer. That way, you can learn how to complete tasks specific to your workflow's context. For example, you can ask how to configure a specific action in the workflow. You might want recommendations about the action's inputs or outputs and how to test that data.
+The workflow assistant delivers curated information based on reputable knowledge sources. Sources include Azure Logic Apps documentation on Microsoft Learn, connector schemas, and tech community blogs. The assistant can also build responses using the current workflow in the designer. That way, you can learn how to complete tasks specific to your workflow's context. For example, you can ask how to configure a specific action in the workflow. You might want recommendations about the action's inputs or outputs and how to test that data.
 
 > [!IMPORTANT]
 >
@@ -60,7 +60,7 @@ The following table includes only some example use cases. You can share your fee
 
 | Use case | Example question | Description |
 |----------|------------------|-------------|
-| Describe the currently open workflow. | **"What does this workflow do?"** | Useful when you use or update a workflow built by other developers or to collaborate with other developers on shared workflows. |
+| Describe the current workflow. | **"What does this workflow do?"** | Useful when you use or update a workflow built by other developers or to collaborate with other developers on shared workflows. |
 | Get help with connectors. | - **"Which connectors can send email?"** <br><br>- **"What does the Request trigger do?"** | Useful when you're not sure which connector to use, what connectors are available, or need specific information about a connector. <br><br>The workflow assistant can provide recommendations on connectors or operations, provide best practices about how to use a connector, and provide comparisons between connectors. |
 | Suggest guidance based on your specific scenario. | **"How do I create a workflow that checks an RSS feed and sends me the feed items?"** | Recommend step-by-step information about how to build a workflow based on your scenario. Recommendations can include which connectors to use, how to configure them, and how to process the data. |
 | Recommend patterns. | **"What's a best practice for error handling in my workflow?"** | Provide guidance and best practices for error handling, testing, and other optimizations. |
