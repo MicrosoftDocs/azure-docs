@@ -2,7 +2,7 @@
 title: MABS & System Center DPM support matrix
 description: This article summarizes Azure Backup support when you use Microsoft Azure Backup Server (MABS) or System Center DPM to back up on-premises and Azure VM resources.
 ms.service: azure-backup
-ms.date: 07/17/2025
+ms.date: 09/11/2025
 ms.topic: reference
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -55,6 +55,22 @@ For more information:
 **Scenario** | **Agent** | **Location**
 --- | --- | ---
 **Back up on-premises machines/workloads** | DPM/MABS protection agent runs on the machines that you want to back up.<br/><br/> The MARS agent on DPM/MABS server.<br/> The minimum version of the Microsoft Azure Recovery Services agent, or Azure Backup agent, required to enable this feature is 2.0.8719.0.  | DPM/MABS must be running on-premises.
+
+> [!NOTE]
+> ## Backup of Azure VMs / AWS EC2 and others... Is Not Supported by MABS
+> A frequently asked question is whether virtual machines hosted on public cloud platforms such as Azure VMs or AWS EC2 can be backed up using DPM/MABS. The answer is that **these environments are not supported**.
+>
+> Bare Metal Recovery (BMR) with MABS is **only supported for recovery on the same hardware**. Recovery to different hardware or in cloud environments (e.g., Azure VM / AWS EC2) is **not supported**.
+>
+> ### Support Matrix
+>
+> | Scenario | Supported |
+> | --- | --- |
+> | Recover system state after BMR on the same hardware | ✅ Yes |
+> | Recover system state after BMR on different hardware | ❌ No |
+> | Recover system state after non-BMR full restore (same/different hardware) | ❌ No |
+>
+> This limitation is primarily due to the fact that **system state backups contain hardware-dependent information**, making recovery on different environments technically infeasible.
 
 ## Supported deployments
 
