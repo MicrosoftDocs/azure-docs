@@ -17,7 +17,7 @@ _Azure IoT Operations_ is a unified data plane for the edge, offering modular an
 Azure IoT Operations:
 
 * Is built from the ground up using Kubernetes-native applications.
-* Is part of the Microsoft [adaptive cloud approach](/azure/adaptive-cloud/) that unifies siloed teams, distributed sites, and disparate systems into a single operations, security, application, and data model.
+* Is part of the Microsoft [adaptive cloud approach](https://azure.microsoft.com/solutions/adaptive-cloud) that unifies siloed teams, distributed sites, and disparate systems into a single operations, security, application, and data model.
 * Includes an industrial grade, edge-native MQTT broker that powers event-driven architectures.
 * Is highly extensible, scalable, resilient, and secure.
 * Can operate offline for a maximum of 72 hours. Degradation might occur during this period. However, Azure IoT Operations resumes full functionality when it reconnects.

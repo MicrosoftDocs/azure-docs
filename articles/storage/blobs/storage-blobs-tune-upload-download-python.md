@@ -101,8 +101,8 @@ The following arguments can be tuned based on the needs of your app:
 
 - `max_chunk_get_size`: The maximum chunk size used for downloading a blob. Defaults to 4 MiB.
 - `max_concurrency`: The maximum number of subtransfers that may be used in parallel.
-- `max_single_get_size`: The maximum size for a blob to be downloaded in a single call. If the total blob size exceeds `max_single_get_size`, the remainder of the blob data is downloaded in chunks. Defaults to 32 MiB.
-
+- `max_single_get_size`: The maximum size for a blob to be downloaded in a single call. If the total blob size exceeds the `max_single_get_size`, the remainder of the blob data is downloaded in chunks. Defaults to 32 MiB.
+- `connection_data_block_size`: Specifies the size of data blocks read from the network stream. Defaults to 4 KiB.
 #### Code example
 
 ```python
@@ -114,7 +114,8 @@ def download_blob_transfer_options(self, account_url: str, container_name: str, 
         blob_name=blob_name,
         credential=DefaultAzureCredential(),
         max_single_get_size=1024*1024*32, # 32 MiB
-        max_chunk_get_size=1024*1024*4 # 4 MiB
+        max_chunk_get_size=1024*1024*4, # 4 MiB
+        connection_data_block_size=1024*4, # 4 KiB
     )
 
     with open(file=os.path.join(r'file_path', 'file_name'), mode="wb") as sample_blob:
@@ -129,6 +130,9 @@ During a download, the Storage client libraries split a given download request i
 #### max_single_get_size for downloads
 
 During a download, the Storage client libraries make one download range request using `max_single_get_size` before doing anything else. During this initial download request, the client libraries know the total size of the resource. If the initial request successfully downloaded all of the content, the operation is complete. Otherwise, the client libraries continue to make range requests up to `max_chunk_get_size` until the full download is complete.
+
+#### connection_data_block_size for downloads
+During a download, the `connection_data_block_size` setting can significantly influence download performance. Its impact is highly dependent on your specific environment and hardware configuration. Try starting with a value such as 64KiB and gradually adjusting it to find the optimal balance while monitoring performance and resource usage.
 
 ## Next steps
 

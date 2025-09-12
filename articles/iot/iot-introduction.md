@@ -261,7 +261,7 @@ Any IoT solution must address the following solution-wide concerns:
 
 ### Solution management
 
-The [adaptive cloud](/azure/adaptive-cloud/) approach unifies siloed teams, distributed sites, and disparate systems into a single operations, security, application, and data model. This approach enables you to use the same cloud and AI technologies to manage and monitor edge-based, cloud-based, and hybrid IoT solutions.
+The [adaptive cloud](https://azure.microsoft.com/solutions/adaptive-cloud) approach unifies siloed teams, distributed sites, and disparate systems into a single operations, security, application, and data model. This approach enables you to use the same cloud and AI technologies to manage and monitor edge-based, cloud-based, and hybrid IoT solutions.
 
 Solutions based on IoT Hub, IoT Central, and IoT Edge offer limited support for an adaptive cloud approach. Although IoT Hub, IoT Central, and IoT Edge instances are themselves Azure resources, they don't natively expose capabilities, such as device management and data transformation, as resources you can manage as standard Azure resources.
 

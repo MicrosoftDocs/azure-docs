@@ -13,10 +13,10 @@ ms.author: v-uhabiba
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure VMs :heavy_check_mark: Azure Arc-enabled servers.
 
-Dynamic Scoping is an advanced capability of schedule patching that allows users to: 
+Dynamic Scoping is a capability of schedule patching that allows users to: 
 
 - Group machines based on criteria such as subscription, resource group, location, resource type, OS Type, and Tags. This becomes the definition of the scope. 
-- Associate the scope to a schedule/maintenance configuration to apply updates at scale as per a pre-defined scope. 
+- Associate the scope to a maintenance configuration to apply updates at scale as per a pre-defined scope. 
 
 The criteria will be evaluated at the scheduled run time, which will be the final list of machines that will be patched by the schedule. The machines evaluated during create or edit phase may differ from the group at schedule run time. 
 

@@ -16,7 +16,7 @@ ms.date: 03/21/2025
 In this article, you learn how to authenticate to Microsoft Dev Box REST APIs by using Azure CLI. Authentication is a crucial step for accessing both administrator (control plane) and developer (data plane) APIs. This guide walks you through retrieving an access token from Microsoft Entra ID, understanding the token's structure and validity, and using the bearer token to access REST APIs. By following these steps, you can securely interact with Microsoft Dev Box services.
 
 > [!TIP]
-> Before authenticating, ensure that the user or identity has the appropriate permissions to perform the desired action. For more information, see [Provide access for dev team leads](./how-to-configure-project-admin.md) and [Provide access for developers](./how-to-configure-deployment-environments-user.md).
+> Before authenticating, ensure that the user or identity has the appropriate permissions to perform the desired action. For more information, see [Provide access for dev team leads](./how-to-manage-deployment-environments-access.md) and [Provide access for developers](./how-to-manage-deployment-environments-access.md).
 
 <a name='using-azure-ad-authentication-for-rest-apis'></a>
 

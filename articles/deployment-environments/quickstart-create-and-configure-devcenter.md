@@ -198,7 +198,7 @@ Before developers can create environments based on the environment types in a pr
 
     | Setting | Value |
     | --- | --- |
-    | **Role** | Select **[Deployment Environments User](how-to-configure-deployment-environments-user.md)**. |
+    | **Role** | Select **[Deployment Environments User](how-to-manage-deployment-environments-access.md)**. |
     | **Assign access to** | Select **User, group, or service principal**. |
     | **Members** | Select the users or groups you want to have access to the project. |
 

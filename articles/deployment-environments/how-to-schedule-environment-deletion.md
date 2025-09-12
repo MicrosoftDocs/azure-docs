@@ -23,8 +23,8 @@ Deployment Environments provides platform engineers with a centralized way of vi
 
 ## Prerequisites
 
-- To schedule your own environment for automatic deletion, you must have the [Deployment Environments User](how-to-configure-deployment-environments-user.md) role.
-- To schedule any environment in your project for automatic deletion, you must have the [DevCenter Project Admin](how-to-configure-project-admin.md) role.
+- To schedule your own environment for automatic deletion, you must have the [Deployment Environments User](how-to-manage-deployment-environments-access.md) role.
+- To schedule any environment in your project for automatic deletion, you must have the [DevCenter Project Admin](how-to-manage-deployment-environments-access.md) role.
 
 ## Add an environment
 

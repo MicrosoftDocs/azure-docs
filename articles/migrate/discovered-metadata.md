@@ -240,17 +240,6 @@ Name  | `Win32_operatingsystem`  | `Caption`
 Version  | `Win32_operatingsystem`  | `Version`
 Architecture  | `Win32_operatingsystem`  | `OSArchitecture`
 
-
-
-### Linux server operating system data
-
-Here's the operating system data that the appliance collects from each discovered Linux server:
-
-Data  | Commands
---- | ---
-Name/version | Gathered from one or more of the following files:<br/> <br/>`/etc/os-release`  <br> `/usr/lib/os-release`  <br> `/etc/enterprise-release`  <br> `/etc/redhat-release`  <br> `/etc/oracle-release`  <br> `/etc/SuSE-release`  <br> `/etc/lsb-release`  <br> `/etc/debian_version`
-Architecture | `uname`
-
 ### Windows server pending updates data
 
 Here's the pending updates data that the appliance collects from each discovered Windows server:
@@ -273,6 +262,15 @@ Name  | `HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL`
 Edition  | `HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\<InstanceName>\Setup`  | `Edition`
 Service pack  | `HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\<InstanceName>\Setup`  | `SP`
 Version  | `HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\<InstanceName>\Setup`  | `Version`
+
+### Linux server operating system data
+
+Here's the operating system data that the appliance collects from each discovered Linux server:
+
+Data  | Commands
+--- | ---
+Name/version | Gathered from one or more of the following files:<br/> <br/>`/etc/os-release`  <br> `/usr/lib/os-release`  <br> `/etc/enterprise-release`  <br> `/etc/redhat-release`  <br> `/etc/oracle-release`  <br> `/etc/SuSE-release`  <br> `/etc/lsb-release`  <br> `/etc/debian_version`
+Architecture | `uname`
 
 ### Linux server application data
 
