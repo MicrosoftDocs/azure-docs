@@ -62,6 +62,11 @@ Currently, Azure Firewall can be deployed to support Availability Zones using Az
 
 While the concept of Virtual WAN is global, the actual Virtual WAN resource is Resource Manager-based and deployed regionally. If the virtual WAN region itself has an issue, all hubs in that virtual WAN continue to function. However, the user can't create new hubs until the virtual WAN region is available.
 
+### How do I delete or clean up my Virtual WAN resources?
+When you no longer need the resources that you created, delete them. Some of the Virtual WAN resources must be deleted in a certain order due to dependencies. Deleting can take about 30 minutes to complete.
+
+[!INCLUDE [Delete resources](../../includes/virtual-wan-resource-cleanup.md)]
+
 ### Is it possible to share the Firewall in a protected hub with other hubs?
 
 No, each Azure Virtual Hub must have their own Firewall. The deployment of custom routes to point the Firewall of another secured hub's will fail and won't complete successfully. Consider converting those hubs to [secured hubs](/azure/virtual-wan/howto-firewall) with their own Firewalls.
