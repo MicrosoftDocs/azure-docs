@@ -4,9 +4,6 @@
   items:
     - name: What is Microsoft Sentinel?
       href: sentinel-platform-overview.md
-    - name: What is the Microsoft Sentinel data lake?
-      href: datalake/sentinel-lake-overview.md
-      displayName: data lake
     - name: What's new
       href: whats-new.md
 - name: Plan
@@ -192,6 +189,9 @@
           displayName: table management, tiers, retention, tables
 - name: Explore your data lake
   items:
+    - name: What is the Microsoft Sentinel data lake?
+      href: datalake/sentinel-lake-overview.md
+      displayName: data lake
     - name: Compare KQL jobs, summary rules, and search jobs
       href: datalake/kql-jobs-summary-rules-search-jobs.md
       displayName: data lake
@@ -239,13 +239,12 @@
 
 - name: SIEM functionality and automation
   items:
-    - name: SIEM best practices in Microsoft Sentinel
-      href: best-practices.md
     - name: What is Microsoft Sentinel SIEM?
       href: overview.md
     - name: Microsoft Sentinel SIEM experience in Defender portal
       href: microsoft-sentinel-defender-portal.md
-    - name: Manage SIEM solutions and content
+    - name: SIEM best practices in Microsoft Sentinel
+      href: best-practices.md
       items:
         - name: Overview
           href: sentinel-solutions.md
