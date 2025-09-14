@@ -129,8 +129,10 @@ using System.IO;
 using System.Security.Cryptography.X509Certificates;
 
 ...
-var bytes = File.ReadAllBytes("~/<relative-path-to-cert-file>");
-var cert = new X509Certificate2(bytes);
+
+var certPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "<relative-path-to-cert-file>");
+var certBytes = File.ReadAllBytes(certPath);
+var cert = new X509Certificate2(certBytes, "", X509KeyStorageFlags.DefaultKeySet);
 
 // Use the loaded certificate
 ```
@@ -164,8 +166,10 @@ using System.IO;
 using System.Security.Cryptography.X509Certificates;
 
 ...
-var bytes = File.ReadAllBytes("/var/ssl/certs/<thumbprint>.der");
-var cert = new X509Certificate2(bytes);
+
+var certPath = "/var/ssl/certs/<thumbprint>.der";
+var certBytes = File.ReadAllBytes(certPath);
+var cert = new X509Certificate2(certBytes, "", X509KeyStorageFlags.DefaultKeySet);
 
 // Use the loaded certificate
 ```
@@ -176,9 +180,12 @@ The following C# code shows how to load a private certificate in a Linux app.
 using System;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
+
 ...
-var bytes = File.ReadAllBytes("/var/ssl/private/<thumbprint>.p12");
-var cert = new X509Certificate2(bytes);
+
+var certPath = "/var/ssl/private/<thumbprint>.p12";
+var certBytes = File.ReadAllBytes(certPath);
+var cert = new X509Certificate2(certBytes, "", X509KeyStorageFlags.DefaultKeySet);
 
 // Use the loaded certificate
 ```
