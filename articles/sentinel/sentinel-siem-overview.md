@@ -54,10 +54,10 @@ This table highlights the key capabilities in Microsoft Sentinel for threat dete
 | **Capacity**           | **Description**                                              | **Get  started**                                             |
 | ---------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Analytics              | Helps  you reduce noise and minimize the number of alerts you have to review and  investigate. Microsoft Sentinel uses analytics to group alerts into  incidents. Use the out of the box analytic rules as-is, or as a starting  point to build your own rules. Microsoft Sentinel also provides rules to map  your network behavior and then look for anomalies across your resources.  These analytics connect the dots, by combining low fidelity alerts about  different entities into potential high-fidelity security incidents. | [Detect threats out-of-the-box](./threat-detection.md) |
-| MITRE  ATT&CK coverage | Microsoft  Sentinel analyzes ingested data, not only to detect threats and help you  investigate, but also to visualize the nature and coverage of your  organization's security status based on the tactics and techniques from the  MITRE ATT&CK® framework. | [Understand security coverage by the MITRE ATT&CK®   framework](./mitre-coverage) |
-| Threat  intelligence   | Integrate  numerous sources of threat intelligence into Microsoft Sentinel to detect  malicious activity in your environment and provide context to security  investigators for informed response decisions. | [Threat intelligence in Microsoft Sentinel](./understand-threat-intelligence) |
-| Watchlists             | Correlate  data from a data source you provide, a watchlist, with the events in your  Microsoft Sentinel environment. For example, you might create a watchlist  with a list of high-value assets, terminated employees, or service accounts  in your environment. Use watchlists in your search, detection rules, threat  hunting, and response playbooks. | [Watchlists in Microsoft Sentinel](./watchlists) |
-| Workbooks              | Create  interactive visual reports by using workbooks. Microsoft Sentinel comes with  built-in workbook templates that allow you to quickly gain insights across  your data as soon as you connect a data source. Or, create your own custom  workbooks. | [Visualize collected data](./get-visibility). |
+| MITRE  ATT&CK coverage | Microsoft  Sentinel analyzes ingested data, not only to detect threats and help you  investigate, but also to visualize the nature and coverage of your  organization's security status based on the tactics and techniques from the  MITRE ATT&CK® framework. | [Understand security coverage by the MITRE ATT&CK®   framework](./mitre-coverage.md) |
+| Threat  intelligence   | Integrate  numerous sources of threat intelligence into Microsoft Sentinel to detect  malicious activity in your environment and provide context to security  investigators for informed response decisions. | [Threat intelligence in Microsoft Sentinel](./understand-threat-intelligence.md) |
+| Watchlists             | Correlate  data from a data source you provide, a watchlist, with the events in your  Microsoft Sentinel environment. For example, you might create a watchlist  with a list of high-value assets, terminated employees, or service accounts  in your environment. Use watchlists in your search, detection rules, threat  hunting, and response playbooks. | [Watchlists in Microsoft Sentinel](./watchlists.md) |
+| Workbooks              | Create  interactive visual reports by using workbooks. Microsoft Sentinel comes with  built-in workbook templates that allow you to quickly gain insights across  your data as soon as you connect a data source. Or, create your own custom  workbooks. | [Visualize collected data](./get-visibility.md) |
 
 
 ## Investigate Threats
@@ -70,9 +70,9 @@ This table highlights the key capabilities in Microsoft Sentinel for threat inve
 
 | **Feature** | **Description**                                              | **Get  started**                                             |
 | ----------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Incidents   | Microsoft  Sentinel deep investigation tools help you to understand the scope and find  the root cause of a potential security threat. You can choose an entity on  the interactive graph to ask interesting questions for a specific entity, and  drill down into that entity and its connections to get to the root cause of  the threat. | [Navigate and investigate incidents in Microsoft   Sentinel](./investigate-incidents) |
-| Hunts       | Microsoft  Sentinel's powerful hunting search-and-query tools, based on the MITRE  framework, enable you to proactively hunt for security threats across your  organization’s data sources, before an alert is triggered. Create custom  detection rules based on your hunting query. Then, surface those insights as  alerts to your security incident responders. | [Threat hunting in Microsoft Sentinel](./hunting) |
-| Notebooks   | Microsoft  Sentinel supports Jupyter notebooks in Azure Machine Learning workspaces,  including full libraries for machine learning, visualization, and data  analysis.      Use notebooks in Microsoft Sentinel to extend the scope of what you can do  with Microsoft Sentinel data. For example:      - Perform analytics that aren't built in to Microsoft Sentinel, such as some  Python machine learning features.   - Create data visualizations that aren't built in to Microsoft Sentinel, such  as custom timelines and process trees.   - Integrate data sources outside of Microsoft Sentinel, such as an  on-premises data set. | [Jupyter notebooks with Microsoft Sentinel hunting capabilities](./notebooks) |
+| Incidents   | Microsoft  Sentinel deep investigation tools help you to understand the scope and find  the root cause of a potential security threat. You can choose an entity on  the interactive graph to ask interesting questions for a specific entity, and  drill down into that entity and its connections to get to the root cause of  the threat. | [Navigate and investigate incidents in Microsoft   Sentinel](./investigate-incidents.md) |
+| Hunts       | Microsoft  Sentinel's powerful hunting search-and-query tools, based on the MITRE  framework, enable you to proactively hunt for security threats across your  organization’s data sources, before an alert is triggered. Create custom  detection rules based on your hunting query. Then, surface those insights as  alerts to your security incident responders. | [Threat hunting in Microsoft Sentinel](./hunting.md) |
+| Notebooks   | Microsoft  Sentinel supports Jupyter notebooks in Azure Machine Learning workspaces,  including full libraries for machine learning, visualization, and data  analysis.      Use notebooks in Microsoft Sentinel to extend the scope of what you can do  with Microsoft Sentinel data. For example:      - Perform analytics that aren't built in to Microsoft Sentinel, such as some  Python machine learning features.   - Create data visualizations that aren't built in to Microsoft Sentinel, such  as custom timelines and process trees.   - Integrate data sources outside of Microsoft Sentinel, such as an  on-premises data set. | [Jupyter notebooks with Microsoft Sentinel hunting capabilities](./notebooks.md) |
 
 
 ## Respond to Incidents Rapidly
@@ -87,7 +87,7 @@ This table highlights the key capabilities in Microsoft Sentinel for threat resp
 
 | **Feature**       | **Description**                                              | **Get  started**                                             |
 | ----------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Automation  rules | Centrally  manage the automation of incident handling in Microsoft Sentinel by defining  and coordinating a small set of rules that cover different scenarios. | [Automate threat response in Microsoft Sentinel with automation rules](./automate-incident-handling-with-automation-rules)|
+| Automation  rules | Centrally  manage the automation of incident handling in Microsoft Sentinel by defining  and coordinating a small set of rules that cover different scenarios. | [Automate threat response in Microsoft Sentinel with automation rules](./automate-incident-handling-with-automation-rules.md)|
 | Playbooks         | Automate  and orchestrate your threat response by using playbooks, which are a  collection of remediation actions. Run a playbook on-demand or automatically  in response to specific alerts or incidents, when triggered by an automation  rule.      To build playbooks with Azure Logic Apps, choose from a constantly expanding  gallery of connectors for various services and systems like ServiceNow, Jira,  and more. These connectors allow you to apply any custom logic in your  workflow. | [Automate threat response with playbooks in Microsoft Sentinel](../automation/automate-responses-with-playbooks.md)[List of all Logic App connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) |
 
 ## Microsoft Sentinel in the Azure portal retirement timeline
@@ -102,13 +102,13 @@ For more information, see:
 
 [Microsoft Sentinel in the Microsoft Defender portal](./microsoft-sentinel-defender-portal.md)
 
-[Transition your Microsoft Sentinel environment to the Defender portal](./move-to-defender)
+[Transition your Microsoft Sentinel environment to the Defender portal](./move-to-defender.md)
 
 [Planning your move to Microsoft Defender portal for all Microsoft Sentinel customers](https://techcommunity.microsoft.com/blog/microsoft-security-blog/planning-your-move-to-microsoft-defender-portal-for-all-microsoft-sentinel-custo/4428613) (blog)
 
 ## Changes for new customers starting July 2025
 
-For the sake of the changes described in this section, new Microsoft Sentinel customers are customers who are [onboarding the first workspace in their tenant to Microsoft Sentinel](./quickstart-onboard).
+For the sake of the changes described in this section, new Microsoft Sentinel customers are customers who are [onboarding the first workspace in their tenant to Microsoft Sentinel](./quickstart-onboard.md).
 
 Starting **July, 2025**, such new customers who also have the permissions of a subscription [Owner](/azure/role-based-access-control/built-in-roles#owner) or a [User access administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator), and are not Azure Lighthouse-delegated users, have their workspaces automatically onboarded to the Defender portal together with onboarding to Microsoft Sentinel.
 
@@ -132,6 +132,6 @@ This table summarizes these experiences:
 
 ## Related Content
 
-- [Onboard Microsoft Sentinel](./quickstart-onboard)
-- [Deployment guide](./sentinel/deploy-overview)
-- [Pricing and billing](./sentinel/billing)
+- [Onboard Microsoft Sentinel](./quickstart-onboard.md)
+- [Deployment guide](./sentinel/deploy-overview.md)
+- [Pricing and billing](./sentinel/billing.md)
