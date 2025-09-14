@@ -42,21 +42,6 @@ The data lake:
 
 For more information, see [What is Microsoft Sentinel data lake (preview)?](../sentinel/datalake/sentinel-lake-overview.md).
 
-### Data connectors
-
-Collect data across your entire digital estate wherever the data resides, including all users, devices, applications, and infrastructure, both on-premises and in multiple clouds:
-
--  350+ out-of-the-box data connectors with support for first and third-party security solutions and cloud platforms
-
-- A built-in table management experience that simplifies selecting data storage, supporting tiered placement across analytic and data lake tiers.
-
-- Data ingested into the analytics tier is automatically mirrored in the data lake tier, ensuring data lake tier remains the central, unified repository for all security data.
-
-- No-code and custom connector options
-
-- Data normalization to translate various sources into a uniform, normalized view
-
-For more information, see [Microsoft Sentinel data connectors](./connect-data-sources.md).
 
 ### Microsoft Sentinel graph
 
@@ -98,6 +83,21 @@ The integration of Microsoft Sentinel SIEM with the Defender portal and Security
 
 For more information, see [What is Microsoft Sentinel SIEM?](./sentinel-siem-overview.md).
 
+## Microsoft Sentinel data connectors
+
+Collect data across your entire digital estate wherever the data resides, including all users, devices, applications, and infrastructure, both on-premises and in multiple clouds:
+
+-  350+ out-of-the-box data connectors with support for first and third-party security solutions and cloud platforms
+
+- A built-in table management experience that simplifies selecting data storage, supporting tiered placement across analytic and data lake tiers.
+
+- Data ingested into the analytics tier is automatically mirrored in the data lake tier, ensuring data lake tier remains the central, unified repository for all security data.
+
+- No-code and custom connector options
+
+- Data normalization to translate various sources into a uniform, normalized view
+
+For more information, see [Microsoft Sentinel data connectors](./connect-data-sources.md).
 
 ## Get started
 
