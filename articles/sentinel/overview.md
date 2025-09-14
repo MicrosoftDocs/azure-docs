@@ -14,11 +14,11 @@ ms.custom: sfi-image-nochange
 
 # What is Microsoft Sentinel security information and event management (SIEM)? 
 
-Microsoft Sentinel is a scalable, cloud-native security information and event management (SIEM) that delivers scalable, cost-efficient security across multicloud and multi-platform environments with built-in AI, automation, threat intelligence, and a modern data lake architecture. Microsoft Sentinel provides cyberthreat detection, investigation, response, and proactive hunting, with a bird's-eye view across your enterprise.
+Microsoft Sentinel is a cloud-native SIEM solution that delivers scalable, cost-efficient security across multicloud and multiplatform environments. It combines AI, automation, and threat intelligence with a modern data lake architecture to support threat detection, investigation, response, and proactive hunting.
 
-Microsoft Sentinel also natively incorporates proven Azure services, like Log Analytics and Logic Apps, and enriches your investigation and detection with AI. It uses both Microsoft's threat intelligence stream and also enables you to bring your own threat intelligence.
+Microsoft Sentinel SIEM natively incorporates proven Azure services, like Log Analytics and Logic Apps, and enriches your investigation and detection with AI. It uses Microsoft's threat intelligence stream and also enables you to bring your own threat intelligence.
 
-Microsoft Sentinel empowers analysts to anticipate and stop attacks across clouds and platforms, faster and with greater precision. Use Microsoft Sentinel to alleviate the stress of increasingly sophisticated attacks, increasing volumes of alerts, and long resolution time frames. This article highlights the key capabilities in Microsoft Sentinel.
+Microsoft Sentinel SIEM empowers analysts to anticipate and stop attacks across clouds and platforms, faster and with greater precision. Use Microsoft Sentinel to alleviate the stress of increasingly sophisticated attacks, increasing volumes of alerts, and long resolution time frames. This article highlights the key capabilities in Microsoft Sentinel.
 
 Microsoft Sentinel inherits the Azure Monitor [tamper-proofing and immutability](/azure/azure-monitor/logs/data-security#tamper-proofing-and-immutability) practices. While Azure Monitor is an append-only data platform, it includes provisions to delete data for compliance purposes.
 
@@ -54,7 +54,7 @@ Collect data across all users, devices, applications, and infrastructure, both o
 
 ---
 
-The following table highlights the key capabilities in Microsoft Sentinel for data collection.
+This table highlights the key capabilities in Microsoft Sentinel for data collection.
 
 |Capability|Description|Get started|
 |---------|---------|---------|
@@ -76,7 +76,7 @@ Detect previously undetected threats and minimize false positives using Microsof
 
 ---
 
-The following table highlights the key capabilities in Microsoft Sentinel for threat detection.
+This table highlights the key capabilities in Microsoft Sentinel for threat detection.
 
 |Capacity  |Description |Get started|
 |---------|---------|---------|
@@ -92,7 +92,7 @@ Investigate threats with artificial intelligence, and hunt for suspicious activi
 
 :::image type="content" source="media/overview/map-timeline.png" lightbox="media/overview/map-timeline.png" alt-text="Screenshot of an incident investigation that shows an entity and connected entities in an interactive graph.":::
 
-The following table highlights the key capabilities in Microsoft Sentinel for threat investigation.
+This table highlights the key capabilities in Microsoft Sentinel for threat investigation.
 
 |Feature  |Description  |Get started|
 |---------|---------|---------|
@@ -109,7 +109,7 @@ Playbooks in Microsoft Sentinel are based on workflows built in Azure Logic Apps
 
 :::image type="content" source="media/overview/logic-app.png" lightbox="media/overview/logic-app.png" alt-text="Screenshot of example automated workflow in Azure Logic Apps where an incident can trigger different actions.":::
 
-The following table highlights the key capabilities in Microsoft Sentinel for threat response.
+This table highlights the key capabilities in Microsoft Sentinel for threat response.
 
 |Feature  |Description  |Get started|
 |---------|---------|---------|
@@ -136,7 +136,7 @@ Such users use Microsoft Sentinel in the Defender portal only.
 
 New customers who don't have relevant permissions aren't automatically onboarded to the Defender portal, but they do still see redirection links in the Azure portal, together with prompts to have a user with relevant permissions manually onboard the workspace to the Defender portal.
 
-The following table summarizes these experiences:
+This table summarizes these experiences:
 
 |Customer type| Experience|
 |---------|---------|
