@@ -16,6 +16,8 @@ Customer intent: As a security or IT decision‑maker evaluating SIEM/SOAR optio
 
 Microsoft Sentinel is an AI-first security platform designed to unify security data, scale dynamically, and enable agentic automation across heterogeneous environments. Anchored by the Microsoft Sentinel data lake, it serves as the foundation of modern cybersecurity operations, delivering proactive, AI-enhanced defense capabilities that adapt to evolving threats.
 
+:::image type="content" source="media/sentinel-platform-overview/microsoft sentinel platform.png" alt-text="A diagram that depicts the Microsoft Sentinel platform overview" link="media/sentinel-platform-overview/microsoft sentinel platform.png" lightbox="media/sentinel-platform-overview/microsoft sentinel platform.png":::
+
 ## Core Components of the Microsoft Sentinel Platform
 
 ### Microsoft Sentinel Data Lake
