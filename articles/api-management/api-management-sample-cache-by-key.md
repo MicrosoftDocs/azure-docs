@@ -276,7 +276,7 @@ The complete policy is as follows:
 Enabling API consumers to transparently control which backend version is being accessed by clients without having to update and redeploy clients is an elegant solution that addresses many API versioning concerns.
 
 ## Tenant isolation
-In larger, multi-tenant deployments some companies create separate groups of tenants on distinct deployments of backend hardware. This minimizes the number of customers who are impacted by a hardware issue on the backend. It also enables new software versions to be rolled out in stages. Ideally this backend architecture should be transparent to API consumers. This can be achieved in a similar way to transparent versioning because it is based on the same technique of manipulating the backend URL using configuration state per API key.  
+In larger, multitenant deployments some companies create separate groups of tenants on distinct deployments of backend hardware. This minimizes the number of customers who are impacted by a hardware issue on the backend. It also enables new software versions to be rolled out in stages. Ideally this backend architecture should be transparent to API consumers. This can be achieved in a similar way to transparent versioning because it is based on the same technique of manipulating the backend URL using configuration state per API key.  
 
 Instead of returning a preferred version of the API for each subscription key, you would return an identifier that relates a tenant to the assigned hardware group. That identifier can be used to construct the appropriate backend URL.
 
