@@ -22,7 +22,7 @@ Microsoft Sentinel SIEM empowers analysts to anticipate and stop attacks across 
 
 Microsoft Sentinel SIEM inherits the Azure Monitor [tamper-proofing and immutability](/azure/azure-monitor/logs/data-security#tamper-proofing-and-immutability) practices. While Azure Monitor is an append-only data platform, it includes provisions to delete data for compliance purposes.
 
-This service supports [Azure Lighthouse](/lighthouse/overview), which lets service providers sign in to their own tenant to manage subscriptions and resource groups that customers have delegated.
+This service supports [Azure Lighthouse](/azure/lighthouse/overview), which lets service providers sign in to their own tenant to manage subscriptions and resource groups that customers have delegated.
 
 ## Enable Out-of-the-Box Security Content
 
@@ -132,6 +132,8 @@ This table summarizes these experiences:
 
 ## Related Content
 
-- [Onboard Microsoft Sentinel](./quickstart-onboard.md)
-- [Deployment guide](./sentinel/deploy-overview.md)
-- [Pricing and billing](./sentinel/billing.md)
+[Onboard Microsoft Sentinel](./quickstart-onboard.md)
+
+[Deployment guide for Microsoft Sentinel](./deploy-overview.md)
+
+[Plan costs and understand Microsoft Sentinel pricing and billing](./billing.md)
