@@ -12,17 +12,21 @@ Customer intent: As a security or IT decision‑maker, I need to assess Microsof
 
 ---
 
-# What is the Microsoft Sentinel Platform
+# What is the Microsoft Sentinel?
 
-Microsoft Sentinel is an AI-first security platform designed to consolidate security data, scale dynamically, and enable agentic automation across hybrid environments. Anchored by the Microsoft Sentinel data lake, it serves as the foundation of modern cybersecurity operations, delivering proactive, AI-enhanced defense capabilities that adapt to evolving threats.
+Microsoft Sentinel is an AI-first security platform and cloud-native security information and event management (SIEM) that consolidates security data, scales dynamically, and enables agentic automation across hybrid environments. Anchored by the Microsoft Sentinel data lake, it serves as the foundation of modern cybersecurity operations, delivering proactive, AI-enhanced defense capabilities that adapt to evolving threats.
 
-This article provides an overview of the Microsoft Sentinel platform, its core components, and how it empowers security operations teams to detect, investigate, and respond to threats efficiently.
+This article provides an overview of Microsoft Sentinel, its core components, and how it empowers security operations teams to detect, investigate, and respond to threats efficiently.
+
+## Microsoft Sentinel architecture overview
+
+This diagram illustrates the high-level architecture of the Microsoft Sentinel platform and SIEM, highlighting its core components.
 
 :::image type="content" source="media/sentinel-platform-overview/microsoft sentinel platform.png" alt-text="A diagram that depicts the Microsoft Sentinel platform overview" link="media/sentinel-platform-overview/microsoft sentinel platform.png" lightbox="media/sentinel-platform-overview/microsoft sentinel platform.png":::
 
 ## Core components of the Microsoft Sentinel platform
 
-## Microsoft Sentinel data lake
+### Microsoft Sentinel data lake
 
 Microsoft Sentinel data lake is a cloud-native, fully managed data lake purpose-built for security operations and designed to unify, retain, and analyze all your organization’s security data at scale.
 
@@ -36,7 +40,7 @@ The data lake:
 
 For more information, see [Microsoft Sentinel data lake overview (preview)](../sentinel/datalake/sentinel-lake-overview.md).
 
-## Data connectors
+### Data connectors
 
 Collect data across your entire digital estate wherever the data resides, including all users, devices, applications, and infrastructure, both on-premises and in multiple clouds:
 
@@ -52,7 +56,7 @@ Collect data across your entire digital estate wherever the data resides, includ
 
 For more information, see [Microsoft Sentinel data connectors](./connect-data-sources.md).
 
-## Microsoft Sentinel graph
+### Microsoft Sentinel graph
 
 Graph-based analytics enable deep visibility into threat relationships and attack paths: 
 
@@ -66,7 +70,7 @@ Graph-based analytics enable deep visibility into threat relationships and attac
 
 For more information, see https://aka.ms/sentinel/platform/graph.
 
-## Model Context Protocol (MCP) server
+### Model Context Protocol (MCP) server
 
 The MCP server acts as a secure bridge between Security Copilot agents and Microsoft Sentinel data:
 
@@ -81,6 +85,8 @@ The MCP server acts as a secure bridge between Security Copilot agents and Micro
 - Unify security context and use cases by using MCP to integrate with the Microsoft Sentinel data lake and Microsoft Sentinel graph to enhance threat detection, investigation, and response workflows, with practical applications like querying failed sign-in attempts and building agents through the Security Copilot Portal.
 
 For more information, see [What is MCP? (Preview) - Microsoft Security | Microsoft Learn](../sentinel/datalake/sentinel-mcp-overview.md).
+
+## Microsoft Sentinel SIEM
 
 ## Get started
 
