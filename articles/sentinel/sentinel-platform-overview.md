@@ -46,7 +46,7 @@ Collect data across your entire digital estate wherever the data resides, includ
 
 - Data normalization to translate various sources into a uniform, normalized view
 
-Learn more at [Microsoft Sentinel data connectors](./connect-data-sources).
+Learn more at [Microsoft Sentinel data connectors](./connect-data-sources.md).
 
 ## Sentinel graph
 
@@ -84,6 +84,6 @@ To get started with Microsoft Sentinel data lake and Sentinel graph, follow thes
 
 - [Jupyter notebooks in the Microsoft Sentinel data lake (preview)](../sentinel/datalake/notebooks-overview.md).
 - [KQL and the Microsoft Sentinel data lake (preview)](../sentinel/datalake/kql-overview.md)
-- [Permissions for the Microsoft Sentinel data lake (preview)](./roles#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview)
-- [Manage data tiers and retention in Microsoft Defender Portal (preview)](./manage-data-overview)
+- [Permissions for the Microsoft Sentinel data lake (preview)](./roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview)
+- [Manage data tiers and retention in Microsoft Defender Portal (preview)](./manage-data-overview.md)
 - [Manage and monitor costs for Microsoft Sentinel](./billing-monitor-costs.md)
