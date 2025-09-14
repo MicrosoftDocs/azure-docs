@@ -36,6 +36,7 @@ The following table lists the supported storage account details:
 | Account  Kind            | Only block blobs in a standard general-purpose v2 HNS-enabled storage account. <br><br>*Accounts using Network File Shares (NFS) 3.0, and Secure File Transfer Protocol (SFTP) protocols for blobs are currently not supported*.|
 | Redundancy              | Locally redundant storage (LRS), Zone-redundant storage (ZRS), Geo-redundant storage (GRS) enabled storage account. |
 | Tier              | Hot, Cool, and Cold tier blobs are supported.<br><br>*Archive tier blob backup isn't supported*. |
+| Upgraded storage accounts              | Accounts upgraded from Azure Blob Storage to Azure Data Lake Storage are not supported*. |
 
 ## Protection limits
 

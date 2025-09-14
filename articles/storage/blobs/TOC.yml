@@ -92,6 +92,27 @@ items:
         href: upgrade-to-data-lake-storage-gen2.md
       - name: Upgrade an account
         href: upgrade-to-data-lake-storage-gen2-how-to.md
+    - name: General Purpose v1 (GPv1) account retirement
+      href: ../common/general-purpose-version-1-account-migration-overview.md
+      items:
+      - name: Migrate a GPv1 storage account to GPv2
+        href: ../common/storage-account-upgrade.md
+      - name: GPv1 account retirement Frequently Asked Questions (FAQ)
+        href: ../common/general-purpose-version-1-account-migration-frequently-asked-questions.md
+    - name:  General Purpose v1 (GPv1) account with ZRS standard redundancy retirement
+      href: ../common/general-purpose-version-1-zone-redundant-storage-migration-overview.md
+      items:
+      - name: Migrate GPv1 ZRS to GPv2 ZRS
+        href: ../common/general-purpose-version-1-zone-redundant-storage-upgrade-process.md
+      - name:  General Purpose v1 (GPv1) account with ZRS standard redundancy retirement Frequently Asked Questions (FAQ)
+        href: ../common/general-purpose-v-1-zone-redundant-storage-migration-freq-asked-questions.md
+    - name: Legacy Blob storage account retirement
+      href: ../common/legacy-blob-storage-account-migration-overview.md
+      items:
+      - name: Migrate a Legacy Blob storage account to GPv2
+        href: ../common/storage-account-upgrade.md
+      - name: Legacy Blob storage account migration Frequently Asked Questions (FAQ)
+        href: ../common/legacy-blob-storage-account-migration-frequently-asked-questions.md
   - name: Data transfer and migration
     items:
     - name: Storage migration overview

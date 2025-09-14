@@ -2,7 +2,6 @@
 title: Configure ASP.NET Core apps
 description: Learn how to configure an ASP.NET Core app in native Windows instances or in a prebuilt Linux container in Azure App Service. 
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-dotnet, linux-related-content
 ms.topic: how-to
 ms.date: 07/07/2025
 zone_pivot_groups: app-service-platform-windows-linux
@@ -10,6 +9,12 @@ author: cephalin
 ms.author: cephalin
 #customer intent: As an app designer, I want to learn how to configure my ASP.NET Core app to use Azure App Service.
 ms.service: azure-app-service
+ms.custom:
+  - devx-track-csharp
+  - devx-track-azurecli
+  - devx-track-dotnet
+  - linux-related-content
+  - sfi-ropc-nochange
 ---
 
 # Configure an ASP.NET Core app for Azure App Service

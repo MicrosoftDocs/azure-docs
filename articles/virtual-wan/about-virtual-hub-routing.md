@@ -8,7 +8,9 @@ ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 12/10/2024
 ms.author: cherylmc
-ms.custom: fasttrack-edit
+ms.custom:
+  - fasttrack-edit
+  - sfi-image-nochange
 ---
 
 # About virtual hub routing

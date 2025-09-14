@@ -4,6 +4,7 @@ title: Azure Static Web Apps CLI reference
 ms.topic: reference
 ms.date: 07/25/2025
 ms.author: jikunchen
+ms.service: azure-static-web-apps
 author: cjk7989
 ---
 
