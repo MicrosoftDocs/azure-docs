@@ -7,12 +7,12 @@ ms.service: azure-stream-analytics
 ms.topic: tutorial
 ms.date: 03/29/2024
 ms.custom:
-  - "mvc
-  - devx-track-csharp"
+  - mvc
+  - devx-track-csharp
   - sfi-image-nochange
   - sfi-ropc-nochange
 
-#Customer intent: As an IT admin/developer I want to run Azure Functions with Stream Analytics jobs.
+#Customer intent: As an IT admin or developer, I want to run Azure Functions with Stream Analytics jobs.
 ---
 
 # Tutorial: Run Azure Functions from Azure Stream Analytics jobs
