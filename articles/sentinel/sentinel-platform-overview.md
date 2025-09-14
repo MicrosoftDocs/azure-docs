@@ -12,15 +12,17 @@ Customer intent: As a security or IT decision‑maker, I need to assess Microsof
 
 ---
 
-# What is the Microsoft Sentinel?
+# What is Microsoft Sentinel?
 
-Microsoft Sentinel is an AI-first security platform and cloud-native security information and event management (SIEM) that consolidates security data, scales dynamically, and enables agentic automation across hybrid environments. Anchored by the Microsoft Sentinel data lake, it serves as the foundation of modern cybersecurity operations, delivering proactive, AI-enhanced defense capabilities that adapt to evolving threats.
+Microsoft Sentinel is an AI-first security platform and cloud-native security information and event management (SIEM) that consolidates security data, scales dynamically, and enables agentic automation across hybrid environments. 
+
+Anchored by the Microsoft Sentinel data lake, it serves as the foundation of modern cybersecurity operations, delivering proactive, AI-enhanced defense capabilities that adapt to evolving threats.
 
 This article provides an overview of Microsoft Sentinel, its core components, and how it empowers security operations teams to detect, investigate, and respond to threats efficiently.
 
 ## Microsoft Sentinel architecture overview
 
-This diagram illustrates the high-level architecture of the Microsoft Sentinel platform and SIEM, highlighting its core components.
+This diagram illustrates the high-level architecture of the Microsoft Sentinel platform and SIEM, highlighting its core components and its integration with Microsoft Security Copilot.
 
 :::image type="content" source="media/sentinel-platform-overview/microsoft sentinel platform.png" alt-text="A diagram that depicts the Microsoft Sentinel platform overview" link="media/sentinel-platform-overview/microsoft sentinel platform.png" lightbox="media/sentinel-platform-overview/microsoft sentinel platform.png":::
 
@@ -38,7 +40,7 @@ The data lake:
 
 - Enables multi-modal analytics on a single copy of open-format data using Kusto queries, scheduled jobs, and AI-powered notebooks in Visual Studio Code - no infrastructure setup required.
 
-For more information, see [Microsoft Sentinel data lake overview (preview)](../sentinel/datalake/sentinel-lake-overview.md).
+For more information, see [What is Microsoft Sentinel data lake (preview)?](../sentinel/datalake/sentinel-lake-overview.md).
 
 ### Data connectors
 
@@ -74,7 +76,7 @@ For more information, see https://aka.ms/sentinel/platform/graph.
 
 The MCP server acts as a secure bridge between Security Copilot agents and Microsoft Sentinel data:
 
--  Enables Security Copilot to interact with Microsoft Sentinel data using plain language, eliminating the need for KQL queries, eliminating the need for KQL queries or custom connectors, making security data more accessible to all security analysts.
+-  Enables Security Copilot to interact with Microsoft Sentinel data using plain language, eliminating the need for KQL queries or custom connectors, making security data more accessible to all security analysts.
 
 - Standardized tools and schemas that simplify the creation and deployment of Security Copilot agents, allowing SOC teams to discover, invoke, and reuse tools efficiently.
 
@@ -92,8 +94,9 @@ The cloud-native Microsoft Sentinel SIEM solution delivers cost-efficient, AI-po
 
 Microsoft Sentinel SIEM is available in the Microsoft Defender portal - for customers with or without Defender XDR or an E5 license - offering a unified security operations experience. This integration streamlines workflows, enhances visibility, and helps analysts respond faster and more precisely to increasingly complex threats.
 
-The integration of Microsoft Sentinel SIEM with the Defender portal and Security Copilot creates a powerful ecosystem that enhances security operations by empowering analysts in investigating incidents and generating hunting queries.
+The integration of Microsoft Sentinel SIEM with the Defender portal and Security Copilot creates a powerful ecosystem that enhances security operations. Security Copilot enables analysts to interact with Sentinel data using natural language, generate hunting queries, and automate investigations, making threat response faster and more accessible.
 
+For more information, see [What is Microsoft Sentinel SIEM?](./sentinel-siem-overview.md).
 
 
 ## Get started
