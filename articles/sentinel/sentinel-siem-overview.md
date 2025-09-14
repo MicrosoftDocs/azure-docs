@@ -28,7 +28,8 @@ This service supports [Azure Lighthouse](/azure/lighthouse/overview), which lets
 
 Microsoft Sentinel SIEM provides security content packaged in SIEM solutions that enable you to ingest data, monitor, alert, hunt, investigate, respond, and connect with different products, platforms, and services.
 
-:::image type="content" source="/media/sentinel-siem-overview/sentinel-content-hub.png" alt-text="Image that shows the Microsoft Sentinel content hub in the Defender portal." lighthouse="media/sentinel-siem-overview/sentinel-content-hub.png":::
+:::image type="content" source="media/sentinel-siem-overview/sentinel-content-hub.png" alt-text="Image that shows the Microsoft Sentinel content hub in the Defender portal." lightbox="media/sentinel-siem-overview/sentinel-content-hub.png":::
+
 
 For more information, see [About Microsoft Sentinel content and solutions](./sentinel-solutions.md).
 
@@ -38,7 +39,7 @@ For more information, see [About Microsoft Sentinel content and solutions](./sen
 
 Collect data across all users, devices, applications, and infrastructure, both on-premises and in multiple clouds.
 
-:::image type="content" source="media/sentinel-siem-overview/sentinel-data-connectors.png" alt-text="Image that shows the Microsoft Sentinel Data Connectors page in the Azure portal." lighthouse="media/sentinel-siem-overview/sentinel-data-connectors.png":::
+:::image type="content" source="media/sentinel-siem-overview/sentinel-data-connectors.png" alt-text="Image that shows the Microsoft Sentinel Data Connectors page in the Azure portal." lightbox="media/sentinel-siem-overview/sentinel-data-connectors.png":::
 
 ---
 
@@ -47,7 +48,7 @@ Collect data across all users, devices, applications, and infrastructure, both o
 Detect previously undetected threats and minimize false positives using Microsoft's analytics and unparalleled threat intelligence.
 
 
-:::image type="content" source="media/sentinel-siem-overview/sentinel-threat-detection.png" alt-text="Image that shows the MITRE Attack page in the Defender portal." lighthouse="media/sentinel-siem-overview/sentinel-threat-detection.png":::
+:::image type="content" source="media/sentinel-siem-overview/sentinel-threat-detection.png" alt-text="Image that shows the MITRE Attack page in the Defender portal." lightbox="media/sentinel-siem-overview/sentinel-threat-detection.png":::
 
 This table highlights the key capabilities in Microsoft Sentinel for threat detection.
 
@@ -64,7 +65,7 @@ This table highlights the key capabilities in Microsoft Sentinel for threat dete
 
 Investigate threats with artificial intelligence, and hunt for suspicious activities at scale.
 
-:::image type="content" source="media/sentinel-siem-overview/sentinel-investigate-threats.png" alt-text="Image showing an Microsoft Sentinel incident investigation graph." lighthouse="media/sentinel-siem-overview/sentinel-investigate-threats.png":::
+:::image type="content" source="media/sentinel-siem-overview/sentinel-investigate-threats.png" alt-text="Image showing a Microsoft Sentinel incident investigation graph." lightbox="media/sentinel-siem-overview/sentinel-investigate-threats.png":::
 
 This table highlights the key capabilities in Microsoft Sentinel for threat investigation.
 
@@ -81,7 +82,7 @@ Automate your common tasks and simplify security orchestration with playbooks th
 
 Playbooks in Microsoft Sentinel are based on workflows built in Azure Logic Apps. For example, if you use the ServiceNow ticketing system, use Azure Logic Apps to automate your workflows and open a ticket in ServiceNow each time a particular alert or incident is generated.
 
-:::image type="content" source="media/sentinel-siem-overview/sentinel-playbooks.png" alt-text="Image that shows an automated workflow in Logic Apps that's used to respond to incidents in Microsoft Sentinel" lighthouse="media/sentinel-siem-overview/sentinel-playbooks.png":::
+:::image type="content" source="media/sentinel-siem-overview/sentinel-playbooks.png" alt-text="Image that shows an automated workflow in Logic Apps that's used to respond to incidents in Microsoft Sentinel" lightbox="media/sentinel-siem-overview/sentinel-playbooks.png":::
 
 This table highlights the key capabilities in Microsoft Sentinel for threat response.
 
@@ -110,13 +111,13 @@ For more information, see:
 
 For the sake of the changes described in this section, new Microsoft Sentinel customers are customers who are [onboarding the first workspace in their tenant to Microsoft Sentinel](./quickstart-onboard.md).
 
-Starting **July, 2025**, such new customers who also have the permissions of a subscription [Owner](/azure/role-based-access-control/built-in-roles#owner) or a [User access administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator), and are not Azure Lighthouse-delegated users, have their workspaces automatically onboarded to the Defender portal together with onboarding to Microsoft Sentinel.
+Starting **July, 2025**, such new customers who also have the permissions of a subscription [Owner](/azure/role-based-access-control/built-in-roles#owner) or a [User access administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator), and aren't Azure Lighthouse-delegated users, have their workspaces automatically onboarded to the Defender portal together with onboarding to Microsoft Sentinel.
 
 Users of such workspaces, who also aren't Azure Lighthouse-delegated users, see links in Microsoft Sentinel in the Azure portal that redirect them to the Defender portal.
 
 For example:
 
-:::image type="content" source="media/sentinel-siem-overview/sentinel-redirect-to-defender-portal.png" alt-text="Screenshot showing an Azure portal Microsoft Sentinel redirect link to the Microsoft Defender portal." lighthouse="media/sentinel-siem-overview/sentinel-redirect-to-defender-portal.png":::
+:::image type="content" source="media/sentinel-siem-overview/sentinel-redirect-to-defender-portal.png" alt-text="Screenshot showing an Azure portal Microsoft Sentinel redirect link to the Microsoft Defender portal." lightbox="media/sentinel-siem-overview/sentinel-redirect-to-defender-portal.png":::
 
 Such users use Microsoft Sentinel in the Defender portal only.
 
@@ -126,8 +127,8 @@ This table summarizes these experiences:
 
 | **Customer  type**                                           | **Experience**                                               |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **Existing  customers**  creating new workspaces in a tenant where there is already a workspace  enabled for Microsoft Sentinel | Workspaces  are not automatically onboarded, and users don't see redirection links |
-| **Azure  Lighthouse-delegated users** creating new workspaces in any tenant | Workspaces  are not automatically onboarded, and users don't see redirection links |
+| **Existing  customers**  creating new workspaces in a tenant where there's already a workspace  enabled for Microsoft Sentinel | Workspaces  aren't automatically onboarded, and users don't see redirection links |
+| **Azure  Lighthouse-delegated users** creating new workspaces in any tenant | Workspaces  aren't automatically onboarded, and users don't see redirection links |
 | **New  customers**  onboarding the first workspace in their tenant to Microsoft Sentinel | - **Users  who have the required permissions** have their workspace automatically  onboarded. Other users of such workspaces see redirection links in the Azure  portal.      - **Users who don't have the required permissions** don't have their  workspace automatically onboarded. All users of such workspaces see  redirection links in the Azure portal, and a user with the required  permissions must onboard the workspace to the Defender portal. |
 
 ## Related Content
