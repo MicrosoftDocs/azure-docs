@@ -20,58 +20,70 @@ Microsoft Sentinel is an AI-first security platform designed to unify security d
 
 ## Core Components of the Microsoft Sentinel Platform
 
-### Microsoft Sentinel Data Lake
+## Microsoft Sentinel data lake
 
 Microsoft Sentinel data lake is a cloud-native, fully managed data lake purpose-built for security operations and designed to unify, retain, and analyze all your organization’s security data at scale.
 
-- Eliminate data silos by centralizing security logs from Microsoft 365, Defender, Azure, Entra, Purview, Intune, and over 350 data connectors including AWS and GCP.
-- Delivers a cost-optimized security strategy by decoupling data ingestion from analytics.
-- Enables multi-modal security analytics using Kusto queries, scheduled jobs, and AI-powered notebooks via Visual Studio Code extension.
+- Eliminate data silos by centralizing security logs from Microsoft 365, Defender, Azure, Entra, Purview, Intune, and over 350 data connectors including AWS and GCP. 
 
-Learn more: [Microsoft Sentinel data lake overview (preview)](url_s://learn.microsoft.com/en-us/azure/sentinel/datalake/sentinel-lake-overview)
+- Delivers a cost-optimized security strategy by decoupling data ingestion from analytics, giving SOC teams the freedom to store massive security data volumes and apply the most effective analytic engines for targeted use cases like threat hunting, anomaly detection, and deep forensic investigations.
 
-### Data Connectors
+- Enables multi-modal security analytics on a single copy of open-format data using Kusto queries, scheduled jobs, and AI-powered notebooks via Visual Studio Code extension, allowing promotion of insights to the analytics tier without infrastructure setup.
 
-Collect data across your entire digital estate:
+Learn more at [Microsoft Sentinel data lake overview (preview)](../sentinel/datalake/sentinel-lake-overview.md).
 
-- 350+ out-of-the-box data connectors
-- Built-in table management with tiered placement
-- Analytics tier data mirrored in the data lake tier
+## Data connectors
+
+Collect data across your entire digital estate wherever the data resides, including all users, devices, applications, and infrastructure, both on-premises and in multiple clouds:
+
+-  350+ out-of-the-box data connectors with support for first and third-party security solutions and cloud platforms
+
+- A built-in table management experience that simplifies selecting data storage, supporting tiered placement across analytic and data lake tiers.
+
+- Data ingested into the analytics tier is automatically mirrored in the data lake tier, ensuring data lake tier remains the central, unified repository for all security data.
+
 - No-code and custom connector options
-- Data normalization for unified views
 
-Learn more: [Microsoft Sentinel data connectors](https://learn.microsoft.com/en-us/azure/sentinel/connect-data-sources)
+- Data normalization to translate various sources into a uniform, normalized view
 
-### Sentinel Graph
+Learn more at [Microsoft Sentinel data connectors](./connect-data-sources).
 
-Graph-based analytics enable deep visibility into threat relationships and attack paths:
+## Sentinel graph
 
-- Visualize incident scope with Blast Radius
-- Map user-device relationships and privileged access paths
-- Trace sensitive data movement with Purview Insider Risk Management
-- Correlate audit logs and threat intelligence using Purview Data Risk Graph
+Graph-based analytics enable deep visibility into threat relationships and attack paths: 
 
-Learn more: [Sentinel Graph](https://aka.ms/sentinel/platform/graph)
+- Instantly visualize the scope of an incident, including at-risk users and systems, with Blast Radius in Microsoft Defender’s Incident graph, enabling faster containment and remediation by prioritizing top targets reachable via compromised credentials.
 
-### Model Context Protocol (MCP) Server
+- Proactively discover threats by mapping and visualizing user-device relationships and privileged access paths to critical assets with Hunting graph in Microsoft Defender, enabling a shift from reactive alert response to strategic vulnerability identification.
+
+- Enable data security teams to trace sensitive data movement across platforms, assess the full impact of insider activity, and take targeted actions to prevent future leaks with data risks graph in Purview Insider Risk Management (IRM).
+
+- Identify and map sensitive data access and movement by correlating audit logs, Entra logs, and threat intelligence using Purview Data Risk Graph within Purview Data Security Investigation (DSI), enabling rapid scoping of potential exfiltration and visualization of risky user-file interactions.
+
+Learn more at https://aka.ms/sentinel/platform/graph.
+
+## Model Context Protocol (MCP) server
 
 The MCP server acts as a secure bridge between Security Copilot agents and Sentinel data:
 
-- Enables natural language interaction with Sentinel data
-- Standardized tools and schemas for agent creation
-- Reduces AI hallucinations and improves reliability
-- Converts KQL/GQL queries into reusable MCP tools
-- Integrates with Sentinel data lake and graph
+-  Enables Security Copilot to interact with Sentinel data using plain language, eliminating the need for KQL queries, eliminating the need for KQL queries or custom connectors, making security data more accessible to all security analysts.
 
-Learn more: [What is MCP? (Preview)](https://review.learn.microsoft.com/en-us/azure/sentinel/datalake/mcp-overview?branch=pr-en-us-305360)
+- Standardized tools and schemas that simplify the creation and deployment of Security Copilot agents, allowing SOC teams to discover, invoke, and reuse tools efficiently.
 
-### Get Started
+- Improves accuracy and reliability of investigations and automation. By using typed schemas and predictable tool discovery, MCP reduces AI hallucinations and ensures more reliable outputs during investigations and automation.
 
-To get started with Microsoft Sentinel data lake and graph:
+- Flexible and scalable automation by enabling SOC teams to convert KQL or GQL queries into reusable MCP tools that can be invoked via natural language.
 
-- [Onboarding guide](https://learn.microsoft.com/en-us/azure/sentinel/datalake/sentinel-lake-onboarding)
-- [Jupyter notebooks in Sentinel data lake (preview)](https://learn.microsoft.com/en-us/azure/sentinel/datalake/notebooks-overview)
-- [KQL and Sentinel data lake (preview)](https://learn.microsoft.com/en-us/azure/sentinel/datalake/kql-overview)
-- [Permissions for Sentinel data lake (preview)](https://learn.microsoft.com/en-us/azure/sentinel/roles)
-- [Manage data tiers and retention](https://aka.ms/manage-data-defender-portal-overview)
-- [Monitor costs for Sentinel](https://learn.microsoft.com/en-us/azure/sentinel/billing-monitor-costs)
+- Unify security context and use cases by using MCP to integrate with the Sentinel data lake and Sentinel graph to enhance threat detection, investigation, and response workflows, with practical applications like querying failed sign-in attempts and building agents through the Security Copilot Portal.
+
+Learn more at [What is MCP? (Preview) - Microsoft Security | Microsoft Learn](../sentinel/datalake/sentinel-mcp-overview.md).
+
+## Get started
+
+To get started with Microsoft Sentinel data lake and Sentinel graph, follow these steps in the [onboarding guide](../sentinel/datalake/sentinel-lake-onboarding.md). For more information on using other capabilties, see the following articles:
+
+- [Jupyter notebooks in the Microsoft Sentinel data lake (preview)](../sentinel/datalake/notebooks-overview.md).
+- [KQL and the Microsoft Sentinel data lake (preview)](../sentinel/datalake/kql-overview.md)
+- [Permissions for the Microsoft Sentinel data lake (preview)](./roles#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview)
+- [Manage data tiers and retention in Microsoft Defender Portal (preview)](./manage-data-overview)
+- [Manage and monitor costs for Microsoft Sentinel](./billing-monitor-costs.md)
