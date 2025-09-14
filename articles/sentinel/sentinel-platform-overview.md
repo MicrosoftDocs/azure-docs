@@ -88,6 +88,14 @@ For more information, see [What is MCP? (Preview) - Microsoft Security | Microso
 
 ## Microsoft Sentinel SIEM
 
+The cloud-native Microsoft Sentinel SIEM solution delivers cost-efficient, AI-powered security across multicloud and multiplatform environments. Built on a modern data lake architecture, it provides comprehensive capabilities for threat detection, investigation, response, and proactive hunting—giving security teams a unified view of their enterprise.
+
+Microsoft Sentinel SIEM is available in the Microsoft Defender portal - for customers with or without Defender XDR or an E5 license - offering a unified security operations experience. This integration streamlines workflows, enhances visibility, and helps analysts respond faster and more precisely to increasingly complex threats.
+
+The integration of Microsoft Sentinel SIEM with the Defender portal and Security Copilot creates a powerful ecosystem that enhances security operations by empowering analysts in investigating incidents and generating hunting queries.
+
+
+
 ## Get started
 
 To get started with Microsoft Sentinel data lake and Microsoft Sentinel graph, follow these steps in the [onboarding guide](../sentinel/datalake/sentinel-lake-onboarding.md). For more information on using other capabilities, see the following articles:
