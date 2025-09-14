@@ -28,7 +28,7 @@ This service supports [Azure Lighthouse](/lighthouse/overview), which lets servi
 
 Microsoft Sentinel SIEM provides security content packaged in SIEM solutions that enable you to ingest data, monitor, alert, hunt, investigate, respond, and connect with different products, platforms, and services.
 
-:::image type="content" source="articles/sentinel/media/sentinel-siem-overview/sentinel-content-hub.png" alt="Image that shows the Microsoft Sentinel content hub in the Defender portal." lighthouse="articles/sentinel/media/sentinel-siem-overview/sentinel-content-hub.png":::
+:::image type="content" source="/media/sentinel-siem-overview/sentinel-content-hub.png" alt-text="Image that shows the Microsoft Sentinel content hub in the Defender portal." lighthouse="media/sentinel-siem-overview/sentinel-content-hub.png":::
 
 For more information, see [About Microsoft Sentinel content and solutions](./sentinel-solutions.md).
 
@@ -38,7 +38,7 @@ For more information, see [About Microsoft Sentinel content and solutions](./sen
 
 Collect data across all users, devices, applications, and infrastructure, both on-premises and in multiple clouds.
 
-:::image type="content" source="articles/sentinel/media/sentinel-siem-overview/sentinel-data-connectors.png" alt="Image that shows the Microsoft Sentinel Data Connectors page in the Azure portal." lighthouse="articles/sentinel/media/sentinel-siem-overview/sentinel-data-connectors.png":::
+:::image type="content" source="media/sentinel-siem-overview/sentinel-data-connectors.png" alt-text="Image that shows the Microsoft Sentinel Data Connectors page in the Azure portal." lighthouse="media/sentinel-siem-overview/sentinel-data-connectors.png":::
 
 ---
 
@@ -47,7 +47,7 @@ Collect data across all users, devices, applications, and infrastructure, both o
 Detect previously undetected threats and minimize false positives using Microsoft's analytics and unparalleled threat intelligence.
 
 
-:::image type="content" source="articles/sentinel/media/sentinel-siem-overview/sentinel-threat-detection.png" alt="Image that shows the MITRE Attack page in the Defender portal." lighthouse="articles/sentinel/media/sentinel-siem-overview/sentinel-threat-detection.png":::
+:::image type="content" source="media/sentinel-siem-overview/sentinel-threat-detection.png" alt-text="Image that shows the MITRE Attack page in the Defender portal." lighthouse="media/sentinel-siem-overview/sentinel-threat-detection.png":::
 
 This table highlights the key capabilities in Microsoft Sentinel for threat detection.
 
@@ -64,7 +64,7 @@ This table highlights the key capabilities in Microsoft Sentinel for threat dete
 
 Investigate threats with artificial intelligence, and hunt for suspicious activities at scale.
 
-:::image type="content" source="articles/sentinel/media/sentinel-siem-overview/sentinel-investigate-threats.png" alt="Image showing an Microsoft Sentinel incident investigation graph." lighthouse="articles/sentinel/media/sentinel-siem-overview/sentinel-investigate-threats.png":::
+:::image type="content" source="media/sentinel-siem-overview/sentinel-investigate-threats.png" alt-text="Image showing an Microsoft Sentinel incident investigation graph." lighthouse="media/sentinel-siem-overview/sentinel-investigate-threats.png":::
 
 This table highlights the key capabilities in Microsoft Sentinel for threat investigation.
 
@@ -81,7 +81,7 @@ Automate your common tasks and simplify security orchestration with playbooks th
 
 Playbooks in Microsoft Sentinel are based on workflows built in Azure Logic Apps. For example, if you use the ServiceNow ticketing system, use Azure Logic Apps to automate your workflows and open a ticket in ServiceNow each time a particular alert or incident is generated.
 
-:::image type="content" source="articles/sentinel/media/sentinel-siem-overview/sentinel-playbooks.png" alt="Image that shows an automated workflow in Logic Apps that's used to respond to incidents in Microsoft Sentinel" lighthouse="articles/sentinel/media/sentinel-siem-overview/sentinel-playbooks.png":::
+:::image type="content" source="media/sentinel-siem-overview/sentinel-playbooks.png" alt-text="Image that shows an automated workflow in Logic Apps that's used to respond to incidents in Microsoft Sentinel" lighthouse="media/sentinel-siem-overview/sentinel-playbooks.png":::
 
 This table highlights the key capabilities in Microsoft Sentinel for threat response.
 
@@ -116,7 +116,7 @@ Users of such workspaces, who also aren't Azure Lighthouse-delegated users, see 
 
 For example:
 
-:::image type="content" source="articles/sentinel/media/sentinel-siem-overview/sentinel-redirect-to-defender-portal.png" alt="Screenshot showing an Azure portal Microsoft Sentinel redirect link to the Microsoft Defender portal." lighthouse="articles/sentinel/media/sentinel-siem-overview/sentinel-redirect-to-defender-portal.png":::
+:::image type="content" source="media/sentinel-siem-overview/sentinel-redirect-to-defender-portal.png" alt-text="Screenshot showing an Azure portal Microsoft Sentinel redirect link to the Microsoft Defender portal." lighthouse="media/sentinel-siem-overview/sentinel-redirect-to-defender-portal.png":::
 
 Such users use Microsoft Sentinel in the Defender portal only.
 
