@@ -28,7 +28,7 @@ This service supports [Azure Lighthouse](/azure/lighthouse/overview), which lets
 
 Microsoft Sentinel SIEM provides security content packaged in SIEM solutions that enable you to ingest data, monitor, alert, hunt, investigate, respond, and connect with different products, platforms, and services.
 
-:::image type="content" source="media/sentinel-siem-overview/sentinel-content-hub.png" alt-text="Image that shows the Microsoft Sentinel content hub in the Defender portal." lightbox="media/sentinel-siem-overview/sentinel-content-hub.png":::
+:::image type="content" source="media/sentinel-siem-overview/sentinel-content-hub-defender-portal.png" alt-text="Image that shows the Microsoft Sentinel content hub in the Defender portal." lightbox="media/sentinel-siem-overview/sentinel-content-hub-defender-portal.png":::
 
 
 For more information, see [About Microsoft Sentinel content and solutions](./sentinel-solutions.md).

@@ -1,8 +1,8 @@
 ---
 title: Visualize data lake graphs in Microsoft Sentinel
 description: Learn how to visualize and explore graph relationships in the Microsoft Sentinel data lake to understand connections between entities and data points.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.date: 09/14/2024
 ---
