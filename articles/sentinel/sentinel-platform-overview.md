@@ -1,6 +1,6 @@
 ---
 title: What is the Microsoft Sentinel Platform?
-description: Learn about Microsoft Sentinel, a scalable, cloud-native SIEM and SOAR that uses AI, analytics, and automation for threat detection, investigation, and response.
+description: Learn about Microsoft Sentinel, which consolidates security telemetry in a cloud-native data lake and graph, enabling cost‑efficient retention, KQL/AI analytics, and automated SOAR workflows with MCP support.
 author: guywi-ms
 ms.author: guywild
 ms.topic: overview
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.date: 09/14/2025
 ms.custom: sfi-image-nochange
 
-Customer intent: As a security or IT decision-maker evaluating SIEM/SOAR options, I need a concise summary of Microsoft Sentinel’s cloud-native architecture, integrations, analytics, automation, and compliance posture so I can decide whether it meets our security, operational, and migration requirements.
+Customer intent: As a security or IT decision‑maker evaluating SIEM/SOAR options, I need to assess Microsoft Sentinel’s cloud‑native, fully managed architecture—centered on the Sentinel data lake and Graph—that explains integrations, analytics and AI capabilities, automation and SOAR workflows, operational benefits, and governance posture so I can determine fit for our security, operational, and migration requirements.
 
 ---
 
