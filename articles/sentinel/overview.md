@@ -1,18 +1,18 @@
 ---
-title: What is Microsoft Sentinel? | Microsoft Docs
-description: Learn about Microsoft Sentinel, a security information and event management (SIEM) and security orchestration, automation, and response (SOAR) solution.
-author: batamig
-ms.author: bagol
+title: What is Microsoft Sentinel SIEM?
+description: Learn about Microsoft Sentinel, a scalable, cloud-native SIEM and SOAR that uses AI, analytics, and automation for threat detection, investigation, and response.
+author: guywi-ms
+ms.author: guywild
 ms.topic: overview
 ms.service: microsoft-sentinel
-ms.date: 07/16/2025
+ms.date: 09/14/2025
 ms.custom: sfi-image-nochange
 
-#CustomerIntent: As a business decision maker, I want to understand what Microsoft Sentinel offers so that I can determine whether the service meets my organization's requirements.
+# Customer intent: As a business decision-maker evaluating SIEM/SOAR solutions, I want a summary of Microsoft Sentinel’s cloud-native capabilities so I can determine whether it meets my organization’s security, compliance, and operational requirements and plan adoption or migration.
 
 ---
 
-# What is Microsoft Sentinel?
+# What is Microsoft Sentinel security information and event management (SIEM)? 
 
 Microsoft Sentinel is a scalable, cloud-native security information and event management (SIEM) that delivers scalable, cost-efficient security across multicloud and multi-platform environments with built-in AI, automation, threat intelligence, and a modern data lake architecture. Microsoft Sentinel provides cyberthreat detection, investigation, response, and proactive hunting, with a bird's-eye view across your enterprise.
 
@@ -61,19 +61,6 @@ The following table highlights the key capabilities in Microsoft Sentinel for da
 |Out of the box data connectors  | Many connectors are packaged with SIEM solutions for Microsoft Sentinel and provide real-time integration. These connectors include Microsoft sources and Azure sources like Microsoft Entra ID, Azure Activity, Azure Storage, and more. <br><br>Out of the box connectors are also available for the broader security and applications ecosystems for non-Microsoft solutions. You can also use common event format, Syslog, or REST-API to connect your data sources with Microsoft Sentinel.  | [Microsoft Sentinel data connectors](connect-data-sources.md)   |
 |Custom connectors    |  Microsoft Sentinel supports ingesting data from some sources without a dedicated connector. If you're unable to connect your data source to Microsoft Sentinel using an existing solution, create your own data source connector.        |  [Resources for creating Microsoft Sentinel custom connectors](create-custom-connector.md).       |
 |Data normalization     | Microsoft Sentinel uses both query time and ingestion time normalization to translate various sources into a uniform, normalized view.        |   [Normalization and the Advanced Security Information Model (ASIM)](normalization.md)      |
-
-## Microsoft Sentinel data lake
-
-Microsoft Sentinel provides a modern data lake, designed to help security operations teams simplify data management, optimize costs, and accelerate the adoption of AI. Microsoft Sentinel data lake provides affordable, long-term storage so that organizations no longer are required to compromise between cost and better security. Security operations teams now have enhanced visibility to resolve incidents faster within the Microsoft Sentinel experience and enriched through integration with data analytics tools.
-
-| Capability | Description | Get started  |
-|-------------|------------|--------------|
-| Optimize costs and coverage | Manage costs and coverage with seamless data tiering and a centralized management experience.  | [Log retention plans in Microsoft Sentinel](log-plans.md)                                |
-| Interactive KQL Exploration | KQL queries allow you to interactively explore and analyze data in the Microsoft Sentinel data lake. You can run ad-hoc queries, create scheduled jobs, and promote data to the analytics tier for further analysis. The KQL query editor provides a familiar interface for security analysts to work with long-term data.                        | [KQL and Microsoft Sentinel data lake (overview)](datalake/kql-overview.md)                        |
-| Notebooks for Exploration   | Jupyter notebooks are an integral part of the Microsoft Sentinel data lake ecosystem, offering powerful tools for data analysis and visualization. The notebooks are provided by a Visual Studio Code extension that allows you to interact with the data lake using Python and Apache Spark. Notebooks enable you to perform complex data transformations, run machine learning models, and create visualizations directly within the notebook environment. | [Notebooks (overview)](datalake/notebooks-overview.md)                                                               |
-
-
-:::image type="content" source="media/overview/data-lake-exploration.png" lightbox="media/overview/data-lake-exploration.png" alt-text="A screenshot showing the KQL query editor page in Data lake exploration.":::
 
 ## Detect threats
 
