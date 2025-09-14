@@ -231,9 +231,6 @@
           displayName: data lake
         - name: Notebook examples for data lake exploration
           href: datalake/notebook-examples.md
-    - name: Visualize data lake graphs
-      href: graph/visualize-data-lake-graphs.md
-      displayName: data lake, graph
     - name: Microsoft Sentinel data lake service limits
       href: datalake/sentinel-lake-service-limits.md
 
