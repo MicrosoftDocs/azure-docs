@@ -3,7 +3,7 @@ title: Overview of blob soft delete vs. blob versioning
 titleSuffix: Azure Storage
 description: Learn how to choose between blob soft delete and blob versioning for account data protection.
 author: despindolams
-ms.author: norm
+ms.author: normesta
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 09/15/2025
@@ -11,9 +11,9 @@ ms.date: 09/15/2025
 
 # Choosing between blob soft delete and blob versioning
 
-Both **blob soft delete** and **blob versioning** can help you protect from deletes and overwrites. These features can be used independently or together, depending on your workload, cost sensitivity, and recovery needs. Please reference [data protection overview](https://docs.azure.cn/en-us/storage/blobs/data-protection-overview) for additional blob/container protection mechanisms.
-
 This article helps you determine when to enable soft delete, versioning, both, or neither.
+
+Both **blob soft delete** and **blob versioning** can help you protect from deletes and overwrites. These features can be used independently or together, depending on your workload, cost sensitivity, and recovery needs. Please reference [data protection overview](https://docs.azure.cn/en-us/storage/blobs/data-protection-overview) for additional blob/container protection mechanisms.
 
 ## Our Recommendation
 
@@ -21,9 +21,9 @@ All storage accounts that store critical data should enable soft-delete and vers
 
 ## Overview of Features
 
-| **Feature** | **Protects Against** | **Retention Duration** | **Storage Behavior** | **Hierarchical Namespace (HNS)**<br>**Considerations** |
+| **Feature** | **Protects Against** | **Retention Duration** | **Storage Behavior** | **Hierarchical Namespace (HNS) Considerations** |
 |---|---|---|---|---|
-| **Soft delete** | Deletes and overwrites for blob accounts.Deletes for hierarchical  namespace accounts. | Up to 365 days (configurable) | Creates a soft-deleted snapshot for each overwrite. Creates a soft-deleted blob for each delete. | Soft-delete only protects delete operations for HNS enabled accounts.With the [Set Blob Expiry](/rest/api/storageservices/set-blob-expiry) API, an expired file can't be restored by using the blob soft delete feature. |
+| **Soft delete** | Deletes and overwrites for blob accounts. Deletes for hierarchical  namespace accounts. | Up to 365 days (configurable) | Creates a soft-deleted snapshot for each overwrite. Creates a soft-deleted blob for each delete. | Soft-delete only protects delete operations for HNS enabled accounts. With the [Set Blob Expiry](/rest/api/storageservices/set-blob-expiry) API, an expired file can't be restored by using the blob soft delete feature. |
 | **Versioning** | Deletes and overwrites for blob accounts. | Indefinite (until explicitly deleted) | Creates a new version on each write. | Versioning is not available for HNS enabled accounts. |
 
 > [!NOTE]
@@ -35,25 +35,18 @@ All storage accounts that store critical data should enable soft-delete and vers
 
 Enable soft delete if:
 
-You want to recover blobs that were accidentally deleted or overwritten.<br>Note that for hierarchical namespace enabled accounts, soft delete only protects from deletes, not overwrites. 
-
-You need a time-limited safety net for blob recovery, equal to your retention days setting.
+* You want to recover blobs that were accidentally deleted or overwritten.<br>Note that for hierarchical namespace enabled accounts, soft delete only protects from deletes, not overwrites.
+* You need a time-limited safety net for blob recovery, equal to your retention days setting.
 
 ### Considerations
 
-A soft-deleted snapshot is created for every overwrite operation. Blob soft delete doesn't protect against operations to write blob metadata or properties.
-
-A soft-deleted blob is created for every delete operation. Each soft-deleted blob is billed at the full size of the blob at the time of the operation.
-
-Avoid exceeding **1,000 soft-deleted snapshots per blob** during the retention period to prevent performance degradation during blob listing operations.
-
-Retention is limited to **a maximum of 365 days**.
-
-If soft delete is enabled, there is no way to permanently delete until the soft-delete retention expires. All deletes will be "soft" and when the retention period expires, the soft-deleted blob is permanently deleted.
-
-If soft delete is disabled, all deletes will be permanent, but the existing soft deleted data will be retained until the retention period expires.
-
-The contents of soft-deleted blobs are not accessible via Read APIs. To access the data, you must first undelete the blob.  
+* A soft-deleted snapshot is created for every overwrite operation. Blob soft delete doesn't protect against operations to write blob metadata or properties.
+* A soft-deleted blob is created for every delete operation. Each soft-deleted blob is billed at the full size of the blob at the time of the operation.
+* Avoid exceeding **1,000 soft-deleted snapshots per blob** during the retention period to prevent performance degradation during blob listing operations.
+* Retention is limited to **a maximum of 365 days**.
+* If soft delete is enabled, there is no way to permanently delete until the soft-delete retention expires. All deletes will be "soft" and when the retention period expires, the soft-deleted blob is permanently deleted.
+* If soft delete is disabled, all deletes will be permanent, but the existing soft deleted data will be retained until the retention period expires.
+* The contents of soft-deleted blobs are not accessible via Read APIs. To access the data, you must first undelete the blob.  
 
 ## When to Use Versioning
 
@@ -61,27 +54,27 @@ The contents of soft-deleted blobs are not accessible via Read APIs. To access t
 
 Enable versioning if:
 
-You want to maintain a complete history of changes to a blob. For versioning, both overwrites and deletes will create a previous version. Deletion will remove the current version, but the previous versions will remain.
+- You want to maintain a complete history of changes to a blob. For versioning, both overwrites and deletes will create a previous version. Deletion will remove the current version, but the previous versions will remain.
 
-You want to save changes to metadata and properties as previous versions. 
+- You want to save changes to metadata and properties as previous versions. 
 
-You need long-term or indefinite retention of previous blob states.
+- You need long-term or indefinite retention of previous blob states.
 
-You want to maintain quick access to previous versions without having to undelete.
+- You want to maintain quick access to previous versions without having to undelete.
 
 ### Considerations
 
-Each write operation ([Put Blob,](/rest/api/storageservices/put-blob) [Put Block List,](/rest/api/storageservices/put-block-list) [Set Blob Metadata,](/rest/api/storageservices/set-blob-metadata) and [Copy Blob)](/rest/api/storageservices/copy-blob) creates a new version of the blob.
+- Each write operation ([Put Blob,](/rest/api/storageservices/put-blob) [Put Block List,](/rest/api/storageservices/put-block-list) [Set Blob Metadata,](/rest/api/storageservices/set-blob-metadata) and [Copy Blob)](/rest/api/storageservices/copy-blob) creates a new version of the blob.
 
-Versions are retained **until explicitly deleted**, offering long-term recovery options.
+- Versions are retained **until explicitly deleted**, offering long-term recovery options.
 
-Avoid exceeding **1,000 versions per blob** to maintain optimal performance and prevent performance degradation during blob listing operations.
+- Avoid exceeding **1,000 versions per blob** to maintain optimal performance and prevent performance degradation during blob listing operations.
 
-You can delete specific versions at any time. Separate roles are required to delete current versions and previous versions. That separation can be helpful to avoid mistakes. The same identity can have both of these roles assigned. [Learn more.](/azure/storage/blobs/versioning-overview)
+- You can delete specific versions at any time. Separate roles are required to delete current versions and previous versions. That separation can be helpful to avoid mistakes. The same identity can have both of these roles assigned. [Learn more.](/azure/storage/blobs/versioning-overview)
 
-You can [configure a lifecycle management policy](/azure/storage/blobs/lifecycle-management-policy-configure) or [Azure Storage Actions](/azure/storage-actions/overview) to control the lifecycle of your versions and define retention conditions. Keep in mind that lifecycle management policies are triggered based on the original creation date or modified date of the blob, not when that blob became a previous version. To prune previous versions based on when the subsequent changes were made, custom code is needed.  
+- You can [configure a lifecycle management policy](/azure/storage/blobs/lifecycle-management-policy-configure) or [Azure Storage Actions](/azure/storage-actions/overview) to control the lifecycle of your versions and define retention conditions. Keep in mind that lifecycle management policies are triggered based on the original creation date or modified date of the blob, not when that blob became a previous version. To prune previous versions based on when the subsequent changes were made, custom code is needed.  
 
-Versioning is not available for accounts with hierarchical namespace enabled. 
+- Versioning is not available for accounts with hierarchical namespace enabled. 
 
 ## When to Use Both
 
@@ -93,13 +86,13 @@ Enable both soft delete and versioning if:
 
 ### Considerations
 
-When versioning is enabled, deletion of the current version creates a previous version. When soft-delete is enabled, deletion of the previous version creates a soft-deleted previous version. ([Learn more](/azure/storage/blobs/soft-delete-blob-overview))
+- When versioning is enabled, deletion of the current version creates a previous version. When soft-delete is enabled, deletion of the previous version creates a soft-deleted previous version. ([Learn more](/azure/storage/blobs/soft-delete-blob-overview))
 
-Soft-delete retention only applies to deletion of previous versions. If you would like to permanently delete soft-delete versions before the retention period, please review these [instructions.](https://techcommunity.microsoft.com/blog/azurepaasblog/permanent-delete-of-soft-deleted-snapshot-and-versions-without-disabling-soft-de/4026868)
+- Soft-delete retention only applies to deletion of previous versions. If you would like to permanently delete soft-delete versions before the retention period, please review these [instructions.](https://techcommunity.microsoft.com/blog/azurepaasblog/permanent-delete-of-soft-deleted-snapshot-and-versions-without-disabling-soft-de/4026868)
 
-Avoid exceeding **1,000 versions per blob** to maintain optimal performance and prevent performance degradation during blob listing operations.
+- Avoid exceeding **1,000 versions per blob** to maintain optimal performance and prevent performance degradation during blob listing operations.
 
-Each feature retains data in a different way. You can set different retention periods for versioning and soft delete to balance cost and risk of data loss.
+- Each feature retains data in a different way. You can set different retention periods for versioning and soft delete to balance cost and risk of data loss.
 
 ## When to Use Neither
 
@@ -121,7 +114,8 @@ If versioning and soft delete are enabled and the previous version you want to a
 
 ## Cost Considerations
 
-Enabling soft delete or versioning for frequently overwritten data may result in increased storage capacity charges and increased latency when listing blobs. Block-level updates using [Put Block](/rest/api/storageservices/put-block) and [Put Block List](/rest/api/storageservices/put-block-list) can reduce storage costs. If you have not changed a blob, version, or snapshot's tier, then you are billed for unique blocks of data across that blob its versions, and snapshots. You will be billed for active data until the blob, versions, and snapshots are permanently deleted. [Learn more](/azure/storage/blobs/soft-delete-blob-overview)
+Enabling soft delete or versioning for frequently overwritten data may result in increased storage capacity charges and increased latency when listing blobs. Block-level updates using [Put Block](/rest/api/storageservices/put-block) and [Put Block List](/rest/api/storageservices/put-block-list) can reduce storage costs. If you have not changed a blob, version, or snapshot's tier, then you are billed for unique blocks of data across that blob its versions, and snapshots. You will be billed for active data until the blob, versions, and snapshots are permanently deleted.
+[Learn more](/azure/storage/blobs/soft-delete-blob-overview)
 
 ## Related Articles
 
