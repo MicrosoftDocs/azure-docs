@@ -227,7 +227,7 @@ az maintenance configuration create \
 
 # [Azure PowerShell](#tab/azurepowershell)
 
-You can use the `New-AzMaintenanceConfiguration` cmdlet to create your configuration. See [New-AzMaintenanceConfiguration](https://learn.microsoft.com/powershell/module/az.maintenance/new-azmaintenanceconfiguration) for details
+You can use the `New-AzMaintenanceConfiguration` cmdlet to create your configuration. See [New-AzMaintenanceConfiguration](/powershell/module/az.maintenance/new-azmaintenanceconfiguration) for details
 
 ```azurepowershell-interactive
 New-AzMaintenanceConfiguration
