@@ -16,7 +16,7 @@ ai-usage: ai-assisted
 This article introduces features in Azure API Management that help you reduce the carbon footprint of your API traffic. Use the features to adjust API traffic based on carbon emissions in different Azure regions.
 
 > [!NOTE]
-> * Environmental sustainability features are currently in limited preview. To sign up, [complete the form](https://aka.ms/apim/sustainability-preview). 
+> * Environmental sustainability features are currently in limited preview. To sign up, [complete the form](https://aka.ms/apim/sustainability/preview/join). 
 > * These features are currently available in [select regions](#region-availability) in the Azure API Management classic tiers (Developer, Basic, Standard, Premium).
 
 ## About sustainable APIs
