@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 02/13/2025
+ms.date: 09/01/2025
 ms.author: jianleishen
 ---
 
@@ -183,7 +183,64 @@ ParquetSource sink(
     skipDuplicateMapOutputs: true) ~> ParquetSink
 ```
 
-## Data type support
+## Data type mapping for Parquet
+
+When reading data from the source connector in Parquet format, the following mappings are used from Parquet data types to interim data types used by the service internally.
+
+| Parquet type                  | Interim service data type |
+|-------------------------------|---------------------------|
+| BOOLEAN                       | Boolean              |
+| INT_8                         | SByte                |
+| INT_16                        | Int16                |
+| INT_32                        | Int32                |
+| INT_64                        | Int64                |
+| INT96                         | DateTime             |
+| UINT_8                        | Byte                 |
+| UINT_16                       | UInt16               |
+| UINT_32                       | UInt32               |
+| UINT_64                       | UInt64               |
+| DECIMAL                       | Decimal              |
+| FLOAT                         | Single               |
+| DOUBLE                        | Double               |
+| DATE                          | Date                 |
+| TIME_MILLIS                   | TimeSpan             |
+| TIME_MICROS                   | Int64                | 
+| TIMESTAMP_MILLIS              | DateTime             |
+| TIMESTAMP_MICROS              | Int64                |
+| STRING                        | String               |
+| UTF8                          | String               |
+| ENUM                          | Byte array           |
+| UUID                          | Byte array           |
+| JSON                          | Byte array           |
+| BSON                          | Byte array           |
+| BINARY                        | Byte array           |
+| FIXED_LEN_BYTE_ARRAY          | Byte array           |
+
+When writing data to the sink connector in Parquet format, the following mappings are used from interim data types used by the service internally to Parquet data types.
+
+| Interim service data type | Parquet type |
+|----------------------|---------------------|
+| Boolean              | BOOLEAN             |
+| SByte                | INT_8               |
+| Int16                | INT_32              |
+| Int32                | INT_32              |
+| Int64                | INT_64              |
+| Byte                 | INT_32              |
+| UInt16               | INT_32              |
+| UInt32               | INT_64              |
+| UInt64               | DECIMAL             |
+| Decimal              | DECIMAL             |
+| Single               | FLOAT               |
+| Double               | DOUBLE              |
+| Date                 | DATE                |
+| DateTime             | INT96               |
+| DateTimeOffset       | INT96               |
+| TimeSpan             | INT96               |
+| String               | UTF8                |
+| GUID                 | UTF8                |
+| Byte array           | BINARY              |
+
+To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
 Parquet complex data types (e.g. MAP, LIST, STRUCT) are currently supported only in Data Flows, not in Copy Activity. To use complex types in data flows, do not import the file schema in the dataset, leaving schema blank in the dataset. Then, in the Source transformation, import the projection.
 

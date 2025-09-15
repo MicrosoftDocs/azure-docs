@@ -8,6 +8,7 @@ ms.author: chpalm
 ms.date: 03/29/2023
 ms.topic: include
 ms.service: azure-communication-services
+ms.custom: sfi-ropc-nochange
 ---
 
 ## Sample code

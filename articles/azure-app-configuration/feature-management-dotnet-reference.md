@@ -478,12 +478,16 @@ public class BrowserFilter : IFeatureFilter
 When a feature filter is registered for a feature flag, the alias used in configuration is the name of the feature filter type with the _Filter_ suffix, if any, removed. For example, `MyCriteriaFilter` would be referred to as _MyCriteria_ in configuration.
 
 ``` JavaScript
-"MyFeature": {
-    "EnabledFor": [
-        {
-            "Name": "MyCriteria"
-        }
-    ]
+{
+    "id": "MyFeature",
+    "enabled": true,
+    "conditions": {
+        "client_filters": [
+            {
+                "name": "MyCriteria"
+            }
+        ]
+    }
 }
 ```
 This name can be overridden by using the `FilterAliasAttribute`. A feature filter can be decorated with this attribute to declare the name that should be used in configuration to reference this feature filter within a feature flag.
@@ -596,15 +600,19 @@ Each of the built-in feature filters has its own parameters. Here's the list of 
 This filter provides the capability to enable a feature based on a set percentage.
 
 ``` JavaScript
-"EnhancedPipeline": {
-    "EnabledFor": [
-        {
-            "Name": "Microsoft.Percentage",
-            "Parameters": {
-                "Value": 50
+{
+    "id": "EnhancedPipeline",
+    "enabled": true,
+    "conditions": {
+        "client_filters": [
+            {
+                "name": "Microsoft.Percentage",
+                "parameters": {
+                    "Value": 50
+                }
             }
-        }
-    ]
+        ]
+    }
 }
 ```
 
@@ -613,16 +621,20 @@ This filter provides the capability to enable a feature based on a set percentag
 This filter provides the capability to enable a feature based on a time window. If only `End` is specified, the feature is considered on until that time. If only `Start` is specified, the feature is considered on at all points after that time.
 
 ``` JavaScript
-"EnhancedPipeline": {
-    "EnabledFor": [
-        {
-            "Name": "Microsoft.TimeWindow",
-            "Parameters": {
-                "Start": "Wed, 01 May 2019 13:59:59 GMT",
-                "End": "Mon, 01 Jul 2019 00:00:00 GMT"
+{
+    "id": "EnhancedPipeline",
+    "enabled": true,
+    "conditions": {
+        "client_filters": [
+            {
+                "name": "Microsoft.TimeWindow",
+                "parameters": {
+                    "Start": "Wed, 01 May 2019 13:59:59 GMT",
+                    "End": "Mon, 01 Jul 2019 00:00:00 GMT"
+                }
             }
-        }
-    ]
+        ]
+    }
 }
 ```
 
@@ -632,26 +644,24 @@ The time window can be configured to recur periodically. This can be useful for 
 > `Start` and `End` must be both specified to enable `Recurrence`.
 
 ``` JavaScript
-"EnhancedPipeline": {
-    "EnabledFor": [
-        {
-            "Name": "Microsoft.TimeWindow",
-            "Parameters": {
-                "Start": "Fri, 22 Mar 2024 20:00:00 GMT",
-                "End": "Sat, 23 Mar 2024 02:00:00 GMT",
-                "Recurrence": {
-                    "Pattern": {
-                        "Type": "Daily",
-                        "Interval": 1
-                    },
-                    "Range": {
-                        "Type": "NoEnd"
-                    }
+"client_filters": [
+    {
+        "name": "Microsoft.TimeWindow",
+        "parameters": {
+            "Start": "Fri, 22 Mar 2024 20:00:00 GMT",
+            "End": "Sat, 23 Mar 2024 02:00:00 GMT",
+            "Recurrence": {
+                "Pattern": {
+                    "Type": "Daily",
+                    "Interval": 1
+                },
+                "Range": {
+                    "Type": "NoEnd"
                 }
             }
         }
-    ]
-}
+    }
+]
 ```
 
 The `Recurrence` settings are made up of two parts: `Pattern` (how often the time window repeats) and `Range` (for how long the recurrence pattern repeats). 
@@ -769,39 +779,43 @@ To create a recurrence rule, you must specify both `Pattern` and `Range`. Any pa
 This filter provides the capability to enable a feature for a target audience. An in-depth explanation of targeting is explained in the [targeting](#targeting) section. The filter parameters include an `Audience` object that describes users, groups, excluded users/groups, and a default percentage of the user base that should have access to the feature. Each group object that is listed in the `Groups` section must also specify what percentage of the group's members should have access. If a user is specified in the `Exclusion` section, either directly or if the user is in an excluded group, the feature is disabled. Otherwise, if a user is specified in the `Users` section directly, or if the user is in the included percentage of any of the group rollouts, or if the user falls into the default rollout percentage then that user will have the feature enabled.
 
 ``` JavaScript
-"EnhancedPipeline": {
-    "EnabledFor": [
-        {
-            "Name": "Microsoft.Targeting",
-            "Parameters": {
-                "Audience": {
-                    "Users": [
-                        "Jeff",
-                        "Alicia"
-                    ],
-                    "Groups": [
-                        {
-                            "Name": "Ring0",
-                            "RolloutPercentage": 100
-                        },
-                        {
-                            "Name": "Ring1",
-                            "RolloutPercentage": 50
-                        }
-                    ],
-                    "DefaultRolloutPercentage": 20,
-                    "Exclusion": {
+{
+    "id": "EnhancedPipeline",
+    "enabled": true,
+    "conditions": {
+        "client_filters": [
+            {
+                "name": "Microsoft.Targeting",
+                "parameters": {
+                    "Audience": {
                         "Users": [
-                            "Ross"
+                            "Jeff",
+                            "Alicia"
                         ],
                         "Groups": [
-                            "Ring2"
-                        ]
+                            {
+                                "Name": "Ring0",
+                                "RolloutPercentage": 100
+                            },
+                            {
+                                "Name": "Ring1",
+                                "RolloutPercentage": 50
+                            }
+                        ],
+                        "DefaultRolloutPercentage": 20,
+                        "Exclusion": {
+                            "Users": [
+                                "Ross"
+                            ],
+                            "Groups": [
+                                "Ring2"
+                            ]
+                        }
                     }
                 }
             }
-        }
-    ]
+        ]
+    } 
 }
 ```
 

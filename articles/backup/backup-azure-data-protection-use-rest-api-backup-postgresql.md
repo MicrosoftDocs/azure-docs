@@ -9,6 +9,7 @@ author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.custom:
   - build-2025
+  - sfi-ropc-nochange
 # Customer intent: "As a database administrator, I want to configure and manage backups for PostgreSQL databases using a REST API, so that I can ensure data protection and recovery in my cloud environment."
 ---
 

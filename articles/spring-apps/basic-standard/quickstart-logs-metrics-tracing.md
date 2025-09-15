@@ -7,8 +7,12 @@ ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 08/19/2025
 ms.update-cycle: 1095-days
-ms.custom: devx-track-java, devx-track-extended-java, mode-other
 zone_pivot_groups: programming-languages-spring-apps
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - mode-other
+  - sfi-image-nochange
 ---
 
 # Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing

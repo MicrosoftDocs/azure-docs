@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: concept-article
 ms.date: 05/04/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Data security and privacy policies for Google connectors in Azure Logic Apps

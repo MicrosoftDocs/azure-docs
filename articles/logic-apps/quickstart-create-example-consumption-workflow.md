@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: quickstart
 ms.collection: ce-skilling-ai-copilot
-ms.date: 04/04/2025
+ms.date: 09/11/2025
 ms.update-cycle: 180-days
 ms.custom:
   - mode-ui
