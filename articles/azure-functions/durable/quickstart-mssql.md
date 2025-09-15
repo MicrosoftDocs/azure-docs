@@ -3,9 +3,12 @@ title: "Quickstart: Create a Durable Functions app that uses the MSSQL storage p
 description: Create a Durable Functions app to use the Microsoft SQL Server (MSSQL) storage provider in Azure Functions.
 author: lilyjma
 ms.topic: quickstart
-ms.custom: devx-track-dotnet
 ms.date: 05/06/2025
 ms.reviewer: azfuncdf
+ms.custom:
+  - devx-track-dotnet
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Quickstart: Create a Durable Functions app that uses the MSSQL storage provider
