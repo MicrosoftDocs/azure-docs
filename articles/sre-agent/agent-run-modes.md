@@ -36,7 +36,7 @@ When the agent is working in *review* mode, it works on your behalf to create an
 
 The following diagram depicts the decision flow of how an agent gets both consent and the right credentials to operate in review mode.
 
-:::image type="content" source="media/agent-actions/azure-sre-agent-agent-actions-review-mode.png" alt-text="Diagram of the consent and credentials request flow in review mode for Azure SRE Agent.":::
+:::image type="content" source="media/agent-run-modes/azure-sre-agent-agent-actions-review-mode.png" alt-text="Diagram depicting the security workflow with SRE Agent runs in review mode. ":::
 
 | Step | Description | Example scenario |
 |---|---|---|
@@ -60,7 +60,7 @@ When the agent is working in *autonomous* mode inside an incident resolution wor
 
 The following diagram depicts the decision flow of how an agent gets credentials in autonomous mode.
 
-:::image type="content" source="media/agent-actions/azure-sre-agent-agent-actions-autonomous-mode.png" alt-text="Diagram showing how the credentials request flow works in autonomous mode in Azure SRE Agent.":::
+:::image type="content" source="media/agent-run-modes/azure-sre-agent-agent-actions-autonomous-mode.png" alt-text="Diagram depicting the security workflow with SRE Agent runs in autonomous mode.":::
 
 | Step | Description | Example scenario |
 |---|---|---|

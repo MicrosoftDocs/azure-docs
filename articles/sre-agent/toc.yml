@@ -35,7 +35,7 @@ items:
     - name: Agent and user permissions
       href: agent-user-permissions.md
     - name: Agent run modes
-      href: agent-actions.md
+      href: agent-run-modes.md
 - name: Reference
   items:
     - name: Starter prompts

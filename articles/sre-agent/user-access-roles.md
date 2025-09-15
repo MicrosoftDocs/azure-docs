@@ -27,43 +27,16 @@ Azure SRE Agent uses RBAC-enforced roles that grant different levels of access t
 
 Agent actions are categorized into the following categories:
 
-- Threads
-- Graph
-- Memory
+- Chat threads
 - Incident management
-
-> [!NOTE]
-> While SRE Agent users can't directly manipulate graph and memory settings and data, their actions can affect these categories.
 
 The following table maps roles to types of users to the key actions associated with how they use the agent.
 
 | Role | Typical users | Key actions |
 |---|---|---|
 | *SRE Agent Reader* | Auditors, monitoring | ▪️View and read agent threads<br><br>▪️View and read resource graph and connected repos<br><br>▪️View and read incident management related activities |
-| *SRE Agent Standard User* | L1 Ops, L2 SREs, specialists, first responders, and anyone who wants to query or diagnose Azure resources | ▪️All *SRE Agent Reader* allowed actions<br><br>▪️Create new agent threads and chat with the agent<br><br>▪️Connect source code repos to resources at resource graph level<br><br>▪️Contribute to agent’s short term/long term memory via chat  |
+| *SRE Agent Standard User* | L1 Ops, L2 SREs, specialists, first responders, and anyone who wants to query or diagnose Azure resources | ▪️All *SRE Agent Reader* allowed actions<br><br>▪️Create new agent threads and chat with the agent<br><br>▪️Connect source code repos to resources at resource graph level |
 | *SRE Agent Admin* | Cloud Admins, SRE managers |▪️All *SRE Agent Standard User* allowed actions<br><br>▪️Create and manage incident response plans<br><br>▪️Approve thread/incident level actions - approve write tools / az cli / kubectl executions<br><br>▪️All delete actions  |
-
-This diagram depicts how roles are associated with users starting from agent creation.
-
-:::image type="content" source="media/roles-access-management/azure-sre-agent-roles-onboarding.png" alt-text="Diagram of Azure SRE Agent roles onboarding flow.":::
-
-1. Users with the subscription *Owner* role create a new SRE Agent resource.
-
-1. The user account that created the agent is automatically assigned the *SRE Agent Admin* role.
-
-1. To grant other users access to the agent, the account used to create the agent then assigns either *SRE Agent Standard User* or *SRE Agent Reader* roles to the appropriate accounts.
-
-1. New users get an onboarding email notifying them of access granted to the agent.
-
-1. Users sign in and access the agent.
-
-1. RBAC security is enforced throughout agent use.
-
-Only the subscription *Owner* of the resource group hosting SRE Agent is able to:
-
-- Assign SRE Agent RBAC roles to other users
-- Create and delete agents
-- Assign managed resource groups to the agent
 
 ## Example workflow
 

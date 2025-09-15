@@ -38,12 +38,6 @@ As resource groups are added or removed from the agent's scope, the managed iden
 > [!NOTE]
 > You can't directly remove specific permissions from the agent. To restrict the agent's access, you must remove the entire resource group from the agent's scope.
 
-## User permissions
-
-The permissions associated with a user define what actions the user is allowed to take on Azure resources directly. The permissions are e enforced by Azure RBAC at resource, resource group, or subscription scope.  
-
-Examples: Contributor on an AKS cluster, Reader on a Storage Account, Owner on a Resource Group.
-
 ## Agent actions
 
 The agent can only take action when it has user consent and the appropriate RBAC assignments to take an action. Users provide explicit consent when the agent is running in review mode, and implicit consent for agents working autonomously in the context of an incident response plan.
@@ -60,7 +54,7 @@ Examples of agent actions include:
 
 - Access observability data (dashboards, charts, traces).
 
-For more information on how RBAC security is enforced, see [Agent actions in Azure SRE Agent](agent-actions.md).
+For more information on how RBAC security is enforced, see [Agent run modes in Azure SRE Agent](agent-actions.md).
 
 ## User actions
 
