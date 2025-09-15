@@ -70,6 +70,9 @@ Azure Front Door private link is available in the following regions:
 
 The Azure Front Door Private Link feature is region agnostic but for the best latency, you should always pick an Azure region closest to your origin when choosing to enable Azure Front Door Private Link endpoint. If your origin's region is not supported in the list of regions AFD Private Link supports, pick the next nearest region. You can use [Azure network round-trip latency statistics](../networking/azure-network-latency.md) to determine the next nearest region in terms of latency. We are in the process of enabling support for more regions. Once a new region is supported, you can follow these [instructions](blue-green-deployment.md) to gradually shift traffic to the new region.
 
+## Limitation of region availability
+In order to create Azure Front Door Private Link, it is expected that region of Azure Front Door private link should match with region of origin. For instance AFD private link with Japan East region can not link to origin situated in Japan West region.   
+
 ## Association of a private endpoint with an Azure Front Door profile
 
 ### Private endpoint creation
