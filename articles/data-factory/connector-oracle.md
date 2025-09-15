@@ -4,10 +4,13 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from supported source stores to an Oracle database, or from Oracle to supported sink stores, using Data Factory or Azure Synapse Analytics pipelines.
 author: jianleishen
 ms.subservice: data-movement
-ms.custom: synapse
 ms.topic: conceptual
-ms.date: 07/24/2025
+ms.date: 08/29/2025
 ms.author: jianleishen
+ms.custom:
+  - synapse
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Copy data from and to Oracle by using Azure Data Factory or Azure Synapse Analytics
@@ -39,6 +42,7 @@ Specifically, this Oracle connector supports:
     - Oracle Database 19c and higher
     - Oracle Database 18c and higher
     - Oracle Database 12c and higher
+    - Oracle Database 11g and higher
 - The following versions of an Oracle database for version 1.0:
     - Oracle 19c R1 (19.1) and higher
     - Oracle 18c R1 (18.1) and higher

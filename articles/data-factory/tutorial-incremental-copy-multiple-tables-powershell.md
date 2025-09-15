@@ -5,9 +5,11 @@ ms.author: yexu
 author: dearandyxu
 ms.reviewer: douglasl, whhender
 ms.topic: tutorial
-ms.custom: devx-track-azurepowershell
 ms.date: 10/03/2024
 ms.subservice: data-movement
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-ropc-nochange
 ---
 
 # Incrementally load data from multiple tables in SQL Server to Azure SQL Database using PowerShell

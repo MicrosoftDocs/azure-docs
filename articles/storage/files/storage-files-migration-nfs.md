@@ -19,15 +19,15 @@ This article covers the basic aspects of migrating from Linux file servers to NF
 
 ## Applies to
 
-| File share type | SMB | NFS |
-|-|:-:|:-:|
-| Standard file shares (GPv2), LRS/ZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Standard file shares (GPv2), GRS/GZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| File share type                            |                SMB                |                 NFS                 |
+| ------------------------------------------ | :-------------------------------: | :---------------------------------: |
+| Standard file shares (GPv2), LRS/ZRS       | ![No](../media/icons/no-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Standard file shares (GPv2), GRS/GZRS      | ![No](../media/icons/no-icon.png) |  ![No](../media/icons/no-icon.png)  |
 | Premium file shares (FileStorage), LRS/ZRS | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
 ## Prerequisites
 
-You'll need at least one NFS Azure file share mounted to a Linux virtual machine (VM). To create one, see [Create an NFS Azure file share and mount it on a Linux VM](storage-files-quick-create-use-linux.md). We recommend mounting the share with nconnect to use multiple TCP connections. For more information, see [Improve NFS Azure file share performance](nfs-performance.md#nfs-nconnect).
+You'll need at least one NFS Azure file share mounted to a Linux virtual machine (VM). To create one, see [Create an Azure classic file share](./create-classic-file-share.md). We recommend mounting the share with nconnect to use multiple TCP connections. For more information, see [Improve NFS Azure file share performance](nfs-performance.md#nfs-nconnect).
 
 ## Migration tools
 
@@ -125,7 +125,7 @@ By default, fpsync will specify the following rsync options: `-lptgoD -v --numer
 
 ### Final pass
 
-After several incremental syncs, you need to do a final pass to delete any files on that destination that don't exist at source. You can either do this manually with `rsync --delete` to delete extra files from the `/data/dst/` directory, or you can use fpsync with the -E option. For details, see [The Final Pass](http://www.fpart.org/fpsync/#the-final-pass).  
+After several incremental syncs, you need to do a final pass to delete any files on that destination that don't exist at source. You can either do this manually with `rsync --delete` to delete extra files from the `/data/dst/` directory, or you can use fpsync with the -E option. For details, see [The Final Pass](http://www.fpart.org/fpsync/#the-final-pass).
 
 ## Comparing rsync and fpsync with different datasets
 
@@ -136,7 +136,7 @@ This section compares the performance of rsync and fpsync with different dataset
 The following table lists the different datasets we used to compare copy tool performance under different workloads.
 
 | **Config #** | **Copy type**              | **File count** | **Directory count** | **File size** | **Total size** |
-|--------------|----------------------------|----------------|---------------------|---------------|----------------|
+| ------------ | -------------------------- | -------------- | ------------------- | ------------- | -------------- |
 | 1.1          | Baseline copy              | 1 million      | 1                   | 0-32 KiB      | 18 GiB         |
 | 1.2          | Incremental (delta change) | 1 million      | 1                   | 0-32 KiB      | 18 GiB         |
 | 2            | Baseline copy              | 191,345        | 3,906               | 0-32 KiB      | 3 GiB          |
@@ -185,7 +185,7 @@ Using multi-threaded applications like fpsync can improve throughput and IOPS wh
 The following table summarizes the results:
 
 | **Config #**      | **File count** | **Directory count** | **File size** | **Total size** | **rsync duration** | **rsync throughput** | **fpsync duration** | **fpsync throughput** | **Throughput gain** |
-|-------------------|----------------|---------------------|---------------|----------------|--------------------|----------------------|---------------------|-----------------------|---------------------|
+| ----------------- | -------------- | ------------------- | ------------- | -------------- | ------------------ | -------------------- | ------------------- | --------------------- | ------------------- |
 | 1.1 (baseline)    | 1 million      | 1                   | 0-32 KiB      | 18 GiB         | 837.06 mins        | 0.33 MiB/s           | 228.16 mins         | 1.20 MiB/s            | 267%                |
 | 1.2 (incremental) | 1 million      | 1                   | 0-32 KiB      | 18 GiB         | 84.02 mins         | 3.25 MiB/s           | 7.5 mins            | 36.41 MiB/s           | 1,020%              |
 | 2 (baseline)      | 191,345        | 3,906               | 0-32 KiB      | 3 GiB          | 191.86 mins        | 0.27 MiB/s           | 8.47 mins           | 6.04 MiB/s            | 2,164%              |

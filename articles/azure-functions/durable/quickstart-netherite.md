@@ -3,9 +3,11 @@ title: "Quickstart: Configure a storage provider by using Netherite"
 description: Configure a Durable Functions app to use the Netherite storage provider in Azure Functions.
 author: sebastianburckhardt
 ms.topic: quickstart
-ms.custom: devx-track-dotnet
 ms.date: 07/24/2024
 ms.reviewer: azfuncdf
+ms.custom:
+  - devx-track-dotnet
+  - sfi-image-nochange
 ---
 
 # Quickstart: Set a Durable Functions app to use the Netherite storage provider

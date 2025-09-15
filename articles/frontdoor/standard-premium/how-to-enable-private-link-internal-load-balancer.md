@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 08/12/2024
 ms.custom:
   - build-2025
+  - sfi-image-nochange
 ---
 
 # Connect Azure Front Door Premium to an internal load balancer origin with Private Link

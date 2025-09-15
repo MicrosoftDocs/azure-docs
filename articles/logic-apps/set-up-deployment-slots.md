@@ -5,8 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, wsilveira
 ms.topic: how-to
-ms.date: 09/12/2025
-
+ms.custom: sfi-image-nochange
+ms.date: 09/15/2025
 #Customer intent: As a logic app developer, I want to set up deployment slots on my logic app resource so that I can deploy with zero downtime.
 ---
 
