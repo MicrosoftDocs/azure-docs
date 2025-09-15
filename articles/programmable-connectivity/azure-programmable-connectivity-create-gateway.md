@@ -6,7 +6,9 @@ ms.author: alzam
 ms.service: azure-programmable-connectivity
 ms.topic: overview 
 ms.date: 07/22/2024
-ms.custom: template-overview
+ms.custom:
+  - template-overview
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create an APC Gateway
