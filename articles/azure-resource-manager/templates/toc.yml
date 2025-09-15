@@ -188,6 +188,8 @@ items:
       href: ../../service-bus-messaging/service-bus-resource-manager-namespace-queue.md?toc=/azure/azure-resource-manager/templates/toc.json
   - name: Internet of Things
     items:
+    - name: Firmware analysis
+      href: ../../firmware-analysis/quickstart-firmware-analysis-arm.md
     - name: IoT Edge
       href: ../../iot-edge/how-to-install-iot-edge-ubuntuvm.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: IoT Hub

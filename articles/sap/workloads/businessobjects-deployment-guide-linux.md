@@ -6,10 +6,12 @@ author: dennispadia
 manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
-ms.custom: linux-related-content
 ms.topic: article
 ms.date: 06/15/2023
 ms.author: depadia
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
 # Customer intent: "As a system administrator, I want to deploy the SAP BusinessObjects BI platform on Azure for Linux, so that I can ensure a scalable, reliable BI solution with proper load balancing and disaster recovery capabilities."
 ---
 

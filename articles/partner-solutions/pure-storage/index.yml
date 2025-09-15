@@ -17,6 +17,8 @@ landingContent:
         links:
           - text: What is Azure Native Pure Storage Cloud?
             url: overview.md
+          - text: Frequently Asked Questions
+            url: faq.yml
 
   # Card
   - title: Get Started
@@ -30,4 +32,4 @@ landingContent:
           - text: Manage resources
             url: manage.md
           - text: Get support
-            url: https://support.purestorage.com/bundle/m_contact_us/page/Pure_Storage_Technical_Services/Technical_Services_Information/topics/reference/r_contact_us.html
+            url: https://pure1.purestorage.com/

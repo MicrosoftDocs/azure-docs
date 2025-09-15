@@ -4,10 +4,12 @@ titleSuffix: Azure VPN Gateway
 description: Learn about Point-to-Site VPN.
 author: cherylmc
 ms.service: azure-vpn-gateway
-ms.custom: linux-related-content
 ms.topic: concept-article
 ms.date: 07/09/2025
 ms.author: cherylmc
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
 # Customer intent: "As a telecommuter, I want to set up a Point-to-Site VPN connection to my Azure virtual network, so that I can securely access company resources from remote locations."
 ---
 # About Point-to-Site VPN

@@ -7,8 +7,13 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: azure-iot-hub
 services: iot-dps
-ms.custom: mvc, devx-track-azurecli, mode-api
 ms.subservice: azure-iot-hub-dps
+ms.custom:
+  - mvc
+  - devx-track-azurecli
+  - mode-api
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Quickstart: Set up the IoT Hub Device Provisioning Service with Azure CLI

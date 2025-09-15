@@ -1324,9 +1324,9 @@ Azure Functions currently can be used with the following "Preview" or "Go-live" 
 | Linux            | .NET 10 Preview 5<sup>1,2,3</sup> |
 | Windows          | .NET 10 Preview 5<sup>1,2</sup> |
 
-<sup>1</sup> Apps targeting .NET 10 must use [version 2.0.5 or later of `Microsoft.Azure.Functions.Worker.Sdk`][Microsoft.Azure.Functions.Worker.Sdk].
+<sup>1</sup> Apps targeting .NET 10 must use [version 2.0.5 or later of `Microsoft.Azure.Functions.Worker.Sdk`][Microsoft.Azure.Functions.Worker.Sdk]. We also recommend that you update to [version 2.50.0-preview1 or later of `Microsoft.Azure.Functions.Worker`][Microsoft.Azure.Functions.Worker], which updates dependencies to align with .NET 10. If you use Visual Studio, you need to use [Visual Studio 2026 Insiders][vs-insiders], and you need to [update the Functions tools and templates](#considerations-for-using-net-preview-versions) to version 4.114.0 or later.
 
-<sup>2</sup> Visual Studio doesn't yet support Azure Functions with .NET 10.
+<sup>2</sup> For the latest information about support for .NET 10 in public Azure, please see the [tracking thread on GitHub](https://github.com/Azure/azure-functions-dotnet-worker/issues/3152).
 
 <sup>3</sup> Linux Consumption apps do not yet support .NET 10.
 
@@ -1363,7 +1363,7 @@ az functionapp config set -g <groupName> -n <appName> --linux-fx-version "dotnet
 
 Keep these considerations in mind when using Functions with preview versions of .NET: 
 
-+ When you author your functions in Visual Studio, you must use [Visual Studio Preview](https://visualstudio.microsoft.com/vs/preview/), which supports building Azure Functions projects with .NET preview SDKs. 
++ When you author your functions in Visual Studio, you must use [Visual Studio Insiders][vs-insiders], which supports building Azure Functions projects with .NET preview SDKs. 
 
 + Make sure you have the latest Functions tools and templates. To update your tools:
 
@@ -1415,3 +1415,5 @@ Keep these considerations in mind when using Functions with preview versions of 
 [HttpResponse]: /dotnet/api/microsoft.aspnetcore.http.httpresponse
 [IActionResult]: /dotnet/api/microsoft.aspnetcore.mvc.iactionresult
 [JsonSerializerOptions]: /dotnet/api/system.text.json.jsonserializeroptions
+
+[vs-insiders]: https://visualstudio.microsoft.com/insiders/

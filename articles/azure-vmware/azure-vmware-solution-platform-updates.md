@@ -4,7 +4,7 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 09/02/2025
+ms.date: 09/12/2025
 # Customer intent: "As an Azure VMware Solution user, I want to stay informed about platform updates and maintenance schedules, so that I can ensure my workloads remain optimized and secure during transitions."
 ---
 
@@ -14,9 +14,13 @@ Microsoft regularly applies important updates to the Azure VMware Solution for n
 
 ## September 2025
 
-**Security enhancement: new required permissions for Azure NetApp Files datastore with AVS**
+**Azure VMware Solution Generation 2 Private Clouds**
 
-To enhance security, appropriate permissions are needed across AVS and Azure NetApp Files resources when working with datastores. Pre-defined roles, such as the [Contributor role](../role-based-access-control/built-in-roles.md#privileged), have the correct permissions, however custom roles might not. Ensure you meet the [new requirements](attach-azure-netapp-files-to-azure-vmware-solution-hosts.md#prerequisites) for your Azure NetApp Files datastores. 
+Azure VMware Solution Generation 2 Private Clouds is now generally available on the AV64 SKU. With this capability, we've achieved infrastructure innovation, powered by Azure Boost, simplifying networking, delivering 100 Gbps throughput, lowering latency, and boosting performance for VMware vSphere workloads. Private clouds are deployed inside a virtual network, enabling your private cloud with standard Azure Networking. Azure ExpressRoute is no longer required. Gen 2 is available in the following Azure regions, East US, Canada Central, Canada East, North Europe, and UK West. SLAs are region specific. Contact your Microsoft account team or Microsoft Support to confirm coverage. [Learn more](native-introduction.md)
+
+**Security enhancement: new required permissions for Azure NetApp Files datastore with Azure VMware Solution**
+
+To enhance security, appropriate permissions are needed across Azure VMware Solution and Azure NetApp Files resources when working with datastores. Pre-defined roles, such as the [Contributor role](../role-based-access-control/built-in-roles.md#privileged), have the correct permissions, however custom roles might not. Ensure you meet the [new requirements](attach-azure-netapp-files-to-azure-vmware-solution-hosts.md#prerequisites) for your Azure NetApp Files datastores. 
 
 ## July 2025
 
