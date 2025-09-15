@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 09/11/2025
+ms.date: 09/15/2025
 ms.author: mbender
 ms.custom:
   - build-2025
