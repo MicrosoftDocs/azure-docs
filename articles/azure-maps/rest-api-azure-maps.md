@@ -22,7 +22,6 @@ The most recent stable release of the Azure Maps services.
 
 | API | API version | Description |
 |-----|-------------|-------------|
-| [Data Registry] |  2023-06-01  | Programmatically store and update geospatial data to use in spatial operations.<br>The Data registry service is deprecated and will be retired on 9/30/25. |
 | [Geolocation] |  1.0  | Convert IP addresses to country/region ISO codes. |
 | [Render] |  2024-04-01  | Get road, satellite/aerial, weather, traffic map tiles, and static map images. |
 | [Route] |  2025-01-01  | Calculate optimized travel times and distances between locations for multiple modes of transportation and returns localized travel instructions. Now supports [Snap to Roads] API that snaps GPS data to road aligned coordinates. |
@@ -54,7 +53,6 @@ Prerelease version of an Azure Maps service. Preview releases contain new functi
 | [Route][Route-2024-07-01-preview] | 2024-07-01-preview | The Route Range API supports high definition isochrone polygons. |
 
 <!--- Links to latest versions of each service ---------------------------------->
-[Data Registry]: /rest/api/maps/data-registry
 [Geolocation]: /rest/api/maps/geolocation
 [Render]: /rest/api/maps/render
 [Route]: /rest/api/maps/route
