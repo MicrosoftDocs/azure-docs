@@ -8,8 +8,10 @@ manager: alexokun
 ms.service: azure-communication-services
 ms.date: 05/15/2025
 ms.topic: include
-ms.custom: include file
 ms.author: mayssamm
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 ## Prerequisites

@@ -8,8 +8,11 @@ ms.service: azure-communication-services
 ms.subservice: identity
 ms.date: 07/20/2022
 ms.topic: include
-ms.custom: mode-other, devx-track-azurecli
 ms.author: dademath
+ms.custom:
+  - mode-other
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 ---
 
 ## Prerequisites

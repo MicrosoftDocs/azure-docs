@@ -9,7 +9,9 @@ ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 08/19/2025
 ms.update-cycle: 1095-days
-ms.custom: devx-track-java
+ms.custom:
+  - devx-track-java
+  - sfi-image-nochange
 ---
 
 # Set up single sign-on using Microsoft Entra ID for Spring Cloud Gateway and API Portal

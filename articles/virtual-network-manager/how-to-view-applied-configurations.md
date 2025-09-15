@@ -6,7 +6,9 @@ ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
 ms.date: 03/22/2024
-ms.custom: template-how-to
+ms.custom:
+  - template-how-to
+  - sfi-image-nochange
 ---
 # View configurations applied by Azure Virtual Network Manager
 
