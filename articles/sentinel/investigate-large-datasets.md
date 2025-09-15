@@ -9,6 +9,7 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a security analyst, I want to search and restore log data from long-term retention so that I can conduct thorough investigations on historical events.

@@ -4,10 +4,13 @@ titlesuffix: Azure Virtual Network
 description: Learn how to create, change, and delete Azure network interfaces using the Azure portal, PowerShell, or CLI. Step-by-step guide with examples for managing VM networking.
 author: asudbring
 ms.service: azure-virtual-network
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 07/28/2025
 ms.author: allensu
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: "As a cloud engineer, I want to create, change, or delete Azure network interfaces using the portal, CLI, or PowerShell so that I can effectively manage virtual machine networking in my cloud environment."
 ---
 

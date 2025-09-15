@@ -5,6 +5,7 @@ author: shsagir
 ms.author: shsagir
 ms.service: azure-synapse-analytics
 ms.subservice: data-explorer
+ms.custom: sfi-ropc-nochange
 ---
 ### Create a table on your test cluster
 

@@ -10,6 +10,7 @@ ms.date: 12/13/2024
 ms.author: godonnell
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 #Customer Intent: As a developer using Azure Active Directory B2C, I want to add a new attribute to the sign-up journey, customize the input type, and define whether it's required, so that I can collect specific user information during the sign-up process.
 

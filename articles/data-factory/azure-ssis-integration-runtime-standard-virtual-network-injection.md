@@ -6,7 +6,9 @@ ms.topic: conceptual
 ms.date: 01/05/2024
 author: chugugrace
 ms.author: chugu 
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 ---
 
 # Standard virtual network injection method

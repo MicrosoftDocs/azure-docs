@@ -10,8 +10,10 @@ ms.date: 01/11/2024
 ms.author: kengaderdus
 author: kengaderdus
 manager: CelesteDG
-ms.custom: "it-pro"
 zone_pivot_groups: b2c-policy-type
+ms.custom:
+  - "it-pro"
+  - sfi-image-nochange
 
 #Customer intent: As a developer or IT administrator, I want to use API connectors to integrate sign-up user flows with REST APIs.
 

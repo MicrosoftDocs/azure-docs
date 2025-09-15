@@ -11,6 +11,7 @@ ms.date: 08/01/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: teams-interop
+ms.custom: sfi-ga-nochange
 ---
 # Microsoft Entra permissions for communication as Teams user
 In this article, you will learn about Microsoft Entra permissions available for communication as a Teams user in Azure Communication Services. Microsoft Entra application for Azure Communication Services provides delegated permissions for chat and calling. Both permissions are required to exchange Microsoft Entra access token for Communication Services access token for Teams users.

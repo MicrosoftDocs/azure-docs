@@ -7,6 +7,7 @@ ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 01/24/2025
+ms.custom: sfi-image-nochange
 
 #CustomerIntent: As an Azure administrator, I want learn how to create a connection monitor in Network Watcher so I can monitor the communication between one VM and another.
 # Customer intent: "As an Azure administrator, I want to create a connection monitor in Network Watcher so that I can effectively monitor the network communication and connectivity between my virtual machines and various endpoints."

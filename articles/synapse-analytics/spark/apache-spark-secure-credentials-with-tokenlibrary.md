@@ -8,9 +8,10 @@ ms.date: 06/24/2024
 ms.service: azure-synapse-analytics
 ms.subservice: spark
 ms.topic: overview
+zone_pivot_groups: programming-languages-spark-all-minus-sql-r
 ms.custom:
   - devx-track-python
-zone_pivot_groups: programming-languages-spark-all-minus-sql-r
+  - sfi-ropc-nochange
 ---
 
 # Secure credentials with linked services using the mssparkutils
