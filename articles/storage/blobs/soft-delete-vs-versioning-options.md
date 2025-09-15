@@ -1,5 +1,5 @@
 ---
-title: Overview of blob soft delete vs. blob versioning
+title: Best practices for choosing between Blob soft delete and Blob versioning
 titleSuffix: Azure Storage
 description: Learn how to choose between blob soft delete and blob versioning for account data protection.
 author: despindolams
