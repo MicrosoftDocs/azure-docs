@@ -54,6 +54,8 @@
     - name: Onboard to Microsoft Sentinel data lake
       href: datalake/sentinel-lake-onboarding.md
       displayName: data lake
+    - name: Onboard to data lake from Defender portal
+      href: datalake/sentinel-lake-onboard-defender.md
     - name: Set up connectors for the Microsoft Sentinel data lake
       href: datalake/sentinel-lake-connectors.md
       displayName: data lake
@@ -192,8 +194,15 @@
     - name: What is the Microsoft Sentinel data lake?
       href: datalake/sentinel-lake-overview.md
       displayName: data lake
+    - name: Microsoft Sentinel graph overview
+      href: datalake/sentinel-graph-overview.md
+    - name: Microsoft Sentinel MCP overview
+      href: datalake/sentinel-mcp-overview.md
     - name: Compare KQL jobs, summary rules, and search jobs
       href: datalake/kql-jobs-summary-rules-search-jobs.md
+      displayName: data lake
+    - name: MCP server
+      href: datalake/sentinel-mcp-server.md
       displayName: data lake
     - name: KQL for data lake exploration
       items:
