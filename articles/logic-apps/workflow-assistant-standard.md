@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/10/2025
+ms.date: 09/15/2025
 #Customer intent: As an integration developer who works in Standard workflows for Azure Logic Apps, I want to know how to use the workflow assistant to design my workflows.
 ---
 
@@ -23,7 +23,9 @@ In the Azure portal, in the Standard workflow designer, the workflow assistant o
 
 :::image type="content" source="media/workflow-assistant-standard/overview.png" alt-text="Screenshot shows Azure portal, Standard logic app with workflow designer opened, and workflow assistant with example question and generated response." lightbox="media/workflow-assistant-standard/overview.png":::
 
-The workflow assistant delivers curated information based on reputable knowledge sources. Sources include Azure Logic Apps documentation on Microsoft Learn, connector schemas, and tech community blogs. The assistant can also build responses using the current workflow in the designer. That way, you can learn how to complete tasks specific to your workflow's context. For example, you can ask how to configure a specific action in the workflow. You might want recommendations about the action's inputs or outputs and how to test that data.
+The workflow assistant delivers curated information based on reputable knowledge sources. Sources include Azure Logic Apps documentation on Microsoft Learn, connector schemas, and tech community blogs.
+
+The assistant can also build responses using the current workflow in the designer. That way, you can learn how to complete tasks specific to your workflow's context. For example, you can ask how to configure a specific action in the workflow. You might want recommendations about the action's inputs or outputs and how to test that data.
 
 > [!IMPORTANT]
 >
