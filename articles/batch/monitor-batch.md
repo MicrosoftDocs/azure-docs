@@ -72,16 +72,6 @@ The following screenshot shows an example diagnostic setting that sends **allLog
 
 :::image type="content" source="./media/batch-diagnostics/configure-diagnostic-setting.png" alt-text="Screenshot of the Diagnostic setting page that shows an example." lightbox="./media/batch-diagnostics/configure-diagnostic-setting-lightbox.png":::
 
-When you create an Azure Batch pool, you can install any of the following monitoring-related extensions on the compute nodes to collect and analyze data:
-
-- [Azure Monitor agent for Linux](/azure/azure-monitor/agents/azure-monitor-agent-manage)
-- [Azure Monitor agent for Windows](/azure/azure-monitor/agents/azure-monitor-agent-manage)
-- [Azure Diagnostics extension for Windows VMs](/azure/virtual-machines/windows/extensions-diagnostics)
-- [Azure Monitor Logs analytics and monitoring extension for Linux](/azure/virtual-machines/extensions/oms-linux)
-- [Azure Monitor Logs analytics and monitoring extension for Windows](/azure/virtual-machines/extensions/oms-windows)
-
-For a comparison of the different extensions and agents and the data they collect, see [Compare agents](/azure/azure-monitor/agents/agents-overview#compare-to-legacy-agents).
-
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
 For Batch accounts specifically, the activity log collects events related to account creation and deletion and key management.
