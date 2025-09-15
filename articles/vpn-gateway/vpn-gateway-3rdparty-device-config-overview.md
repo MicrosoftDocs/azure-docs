@@ -6,7 +6,9 @@ ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 03/31/2025
 ms.author: cherylmc 
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 
 # Customer intent: As a network administrator, I want to configure on-premises VPN devices to connect to Azure VPN gateways so that I can establish secure site-to-site VPN tunnels for reliable communication between my local network and cloud resources.
 ---

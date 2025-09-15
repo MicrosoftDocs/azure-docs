@@ -6,8 +6,10 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: synapse
 ms.date: 08/29/2025
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Copy and transform data in Microsoft Fabric Lakehouse using Azure Data Factory or Azure Synapse Analytics

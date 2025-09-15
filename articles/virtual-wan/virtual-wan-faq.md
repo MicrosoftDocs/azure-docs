@@ -3,12 +3,13 @@ title: 'Azure Virtual WAN FAQ'
 description: See answers to frequently asked questions about Azure Virtual WAN networks, clients, gateways, devices, partners, and connections.
 author: cherylmc
 ms.service: azure-virtual-wan
-ms.custom:
-  - devx-track-azurepowershell
-  - build-2025
 ms.topic: faq
 ms.date: 03/26/2025
 ms.author: cherylmc
+ms.custom:
+  - devx-track-azurepowershell
+  - build-2025
+  - sfi-image-nochange
 # Customer intent: As someone with a networking background, I want to read more details about Virtual WAN in a FAQ format.
 ---
 
@@ -60,6 +61,11 @@ Virtual WAN is a collection of hubs and services made available inside the hub. 
 Currently, Azure Firewall can be deployed to support Availability Zones using Azure Firewall Manager Portal, [PowerShell](/powershell/module/az.network/new-azfirewall#example-6--create-a-firewall-with-no-rules-and-with-availability-zones), or CLI. There's currently no way to configure an existing Firewall to be deployed across availability zones. You need to delete and redeploy your Azure Firewall.
 
 While the concept of Virtual WAN is global, the actual Virtual WAN resource is Resource Manager-based and deployed regionally. If the virtual WAN region itself has an issue, all hubs in that virtual WAN continue to function. However, the user can't create new hubs until the virtual WAN region is available.
+
+### How do I delete or clean up my Virtual WAN resources?
+When you no longer need the resources that you created, delete them. Some of the Virtual WAN resources must be deleted in a certain order due to dependencies. Deleting can take about 30 minutes to complete.
+
+[!INCLUDE [Delete resources](../../includes/virtual-wan-resource-cleanup.md)]
 
 ### Is it possible to share the Firewall in a protected hub with other hubs?
 

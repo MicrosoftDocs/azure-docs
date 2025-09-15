@@ -8,7 +8,9 @@ author: hareshg
 ms.author: hgowrisankar
 ms.reviewer: nijelsf 
 ms.date: 12/11/2024
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 ---
 
 # Create and configure Enterprise Security Package clusters in Azure HDInsight

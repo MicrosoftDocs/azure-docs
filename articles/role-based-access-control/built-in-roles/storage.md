@@ -4,9 +4,9 @@ description: This article lists the Azure built-in roles for Azure role-based ac
 ms.service: role-based-access-control
 ms.topic: generated-reference
 ms.workload: identity
-author: jenniferf-skc
+author: rolyon
 manager: pmwongera
-ms.author: jfields
+ms.author: rolyon
 ms.date: 05/25/2025
 ms.custom: generated
 ---
@@ -2129,6 +2129,47 @@ Allows for read access on files/directories in Azure file shares. This role is e
 }
 ```
 
+## Storage File Delegator
+
+Get a user delegation key, which can then be used to create a shared access signature for a file or Azure file share that is signed with Azure AD credentials. For more information, see [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas).
+
+[Learn more](/rest/api/storageservices/get-user-delegation-key)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/generateUserDelegationKey/action | Returns a user delegation key for the File service. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for generation of a user delegation key which can be used to sign SAS tokens",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/765a04e0-5de8-4bb2-9bf6-b2a30bc03e91",
+  "name": "765a04e0-5de8-4bb2-9bf6-b2a30bc03e91",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Storage/storageAccounts/fileServices/generateUserDelegationKey/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Storage File Delegator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Storage Queue Data Contributor
 
 Read, write, and delete Azure Storage queues and queue messages. To learn which actions are required for a given data operation, see [Permissions for calling data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
@@ -2309,6 +2350,47 @@ Read and list Azure Storage queues and queue messages. To learn which actions ar
 }
 ```
 
+## Storage Queue Delegator
+
+Get a user delegation key, which can then be used to create a shared access signature for an Azure Storage queue that is signed with Azure AD credentials. For more information, see [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas).
+
+[Learn more](/rest/api/storageservices/get-user-delegation-key)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/queueServices/generateUserDelegationKey/action | Returns a user delegation key for the Queue service. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for generation of a user delegation key which can be used to sign SAS tokens",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/7ee386e9-84f0-448e-80a6-f185f6533131",
+  "name": "7ee386e9-84f0-448e-80a6-f185f6533131",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Storage/storageAccounts/queueServices/generateUserDelegationKey/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Storage Queue Delegator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Storage Table Data Contributor
 
 Allows for read, write and delete access to Azure Storage tables and entities
@@ -2398,6 +2480,47 @@ Allows for read access to Azure Storage tables and entities
     }
   ],
   "roleName": "Storage Table Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Storage Table Delegator
+
+Get a user delegation key, which can then be used to create a shared access signature for an Azure Storage table that is signed with Azure AD credentials. For more information, see [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas).
+
+[Learn more](/rest/api/storageservices/get-user-delegation-key)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/tableServices/generateUserDelegationKey/action | Returns a user delegation key for the Table service. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for generation of a user delegation key which can be used to sign SAS tokens",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/965033a5-c8eb-4f35-b82f-fef460a3606d",
+  "name": "965033a5-c8eb-4f35-b82f-fef460a3606d",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Storage/storageAccounts/tableServices/generateUserDelegationKey/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Storage Table Delegator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
