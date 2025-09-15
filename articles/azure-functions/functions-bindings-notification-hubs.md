@@ -5,8 +5,10 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 06/24/2024
 ms.devlang: csharp
+ms.custom:
+  - devx-track-csharp
+  - sfi-image-nochange
 # ms.devlang: csharp, fsharp, javascript
-ms.custom: devx-track-csharp
 ---
 
 # Azure Notification Hubs output bindings for Azure Functions

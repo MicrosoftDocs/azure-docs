@@ -4,6 +4,7 @@ description: A step-by-step tutorial that shows you how to configure NAT for a f
 ms.topic: tutorial
 ms.author: kyburns
 ms.date: 2/26/2021
+ms.custom: sfi-image-nochange
 
 #Customer intent: As an enterprise developer, I want a consistent and predictable outbound IP address for my function so that an external party can add my function's IP to the allowlist.
 ---
