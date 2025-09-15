@@ -8,6 +8,7 @@ ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 02/12/2025
+ms.custom: sfi-ropc-nochange
 #As an integration solution developer, I want to learn how I can build automated workflows that perform tasks with SAP resources.
 ---
 

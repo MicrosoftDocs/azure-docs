@@ -32,7 +32,7 @@ To configure key vault secrets for use in user customizations, you need to addit
 1. Ensure that your dev center project's managed identity has the Key Vault Reader role and the Key Vault Secrets User role on your key vault.
 2. Grant the Key Vault Secrets User role for the key vault secret to each user or user group that should be able to consume the secret during the customization of a dev box. The user or group granted the role must include the managed identity for the dev center, the admin's user account, and any user or group that needs the secret during dev box customization.
 
-You can use a key vault secret in-line with the built-in PowerShell task: 
+You can use a key vault secret in-line with the built-in task: 
 
 ```yml
 $schema: "1.0" 

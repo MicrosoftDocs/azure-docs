@@ -11,6 +11,7 @@ ms.date: 6/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ms.subservice: chat
+ms.custom: sfi-ropc-nochange
 ---
 
 # Get started with the chat hero sample

@@ -7,6 +7,7 @@ ms.topic: overview
 ms.reviewer: estfan, azla
 ms.date: 09/10/2025
 ms.update-cycle: 1095-days
+ms.custom: sfi-image-nochange
 # Customer intent: As a developer with a solution that has multiple or different Azure resources that integrate various services and systems, I want an easier way to logically organize, manage, and track Azure resources that implement my organization's integration solutions.
 ---
 

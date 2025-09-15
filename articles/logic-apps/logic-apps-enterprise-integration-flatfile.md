@@ -8,6 +8,7 @@ ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 01/10/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Encode and decode flat files in Azure Logic Apps

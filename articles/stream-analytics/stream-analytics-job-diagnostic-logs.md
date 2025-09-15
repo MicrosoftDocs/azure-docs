@@ -4,6 +4,7 @@ description: This article describes how to analyze resource logs in Azure Stream
 ms.service: azure-stream-analytics
 ms.topic: troubleshooting
 ms.date: 06/18/2020
+ms.custom: sfi-image-nochange
 ---
 # Troubleshoot Azure Stream Analytics by using resource logs
 

@@ -4,9 +4,11 @@ description: Learn about how to set up an Azure Stream Analytics job as a consum
 author: AliciaLiMicrosoft 
 ms.author: ali 
 ms.service: azure-stream-analytics
-ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 11/09/2023
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Stream data from confluent cloud Kafka with Azure Stream Analytics
