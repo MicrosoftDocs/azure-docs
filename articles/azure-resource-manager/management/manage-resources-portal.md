@@ -3,7 +3,7 @@ title: Manage resources - Azure portal
 description: Use the Azure portal and Azure Resource Manager to manage your resources. Shows how to deploy and delete resources. 
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 09/26/2024
+ms.date: 09/15/2025
 ---
 
 # Manage Azure resources by using the Azure portal

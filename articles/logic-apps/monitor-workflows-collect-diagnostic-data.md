@@ -8,6 +8,7 @@ ms.author: kewear
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 02/05/2025
+ms.custom: sfi-image-nochange
 # Customer intent: As a developer, I want to collect and send diagnostics data for my logic app workflows to specific destinations, such as a Log Analytics workspace, storage account, or event hub, for further review.
 ---
 

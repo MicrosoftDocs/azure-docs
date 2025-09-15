@@ -8,7 +8,9 @@ author: RinaRish
 ms.author: ektrishi
 ms.service: azure-communication-services
 ms.subservice: chat
-ms.custom: mode-other
+ms.custom:
+  - mode-other
+  - sfi-ropc-nochange
 ---
 
 ## Prerequisites

@@ -6,6 +6,7 @@ ms.author: mbender
 ms.topic: how-to
 ms.service: azure-virtual-network-manager
 ms.date: 12/11/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Configure event logs for Azure Virtual Network Manager

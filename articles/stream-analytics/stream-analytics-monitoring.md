@@ -6,6 +6,7 @@ ms.author: xujiang1
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 12/21/2022
+ms.custom: sfi-image-nochange
 ---
 # Monitor Stream Analytics job with Azure portal
 

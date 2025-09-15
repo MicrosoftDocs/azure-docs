@@ -9,7 +9,9 @@ metadata:
   ms.service: azure-vmware
   ms.reviewer: cynthn 
   manager: dikamath
-  ms.custom: references_regions
+  ms.custom:
+    - sfi-ga-nochange
+    - references_regions
 title: Frequently asked questions about VMware Solution by CloudSimple
 summary: |
 

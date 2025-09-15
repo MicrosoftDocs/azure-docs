@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 02/05/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Send, receive, and batch process messages in Azure Logic Apps

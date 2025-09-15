@@ -102,6 +102,8 @@ In **Figure 2**, there are two hubs; **Hub1** and **Hub2**.
 
 * This scenario doesn't support Secure Hubs with Routing Intent due to the [routing policies limitations](how-to-routing-policies.md#knownlimitations) regarding static routes. However, you can use the [BGP peering feature](scenario-bgp-peering-hub.md) to use indirect spokes together with Secure Hubs with Routing Intent.
 
+* Make sure to review the static routes placed on your VNet Connections and check if [bypass next hop IP for workloads within this VNet](howto-connect-vnet-hub.md#understanding-bypass-next-hop-ip-for-workloads-within-this-vnet) is enabled for your connection.
+
 ## <a name="workflow"></a>Scenario workflow
 
 To set up routing via NVA, here are the steps to consider:

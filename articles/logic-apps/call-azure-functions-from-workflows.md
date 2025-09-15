@@ -7,6 +7,7 @@ ms.reviewer: estfan, azla
 ms.topic: how-to
 ai.usage: ai-assisted
 ms.date: 10/21/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Call Azure Functions from workflows in Azure Logic Apps

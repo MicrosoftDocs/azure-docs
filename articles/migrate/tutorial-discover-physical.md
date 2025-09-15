@@ -121,17 +121,8 @@ To generate the project key, follow the steps:
 ## Download the installer script
 
 1. In **Download Azure Migrate appliance**, select **Download**.
-1. Verify security: Before you install, check that the zipped file is safe.
-    On the server where you downloaded the file, open a command window as an administrator.
-1. Run this command to generate the hash for the zipped file: 
-    - `C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]`
-    - For example: `C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256`
-1. Verify the latest appliance version and hash value to ensure that they match.
-
-| Download | Hash value | 
-| --- | --- |
-| [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847)| c88e90691ebf87166243dafb2d3a18dd34066b4624595ee3f9b4fbe6885e81da |
-
+1. Before you run the script, [verify security](migrate-appliance.md#verify-security) by validating the SHA256 values.
+    
 >[!Note]
 > You can use the same script to set up the physical appliance for both Azure Public and Azure Government cloud.
 

@@ -8,7 +8,9 @@ ms.author: malev
 ms.service: azure-managed-grafana
 ms.topic: tutorial
 ms.date: 04/12/2024
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 ---
 
 # Tutorial: Call Grafana APIs programmatically

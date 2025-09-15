@@ -6,7 +6,9 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 06/19/2025
-ms.custom: devx-track-js
+ms.custom:
+  - devx-track-js
+  - sfi-image-nochange
 # Customer intent: As a logic app workflow developer, I want to write and run my own JavaScript code snippets so that I can perform custom integration tasks in Standard workflows for Azure Logic Apps.
 ---
 

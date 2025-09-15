@@ -7,8 +7,10 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: estfan, divyaswarnkar, azla
 ms.topic: how-to
-ms.custom: devx-track-azurecli
 ms.date: 09/05/2025
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Create and manage integration accounts for B2B workflows in Azure Logic Apps with the Enterprise Integration Pack

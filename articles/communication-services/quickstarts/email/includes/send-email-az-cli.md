@@ -8,7 +8,9 @@ ms.author: mayssamm
 ms.date: 02/03/2023
 ms.topic: include
 ms.service: azure-communication-services
-ms.custom: include files
+ms.custom:
+  - include files
+  - sfi-ropc-nochange
 ---
 
 Get started with Azure Communication Services by using the Azure CLI communication extension to send Email messages.

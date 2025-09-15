@@ -9,6 +9,7 @@ ms.author: estfan
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 07/11/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Migrate Azure Scheduler jobs to Azure Logic Apps

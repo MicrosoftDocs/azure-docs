@@ -7,8 +7,10 @@ ms.service: azure-communication-services
 ms.subservice: call-automation
 ms.date: 08/18/2023
 ms.topic: include
-ms.custom: include file
 ms.author: kpunjabi
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 ## Download code

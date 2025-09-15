@@ -4,10 +4,12 @@ description: This article shows you how to create and manage Active Directory co
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 07/30/2025
 ms.author: anfdocs
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: As an Azure NetApp Files administrator, I want to create and manage Active Directory connections, so that I can enable proper authentication and access control for my SMB and NFS volumes.
 ---
 # Create and manage Active Directory connections for Azure NetApp Files

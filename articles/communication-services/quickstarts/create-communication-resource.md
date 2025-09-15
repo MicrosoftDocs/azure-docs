@@ -11,8 +11,12 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: arm
 zone_pivot_groups: acs-plat-azp-azcli-net-ps
-ms.custom: mode-other, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli 
+ms.custom:
+  - mode-other
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-ropc-nochange
 ---
 
 # Create an Communication Services resource

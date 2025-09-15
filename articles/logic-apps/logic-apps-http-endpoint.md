@@ -4,8 +4,10 @@ description: Learn how to create workflows that receive inbound requests through
 services: logic-apps
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.custom: engagement-fy23
 ms.date: 06/20/2025
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 ---
 
 # Create workflows that you can call, trigger, or nest using HTTPS endpoints in Azure Logic Apps

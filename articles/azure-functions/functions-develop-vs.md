@@ -2,10 +2,13 @@
 title: Develop Azure Functions using Visual Studio  
 description: Learn how to develop and test Azure Functions by using Azure Functions Tools for Visual Studio 2022.
 ms.devlang: csharp
-ms.custom: devdivchpfy22
 ms.topic: concept-article
 ms.date: 03/17/2025
 zone_pivot_groups: function-worker-process
+ms.custom:
+  - devdivchpfy22
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Develop Azure Functions using Visual Studio  

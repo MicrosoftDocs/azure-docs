@@ -8,8 +8,10 @@ ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 12/06/2024
 ms.topic: include
-ms.custom: include file
 ms.author: dbasantes
+ms.custom:
+  - include file
+  - sfi-ropc-blocked
 ---
 
 Get started with Azure Communication Services SMS Opt-out API by applying the following Java sample code.

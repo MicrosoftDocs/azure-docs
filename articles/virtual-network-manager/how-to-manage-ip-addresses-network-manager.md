@@ -6,7 +6,9 @@ ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
 ms.date: 12/11/2024
-ms.custom:  references_regions
+ms.custom:
+  - references_regions
+  - sfi-image-nochange
 #customer intent: As a network administrator, I want to learn how to manage IP addresses with Azure Virtual Network Manager so that I can create and assign IP address pools to my virtual networks.
 ---
 

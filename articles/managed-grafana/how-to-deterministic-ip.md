@@ -7,6 +7,7 @@ ms.topic: how-to
 author: maud-lv
 ms.author: malev
 ms.date: 12/20/2024
+ms.custom: sfi-image-nochange
 --- 
 
 # Use deterministic outbound IPs

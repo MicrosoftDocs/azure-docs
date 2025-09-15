@@ -7,6 +7,7 @@ ms.service: azure-edge-hardware-center
 ms.topic: how-to
 ms.date: 06/01/2022
 ms.author: alkohli
+ms.custom: sfi-image-nochange
 ---
 # Use the Azure portal to manage your Azure Edge Hardware Center orders
 

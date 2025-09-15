@@ -7,8 +7,11 @@ ms.author: sonialopez
 ms.topic: tutorial
 ms.date: 08/24/2022
 ms.service: azure-iot-hub
-ms.custom: devx-track-azurecli, linux-related-content
 ms.subservice: azure-iot-hub-dps
+ms.custom:
+  - devx-track-azurecli
+  - linux-related-content
+  - sfi-image-nochange
 ---
 
 # Tutorial: Provision for geo latency

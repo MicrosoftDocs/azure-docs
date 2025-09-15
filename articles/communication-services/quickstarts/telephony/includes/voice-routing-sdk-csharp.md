@@ -7,8 +7,10 @@ ms.service: azure-communication-services
 ms.subservice: pstn
 ms.date: 06/01/2023
 ms.topic: include
-ms.custom: include file
 ms.author: nikuklic
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 ## Prerequisites

@@ -6,7 +6,9 @@ ms.author: ali
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 10/27/2022
-ms.custom: subject-rbac-steps
+ms.custom:
+  - subject-rbac-steps
+  - sfi-image-nochange
 ---
 
 # Use managed identities to access Azure Data Explorer from an Azure Stream Analytics job

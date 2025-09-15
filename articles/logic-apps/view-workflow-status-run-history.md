@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 02/07/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Check workflow status, view run history, and set up alerts in Azure Logic Apps

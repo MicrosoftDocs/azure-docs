@@ -6,6 +6,7 @@ ms.author: raan
 ms.service: azure-stream-analytics
 ms.topic: tutorial 
 ms.date: 01/29/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Tutorial: Write to a Delta Table stored in Azure Data Lake Storage Gen2

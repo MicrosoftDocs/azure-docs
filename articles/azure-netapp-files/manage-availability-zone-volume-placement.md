@@ -4,10 +4,12 @@ description: Describes how to create a volume with an availability zone by using
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.custom: devx-track-terraform
 ms.topic: how-to
 ms.date: 08/01/2025
 ms.author: anfdocs
+ms.custom:
+  - devx-track-terraform
+  - sfi-image-nochange
 # Customer intent: "As a cloud administrator, I want to configure availability zone volume placement in Azure NetApp Files, so that I can ensure high availability and optimize resource deployment across different geographical locations."
 ---
 # Manage availability zone volume placement for Azure NetApp Files

@@ -8,6 +8,7 @@ ms.author: bashan
 ms.date: 03/31/2023
 ms.topic: include
 ms.service: azure-communication-services
+ms.custom: sfi-ropc-nochange
 ---
 
 Get started with Azure Communication Services using the Communication Services C# Email client library to send Email messages.

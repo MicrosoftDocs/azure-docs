@@ -5,6 +5,9 @@ ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/27/2024
 titleSuffix: Azure Functions
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 
 #Customer intent: As a function developer, I want to learn how to use managed identities so that I can avoid needing to handle secrets or connection strings in my application settings.
 ---

@@ -6,8 +6,10 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.custom: mvc
 ms.date: 12/10/2024
+ms.custom:
+  - mvc
+  - sfi-image-nochange
 ---
 
 # Manage logic apps with Visual Studio (Deprecated)

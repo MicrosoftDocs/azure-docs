@@ -6,6 +6,7 @@ ms.author: raan
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 11/10/2023
+ms.custom: sfi-image-nochange
 ---
 
 # Use managed identities to access Azure SQL Database or Azure Synapse Analytics from an Azure Stream Analytics job

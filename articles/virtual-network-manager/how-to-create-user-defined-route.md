@@ -6,6 +6,7 @@ ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
 ms.date: 04/30/2024
+ms.custom: sfi-image-nochange
 #customer intent: As a network engineer, I want to deploy User-Defined Routes (UDRs) with Azure Virtual Network Manager.
 ---
 

@@ -5,10 +5,12 @@ description: In this guide, learn how to connect an Azure Data Explorer datasour
 author: maud-lv
 ms.author: malev
 ms.service: azure-managed-grafana
-ms.custom: devx-track-azurecli
 zone_pivot_groups: azure-red-hat-openshift-service-principal
 ms.topic: how-to
 ms.date: 12/19/2024
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 # CustomerIntent: As an Azure Managed Grafana customer, I want to add and configure Azure Data Explorer so that I can use an Azure Data Explorer datasource in a Grafana dashboard.
 ---
 

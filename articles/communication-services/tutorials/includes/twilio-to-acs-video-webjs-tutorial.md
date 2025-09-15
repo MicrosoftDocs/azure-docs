@@ -8,7 +8,9 @@ author: sloanster
 ms.author: micahvivion
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.custom: mode-other
+ms.custom:
+  - mode-other
+  - sfi-ropc-nochange
 ---
 
 ## Prerequisites

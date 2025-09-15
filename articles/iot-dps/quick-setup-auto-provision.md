@@ -9,8 +9,11 @@ ms.date: 08/16/2024
 ms.topic: quickstart
 ms.service: azure-iot-hub
 services: iot-dps
-ms.custom: mvc, mode-ui
 ms.subservice: azure-iot-hub-dps
+ms.custom:
+  - mvc
+  - mode-ui
+  - sfi-image-nochange
 ---
 
 # Quickstart: Set up IoT Hub Device Provisioning Service with the Azure portal

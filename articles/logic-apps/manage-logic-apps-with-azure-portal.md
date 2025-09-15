@@ -5,8 +5,10 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.custom: mvc
 ms.date: 03/17/2025
+ms.custom:
+  - mvc
+  - sfi-image-nochange
 ---
 
 # Edit and manage logic app workflows in the Azure portal

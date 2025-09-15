@@ -8,6 +8,9 @@ ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 04/28/2025
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 
 #customer intent: As a developer, I want to know the prerequisites and details about using SAP with Azure Logic Apps, so I can connect to an SAP server from my Consumption or Standard workflow.
 ---

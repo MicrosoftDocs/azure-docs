@@ -8,7 +8,10 @@ ms.author: malev
 ms.service: azure-managed-grafana
 ms.topic: how-to 
 ms.date: 12/19/2024
-ms.custom: how-to, devx-track-azurecli
+ms.custom:
+  - how-to
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Set up private access

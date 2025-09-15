@@ -6,6 +6,7 @@ ms.author: glenga
 ms.date: 12/1/2020
 ms.topic: article
 ms.devlang: golang
+ms.custom: sfi-ropc-nochange
 ---
 
 # Azure Functions custom handlers

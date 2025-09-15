@@ -9,8 +9,10 @@ ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 06/12/2022
 ms.topic: include
-ms.custom: include file
 ms.author: mayssamm
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 Get started with Azure Communication Services by using the Communication module in Azure CLI to send SMS messages.

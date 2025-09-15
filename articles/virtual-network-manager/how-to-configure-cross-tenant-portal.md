@@ -11,6 +11,7 @@ ms.custom:
   - ai-gen-docs-bap
   - ai-gen-title
   - ai-seo-date:05/21/2025
+  - sfi-image-nochange
 #customer intent: As a network engineer, I want to connect virtual networks in different Azure tenants so that I can centralize network management and policies.
 ---
 

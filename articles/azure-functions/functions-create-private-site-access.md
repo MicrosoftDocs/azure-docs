@@ -4,6 +4,7 @@ description: Learn to set up Azure virtual network private site access for Azure
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
+ms.custom: sfi-image-nochange
 ---
 
 # Tutorial: Establish Azure Functions private site access

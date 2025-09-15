@@ -230,6 +230,8 @@
       href: /azure/architecture/example-scenario/devops/automated-api-deployments-apiops?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
   - name: Cache
     items:
+    - name: Caching overview
+      href: caching-overview.md
     - name: Add caching to improve performance
       href: api-management-howto-cache.md
     - name: Custom caching

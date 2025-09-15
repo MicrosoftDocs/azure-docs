@@ -21,7 +21,7 @@ Azure Update Manager uses Maintenance Configurations to control and manage updat
 ## Prerequisites for scheduled patching
 
 1. See [Prerequisites for Update Manager](prerequisites.md).
-2. Patch orchestration of the Azure machines should be set to **Customer Managed Schedules**. For more information, see [Enable schedule patching on existing VMs](prerequsite-for-schedule-patching.md#enable-scheduled-patching-on-azure-vms).
+2. Patch orchestration of the Azure machines should be set to **Customer Managed Schedules**.
 
 **Note** For Azure Arc-enabled machines, it is not a requirement.
 
@@ -40,9 +40,7 @@ The registry keys listed in [Configure Automatic Updates by editing the registry
 
 ## Service limits
 
-We recommend the following limits for the indicators.
-
-| Indicator    | Public Cloud Limit          | Mooncake/Fairfax Limit |
+| Component    | Public Cloud Limit          | Mooncake/Fairfax Limit |
 |----------|----------------------------|--------------------------|
 | Number of schedules per subscription per region     | 250  | 250 |
 | Total number of resource associations to a schedule | 3,000 | 3,000 |
@@ -70,7 +68,7 @@ To schedule recurring updates on a single VM:
 1. On the **Basics** page, select **Subscription**, **Resource Group**, and all options in **Instance details**.
     - Select **Maintenance scope** as **Guest (Azure VM, Azure Arc-enabled VMs/servers)**.
 	- Select **Add a schedule**. In **Add/Modify schedule**, specify the schedule details, such as:
-	
+
 		- **Start on**
 		- **Maintenance window** (in hours). The upper maintenance window is 3 hours 55 minutes.
 		- **Repeats** (monthly, daily, or weekly)
@@ -130,7 +128,7 @@ You can schedule updates from the **Overview** or **Machines** pane.
 
 1. On the **Basics** tab, select **Subscription**, **Resource Group**, and all options in **Instance details**.
 	- Select **Add a schedule**. In **Add/Modify schedule**, specify the schedule details, such as:
-	
+
 		- **Start on**
 		- **Maintenance window** (in hours)
 		- **Repeats** (monthly, daily, or weekly)
@@ -230,7 +228,7 @@ Azure Policy allows you to assign standards and assess compliance at scale. For 
 	- On the **Available Definitions** pane, select **Built in** for **Type**. In **Search**, enter **Schedule recurring updates using Azure Update Manager** and click **Select**.
 
 	  :::image type="content" source="./media/scheduled-updates/dynamic-scoping-defintion.png" alt-text="Screenshot that shows how to select the definition.":::
-	
+
 	- Ensure that **Policy enforcement** is set to **Enabled**, and then select **Next**.
 1. On the **Parameters** tab, by default, only the **Maintenance configuration ARM ID** is visible.
 
@@ -276,8 +274,8 @@ For example, if a maintenance window is of 3 hours and starts at 3:00 PM, the fo
 
 | **Update Type** | **Details** |
 | ---------- | ------------- |
-| Service Pack | If you are installing a Service Pack, you need 20 mins left in the maintenance window for the updates to be successfully installed, else the update is skipped. </br> In this example, you must finish installing the service pack by 5:40 PM. |  
-| Other updates | If you are installing any other update besides Service Pack, you need to have 15 mins left in the maintenance window, else it is skipped. </br> In this example, you must finish installing the other updates by 5:45 PM.| 
+| Service Pack | If you are installing a Service Pack, you need 20 mins left in the maintenance window for the updates to be successfully installed, else the update is skipped. </br> In this example, you must finish installing the service pack by 5:40 PM. |
+| Other updates | If you are installing any other update besides Service Pack, you need to have 15 mins left in the maintenance window, else it is skipped. </br> In this example, you must finish installing the other updates by 5:45 PM.|
 | Reboot | If the machine(s) needs a reboot, you need to have 10 minutes left in the maintenance window, else the reboot is skipped. </br> In this example, you must start the reboot by 5:50 PM. </br> **Note**: For Azure virtual machines and Arc-enabled servers, Azure Update Manager waits for a maximum of 15 minutes for Azure VMs and 25 minutes for Arc servers after a reboot to complete the reboot operation before marking it as failed. |
 
 #### [Linux](#tab/linux-maintenance)
@@ -291,7 +289,7 @@ For example, if a maintenance window is of 3 hours and starts at 3:00 PM, the fo
 
 > [!NOTE]
 > - Azure Update Manager doesn't stop installing the new updates if it's approaching the end of the maintenance window.
-> - Azure Update Manager doesn't terminate in-progress updates if the maintenance window is exceeded and only the remaining updates that must be installed aren't attempted. We recommend that you re-evaluate the duration of your maintenance window to ensure all the updates are installed. 
+> - Azure Update Manager doesn't terminate in-progress updates if the maintenance window is exceeded and only the remaining updates that must be installed aren't attempted. We recommend that you re-evaluate the duration of your maintenance window to ensure all the updates are installed.
 > - If the maintenance window is exceeded on Windows, it's often because a service pack update is taking a long time to install.
 
 
@@ -299,6 +297,5 @@ For example, if a maintenance window is of 3 hours and starts at 3:00 PM, the fo
 ## Next steps
 
 * Learn more about [Dynamic scope](dynamic-scope-overview.md), an advanced capability of schedule patching.
-* Learn more about how to [Configure schedule patching on Azure VMs for business continuity](prerequsite-for-schedule-patching.md).
 * Follow the instructions on how to [manage various operations of Dynamic scope](manage-dynamic-scoping.md)
 * Learn about [pre and post events](pre-post-scripts-overview.md) to automatically perform tasks before and after a scheduled maintenance configuration.

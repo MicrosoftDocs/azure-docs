@@ -4,7 +4,10 @@ description: Use Azure Functions to create a serverless function that is invoked
 ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4
 ms.topic: how-to
 ms.date: 09/18/2024
-ms.custom: mvc, cc996988-fb4f-47
+ms.custom:
+  - mvc
+  - cc996988-fb4f-47
+  - sfi-image-nochange
 ---
 # Create a function triggered by Azure Queue storage
 

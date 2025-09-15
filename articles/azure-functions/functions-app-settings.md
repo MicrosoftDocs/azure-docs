@@ -2,8 +2,14 @@
 title: App settings reference for Azure Functions
 description: Reference documentation for the Azure Functions app settings or environment variables used to configure functions apps.
 ms.topic: conceptual
-ms.custom: devx-track-extended-java, devx-track-python, ignite-2023, build-2024, linux-related-content
 ms.date: 07/11/2025
+ms.custom:
+  - devx-track-extended-java
+  - devx-track-python
+  - ignite-2023
+  - build-2024
+  - linux-related-content
+  - sfi-ropc-nochange
 #customer intent: As a developer, I need easy access to the behavior and use of application settings to implement Azure Functions.
 ---
 

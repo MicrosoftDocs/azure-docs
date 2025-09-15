@@ -5860,6 +5860,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/update-manager/prerequsite-for-schedule-patching.md ",
+      "redirect_url": "/azure/update-manager/dynamic-scope-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/virtual-machines-command-line-tools.md",
       "redirect_url": "/cli/azure/get-started-with-az-cli2",
       "redirect_document_id": false

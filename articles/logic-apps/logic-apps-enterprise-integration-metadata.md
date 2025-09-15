@@ -8,6 +8,7 @@ ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 01/04/2024
+ms.custom: sfi-image-nochange
 #Customer intent: As an Azure Logic Apps developer, I want to define custom metadata for integration account artifacts so that my logic app workflow can use that metadata.
 ---
 

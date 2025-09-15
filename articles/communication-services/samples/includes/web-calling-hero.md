@@ -8,8 +8,10 @@ ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 09/13/2023
 ms.topic: include
-ms.custom: include file
 ms.author: rifox
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 The Azure Communication Services **Group Calling Hero Sample** demonstrates how the Communication Services Calling Web SDK can be used to build a group calling experience.

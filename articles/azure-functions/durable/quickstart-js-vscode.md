@@ -6,8 +6,12 @@ ms.topic: quickstart
 ms.date: 07/24/2024
 ms.reviewer: azfuncdf, antchu
 ms.devlang: javascript
-ms.custom: devx-track-js, mode-api, vscode-azure-extension-update-complete
 zone_pivot_groups: functions-nodejs-model
+ms.custom:
+  - devx-track-js
+  - mode-api
+  - vscode-azure-extension-update-complete
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create a JavaScript Durable Functions app

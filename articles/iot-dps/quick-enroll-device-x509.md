@@ -9,9 +9,14 @@ ms.service: azure-iot-hub
 services: iot-dps
 ms.devlang: csharp
 # ms.devlang: csharp, java, nodejs
-ms.custom: mvc, mode-other, devx-track-extended-java, devx-track-js
 zone_pivot_groups: iot-dps-set2
 ms.subservice: azure-iot-hub-dps
+ms.custom:
+  - mvc
+  - mode-other
+  - devx-track-extended-java
+  - devx-track-js
+  - sfi-image-nochange
 ---
  
 # Programmatically create a Device Provisioning Service enrollment group for X.509 certificate attestation

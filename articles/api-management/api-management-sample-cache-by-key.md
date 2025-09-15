@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.topic: how-to
 ms.service: azure-api-management
-ms.date: 05/19/2022
+ms.date: 09/11/2025
 ms.author: danlep
 
 ---
@@ -13,13 +13,13 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-Azure API Management service has built-in support for [HTTP response caching](api-management-howto-cache.md) using the resource URL as the key. The key can be modified by request headers using the `vary-by` properties. This is useful for caching entire HTTP responses (also known as representations), but sometimes it's useful to just cache a portion of a representation. The [cache-lookup-value](cache-lookup-value-policy.md) and [cache-store-value](cache-store-value-policy.md) policies provide the ability to store and retrieve arbitrary pieces of data from within policy definitions. This ability also adds value to the [send-request](send-request-policy.md) policy because you can cache responses from external services.
+Azure API Management service has built-in support for [HTTP response caching](caching-overview.md) using the resource URL as the key. The key can be modified by request headers using the `vary-by` properties. This is useful for caching entire HTTP responses (also known as representations), but sometimes it's useful to just cache a portion of a representation. The [cache-lookup-value](cache-lookup-value-policy.md) and [cache-store-value](cache-store-value-policy.md) policies provide the ability to store and retrieve arbitrary pieces of data from within policy definitions. This ability also adds value to the [send-request](send-request-policy.md) policy because you can cache responses from external services.
 
 ## Architecture
 API Management service uses a shared per-tenant internal data cache so that, as you scale up to multiple units, you still get access to the same cached data. However, when working with a multi-region deployment there are independent caches within each of the regions. It's important to not treat the cache as a data store, where it's the only source of some piece of information. If you did, and later decided to take advantage of the multi-region deployment, then customers with users that travel may lose access to that cached data.
 
 > [!NOTE]
-> The internal cache is not available in the **Consumption** tier of Azure API Management. You can [use an external Azure Cache for Redis](api-management-howto-cache-external.md) instead. An external cache allows for greater cache control and flexibility for API Management instances in all tiers.
+> The internal cache is not available in the **Consumption** tier of Azure API Management. You can [use an external Redis-compatible cache](api-management-howto-cache-external.md) instead. An external cache allows for greater cache control and flexibility for API Management instances in all tiers.
 
 ## Fragment caching
 There are certain cases where responses being returned contain some portion of data that is expensive to determine and yet remains fresh for a reasonable amount of time. As an example, consider a service built by an airline that provides information relating to flight reservations, flight status, and so on. If the user is a member of the airlines points program, they would also have information relating to their current status and accumulated mileage. This user-related information might be stored in a different system, but it may be desirable to include it in responses returned about flight status and reservations. This can be done using a process called fragment caching. The primary representation can be returned from the origin server using some kind of token to indicate where the user-related information is to be inserted. 
@@ -275,10 +275,16 @@ The complete policy is as follows:
 
 Enabling API consumers to transparently control which backend version is being accessed by clients without having to update and redeploy clients is an elegant solution that addresses many API versioning concerns.
 
-## Tenant Isolation
+## Tenant isolation
 In larger, multitenant deployments some companies create separate groups of tenants on distinct deployments of backend hardware. This minimizes the number of customers who are impacted by a hardware issue on the backend. It also enables new software versions to be rolled out in stages. Ideally this backend architecture should be transparent to API consumers. This can be achieved in a similar way to transparent versioning because it is based on the same technique of manipulating the backend URL using configuration state per API key.  
 
 Instead of returning a preferred version of the API for each subscription key, you would return an identifier that relates a tenant to the assigned hardware group. That identifier can be used to construct the appropriate backend URL.
 
 ## Summary
 The freedom to use the Azure API management cache for storing any kind of data enables efficient access to configuration data that can affect the way an inbound request is processed. It can also be used to store data fragments that can augment responses, returned from a backend API.
+
+## Related content
+
+- [Caching overview in Azure API Management](caching-overview.md)
+- [API Management caching policies](api-management-policies.md#caching)
+- [How to use an external cache with Azure API Management](api-management-howto-cache-external.md)
