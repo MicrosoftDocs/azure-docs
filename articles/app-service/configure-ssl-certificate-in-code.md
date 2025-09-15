@@ -164,7 +164,7 @@ using System.Security.Cryptography.X509Certificates;
 
 ...
 
-var cert = X509CertificateLoader.LoadCertificateFromFile("/var/ssl/private/<thumbprint>.p12");
+var cert = X509CertificateLoader.LoadCertificateFromFile("/var/ssl/certs/<thumbprint>.der");
 
 // Use the loaded certificate
 ```
