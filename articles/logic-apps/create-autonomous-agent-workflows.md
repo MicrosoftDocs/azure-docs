@@ -333,6 +333,8 @@ To get the best results, make sure that your system instructions are prescriptiv
 
 1. Return to the designer. On the monitoring view toolbar, select **Edit**.
 
+<a name="create-tool-weather"></a>
+
 ## Create a tool to get weather forecast
 
 For an agent to run prebuilt actions available in Azure Logic Apps, you must create one or more tools for the agent to use. A tool must contain at least one action and only actions. The agent calls the tool by using specific arguments.
@@ -360,6 +362,8 @@ In this example, the agent needs a tool that gets the weather forecast. You can 
    Under **Description**, the **Agent Parameters** section applies only for specific use cases. For more information, see [Create agent parameters](#create-agent-parameters-for-the-get-forecast-action).
 
 1. Continue to the next section to learn more about agent parameters, their use cases, and how to create them, based on these use cases.
+
+<a name="create-agent-parameters-get-weather"></a>
 
 ## Create agent parameters for the 'Get forecast' action
 

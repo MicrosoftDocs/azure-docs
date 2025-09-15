@@ -280,6 +280,8 @@ To get the best results, make sure that your system instructions are prescriptiv
 
 1. Return to the designer. On the monitoring view toolbar, select **Edit**.
 
+<a name="create-tool-weather"></a>
+
 ## Create a tool to get current weather
 
 For an agent to run prebuilt actions available in Azure Logic Apps, you must create one or more tools for the agent to use. A tool must contain at least one action and only actions. The agent calls the tool by using specific arguments.
