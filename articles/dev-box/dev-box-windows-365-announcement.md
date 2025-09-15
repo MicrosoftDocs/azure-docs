@@ -13,10 +13,14 @@ ms.service: dev-box
 
 # Unifying Cloud PC Experiences with Windows 365
 
-Microsoft is consolidating Microsoft Dev Box into Windows 365 to streamline our Cloud PC offerings. This change simplifies licensing and management for IT admins by providing a unified platform with centralised control, consistent policy enforcement, and full visibility across Cloud PCs.
+Microsoft is consolidating Microsoft Dev Box into Windows 365 to streamline our Cloud PC offerings. This change simplifies licensing and management for IT admins by providing a unified platform with centralized control, consistent policy enforcement, and full visibility across Cloud PCs.
 
 - Starting November 1, 2025, Microsoft Dev Box will no longer accept new customers.
 - Existing Microsoft Dev Box customers can continue using the service.
 - Integration timeline details will be shared at a later date.
 - Microsoft is committed to ensuring a smooth transition for existing users.
+
+## Related content
+- [What is Windows 365?](/windows-365/overview)
+- [Microsoft Dev Box blog](https://aka.ms/DevBox/Transition) 
  
