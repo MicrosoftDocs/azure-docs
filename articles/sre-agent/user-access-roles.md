@@ -98,6 +98,8 @@ To assign roles to users, SRE Agent’s subscription owner uses the following pr
 
 1. Assign the appropriate roles to the relevant users.
 
+    :::image type="content" source="media/user-access-roles/azure-sre-agent-roles.png" alt-text="Screenshot of Azure portal with SRE Agent roles.":::
+
 ## Related content
 
 - [Agent actions](./agent-actions.md)
