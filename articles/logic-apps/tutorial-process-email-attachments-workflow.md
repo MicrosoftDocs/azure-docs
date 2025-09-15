@@ -9,8 +9,8 @@ ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
 ms.date: 02/18/2025
 ms.custom:
-  - "mvc
-  - devx-track-csharp"
+  - mvc
+  - devx-track-csharp
   - sfi-image-nochange
 ---
 
