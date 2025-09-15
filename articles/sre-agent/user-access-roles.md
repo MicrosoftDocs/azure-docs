@@ -76,4 +76,4 @@ To assign roles to users, SRE Agent’s subscription owner uses the following pr
 ## Related content
 
 - [Agent run modes](./agent-run-modes.md)
-- [Agent and user permissions](./agent-user-permissions.md)
+- [Agent managed identity](./agent-managed-identity.md)
