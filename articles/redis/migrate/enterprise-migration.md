@@ -46,7 +46,7 @@ Like Azure Cache for Redis Enterprise, Azure Managed Redis is also built on the 
 | Entra Id authentication | No | Yes |
 | Azure Region support | Limited | Extensive |
 | Azure Sovereign Cloud support | No | Yes (coming soon) |
-| Hostname DNS suffix | <name>.<region>.redisenterprise.cache.azure.net | <name>.<region>.redis.azure.net |
+| Hostname DNS suffix | `<name>.<region>.redisenterprise.cache.azure.net` | `<name>.<region>.redis.azure.net` |
 
 ## How to migrate to Azure Managed Redis?
 

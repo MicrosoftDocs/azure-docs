@@ -178,6 +178,8 @@ items:
     href: migrate/migrate-overview.md
   - name: Migrate to Azure Redis from other caches
     href: /azure/azure-cache-for-redis/cache-migration-guide
+  - name: Migrate from Enterprise Redis to Azure Managed Redis
+    href: migrate/enterprise-migration.md
 
 - name: Azure Cache for Redis 
   href: /azure/azure-cache-for-redis/index
