@@ -40,7 +40,7 @@ You can schedule updates from **Overview** or **Machines** on the **Update Manag
     The following update settings are available for configuration for the selected machines:
 
    - **Periodic assessment**: The periodic assessment is set to run every 24 hours. You can either enable or disable this setting.
-    - **Hotpatch**: You can enable [hotpatching](../automanage/automanage-hotpatch.md) for Windows Server Azure Edition VMs. hotpatching is a new way to install updates on supported Windows Server Azure Edition VMs that doesn't require a reboot after installation. You can use Update Manager to install other patches by scheduling patch installation or triggering immediate patch deployment. You can enable, disable, or reset this setting.
+    - **Hotpatch**: You can enable [hotpatching](../automanage/automanage-hotpatch.md) for Windows Server Azure Edition VMs. Hotpatching is a new way to install updates on supported Windows Server Azure Edition VMs that doesn't require a reboot after installation. You can use Update Manager to install other patches by scheduling patch installation or triggering immediate patch deployment. You can enable, disable, or reset this setting.
     - **Patch orchestration** option provides:
 
       - **Customer Managed Schedules**—enables schedule patching on your existing VMs. The new patch orchestration option enables the two VM properties - **Patch mode = Azure-orchestrated** and **BypassPlatformSafetyChecksOnUserSchedule = TRUE** on your behalf after receiving your consent.
