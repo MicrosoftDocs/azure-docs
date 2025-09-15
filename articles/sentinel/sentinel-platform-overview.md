@@ -55,7 +55,7 @@ Graph-based analytics enable deep visibility into threat relationships and attac
 
 - Identify and map sensitive data access and movement by correlating audit logs, Microsoft Entra logs, and threat intelligence using Purview Data Risk Graph within Purview Data Security Investigation (DSI), enabling rapid scoping of potential exfiltration and visualization of risky user-file interactions.
 
-For more information, see https://aka.ms/sentinel/platform/graph.
+For more information, see [What is Microsoft Sentinel graph?](../sentinel/datalake/sentinel-graph-overview.md).
 
 ### Model Context Protocol (MCP) server
 
