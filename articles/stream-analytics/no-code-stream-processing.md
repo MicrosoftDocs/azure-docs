@@ -5,8 +5,10 @@ author: xujxu
 ms.author: xujiang1
 ms.service: azure-stream-analytics
 ms.topic: how-to
-ms.custom: mvc
 ms.date: 7/5/2023
+ms.custom:
+  - mvc
+  - sfi-image-nochange
 ---
 
 # No-code stream processing in Azure Stream Analytics

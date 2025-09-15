@@ -6,7 +6,8 @@ ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 10/16/2024
 ms.author: danlep 
-ms.custom: 
+ms.custom:
+  - sfi-image-nochange
 # Customer intent: As an API developer, I want to use my Visual Studio Code environment to check API compliance in my organization's API center.
 ---
 

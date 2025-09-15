@@ -6,6 +6,9 @@ ms.suite: integration
 ms.reviewer: estfan, rarayudu, azla
 ms.topic: how-to
 ms.date: 11/15/2024
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Secure access and data for workflows in Azure Logic Apps

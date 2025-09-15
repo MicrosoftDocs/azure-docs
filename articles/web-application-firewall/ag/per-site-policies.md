@@ -7,7 +7,9 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to 
 ms.date: 12/09/2020
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: "As a security engineer, I want to configure per-site Web Application Firewall policies using PowerShell, so that I can implement tailored security settings for individual applications while maintaining global policy controls."
 ---
 
