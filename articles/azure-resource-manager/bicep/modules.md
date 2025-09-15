@@ -551,7 +551,7 @@ With Bicep version 0.35.1 and later, the `@secure()` decorator can be applied to
 
 ## Module identity
 
-With Bicep version 0.3x.x and later you can assign a user-assigned managed identity to a module. This feature allows Bicep users to define modules with user-assigned managed identities, facilitating scenarios where modules need to authenticate to Azure resources independently of the deploying principal.
+With Bicep version 0.36.1 and later you can assign a user-assigned managed identity to a module. This feature makes the identity available for use in the module. For example, you can use the identity to access a Key Vault from within the module
 
 ```bicep
 param identityId string
