@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 09/11/2025
+ms.date: 09/15/2025
 ms.author: mbender
 ms.custom:
   - build-2025
@@ -171,10 +171,9 @@ For example, if *www.contoso.com* is specified in the **Host name** setting, the
 ### Dedicated Backend Connection
 
 Azure Application Gateway, by default, reuses idle backend connections to optimize the resource utilization of TCP connections for both the Application Gateway and the backend server.
-To support security functions in customer data paths that necessitate unique backend connections per client, Azure Application Gateway V2 provides dedicated connections to backend servers. This capability establishes direct, one-to-one mapping between frontend and backend connections, ensuring persistent connectivity for each individual client.
+To support security functions in customer data paths that necessitate unique backend connections per client, Azure Application Gateway V2 provides dedicated connections to backend servers.
 
-
-<img width="644" height="641" alt="image" src="https://github.com/user-attachments/assets/1eaa735c-04fb-4451-b048-2267884be4be" />
+:::image type="content" source="media/configuration-http-settings/dedicated-backend.png" alt-text="Screenshot of network flows through Application Gateway layer 7 proxy."::: This capability establishes direct, one-to-one mapping between frontend and backend connections, ensuring persistent connectivity for each individual client.
 
 >[!IMPORTANT]
 >Dedicated backend connection leads to an increase in the number of backend connections and hence could require more resources to support the increased concurrent connections on Application Gateway and the backend servers. On Application Gateway, you must consider increasing the number of instances or enabling auto scale.
