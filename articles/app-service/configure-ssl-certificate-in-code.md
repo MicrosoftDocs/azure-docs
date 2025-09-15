@@ -130,13 +130,10 @@ using System.Security.Cryptography.X509Certificates;
 
 ...
 
-var certPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "<relative-path-to-cert-file>");
-var certBytes = File.ReadAllBytes(certPath);
-var cert = new X509Certificate2(certBytes, "", X509KeyStorageFlags.DefaultKeySet);
+var cert = X509CertificateLoader.LoadCertificateFromFile("/var/ssl/certs/<thumbprint>.der");
 
 // Use the loaded certificate
 ```
-
 To see how to load a TLS/SSL certificate from a file in Node.js, PHP, Python, or Java, see the documentation for the respective language or web platform.
 
 ## Load certificates in Linux/Windows containers
@@ -167,9 +164,7 @@ using System.Security.Cryptography.X509Certificates;
 
 ...
 
-var certPath = "/var/ssl/certs/<thumbprint>.der";
-var certBytes = File.ReadAllBytes(certPath);
-var cert = new X509Certificate2(certBytes, "", X509KeyStorageFlags.DefaultKeySet);
+var cert = X509CertificateLoader.LoadCertificateFromFile("/var/ssl/private/<thumbprint>.p12");
 
 // Use the loaded certificate
 ```
@@ -183,9 +178,7 @@ using System.Security.Cryptography.X509Certificates;
 
 ...
 
-var certPath = "/var/ssl/private/<thumbprint>.p12";
-var certBytes = File.ReadAllBytes(certPath);
-var cert = new X509Certificate2(certBytes, "", X509KeyStorageFlags.DefaultKeySet);
+var cert = X509CertificateLoader.LoadCertificateFromFile("/var/ssl/private/<thumbprint>.p12");
 
 // Use the loaded certificate
 ```
