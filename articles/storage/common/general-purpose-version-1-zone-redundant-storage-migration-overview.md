@@ -111,6 +111,18 @@ The following regions do not support Zone Redundant Storage (ZRS), if you have a
 - Finland Central
 - India South Central
 
+### Information required for support request
+When contacting support, please provide the following information to help facilitate the migration process:
+- Subscription ID
+- Resource Group Name
+- Name of all Storage Account Names that need to be migrated
+- List of all regions where the accounts are located
+- Preferred redundancy option for each account (LRS or GRS)
+
+### What if I don't want LRS or GRS as my redundancy option after the upgrade?
+If you prefer a different redundancy option and you are in a region that doesn't support ZRS, you can choose to upgrade to GPv2 with LRS or GRS initially and then later migrate your account to a region that supports ZRS. Alternatively, you can create a new GPv2 account in a supported region with your desired redundancy option and migrate your data there.
+
+
 ## What happens if you don’t migrate by the deadline
 After **August 31, 2026**, you'll no longer be able to manage general purpose v1 (GPv1) with ZRS redundancy accounts. After **September 2026**, if you don't migrate your GPv1 with ZRS redundancy storage account to general-purpose v2, all existing GPv1 with ZRS redundancy accounts are auto migrated over to a general-purpose v2 account, which may result in higher billing costs. Your decision not to migrate an existing GPv1 with ZRS redundancy account will be construed as consent for Microsoft to migrate the account on your behalf.
 
