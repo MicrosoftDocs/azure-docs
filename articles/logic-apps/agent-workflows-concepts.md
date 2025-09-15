@@ -7,7 +7,7 @@ ms.suite: integration
 ms.reviewer: estfan, divswa, karansin, krmitta, azla
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
-ms.date: 09/10/2025
+ms.date: 09/14/2025
 ms.update-cycle: 180-days
 # Customer intent: As an AI developer, I want to learn about the benefits and support that Azure Logic Apps provides to build flexible, adaptable, and responsive workflows that complete tasks using AI agents, models, and other AI capabilities for my integration and automation scenarios.
 ---
@@ -211,3 +211,4 @@ Although agent workflows don't incur extra charges in Azure Logic Apps, model us
 
 - [Create autonomous agent workflows in Azure Logic Apps](/azure/logic-apps/create-autonomous-agent-workflows)
 - [Create conversational agent workflows in Azure Logic Apps](/azure/logic-apps/create-conversational-agent-workflows)
+- [Labs: Overview for building agentic workflows with Azure Logic Apps](https://azure.github.io/logicapps-labs/docs/logicapps-ai-course/overview)

@@ -7,7 +7,7 @@ ms.suite: integration
 ms.reviewer: estfan, divswa, krmitta, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 09/10/2025
+ms.date: 09/14/2025
 ms.update-cycle: 180-days
 # Customer intent: As an AI developer, I want to build workflows that complete tasks by using AI agents, large language models (LLMs), natural language, and human interactions through chat conversations for my integration solutions by using Azure Logic Apps.
 ---
@@ -482,5 +482,6 @@ The steps in this section are nearly the same as [Create agent parameters for th
 ## Related content
 
 - [AI agent workflows in Azure Logic Apps](/azure/logic-apps/agent-workflows-concepts)
+- [Lab: Build your first conversational agent workflow in Azure Logic Apps](https://azure.github.io/logicapps-labs/docs/logicapps-ai-course/build_conversational_agents/create-first-conversational-agent)
 - [Azure Logic Apps limits and configuration](/azure/logic-apps/logic-apps-limits-and-config)
 - [Azure OpenAI Service quotas and limits](/azure/ai-services/openai/quotas-limits)

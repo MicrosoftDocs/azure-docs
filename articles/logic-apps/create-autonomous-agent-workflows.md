@@ -7,7 +7,7 @@ ms.suite: integration
 ms.reviewer: estfan, divswa, krmitta, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 09/10/2025
+ms.date: 09/14/2025
 ms.update-cycle: 180-days
 # Customer intent: As an AI developer, I want to build workflows that complete tasks by using AI agents and other AI capabilities without human interactions for my integration solutions with Azure Logic Apps.
 ---
@@ -543,5 +543,6 @@ The following example shows how the **Get subscribers** tool might look:
 ## Related content
 
 - [AI agent workflows in Azure Logic Apps](/azure/logic-apps/agent-workflows-concepts)
+- [Lab: Build your first autonomous agent workflow in Azure Logic Apps](https://azure.github.io/logicapps-labs/docs/logicapps-ai-course/build_autonomous_agents/create-first-autonomous-agent)
 - [Azure Logic Apps limits and configuration](/azure/logic-apps/logic-apps-limits-and-config)
 - [Azure OpenAI Service quotas and limits](/azure/ai-services/openai/quotas-limits)
