@@ -18,7 +18,7 @@ This document provides answers to frequently asked questions regarding the migra
 
 No, there is no downtime during the migration. This is a control plane-only migration, meaning traffic delivery is unaffected.
 
-During migration, the classic Azure Front Door (AFD) endpoint mydomain.azurefd.net is created as a dummy custom domain on AFD standard/premium that is CNAMEd to AFD standard/premium endpoint mydomain.randomstring.z01.azurefd.net. It continues to receive traffic until you update the DNS record of AFD custom domain (www.mydomain.com) to mydomain.randomstring.z01.azurefd.net directly. It is highly recommended to change the CNAME from classic endpoint to AFD standard/premium endpoint after verification.
+During migration, the classic Azure Front Door (AFD) endpoint mydomain.azurefd.net is created as a dummy custom domain on AFD standard/premium. Both classic endpoint and standard/premium endpoints point to the same AFD IP so the final resolution remains the same before and after DNS propagation. It continues to receive traffic until you update the DNS record of AFD custom domain (www.mydomain.com) to mydomain.randomstring.z01.azurefd.net directly. It is highly recommended to change the CNAME from classic endpoint to AFD standard/premium endpoint after verification.
 
 Even in rare cases where the migration fails, traffic delivery continues to work as expected.
 
