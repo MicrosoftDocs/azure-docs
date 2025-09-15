@@ -1,9 +1,9 @@
 ---
 title: Azure Migrate appliance 
 description: Provides a summary of support for the Azure Migrate appliance.
-author: Vikram1988
-ms.author: vibansa
-ms.manager: abhemraj
+author: molishv
+ms.author: molir
+ms.manager: ronai
 ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 02/06/2025
@@ -69,19 +69,19 @@ C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip 
 
     | Algorithm  | Download  | SHA256  | 
     | --- | --- | --- |
-    | VMware- OVA file (11.9 GB)  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191954)  | 68907FC88C4215358779234AE74686DD10C76178686895ACB0663E1C3F56F207   |
+    | VMware- OVA file (11.9 GB)  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191954)  | 79679469041FD9E474B03A3AEEA0D554552EFD57F79B322E61595EC58F5FF625   |
 
     - Use the VHD file to set up the Hyper-V appliance in Azure public cloud.
 
     | Algorithm  | Download  | SHA256  | 
     | --- | --- | --- |
-    | Hyper-V -  VHD file (9.46Gb)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191848)  | DFECBFC9865C59F5A7B88BF78FA1028AD24919945059AE387BE9DA619C42A421   |
+    | Hyper-V -  VHD file (9.46Gb)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191848)  | AD3C72FB21037B10969548228B4F651BF5A79CD0A34D608CD470B75329A24A24   |
 
     - Use the Zip file to set up the VMware, Hyper-V, or Physical appliance stack in Azure public cloud and Azure Government.
 
     | Algorithm  | Download  | SHA256  | 
     | --- | --- | --- |
-    | Zip file (693 MB)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847)  | B4632DAA872310BCE44CFC7FF1C8968CDC7BAA2EB924C18FF630B18D57852EDA   |
+    | Zip file (693 MB)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847)  | 5933935B3DF002A283B40BC3A6C7F56C43185A56A9D66163514F0814EA0CC880   |
 
 
 ## Appliance services
