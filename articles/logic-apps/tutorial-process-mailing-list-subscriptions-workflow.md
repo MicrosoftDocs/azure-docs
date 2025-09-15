@@ -6,9 +6,11 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: tutorial
 ms.collection: ce-skilling-ai-copilot
-ms.custom: mvc
 ms.update-cycle: 180-days
 ms.date: 09/11/2025
+ms.custom:
+  - mvc
+  - sfi-image-nochange
 ---
 
 # Tutorial: Create approval-based workflows using Azure Logic Apps
