@@ -9,6 +9,7 @@ ms.date: 6/20/2025
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
+ms.custom: sfi-ropc-nochange
 ---
 
 # Adding visual effects to a video call
