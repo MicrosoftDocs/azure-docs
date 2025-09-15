@@ -12,15 +12,13 @@ ms.subservice: general
 
 # Understanding Azure Maps Transactions
 
-When you use [Azure Maps Services], the API requests you make generate transactions. Your transaction usage is available for review in your [Azure portal] Metrics report. For more information, see [View Azure Maps API usage metrics]. These transactions can be either billable or nonbillable usage, depending on the service and the feature. It’s important to understand which usage generates a billable transaction and how it’s calculated so you can plan and budget for the costs associated with using Azure Maps. Billable transactions show up in your Cost Analysis report within the Azure portal.
-
-<!---->
+When you use [Azure Maps Services], the API requests you make generate transactions. Your transaction usage is available for review in your [Azure portal] Metrics report. For more information, see [View Azure Maps API usage metrics]. These transactions can be either billable or nonbillable usage, depending on the service and the feature. It's important to understand which usage generates a billable transaction and how it's calculated so you can plan and budget for the costs associated with using Azure Maps. Billable transactions show up in your Cost Analysis report within the Azure portal.
 
 > [!NOTE]
 >
 > **Azure Maps Gen1 pricing tier retirement**
 >
-> Gen1 pricing tier is now deprecated and will be retired on 9/15/26. Gen2 pricing tier replaces Gen1 (both S0 and S1) pricing tier. If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 pricing tier before it’s retired, otherwise it will automatically be updated. For more information, see [Manage the pricing tier of your Azure Maps account].
+> Gen1 pricing tier is now deprecated and will be retired on 9/15/26. Gen2 pricing tier replaces Gen1 (both S0 and S1) pricing tier. If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 pricing tier before it's retired, otherwise it will automatically be updated. For more information, see [Manage the pricing tier of your Azure Maps account].
 
 ## Azure Maps Transaction information by service
 
@@ -46,7 +44,7 @@ The following table summarizes the Azure Maps services that generate both billab
 
 > [!TIP]
 >
-> Unlike Bing Maps, Azure Maps doesn’t use [session IDs]. Instead, Azure Maps offers many free transactions each month as shown in [Azure Maps pricing]. For example, you get 5,000 free *Base Map Tile* transactions per month. Each transaction can include up to 15 tiles for a total of 75,000 tiles rendered for free each month.
+> Unlike Bing Maps, Azure Maps doesn't use [session IDs]. Instead, Azure Maps offers many free transactions each month as shown in [Azure Maps pricing]. For example, you get 5,000 free *Base Map Tile* transactions per month. Each transaction can include up to 15 tiles for a total of 75,000 tiles rendered for free each month.
 <!-- In Bing Maps, any time a synchronous Truck Routing request is made, three transactions are counted. Does this apply also to Azure Maps?-->
 
 
