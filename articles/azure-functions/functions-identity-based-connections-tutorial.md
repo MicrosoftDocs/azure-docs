@@ -24,15 +24,11 @@ In this tutorial, you learn how to:
 > - Move secrets that can't be replaced with identities into Azure Key Vault
 > - Configure an app to connect to the default host storage using its managed identity
 
-After you complete this tutorial, you should complete the follow-on tutorial that shows how to [use identity-based connections instead of secrets with triggers and bindings].
+After you complete this tutorial, you should complete the follow-on tutorial that shows how to [use identity-based connections instead of secrets with triggers and bindings](./functions-identity-based-connections-tutorial-2.md).
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
-- The [.NET SDK](https://dotnet.microsoft.com/download)
-
-- The [Azure Functions Core Tools](functions-run-local.md#v2) version 4.x.
 
 ## Why use identity?
 
