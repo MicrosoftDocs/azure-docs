@@ -10,6 +10,7 @@ ms.author: soricos
 ms.date: 01/30/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.custom: sfi-ropc-nochange
 #Customer intent: As a developer, I want learn how to correctly handle Credential objects so that I can build applications that run efficiently.
 ---
 
