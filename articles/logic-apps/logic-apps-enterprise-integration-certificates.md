@@ -8,6 +8,7 @@ ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 08/27/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Add certificates to integration accounts for securing messages in workflows with Azure Logic Apps

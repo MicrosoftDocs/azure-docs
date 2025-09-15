@@ -6,6 +6,7 @@ ms.author: ali
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 07/19/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Data protection in Azure Stream Analytics 
