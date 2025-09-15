@@ -65,7 +65,7 @@ HTTP ingress adds headers to pass metadata about the client request to your cont
 | Header | Description | Values |
 |---|---|---|
 | `X-Forwarded-Proto` | Protocol used by the client to connect with the Container Apps service. | `http` or `https` |
-| `X-Forwarded-For` | The IP address(es) of the client and/or proxies that sent the request. | IP address(es) of the senders. If specified in initial request, it is appended to. Only the rightmost IP is considered a trusted client IP. |
+| `X-Forwarded-For` | The IP address(es) of the client and/or intermediate proxies that sent the request. | IP address(es) of the senders. If specified in initial request, it is appended to. Only the rightmost IP is provided by ACA, any other values must be validated by the user to prevent IP spoofing. |
 | `X-Forwarded-Host` | The host name the client used to connect with the Container Apps service. |  |
 | `X-Forwarded-Client-Cert` | The client certificate if `clientCertificateMode` is set. | Semicolon separated list of Hash, Cert, and Chain. For example: `Hash=....;Cert="...";Chain="...";` |
 
