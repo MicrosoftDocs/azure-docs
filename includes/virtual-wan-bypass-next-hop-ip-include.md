@@ -21,11 +21,11 @@ You’ve set up a Virtual WAN Hub connected to two spokes:
 - **NVA Spoke**: Contains a load balancer (10.2.0.1) that routes traffic between two NVA virtual machine instances (10.2.0.2 and 10.2.0.3). This spoke is also directly peered to another VNet (the indirect spoke) containing a VM with IP 10.2.1.1. 
 - **Direct Spoke**: Another VNet connected directly to the Virtual WAN Hub. This VNet contains a VM with IP 10.0.0.1. 
 
-:::image type="content" source="../articles/virtual-wan/media/virtual-wan-bypass-next-hop-ip-include/bypass-next-hop-ip-initial-design.png" alt-text="Screenshot shows image of described design.":::
+:::image type="content" source="../articles/virtual-wan/media/virtual-wan-bypass-next-hop-ip-include/bypass-next-hop-ip-initial-design.png" alt-text="Screenshot shows diagram of described design.":::
 
 A static route is configured on NVAConn to ensure that any traffic destined for the NVA spoke or the indirect spoke is routed through the load balancer at IP 10.2.0.1. 
 
-:::image type="content" source="../articles/virtual-wan/media/virtual-wan-bypass-next-hop-ip-include/static-route-bypass-next-hop-ip.png" alt-text="Screenshot shows image of aforementioned static route.":::
+:::image type="content" source="../articles/virtual-wan/media/virtual-wan-bypass-next-hop-ip-include/static-route-bypass-next-hop-ip.png" alt-text="Screenshot that shows aforementioned static route.":::
 
 ### Traffic behavior with Bypass Next Hop IP disabled
 If **Bypass Next Hop IP is disabled/LocalVNETBypassCriteria = contains**, then:
@@ -33,11 +33,11 @@ If **Bypass Next Hop IP is disabled/LocalVNETBypassCriteria = contains**, then:
     - **Intended traffic flow**: blue line
     - **Actual traffic flow**: red line
 
-:::image type="content" source="../articles/virtual-wan/media/virtual-wan-bypass-next-hop-ip-include/actual-scenario-and-goal-scenario-bypass-next-hop-ip.png" alt-text="Screenshot shows image of traffic flow when Bypass Next Hop IP is disabled and the traffic is sent to a range within the spoke.":::
+:::image type="content" source="../articles/virtual-wan/media/virtual-wan-bypass-next-hop-ip-include/actual-scenario-and-goal-scenario-bypass-next-hop-ip.png" alt-text="Screenshot shows diagram of traffic flow when Bypass Next Hop IP is disabled and the traffic is sent to a range within the spoke.":::
 
 - Traffic within the broader static route will also be routed to the load balancer. For example, traffic from the direct spoke VM (10.0.0.1) to the indirect spoke VM (10.2.1.1) will also be routed through the load balancer due to the static route. 
 
-:::image type="content" source="../articles/virtual-wan/media/virtual-wan-bypass-next-hop-ip-include/disabled-broader-static-route-bypass-next-hop-ip.png" alt-text="Screenshot shows image of traffic flow when Bypass Next Hop IP is disabled and the traffic is not sent to a range within the spoke.":::
+:::image type="content" source="../articles/virtual-wan/media/virtual-wan-bypass-next-hop-ip-include/disabled-broader-static-route-bypass-next-hop-ip.png" alt-text="Screenshot shows diagram of traffic flow when Bypass Next Hop IP is disabled and the traffic is not sent to a range within the spoke.":::
 
 ### Traffic Behavior With Bypass Next Hop IP Enabled
 If **Bypass Next Hop IP is enabled or LocalVNETBypassCriteria = equals**: 
@@ -46,4 +46,4 @@ If **Bypass Next Hop IP is enabled or LocalVNETBypassCriteria = equals**:
 - Traffic targeting an address outside the NVA spoke’s prefix (but still within the static route’s range), such as 10.2.1.1 in the indirect spoke, continues to follow the static route and is sent to the load balancer. 
     - **Traffic flow**: red line from 10.0.0.1 to 10.2.1.1 (path may vary based on load balancer hashing) 
 
-:::image type="content" source="../articles/virtual-wan/media/virtual-wan-bypass-next-hop-ip-include/enabled-bypass-next-hop-ip.png" alt-text="Screenshot shows image of different traffic flows when Bypass Next Hop IP is enabled.":::
+:::image type="content" source="../articles/virtual-wan/media/virtual-wan-bypass-next-hop-ip-include/enabled-bypass-next-hop-ip.png" alt-text="Screenshot shows diagram of different traffic flows when Bypass Next Hop IP is enabled.":::
