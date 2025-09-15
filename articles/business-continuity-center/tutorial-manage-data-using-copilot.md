@@ -216,7 +216,7 @@ To configure protection for resources in a vault, follow these steps:
 
 ## Create a  backup vault using Azure Business Continuity Center Copilot
 
-Azure Business Continuity Center Copilot enables you to make informed decisions when setting up backup vaults. During vault creation, Copilot recommends enabling Cross Region Restore and Immutability, the essential features for ensuring resiliency and protecting against ransomware threats. The “Create Backup Vault” prompt provides intelligent defaults based on your most-used subscriptions and regions, helping maintain backup availability across regions while safeguarding data from deletion or modification. Additionally, Copilot simplifies vault configuration by suggesting frequently used values for subscription, resource group, and region, which you can easily adjust to meet your specific requirements.
+Azure Business Continuity Center Copilot enables you to make informed decisions when setting up backup vaults. During vault creation, Copilot recommends enabling Cross Region Restore and Immutability, the essential features for ensuring resiliency and protecting against ransomware threats. The “Create Backup Vault” prompt provides intelligent defaults based on your most-used subscriptions and regions, helping maintain backup availability across regions while safeguarding data from deletion or modification. Additionally, Copilot simplifies vault configuration by suggesting frequently used values for subscription, resource group, and region, which you can easily adjust to meet your requirements.
 
 To create a Backup vault using Azure Business Continuity Center Copilot, follow these steps:
 
@@ -226,7 +226,7 @@ To create a Backup vault using Azure Business Continuity Center Copilot, follow 
 
 1. On the **Start: Create Vault** pane, Select **Backup vault** as the **Vault Type**, and then select **Continue**.
 
-1. On the**Create Backup Vault** pane, select **Help me create a vault**.
+1. On the **Create Backup Vault** pane, select **Help me create a vault**.
 
    :::image type="content" source="./media/tutorial-manage-data-using-copilot/select-vault-subscription.png" alt-text="Screenshot shows how to start creating vault using Copilot." lightbox="./media/tutorial-manage-data-using-copilot/select-vault-subscription.png":::
 
@@ -261,7 +261,7 @@ To create a Backup vault using Azure Business Continuity Center Copilot, follow 
 
 1. On the **Review + create** tab, select **Create** to start creating the vault.
 
-## Copy a Backup vault to another region
+## Copy a Backup vault to another region using Azure Business Continuity Center Copilot
 
 Azure Business Continuity Center now enables you to easily copy vault configurations across regions. With the integrated Copilot solution, this process is streamlined and automated, providing greater simplicity, consistency, and reliability when managing Backup vaults; thus eliminates the need for manual reconfiguration in the target region.
 
