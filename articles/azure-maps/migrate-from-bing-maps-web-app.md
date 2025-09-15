@@ -66,7 +66,6 @@ The following table lists key API features in the Bing Maps V8 JavaScript SDK an
 | GeoJSON support          | [Microsoft.Maps.GeoJson]            | ✓                                                                     |
 | GeoXML support           | [Microsoft.Maps.GeoXml]             | ✓ [Spatial IO module]                                                 |
 | Well-Known Text support  | [Microsoft.Maps.WellKnownText]      | ✓ [Spatial IO module]                                                 |
-| Indoor maps              | [Microsoft.Maps.VenueMaps]          | ✓ [Creator]                                                           |
 | Traffic flow             | [Microsoft.Maps.Traffic]            | ✓ [Traffic control]                                                   |
 | Spatial math             | [Microsoft.Maps.SpatialMath]        | ✓ [atlas.math samples] or [turf js]                                   |
 | Custom map styles        |                                     | Partial, [Choose a map style]                                          |
@@ -1708,7 +1707,6 @@ Learn more about migrating from Bing Maps to Azure Maps.
 [Clustering point data in the Web SDK]: clustering-point-data-web-sdk.md
 [Contour layer code samples]: https://samples.azuremaps.com/?search=contour
 [Create a data source]: create-data-source-web-sdk.md
-[Creator]: creator-indoor-maps.md
 [Display an infobox]: #display-an-infobox
 [Drawing tools module code samples]: https://samples.azuremaps.com#drawing-tools-module
 [free account]: https://azure.microsoft.com/free/
@@ -1734,7 +1732,6 @@ Learn more about migrating from Bing Maps to Azure Maps.
 [Microsoft.Maps.SpatialDataService]: /bingmaps/v8-web-control/modules/spatial-data-service-module/
 [Microsoft.Maps.GeoJson]: /bingmaps/v8-web-control/modules/geojson-module/
 [Microsoft.Maps.WellKnownText]: /bingmaps/v8-web-control/modules/well-known-text-module
-[Microsoft.Maps.VenueMaps]: /bingmaps/v8-web-control/modules/venue-map-module/
 [Microsoft.Maps.Traffic]: /bingmaps/v8-web-control/modules/traffic-module/
 [Microsoft.Maps.SpatialMath]: /bingmaps/v8-web-control/modules/spatial-math-module/
 [ng-azure-maps]: https://github.com/arnaudleclerc/ng-azure-maps

@@ -44,7 +44,7 @@ You need the following information to run the `attribution` command:
 | ----------- | ------ | --------------------------------- |
 | api-version | string | Version number of Azure Maps API. |
 | bounds      | array  | A string that represents the rectangular area of a bounding box. The bounds parameter is defined by the four bounding box coordinates. The first 2 are the WGS84 longitude and latitude defining the southwest corner and the last 2 are the WGS84 longitude and latitude defining the northeast corner. The string is presented in the following format: [SouthwestCorner_Longitude, SouthwestCorner_Latitude, NortheastCorner_Longitude, NortheastCorner_Latitude]. |
-| tilesetId | TilesetID | A tileset is a collection of raster or vector data broken up into a uniform grid of square tiles at preset zoom levels. Every tileset has a tilesetId to use when making requests. The tilesetId for tilesets created using Azure Maps Creator are generated through the [Tileset Create API]. There are ready-to-use tilesets supplied by Azure Maps, such as `microsoft.base.road`, `microsoft.base.hybrid` and `microsoft.weather.radar.main`, a complete list can be found the [Get Map Attribution] REST API documentation. |
+| tilesetId | TilesetID | A tileset is a collection of raster or vector data broken up into a uniform grid of square tiles at preset zoom levels. Every tileset has a tilesetId to use when making requests. There are ready-to-use tilesets supplied by Azure Maps, such as `microsoft.base.road`, `microsoft.base.hybrid` and `microsoft.weather.radar.main`, a complete list can be found the [Get Map Attribution] REST API documentation. |
 | zoom | integer | Zoom level for the selected tile. The valid range depends on the tile, see the [TilesetID] table for valid values for a specific tileset. For more information, see the [Zoom levels and tile grid] article. |
 | subscription-key | string | One of the Azure Maps keys provided from an Azure Map Account. For more information, see the [Authentication with Azure Maps] article. |
 
@@ -62,7 +62,6 @@ https://atlas.microsoft.com/map/attribution?subscription-key={Your-Azure-Maps-Su
 [Get Map Attribution API]: /rest/api/maps/render/get-map-attribution
 [Get Map Attribution]: /rest/api/maps/render/get-map-attribution#tilesetid
 [Render service]: /rest/api/maps/render
-[Tileset Create API]: /rest/api/maps-creator/tileset/create
 [TilesetID]: /rest/api/maps/render/get-map-attribution#tilesetid
 [Web]: how-to-use-map-control.md
 [Zoom levels and tile grid]: zoom-levels-and-tile-grid.md

@@ -77,8 +77,6 @@ The Web SDK has two data sources,
 If working with larger datasets containing millions of features, the recommended way to achieve optimal performance is to expose the data using a server-side solution such as vector or raster image tile service.  
 Vector tiles are optimized to load only the data that is in view with the geometries clipped to the focus area of the tile and generalized to match the resolution of the map for the zoom level of the tile.
 
-The [Azure Maps Creator platform] retrieves data in vector tile format. Other data formats can be using tools such as [Tippecanoe]. For more information on working with vector tiles, see the Mapbox [awesome-vector-tiles] readme in GitHub.
-
 It's also possible to create a custom service that renders datasets as raster image tiles on the server-side and load the data using the TileLayer class in the map SDK. This provides exceptional performance as the map only needs to load and manage a few dozen images at most. However, there are some limitations with using raster tiles since the raw data isn't available locally. A secondary service is often required to power any type of interaction experience, for example, find out what shape a user clicked on. Additionally, the file size of a raster tile is often larger than a compressed vector tile that contains generalized and zoom level optimized geometries.
 
 For more information about data sources, see [Create a data source].
@@ -117,7 +115,7 @@ If your dataset contains features that aren't going to be used in your app, remo
 
 When features have numerous properties or content, it's much more performant to limit what gets added to the data source to just those needed for rendering and to have a separate method or service for retrieving the other property or content when needed. For example, if you have a simple map displaying locations on a map when selected a bunch of detailed content is displayed. If you want to use data driven styling to customize how the locations are rendered on the map, only load the properties needed into the data source. When you want to display the detailed content, use the ID of the feature to retrieve the other content separately. If the content is stored on the server, you can reduce the amount of data that needs to be downloaded when the map is initially loaded by using a service to retrieve it asynchronously.
 
-Additionally, reducing the number of significant digits in the coordinates of features can also significantly reduce the data size. It isn't uncommon for coordinates to contain 12 or more decimal places; however, six decimal places have an accuracy of about 0.1 meters, which is often more precise than the location the coordinate represents (six decimal places is recommended when working with small location data such as indoor building layouts). Having any more than six decimal places will likely make no difference in how the data is rendered and requires the user to download more data for no added benefit.
+Additionally, reducing the number of significant digits in the coordinates of features can also significantly reduce the data size. It isn't uncommon for coordinates to contain 12 or more decimal places; however, six decimal places have an accuracy of about 0.1 meters, which is often more precise than the location the coordinate represents. Having any more than six decimal places will likely make no difference in how the data is rendered and requires the user to download more data for no added benefit.
 
 Here's a list of [useful tools for working with GeoJSON data].
 
@@ -416,8 +414,6 @@ Learn more about the terminology used by Azure Maps and the geospatial industry.
 > [Azure Maps glossary]
 
 [Authentication and authorization best practices]: authentication-best-practices.md
-[awesome-vector-tiles]: https://github.com/mapbox/awesome-vector-tiles#awesome-vector-tiles-
-[Azure Maps Creator platform]: creator-indoor-maps.md
 [Azure Maps developer forums]: /answers/topics/azure-maps.html
 [Azure Maps feedback]: https://feedback.azuremaps.com
 [Azure Maps glossary]: glossary.md
