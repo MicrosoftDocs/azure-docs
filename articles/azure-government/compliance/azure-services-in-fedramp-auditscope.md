@@ -7,7 +7,7 @@ ms.topic: article
 ms.service: azure-government
 ms.custom: references_regions
 recommendations: false
-ms.date: 08/11/2025
+ms.date: 09/15/2025
 ---
 
 # Azure, Dynamics 365, Microsoft 365, and Power Platform services compliance scope
@@ -36,7 +36,7 @@ For current Azure Government regions and available services, see [Products avail
 >
 > - Some Azure services deployed in Azure Government regions US Gov Arizona, US Gov Texas, and US Gov Virginia (US Gov regions) require extra configuration to meet DoD IL5 compute and storage isolation requirements, as explained in **[Isolation guidelines for Impact Level 5 workloads](../documentation-government-impact-level-5.md).**
 > - For DoD IL5 PA compliance scope in Azure Government regions US DoD Central and US DoD East (US DoD regions), see **[US DoD regions IL5 audit scope](../documentation-government-overview-dod.md#us-dod-regions-il5-audit-scope).**
-> - For full list of M365 GCC high services authorized for FedRAMP High, see **[Microsoft Office 365 GCC High FedRAMP Marketplace](https://marketplace.fedramp.gov/products/FR1824057433)**. Azure Communication Services operates under the same infrastructure that powers Microsoft Teams and obtained FedRAMP High accreditation as part of the M365 GCC-High service offering.
+> - For full list of M365 GCC high services authorized for FedRAMP High, see **[Microsoft Office 365 GCC High FedRAMP Marketplace](https://marketplace.fedramp.gov/products/MSO365MT)**. Azure Communication Services operates under the same infrastructure that powers Microsoft Teams and obtained FedRAMP High accreditation as part of the M365 GCC-High service offering.
 
 **Azure Government Secret** maintains:
 
@@ -51,7 +51,7 @@ For current Azure Government regions and available services, see [Products avail
 This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and Power Platform cloud services in scope for FedRAMP High, DoD IL2, DoD IL4, DoD IL5, and DoD IL6 authorizations across Azure, Azure Government, and Azure Government Secret cloud environments. For other authorization details in Azure Government Secret and Azure Government Top Secret, contact your Microsoft account representative.
 
 ## Azure public services by audit scope
-*Last updated: August 2025*
+*Last updated: September 2025*
 
 ### Terminology used
 
@@ -108,6 +108,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Stack Edge](../../databox-online/index.yml) (formerly Data Box Edge) **&ast;&ast;&ast;** | &#x2705; | &#x2705; |
 | [Azure Local](/azure-stack/hci/) **&ast;&ast;&ast;** | &#x2705; | &#x2705; |
 | [Azure Static WebApps](../../static-web-apps/index.yml) | &#x2705; | &#x2705; |
+| [Azure Update Manager](/azure/update-manager/) | &#x2705; | &#x2705; |
 | [Azure Video Indexer](/azure/azure-video-indexer/) | &#x2705; | &#x2705; |
 | [Azure Virtual Desktop](/azure/virtual-desktop/) (formerly Windows Virtual Desktop) | &#x2705; | &#x2705; |
 | [Azure VMware Solution](../../azure-vmware/index.yml) | &#x2705; | &#x2705; |
@@ -154,6 +155,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [DNS](../../dns/index.yml) | &#x2705; | &#x2705; |
 | [Omnichannel for Customer Service (Formerly Dynamics 365 Chat and Omnichannel Engagement Hub)](/dynamics365/omnichannel/introduction-omnichannel) | &#x2705; | &#x2705; |
 | [Dynamics 365 Commerce](/dynamics365/commerce/)| &#x2705; | &#x2705; |
+| [Dynamics 365 Contact Center](/dynamics365/contact-center)| &#x2705; | &#x2705; |
 | [Dynamics 365 Customer Service](/dynamics365/customer-service/overview)| &#x2705; | &#x2705; |
 | [Dynamics 365 Field Service](/dynamics365/field-service/overview)| &#x2705; | &#x2705; |
 | [Dynamics 365 Finance](/dynamics365/finance/)| &#x2705; | &#x2705; |
@@ -175,6 +177,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure AI Document Intelligence](/azure/ai-services/document-intelligence/) | &#x2705; | &#x2705; |
 | [Front Door](../../frontdoor/index.yml) | &#x2705; | &#x2705; |
 | [Functions](../../azure-functions/index.yml) | &#x2705; | &#x2705; |
+| [Global Secure Access](/entra/global-secure-access/) | &#x2705; | &#x2705; |
 | [HDInsight](../../hdinsight/index.yml) | &#x2705; | &#x2705; |
 | [HPC Cache](../../hpc-cache/index.yml) | &#x2705; | &#x2705; |
 | [Immersive Reader](/azure/ai-services/immersive-reader/) | &#x2705; | &#x2705; |
@@ -205,6 +208,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Microsoft Fabric](/fabric/) | &#x2705; | &#x2705; |
 | [Microsoft Graph](/graph/) | &#x2705; | &#x2705; |
 | [Microsoft Intune](/mem/intune/) | &#x2705; | &#x2705; |
+| [Microsoft Managed Desktop](/managed-desktop/overview/) | &#x2705; | &#x2705; |
 | [Microsoft Pin Reset Service](/windows/security/identity-protection/hello-for-business/pin-reset) | &#x2705; | &#x2705; |
 | [Microsoft Purview](../../purview/index.yml) (incl. Data Map, Data Estate Insights, and governance portal) | &#x2705; | &#x2705; |
 | [Microsoft Secure Score](/defender-xdr/microsoft-secure-score/) | &#x2705; | &#x2705; |

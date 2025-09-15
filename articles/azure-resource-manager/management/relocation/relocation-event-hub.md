@@ -1,7 +1,7 @@
 ---
 title: Relocate Azure Event Hubs to another region
 description: Learn how to relocate Azure Event Hubs to another region
-ms.date: 01/24/2024
+ms.date: 09/15/2025
 ms.topic: how-to
 ms.custom: subject-relocation
 ---
