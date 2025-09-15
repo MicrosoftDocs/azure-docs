@@ -15,7 +15,7 @@ ms.author: v-uhabiba
 
 >[!IMPORTANT]
 > - For a seamless scheduled patching experience, we recommend that for all Azure virtual machines (VMs), you update the patch orchestration to **Customer Managed Schedules**.
-> - For Arc-enabled servers, the updates and maintenance options such as Automatic VM Guest patching in Azure, Windows automatic updates and Hotpatching aren't supported.
+> - For Arc-enabled servers, the updates and maintenance options such as Automatic VM Guest patching in Azure, Windows automatic updates and hotpatching aren't supported.
 
 This article provides an overview of the various update options and orchestration in Azure Update Manager.
 
@@ -49,11 +49,11 @@ To enable the VM property, follow these steps:
 
 
 
-## Hotpatching
+## hotpatching
 
-[Hotpatching](/windows-server/get-started/hotpatch?context=%2Fazure%2Fvirtual-machines%2Fcontext%2Fcontext) allows you to install OS security updates on supported *Windows Server Datacenter: Azure Edition* virtual machines that don't require a reboot after installation. It works by patching the in-memory code of running processes without the need to restart the process. With Hotpatching, reboots will typically be required for the installation of patches on every third month rather than every month.
+[hotpatching](/windows-server/get-started/hotpatch?context=%2Fazure%2Fvirtual-machines%2Fcontext%2Fcontext) allows you to install OS security updates on supported *Windows Server Datacenter: Azure Edition* virtual machines that don't require a reboot after installation. It works by patching the in-memory code of running processes without the need to restart the process. With hotpatching, reboots will typically be required for the installation of patches on every third month rather than every month.
 
-Following are the features of Hotpatching:
+Following are the features of hotpatching:
 
 - Fewer binaries mean update install faster and consume less disk and CPU resources.
 - Lower workload impact with fewer reboots.
@@ -62,7 +62,7 @@ Following are the features of Hotpatching:
 
 :::image type="content" source="media/updates-maintenance/hot-patch-inline.png" alt-text="Screenshot that shows the Hotpatch option." lightbox="media/updates-maintenance/hot-patch-expanded.png":::
 
-Hotpatching property is available as a setting in Azure Update Manager that you can enable by using Update settings flow. For more information, see [Hotpatch for virtual machines and supported platforms](/windows-server/get-started/hotpatch).
+hotpatching property is available as a setting in Azure Update Manager that you can enable by using Update settings flow. For more information, see [Hotpatch for virtual machines and supported platforms](/windows-server/get-started/hotpatch).
 
 ## Automatic extension upgrade
 
