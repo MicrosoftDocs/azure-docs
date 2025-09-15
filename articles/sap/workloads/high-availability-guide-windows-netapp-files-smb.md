@@ -22,7 +22,7 @@ ms.author: radeltch
 [dfs-n-reference]:high-availability-guide-windows-dfs.md
 
 [anf-azure-doc]:../../azure-netapp-files/azure-netapp-files-introduction.md
-[anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
+[anf-sap-applications-azure]:https://www.netapp.com/sap-solutions/sap-on-azure/
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
@@ -53,8 +53,8 @@ Read the following SAP Notes and papers first:
 * [Install SAP NetWeaver high availability on a Windows failover cluster and file share for SAP ASCS/SCS instances on Azure](./sap-high-availability-installation-wsfc-file-share.md) 
 * [Azure Virtual Machines high-availability architecture and scenarios for SAP NetWeaver](./sap-high-availability-architecture-scenarios.md)
 * [Add probe port in ASCS cluster configuration](sap-high-availability-installation-wsfc-file-share.md)
-* [Create an SMB volume for Azure NetApp Files](../../azure-netapp-files/create-active-directory-connections.md#requirements-for-active-directory-connections)
-* [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure] 
+* [Create an SMB volume for Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#add-an-smb-volume)
+* [NetApp SAP Solutions - SAP on Azure][anf-sap-applications-azure] 
 
 ## Overview
 
