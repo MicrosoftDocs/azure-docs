@@ -59,16 +59,25 @@ For example, use the [validate-azure-ad-token](validate-azure-ad-token-policy.md
 
 By default, API Management doesn't automatically forward incoming headers such as `Authorization` to an MCP server backend. To forward tokens securely today, you currently have these options: 
 
-* Explicitly define `Authorization` as a required header in the API settings and forward the header in the `Outbound` policy. 
+* BUG: Currently the only header that gets forwarded to your backend APIM API via MCP policy is the 'Ocp-Apim-Subscription-Key' header. If you want to passthrough an authentication header, transform it to the 'Ocp-Apim-Subscription-Key' header in the MCP 'inbound' policy first.
 
-    Example policy snippet: 
 
-    ```xml
-    <!-- Forward Authorization header to backend --> 
-    <set-header name="Authorization" exists-action="override"> 
-        <value>@(context.Request.Headers.GetValueOrDefault("Authorization"))</value> 
-    </set-header> 
-    ```
+MCP policy 'inbound' section
+
+```xml
+  <set-header name="Ocp-Apim-Subscription-Key" exists-action="override">
+			<value>@((string)context.Request.Headers.GetValueOrDefault("Authorization",""))</value>
+  </set-header>
+```
+
+Backing REST API 'inbound' section
+
+```xml
+  <set-header name="Authorization" exists-action="override">
+      <value>@((string)context.Request.Headers.GetValueOrDefault("Ocp-Apim-Subscription-Key",""))</value>
+  </set-header>
+```
+
 
 * Use API Management credential manager and policies (`get-authorization-context`, `set-header`) to securely forward the token. See [Secure outbound access](#secure-outbound-access) for details.
 
