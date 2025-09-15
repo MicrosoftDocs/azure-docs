@@ -24,7 +24,7 @@ This article provides an overview of Microsoft Sentinel, its core components, an
 
 This diagram illustrates the high-level architecture of the Microsoft Sentinel platform and SIEM, highlighting its core components and its integration with [Microsoft Security Copilot](/copilot/security/microsoft-security-copilot).
 
-:::image type="content" source="media/sentinel-platform-overview/microsoft sentinel platform.png" alt-text="A diagram that depicts the Microsoft Sentinel platform overview" link="media/sentinel-platform-overview/microsoft sentinel platform.png" lightbox="media/sentinel-platform-overview/microsoft sentinel platform.png":::
+:::image type="content" source="media/sentinel-platform-overview/microsoft-sentinel-platform.png" alt-text="A diagram that depicts the Microsoft Sentinel platform overview" link="media/sentinel-platform-overview/microsoft-sentinel-platform.png" lightbox="media/sentinel-platform-overview/microsoft-sentinel-platform.png":::
 
 ## Core components of the Microsoft Sentinel platform
 
