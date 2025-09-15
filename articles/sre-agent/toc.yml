@@ -32,8 +32,8 @@ items:
       href: roles-permissions-overview.md
     - name: User access roles
       href: user-access-roles.md
-    - name: Agent and user permissions
-      href: agent-user-permissions.md
+    - name: Agent managed identity
+      href: agent-managed-identity.md
     - name: Agent run modes
       href: agent-run-modes.md
 - name: Reference
