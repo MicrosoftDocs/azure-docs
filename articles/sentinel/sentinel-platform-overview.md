@@ -101,10 +101,13 @@ For more information, see [Microsoft Sentinel data connectors](./connect-data-so
 
 ## Get started
 
-To get started with Microsoft Sentinel data lake and Microsoft Sentinel graph, follow these steps in the [onboarding guide](../sentinel/datalake/sentinel-lake-onboarding.md). For more information on using other capabilities, see the following articles:
+To get started with the Microsoft Sentinel platform and SIEM, see:
 
-- [Jupyter notebooks in the Microsoft Sentinel data lake (preview)](../sentinel/datalake/notebooks-overview.md).
+- [Onboard Microsoft Sentinel](quickstart-onboard.md)
+- [Onboard to Microsoft Sentinel data lake and Microsoft Sentinel graph](../sentinel/datalake/sentinel-lake-onboarding.md)
+- [Deployment guide for Microsoft Sentinel](deploy-overview.md)
 - [KQL and the Microsoft Sentinel data lake (preview)](../sentinel/datalake/kql-overview.md)
-- [Permissions for the Microsoft Sentinel data lake (preview)](./roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake)
 - [Manage data tiers and retention in Microsoft Defender Portal (preview)](./manage-data-overview.md)
 - [Manage and monitor costs for Microsoft Sentinel](./billing-monitor-costs.md)
+- [Jupyter notebooks in the Microsoft Sentinel data lake (preview)](../sentinel/datalake/notebooks-overview.md).
+- [Permissions for the Microsoft Sentinel data lake (preview)](./roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake)
