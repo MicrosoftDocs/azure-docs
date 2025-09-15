@@ -54,7 +54,7 @@ Examples of agent actions include:
 
 - Access observability data (dashboards, charts, traces).
 
-For more information on how RBAC security is enforced, see [Agent run modes in Azure SRE Agent](agent-actions.md).
+For more information on how RBAC security is enforced, see [Agent run modes in Azure SRE Agent](agent-run-modes.md).
 
 ## User actions
 
@@ -78,5 +78,5 @@ Here's a few example scenarios that can help illustrate how the security model i
 
 ## Related content
 
-- [Agent actions](./agent-actions.md)
+- [Agent run modes](./agent-run-modes.md)
 - [User access roles](./user-access-roles.md)

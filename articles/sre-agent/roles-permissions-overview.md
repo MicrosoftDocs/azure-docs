@@ -22,7 +22,7 @@ The security model in Azure SRE Agent consists of three main components:
 |---|---|
 | **[Role-based access control](./user-access-roles.md)** | Determines how users can access SRE Agent with different permission levels. |
 | **[Agent identity](./agent-user-permissions.md)** | Controls how does SRE Agent get permissions to perform actions on resources. |
-| **[Agent run modes](./agent-actions.md)** | Shows how agent execution mode, agent identity, and user permissions work together. |
+| **[Agent run modes](./agent-run-modes.md)** | Shows how agent execution mode, agent identity, and user permissions work together. |
 
 ## Security model at a glance
 
@@ -40,4 +40,4 @@ For detailed information about each component of the security model, refer to th
 
 - [User access roles](./user-access-roles.md)
 - [Agent and user permissions](./agent-user-permissions.md)
-- [Agent run modes](./agent-actions.md)
+- [Agent run modes](./agent-run-modes.md)
