@@ -130,7 +130,7 @@ using System.Security.Cryptography.X509Certificates;
 
 ...
 
-var cert = X509CertificateLoader.LoadCertificateFromFile("/var/ssl/certs/<thumbprint>.der");
+var cert = X509CertificateLoader.LoadCertificateFromFile("~/<relative-path-to-cert-file>");
 
 // Use the loaded certificate
 ```
