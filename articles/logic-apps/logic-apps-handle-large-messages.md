@@ -115,7 +115,7 @@ If an HTTP action doesn't already have chunking enabled, you must set up chunkin
 
 1. Under **Content transfer**, set **Allow chunking** to **On**.
 
-   :::image type="content" source="./media/logic-apps-handle-large-messages/set-up-chunking.png" alt-text="Screenshot show the settings for an HTTP action, with Allow chunking selected. Turn on chunking":::
+   :::image type="content" source="./media/logic-apps-handle-large-messages/set-up-chunking.png" alt-text="Screenshot shows the settings for an HTTP action, with Allow chunking selected. Turn on chunking.":::
 
 1. To finish setting up chunking for downloads or uploads, continue with the following sections.
 
