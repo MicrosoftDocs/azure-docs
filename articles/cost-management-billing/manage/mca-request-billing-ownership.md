@@ -2,7 +2,7 @@
 title: Transfer Azure product billing ownership to a Microsoft Customer Agreement
 description: Learn how to transfer billing ownership of Azure subscriptions, reservations, and savings plans.
 ms.topic: how-to
-ms.date: 08/18/2025
+ms.date: 09/15/2025
 author: Nicholak-MS
 ms.author: nicholak
 ms.reviewer: nicholak
