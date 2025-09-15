@@ -14,13 +14,13 @@ Initial score: 65 (404/20)
 Curremnt score: 100 (448/0 false-positive)
 -->
 
-# Seeding data with Veeam and Azure Data Box Next-gen
+# Seed your data to Azure Storage offline with Veeam and Azure Data Box Next-gen
 
 Although Azure Blob storage provides cost-effective data retention and recovery capabilities, neither product supports all features. Using Data Box and Veeam Backup and Replication solutions in tandem allows you to migrate on-premises backup and archive data in a reliable, secure, and timely manner. This article provides a high level overview of the steps required to migrate large amounts of data to Azure storage services using Azure Data Box and Veeam solutions.
 
 You can find relevant, detailed, step-by-step instructions within the respective products' websites. You can learn more about using object storage with Veeam Products in the [Veeam product documentation](https://www.veeam.com/kb4241).
 
-![Image of Veeam and Azure Data Box workflow.](media/migrate-veeam-and-data-box/workflow.png)
+![Image of a Veeam and Azure Data Box workflow describing the various stages of offline-seeding to Azure.](media/migrate-veeam-and-data-box/workflow.png)
 
 ### Solution flow overview
 

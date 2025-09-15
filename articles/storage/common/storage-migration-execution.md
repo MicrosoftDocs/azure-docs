@@ -14,7 +14,7 @@ Initial score: 78 (522/14)
 Current score: 100 (634/0)
 -->
 
-# Executing the migration
+# Execute the migration
 
 The execution phase is the final phase in the migration process. All data movement and migration tasks occur in this phase. Typically, you take an iterative approach by working through the execution several times to ensure that all changes and updates are captured. This process helps to accomplish an easier switchover and keep data loss to a minimum. 
 

@@ -14,23 +14,21 @@ Initial score: 68 (770/28)
 Curremnt score: 100 (826/0)
 -->
 
-# Commvault and Azure Data Box Integration scenarios
+# Commvault and Azure Data Box integration scenarios
 
 **Commvault** provides support for Microsoft Azure Data Box, enabling enterprise customers to accelerate data movement to and from Azure with optimal security, speed, and control. Whether migrating data to Azure for backup or recovering from it during a disaster scenario, Commvault's tight integration with Azure Data Box delivers unmatched flexibility in bandwidth-constrained or high-volume environments. This article contains information about Commvault Air Gap Protect, a fully managed service. This article is also relevant for use cases in which you bring your own subscription and storage account, though some changes might apply.
 
-## Common scenarios
+**Common scenarios**: Although every migration scenario has its own unique requirements, the following examples illustrate three common use cases in which Commvault and Azure Data Box are used in tandem.
 
-Although every migration scenario has its own unique requirements, the following examples illustrate three common use cases in which Commvault and Azure Data Box are used in tandem.
-
-### Azure migration using Commvault Air Gap Protect and Data Box offline seeding
+## Azure migration using Commvault Air Gap Protect and Data Box offline seeding
 
 ![A diagram workflow of Migration to Azure storage with Commvault and Azure Data Box.](media/migrate-commvault-and-data-box/use-case-1.png)
 
-#### Scenario Details
+### Scenario Details
 
 When bandwidth limitations make initial cloud seeding impractical, Commvault enables customers to use Azure Data Box to securely transport large volumes of backup data to Azure. This approach is especially useful during the onboarding phase of Commvault Air Gap Protect (AGP), Commvault's Backup-as-a-Service offering for Azure workloads. Instead of waiting weeks or months to transmit initial backups over WAN, customers can utilize the offline physical transfer capability of Azure Data Box to rapidly complete their copy seeding process.
 
-#### Solution flow overview
+### Solution flow overview
 
 1. Sign in to the Azure portal and order an appropriately sized Azure Data Box.
 
@@ -54,15 +52,15 @@ You can also utilize this process when bringing your own subscription and storag
 - **Security:** End-to-end encryption from Commvault to Azure via the Data Box.
 - **Reliability:** Automated validation and indexing ensure data consistency and continuity.
 
-### Cyber recovery acceleration, restoring on-premises data
+## Cyber recovery acceleration, restoring on-premises data
 
 ![A diagram workflow of cyber resilience with Commvault and Azure Data Box.](media/migrate-commvault-and-data-box/use-case-2.png)
 
-#### Scenario Details
+### Scenario Details
 
 When you recover from a ransomware attack or a total site failure, the speed to reach full recovery is critical. Commvault enables cyber recovery by using Azure Data Box to bring data stored in AGP back to an on-premises recovery environment. This approach bypasses the delays and risks of streaming massive datasets over compromised or insufficient WAN links.
 
-#### Solution flow overview
+### Solution flow overview
 
 1. Identify clean recovery points stored within Commvault AGP in Azure.
 
@@ -80,15 +78,15 @@ You can read more details about how [Commvault Air Gap Protect and Data Box work
 - **Security:** Data is fully encrypted both at rest and in transit.
 - **Reliability:** Ideal for Cyber Resiliency planning in either disconnected or regulated environments.
 
-### Cloud copy exit, retaining backup data on-premises
+## Cloud copy exit, retaining backup data on-premises
 
 ![A diagram of backup movement for cloud exit.](media/migrate-commvault-and-data-box/use-case-3.png)
 
-#### Scenario Details
+### Scenario Details
 
 Some organizations choose to exit cloud storage for various strategic reasons. Commvault supports this workflow by enabling export of long-term backup copies from AGP to on-premises infrastructure using Azure Data Box. Instead of incurring high egress costs or waiting months for network transfers, customers can repatriate their backup datasets efficiently and securely.
 
-#### Solution flow overview
+### Solution flow overview
 
 1. A customer identifies the Storage Pools within Commvault AGP to be retained locally.
 

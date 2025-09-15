@@ -14,11 +14,11 @@ Initial score: 68 (1031/44)
 Current score: 100 (1426/0)
 -->
 
-# Planning the migration strategy
+# Plan the migration strategy
 
 Choosing the right migration strategy is critical, as it can significantly affect project timelines, costs, and overall business continuity. With careful planning and a thoughtful approach, you can ensure a smooth and efficient transition for your data assets.
 
-## Choosing online vs. offline transfer
+## Choose online vs. offline transfer
 
 When planning your migration strategy, it's essential to determine the most suitable transfer method for your data. Online migrations are simplest for both one-time and recurring delta syncs. However, in cases where network bandwidth is limited, constrained, unreliable, or even nonexistent, an offline transfer might be the most feasible option. This situation might also be true even when bandwidth isn't a concern, but your data set is measured in terabytes or petabytes.
 
