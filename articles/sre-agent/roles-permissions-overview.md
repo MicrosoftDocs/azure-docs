@@ -3,14 +3,16 @@ title: Roles and permissions overview in Azure SRE Agent Preview
 description: Learn about roles, permissions, and security models in Azure SRE Agent.
 author: craigshoemaker
 ms.topic: overview
-ms.date: 09/12/2025
+ms.date: 09/15/2025
 ms.author: cshoe
 ms.service: azure-sre-agent
 ---
 
 # Roles and permissions overview in Azure SRE Agent Preview
 
-Azure SRE Agent provides a comprehensive security model based on role-based access control (RBAC) that governs how users interact with the agent and how the agent interacts with Azure resources. This article serves as an overview to the key concepts related to roles and permissions in Azure SRE Agent.
+Azure SRE Agent helps you manage Azure resources by automating diagnostics, root cause analysis, and mitigation actions. The agent supports secure, multi-user access through a layered permission model. This security model governs both how users interact with the agent and how the agent acts on resources. With these controls, the agent operates in a safe and customizable context aligned with your governance needs and trust boundaries.
+
+Built on Azure role-based access control (RBAC), the security model combines agent identity and configurable run modes. Available modes include review and autonomous agent execution modes. These modes ensure agent actions are performed only when authorized.
 
 ## Key concepts
 
@@ -18,13 +20,13 @@ The security model in Azure SRE Agent consists of three main components:
 
 | Component | Description |
 |---|---|
-| **[User access roles](./user-access-roles.md)** | Defines who can do what within the agent interface |
-| **[Agent and user permissions](./agent-user-permissions.md)** | Controls access to Azure resources |
-| **[Agent run modes](./agent-actions.md)** | Determines how the agent handles consent and credentials |
+| **[Role-based access control](./user-access-roles.md)** | Determines how users can access SRE Agent with different permission levels. |
+| **[Agent identity](./agent-user-permissions.md)** | Controls how does SRE Agent get permissions to perform actions on resources. |
+| **[Agent run modes](./agent-actions.md)** | Shows how agent execution mode, agent identity, and user permissions work together. |
 
 ## Security model at a glance
 
-- **Role-based access**: Three primary roles (*SRE Agent Admin*, *SRE Agent Standard User*, and *SRE Agent Reader*) control user capabilities
+- **Role-based access control**: Three primary roles (*SRE Agent Admin*, *SRE Agent Standard User*, and *SRE Agent Reader*) control user capabilities
 
 - **Permission levels**: The agent's managed identity can have either *Reader* or *Privileged* access to resources
 
