@@ -81,7 +81,7 @@ Microsoft Sentinel SIEM is available in the Microsoft Defender portal - for cust
 
 The integration of Microsoft Sentinel SIEM with the Defender portal and Security Copilot creates a powerful ecosystem that enhances security operations. Security Copilot enables analysts to interact with Sentinel data using natural language, generate hunting queries, and automate investigations, making threat response faster and more accessible.
 
-For more information, see [What is Microsoft Sentinel SIEM?](./sentinel-siem-overview.md).
+For more information, see [What is Microsoft Sentinel SIEM?](./overview.md).
 
 ## Microsoft Sentinel data connectors
 
