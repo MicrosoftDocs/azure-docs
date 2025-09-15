@@ -6,8 +6,8 @@ ms.topic: how-to
 ms.date: 06/19/2024
 ms.devlang: csharp
 ms.custom:
-  - "devx-track-csharp
-  - mvc"
+  - devx-track-csharp
+  - mvc
   - sfi-image-nochange
 # ms.devlang: csharp, javascript
 
