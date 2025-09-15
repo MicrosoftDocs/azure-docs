@@ -36,7 +36,7 @@ For current Azure Government regions and available services, see [Products avail
 >
 > - Some Azure services deployed in Azure Government regions US Gov Arizona, US Gov Texas, and US Gov Virginia (US Gov regions) require extra configuration to meet DoD IL5 compute and storage isolation requirements, as explained in **[Isolation guidelines for Impact Level 5 workloads](../documentation-government-impact-level-5.md).**
 > - For DoD IL5 PA compliance scope in Azure Government regions US DoD Central and US DoD East (US DoD regions), see **[US DoD regions IL5 audit scope](../documentation-government-overview-dod.md#us-dod-regions-il5-audit-scope).**
-> - For full list of M365 GCC high services authorized for FedRAMP High, see **[Microsoft Office 365 GCC High FedRAMP Marketplace](https://marketplace.fedramp.gov/products/FR1824057433)**. Azure Communication Services operates under the same infrastructure that powers Microsoft Teams and obtained FedRAMP High accreditation as part of the M365 GCC-High service offering.
+> - For full list of M365 GCC high services authorized for FedRAMP High, see **[Microsoft Office 365 GCC High FedRAMP Marketplace](https://marketplace.fedramp.gov/products/MSO365MT)**. Azure Communication Services operates under the same infrastructure that powers Microsoft Teams and obtained FedRAMP High accreditation as part of the M365 GCC-High service offering.
 
 **Azure Government Secret** maintains:
 
@@ -208,7 +208,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Microsoft Fabric](/fabric/) | &#x2705; | &#x2705; |
 | [Microsoft Graph](/graph/) | &#x2705; | &#x2705; |
 | [Microsoft Intune](/mem/intune/) | &#x2705; | &#x2705; |
-| [Microsoft Managed Desktop](previous-versions/managed-desktop/overview/) | &#x2705; | &#x2705; |
+| [Microsoft Managed Desktop](/managed-desktop/overview/) | &#x2705; | &#x2705; |
 | [Microsoft Pin Reset Service](/windows/security/identity-protection/hello-for-business/pin-reset) | &#x2705; | &#x2705; |
 | [Microsoft Purview](../../purview/index.yml) (incl. Data Map, Data Estate Insights, and governance portal) | &#x2705; | &#x2705; |
 | [Microsoft Secure Score](/defender-xdr/microsoft-secure-score/) | &#x2705; | &#x2705; |
