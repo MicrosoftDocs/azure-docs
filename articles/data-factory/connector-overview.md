@@ -53,8 +53,8 @@ Transport Layer Security (TLS) is a widely adopted security protocol that's desi
  
 - [Amazon RDS for SQL Server (version 2.0)](connector-amazon-rds-for-sql-server.md)
 - [Azure Data Explorer](connector-azure-data-explorer.md)
-- [Azure File Storage](connector-azure-file-storage.md)
 - [Azure Database for PostgreSQL (version 2.0)](connector-azure-database-for-postgresql.md)
+- [Azure File Storage](connector-azure-file-storage.md)
 - [Azure SQL Database (version 2.0)](connector-azure-sql-database.md)
 - [Azure SQL Managed Instance (version 2.0)](connector-azure-sql-managed-instance.md)
 - [Azure Synapse Analytics (version 2.0)](connector-azure-sql-data-warehouse.md)
