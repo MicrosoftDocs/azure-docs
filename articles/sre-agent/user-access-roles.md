@@ -1,16 +1,16 @@
 ---
-title: Azure SRE Agent Preview user access roles
+title: Role based access control to SRE Agent Preview
 description: Learn how users with different roles can interact with SRE Agent.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 09/12/2025
+ms.date: 09/15/2025
 ms.author: cshoe
 ms.service: azure-sre-agent
 ---
 
-# Azure SRE Agent Preview user access roles
+# Role based access control to SRE Agent Preview
 
-Azure SRE Agents are designed to automate reliability engineering tasks, streamline incident management, and enforce operational best practices. Effective access management is critical to ensure security, compliance, and operational efficiency. The aim is to provide a robust, scenario-driven, agent-level role-based access control (RBAC) system.
+Collaborative environments require user access Azure SRE Agent without compromising governance or security. SRE Agent enforces a role-based access control (RBAC) model that defines how users interact with the agent based on their responsibilities. Whether you're monitoring incidents, triaging and requesting actions, or approving and executing remediations, each role is designed to enforce principle of least privilege access. This model ensures the agent remains secure, auditable, and aligned with your organization’s trust boundaries.
 
 ## Role hierarchy
 
@@ -20,7 +20,7 @@ Azure SRE Agent uses RBAC-enforced roles that grant different levels of access t
 
 - **SRE Agent Standard User**: Grants access to interact with the SRE Agent to triage incidents and run diagnostics.
 
-- **SRE Agent Reader**: Grants read-only access to all SRE Agent data, including chats, incidents, logs, and configurations. Does not permit interaction with the agent.
+- **SRE Agent Reader**: Grants read-only access to all SRE Agent data, including chats, incidents, logs, and configurations. Doesn't permit interaction with the agent.
 
 > [!NOTE]
 > The *SRE Agent Admin* role is automatically assigned to the user that creates the agent. That user can then delegate roles to other users.
@@ -32,12 +32,15 @@ Agent actions are categorized into the following categories:
 - Memory
 - Incident management
 
+> [!NOTE]
+> While SRE Agent users can't directly manipulate graph and memory settings and data, their actions can affect these categories.
+
 The following table maps roles to types of users to the key actions associated with how they use the agent.
 
 | Role | Typical users | Key actions |
 |---|---|---|
 | *SRE Agent Reader* | Auditors, monitoring | ▪️View and read agent threads<br><br>▪️View and read resource graph and connected repos<br><br>▪️View and read incident management related activities |
-| *SRE Agent Standard User* | L1 Ops, L2 SREs, specialists, first responders | ▪️All *SRE Agent Reader* allowed actions<br><br>▪️Create new agent threads and chat with the agent<br><br>▪️Connect source code repos to resources at resource graph level<br><br>▪️Contribute to agent’s short term/long term memory via chat  |
+| *SRE Agent Standard User* | L1 Ops, L2 SREs, specialists, first responders, and anyone who wants to query or diagnose Azure resources | ▪️All *SRE Agent Reader* allowed actions<br><br>▪️Create new agent threads and chat with the agent<br><br>▪️Connect source code repos to resources at resource graph level<br><br>▪️Contribute to agent’s short term/long term memory via chat  |
 | *SRE Agent Admin* | Cloud Admins, SRE managers |▪️All *SRE Agent Standard User* allowed actions<br><br>▪️Create and manage incident response plans<br><br>▪️Approve thread/incident level actions - approve write tools / az cli / kubectl executions<br><br>▪️All delete actions  |
 
 This diagram depicts how roles are associated with users starting from agent creation.
@@ -52,7 +55,7 @@ This diagram depicts how roles are associated with users starting from agent cre
 
 1. New users get an onboarding email notifying them of access granted to the agent.
 
-1. Users log in and access the agent.
+1. Users sign in and access the agent.
 
 1. RBAC security is enforced throughout agent use.
 
