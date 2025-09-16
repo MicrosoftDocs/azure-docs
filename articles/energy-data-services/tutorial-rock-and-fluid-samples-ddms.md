@@ -21,7 +21,6 @@ In this tutorial, you learn how to use a RAFS DDMS APIs to:
 > * Create RAFS master data records
 > * Create Sample Analysis Report
 > * Create Sample Analysis
-> * Search Sample analysis data
 
 This tutorial shows common end-to-end cURL-based interactions with RAFS DDMS API endpoints.
 
