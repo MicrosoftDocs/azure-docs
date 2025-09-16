@@ -7,22 +7,29 @@ author: bharathim
 ms.author: bselvaraj
 ms.service: azure-data-manager-energy
 ms.date: 09/16/2025
+# Customer intent: "As a Geoscientist, I want to learn how to use Rock and Fluid Sample DDMS APIs to ingest and retrieve rock and fluid samples subsurface data."
 ---
 
-# Rock and Fluid Samples — RAFS DDMS tutorial
-Rock and Fluid Samples (RAFS) DDMS provides optimized storage, retrieval, and management of rock and fluid sample data, which are critical subsurface data types in oil and gas exploration and production.
+# Tutorial: Using Rock and Fluid Samples (RAFS) DDMS APIs in Azure Data Manager for Energy
+Rock and Fluid Samples (RAFS) DDMS allows you to manage storage, retrieval, and association of rock and fluid sample master data, analyses, and reports. This tutorial shows a step-by-step workflow using cURL to create and interact with these entities in your Azure Data Manager for Energy instance.
+
+> [!div class="checklist"]
+> * Create a legal tag
+> * Create Master data hierarchy
+> * Create RAFS master data records
+> * Create Sample Analysis Report
+> * Create Sample Analysis
+> * Search Sample analysis data
 
 This tutorial shows common end-to-end cURL-based interactions with RAFS DDMS API endpoints.
-
-For background see the OSDU Rock & Fluid Samples DDMS tutorial:
-https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/rock-and-fluid-sample/rafs-ddms-services/-/tree/release/0.28/docs/tutorial
 
 ## Prerequisites
 
 * An Azure subscription
-* An instance of [Azure Data Manager for Energy](quickstart-create-microsoft-energy-data-services-instance.md) created in your Azure subscription
-* cURL command-line tool installed on your machine
-* Ensure OSDU&reg; standard reference data values are loaded in your instance.
+* Azure Data Manager for Energy instance (see [quickstart]](quickstart-create-microsoft-energy-data-services-instance.md))
+* [cURL](https://curl.se/) installed locally
+* OSDU standard reference data loaded in your instance
+* Valid access token (See [How to generate auth token](how-to-generate-auth-token.md))
 
 ### Get details for the Azure Data Manager for Energy instance
 
@@ -33,12 +40,13 @@ For this tutorial, you need the following parameters:
 | `DNS` | URI of the Azure Data Manager for Energy instance | `<instance>.energy.azure.com` | Overview page of the Azure Data Manager for Energy instance |
 | `DATA_PARTITION_ID` | Data partition identifier | `<data-partition-id>` | Data Partition section within the Azure Data Manager for Energy instance |
 | `ACCESS_TOKEN` | OAuth 2.0 access token (Bearer token) | `0.ATcA01-XWHdJ0ES-qDevC6r...........` | Generate using the [How to generate auth token](how-to-generate-auth-token.md) guide |
+| `LEGAL_TAG`| 	Name for a new legal tag | `opendes-demo-legal-tag` | You define (see below) |
 
 Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entitlements for the user who's running this tutorial.
 
-## 1 — Create a legal tag
+## 1. Create a legal tag
 
-Create a legal tag used by subsequent records.
+Legal tags are essential for compliance purpose and will be used in subsequent records.
 
 ```bash
 curl --request POST \
@@ -64,8 +72,8 @@ curl --request POST \
 }'
 ```
 
-Example response (excerpt):
-```json
+Sample response:
+```JSON
 {
   "name": "opendes-osdu-rafs-ddms-demo-legal-ta",
   "description": "RAFS DDMS Demo legal tag",
@@ -82,9 +90,13 @@ Example response (excerpt):
 }
 ```
 
-## 2 — Create Master data records
+## 2. Create Master data hierarchy
 
-### 2.1 Organisation
+Entities must be created in this sequence: Organization → Field → Well → Wellbore. All requests use the Storage Service endpoint: `/api/storage/v2/records`.
+
+### 2.1 Organization
+Create organization record using the following sample cURL command.
+
 ```bash
 curl --request PUT \
   --url {{DNS}}/api/storage/v2/records \
@@ -123,8 +135,8 @@ curl --request PUT \
 ]'
 ```
 
-Example response:
-```json
+Sample response:
+```JSON
 {
   "recordCount": 1,
   "recordIds": [
@@ -185,8 +197,8 @@ curl --request PUT \
 ]'
 ```
 
-Example response:
-```json
+Sample response:
+```JSON
 {
   "recordCount": 1,
   "recordIds": [
@@ -251,8 +263,8 @@ curl --request PUT \
 ]'
 ```
 
-Example response:
-```json
+Sample response:
+```JSON
 {
   "recordCount": 1,
   "recordIds": [
@@ -319,8 +331,8 @@ curl --request PUT \
 ]'
 ```
 
-Example response:
-```json
+Sample response:
+```JSON
 {
   "recordCount": 1,
   "recordIds": [
@@ -333,9 +345,8 @@ Example response:
 }
 ```
 
-## 3 — Ingest Sample Master data (v2)
-
-Use RAFS DDMS API /v2/masterdata API to load Generic Facility, Generic Site, Sample Acquisition Job, Sample Acqusition Container, Sample and Sample Chain of Custody Event master data.
+## 3 — Ingest RAFS entities
+Use RAFS DDMS API `/v2/masterdata` to load Generic Facility, Generic Site, Sample Acquisition Job, Sample Acqusition Container, Sample and Sample Chain of Custody Event master data.
 
 ### 3.1 Generic Facility
 
@@ -447,8 +458,8 @@ curl --request POST \
 ]'
 ```
 
-Example response (excerpt):
-```json
+Sample response:
+```JSON
 {
   "recordCount": 1,
   "recordIdVersions": [
@@ -499,8 +510,8 @@ curl --request POST \
 ]'
 ```
 
-Example response:
-```json
+Sample response:
+```JSON
 {
   "recordCount": 1,
   "recordIdVersions": [
@@ -549,8 +560,8 @@ curl --request POST \
 ]'
 ```
 
-Example response:
-```json
+Sample response:
+```JSON
 {
   "recordCount": 1,
   "recordIdVersions": [
@@ -606,8 +617,8 @@ curl --request POST \
 ]'
 ```
 
-Example response:
-```json
+Sample response:
+```JSON
 {
   "recordCount": 1,
   "recordIdVersions": [
@@ -736,8 +747,8 @@ curl --request POST \
 ]'
 ```
 
-Example response:
-```json
+Sample response:
+```JSON
 {
   "recordCount": 1,
   "recordIdVersions": [
@@ -821,8 +832,8 @@ curl --request POST \
 ]'
 ```
 
-Example response:
-```json
+Sample response:
+```JSON
 {
   "recordCount": 1,
   "recordIdVersions": [
@@ -911,8 +922,8 @@ curl --request POST \
 ]'
 ```
 
-Example response:
-```json
+Sample response:
+```JSON
 {
   "recordCount": 1,
   "recordIdVersions": [
@@ -923,17 +934,18 @@ Example response:
 ```
 
 ### 4.2 Get the Sample Analysis Report record
+To retrieve a report, use `GET /api/rafs-ddms/v2/samplesanalysesreport/{reportId}`
 
 ```bash
 curl --request GET \
-  --url {{DNS}}/api/rafs-ddms/v2/samplesanalysesreport/opendes:work-product-component--SamplesAnalysesReport:KKS1 \
+  --url {{DNS}}/api/rafs-ddms/v2/samplesanalysesreport/{{report_id}} \
   --header 'authorization: Bearer {{ACCESS_TOKEN}}' \
   --header 'cache-control: no-store' \
   --header 'content-type: application/json' \
   --header 'data-partition-id: {{DATA_PARTITION_ID}}'
 ```
 
-```json
+```JSON
 {
   "data": {
     "DocumentTypeID": "opendes:reference-data--DocumentType:SampleAnalysisReport:",
@@ -1008,17 +1020,18 @@ curl --request GET \
 ```
 
 ### 4.3 Get all the Sample Analysis Report versions
+To list all versions, use `GET /api/rafs-ddms/v2/samplesanalysesreport/{record_id}/versions`
 
 ```bash
 curl --request GET \
-  --url {{DNS}}/api/rafs-ddms/v2/samplesanalysesreport/opendes:work-product-component--SamplesAnalysesReport:KKS1/versions \
+  --url {{DNS}}/api/rafs-ddms/v2/samplesanalysesreport/{{record_id}}/versions \
   --header 'authorization: Bearer {{ACCESS_TOKEN}}' \
   --header 'content-type: application/json' \
   --header 'data-partition-id: {{DATA_PARTITION_ID}}'
 ```
 
-Example response:
-```json
+Sample response:
+```JSON
 {
   "recordId": "opendes:work-product-component--SamplesAnalysesReport:KKS1",
   "versions": [
@@ -1033,18 +1046,20 @@ Example response:
 ```
 
 ### 4.4 Get a specific version of the Sample Analysis Report
+To get a specific version, use `GET /api/rafs-ddms/v2/samplesanalysesreport/{record_id}/versions/{version}`
+
 
 ```bash
 curl --request GET \
-  --url {{DNS}}/api/rafs-ddms/v2/samplesanalysesreport/opendes:work-product-component--SamplesAnalysesReport:KKS1/versions/1758005756819109 \
+  --url {{DNS}}/api/rafs-ddms/v2/samplesanalysesreport/{{record_id}}/versions/{{version}} \
   --header 'authorization: Bearer {{ACCESS_TOKEN}}' \
   --header 'cache-control: no-store' \
   --header 'content-type: application/json' \
   --header 'data-partition-id: {{DATA_PARTITION_ID}}'
 ```
 
-Example response:
-```json
+Sample response:
+```JSON
 {
   "data": {
     "DocumentTypeID": "opendes:reference-data--DocumentType:SampleAnalysisReport:",
@@ -1121,6 +1136,7 @@ Example response:
 ## 5. Sample Analysis
 
 ### 5.1 Create a sample analysis record
+To create a new analysis, use `POST /api/rafs-ddms/v2/samplesanalysis`
 
 ```bash
 curl --request POST \
@@ -1210,8 +1226,8 @@ curl --request POST \
 ]'
 ```
 
-Example response:
-```json
+Sample response:
+```JSON
 {
   "recordCount": 1,
   "recordIdVersions": [
@@ -1221,7 +1237,9 @@ Example response:
 }
 ```
 
-### 5.2 Get the content schema for the sample analysis
+### 5.2 Get the content schema
+To get content schema, use `GET /api/rafs-ddms/v2/samplesanalysis/{analysistype}/data/schema`
+
 
 ```bash
 curl --request GET \
@@ -1233,8 +1251,8 @@ curl --request GET \
   --header 'data-partition-id: {{DATA_PARTITION_ID}}'
 ```
 
-Example response:
-```json
+Sample response:
+```JSON
 {
   "title": "NmrModel100",
   "type": "object",
@@ -1739,6 +1757,7 @@ Example response:
 ```
 
 ### 5.3 Add data to the sample analysis
+To add data, use `POST /api/rafs-ddms/v2/samplesanalysis/{record_id}/data/{analysistype}`
 
 ```bash
 curl --request POST \
@@ -2281,8 +2300,8 @@ curl --request POST \
 }'
 ```
 
-Example response:
-```json
+Sample response:
+```JSON
 {
   "ddms_urn": "urn://rafs/opendes:work-product-component--SamplesAnalysis:1c022fcfa0134607b7c3dbc26f8783cf/samplesanalysis/nmr/1.0.0/2fb9788f-043c-4f32-b9fa-29a2cb218d3a",
   "updated_wpc_id": [
@@ -2292,6 +2311,7 @@ Example response:
 ```
 
 ### 5.4 Get the sample analysis dataset
+To get record data, use `GET /api/rafs-ddms/v2/samplesanalysis/{record_id}/data/{analysistype}/{content_id}`
 
 ```bash
 curl --request GET \
@@ -2303,7 +2323,7 @@ curl --request GET \
   --header 'data-partition-id: {{DATA_PARTITION_ID}}'
 ```
 
-```json
+```JSON
 {
   "columns": [
     "SamplesAnalysisID",
@@ -2838,4 +2858,565 @@ curl --request GET \
 }
 ```
 
+### Search data
+To search data for a specific RAFS DDMS schema version, use `GET /api/rafs-ddms/v2/samplesanalysis/{analysistype}/search/data`
 
+```bash
+curl --request GET \
+  --url {DNS}/api/rafs-ddms/v2/samplesanalysis/nmr/search/data \
+  --header 'accept: */*;version={{rafsddms-content-schema-version}}' \
+  --header 'authorization: Bearer {{ACCESS_TOKEN}}' \
+  --header 'cache-control: no-store' \
+  --header 'content-type: application/json' \
+  --header 'data-partition-id: {{DATA_PARTITION_ID}}'
+```
+
+Sample response:
+```JSON
+{
+  "result": {
+    "columns": [
+      "SamplesAnalysisID",
+      "SampleID",
+      "Meta",
+      "NMRTest"
+    ],
+    "index": [
+      0
+    ],
+    "data": [
+      [
+        "opendes:work-product-component--SamplesAnalysis:1c022fcfa0134607b7c3dbc26f8783cf:",
+        "opendes:master-data--Sample:KKS-CORE-PLUG-001:",
+        [
+          {
+            "kind": "Unit",
+            "name": "degree Fahrenheit",
+            "propertyNames": [
+              "NMRSummaryData.Temperature"
+            ],
+            "unitOfMeasureID": "opendes:reference-data--UnitOfMeasure:degF:"
+          },
+          {
+            "kind": "Unit",
+            "name": "pound-force per square inch",
+            "propertyNames": [
+              "NMRSummaryData.NetConfiningStress"
+            ],
+            "unitOfMeasureID": "opendes:reference-data--UnitOfMeasure:psi:"
+          },
+          {
+            "kind": "Unit",
+            "name": "millidarcy",
+            "propertyNames": [
+              "NMRSummaryData.Permeability.Value"
+            ],
+            "unitOfMeasureID": "opendes:reference-data--UnitOfMeasure:mD:"
+          },
+          {
+            "kind": "Unit",
+            "name": "cubic centimetre",
+            "propertyNames": [
+              "NMRTestSteps[*].CumulativeVolume",
+              "NMRTestSteps[*].IncrementalVolume",
+              "NMRSummaryData.BoundFluidBVI",
+              "NMRSummaryData.PoreVolume"
+            ],
+            "unitOfMeasureID": "opendes:reference-data--UnitOfMeasure:cm3:"
+          },
+          {
+            "kind": "Unit",
+            "name": "centimetre",
+            "propertyNames": [
+              "NMRSummaryData.EchoSpacing"
+            ],
+            "unitOfMeasureID": "opendes:reference-data--UnitOfMeasure:cm:"
+          },
+          {
+            "kind": "Unit",
+            "name": "milliseconds",
+            "propertyNames": [
+              "NMRTestSteps[*].T2FullySaturated",
+              "NMRTestSteps[*].T2PartiallySaturated",
+              "NMRSummaryData.T2CutOff",
+              "NMRSummaryData.T2Mean"
+            ],
+            "unitOfMeasureID": "opendes:reference-data--UnitOfMeasure:ms:"
+          },
+          {
+            "kind": "Unit",
+            "name": "percent",
+            "propertyNames": [
+              "NMRTestSteps[*].CumulativeWaterSaturation",
+              "NMRTestSteps[*].CumulativePorosity.Value",
+              "NMRTestSteps[*].IncrementalWaterSaturation",
+              "NMRTestSteps[*].IncrementalPorosity.Value",
+              "NMRTestSteps[*].T1CumulativePorosity",
+              "NMRTestSteps[*].T1CumulativeWaterSaturation",
+              "NMRTestSteps[*].T1IncrementalPorosity",
+              "NMRTestSteps[*].T1IncrementalWaterSaturation",
+              "NMRSummaryData.NMRT2BoundFluidRelativetoPoreVolume",
+              "NMRSummaryData.FreeFluidFFI",
+              "NMRSummaryData.NMRT2FreeFluid",
+              "NMRSummaryData.Porosity.Value",
+              "NMRSummaryData.Swirr",
+              "NMRSummaryData.NMRT2Swirr"
+            ],
+            "unitOfMeasureID": "opendes:reference-data--UnitOfMeasure:%25:"
+          }
+        ],
+        [
+          {
+            "NMRSummaryData": {
+              "DisplacedFluidID": "opendes:reference-data--DisplacedFluidType:Brine:",
+              "EchoSpacing": 0.2,
+              "InjectionFluidID": "opendes:reference-data--SampleInjectionFluidType:Brine:",
+              "NMRT2Swirr": 8.7,
+              "NetConfiningStress": 800,
+              "Permeability": [
+                {
+                  "PermeabilityMeasurementTypeID": "opendes:reference-data--PermeabilityMeasurementType:Air:",
+                  "Value": 4740
+                }
+              ],
+              "PoreVolume": 0,
+              "Porosity": [
+                {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:HeliumInjection:",
+                  "Value": 35.5
+                }
+              ],
+              "T2CutOff": 44.1,
+              "T2Mean": 281.2,
+              "Temperature": 30
+            },
+            "NMRTestSteps": [
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0
+                },
+                "T2FullySaturated": 0.1
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0
+                },
+                "T2FullySaturated": 0.126
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0
+                },
+                "T2FullySaturated": 0.158
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0
+                },
+                "T2FullySaturated": 0.2
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0
+                },
+                "T2FullySaturated": 0.251
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0
+                },
+                "T2FullySaturated": 0.316
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0
+                },
+                "T2FullySaturated": 0.398
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0
+                },
+                "T2FullySaturated": 0.501
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0
+                },
+                "T2FullySaturated": 0.631
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0
+                },
+                "T2FullySaturated": 0.794
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0.019
+                },
+                "T2FullySaturated": 1
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0.04
+                },
+                "T2FullySaturated": 1.26
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0.057
+                },
+                "T2FullySaturated": 1.58
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0.071
+                },
+                "T2FullySaturated": 2
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0.085
+                },
+                "T2FullySaturated": 2.51
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0.1
+                },
+                "T2FullySaturated": 3.16
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0.119
+                },
+                "T2FullySaturated": 3.98
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0.136
+                },
+                "T2FullySaturated": 5.01
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0.147
+                },
+                "T2FullySaturated": 6.31
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0.148
+                },
+                "T2FullySaturated": 7.94
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0.142
+                },
+                "T2FullySaturated": 10
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0.143
+                },
+                "T2FullySaturated": 12.6
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0.164
+                },
+                "T2FullySaturated": 15.8
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0.217
+                },
+                "T2FullySaturated": 20
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0.3
+                },
+                "T2FullySaturated": 25.1
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0.403
+                },
+                "T2FullySaturated": 31.6
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0.499
+                },
+                "T2FullySaturated": 39.8
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0.559
+                },
+                "T2FullySaturated": 50.1
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0.562
+                },
+                "T2FullySaturated": 63.1
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0.518
+                },
+                "T2FullySaturated": 79.4
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0.49
+                },
+                "T2FullySaturated": 100
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0.595
+                },
+                "T2FullySaturated": 126
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0.979
+                },
+                "T2FullySaturated": 158
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 1.75
+                },
+                "T2FullySaturated": 200
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 2.895
+                },
+                "T2FullySaturated": 251
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 4.217
+                },
+                "T2FullySaturated": 316
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 5.335
+                },
+                "T2FullySaturated": 398
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 5.784
+                },
+                "T2FullySaturated": 501
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 5.162
+                },
+                "T2FullySaturated": 631
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 3.267
+                },
+                "T2FullySaturated": 794
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0.139
+                },
+                "T2FullySaturated": 1000
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0
+                },
+                "T2FullySaturated": 1259
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0
+                },
+                "T2FullySaturated": 1585
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0
+                },
+                "T2FullySaturated": 1995
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0
+                },
+                "T2FullySaturated": 2512
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0
+                },
+                "T2FullySaturated": 3162
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0
+                },
+                "T2FullySaturated": 3981
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0
+                },
+                "T2FullySaturated": 5012
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0
+                },
+                "T2FullySaturated": 6310
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0
+                },
+                "T2FullySaturated": 7943
+              },
+              {
+                "CumulativeWaterSaturation": 100,
+                "IncrementalPorosity": {
+                  "PorosityMeasurementTypeID": "opendes:reference-data--PorosityMeasurementType:BrineSaturation:",
+                  "Value": 0
+                },
+                "T2FullySaturated": 10000
+              }
+            ],
+            "TestConditionID": "opendes:reference-data--NMRTestCondition:FullySaturated:"
+          }
+        ]
+      ]
+    ]
+  },
+  "offset": 0,
+  "page_limit": 100,
+  "total_size": 1
+}
+```
+
+## Related content
+[RAFS OSDU community tutorial](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/rock-and-fluid-sample/rafs-ddms-services/-/tree/release/0.28/docs/tutorial)
+
+## Next step
+Advance to the next tutorial:
+
+> [!div class="nextstepaction"]
+> [Tutorial: Use Reservoir DDMS websocket API endpoints](tutorial-reservoir-ddms-websocket.md)
