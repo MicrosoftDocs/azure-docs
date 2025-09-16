@@ -89,7 +89,7 @@ Enable both soft delete and versioning if:
 
 - When versioning is enabled, deletion of the current version creates a previous version. When soft delete is enabled, deletion of the previous version creates a soft-deleted previous version. ([Learn more](/azure/storage/blobs/soft-delete-blob-overview))
 
-- Soft delete retention only applies to deletion of previous versions. If you would like to permanently delete soft delete versions before the retention period, review these [instructions.](https://techcommunity.microsoft.com/blog/azurepaasblog/permanent-delete-of-soft-deleted-snapshot-and-versions-without-disabling-soft-de/4026868)
+- Soft delete retention only applies to deletion of previous versions. If you would like to permanently delete soft delete versions before the retention period, review these [instructions](https://techcommunity.microsoft.com/blog/azurepaasblog/permanent-delete-of-soft-deleted-snapshot-and-versions-without-disabling-soft-de/4026868).
 
 - Avoid exceeding **1,000 versions per blob** to maintain optimal performance and prevent performance degradation during blob listing operations.
 
