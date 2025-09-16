@@ -13,13 +13,16 @@ ms.author: v-mallicka
 
 # Tutorial: Reconfigure backup for data sources in an alternate vault
 
-This tutorial describes how to reconfigure backup for data sources in Azure Business Continuity Center by switching to an alternate Recovery Services vault, called re-registration. You can suspend backup for a datasource in one vault and reconfigure in another without losing existing recovery points. This flexibility helps when working with immutable vaults that block policy changes, changing vault redundancy, or enabling PE/CMK on a vault. The feature is available for all datasources that  are supported in  Recovery Services vault.
+Azure Business Continuity Center allows you to suspend backup for a datasource in one vault and reconfigure in another without losing existing recovery points. This flexibility helps when working with immutable vaults that block policy changes, changing vault redundancy, or enabling PE/CMK on a vault. The feature is available for all datasources that are supported in Recovery Services vault.
+
+This tutorial describes how to reconfigure backup for data sources in Azure Business Continuity Center by switching to an alternate Recovery Services vault, called re-registration. 
 
 > [!NOTE]
 > - Recovery Services vault doesn't allow active multi-protection.
 > - The alternate vault has no limitations on redundancy, security settings, or policy retention, including for immutable vaults.
-> - Old recovery points remain protected with the original configurations and retention. This capability also applies to immutable vaults.
+> - Old recovery points remain protected with the original configurations and retention. You can use the recovery points stored in the old vault for recovery until they're retained as per the backup policy. This capability also applies to immutable vaults.
 > - Immutable vaults remain secure when using this feature. You can only stop protection by retaining data, and older recovery points continue to be protected as per the assigned retention policy.
+> - Private Endpoints (PE) and Customer Managed Keys (CMK) can be enabled only if the vault has no backups configured yet.
 
 ## Price implications
 
@@ -34,11 +37,7 @@ The implications of reconfiguring backup for data sources in an alternate vault 
 Before you start reconfiguring backup for data sources in an alternate vault, ensure that the following prerequisites are met:
 
 -	Review the existing policies, vault redundancy, and security settings of the data sources for which you want to reconfigure backup.
--Create a new vault with Customer Managed Keys (CMK) and Private Endpoints (PE) enabled, or use an existing vault where both settings are already configured to apply them to new backups.
-
-  >[!Note]
-  >You can enable Private Endpoints (PE) and Customer Managed Keys (CMK) only if the vault has no backups configured yet.
-
+- Create a new vault with Customer Managed Keys (CMK) and Private Endpoints (PE) enabled, or use an existing vault where both settings are already configured. These security features are then applied to new backups.
 - Unregister the underlying storage accounts for the Mercury workloads (SQL database in Azure VM, SAP database in Azure VM, Azure Files). Backup reconfiguration for the datasources isn't allowed until the associated storage accounts are unregistered.
 
 ## Suspend the active backup for a datasource on Recovery Services vault
@@ -114,9 +113,6 @@ To reconfigure backup in an alternate Recovery Services vault, follow these step
    :::image type="content" source="./media/tutorial-reconfigure-backup-alternate-vault/configure-backup-settings.png" alt-text="Screenshot shows how to configure backup." lightbox="./media/tutorial-reconfigure-backup-alternate-vault/configure-backup-settings.png":::
 
 After the configuration is complete, the new recovery points in the new vault appear.
-
->[!Note]
->You can use the recovery points stored in the old vault for recovery until they're retained as per the backup policy.
 
 ## Related content
 
