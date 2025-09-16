@@ -1,23 +1,22 @@
 ---
-title: Information on VMMD
+title: Information on Virtual Machine Metablob Disk (VMMD)
 description: Virtual Machine Metablob Disk
 author: linuxelf001
-ms.topic: include
+ms.topic: concept-article
 ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.date: 09/05/2025
 ms.author: raginjup
 ms.reviewer: raginjup
-ms.custom: include file
 ---
-# **New capabilities for managing confidential VM disks**
+# New capabilities for managing confidential VM disks
 
 This article outlines the changes to be aware when using confidential VMs with Virtual Machine Metadata (VMMD) blob.
 
 > [!NOTE]
 > The VMMD feature support described here are available in Azure REST API version **2025-01-02** and later, Azure CLI version **2.77.0** and later, Azure PowerShell version **14.4.0** and later.
 
-## **Prerequisites**
+## Prerequisites
 
 Before you begin, ensure you have the following:
 
@@ -28,7 +27,7 @@ Before you begin, ensure you have the following:
     * Azure CLI version 2.77.0 or later.
     * Azure PowerShell version 14.4.0 or later.
 
-## **Disk Access**
+## Disk Access
 The process for granting access to confidential VM disks has been updated to provide a SAS URI for the VMMD blob. This is in addition to the existing SAS URIs for the OS disk and the VM guest state (VMGS) blob.
 
 ### [Azure REST API](#tab/rest-access)
@@ -115,7 +114,10 @@ Grant-AzDiskAccess `
   "securityMetadataAccessSAS": "VM Metadata SAS URI"
 }
 ```
-## **Create**
+
+---
+
+## Create
 
 ### [Azure REST API](#tab/rest-create)
 
@@ -226,7 +228,7 @@ Grant-AzDiskAccess `
 When using UploadPreparedSecure, upload the VMMD blob in addition to the OS and VMGS blobs if the source includes VMMD.
 ---
 
-## **FAQ**
+## FAQ
 
 **Q: What is the VMMD blob?**
 
@@ -234,12 +236,12 @@ When using UploadPreparedSecure, upload the VMMD blob in addition to the OS and 
 
 For more, see our [confidential VM FAQ](/azure/confidential-computing/confidential-vm-faq) and our [managed disk FAQ](/azure/virtual-machines/faq-for-disks)
 
-## **Next Steps**
+## Next Steps
 
 * [Deploy a confidential VM from Azure](/azure/confidential-computing/quick-create-confidential-vm-portal)
 * [Azure confidential computing documentation](/azure/confidential-computing/)
 
-## **Related Articles**
+## Related Articles
 
 * [Azure managed disks overview](/azure/virtual-machines/managed-disks-overview)
 * [Managed disk migration guide](/azure/virtual-machines/linux/convert-unmanaged-to-managed-disks) 
