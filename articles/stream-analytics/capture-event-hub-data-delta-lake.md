@@ -5,8 +5,10 @@ author: xujxu
 ms.author: xujiang1
 ms.service: azure-stream-analytics
 ms.topic: how-to
-ms.custom: mvc
 ms.date: 2/17/2023
+ms.custom:
+  - mvc
+  - sfi-image-nochange
 ---
 # Capture data from Event Hubs in Delta Lake format 
 
