@@ -216,6 +216,9 @@ For continuation (`C`) and end (`E`) flow states, byte and packet counts are agg
 - **Performance tier**: The storage account must be standard. Premium storage accounts aren't supported.
 - **Self-managed key rotation**: If you change or rotate the access keys to your storage account, virtual network flow logs stop working. To fix this problem, you must disable and then re-enable virtual network flow logs.
 
+### Known Issues
+
+- 
 ### ExpressRoute gateway traffic
 
 Outbound flows from virtual machines (VMs) to ExpressRoute circuit aren't recorded if flow logging is enabled on the ExpressRoute gateway subnet. Such flows must be recorded at the subnet or NIC of the VM. Traffic also bypasses the ExpressRoute gateway when [FastPath](../expressroute/about-fastpath.md) is enabled and isn't recorded if flow logging is enabled on the ExpressRoute gateway subnet.
@@ -243,6 +246,13 @@ Currently, these Azure services don't support virtual network flow logs:
 
 > [!NOTE]
 > App services deployed under an Azure App Service plan don't support virtual network flow logs. To learn more, see [How virtual network integration works](../app-service/overview-vnet-integration.md#how-regional-virtual-network-integration-works).
+
+### Known Issues
+This section outlines current known issues and limitations associated with Virtual Network Flow Logs and is updated as they're resolved. 
+
+| Issue | Description |
+| --- | --- | --- |
+| Customers will see inaccurate bytes and packet data instead of what their actual flow count should be in VNET flow logs. | VNet Flow Logs may report inaccurate byte and packet counts compared to actual flow data. This discrepancy can affect Traffic Analytics insights and downstream tools relying on precise metrics. Customers may observe inflated or deflated traffic volumes, leading to incorrect billing assumptions or misinformed security analysis. |
 
 ## Pricing
 
