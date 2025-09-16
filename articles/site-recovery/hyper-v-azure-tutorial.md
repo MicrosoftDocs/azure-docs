@@ -189,7 +189,7 @@ To do this, navigate to **Protected Items** page > **Compute and Network** and c
 
 ### Failback
 
-Failback from Azure to on-premises is possible when the target disk is Managed, regardless of whether the replica uses unmanaged or managed disks. MARS (Recovery Services agent) version [2.0.9214 or higher](site-recovery-whats-new.md) is required for failback.
+Failback from Azure to on-premises is possible when the target disk is Managed, regardless of whether the replica uses unmanaged or managed disks. MARS (Recovery Services agent) version [2.0.9214 or higher](#update-the-microsoft-azure-recovery-services-mars-agent) is required for failback.
 
 ### Update the Microsoft Azure Recovery Services (MARS) Agent
 
