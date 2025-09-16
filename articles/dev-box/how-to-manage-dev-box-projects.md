@@ -6,7 +6,7 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 09/03/2025
+ms.date: 09/17/2025
 ms.topic: how-to
 #Customer intent: As a platform engineer, I want to create and manage dev box projects so I can provide appropriate dev boxes to my users.
 ---
