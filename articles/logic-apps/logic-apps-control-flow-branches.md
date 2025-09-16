@@ -1,6 +1,6 @@
 ---
-title: Create or join parallel branches in workflows
-description: Learn how to create and join parallel branches for workflow actions in Azure Logic Apps and how parallel branches behave in your workflows.
+title: Create or Join Parallel Branches in Workflows
+description: Learn how to create and join parallel branches of workflow actions and how parallel branches behave in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -9,15 +9,15 @@ ms.date: 08/15/2025
 #Customer intent: As an integration developer using Azure Logic Apps, I want to use parallel branches to implement different paths for actions in my workflows.
 ---
 
-# Create or join parallel branches with workflow actions in Azure Logic Apps
+# Create or join parallel branches of workflow actions in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-By default, your actions in a logic app workflow run sequentially. To organize actions into separate branches and run those branches at the same time, create *parallel branches*. You can join those branches later in your workflow.
+By default, actions in a logic app workflow run sequentially. To organize actions into separate branches and run those branches at the same time, create *parallel branches*. You can join those branches later in your workflow.
 
 This guide shows how to create parallel branches in a workflow and rejoin those branches, as shown in this example workflow:
 
-:::image type="content" source="media/logic-apps-control-flow-branches/branch-join-overview.png" alt-text="Screenshot shows a workflow with parallel branches that merge later in the workflow.":::
+:::image type="content" source="media/logic-apps-control-flow-branches/branch-join-overview.png" alt-text="Screenshot shows an example workflow with parallel branches that later merge together.":::
 
 > [!TIP]
 >
@@ -25,7 +25,7 @@ This guide shows how to create parallel branches in a workflow and rejoin those 
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - A logic app workflow that starts with a trigger and the actions that you want. Make sure that your workflow includes the actions between where you want to add a parallel branch.
 
@@ -38,13 +38,13 @@ This guide shows how to create parallel branches in a workflow and rejoin those 
 
 - A parallel branch runs only when its `runAfter` property value matches the parent action's completed status. For example, both the branches **branchAction1** and **branchAction2** run only when **parentAction** completes with **Succeeded** status.
 
-- Your workflow waits for all parallel branches at the same level to complete before it runs the action that joins these branches.
+- Your workflow waits for all parallel branches at the same level to complete before the workflow runs the action that joins these branches.
 
 <a name="parallel-branches"></a>
 
 ## Add a parallel branch action
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app.
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
 
 1. Based on whether you have a Consumption or Standard logic app, follow the corresponding step:
 
@@ -78,7 +78,7 @@ This guide shows how to create parallel branches in a workflow and rejoin those 
 
    :::image type="content" source="media/logic-apps-control-flow-branches/add-sequential-action.png" alt-text="Screenshot shows a workflow and how to add another action to the same parallel branch." lightbox="media/logic-apps-control-flow-branches/add-sequential-action.png":::
 
-1. In the **Choose an operation** search box, find and select the action that you want.
+1. In the **Add an action** pane and search box, find and select the action that you want.
 
    Your selected action now appears within the current branch:
 
@@ -144,7 +144,7 @@ To merge parallel branches under all the branches, add another action. This acti
 
 1. On the designer, select the previously added action. After the action's information pane opens, select **Settings**.
 
-1. On the **Settings** pane, under **Run After**, open the **Select Actions** list. Select the last action in each branch that must finish before the join action runs.
+1. On the **Settings** tab, under **Run after**, open the **Select actions** list. Select the last action in each branch that must finish before the join action runs.
 
    The join action runs only after all the selected actions finish running.
 
