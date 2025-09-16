@@ -95,7 +95,7 @@ Enable both soft delete and versioning if:
 
 - Each feature retains data in a different way. You can set different retention periods for versioning and soft delete to balance cost and risk of data loss.
 
-## When to Use Neither
+## When to use neither
 
 You may choose to disable both features if:
 
