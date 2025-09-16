@@ -9,9 +9,9 @@ ms.date: 09/05/2025
 ms.author: raginjup
 ms.reviewer: raginjup
 ---
-# New capabilities for managing confidential VM disks
+# New capabilities for managing confidential virtual machine disks
 
-This article outlines the changes to be aware when using confidential VMs with Virtual Machine Metadata (VMMD) blob.
+This article outlines the changes to be aware when using confidential virtual machines with Virtual Machine Metadata (VMMD) blob.
 
 > [!NOTE]
 > The VMMD feature support described here are available in Azure REST API version **2025-01-02** and later, Azure CLI version **2.77.0** and later, Azure PowerShell version **14.4.0** and later.
@@ -21,20 +21,20 @@ This article outlines the changes to be aware when using confidential VMs with V
 Before you begin, ensure you have the following:
 
 * An Azure account with an active subscription. [Create an account for free.](https://azure.microsoft.com/free)
-* A confidential VM with managed disks.
+* A confidential virtual machine with managed disks.
 * The appropriate version of the tools you are using:
     * Azure REST API version 2025-01-02 or later.
     * Azure CLI version 2.77.0 or later.
     * Azure PowerShell version 14.4.0 or later.
 
 ## Disk Access
-The process for granting access to confidential VM disks has been updated to provide a SAS URI for the VMMD blob. This is in addition to the existing SAS URIs for the OS disk and the VM guest state (VMGS) blob.
+The process for granting access to confidential virtual machine disks has been updated to provide a SAS URI for the Virtual Machine Metadata Disk (VMMD) blob. This is in addition to the existing SAS URIs for the OS disk and the VM guest state (VMGS) blob.
 
 ### [Azure REST API](#tab/rest-access)
 
 To get the VMMD SAS URI using the Azure REST API, use the `beginGetAccess` endpoint with version `2025-01-02` or later.
 
-Grant access to a confidential VM disk
+Grant access to a confidential virtual machine disk
   * API: beginGetAccess
   * New in response: securityMetadataAccessSAS
 
@@ -61,11 +61,11 @@ Status code: 200
   "securityMetadataAccessSAS": "VM Metadata SAS URI"
 }
 ```
-Detailed documentation and more examples using Java, Go, JavaScript or dotnet [are available here.](/rest/api/compute/disks/create-or-update?view=rest-compute-2025-01-02&tabs=HTTP#create-a-managed-disk-from-importsecure-create-option-with-metadata-uri-for-confidential-vm&preserve-view=true)
+Detailed documentation and more examples using Java, Go, JavaScript, or dotnet [are available here.](/rest/api/compute/disks/create-or-update?view=rest-compute-2025-01-02&tabs=HTTP#create-a-managed-disk-from-importsecure-create-option-with-metadata-uri-for-confidential-vm&preserve-view=true)
 
 ### [Azure CLI](#tab/cli-access)
 
-When using the `az disk grant-access` command in Azure CLI version 2.77.0 or later, confidential VMs with 3 blobs will include the `securityMetadataAccessSAS`.
+When using the `az disk grant-access` command in Azure CLI version 2.77.0 or later, confidential virtual machines with three blobs include the `securityMetadataAccessSAS`.
 
 **Example:**
 
@@ -103,7 +103,7 @@ Grant-AzDiskAccess `
   -SecureVmGuestStateSas
 ```
 > [!NOTE]
-> Multiline commands in PowerShell require a trailing backtick (\`) character which must have a space preceding it. There should NOT be any space or trailing comments after the backtick (\`) either. You may avoid this issue by entering the whole command in a single line.
+> Multiline commands in PowerShell require a trailing backtick (\`) character, which must have a space preceding it. There should NOT be any space or trailing comments after the backtick (\`) either. You may avoid this issue by entering the whole command in a single line.
 
 **Returned value schema:**
 
@@ -121,7 +121,7 @@ Grant-AzDiskAccess `
 
 ### [Azure REST API](#tab/rest-create)
 
-To create a confidential VM disk with VMMD URI
+To create a confidential virtual machine disk with VMMD URI
   * API: createOption ImportSecure
   * Include: securityMetadataUri in the request
 
@@ -174,11 +174,11 @@ Status code: 200
   }
 }
 ```
-Detailed documentation and more examples using Java, Go, JavaScript or dotnet [are available here.](/rest/api/compute/disks/create-or-update?view=rest-compute-2025-01-02&tabs=HTTP#create-a-managed-disk-from-importsecure-create-option-with-metadata-uri-for-confidential-vm&preserve-view=true)
+Detailed documentation and more examples using Java, Go, JavaScript, or dotnet [are available here.](/rest/api/compute/disks/create-or-update?view=rest-compute-2025-01-02&tabs=HTTP#create-a-managed-disk-from-importsecure-create-option-with-metadata-uri-for-confidential-vm&preserve-view=true)
 
 ### [Azure CLI](#tab/cli-create)
 
-To create a confidential VM disk with VMMD URI
+To create a confidential virtual machine disk with VMMD URI
   * Include the --security-metadata-uri parameter.
   * Requires Azure CLI version 2.77.0 or later.
 
@@ -213,7 +213,7 @@ Grant-AzDiskAccess `
   -SecureVmGuestStateSas
 ```
 > [!NOTE]
-> Multiline commands in PowerShell require a trailing backtick (\`) character which must have a space preceding it. There should NOT be any space or trailing comments after the backtick (\`) either. You may avoid this issue by entering the whole command in a single line.
+> Multiline commands in PowerShell require a trailing backtick (\`) character, which must have a space preceding it. There should NOT be any space or trailing comments after the backtick (\`) either. You may avoid this issue by entering the whole command in a single line.
 
 **Returned value schema:**
 
