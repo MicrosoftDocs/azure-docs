@@ -23,8 +23,7 @@ ms.update-cycle: 180-days
 
 For AI integration solutions that handle complex scenarios or sophisticated tasks, which often exceed a single agent's capabilities, Azure Logic Apps natively supports common and proven multiagent orchestration patterns that range from simple, composed workflows to complex autonomous systems. Multiple agents help distribute the roles, responsibilities, and workloads in a complex workflow that must perform sophisticated tasks.
 
-When your AI integration solution needs to handle a complex scenario or sophisticated tasks that might exceed a single agent's capability, performance, or efficiency, consider adding and using multiple agents to distribute the roles, responsibilities, and workload in your workflow. Azure Logic Apps natively supports common and proven multiagent orchestration patterns that range from simple, composed workflows to complex autonomous systems.
-
+Sometimes, your AI integration solution needs to handle a complex scenario or sophisticated tasks that might exceed a single agent's capability, performance, or efficiency. In these scenarios, consider adding and using multiple agents to distribute the roles, responsibilities, and workload in your workflow. Azure Logic Apps natively supports common and proven multiagent orchestration patterns that range from simple, composed workflows to complex autonomous systems.
 
 To help you build more effective multiagent systems, this guide helps you learn and understand the following concepts:
 
@@ -44,9 +43,9 @@ The following table lists the challenges when a single agent performs all the wo
 | No specialization | You can't optimize one agent equally well for all types of tasks. |
 | Scalability constraints | When you add capabilities to a monolithic agent, complexity increases exponentially. |
 
-Multiagent architectures address single-agent limitations by decomposing complex problems into specialized, manageable components. When you design and build your solution using simple, composable patterns, your implmentation experiences significantly greater success compared to using complex frameworks. This principle of simplicity and composability exists at the core of multiagent design.
+Multiagent architectures address single-agent limitations by decomposing complex problems into specialized, manageable components. When you design and build your solution using simple, composable patterns, your implementation experiences greater success compared to using complex frameworks. This principle of simplicity and composability exists at the core of multiagent design.
 
-The following table lists the key multiagent benefits around reliability, maintainability, specialization, and scalability because multiple agents can take on speclized roles, responsibilities, and distrubte the workload in a workflow:
+Multiple agents can take on specialized roles, responsibilities, and distribute the workload in a workflow. The following table lists the key multiagent benefits around reliability, maintainability, specialization, and scalability:
 
 | Benefit | Description |
 |---------|-------------|
@@ -76,7 +75,7 @@ For more information, see the following articles:
 
 ## Prompt chaining pattern
 
-This workflow pattern breaks a task into sequential steps. Each step corresponds to a specific agent call. Each LLM call processes the output from the previous LLM. In Azure Logic Apps, this pattern translates to a chain of multiple agents where each agent's output becomes the input for the next agent.
+This workflow pattern breaks a task into sequential steps. Each step corresponds to a specific agent call. Each large language model (LLM) call processes the output from the previous LLM. In Azure Logic Apps, this pattern translates to a chain of multiple agents where each agent's output becomes the input for the next agent.
 
 - Low complexity level
 
@@ -146,7 +145,7 @@ For more information, see [Lab: Implement the routing pattern](https://azure.git
 
 ## Handoff pattern
 
-This workflow pattern creates seamless transitions between agents while preserving the context and state. This behavior is particularly effective for scenarios that require human-like escalation or expertise transfer.
+This workflow pattern creates seamless transitions between agents while preserving the context and state. This behavior is effective for scenarios that require human-like escalation or expertise transfer.
 
 - Medium complexity level 
 
@@ -200,7 +199,7 @@ For more information, see [Lab: Implement the parallelization pattern](https://a
 
 ## Orchestrator-workers pattern - Nested agents as tools
 
-This workflow pattern treats agents as sophisticated tools that can be invoked by other agents. "A central LLM dynamically breaks down tasks, delegates them to worker LLMs, and synthesizes their results"
+This workflow pattern treats agents as sophisticated tools that other agents can call. One LLM dynamically breaks down the tasks, delegates the work to other LLMs, and synthesizes their results.
 
 - High complexity level
 
@@ -214,7 +213,7 @@ This workflow pattern treats agents as sophisticated tools that can be invoked b
 
 - Key differences from parallelization
 
-  - Orchestrator dynamically determines the necessasry subtasks.
+  - Orchestrator dynamically determines the necessary subtasks.
   - More flexible but also more unpredictable.
   - Requires sophisticated coordination logic.
 
@@ -226,7 +225,7 @@ This workflow pattern has one LLM call generate a response, while another LLM ca
 
 - High complexity level
 
-- Use when clear evaluation criteria exists and when iterative refinement provides measurable value.
+- Use when clear evaluation criteria exist and when iterative refinement provides measurable value.
 
 - Examples
 
