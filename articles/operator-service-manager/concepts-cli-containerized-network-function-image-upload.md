@@ -1,8 +1,8 @@
 ---
 title: Learn how the Azure Operator Service Manager (AOSM) CLI extension discovers container images in source ACRs based on helm chart configuration.
 description: Learn how the Azure Operator Service Manager (AOSM) CLI extension discovers container images in source ACRs based on helm chart configuration.
-author: pjw711
-ms.author: peterwhiting
+author: JAC0BSMITH
+ms.author: jacobsmith
 ms.date: 04/12/2024
 ms.topic: concept-article
 ms.service: azure-operator-service-manager
