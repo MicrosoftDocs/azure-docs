@@ -4,7 +4,7 @@ description: Learn to connect resources managed by Azure SRE Agent Preview to a 
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: concept-article
-ms.date: 09/08/2025
+ms.date: 09/16/2025
 ms.service: azure-sre-agent
 zone_pivot_groups: sre-agent-code-repo
 ---
@@ -27,53 +27,59 @@ The following source code hosting providers are supported with Azure SRE Agent.
 
 ## Connect a repository
 
-in the instructions on how to connect, you are missing authorization piece which is different based on type of source code repo, for Azure DevOPs, you need to configure DevOPs to allow Agent's Managed Identity access to devops and for GitHub, there is an authorize button that shows up after connecting to URL. its easy to miss that step sometimes, so we need to document it.
-
 ::: zone pivot="azure-devops"
 
-### Prerequisites
-
-- **Managed Identity access**: Before you can connect your DevOps repository to resources in SRE Agent, you need to configure DevOps to allow the agent's Managed Identity access to your repo.
-
-### Connect to Azure DevOps
-
-::: zone-end
+Before you can connect an Azure DevOps Repo to a resource, you first need to associate the agent managed identity with the repository.
 
 1. Open your instance of SRE Agent in the Azure portal.
 
-2. Select the **Resource mapping** tab.
+1. Select **Settings** and copy the name of the managed identity listed in the settings window.
 
-3. Select **Grid view** radio button.
+1. Open your Azure DevOps repository.
 
-4. Expand the section for the resource you in which want to connect a repository.
+1. Select the **Invite** button in the upper left so you can add the agent's managed identity to the repo.
 
-5. Select **Connect repository**
+1. In the *Users* box, enter and select the name of your agent.
 
-::: zone pivot="azure-devops"
+1. Copy the URL of the repository to the clipboard.
 
-6. Enter the repository URL in the box.
+1. Return to the SRE Agent in the portal, and in the chat window ask the agent to connect to the repository.
 
-    The URL needs to match the following format:
+    For example, your prompt will resemble a request like this:
+
+    > connect <RESOURCE_NAME> to this Azure DevOps repo: <REPO_URL>
+
+    Before running this command, replace `<RESOURCE_NAME>` with the name of the app or resource where the code is deployed.
+
+    Replace `<REPO_URL>` with the URL of the Azure DevOps repository using the following format:
 
     `https://dev.azure.com/organization/<PROJECT_NAME>/_git/<REPO_NAME>`
-
-7. Select **Connect repository**.
 
 ::: zone-end
 
 ::: zone pivot="github"
 
-6. Enter the repository URL in the box.
+1. Open your instance of SRE Agent in the Azure portal.
+
+1. Select the **Resource mapping** tab.
+
+1. Select **Grid view** radio button.
+
+1. Expand the section for the resource you in which want to connect a repository.
+
+1. Select **Connect repository**
+
+1. Enter the repository URL in the box.
 
     The URL needs to match the following format:
 
     `https://github.com/<OWNER>/<REPO_NAME>`
 
-7. Select **Connect repository**.
+1. Select **Connect repository**.
 
     A new panel now appears on the right with profile details for the resource.
 
-8. Scroll down the panel and select **Authorize repository access** and follow the authorization flow to connect your repository.
+1. Scroll down the panel and select **Authorize repository access** and follow the authorization flow to connect your repository.
 
 ::: zone-end
 
