@@ -104,7 +104,7 @@ You may choose to disable both features if:
 
 ## Blob accessibility after deletion
 
-When a blob is deleted—whether soft delete, versioning, or both are enabled—to access the data:
+Whether soft delete, versioning, or both are enabled on the account, this section describes how to access the data after a blob is deleted.
 
 If versioning is enabled, you must specify a version ID to read a previous version. Use the [Copy Blob](/rest/api/storageservices/copy-blob) operation to copy a previous version to a new current version.
 
