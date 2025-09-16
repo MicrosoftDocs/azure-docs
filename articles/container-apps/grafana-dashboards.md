@@ -63,5 +63,4 @@ You can access Grafana dashboards at either the environment or container app lev
 ## Next steps
 
 - [Monitor Azure Container Apps](observability.md)
-- [Set up monitoring for Azure Container Apps](monitoring.md)
-- [Learn about Azure Monitor Dashboards with Grafana](../azure-monitor/essentials/azure-monitor-dashboards-grafana.md)
+- [Learn about Azure Monitor Dashboards with Grafana](/azure/azure-monitor/visualize/visualize-use-grafana-dashboards)
