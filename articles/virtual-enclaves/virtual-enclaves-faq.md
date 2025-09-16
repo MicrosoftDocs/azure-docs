@@ -40,6 +40,16 @@ Azure Virtual Enclaves includes news roles to help you manage your environments 
 ## Using Azure Virtual Enclaves
 Guides for using Azure Virtual Enclaves.
 
+### How do I create a resource not in the Azure service allow list?
+When you are deploying an Azure service into a workload resource group and you see the error `Do not allow creation of resource types outside of the allowlist` this means the service is not in the policy allow list. You can create an exemption to the policy by
+1. Navigating to the workload resource
+2. Select `Governance` and `Policy Compliance` on the left side
+3. Search for "Allow" and select the policy for your workload resource group
+4. Select `Create exemption`
+5. Select `Review + Create` and then `Create`
+ 
+Once the update action finishes, you can redeploy the service that was denied previously. 
+
 ### How do I prevent the creation of new Azure Virtual Enclave resource types?
 
 If you're a cloud engineer and want to restrict the creation of new Communities in your subscription you can use Azure policy to prevent deployment of specific resource types.
