@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/15/2025
+ms.date: 09/16/2025
 #Customer intent: As an integration developer using Azure Logic Apps, I want to use parallel branches to implement different paths for actions in my workflows.
 ---
 
