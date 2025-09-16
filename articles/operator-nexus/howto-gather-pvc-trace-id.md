@@ -5,8 +5,8 @@ ms.service: azure-operator-nexus
 ms.custom: how-to
 ms.topic: how-to
 ms.date: 11/01/2024
-ms.author: peterwhiting
-author: pjw711
+author: JAC0BSMITH
+ms.author: jacobsmith
 ---
 
 # Gather trace IDs for pods stuck in 'ContainerCreating'
