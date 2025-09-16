@@ -197,7 +197,7 @@ To update the MARS Agent, follow these steps:
 
 1. [Download the latest version of the MARS agent](https://aka.ms/downloadmarsagent).
 2. Double-click the downloaded file to run the installer.
-3. If the MARS agent is already installed, you are prompted with a dialog box if you want ot update the MARS agent. Select **Yes**.
+3. If the MARS agent is already installed, you are prompted with a dialog box if you want to update the MARS agent. Select **Yes**.
 
 >[!NOTE]
 >Don't re-register the server, as it is already associated with the vault.
