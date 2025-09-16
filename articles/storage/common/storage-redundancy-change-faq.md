@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: concept-article
-ms.date: 08/29/2025
+ms.date: 09/16/2025
 ms.author: shaas
 ms.subservice: storage-common-concepts
 ms.custom: references_regions, engagement
@@ -27,6 +27,11 @@ There are also many factors to consider when changing redundancy options, especi
 
 This article contains answers to frequently asked questions about the process of changing Azure Storage redundancy options for your storage accounts.
 
+> [!IMPORTANT]
+> In practice, a storage account *conversion* can refer to changing a storage account's SKU, or type. For example, you might convert a legacy general-purpose v1 storage account to standard general-purpose v2, allowing for enhanced availability, resilience, and features.
+>
+> For the purposes of this article, a storage account *conversion* refers specifically to changing a storage account's redundancy configuration.
+
 - [How are geo- and zonal-conversions different?](#how-are-geo--and-zonal-conversions-different)
 - [What charges are associated with a SKU conversion?](#what-charges-are-associated-with-a-sku-conversion)
 - [How long does the SKU conversion process take?](#how-long-does-the-sku-conversion-process-take)
@@ -37,11 +42,6 @@ This article contains answers to frequently asked questions about the process of
 - [How do I convert my account from GRS to ZRS?](#how-do-i-convert-my-account-from-grs-to-zrs)
 - [How do I convert my account from ZRS to GRS?](#how-do-i-convert-my-account-from-zrs-to-grs)
 - [What are the conflicting features or scenarios for SKU conversions?](#what-are-the-conflicting-features-or-scenarios-for-sku-conversions)
-
-> [!IMPORTANT]
-> In practice, a storage account *conversion* can refer to changing a storage account's SKU, or type. For example, you might convert a legacy general-purpose v1 storage account to standard general-purpose v2, allowing for enhanced availability, resilience, and features.
->
-> For the purposes of this article, a storage account *conversion* refers specifically to changing a storage account's redundancy configuration.
 
 ### How are geo- and zonal-conversions different?
 
