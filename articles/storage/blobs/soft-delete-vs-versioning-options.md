@@ -114,7 +114,7 @@ If versioning and soft delete are enabled and the previous version you want to a
 
 ## Cost Considerations
 
-Enabling soft delete or versioning for frequently overwritten data may result in increased storage capacity charges and increased latency when listing blobs. Block-level updates using [Put Block](/rest/api/storageservices/put-block) and [Put Block List](/rest/api/storageservices/put-block-list) can reduce storage costs. If you make no changes to a blob, version, or snapshot's tier, then you are billed for unique blocks of data across that blob its versions, and snapshots. You are billed for active data until the blob, versions, and snapshots are permanently deleted.
+Enabling soft delete or versioning for frequently overwritten data might result in increased storage capacity charges and increased latency when listing blobs. Block-level updates using [Put Block](/rest/api/storageservices/put-block) and [Put Block List](/rest/api/storageservices/put-block-list) can reduce storage costs. If you make no changes to a blob, version, or snapshot's tier, then you are billed for unique blocks of data across that blob its versions, and snapshots. You are billed for active data until the blob, versions, and snapshots are permanently deleted.
 [Learn more](/azure/storage/blobs/soft-delete-blob-overview)
 
 ## Related Articles
