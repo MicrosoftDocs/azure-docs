@@ -3,7 +3,7 @@ title: Continuously update function app code using Azure Pipelines
 description: Learn how to use Azure Pipelines to set up a pipeline that builds and deploys apps to Azure Functions.
 author: juliakm
 ms.topic: conceptual
-ms.date: 11/07/2024
+ms.date: 09/15/2025
 ms.author: jukullam
 ms.custom: devx-track-csharp, devx-track-azurecli, devops-pipelines-deploy
 ms.devlang: azurecli
@@ -18,7 +18,7 @@ YAML pipelines are defined using a YAML file in your repository. A step is the s
 
 You'll use the `AzureFunctionApp` task to deploy to Azure Functions. There are now two versions of the AzureFunctionApp task ([AzureFunctionApp@1](/azure/devops/pipelines/tasks/reference/azure-function-app-v1), [AzureFunctionApp@2](/azure/devops/pipelines/tasks/reference/azure-function-app-v2)). `AzureFunctionApp@2` includes enhanced validation support that makes pipelines less likely to fail because of errors. 
 
-Choose your task version at the top of the article. YAML pipelines aren't available for Azure DevOps 2019 and earlier.
+Choose your task version at the top of the article. 
 
 > [!NOTE]
 > The [AzureFunctionApp@2](/azure/devops/pipelines/tasks/reference/azure-function-app-v2) is highly recommended. Deploying to an app on the [Flex Consumption](./flex-consumption-plan.md) plan is only supported in version 2.
@@ -80,28 +80,36 @@ If you see errors when building your app, verify that the version of .NET that y
 pool:
   vmImage: 'windows-latest'
 steps:
-- script: |
-    dotnet restore
-    dotnet build --configuration Release
-- task: DotNetCoreCLI@2
-  inputs:
-    command: publish
-    arguments: '--configuration Release --output publish_output'
-    projects: '*.csproj'
-    publishWebProjects: false
-    modifyOutputPath: false
-    zipAfterPublish: false
-- task: ArchiveFiles@2
-  displayName: "Archive files"
-  inputs:
-    rootFolderOrFile: "$(System.DefaultWorkingDirectory)/publish_output"
-    includeRootFolder: false
-    archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
-    artifactName: 'drop'
-```
+  - task: UseDotNet@2
+    displayName: 'Install .NET 8.0 SDK'
+    inputs:
+      packageType: 'sdk'
+      version: '8.0.x'
+      installationPath: $(Agent.ToolsDirectory)/dotnet
+  - script: |
+      dotnet restore
+      dotnet build --configuration Release
+  - task: DotNetCoreCLI@2
+    displayName: 'dotnet publish'
+    inputs:
+      command: publish
+      arguments: '--configuration Release --output $(System.DefaultWorkingDirectory)/publish_output'
+      projects: 'csharp/*.csproj'
+      publishWebProjects: false
+      modifyOutputPath: false
+      zipAfterPublish: false
+  - task: ArchiveFiles@2
+    displayName: "Archive files"
+    inputs:
+      rootFolderOrFile: "$(System.DefaultWorkingDirectory)/publish_output"
+      includeRootFolder: false
+      archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
+      artifactName: 'drop'
+  - task: PublishBuildArtifacts@1
+  ```
 
 #### [JavaScript](#tab/javascript)
 
