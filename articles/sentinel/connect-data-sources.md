@@ -1,10 +1,10 @@
 ---
 title: Microsoft Sentinel data connectors
 description: Learn about supported data connectors, like Microsoft Defender XDR (formerly Microsoft 365 Defender), Microsoft 365 and Office 365, Microsoft Entra ID, ATP, and Defender for Cloud Apps to Microsoft Sentinel.
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: conceptual
 ms.date: 11/06/2024
-ms.author: yelevin
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal

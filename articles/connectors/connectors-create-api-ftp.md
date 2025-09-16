@@ -54,6 +54,8 @@ The FTP connector has different versions, based on [logic app type and host envi
 
 - The FTP managed or Azure-hosted connector can create a limited number of connections to the FTP server. The limit is based on the connection capacity in the Azure region where your logic app resource exists. If this limit poses a problem in a Consumption logic app workflow, consider a Standard logic app workflow that uses the FTP built-in connector.
 
+* Both the built-in and managed FTP connector support only explicit FTP over FTPS, which is an extension of TLS. Neither connector version supports implicit FTPS.
+
 ## Prerequisites
 
 - An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -552,6 +554,6 @@ This action returns a [BlobMetadata](/connectors/ftp/#blobmetadata) object named
 
 ## Related content
 
-- [What are connectors in Azure Logic Apps](introduction.md)
 - [Managed connectors for Azure Logic Apps](managed.md)
 - [Built-in connectors for Azure Logic Apps](built-in.md)
+- [What are connectors in Azure Logic Apps](introduction.md)

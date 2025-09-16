@@ -6,6 +6,7 @@ author: alexlzx
 ms.author: zhenxilin
 ms.date: 03/15/2023
 ms.topic: quickstart
+ms.custom: sfi-image-nochange
 ---
 
 # Quickstart: Build an e2e Streaming Application for Clickstream Analysis
