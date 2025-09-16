@@ -25,12 +25,12 @@ There are many different factors that can drive the need to change your storage 
 
 There are also many factors to consider when changing redundancy options, especially from a time and cost perspective. The time it takes to change redundancy options can vary based on several factors. These factors can include the options being changed, the size of your account, and the current resource demands within a region. There might also be costs associated with data transfer and increased storage requirements during and after a transition.
 
-This article contains answers to frequently asked questions about the process of changing Azure Storage redundancy options for your storage accounts.
-
 > [!IMPORTANT]
 > In practice, a storage account *conversion* can refer to changing a storage account's SKU, or type. For example, you might convert a legacy general-purpose v1 storage account to standard general-purpose v2, allowing for enhanced availability, resilience, and features.
 >
 > For the purposes of this article, a storage account *conversion* refers specifically to changing a storage account's redundancy configuration.
+
+This article contains answers to frequently asked questions about the process of changing Azure Storage redundancy options for your storage accounts:
 
 - [How are geo- and zonal-conversions different?](#how-are-geo--and-zonal-conversions-different)
 - [What charges are associated with a SKU conversion?](#what-charges-are-associated-with-a-sku-conversion)
