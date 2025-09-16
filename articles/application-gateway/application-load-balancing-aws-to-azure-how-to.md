@@ -3,20 +3,25 @@ title: Migrate from AWS Application Load Balancer to Azure Application Gateway
 description: Learn to migrate from AWS Application Load Balancer to Azure Application Gateway with step-by-step guidance, feature mapping, and validation strategies for enterprise workloads.
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 07/17/2025
+ms.date: 08/14/2025
 ms.custom:
   - ai-gen-docs-bap
   - ai-gen-description
   - ai-seo-date:07/02/2025
 ms.collection:
   - migration, aws-to-azure
-ms.author: doveychase
-author: chasedmicrosoft
+ms.author: mbender
+author: mbender-ms
 ---
 
 # Migrate from Amazon Web Services (AWS) Application Load Balancer to Azure Application Gateway
 
-If you currently use AWS Application Load Balancer (ALB) and plan to migrate your workload to Azure, this guide can help you understand the migration process, feature mappings, and best practices. On Azure, [Azure Application Gateway](overview.md) provides application load balancing capabilities that enable you to manage traffic to your web applications. You'll learn how to assess your current environment, plan & prepare the migration, and execute the transition while maintaining application availability and performance.
+If you currently use AWS Application Load Balancer (ALB) and plan to migrate your workload to Azure, this guide can help you understand the migration process, feature mappings, and best practices. On Azure, [Azure Application Gateway](overview.md) provides application load balancing capabilities that enable you to manage traffic to your web applications. 
+
+You'll learn how to:
+- Assess your current environment
+- Plan and prepare the migration
+- Execute the transition while maintaining application availability and performance
 
 ## What you'll accomplish
 
@@ -26,7 +31,7 @@ By following this guide, you'll:
 - Prepare your environments for a successful migration
 - Plan and execute a migration with minimal downtime
 - Validate that your migrated workload meets performance and reliability requirements
-- Understand how to iterate on the architecture for future enhancements
+- Learn to iterate on the architecture for future enhancements
 
 This article uses a scenario to demonstrate common patterns like path-based routing, multi-zone distribution, and mixed compute environments that apply to many workloads.
 
@@ -38,7 +43,7 @@ In this example, a financial services company operates a microservices workload 
 
 This architecture example showcases common application load balancing features in AWS and Azure, including path-based routing, traffic distribution across diverse back-end servers, and multi-zone deployment patterns. The goal is to migrate this architecture from AWS ALB to Application Gateway while maintaining equivalent functionality and meeting workload expectations on performance, reliability, security, and others. In our architecture diagram `/service-a/*` represents the `/auth/*` path and `/service-b/*` represents `/transactions/*`. 
 
-Here is the architecture of the workload in AWS:
+Here's the architecture of the workload in AWS:
 
 :::image type="complex" source="media/application-load-balancing-aws-to-azure-how-to/aws-application-load-balancing-scenario.png" lightbox="media/application-load-balancing-aws-to-azure-how-to/aws-application-load-balancing-scenario.png" alt-text="Diagram showing an AWS Application Load Balancer routing services across EC2 and Fargate in two availability zones.":::
 
@@ -78,7 +83,7 @@ Both architectures provide equivalent functionality, including:
 
 ### Production environment considerations
 
-This migration is designed as a cutover migration. With this approach, you build out your Azure infrastructure in parallel with your existing AWS setup. This approach minimizes the complexity of migrating users in batches, and enables rapid rollback if any problems arise. As such, you'll experience brief period of downtime during the DNS cutover, but the overall migration process is designed to minimize disruption to your users.
+This migration is designed as a cutover migration. With this approach, you build your Azure infrastructure in parallel with your existing AWS setup. This minimizes the complexity of moving users in batches and enables rapid rollback if problems arise. You can experience a brief period of downtime during the DNS cutover; the process is designed to minimize user disruption.
 
 **Expected downtime:**
 
@@ -89,15 +94,15 @@ This migration is designed as a cutover migration. With this approach, you build
 **Recommended maintenance window:**
 
 - Duration: 1-2 hours during low-traffic period
-- Buffer time: Extra 30 minutes for unforeseen problems
+- Buffer time: Extra 30 minutes for unforeseen issues
 - Rollback time: 15-30 minutes if needed
 
 > [!NOTE]
-> Resetting your DNS TTL values to 300 seconds (5 minutes) before the cutover helps ensure a smooth transition with minimal downtime. This allows for rapid DNS propagation and reduces the scope of any potential problems from cached DNS records during the cutover process. In some cases, you can need to reduce the TTL even further to 60 seconds (1 minute) to ensure that DNS changes propagate quickly. However, this might not be necessary for all scenarios.
+> Resetting your DNS TTL values to 300 seconds (5 minutes) before the cutover helps ensure a smooth transition with minimal downtime. This allows for rapid DNS propagation and reduces the scope of any potential problems from cached DNS records during the cutover process. In some cases, you can reduce the TTL further to 60 seconds (1 minute) to ensure that DNS changes propagate quickly. However, this might not be necessary for all scenarios.
 
 ## Step 1: Assessment
 
-Before migrating from AWS Application Load Balancer to Application Gateway, it's crucial to assess the existing architecture and identify the capabilities that need to be mapped or replaced. This assessment helps ensure a smooth migration process and maintain the functionality of your application.
+Before you migrate from AWS Application Load Balancer to Application Gateway, assess the existing architecture and identify capabilities to map or replace. This assessment helps ensure a smooth migration and maintains your application's functionality.
 
 ### Direct capability mapping
 
@@ -107,8 +112,8 @@ The microservices architecture capabilities map from AWS ALB to Application Gate
 |---|---|---|
 | **[AWS ALB Target Groups](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html)** | **[Application Gateway back-end pools](configuration-overview.md#backend-pool)** | Create back-end pools for each service. Back-end pools can contain NICs, Virtual Machine Scale Sets, public/internal IP addresses, FQDNs, and multitenant back ends like Azure App Service. Configure automatic instance registration for scale sets. |
 | **[AWS ALB Path-based Routing](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/listener-update-rules.html)** | **[Application Gateway URL Path-based Routing Rules](url-route-overview.md)** | Configure request routing rules with URL path-based conditions. Route `/auth/*` and `/transactions/*` to their respective back-end pools using Application Gateway's routing rules with priority-based processing. |
-| **[AWS ALB Health Checks](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/target-group-health-checks.html)** | **[Application Gateway Health Probes](application-gateway-probe-overview.md)** | Configure custom health probes matching AWS health check settings. Set probe interval, timeout, unhealthy threshold, and response criteria to match AWS ALB configuration. Application Gateway supports both default probes and custom probes with configurable HTTP status codes and response body matching. |
-| **[AWS ALB SSL/TLS Termination](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html)** | **[Application Gateway TLS Termination with Key Vault](key-vault-certs.md)** | Configure TLS termination using Azure Key Vault for certificate management. Application Gateway v2 supports automatic certificate rotation when using Key Vault integration. Import existing AWS Certificate Manager certificates to Azure Key Vault in PFX format with private keys. |
+| **[AWS ALB Health Checks](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/target-group-health-checks.html)** | **[Application Gateway Health Probes](application-gateway-probe-overview.md)** | Configure custom health probes matching AWS health check settings. Set probe interval, timeout, unhealthy threshold, and response criteria to match AWS ALB configuration. Application Gateway supports both default probes and custom probes with configurable HTTP status codes and response-body substring matching. Note: Application Gateway default probe interval is 30s, default timeout is 30s, and the default unhealthy threshold is 3; custom response-body matching is a substring match (not a regular expression) and the documented maximum response-body match length is 4,090 characters. |
+| **[AWS ALB SSL/TLS Termination](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html)** | **[Application Gateway TLS Termination with Key Vault](key-vault-certs.md)** | Configure TLS termination using Azure Key Vault for certificate management. Application Gateway v2 supports automatic certificate rotation when using Key Vault integration. If you plan to reuse certificates from AWS Certificate Manager (ACM), verify that the ACM certificate is exportable before attempting migration: not all ACM certificates are exportable. When certificates are exportable, export them with their private keys and convert to PFX for Key Vault import. For Key Vault-based rotation, reference the Key Vault secret (not a versioned secret) so Application Gateway polls Key Vault for updates and rotates certificates automatically—Application Gateway polls Key Vault approximately every four hours. |
 | **[AWS ALB Multi-AZ Distribution](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html#availability-zones)** | **[Application Gateway Zone Redundancy](application-gateway-autoscaling-zone-redundant.md)** | Deploy Application Gateway v2 with zone redundancy across multiple availability zones. Zone-redundant deployment automatically distributes gateway instances across zones with automatic failover capabilities. Available in regions that support availability zones. |
 | **[AWS ALB Auto Scaling Integration](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html)** | **[Azure Virtual Machine Scale Sets + Application Gateway](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking#application-gateway)** | AWS ALB automatically registers/deregisters Auto Scaling group instances as targets. Azure equivalent: Configure Virtual Machine Scale Sets as Application Gateway back-end pools with automatic instance registration and health-based scaling. For containerized workloads, use Azure Kubernetes Service (AKS) with Application Gateway Ingress Controller (AGIC) and Horizontal Pod Autoscaler. Implement Azure Monitor-based scaling rules and custom metrics for automatic scaling decisions.|
 | **[AWS ALB WAF Integration](https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-load-balancer.html)** | **[Application Gateway WAF v2 Integration](../web-application-firewall/ag/ag-overview.md)** | Enable [Web Application Firewall (WAF) v2 policies](../web-application-firewall/ag/ag-overview.md) on Application Gateway. WAF uses up to date OWASP Core Rule Sets (CRS) with protection against SQL injection, cross-site scripting, and other OWASP Top 10 attacks. Configure custom rules, managed rule sets, and geo-filtering to match AWS WAF functionality. |
@@ -146,21 +151,21 @@ If your workload uses ALB capabilities or other capabilities that can't be addre
 
 - **Azure Monitor integration:** Implement custom scaling rules based on Application Gateway metrics and back-end pool health
 
+Note: Application Gateway v2 (Standard_v2/WAF_v2) supports autoscaling and zone-redundant deployments; however, autoscaling is managed at the gateway level (scaling gateway instances) and differs from AWS Auto Scaling group behavior for back-end instances. Use Virtual Machine Scale Sets for back-end instance scaling and AGIC/AKS or scale set health integration when you need automatic target registration and pod/instance level scaling.
+
 > [!IMPORTANT]
 > The Auto Scaling groups illustrates an example of a critical mismatch in capability. There are others that don't have 1:1 equivalents in Application Gateway. Such as:
-
-> - **Load balancing algorithms:** AWS ALB supports multiple algorithms (round robin, least outstanding requests, weighted random), while Application Gateway supports round robin, least connections, and IP hash algorithms. However, the default behavior differs between platforms.
 >
-> - **Slow start mode:** AWS ALB's slow start mode for gradually ramping traffic to new instances isn't available in Application Gateway.
+> - **Load balancing algorithms:** AWS ALB supports multiple algorithms (for example: round_robin, least_outstanding_requests, weighted_random). Application Gateway distributes requests using round-robin and supports cookie-based session affinity for stickiness. Application Gateway doesn't provide ALB-style algorithms such as least_outstanding_requests or weighted_random, and it doesn't expose an IP-hash option. If your application depends on ALB-specific algorithms, plan compensating strategies (for example, adjust back-end capacity, use staged deployments, or employ other traffic-distribution components).
 >
-> - **Advanced routing capabilities:** Some AWS ALB routing features might require alternative approaches or acceptance of different behavior.
-> 
-> Evaluate these differences during your assessment phase and determine if your workload can accommodate these changes or if compensating architecture modifications are needed.
+> - **Slow start mode:** AWS ALB's slow start mode for gradually ramping traffic to new targets isn't available in Application Gateway. To mitigate this, use deployment strategies such as canary/staged deployments, warm-up endpoints, or pre-warmed instances to avoid traffic spikes to new back ends.
+>
+> - **Advanced routing capabilities:** Some AWS ALB routing features might require alternative approaches or acceptance of different behavior. Evaluate these differences during your assessment phase and determine if compensating architecture modifications are needed.
 
 > [!NOTE]
-> Measuring performance and reliability is crucial to ensure that the migrated workload meets the same standards as the original AWS ALB setup. This includes monitoring response times, throughput, and error rates to ensure that the Application Gateway performs as expected.
+> Measure performance and reliability to make sure the migrated workload meets the original AWS ALB standards. Monitor response times, throughput, and error rates so the Application Gateway performs as expected.
 >
-> To ensure your migrated workload meets the performance and reliability criteria expected, establish baseline metrics from the AWS ALB before migration. This will allow you to compare the performance of the Application Gateway after migration and ensure that it meets or exceeds the established benchmarks. Include all relevant metrics such as response times, throughput, and error rates in your baseline measurements.
+> Establish baseline metrics from the AWS ALB before migration. Use these baselines to compare Application Gateway performance after migration and confirm it meets or exceeds expectations. Include response times, throughput, and error rates.
 
 ## Step 2: Preparation
 
@@ -183,6 +188,9 @@ A successful migration requires detailed documentation of the existing AWS ALB c
 - Export [SSL/TLS certificates from AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/export-public-certificate.html) for Azure Key Vault import.
 
 - Convert certificates to PFX format with private keys, as Application Gateway requires this format for certificate management. Follow the [Azure Key Vault certificate integration guide](/azure/application-gateway/key-vault-certs).
+
+  > [!NOTE]
+  > Verify that the ACM certificate you plan to export is permitted to be exported by ACM. Some ACM-managed certificates (for example, certificates that are managed entirely by AWS for certain services) can't be exported; check the ACM documentation before relying on certificate export as part of your migration.
 
     > [!NOTE]
     > This approach assumes you're utilizing the same domain names and existing certificates with an external DNS cutover. If the migration uses different domain names, you need to obtain new certificates.
@@ -219,7 +227,7 @@ These changes ensure applications function correctly with Application Gateway's 
 
 ### Environmental changes
 
-Prepare your Azure environment by deploying the necessary infrastructure and configuring security and monitoring components to support the migrated workload. This preparation helps ensure a smooth transition and minimizes potential problems during the migration process.
+Prepare your Azure environment by deploying the necessary infrastructure. Configure security and monitoring components to support the migrated workload. This preparation helps ensure a smooth transition and minimizes potential issues during the migration process.
 
 #### Azure resource provisioning
 
@@ -270,11 +278,11 @@ In general, the migration process involves deploying and migrating resources fir
 
 ## Step 3: Evaluation
 
-Validation of the defined success criteria involves both automated and manual testing to ensure all functionality and performance benchmarks are met. Key areas such as routing accuracy, SSL/TLS termination, back-end health, response times, and session handling should be tested against the original AWS ALB configuration. Automated tests are best suited for verifying repeatable aspects like traffic distribution, throughput, and health check performance. Manual testing should be used to confirm more complex behaviors, such as custom error page display, configuration consistency, and SLA compliance. By combining these approaches, you can confidently validate that the Azure environment meets the required standards and mirrors the expected behavior from AWS.
+Validation of the defined success criteria involves both automated and manual testing to ensure all functionality and performance benchmarks are met. Test key areas including routing accuracy, SSL/TLS termination, back-end health, response times, and session handling against the original AWS ALB configuration. Automated tests are best suited for verifying repeatable aspects like traffic distribution, throughput, and health check performance. Manual testing should be used to confirm more complex behaviors, such as custom error page display, configuration consistency, and SLA compliance. By combining these approaches, you can confidently validate that the Azure environment meets the required standards and mirrors the expected behavior from AWS.
 
 ### Validation criteria
 
-During the preparation step, it's essential to define the validation criterion that measures the success of the migration. These criteria will help ensure that all capabilities function as expected after the migration is complete.
+During preparation, define validation criteria that measure migration success. These criteria help ensure all capabilities function as expected after migration.
 
 #### Success criteria definition
 
@@ -308,7 +316,7 @@ Establish validation criteria based on the original AWS ALB capabilities identif
 
 - **Session handling:** Maintain session affinity where configured
 
-- **Configuration drift:** Monitor for configuration drift between environments to prevent reliability problems post-migration
+- **Configuration drift:** Monitor for configuration drift between environments to prevent reliability issues post-migration
 
 - **Compliance and SLA alignment:** Validate that the migrated solution meets required compliance standards and Azure SLAs for uptime and reliability
 
@@ -354,7 +362,7 @@ Migration execution involves a series of steps to ensure a smooth transition fro
 
 #### Final validation and testing
 
-Validate the defined success criteria by using automated and manual testing to ensure all functionality and performance benchmarks are met. Here is key functionality that you want to validate based on your evaluation criteria:
+Validate the defined success criteria by using automated and manual testing to ensure all functionality and performance benchmarks are met. Here's key functionality that you want to validate based on your evaluation criteria:
 
 - Test HTTPS endpoints with valid certificates
 - Verify path-based routing for all services
@@ -375,7 +383,7 @@ During the post-cutover step, you validate the success of the migration by ensur
 **Functional validation:**
 
 - Verify all service routing functions correctly
-- Validate SSL/TLS certificate functionality
+- Validate TLS/SSL certificate functionality
 - Test error pages and failover behavior
 - Validate health probe behavior and back-end health
 

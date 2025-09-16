@@ -6,7 +6,7 @@ author: normesta
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
-ms.date: 06/18/2025
+ms.date: 09/12/2025
 ms.author: normesta
 
 ---
@@ -16,6 +16,9 @@ ms.author: normesta
 You can enable traffic from specific Azure resource instances by creating a *resource instance network rule*. 
 
 Resource instance network rules can be combined with other network rules to control traffic to your storage account. To learn more, see [Azure Storage firewall and virtual network rules](storage-network-security.md).
+
+> [!IMPORTANT]
+> A resource instance network rule provides access to the public endpoint but not to the data. For data access, you must assign the appropriate Azure role to the system-assigned managed identity of the Azure resource. See [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md).
 
 ## Create a resource instance network rule
 
@@ -27,15 +30,13 @@ You can add or remove resource instance network rules in the Azure portal:
 
 2. Locate your storage account and display the account overview.
 
-3. In the service menu, under **Security + networking**, select **Networking**.
+3. In the service menu, under **Security + networking**, select **Networking**, and then under **Resource settings: Virtual networks, IP addresses, and exceptions**, select **View**.
 
-4. Verify that you've chosen to enable public network access from selected virtual networks and IP addresses.
+4. Scroll down to the **Resource instances** section. In the **Resource type** dropdown list, select the resource type for your resource instance.
 
-5. Scroll down to the **Resource instances** section. In the **Resource type** dropdown list, select the resource type for your resource instance.
+5. In the **Instance name** dropdown list, select the resource instance. You can also choose to include all resource instances in the current tenant, subscription, or resource group.
 
-6. In the **Instance name** dropdown list, select the resource instance. You can also choose to include all resource instances in the current tenant, subscription, or resource group.
-
-7. Select **Save** to apply your changes. The resource instance appears in the **Resource instances** section of the network settings page.
+6. Select **Save** to apply your changes. The resource instance appears in the **Resource instances** section of the network settings page.
 
 To remove the resource instance, select the delete icon (:::image type="icon" source="media/storage-network-security/delete-icon.png":::) next to the resource instance.
 

@@ -11,8 +11,9 @@ metadata:
   ms.subservice: ip-services
   ms.topic: how-to
   ms.custom:
-    - template-how-to
+    - sfi-image-nochange
     - ge-structured-content-pilot
+    - template-how-to
 
 title: |
   Manage a public IP address with an Azure Virtual Machine

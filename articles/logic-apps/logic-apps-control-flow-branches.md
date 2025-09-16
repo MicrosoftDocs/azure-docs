@@ -21,7 +21,7 @@ This guide shows how to create parallel branches in a workflow and rejoin those 
 
 > [!TIP]
 >
-> Suppose your workflow trigger receives an array and you want to run a workflow instance for each item in the array. Rather than create parallel branches, you can *debatch* that array instead by using the `SplitOn` trigger property. For more information, see [Trigger multiple runs on an array](logic-apps-workflow-actions-triggers.md#split-on-debatch).
+> In scenarios where you have a workflow trigger that receives and returns arrays, and you want a separate workflow instance to run for each array item, you can *debatch* the array as an alternative to branching. On triggers that support this capability, in the designer, you can turn on the **Split on** setting, which maps to a `splitOn` property in the trigger definition. Only triggers that can accept and return arrays support this capability. For more information, see [Trigger multiple runs on an array](logic-apps-workflow-actions-triggers.md#split-on-debatch).
 
 ## Prerequisites
 

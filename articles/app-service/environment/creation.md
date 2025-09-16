@@ -2,17 +2,23 @@
 title: Create an App Service Environment
 description: Learn how to create an App Service Environment, which integrates with an Azure virtual network and supports internal or external virtual IP types.
 author: seligj95
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/07/2025
 ms.author: jordanselig
+ms.service: azure-app-service
 ms.custom:
   - build-2025
-ms.service: azure-app-service
+  - sfi-image-nochange
+
+# As a developer, I want to create an App Service Environment so that I can integrate App Service with an Azure virtual network.
+
 ---
 
-# Create an App Service Environment
+# Quickstart: Create an App Service Environment
 
-An [App Service Environment][Intro] is a single-tenant deployment of Azure App Service that integrates with an Azure virtual network. Each App Service Environment deployment requires a dedicated subnet that other resources can't use.
+In this quickstart, you create an App Service Environment. [App Service Environment][Intro] is a single-tenant deployment of Azure App Service that integrates with an Azure virtual network. Each App Service Environment deployment requires a dedicated subnet, which you can't use for other resources.
+
+If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Before you create an App Service Environment
 
@@ -86,7 +92,7 @@ To create an App Service Environment in the Azure portal, do the following steps
 
    :::image type="content" source="./media/creation/creation-hosting.png" alt-text="Screenshot that shows the App Service Environment hosting selections." border="true" lightbox="./media/creation/creation-hosting.png":::
    
-1. In the **Networking** tab, do the following steps:
+1. On the **Networking** tab, complete the following steps:
 
     - Select or create your **Virtual Network**.
     - Select or create your **Subnet**.
@@ -112,7 +118,9 @@ To create an App Service Environment in the Azure portal, do the following steps
 
 After you successfully create your App Service Environment, you can select it as a location when you create your apps.
 
-For more information, see [Create an App Service Environment by using an Azure Resource Manager template](how-to-create-from-template.md).
+## Related content
+
+- [Create an App Service Environment by using a Resource Manager template](how-to-create-from-template.md).
 
 <!--Links-->
 [Intro]: ./overview.md

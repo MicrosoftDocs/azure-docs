@@ -4,10 +4,13 @@ description: Describes ways to monitor the capacity utilization of an Azure NetA
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.custom: devx-track-azurecli, linux-related-content
 ms.topic: how-to
 ms.date: 09/04/2024
 ms.author: anfdocs
+ms.custom:
+  - devx-track-azurecli
+  - linux-related-content
+  - sfi-image-nochange
 # Customer intent: As a system administrator, I want to monitor the capacity utilization of Azure NetApp Files volumes, so that I can ensure efficient storage management and prevent capacity issues.
 ---
 # Monitor the capacity of a volume  

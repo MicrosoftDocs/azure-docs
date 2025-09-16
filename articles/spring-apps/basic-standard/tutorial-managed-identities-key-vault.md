@@ -5,9 +5,14 @@ author: KarlErickson
 ms.author: karler
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 02/01/2024
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 zone_pivot_groups: spring-apps-tier-selection
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 ---
 
 # Connect Azure Spring Apps to Key Vault using managed identities

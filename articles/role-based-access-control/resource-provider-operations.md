@@ -4,9 +4,9 @@ description: Lists the permissions for Azure resource providers.
 ms.service: role-based-access-control
 ms.topic: generated-reference
 ms.workload: identity
-author: jenniferf-skc
+author: rolyon
 manager: pmwongera
-ms.author: jfields
+ms.author: rolyon
 ms.date: 07/07/2025
 ms.custom: generated
 ---

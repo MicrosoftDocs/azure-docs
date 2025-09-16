@@ -12,11 +12,21 @@ adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-dotnetcore-uiex
 author: cephalin
 ms.author: cephalin
-ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, devdivchpfy22, devx-track-azurepowershell, devx-track-dotnet, ai-video-demo, devx-track-extended-azdevcli
 ai-usage: ai-assisted
 ms.collection: ce-skilling-ai-copilot
 #customer intent: As a .NET developer, I want to deploy a web app to Azure App Services by using my preferred development process.
 ms.service: azure-app-service
+ms.custom:
+  - devx-track-csharp
+  - mvc
+  - devcenter
+  - vs-azure
+  - devdivchpfy22
+  - devx-track-azurepowershell
+  - devx-track-dotnet
+  - ai-video-demo
+  - devx-track-extended-azdevcli
+  - sfi-image-nochange
 ---
 
 <!-- NOTES:

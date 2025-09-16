@@ -4,9 +4,11 @@ description: Learn about how to access a firewall protected Microsoft Purview ac
 ms.author: jianleishen
 author: jianleishen
 ms.topic: conceptual
-ms.custom: references_regions
 ms.date: 10/03/2024
 ms.subservice: monitoring
+ms.custom:
+  - references_regions
+  - sfi-image-nochange
 ---
 
 # Access a secured Microsoft Purview account from Azure Data Factory

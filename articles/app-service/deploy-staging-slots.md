@@ -6,10 +6,15 @@ ms.topic: how-to
 ms.date: 03/28/2025
 author: cephalin
 ms.author: cephalin
-ms.custom: fasttrack-edit, devx-track-azurepowershell, devx-track-azurecli, ai-video-demo
 ai-usage: ai-assisted
 #customer intent: As a web app developer, I want to understand deployment slots and how to swap and automatically swap into production in Azure App Service.
 ms.service: azure-app-service
+ms.custom:
+  - fasttrack-edit
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - ai-video-demo
+  - sfi-image-nochange
 ---
 
 # Set up staging environments in Azure App Service
@@ -35,7 +40,7 @@ The following video complements the steps in this article by illustrating how to
 
 ## Prerequisites
 
-- Permissions to perform the slot operation that you want. For information on the required permissions, see [Resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftweb). Search for **slot**, for example.
+- Permissions to perform the slot operation that you want. For information on the required permissions, see [Resource provider operations](../role-based-access-control/permissions/web-and-mobile.md#microsoftweb). Search for **slot**, for example.
 
 <a name="Add"></a>
 
@@ -95,7 +100,8 @@ For more information, see [New-AzWebAppSlot](/powershell/module/az.websites/new-
 
 The new deployment slot has no content, even if you clone the settings from a different slot. For example, you can [publish to this slot with Git](./deploy-local-git.md). You can deploy to the slot from a different repository branch or a different repository. The article [Get a publish profile from Azure App Service](/visualstudio/azure/how-to-get-publish-profile-from-azure-app-service) can provide the required information for deploying to the slot. Visual Studio can import the profile to deploy contents to the slot.
 
-The slot's URL has the format `http://sitename-slotname.azurewebsites.net`. To keep the URL length within necessary DNS limits, the site name is truncated at 40 characters. The combined site name and slot name must be fewer than 59 characters.
+
+The slot's URL has the format `http://sitename-slotname.azurewebsites.net`. To keep the URL length within necessary DNS limits, the site name can be up to 40 characters, and the slot name can be up to 19 characters. The combined length of the site name and slot name must be fewer than 59 characters.
 
 <a name="AboutConfiguration"></a>
 

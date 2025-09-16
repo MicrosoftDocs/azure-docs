@@ -1,15 +1,14 @@
 ---
 title: Commonly used Microsoft Sentinel workbooks
 description: Learn about the most commonly used workbooks to use popular, out-of-the-box Microsoft Sentinel resources.
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: reference
 ms.date: 06/14/2024
-ms.author: yelevin
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
-
 
 #Customer intent: As a security analyst, I want to identify and deploy relevant workbooks in Microsoft Sentinel so that I can effectively monitor and investigate security data.
 

@@ -9,7 +9,9 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 10/30/2024
 ms.author: danlep
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 ---
 
 # How to secure APIs using client certificate authentication in API Management

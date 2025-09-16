@@ -1,13 +1,16 @@
 ---
 title: 'App Service on Azure Arc'
 description: An introduction to App Service integration with Azure Arc for Azure operators.
-ms.topic: article
+ms.topic: overview
 ms.custom: devx-track-azurecli
 ms.date: 01/15/2025
 author: apwestgarth
 ms.author: msangapu
 ROBOTS: NOINDEX
 ms.service: azure-app-service
+
+# Customer intent: As an Azure operator, I want to learn about App Service integration with Azure Arc so that I can evaluate whether it meets my needs. 
+
 ---
 
 # App Service, Functions, and Logic Apps on Azure Arc (Preview)
@@ -127,7 +130,7 @@ By default, logs from system components are sent to the Azure team. Application 
 
 ### What do I do if I see a provider registration error?
 
-When creating a Kubernetes environment resource, some subscriptions might see a "No registered resource provider found" error. The error details might include a set of locations and API versions that are considered valid. If this error message is returned, the subscription must be re-registered with the Microsoft.Web provider, an operation that has no impact on existing applications or APIs. To re-register, use the Azure CLI to run `az provider register --namespace Microsoft.Web --wait`. Then reattempt the Kubernetes environment command.
+When you create a Kubernetes environment resource, you might see a "No registered resource provider found" error. The error details might include a set of locations and API versions that are considered valid. If this error message is returned, the subscription must be re-registered with the Microsoft.Web provider, an operation that has no impact on existing applications or APIs. To re-register, use the Azure CLI to run `az provider register --namespace Microsoft.Web --wait`. Then reattempt the Kubernetes environment command.
 
 ### Can I deploy the Application services extension on an Arm64 based cluster?
 
@@ -251,6 +254,6 @@ If your extension was in the stable version and auto-upgrade-minor-version is se
     az k8s-extension update --cluster-type connectedClusters -c <clustername> -g <resource group> -n <extension name> --release-train stable --version 0.13.5
 ```
 
-## Next steps
+## Related content
 
-[Create an App Service Kubernetes environment (Preview)](manage-create-arc-environment.md)
+- [Create an App Service Kubernetes environment (Preview)](manage-create-arc-environment.md)
