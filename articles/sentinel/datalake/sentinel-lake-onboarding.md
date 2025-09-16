@@ -40,7 +40,7 @@ When you onboard to data lake and graph, the process makes the following changes
   + Microsoft 365
   + Azure Resource Graph
 
-+ If your organization currently uses Microsoft Sentinel SIEM (Security Information and Event Management), the billing and pricing for features like search jobs and queries, auxiliary logs, and long-term retention also known as "archive", switch to Microsoft Sentinel data lake-based billing meters, potentially increasing your costs.
++ If your organization currently uses Microsoft Sentinel SIEM (Security Information and Event Management), the billing and pricing for features like search jobs and queries, auxiliary logs, and long-term retention also known as "archive," switch to Microsoft Sentinel data lake-based billing meters, potentially increasing your costs.
 
 + It integrates auxiliary log tables into the Microsoft Sentinel data lake. Auxiliary tables in Microsoft Defender connected workspaces that are onboarded to the Microsoft Sentinel data lake become an integral part of the data lake, making them available for use in data lake experiences like KQL queries and jobs. After onboarding, auxiliary log tables are no longer available in Microsoft Defender Advanced hunting. Instead, you can access them through data lake exploration KQL queries in the Defender portal.
 
@@ -56,6 +56,7 @@ Once you're onboarded to the Microsoft Sentinel data lake and graph, you can use
 + [Management of data tiers and retention](../manage-data-overview.md)
 + Microsoft Sentinel cost management
 + Data risk graphs (in Data Security Investigations and Insider Risk Management only)
++ Hunting graph (in Advanced hunting)
 
 This article describes how to onboard to the Microsoft Sentinel data lake and graph for customers who are currently using Microsoft Defender, Data Security Investigations, Insider Risk Management, and Microsoft Sentinel. New Microsoft Sentinel customers can follow this procedure after their initial onboarding to these solutions.
 

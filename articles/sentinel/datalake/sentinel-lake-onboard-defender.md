@@ -14,10 +14,10 @@ ms.subservice: sentinel-graph
   
 # Onboard to Microsoft Sentinel data lake from the Defender portal
 
-Onboarding your tenant to the Microsoft Sentinel data lake occurs once and starts from the Microsoft Defender portal. The onboarding process creates a new Microsoft Sentinel data lake for your tenant in the subscription specified during the onboarding process.
+Onboarding your tenant to the Microsoft Sentinel data lake occurs once and starts from the Microsoft Defender portal. The onboarding process creates a new Microsoft Sentinel data lake for your tenant in the subscription specified during the onboarding process. If you had onboarded to the data lake during public preview, you are automatically upgraded to the generally available data lake and the graph public preview.
 
 > [!NOTE]
-> The onboarding process can take up to 60 minutes to complete.
+> You'll always have one data lake that you can use with multiple Microsoft Security products. During onboarding, we check for and automatically use your existing data lake. When you ingest and store security data in your data lake, this data can be used with multiple Microsoft Security products.
 
 Use the following steps to onboard to the Microsoft Sentinel data lake from the Defender portal:
 
@@ -43,7 +43,7 @@ Use the following steps to onboard to the Microsoft Sentinel data lake from the 
 
     :::image type="content" source="./media/sentinel-lake-onboard-defender/set-up-data-lake.png" lightbox="./media/sentinel-lake-onboard-defender/set-up-data-lake.png" alt-text="A screenshot showing the setup page for the Microsoft Sentinel data lake.":::
 
-1. The setup process begins and the following side panel is displayed. You can close the setup panel while the process is running.
+1. The setup process begins and the following side panel is displayed. The onboarding process can take up to 60 minutes to complete. You can close the setup panel while the process is running.
 
     :::image type="content" source="./media/sentinel-lake-onboard-defender/setup-started.png" lightbox="./media/sentinel-lake-onboard-defender/setup-started.png" alt-text="A screenshot showing the progress of the onboarding process.":::
 
@@ -66,12 +66,6 @@ If you encounter any issues during the setup process, see the following troubles
 
 The following are errors that you might encounter during the onboarding process.
 
-### DL101
-
-- **Error**: Can’t complete setup.
-- **Description**: Your primary Microsoft Sentinel workspace region and your Microsoft Entra tenant home geographic region are different.
-- **Resolution**: For preview, the geographic regions must be the same. Ensure that you have a primary workspace in the same geographic region as your Microsoft Entra tenant.
-
 ### DL102
 
 - **Error**: Can’t complete setup.
@@ -87,6 +81,8 @@ The following are errors that you might encounter during the onboarding process.
 ## Related content
 
 + [Microsoft Sentinel data lake overview (preview)](sentinel-lake-overview.md)
++ [What is Microsoft Sentinel graph? (preview)](sentinel-graph-overview.md)
++ [Onboard Windows devices into Microsoft 365 overview](/purview/device-onboarding-overview)
 + [Microsoft Sentinel data lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake)
 + [Microsoft Sentinel data lake billing](../billing.md)
 + [Create custom roles with Microsoft Defender XDR Unified role-based access control (RBAC)](/defender-xdr/create-custom-rbac-roles)
