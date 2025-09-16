@@ -201,7 +201,7 @@ Use the AI gateway and [Azure API Center](../api-center/overview.md) to streamli
 * Easy registration of APIs and MCP servers in an organizational catalog in Azure API Center
 * Self-service API and MCP server access through developer portals in API Management and API Center
 * API Management policy toolkit for customization
-* API Center Copilot Studio connector
+* API Center Copilot Studio connector to extend the capabilities of AI agents
 
 :::image type="content" source="media/genai-gateway-capabilities/mcp-registry-api-center.png" alt-text="Screenshot of MCP servers in API Center in the portal." :::
 
