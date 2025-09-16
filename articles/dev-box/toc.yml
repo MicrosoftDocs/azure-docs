@@ -21,8 +21,6 @@ items:
       - name: Spin up a new dev box
         href: quickstart-create-dev-box.md
         displayName: connect, access dev box
-      - name: Use Team Customizations
-        href: quickstart-team-customizations.md
   - name: Concepts
     items:
       - name: Key concepts
@@ -78,13 +76,13 @@ items:
       - name: What are Dev Box customizations
         href: concept-what-are-dev-box-customizations.md
         displayName: customizations, image definition, team customization
+      - name: Quickstart:Use Team Customizations
+        href: quickstart-team-customizations.md
       - name: Configure team customizations
         href: how-to-configure-team-customizations.md
         displayName: customizations, image definition, team customization
-      - name: Configure Dev Box imaging
-        href: how-to-configure-dev-box-imaging.md
-      - name: Create an image definition file with Copilot
-        href: how-to-use-copilot-generate-image-definition-file.md
+      - name: Configure dev center imaging
+        href: how-to-configure-dev-center-imaging.md
       - name: Configure user customizations
         href: how-to-configure-user-customizations.md
         displayName: customizations, image definition, personal customization, individual
@@ -95,6 +93,9 @@ items:
         href: how-to-customizations-connect-resource-repository.md
       - name: Add and Manage Catalogs
         href: how-to-configure-catalog.md
+      - name: Imagedefinition.yaml and task.yaml reference
+        href: reference-dev-box-customizations.md
+        displayName: Customize, schema, yaml, imagedefinition, task
   - name: Create & connect to dev boxes
     items:
       - name: Manage a dev box through developer portal
@@ -113,10 +114,9 @@ items:
         href: how-to-configure-dev-box-serverless-gpu.md
   - name: Security
     items:
-      - name: Provide access to project admins
-        href: how-to-project-admin.md
-      - name: Provide access to dev box users
-        href: how-to-dev-box-user.md
+      - name: Manage project access
+        href: how-to-manage-dev-box-access.md
+        displayName: project access, RBAC, roles, permissions
       - name: Configure conditional access policies
         href: how-to-configure-intune-conditional-access-policies.md
       - name: Configure elevated privilege for dev boxes
@@ -177,9 +177,8 @@ items:
         href: how-to-get-help.md
   - name: Reference
     items:
-      - name: "Reference: imagedefinition.yaml and task.yaml files"
-        href: reference-dev-box-customizations.md
-        displayName: Customize, schema, yaml, imagedefinition, task
+      - name: Microsoft Dev Center Landing Zone Accelerator
+        href: https://github.com/Azure/DevBoxAccelerator/tree/main
       - name: Install Azure CLI devcenter extension
         href: how-to-install-dev-box-cli.md
       - name: Azure CLI - az devcenter

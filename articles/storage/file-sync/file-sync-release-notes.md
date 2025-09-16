@@ -24,9 +24,13 @@ The following Azure File Sync agent versions are supported:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
-| V21.2 Release - [KB5063825](https://support.microsoft.com/topic/6490aef8-ebae-465d-beba-718c05f8a71f)|21.2.0.0| July 08, 2025| Supported – Flighting |
+| V21.2 Release - [KB5063825](https://support.microsoft.com/topic/6490aef8-ebae-465d-beba-718c05f8a71f)|21.2.0.0| July 08, 2025| Supported |
+| v21.1 Release - [KB5063486](https://support.microsoft.com/topic/e0016f74-573d-492c-8bf7-c3be1e380836) |21.1.0.0 | August 11, 2025 | Supported - Security Update |
+| v20.1 Release - [KB5056953](https://support.microsoft.com/topic/6a558f5d-005d-4111-9ebd-21e5dd652d77) |20.1.0.0 | August 11, 2025 | Supported - Security Update |
 | V20 Release - [KB5041884](https://support.microsoft.com/topic/b92c9c6f-8232-42d3-a3e0-e6df1fce0f5e)| 20.0.0.0 | February 10, 2025 | Supported |
+| v19.2 Release - [KB5040925](https://support.microsoft.com/topic/5b457dbd-7615-490b-84ea-235fde9d65c8) |19.2.0.0 | August 11, 2025 | Supported - Security Update |
 | V19 Release - [KB5040924](https://support.microsoft.com/topic/e44fc142-8a24-4dea-9bf9-6e884b4b342e)| 19.1.0.0 | September 3, 2024 | Supported |
+| V18.3 Release - [KB5063613](https://support.microsoft.com/topic/8c8bc089-6f56-44d5-90b0-5cb33f66663c)| 18.3.0.0 | August 11, 2025 | Supported - Security Update|
 | V18.2 Release - [KB5023059](https://support.microsoft.com/topic/613d00dc-998b-4885-86b9-73750195baf5)| 18.2.0.0 | July 9, 2024 | Supported |
 | V18.1 Release - [KB5023057](https://support.microsoft.com/topic/961af341-40f2-4e95-94c4-f2854add60a5)| 18.1.0.0 | June 11, 2024 | Supported - Security Update |
 | V17.3 Release - [KB5039814](https://support.microsoft.com/topic/97bd6ab9-fa4c-42c0-a510-cdb1d23825bf)| 17.3.0.0 | June 11, 2024 |  Not Supported (Security Update) - Agent version expired on June 9, 2025 |
@@ -76,10 +80,16 @@ Perform one of the following options for your Windows Server 2012 R2 servers pri
 
 >[!NOTE]
 >Azure File Sync agent v17.3 is the last agent release currently planned for Windows Server 2012 R2. To continue to receive product improvements and bug fixes, upgrade your servers to Windows Server 2016 or later.
+
 ## Version 21.2.0.0
 The following release notes are for Azure File Sync version 21.2.0.0 (released July 08, 2025). This release contains improvements for the Azure File Sync service and agent. 
 
 ### Improvements and issues that are fixed
+
+**Azure File Sync Agent Now Available via Arc Extension**
+
+Windows servers connected through Azure arc can now install Azure File Sync agent using a new extension called, Azure File Sync Agent for Windows. The new extension is published by Microsoft and can be managed using the Azure Portal, PowerShell or Azure CLI. To learn more, see the [Azure File Sync agent extension documentation](file-sync-extension.md?tabs=azure-portal).
+
 **Generally Available: Azure File Sync in Italy North**
 
 The expansion into Italy North brings the service closer to organizations in these regions, offering lower latency, better performance, and support for local data residency requirements.  
@@ -151,6 +161,18 @@ The following items don't sync, but the rest of the system continues to operate 
 ### Cloud tiering
 - If a tiered file is copied to another location by using Robocopy, the resulting file isn't tiered. The offline attribute might be set because Robocopy incorrectly includes that attribute in copy operations.
 - When copying files using Robocopy, use the /MIR option to preserve file timestamps. This will ensure older files are tiered sooner than recently accessed files.
+
+## Version 21.1.0.0 (Security Update)
+The following release notes are for Azure File Sync version 21.1.0.0 (released June 11, 2024). This release contains a security update for servers that have v18 agent version installed. These notes are in addition to the release notes listed for version 21.0.0.0.
+
+### Improvements and issues that are fixed
+Fixes an issue that might allow improper access control in Azure File Sync that allows an authorized attacker to elevate privileges locally. This is a security-only update. For more information about this vulnerability, see [CVE-2025-53729](https://msrc.microsoft.com/update-guide/en-US/advisory/CVE-2025-53729).
+
+## Version 20.1.0.0 (Security Update)
+The following release notes are for Azure File Sync version 18.1.0.0 (released June 11, 2024). This release contains a security update for servers that have v18 agent version installed. These notes are in addition to the release notes listed for version 20.0.0.0.
+
+### Improvements and issues that are fixed
+Fixes an issue that might allow improper access control in Azure File Sync that allows an authorized attacker to elevate privileges locally. This is a security-only update. For more information about this vulnerability, see [CVE-2025-53729](https://msrc.microsoft.com/update-guide/en-US/advisory/CVE-2025-53729).
 
 ## Version 20.0.0.0
 The following release notes are for Azure File Sync version 20.0.0.0 (released February 10, 2025). This release contains improvements for the Azure File Sync service and agent. 
@@ -230,6 +252,12 @@ The following items don't sync, but the rest of the system continues to operate 
 ### Cloud tiering
 - If a tiered file is copied to another location by using Robocopy, the resulting file isn't tiered. The offline attribute might be set because Robocopy incorrectly includes that attribute in copy operations.
 - When copying files using Robocopy, use the /MIR option to preserve file timestamps. This will ensure older files are tiered sooner than recently accessed files.
+
+## Version 19.2.0.0 (Security Update)
+The following release notes are for Azure File Sync version 19.2.0.0 (released June 11, 2024). This release contains a security update for servers that have v18 agent version installed. These notes are in addition to the release notes listed for version 19.1.0.0.
+
+### Improvements and issues that are fixed
+Fixes an issue that might allow improper access control in Azure File Sync that allows an authorized attacker to elevate privileges locally. This is a security-only update. For more information about this vulnerability, see [CVE-2025-53729](https://msrc.microsoft.com/update-guide/en-US/advisory/CVE-2025-53729).
 
 ## Version 19.1.0.0
 The following release notes are for Azure File Sync version 19.1.0.0 (released September 3, 2024). This release contains improvements for the Azure File Sync service and agent.
@@ -322,6 +350,12 @@ The following items don't sync, but the rest of the system continues to operate 
 ### Cloud tiering
 - If a tiered file is copied to another location by using Robocopy, the resulting file isn't tiered. The offline attribute might be set because Robocopy incorrectly includes that attribute in copy operations.
 - When copying files using Robocopy, use the /MIR option to preserve file timestamps. This will ensure older files are tiered sooner than recently accessed files.
+
+## Version 18.3.0.0 (Security Update)
+The following release notes are for Azure File Sync version 18.1.0.0 (released June 11, 2024). This release contains a security update for servers that have v18 agent version installed. These notes are in addition to the release notes listed for versions 18.0.0.0, 18.1.0.0, and 18.2.0.0.
+
+### Improvements and issues that are fixed
+Fixes an issue that might allow improper access control in Azure File Sync that allows an authorized attacker to elevate privileges locally. This is a security-only update. For more information about this vulnerability, see [CVE-2025-53729](https://msrc.microsoft.com/update-guide/en-US/advisory/CVE-2025-53729).
 
 ## Version 18.2.0.0
 The following release notes are for Azure File Sync version 18.2.0.0 (released July 9, 2024). This release contains improvements for the Azure File Sync agent. These notes are in addition to the release notes listed for version 18.0.0.0 and 18.1.0.0.

@@ -3,8 +3,8 @@ title: Set or change a blob's access tier with Java
 titleSuffix: Azure Storage 
 description: Learn how to set or change a blob's access tier in your Azure Storage account using the Java client library.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 
 ms.service: azure-blob-storage
 ms.topic: how-to
@@ -104,3 +104,4 @@ The Azure SDK for Java contains libraries that build on top of the Azure REST AP
 - [Blob rehydration from the archive tier](archive-rehydrate-overview.md)
 
 [!INCLUDE [storage-dev-guide-next-steps-java](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-java.md)]
+

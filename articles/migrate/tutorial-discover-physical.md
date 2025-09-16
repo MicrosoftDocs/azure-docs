@@ -53,7 +53,7 @@ To set up:
 
 >[!Note]
 > - For Windows Server 2008 and 2008 R2, ensure that WMF 3.0 is installed on the servers.
-> - To discover SQL Server databases on Windows Servers, both Windows and SQL Server authentication are supported. </br> You can enter credentials for both types in the appliance configuration manager. </br> Azure Migrate needs a Windows user account that is part of the `sysadmin` server role.
+> - To discover SQL Server instances and databases, the Windows/ Domain account, or SQL Server account [requires these low privilege read permissions](migrate-support-matrix-vmware.md) for each SQL Server instance. You can use the [low-privilege account provisioning utility](least-privilege-credentials.md) to create custom accounts or use any existing account that is a member of the sysadmin server role for simplicity.
 
 
 ### Prepare Linux server
@@ -62,7 +62,7 @@ For discovering Linux servers, you can set up a least privileged sudo account by
 
 **Set up Least privileged Linux user accounts** 
 
-- You need a sudo user account on the Linux servers you want to discover.
+- You need a user account that has sudo permissions to execute the below commands with `NOPASSWD` on the Linux servers you want to discover.
 - This account helps collect configuration and performance data, perform software inventory (find installed applications), and enable agentless dependency analysis using SSH.
 - Ensure that you enable `NOPASSWD` for the account so it can run the required commands without asking for a password each time it uses sudo.
 - Modify the sudoers file to disable terminal (requiretty) for the user account. 
@@ -110,7 +110,7 @@ Defaults:AzMigrateLeastprivuser !requiretty
 To generate the project key, follow the steps:
 
 1. In **Servers, databases, and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
-1. In **Discover servers** > **Are your servers virtualized?**, select **Physical or other (AWS, GCP, Xen, etc.)**.
+1. In **Discover servers** > **Are your servers virtualized?** select **Physical or other (AWS, GCP, Xen, etc.)**.
 1. **Generate project key**, enter a name for the Azure Migrate appliance you want to set up to discover physical or virtual servers. The name should be alphanumeric and 14 characters or fewer.
 1. Select **Generate key** to start creating the required Azure resources. Keep the Discover servers page open while the resources are created.
 1. After the resources are created successfully, a **project key** is generated.
@@ -121,17 +121,8 @@ To generate the project key, follow the steps:
 ## Download the installer script
 
 1. In **Download Azure Migrate appliance**, select **Download**.
-1. Verify security: Before you install, check that the zipped file is safe.
-    On the server where you downloaded the file, open a command window as an administrator.
-1. Run this command to generate the hash for the zipped file: 
-    - `C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]`
-    - For example: `C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256`
-1. Verify the latest appliance version and hash value to ensure that they match.
-
-| Download | Hash value | 
-| --- | --- |
-| [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847)| c88e90691ebf87166243dafb2d3a18dd34066b4624595ee3f9b4fbe6885e81da |
-
+1. Before you run the script, [verify security](migrate-appliance.md#verify-security) by validating the SHA256 values.
+    
 >[!Note]
 > You can use the same script to set up the physical appliance for both Azure Public and Azure Government cloud.
 

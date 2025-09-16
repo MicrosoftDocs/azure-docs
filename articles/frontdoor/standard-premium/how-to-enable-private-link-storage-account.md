@@ -7,8 +7,11 @@ ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 07/02/2025
-ms.custom: devx-track-azurecli, build-2025
 zone_pivot_groups: front-door-dev-exp-portal-cli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
+  - sfi-image-nochange
 ---
 
 # Connect Azure Front Door Premium to a storage account origin with Private Link
@@ -23,7 +26,7 @@ This article guides you through configuring Azure Front Door Premium to connect 
 
 ::: zone pivot="front-door-portal"
 
-- A Private Link. For more information, see [Create a Private Link service](../../private-link/create-private-link-service-portal.md) for your origin web server.
+- A Private Link. For more information, see [Create a Private Link service](../../private-link/create-private-link-service-portal.md).
 
 - Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
@@ -31,7 +34,7 @@ This article guides you through configuring Azure Front Door Premium to connect 
 
 ::: zone pivot="front-door-cli"
 
-- A Private Link. For more information, see [Create a Private Link service](../../private-link/create-private-link-service-cli.md) for your origin web server.
+- A Private Link. For more information, see [Create a Private Link service](../../private-link/create-private-link-service-cli.md).
 
 - Azure Cloud Shell or Azure CLI.
 
@@ -70,7 +73,7 @@ In this section, you map the Private Link service to a private endpoint created 
     | Priority | Different origin can have different priorities to provide primary, secondary, and backup origins. |
     | Weight | 1000 (default). Assign weights to your different origin when you want to distribute traffic.|
     | Region | Select the region that is the same or closest to your origin. |
-    | Target sub resource | The type of subresource for the resource selected previously that your private endpoint can access. You can select *blob* or *web*. |
+    | Target sub resource | The type of subresource for the resource selected previously that your private endpoint can access. |
     | Request message | Custom message to see while approving the Private Endpoint. |
 
     :::image type="content" source="../media/how-to-enable-private-link-storage-account/private-endpoint-storage-account.png" alt-text="Screenshot of enabling private link to a storage account.":::

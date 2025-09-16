@@ -10,6 +10,7 @@ ms.date: 06/04/2025
 ms.author: anfdocs
 ms.custom:
   - build-2025
+  - sfi-image-nochange
 # Customer intent: As a database administrator, I want to deploy an application volume group for Oracle, so that I can efficiently manage all required storage volumes in a single optimized workflow, enhancing performance and reducing deployment time for enterprise-scale Oracle databases.
 ---
 # Understand Azure NetApp Files application volume group for Oracle 
@@ -46,7 +47,7 @@ Application volume group for Oracle helps you simplify the deployment process an
 * Creation of separate storage endpoints (with different IP addresses) for data and log volumes.   
     This deployment method provides better performance and throughput for the Oracle database.
 * Customer-managed keys support increased security and compliance. 
-* [Cross-zone](cross-zone-replication-introduction.md) and [cross-region](cross-region-replication-introduction.md) replication provide efficient storage-based data replication without load on compute infrastructure and a layer of protection for disaster recovery. This feature currently is in preview and only supported with the [REST API](configure-application-volume-oracle-api.md#replication). 
+* [Cross-zone and cross-region replication](replication.md) provide efficient storage-based data replication without load on compute infrastructure and a layer of protection for disaster recovery. This feature currently is in preview and only supported with the [REST API](configure-application-volume-oracle-api.md#replication). 
 
 ## Application volume group layout
 
@@ -54,7 +55,7 @@ Application volume group for Oracle deploys multiple volumes based on your input
 
 [!INCLUDE [AVG bullet points](includes/application-volume-group-layout.md)]
 
-High availability deployments will include volumes in two availability zones or regions. Application volume group for Oracle allows you to deploy production volumes in the primary zone and data protection volumes in an alternate zone or region. You can use Data Guard to replicate redo log and data volumes, or you can choose to offload data volume replication load from the application server by using Azure NetApp Files [cross-zone](cross-zone-replication-introduction.md) or [cross-region replication](cross-region-replication-introduction.md) for the data volumes. Use application-based data replication with Data Guard to synchronously replicate the redo logs so the database can be rolled forward after a failover.
+High availability deployments will include volumes in two availability zones or regions. Application volume group for Oracle allows you to deploy production volumes in the primary zone and data protection volumes in an alternate zone or region. You can use Data Guard to replicate redo log and data volumes, or you can choose to offload data volume replication load from the application server by using Azure NetApp Files [cross-zone or cross-region replication](replication.md) for the data volumes. Use application-based data replication with Data Guard to synchronously replicate the redo logs so the database can be rolled forward after a failover.
 
 :::image type="content" source="./media/application-volume-group-oracle-introduction/oracle-dual-zone-layout.png" alt-text="Diagram of dual-zone volume layout." lightbox="./media/application-volume-group-oracle-introduction/oracle-dual-zone-layout.png":::
 

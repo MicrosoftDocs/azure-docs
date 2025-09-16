@@ -6,7 +6,7 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/21/2025
+ms.date: 07/29/2025
 ms.author: jkinma
 ms.custom: references_regions
 ---

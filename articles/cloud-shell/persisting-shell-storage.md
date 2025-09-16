@@ -142,7 +142,7 @@ mount a new file share on your next session
 
 <!-- link references -->
 [01]: ../azure-resource-manager/management/tag-resources.md
-[02]: ../governance/policy/samples/index.md
+[02]: /azure/governance/policy/samples/index
 [03]: ../storage/files/storage-files-introduction.md
 [04]: get-started/existing-storage.md
 [05]: get-started/new-storage.md

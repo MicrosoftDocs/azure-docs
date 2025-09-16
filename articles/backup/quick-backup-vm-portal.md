@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Back up a VM with the Azure portal by using Azure Backup
 description: In this Quickstart, learn how to create a Recovery Services vault, enable protection on an Azure VM, and back up the VM,  with the Azure portal.
-ms.date: 07/25/2025
+ms.date: 07/30/2025
 ms.topic: quickstart
 ms.devlang: azurecli
 ms.custom: mvc, mode-ui, engagement-fy24
@@ -20,8 +20,6 @@ Azure backups can be created through the Azure portal. This method provides a br
 ## Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com).
-
-[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -112,13 +110,10 @@ If you selected to create a new backup policy, fill in the policy settings.
 
 The initial backup will run in accordance with the schedule, but you can run it immediately as follows:
 
-1. Go to **Backup center** and select the **Backup Instances** menu item.
-1. Select **Azure Virtual machines** as the **Datasource type**. Then search for the VM that you have configured for backup.
-1. Right-click the relevant row or select the more icon (…), and then select **Backup Now**.
-1. In **Backup Now**, use the calendar control to select the last day that the recovery point should be retained. Then select **OK**.
-1. Monitor the portal notifications.
-   To  monitor the job progress, go to **Backup center** > **Backup Jobs** and filter the list for **In progress** jobs.
-   Depending on the size of your VM, creating the initial backup may take a while.
+1. Go to **Business Continuity Center** and then select **Protection Inventory** > **Protected items**.
+1. On the **Protected items** pane, filter **Datasource type** by Virtual machines, and then select the **more icon** > **Details** corresponding to the VM instance you want to back up.
+1. On the selected VM instance pane, right-click the relevant row or select the more icon (…), and then select **Backup Now**.
+1. On the **Backup now** pane, use the calendar control to select the last day that the recovery point should be retained. Then select **OK**.
 
 ## Monitor the backup job
 

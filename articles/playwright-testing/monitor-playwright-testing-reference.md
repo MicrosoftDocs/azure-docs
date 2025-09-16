@@ -7,6 +7,8 @@ ms.custom: playwright-testing-preview
 ---
 # Monitor Microsoft Playwright Testing Preview data reference
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 Learn about the data and resources collected by Azure Monitor from your workspace in Microsoft Playwright Testing Preview. See [Monitor Microsoft Playwright Testing](monitor-playwright-testing.md) for details on collecting and analyzing monitoring data.
 
 > [!IMPORTANT]

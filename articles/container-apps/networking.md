@@ -9,6 +9,7 @@ ms.date: 06/25/2025
 ms.author: cshoe
 ms.custom:
   - build-2025
+  - sfi-image-nochange
 ---
 
 # Networking in Azure Container Apps environment
