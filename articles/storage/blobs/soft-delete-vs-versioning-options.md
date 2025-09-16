@@ -76,7 +76,7 @@ Enable versioning if:
 
 - Versioning is not available for accounts with hierarchical namespace enabled. 
 
-## When to Use Both
+## When to use both
 
 Enable both soft delete and versioning if:
 
