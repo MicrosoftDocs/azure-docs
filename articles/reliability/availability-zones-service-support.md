@@ -4,7 +4,7 @@ description: Learn about which Azure services provide availability zone support,
 ms.service: azure
 ms.subservice: azure-reliability
 ms.topic: conceptual
-ms.date: 09/09/2025
+ms.date: 09/16/2025
 ms.author: anaharris
 author: anaharris-ms
 ms.custom: subject-reliability
