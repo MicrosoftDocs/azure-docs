@@ -48,7 +48,7 @@ Enable soft delete if:
 * If soft delete is disabled, all deletes are permanent, but the existing soft deleted data are retained until the retention period expires.
 * The contents of soft-deleted blobs are not accessible via Read APIs. To access the data, you must first undelete the blob.  
 
-## When to Use Versioning
+## When to use versioning
 
 :::image type="content" source="media/versioning-overview/blob-versioning-diagram.png" alt-text="Diagram showing how blob versioning works":::
 
