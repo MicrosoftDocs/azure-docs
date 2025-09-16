@@ -1,11 +1,12 @@
 ---
-title: Rock and Fluid Samples (RAFS) DDMS tutorial
+title: "Tutorial: Use Rock and Fluid Samples (RAFS) DDMS APIs"
+titleSuffix: Microsoft Azure Data Manager for Energy
 description: Learn how to use RAFS DDMS v2 endpoints for rock and fluid samples.
 ms.topic: tutorial
 author: bharathim
 ms.author: bselvaraj
-ms.service: azure-data-manager-for-energy
-ms.date: 2025-09-16
+ms.service: azure-data-manager-energy
+ms.date: 09/16/2025
 ---
 
 # Rock and Fluid Samples — RAFS DDMS tutorial
