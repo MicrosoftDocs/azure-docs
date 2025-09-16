@@ -315,7 +315,7 @@ For built-in operations that run as function calls in Azure Functions, add both 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
 | `Runtime.Backend.FlowDefaultForeachItemsLimit` | `100000` array items | For a *stateful workflow*, sets the maximum number of array items to process in a `For each` loop. |
-| `Runtime.Backend.FlowDefaultSplitOnItemsLimit` | `100000` array items | Sets the maximum number of array items to debatch or split into multiple workflow instances based on the `SplitOn` setting. |
+| `Runtime.Backend.FlowDefaultSplitOnItemsLimit` | `100000` array items | Sets the maximum number of array items to debatch or split into multiple workflow instances based on the `splitOn` property. |
 | `Runtime.Backend.ForeachDefaultDegreeOfParallelism` | `20` iterations | Sets the default number of concurrent iterations, or degree of parallelism, in a `For each` loop. To run sequentially, set the value to `1`. |
 | `Runtime.Backend.Stateless.FlowDefaultForeachItemsLimit` | `100` items | For a *stateless workflow*, sets the maximum number of array items to process in a `For each` loop. |
 

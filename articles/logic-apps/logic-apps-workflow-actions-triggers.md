@@ -672,7 +672,7 @@ Only triggers that can accept arrays and return arrays support this capability l
 
 Before you use the debatching capability, review the following considerations:
 
-- If trigger concurrency is also turned on, the [SplitOn limit](logic-apps-limits-and-config.md#looping-debatching-limits) is significantly reduced. If the number of items exceeds this limit, the **Split on** capability is unavailable.
+- If trigger concurrency is also turned on, the [Split on limit](logic-apps-limits-and-config.md#looping-debatching-limits) is significantly reduced. If the number of items exceeds this limit, the **Split on** capability is unavailable.
 
 - The **Split on** capability doesn't work with the synchronous response pattern. If a workflow uses the **Response** action and turns on the **Split on** setting runs asynchronously and immediately sends a `202 ACCEPTED` response.
 
@@ -2393,7 +2393,7 @@ Before you enable concurrency on a trigger, review the following considerations:
 
 * If the maximum number of concurrent trigger runs reaches the maximum degree of parallelism, subsequent trigger runs might experience throttling or "429 - Too many requests" errors. If you set up a [retry policy that handles 429 errors](handle-throttling-problems-429-errors.md), the trigger might experience a cycle of retry and throttling behavior that causes long delays in processing new trigger requests.
 
-* When concurrency is enabled, the [SplitOn limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) is significantly reduced for [debatching arrays](#split-on-debatch). If the number of items exceeds this limit, the SplitOn capability is disabled.
+* When concurrency is enabled, the [Split on limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) is significantly reduced for [debatching arrays](#split-on-debatch). If the number of items exceeds this limit, the **Split on** capability is disabled.
 
 * When concurrency is enabled, a long-running logic app instance might cause new logic app instances to enter a waiting state. This state prevents Azure Logic Apps from creating new instances and happens even when the number of concurrent runs is less than the specified maximum number of concurrent runs.
 
