@@ -16,9 +16,6 @@ Starting **May 1, 2020**, changes due to Google's [data security and privacy pol
 
 If your workflows use the Gmail connector with a Gmail consumer account, which is an email address that ends with `@gmail.com` or `@googlemail.com`, your workflows can use only specific [Google-approved connector operations](#approved-connectors). If your workflows use the Gmail connector with a G-Suite business account, which is an email address with a custom domain, your workflows aren't affected and have no restrictions on using the Gmail connector.
 
-> [!NOTE]
-> Currently, the Gmail connector works only with the **Logic App (Consumption)** resource type, not the **Logic App (Standard)** resource type.
-
 ## Affected workflows
 
 Since **June 15, 2020**, any noncompliant workflows have been disabled. You can take either of the following actions:
