@@ -226,6 +226,8 @@
       href: alerts.md
     - name: OpenTelemetry agents
       href: opentelemetry-agents.md
+    - name: Grafana dashboards
+      href: grafana-dashboards.md
 - name: Scaling & performance
   items:
     - name: Overview

@@ -67,7 +67,6 @@ Currently, creating a file share with Microsoft.FileShares (preview) is availabl
 - East Asia
 - Southeast Asia
 - North Europe
-- Japan West
 - Germany North
 - South Africa West
 - East US
@@ -252,3 +251,4 @@ The [migration overview article](storage-files-migration-overview.md) briefly co
 - [Deploying Azure Files](./storage-how-to-create-file-share.md)
 - [Deploying Azure File Sync](../file-sync/file-sync-deployment-guide.md)
 - [Check out the migration overview article to find the migration guide for your scenario](storage-files-migration-overview.md)
+

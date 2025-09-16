@@ -1272,6 +1272,14 @@ groups:
     title: Virtual network
   - id: network-security-group
     title: Network security group
+- id: web-application-firewall-types
+  title: Web Application Firewall types
+  prompt: "Select the Web Application Firewall type:"
+  pivots:
+  - id: application-gateway
+    title: Application Gateway
+  - id: front-door
+    title: Front Door
 # Owner: hmb
 - id: front-door-dev-exp-portal-ps-cli
   title: Front Door deployment method
