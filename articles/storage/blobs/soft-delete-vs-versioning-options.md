@@ -13,7 +13,7 @@ ms.date: 09/15/2025
 
 This article helps you determine when to enable soft delete, versioning, both, or neither.
 
-Both **blob soft delete** and **blob versioning** can help you protect from deletes and overwrites. These features can be used independently or together, depending on your workload, cost sensitivity, and recovery needs. Reference [data protection overview](https://docs.azure.cn/en-us/storage/blobs/data-protection-overview) for other blob/container protection mechanisms.
+Both **blob soft delete** and **blob versioning** can help you protect from deletes and overwrites. These features can be used independently or together, depending on your workload, cost sensitivity, and recovery needs. To learn about other ways to protect blobs and containers, see [data protection overview](https://docs.azure.cn/en-us/storage/blobs/data-protection-overview).
 
 ## Our Recommendation
 
