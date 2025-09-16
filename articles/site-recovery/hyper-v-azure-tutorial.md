@@ -3,7 +3,7 @@ title: Set up Hyper-V disaster recovery by using Azure Site Recovery
 description: Learn how to set up disaster recovery of on-premises Hyper-V VMs (without SCVMM) to Azure by using Site Recovery and MARS.
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 09/11/2025
+ms.date: 09/16/2025
 ms.custom: MVC, engagement-fy23
 ms.author: jsuri
 author: jyothisuri
@@ -189,7 +189,20 @@ To do this, navigate to **Protected Items** page > **Compute and Network** and c
 
 ### Failback
 
-Failback from Azure to on-premises is possible when the target disk is Managed, regardless of whether the replica uses unmanaged or managed disks. MARS (Recovery Services agent) version [2.0.9214 or higher](site-recovery-whats-new.md) is required for failback.
+Failback from Azure to on-premises is possible when the target disk is Managed, regardless of whether the replica uses unmanaged or managed disks. MARS (Recovery Services agent) version [2.0.9214 or higher](#update-the-microsoft-azure-recovery-services-mars-agent) is required for failback.
+
+### Update the Microsoft Azure Recovery Services (MARS) Agent
+
+To update the MARS Agent, follow these steps:
+
+1. [Download the latest version of the MARS agent](https://aka.ms/downloadmarsagent).
+2. Double-click the downloaded file to run the installer.
+3. If the MARS agent is already installed, you are prompted with a dialog box if you want to update the MARS agent. Select **Yes**.
+
+>[!NOTE]
+>Don't re-register the server, as it is already associated with the vault.
+
+This process updates the existing MARS agent to the latest available version without requiring re-registration.
 
 ## Next steps
 
