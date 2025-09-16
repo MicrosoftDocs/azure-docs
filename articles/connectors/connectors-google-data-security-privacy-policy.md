@@ -12,6 +12,8 @@ ms.date: 09/12/2025
 
 # Data security and privacy policies for Google connectors in Azure Logic Apps
 
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
+
 Starting **May 1, 2020**, changes due to Google's [data security and privacy policies](https://www.blog.google/technology/safety-security/project-strobe/) might affect logic app workflows that use the Google connectors, such as the [Gmail connector](/connectors/gmail/).
 
 If your workflows use the Gmail connector with a Gmail consumer account, which is an email address that ends with `@gmail.com` or `@googlemail.com`, your workflows can use only specific [Google-approved connector operations](#approved-connectors). If your workflows use the Gmail connector with a G-Suite business account, which is an email address with a custom domain, your workflows aren't affected and have no restrictions on using the Gmail connector.
