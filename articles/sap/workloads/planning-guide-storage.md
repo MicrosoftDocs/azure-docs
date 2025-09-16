@@ -25,7 +25,7 @@ Microsoft Azure storage of Standard HDD, Standard SSD, Azure premium storage, Pr
 There are several more redundancy methods, which are all described in the article [Azure Storage replication](../../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) that applies to some of the different storage types Azure has to offer. 
 
 > [!NOTE]
-> Using Azure storage for storing database data and redo log file, LRS is the only supported resiliency level at this point in time
+> Using Azure storage for storing database data and redo log file, LRS is the only supported resiliency level
 
 Also keep in mind that different Azure storage types influence the single VM availability SLAs as released in [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines).
 
