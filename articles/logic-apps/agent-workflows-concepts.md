@@ -73,7 +73,7 @@ The following high-level steps describe the behavior for a basic autonomous agen
 
 The following screenshot shows a basic example autonomous agent workflow:
 
-:::image type="content" source="media/agents-workflows-concepts/weather-example-autonomous.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and example basic utonomous agent workflow." lightbox="media/agents-workflows-concepts/weather-example-autonomous.png":::
+:::image type="content" source="media/agents-workflows-concepts/weather-example-autonomous.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and example basic autonomous agent workflow." lightbox="media/agents-workflows-concepts/weather-example-autonomous.png":::
 
 ### Conversational agent workflow
 
@@ -119,7 +119,7 @@ To build a new agent workflow in single-tenant Azure Logic Apps for your AI auto
 - **Autonomous Agents**
 - **Conversational Agents**
 
-These workflow types includes all the capabilities in Standard stateful workflows plus agent capabilities and are specifically designed to work with agents. These workflow types automatically include an empty agent.
+These workflow types include all the capabilities in Standard stateful workflows plus agent capabilities and are specifically designed to work with agents. These workflow types automatically include an empty agent.
 
 For example, the following screenshot shows a new autonomous agent workflow:
 
@@ -129,11 +129,11 @@ The following screenshot shows a new conversational agent workflow:
 
 :::image type="content" source="media/agents-workflows-concepts/conversational-agent-workflow-start.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and initial conversational agent workflow structure." lightbox="media/agents-workflows-concepts/conversational-agent-workflow-start.png":::
 
-If you have an existing **Stateful** workflow, the following screenshot shows how you can add an **Agent** action to include automomous agent and LLM capabilities:
+If you have an existing **Stateful** workflow, the following screenshot shows how you can add an **Agent** action to include autonomous agent and LLM capabilities:
 
 :::image type="content" source="media/agents-workflows-concepts/add-agent.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, existing workflow, and option to add an agent." lightbox="media/agents-workflows-concepts/add-agent.png":::
 
-The following screenshot shows the agent's connection pane where specify information about the deployed model that you want to use:
+The following screenshot shows the agent's connection pane where you specify information about the deployed model that you want to use:
 
 :::image type="content" source="media/agents-workflows-concepts/agent-connection-pane.png" alt-text="Screenshot shows Standard workflow designer, empty agent action, and agent connection pane." lightbox="media/agents-workflows-concepts/agent-connection-pane.png":::
 
