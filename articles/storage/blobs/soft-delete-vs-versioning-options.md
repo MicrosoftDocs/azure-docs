@@ -17,7 +17,7 @@ Both **blob soft delete** and **blob versioning** can help you protect from dele
 
 ## Our Recommendation
 
-All storage accounts that store critical data should enable soft delete and versioning for layered protection against unintended deletions and overwrites. Soft delete ensures your data remains recoverable for a configurable number of days. Blob versioning offers more flexibility for managing previous versions and recovery options like being able to read previous versions and recover from metadata or property changes. Refer to the following details to find out what is right for you.  
+All storage accounts that store critical data should enable soft delete and versioning for layered protection against unintended deletions and overwrites. Soft delete ensures your data remains recoverable for a configurable number of days. Blob versioning offers more flexibility for managing previous versions and recovery options such as being able to read previous versions and recover from metadata or property changes. Refer to the following details to find out what is right for you.  
 
 ## Overview of features
 
