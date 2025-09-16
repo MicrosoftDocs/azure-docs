@@ -17,14 +17,14 @@ Both **blob soft delete** and **blob versioning** can help you protect from dele
 
 ## Our Recommendation
 
-All storage accounts that store critical data should enable soft delete and versioning for layered protection against unintended deletions and overwrites. Soft delete ensures your data remains recoverable for a configurable number of days. Blob versioning offers more flexibility for managing previous versions and recovery options such as being able to read previous versions and recover from metadata or property changes. Refer to the following details to find out what is right for you.  
+Blob storage customers storing critical data should enable soft delete and versioning for layered protection against unintended deletions and overwrites. Soft delete ensures your data remains recoverable for a configurable number of days. Blob versioning offers more flexibility for managing previous versions and recovery options such as being able to read previous versions and recover from metadata or property changes. Refer to the following details to find out what is right for you.  
 
 ## Overview of features
 
 | **Feature** | **Protects against** | **Retention duration** | **Storage behavior** | **Hierarchical namespace (HNS) considerations** |
 |---|---|---|---|---|
-| **Soft delete** | Deletes and overwrites for blob accounts. Deletes for hierarchical namespace accounts. | Up to 365 days (configurable) | Creates a soft-deleted snapshot for each overwrite. Creates a soft-deleted blob for each delete. | Soft delete only protects delete operations for HNS-enabled accounts. With the [Set Blob Expiry](/rest/api/storageservices/set-blob-expiry) API, an expired file can't be restored by using the blob soft delete feature. |
-| **Versioning** | Deletes and overwrites for blob accounts. | Indefinite (until explicitly deleted) | Creates a new version on each write. | Versioning is not available for HNS enabled accounts. |
+| **Soft delete** | Deletes and overwrites for flat namespace accounts. Deletes for hierarchical namespace accounts. | Up to 365 days (configurable) | Creates a soft-deleted snapshot for each overwrite. Creates a soft-deleted blob for each delete. | Soft delete only protects delete operations for HNS-enabled accounts. With the [Set Blob Expiry](/rest/api/storageservices/set-blob-expiry) API, an expired file can't be restored by using the blob soft delete feature. |
+| **Versioning** | Deletes and overwrites for flat namespace accounts. | Indefinite (until explicitly deleted) | Creates a new version on each write. | Versioning is not available for HNS-enabled accounts. |
 
 > [!NOTE]
 > Both features are disabled by default and must be enabled at the storage account level.
@@ -87,7 +87,7 @@ Enable both soft delete and versioning if:
 
 ### Considerations
 
-- When versioning is enabled, deletion of the current version creates a previous version. When soft delete is enabled, deletion of the previous version creates a soft-deleted previous version. ([Learn more](/azure/storage/blobs/soft-delete-blob-overview))
+- When versioning is enabled, deletion of the current version makes it a previous version. When soft delete is enabled, deletion of the previous version makes it a soft-deleted previous version. ([Learn more](/azure/storage/blobs/soft-delete-blob-overview))
 
 - Soft delete retention only applies to deletion of previous versions. If you would like to permanently delete soft delete versions before the retention period, review these [instructions](https://techcommunity.microsoft.com/blog/azurepaasblog/permanent-delete-of-soft-deleted-snapshot-and-versions-without-disabling-soft-de/4026868).
 
@@ -101,7 +101,7 @@ You might choose to disable both features if:
 
 * Your application has its own backup and recovery mechanisms.
 * You have strict cost constraints and low risk of accidental data loss.
-* You use immutable blob storage or WORM (write-once-read-many) policies.
+* Your data is temporary or test data and protection is not necessary.
 
 ## Blob accessibility after deletion
 
