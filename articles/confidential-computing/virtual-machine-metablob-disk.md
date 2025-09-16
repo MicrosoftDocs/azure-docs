@@ -1,6 +1,6 @@
 ---
-title: Information on Virtual Machine Metablob Disk (VMMD)
-description: Virtual Machine Metablob Disk
+title: Virtual Machine Metablob Disk
+description: Information on Virtual Machine Metablob Disk (VMMD)
 author: linuxelf001
 ms.topic: concept-article
 ms.service: azure-virtual-machines
@@ -9,9 +9,9 @@ ms.date: 09/05/2025
 ms.author: raginjup
 ms.reviewer: raginjup
 ---
-# New capabilities for managing confidential virtual machine disks
+# Virtual Machine Metablob Disk
 
-This article outlines the changes to be aware when using confidential virtual machines with Virtual Machine Metadata (VMMD) blob.
+This article outlines the changes to be aware when using confidential virtual machines with Virtual Machine Metablob (VMMD) disk.
 
 > [!NOTE]
 > The VMMD feature support described here are available in Azure REST API version **2025-01-02** and later, Azure CLI version **2.77.0** and later, Azure PowerShell version **14.4.0** and later.
@@ -228,7 +228,6 @@ Grant-AzDiskAccess `
 
 When using UploadPreparedSecure, upload the VMMD blob in addition to the OS and VMGS blobs if the source includes VMMD.
 
----
 
 ## FAQ
 
