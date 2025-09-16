@@ -1,7 +1,7 @@
 ---
-title: Configure signed requests using the rules engine in Azure Front Door
+title: Configure signed URLs using the rules engine in Azure Front Door (preview)
 titleSuffix: Azure Front Door
-description: This article provides an overview of the Azure Front Door signed request feature.
+description: This article provides an overview of the Azure Front Door signed URL feature.
 author: smistry
 ms.author: smistry
 ms.service: azure-frontdoor
