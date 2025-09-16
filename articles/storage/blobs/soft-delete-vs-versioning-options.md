@@ -82,7 +82,8 @@ Enable both soft delete and versioning if:
 
 * You need comprehensive protection against both accidental deletions and overwrites.
 * You operate in a regulated environment requiring layered data protection.
-* You want to ensure recovery options even if versions are deleted. You want to create a grace period where, when previous versions are deleted, they are retained for some period of time (soft delete retention).
+* You want to ensure recovery options even if versions are deleted. 
+* You want to create a grace period where, when previous versions are deleted, they are retained for some period of time (soft delete retention).
 
 ### Considerations
 
