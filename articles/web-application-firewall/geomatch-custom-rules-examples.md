@@ -294,7 +294,7 @@ $policy.CustomRules.Add($rule2)
 Set-AzApplicationGatewayFirewallPolicy -InputObject $policy
 ```
 
-### AFront Door
+### Front Door
 
 ```azurepowershell
 $RGname = "rg-waf"
@@ -373,7 +373,6 @@ Instead of using an `allow` action, use a `block` action with a negate condition
 ### Scenario 4 - allow traffic from country or region "x"
 
 Avoid setting the geomatch custom rule to allow traffic from a specific country or region. For example, if you want to allow traffic from the United States because of a large customer base, creating a custom rule with the action `allow` and the value `United States` might seem like the solution. However, this rule allows all traffic from the United States, regardless of whether it has a malicious payload or not, as the `allow` action bypasses further rule processing of managed rulesets. Additionally, the WAF still processes traffic from all other countries or regions, consuming resources. This exposes your web application to malicious requests from the United States that the WAF would otherwise block.
-
 
 ### Scenario 5 - Allow traffic from all counties except "x"
 
