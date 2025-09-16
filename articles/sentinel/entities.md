@@ -1,8 +1,8 @@
 ---
 title: Entities in Microsoft Sentinel
 description: Entities are classifications or labels for data elements in your Microsoft Sentinel alerts. Microsoft Sentinel uses entities to recognize data elements as a particular entity type, correlate data across alerts, analyze it to glean particular insights, and provide a rich foundation and context for investigating and remediating security threats.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: conceptual
 ms.date: 10/16/2024
 
