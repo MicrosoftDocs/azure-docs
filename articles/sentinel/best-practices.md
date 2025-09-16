@@ -20,7 +20,7 @@ To get started with Microsoft Sentinel, see the [deployment guide](deploy-overvi
 
 ## Adopt a single-platform architecture
 
-Microsoft Sentinel is integrated with a modern data lake that offers affordable, long-term storage enabling teams to simplify data management, optimize costs, and accelerate the adoption of AI. The Microsoft Sentinel data lake (preview) enables a single-platform architecture for security data and empowers analysts with a unified query experience while leveraging Microsoft Sentinel’s rich connector ecosystem. For more information, see [Microsoft Sentinel data lake (preview)](datalake/sentinel-lake-overview.md).
+Microsoft Sentinel is integrated with a modern data lake that offers affordable, long-term storage enabling teams to simplify data management, optimize costs, and accelerate the adoption of AI. The Microsoft Sentinel data lake enables a single-platform architecture for security data and empowers analysts with a unified query experience while leveraging Microsoft Sentinel’s rich connector ecosystem. For more information, see [Microsoft Sentinel data lake ](datalake/sentinel-lake-overview.md).
 
 ## Onboard Microsoft Sentinel to the Microsoft Defender portal and integrate with Microsoft Defender XDR
 
