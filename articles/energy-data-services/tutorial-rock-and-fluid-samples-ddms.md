@@ -10,7 +10,7 @@ ms.date: 09/16/2025
 # Customer intent: "As a Geoscientist, I want to learn how to use Rock and Fluid Sample DDMS APIs to ingest and retrieve rock and fluid samples subsurface data."
 ---
 
-# Tutorial: Using Rock and Fluid Samples (RAFS) DDMS APIs in Azure Data Manager for Energy
+# Tutorial: Use Rock and Fluid Samples (RAFS) DDMS APIs
 Rock and Fluid Samples (RAFS) DDMS allows you to manage storage, retrieval, and association of rock and fluid sample master data, analyses, and reports. This tutorial shows a step-by-step workflow using cURL to create and interact with these entities in your Azure Data Manager for Energy instance.
 
 In this tutorial, you learn how to use a RAFS DDMS APIs to:
