@@ -347,7 +347,7 @@ Sample response:
 }
 ```
 
-## 3 — Ingest RAFS entities
+## 3. Ingest RAFS master data
 Use RAFS DDMS API `/v2/masterdata` to load Generic Facility, Generic Site, Sample Acquisition Job, Sample Acqusition Container, Sample and Sample Chain of Custody Event master data.
 
 ### 3.1 Generic Facility
@@ -845,7 +845,7 @@ Sample response:
 }
 ```
 
-## 4. Sample Analysis Report
+## 4. Ingest Sample Analysis Report
 
 ### 4.1 Create a new Sample Analysis Report
 ```bash
@@ -1135,7 +1135,7 @@ Sample response:
 }
 ```
 
-## 5. Sample Analysis
+## 5. Ingest Sample Analysis
 
 ### 5.1 Create a sample analysis record
 To create a new analysis, use `POST /api/rafs-ddms/v2/samplesanalysis`
@@ -2860,7 +2860,7 @@ curl --request GET \
 }
 ```
 
-### Search data
+### Search sample analysis data
 To search data for a specific RAFS DDMS schema version, use `GET /api/rafs-ddms/v2/samplesanalysis/{analysistype}/search/data`
 
 ```bash
