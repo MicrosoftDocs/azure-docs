@@ -38,7 +38,7 @@ $resourceProviders = @(
    "Microsoft.Advisor",
    "Microsoft.AlertsManagement",
    "Microsoft.Authorization",
-   "Microsoft.Automation"
+   "Microsoft.Automation",
    "Microsoft.Billing",
    "Microsoft.Capacity",
    "Microsoft.ChangeAnalysis",

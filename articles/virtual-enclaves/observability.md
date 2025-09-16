@@ -16,7 +16,7 @@ The following are enabled by default for Azure Virtual Enclaves resources:
 - Log Analytics Workspace is deployed into the Community Managed Resource Group by default
 - (Optional) Log Analytics Workspace is deployed into the Enclave Managed Resource Group
 - Storage Account is deployed into Enclave Managed Resource Group
-- Virtual network Flow Logs for each Virtual Enclave are enabled, pointed to the Enclave Storage Account, and forwarded to Community and/or Enclave Log-A
+- Virtual network Flow Logs for each Virtual Enclave are enabled, pointed to the Enclave Storage Account, and forwarded to Community and/or Enclave Log Analytics workspace
 - Diagnostic Settings are enabled on resources deployed into both Community and Enclave managed Resource Groups
 
 ## Centralized and isolated observability
