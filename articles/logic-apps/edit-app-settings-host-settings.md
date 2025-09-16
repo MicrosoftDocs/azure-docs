@@ -305,7 +305,7 @@ For built-in operations that run as function calls in Azure Functions, add both 
 |---------|---------------|-------------|
 | `Runtime.FlowRunEngine.ForeachMaximumItemsForContentInlining` | `20` items | When a `For each` loop is running, each item's value is stored either inline with other metadata in table storage or separately in blob storage. Sets the number of items to store inline with other metadata. |
 | `Runtime.FlowRunRetryableActionJobCallback.MaximumPagesForContentInlining` | `20` pages | Sets the maximum number of pages to store as inline content in table storage before storing in blob storage. |
-| `Runtime.FlowTriggerSplitOnJob.MaximumItemsForContentInlining` | `40` items | When the `SplitOn` setting debatches array items into multiple workflow instances, each item's value is stored either inline with other metadata in table storage or separately in blob storage. Sets the number of items to store inline. |
+| `Runtime.FlowTriggerSplitOnJob.MaximumItemsForContentInlining` | `40` items | When a trigger that supports debatching has the **Split on** or `splitOn` setting enabled, the trigger debatches array items into multiple workflow instances. Each array item's value is stored either inline with other metadata in table storage or separately in blob storage. Sets the number of items to store inline. |
 | `Runtime.ScaleUnit.MaximumCharactersForContentInlining` | `32384` characters | Sets the maximum number of operation input and output characters to store inline in table storage before storing in blob storage. |
 
 <a name="for-each-loop"></a>
