@@ -224,8 +224,10 @@ Grant-AzDiskAccess `
   "securityMetadataAccessSAS": "VM Metadata SAS URI"
 }
 ```
+---
 
 When using UploadPreparedSecure, upload the VMMD blob in addition to the OS and VMGS blobs if the source includes VMMD.
+
 ---
 
 ## FAQ
