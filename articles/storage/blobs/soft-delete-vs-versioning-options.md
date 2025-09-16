@@ -15,7 +15,7 @@ This article helps you determine when to enable soft delete, versioning, both, o
 
 Both **blob soft delete** and **blob versioning** can help you protect from deletes and overwrites. These features can be used independently or together, depending on your workload, cost sensitivity, and recovery needs. To learn about other ways to protect blobs and containers, see [data protection overview](https://docs.azure.cn/en-us/storage/blobs/data-protection-overview).
 
-## Our Recommendation
+## Our recommendation
 
 Blob storage customers storing critical data should enable soft delete and versioning for layered protection against unintended deletions and overwrites. Soft delete ensures your data remains recoverable for a configurable number of days. Blob versioning offers more flexibility for managing previous versions and recovery options such as being able to read previous versions and recover from metadata or property changes. Refer to the following details to find out what is right for you.  
 
@@ -31,7 +31,7 @@ Blob storage customers storing critical data should enable soft delete and versi
 
 ## When to use soft delete
 
-:::image type="content" source="media/soft-delete-blob-overview/blob-soft-delete-diagram.png" alt-text="Diagram showing how a soft-deleted blob may be restored":::
+:::image type="content" source="media/soft-delete-blob-overview/blob-soft-delete-diagram.png" alt-text="Diagram showing how a soft-deleted blob may be restored.":::
 
 Enable soft delete if:
 
@@ -50,11 +50,11 @@ Enable soft delete if:
 
 ## When to use versioning
 
-:::image type="content" source="media/versioning-overview/blob-versioning-diagram.png" alt-text="Diagram showing how blob versioning works":::
+:::image type="content" source="media/versioning-overview/blob-versioning-diagram.png" alt-text="Diagram showing how blob versioning works.":::
 
 Enable versioning if:
 
-- You want to maintain a complete history of changes to a blob. For versioning, both overwrites and deletes create a previous version. Deletion removes the current version, but the previous versions remains.
+- You want to maintain a complete history of changes to a blob. For versioning, both overwrites and deletes create a previous version. Deletion removes the current version, but the previous versions remain.
 
 - You want to save changes to metadata and properties as previous versions. 
 
@@ -113,12 +113,12 @@ If soft delete is enabled, you must undelete the blob.
 
 If versioning and soft delete are enabled and the previous version you want to access has been soft-deleted, you must first undelete the blob. The **Undelete Blob** operation always restores all soft-deleted versions of the blob. Then you can use the [Copy Blob](/rest/api/storageservices/copy-blob) operation to copy a previous version to a new current version.
 
-## Cost Considerations
+## Cost considerations
 
 Enabling soft delete or versioning for frequently overwritten data might result in increased storage capacity charges and increased latency when listing blobs. Block-level updates using [Put Block](/rest/api/storageservices/put-block) and [Put Block List](/rest/api/storageservices/put-block-list) can reduce storage costs. If you make no changes to a blob, version, or snapshot's tier, then you are billed for unique blocks of data across that blob its versions, and snapshots. You are billed for active data until the blob, versions, and snapshots are permanently deleted.
 [Learn more](/azure/storage/blobs/soft-delete-blob-overview)
 
-## Related Articles
+## Related articles
 
 * [Blob versioning](versioning-overview.md)
 * [Soft delete for blobs](./soft-delete-blob-overview.md)
