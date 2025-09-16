@@ -27,6 +27,17 @@ There are also many factors to consider when changing redundancy options, especi
 
 This article contains answers to frequently asked questions about the process of changing Azure Storage redundancy options for your storage accounts.
 
+- [How are geo- and zonal-conversions different?](#how-are-geo--and-zonal-conversions-different)
+- [What charges are associated with a SKU conversion?](#what-charges-are-associated-with-a-sku-conversion)
+- [How long does the SKU conversion process take?](#how-long-does-the-sku-conversion-process-take)
+- [Why is my SKU conversion process taking so long?](#why-is-my-sku-conversion-process-taking-so-long)
+- [How does a SKU conversion affect performance and availability? Is there any application downtime expected? Is there any data loss expected?](#how-does-a-sku-conversion-affect-performance-and-availability-is-there-any-application-downtime-expected-is-there-any-data-loss-expected)
+- [How do I convert my account from LRS to GZRS?](#how-do-i-convert-my-account-from-lrs-to-gzrs)
+- [How do I convert my account from GZRS to LRS?](#how-do-i-convert-my-account-from-gzrs-to-lrs)
+- [How do I convert my account from GRS to ZRS?](#how-do-i-convert-my-account-from-grs-to-zrs)
+- [How do I convert my account from ZRS to GRS?](#how-do-i-convert-my-account-from-zrs-to-grs)
+- [What are the conflicting features or scenarios for SKU conversions?](#what-are-the-conflicting-features-or-scenarios-for-sku-conversions)
+
 > [!IMPORTANT]
 > In practice, a storage account *conversion* can refer to changing a storage account's SKU, or type. For example, you might convert a legacy general-purpose v1 storage account to standard general-purpose v2, allowing for enhanced availability, resilience, and features.
 >
