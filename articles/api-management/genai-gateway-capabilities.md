@@ -6,7 +6,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.topic: concept-article
-ms.date: 09/12/2025
+ms.date: 09/16/2025
 ms.update-cycle: 180-days
 ms.author: danlep
 ms.custom:
@@ -60,7 +60,7 @@ With the AI gateway, you can:
 
 For example, to onboard a model deployed in AI Foundry or another provider, API Management provides streamlined wizards to import the schema and set up authentication to the AI endpoint by using a managed identity, removing the need for manual configuration. Within the same user-friendly experience, you can preconfigure policies for API scalability, security, and observability.
 
-:::image type="content" source="media/genai-gateway-capabilities/ai-foundry-import.png" alt-text="Screenshot of AI Foundry import button in the Azure portal."::: 
+:::image type="content" source="media/genai-gateway-capabilities/ai-foundry-import.png" alt-text="Screenshot of AI Foundry model import in the Azure portal."::: 
 
 
 More information:
