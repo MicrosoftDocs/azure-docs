@@ -11,7 +11,7 @@ ms.custom: template-how-to, devx-track-azurecli
 
 # How to use Commit Workflow v2 in Azure Operator Nexus
 
-This article explains how to use Commit Workflow Version 2 (Commit V2) in Azure Operator Nexus. It helps you safely stage changes, review them, commit the changes you want, or discard the ones you don’t need—across supported resources.
+This article explains how to use a Commit Workflow Version 2 (Commit V2) in Azure Operator Nexus. It helps you safely stage changes, review them, commit the changes you want, or discard the ones you don’t need—across supported resources.
 
 ## Prerequisites
 
