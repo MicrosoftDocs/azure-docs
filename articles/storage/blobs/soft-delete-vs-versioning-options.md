@@ -21,7 +21,7 @@ All storage accounts that store critical data should enable soft delete and vers
 
 ## Overview of Features
 
-| **Feature** | **Protects Against** | **Retention Duration** | **Storage Behavior** | **Hierarchical Namespace (HNS) Considerations** |
+| **Feature** | **Protects against** | **Retention duration** | **Storage behavior** | **Hierarchical namespace (HNS) considerations** |
 |---|---|---|---|---|
 | **Soft delete** | Deletes and overwrites for blob accounts. Deletes for hierarchical  namespace accounts. | Up to 365 days (configurable) | Creates a soft-deleted snapshot for each overwrite. Creates a soft-deleted blob for each delete. | Soft delete only protects delete operations for HNS enabled accounts. With the [Set Blob Expiry](/rest/api/storageservices/set-blob-expiry) API, an expired file can't be restored by using the blob soft delete feature. |
 | **Versioning** | Deletes and overwrites for blob accounts. | Indefinite (until explicitly deleted) | Creates a new version on each write. | Versioning is not available for HNS enabled accounts. |
