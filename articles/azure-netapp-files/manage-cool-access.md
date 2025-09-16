@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 08/14/2025
+ms.date: 09/16/2025
 ms.author: anfdocs
 ms.custom:
   - build-2025
@@ -138,7 +138,7 @@ No registration is required to use cool access at the Standard service level.
 
 # [Flexible](#tab/flexible)
 
-Cool access with the Flexible service level is currently in preview. You must be registered to use the [Flexible service](azure-netapp-files-set-up-capacity-pool.md#flexible) before requesting cool access with the Flexible service level. Once you confirm your registration in the Flexible service level preview, register to use cool access with the Flexible service level. 
+Cool access with the Flexible service level is currently in preview. You must register the feature before using it. 
 
 1. Register the feature: 
 

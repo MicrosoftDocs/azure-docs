@@ -1,12 +1,11 @@
 ---
 title: Troubleshooting analytics rules in Microsoft Sentinel
 description: Learn how to deal with certain known issues that can affect analytics rules, and understand the meaning of AUTO DISABLED.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
 ms.date: 03/26/2024
-
 
 #Customer intent: As a security operations manager, I want to troubleshoot and resolve issues with scheduled analytics rules in Microsoft Sentinel so that I can ensure continuous and accurate monitoring of security events.
 

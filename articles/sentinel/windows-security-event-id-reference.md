@@ -1,11 +1,10 @@
 ---
 title: Windows security event sets that can be sent to Microsoft Sentinel
 description: Learn about the pre-built sets of Windows security events that you can collect and stream from your Windows systems to your Microsoft Sentinel workspace. 
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: reference
 ms.date: 11/09/2021
-ms.author: yelevin
-
 
 #Customer intent: As a security analyst, I want to select specific sets of Windows security events to ingest into Microsoft Sentinel, so that I can efficiently monitor and detect potential threats while managing data volume.
 

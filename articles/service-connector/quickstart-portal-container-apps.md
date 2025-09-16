@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: service-connector
 ms.topic: quickstart
 zone_pivot_groups: interaction-type
-ms.date: 7/22/2025
+ms.date: 9/19/2025
 keywords: azure container apps, service connector, database connection, managed identity, azure storage, authentication, preview
 #Customer intent: As an app developer, I want to connect my Azure Container Apps to databases, storage accounts, and other Azure services using managed identities and connection strings.
 ---
@@ -16,6 +16,9 @@ keywords: azure container apps, service connector, database connection, managed 
 Get started with Service Connector to connect your Azure Container Apps to databases, storage accounts, and other Azure services. Service Connector simplifies authentication and configuration, enabling you to connect to resources using managed identities or other authentication methods.
 
 This article provides step-by-step instructions for both the Azure portal and Azure CLI. Choose your preferred method using the tabs above.
+
+> [!IMPORTANT]
+> Support for Service Connector (preview) on Azure Container Apps ends on March 30, 2026. After that date, new service connections using Service Connector (preview) aren't available through any interface. For more information, see [RETIREMENT: Service Connector (Preview) on Azure Container Apps](https://aka.ms/serviceconnectoraca).
 
 ## Prerequisites
 

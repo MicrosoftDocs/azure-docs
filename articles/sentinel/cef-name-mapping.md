@@ -1,11 +1,10 @@
 ---
 title: Common Event Format (CEF) key and CommonSecurityLog field mapping
 description: This article maps CEF keys to the corresponding field names in the CommonSecurityLog in Microsoft Sentinel.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: reference
 ms.date: 08/12/2024
-
 
 #Customer intent: As a security analyst, I want to understand the mapping between CEF fields and CommonSecurityLog fields so that I can accurately interpret and analyze security events in my SIEM system.
 

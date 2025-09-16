@@ -1,11 +1,10 @@
 ---
 title: Connect Microsoft Sentinel to other Microsoft services by using diagnostic settings-based connections
 description: Learn how to connect Microsoft Sentinel to Microsoft services with diagnostic settings-based connections.
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.date: 02/24/2023
-ms.author: yelevin
-
 
 #Customer intent: As a security engineer, I want to ingest diagnostic data from Azure services to Microsoft Sentinel so that analysts can monitor logs for enhanced threat detection and response.
 

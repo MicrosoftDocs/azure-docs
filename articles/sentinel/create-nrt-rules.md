@@ -1,15 +1,14 @@
 ---
 title: Work with near-real-time (NRT) detection analytics rules in Microsoft Sentinel | Microsoft Docs
 description: This article explains how to view and create near-real-time (NRT) detection analytics rules in Microsoft Sentinel.
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.date: 03/28/2024
-ms.author: yelevin
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
-
 
 #Customer intent: As a security engineer, I want to configure near-real-time detection analytics rules so that analysts can achieve up-to-the-minute threat detection and automate responses in my security operations.
 

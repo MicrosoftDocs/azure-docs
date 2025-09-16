@@ -45,11 +45,16 @@ This article assumes that you have an Azure subscription. If you don't have an A
 
 ## Create a file share (Microsoft.FileShares)
 
+> [!NOTE]
+> File share with Microsoft.FileShares is currently in preview. You may use the Azure portal, or you can use generic PowerShell or Azure CLI commands to work with file shares. If you want to try the CLI private package for Microsoft.FileShares resource provider, fill out this [survey](https://forms.microsoft.com/r/nEGcB0ccaD).
+
+# [Portal](#tab/azure-portal)
+
 To create a file share via the Azure portal, use the search box at the top of the Azure portal to search for **file share** and select the matching result.
 
 ![A screenshot of the Azure portal search box with results for file share.](./media/storage-how-to-create-microsoft-fileshares/search-for-file-share.png)
 
-Click **+ Create** to create a new file share.
+Select **+ Create** to create a new file share.
 
 ![A screenshot of the Azure portal for create button for file share.](./media/storage-how-to-create-microsoft-fileshares/file-share-create.png)
 
@@ -110,6 +115,58 @@ The final step to create the file share is to select the **Create** button on th
 1. You can optionally apply tags to categorize your resources, such as applying the name **Environment** and the value **Test** to all testing resources. Enter name/value pairs if desired, and then select **Next: Review + create**.
    :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-tags.png" alt-text="Screenshot showing how to add tags to resources in order to categorize them." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-tags.png" border="true":::
 1. Azure will attempt to validate the private endpoint. When validation is complete, select **Create**. You'll see a notification that deployment is in progress. After a few minutes, you should see a notification that deployment is complete.
+
+# [PowerShell](#tab/powershell)
+
+To create a file share via PowerShell, run this command.
+
+```azure-powershell
+New-AzResource -ResourceType "Microsoft.FileShares/fileShares" `
+               -ResourceName "<your-file-share-name>" `
+               -Location "<intended-region-for-deployment>" `
+               -ResourceGroupName "<your-resource-group-name>" `
+               -Properties @{
+                   # redundancy support "Local" and "Zone"
+                   redundancy = "Local"
+                   protocol = "NFS"
+                   provisionedStorageGiB = <intended capacity>
+                   ProvisionedIoPerSec = <intended IOPS> 
+                   ProvisionedThroughputMiBPerSec = <intended throughput>
+                   mediaTier = "SSD"
+                   # optional: mountName = "<mount-name-for-file-share>"
+                   nfsProtocolProperties = @{
+                       rootSquash = "RootSquash"
+                   }
+               } `
+               -Force
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To create a file share via Azure CLI, run this command.
+
+```bash
+az resource create \
+  --resource-type "Microsoft.FileShares/fileShares" \
+  --name <your-file-share-name> \
+  --location <intended-region-for-deployment> \
+  --resource-group <your-resource-group-name> \
+  --properties '{
+    # redundancy support "Local" and "Zone"
+    "redundancy": "Local",
+    "protocol": "NFS",
+    "provisionedStorageGiB": <intended capacity>,
+    "ProvisionedIoPerSec": <intended IOPS>,
+    "ProvisionedThroughputMiBPerSec": <intended throughput,
+    "mediaTier": "SSD",
+    "nfsProtocolProperties": {
+      "rootSquash": "RootSquash"
+    }
+}'
+
+```
+
+---
 
 ## Next steps
 

@@ -8,8 +8,8 @@ metadata:
   description: Microsoft Sentinel provides attack detection, threat visibility, proactive hunting, and threat response to help you stop threats before they cause harm.
   ms.service: microsoft-sentinel
   ms.topic: landing-page
-  author: yelevin
-  ms.author: yelevin
+  author: guywi-ms
+  ms.author: guywild
   ms.date: 01/03/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new

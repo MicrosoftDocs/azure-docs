@@ -1,10 +1,10 @@
 ---
 title: Advanced multistage attack detection in Microsoft Sentinel
 description: Use Fusion technology in Microsoft Sentinel to reduce alert fatigue and create actionable incidents that are based on advanced multistage attack detection.
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: concept-article
 ms.date: 11/26/2024
-ms.author: yelevin
 appliesto:
     - Microsoft Sentinel in the Azure portal
 #Customer intent: As a security analyst, I want to leverage advanced multistage attack detection using machine learning so that I can identify and respond to sophisticated threats with high accuracy and minimal false positives.

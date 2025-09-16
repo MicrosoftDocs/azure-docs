@@ -1,10 +1,10 @@
 ---
 title: Investigate incidents with UEBA data | Microsoft Docs
 description: Learn how to use UEBA data while investigating to gain greater context to potentially malicious activity occurring in your organization.
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.date: 11/09/2021
-ms.author: yelevin
 appliesto:
     - Microsoft Sentinel in the Azure portal
 ms.custom: sfi-image-nochange

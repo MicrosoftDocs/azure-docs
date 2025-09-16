@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 11/05/2024
+ms.date: 09/11/2025
 ms.author: jianleishen
 ---
 
@@ -46,6 +46,25 @@ The following file formats are supported. Refer to each article for format-based
 - [ORC format](format-orc.md)
 - [Parquet format](format-parquet.md)
 - [XML format](format-xml.md)
+
+## Support TLS 1.3
+
+Transport Layer Security (TLS) is a widely adopted security protocol that's designed to secure connections and communications between servers and clients. In Azure App Service, you can use TLS and Secure Sockets Layer (SSL) certificates to help secure incoming requests in your web apps. TLS 1.3 is the latest and most secure version. For more information, see this [article](/azure/app-service/overview-tls). The following connectors support TLS 1.3 for Copy activity:
+ 
+- [Amazon RDS for SQL Server (version 2.0)](connector-amazon-rds-for-sql-server.md)
+- [Azure Data Explorer](connector-azure-data-explorer.md)
+- [Azure Database for PostgreSQL (version 2.0)](connector-azure-database-for-postgresql.md)
+- [Azure File Storage](connector-azure-file-storage.md)
+- [Azure SQL Database (version 2.0)](connector-azure-sql-database.md)
+- [Azure SQL Managed Instance (version 2.0)](connector-azure-sql-managed-instance.md)
+- [Azure Synapse Analytics (version 2.0)](connector-azure-sql-data-warehouse.md)
+- [Azure Table Storage](connector-azure-table-storage.md)
+- [DB2](connector-db2.md)
+- [Oracle (version 2.0)](connector-oracle.md)
+- [PostgreSQL V2](connector-postgresql.md)
+- [Snowflake V2](connector-snowflake.md)
+- [SQL Server (version 2.0)](connector-sql-server.md)
+
 
 ## Related content
 

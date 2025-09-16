@@ -1,11 +1,10 @@
 ---
 title: Get fine-tuning recommendations for your analytics rules in Microsoft Sentinel
 description: Learn how to fine-tune your threat detection rules in Microsoft Sentinel, using automatically generated recommendations, to reduce false positives while maintaining threat detection coverage.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.date: 11/09/2021
-
 
 #Customer intent: As a security analyst, I want to receive fine-tuning recommendations for my Microsoft Sentinel analytics rules so that I can optimize threat detection and reduce false positives.
 
