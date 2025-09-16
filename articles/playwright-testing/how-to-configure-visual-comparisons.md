@@ -8,8 +8,7 @@ ms.custom: playwright-testing-preview
 
 # Configure visual comparisons with Microsoft Playwright Testing Preview
 
-> [!NOTE]
-> Playwright Testing is now part of [Azure App Testing](https://aka.ms/AzureAppTesting), a unified service for functional and performance tests. Learn more about how to [get started](https://aka.ms/AzureAppTesting/announcement).
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 In this article, you learn how to properly configure Playwright's visual comparison tests when using Microsoft Playwright Testing Preview. Unexpected test failures may occur because Playwright's snapshots differ between local and remote browsers.
 

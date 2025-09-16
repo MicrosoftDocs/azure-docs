@@ -8,7 +8,9 @@ ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: spark
 ms.date: 12/13/2024
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - sfi-image-nochange
 ---
 
 # Monitor Apache Spark applications with Azure Log Analytics

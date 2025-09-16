@@ -1,8 +1,8 @@
 ---
 title: Basic incident tasks for Microsoft Sentinel incidents in the Azure portal
 description: This article describes how to navigate and triage incidents in Microsoft Sentinel in the Azure portal.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.date: 12/22/2024
 appliesto:

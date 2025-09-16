@@ -15,8 +15,8 @@ metadata:
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 landingContent:
-# Cards and links should be based on top customer tasks or top subjects
-# Start card title with a verb
+  # Cards and links should be based on top customer tasks or top subjects
+  # Start card title with a verb
   # Card (optional)
   - title: About Azure Files
     linkLists:
@@ -36,10 +36,10 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Create an SMB Azure file share - Windows
-            url: storage-how-to-create-file-share.md
-          - text: Create an NFS Azure file share - Linux
-            url: storage-files-quick-create-use-linux.md
+          - text: Create a classic file share
+            url: create-classic-file-share.md
+          - text: Create a file share with Microsoft.FileShares (preview)
+            url: create-file-share.md
 
   # Card
   - title: Troubleshoot

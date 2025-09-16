@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 04/30/2024
+ms.custom: sfi-image-nochange
 
 #CustomerIntent: As an Azure administrator, I want to use the log scrubbing tool so that I can protect sensitive data in Azure Front Door logs.
 ---

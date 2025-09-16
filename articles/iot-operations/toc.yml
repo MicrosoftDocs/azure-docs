@@ -223,6 +223,9 @@ items:
               - name: Configure graph definitions
                 href: connect-to-cloud/howto-configure-wasm-graph-definitions.md
                 displayName: data flow, WASM, WebAssembly, graph definitions, YAML, configuration, workflow
+              - name: AI inference with ONNX
+                href: connect-to-cloud/howto-wasm-onnx-inference.md
+                displayName: data flow, WASM, WebAssembly, ONNX, inference, AI, wasi-nn
           - name: Use message schemas
             href: connect-to-cloud/concept-schema-registry.md
             displayName: data flow, serialize, deserialize, schema registry
