@@ -19,11 +19,9 @@ ms.date: 09/15/2025
 
 If you're new to Standard workflows in Azure Logic Apps or updating an existing workflow, you might have questions about workflows, connectors, their operations, and other tasks. For example, Azure Logic Apps provides 1,400+ connectors for you to use. How do you choose the best ones for your workflow?
 
-In the Azure portal, in the Standard workflow designer, the workflow assistant offers a chat interface where you can ask questions about your current workflow or about Azure Logic Apps in general. The assistant delivers answers and curated information based on Azure Logic Apps documentation and best practices on Microsoft Learn, connector schemas, and tech community blogs. When you use the assistant, you don't have to switch context to search or browse for documentation online.
+In the Azure portal, in the Standard workflow designer, the workflow assistant offers a chat interface where you can ask questions about your current workflow or about Azure Logic Apps in general. The assistant delivers answers and curated information based on reputable knowledge sources. Sources include Azure Logic Apps documentation and best practices on Microsoft Learn, connector schemas, and tech community blogs. When you use the assistant, you don't have to switch context to search or browse for documentation online.
 
 :::image type="content" source="media/workflow-assistant-standard/overview.png" alt-text="Screenshot shows Azure portal, Standard logic app with workflow designer opened, and workflow assistant with example question and generated response." lightbox="media/workflow-assistant-standard/overview.png":::
-
-The workflow assistant delivers curated information based on reputable knowledge sources. Sources include Azure Logic Apps documentation on Microsoft Learn, connector schemas, and tech community blogs.
 
 The assistant can also provide information and answers about the current workflow in the designer. That way, you can learn how to complete tasks specific to your workflow's context. For example, you can ask how to configure a specific action in the workflow. You might want recommendations about the action's inputs or outputs and how to test that data.
 
