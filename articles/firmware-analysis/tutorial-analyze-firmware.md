@@ -13,10 +13,6 @@ ms.service: azure-iot-operations
 
 This tutorial describes how to use the **firmware analysis** page to upload a firmware image for security analysis and view analysis results.
 
-> [!NOTE]
-> The **firmware analysis** page is in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-
 ## Prerequisites
 
 > [!NOTE]
