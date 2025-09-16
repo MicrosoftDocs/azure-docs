@@ -25,10 +25,6 @@ To onboard to Microsoft Sentinel by using the API, see the latest supported vers
 
 - **Active Azure Subscription**. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- **Log Analytics workspace**. Learn how to [create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace). For more information about Log Analytics workspaces, see [Designing your Azure Monitor Logs deployment](/azure/azure-monitor/logs/workspace-design).
-
-    You may have a default of [30 days retention](/azure/azure-monitor/logs/cost-logs#legacy-pricing-tiers) in the Log Analytics workspace used for Microsoft Sentinel. To make sure that you can use all Microsoft Sentinel functionality and features, raise the retention to 90 days. [Configure data retention and archive policies in Azure Monitor Logs](/azure/azure-monitor/logs/data-retention-configure).
-
 - **Permissions**:
 
     - To enable Microsoft Sentinel, you need **contributor** permissions to the subscription in which the Microsoft Sentinel workspace resides.
@@ -48,7 +44,9 @@ To onboard to Microsoft Sentinel by using the API, see the latest supported vers
 
 ## Create a Log Analytics workspace
 
-Microsoft Sentinel must be added to a workspace. If you don't already have a Log Analytics workspace, you can create one using the instructions below or go to [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace) for a more detailed explanation. If you already have a Log Analytics workspace, skip to [adding Microsoft Sentinel to your Log Analytics workspace](#add-microsoft-sentinel-to-your-log-analytics-workspace).
+Microsoft Sentinel must be added to a workspace. If you already have a Log Analytics workspace, skip to [adding Microsoft Sentinel to your Log Analytics workspace](#add-microsoft-sentinel-to-your-log-analytics-workspace). If you don't already have a Log Analytics workspace, you can create one using the instructions below or, for a more detailed explanation, go to [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace). For more information about Log Analytics workspaces, see [Designing your Azure Monitor Logs deployment](/azure/azure-monitor/logs/workspace-design).
+
+ You may have a default of [30 days retention](/azure/azure-monitor/logs/cost-logs#legacy-pricing-tiers) in the Log Analytics workspace used for Microsoft Sentinel. To make sure that you can use all Microsoft Sentinel functionality and features, raise the retention to 90 days. [Configure data retention and archive policies in Azure Monitor Logs](/azure/azure-monitor/logs/data-retention-configure).
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 

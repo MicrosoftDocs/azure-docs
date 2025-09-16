@@ -505,7 +505,7 @@ To detect elevate access events and gain visibility into potentially fraudulent 
 
 ### Step 1: Onboard Microsoft Sentinel
 
-Follow these steps to onboard Microsoft Sentinel.
+Follow these steps to onboard Microsoft Sentinel:
 
 1. Find an existing Log Analytics workspace or [create a new one](../sentinel/quickstart-onboard.md#create-a-log-analytics-workspace).
 
