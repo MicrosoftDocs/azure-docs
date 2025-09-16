@@ -29,7 +29,7 @@ All storage accounts that store critical data should enable soft delete and vers
 > [!NOTE]
 > Both features are disabled by default and must be enabled at the storage account level.
 
-## When to Use Soft Delete
+## When to use soft delete
 
 :::image type="content" source="media/soft-delete-blob-overview/blob-soft-delete-diagram.png" alt-text="Diagram showing how a soft-deleted blob may be restored":::
 
