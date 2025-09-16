@@ -7,6 +7,7 @@ ms.reviewer: jasonh
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 10/03/2022
+ms.custom: sfi-ropc-nochange
 ---
 
 # Social media analysis with Azure Stream Analytics
