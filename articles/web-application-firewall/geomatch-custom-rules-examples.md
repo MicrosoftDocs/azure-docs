@@ -27,18 +27,18 @@ This article introduces Azure WAF geomatch custom rules and shows you how to cre
 
 Geomatch custom rules enable you to meet diverse security goals, such as blocking requests from high-risk areas and permitting requests from trusted locations. They're effective in mitigating distributed denial-of-service (DDoS) attacks, which seek to inundate your web application with a multitude of requests from various sources. With geomatch custom rules, you can promptly pinpoint and block regions generating the most DDoS traffic, while still granting access to legitimate users. In this article, you learn about various custom rule patterns that you can employ to optimize your Azure WAF using geomatch custom rules.
 
-## Scenario 1 - Block traffic from all countries or regions except "x"
+### Scenario 1 - Block traffic from all countries or regions except "x"
 
 Geomatch custom rules prove useful when you aim to block traffic from all countries or regions, barring one. For instance, if your web application caters exclusively to users in the United States, you can formulate a geomatch custom rule that obstructs all requests not originating from the US. This strategy effectively minimizes your web application’s attack surface and deters unauthorized access from other regions. This specific technique employs a negating condition to facilitate this traffic pattern. For creating a geomatch custom rule that obstructs traffic from all countries or regions except the US, refer to the following portal, Bicep, and PowerShell examples:
 
 # [**Portal**](#tab/portal)
 
 
-### Application Gateway
+**Application Gateway example**
 
 :::image type="content" source="media/geomatch-custom-rules/add-custom-rule-application-gateway-1.png" alt-text="Screenshot showing the Application Gateway WAF add custom rule screen.":::
 
-### Front Door
+**Front Door example**
 
 :::image type="content" source="media/geomatch-custom-rules/add-custom-rule-front-door-1.png" alt-text="Screenshot showing the Front Door WAF add custom rule screen.":::
 
@@ -47,7 +47,7 @@ Geomatch custom rules prove useful when you aim to block traffic from all countr
 
 # [**PowerShell**](#tab/powershell)
 
-### Application Gateway
+**Application Gateway example**
 
 ```azurepowershell
 $RGname = "rg-waf "
@@ -60,7 +60,7 @@ $policy.CustomRules.Add($rule)
 Set-AzApplicationGatewayFirewallPolicy -InputObject $policy
 ```
 
-### Front Door
+**Front Door example**
 
 ```azurepowershell
 $RGname = "rg-waf"
@@ -73,7 +73,7 @@ Update-AzFrontDoorWafPolicy -InputObject $afdWAFPolicy -Customrule $customRuleOb
 
 # [**Bicep**](#tab/bicep)
 
-### Application Gateway
+**Application Gateway example**
 
 ```
 properties: {
@@ -101,7 +101,7 @@ properties: {
         state: 'Enabled'
       }
 ```
-### Front Door
+**Front Door example**
 
 ```
 properties: {
@@ -130,7 +130,7 @@ properties: {
 ---
 
 
-## Scenario 2 - Block traffic from all countries or regions except "x" and "y" that target the URI "foo" or "bar"
+### Scenario 2 - Block traffic from all countries or regions except "x" and "y" that target the URI "foo" or "bar"
 
 Consider a scenario where you need to use geomatch custom rules to block traffic from all countries or regions, except for two or more specific ones, targeting a specific URI. Suppose your web application has specific URI paths intended only for users in the US and Canada. In this case, you create a geomatch custom rule that blocks all requests not originating from these countries or regions.
 
@@ -142,18 +142,18 @@ To create a geomatch custom rule that blocks traffic from all countries or regio
 
 # [**Portal**](#tab/portal)
 
-### Application Gateway
+**Application Gateway example**
 
 :::image type="content" source="media/geomatch-custom-rules/add-custom-rule-application-gateway-2.png" alt-text="Screenshot showing add custom rule for Application Gateway." lightbox="media/geomatch-custom-rules/add-custom-rule-application-gateway-2.png":::
 
-### Front Door
+**Front Door example**
 
 :::image type="content" source="media/geomatch-custom-rules/add-custom-rule-front-door-2.png" alt-text="Screenshot showing add custom rule for Front Door." lightbox="media/geomatch-custom-rules/add-custom-rule-front-door-2.png":::
 
 
 # [**PowerShell**](#tab/powershell)
 
-### Application Gateway
+**Application Gateway example**
 
 ```azurepowershell
 $RGname = "rg-waf "
@@ -168,7 +168,7 @@ $policy.CustomRules.Add($rule1)
 Set-AzApplicationGatewayFirewallPolicy -InputObject $policy
 ```
 
-### Front Door
+**Front Door example**
 
 ```azurepowershell
 $RGname = "rg-waf"
@@ -182,7 +182,7 @@ Update-AzFrontDoorWafPolicy -InputObject $afdWAFPolicy -Customrule $customRuleOb
 
 # [**Bicep**](#tab/bicep)
 
-### Application Gateway
+**Application Gateway example**
 
 ```
 properties: {
@@ -226,7 +226,7 @@ properties: {
       }
 ```
 
-### Front Door
+**Front Door example**
 
 ```
 properties: {
@@ -265,23 +265,23 @@ properties: {
 
 ---
 
-## Scenario 3 - Block traffic specifically from country or region "x"
+### Scenario 3 - Block traffic specifically from country or region "x"
 
 You can use geomatch custom rules to block traffic from specific countries or regions. For instance, if your web application receives many malicious requests from country or region "x", create a geomatch custom rule to block all requests from that country or region. This protects your web application from potential attacks and reduces resource load. Apply this pattern to block multiple malicious or hostile countries or regions. This technique requires a match condition for the traffic pattern. To block traffic from country or region "x", see the following portal, Bicep, and Azure PowerShell examples.
 
 # [**Portal**](#tab/portal)
 
-### Application Gateway
+**Application Gateway example**
 
 :::image type="content" source="media/geomatch-custom-rules/add-custom-rule-application-gateway-3.png" alt-text="Screenshot showing the application gateway add custom rule screen.":::
 
-### Front Door
+**Front Door example**
 
 :::image type="content" source="media/geomatch-custom-rules/add-custom-rule-front-door-3.png" alt-text="Screenshot showing the front door add custom rule screen.":::
 
 # [**PowerShell**](#tab/powershell)
 
-### Application Gateway
+**Application Gateway example**
 
 ```azurepowershell
 $RGname = "rg-waf "
@@ -294,7 +294,7 @@ $policy.CustomRules.Add($rule2)
 Set-AzApplicationGatewayFirewallPolicy -InputObject $policy
 ```
 
-### Front Door
+**Front Door example**
 
 ```azurepowershell
 $RGname = "rg-waf"
@@ -307,7 +307,7 @@ Update-AzFrontDoorWafPolicy -InputObject $afdWAFPolicy -Customrule $customRuleOb
 
 # [**Bicep**](#tab/bicep)
 
-### Application Gateway
+**Application Gateway example**
 
 ```
 properties: {
@@ -336,7 +336,7 @@ properties: {
       }
 ```
 
-### Front Door
+**Front Door example**
 
 ```
 properties: {
