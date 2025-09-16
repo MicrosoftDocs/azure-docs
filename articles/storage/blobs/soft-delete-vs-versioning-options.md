@@ -102,7 +102,7 @@ You may choose to disable both features if:
 * You have strict cost constraints and low risk of accidental data loss.
 * You use immutable blob storage or WORM (write-once-read-many) policies.
 
-## Blob Accessibility After Deletion
+## Blob accessibility after deletion
 
 When a blob is deleted—whether soft delete, versioning, or both are enabled—to access the data:
 
