@@ -663,6 +663,7 @@ For more information on how to purchase reservations, see [Optimize costs for Az
 
 ## See also
 - [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
+- [Cost estimation examples](./file-estimate-cost.md)
 - [Planning for an Azure Files deployment](storage-files-planning.md) and [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md)
 - [Create a classic file share](./create-classic-file-share.md)
 - [Create a file share (preview)](./create-file-share.md)
