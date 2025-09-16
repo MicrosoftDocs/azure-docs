@@ -97,7 +97,7 @@ Enable both soft delete and versioning if:
 
 ## When to use neither
 
-You may choose to disable both features if:
+You might choose to disable both features if:
 
 * Your application has its own backup and recovery mechanisms.
 * You have strict cost constraints and low risk of accidental data loss.
