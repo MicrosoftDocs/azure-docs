@@ -166,8 +166,6 @@
   items:
   - name: Troubleshoot guide
     href: troubleshoot.md
-  - name: Policy compliance exemptions
-    href: policy-compliance-exemptions.md
   - name: Migrate Azure resources into Azure Virtual Enclaves
     href: migrate-azure-resources-azure-virtual-enclaves.md
 #     - name: Connectivity troubleshooting
