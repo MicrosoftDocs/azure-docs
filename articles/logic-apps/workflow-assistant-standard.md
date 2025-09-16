@@ -1,12 +1,12 @@
 ---
 title: Get AI-assisted help for Standard workflows
-description: Learn how to use the AI-powered workflow assistant to answer questions about with Standard workflows in Azure Logic Apps based on reputable knowledge sources.
+description: Learn how to use the AI-powered workflow assistant to answer questions about Standard workflows in Azure Logic Apps based on reputable knowledge sources.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/15/2025
-#Customer intent: As an integration developer who works in Standard workflows for Azure Logic Apps, I want to know how to use the workflow assistant to design my workflows.
+#Customer intent: As an integration developer who works with Standard workflows in Azure Logic Apps, I want to learn how to design my workflows and get help by using the workflow assistant.
 ---
 
 # Get AI-powered help for Standard workflows in Azure Logic Apps (preview)
@@ -17,15 +17,15 @@ ms.date: 09/15/2025
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-If you're new to Standard workflows in Azure Logic Apps or updating an existing workflow, you might have questions about workflows, connectors, their operations, and other tasks. For example, Azure Logic Apps provides 1,000+ connectors for you to use. How do you choose the best ones for your workflow?
+If you're new to Standard workflows in Azure Logic Apps or updating an existing workflow, you might have questions about workflows, connectors, their operations, and other tasks. For example, Azure Logic Apps provides 1,400+ connectors for you to use. How do you choose the best ones for your workflow?
 
-In the Azure portal, in the Standard workflow designer, the workflow assistant offers a chat box so that you can ask questions about you current workflow or about Azure Logic Apps in general. The assistant generates answers and provides access to Azure Logic Apps documentation and best practices. When you use the assistant, you don't have to switch context to search or browse for documentation online.
+In the Azure portal, in the Standard workflow designer, the workflow assistant offers a chat interface where you can ask questions about your current workflow or about Azure Logic Apps in general. The assistant delivers answers and curated information based on Azure Logic Apps documentation and best practices on Microsoft Learn, connector schemas, and tech community blogs. When you use the assistant, you don't have to switch context to search or browse for documentation online.
 
 :::image type="content" source="media/workflow-assistant-standard/overview.png" alt-text="Screenshot shows Azure portal, Standard logic app with workflow designer opened, and workflow assistant with example question and generated response." lightbox="media/workflow-assistant-standard/overview.png":::
 
 The workflow assistant delivers curated information based on reputable knowledge sources. Sources include Azure Logic Apps documentation on Microsoft Learn, connector schemas, and tech community blogs.
 
-The assistant can also build responses using the current workflow in the designer. That way, you can learn how to complete tasks specific to your workflow's context. For example, you can ask how to configure a specific action in the workflow. You might want recommendations about the action's inputs or outputs and how to test that data.
+The assistant can also provide information and answers about the current workflow in the designer. That way, you can learn how to complete tasks specific to your workflow's context. For example, you can ask how to configure a specific action in the workflow. You might want recommendations about the action's inputs or outputs and how to test that data.
 
 > [!IMPORTANT]
 >
@@ -159,10 +159,10 @@ When you enter your question in the assistant's chat box, the Azure Logic Apps b
 
 **Q**: What's the difference between Azure OpenAI Service and ChatGPT?
 
-**A**: [Azure OpenAI Service](/azure/ai-services/openai/overview) is an enterprise-ready AI technology. It's optimized for your business processes and your business data to meet security and privacy requirements.
+**A**: [Azure OpenAI Service](/azure/ai-services/openai/overview) is an enterprise-ready AI technology. This service is optimized for your business processes and your business data to meet security and privacy requirements.
 
-[ChatGPT](https://openai.com/blog/chatgpt) is built by [OpenAI](https://openai.com). It's a general-purpose large language model (LLM) trained by OpenAI on a massive dataset of text. It's designed to engage in human-like conversations and answer a wide range of questions on several topics.
+[ChatGPT](https://openai.com/blog/chatgpt) is built by [OpenAI](https://openai.com). This technology is a general-purpose large language model (LLM) trained by OpenAI on a massive dataset of text. The LLM is designed to engage in human-like conversations and answer a wide range of questions on several topics.
 
-## Next step
+## Related content
 
 - [Create a Standard logic app workflow using the Azure portal](create-single-tenant-workflows-azure-portal.md)
