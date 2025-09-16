@@ -1,15 +1,14 @@
 ---
 title: Create scheduled analytics rules in Microsoft Sentinel | Microsoft Docs
 description: This article explains how to view and create scheduled analytics rules in Microsoft Sentinel.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.date: 10/16/2024
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
-
 
 #Customer intent: As a security engineer, I want to create custom scheduled analytics rules using Kusto Query Language so that analysts can detect and respond to unusual or suspicious activities in my digital estate.
 
