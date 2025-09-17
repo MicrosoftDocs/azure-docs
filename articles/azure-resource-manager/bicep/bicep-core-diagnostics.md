@@ -393,9 +393,9 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP410' />BCP410 | Error | Division by zero is not supported.     |
 | <a id='BCP411' />BCP411 | Error | The type `{type}` cannot be used in a type assignment because it does not fit within one of ARM's primitive type categories (string, int, bool, array, object). |
 | <a id='BCP412' />BCP412 | Error | The variable type is not valid. Please specify one of the following types: `{ToQuotedString(validTypes)}`. |
-| <a id='BCP414' />[BCP414](./diagnostics/bcp414.md) | Error | The `^` indexing operator cannot be used on base expressions of type `{baseType}`.  |
+| <a id='BCP414' />[BCP414](./diagnostics/bcp414.md) | Error | The `^` indexing operator cannot be used on base expressions of type `<base-type>`.  |
 | <a id='BCP415' />BCP415 | Error | The `^` indexing operator cannot be used with index expressions of type `{indexType}`.     |
-| <a id='BCP416' />BCP416 | Error | The supplied string does not match the expected pattern of `{expectedPattern}`.   |
+| <a id='BCP416' />[BCP416](./diagnostics/bcp416.md) | Error | The supplied string does not match the expected pattern of `<expected-pattern>`.   |
 | <a id='BCP417' />BCP417 | Error | The spread operator `{ellipsis}` cannot be used inside objects with property for-expressions.    |
 | <a id='BCP418' />BCP418 | Error | Extensions cannot be referenced here. Extensions can only be referenced by module extension configurations.   |
 | <a id='BCP419' />BCP419 | Error | Namespace name `{name}` cannot be used as an extension name.|
