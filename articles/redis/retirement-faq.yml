@@ -2,7 +2,7 @@
 metadata:
   title: Retirement of Azure Redis Cache FAQ
   description: Learn the answers to common questions about the the retirement of Azure Redis Cache.
-  ms.date: 0928/2025
+  ms.date: 09/28/2025
   ms.topic: faq
   ms.custom:
   appliesto:
@@ -20,12 +20,7 @@ sections:
         answer: | 
           All instances of Azure Cache for Redis tiers (Basic, Standard, and Premium) are being retired on September 29, 2028.
        
-      - question: What is retiring and when?
-
-        answer: | 
-          All instances of Azure Cache for Redis tiers (Basic, Standard, and Premium) are being retired on September 29, 2028.
-
-      question: What happens to existing Redis instances? How long are they expected run?
+      - question: What happens to existing Redis instances? How long are they expected run?
 
         answer: | 
           All existing Redis instances remain available until September 29, 2028. We continue to perform regular maintenance to ensure that all Azure Cache for Redis instances are secure and stable until September 29, 2028. 
@@ -43,14 +38,17 @@ sections:
       - question: Why should I upgrade to Azure Managed Redis?
 
         answer: | 
-          - Azure Managed Redis is built on the advanced Redis Enterprise software, which offers new enterprise features such as  active geo-replication and Redis modules.
-          - Because it's based on Redis Enterprise software, Azure Managed Redis delivers greater performance and cost-effectiveness than Azure Cache for Redis.
-          - Azure Managed Redis is zone redundant by default and supports up to 99.999% availability.
-       
-      - question: What is Redis Enterprise[YM2.1] and how is it different from what Azure Cache for Redis offers?
+          Because Azure Managed Redis caches are based on Redis Enterprise caches, they delivers greater performance and are more cost-effective than Azure Cache for Redis.
+          - Enterprise features such as active geo-replication and Redis modules.
+          - Zone redundant by default and supports up to 99.999% availability.
+          - Built to use Microsoft Entra ID, not legacy and less secure access keys.
+      #  This almost feels a little redundant with previous
+      - question: What is Redis Enterprise and how is it different from what Azure Cache for Redis offers?
 
         answer: | 
-          While Azure Cache for Redis is build on a fork of the Redis open source software (OSS), Azure Managed Redis uses the Redis Enterprise software. Redis Enterprise essentially builds on Redis OSS with advanced features designed for scalability, reliability, and enterprise-grade security. See more information here to learn more about Azure Managed Redis architecture.
+          Azure Cache for Redis is built on a fork of the Redis open source software (OSS). Azure Managed Redis uses the Redis Enterprise software. Redis Enterprise essentially builds on Redis OSS with advanced features designed for scalability, reliability, and enterprise-grade security. 
+          
+          For more information, see [What is Azure Managed Redis?](../managed-redis/overview.md) to learn more about the architecture and benefits of Azure Managed Redis.
 
       - question: What changes do I need to make in my applications to connect to and use Azure Managed Redis?
 
@@ -77,12 +75,14 @@ sections:
         answer: | 
           Azure Managed Redis instance is configured with OSS clustering policy by default. See information here on how to choose clustering policy.
 
-      question: Does Azure Managed Redis support every feature that is currently in use [SP6.1][YM6.2]?
+      - question: Does Azure Managed Redis support every feature that is currently in use [SP6.1][YM6.2]?
 
         answer: | 
           Azure Managed Redis supports all Redis functionality offered in existing Azure Cache for Redis SKUs. Some management operations, regions, and SKU sizes aren't currently available but are coming soon. 
           
           All the timelines mentioned are tentative. Please reach out through support or directly to AzureManagedRedis@microsoft.com for more information.
+
+# I don't love this section as it feel like implicit promise
 
             - Azure Public Regions:
               - France Central - ETA October 2025
@@ -96,15 +96,17 @@ sections:
               - Compute Optimized up to 500 GB - ETA March 2026
               - Flash Optimized up to 1000 GB - ETA March 2026
             - Management Operations:
-              - Keyspace notifications: March 2026
-              - Entra Id RBAC: June 2026
+              - Keyspace notifications -  ETA March 2026
+              - Entra Id RBAC-  ETA June 2026
 
-          If you want to migrate to Azure Managed Redis immediately, but your can't because of any missing feature, reach out to support or send an email to AzureManagedRedis@microsoft.com.
+          If you want to migrate to Azure Managed Redis immediately, but you can't because of any missing feature, reach out to support or send an email to AzureManagedRedis@microsoft.com.
 
       - question: How do I migrate to Azure Managed Redis now?
 
         answer: | 
-          Given the benefits of using Azure Managed Redis, we highly recommend you migrate to Azure Managed Redis as soon as possible, without waiting for the retirement deadline. See information here on how to migrate to Azure Managed Redis now.
+          Given the benefits of using Azure Managed Redis, we highly recommend you migrate to Azure Managed Redis as soon as possible, without waiting for the retirement deadline.
+
+          For step-by-step instructions, see the [migration guide to Azure Managed Redis](/migrate/migrate-overview).
 
       - question: How do I retain my data during migration?
 
@@ -114,9 +116,9 @@ sections:
       - question: Is there any tooling to help with the migration to Azure Managed Redis[SP7.1][KC7.2]?
 
         answer: | 
-          A command-line based migration experience is being made available to allow you to connect to your new Azure Managed Redis instance using the same cache hostname and access key as your existing Azure Cache for Redis instance. The release of command-line experience begins, in phases, in October 2025.
+            A command-line migration tool releases in phases starting October 2025. It helps you connect your new Azure Managed Redis instance using the same cache hostname and access key as your existing Azure Cache for Redis instance.
 
-      - question: Is there be downtime during migration?
+      - question: Is downtime expected during migration?
 
         answer: | 
           If you are using the migration tooling, then you should expect a connection blip when the DNS record for your Redis instance is updated to point to the new Azure Managed Redis cache. This blip is a few seconds and should be comparable to the blip that your application experiences during regular maintenance.
@@ -125,6 +127,6 @@ sections:
 
 
         answer: | 
-          You can cancel or exchange your existing reservation as mentioned here: Self-service exchanges and refunds for Azure Reservations - Microsoft Cost Management | Microsoft Learn
+          You can cancel or exchange your existing reservation. For more information, see [Cancel, exchange, and refund policies](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
 
 
