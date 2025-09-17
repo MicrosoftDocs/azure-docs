@@ -4,7 +4,7 @@ description: This article describes best practices for creating your own integra
 author: EdB-MSFT
 ms.author: edbaynash
 ms.topic: conceptual
-ms.date: 01/09/2023
+ms.date: 09/17/2025
 
 
 #Customer intent: As a security partner, I want to create a content hub solution to integrate my product with Microsoft Sentinel so that SOC teams can leverage my data source types, detections, and automation for enhanced threat detection and response.
@@ -15,21 +15,25 @@ ms.date: 01/09/2023
 
 This article reviews best practices and references for creating your own integration solutions with Microsoft Sentinel.
 
-Security Operations (SOC) teams use Microsoft Sentinel to generate detections and investigate and remediate threats. Offering your data, detections, automation, analysis, and packaged expertise to customers by integrating with Microsoft Sentinel provides SOC teams with the information they need to act on informed security responses.
+Security Operations (SOC) teams use Microsoft Sentinel to generate detections, investigate malicious behavior, and remediate threats. Offering your data, Security Copilot Agents, notebook jobs, detections, automation, analysis, and packaged expertise to customers by integrating with Microsoft Sentinel provides SOC teams with the information they need to act on informed security responses.
 
-For example, your integration may add value for any of the following goals:
+For example, your integrations may add value for any of the following goals:
+
+- **Providing Insights** using agents to automate investigations tasks, process data from multiple sources and generate findings to accelerate the work of analysts and reduce MTTR. 
+
+- **Supporting large data sets** using the data lake to store large volumes of events, such a process creation events and netflow data in a cost effective manner. This data can processed on demand or with jobs by agents or notebook jobs. 
 
 - **Creating detections** out of semi-structured data. For example, your integration might bring new log data, actionable intelligence, analytics rules, hunting rules, guided hunting experiences, or machine-learning analysis
 
 - **Contribute to Microsoft Sentinel investigations**. For example, your integration might add new detections, queries, or historical and supporting data, such as extra databases, vulnerability data, compliance, data, and so on.
 
-- **Automation in Microsoft Sentinel**. For example, your integration might include rules for enrichment, remediation, or orchestration security activities within the customer’s environment and infrastructure.
+- **Automation in Microsoft Sentinel**. For example, your integration might include scheduled agents for periodic queries, interacting with Microsoft or 3rd party endpoints, or simplifying tedious tasks. You might provide scheduled notebook jobs for data processing and provide rules for enrichment, remediation, or orchestration security activities within the customer’s environment and infrastructure. 
 
-We recommend that you package and publish your integration as a Microsoft Sentinel [solutions](sentinel-solutions.md) so that joint customers can discover, deploy, and maximize the value of your partner integration.  Microsoft Sentinel solutions are published in Azure Marketplace and appear in the Microsoft Sentinel Content hub.
+We recommend that you package and publish your integration as either a Microsoft platform solution or a Microsoft Sentinel SIEM [solutions](sentinel-solutions.md) so that joint customers can discover, deploy, and maximize the value of your partner integration.  Microsoft Sentinel platform solutions are published in Azure Marketplace and appear in the Microsoft Security Store Microsoft Sentinel solutions are published in Azure Marketplace and appear in the Microsoft Sentinel Content hub.
 
 ## Integrations to collect data
 
-Most Microsoft Sentinel integrations are based on data, and use both the general detection engine and the full-featured investigative engine. Both engines run over data ingested into the Microsoft Sentinel data repository.
+Most Microsoft Sentinel integrations are based on data, and use both the general detection engine and the full-featured investigative engine. Both engines run over data ingested into the Microsoft Sentinel data repository in either the data lake or analytics tier.
 
 Microsoft Sentinel works with the following types of data:
 
@@ -51,6 +55,14 @@ Microsoft Sentinel's monitoring and detection features create automated detectio
 
 The following sections describe monitoring and detection elements that you can include in your integration solution:
 
+### Security Copilot agents 
+
+Security Copilot agents automate repetitive tasks and reduce manual workloads. They enhance security and IT operations across cloud, data security and privacy, identity, and network security. For Sentinel, agents can query the SIEM or data lake and call APIs to enrich Microsoft Sentinel data. They can utilize notebook jobs for intensive data processing or analysis and utilize any number of plug-in.    
+
+### Data processing  
+
+Notebooks and notebook jobs provide powerful tools for performing complex data transformations and running machine learning models using Spark jobs. They can be used by Security Copilot agents to provide a deterministic and efficient means of performing data analysis and summarization.  Notebooks write custom data tables to the analytic tier and data lake to be used by downstream components such as agents, workbooks, hunting queries, and others. Notebook jobs enable notebooks to create data on an ongoing basis.
+
 ### Threat detection rules
 
 Threat detection, or analytics rules are sophisticated detections that can create accurate, meaningful alerts.
@@ -65,7 +77,7 @@ Analytics are query-based rules that run over the data in the customer's Microso
 
 You can add analytics rules by including them in a solution and via the Microsoft Sentinel  ThreatHunters community. Contribute via the community to encourage community creativity over partner-sourced data, helping customers with more reliable and effective detections.
 
-### Hunting rules and notebooks
+### Hunting rules
 
 Microsoft Sentinel provides a rich set of hunting abilities that you can use to help customers find unknown threats in the data you supply. You can include tactical hunting queries in your integration to highlight specific knowledge, and even complete, guided hunting experiences.
 
