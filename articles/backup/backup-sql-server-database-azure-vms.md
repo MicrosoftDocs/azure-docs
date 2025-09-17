@@ -122,7 +122,7 @@ When you back up a SQL Server database on an Azure VM, the backup extension on t
 
 - Multiple databases on the same SQL instance with casing difference aren't supported.
 
--	Changing the casing of an SQL database isn't supported after configuring protection.
+-	Changing the casing of a SQL database isn't supported after configuring protection.
 
 >[!NOTE]
 >The **Configure Protection** operation for databases with special characters, such as `{`, `'}`, `[`, `]`, `,`, `=`, `-`, `(`, `)`, `.`, `+`, `&`, `;`, `'`, or `/`, in their name isn't supported. You can change the database name or enable **Auto Protection**, which can successfully protect these databases.
@@ -135,7 +135,7 @@ To discover databases running on a VM, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), go to **Business Continuity Center**, and then **+ Configure protection**.
 
-1. On the **Configure protection** pane,select **Datasource type** as **SQL in Azure VM**, and then select **Continue**.
+1. On the **Configure protection** pane, select **Datasource type** as **SQL in Azure VM**, and then select **Continue**.
 
    :::image type="content" source="./media/backup-azure-sql-database/configure-sql-backup.png" alt-text="Screenshot shows how to select SQL database as the datasource for Backup.":::
 
@@ -161,7 +161,7 @@ You can track database discovery in **Notifications**. The time required for thi
 1. Azure Backup discovers all SQL Server databases on the VM. During discovery, the following elements occur in the background:
 
     * Azure Backup registers the VM with the vault for workload backup. All databases on the registered VM can be backed up to this vault only.
-    * Azure Backup installs the AzureBackupWindowsWorkload extension on the VM. No agent is installed on an SQL database.
+    * Azure Backup installs the AzureBackupWindowsWorkload extension on the VM. No agent is installed on a SQL database.
     * Azure Backup creates the service account NT Service\AzureWLBackupPluginSvc on the VM.
       * All backup and restore operations use the service account.
       * NT Service\AzureWLBackupPluginSvc requires SQL sysadmin permissions. All SQL Server VMs created in the Marketplace come with the SqlIaaSExtension installed. The AzureBackupWindowsWorkload extension uses the SQLIaaSExtension to automatically get the required permissions.
@@ -241,7 +241,7 @@ To create a backup policy:
 1. In **RETENTION RANGE**, all options are selected by default. Clear any retention range limits that you don't want, and then set the intervals to use.
 
     * Minimum retention period for any type of backup (full, differential, and log) is seven days.
-    * Recovery points are tagged for retention based on their retention range. For example, if you select a daily full backup, only one full backup is triggered each day.
+    * Recovery points are tagged for retention based on their retention range. For example, if you select a daily full backup, only one full backup is triggered for every day.
     * The backup for a specific day is tagged and retained based on the weekly retention range and the weekly retention setting.
     * Monthly and yearly retention ranges behave in a similar way.
 
