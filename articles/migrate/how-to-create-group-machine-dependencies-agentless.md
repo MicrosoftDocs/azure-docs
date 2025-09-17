@@ -7,7 +7,9 @@ ms.manager: ronai
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 08/28/2025
-ms.custom: engagement-fy25
+ms.custom:
+  - engagement-fy25
+  - sfi-image-nochange
 # Customer intent: As an IT administrator, I want to set up agentless dependency analysis using Azure Migrate, so that I can automatically identify and visualize server dependencies to facilitate smoother assessment and migration to the cloud.
 ---
 
