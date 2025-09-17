@@ -61,19 +61,6 @@ HTTP/1.1 201 Created
 Content-type: application/json
 ```
 
-Not allowed response:
-
-If you receive a 403 Error with the following response, send the Azure Subscription GUID to your Azure Communication Services Product Manager (PM) to add you to the preview list.
-
-```rest
-{
-   "error": {
-   "code": "SubscriptionNotAllowed",
-   "message": "API is not allowed to be accessed with your subscription."
-}
-}
-```
-
 ## Provide Client Consent 
 
 Use the Azure Communication Services calling SDK to extend your Teams Phone system, enabling calls to be made and received independently of the Teams application.

@@ -35,11 +35,13 @@ Advanced network features enhance the virtual networking experience, offering im
 * Germany West Central
 * Italy North 
 * Japan East
+* Japan West
 * North Europe
 * South Central US
 * Southeast Asia
 * Spain Central
 * Sweden Central
+* UAE Central
 * UAE North
 * UK South 
 * UK West
@@ -135,6 +137,14 @@ When routing traffic to Oracle Database@Azure through a Network Virtual Applianc
 >   When **advanced network features are not enabled**, and for **traffic originating from the Oracle Database@Azure delegated subnet that needs   to traverse a gateway** (for example, to reach on-premises networks, AVS, other clouds, etc.), you must configure specific UDRs on the delegated subnet.  
 >These UDRs should define the specific destination IP prefixes and set the next hop to the appropriate NVA/firewall in the hub.  
 > Without these routes, outbound traffic may bypass required inspection paths or fail to reach the intended destination.
+
+> [!Note]
+> To access an Oracle Database@Azure instance from an on-premises network via a virtual network gateway (ExpressRoute or VPN) and firewall, configure the route table assigned to the virtual network gateway to include the /32 IPv4 address of the Oracle Database@Azure instance listed and point to the firewall as the next hop. Using an aggregate address space that includes the Oracle Database@Azure instance IP address doesn't forward the Oracle Database@Azure traffic to the firewall.
+
+> [!Note]
+> If you want to configure a route table (UDR route) to control the routing of packets through a network virtual appliance or firewall destined to an Oracle Database@Azure instance from a source in the same virtual network or a peered virtual network, the UDR prefix must be more specific or equal to the delegated subnet size of the Oracle Database@Azure. If the UDR prefix is less specific than the delegated subnet size, it isn't effective.
+> 
+> For example, if your delegated subnet is `x.x.x.x/24`, you must configure your UDR to `x.x.x.x/24` (equal) or `x.x.x.x/32` (more specific). If you configure the UDR route to be `x.x.x.x/16`, undefined behaviors such as asymmetric routing can cause a network drop at the firewall.
 
  
 

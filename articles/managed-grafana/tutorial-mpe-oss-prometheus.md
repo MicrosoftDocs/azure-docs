@@ -7,6 +7,7 @@ author: maud-lv
 ms.topic: tutorial
 ms.date: 02/21/2024
 ms.author: malev
+ms.custom: sfi-image-nochange
 ---
 
 # Tutorial: connect to a self-hosted Prometheus service on an AKS cluster using a managed private endpoint

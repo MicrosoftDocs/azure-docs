@@ -1,12 +1,11 @@
 ---
 title: Manage hunting and livestream queries in Microsoft Sentinel using REST API | Microsoft Docs
 description: This article describes how Microsoft Sentinel hunting features enable you to take advantage Log Analytics’ REST API to manage hunting and livestream queries.
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: reference
 ms.custom: mvc
 ms.date: 11/09/2021
-ms.author: yelevin
-
 
 #Customer intent: As a security analyst, I want to manage hunting and livestream queries using REST API so that I can efficiently monitor and respond to security threats in my environment.
 
