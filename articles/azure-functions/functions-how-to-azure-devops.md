@@ -21,7 +21,7 @@ You'll use the `AzureFunctionApp` task to deploy to Azure Functions. There are n
 Choose your task version at the top of the article. 
 
 > [!NOTE]
-> The [AzureFunctionApp@2](/azure/devops/pipelines/tasks/reference/azure-function-app-v2) is highly recommended. Deploying to an app on the [Flex Consumption](./flex-consumption-plan.md) plan is only supported in version 2.
+> Only use [AzureFunctionApp@2](/azure/devops/pipelines/tasks/reference/azure-function-app-v2) when deploying to apps on the [Flex Consumption](./flex-consumption-plan.md) plan. AzureFunctionApp@2 is generally recommended for all new apps. Upgrade from AzureFunctionApp@1 to AzureFunctionApp@2 for access to new features and long-term support.
 
 ## Prerequisites
 
@@ -108,7 +108,6 @@ steps:
     inputs:
       PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
       artifactName: 'drop'
-  - task: PublishBuildArtifacts@1
   ```
 
 #### [JavaScript](#tab/javascript)
@@ -120,10 +119,6 @@ pool:
   vmImage: ubuntu-latest # Use 'windows-latest' if you have Windows native +Node modules
 steps:
 - bash: |
-    if [ -f extensions.csproj ]
-    then
-        dotnet build extensions.csproj --output ./bin
-    fi
     npm install 
     npm run build --if-present
     npm prune --omit=dev
@@ -148,9 +143,9 @@ pool:
   vmImage: ubuntu-latest
 steps:
 - task: UsePythonVersion@0
-  displayName: "Set Python version to 3.9"
+  displayName: "Set Python version to 3.11"
   inputs:
-    versionSpec: '3.9'
+    versionSpec: '3.11'
     architecture: 'x64'
 - bash: |
     if [ -f extensions.csproj ]
