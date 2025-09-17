@@ -47,7 +47,7 @@ Azure Files implements redundancy at the storage account level, with file shares
 
 To effectively manage transient faults when using Azure Files, configure appropriate timeout values for your file operations based on file size and network conditions. Larger files require longer timeouts, while smaller operations can use shorter values to detect failures quickly.
 
-To ensure that only secure connections are established to your NFS share, we recommend that you configure a private endpoint for your storage account. A private endpoint uses Azure Private Link to assign a static IP address to your storage account from within your virtual network's private address space. A private endpoint helps to prevent connectivity interruptions from dynamic IP address changes. For more information on security for your NFS shares, see [FS files shares - Security and networking](/azure/storage/files/files-nfs-protocol#security-and-networking).
+To ensure that only secure connections are established to your NFS share, we recommend that you configure a private endpoint for your storage account. A private endpoint uses Azure Private Link to assign a static IP address to your storage account from within your virtual network's private address space. A private endpoint helps to prevent connectivity interruptions from dynamic IP address changes. For more information on security for your NFS shares, see [NFS files shares - Security and networking](/azure/storage/files/files-nfs-protocol#security-and-networking).
 
 ## Availability zone support
 
