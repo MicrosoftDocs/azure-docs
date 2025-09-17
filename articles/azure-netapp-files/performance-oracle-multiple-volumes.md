@@ -1,12 +1,13 @@
 ---
-title: Oracle database performance on Azure NetApp Files multiple volumes | Microsoft Docs
+title: Oracle database performance on Azure NetApp Files multiple volumes 
 description: Migrating highly performant Exadata grade databases to the cloud is increasingly becoming an imperative for Microsoft customers.
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 08/20/2024
+ms.date: 07/20/2025
 ms.author: anfdocs
+ms.custom: sfi-image-nochange
 # Customer intent: As a database administrator, I want to optimize Oracle database performance on Azure using Azure NetApp Files with multiple volumes, so that I can handle demanding workloads efficiently and ensure scalability in the cloud.
 ---
 

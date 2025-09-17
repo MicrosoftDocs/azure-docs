@@ -4,10 +4,13 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from Amazon RDS for Oracle to supported sink stores, using Data Factory or Azure Synapse Analytics pipelines.
 author: jianleishen
 ms.subservice: data-movement
-ms.custom: synapse
 ms.topic: conceptual
-ms.date: 07/24/2025
+ms.date: 08/29/2025
 ms.author: jianleishen
+ms.custom:
+  - synapse
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Copy data from Amazon RDS for Oracle by using Azure Data Factory or Azure Synapse Analytics
@@ -38,6 +41,7 @@ Specifically, this Amazon RDS for Oracle connector supports:
     - Amazon RDS for Oracle 19c and higher
     - Amazon RDS for Oracle 18c and higher
     - Amazon RDS for Oracle 12c and higher
+    - Amazon RDS for Oracle 11g and higher
 - The following versions of an Amazon RDS for Oracle database for version 1.0:
     - Amazon RDS for Oracle 19c R1 (19.1) and higher
     - Amazon RDS for Oracle 18c R1 (18.1) and higher
@@ -344,7 +348,7 @@ To copy data from Amazon RDS for Oracle, set the source type in the copy activit
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to `AmazonRdsForOracleSource`. | Yes |
-| oracleReaderQuery | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`.<br>When you enable partitioned load, you need to hook any corresponding built-in partition parameters in your query. For examples, see the [Parallel copy from Amazon RDS for Oracle](#parallel-copy-from-amazon-rds-for-oracle) section. | No |
+| oracleReaderQuery | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`. Note that the query should not end with a semicolon (;). <br>When you enable partitioned load, you need to hook any corresponding built-in partition parameters in your query. For examples, see the [Parallel copy from Amazon RDS for Oracle](#parallel-copy-from-amazon-rds-for-oracle) section. | No |
 | convertDecimalToInteger | Amazon RDS for Oracle NUMBER type with zero or unspecified scale will be converted to corresponding integer. Allowed values are **true** and **false** (default). <br>If you are using Amazon RDS for Oracle version 2.0, this property will only be allowed to be set when supportV1DataTypes is true. | No |
 | partitionOptions | Specifies the data partitioning options used to load data from Amazon RDS for Oracle. <br>Allowed values are: **None** (default), **PhysicalPartitionsOfTable**, and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from an Amazon RDS for Oracle database is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. | No |
 | partitionSettings | Specify the group of the settings for data partitioning. <br>Apply when the partition option isn't `None`. | No |

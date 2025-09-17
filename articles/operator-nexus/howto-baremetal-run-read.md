@@ -22,38 +22,7 @@ The command produces an output file containing the results of the run-read comma
 1. Ensure that the target BMM must have its `poweredState` set to `On` and have its `readyState` set to `True`
 1. Get the Managed Resource group name (cluster_MRG) that you created for `Cluster` resource
 
-## Send command output to a user specified storage account
-
-See [Azure Operator Nexus Cluster support for managed identities and user provided resources](./howto-cluster-managed-identity-user-provided-resources.md)
-
-### Clear the cluster's CommandOutputSettings
-
-To change the cluster from a user-assigned identity to a system-assigned identity, the CommandOutputSettings must first be cleared using the command in the next section, then set using this command.
-
-The CommandOutputSettings can be cleared, directing run-read-command output back to the cluster manager's storage. However, it isn't recommended since it's less secure, and the option will be removed in a future release.
-
-However, the CommandOutputSettings do need to be cleared if switching from a user-assigned identity to a system-assigned identity.
-
-Use this command to clear the CommandOutputSettings:
-
-```azurecli-interactive
-az rest --method patch \
-  --url  "https://management.azure.com/subscriptions/<subscription>/resourceGroups/<cluster-resource-group>/providers/Microsoft.NetworkCloud/clusters/<cluster-name>?api-version=2024-08-01-preview" \
-  --body '{"properties": {"commandOutputSettings":null}}'
-```
-
-## DEPRECATED METHOD: Verify access to the Cluster Manager storage account
-
-> [!IMPORTANT]
-> The Cluster Manager storage account is targeted for removal in April 2025 at the latest. If you're using this method today for command output, consider converting to using a user provided storage account.
-
-If using the Cluster Manager storage method, verify you have access to the Cluster Manager's storage account:
-
-1. From Azure portal, navigate to Cluster Manager's Storage account.
-1. In the Storage account details, select **Storage browser** from the navigation menu on the left side.
-1. In the Storage browser details, select on **Blob containers**.
-1. If you encounter a `403 This request is not authorized to perform this operation.` while accessing the storage account, storage account’s firewall settings need to be updated to include the public IP address.
-1. Request access by creating a support ticket via Portal on the Cluster Manager resource. Provide the public IP address that requires access.
+[!INCLUDE [command-output-settings](./includes/run-commands/command-output-settings.md)]
 
 ## Execute a run-read command
 
@@ -270,7 +239,7 @@ These commands can be long running so the recommendation is to set `--limit-time
 
 This command runs synchronously. If you wish to skip waiting for the command to complete, specify the `--no-wait --debug` options. For more information, see [how to track asynchronous operations](howto-track-async-operations-cli.md).
 
-When an optional argument `--output-directory` is provided, the output result is downloaded and extracted to the local directory.
+When an optional argument `--output-directory` is provided, the output result is downloaded and extracted to the local directory, provided the user running the command has appropriate access to the Storage Account.
 
 > [!WARNING]
 > Using the `--output-directory` argument overwrites any files in the local directory that have the same name as the new files being created.
@@ -305,9 +274,9 @@ az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>
     --subscription "<subscription>"
 ```
 
-## Check the command status and view the output in a user specified storage account
+## Check the command status
 
-Sample output is shown. It prints the top 4,000 characters of the result to the screen for convenience and provides a short-lived link to the storage blob containing the command execution result. You can use the link to download the zipped output file (tar.gz). To access the output, users need the appropriate access to the storage blob. For information on assigning roles to storage accounts, see [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal).
+Sample output is shown. It prints the top 4,000 characters of the result to the screen for convenience and provides a short-lived link to the storage blob containing the command execution result.
 
 ```output
   ====Action Command Output====
@@ -324,20 +293,4 @@ Sample output is shown. It prints the top 4,000 characters of the result to the 
   https://<storage_account_name>.blob.core.windows.net/bmm-run-command-output/a8e0a5fe-3279-46a8-b995-51f2f98a18dd-action-bmmrunreadcmd.tar.gz?se=2023-04-14T06%3A37%3A00Z&sig=XXX&sp=r&spr=https&sr=b&st=2023-04-14T02%3A37%3A00Z&sv=2019-12-12
 ```
 
-## DEPRECATED: How to view the output of an `az networkcloud baremetalmachine run-read-command` in the Cluster Manager Storage account
-
-This guide walks you through accessing the output file that is created in the Cluster Manager Storage account when an `az networkcloud baremetalmachine run-read-command` is executed on a server. The name of the file is identified in the `az rest` status output.
-
-1. Open the Cluster Manager Managed Resource Group for the Cluster where the server is housed and then select the **Storage account**.
-
-1. In the Storage account details, select **Storage browser** from the navigation menu on the left side.
-
-1. In the Storage browser details, select on **Blob containers**.
-
-1. Select the baremetal-run-command-output blob container.
-
-1. Storage Account could be locked resulting in `403 This request is not authorized to perform this operation.` due to networking or firewall restrictions. Refer to the [cluster manager storage](#deprecated-method-verify-access-to-the-cluster-manager-storage-account) or the [customer-managed storage](#send-command-output-to-a-user-specified-storage-account) sections for procedures to verify access.
-
-1. Select the output file from the run-read command. The file name can be identified from the `az rest --method get` command. Additionally, the **Last modified** timestamp aligns with when the command was executed.
-
-1. You can manage & download the output file from the **Overview** pop-out.
+[!INCLUDE [command-output-view](./includes/run-commands/command-output-view.md)]

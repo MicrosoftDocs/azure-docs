@@ -6,6 +6,7 @@ author: nabhishek
 ms.topic: conceptual
 ms.date: 01/15/2025
 ms.subservice: orchestration
+ms.custom: sfi-image-nochange
 ---
 
 # Transformation with Azure Databricks

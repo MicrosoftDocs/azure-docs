@@ -39,7 +39,7 @@ Blob APIs work with accounts that have a hierarchical namespace, so most applica
 
 For a complete list of issues and workarounds, see [Known issues with Blob Storage APIs](data-lake-storage-known-issues.md#blob-storage-apis).
 
-Any Hadoop workloads that use the [Windows Azure Storage Blob driver (WASB)](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) driver, must be modified to use the [Azure Blob File System (ABFS)](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html) driver. Unlike the WASB driver that makes requests to the **Blob service** endpoint, the ABFS driver will make requests to the **Data Lake Storage** endpoint of your account.
+Any Hadoop workloads that use the [Windows Azure Storage Blob driver (WASB)](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) driver, must be modified to use the [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) driver. Unlike the WASB driver that makes requests to the **Blob service** endpoint, the ABFS driver will make requests to the **Data Lake Storage** endpoint of your account.
 
 ### Data Lake Storage endpoint
 

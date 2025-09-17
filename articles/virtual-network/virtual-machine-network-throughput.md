@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.date: 07/28/2025
 ms.author: allensu
 ms.reviewer: kumud, mareat
+ms.custom: sfi-image-nochange
 # Customer intent: "As a cloud architect, I want to understand the network bandwidth allocation for Azure virtual machines, so that I can optimize application performance based on throughput needs."
 ---
 

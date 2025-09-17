@@ -10,7 +10,9 @@ ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: b2c
-ms.custom: "b2c-support"
+ms.custom:
+  - "b2c-support"
+  - sfi-image-nochange
 
 
 #Customer intent: As an Android app developer using Azure AD B2C for authentication, I want to configure authentication options in my app, so that I can customize and enhance the authentication experience for my users.

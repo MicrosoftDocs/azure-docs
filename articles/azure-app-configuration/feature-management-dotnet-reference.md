@@ -140,6 +140,63 @@ A `requirement_type` of `All` changes the traversal. First, if there is no filte
 
 In this example, `FeatureW` specifies a `requirement_type` of `All`, meaning all of its filters must evaluate to true for the feature to be enabled. In this case, the feature is enabled for 50% of users during the specified time window.
 
+#### Handling multiple configuration sources
+
+Starting with v4.3.0, you can opt in to custom merging for Microsoft schema feature flags (the `feature_management` section). When the same feature flag ID appears in multiple configuration sources, the built-in `ConfigurationFeatureDefinitionProvider` merges those definitions according to configuration provider registration order. If there's a conflict, the last feature flag definition wins. This behavior differs from .NET's default array index-based merging.
+
+The following example demonstrates how to enable custom feature flag configuration merging through dependency injection.
+
+```C#
+IConfiguration configuration = new ConfigurationBuilder()
+    .AddJsonFile("appsettings.json")
+    .AddJsonFile("appsettings.prod.json")
+    .Build();
+
+services.AddSingleton(configuration);
+services.AddFeatureManagement();
+services.Configure<ConfigurationFeatureDefinitionProviderOptions>(o =>
+{
+        o.CustomConfigurationMergingEnabled = true;
+});
+```
+
+You can also enable it when constructing the `ConfigurationFeatureDefinitionProvider`
+
+```C#
+var featureManager = new FeatureManager(
+    new ConfigurationFeatureDefinitionProvider(
+            configuration,
+            new ConfigurationFeatureDefinitionProviderOptions
+            {
+                    CustomConfigurationMergingEnabled = true
+            }));
+```
+
+Example behavior:
+
+```javascript
+// appsettings.json
+{
+    "feature_management": {
+        "feature_flags": [
+            { "id": "FeatureA", "enabled": true },
+            { "id": "FeatureB", "enabled": false }
+        ]
+    }
+}
+
+// appsettings.prod.json (added later in ConfigurationBuilder)
+{
+    "feature_management": {
+        "feature_flags": [
+            { "id": "FeatureB", "enabled": true }
+        ]
+    }
+}
+```
+
+With custom merging enabled, `FeatureA` remains enabled and `FeatureB` resolves to enabled (last declaration wins). With default .NET merging (custom merging disabled), arrays are merged by index, which can yield unexpected results if sources don’t align by position.
+
 ### .NET Feature Management schema
 
 In previous versions, the primary schema for the feature management library was the [`.NET feature management schema`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/schemas/FeatureManagement.Dotnet.v1.0.0.schema.json). Starting from v4.0.0, new features including variants and telemetry are not supported for the .NET feature management schema.
@@ -421,12 +478,16 @@ public class BrowserFilter : IFeatureFilter
 When a feature filter is registered for a feature flag, the alias used in configuration is the name of the feature filter type with the _Filter_ suffix, if any, removed. For example, `MyCriteriaFilter` would be referred to as _MyCriteria_ in configuration.
 
 ``` JavaScript
-"MyFeature": {
-    "EnabledFor": [
-        {
-            "Name": "MyCriteria"
-        }
-    ]
+{
+    "id": "MyFeature",
+    "enabled": true,
+    "conditions": {
+        "client_filters": [
+            {
+                "name": "MyCriteria"
+            }
+        ]
+    }
 }
 ```
 This name can be overridden by using the `FilterAliasAttribute`. A feature filter can be decorated with this attribute to declare the name that should be used in configuration to reference this feature filter within a feature flag.
@@ -539,15 +600,19 @@ Each of the built-in feature filters has its own parameters. Here's the list of 
 This filter provides the capability to enable a feature based on a set percentage.
 
 ``` JavaScript
-"EnhancedPipeline": {
-    "EnabledFor": [
-        {
-            "Name": "Microsoft.Percentage",
-            "Parameters": {
-                "Value": 50
+{
+    "id": "EnhancedPipeline",
+    "enabled": true,
+    "conditions": {
+        "client_filters": [
+            {
+                "name": "Microsoft.Percentage",
+                "parameters": {
+                    "Value": 50
+                }
             }
-        }
-    ]
+        ]
+    }
 }
 ```
 
@@ -556,16 +621,20 @@ This filter provides the capability to enable a feature based on a set percentag
 This filter provides the capability to enable a feature based on a time window. If only `End` is specified, the feature is considered on until that time. If only `Start` is specified, the feature is considered on at all points after that time.
 
 ``` JavaScript
-"EnhancedPipeline": {
-    "EnabledFor": [
-        {
-            "Name": "Microsoft.TimeWindow",
-            "Parameters": {
-                "Start": "Wed, 01 May 2019 13:59:59 GMT",
-                "End": "Mon, 01 Jul 2019 00:00:00 GMT"
+{
+    "id": "EnhancedPipeline",
+    "enabled": true,
+    "conditions": {
+        "client_filters": [
+            {
+                "name": "Microsoft.TimeWindow",
+                "parameters": {
+                    "Start": "Wed, 01 May 2019 13:59:59 GMT",
+                    "End": "Mon, 01 Jul 2019 00:00:00 GMT"
+                }
             }
-        }
-    ]
+        ]
+    }
 }
 ```
 
@@ -575,26 +644,24 @@ The time window can be configured to recur periodically. This can be useful for 
 > `Start` and `End` must be both specified to enable `Recurrence`.
 
 ``` JavaScript
-"EnhancedPipeline": {
-    "EnabledFor": [
-        {
-            "Name": "Microsoft.TimeWindow",
-            "Parameters": {
-                "Start": "Fri, 22 Mar 2024 20:00:00 GMT",
-                "End": "Sat, 23 Mar 2024 02:00:00 GMT",
-                "Recurrence": {
-                    "Pattern": {
-                        "Type": "Daily",
-                        "Interval": 1
-                    },
-                    "Range": {
-                        "Type": "NoEnd"
-                    }
+"client_filters": [
+    {
+        "name": "Microsoft.TimeWindow",
+        "parameters": {
+            "Start": "Fri, 22 Mar 2024 20:00:00 GMT",
+            "End": "Sat, 23 Mar 2024 02:00:00 GMT",
+            "Recurrence": {
+                "Pattern": {
+                    "Type": "Daily",
+                    "Interval": 1
+                },
+                "Range": {
+                    "Type": "NoEnd"
                 }
             }
         }
-    ]
-}
+    }
+]
 ```
 
 The `Recurrence` settings are made up of two parts: `Pattern` (how often the time window repeats) and `Range` (for how long the recurrence pattern repeats). 
@@ -712,39 +779,43 @@ To create a recurrence rule, you must specify both `Pattern` and `Range`. Any pa
 This filter provides the capability to enable a feature for a target audience. An in-depth explanation of targeting is explained in the [targeting](#targeting) section. The filter parameters include an `Audience` object that describes users, groups, excluded users/groups, and a default percentage of the user base that should have access to the feature. Each group object that is listed in the `Groups` section must also specify what percentage of the group's members should have access. If a user is specified in the `Exclusion` section, either directly or if the user is in an excluded group, the feature is disabled. Otherwise, if a user is specified in the `Users` section directly, or if the user is in the included percentage of any of the group rollouts, or if the user falls into the default rollout percentage then that user will have the feature enabled.
 
 ``` JavaScript
-"EnhancedPipeline": {
-    "EnabledFor": [
-        {
-            "Name": "Microsoft.Targeting",
-            "Parameters": {
-                "Audience": {
-                    "Users": [
-                        "Jeff",
-                        "Alicia"
-                    ],
-                    "Groups": [
-                        {
-                            "Name": "Ring0",
-                            "RolloutPercentage": 100
-                        },
-                        {
-                            "Name": "Ring1",
-                            "RolloutPercentage": 50
-                        }
-                    ],
-                    "DefaultRolloutPercentage": 20,
-                    "Exclusion": {
+{
+    "id": "EnhancedPipeline",
+    "enabled": true,
+    "conditions": {
+        "client_filters": [
+            {
+                "name": "Microsoft.Targeting",
+                "parameters": {
+                    "Audience": {
                         "Users": [
-                            "Ross"
+                            "Jeff",
+                            "Alicia"
                         ],
                         "Groups": [
-                            "Ring2"
-                        ]
+                            {
+                                "Name": "Ring0",
+                                "RolloutPercentage": 100
+                            },
+                            {
+                                "Name": "Ring1",
+                                "RolloutPercentage": 50
+                            }
+                        ],
+                        "DefaultRolloutPercentage": 20,
+                        "Exclusion": {
+                            "Users": [
+                                "Ross"
+                            ],
+                            "Groups": [
+                                "Ring2"
+                            ]
+                        }
                     }
                 }
             }
-        }
-    ]
+        ]
+    } 
 }
 ```
 

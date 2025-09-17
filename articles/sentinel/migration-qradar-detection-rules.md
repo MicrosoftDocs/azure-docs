@@ -5,6 +5,7 @@ author: EdB-MSFT
 ms.author: edbaynash
 ms.topic: how-to
 ms.date: 07/03/2025
+ms.custom: sfi-image-nochange
 
 #Customer intent: As a security engineer, I want to migrate QRadar detection rules to Microsoft Sentinel so that analysts can leverage machine learning analytics for more efficient threat detection and incident response.
 
