@@ -7,7 +7,7 @@ ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-file-storage
 ai-usage: ai-assisted
-ms.date: 09/10/2025
+ms.date: 09/18/2025
 ---
 
 # Reliability in Azure Files
@@ -45,7 +45,9 @@ Azure Files implements redundancy at the storage account level, with file shares
 
 [!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
 
-To effectively manage transient faults when using Azure Files, configure appropriate timeout values for your file operations based on file size and network conditions. Larger files require longer timeouts, while smaller operations can use shorter values to detect failures quickly. <!-- PG: Please verify this is valid advice. -->
+To effectively manage transient faults when using Azure Files, configure appropriate timeout values for your file operations based on file size and network conditions. Larger files require longer timeouts, while smaller operations can use shorter values to detect failures quickly.
+
+To ensure that only secure connections are established to your NFS share, we recommend that you configure a private endpoint for your storage account. A private endpoint uses Azure Private Link to assign a static IP address to your storage account from within your virtual network's private address space. A private endpoint helps to prevent connectivity interruptions from dynamic IP address changes. For more information on security for your NFS shares, see [FS files shares - Security and networking](/azure/storage/files/files-nfs-protocol#security-and-networking).
 
 ## Availability zone support
 
@@ -74,9 +76,6 @@ For detailed pricing information, see [Azure Files pricing](https://azure.micros
 ### Configure availability zone support
 
 - **Create a file share with zone redundancy:** To create a new file share with ZRS, see [Create an Azure file share](/azure/storage/files/storage-how-to-create-file-share) and select ZRS or GZRS as the redundancy option during account creation.
-
-  >[!TIP]
-  >To ensure that only secure connections are established to your NFS share, we recommend that you configure a private endpoint for your storage account. A private endpoint (also called a private link) gives your storage account a private, static IP address within your virtual network, preventing connectivity interruptions from dynamic IP address changes. For more information on security for your NFS shares, see [FS files shares - Security and networking](/azure/storage/files/files-nfs-protocol#security-and-networking).
 
 - **Change replication type:** To convert an existing storage account to ZRS and learn about migration options and requirements, see [Change redundancy configuration for Azure Files](/azure/storage/files/files-change-redundancy-configuration?tabs=portal).
 
