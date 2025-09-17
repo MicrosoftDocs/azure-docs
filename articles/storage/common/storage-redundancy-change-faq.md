@@ -163,7 +163,7 @@ When you complete the initial *ZRS* **to** *LRS* conversion, your storage accoun
 
 As with [conversion duration](#how-long-does-the-sku-conversion-process-take), the type of account conversion you initiate affects the number of conflicting features and scenarios.
 
-#### Zonal Conversions
+#### Zonal conversions
 
 Zonal conversions involve adding or removing availability zone options to your account. The following list highlights the most common conflicting features or scenarios that can generate errors when attempting a zonal conversion. If you encounter an error, the error message typically provides details about the specific conflict.
 
@@ -178,7 +178,7 @@ Zonal conversions involve adding or removing availability zone options to your a
 - **Conflicting conversion:** Your account might currently have a conflicting migration in process. For example, you might already have an *LRS* **to** *GRS* migration in progress. Attempting to perform an *LRS* **to** *ZRS* conversion fails. Wait for the original migration to complete before submitting a new conversion request.
 - **Account is failed over:** If your account is failed over, you can fail back your account to its original primary region then resubmit the request.
 
-#### Geo Conversions
+#### Geo conversions
 
 Geo conversions involve adding or removing replication targets in secondary, geographically distant regions. The following list highlights the most common conflicting features or scenarios that can generate errors when attempting a geo conversion. If you encounter an error, the error message typically provides details about the specific conflict.
 
