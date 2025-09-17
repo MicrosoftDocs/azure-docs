@@ -11,7 +11,7 @@ appliesto:
 ---
 # Migrate from Azure Cache for Redis Enterprise to Azure Managed Redis
 
-This how-to article walks  through the process of migrating from Azure Cache for Redis Enterprise to Azure Managed Redis, including benefits of choosing Azure Managed Redis, feature comparisons, migration strategies, and best practices.
+This article discusses the process of migrating from Azure Cache for Redis Enterprise to Azure Managed Redis, including benefits of choosing Azure Managed Redis, feature comparisons, migration strategies, and best practices.
 
 ## Why migrate to Azure Managed Redis?
 
@@ -19,20 +19,21 @@ This how-to article walks  through the process of migrating from Azure Cache for
 
 Like Azure Cache for Redis Enterprise, Azure Managed Redis is also built on the advanced Redis Enterprise software. However, there are subtle differences that make adopting Azure Managed Redis more secure from the start and more and cost-effective.
 
-1. Azure Managed Redis is an Azure first party offering, meaning there is no Azure Marketplace component involved and users do not have to transact with Marketplace separately. You provision, manage, and pay for Azure Managed Redis like any other native Azure service or product.
+1. Azure Managed Redis is an Azure first party offering, meaning there's no Azure Marketplace component involved and users don't have to transact with Marketplace separately. You provision, manage, and pay for Azure Managed Redis like any other native Azure service or product.
 
-1. Azure Managed Redis does not need the _quorum node_  that leads to underused resources and limits the regions or clouds that Azure Cache for Redis Enterprise can be offered in. Azure Managed Redis is now available in majority of the Azure regions, with plans to be supported in other sovereign clouds soon.
-<!-- Do we expect people to know what quorum mode is? and we are making an implicit promise with "concrete plans" -->
+1. Azure Managed Redis doesn't need the _quorum node_ that leads to underused resources and limits the regions or clouds that Azure Cache for Redis Enterprise can be offered in. Azure Managed Redis is now available in most Azure regions with plans to be supported in other sovereign clouds.
 
-1. Removal of the unused “quorum node” results in cost-efficiency as all nodes can be used as as data nodes.
+    For more information about quorum node, see [Enterprise and Enterprise Flash tiers](/azure/azure-cache-for-redis/cache-high-availability#enterprise-and-enterprise-flash-tiers).
+
+1. Removal of the unused _quorum node_ results in cost-efficiency because all nodes can be used as data nodes.
 
 1. Azure Managed Redis is zone redundant by default.
 
-1. Azure Managed Redis offers a mode that does not use high availability (HA) for your development and test environments. Using non-production environments without HA halves the cost of your instance.
+1. Azure Managed Redis offers a mode that doesn't use high availability (HA) for your development and test environments. Using non-production environments without HA halves the cost of your instance.
 
-1. Azure Managed Redis has a much-simplified SKU structure based on your memory and performance requirements. Unlike Azure Cache for Redis Enterprise, where you manage the scale factor or capacity of your instance, Azure Managed Redis offers 3 performance tiers to choose from. Read more here:
+1. Azure Managed Redis has a much-simplified SKU structure based on your memory and performance requirements. Unlike Azure Cache for Redis Enterprise, where you manage the scale factor or capacity of your instance, Azure Managed Redis offers three performance tiers to choose from. Read more here:
 
-1. Azure Managed Redis offers the Entra Id authentication from the start to improves the security posture of your workload.
+1. Azure Managed Redis offers the Microsoft Entra ID authentication when you create a cache to improve the security posture of your workload.
 
 ### Feature comparison
 
@@ -47,21 +48,21 @@ Like Azure Cache for Redis Enterprise, Azure Managed Redis is also built on the 
 | Data persistence | Yes (in preview) | Yes |
 | Scaling | Yes | Yes |
 | TLS version support | 1.2,1.3 | 1.2,1.3 |
-| Entra Id authentication | No | Yes |
+| Microsoft Entra Id authentication | No | Yes |
 | Azure Region support | Limited | Extensive |
 | Azure Sovereign Cloud support | No | Yes (coming soon) |
 | Hostname DNS suffix | `<name>.<region>.redisenterprise.cache.azure.net` | `<name>.<region>.redis.azure.net` |
 
 ## How to migrate to Azure Managed Redis?
 
-Azure Managed Redis uses the same software stack as Azure Cache for Redis Enterprise, so your applications do not need a lot of changes. The signficant exception is the need to change connection credentials.
+Azure Managed Redis uses the same software stack as Azure Cache for Redis Enterprise, so your existing applications using Azure Cache for Redis Enterprise tier don't need many changes. The significant exception is the need to change connection credentials.
 
 ### Different hostname suffix
 
 While the core software for Azure Cache for Redis Enterprise and Azure Managed Redis is similar, the DNS suffix for your Redis cluster hostnames is different. When you move to Azure Managed Redis, your application need to change the Redis cluster hostname. If you use access keys for connecting to your  cache, you must also update access key that it uses to connect to the cache.
 
 > [!IMPORTANT]
-> Consider updating your code that connects to the cache to use Microsoft Entra ID. We recommend using Microsoft Entra ID instead of access keys.
+> Consider updating the code that connects to the cache. Instead of using access keys, use Microsoft Entra ID. We recommend using Microsoft Entra ID instead of access keys.
 
 ## Choosing the right Azure Managed Redis size and SKU
 
@@ -71,14 +72,15 @@ Azure Managed Redis offers many memory sizes and three performance tiers. You ca
 
 To choose the right Azure Managed Redis memory size, go to Azure portal, select Overview from the resource menu. Check the Status field in the Overview of your Azure Cache for Redis Enterprise instance.
 
-The ‘Status’ field shows the memory size of your Redis Enterprise instance.
+The **Status** field shows the memory size of your Redis Enterprise instance.
 
-Azure Cache for Redis Enterprise instances can be scaled out to provide more memory and/or compute resources, so it is important to note the scale out factor for your cache. This is also related to Capacity, which is essentially the number of virtual machines running for your cluster.
+Azure Cache for Redis Enterprise instances can be scaled out to provide more memory and/or compute resources, so it's important to note the scale-out factor for your cache. This is also related to Capacity, which is essentially the number of virtual machines running for your cluster.
 <!-- are we sure we don't want to talk about shards here and not VMs -->
 
 ### Examples
 
-If you are using E5 with scale 2 i.e. your Status on Overview blade says Enterprise 8GB (2 x 4GB), this means you are currently using a 8GB cache and should start with at least 10GB cache on Azure Managed Redis. In this case, it would the M10/B10/X10 which offers 12GB memory
+If you're using E5 with scale 2 i.e. your Status on Overview blade says Enterprise 8GB (2 x 4GB), this means you're currently using a 8-GB cache and should start with at least 10GB cache on Azure Managed Redis. In this case, use the M10/B10/X10 option, which offers 12GB memory.
+<!-- Need to improve this for clarity -->
 
 ### Identify performance tier
 
@@ -86,13 +88,13 @@ Identify if your workload is memory intensive or compute intensive. If your Redi
 
 If your workload is latency or throughput intensive, then your workload is compute intensive and would benefit from starting with Compute Optimized performance tier.
 
-If you are unsure, you can start with the Balanced performance tier which offers a healthy mix of memory and performance.
+If you're unsure, you can start with the Balanced performance tier because it offers a healthy mix of memory and performance.
 
-If you are currently using Redis Enterprise Flash tier, then you should choose the Flash Optimized tier.
+If you're currently using Redis Enterprise Flash tier, then you should choose the Flash Optimized tier.
 
 ## Data migration
 
-When migrating to Azure Managed Redis instance, you should consider whether you need to migrate over your data from existing Redis Enterprise instance to your new Azure Managed Redis instance. If your application can tolerate data loss, or has other mechanisms to re-hydrate the cache without significant impact, then you can skip this step and simply proceed to the next steps.
+When migrating to Azure Managed Redis instance, you should consider whether you need to migrate over your data from existing Redis Enterprise instance to your new Azure Managed Redis instance. If your application can tolerate data loss, or has other mechanisms to rehydrate the cache without negative effects, then you skip this step and proceed to the next steps.
 
 If your application needs to ensure that data is also migrated to the new Azure Managed Redis instance, choose one of the following options:
 
@@ -127,16 +129,16 @@ RIOT-X provides a way to migrate your content from Enterprise to Azure Managed R
 
 ## Create a new Azure Managed Redis instance
 
-Once you have identified the memory and performance tier for your new Azure Managed Redis instance, you can create the new Azure Managed Redis instance using guidance here.
+Once you identify the memory and performance tier for your new Azure Managed Redis instance, you can create the new Azure Managed Redis instance using guidance here.
 
-<!-- add link - to what -->
+<!-- add link - to what? -->
 
 > [!IMPORTANT]
-> If you connect to your existing Redis Enterprise instance through a private endpoint, ensure that your new Azure Managed Redis cache is also peered to the virtual network of your application. The new cache must have a similar set up as existing Redis Enterprise instance.
+> If you connect to your existing Redis Enterprise instance through a private endpoint, ensure that your new Azure Managed Redis cache is also peered to the virtual network of your application. The new cache must have a similar set-up as existing Redis Enterprise instance.
 
 ## Update app to connect to Azure Managed Redis instance
 
-Once you have created your new Azure Managed Redis instance, you need to change the Redis endpoint/hostname and the access key in your application to point to your new Azure Managed Redis instance. We recommend publishing this endpoint change during off-business hours because it result in connectivity blip.
+Once you create a new Azure Managed Redis instance, you must change the Redis endpoint/hostname and the access key in your application to point to your new Azure Managed Redis instance. We recommend publishing this endpoint change during off-business hours because it results in connectivity blip.
 
 Verify that your application is running as expected and then delete your Redis Enterprise instance.
 
