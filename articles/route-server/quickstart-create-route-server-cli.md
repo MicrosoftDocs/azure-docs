@@ -154,7 +154,7 @@ When you no longer need the Route Server and associated resources, delete the re
 az group delete --name 'myResourceGroup' --yes --no-wait
 ```
 
-## Next steps
+## Next step
 
 Now that you've created a Route Server and established BGP peering, learn more about Route Server capabilities:
 

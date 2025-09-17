@@ -226,7 +226,7 @@ When no longer needed, you can delete all resources created in this tutorial by 
 
 1. Select **Delete** to confirm the deletion of the resource group and all its resources.
 
-## Next steps
+## Next step
 
 Now that you've successfully configured BGP peering between Azure Route Server and a network virtual appliance, explore this next article to expand your Azure networking knowledge:
 

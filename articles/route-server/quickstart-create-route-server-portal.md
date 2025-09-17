@@ -110,7 +110,7 @@ When you no longer need the Route Server and associated resources, delete the re
 
 1. Select **Delete** to confirm the deletion of the resource group and all its resources.
 
-## Next steps
+## Next step
 
 Now that you've created a Route Server and established BGP peering, learn more about Route Server capabilities:
 
