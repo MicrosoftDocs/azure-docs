@@ -1,10 +1,12 @@
 ---
 author: msangapu-msft
 ms.service: azure-app-service
-ms.custom: linux-related-content
 ms.topic: include
 ms.date: 03/04/2025
 ms.author: msangapu
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
 ---
 
 > [!NOTE]

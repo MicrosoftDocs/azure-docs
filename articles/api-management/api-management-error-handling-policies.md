@@ -6,6 +6,7 @@ ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 01/06/2025
 ms.author: danlep
+ms.custom: sfi-image-nochange
 ---
 
 # Error handling in API Management policies

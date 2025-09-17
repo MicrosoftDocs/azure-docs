@@ -1,14 +1,15 @@
 ---
 title: Import and export Microsoft Sentinel automation rules | Microsoft Docs
 description: Export and import automation rules to and from ARM templates to aid deployment
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.date: 08/07/2024
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+ms.custom: sfi-image-nochange
 ---
 
 # Export and import automation rules to and from ARM templates

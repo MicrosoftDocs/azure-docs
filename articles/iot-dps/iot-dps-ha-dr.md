@@ -7,8 +7,10 @@ ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 02/04/2022
-ms.custom: references_regions
 ms.subservice: azure-iot-hub-dps
+ms.custom:
+  - references_regions
+  - sfi-image-nochange
 ---
 
 # IoT Hub Device Provisioning Service high availability and disaster recovery

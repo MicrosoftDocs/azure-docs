@@ -45,7 +45,13 @@ For **Premium v2 to v4 tiers**, you can configure App Service as *zone redundant
 
 ### Region support
 
-You can deploy zone-redundant App Service **Premium v2 to v4** plans in [any region that supports availability zones](./regions-list.md).
+- For App Service **Premium v2 and v3** plans, zone redundancy is supported in [any region that supports availability zones](./regions-list.md).
+
+- To enable zone redundancy for **App Service Premium v4** plans:
+
+   1. [Confirm that your desired region supports v4 plans](/azure/app-service/app-service-configure-premium-v4-tier#regions).
+   2. [Determine if that region supports availability zones](./regions-list.md).
+
 
 ### Requirements
 
@@ -95,7 +101,7 @@ If you enable availability zones but specify a capacity of less than two, the pl
 
 [!INCLUDE [Zone-down experience description](includes/app-service/reliability-zone-down-experience-include.md)]
 
-### Failback
+### Zone recovery
 
 [!INCLUDE [Failback description](includes/app-service/reliability-failback-include.md)]
 

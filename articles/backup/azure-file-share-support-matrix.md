@@ -33,7 +33,7 @@ Vaulted backup for Azure Files is available in the following regions: UK South, 
 
 Cross Region Restore is supported in all preceding regions, except Italy North.
 
-Migration of  File Shares protected with snapshot backup to vaulted backup is supported in the following regions: UK South, UK West, Southeast Asia, East Asia, West Central US, India Central, Spain Central, Jio India West, Israel Central, Australia Central 2 and Germany North. 
+Migration of  File Shares protected with snapshot backup to vaulted backup is supported in the following regions: UK South, UK West, Southeast Asia, East Asia, West Central US, India Central, Spain Central, Jio India West, Israel Central, Australia Central 2 and Germany North, Brazil South, Switzerland North, South Africa North, Australia Southeast, Sweden Central, Norway East, UAE North, West US 3, Japan West, Korea Central, Canada East, South India, Italy North, Poland Central, Australia Central. 
 
 >[!Note]
 >Cross Subscription Backup and Restore are supported for vaulted backup.

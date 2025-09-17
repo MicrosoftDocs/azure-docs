@@ -21,8 +21,6 @@ items:
       - name: Spin up a new dev box
         href: quickstart-create-dev-box.md
         displayName: connect, access dev box
-      - name: Use Team Customizations
-        href: quickstart-team-customizations.md
   - name: Concepts
     items:
       - name: Key concepts
@@ -78,6 +76,8 @@ items:
       - name: What are Dev Box customizations
         href: concept-what-are-dev-box-customizations.md
         displayName: customizations, image definition, team customization
+      - name: Quickstart:Use Team Customizations
+        href: quickstart-team-customizations.md
       - name: Configure team customizations
         href: how-to-configure-team-customizations.md
         displayName: customizations, image definition, team customization
@@ -114,10 +114,9 @@ items:
         href: how-to-configure-dev-box-serverless-gpu.md
   - name: Security
     items:
-      - name: Provide access to project admins
-        href: how-to-project-admin.md
-      - name: Provide access to dev box users
-        href: how-to-dev-box-user.md
+      - name: Manage project access
+        href: how-to-manage-dev-box-access.md
+        displayName: project access, RBAC, roles, permissions
       - name: Configure conditional access policies
         href: how-to-configure-intune-conditional-access-policies.md
       - name: Configure elevated privilege for dev boxes

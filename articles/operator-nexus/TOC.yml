@@ -347,6 +347,11 @@
           href: howto-configure-acls-for-ssh-management-on-access-vpn.md
         - name: Enable/Disable Vulnerability Scanning
           href: howto-enable-disable-vulnerability-scanning.md
+    - name: Storage Appliance
+      expanded: false
+      items:
+        - name: Storage Appliance Run-Read Commands
+          href: howto-storage-run-read.md
     - name: Install CLI Extension
       href: howto-install-cli-extensions.md
     - name: General
@@ -386,6 +391,8 @@
           href: troubleshoot-control-plane-quorum.md
         - name: Troubleshoot Cluster heartbeat connection status disconnected
           href: troubleshoot-cluster-heartbeat-connection-status-disconnected.md
+        - name: Troubleshoot Nexus logs disrupted post prolonged disconnection period
+          href: troubleshoot-logs-disrupted-post-prolonged-disconnection.md
     - name: Network Fabric
       expanded: false
       items:

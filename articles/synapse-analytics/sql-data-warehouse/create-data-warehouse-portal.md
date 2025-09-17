@@ -11,6 +11,7 @@ ms.topic: quickstart
 ms.custom:
   - azure-synapse
   - mode-ui
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create and query a dedicated SQL pool (formerly SQL DW) in Azure synapse Analytics using the Azure portal

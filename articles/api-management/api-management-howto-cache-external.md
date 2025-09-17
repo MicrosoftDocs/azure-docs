@@ -6,8 +6,9 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 01/13/2025
+ms.date: 09/11/2025
 ms.author: danlep
+ms.custom: sfi-image-nochange
 
 ---
 
@@ -15,7 +16,7 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-In addition to utilizing the built-in cache, Azure API Management allows for caching responses in an external Redis-compatible cache, such as Azure Cache for Redis or Azure Managed Redis.
+In addition to utilizing the [built-in cache](api-management-howto-cache.md), Azure API Management allows for caching responses in an external Redis-compatible cache, such as Azure Managed Redis.
 
 Using an external cache allows you to overcome a few limitations of the built-in cache:
 
@@ -24,6 +25,8 @@ Using an external cache allows you to overcome a few limitations of the built-in
 * Cache more data than your API Management tier allows
 * Use caching with the Consumption tier of API Management
 * Enable caching in the [API Management self-hosted gateway](self-hosted-gateway-overview.md)
+
+For background and scenarios for caching, see [Caching overview](caching-overview.md). 
 
 For more detailed information about caching, see [API Management caching policies](api-management-policies.md#caching) and  [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
 
@@ -41,14 +44,14 @@ To complete this tutorial, you need to:
 
 + [Create an Azure API Management instance](get-started-create-service-instance.md)
 + Understand [caching in Azure API Management](api-management-howto-cache.md)
-+ Have an [Azure Cache for Redis](../azure-cache-for-redis/quickstart-create-redis.md), [Azure Managed Redis](../redis/quickstart-create-managed-redis.md), or another Redis-compatible cache available. 
++ Have an [Azure Managed Redis](../redis/quickstart-create-managed-redis.md), [Azure Cache for Redis](../azure-cache-for-redis/quickstart-create-redis.md), or another Redis-compatible cache available.
 
     > [!IMPORTANT]
     > Azure API Management uses a Redis connection string to connect to the cache. If you use Azure Cache for Redis or Azure Managed Redis, enable access key authentication in your cache to use a connection string. Currently, you can't use Microsoft Entra authentication to connect Azure API Management to Azure Cache for Redis or Azure Managed Redis.
 
 ### Redis cache for Kubernetes
 
-For an API Management self-hosted gateway, caching requires an external cache. For caching to be effective, a self-hosted gateway and the cache it relies on must be located close to each other to minimize lookup and store latencies. Deploying a Redis cache into the same Kubernetes cluster or in a separate cluster nearby are the best options. Learn how to [deploy Redis cache to a Kubernetes cluster](https://github.com/kubernetes/examples/tree/master/guestbook).
+For an API Management self-hosted gateway, caching requires an external cache. For caching to be effective, a self-hosted gateway and the cache it relies on must be located close to each other to minimize lookup and store latencies. Deploying a Redis cache into the same Kubernetes cluster or in a separate cluster nearby are the best options. Learn how to [deploy Redis cache to a Kubernetes cluster](https://kubernetes.io/docs/tutorials/configuration/configure-redis-using-configmap/).
 
 ## Add an external cache
 

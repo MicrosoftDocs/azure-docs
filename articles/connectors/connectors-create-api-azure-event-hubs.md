@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 08/05/2025
+ms.custom: sfi-image-nochange
 #customer intent: As an integration developer, I want to connect my logic app workflows to Azure Event Hubs so I can automate tasks that monitor and manage events in my event hub.
 ---
 

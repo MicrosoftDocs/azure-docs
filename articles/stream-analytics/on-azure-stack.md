@@ -6,6 +6,7 @@ author: an-emma
 ms.author: raan
 ms.topic: how-to
 ms.date: 03/15/2021
+ms.custom: sfi-image-nochange
 ---
 
 # Run Azure Stream Analytics on Azure Stack

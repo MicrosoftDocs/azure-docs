@@ -20,6 +20,8 @@ Active geo-replication groups up to five instances of Azure Managed Redis into a
 > [!NOTE]
 > Data transfer between Azure regions is charged at standard [bandwidth rates](https://azure.microsoft.com/pricing/details/bandwidth/).
 >
+> Data sync among replicas follows eventual consistency. The service does not provide SLA on sync time. Please design your system without relying on the  timeliness of data sync.
+>
 
 ## How active geo-replication works
 
@@ -166,6 +168,8 @@ New-AzRedisEnterpriseCache -Name "Cache2" -ResourceGroupName "myResourceGroup" -
 As before, you need to list both _Cache1_ and _Cache2_ using the `-LinkedDatabase` parameter.
 
 ## Scaling instances in a geo-replication group
+
+Scaling geo-replicated caches is in Public Preview.
 
 It's possible to scale instances that are configured to use active geo-replication. However, a geo-replication group with a mix of different cache sizes can introduce problems. To prevent these issues from occurring, all caches in a geo replication group need to be the same size and performance tier.
 
