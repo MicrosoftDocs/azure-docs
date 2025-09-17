@@ -141,7 +141,7 @@ items:
         href: create-conversational-agent-workflows.md
       - name: Multiagent scenarios
         items:
-        - name: Compare single agent versus multiple agent workflows
+        - name: Single agent versus multiple agents
           href: single-versus-multiple-agents.md
         - name: Call AI agents sequentially to complete subtasks
           href: set-up-prompt-chain-agent-workflow.md

@@ -72,7 +72,7 @@ Follow these steps to create a new conversational agent workflow:
 
 Follow these steps to add set up your triage agent:
 
-1. In the designer, select the empty **Agent** action.
+1. On the designer, select the empty **Agent** action.
 
 1. On the information pane that opens, select the default action name, and rename the action to **Customer service agent**.
 
@@ -101,7 +101,7 @@ Follow these steps to add specialized agents:
 
 ### 3.1 - Add the refund specialist agent
 
-1. In the designer, under your customer service agent, select the plus (**+**) sign, and then select **Add a hand-off agent**.
+1. On the designer, under your customer service agent, select the plus (**+**) sign, and then select **Add a hand-off agent**.
 
    A new empty agent appears on the designer. Your **Customer service agent** stays selected, but the agent information pane automatically switches from the **Parameters** tab to the **Handoffs** tab.
 
@@ -141,7 +141,7 @@ Follow these steps to add specialized agents:
 
 ### 3.2 - Add the sales specialist agent
 
-1. In the designer, under your customer service agent, hover over the handoff icon, and add another handoff agent.
+1. On the designer, under your customer service agent, hover over the handoff icon, and add another handoff agent.
 
    :::image type="content" source="media/set-up-handoff-agent-workflow/add-handoff-between-agents.png" alt-text="Screenshot shows handoff button between agents and selected option to add another handoff agent." lightbox="media/set-up-handoff-agent-workflow/add-handoff-between-agents.png":::
 
@@ -186,7 +186,67 @@ The system instructions for each specialist agent describes the capability to ha
 
 Follow these steps to set up handoff capability from the refund agent to the customer service agent:
 
+1. On the designer, select the **Refund specialist agent**. On the information pane that opens, select **Handoffs**.
 
+1. From the **Select agents** list, choose the agent that gains control for the handoff, which is **Customer service agent** in this example.
+
+1. In the **Handoff description** box for the customer service agent, provide a reason for the handoff, for example:
+
+   `Return control to the customer service agent when the customer's request is unrelated to refunds, returns, or billing. For example, hand off when customers ask about products, orders, have general questions, or need help that's not related to refunds.`
+
+### 4.2 - Add a handoff tool to the sales agent
+
+1. On the designer, select the **Sales specialist agent**. On the information pane that opens, select **Handoffs**.
+
+1. From the **Select agents** list, choose the agent that gains control for the handoff, which is **Customer service agent** in this example.
+
+1. In the **Handoff description** box for the customer service agent, provide a reason for the handoff, for example:
+
+   `Return control to the customer service agent when the customer's request is unrelated to sales, product recommendations, or help with purchaes or orders. For example, hand off when customers ask about refunds, returns, billing, have general questions, or need help that's not related to sales.`
+
+## 5 - Set up agent-specific tools
+
+Each agent has specialized tools to complete expertise-related tasks. In Azure Logic Apps, you build these tools for each agent. For simplicity, this example uses the **Compose** to mock tool calls. In reality, you'd select from available built-in or connector actions to perform real-world tasks for your specific scenario.
+
+### 5.1 - Add tools to the refund agent
+
+The refund specialist agent has two specialized tools: **look_up_item** and **execute_refund**.
+
+1. On the designer, in the **Sales specialist agent**, under **Add tool**, select the plus sign (**+**) to add an action.
+
+1. In the **Add an action** pane, find and select the **Compose** action.
+
+   The following panes appear for the **Compose** action and the tool container.
+
+   :::image type="content" source="{source}" alt-text="{alt-text}":::
+
+1. Set up the tool to find product items and return an item ID:
+
+   1. On the **Tool** pane, change pane name to **look_up_item**.
+
+   1. In the **Description** box, provide details about the tool's purpose and tasks, for example:
+
+      `Find the ID for the product or item. The search query can use a description or keywords.`
+
+1. Set up the **Compose** action to implement the tool:
+
+   1. On the **Compose** pane, change pane name to **Find item**.
+
+   1. Select inside the **Inputs** box to display the input options.
+
+   1. At the end of the **Inputs** box, select the stars symbol to generate the agent parameter.
+
+   1. In the **Create agent parameter** window, provide the following information:
+
+      | Parameter | Value |
+      |-----------|-------|
+      | **Name** | `order_id` |
+      | **Type** | `String` |
+      | **Description** | `The order ID` |
+
+   1. When you're donem, select **Create**.
+
+   1. 
 
 ## Best practices
 
