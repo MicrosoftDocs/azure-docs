@@ -45,8 +45,8 @@ Provide the following details when contacting Microsoft Support:
 
 ## Support model
 
-> **Recommendation**  
-> Third-party providers should create internal self-help guides for their customers. These guides should include common symptoms, checks, solutions, health KQL queries, error codes, and instructions for collecting logs.
+> [!IMPORTANT]  
+> Independent software vendors should create self-help guides for their solutions. These guides should include common symptoms, checks, solutions, health KQL queries, error codes, and instructions for collecting logs.
 
 **Microsoft Support covers**  
 Microsoft Support can assist with:  
