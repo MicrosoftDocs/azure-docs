@@ -401,7 +401,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP419' />BCP419 | Error | Namespace name `{name}` cannot be used as an extension name.|
 | <a id='BCP420' />[BCP420](./diagnostics/bcp420.md) | Error | The scope could not be resolved at compile time because the supplied expression is ambiguous or too complex. Scoping expressions must be reducible to a specific kind of scope without knowledge of parameter values. |
 | <a id='BCP421' />BCP421 | Error | Module `{moduleName}` contains one or more secure outputs, which are not supported with `{LanguageConstants.TargetScopeKeyword}` set to `{LanguageConstants.TargetScopeTypeLocal}`.|
-| <a id='BCP422' />BCP422 | Error | A resource of type `{baseType}` may or may not exist when this function is called, which could cause the deployment to fail.|
+| <a id='BCP422' />[BCP422](./diagnostics/bcp422.md) | Warning | A resource of type `<resource-type>` may or may not exist when this function is called, which could cause the deployment to fail.|
 
 ## Next steps
 
