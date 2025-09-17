@@ -48,7 +48,7 @@ sections:
         answer: | 
           Azure Cache for Redis is built on a fork of the Redis open source software (OSS). Azure Managed Redis uses the Redis Enterprise software. Redis Enterprise essentially builds on Redis OSS with advanced features designed for scalability, reliability, and enterprise-grade security. 
           
-          For more information, see [What is Azure Managed Redis?](../managed-redis/overview.md) to learn more about the architecture and benefits of Azure Managed Redis.
+          For more information, see [What is Azure Managed Redis?](overview.md) to learn more about the architecture and benefits of Azure Managed Redis.
 
       - question: What changes do I need to make in my applications to connect to and use Azure Managed Redis?
 
@@ -104,7 +104,7 @@ sections:
         answer: | 
           Given the benefits of using Azure Managed Redis, we highly recommend you migrate to Azure Managed Redis as soon as possible, without waiting for the retirement deadline.
 
-          For step-by-step instructions, see the [migration guide to Azure Managed Redis](/migrate/migrate-overview).
+          For step-by-step instructions, see the [Move from Azure Cache for Redis to Azure Managed Redis](migrate/migrate-overview.md).
 
       - question: How do I retain my data during migration?
 
@@ -122,7 +122,6 @@ sections:
           If you are using the migration tooling, then you should expect a connection blip when the DNS record for your Redis instance is updated to point to the new Azure Managed Redis cache. This blip is a few seconds and should be comparable to the blip that your application experiences during regular maintenance.
 
       - question: Are reservations or reserved pricing for Azure Cache for Redis transferable to Azure Managed Redis?
-
 
         answer: | 
           You can cancel or exchange your existing reservation. For more information, see [Cancel, exchange, and refund policies](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
