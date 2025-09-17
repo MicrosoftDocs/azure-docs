@@ -69,7 +69,7 @@ The following table describes best practices for the prompt chaining pattern:
 | Optimize prompts | Refine agent instructions based on results. |
 | Test edge cases | Validate behavior with unusual or malformed inputs. |
 
-## Set up the data extractor agent
+## Set up the data extraction agent
 
 Follow these steps to set up the default empty agent:
 
@@ -79,7 +79,7 @@ Follow these steps to set up the default empty agent:
 
 1. On the designer, select the empty **Agent** action.
 
-1. On the information pane that opens, select the default action name, and rename the action to **Data extractor agent**.
+1. On the information pane that opens, select the default action name, and rename the action to **Data extraction agent**.
 
 1. On the **Parameters** tab, provide the following information:
 
@@ -112,7 +112,7 @@ Follow these steps to set up the default empty agent:
 
 ## Set up the data conversion agent
 
-Follow these steps to set up the next agent, which receives output from the data extractor agent.
+Follow these steps to set up the next agent, which receives output from the data extraction agent.
 
 1. Under **Data extraction agent**, select the plus sign (**+**), and then select **Add an agent**.
 
