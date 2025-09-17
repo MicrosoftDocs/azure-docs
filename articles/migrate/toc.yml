@@ -188,7 +188,7 @@ items:
     - name: Support matrix for VMware 
       href: migrate-support-matrix-vmware-migration.md
     - name: Physical agent-based
-      href: ../site-recovery/vmware-physical-azure-support-matrix.md?=/learn/azure/site-recovery/toc.json
+      href: ../vmware-physical-azure-support-matrix.md?=/azure/site-recovery/toc.json
     - name: Hyper-V support matrix
       href: migrate-support-matrix-hyper-v-migration.md
   # - name: Agent-based migrations
