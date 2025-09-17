@@ -37,7 +37,7 @@ Like Azure Cache for Redis Enterprise, Azure Managed Redis is also built on the 
 
 ### Feature comparison
 
-| **Feature** | **Azure Cache for Redis Enterprise** | **Azure Managed Redis** |
+| Feature | Azure Cache for Redis Enterprise | Azure Managed Redis |
 |----|----|----|
 | Redis version | 7.2 | 7.4 |
 | Clustering policy | OSS, Enterprise | OSS, Enterprise, Non-clustered |
