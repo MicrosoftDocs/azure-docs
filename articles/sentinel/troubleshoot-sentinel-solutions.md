@@ -98,7 +98,7 @@ Use the following scenario-based checks and solutions to troubleshoot common iss
 
 |**Checks to perform**  |**Solution**  |
 |---------|---------|
-|- Confirm manifest fields and versioning.  <br> - Review cross-offer prerequisites (Content Hub versus Security Store).  | - Run local validation.  <br> - Keep directory and filenames stable.  <br> - Document installation, upgrade, and uninstallation flows.  | - Run local validation.  <br> - Keep directory and filenames stable.  <br> - Document installation, upgrade, and uninstallation flows.  |
+|- Confirm manifest fields and versioning.  <br> - Review cross-offer prerequisites (Content Hub versus Security Store).  | - Run local validation.  <br> - Keep directory and filenames stable.  <br> - Document installation, upgrade, and uninstallation flows.  |
 
 ### Agentic experiences via Model Context Protocol (MCP) not working in Visual Studio Code
 
