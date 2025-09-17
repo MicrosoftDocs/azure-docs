@@ -47,13 +47,13 @@ You can use FHIR search parameters in the request. The bulk update operation sup
 ### Request examples
 
 1. System level bulk update: Execution of the operation at system-level enables update on FHIR resources across all the resource types on the FHIR server.
- - **PATCH https://{FHIR-SERVICE-HOST}/$bulk-update**
+ `PATCH https://{FHIR-SERVICE-HOST}/$bulk-update`
 2. Updates scoped to individual resource type: Execution of the operation for individual resource types allows update on FHIR resources that map to the resource type in the URL.
- - **PATCH https://{FHIR-SERVICE-HOST}/[ResourceType]/$bulk-update**
+ `PATCH https://{FHIR-SERVICE-HOST}/[ResourceType]/$bulk-update`
 3. Querying resources to update based on search parameters. In this example we will be using `_include` and `_revinclude`
    Update all Patient resources last updated before 2021-12-18 and any resources referencing them:
-    - <b>PATCH {FHIR-SERVICE-HOST}/Patient/$bulk-update?_lastUpdated=lt2021-12-18&_revinclude=*</b>
-    - **PATCH {FHIR-SERVICE-HOST}/DiagnosticReport/$bulk-update?_lastUpdated=lt2021-12-12&_include=DiagnosticReport:based-on:ServiceRequest&_include:iterate=ServiceRequest:encounter**
+    `PATCH {FHIR-SERVICE-HOST}/Patient/$bulk-update?_lastUpdated=lt2021-12-18&_revinclude=*`
+    `PATCH {FHIR-SERVICE-HOST}/DiagnosticReport/$bulk-update?_lastUpdated=lt2021-12-12&_include=DiagnosticReport:based-on:ServiceRequest&_include:iterate=ServiceRequest:encounter`
 
 When using bulk update with FHIR search parameters, consider using the same query in a FHIR search first, so that you can verify the data that you plan to update.
 
