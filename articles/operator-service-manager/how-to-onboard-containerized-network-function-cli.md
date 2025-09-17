@@ -1,8 +1,8 @@
 ---
 title: How to onboard a CNF using the Azure Operator Service Manager CLI extension
 description: Learn how to onboard a CNF using the Azure Operator Service Manager CLI extension.
-author: pjw711
-ms.author: peterwhiting
+author: JAC0BSMITH
+ms.author: jacobsmith
 ms.date: 03/18/2024
 ms.topic: how-to
 ms.service: azure-operator-service-manager
