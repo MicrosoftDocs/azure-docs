@@ -123,8 +123,8 @@ You can learn more about changing a storage account's replication options in the
 
 A direct *LRS* **to** *GZRS* conversion isn't supported. This conversion requires a two-step process that can be completed in two ways:
 
-1. *LRS* **to** *ZRS*, followed by *ZRS* **to** *GZRS*, or 
-1. *LRS* **to** *GRS*, followed by *GRS* **to** *GZRS*. 
+- *LRS* **to** *ZRS*, followed by *ZRS* **to** *GZRS*, or 
+- *LRS* **to** *GRS*, followed by *GRS* **to** *GZRS*. 
 
 When performing an *LRS* **to** *ZRS* conversion, followed by *ZRS* **to** *GZRS*, you must wait at least 72 hours between the conversions. This temporary delay ensures the consistency and integrity of the account by allowing background processes to complete before making another change.
 
@@ -132,8 +132,8 @@ When performing an *LRS* **to** *ZRS* conversion, followed by *ZRS* **to** *GZRS
 
 A direct *GZRS* **to** *LRS* conversion isn't supported. This conversion requires a two-step process that can be completed in two ways:
 
-1. *GZRS* **to** *ZRS*, followed by *ZRS* **to** *LRS*, or 
-1. *GZRS* **to** *GRS*, followed by *GRS* **to** *LRS*. 
+- *GZRS* **to** *ZRS*, followed by *ZRS* **to** *LRS*, or 
+- *GZRS* **to** *GRS*, followed by *GRS* **to** *LRS*. 
 
 When performing a *GZRS* **to** *GRS* conversion, followed by *GRS* **to** *LRS*, you must wait at least 72 hours between the conversions. This temporary delay ensures the consistency and integrity of the account by allowing background processes to complete before making another change.
 
@@ -141,8 +141,8 @@ When performing a *GZRS* **to** *GRS* conversion, followed by *GRS* **to** *LRS*
 
 A direct *GRS* **to** *ZRS* conversion isn't supported. This conversion requires a two-step process that can be completed in two ways:
 
-1. *GRS* **to** *GZRS*, followed by *GZRS* **to** *ZRS*.
-1. *GRS* **to** *LRS*, followed by *LRS* **to** *ZRS*.
+- *GRS* **to** *GZRS*, followed by *GZRS* **to** *ZRS*.
+- *GRS* **to** *LRS*, followed by *LRS* **to** *ZRS*.
 
 When performing a *GRS* **to** *GZRS* conversion followed by *GZRS* **to** *ZRS*, you must wait at least 72 hours between the conversions. This temporary delay ensures the consistency and integrity of the account by allowing background processes to complete before making another change.
 
@@ -152,8 +152,8 @@ When you complete the initial *GRS* **to** *LRS* conversion, your storage accoun
 
 A direct *ZRS* **to** *GRS* conversion isn't supported. This conversion requires a two-step process that can be completed in two ways:
 
-1. *ZRS* **to** *GZRS*, followed by *GZRS* **to** *GRS*, or
-1. *ZRS* **to** *LRS*, followed by *LRS* **to** *GRS*.
+- *ZRS* **to** *GZRS*, followed by *GZRS* **to** *GRS*, or
+- *ZRS* **to** *LRS*, followed by *LRS* **to** *GRS*.
 
 When performing a *ZRS* **to** *LRS* conversion followed by *LRS* **to** *GRS*, you must wait at least 72 hours between the conversions. This temporary delay ensures the consistency and integrity of the account by allowing background processes to complete before making another change. 
 
