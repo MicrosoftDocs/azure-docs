@@ -31,13 +31,22 @@ The actual value retrieved from the external source at deployment time.
 
 ### Example
 
-The following `.bicepparam` file grabs the value from the environment variable named `foo`.
+The following `.bicepparam` file requests input from a fictitious tool named `someTool`, which can provide an input named `myInput`.
 
 ```bicep
 using './main.bicep'
 
-param foo = externalInput('sys.envVar', 'foo')
-```
+// without configuration
+param foo = externalInput('someTool.myInput')
+
+// with string configuration
+param bar = externalInput('someTool.myInput', 'Indy')
+
+// with complex configuration
+param baz = externalInput('someTool.myInput', {
+  name: 'Indy'
+  legs: 3
+})
 
 ## getSecret
 
