@@ -156,7 +156,7 @@ To discover databases running on a VM, follow these steps:
  
 You can track database discovery in **Notifications**. The time required for this action depends on the number of VM databases. When the selected databases are discovered, a success message appears.
 
-    ![Deployment success message](./media/backup-azure-sql-database/notifications-db-discovered.png)
+   :::image type="content" source="./media/backup-azure-sql-database/notifications-db-discovered.png" alt-text="Screenshot shows the deployment success message.":::
 
 1. Azure Backup discovers all SQL Server databases on the VM. During discovery, the following elements occur in the background:
 
