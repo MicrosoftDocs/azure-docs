@@ -68,7 +68,7 @@ Geo conversions include *GRS* **to, or from,** *LRS*; *ZRS* **to, or from,** *GZ
 There are no initial costs for making zonal conversions. However, after an account is successfully converted, the ongoing data storage and transaction cost might be higher due to the increased replication. For example, there's no charge for the initial conversion of an account from LRS to ZRS. But because ZRS has higher costs for both data storage and transactions, it might incur a higher cost than LRS.
 
 - For details on pricing, refer to the [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) article.
-- For details on the types of zonal redundancy, see the [Azure Storage Redundancy](https://learn.microsoft.com/azure/storage/common/storage-redundancy) article.
+- For details on the types of zonal redundancy, see the [Azure Storage Redundancy](storage-redundancy.md) article.
 
 When you *add* geo-redundancy, the resulting geo conversion incurs a [geo-replication data transfer charge](https://azure.microsoft.com/pricing/details/storage/blobs/) at the time of the change. This transfer charge applies because your entire storage account is being replicated to a secondary region. Because all subsequent write operations are also replicated to the secondary region, they too are subject to the data transfer charge. This charge applies to *LRS* **to** *GRS*; *RA-GRS* or *ZRS* **to** *GZRS*; and *RA-GRS* **to** *GZRS* conversions.
 
