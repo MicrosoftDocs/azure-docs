@@ -1,6 +1,6 @@
 ---
-title: Call AI Agents Sequentially in Complex Scenarios
-description: Learn how to break a complex scenario or workflow into sequential subtasks so different AI agents and models handle each subtask. In this "prompt chaining" pattern, each agent use output from the previous agent.
+title: Call AI Agents Sequentially
+description: Learn how to break a complex scenario or workflow into sequential subtasks so that different AI agents and models handle each subtask. In this "prompt chaining" pattern, each agent use output from the previous agent.
 service: ecfan
 services: logic-apps
 ms.suite: integration
@@ -12,7 +12,7 @@ ms.update-cycle: 180-days
 # Customer intent: As an AI developer, I want to break down a complex workflow into sequential subtasks for AI agents to complete by using a large language model (LLM) and Azure Logic Apps.
 ---
 
-# Call AI agents sequentially to complete subtasks for complex workflows in Azure Logic Apps (Preview)
+# Call AI agents sequentially to complete subtasks in Azure Logic Apps (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
