@@ -2,7 +2,7 @@
 title: Relocate Azure Backup to another region
 description: This article offers guidance on relocating Azure Backup to another region.
 ms.topic:  how-to
-ms.date: 06/13/2024
+ms.date: 09/15/2025
 ms.custom: subject-relocation
 
 # Customer intent: As ant administrator, I want to relocate Azure Backup to another region.

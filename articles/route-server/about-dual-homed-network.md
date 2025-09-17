@@ -1,8 +1,8 @@
 ---
 title: About dual-homed network with Azure Route Server
 description: Learn how to utilize Azure Route Server in a dual-homed network where you can connect a spoke virtual network (VNet) to more than one hub VNet.
-author: halkazwini
-ms.author: halkazwini
+author: duongau
+ms.author: duau
 ms.service: azure-route-server
 ms.topic: concept-article
 ms.date: 09/16/2024

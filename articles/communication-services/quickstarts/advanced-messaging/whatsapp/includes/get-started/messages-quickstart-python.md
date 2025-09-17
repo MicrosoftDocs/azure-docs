@@ -9,8 +9,10 @@ ms.subservice: azure-communication-services
 ms.subservice: advanced-messaging
 ms.date: 02/20/2024
 ms.topic: include
-ms.custom: Include file
 ms.author: shamkh
+ms.custom:
+  - Include file
+  - sfi-ropc-nochange
 ---
 
 ## Prerequisites

@@ -1,15 +1,14 @@
 ---
 title: Scheduled analytics rules in Microsoft Sentinel | Microsoft Docs
 description: Understand how scheduled analytics rules work in Microsoft Sentinel. Learn about all the configuration options for this rule type.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: conceptual
 ms.date: 10/16/2024
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
-
 
 #Customer intent: As a security engineer, I want to create and customize scheduled analytics rules using Kusto queries so that analysts can detect and respond to security threats effectively.
 

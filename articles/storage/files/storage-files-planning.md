@@ -28,6 +28,11 @@ In Azure, a *resource* is a manageable item that you create and configure within
 
 ![Image comparing file shares and classic Azure file shares](./media/storage-files-planning/file-share-comparison.png)
 
+This video provides a comprehensive overview of the differences between the storage account and file share management models:
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/T5eKHDwZe3M]
+
+
 ### Classic file shares (Microsoft.Storage)
 Classic file shares, or file shares deployed in storage accounts, are the traditional way to deploy file shares for Azure Files. They support all of the key features that Azure Files supports including SMB and NFS, SSD and HDD media tiers, every redundancy type, and in every region. While classic file shares support the entire breadth of Azure Files features, they have important key limitations:
 
@@ -62,7 +67,6 @@ Currently, creating a file share with Microsoft.FileShares (preview) is availabl
 - East Asia
 - Southeast Asia
 - North Europe
-- Japan West
 - Germany North
 - South Africa West
 - East US
@@ -247,3 +251,4 @@ The [migration overview article](storage-files-migration-overview.md) briefly co
 - [Deploying Azure Files](./storage-how-to-create-file-share.md)
 - [Deploying Azure File Sync](../file-sync/file-sync-deployment-guide.md)
 - [Check out the migration overview article to find the migration guide for your scenario](storage-files-migration-overview.md)
+
