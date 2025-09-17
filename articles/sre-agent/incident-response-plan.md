@@ -108,16 +108,6 @@ When creating a new incident response plan, use the following instructions to te
 
 ---
 
-## Summary reports
-
-If you connect your resources monitored by the agent to the related source code repositories, it creates summary reports as issues GitHub or Azure DevOps.
-
-A summary report is a work item created by the agent that summarizes issues the agent found during its investigation of your environment. In the work item, the agent includes details about the issue with recommendations for ways to resolve the issue.
-
-Each work item is created in the repo closet associated with the root cause of the issue.
-
-You can ask for incident summaries on demand or include them in the custom instructions of your incident response plan.
-
 ## Related content
 
 - [Incident management](./incident-management.md)
