@@ -23,7 +23,7 @@ ms.update-cycle: 180-days
 
 When your workflow needs to handle a complex business process or integration scenario, consider whether you can break the workload into smaller sequential tasks, especially when the output from one task flows to the next task. To improve performance, management, scalability, you can set up multiple AI agents that use large language model (LLM) capabilities to complete each subtask. Each agent or model uses outputs from the previous agent or model. This behavior is known as the [*prompt chaining* pattern](single-versus-multiple-agents.md#prompt-chaining-pattern).
 
-This guide describes how to set up sequential AI agents that follow the prompt chaining pattern. The example sets up a business report processing chain that transforms raw performance data into a formatted executive summary.
+This guide describes how to set up sequential AI agents that follow the prompt chaining pattern in your workflow. The example sets up a business report processing chain that transforms raw performance data into a formatted executive summary.
 
 The following table lists the inputs, tasks, and outputs:
 

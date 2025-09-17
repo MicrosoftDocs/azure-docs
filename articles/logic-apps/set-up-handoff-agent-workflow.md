@@ -23,51 +23,61 @@ ms.update-cycle: 180-days
 
 Sometimes your workflow needs to delegate tasks to specialized AI agents but preserve the chat conversation continuity and context across agent transitions. In this scenario, agents perform domain-specific tasks during different stages in the workflow or business process. These agents must also make dynamic decisions and understsand when to hand off tasks to other agents. This behavior is known as the [*handoff* pattern](single-versus-multiple-agents.md#handoff-pattern).
 
-This guide describes how to set up agents that follow the handoff pattern. The example sets up a business report processing chain that transforms raw performance data into a formatted executive summary.
+This guide describes how to set up specialized agents that follow the handoff pattern in your workflow. The example sets up a customer service handoff system that manages a complete customer journey from initial triage through specialized support.
 
 The following table lists the inputs, tasks, and outputs:
 
-| Element or task | Description |
-|-----------------|-------------|
-| Input | Raw quarterly performance text |
-| Extract | Identify the numerical values and metrics. |
-| Format | Convert to input to a structured format. |
-| Sort | Sort the data in descending order. |
-| Output | Sorted extracted data in descending order |
+| Element or agent | Description |
+|------------------|-------------|
+| Input | Customer service request |
+| Triage agent | Classify the request and identify routing decisions. |
+| Refund agent | Handle any refund requests and processing. |
+| Sales agent | Handle sales inquiries and product recommendations. |
+| Output | Specialized response with complete conversation context |
 
 ## Prerequisites
 
-- Same requirements as [Create autonomous agent workflows](create-autonomous-agent-workflows.md)
+- Same requirements as [Create conversational agent workflows](create-conversational-agent-workflows.md)
 
-- An autonomous agent workflow with an empty agent and a trigger that best matches your scenario.
+- A conversational agent workflow with an empty agent and the default read-only trigger that fires when a chat session starts.
 
-  If you don't have this workflow, see [Create autonomous agent workflows](create-autonomous-agent-workflows.md).
+  If you don't have this workflow, see [Create conversational agent workflows](create-conversational-agent-workflows.md).
 
-  The example in this guide uses the **Request** trigger named **When an HTTP request is received**. In the **Request Body JSON Schema** parameter, enter the following schema:
+## Key concepts
 
-  ```json
-  {
-     "type": "object",
-     "properties": {
-        "report": {
-           "type": "string"
-        }
-     }
-  }
-  ```
+The following table describes the key concepts to understand for this example handoff agent workflow:
+
+| Concept | Description |
+|---------|-------------|
+| Tool separation | The handoff pattern differentiates between the following kinds of tools: <br><br>- Regular tools that run business logic like "search", "refund", and "order" <br>- Delegation tools that hand off control to other agents |
+| Agent specialization | Each agent has specific, relevant tools and capabilities. <br><br>- Triage agent: Has only handoff tools for delegation - no regular tools. <br>- Sales agent: Has the **execute_order** tool and the **handoff_back_to_triage** delegation tool. <br>- Refund agent | Has the **execute_refund** and **look_up_item** tools along with the **handoff_back_to_triage** delegation tool. |
 
 ## Best practices
 
-The following table describes best practices for prompt chaining patterns:
+A conversational agent worklfow that follows the handoff pattern automatically maintains seamless conversation context flow. No manual context passing is required. The following best practices help agents make accurate handoffs and correct choices about the tools to use.
+
+### Handoff best practices
+
+The following table describes best practices for handoff patterns:
 
 | Practice | Description |
 |----------|-------------|
-| Keep steps focused | Each agent has a single, clear responsibility. |
-| Add validation gates | Implement checks between steps to catch errors early. |
-| Design for recovery | Plan how to handle failures at each step. |
-| Monitor performance | Track execution time and success rates. |
-| Optimize prompts | Refine agent instructions based on results. |
-| Test edge cases | Validate behavior with unusual or malformed inputs.
+| Write clear handoff descriptions | Provide detailed handoff instructions in the agent's system instructions to specify exactly when and why to hand off to a specialist agent. For example, the following instructions usually increase handoff accuracy: <br><br>`You're an agent in a multi-agent system designed to make agent coordination and execution easy.` <br><br>`Agents uses two primary abstractions: agents and handoffs. An agent includes instructions, tools, and the capability to hand off a conversation to another agent when appropriate. A handoff calls a handoff function, generally named 'handoff_<ID>_tool'.` <br><br>`Transfers between agents happen seamlessly in the background. Don't mention or draw attention to these transfers in your conversation with the end user.` <br><br>**Note**: In Azure Logic Apps, handoffs are built as tools. |
+| Build agents with proper specializations | Design agent roles with clear boundaries and specific expertise areas. |
+| Specify natural handoff triggers | Include natural language cues and customer intent to trigger appropriate and accurate handoffs. |
+| Set up bidrectional handoffs | Make sure agents can receive handoffs and return control when necessary. |
+| Avoid handoff loops | Make sure agents have clear exit strategies. Don't repeatedly hand off the same conversation. |
+| Monitor performance | Track handoff success rates and customer satisfaction across various agent handoffs. |
+
+### Tool assignment best practices
+
+The following table describes best practices for assigning tools to agents:
+
+| Practice | Description |
+|----------|-------------|
+| Relevant, domain-specific tools | Agents only have tools relevant to their expertise area. For example: <br><br>- Refund agents: Item lookup, refund processing, return validation <br><br>- Sales agents: Product search, order processing, pricing tools |
+| No access to cross-domain tools | Agents can't access tools outside their expertise. This practice prevents customer confusion and maintains clear boundaries. For example: <br><br>- Sales agents can't process refunds. <br><br>- Refund agents can't handle sales orders. |
+| Clear tool descriptions | Provide precise information about each tool's purpose and tasks. Specify required input parameters and add usage guidelines like "Use price in US$". |
 
 ## Set up the data extractor agent
 
@@ -250,6 +260,18 @@ This example started the workflow with the **When an HTTP request is received** 
    1. To review the status, inputs, and outputs for each operation, select that operation in the monitoring view window.
 
 [!INCLUDE [clean-up-resources](includes/clean-up-resources.md)]
+
+## Troubleshoot common problems
+
+The following table lists common problems that you might encounter with the handoff pattern:
+
+| Problem | Solution |
+|---------|----------|
+| Incorrect agent handoffs | Refine handoff descriptions with more specific triggers and conditions. Include the handoff instructions described in [Handoff best practices](#handoff-best-practices). |
+| Handoff loops between agents | Include clear exit strategies and prevent agents from repeatedly handing off the same requests. |
+| Customers confused by agent transitions | Instruct agents to introduce their specialties for smoother transitions. |
+| Tools unavailable to specialist agents | Check each agent for access to the appropriate tools for their specialty. |
+| Poor handoff choices | Monitor and analyze handoff patterns. Update agent instructions based on performance. |
 
 ## Related content
 

@@ -115,7 +115,7 @@ landingContent:
           - text: Create unit tests from workflow runs
             url: testing-framework/create-unit-tests-standard-workflow-runs-visual-studio-code.md
           - text: Test workflows with mock outputs
-            url: testing-framework/test-logic-apps-mock-data-static-result.md
+            url: testing-framework/test-logic-apps-mock-data-static-results.md
   # Card (optional)
   - title: Deploy logic apps
     linkLists:

@@ -93,9 +93,7 @@ This workflow pattern breaks a task into sequential steps. Each step corresponds
   - Create document outline **→** Validate outline **→** Write the full document
   - Extract data **→** Validate data **→** Format data
 
-- Key attributes or benefits
-
-- Key benefits
+- Key attributes and benefits
 
   - Predetermined steps folllow a linear progression.
   - Each agent focuses on a single, well-defined task, which promotes greater accuracy.
@@ -157,11 +155,15 @@ This workflow pattern creates seamless transitions between agents while preservi
   - Content creation workflows, for example, Research **→** Write **→** Edit
   - Complex problem-solving, for example, Analyze **→** Design solution **→** Implement solution
 
-- Key attributes
+- Key attributes and benefits
 
+  - Each agent focuses on domain-specific expertise.
   - Handoffs have clear criteria and triggers.
-  - Preserve states between agents.
   - Transfer mechanisms have proper context.
+  - Agents choose when and where to hand off tasks based on conversation flow.
+  - Preserves states or complete conversation history across agent handoffs.
+  - Mimics human customer service escalation patterns.
+  - Isolates errors or problems in one agent from other agents.
   - Initialization actions exist to prepare the recipient agent.
 
 For more information, see [Lab: Implement the handoff pattern](https://azure.github.io/logicapps-labs/docs/logicapps-ai-course/build_multi_agent_systems/handoff-pattern).
