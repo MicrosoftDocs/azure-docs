@@ -1,6 +1,6 @@
 ---
 title: Call AI Agents Sequentially
-description: Learn how to break a complex scenario or workflow into sequential subtasks so that different AI agents and models handle each subtask. In this "prompt chaining" pattern, each agent use output from the previous agent.
+description: Learn how to break a complex workflow into sequential subtasks so that different AI agents and models handle each subtask in Azure Logic Apps. In this "prompt chaining" pattern, each agent use output from the previous agent.
 service: ecfan
 services: logic-apps
 ms.suite: integration

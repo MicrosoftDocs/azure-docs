@@ -1,6 +1,6 @@
 ---
 title: Hand Off AI Agent Tasks but Keep Chat Context
-description: Learn how to transfer control to specialized AI agents but preserve chat continuity in a workflow using Azure Logic Apps. In this "handoff" pattern, agents pass on control when they get questions outside their expertise or knowledge domain.
+description: Learn how to transfer control to specialized AI agents in a workflow but preserve chat continuity in Azure Logic Apps. In this "handoff" pattern, agents pass on control when they get questions outside their expertise or knowledge domain.
 service: ecfan
 services: logic-apps
 ms.suite: integration
@@ -12,7 +12,7 @@ ms.update-cycle: 180-days
 # Customer intent: As an AI developer, I want to set up seamless handoffs to specialized agents that handle domain-specific tasks, while keeping the same chat continuity and context in my workflow using Azure Logic Apps.
 ---
 
-# Hand off tasks to specialized AI agents but keep chat continuity in workflows for Azure Logic Apps (Preview)
+# Hand off tasks to specialized AI agents but keep chat continuity in Azure Logic Apps (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
