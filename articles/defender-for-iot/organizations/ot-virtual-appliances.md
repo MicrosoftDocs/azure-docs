@@ -45,7 +45,7 @@ The following tables list system requirements for OT network sensors on virtual 
 
 For all deployments, bandwidth results for virtual machines may vary, depending on the distribution of protocols and the actual hardware resources that are available, including the CPU model, memory bandwidth, and IOPS.
 
-[!INCLUDE [hardware-applicances-table](../includes/hardware-applicances-table.md)]
+[!INCLUDE [hardware-applicances-table](../includes/hardware-appliances-table.md)]
 
 > [!NOTE]
 > There is no need to pre-install an operating system on the VM, the sensor installation includes the operating system image.
