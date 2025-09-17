@@ -19,15 +19,15 @@ Security Operations (SOC) teams use Microsoft Sentinel to generate detections, i
 
 For example, your integrations may add value for any of the following goals:
 
-- **Providing Insights** using agents to automate investigations tasks, process data from multiple sources and generate findings to accelerate the work of analysts and reduce MTTR. 
+- **Providing insights**: using agents to automate investigations tasks, process data from multiple sources and generate findings to accelerate the work of analysts and reduce mean time to remediate (MTTR). 
 
-- **Supporting large data sets** using the data lake to store large volumes of events, such a process creation events and netflow data in a cost effective manner. This data can be processed on demand or with jobs by agents or notebook jobs. 
+- **Supporting large data sets**: using the data lake to store large volumes of events, such as process creation events and netflow data in a cost effective manner. This data can be processed on demand or with jobs by agents or notebook jobs.
 
-- **Creating detections** out of semi-structured data. For example, your integration might bring new log data, actionable intelligence, analytics rules, hunting rules, guided hunting experiences, or machine-learning analysis
+- **Creating detections out of semi-structured data**: your integration might bring new log data, actionable intelligence, analytics rules, hunting rules, guided hunting experiences, or machine-learning analysis.
 
-- **Contribute to Microsoft Sentinel investigations**. For example, your integration might add new detections, queries, or historical and supporting data, such as extra databases, vulnerability data, compliance, data, and so on.
+- **Contribute to Microsoft Sentinel investigations**: your integration might add new detections, queries, or historical and supporting data, such as extra databases, vulnerability data, compliance, data, and so on.
 
-- **Automation in Microsoft Sentinel**. For example, your integration might include scheduled agents for periodic queries, interacting with Microsoft or third-party endpoints, or simplifying tedious tasks. You might provide scheduled notebook jobs for data processing and provide rules for enrichment, remediation, or orchestration security activities within the customer’s environment and infrastructure. 
+- **Automation in Microsoft Sentinel**: your integration might include scheduled agents for periodic queries, interacting with Microsoft or third-party endpoints, or simplifying tedious tasks. You might provide scheduled notebook jobs for data processing and provide rules for enrichment, remediation, or orchestration security activities within the customer’s environment and infrastructure.
 
 We recommend that you package and publish your integration as either a Microsoft platform solution or a Microsoft Sentinel SIEM [solutions](sentinel-solutions.md) so that joint customers can discover, deploy, and maximize the value of your partner integration. Microsoft Sentinel platform solutions are published in Azure Marketplace and appear in the Microsoft Security Store Microsoft Sentinel solutions are published in Azure Marketplace and appear in the Microsoft Sentinel Content hub.
 
