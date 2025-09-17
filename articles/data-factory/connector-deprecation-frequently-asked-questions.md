@@ -6,7 +6,7 @@ ms.author: krirukm
 ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
-ms.date: 07/11/2025
+ms.date: 09/17/2025
 ms.custom:
   - build-2025
   - sfi-image-nochange
