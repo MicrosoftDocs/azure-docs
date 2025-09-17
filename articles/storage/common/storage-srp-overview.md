@@ -119,7 +119,7 @@ The following table shows the Azure Storage client libraries for resource manage
 
 | Library | Reference | Package | Source |
 | ------- | --------- | ------- | ------ |
-| **azure-resourcemanager-storage** | [Reference](/java/api/overview/azure/resourcemanager-storage-readme) | [Maven](https://mvnrepository.com/artifact/com.azure.resourcemanager/azure-resourcemanager-storage) | [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/resourcemanager/azure-resourcemanager-storage) |
+| **azure-resourcemanager-storage** | [Reference](/java/api/overview/azure/resourcemanager-storage-readme) | [Maven](https://mvnrepository.com/artifact/com.azure.resourcemanager/azure-resourcemanager-storage) |  |
 
 ## [JavaScript](#tab/javascript)
 

@@ -452,6 +452,8 @@ items:
     items:
     - name: Data protection
       href: data-protection-overview.md
+    - name: Soft delete versus versioning
+      href: soft-delete-vs-versioning-options.md
     - name: Soft delete
       items:
       - name: Soft delete for containers

@@ -95,15 +95,25 @@ The following metric charts are viewable in the Storage Sync Service portal:
 
 | Metric name | Description | Page name |
 |-|-|-|
-| Bytes synced | Size of data transferred (upload and download). | Server endpoint - Sync status |
-| Files not syncing | Count of files that are failing to sync. | Server endpoint - Sync status |
-| Files synced | Count of files transferred (upload and download). | Server endpoint - Sync status |
-| Cloud tiering cache hit rate | Percentage of bytes, not whole files, that have been served from the cache vs. recalled from the cloud. | Server endpoint - Cloud tiering status |
-| Cache data size by last access time | Size of data by last access time. | Server endpoint - Cloud tiering status |
-| Cloud tiering size of data tiered by last maintenance job | Size of data tiered during last maintenance job. | Server endpoint - Cloud tiering status |
-| Cloud tiering recall size by application | Size of data recalled by application. | Server endpoint - Cloud tiering status |  
-| Cloud tiering recall | Size of data recalled. | Server endpoint - Cloud tiering status, Registered servers |
-| Server online status | Count of heartbeats received from the server. | Registered servers |
+| Agent Version Expiration Information | Number of days until the agent version expires | Storage Sync Service - Metrics |
+| Bytes synced | Size of data transferred (upload and download) | Sync Group - Status, Server endpoint - Sync status, Storage Sync Service - Metrics |
+| Cache data size by last access time | Size of data by last access time | Server Endpoint - Cloud Tiering Status, Storage Sync Service - Metrics |
+| Cloud tiering cache hit rate | Percentage of bytes that have been served from the cache vs. recalled from the cloud | Sync Group - Status, Server Endpoint - Cloud Tiering Status, Storage Sync Service - Metrics |
+| Cloud tiering low disk space mode | Status of disk space on server | Storage Sync Service - Metrics |
+| Cloud tiering recall success rate | Success status of cloud tiering recall | Storage Sync Service - Metrics |
+| Cloud tiering size of data tiered | Size of data tiered | Storage Sync Service - Metrics |
+| Cloud tiering size of data tiered by last maintenance job | Size of data tiered during last maintenance job. | Storage Sync Service - Metrics |
+| Cloud tiering recall size | Size of data recalled | Sync Group – Status, Registered Servers, Storage Sync Service - Metrics |
+| Cloud tiering recall size by application | Size of data recalled by application | Server Endpoint - Cloud Tiering Status, Storage Sync Service - Metrics |  
+| Cloud tiering recall throughput | Throughput of data recalled | Storage Sync Service - Metrics |
+| Egress Breakdown | Egress breakdown by user recalls of tiered files, background recalls, and sync downloads | Server Endpoint - Cloud Tiering Status |
+| Files synced | Count of files transferred (upload and download) | Sync Group - Status, Server endpoint - Sync status, Storage Sync Service - Metrics |
+| Files not syncing | Count of files that are failing to sync | Sync Group - Status, Server endpoint - Sync status, Storage Sync Service - Metrics |
+| Server cache size | Size of data cached on server | Storage Sync Service - Metrics |
+| Server online status | Count of heartbeats received from the server. | Registered Servers, Storage Sync Service - Metrics |
+| Space Savings | Space savings breakdown for local cache versus cloud-tiered data | Server Endpoint - Cloud Tiering Status |
+| Sync Session Result | Success status of sync session | Sync Group - Status, Storage Sync Service - Metrics |
+| Tiered Data by Tiering Policies | Number of Files Tiered with reason for tiering | Server Endpoint - Cloud Tiering Status |
 
 > [!NOTE]
 > The charts in the Storage Sync Service portal have a time range of 24 hours. To view different time ranges or dimensions, use Azure Monitor.

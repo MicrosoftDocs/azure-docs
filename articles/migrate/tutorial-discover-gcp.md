@@ -7,10 +7,14 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 02/07/2025
-ms.custom: mvc, subject-rbac-steps, engagement-fy24
 ms.collection:
  - migration
  - gcp-to-azure
+ms.custom:
+  - mvc
+  - subject-rbac-steps
+  - engagement-fy24
+  - sfi-ropc-nochange
 # Customer intent: "As a server administrator, I want to discover my GCP instances using a migration tool, so that I can assess and plan for their migration to Azure efficiently."
 ---
 

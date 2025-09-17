@@ -1,8 +1,8 @@
 ---
 title: Configure and manage Azure Route Server
 description: Learn how to configure and manage Azure Route Server using the Azure portal, PowerShell, or Azure CLI.
-author: halkazwini
-ms.author: halkazwini
+author: duongau
+ms.author: duau
 ms.service: azure-route-server
 ms.topic: how-to
 ms.date: 02/10/2025

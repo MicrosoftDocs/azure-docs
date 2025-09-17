@@ -2,7 +2,7 @@
 title: Tutorial - Manage your Business Continuity and Disaster Recovery estate efficiently using Azure Business Continuity Center Copilot
 description: In this tutorial, learn how to manage your Business Continuity and Disaster Recovery estate efficiently using Azure Business Continuity Center Copilot
 ms.topic: how-to
-ms.date: 09/12/2025
+ms.date: 09/17/2025
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2024
@@ -281,12 +281,14 @@ To copy a Backup vault to another region, follow these steps:
 
    For choosing a vault from a different region, click **Select Region**, select a region from the dropdown, and then select **Confirm**.
 
-1. After the vault settings copy successfully, on the **Create Backup Vault** pane, on the **Basics** tab, enter a **Backup vault name**, and then select an alternate **Region** from the dropdown.
+1. After the vault settings copy successfully, on the **Copilot** pane, enter a **Backup vault name**, and then select **Submit**.
+1. On the**Create Backup Vault** pane, on the **Basics** tab, select an alternate **Region** from the dropdown.
 
    :::image type="content" source="./media/tutorial-manage-data-using-copilot/select-alternate-region.png" alt-text="Screenshot shows how to select an alternate region for the vault creation." lightbox="./media/tutorial-manage-data-using-copilot/select-alternate-region.png":::
 
    A few vault properties, such as monitoring settings and Multi-user authorization, don't get copied during vault creation. You can configure these **Vault Properties** after the vault creation is complete.
 
+1. On the **Copilot** pane, select **Go to create Vault**.
 1. On the **Review + create** tab, select **Create** to start copying the vault to alternate region.
 
    :::image type="content" source="./media/tutorial-manage-data-using-copilot/create-copy-vault.png" alt-text="Screenshot shows how to start copying vault to an alternate region." lightbox="./media/tutorial-manage-data-using-copilot/create-copy-vault.png":::

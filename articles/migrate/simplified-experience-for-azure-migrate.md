@@ -6,7 +6,7 @@ ms.author: dhananjayanr
 ms.manager: dhananjayanr
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 08/26/2025
+ms.date: 09/17/2025
 # Customer intent: As a system administrator managing physical and VMware environments, I want to utilize an upgraded agent-based migration stack so that I can efficiently migrate newer Linux distributions and ensure a seamless migration process to Azure.
 ---
 
@@ -43,4 +43,4 @@ The key differences between the Classic and Simplified experience:
 ## Next steps
 
 - Learn more about the [Simplified experience](tutorial-migrate-physical-virtual-machines.md#simplified-experience-recommended).
-- Learn more about the [Deprecation of classic experience](../site-recovery/vmware-physical-azure-classic-deprecation.md).
+  

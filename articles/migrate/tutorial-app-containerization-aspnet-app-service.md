@@ -5,7 +5,10 @@ ms.manager: kmadnani
 ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 02/06/2025
-ms.custom: engagement-fy24
+ms.custom:
+  - engagement-fy24
+  - sfi-image-nochange
+  - sfi-ga-nochange
 # Customer intent: As a developer, I want to containerize my ASP.NET applications and migrate them to a cloud service, so that I can improve resource utilization, simplify management, and enhance deployment agility without rewriting my existing code.
 ---
 # ASP.NET app containerization and migration to Azure App Service

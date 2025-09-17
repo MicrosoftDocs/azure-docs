@@ -1,8 +1,8 @@
 ---
 title: Azure Route Server frequently asked questions (FAQ)
 description: In this article, you find answers to the most frequently asked questions about Azure Route Server.
-author: halkazwini
-ms.author: halkazwini
+author: duongau
+ms.author: duau
 ms.service: azure-route-server
 ms.topic: faq
 ms.date: 09/11/2024

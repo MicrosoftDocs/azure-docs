@@ -7,7 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 02/07/2025
-ms.custom: mvc, subject-rbac-steps, engagement-fy24
+ms.custom:
+  - mvc
+  - subject-rbac-steps
+  - engagement-fy24
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 # Customer intent: As a Hyper-V administrator, I want to discover on-premises servers using Azure Migrate, so that I can gather performance data and prepare for migration to the cloud.
 ---
 
