@@ -2,7 +2,7 @@
 title: Move Azure Cloud Services (extended support) deployment resources
 description: Use Azure Resource Manager to move Cloud Services (extended support) deployment resources to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 02/11/2025
+ms.date: 09/15/2025
 ms.custom: hirshah, devx-track-arm-template
 ---
 

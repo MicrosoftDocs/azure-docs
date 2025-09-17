@@ -10,6 +10,7 @@ ms.date: 06/19/2023
 ms.author: askaur
 manager: visho
 services: azure-communication-services
+ms.custom: sfi-ropc-nochange
 ---
 
 # Control and steer calls with Call Automation
@@ -837,6 +838,86 @@ result = call_connection_client.add_participant(target)
 call_connection_client.cancel_add_participant_operation(result.invitation_id, operation_context="Your context", operationCallbackUrl="<url_endpoint>")
 ```
 -----
+## Move a participant to a call from another call
+
+With Azure Communication Services Call Automation SDK, you can move a participant from one ongoing call into another using the MoveParticipants API. This enables dynamic routing and flexible call orchestration—common in scenarios such as moving a translator into a doctor–patient call or transferring a customer from a lobby call into an active support call.
+
+Sample scenarios:
+
+- Doctor + Translator Room Routing – Move individually dialed translators into a main call.
+
+- Lobby Call Transfer – Hold participants in a separate call until approved to join the main call.
+
+# [C#](#tab/csharp)
+
+```csharp
+var targetParticipant = new CommunicationUserIdentifier("<user_id>"); 
+
+// CallConnectionId for the call that you want to move the participant from
+var fromCallId = "<callConnectionId>";
+
+// Move a participant from another call to current call with optional parameters
+var moveParticipantsOptions = new MoveParticipantOptions(
+    new List<CommunicationIdentifier> { targetParticipant }, 
+    fromCallId)
+{
+    OperationContext = "operationContext",
+    OperationCallbackUri = new Uri("uri_endpoint") // Sending event to a non-default endpoint.
+};
+
+MoveParticipantsResult result = await callConnection.MoveParticipantsAsync(moveParticipantsOptions);
+````
+# [Java](#tab/java)
+
+```java
+List<CommunicationIdentifier> targetParticipants = new ArrayList<>(
+    Arrays.asList(new CommunicationUserIdentifier("<user_id>"))
+);
+String fromCallId = "<callConnectionId>";
+
+MoveParticipantsOptions moveParticipantsOptions = new MoveParticipantsOptions(targetParticipants, fromCallId)
+    .setOperationContext("<operation_context>")
+    .setOperationCallbackUrl("<url_endpoint>");
+
+Response<MoveParticipantsResult> moveParticipantResultResponse = 
+    callConnectionAsync.moveParticipantWithResponse(moveParticipantsOptions).block();
+````
+# [JavaScript](#tab/javascript)
+
+```javascript
+const targetParticipants = [{ communicationUserId: "<user_id>" }];
+const fromCallId = "<callConnectionId>";
+
+const moveParticipantResult = await callConnection.moveParticipant(
+    targetParticipants, 
+    fromCallId,  
+    {
+        operationCallbackUrl: "<url_endpoint>",
+        operationContext: "<operation_context>"
+    }
+);
+```
+
+# [Python](#tab/python)
+
+```python
+target = CommunicationUserIdentifier("<user_id>")
+target_participants = [target]
+from_call_id = "<call_connection_id>"
+
+call_connection_client = call_automation_client.get_call_connection(
+    "<call_connection_id_from_ongoing_call>"
+)
+
+result = call_connection_client.move_participant(
+    target_participants, 
+    from_call_id, 
+    operation_context="Your context", 
+    operationCallbackUrl="<url_endpoint>"
+)
+```
+-----
+MoveParticipants publishes a MoveParticipantSucceeded or MoveParticipantFailed event to the target call.
 
 ## Remove a participant from a call
 

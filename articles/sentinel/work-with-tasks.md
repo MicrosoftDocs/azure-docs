@@ -1,12 +1,13 @@
 ---
 title: Work with incident tasks in Microsoft Sentinel in the Azure portal
 description: This article explains how SOC analysts can use incident tasks to manage their incident-handling workflow processes in Microsoft Sentinel.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.date: 11/24/2022
 appliesto:
     - Microsoft Sentinel in the Azure portal
+ms.custom: sfi-image-nochange
 #Customer intent: As a security analyst, I want to manage and track incident tasks so that I can efficiently handle incident workflows and ensure thorough investigations.
 ---
 

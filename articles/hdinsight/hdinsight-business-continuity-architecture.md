@@ -7,6 +7,7 @@ author: yeturis
 ms.author: sairamyeturi
 ms.reviewer: nijelsf
 ms.date: 06/13/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Azure HDInsight business continuity architectures

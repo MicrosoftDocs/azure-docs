@@ -7,6 +7,7 @@ ms.service: azure-edge-hardware-center
 ms.topic: how-to
 ms.date: 01/03/2022
 ms.author: alkohli
+ms.custom: sfi-image-nochange
 ---
 
 # Move Azure Edge Hardware Center resource across Azure subscriptions and resource groups via the Azure portal

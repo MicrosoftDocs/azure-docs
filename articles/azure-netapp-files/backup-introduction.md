@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 09/18/2024
+ms.date: 07/18/2025
 ms.author: anfdocs
 ms.custom: references_regions
 # Customer intent: As a data administrator, I want to understand the capabilities and pricing of the Azure NetApp Files backup service, so that I can effectively implement and manage data protection strategies for long-term recovery and compliance.

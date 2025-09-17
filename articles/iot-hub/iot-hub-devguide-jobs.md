@@ -1,8 +1,7 @@
 ---
-title: Understand Azure IoT Hub jobs
-description: This article describes scheduling jobs to run on multiple devices connected to your IoT hub. Jobs can update tags and desired properties and invoke direct methods on multiple devices.
+title: Schedule Azure IoT Hub Jobs on Multiple Devices
+description: Learn to schedule Azure IoT Hub jobs on multiple devices to update properties, tags, and invoke direct methods. Automate device management tasks efficiently with step-by-step examples and code samples.
 author: SoniaLopezBravo
-
 ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: concept-article
@@ -10,7 +9,7 @@ ms.date: 05/06/2019
 ms.custom: mqtt
 ---
 
-# Schedule jobs on multiple devices
+# Schedule Azure IoT Hub jobs on multiple devices
 
 Azure IoT Hub enables a number of building blocks like [device twin properties and tags](iot-hub-devguide-device-twins.md) and [direct methods](iot-hub-devguide-direct-methods.md). Typically, back-end apps enable device administrators and operators to update and interact with IoT devices in bulk and at a scheduled time. Jobs execute device twin updates and direct methods against a set of devices at a scheduled time. For example, an operator would use a back-end app that initiates and tracks a job to reboot a set of devices in building 43 and floor 3 at a time that would not be disruptive to the operations of the building.
 
@@ -171,7 +170,7 @@ The continuationToken is provided from the response.
 
 You can query for the job execution status on each device using the [IoT Hub query language for device twins, jobs, and message routing](iot-hub-devguide-query-language.md).
 
-## Jobs Properties
+## Jobs properties
 
 The following list shows the properties and corresponding descriptions, which can be used when querying for jobs or job results.
 
@@ -180,6 +179,7 @@ The following list shows the properties and corresponding descriptions, which ca
 | **jobId** |Application provided ID for the job. |
 | **startTime** |Application provided start time (ISO-8601) for the job. |
 | **endTime** |IoT Hub provided date (ISO-8601) for when the job completed. Valid only after the job reaches the 'completed' state. |
+| **maxExecutionTimeInSeconds** |Application provided maximum allowed total time from when the job starts until it completes. |
 | **type** |Types of jobs: |
 | | **scheduleUpdateTwin**: A job used to update a set of desired properties or tags. |
 | | **scheduleDeviceMethod**: A job used to invoke a device method on a set of device twins. |

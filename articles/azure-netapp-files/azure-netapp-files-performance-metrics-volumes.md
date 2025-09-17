@@ -5,7 +5,8 @@ author: b-hchen
 ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 10/31/2024
+ms.date: 07/31/2025
+ms.custom: sfi-image-nochange
 # Customer intent: As a cloud architect, I want to run comprehensive performance benchmark tests on Azure NetApp Files, so that I can optimize storage performance and ensure it meets application workload requirements.
 ---
 # Performance benchmark test recommendations for Azure NetApp Files

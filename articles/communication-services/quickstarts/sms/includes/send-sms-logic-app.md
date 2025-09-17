@@ -9,8 +9,10 @@ ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 06/30/2021
 ms.topic: include
-ms.custom: include file
 ms.author: chpalm
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 Use the [Azure Communication Services SMS](../../../overview.md) connector and [Azure Logic Apps](../../../../logic-apps/logic-apps-overview.md) to create automated workflows that can send SMS messages.
