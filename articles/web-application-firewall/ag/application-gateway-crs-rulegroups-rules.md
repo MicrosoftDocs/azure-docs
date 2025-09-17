@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 08/11/2025
+ms.date: 09/17/2025
 ms.custom: build-2025
 
 # Customer intent: "As a web application security administrator, I want to manage DRS and CRS rule sets in the web application firewall, so that I can customize security settings and protect against a broad range of vulnerabilities effectively."
@@ -19,7 +19,7 @@ The Azure-managed Default Rule Set (DRS) in the Application Gateway web applicat
 You can disable rules individually, or set specific actions for each rule. This article lists the current rules and rule sets available. If a published rule set requires an update, we'll document it here.
 
 > [!NOTE]
-> When you change a ruleset version in a WAF Policy, you should forward your existing rule action and state overrides and exclusions to apply on the new ruleset version. See: [Upgrading or changing ruleset version](upgrade-ruleset-version.md).
+> When you change a ruleset version in a WAF Policy, you should forward your existing rule action and state overrides and exclusions to apply on the new ruleset version. For more information, see [Upgrading or changing ruleset version](upgrade-ruleset-version.md).
 
 ## Default rule set 2.1
 
@@ -70,14 +70,12 @@ Use the following guidance to tune WAF while you get started with DRS 2.1 on App
 
 ### OWASP CRS 3.2 and CRS 3.1
 
-The recommended managed rule set is the Default Rule Set 2.1, which is baselined off the Open Web Application Security Project (OWASP) Core Rule Set (CRS) 3.3.2 and includes additional proprietary protections rules developed by Microsoft Threat Intelligence team and updates to signatures to reduce false positives. When creating a new WAF policy you should use the latest, recommended ruleset version DRS 2.1. If you have an existing WAF policy using CRS 3.2 or CRS 3.1, it is recommended to upgrade to DRS 2.1 See: [Upgrade CRS or DRS ruleset version](upgrade-ruleset-version.md).
+The recommended managed rule set is the Default Rule Set 2.1, which is baselined off the Open Web Application Security Project (OWASP) Core Rule Set (CRS) 3.3.2 and includes additional proprietary protections rules developed by Microsoft Threat Intelligence team and updates to signatures to reduce false positives. When creating a new WAF policy you should use the latest, recommended ruleset version DRS 2.1. If you have an existing WAF policy using CRS 3.2 or CRS 3.1, it's recommended to upgrade to DRS 2.1. For more information, see [Upgrade CRS or DRS ruleset version](upgrade-ruleset-version.md).
 
 > [!NOTE]
-> CRS 3.2 is only available on the WAF_v2 SKU. You can't downgrade from CRS 3.2 to CRS 3.1 or earlier because CRS 3.2 runs on the new Azure WAF engine. It is reccomended to upgrade to the latest DRS 2.1 directly and validate new rules safely by changing the new rules' action to log mode. See: [Validate new rules safely](upgrade-ruleset-version.md#validate-new-rules-safely)
-
-> [!NOTE]
-> Web Application Firewall (WAF) running on Application Gateway for Containers doesn't support the Core Ruleset (CRS).
-
+> - CRS 3.2 is only available on the WAF_v2 SKU. You can't downgrade from CRS 3.2 to CRS 3.1 or earlier because CRS 3.2 runs on the new Azure WAF engine. It's recommended to upgrade to the latest DRS 2.1 directly and validate new rules safely by changing the new rules' action to log mode. For more information, see [Validate new rules safely](upgrade-ruleset-version.md#validate-new-rules-safely).
+>
+> - Web Application Firewall (WAF) running on Application Gateway for Containers doesn't support the Core Ruleset (CRS).
 
 ## Tuning of Managed rule sets
 
@@ -102,11 +100,11 @@ When you use CRS or DRS 2.1 and later, your WAF is configured to use anomaly sco
 
 If the anomaly score is 5 or greater, and the WAF is in Prevention mode, the request is blocked. If the anomaly score is 5 or greater, and the WAF is in Detection mode, the request is logged but not blocked.
 
-For example, a single *Critical* rule match is enough for the WAF to block a request when in Prevention mode, because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic. When an anomaly rule is triggered, it shows a "Matched" action in the logs. If the anomaly score is 5 or greater, there's a separate rule triggered with either "Blocked" or "Detected" action depending on whether WAF policy is in Prevention or Detection mode. For more information, please see [Anomaly Scoring mode](ag-overview.md#anomaly-scoring-mode).
+For example, a single *Critical* rule match is enough for the WAF to block a request when in Prevention mode, because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic. When an anomaly rule is triggered, it shows a "Matched" action in the logs. If the anomaly score is 5 or greater, there's a separate rule triggered with either "Blocked" or "Detected" action depending on whether WAF policy is in Prevention or Detection mode. For more information, see [Anomaly Scoring mode](ag-overview.md#anomaly-scoring-mode).
 
 ## Paranoia level
 
-Each rule is asigned in a specific Paranoia Level (PL). Rules configured in Paranoia Level 1 (PL1) are less aggressive and hardly ever trigger a false positive. They provide baseline security with minimal need for fine tuning. Rules in PL2 detect more attacks, but they're expected to trigger false positives that should be fine-tuned.
+Each rule is assigned in a specific Paranoia Level (PL). Rules configured in Paranoia Level 1 (PL1) are less aggressive and hardly ever trigger a false positive. They provide baseline security with minimal need for fine tuning. Rules in PL2 detect more attacks, but they're expected to trigger false positives that should be fine-tuned.
 
 By default, DRS 2.1 and CRS 3.2 rule versions are pre-configured in Paranoia Level 2, including rules assigned in both PL1 and in PL2.
 If you want to use WAF exclusively with PL1, you can disable any or all PL2 rules or change their action to 'log'. PL3 and PL4 are currently not supported in Azure WAF.
@@ -116,11 +114,10 @@ If you want to use WAF exclusively with PL1, you can disable any or all PL2 rule
 
 ### Upgrading or changing ruleset version
 
-If you're upgrading, or assigning a new ruleset version, and would like to preserve existing rule overrides and exclusions, it's recommended to use PowerShell, CLI, REST API, or a template to make ruleset version changes. A new version of a ruleset can have newer rules or additional rule groups which you might want to validae safely. If possible, it's recommended to validate changes in a test environment, fine tune if necessary, and then deploy in a production environment.
-See: [Upgrade CRS or DRS ruleset version](upgrade-ruleset-version.md)
+If you're upgrading, or assigning a new ruleset version, and would like to preserve existing rule overrides and exclusions, it's recommended to use PowerShell, CLI, REST API, or a template to make ruleset version changes. A new version of a ruleset can have newer rules or additional rule groups, which you might want to validate safely. It's recommended to validate changes in a test environment, fine tune if necessary, and then deploy in a production environment.
+For more information, see [Upgrade CRS or DRS ruleset version](upgrade-ruleset-version.md)
 
-> [!NOTE]
-> If you're using the Azure portal to assign a new managed ruleset to a WAF policy, all the previous customizations from the existing managed ruleset such as rule state, rule actions, and rule level exclusions will be reset to the new managed ruleset's defaults. However, any custom rules, policy settings, and global exclusions will remain unaffected during the new ruleset assignment. You'll need to redefine rule overrides and validate changes before deploying in a production environment.
+If you're using the Azure portal to assign a new managed ruleset to a WAF policy, all the previous customizations from the existing managed ruleset such as rule state, rule actions, and rule level exclusions will be reset to the new managed ruleset's defaults. However, any custom rules, policy settings, and global exclusions will remain unaffected during the new ruleset assignment. You'll need to redefine rule overrides and validate changes before deploying in a production environment.
 
 ### Bot Manager 1.0
 
@@ -486,7 +483,7 @@ Bot300600 scans both client IP addresses and IPs in the `X-Forwarded-For` header
 > This rule indicates that the total anomaly score for the request exceeded the maximum allowable score. For more information, see [Anomaly scoring](./ag-overview.md#anomaly-scoring-mode).
 
 
-Below are previous Core Rule Set versions. If you are using CRS 3.2, CRS 3.1, CRS 3.0 or CRS 2.2.9, it is recommended to upgrade to the latest ruleset version of DRS 2.1. See: [Upgrading or changing ruleset version](upgrade-ruleset-version.md).
+Below are previous Core Rule Set versions. If you're using CRS 3.2, CRS 3.1, CRS 3.0, or CRS 2.2.9, it's recommended to upgrade to the latest ruleset version of DRS 2.1. For more information, see [Upgrading or changing ruleset version](upgrade-ruleset-version.md).
 
 # [OWASP 3.2 (legacy)](#tab/owasp32)
 
@@ -1188,7 +1185,7 @@ Below are previous Core Rule Set versions. If you are using CRS 3.2, CRS 3.1, CR
 |942190|Detects MSSQL code execution and information gathering attempts|
 |942200|Detects MySQL comment-/space-obfuscated injections and backtick termination|
 |942210|Detects chained SQL injection attempts 1/2|
-|942220|Looking for intiger overflow attacks, these are taken from skipfish, except 3.0.00738585072007e-308 is the \"magic number\" crash'|
+|942220|Looking for integer overflow attacks, these are taken from skipfish, except 3.0.00738585072007e-308 is the \"magic number\" crash'|
 |942230|Detects conditional SQL injection attempts|
 |942240|Detects MySQL charset switch and MSSQL DoS attempts|
 |942250|Detects MATCH AGAINST, MERGE and EXECUTE IMMEDIATE injections|
