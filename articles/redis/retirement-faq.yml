@@ -42,7 +42,7 @@ sections:
           - Enterprise features such as active geo-replication and Redis modules.
           - Zone redundant by default and supports up to 99.999% availability.
           - Built to use Microsoft Entra ID, not legacy and less secure access keys.
-      #  This almost feels a little redundant with previous
+
       - question: What is Redis Enterprise and how is it different from what Azure Cache for Redis offers?
 
         answer: | 
@@ -81,8 +81,6 @@ sections:
           Azure Managed Redis supports all Redis functionality offered in existing Azure Cache for Redis SKUs. Some management operations, regions, and SKU sizes aren't currently available but are coming soon. 
           
           All the timelines mentioned are tentative. Please reach out through support or directly to AzureManagedRedis@microsoft.com for more information.
-
-# I don't love this section as it feel like implicit promise
 
             - Azure Public Regions:
               - France Central - ETA October 2025
