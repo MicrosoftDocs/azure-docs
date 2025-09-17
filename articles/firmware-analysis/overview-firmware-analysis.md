@@ -17,6 +17,8 @@ For example, IoT attack vectors typically use easily exploitable--but easily cor
 
 Use the firmware analysis service to identify embedded security threats, vulnerabilities, and common weaknesses that may be otherwise undetectable.
 
+> [!NOTE]
+> The firmware analysis service is made available to customers under the terms governing their subscription to Microsoft Azure Services (including the [Service Specific Terms](https://aka.ms/MCAServiceSpecificTerms)). Please review these terms carefully as they contain important conditions and obligations governing your use of firmware analysis. Learn more about the legal terms that apply to this service [here](https://azure.microsoft.com/support/legal/). 
 
 ## How to be sure your firmware is secure
 

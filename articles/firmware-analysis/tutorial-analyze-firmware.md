@@ -31,6 +31,20 @@ To use the **firmware analysis** page to analyze your firmware security, your fi
 
 - Your image must be less than 1 GB in size.
 
+## Firmware analysis workspace limits
+
+Firmware analysis workspaces are currently available as a free tier. The free tier has the following capacity limitations. If you use more than the capacity, you will receive an indication in the Azure Portal that you are over the capacity but will not be prevented from going over the capacity limit.
+
+The following limits apply to [firmware analysis workspaces](firmware-analysis-rbac.md#understanding-the-representation-of-firmware-images-in-the-azure-resource-hierarchy).
+
+| Resource | Free Tier Limit |
+| --- | --- |
+| Images scanned per month | 5 |
+| Images stored in workspace | 10 |
+| Free tier workspaces per subscription | 1 |
+
+In the future, a paid license tier may be introduced, and these limits will be enforced on new and existing free tier workspaces. This means that once you reach any of the limits, you will be required to create or upgrade to a paid tier workspace to scan or store more images. However, even when the limits are enforced, your existing free tier workspaces will continue to have the firmware images you already analyzed and stored. 
+
 ## Onboard your subscription to use firmware analysis
 > [!NOTE]
 > To onboard a subscription to use firmware analysis, you must be an Owner, Contributor, Firmware Analysis Admin, or Security Admin at the subscription level. To learn more about roles and their capabilities in firmware analysis, visit [Firmware analysis Roles, Scopes, and Capabilities](./firmware-analysis-rbac.md#firmware-analysis-roles-scopes-and-capabilities).
