@@ -51,8 +51,8 @@ The following table describes the key concepts to understand for this example ha
 
 | Concept | Description |
 |---------|-------------|
-| Tool separation | The handoff pattern differentiates between the following kinds of tools: <br><br>- Regular tools that run business logic like "search", "refund", and "order" <br>- Delegation tools that hand off control to other agents |
-| Agent specialization | Each agent has specific, relevant tools and capabilities. <br><br>- Triage agent: Has only handoff tools for delegation - no regular tools. <br>- Sales agent: Has the **execute_order** tool and the **handoff_back_to_triage** delegation tool. <br>- Refund agent: Has the **execute_refund** and **look_up_item** tools along with the **handoff_back_to_triage** delegation tool. |
+| Tool separation | The handoff pattern differentiates between the following kinds of tools: <br><br>- Regular tools that run business logic like "search", "refund", and "order" <br><br>- Delegation tools that hand off control to other agents |
+| Agent specialization | Each agent has specific, relevant tools and capabilities. <br><br>- Triage agent: Has only handoff tools for delegation - no regular tools. <br><br>- Sales agent: Has the **execute_order** tool and the **handoff_back_to_triage** delegation tool. <br><br>- Refund agent: Has the **execute_refund** and **look_up_item** tools along with the **handoff_back_to_triage** delegation tool. |
 
 ## 1 - Create a conversational agent workflow
 
@@ -216,9 +216,9 @@ The refund specialist agent has two specialized tools: **look_up_item** and **ex
 
 1. In the **Add an action** pane, find and select the **Compose** action.
 
-   The following panes appear for the **Compose** action and the tool container.
+   The following panes appear for the **Compose** action and the **Tool** container.
 
-   :::image type="content" source="{source}" alt-text="{alt-text}":::
+   :::image type="content" source="media/set-up-handoff-agent-workflow/refund-agent-look-up-tool.png" alt-text="Screenshot shows workflow designer, Compose action pane, and Tool container pane." lightbox="media/set-up-handoff-agent-workflow/refund-agent-look-up-tool.png":::
 
 1. Set up the tool to find product items and return an item ID:
 
