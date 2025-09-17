@@ -158,14 +158,14 @@ You can track database discovery in **Notifications**. The time required for thi
 
    :::image type="content" source="./media/backup-azure-sql-database/notifications-db-discovered.png" alt-text="Screenshot shows the deployment success message.":::
 
-1. Azure Backup discovers all SQL Server databases on the VM. During discovery, the following elements occur in the background:
+   Azure Backup discovers all SQL Server databases on the VM. During discovery, the following elements occur in the background:
 
-    * Azure Backup registers the VM with the vault for workload backup. All databases on the registered VM can be backed up to this vault only.
-    * Azure Backup installs the AzureBackupWindowsWorkload extension on the VM. No agent is installed on a SQL database.
-    * Azure Backup creates the service account NT Service\AzureWLBackupPluginSvc on the VM.
-      * All backup and restore operations use the service account.
-      * NT Service\AzureWLBackupPluginSvc requires SQL sysadmin permissions. All SQL Server VMs created in the Marketplace come with the SqlIaaSExtension installed. The AzureBackupWindowsWorkload extension uses the SQLIaaSExtension to automatically get the required permissions.
-    * If you didn't create the VM from the Marketplace or if you are on SQL 2008 and 2008 R2, the VM may not have the SqlIaaSExtension installed, and the discovery operation fails with the error message UserErrorSQLNoSysAdminMembership. To fix this issue, follow the instructions under [Set VM permissions](backup-azure-sql-database.md#set-vm-permissions).
+   * Azure Backup registers the VM with the vault for workload backup. All databases on the registered VM can be backed up to this vault only.
+   * Azure Backup installs the AzureBackupWindowsWorkload extension on the VM. No agent is installed on a SQL database.
+   * Azure Backup creates the service account NT Service\AzureWLBackupPluginSvc on the VM.
+     * All backup and restore operations use the service account.
+     * NT Service\AzureWLBackupPluginSvc requires SQL sysadmin permissions. All SQL Server VMs created in the Marketplace come with the SqlIaaSExtension installed. The AzureBackupWindowsWorkload extension uses the SQLIaaSExtension to automatically get the required permissions.
+   * If you didn't create the VM from the Marketplace or if you are on SQL 2008 and 2008 R2, the VM may not have the SqlIaaSExtension installed, and the discovery operation fails with the error message UserErrorSQLNoSysAdminMembership. To fix this issue, follow the instructions under [Set VM permissions](backup-azure-sql-database.md#set-vm-permissions).
 
         ![Select the VM and database](./media/backup-azure-sql-database/registration-errors.png)
 

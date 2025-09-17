@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Create an Azure Route Server - Azure CLI'
 description: In this quickstart, you learn how to create an Azure Route Server and peer it with an NVA using the Azure CLI.
-author: halkazwini
-ms.author: halkazwini
+author: duongau
+ms.author: duau
 ms.service: azure-route-server
 ms.topic: quickstart
 ms.date: 02/26/2025
