@@ -111,7 +111,7 @@ Azure Maps offers localization in a wide range of languages across its various s
 
 Azure Maps offers localization in a wide range of languages across its various services. The following table lists the supported language codes for the latest services. The Route column includes routes for both driving and walking.
 
-| Culture        | Language                                   | Search | Autosuggest | Route | Traffic | Truck Route |
+| Culture        | Language                                   | Search | Autocomplete | Route | Traffic | Truck Route |
 |----------------|--------------------------------------------|:------:|:-----------:|:-----:|:-------:|:-----------:|
 | af             | Afrikaans                                  | ✓      | ✓           | ✓    |         | ✓           |
 | sq             | Albanian                                   | ✓      | ✓           |       |         |             |
@@ -130,8 +130,8 @@ Azure Maps offers localization in a wide range of languages across its various s
 | ca             | Catalan Spanish                            | ✓      | ✓           |       |         |             |
 | ku-Arab        | Central Kurdish                            | ✓      | ✓           |       |         |             |
 | chr            | Cherokee                                   |        | ✓           |       |         |             |
-| zh-Hans        | Chinese (Simplified)                       |        | ✓           |       |         |             |
-| zh-Hant        | Chinese (Traditional)                      | ✓      | ✓           |       |         |             |
+| zh-Hans        | Chinese (Simplified)                       |        |             |       |         |             |
+| zh-Hant        | Chinese (Traditional)                      | ✓      |             |       |         |             |
 | zh-HanT-TW     | Chinese (Traditional, Taiwan)              | ✓      |             | ✓     |         | ✓           |
 | hr             | Croatian                                   | ✓      | ✓           |       |         |             |
 | cs             | Czech                                      | ✓      | ✓           | ✓     | ✓      | ✓           |
@@ -168,7 +168,7 @@ Azure Maps offers localization in a wide range of languages across its various s
 | xh             | isiXhosa                                   | ✓      | ✓           |       |         |             |
 | zu             | isiZulu                                    | ✓      | ✓           |       |         |             |
 | it             | Italian (Italy)                            | ✓      | ✓           | ✓     | ✓      | ✓           |
-| ja             | Japanese                                   | ✓      | ✓           |       |         |             |
+| ja             | Japanese                                   | ✓      |             |       |         |             |
 | qut-Latn       | K'iche'                                    | ✓      |             |       |         |             |
 | kn             | Kannada                                    | ✓      | ✓           |       |         |             |
 | kk             | Kazakh                                     | ✓      | ✓           |       |         |             |
@@ -176,7 +176,7 @@ Azure Maps offers localization in a wide range of languages across its various s
 | rw             | Kinyarwanda                                | ✓      | ✓           |       |         |             |
 | sw             | Kiswahili                                  | ✓      | ✓           |       |         |             |
 | kok            | Konkani                                    | ✓      | ✓           |       |         |             |
-| ko             | Korean                                     | ✓      | ✓           | ✓     |        | ✓           |
+| ko             | Korean                                     | ✓      |             | ✓     |        | ✓           |
 | ky-Cyrl        | Kyrgyz                                     | ✓      | ✓           |       |         |             |
 | lo             | Lao                                        |        | ✓           |       |         |             |
 | lv             | Latvian                                    | ✓      | ✓           |       | ✓      |             |
@@ -338,7 +338,7 @@ The following table provides supported views.
 ::: zone pivot="service-latest"
 <!------------------------REST API LATEST VERSIONS ------------------------------------------------->
 
-| View    | Description                           | Maps | Search | Autosuggest |
+| View    | Description                           | Maps | Search | Autocomplete|
 |---------|---------------------------------------|:----:|:------:|:-----------:|
 | AE      | United Arab Emirates (Arabic View)    | ✓    |        |             |
 | AR      | Argentina (Argentinian View)          | ✓    | ✓      | ✓          |
