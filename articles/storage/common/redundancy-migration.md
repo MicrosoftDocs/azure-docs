@@ -45,6 +45,8 @@ There are three ways to change the replication settings:
 
 Geo-redundancy and read-access can be changed at the same time. However, any change that also involves zone-redundancy requires a conversion and must be performed separately using a two-step process. These two steps can be performed in any order.
 
+For answers to common questions about changing replication types, see the [Storage redundancy change FAQ](storage-redundancy-change-faq.md) article.
+
 ### Changing redundancy configuration
 
 The following table provides an overview of how to switch between replication types.
@@ -489,6 +491,7 @@ If you remove geo-redundancy (change from GRS to LRS), there's no cost for makin
 ## See also
 
 - [Azure Storage redundancy](storage-redundancy.md)
+- [Storage redundancy change FAQ](storage-redundancy-change-faq.md)
 - [Use geo-redundancy to design highly available applications](geo-redundant-design.md)
 - [Move an Azure Storage account to another region](storage-account-move.md)
 - [Check the Last Sync Time property for a storage account](last-sync-time-get.md)
