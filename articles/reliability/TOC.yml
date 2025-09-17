@@ -51,7 +51,7 @@ items:
     - name: Azure Container Apps
       href: reliability-azure-container-apps.md
     - name: Azure Container Instances
-      href: reliability-containers.md
+      href: reliability-container-instances.md
     - name: Azure Data Factory
       href: reliability-data-factory.md
     - name: Azure Functions 
@@ -85,7 +85,7 @@ items:
     - name: Azure Container Apps
       href: reliability-azure-container-apps.md
     - name: Azure Container Instances
-      href: reliability-containers.md
+      href: reliability-container-instances.md
     - name: Azure Container Registry
       href: reliability-container-registry.md
     - name: Azure Kubernetes Service (AKS)
@@ -131,7 +131,7 @@ items:
       - name: Disaster recovery
         href: /azure/azure-sql/database/recovery-using-backups?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#geo-restore
     - name: Azure SQL Managed Instance
-      href: /azure/azure-sql/database/auto-failover-group-sql-db?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&tabs=azure-powershell
+      href: reliability-sql-managed-instance.md
   - name: Developer tools
     items:
     - name: Azure API Center
@@ -148,10 +148,6 @@ items:
         href: /azure/azure-monitor/logs/availability-zones?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Monitor - Log Analytics
         href: /azure/azure-monitor/logs/logs-data-export?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&tabs=portal#enable-data-export 
-  - name: Hybrid + multicloud
-    items:
-    - name: Azure Operator Nexus
-      href: reliability-operator-nexus.md
   - name: Industry solutions
     items:
     - name: Microsoft Community Training
@@ -242,8 +238,6 @@ items:
       href: reliability-load-balancer.md 
     - name: Azure Network Watcher
       href: ../network-watcher/frequently-asked-questions.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#service-availability-and-redundancy
-    - name: Azure Private 5G Core
-      href: ../private-5g-core/reliability-private-5g-core.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Private Link
       href: ../private-link/availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json    
     - name: Azure Public IP
@@ -347,7 +341,7 @@ items:
       - name: Azure Application Gateway
         href: migrate-app-gateway-v2.md
       - name: Azure Blob Storage
-        href: reliability-storage-blob.md
+        href: reliability-storage-blob.md#configure-availability-zone-support
       - name: Azure Functions
         href: migrate-functions.md
       - name: Azure Backup
@@ -359,7 +353,7 @@ items:
       - name: Azure Container Apps
         href: reliability-azure-container-apps.md#availability-zone-migration
       - name: Azure Container Instances
-        href: migrate-container-instances.md
+        href: migrate-container-instances.md#configure-availability-zone-support
       - name: Azure Container Registry
         href: /azure/container-registry/zone-redundancy?toc=/azure/reliability
       - name: Azure Cosmos DB for NoSQL
@@ -387,7 +381,7 @@ items:
       - name: Azure SQL Database
         href: /azure/azure-sql/database/enable-zone-redundancy?view=azuresql-db&preserve-view=true&toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure SQL Managed Instance
-        href: /azure/azure-sql/managed-instance/instance-zone-redundancy-configure
+        href: reliability-sql-managed-instance.md#configure-availability-zone-support
       - name: Azure Virtual Machines and Virtual Machine Scale Sets
         href: migrate-vm.md
 - name: Reliability concepts

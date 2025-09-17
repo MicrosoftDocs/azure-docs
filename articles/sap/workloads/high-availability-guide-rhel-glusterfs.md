@@ -6,10 +6,12 @@ author: rdeltcheva
 manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
-ms.custom: linux-related-content
 ms.topic: article
 ms.date: 07/03/2023
 ms.author: radeltch
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
 # Customer intent: "As an SAP system administrator, I want to deploy GlusterFS on Azure VMs running RHEL for SAP NetWeaver, so that I can ensure high availability and manage shared storage for my SAP workloads effectively."
 ---
 

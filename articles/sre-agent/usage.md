@@ -115,13 +115,15 @@ You can change the list of resource groups that your agent manages at any time. 
 
 ## Manage incidents
 
-You can diagnose incidents in Azure App Service, Azure Container Apps, Azure Functions, Azure Kubernetes Service, and Azure Database for PostgreSQL by chatting with the agent directly or by connecting an incident management platform.
+You can diagnose incidents your Azure services by setting up an incident response plan.
 
-SRE Agent connects to Azure Monitor by default, but you can also use the following steps to connect it to PagerDuty. To set up SRE Agent with PagerDuty, you need a PagerDuty API key.  
+SRE Agent connects to Azure Monitor alerts by default, but you can also use the following steps to connect it to PagerDuty. To set up SRE Agent with PagerDuty, you need a PagerDuty API key.
 
-1. In your SRE Agent resource, go to the **Settings** tab and select **Incident Management**.
+1. In your SRE Agent resource, select the **Incident management** tab.
 
-1. In the **Incident platform** dropdown list, select **PagerDuty**.
+1. Select **Incident platform**
+
+1. In the *Incident platform* dropdown list, select **PagerDuty**.
 
 1. Enter your API key.
 

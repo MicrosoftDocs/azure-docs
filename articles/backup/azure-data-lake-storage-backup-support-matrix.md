@@ -36,6 +36,7 @@ The following table lists the supported storage account details:
 | Account  Kind            | Only block blobs in a standard general-purpose v2 HNS-enabled storage account. <br><br>*Accounts using Network File Shares (NFS) 3.0, and Secure File Transfer Protocol (SFTP) protocols for blobs are currently not supported*.|
 | Redundancy              | Locally redundant storage (LRS), Zone-redundant storage (ZRS), Geo-redundant storage (GRS) enabled storage account. |
 | Tier              | Hot, Cool, and Cold tier blobs are supported.<br><br>*Archive tier blob backup isn't supported*. |
+| Upgraded storage accounts              | Accounts upgraded from Azure Blob Storage to Azure Data Lake Storage are not supported*. |
 
 ## Protection limits
 
@@ -58,7 +59,7 @@ Azure Data Lake Storage protection (preview) has the following supported and uns
 - Backup vaults with User-Assigned Managed Identity (UAMI) aren't compatible with Azure Blob Vaulted backups. Only System-Assigned Managed Identity (SAMI) works, because the vault needs to access the storage account where the blobs are stored. The vault uses its system-assigned managed identity for this access.
 - You can protect the storage account with the vault in another subscription but in the same region as storage account.
 - Archive tier for vault is currently not supported.
-
+- Azure Data Lake Storage accounts support both Blob and Data File System (DFS) APIs. The system captures operations through Change Feed and uses directory snapshots to ensure consistent recovery.
 
 ## Backup limits
 

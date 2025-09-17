@@ -7,7 +7,10 @@ ms.topic: conceptual
 ms.date: 01/05/2024
 author: chugugrace
 ms.author: chugu
-ms.custom: subject-rbac-steps, devx-track-azurepowershell
+ms.custom:
+  - subject-rbac-steps
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 ---
 # Start and stop an Azure-SSIS integration runtime on a schedule
 

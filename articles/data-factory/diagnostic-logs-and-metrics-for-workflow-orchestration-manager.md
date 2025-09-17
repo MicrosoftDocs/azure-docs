@@ -7,6 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.date: 10/03/2024
 ms.subservice: orchestration
+ms.custom: sfi-image-nochange
 ---
 
 # Diagnostics logs and metrics for Workflow Orchestration Manager

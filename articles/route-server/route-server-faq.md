@@ -1,8 +1,8 @@
 ---
 title: Azure Route Server frequently asked questions (FAQ)
 description: In this article, you find answers to the most frequently asked questions about Azure Route Server.
-author: halkazwini
-ms.author: halkazwini
+author: duongau
+ms.author: duau
 ms.service: azure-route-server
 ms.topic: faq
 ms.date: 09/11/2024
@@ -28,6 +28,9 @@ Yes, to ensure that routes are successfully advertised to Route Server and to co
 > During Route Server maintenance events, BGP peering may go down between your NVA and one of Route Server's instances. As a result, if you configure your NVA to peer with both instances of Route Server, then your connectivity will remain up and running during maintenance events. 
 > 
 
+### Can I get advanced notification of the maintenance?
+
+At this time, you can't get advanced notification for the maintenance of Azure Route Server.
 
 ### Does Azure Route Server store customer data?
 
@@ -86,9 +89,9 @@ Azure Route Server supports ***NO_ADVERTISE*** BGP community. If a network virtu
 
 Yes. If a VNet peering is created between your hub VNet and spoke VNet, Azure Route Server will perform a BGP soft reset by sending route refresh requests to all its peered NVAs. If the NVAs do not support BGP route refresh, then Azure Route Server will perform a BGP hard reset with the peered NVAs, which may cause connectivity disruption for traffic traversing the NVAs. 
 
-### How is the 1000 route limit calculated on a BGP peering session between an NVA and Azure Route Server?
+### How is the 4000 route limit calculated on a BGP peering session between an NVA and Azure Route Server?
 
-Currently, Route Server can accept a maximum of 1000 routes from a single BGP peer. When processing BGP route updates, this limit is calculated as the number of current routes learnt from a BGP peer plus the number of routes coming in the BGP route update. For example, if an NVA initially advertises 501 routes to Route Server and later re-advertises these 501 routes in a BGP route update, the route server calculates this as 1002 routes and tear down the BGP session. 
+Currently, Route Server can accept a maximum of 4000 routes from a single BGP peer. When processing BGP route updates, this limit is calculated as the number of current routes learnt from a BGP peer plus the number of routes coming in the BGP route update. For example, if an NVA initially advertises 2001 routes to Route Server and later re-advertises these 2001 routes in a BGP route update, the route server calculates this as 4002 routes and tears down the BGP session. 
 
 ### What Autonomous System Numbers (ASNs) can I use?
 

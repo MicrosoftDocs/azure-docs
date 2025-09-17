@@ -10,7 +10,9 @@ ms.topic: include
 ms.date: 11/29/2024
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.custom: azureday1
+ms.custom:
+  - azureday1
+  - sfi-image-nochange
 #Customer intent: As an application developer, enable authentication and authorization for a web app running on Azure App Service.
 ---
 

@@ -3,10 +3,12 @@ title: Create and use private endpoints for Azure Backup
 description: Understand the process to creating private endpoints for Azure Backup where using private endpoints helps maintain the security of your resources.
 ms.topic: how-to
 ms.date: 06/26/2025
-ms.custom: devx-track-azurepowershell
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: "As a cloud administrator, I want to create and manage private endpoints for Azure Backup, so that I can ensure secure communication and access to my backup resources within a virtual network."
 ---
 

@@ -69,8 +69,8 @@ Replica Auto Discovery | [GA](./reference-dotnet-provider.md#geo-replication) | 
 Replica Failover | [GA](./reference-dotnet-provider.md#geo-replication) | GA | GA | GA | [GA](./reference-javascript-provider.md#geo-replication) | GA
 Replica Load Balancing | [GA](./reference-dotnet-provider.md#geo-replication) | WIP | GA | GA | [GA](./reference-javascript-provider.md#geo-replication) | GA
 Snapshots | [GA](./reference-dotnet-provider.md#snapshot) | GA | GA | WIP | [GA](./reference-javascript-provider.md#snapshot) | WIP
-Distributed Tracing | [GA](./reference-dotnet-provider.md#distributed-tracing) | WIP | WIP | WIP | WIP | WIP
-Health Check | [GA](./reference-dotnet-provider.md#health-check) | GA | WIP | WIP | WIP | WIP 
+Distributed Tracing | [GA](./reference-dotnet-provider.md#distributed-tracing) | WIP | WIP | WIP | WIP | N/A
+Health Check | [GA](./reference-dotnet-provider.md#health-check) | GA | WIP | WIP | WIP | N/A 
 Select by Tag Filters | [GA](./reference-dotnet-provider.md#load-specific-key-values-using-selectors) | WIP | WIP | GA | [GA](./reference-javascript-provider.md#tag-filters) | WIP 
 
 ## Support policy

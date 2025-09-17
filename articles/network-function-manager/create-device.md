@@ -6,7 +6,9 @@ ms.service: azure-network-function-manager
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: tobiaw
-ms.custom: mode-other
+ms.custom:
+  - mode-other
+  - sfi-image-nochange
 ---
 # Quickstart: Create a Network Function Manager device resource
 

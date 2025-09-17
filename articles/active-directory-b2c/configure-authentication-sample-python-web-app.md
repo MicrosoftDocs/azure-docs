@@ -10,7 +10,10 @@ ms.topic: reference
 ms.date: 06/04/2024
 ms.author: kengaderdus
 ms.subservice: b2c
-ms.custom: b2c-support, devx-track-python
+ms.custom:
+  - b2c-support
+  - devx-track-python
+  - sfi-image-nochange
 
 
 #Customer intent: As a Python web app developer, I want to configure Azure AD B2C authentication in a sample web app by using my own tenant, so that I can securely sign customer users.

@@ -7,6 +7,7 @@ ms.reviewer: whhender
 ms.topic: conceptual
 ms.date: 01/05/2024
 ms.subservice: ci-cd
+ms.custom: sfi-image-nochange
 ---
 
 # Applying DataOps to Azure Data Factory

@@ -4,7 +4,7 @@ description: This article provides details about the known issues of Azure VMwar
 ms.topic: reference
 ms.custom: "engagement-fy23"
 ms.service: azure-vmware
-ms.date: 8/27/2025
+ms.date: 9/8/2025
 # Customer intent: "As a cloud administrator, I want to access detailed information about known issues in Azure VMware Solution so that I can implement workarounds and ensure the stability of my virtual environment."
 ---
 
@@ -16,6 +16,7 @@ Refer to the table to find details about resolution dates or possible workaround
 
 |Issue | Date discovered | Workaround | Date resolved |
 | :------------------------------------- | :------------ | :------------- | :------------- |
+| [VMSA-2025-0014](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/35964) VMware vCenter Server updates address a denial-of-service vulnerability | July 29, 2025 | Microsoft is aware of VMSA-2025-0014, which details a moderate-severity denial-of-service vulnerability in vCenter Server. Our security assessment has determined that this issue poses a low risk to the Azure VMware Solution platform. This vulnerability will be addressed as part of our regular, scheduled maintenance and update cycles. No immediate action is required from customers. | N/A |
 | [VMSA-2025-0013](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/35877) VMXNET3 integer-overflow, VMCI integer-underflow, PVSCSI heap-overflow, and vSockets information-disclosure vulnerabilities. | July 15, 2025 | Microsoft verified the applicability of the vulnerabilities within the Azure VMware Solution service and adjudicated the vulnerabilities at a combined adjusted Environmental Score of [9.3](https://www.first.org/cvss/calculator/3.1#CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/MAC:L/MPR:N/MUI:N/MS:C/MC:H/MI:H/MA:H). Customers are advised to take extra precautions when granting administrative access to guest VMs until the update is addressed. For additional information on the vulnerability, see [this blog post](https://techcommunity.microsoft.com/blog/azuremigrationblog/azure-vmware-solution-broadcom-vmsa-2025-0013-remediation/4433430) (CVE-2025-41236, CVE-2025-41237, CVE-2025-41238, CVE-2025-41239). | July 29, 2025 - Resolved in [ESXi 8.0_U3f](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/esxi-update-and-patch-release-notes/vsphere-esxi-80u3f-release-notes.html) |
 | Changing the default NSX Tier-1 name may cause some NSX features added through the Azure portal, such as DNS Zone and the Segment page, to not function as expected. | June 2025 | Azure VMware Solution uses the NSX Tier-1 name "TNTxx-T1" (where xx is the internal tenant ID) for these features. Therefore do not change the default Tier-1 name. | N/A |
 | Creating stateful gateway firewall rules associated with Azure VMware Solution default NSX-T tier-0 router causes unwanted/unexpected behavior. | May 2025 | Azure VMware Solution deploys with a stateless NSX-T tier-0 router.  As such, stateful firewall rules are incompatible even though the NSX-T UI may allow it.  Apply stateful services and/or firewall rules at the tier-1 router. | N/A |

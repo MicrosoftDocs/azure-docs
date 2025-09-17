@@ -5,6 +5,7 @@ ms.author: eboltonmaggs
 ms.date: 04/30/2024
 ms.topic: include
 ms.service: azure-communication-services
+ms.custom: sfi-ropc-nochange
 ---
 
 This article describes how to chat in a Teams meeting using the Azure Communication Services Chat SDK for JavaScript.

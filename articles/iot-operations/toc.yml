@@ -223,6 +223,9 @@ items:
               - name: Configure graph definitions
                 href: connect-to-cloud/howto-configure-wasm-graph-definitions.md
                 displayName: data flow, WASM, WebAssembly, graph definitions, YAML, configuration, workflow
+              - name: AI inference with ONNX
+                href: connect-to-cloud/howto-wasm-onnx-inference.md
+                displayName: data flow, WASM, WebAssembly, ONNX, inference, AI, wasi-nn
           - name: Use message schemas
             href: connect-to-cloud/concept-schema-registry.md
             displayName: data flow, serialize, deserialize, schema registry
@@ -286,8 +289,8 @@ items:
               - name: State store protocol
                 href: develop-edge-apps/reference-state-store-protocol.md
                 displayName: MQTT, client app, developer
-              - name: SDKS reference documentation
-                href: https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/README.md
+              - name: SDKS documentation
+                href: https://github.com/Azure/iot-operations-sdks/tree/main/doc
                 displayName: MQTT, client app, developer
               - name: Dapr apps
                 items:

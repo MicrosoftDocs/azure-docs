@@ -66,7 +66,9 @@ With availability zone support, API Management replicates service components acr
 
 You can use automatic availability zone support to choose either a single unit or multiunit instance configuration to achieve zone redundancy:
 
-- **Multiunit configuration** (Recommended): If your instance has two or more units, API Management makes a best-effort attempt to spread your instance's units among the region's availability zones. There's no way to determine which availability zones your units are placed into. For maximum benefit of availability zones, we recommend that you deploy a minimum of three units, which can be distributed across all available zones in a region. 
+- **Multiunit configuration** (Recommended): If your instance has two or more units, API Management makes a best-effort attempt to spread your instance's units among the region's availability zones. There's no way to determine which availability zones your units are placed into. We recommend that you deploy a minimum of two units, which can be distributed across two zones.
+
+    The following diagram shows an API Management instance with three units that's configured for automatic availability zone support:
 
     :::image type="complex" border="false" source="./media/reliability-api-management/zone-redundant-automatic-multi-unit.png" alt-text="Diagram that shows three API Management units distributed across availability zones for automatic availability zone support." lightbox="./media/reliability-api-management/zone-redundant-automatic-multi-unit.png":::
        The diagram shows three boxes labeled Unit 1, Unit 2, and Unit 3 deployed in an API Management instance. Each unit box contains two icons that represent VMs. Three larger boxes are labeled Availability Zone 1, Availability Zone 2, and Availability Zone 3. Zone 1 contains unit 1, zone 2 contains unit 2, and zone 3 contains unit 3.
@@ -112,7 +114,7 @@ You must use the Premium (classic) tier to configure availability zone support. 
 
 - **Number of units for zone-redundant instances:** If you manually configure zone redundancy for an instance, you also need to configure a number of API Management units that can be distributed evenly across all of your selected availability zones. For example, if you select two zones, you must configure at least two units. You can instead configure four units, or another multiple of two units. If you select three availability zones, you must configure three units, six units, or another multiple of three units.
 
-    If you use the automatic availability zone support, there's no requirement to use a specific number of units. The units that you deploy are distributed among the availability zones in a best-effort manner. For maximum zone redundancy, we recommend that you use at least three units to ensure that an availability zone outage doesn't affect your instance. 
+    If you use the automatic availability zone support, there's no requirement to use a specific number of units. The units that you deploy are distributed among the availability zones in a best-effort manner. For maximum zone redundancy, we recommend that you use at least two units to ensure that an availability zone outage doesn't affect your instance. 
     
     To determine the number of units that provide your required gateway performance, use [capacity metrics](/azure/api-management/api-management-capacity) and your own testing. For more information about scaling and upgrading your service instance, see [Upgrade and scale an API Management instance](/azure/api-management/upgrade-and-scale).
 
@@ -177,7 +179,9 @@ This section describes what to expect when API Management instances are configur
 
 - **Active requests:** When an availability zone is unavailable, any requests in progress that are connected to an API Management unit in the faulty availability zone are terminated and need to be retried.
 
-- **Notification:** Zone-level outages are reflected in Azure Resource Health and Azure Service Health.
+- **Notification**: Azure API Management doesn't notify you when a zone is down. However, you can use [Azure Resource Health](/azure/service-health/resource-health-overview) to monitor for the health of your gateway. You can also use [Azure Service Health](/azure/service-health/overview) to understand the overall health of the Azure API Management service, including any zone failures.
+
+  Set up alerts on these services to receive notifications of zone-level problems. For more information, see [Create Service Health alerts in the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal) and [Create and configure Resource Health alerts](/azure/service-health/resource-health-alert-arm-template-guide).
 
 - **Expected data loss:** API Management stores the following data.
 

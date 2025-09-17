@@ -4,10 +4,10 @@ description: This article describes the Azure built-in roles for Azure role-base
 ms.service: role-based-access-control
 ms.topic: generated-reference
 ms.workload: identity
-author: jenniferf-skc    
+author: rolyon    
 manager: pmwongera
-ms.author: jfields
-ms.date: 07/25/2025
+ms.author: rolyon
+ms.date: 09/03/2025
 ms.custom: generated
 ---
 
@@ -45,6 +45,10 @@ The following table provides a brief description of each built-in role. Click th
 > | Built-in role | Description | ID |
 > | --- | --- | --- |
 > | <a name='azure-arc-vmware-vm-contributor'></a>[Azure Arc VMware VM Contributor](./built-in-roles/compute.md#azure-arc-vmware-vm-contributor) | Arc VMware VM Contributor has permissions to perform all VM actions. | b748a06d-6150-4f8a-aaa9-ce3940cd96cb |
+> | <a name='azure-batch-account-contributor'></a>[Azure Batch Account Contributor](./built-in-roles/compute.md#azure-batch-account-contributor) | Grants full access to manage all Batch resources, including Batch accounts, pools and jobs. | 29fe4964-1e60-436b-bd3a-77fd4c178b3c |
+> | <a name='azure-batch-account-reader'></a>[Azure Batch Account Reader](./built-in-roles/compute.md#azure-batch-account-reader) | Lets you view all resources including pools and jobs in the Batch account. | 11076f67-66f6-4be0-8f6b-f0609fd05cc9 |
+> | <a name='azure-batch-data-contributor'></a>[Azure Batch Data Contributor](./built-in-roles/compute.md#azure-batch-data-contributor) | Grants permissions to manage Batch pools and jobs but not to modify accounts. | 6aaa78f1-f7de-44ca-8722-c64a23943cae |
+> | <a name='azure-batch-job-submitter'></a>[Azure Batch Job Submitter](./built-in-roles/compute.md#azure-batch-job-submitter) | Lets you submit and manage jobs in the Batch account. | 48e5e92e-a480-4e71-aa9c-2778f4c13781 |
 > | <a name='classic-virtual-machine-contributor'></a>[Classic Virtual Machine Contributor](./built-in-roles/compute.md#classic-virtual-machine-contributor) | Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they're connected to. | d73bb868-a0df-4d4d-bd69-98a00b01fccb |
 > | <a name='compute-fleet-contributor'></a>[Compute Fleet Contributor](./built-in-roles/compute.md#compute-fleet-contributor) | Allows users to manage Compute Fleet resources. | 2bed379c-9fba-455b-99e4-6b911073bcf2 |
 > | <a name='compute-gallery-artifacts-publisher'></a>[Compute Gallery Artifacts Publisher](./built-in-roles/compute.md#compute-gallery-artifacts-publisher) | This is the role for publishing gallery artifacts. | 85a2d0d9-2eba-4c9c-b355-11c2cc0788ab |
@@ -136,12 +140,15 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='storage-file-data-smb-share-contributor'></a>[Storage File Data SMB Share Contributor](./built-in-roles/storage.md#storage-file-data-smb-share-contributor) | Allows for read, write, and delete access on files/directories in Azure file shares. This role has no built-in equivalent on Windows file servers. | 0c867c2a-1d8c-454a-a3db-ab2ea1bdc8bb |
 > | <a name='storage-file-data-smb-share-elevated-contributor'></a>[Storage File Data SMB Share Elevated Contributor](./built-in-roles/storage.md#storage-file-data-smb-share-elevated-contributor) | Allows for read, write, delete, and modify ACLs on files/directories in Azure file shares. This role is equivalent to a file share ACL of change on Windows file servers. | a7264617-510b-434b-a828-9731dc254ea7 |
 > | <a name='storage-file-data-smb-share-reader'></a>[Storage File Data SMB Share Reader](./built-in-roles/storage.md#storage-file-data-smb-share-reader) | Allows for read access on files/directories in Azure file shares. This role is equivalent to a file share ACL of read on  Windows file servers. | aba4ae5f-2193-4029-9191-0cb91df5e314 |
+> | <a name='storage-file-delegator'></a>[Storage File Delegator](./built-in-roles/storage.md#storage-file-delegator) | Get a user delegation key, which can then be used to create a shared access signature for a file or Azure file share that is signed with Azure AD credentials. For more information, see [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas). | 765a04e0-5de8-4bb2-9bf6-b2a30bc03e91 |
 > | <a name='storage-queue-data-contributor'></a>[Storage Queue Data Contributor](./built-in-roles/storage.md#storage-queue-data-contributor) | Read, write, and delete Azure Storage queues and queue messages. To learn which actions are required for a given data operation, see [Permissions for calling data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations). | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
 > | <a name='storage-queue-data-message-processor'></a>[Storage Queue Data Message Processor](./built-in-roles/storage.md#storage-queue-data-message-processor) | Peek, retrieve, and delete a message from an Azure Storage queue. To learn which actions are required for a given data operation, see [Permissions for calling data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations). | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
 > | <a name='storage-queue-data-message-sender'></a>[Storage Queue Data Message Sender](./built-in-roles/storage.md#storage-queue-data-message-sender) | Add messages to an Azure Storage queue. To learn which actions are required for a given data operation, see [Permissions for calling data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations). | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
 > | <a name='storage-queue-data-reader'></a>[Storage Queue Data Reader](./built-in-roles/storage.md#storage-queue-data-reader) | Read and list Azure Storage queues and queue messages. To learn which actions are required for a given data operation, see [Permissions for calling data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations). | 19e7f393-937e-4f77-808e-94535e297925 |
+> | <a name='storage-queue-delegator'></a>[Storage Queue Delegator](./built-in-roles/storage.md#storage-queue-delegator) | Get a user delegation key, which can then be used to create a shared access signature for an Azure Storage queue that is signed with Azure AD credentials. For more information, see [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas). | 7ee386e9-84f0-448e-80a6-f185f6533131 |
 > | <a name='storage-table-data-contributor'></a>[Storage Table Data Contributor](./built-in-roles/storage.md#storage-table-data-contributor) | Allows for read, write and delete access to Azure Storage tables and entities | 0a9a7e1f-b9d0-4cc4-a60d-0319b160aaa3 |
 > | <a name='storage-table-data-reader'></a>[Storage Table Data Reader](./built-in-roles/storage.md#storage-table-data-reader) | Allows for read access to Azure Storage tables and entities | 76199698-9eea-4c19-bc75-cec21354c6b6 |
+> | <a name='storage-table-delegator'></a>[Storage Table Delegator](./built-in-roles/storage.md#storage-table-delegator) | Get a user delegation key, which can then be used to create a shared access signature for an Azure Storage table that is signed with Azure AD credentials. For more information, see [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas). | 965033a5-c8eb-4f35-b82f-fef460a3606d |
 
 ## Web and Mobile
 
@@ -194,6 +201,7 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='azure-arc-kubernetes-cluster-admin'></a>[Azure Arc Kubernetes Cluster Admin](./built-in-roles/containers.md#azure-arc-kubernetes-cluster-admin) | Lets you manage all resources in the cluster. | 8393591c-06b9-48a2-a542-1bd6b377f6a2 |
 > | <a name='azure-arc-kubernetes-viewer'></a>[Azure Arc Kubernetes Viewer](./built-in-roles/containers.md#azure-arc-kubernetes-viewer) | Lets you view all resources in cluster/namespace, except secrets. | 63f0a09d-1495-4db4-a681-037d84835eb4 |
 > | <a name='azure-arc-kubernetes-writer'></a>[Azure Arc Kubernetes Writer](./built-in-roles/containers.md#azure-arc-kubernetes-writer) | Lets you update everything in cluster/namespace, except (cluster) roles and (cluster)role bindings. | 5b999177-9696-4545-85c7-50de3797e5a1 |
+> | <a name='azure-container-instances-contributor-role'></a>[Azure Container Instances Contributor Role](./built-in-roles/containers.md#azure-container-instances-contributor-role) | Grants read/write access to container groups provided by Azure Container Instances | 5d977122-f97e-4b4d-a52f-6b43003ddb4d |
 > | <a name='azure-container-storage-contributor'></a>[Azure Container Storage Contributor](./built-in-roles/containers.md#azure-container-storage-contributor) | Install Azure Container Storage and manage its storage resources. Includes an ABAC condition to constrain role assignments. | 95dd08a6-00bd-4661-84bf-f6726f83a4d0 |
 > | <a name='azure-container-storage-operator'></a>[Azure Container Storage Operator](./built-in-roles/containers.md#azure-container-storage-operator) | Enable a managed identity to perform Azure Container Storage operations, such as manage virtual machines and manage virtual networks. | 08d4c71a-cc63-4ce4-a9c8-5dd251b4d619 |
 > | <a name='azure-container-storage-owner'></a>[Azure Container Storage Owner](./built-in-roles/containers.md#azure-container-storage-owner) | Install Azure Container Storage, grant access to its storage resources, and configure Azure Elastic storage area network (SAN). Includes an ABAC condition to constrain role assignments. | 95de85bd-744d-4664-9dde-11430bc34793 |

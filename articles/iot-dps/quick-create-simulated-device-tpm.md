@@ -8,9 +8,17 @@ ms.topic: quickstart
 ms.service: azure-iot-hub
 services: iot-dps
 zone_pivot_groups: iot-dps-set1
-ms.custom: mvc, amqp, mqtt, mode-other, devx-track-extended-java, devx-track-python, devx-track-js
 #Customer intent: As a new IoT developer, I want simulate a TPM device to learn how secure provisioning works.
 ms.subservice: azure-iot-hub-dps
+ms.custom:
+  - mvc
+  - amqp
+  - mqtt
+  - mode-other
+  - devx-track-extended-java
+  - devx-track-python
+  - devx-track-js
+  - sfi-image-nochange
 ---
 
 # Quickstart: Provision a simulated TPM device
