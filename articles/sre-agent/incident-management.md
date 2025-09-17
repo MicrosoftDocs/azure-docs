@@ -3,7 +3,7 @@ title: Incident Management in Azure SRE Agent Preview
 description: Learn how the incident management capabilities in Azure SRE Agent help reduce manual intervention and accelerate resolution times for your Azure resources.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 09/03/2025
+ms.date: 09/17/2025
 ms.author: cshoe
 ms.service: azure-sre-agent
 ---
