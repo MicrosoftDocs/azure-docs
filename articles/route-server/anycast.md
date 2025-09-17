@@ -83,8 +83,6 @@ The selection of which region receives traffic depends on routing attributes:
 
 ## Return traffic considerations
 
-## Return traffic considerations
-
 Proper handling of return traffic is crucial for successful anycast implementations. The method depends on how the NVA processes incoming traffic.
 
 ### Traffic processing methods
