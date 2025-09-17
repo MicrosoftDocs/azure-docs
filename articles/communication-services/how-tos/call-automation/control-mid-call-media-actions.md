@@ -8,8 +8,10 @@ ms.service: azure-communication-services
 ms.subservice: call-automation
 ms.date: 07/16/2024
 ms.author: kpunjabi
-ms.custom: public_preview
 services: azure-communication-services
+ms.custom:
+  - public_preview
+  - sfi-ropc-nochange
 ---
 
 # Control mid-call media actions with Call Automation

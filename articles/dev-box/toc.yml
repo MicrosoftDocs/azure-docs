@@ -114,10 +114,9 @@ items:
         href: how-to-configure-dev-box-serverless-gpu.md
   - name: Security
     items:
-      - name: Provide access to project admins
-        href: how-to-project-admin.md
-      - name: Provide access to dev box users
-        href: how-to-dev-box-user.md
+      - name: Manage project access
+        href: how-to-manage-dev-box-access.md
+        displayName: project access, RBAC, roles, permissions
       - name: Configure conditional access policies
         href: how-to-configure-intune-conditional-access-policies.md
       - name: Configure elevated privilege for dev boxes

@@ -6,7 +6,7 @@ author: normesta
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
-ms.date: 08/25/2025
+ms.date: 09/12/2025
 ms.author: normesta
 
 ---
@@ -16,6 +16,9 @@ ms.author: normesta
 You can enable traffic from specific Azure resource instances by creating a *resource instance network rule*. 
 
 Resource instance network rules can be combined with other network rules to control traffic to your storage account. To learn more, see [Azure Storage firewall and virtual network rules](storage-network-security.md).
+
+> [!IMPORTANT]
+> A resource instance network rule provides access to the public endpoint but not to the data. For data access, you must assign the appropriate Azure role to the system-assigned managed identity of the Azure resource. See [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md).
 
 ## Create a resource instance network rule
 

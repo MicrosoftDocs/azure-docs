@@ -4,7 +4,10 @@ description: "Learn how to add an output binding to connect your C# class librar
 ms.date: 01/31/2023
 ms.topic: quickstart
 ms.devlang: csharp
-ms.custom: mvc, mode-ui
+ms.custom:
+  - mvc
+  - mode-ui
+  - sfi-image-nochange
 #Customer intent: "As an Azure Functions developer, I want to connect my C# class library function to Azure Storage so that I can easily write data to a storage queue."
 ---
 
