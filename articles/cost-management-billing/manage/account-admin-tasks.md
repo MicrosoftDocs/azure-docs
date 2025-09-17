@@ -1,5 +1,5 @@
 ---
-title: Account Administrator tasks in the Azure portal
+title: Payment method tasks in the Azure portal
 description: Describes how to perform payment method operations in the Azure portal
 author: kennyday
 ms.reviewer: drjones
