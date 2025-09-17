@@ -50,7 +50,6 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 # deploy the resource
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri https://raw.githubusercontent.com/Azure-Samples/azure-health-data-and-ai-samples/samples/fhir-aad-entra-external/entra-external-arm-template.json -directoryName $directoryName
 ```
----
 
 #### [Azure CLI](#tab/command-line-script)
 
@@ -516,5 +515,6 @@ Follow the steps in the [Get the FHIR patient data](using-rest-client.md#get-fhi
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
        
+
 
 
