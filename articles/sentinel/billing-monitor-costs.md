@@ -161,7 +161,7 @@ The **Usage** page provides you with entry points to relevant cost tracking capa
 + Cost forecast - Leads you to a forecast report in the **Cost Management + Billing** blade in the Azure portal. For more information on how to use the forecast functionality, see [View forecast costs](/azure/cost-management-billing/costs/cost-analysis-common-uses#view-forecast-costs).
 + Microsoft Sentinel settings - Opens the Microsoft Sentinel settings to show your relevant billing information, such as subscription and resource group selected for the data lake.
 
-When you select on one of the capabilities under **Usage reports**, you can view any of the following reports:
+When you select one of the capabilities under **Usage reports**, you can view any of the following reports:
 
 - **Cost driver report** - Displays the top 10 cost drivers for the capability and a detailed list breaking down usage by cost drivers. This report is available for data lake ingestion, data lake storage, and data processing. The only usage captured for these reports is billable usage.
   
@@ -175,7 +175,7 @@ You can use a filter to adjust the default single month time window. A card show
 
 #### Notification
 
-The **Notification** page lets you configure notification thresholds for each capability so you can receive email notifications when your usage reaches that threshold. Setting these thresholds helps you keep track of your usage and prevent unexpected charges. Currently, the email notifications go to the billing administrator that configured it.
+The **Notification** page lets you configure notification thresholds for each capability so you can receive email notifications when your usage reaches that threshold. Setting these thresholds helps you keep track of your usage and prevent unexpected charges. Currently, the email notifications go to the billing administrator that configured them.
 
 To configure notification thresholds on a capability:
 
