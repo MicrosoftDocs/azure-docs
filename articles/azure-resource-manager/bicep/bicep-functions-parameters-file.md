@@ -22,7 +22,7 @@ Available in Bicep version 0.37.4 and later.
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| name | Yes | string | The name of the external source you want to pull input values from. |
+| name | Yes | string | The name of the input provided by the external tool. |
 | config | No | any | Extra configuration for the external source, if it needs parameters. |
 
 ### Return value
