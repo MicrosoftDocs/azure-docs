@@ -114,7 +114,7 @@ properties: {
 
 ::: zone pivot="front-door"
 
-```
+```Bicep
 properties: {
     customRules: {
       rules: [
@@ -203,7 +203,7 @@ Update-AzFrontDoorWafPolicy -InputObject $afdWAFPolicy -Customrule $customRuleOb
 
 ::: zone pivot="application-gateway"
 
-```
+```Bicep
 properties: {
     customRules: [
       {
@@ -249,7 +249,7 @@ properties: {
 
 ::: zone pivot="front-door"
 
-```
+```Bicep
 properties: {
     customRules: {
       rules: [
@@ -340,7 +340,7 @@ Update-AzFrontDoorWafPolicy -InputObject $afdWAFPolicy -Customrule $customRuleOb
 
 ::: zone pivot="application-gateway"
 
-```
+```Bicep
 properties: {
     customRules: [
       {
@@ -371,7 +371,7 @@ properties: {
 
 ::: zone pivot="front-door"
 
-```
+```Bicep
 properties: {
     customRules: {
       rules: [
