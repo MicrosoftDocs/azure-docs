@@ -8,7 +8,9 @@ ms.date: 11/29/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: call-automation
-ms.custom: mode-other
+ms.custom:
+  - mode-other
+  - sfi-ropc-nochange
 ---
 
 ## Prerequisites

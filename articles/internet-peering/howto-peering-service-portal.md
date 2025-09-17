@@ -7,6 +7,7 @@ ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
 ms.date: 03/03/2025
+ms.custom: sfi-image-nochange
 
 #CustomerIntent: As an administrator, I want to learn how to enable Azure Peering Service on a Direct peering using the Azure portal so I can manage my Direct peerings.
 # Customer intent: As an administrator, I want to enable Azure Peering Service on a Direct peering, so that I can configure and manage my peering connections effectively through the portal.

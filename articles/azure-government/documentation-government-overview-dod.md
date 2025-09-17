@@ -96,7 +96,7 @@ The following services are in scope for DoD IL5 PA in US DoD regions (US DoD Cen
 - [Power Automate](/power-automate/getting-started) (formerly Microsoft Flow)
 - [Power BI](https://powerbi.microsoft.com/)
 - [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/)
-- [Service Bus](https://azure.microsoft.com/services/service-bus/)
+- [Service Bus (including Azure Relay Service)](https://azure.microsoft.com/services/service-bus/)
 - [SQL Server Stretch Database](https://azure.microsoft.com/services/sql-server-stretch-database/)
 - [Storage: Blobs](https://azure.microsoft.com/services/storage/blobs/) (incl. [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md))
 - [Storage: Disks](https://azure.microsoft.com/services/storage/disks/) (incl. [managed disks](/azure/virtual-machines/managed-disks-overview))

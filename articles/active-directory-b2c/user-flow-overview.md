@@ -9,6 +9,7 @@ ms.topic: concept-article
 ms.date: 05/01/2025
 ms.author: godonnell
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 #Customer intent: As a developer, I want to understand the difference between user flows and custom policies, so that I can choose the best method for my business needs. I want to understand the scenarios that can be enabled with each method, and how to integrate them with my applications.
 

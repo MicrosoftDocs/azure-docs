@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 02/03/2023
 author: sagarkeswani
 ms.author: sagarkeswani
+ms.custom: sfi-ropc-nochange
 #Customer intent: As a developer, I want to install SAP software so that I can use Azure Center for SAP solutions.
 # Customer intent: As a SAP system administrator, I want to install SAP software using Azure Center for SAP solutions, so that I can set up and manage my SAP infrastructure efficiently.
 ---

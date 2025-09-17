@@ -85,11 +85,14 @@ For more information on how to optimize the scaling process, see the [best pract
 - Scaling an instance in a geo-replication group has some more limitations. See [Are there scaling limitations with geo-replication?](#are-there-scaling-limitations-with-geo-replication) for more information.
 - When you scale down, you can only scale to certain tiers. For more information, see [Why can only I scale down to a subset of smaller SKUs?](#why-can-only-i-scale-down-to-a-subset-of-smaller-skus).
 
-## How to scale (preview)
+## How to scale
 
 In this section, we describe how to scale an Azure Managed Redis Cache.
 
 ### Scale using the Azure portal
+> [!NOTE]
+> Scaling geo-replicated Azure Managed Redis caches remains in Public Preview.
+>
 
 1. To scale your cache, [browse to the cache](configure.md#configure-azure-managed-redis-settings) in the [Azure portal](https://portal.azure.com) and select **Scale** from the Resource menu.
 

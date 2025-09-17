@@ -8,6 +8,7 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 03/06/2025
 ms.author: danlep
+ms.custom: sfi-image-nochange
 ---
 
 # How to set or edit Azure API Management policies

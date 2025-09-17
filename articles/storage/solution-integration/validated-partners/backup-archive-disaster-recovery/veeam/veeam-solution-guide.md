@@ -5,7 +5,7 @@ description: This article provides information for using Azure Blob storage with
 
 author: karauten
 ms.author: karauten
-ms.date: 08/25/2025
+ms.date: 09/07/2025
 ms.topic: concept-article
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
@@ -75,7 +75,7 @@ You can store backups of your on-premises workloads using [Veeam Backup & Replic
 For fast restore of your on-premises workloads directly to Azure, you can use [Veeam Backup & Replication](https://helpcenter.veeam.com/docs/backup/hyperv/overview.html), giving you the ability to use Azure as an on-demand recovery site for migration purposes.
 
 ### Protect Azure workloads with Veeam
-To agentlessly protect Azure VMs, Files, SQL, Cosmos DB, and virtual network configuration data, you can use [Veeam Data Cloud for Azure](https://helpcenter.veeam.com/docs/vdcazure/userguide/welcome.html) as a service, or [Veeam Backup for Azure](https://helpcenter.veeam.com/docs/vbazure/guide/overview.html). 
+To agentlessly protect Azure VMs, Files, SQL, and more, you can use [Veeam Data Cloud for Azure](https://helpcenter.veeam.com/docs/vdcazure/userguide/welcome.html) as a service, or [Veeam Backup for Azure](https://helpcenter.veeam.com/docs/vbazure/guide/overview.html). 
 
 ### Protect your Microsoft 365 and Microsoft Entra ID data
 You can protect your Exchange Online, SharePoint Online, OneDrive, and Teams data with [Veeam Data Cloud for Microsoft 365](https://helpcenter.veeam.com/docs/vdcm365/userguide/welcome.html) as a service, or [Veeam Backup for Microsoft 365](https://helpcenter.veeam.com/docs/vbo365/guide/). 

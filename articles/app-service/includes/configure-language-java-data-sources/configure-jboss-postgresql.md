@@ -5,6 +5,7 @@ ms.devlang: java
 ms.topic: include
 ms.date: 11/05/2024
 ms.author: cephalin
+ms.custom: sfi-ropc-nochange
 ---
 > [!NOTE]
 > JBoss EAP on App Service now supports "Bring Your Own License" (BYOL) billing, this allows customers with existing Red Hat subscriptions to apply those licenses directly to their JBoss EAP deployments on Azure App Service. [Learn more](https://aka.ms/byol-eap-jboss).

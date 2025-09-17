@@ -2,7 +2,7 @@
 title: Label mission-critical workloads 
 description: Learn how to label mission-critical workloads in Azure to assess Microsoft workloads.
 ms.topic: conceptual
-ms.date: 04/14/2025
+ms.date: 09/15/2025
 ---
 
 # Label mission-critical workloads

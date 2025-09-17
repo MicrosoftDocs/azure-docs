@@ -1,8 +1,8 @@
 ---
 title: How to add Azure Resource Manager (ARM) resources to a Network Service Design Version (NSDV) using the Azure Operator Service Manager (AOSM) CLI extension
 description: Learn how to add Azure Resource Manager (ARM) resources to a Network Service Design Version (NSDV) using the Azure Operator Service Manager (AOSM) CLI extension.
-author: pjw711
-ms.author: peterwhiting
+author: JAC0BSMITH
+ms.author: jacobsmith
 ms.date: 04/09/2024
 ms.topic: how-to
 ms.service: azure-operator-service-manager

@@ -1235,6 +1235,39 @@ Webhook authorization is handled by the webhook receiver component, part of the 
 * **Query string**: The provider passes the key name in the `clientid` query string parameter, such as `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?clientid=<KEY_NAME>`.
 * **Request header**: The provider passes the key name in the `x-functions-clientid` header.
 
+## Invoke HTTP triggers
+
+You can invoke your HTTP-triggered functions using an HTTP client. The examples in this section use [`curl`](https://github.com/curl/curl), but you can use any HTTP client tool that keeps your data secure. For more information, see [HTTP test tools](functions-develop-local.md#http-test-tools).
+
+The request you need to make might be different between a local version of your code and when hosted in Azure. By default, when you run your project using the Azure Functions Core Tools, access key authorization requirements are removed. However, any requirements you've configured will still be enforced when hosted.
+
+### Invoke locally
+
+The [Azure Functions Core Tools](./functions-develop-local.md) registers a `localhost` endpoint for your function app, which you can use to invoke your functions. During application startup, the specific port being used is displayed in the console. The output also lists the available functions, and for each HTTP-triggered function, the output also includes the function's route template.
+
+Use this information to construct the URL to provide to your API client. You also need to specify any headers, parameters, and request body information your function requires. The following example sends an HTTP POST request with a JSON body:
+
+```bash
+curl --request POST http://localhost:7071/api/Function1 --header "Content-Type: application/json" --data '{"message":"test data"}'
+```
+
+### Invoke in Azure
+
+When invoking an HTTP-triggered function hosted in Azure, you need to consider your networking configuration. The HTTP client must have network access to the app, so if you have [inbound networking restrictions](./functions-networking-options.md#inbound-networking-features) enabled, the client might need to be within a virtual network or specific IP ranges. Your domain configuration determines the base URL you need to use for the request.
+
+> [!NOTE]
+> Newly created function apps can generate a unique default host name that uses the naming convention `<app-name>-<random-hash>.<region>.azurewebsites.net`. An example is `myapp-ds27dh7271aah175.westus-01.azurewebsites.net`. Existing app names remain unchanged.
+>
+> For more information, see the [blog post about creating an app with a unique default host name](https://techcommunity.microsoft.com/blog/appsonazureblog/secure-unique-default-hostnames-ga-on-app-service-web-apps-and-public-preview-on/4303571).
+
+Unless you selected the anonymous [authorization level](#http-auth) in your trigger definition, your request may also need to [include an access key](./function-keys-how-to.md#use-access-keys).
+
+The following example sends an HTTP POST request with a function body, including the access key in the query string:
+
+```bash
+curl --request POST "https://<your-function-app-base-url>/api/Function1?code=<your-function-key>" --header "Content-Type: application/json" --data '{"message":"test data"}'
+```
+
 ## Content types
 
 Passing binary and form data to a non-C# function requires that you use the appropriate content-type header. Supported content types include `octet-stream` for binary data and [multipart types](https://www.iana.org/assignments/media-types/media-types.xhtml#multipart).

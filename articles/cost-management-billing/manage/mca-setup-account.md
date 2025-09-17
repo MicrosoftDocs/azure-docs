@@ -6,7 +6,7 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/14/2025
+ms.date: 09/15/2025
 ms.author: jkinma
 ---
 
@@ -248,7 +248,12 @@ You see the following image when your Enterprise Agreement enrollment savings pl
 :::image type="content" source="./media/microsoft-customer-agreement-setup-account/savings-plan-repurchase.png" alt-text="Screenshot showing the Savings Plan page." lightbox="./media/microsoft-customer-agreement-setup-account/savings-plan-repurchase.png" :::
 
 >[!NOTE]
-> You must cancel any savings plan under the Enterprise Agreement that wasn't purchased in USD. Then you can repurchase it under the terms of the new Microsoft Customer Agreement in USD.
+> - If your enrollment transfer (e.g. EA to MCA, EA to EA, etc.) involves a change in pricing currency (e.g. EUR to USD), Savings Plans from the source enrollment will not be transferred to the destination enrollment. The Savings Plans will be cancelled in the source enrollment and automatically repurchased in the destination enrollment. Note the following:
+>    - Each newly purchase Savings Plan will be billed Monthly, regardless of the billing frequency of the Savings Plan it is replacing.
+>    - Each newly purchased Savings Plan will be priced as the USD equivalent of the original Savings Plan. For example, assuming a €1: $1.17 rate, a €5/hour Savings Plan would be replaced with a $5.85/hour Savings Plan. 
+>    - Each newly purchased Savings Plans will have a 1-year term, regardless of the term of the Savings Plan it is replacing. As a result, each new Savings Plan will have a different term end date when compared to the Savings Plan being replaced.
+>    - If the original Savings Plan has a 1-year term, the new 1-year Savings Plan will provide identical savings benefits. If you are going from 3-year to 1-year Savings Plans, expect reduced savings benefits due to the discount differences between the terms. To maintain your previous savings level, you should buy an additional 1- year Savings Plan. Hourly commitment recommendations for the additional savings plan may take up to 2 days to appear in the Azure portal.
+> - Customers with 3-year savings plans, who want to retain their discount levels should immediately contact Azure support for assistance purchasing the new 3-year Savings Plans in the destination enrollment.
 
 To move forward, select **View charges** to open the Exchange savings plans page and view the savings plans that must be repurchased.
 
@@ -409,7 +414,8 @@ Enterprise administrators and department administrators are listed as invoice se
 - **Cost Management** using third-party providers like Cloud health and Cloud easier - Organizations transitioning to MCA need to update their provider that they're transitioning to MCA. Most of them have a documented process to pull the MCA cost data.
 - Historical data – It isn’t available to account owners or users with the Subscription owner Azure role-based access control (RBAC) role after migration. Access for existing users, groups, or service principals that was assigned using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) isn't affected during the transition.
     - Cost data transition - Cost data before the transition remains in the EA scope. It doesn't move to the MCA scope. You can access the data by switching scopes.
-- **Reservations** - When there's a currency change during or after an enrollment transfer, reservations paid for monthly are canceled for the source enrollment. Cancellation happens at the time of the next monthly payment for an individual reservation. The cancellation is intentional and only affects monthly reservation purchases. You can repurchase them after migration. **Reservations cancellations triggered by this migration do not count toward the cancellation threshold of USD 50,000 within a rolling 12-month window**. For the cancellation policy, please refer to [Self-service exchanges and refunds for Azure Reservations](../reservations/exchange-and-refund-azure-reservations.md) 
+- **Reservations** - When there's a currency change during or after an enrollment transfer, reservations paid for monthly are canceled for the source enrollment. Cancellation happens at the time of the next monthly payment for an individual reservation. The cancellation is intentional and only affects monthly reservation purchases. You can repurchase them after migration. **Reservations cancellations triggered by this migration do not count toward the cancellation threshold of USD 50,000 within a rolling 12-month window**. For the cancellation policy, please refer to [Self-service exchanges and refunds for Azure Reservations](../reservations/exchange-and-refund-azure-reservations.md)
+- Reserved Instance (RI) charges may appear under the primary invoice section. To ensure accurate billing, customers should verify the placement of RI charges immediately. If adjustments are needed, submit a transfer request to update the invoice section.
 - **Savings Plans** - If they were purchased in a non-USD currency, they get canceled during migration. You can repurchase them after migration.
 - **API changes** - API endpoints differ between EA and MCA. Existing EA API calls don't work with MCA. You need to use Microsoft Cost Management APIs instead if using consumption APIs. For more information, see:
     - [Migrate EA to Microsoft Customer Agreement APIs](../costs/migrate-cost-management-api.md)
