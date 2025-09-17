@@ -11,7 +11,9 @@ ms.topic: overview
 ms.date: 02/17/2025
 ms.author: kengaderdus
 ms.subservice: b2c
-ms.custom: "b2c-support"
+ms.custom:
+  - "b2c-support"
+  - sfi-image-nochange
 
 
 #Customer intent: As an identity developer working with Azure AD B2C, I want to understand the basics of custom policies, so that I can configure and customize the behavior of my Azure AD B2C tenant for different identity tasks.

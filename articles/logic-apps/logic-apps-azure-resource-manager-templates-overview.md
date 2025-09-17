@@ -5,8 +5,10 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: concept-article
-ms.custom: devx-track-arm-template
 ms.date: 07/01/2025
+ms.custom:
+  - devx-track-arm-template
+  - sfi-ropc-nochange
 ---
 
 # Overview: Automate deployment for Azure Logic Apps by using Azure Resource Manager templates

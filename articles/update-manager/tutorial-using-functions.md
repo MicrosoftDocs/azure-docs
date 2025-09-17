@@ -6,6 +6,7 @@ ms.date: 08/21/2025
 ms.topic: tutorial 
 author: habibaum
 ms.author: v-uhabiba
+ms.custom: sfi-image-nochange
 # Customer intent: "As a cloud administrator, I want to create pre and post event triggers using serverless functions, so that I can automate the starting and stopping of virtual machines during scheduled maintenance tasks."
 ---
 

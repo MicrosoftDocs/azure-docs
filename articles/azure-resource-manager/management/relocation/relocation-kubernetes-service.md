@@ -1,7 +1,7 @@
 ---
 title: Relocate an Azure Kubernetes Service cluster to another region
 description: Learn how to relocate an Azure Kubernetes Service cluster to another region
-ms.date: 09/03/2024
+ms.date: 09/15/2025
 ms.topic: how-to
 ms.custom: subject-relocation
 ---

@@ -6,6 +6,7 @@ ms.author: sujie
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 06/24/2022
+ms.custom: sfi-ropc-nochange
 ---
 
 # Implement CI/CD for Stream Analytics on IoT Edge using APIs
