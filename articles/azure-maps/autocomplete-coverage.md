@@ -38,7 +38,7 @@ The following table shows which countries/regions support Azure Maps search auto
 | Bahrain                                           | 1,513         | 222         | 1,735       |
 | Burundi                                           | 0             | 2,320       | 2,320       |
 | Benin                                             | 0             | 14,347      | 14,347      |
-| Saint Barthelemy                                  | 0             | 123         | 123         |
+| Saint Barthélemy                                  | 0             | 123         | 123         |
 | Bermuda                                           | 0             | 241         | 241         |
 | Brunei Darussalam                                 | 8,936         | 1,134       | 10,070      |
 | Bolivia                                           | 0             | 30,350      | 30,350      |
@@ -261,8 +261,8 @@ The following table shows which countries/regions support Azure Maps search auto
 | Zambia                                            | 0             | 3,469       | 3,469       |
 | Zimbabwe                                          | 0             | 2,903       | 2,903       |
 
-<sup>1</sup>  The place entity has low autocomplete coverage for this country.<BR>
-<sup>2</sup>  The address entity has low autocomplete coverage for this country.
+<sup>1</sup>  The place entity has low autocomplete coverage for this country/region.<BR>
+<sup>2</sup>  The address entity has low autocomplete coverage for this country/region.
 
 <!--
 ## Next steps
