@@ -14,7 +14,9 @@ This article describes the Bicep functions that can be used in [Bicep parameters
 
 `externalInput(name, config)`
 
-With Bicep version 0.37.4 and later, this function lets your Bicep parameters file pull values from outside the template itself, instead of requiring them to be known when you compile.
+This function allows you to define inputs that should be supplied by external tools when a deployment is initiated, instead of requiring them to be known when you compile.
+
+Available in Bicep version 0.37.4 and later.
 
 ### Parameters
 
