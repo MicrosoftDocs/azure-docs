@@ -19,6 +19,13 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## September 2025
 
+* •	Azure NetApp Files support with Windows Server 2025 domain controllers
+    Azure NetApp Files now fully supports Windows Server 2025 domain controllers, making it easier for organizations to modernize their Active Directory environments without disruption. With this update, customers can seamlessly integrate Windows Server 2025 domain controllers with Azure NetApp Files SMB and dual-protocol volumes, ensuring smooth and secure Active Directory workflows.
+
+    Enterprises upgrading their domain infrastructure can maintain high-performance, enterprise-grade file services without the need to reconfigure existing Azure NetApp Files deployments. This compatibility means you can confidently adopt the latest Windows Server capabilities while continuing to leverage the scalability and reliability of Azure NetApp Files.
+
+    For more information, see [SMB FAQs for Azure NetApp Files](faq-smb.md).
+
 * [Flexible service level](azure-netapp-files-set-up-capacity-pool.md) is now generally available (GA)
  
     The [Flexible service level](azure-netapp-files-service-levels.md#Flexible) allows you to independently configure storage capacity and throughput, optimizing costs by right-sizing according to storage and performance requirements. With separate pricing for capacity and throughput, the Flexible service level prevents overprovisioning and supports up to 640 MiB/second per TiB. This throughput is five times the performance of the Ultra service level, making it ideal for demanding workloads and offering higher throughput for smaller capacity pools and adapting to changing requirements without the need for volume moves. 

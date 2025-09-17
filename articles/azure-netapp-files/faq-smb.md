@@ -19,6 +19,8 @@ Azure NetApp Files supports SMB 2.1 and SMB 3.1 (which includes support for SMB 
 
 ## Can I use Windows Server 2025? 
 
+Yes, Windows Server 2025 domain controllers are supported as of September 9, 2025. Windows Server 2025 domain controllers must have all cumulative security updates installed, including [KB5065426](https://support.microsoft.com/en-us/topic/september-9-2025-kb5065426-update-for-windows-server-2025-os-build-26100-6584-6a59dc6a-1ff2-48f4-b375-81e93deee5dd), released on September 9, 2025.
+
 Windows Server 2025 currently doesn't work with the Azure NetApp Files SMB protocol. 
 
 ## Does Azure NetApp Files support access to ‘offline files’ on SMB volumes?
