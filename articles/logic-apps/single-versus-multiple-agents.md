@@ -95,7 +95,7 @@ This workflow pattern breaks a task into sequential steps. Each step corresponds
 
 - Key attributes and benefits
 
-  - Predetermined steps folllow a linear progression.
+  - Predetermined steps follow a linear progression.
   - Each agent focuses on a single, well-defined task, which promotes greater accuracy.
   - Each step can include programmatic checkpoints or validation "gates" for quality control.
   - Easier to debug and identify where problems happen in the chain.

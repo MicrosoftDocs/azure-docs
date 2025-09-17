@@ -39,7 +39,7 @@ The following table lists the inputs, tasks, and outputs:
 
 - Same requirements as [Create autonomous agent workflows](create-autonomous-agent-workflows.md)
 
-- A autonomous agent workflow with an empty agent and a trigger that best matches your scenario.
+- An autonomous agent workflow with an empty agent and a trigger that best matches your scenario.
 
   If you don't have this workflow, see [Create autonomous agent workflows](create-autonomous-agent-workflows.md).
 
@@ -86,7 +86,7 @@ Follow these steps to set up the default empty agent:
    | Parameter | Value |
    |-----------|-------|
    | **System instructions** | `Extract only the numerical values and their associated metrics from the text.`<br>`On a new line, format each as 'value: metric'.` <br><br>`Example format:` <br>`92%: customer satisfaction`<br>`45%: revenue growth` |
-   | **User instructions** | `Data to use for extraction: @{triggerBody()?['report']}` <br><br>In this example, **`report`** is an output from the trigger named **When an HTTP request is received**. The expression, **triggerBody()?['report']**, returns the **'report'** trigger output . |
+   | **User instructions** | `Data to use for extraction: @{triggerBody()?['report']}` <br><br>In this example, **`report`** is an output from the trigger named **When an HTTP request is received**. The expression, **triggerBody()?['report']**, returns the **'report'** trigger output. |
 
    The completed **Data extraction agent** looks like the following example:
 
@@ -245,7 +245,7 @@ This example started the workflow with the **When an HTTP request is received** 
 
 1. On the **Run history** tab, select the most recent workflow run.
 
-   1. In the **Agent log**, review the the responses from each agent for the system instructions that you specified.
+   1. In the **Agent log**, review the responses from each agent for the system instructions that you specified.
 
    1. To review the status, inputs, and outputs for each operation, select that operation in the monitoring view window.
 

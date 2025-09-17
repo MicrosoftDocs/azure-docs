@@ -21,7 +21,7 @@ ms.update-cycle: 180-days
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Sometimes your workflow needs to delegate tasks to specialized AI agents but preserve the chat conversation continuity and context across agent transitions. In this scenario, agents perform domain-specific tasks during different stages in the workflow or business process. These agents must also make dynamic decisions and understsand when to hand off tasks to other agents. This behavior is known as the [*handoff* pattern](single-versus-multiple-agents.md#handoff-pattern).
+Sometimes your workflow needs to delegate tasks to specialized AI agents but preserve the chat conversation continuity and context across agent transitions. In this scenario, agents perform domain-specific tasks during different stages in the workflow or business process. These agents must also make dynamic decisions and understand when to hand off tasks to other agents. This behavior is known as the [*handoff* pattern](single-versus-multiple-agents.md#handoff-pattern).
 
 This guide describes how to set up specialized agents that follow the handoff pattern in your workflow. The example sets up a customer service handoff system that manages a complete customer journey from initial triage through specialized support.
 
@@ -70,7 +70,7 @@ Follow these steps to create a new conversational agent workflow:
 
 ## 2 - Set up the customer service agent
 
-Follow these steps to add set up your triage agent:
+Follow these steps to add set-up your triage agent:
 
 1. On the designer, select the empty **Agent** action.
 
@@ -113,7 +113,7 @@ Follow these steps to add specialized agents:
 
    For example:
 
-   :::image type="content" source="media/set-up-handoff-agent-workflow/handoff-description-refund-agent.png" alt-text="Screenshot shows customer service agent with handoff description for new refund specailist agent." lightbox="media/set-up-handoff-agent-workflow/handoff-description-refund-agent.png":::
+   :::image type="content" source="media/set-up-handoff-agent-workflow/handoff-description-refund-agent.png" alt-text="Screenshot shows customer service agent with handoff description for new refund specialism agent." lightbox="media/set-up-handoff-agent-workflow/handoff-description-refund-agent.png":::
 
 1. Select the new agent, and rename the agent to **Refund specialist agent**.
 
@@ -180,7 +180,7 @@ Follow these steps to add specialized agents:
 
 ## 4 - Add handoff tools to specialized agents
 
-The system instructions for each specialist agent describes the capability to hand back control to the main customer service agent when they get requests outside their expertise domain. To provide this capability, you must add a handoff tool to each specialist agent.
+The system instruction for each specialist agent describes the capability to hand back control to the main customer service agent when they get requests outside their expertise domain. To provide this capability, you must add a handoff tool to each specialist agent.
 
 ### 4.1 - Add a handoff tool to the refund agent
 
@@ -244,13 +244,13 @@ The refund specialist agent has two specialized tools: **look_up_item** and **ex
       | **Type** | `String` |
       | **Description** | `The order ID` |
 
-   1. When you're donem, select **Create**.
+   1. When you're done, select **Create**.
 
    1. 
 
 ## Best practices
 
-A conversational agent worklfow that follows the handoff pattern automatically maintains seamless conversation context flow. No manual context passing is required. The following best practices help agents make accurate handoffs and correct choices about the tools to use.
+A conversational agent workflow that follows the handoff pattern automatically maintains seamless conversation context flow. No manual context passing is required. The following best practices help agents make accurate handoffs and correct choices about the tools to use.
 
 ### Handoff pattern best practices
 
@@ -261,7 +261,7 @@ The following table describes best practices for handoff patterns:
 | Write clear handoff descriptions | Provide detailed handoff instructions in the agent's system instructions to specify exactly when and why to hand off to a specialist agent. For example, the following instructions usually increase handoff accuracy: <br><br>`You're an agent in a multi-agent system designed to make agent coordination and execution easy.` <br><br>`Agents use two primary abstractions: agents and handoffs. An agent includes instructions, tools, and the capability to hand off a conversation to another agent when appropriate. A handoff calls a handoff function, generally named 'handoff_<ID>_tool'.` <br><br>`Transfers between agents happen seamlessly in the background. Don't mention or draw attention to these transfers in your conversation with the end user.` <br><br>**Note**: In Azure Logic Apps, handoffs are built as tools. |
 | Build agents with proper specializations | Design agent roles with clear boundaries and specific expertise areas. |
 | Specify natural handoff triggers | Include natural language cues and customer intent to trigger appropriate and accurate handoffs. |
-| Set up bidrectional handoffs | Make sure agents can receive handoffs and return control when necessary. |
+| Set up bidirectional handoffs | Make sure agents can receive handoffs and return control when necessary. |
 | Avoid handoff loops | Make sure agents have clear exit strategies. Don't repeatedly hand off the same conversation. |
 | Monitor performance | Track handoff success rates and customer satisfaction across various agent handoffs. |
 
