@@ -8,6 +8,7 @@ ms.service: azure-virtual-wan
 ms.topic: tutorial
 ms.date: 12/12/2024
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 
 ---
 # Tutorial: Create a P2S User VPN connection using Azure Virtual WAN - Certificate or RADIUS authentication

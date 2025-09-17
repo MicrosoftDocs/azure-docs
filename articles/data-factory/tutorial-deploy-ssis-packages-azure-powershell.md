@@ -4,10 +4,12 @@ description: Learn how to set up an Azure-SSIS Integration Runtime in Azure Data
 ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: tutorial
-ms.custom: devx-track-azurepowershell
 ms.date: 05/15/2024
 author: chugugrace
 ms.author: chugu
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-ropc-nochange
 ---
 
 # Set up an Azure-SSIS IR in Azure Data Factory by using PowerShell

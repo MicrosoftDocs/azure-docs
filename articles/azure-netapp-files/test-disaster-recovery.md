@@ -1,6 +1,6 @@
 ---
-title: Test disaster recovery for Azure NetApp Files
-description: Enhance your disaster recovery preparedness with this test plan for cross-region/cross-zone replication.
+title: Test Disaster Recovery for Azure NetApp Files
+description: Use this test plan for cross-region and cross-zone replication to improve your disaster recovery preparedness and ensure that systems recover efficiently.
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
@@ -14,11 +14,11 @@ ms.author: anfdocs
 
 An effective disaster recovery plan includes testing your disaster recovery configuration. Testing your disaster recovery configuration demonstrates the efficacy of your disaster recovery configuration and that it can achieve the desired recovery point objective (RPO) and recovery time objective (RTO). Testing disaster recovery also ensures that operational runbooks are accurate and that operational staff are trained on the workflow.
 
-This disaster recovery workflow can be tested with either [cross-region or cross-zone replication](replication.md). You can test your disaster recovery understanding and preparedness without disrupting the existing replication schedule, posing no risk to RPO or RTO. This test plan also leverages Azure NetApp Files' ability to [create new volumes from the snapshots](snapshots-restore-new-volume.md) in cross-region replication.
+You can test this disaster recovery workflow for [cross-region or cross-zone replication](replication.md). You can test your disaster recovery understanding and preparedness without disrupting the existing replication schedule, which poses no risk to RPO or RTO. This test plan also uses Azure NetApp Files' ability to [create new volumes from the snapshots](snapshots-restore-new-volume.md) in cross-region replication.
 
 ## Prerequisites
 
-* Application consistent snapshots should be created in the volumes hosted in the primary region. Application data hosted in Azure NetApp Files volumes must be in a consistent state prior to the creation of the snapshot. 
+* Application consistent snapshots should be created in the volumes hosted in the primary region. Application data hosted in Azure NetApp Files volumes must be in a consistent state before you create the snapshot. 
 
     The [Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-configure.md) can be used to create application consistent snapshots. 
 
@@ -31,11 +31,11 @@ This disaster recovery workflow can be tested with either [cross-region or cross
 
 Given the uniqueness of each application architecture, there's no specific workflow to test your disaster recovery workflow. The outlined steps are a high-level overview for disaster recovery testing.
 
-1. [Prepare Azure virtual machines (VMs) in the secondary region or availability zone](cross-region-replication-create-peering.md). You must configure:
+1. [Prepare Azure virtual machines (VMs) in the secondary region or availability zone](cross-region-replication-create-peering.md). You must configure the following items:
     * The operating system
     * Application
     * User accounts
-    * DNS
+    * Domain Name System (DNS)
     * Any other resources required to run the application in the secondary region
 1. [Create new volumes from the most recent snapshots](snapshots-restore-new-volume.md) replicated to the Azure NetApp Files data protection volumes in the secondary region.
     >[!NOTE]

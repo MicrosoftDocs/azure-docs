@@ -47,16 +47,16 @@ The table below lists the permissions required on the server credentials provide
 Feature | Windows credentials | Linux credentials
 ---| ---| ---
 **Software inventory** | Guest user account | Regular/normal user account (nonsudo access permissions)
-**Discovery of SQL Server instances and databases** | User account that is a member of the sysadmin server role or has [these permissions](migrate-support-matrix-vmware.md?tabs=businesscase&pivots=sql-server-instance-database-discovery-requirements#configure-the-custom-login-for-sql-server-discovery) for each SQL Server instance.| _Not supported currently_
+**Discovery of SQL Server instances and databases** | To discover SQL Server instances and databases, the Windows/ Domain account, or SQL Server account [requires these low privilege read permissions](migrate-support-matrix-vmware.md) for each SQL Server instance. You can use the [low-privilege account provisioning utility](least-privilege-credentials.md) to create custom accounts or use any existing account that is a member of the sysadmin server role for simplicity.| _Not supported currently_
 **Discovery of ASP.NET web apps** | Domain or nondomain (local) account with administrative permissions | _Not supported currently_
 **Agentless dependency analysis** | Domain or nondomain (local) account with administrative permissions | Sudo user account with permissions to execute ls and netstat commands. When providing a sudo user account, ensure that you have enabled **NOPASSWD** for the account to run the required commands without prompting for a password every time the sudo command is invoked. <br /><br /> Alternatively, you can create a user account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files, set using the following commands:<br /><code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls<br /> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat</code>
 
 ### Recommended practices to provide credentials
 
 - We recommend you to create a dedicated domain user account with the [required permissions](add-server-credentials.md#required-permissions), which is scoped to perform software inventory, agentless dependency analysis and discovery of web app, and SQL Server instances and databases on the desired servers.
-- We recommend you to provide at least one successfully validated domain credential or at least one nondomain credential to initiate software inventory.
+- We recommend you provide at least one successfully validated domain credential or at least one nondomain credential to initiate software inventory.
 - To discover SQL Server instances and databases, you can provide domain credentials, if you've configured Windows authentication mode on your SQL Servers.
-- You can also provide SQL Server authentication credentials if you've configured SQL Server authentication mode on your SQL Servers but it's recommended to provide at least one successfully validated domain credential or at least one Windows (Nondomain) credential so that the appliance can first complete the software inventory.
+- You can also provide SQL Server authentication credentials if you've configured SQL Server authentication mode on your SQL Servers, but it's recommended to provide at least one successfully validated domain credential or at least one Windows (Nondomain) credential so that the appliance can first complete the software inventory.
 
 ## Credentials handling on appliance
 

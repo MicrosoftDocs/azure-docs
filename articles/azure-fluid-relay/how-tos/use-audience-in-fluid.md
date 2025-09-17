@@ -4,6 +4,7 @@ title: 'How to: Use audience features in the Fluid Framework'
 ms.date: 11/04/2022
 ms.service: azure-fluid
 ms.topic: reference
+ms.custom: sfi-image-nochange
 ---
 
 # How to: Use audience features in the Fluid Framework

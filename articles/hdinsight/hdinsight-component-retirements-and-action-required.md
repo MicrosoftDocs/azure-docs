@@ -4,8 +4,8 @@ description: Learn about HDInsight retirement versions and its components in Azu
 ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.date: 08/11/2025
-author: anuj1905
-ms.author: anujsharda
+author: apurbasroy
+ms.author: apsinhar
 ms.reviewer: hgowrisankar
 ---
 

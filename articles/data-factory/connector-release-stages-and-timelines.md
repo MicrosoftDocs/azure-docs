@@ -25,7 +25,7 @@ For comprehensive details on support levels and recommended usage at each stage,
 | [Amazon Marketplace Web Service](connector-amazon-marketplace-web-service.md) | /              | Removed                 | /                     | /                     |
 | [Amazon RDS for Oracle](connector-amazon-rds-for-oracle.md)                          | version 2.0    | GA                                | /                   | /                   |
 |                                    | version 1.0    | End of support announced          | October 31, 2025         | March 31, 2026      |
-| [Amazon Redshift](connector-amazon-redshift.md)                          | version 2.0    | Public Preview                                | /                   | /                   |
+| [Amazon Redshift](connector-amazon-redshift.md)                          | version 2.0    | GA          | /                   | /                   |
 |                                    | version 1.0    | GA          | To be determined      | /                   |
 | [Azure Database for MariaDB](connector-azure-database-for-mariadb.md)         | /              | Removed                    | December 31, 2024     | December 31, 2024     |
 | [Azure Database for PostgreSQL](connector-azure-database-for-postgresql.md)   | version 2.0    | GA                                | /                   | /                   |
@@ -48,6 +48,8 @@ For comprehensive details on support levels and recommended usage at each stage,
 | [HBase](connector-hbase.md)                              | /              | Removed                    | December 31, 2024     | December 31, 2024     |
 | [Hive](connector-hive.md)                          | version 2.0    | GA                                | /                   | /                   |
 |                                    | version 1.0    | End of support announced          | September 30, 2025         | October 31, 2025    |
+| [HubSpot](connector-hubspot.md)                          | version 2.0    | Public Preview                             | /                   | /                   |
+|                                    | version 1.0    | End of support announced          | October 22, 2025         | November 22, 2025      |
 | [Impala](connector-impala.md)                          | version 2.0    | GA                                | /                   | /                   |
 |                                    | version 1.0    | End of support announced          | September 30, 2025         | October 31, 2025    |
 | [Magento (Preview)](connector-magento.md)                  | /              | Removed                    | December 31, 2024     | December 31, 2024     |
@@ -69,7 +71,7 @@ For comprehensive details on support levels and recommended usage at each stage,
 | [PostgreSQL V1](connector-postgresql-legacy.md)            | /              | End of support                    | October 31, 2024      | September 30, 2025    |
 | [Presto](connector-presto.md)                             | version 2.0    | GA                           | /                   | /                   |
 |                                    | version 1.0    | End of support announced                             | August 31, 2025      | September 30, 2025                    |
-| [QuickBooks Online (Preview)](connector-quickbooks.md)                        | version 2.0    | Public Preview                    | /                   |
+| [QuickBooks Online](connector-quickbooks.md)                        | version 2.0    | GA                    | /                   |
 |                                    | version 1.0    | End of support announced                                | August 31, 2025     | September 30, 2025                    |
 | [Salesforce V2](connector-salesforce.md)                   | /              | GA                                | /                   | /                   |
 | [Salesforce V1](connector-salesforce-legacy.md)            | /              | End of support          | June 30, 2025         | September 30, 2025    |
@@ -88,6 +90,8 @@ For comprehensive details on support levels and recommended usage at each stage,
 |                                    | version 1.0    | End of support announced                                |September 30, 2025     | October 31, 2025                  |
 | [SQL Server](connector-sql-server.md)                 | version 2.0  | GA                           | /                      | /                      |
 |                                                       | version 1.0  | GA                           | To be determined       | /       |
+| [Square (Preview)](connector-square.md)                        | version 2.0    | Public Preview                    | /                   |/
+|                                    | version 1.0    | End of support announced                                | October 15, 2025     | November 15, 2025                    |
 | [Teradata](connector-teradata.md)                          | version 2.0    | GA                  | /                   | /                   |
 |                                    | version 1.0    | End of support announced                                | September 30, 2025     | October 31, 2025                     |
 | [Vertica](connector-vertica.md)                            | version 2.0    | GA                                | /                   | /                   |

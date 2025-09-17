@@ -22,13 +22,27 @@ Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHI
 ## August 2025
 ### FHIR service
 
-**Bulk Delete remove references feature**: The $bulk-delete operation now supports the option to remove references to resources that are being deleted. This means that if you delete a resource that is referenced by another resource, the reference will be removed from the referencing resource. More information [here](https://learn.microsoft.com/azure/healthcare-apis/fhir/fhir-bulk-delete#preview-capabilities-for-the-bulk-delete-operation). 
+**Bulk Delete remove references feature**: The $bulk-delete operation now supports the option to remove references to resources that are being deleted. This means that if you delete a resource that is referenced by another resource, the reference is removed from the referencing resource. More information [here](/azure/healthcare-apis/fhir/fhir-bulk-delete#preview-capabilities-for-the-bulk-delete-operation). 
 
 **Patient export improvement**: Improved performance of Patient/$export functionality by splitting patients into smaller groups and processing them in parallel.
+
+**Provisioning new account with invalid CMK improved error handling**: Previously, provisioning an API for FHIR account with invalid CMK (Customer Managed Key) would return an Unhealthy Status. This has been corrected to return Degraded status.
 
 #### Bug fixes:
 
 **Bulk delete and custom search parameter fix**: Previously, there was a bug where after using $bulk-delete to hard delete a custom search parameter, it was not possible to then create the same custom search parameter with the same url or code. This issue has been fixed, and you can now create a custom search parameter after using $bulk-delete to hard delete a custom search parameter with the same url or code.
+
+**Enhanced error message for conditional references**: Previously, a conditional reference that returns multiple results would result in the error message "Given conditional reference doesn't resolve to a resource." This error message has been updated to be more descriptive, and is now changed to "Given conditional reference resolved to multiple resources."
+
+**Returning correct count**: Not referenced search was counting soft deleted resources when using _summary=count and was not returning correct results when soft deleted resources are present in the database. The fix is implemented to filter correctly.
+
+**Synchronization issue during search parameter update addressed**: Resolved an issue due to nodes not in synchronization causing sporadic failures when updating custom SearchParameter resources across multiple FHIR services and environments. PUT requests with unchanged JSON bodies were incorrectly returning HTTP 400 or 404 errors.
+
+**Token search is case sensitive**: Fixed an issue with token search fields where only the first value was indexed if multiple values differed only by case. Now, all values—regardless of casing—are stored and searchable. Incase you were impacted by this issue, we suggest to run reindex on token search parameters.
+
+**Handling of bulk job cancellation**: Cancellation requests for export, bulk update, or bulk delete jobs that are already completed no longer return HTTP 500.Instead, the server now returns HTTP 405 (Method Not Allowed) to correctly reflect the invalid operation.
+
+**Reindex infrastructure**: Reindex infrastructure is updated to a new orchestrator that splits the reindex job into chunks and executes the task to complete in a parallel and distributed manner.
 
 ## July 2025
 

@@ -29,7 +29,10 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 > For up-to-date information, a detailed list of changes, and specific release notes for Spark runtimes, check and subscribe [Spark Runtimes Releases and Updates](https://github.com/microsoft/synapse-spark-runtime/tree/main/Synapse/spark3.5).
 ## Libraries
 
-To check the libraries included in Azure Synapse Runtime for Apache Spark 3.5 for Java/Scala, Python and R go to [Azure Synapse Runtime for Apache Spark 3.5 Releases Notes](https://github.com/microsoft/synapse-spark-runtime/tree/main/Synapse/spark3.5).             
+To check the libraries included in Azure Synapse Runtime for Apache Spark 3.5 for Java/Scala, Python and R go to [Azure Synapse Runtime for Apache Spark 3.5 Releases Notes](https://github.com/microsoft/synapse-spark-runtime/tree/main/Synapse/spark3.5).
+
+> [!NOTE]
+> EventHubConnector is deprecated in Synapse Spark 3.5 and will be removed in future. Customers are encouraged to use Kafa Spark Connector instead as Event Hubs is Kafka compatible already. You can find more information about using [Kafa Spark Connector with Event Hubs](/azure/event-hubs/event-hubs-kafka-spark-tutorial).
 
 ## Related content
 - [Migration between Apache Spark versions - support](./apache-spark-version-support.md#migration-between-apache-spark-versions---support)

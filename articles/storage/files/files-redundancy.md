@@ -1,10 +1,10 @@
 ---
 title: Data Redundancy in Azure Files
-description: Understand the data redundancy options available in Azure file shares and how to choose the best fit for your availability and disaster recovery requirements.
+description: Understand the data redundancy options available for Azure file shares and how to choose the best fit for your availability and disaster recovery requirements.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 08/18/2025
+ms.date: 09/10/2025
 ms.author: kendownie
 ms.custom: references_regions
 # Customer intent: "As a data engineer, I want to select the appropriate data redundancy option for Azure file shares, so that I can ensure optimal availability and disaster recovery tailored to my organization's needs."
@@ -19,7 +19,7 @@ When deciding which redundancy option is best for your scenario, consider the tr
 - How your data is replicated in the primary region.
 - Whether your data is replicated to a second region that's geographically distant to the primary region, to protect against regional disasters (geo-redundancy).
 
-Azure file shares are managed through a common Azure resource called a *storage account*. The storage account represents a shared pool of storage that can be used to deploy file shares. For more information about storage accounts, see [Storage account overview](../common/storage-account-overview.md).
+Azure classic file shares created with the Microsoft.Storage resource provider are managed through a common Azure resource called a *storage account*. The storage account represents a shared pool of storage that can be used to deploy file shares. For more information about storage accounts, see [Storage account overview](../common/storage-account-overview.md).
 
 When you create a storage account, you choose a redundancy setting for the storage account that's shared for all storage services exposed by that account. Therefore, all file shares deployed in the same storage account have the same redundancy setting. You might want to isolate file shares in separate storage accounts if they have different redundancy requirements.
 
@@ -156,6 +156,9 @@ The following items might impact your ability to fail over to the secondary regi
 - Copy operations in progress are aborted when a failover occurs. When the failover to the secondary region completes, retry the copy operation.
 
 To fail over a storage account, see [initiate an account failover](../common/storage-initiate-account-failover.md).
+
+> [!WARNING]
+> When using Azure Files with geo-redundant storage, directory queries might experience higher latency after failover. This can occur during synchronization between primary and secondary storage, especially for directories with many files or shares with multiple snapshots. If you have numerous files under the cache directory, you might observe some performance degradation until synchronization completes. In some cases, the performance impact might persist even after synchronization.
 
 ### Geo-redundancy for SSD file shares
 
@@ -309,7 +312,9 @@ else
 fi
 ```
 
+---
+
 ## See also
 
-- [Change the redundancy option for a storage account](../common/redundancy-migration.md?toc=/azure/storage/files/toc.json)
+- [Change redundancy configuration for Azure Files](files-change-redundancy-configuration.md)
 - [Use geo-redundancy to design highly available applications](../common/geo-redundant-design.md?toc=/azure/storage/files/toc.json)

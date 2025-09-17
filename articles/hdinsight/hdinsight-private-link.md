@@ -4,6 +4,7 @@ description: Learn how to connect to an outside HDInsight cluster by using Azure
 ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.date: 03/06/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Enable Private Link on an HDInsight cluster
