@@ -12,7 +12,7 @@ ms.update-cycle: 180-days
 # Customer intent: As an AI developer, I want to set up seamless handoffs between specialized agents that run domain-specific tasks, while keeping the same chat continuity and context in my workflow using Azure Logic Apps.
 ---
 
-# Delegate tasks between AI agents but keep chat continuity and context in workflows for Azure Logic Apps (Preview)
+# Hand off tasks between AI agents but keep chat continuity and context in workflows for Azure Logic Apps (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -37,11 +37,13 @@ The following table lists the inputs, tasks, and outputs:
 
 ## Prerequisites
 
-- Same requirements as [Create conversational agent workflows](create-conversational-agent-workflows.md)
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- A conversational agent workflow with an empty agent and the default read-only trigger that fires when a chat session starts.
+- A Standard logic app resource
 
-  If you don't have this workflow, see [Create conversational agent workflows](create-conversational-agent-workflows.md).
+  This resource can be empty or have other workflows. In this guide, you create the conversational agent workflows that you need. These workflows include an empty agent and the default trigger that fires when a new chat session starts. You can't delete the default trigger, which is required for the workflow.
+
+  If you don't have this resource, see [Create conversational agent workflows](create-conversational-agent-workflows.md).
 
 ## Key concepts
 
@@ -51,6 +53,130 @@ The following table describes the key concepts to understand for this example ha
 |---------|-------------|
 | Tool separation | The handoff pattern differentiates between the following kinds of tools: <br><br>- Regular tools that run business logic like "search", "refund", and "order" <br>- Delegation tools that hand off control to other agents |
 | Agent specialization | Each agent has specific, relevant tools and capabilities. <br><br>- Triage agent: Has only handoff tools for delegation - no regular tools. <br>- Sales agent: Has the **execute_order** tool and the **handoff_back_to_triage** delegation tool. <br>- Refund agent | Has the **execute_refund** and **look_up_item** tools along with the **handoff_back_to_triage** delegation tool. |
+
+## 1 - Create a conversational agent workflow
+
+Follow these steps to create a new conversational agent workflow:
+
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
+
+1. On the resource sidebar, under **Workflows**, select **Workflows**.
+
+1. On the **Workflows** page toolbar, select **Add**.
+
+1. On the **Create workflow** pane, in **Workflow name**, enter **customer-service-agent-workflow**. Select **Conversational Agents** > **Create**.
+
+   The designer opens and shows a workflow with the default trigger named **When a new chat session starts** and an empty **Agent** action.
+
+## 2 - Set up the customer service agent
+
+Follow these steps to add set up your triage agent:
+
+1. In the designer, select the empty **Agent** action.
+
+1. On the information pane that opens, select the default action name, and rename the action to **Customer service agent**.
+
+1. On the **Parameters** tab, in the **System instructions** box, provide the following information:
+
+   ```
+   You're a customer service agent for the Fabrikam company. Start by introducing yourself and understanding the customer's request. Based on their needs, you can hand off to specialized agents within this conversation for complex issues that require specialist expertise.
+
+   Your role performs the following tasks:
+
+   1. Greet customers professionally.
+   2. Understand their request or problem.
+   3. Always use a friendly, polite, and professional voice.
+   4. Hand off tasks to the appropriate specialist agents when necessary.
+
+   You exist in a multi-agent system designed to make agent coordination and execution easy. Agents use two primary abstractions: agents and handoffs. An agent includes instructions, tools, and the capability to hand off a conversation to another agent when appropriate. A handoff calls a handoff function, generally named 'handoff_<ID>_tool'. Transfers between agents happen seamlessly in the background. Don't mention or draw attention to these transfers in your conversation with the customer.
+   ```
+
+   The completed **Customer service agent** looks like the following example:
+
+   :::image type="content" source="media/set-up-handoff-agent-workflow/customer-service-agent.png" alt-text="Screenshot shows finished customer service agent." lightbox="media/set-up-handoff-agent-workflow/customer-service-agent.png":::
+
+## 3 - Add specialized agents with handoff descriptions
+
+Follow these steps to add specialized agents:
+
+### 3.1 - Add the refund specialist agent
+
+1. In the designer, under your customer service agent, select the plus (**+**) sign, and then select **Add a hand-off agent**.
+
+   A new empty agent appears on the designer. Your **Customer service agent** stays selected, but the agent information pane automatically switches from the **Parameters** tab to the **Handoffs** tab.
+
+1. In the customer service agent's **Handoffs** tab, enter the following handoff description:
+
+   ```
+   Hand off to the refund specialist agent for refunds, returns, exchanges, and billing issues. This agent specializes in understanding refund policies, processing returns, and resolving billing disputes with empathy and efficiency.
+   ```
+
+   For example:
+
+   :::image type="content" source="media/set-up-handoff-agent-workflow/handoff-description-refund-agent.png" alt-text="Screenshot shows customer service agent with handoff description for new refund specailist agent." lightbox="media/set-up-handoff-agent-workflow/handoff-description-refund-agent.png":::
+
+1. Select the new agent, and rename the agent to **Refund specialist agent**.
+
+   In the customer service agent's **Handoffs** tab, the default name for the refund agent automatically changes to the new name.
+
+1. On the refund agent's **Parameters** tab, in the **System instructions** box, provide the following information:
+
+   ```
+   You're a refund specialist agent for the Fabrikam company. You handle refund requests, returns, and billing issues with empathy and efficiency. If the request is outside your refund expertise, you can hand back control to the main agent.
+
+   Your role performs the following tasks:
+
+   1. Understand the customer's reason for the refund.
+   2. Propose appropriate solutions, for example, exchange, fix, or refund.
+   3. If a refund is necessary, look up the item details and execute the refund.
+   4. Alwayse use an understanding and helpful voice.
+   5. Hand back control to the main agent for non-refund questions.
+
+   You exist in a multi-agent system designed to make agent coordination and execution easy. Agents use two primary abstractions: agents and handoffs. An agent includes instructions, tools, and the capability to hand off a conversation to another agent when appropriate. A handoff calls a handoff function, generally named 'handoff_<ID>_tool'. Transfers between agents happen seamlessly in the background. Don't mention or draw attention to these transfers in your conversation with the customer.
+   ```
+
+   The completed **Refund specialist agent** looks like the following example:
+
+   :::image type="content" source="media/set-up-handoff-agent-workflow/refund-agent.png" alt-text="Screenshot shows finished refund specialist agent." lightbox="media/set-up-handoff-agent-workflow/refund-agent.png":::
+
+### 3.2 - Add the sales specialist agent
+
+1. In the designer, under your customer service agent, hover over the handoff icon, and add another handoff agent.
+
+   :::image type="content" source="media/set-up-handoff-agent-workflow/add-handoff-between-agents.png" alt-text="Screenshot shows handoff button between agents and selected option to add another handoff agent." lightbox="media/set-up-handoff-agent-workflow/add-handoff-between-agents.png":::
+
+   After the new empty agent appears on the designer, your **Customer service agent** stays selected, but the agent information pane now shows the **Handoffs** tab with both the new agent and the refund specialist agent.
+
+1. In the customer service agent's **Handoffs** tab, under the new agent, enter the following handoff description:
+
+   ```
+   Hand off to the sales specialist agent for product questions, purchase assistance, and sales consultations. This agent excels at understanding customer needs, recommending products, and facilitating purchases.
+   ```
+
+1. Select the new agent, and rename the agent to **Sales specialist agent**.
+
+   In the customer service agent's **Handoffs** tab, the default name for the sales agent automatically changes to the new name.
+
+1. On the sales agent's **Parameters** tab, in the **System instructions** box, provide the following information:
+
+   ```
+   You're a sales specialist agent for Fabrikam company. You help customers with product questions, recommendations, and purchase orders. If the question is outside your sales expertise, you can hand back control to the main agent.
+
+   Your role performs the following tasks:
+
+   1. Understand customer needs and problems.
+   2. Recommend appropriate Fabrikam products.
+   3. Discuss product features and benefits.
+   4. Handle pricing and facilitate product orders when ready.
+   5. Always use an enthusiastic but not pushy voice. Focus on solving customer problems.
+   6. Hand back control to the main agent for non-sales questions.
+
+   You exist in a multi-agent system designed to make agent coordination and execution easy. Agents use two primary abstractions: agents and handoffs. An agent includes instructions, tools, and the capability to hand off a conversation to another agent when appropriate. A handoff calls a handoff function, generally named 'handoff_<ID>_tool'. Transfers between agents happen seamlessly in the background. Don't mention or draw attention to these transfers in your conversation with the customer.
+   ```
+
+   The completed **Sales specialist agent** looks like the following example:
+
+   :::image type="content" source="media/set-up-handoff-agent-workflow/sales-agent.png" alt-text="Screenshot shows finished sales specialist agent." lightbox="media/set-up-handoff-agent-workflow/sales-agent.png":::
 
 ## Best practices
 
@@ -62,7 +188,7 @@ The following table describes best practices for handoff patterns:
 
 | Practice | Description |
 |----------|-------------|
-| Write clear handoff descriptions | Provide detailed handoff instructions in the agent's system instructions to specify exactly when and why to hand off to a specialist agent. For example, the following instructions usually increase handoff accuracy: <br><br>`You're an agent in a multi-agent system designed to make agent coordination and execution easy.` <br><br>`Agents uses two primary abstractions: agents and handoffs. An agent includes instructions, tools, and the capability to hand off a conversation to another agent when appropriate. A handoff calls a handoff function, generally named 'handoff_<ID>_tool'.` <br><br>`Transfers between agents happen seamlessly in the background. Don't mention or draw attention to these transfers in your conversation with the end user.` <br><br>**Note**: In Azure Logic Apps, handoffs are built as tools. |
+| Write clear handoff descriptions | Provide detailed handoff instructions in the agent's system instructions to specify exactly when and why to hand off to a specialist agent. For example, the following instructions usually increase handoff accuracy: <br><br>`You're an agent in a multi-agent system designed to make agent coordination and execution easy.` <br><br>`Agents use two primary abstractions: agents and handoffs. An agent includes instructions, tools, and the capability to hand off a conversation to another agent when appropriate. A handoff calls a handoff function, generally named 'handoff_<ID>_tool'.` <br><br>`Transfers between agents happen seamlessly in the background. Don't mention or draw attention to these transfers in your conversation with the end user.` <br><br>**Note**: In Azure Logic Apps, handoffs are built as tools. |
 | Build agents with proper specializations | Design agent roles with clear boundaries and specific expertise areas. |
 | Specify natural handoff triggers | Include natural language cues and customer intent to trigger appropriate and accurate handoffs. |
 | Set up bidrectional handoffs | Make sure agents can receive handoffs and return control when necessary. |
@@ -79,13 +205,13 @@ The following table describes best practices for assigning tools to agents:
 | No access to cross-domain tools | Agents can't access tools outside their expertise. This practice prevents customer confusion and maintains clear boundaries. For example: <br><br>- Sales agents can't process refunds. <br><br>- Refund agents can't handle sales orders. |
 | Clear tool descriptions | Provide precise information about each tool's purpose and tasks. Specify required input parameters and add usage guidelines like "Use price in US$". |
 
-## Set up the data extractor agent
+## Part 1 - Create customer service workflow with handoff agents
 
-Follow these steps to set up the default empty agent:
+Follow these steps to set up the customer service workflow:
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. Open your autonomous agent workflow in the designer.
+1. Open your conversational agent workflow in the designer.
 
 1. On the designer, select the empty **Agent** action.
 

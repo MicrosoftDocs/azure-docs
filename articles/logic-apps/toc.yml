@@ -145,6 +145,8 @@ items:
           href: single-versus-multiple-agents.md
         - name: Call AI agents sequentially to complete subtasks
           href: set-up-prompt-chain-agent-workflow.md
+        - name: Hand off AI agent tasks with chat continuity
+          href: set-up-handoff-agent-workflow.md
       - name: Create and register MCP servers and tools
         href: create-mcp-server-api-center.md
       - name: Set up Standard logic apps as MCP servers
