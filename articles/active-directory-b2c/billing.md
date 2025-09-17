@@ -8,7 +8,11 @@ ms.topic: reference
 ms.date: 06/13/2025
 ms.author: kengaderdus
 ms.subservice: b2c
-ms.custom: fasttrack-edit
+ms.custom:
+  - fasttrack-edit
+  - sfi-image-nochange
+  - sfi-ga-nochange
+  - sfi-ropc-nochange
 
 #Customer intent: As a business decision maker managing an Azure AD B2C tenant, I want to understand the billing model based on monthly active users (MAU), so that I can determine the cost and pricing structure for my Azure AD B2C tenant.
 

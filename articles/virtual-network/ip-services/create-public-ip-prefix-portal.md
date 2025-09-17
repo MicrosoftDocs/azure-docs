@@ -9,7 +9,9 @@ ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 01/09/2025
-ms.custom: mode-ui
+ms.custom:
+  - mode-ui
+  - sfi-image-nochange
 # Customer intent: "As a network engineer, I want to create a public IP address prefix so that I can efficiently manage and allocate static IP addresses to Azure resources."
 ---
 

@@ -4,11 +4,13 @@ description: How to use IP filtering to block connections from specific IP addre
 author: SoniaLopezBravo
 ms.author: sonialopez
 ms.service: azure-iot-hub
-ms.custom: devx-track-arm-template
 services: iot-dps
 ms.topic: how-to
 ms.date: 11/12/2021
 ms.subservice: azure-iot-hub-dps
+ms.custom:
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # Use Azure IoT DPS IP connection filters

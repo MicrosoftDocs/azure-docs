@@ -55,7 +55,7 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Azure Chaos Studio| [Reliability in Chaos Studio](reliability-chaos-studio.md)||
 |Azure Communications Gateway | | [Reliability in Azure Communications Gateway](../communications-gateway/reliability-communications-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Container Apps| [Reliability in Container Apps](reliability-azure-container-apps.md)||
-|Azure Container Instances| [Reliability in Container Instances](reliability-containers.md)||
+|Azure Container Instances| [Reliability in Container Instances](reliability-container-instances.md)||
 |Azure Container Registry|[Reliability in Container Registry](reliability-container-registry.md) ||
 |Azure Cosmos DB for MongoDB vCore| [Reliability in Azure Cosmos DB for MongoDB vCore](reliability-cosmos-mongodb.md)||
 |Azure Cosmos DB for NoSQL| [Reliability in Azure Cosmos DB for NoSQL](reliability-cosmos-db-nosql.md) ||
@@ -86,8 +86,8 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Azure Health Data Services: De-identification service|[Reliability in the Health Data Services de-identification service](reliability-health-data-services-deidentification.md)||
 |Azure Health Data Services: Workspace services (FHIR®, DICOM®, medtech) | | [Business continuity and disaster recovery considerations](/azure/healthcare-apis/business-continuity-disaster-recovery?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure HDInsight| [Reliability in HDInsight](reliability-hdinsight.md)||
-|Azure IoT Hub|| [Reliability in IoT Hub](reliability-iot-hub.md) |
-|Azure Key Vault|| [Reliability in Key Vault](./reliability-key-vault.md) |
+|Azure IoT Hub| [Reliability in IoT Hub](reliability-iot-hub.md) ||
+|Azure Key Vault| [Reliability in Key Vault](./reliability-key-vault.md) ||
 |Azure Kubernetes Service (AKS)| [Reliability in AKS](reliability-aks.md)||
 |Azure Load Balancer| [Reliability in Load Balancer](reliability-load-balancer.md )||
 |Azure Logic Apps|[Reliability in Logic Apps](reliability-logic-apps.md) ||
@@ -99,8 +99,6 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Azure NetApp Files|| [Reliability in Azure NetApp Files](reliability-netapp-files.md)|
 |Azure Network Watcher|| [Network Watcher service availability and redundancy](../network-watcher/frequently-asked-questions.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#service-availability-and-redundancy)|
 |Azure Notification Hubs| [Reliability in Notification Hubs](reliability-notification-hubs.md)||
-|Azure Operator Nexus| [Reliability in Azure Operator Nexus](reliability-operator-nexus.md)||
-|Azure Private 5G Core | |[Reliability in Private 5G Core](../private-5g-core/reliability-private-5g-core.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Private Link|| [Private Link availability](../private-link/availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)   |
 |Azure public IP addresses|| [Azure public IP addresses availability zone](../virtual-network/ip-services/public-ip-addresses.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zone) |
 |Azure Queue Storage|[Reliability in Queue Storage](reliability-storage-queue.md)||
@@ -111,7 +109,7 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Azure Site Recovery|| [Set up disaster recovery for Azure virtual machines](../site-recovery/azure-to-azure-tutorial-enable-replication.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Spring Apps| [Reliability in Azure Spring Apps](reliability-spring-apps.md)||
 |Azure SQL Database||[Azure SQL Database - High availability](/azure/azure-sql/database/high-availability-sla?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) </p> [Disaster recovery guidance - Azure SQL Database](/azure/azure-sql/database/disaster-recovery-guidance) |
-|Azure SQL Managed Instance|| [Failover groups overview and best practices - Azure SQL Managed Instance](/azure/azure-sql/managed-instance/failover-group-sql-mi?view=azuresql&preserve-view=true) |
+|Azure SQL Managed Instance| [Reliability in Azure SQL Managed Instance](./reliability-sql-managed-instance.md) ||
 |Azure Storage Actions| [Reliability in Storage Actions](reliability-storage-actions.md)||
 |Azure Storage Mover| [Reliability in Storage Mover](reliability-azure-storage-mover.md)||
 |Azure Stream Analytics|| [Achieve geo-redundancy for Stream Analytics jobs](../stream-analytics/geo-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |

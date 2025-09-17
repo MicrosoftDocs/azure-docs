@@ -5,6 +5,7 @@ keywords: external Hive metastore,share,Synapse
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.date: 09/06/2024
+ms.custom: sfi-ropc-nochange
 ---
 
 # Share Hive Metastore with Synapse Spark Pool (Preview)

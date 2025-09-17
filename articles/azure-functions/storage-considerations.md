@@ -2,9 +2,10 @@
 title: Storage considerations for Azure Functions
 description: Learn about the storage requirements of Azure Functions and about encrypting stored data, including important considerations for your function app instances.
 ms.topic: conceptual
+ms.date: 07/13/2025
 ms.custom:
   - ignite-2024
-ms.date: 07/13/2025
+  - sfi-ropc-nochange
 #customer intent: As a function app developer, I want to know the storage options for my apps, including guidance and best practices.
 ---
 

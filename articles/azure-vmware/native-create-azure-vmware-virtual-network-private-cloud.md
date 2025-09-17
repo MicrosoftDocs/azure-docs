@@ -21,9 +21,10 @@ With this generation, you can directly create the private cloud using the AV64 S
 
 Before you begin, these items are required to create an Azure VMware Solution Gen 2 private cloud:
 
+- Read through the [Gen 2 design considerations](native-network-design-consideration.md) before deploying your private cloud.
 - Enable the Azure VMware Solution Fleet Rp Service Principal as described in the [enable Azure VMware Solution Fleet Rp service Principal](native-first-party-principle-security.md).
 - Ensure you have appropriate administrative rights and permission to create a private cloud. You must be at minimum Owner or User Access Administrator on the subscription.
-- Hosts provisioned and the "Microsoft.AVS" resource provider is registered.
+- Hosts provisioned and the "Microsoft.AVS" and "Microsoft.BareMetal" resource provider is registered.
 - Deploy or use an existing Azure Virtual Network with a minimum network address space of a /22 or four /24s.
 - The newly created Azure Virtual Network and your Azure VMware Solution Gen 2 private cloud must be in the same Resource Group.
 - Ensure you have sufficient AV64 quota allocated to your subscription in the desired region before your deployment. 
@@ -47,8 +48,8 @@ Before you begin, these items are required to create an Azure VMware Solution Ge
    |**Size of host**            | Select the AV64 SKU.                                                                                            |
    |**Availability zone**       | Select which availability zone you want your private cloud deployed in.                                         |
    |**Number of hosts**         | Number of hosts allocated for the private cloud cluster. The default value is 3, which you can increase or decrease after deployment. If these nodes aren't listed as available, contact support to request a quota increase. You can also select the link labeled If you need more hosts, request a quota increase in the Azure portal. |
-   |**Virtual Network**         | Azure Virtual Network with a minimum network address space of a /22 or 4 /24s. This can be a new or existing Virtual Network. |
-   |**Address block for private cloud** | Provide an IP address block for the private cloud. The CIDR represents the private cloud management network and is used for the cluster management services, such as vCenter Server and NSX-T Manager. Use /22 address space, for example, 10.175.0.0/22. The address should be unique and not overlap with other Azure Virtual Networks and with on-premises networks. |
+   |**Virtual Network**         | Azure Virtual Network with a minimum network address space of a /22 or 4 /24s. This can be a new or existing Virtual Network. The /22 or 4 /24s provided in your Virtual Network can be the same address space as the CIDR block you are planning to for your private cloud as long as the address space is not in use.|
+   |**Address block for private cloud** | Provide an IP address block for the private cloud. The CIDR represents the private cloud management network and is used for the cluster management services, such as vCenter Server and NSX-T Manager. Use /22 address space, for example, 10.175.0.0/22. The address should be unique and not overlap with other Azure Virtual Networks and with on-premises networks that are in use. |
    |**DNS Forward Lookup**      | Input on your DNS Forward Lookup Zone. Either Private or Public. If no option is selected, the default is Public. This can be changed after your private cloud is created. |
    
 5. Verify the information entered, and if correct, select **Create**.

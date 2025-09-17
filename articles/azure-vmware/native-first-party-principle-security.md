@@ -69,12 +69,13 @@ If customers **delete either application ID** (for example, during a tenant clea
 
 To help customers quickly identify issues, we added an **error check** that validates the presence of both apps. If either app is missing or disabled, the error message clearly indicates the required fix and provides a link back to this documentation for guidance.  
 
-> [!Important:]
-> Always verify both applications are enabled before deploying or troubleshooting an Azure VMware Solution Gen 2 private cloud.  
-
+> [!IMPORTANT]  
+> Always verify both applications are enabled before deploying or troubleshooting an Azure VMware Solution Gen 2
 
 ## Next steps
   
+- Review steps to [enable role assignments for your identifies if they are removed](native-role-assignment.md) 
+
 - Follow a tutorial for [Creating an Azure VMware Gen 2 private cloud](native-create-azure-vmware-virtual-network-private-cloud.md)
 
 - Learn more about [Azure VMware Solution Gen 2 private cloud design considerations](native-network-design-consideration.md)

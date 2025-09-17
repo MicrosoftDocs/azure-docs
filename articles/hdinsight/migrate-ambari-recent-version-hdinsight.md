@@ -7,6 +7,9 @@ author: hareshg
 ms.author: hgowrisankar
 ms.reviewer: nijelsf
 ms.date: 05/22/2024
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Ambari user configs migration

@@ -4,9 +4,12 @@ description: Configure Dapr on your existing Azure Container App service.
 ms.author: hannahhunter
 author: hhunter-ms
 ms.service: azure-container-apps
-ms.custom: build-2023, devx-track-bicep
 ms.topic: conceptual
 ms.date: 04/08/2025
+ms.custom:
+  - build-2023
+  - devx-track-bicep
+  - sfi-image-nochange
 ---
 
 # Configure Dapr on an existing container app

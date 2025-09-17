@@ -42,7 +42,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP025' />BCP025 | Error | The property `{property}` is declared multiple times in this object. Remove or rename the duplicate properties. |
 | <a id='BCP026' />BCP026 | Error | The output expects a value of type `{expectedType}`, but the provided value is of type `{actualType}`. |
 | <a id='BCP028' />BCP028 | Error | Identifier `{identifier}` is declared multiple times. Remove or rename the duplicates. |
-| <a id='BCP029' />BCP029 | Error | The resource type isn't valid. Specify a valid resource type of format `<types>@<apiVersion>`. |
+| <a id='BCP029' />[BCP029](./diagnostics/bcp029.md) | Error | The resource type isn't valid. Specify a valid resource type of format `<types>@<apiVersion>`. |
 | <a id='BCP030' />BCP030 | Error | The output type isn't valid. Specify one of the following types: `{ToQuotedString(validTypes)}`. |
 | <a id='BCP031' />BCP031 | Error | The parameter type isn't valid. Specify one of the following types: `{ToQuotedString(validTypes)}`. |
 | <a id='BCP032' />BCP032 | Error | The value must be a compile-time constant. |
@@ -90,7 +90,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP078' />[BCP078](./diagnostics/bcp078.md) | Error/Warning | The property `<property-name>` requires a value of type `<type-name>`, but none was supplied. |
 | <a id='BCP079' />BCP079 | Error | This expression is referencing its own declaration, which isn't allowed. |
 | <a id='BCP080' />BCP080 | Error | The expression is involved in a cycle (`{string.Join("\" -> \"", cycle)}`). |
-| <a id='BCP081' />BCP081 | Warning | Resource type `{resourceTypeReference.FormatName()}` doesn't have types available. Bicep is unable to validate resource properties prior to deployment, but this won't block the resource from being deployed. |
+| <a id='BCP081' />[BCP081](./diagnostics/bcp081.md) | Warning | Resource type `\<resource-type@api-version>` doesn't have types available. Bicep is unable to validate resource properties prior to deployment, but this won't block the resource from being deployed. |
 | <a id='BCP082' />[BCP082](./diagnostics/bcp082.md) | Error | The name `<name>` doesn't exist in the current context. Did you mean `<name>`? |
 | <a id='BCP083' />[BCP083](./diagnostics/bcp083.md) | Error/Warning | The type `<type-definition>` doesn't contain property `<property-name>`. Did you mean `<property-name>`? |
 | <a id='BCP084' />BCP084 | Error | The symbolic name `{name}` is reserved. Use a different symbolic name. Reserved namespaces are `{ToQuotedString(namespaces.OrderBy(ns => ns))}`. |
@@ -306,7 +306,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP315' />BCP315 | Error | An object type may have at most one additional properties declaration. |
 | <a id='BCP316' />BCP316 | Error | The `{LanguageConstants.ParameterSealedPropertyName}` decorator may not be used on object types with an explicit additional properties type declaration. |
 | <a id='BCP317' />BCP317 | Error | Expected an identifier, a string, or an asterisk at this location. |
-| <a id='BCP318' />BCP318 | Warning | The value of type `{possiblyNullType}` may be null at the start of the deployment, which would cause this access expression (and the overall deployment with it) to fail. If you don't know whether the value will be null and the template would handle a null value for the overall expression, use a `.?` (safe dereference) operator to short-circuit the access expression if the base expression's value is null: `{accessExpression.AsSafeAccess().ToString()}`. If you know the value won't be null, use a non-null assertion operator to inform the compiler that the value won't be null: `{SyntaxFactory.AsNonNullable(expression).ToString()}`. |
+| <a id='BCP318' />[BCP318](./diagnostics/bcp318.md) | Warning | The value of type `<possible-null-type>` may be null at the start of the deployment, which would cause this access expression (and the overall deployment with it) to fail.  |
 | <a id='BCP319' />BCP319 | Error | The type at `{errorSource}` couldn't be resolved by the ARM JSON template engine. Original error message: `{message}` |
 | <a id='BCP320' />BCP320 | Error | The properties of module output resources can't be accessed directly. To use the properties of this resource, pass it as a resource-typed parameter to another module and access the parameter's properties therein. |
 | <a id='BCP321' />BCP321 | Warning | Expected a value of type `{expectedType}`, but the provided value is of type `{actualType}`. If you know the value won't be null, use a non-null assertion operator to inform the compiler that the value won't be null: `{SyntaxFactory.AsNonNullable(expression).ToString()}`. |
@@ -322,7 +322,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP332' />[BCP332](./diagnostics/bcp332.md) | Error/Warning | The provided value (whose length will always be greater than or equal to `<string-length>`) is too long to assign to a target for which the maximum allowable length is `<max-length>`. |
 | <a id='BCP333' />[BCP333](./diagnostics/bcp333.md) | Error/Warning | The provided value (whose length will always be less than or equal to `<string-length>`) is too short to assign to a target for which the minimum allowable length is `<min-length>`. |
 | <a id='BCP334' />BCP334 | Warning | The provided value can have a length as small as `{sourceMinLength}` and may be too short to assign to a target with a configured minimum length of `{targetMinLength}`. |
-| <a id='BCP335' />BCP335 | Warning | The provided value can have a length as large as `{sourceMaxLength}` and may be too long to assign to a target with a configured maximum length of `{targetMaxLength}`. |
+| <a id='BCP335' />[BCP335](./diagnostics/bcp335.md) | Warning | The provided value can have a length as large as `{sourceMaxLength}` and may be too long to assign to a target with a configured maximum length of `{targetMaxLength}`. |
 | <a id='BCP337' />BCP337 | Error | This declaration type isn't valid for a Bicep Parameters file. Specify a `{LanguageConstants.UsingKeyword}`, `{LanguageConstants.ParameterKeyword}` or `{LanguageConstants.VariableKeyword}` declaration. |
 | <a id='BCP338' />[BCP338](./diagnostics/bcp338.md) | Error | Failed to evaluate parameter `<parameter-name>: <error-message>` |
 | <a id='BCP339' />BCP339 | Error | The provided array index value of `{indexSought}` isn't valid. Array index should be greater than or equal to 0. |
@@ -393,15 +393,15 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP410' />BCP410 | Error | Division by zero is not supported.     |
 | <a id='BCP411' />BCP411 | Error | The type `{type}` cannot be used in a type assignment because it does not fit within one of ARM's primitive type categories (string, int, bool, array, object). |
 | <a id='BCP412' />BCP412 | Error | The variable type is not valid. Please specify one of the following types: `{ToQuotedString(validTypes)}`. |
-| <a id='BCP414' />[BCP414](./diagnostics/bcp414.md) | Error | The `^` indexing operator cannot be used on base expressions of type `{baseType}`.  |
+| <a id='BCP414' />[BCP414](./diagnostics/bcp414.md) | Error | The `^` indexing operator cannot be used on base expressions of type `<base-type>`.  |
 | <a id='BCP415' />BCP415 | Error | The `^` indexing operator cannot be used with index expressions of type `{indexType}`.     |
-| <a id='BCP416' />BCP416 | Error | The supplied string does not match the expected pattern of `{expectedPattern}`.   |
+| <a id='BCP416' />[BCP416](./diagnostics/bcp416.md) | Error | The supplied string does not match the expected pattern of `<expected-pattern>`.   |
 | <a id='BCP417' />BCP417 | Error | The spread operator `{ellipsis}` cannot be used inside objects with property for-expressions.    |
 | <a id='BCP418' />BCP418 | Error | Extensions cannot be referenced here. Extensions can only be referenced by module extension configurations.   |
 | <a id='BCP419' />BCP419 | Error | Namespace name `{name}` cannot be used as an extension name.|
 | <a id='BCP420' />[BCP420](./diagnostics/bcp420.md) | Error | The scope could not be resolved at compile time because the supplied expression is ambiguous or too complex. Scoping expressions must be reducible to a specific kind of scope without knowledge of parameter values. |
 | <a id='BCP421' />BCP421 | Error | Module `{moduleName}` contains one or more secure outputs, which are not supported with `{LanguageConstants.TargetScopeKeyword}` set to `{LanguageConstants.TargetScopeTypeLocal}`.|
-| <a id='BCP422' />BCP422 | Error | A resource of type `{baseType}` may or may not exist when this function is called, which could cause the deployment to fail.|
+| <a id='BCP422' />[BCP422](./diagnostics/bcp422.md) | Warning | A resource of type `<resource-type>` may or may not exist when this function is called, which could cause the deployment to fail.|
 
 ## Next steps
 

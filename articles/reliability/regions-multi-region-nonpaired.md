@@ -101,9 +101,7 @@ For geo-replication in nonpaired regions with Azure SQL Database, you can use th
 
 ## Azure SQL Managed Instance 
 
-For geo-replication in nonpaired regions with Azure SQL Managed Instance, you can use the following feature:
-
-- The [failover group feature](/azure/azure-sql/managed-instance/failover-group-sql-mi?view=azuresql&preserve-view=true), which replicates across any combination of Azure regions without any dependency on underlying geo-redundant storage.
+To learn about how to create multi-region solutions using Azure SQL Managed Instance, see [Reliability in Azure SQL Managed Instance](./reliability-sql-managed-instance.md).
 
 ## Azure Storage
 

@@ -7,6 +7,7 @@ author: yeturis
 ms.author: sairamyeturi
 ms.reviewer: nijelsf
 ms.date: 04/09/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Interact with Apache Kafka clusters in Azure HDInsight using a REST proxy

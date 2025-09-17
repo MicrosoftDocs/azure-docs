@@ -7,7 +7,12 @@ ms.author: allensu
 ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 07/29/2025
-ms.custom: template-how-to, FY23 content-maintenance, devx-track-azurepowershell, devx-track-azurecli
+ms.custom:
+  - template-how-to
+  - FY23 content-maintenance
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - sfi-image-nochange
 # Customer intent: "As a network administrator managing multiple Azure subscriptions, I want to create virtual network peering between those subscriptions, so that I can enable seamless communication between resources in different networks while optimizing bandwidth and latency."
 ---
 

@@ -6,6 +6,7 @@ ms.topic: conceptual
 ms.author: lle
 author: lrtoyou1223
 ms.date: 05/15/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Run SSIS packages by using Azure SQL Managed Instance Agent

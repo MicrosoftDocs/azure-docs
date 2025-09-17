@@ -7,6 +7,7 @@ ms.date: 02/13/2025
 author: nabhishek
 ms.author: abnarain
 ms.custom:
+  - sfi-image-nochange
 ---
 
 # Monitor an integration runtime in Azure Data Factory

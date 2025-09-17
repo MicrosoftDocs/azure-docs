@@ -6,6 +6,9 @@ ms.topic: conceptual
 ms.date: 05/15/2024
 author: chugugrace
 ms.author: chugu
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Run SQL Server Integration Services packages with the Azure-enabled dtexec utility
