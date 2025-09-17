@@ -6,7 +6,7 @@ author: sloanster
 ms.author: micahvivion
 
 services: azure-communication-services
-ms.date: 06/27/2025
+ms.date: 09/03/2025
 ms.topic: include
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -15,10 +15,8 @@ ms.subservice: calling
 ## Local vs Remote User Facing Diagnostics
 User Facing Diagnostics (UFD) are enabled to expose user-impacting events happening on a users calling device via a programmatic API. Within Azure Communication Services, there are two methods for consuming and generating UFDs: **local UFDs** and **remote UFDs**. **Local UFDs** are generated on the local user's phone browser or desktop browser. **Remote UFDs** are events occurring in a remote participant's environment, which enables a local user to consume and view those remote user impacting events locally.
 
-[!INCLUDE [Public Preview Disclaimer](../../../includes/private-preview-include.md)]
-
 > [!NOTE]  
-> [Version 1.34.1-beta.2](https://www.npmjs.com/package/@azure/communication-calling/v/1.34.1-beta.2) and higher of the public preview calling SDK support sending Remote UFDs from the WebJS calling SDK. Local UFDs emitted by the calling SDK are in general availability (GA).
+> [Version 1.38.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.38.1) and higher of the general availability and [Version 1.34.1-beta.2](https://www.npmjs.com/package/@azure/communication-calling/v/1.34.1-beta.2) calling SDK support sending Remote UFDs from the WebJS calling SDK. Local UFDs emitted by the calling SDK are in general availability (GA).
 
 User Facing Diagnostics (UFD) enable you to see when local or remote participants are experiencing issues that affect audio-video call quality. UFD provides real-time diagnostics on network conditions, device functionality, and media performance. This diagnostic information helps developers identify problems such as poor connectivity, muted microphones, or low bandwidth. While UFDs doesn't automatically fix these issues, it enables applications to offer proactive feedback to users, suggesting solutions like checking their internet connection or adjusting device settings. Based on this data, users can either correct the issue themselves (such as turn-off video when the network is weak) or display the information through the User Interface.
 

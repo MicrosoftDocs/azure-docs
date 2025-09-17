@@ -29,7 +29,7 @@ After installing either Azure PowerShell or Azure CLI, sign in for the first tim
 
 ### Editor (Optional)
 
-Templates are JSON files. To review or edit templates, you need a good JSON editor. We recommend using Visual Studio Code with the Resource Manager Tools extension. If you need to install these tools, see [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+Templates are JSON files. To review or edit templates, you can use [Visual Studio Code](https://code.visualstudio.com/). 
 
 ## Review template
 

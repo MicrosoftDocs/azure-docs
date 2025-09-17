@@ -14,7 +14,7 @@ In this tutorial, you learn how to return a value from your Azure Resource Manag
 
 We recommend that you complete the [tutorial about variables](template-tutorial-add-variables.md), but it's not required.
 
-You need to have Visual Studio Code with the Resource Manager Tools extension, and either Azure PowerShell or Azure Command-Line Interface (CLI). For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
+You need to have [Visual Studio Code](https://code.visualstudio.com/), and either Azure PowerShell or Azure Command-Line Interface (CLI). For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
 
 ## Review template
 

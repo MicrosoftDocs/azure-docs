@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/managed-grafana/how-to-api-calls.md",
+      "redirect_url": "/azure/managed-grafana/how-to-service-accounts",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/files/storage-how-to-create-file-share.md",
       "redirect_url": "/azure/storage/files/create-classic-file-share",
       "redirect_document_id": false

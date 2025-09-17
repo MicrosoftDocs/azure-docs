@@ -10,8 +10,6 @@ ms.date: 04/28/2025
 
 This article describes how to create and use definitions in your Azure Resource Manager template (ARM template). By defining your own types, you can reuse these types. Type definitions can only be used with [languageVersion 2.0](./syntax.md#languageversion-20).
 
-[!INCLUDE [VS Code ARM Tools extension doesn't support languageVersion 2.0](../../../includes/resource-manager-vscode-language-version-20.md)]
-
 > [!TIP]
 > We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [User-defined data types in Bicep](../bicep/user-defined-data-types.md).
 
