@@ -199,7 +199,7 @@ The following table shows which countries/regions support Azure Maps search auto
 | Russian Federation                                | 2,899,393     | 448,951     | 3,348,344   |
 | Rwanda                                            | 0             | 4,127       | 4,127       |
 | Saint Barthelemy                                  | 0             | 123         | 123         |
-| Saint Helena<sup>1</sup>                          | 0             | 77          | 77          |
+| St Helena, Ascension, Tristan da Cunha<sup>1</sup>| 0             | 77          | 77          |
 | Saint Kitts and Nevis                             | 0             | 304         | 304         |
 | Saint Lucia                                       | 0             | 802         | 802         |
 | Saint Martin                                      | 0             | 255         | 255         |
