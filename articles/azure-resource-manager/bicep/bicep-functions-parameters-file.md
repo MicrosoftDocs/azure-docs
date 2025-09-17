@@ -23,7 +23,7 @@ Available in Bicep version 0.37.4 and later.
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | name | Yes | string | The name of the input provided by the external tool. |
-| config | No | any | Extra configuration for the external source, if it needs parameters. |
+| config | No | any | The optional configuration for the input. The configuration is specific to the external tool you are requesting an input from. |
 
 ### Return value
 
