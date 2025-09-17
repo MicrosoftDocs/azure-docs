@@ -1,13 +1,17 @@
 ---
 title: How to migrate an Enterprise cache to Azure Managed Redis
 description: In this article, you learn how to migrate an Enterprise cache from Azure Cache for Redis to Azure Managed Redis
-#customer intent: As a developer who has Enterprise caches, I want to migrate them to Azure Managed Redis
-ms.date: 09/15/2025
-ms.topic: how-to
----
-# Migrate from Azure Cache for Redis Enterprise to Azure Managed Redis**
+ms.date: 09/28/2025
+ms.topic: overview
+appliesto:
+  - ✅ Azure Cache for Redis
+  - ✅ Azure Managed Redis
 
-This how-to article walks  through the process of migrating from **Azure Cache for Redis Enterprise** to Azure Managed Redis,  including benefits of choosing Azure Managed Redis, feature comparisons, migration strategies, and best practices.
+#customer intent: As a developer who has Enterprise caches, I want to migrate them to Azure Managed Redis
+---
+# Migrate from Azure Cache for Redis Enterprise to Azure Managed Redis
+
+This how-to article walks  through the process of migrating from Azure Cache for Redis Enterprise to Azure Managed Redis, including benefits of choosing Azure Managed Redis, feature comparisons, migration strategies, and best practices.
 
 ## Why migrate to Azure Managed Redis?
 
@@ -59,9 +63,9 @@ While the core software for Azure Cache for Redis Enterprise and Azure Managed R
 > [!IMPORTANT]
 > Consider updating your code that connects to the cache to use Microsoft Entra ID. We recommend using Microsoft Entra ID instead of access keys.
 
-## How to choose the right Azure Managed Redis size and SKU
+## Choosing the right Azure Managed Redis size and SKU
 
-Azure Managed Redis offers many memory sizes and three performance tiers. You can read more information about memory sizes and performance tiers here \[[What is Azure Managed Redis? - Azure Managed Redis \| Microsoft Learn](https://learn.microsoft.com/en-us/azure/redis/overview#choosing-the-right-tier)\].
+Azure Managed Redis offers many memory sizes and three performance tiers. You can read more information about memory sizes and performance tiers here [Choosing the right tier](../overview.md#choosing-the-right-tier).
 
 ## Identify memory size of existing Azure Cache for Redis Enterprise instance
 
@@ -92,21 +96,21 @@ When migrating to Azure Managed Redis instance, you should consider whether you 
 
 If your application needs to ensure that data is also migrated to the new Azure Managed Redis instance, choose one of the following options:
 
-### Data Export and Import via RDB File
+### Data Export and Import using an RDB File
 
-    - **Pros**: Preserves data snapshot.
-    - **Cons**: Risk of data loss if writes occur after snapshot.
+- Pros: Preserves data snapshot.
+- Cons: Risk of data loss if writes occur after snapshot.
 
 #### Steps
 
-    1. Export RDB from existing Redis Enterprise cache to your Azure Storage account.
-    1. Import data from Azure Storage account into Azure Managed Redis.
-    1. Read more about data export/import here [Import and Export data in Azure Managed Redis](how-to-import-export-data).
+1. Export RDB from existing Redis Enterprise cache to your Azure Storage account.
+1. Import data from Azure Storage account into Azure Managed Redis.
+1. Read more about data export/import here [Import and Export data in Azure Managed Redis](how-to-import-export-data).
 
 ### Dual-Write Strategy
 
-    - Pros: Zero downtime, safe transition.
-    - Cons: Requires temporary dual-cache setup.
+- Pros: Zero downtime, safe transition.
+- Cons: Requires temporary dual-cache setup.
 
 #### Steps
 
@@ -116,16 +120,16 @@ If your application needs to ensure that data is also migrated to the new Azure 
 
 ### Programmatic Migration using RIOT-X
 
-RIOT-X profides a way to migate your content from Enterprise to Azure Managed Redis. For more information, see [Data Migration with RIOT-X for Azure Managed Redis \| Microsoft Community Hub](https://techcommunity.microsoft.com/blog/azure-managed-redis/data-migration-with-riot-x-for-azure-managed-redis/4404672).
+RIOT-X provides a way to migrate your content from Enterprise to Azure Managed Redis. For more information, see [Data Migration with RIOT-X for Azure Managed Redis](https://techcommunity.microsoft.com/blog/azure-managed-redis/data-migration-with-riot-x-for-azure-managed-redis/4404672).
 
-    - Pros: Full control, customizable.
-    - Cons: Requires development effort.
+- Pros: Full control, customizable.
+- Cons: Requires development effort.
 
 ## Create a new Azure Managed Redis instance
 
 Once you have identified the memory and performance tier for your new Azure Managed Redis instance, you can create the new Azure Managed Redis instance using guidance here.
 
-\[add link\]
+<!-- add link - to what -->
 
 > [!IMPORTANT]
 > If you connect to your existing Redis Enterprise instance through a private endpoint, ensure that your new Azure Managed Redis cache is also peered to the virtual network of your application. The new cache must have a similar set up as existing Redis Enterprise instance.
