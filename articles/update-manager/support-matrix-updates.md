@@ -288,9 +288,7 @@ The asterisk (*) in the Offer or Plan columns acts as a wildcard. * means all po
 |redhat |rhel-arm64 | 9_1-arm64 ||
 |debian |debian-12 | 12-arm64 | |
 |debian |debian-12-daily |12-arm64 | |
-|debian |debian-12-daily | 12-backports-arm64 | |
-
- 
+|debian |debian-12-daily | 12-backports-arm64 | | 
 
 ---
 
