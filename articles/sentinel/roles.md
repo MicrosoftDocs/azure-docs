@@ -117,7 +117,7 @@ Alternatively, you might want to assign the ability to write output to a specifi
 
 |Tasks  |Permissions |
 |---------|---------|
-|**For edit permissions on the [system tables](https://go.microsoft.com/fwlink/?linkid=2325420)**|   Use a [custom Microsoft Defender XDR unified RBAC role with ](https://aka.ms/data-lake-custom-urbac)*[data (manage)](https://aka.ms/data-lake-custom-urbac)* permissions over the Microsoft Sentinel data collection.       |
+|**Update [system tables](https://go.microsoft.com/fwlink/?linkid=2325420) in the data lake**|   Use a [custom Microsoft Defender XDR unified RBAC role with ](https://aka.ms/data-lake-custom-urbac)*[data (manage)](https://aka.ms/data-lake-custom-urbac)* permissions over the Microsoft Sentinel data collection.       |
 |**For any other Microsoft Sentinel workspace in the data lake**     |  Use any built-in or custom role that includes the following Azure RBAC  [Microsoft operational insights](/azure/role-based-access-control/permissions/monitor#microsoftoperationalinsights) permissions on that workspace:<br>    - *microsoft.operationalinsights/workspaces/write*<br>   - *microsoft.operationalinsights/workspaces/tables/write*<br>    - *microsoft.operationalinsights/workspaces/tables/delete* <br><br>For example, built-in roles that include these permissions [Log Analytics Contributor](/azure/role-based-access-control/built-in-roles/monitor#log-analytics-contributor), [Owner](/azure/role-based-access-control/built-in-roles/privileged#owner), and [Contributor](/azure/role-based-access-control/built-in-roles/privileged#contributor).       |
 
 ### Manage jobs in the Microsoft Sentinel data lake
