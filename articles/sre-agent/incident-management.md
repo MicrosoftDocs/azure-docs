@@ -79,4 +79,4 @@ You can choose to enable a series of tools that provide granular control over ho
 
 ## Related content
 
-* [Incident response plans](./incident-response-plan.md)
+* [Incident response plans in Azure SRE Agent](./incident-response-plan.md)
