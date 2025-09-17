@@ -2,7 +2,7 @@
 title: Back up multiple SQL Server VMs from the vault
 description: In this article, learn how to back up SQL Server databases on Azure virtual machines with Azure Backup from the Recovery Services vault
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 09/17/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -131,25 +131,30 @@ When you back up a SQL Server database on an Azure VM, the backup extension on t
 
 ## Discover SQL Server databases
 
-How to discover databases running on a VM:
+To discover databases running on a VM, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com), go to **Backup center** and click **+Backup**.
+1. In the [Azure portal](https://portal.azure.com), go to **Business Continuity Center**, and then **+ Configure protection**.
 
-1. Select **SQL in Azure VM** as the datasource type, select the Recovery Services vault you have created, and then click **Continue**.
+1. On the **Configure protection** pane,select **Datasource type** as **SQL in Azure VM**, and then select **Continue**.
 
-   :::image type="content" source="./media/backup-azure-sql-database/configure-sql-backup.png" alt-text="Screenshot showing to select Backup to view the databases running in a VM.":::
+   :::image type="content" source="./media/backup-azure-sql-database/configure-sql-backup.png" alt-text="Screenshot shows how to select SQL database as the datasource for Backup.":::
 
-1. In **Backup Goal** > **Discover DBs in VMs**, select **Start Discovery** to search for unprotected VMs in the subscription. This search can take a while, depending on the number of unprotected VMs in the subscription.
+1. On the **Start: Configure Backup** pane, under **Vault**, click **Select vault**.
+1. On the **Select a Vault** pane, choose the Recovery Services vault you created from the list in which you want to back up the database, and then click **Select**.
+1. On the **Start: Configure Backup** pane, select **Continue**.
 
-   * Unprotected VMs should appear in the list after discovery, listed by name and resource group.
-   * If a VM isn't listed as you expect, see whether it's already backed up in a vault.
-   * Multiple VMs can have the same name, but they'll belong to different resource groups.
+1. On the **Backup Goal** pane, under **Discover DBs in VMs**, select **Start Discovery** to search for unprotected VMs in the subscription. This search can take a while, depending on the number of unprotected VMs in the subscription.
 
-     ![Backup is pending during search for DBs in VMs](./media/backup-azure-sql-database/discovering-sql-databases.png)
+1. On the **Select Virtual Machine** pane, select the VMs running the SQL Server database, and then select **Discover DBs**.
 
-1. In the VM list, select the VM running the SQL Server database > **Discover DBs**.
+   :::image type="content" source="./media/backup-azure-sql-database/discovering-sql-databases.png" alt-text="Screenshot shows the list of VMs running SQL databased that aren't protected." lightbox="./media/backup-azure-sql-database/discovering-sql-databases.png":::
 
-1. Track database discovery in **Notifications**. The time required for this action depends on the number of VM databases. When the selected databases are discovered, a success message appears.
+   >[!Note]
+   >- Unprotected VMs should appear in the list after discovery, listed by name and resource group.
+   >- If a VM isn't listed as you expect, see whether it's already backed up in a vault.
+   >- Multiple VMs can have the same name, but they'll belong to different resource groups.
+ 
+You can track database discovery in **Notifications**. The time required for this action depends on the number of VM databases. When the selected databases are discovered, a success message appears.
 
     ![Deployment success message](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
@@ -166,9 +171,11 @@ How to discover databases running on a VM:
 
 ## Configure backup  
 
-1. In **Backup Goal** > **Step 2: Configure Backup**, select **Configure Backup**.
+To configure SQL database backup, follow these steps:
 
-   ![Select Configure Backup](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
+1. On the **Backup Goal** pane, under **Step 2: Configure Backup**, select **Configure Backup**.
+
+   :::image type="content" source="./media/backup-azure-sql-database/backup-goal-configure-backup.png" alt-text="Screenshot shows the selection of Configure Backup.":::
 
 1. Select **Add Resources** to see all the registered availability groups and standalone SQL Server instances.
 
