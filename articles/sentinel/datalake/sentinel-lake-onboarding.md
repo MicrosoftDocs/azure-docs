@@ -14,7 +14,7 @@ ms.subservice: sentinel-graph
   
 # Onboard to Microsoft Sentinel data lake and Microsoft Sentinel graph (preview)
 
-The Microsoft Sentinel data lake, available in the Microsoft Defender portal, is a tenant-wide, repository for collecting, storing, and managing large volumes of security-related data from various sources. It enables comprehensive, unified analysis and visibility across your security landscape. The data lake uses advanced analytics, machine learning, graphs, and artificial intelligence, to help detect threats, investigate and respond to incidents, and improve overall security posture.
+The Microsoft Sentinel data lake, available in the Microsoft Defender portal, is a tenant-wide repository for collecting, storing, and managing large volumes of security-related data from various sources. It enables comprehensive, unified analysis and visibility across your security landscape. The data lake uses advanced analytics, machine learning, graphs, and artificial intelligence, to help detect threats, investigate and respond to incidents, and improve overall security posture.
 
 For more information, see:
 - [What is Microsoft Sentinel data lake?](sentinel-lake-overview.md) 
@@ -32,7 +32,7 @@ Onboarding makes the following changes:
 
 + When you enable ingestion of data for the first time or switch ingestion between tiers, it takes 90 to 120 minutes for data to appear in the tables. Once ingestion is enabled for the data lake tier, the data appears simultaneously in the data lake and in your analytics tier tables.
 
-+ Data pertaining to your Microsoft assets are ingested automatically into System tables, which will appear in the workspace selection UI inside the Lake exploration experiences, including:
++ Data pertaining to your Microsoft assets are ingested automatically into System tables, which will appear in the workspace selection user interface (UI) inside the Lake exploration experiences, including:
   - Microsoft Entra
   - Microsoft 365
   - Azure Resource Graph
@@ -91,7 +91,7 @@ This targeted exemption allows Sentinel data lake's components to deploy correct
 
 ### How data is added and where it's stored during onboarding
 
-During onboarding, your data lake is provisioned in the same region as your primary Sentinel workspace. Also, during onboarding, we might automatically enable Microsoft Entra, Microsoft 365, and Azure Resource Graph asset data. If this data isn't in the same region as the data lake, by onboarding to the data lake, you consent to ingest and store this data in the region where your data lake resides so you can use it with Microsoft Sentinel data lake and graph experiences. Your asset data will be available through System tables, which you can select in the workspace selection UI in the lake exploration experiences. 
+During onboarding, your data lake is provisioned in the same region as your primary Sentinel workspace. Also, during onboarding, we might automatically enable Microsoft Entra, Microsoft 365, and Azure Resource Graph asset data. If this data isn't in the same region as the data lake, by onboarding to the data lake, you consent to ingest and store this data in the region where your data lake resides so you can use it with Microsoft Sentinel data lake and graph experiences. Your asset data will be available through System tables, which you can select in the workspace selection UI in the Lake exploration experiences. 
 
 
 ## Existing Microsoft Sentinel workspaces

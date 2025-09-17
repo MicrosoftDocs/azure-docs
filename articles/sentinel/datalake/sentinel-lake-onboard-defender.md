@@ -14,7 +14,7 @@ ms.subservice: sentinel-graph
   
 # Onboard to Microsoft Sentinel data lake from the Defender portal
 
-Onboarding your tenant to the Microsoft Sentinel data lake occurs once and starts from the Microsoft Defender portal. The onboarding process creates a new Microsoft Sentinel data lake for your tenant in the subscription specified during the onboarding process. If you had onboarded to the data lake during public preview, you're automatically upgraded to the generally available data lake and the graph public preview.
+Onboarding your tenant to the Microsoft Sentinel data lake occurs once and starts from the Microsoft Defender portal. The onboarding process creates a new Microsoft Sentinel data lake for your tenant in the subscription specified during the onboarding process. Graph enablement is included as part of onboarding. If you had onboarded to the data lake during public preview, you're automatically upgraded to the generally available data lake and the graph public preview.
 
 > [!NOTE]
 > You'll always have one data lake that you can use with multiple Microsoft Security products. During onboarding, we check for and automatically use your existing data lake. When you ingest and store security data in your data lake, this data can be used with multiple Microsoft Security products.
@@ -34,15 +34,13 @@ Use the following steps to onboard to the Microsoft Sentinel data lake from the 
 
     :::image type="content" source="./media/sentinel-lake-onboard-defender/permissions-required.png" lightbox="./media/sentinel-lake-onboard-defender/permissions-required.png" alt-text="A screenshot showing the permissions required page in the Defender portal.":::
 
-1. If you have the required permissions, a setup side panel appears. Select the **Subscription**  and **Resource group** to enable billing for the Microsoft Sentinel data lake.
-
-    > [!NOTE]
-    > After the data lake is provisioned for a specific Azure subscription and resource group, it can't be migrated to a different subscription or resource group.
-
-1. Select **Set up data lake**.  
+1. If you have the required permissions, a setup side panel appears. Select the **Subscription**  and **Resource group** to enable billing for the Microsoft Sentinel data lake. Select **Set up data lake**.  
 
     :::image type="content" source="./media/sentinel-lake-onboard-defender/set-up-data-lake.png" lightbox="./media/sentinel-lake-onboard-defender/set-up-data-lake.png" alt-text="A screenshot showing the setup page for the Microsoft Sentinel data lake.":::
 
+    > [!NOTE]
+    > After the data lake is provisioned for a specific Azure subscription and resource group, it can't be migrated to a different subscription or resource group.
+    
 1. The setup process begins and the following side panel is displayed. The onboarding process can take up to 60 minutes to complete. You can close the setup panel while the process is running.
 
     :::image type="content" source="./media/sentinel-lake-onboard-defender/setup-started.png" lightbox="./media/sentinel-lake-onboard-defender/setup-started.png" alt-text="A screenshot showing the progress of the onboarding process.":::
