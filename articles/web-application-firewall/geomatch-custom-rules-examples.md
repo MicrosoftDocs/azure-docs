@@ -30,7 +30,7 @@ Geomatch custom rules enable you to meet diverse security goals, such as blockin
 
 ### Scenario 1 - Block traffic from all countries or regions except "x"
 
-Geomatch custom rules prove useful when you aim to block traffic from all countries or regions, barring one. For instance, if your web application caters exclusively to users in the United States, you can formulate a geomatch custom rule that obstructs all requests not originating from the US. This strategy effectively minimizes your web application’s attack surface and deters unauthorized access from other regions. This specific technique employs a negating condition to facilitate this traffic pattern. For creating a geomatch custom rule that obstructs traffic from all countries or regions except the US, refer to the following portal, Bicep, and PowerShell examples:
+Geomatch custom rules prove useful when you aim to block traffic from all countries or regions, barring one. For instance, if your web application caters exclusively to users in the United States, you can formulate a geomatch custom rule that obstructs all requests not originating from the US. This strategy effectively minimizes your web application’s attack surface and deters unauthorized access from other regions. This specific technique employs a negating condition to facilitate this traffic pattern. For creating a geomatch custom rule that obstructs traffic from all countries or regions except the US, see to the following portal, PowerShell, or Bicep examples:
 
 # [**Portal**](#tab/portal)
 
@@ -83,7 +83,7 @@ Update-AzFrontDoorWafPolicy -InputObject $afdWAFPolicy -Customrule $customRuleOb
 
 ::: zone pivot="application-gateway"
 
-```
+```Bicep
 properties: {
     customRules: [
       {
@@ -150,7 +150,7 @@ This pattern processes request payloads from the US and Canada through the manag
 
 To minimize potential false positives, include the country code **ZZ** in the list to capture IP addresses not yet mapped to a country or region in Azure’s dataset. This technique uses a negate condition for the Geolocation type and a non-negate condition for the URI match.
 
-To create a geomatch custom rule that blocks traffic from all countries or regions except the US and Canada to a specified URI, refer to the portal, Bicep, and Azure PowerShell examples provided.
+To create a geomatch custom rule that blocks traffic from all countries or regions except the US and Canada to a specified URI, refer to the portal, PowerShell, and Bicep examples.
 
 # [**Portal**](#tab/portal)
 
@@ -290,7 +290,7 @@ properties: {
 
 ### Scenario 3 - Block traffic specifically from country or region "x"
 
-You can use geomatch custom rules to block traffic from specific countries or regions. For instance, if your web application receives many malicious requests from country or region "x", create a geomatch custom rule to block all requests from that country or region. This protects your web application from potential attacks and reduces resource load. Apply this pattern to block multiple malicious or hostile countries or regions. This technique requires a match condition for the traffic pattern. To block traffic from country or region "x", see the following portal, Bicep, and Azure PowerShell examples.
+You can use geomatch custom rules to block traffic from specific countries or regions. For instance, if your web application receives many malicious requests from country or region "x", create a geomatch custom rule to block all requests from that country or region. This protects your web application from potential attacks and reduces resource load. Apply this pattern to block multiple malicious or hostile countries or regions. This technique requires a match condition for the traffic pattern. To block traffic from country or region "x", see the following portal, PowerShell, and Bicep examples.
 
 # [**Portal**](#tab/portal)
 
