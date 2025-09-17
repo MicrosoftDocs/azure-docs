@@ -42,12 +42,10 @@ Migrating VMware vSphere servers refers to the process of moving virtual machine
 
 ### Available migration methods
 
-**Agentless (recommended)**: Use agentless replication with the Azure Migrate appliance to perform discovery, replication (using snapshots based on Changed Block Tracking), test migration, and final migration. This method doesn’t require installing agents inside guest operating systems. An automated hydration process prepares supported operating systems for successful boot in Azure.
+**Agentless (recommended)**: Use agentless replication with the Azure Migrate appliance to perform discovery, replication (using snapshots based on Changed Block Tracking), test migration, and final migration. This method doesn’t require installing agents inside guest operating systems. An automated hydration process prepares supported operating systems for successful boot in Azure. For more information, see [Migrate VMware vSphere servers](tutorial-migrate-vmware.md). 
 
 **Agent-based**: Use agent-based replication with the Replication appliance and the Mobility service agent (installed per virtual machine) to enable replication and migration.
 For more information, see [migrate vmware physical](tutorial-migrate-vmware.md)
-
-Learn more about [Migrate VMware vSphere servers](tutorial-migrate-vmware.md). 
 
 ## Migrating HyperV servers 
 
