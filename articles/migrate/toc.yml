@@ -183,8 +183,8 @@ items:
     items: 
     - name: Overview of Migration method
       href: server-migrate-overview.md
-- name: Support Matrix
-  items:
+  - name: Support Matrix
+    items:
     - name: Support matrix for VMware 
       href: migrate-support-matrix-vmware-migration.md
     - name: Physical agent-based
