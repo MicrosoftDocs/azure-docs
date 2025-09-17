@@ -30,7 +30,7 @@ Onboarding makes the following changes:
 
 + Once Microsoft Sentinel data lake is enabled, data in the Microsoft Sentinel analytics tier will also be available in the Microsoft Sentinel data lake tier from that point forward without extra charge. You can use existing Microsoft Sentinel workspace connectors to ingest new data to both the analytics and the data lake tiers, or just the data lake tier.
 
-+ When you enable ingestion of data for the first time or switch ingestion between tiers, it takes 90-120 minutes for data to appear in the tables. Once ingestion is enabled for the data lake tier, the data appears simultaneously in the data lake and in your analytics tier tables.
++ When you enable ingestion of data for the first time or switch ingestion between tiers, it takes 90 to 120 minutes for data to appear in the tables. Once ingestion is enabled for the data lake tier, the data appears simultaneously in the data lake and in your analytics tier tables.
 
 + Data pertaining to your Microsoft assets are ingested automatically into System tables, which will appear in the workspace selection UI inside the Lake exploration experiences, including:
   - Microsoft Entra
