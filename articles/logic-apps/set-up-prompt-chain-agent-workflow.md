@@ -58,7 +58,7 @@ The following table lists the inputs, tasks, and outputs:
 
 ## Best practices
 
-The following table describes best practices for prompt chaining patterns:
+The following table describes best practices for the prompt chaining pattern:
 
 | Practice | Description |
 |----------|-------------|
@@ -67,7 +67,7 @@ The following table describes best practices for prompt chaining patterns:
 | Design for recovery | Plan how to handle failures at each step. |
 | Monitor performance | Track execution time and success rates. |
 | Optimize prompts | Refine agent instructions based on results. |
-| Test edge cases | Validate behavior with unusual or malformed inputs.
+| Test edge cases | Validate behavior with unusual or malformed inputs. |
 
 ## Set up the data extractor agent
 
@@ -253,5 +253,5 @@ This example started the workflow with the **When an HTTP request is received** 
 
 ## Related content
 
-- [Single versus multiple agents](single-versus-multiple-agents.md)
+- [Single agent versus multiple agents](single-versus-multiple-agents.md)
 - [Create autonomous agent workflows](create-autonomous-agent-workflows.md)
