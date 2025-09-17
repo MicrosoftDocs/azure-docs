@@ -68,70 +68,44 @@ Use the following scenario-based checks and solutions to troubleshoot common iss
 
 ### Data connectors and ingestion not working
 
-**Checks to perform**  
-- Confirm connector prerequisites and permissions.  
-- Validate schema alignment.  
-- Verify ASIM normalization if applicable.  
 
-**Solution**  
-- Reapply configuration.  
-- Correct schema or mapping issues.  
-- Document any implications for downstream analytics when data is lake-only.  
+|**Checks to perform**  |**Solution**  |
+|---------|---------|
+| -  Confirm connector prerequisites and permissions. <br>- Validate schema alignment.  <br> - Verify ASIM normalization if applicable.   | - Reapply configuration.  <br> - Correct schema or mapping issues.  <br> - Document any implications for downstream analytics when data is lake-only.  | 
+
 
 
 ### Analytics rules (SIEM) not firing
 
-**Checks to perform**  
-- Confirm data freshness.  
-- Review rule scheduling and lookback versus latency.  
-- Verify that the required parser is installed and enabled.  
 
-**Solution**  
-- Test the rule with a query.  
-- Widen the lookback window.  
-- Reinstall the parser.  
-- Add a verification workbook.  
+|**Checks to perform**  |**Solution**  |
+|---------|---------|
+|- Confirm data freshness.  <br> - Review rule scheduling and lookback versus latency.  <br>  - Verify that the required parser is installed and enabled. |   - Test the rule with a query.  <br> - Widen the lookback window.  <br> - Reinstall the parser.  <br>- Add a verification workbook.        |
+
 
 
 ### Jobs and notebooks over the data lake failing
 
-**Checks to perform**  
-- Validate explicit workspace and database parameters.  
-- Review retry and backoff configuration.  
-- Check job status and terminal states.  
 
-**Solution**  
-- Parameterize notebooks.  
-- Make jobs idempotent.  
-- Emit structured stage logs.  
-- Test across multiple workspaces or tenants.  
+|**Checks to perform**  |**Solution**  |
+|---------|---------|
+|- Validate explicit workspace and database parameters.  <br> - Review retry and backoff configuration.  <br> - Check job status and terminal states.      |  - Parameterize notebooks.  <br> - Make jobs idempotent.  <br>- Emit structured stage logs.  <br>- Test across multiple workspaces or tenants.       |
+
 
 
 ### Packaging and publishing issues
 
-**Checks to perform**  
-- Confirm manifest fields and versioning.  
-- Review cross-offer prerequisites (Content Hub versus Security Store).  
 
-**Solution**  
-- Run local validation.  
-- Keep directory and filenames stable.  
-- Document installation, upgrade, and uninstallation flows.  
-
+|**Checks to perform**  |**Solution**  |
+|---------|---------|
+|- Confirm manifest fields and versioning.  <br> - Review cross-offer prerequisites (Content Hub versus Security Store).  | - Run local validation.  <br> - Keep directory and filenames stable.  <br> - Document installation, upgrade, and uninstallation flows.  | - Run local validation.  <br> - Keep directory and filenames stable.  <br> - Document installation, upgrade, and uninstallation flows.  |
 
 ### Agentic experiences via Model Context Protocol (MCP) not working in Visual Studio Code
 
-**Checks to perform**  
-- Confirm MCP server collections and tool registration.  
-- Validate endpoint reachability.  
-- Review token scope and expiry.  
-- Ensure Visual Studio Code can discover tools.  
+|**Checks to perform**  |**Solution**  |
+|---------|---------|
+| - Confirm MCP server collections and tool registration.  <br> - Validate endpoint reachability.  <br> - Review token scope and expiry.  <br> - Ensure Visual Studio Code can discover tools.  | - Group tools logically.  <br> - Rotate tokens before they expire.  <br> - Provide example prompts.  <br> - Document known errors with resolutions.  |
 
-**Solution**  
-- Group tools logically.  
-- Rotate tokens before they expire.  
-- Provide example prompts.  
-- Document known errors with resolutions.  
 
 
 ## Audit logs
