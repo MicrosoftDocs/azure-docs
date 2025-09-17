@@ -19,88 +19,80 @@ This article explains how to perform the following tasks in the Azure portal:
 
 You must be the Account Administrator to perform any of these tasks.
 
-## Accounts portal is retired
-
-Accounts portal was retired December 31, 2021. The features supported in the Accounts portal were migrated to the Azure portal. This article explains how to perform some of the most common operations in the Azure portal.
-
-
-## Navigate to your subscription's payment methods
+## Edit your subscription's payment methods
 
 > [!NOTE]
 > The Reserve Bank of India has new regulations for storing credit card information that may impact credit card users in India. For more information, see [Reserve Bank of India](../understand/pay-bill.md#reserve-bank-of-india).
 
 1. Sign in to the Azure portal as the Account Administrator.
 
-1. Search for **Cost Management + Billing**.
+1. Search for **Cost Management + Billing,** in the top search bar.
 
-    :::image type="content" border="true" source="./media/account-admin-tasks/search-bar.png" alt-text="Screenshot showing search for Cost Management + Billing.":::
+1. Inside of **Products + services**, select "All billing subscriptions" or "Azure Subscriptions".  Then select the subscription from the list that you'd like to replace the credit card to.
 
-1. In the **My subscriptions** list, select the subscription you'd like to add the credit card to.
-
-   :::image type="content" border="true" source="./media/account-admin-tasks/cost-management-billing-overview-x.png" alt-text="Screenshot showing the Cost Management + Billing page where you can select a subscription.":::
+   ![User's image](media/account-admin-tasks/image.png)
+   
+   > [!NOTE]
+   > If you don't see some of your subscriptions here, it might be because you changed the subscription directory at some point. For these subscriptions, you need to switch the directory to the original directory (the directory in which you initially signed up). Then, repeat step 2. Also, if you have multiple billing scopes, make sure you select the right one that contains the subscription you want to update.
+   
+1. Select the billing profile name associated to your subscription
 
    > [!NOTE]
-   > If you don't see some of your subscriptions here, it might be because you changed the subscription directory at some point. For these subscriptions, you need to switch the directory to the original directory (the directory in which you initially signed up). Then, repeat step 2.
+   > A billing profile is the commercial scope that manages how you pay for Microsoft products and services.  Each billing profile is tied to a billing account, and you can have multiple billing profiles associate to a single billing account to manage your billing.
+   
+1. Select **Manage p****ayment methods** in the shortcuts section.  
+![User's image](media/account-admin-tasks/image2.png)
 
-1. Select **Payment methods**.
+1. Here you can add a new credit card, change the default payment method, edit existing credit card details, and delete credit cards.  See the next three sections for details on how to perform these actions.
 
-    :::image type="content" border="true" source="./media/account-admin-tasks/subscription-payment-methods-blade.png" alt-text="Screenshot showing the Payment methods page where you can add a payment method.":::
+### Change default payment method for your billing profile
 
-Here you can add a new credit card, change the active payment method, edit credit card details, and delete credit cards.
+You can change the default payment method on your billing profile by adding a new credit card or choosing one that is already saved. To change the default payment method to a new credit card:
 
-### Change active payment method
+1. Sign in to the Azure portal as the Account Administrator.
 
-You can change the active payment method by adding a new credit card or choosing one that is already saved. To change the active payment method to a new credit card:
+1. Search for **Cost Management + Billing,** in the top search bar.
 
-1. In the top-left corner, select “+” to add a credit card.
+1. Inside of **Billing**, select "Billing profiles".  Then select the billing profile that you want to update.
 
-    :::image type="content" border="true" source="./media/account-admin-tasks/subscription-payment-methods-plus.png" alt-text="Screenshot that shows the plus symbol.":::
+1. Next, select **payment methods** from the inside of Billing
 
-1. Enter credit card details in the form on the right side of the window.
+1. Inside of the list of available credit and debit cards, click the ellipse (...) and select "Make default".
 
-    :::image type="content" border="true" source="./media/account-admin-tasks/subscription-add-payment-method-x.png" alt-text="Screenshot that shows add credit card form.":::
-
-1. To make this card your active payment method, check the box next to **Make this my active payment method** above the form. This card becomes the active payment instrument for all subscriptions using the same card as the selected subscription.
-
-    :::image type="content" border="true" source="./media/account-admin-tasks/subscription-make-active-payment-method-x.png" alt-text="Screenshot that shows check box for making card active payment method.":::
-
-1. Select **Next**.
-
-To change the active payment method to a credit card that is already saved:
-
-1. Select the box next to the card you'd like to make the active payment method.
-
-    :::image type="content" border="true" source="./media/account-admin-tasks/subscription-checked-payment-method-x.png" alt-text="Screenshot that shows box checked next to credit card.":::
-
-1. Select **Set active** in the command bar.
-
-    :::image type="content" border="true" source="./media/account-admin-tasks/subscription-checked-payment-method-set-active.png" alt-text="Screenshot that shows set active button.":::
-
+   ![User's image](media/account-admin-tasks/image4.png)
+   
 ### Edit credit card details
 
-To edit credit card details such as the expiration date or address, select the credit card that you'd like to edit. A credit card form appears on the right side of the window.
+To edit credit card details such as the expiration date or address: 
 
-:::image type="content" border="true" source="./media/account-admin-tasks/subscription-edit-payment-method-x.png" alt-text="Screenshot that shows credit card selected.":::
+1. Select **Edit** from inside of the ellipse (...) drop down next to the credit card that you'd like to edit. A credit card form appears on the right side of the window.
 
-Update the credit card details and select **Save**.
+1. Update the credit card details and select **Next**.
+
+![User's image](media/account-admin-tasks/image5.png)
 
 ### Remove a credit card from the account
 
-1. Select the box next to the card you'd like to delete.
+> [!NOTE]
+> If your credit card is the default payment method for any of your billing profiles, you can't remove it from your Azure account. Change the default payment method for all billing profiles linked to this credit card and try again.  If needed, follow the "Change default payment method for your billing profile" above. 
 
-    :::image type="content" border="true" source="./media/account-admin-tasks/subscription-checked-payment-method-x.png" alt-text="Screenshot that shows box checked next to credit card.":::
+To delete a credit card from your account: 
 
-1. Select **Delete** in the command bar.
+1. Select **Delete** from inside of the ellipse (...) drop down next to the credit card that you'd like to remove. A Delete a payment method form appears on the right side of the window.  
 
-    :::image type="content" border="true" source="./media/account-admin-tasks/subscription-checked-payment-method-delete.png" alt-text="Screenshot that shows delete button.":::
+1. An eligibility check will be performed to determine if you can safely delete it from your Azure account.  To proceed, select **Delete** at the bottom of the side window. 
 
-If your credit card is the active payment method for any of your Microsoft subscriptions, you can't remove it from your Azure account. Change the active payment method for all subscriptions linked to this credit card and try again.
+### Switch to pay by wire transfer
 
-### Switch to invoice payment
+If you're eligible to pay by wire transfer, you can switch your billing profile to wire transfer in the Azure portal.
 
-If you're eligible to pay by invoice (wire transfer), you can switch your subscription to invoice payment (wire transfer) in the Azure portal.
+1. Sign in to the Azure portal as the Account Administrator.
 
-1. Select **Pay by invoice** in the command bar.
+1. Search for **Cost Management + Billing,** in the top search bar.
+
+1. Inside of **Billing**, select "Billing profiles".  Then select the billing profile that you want to update.
+
+1. Select p
 
     :::image type="content" border="true" source="./media/account-admin-tasks/subscription-payment-methods-pay-by-invoice.png" alt-text="Screenshot showing the Payment methods page with Pay by invoice selected.":::
 
@@ -237,4 +229,6 @@ The following fields are from v1 and v2 versions of the files from the Accounts 
 We don't support virtual or prepaid cards. If you're getting errors when adding or updating a valid credit card, try opening your browser in private mode.
 
 ## Next steps
+
 - Learn more about [analyzing unexpected charges](../understand/analyze-unexpected-charges.md)
+
