@@ -27,7 +27,7 @@ Use PowerShell or Azure CLI to deploy the [ARM template](https://raw.githubuserc
 
 Run the code in Azure Cloud Shell or in PowerShell locally in Visual Studio Code to deploy the FHIR service to the Entra External ID tenant.
 
-#### [PowerShell](#tab/powershell)
+#### [PowerShell](#tab/powershell-script)
 
 1. Use `Connect-AzAccount` to sign in to Azure. After you sign in, use `Get-AzContext` to verify the subscription and tenant you want to use. Change the subscription and tenant if needed.
 
@@ -515,6 +515,7 @@ Follow the steps in the [Get the FHIR patient data](using-rest-client.md#get-fhi
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
        
+
 
 
 
