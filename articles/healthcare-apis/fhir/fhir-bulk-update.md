@@ -58,63 +58,37 @@ When using bulk update with FHIR search parameters, consider using the same quer
 The following is an example request body.
 ```
 { 
-
   "resourceType": "Parameters", 
-
   "parameter": [ 
-
     { 
-
       "name": "operation", 
-
       "part": [ 
-
         { 
-
           "name": "type", 
-
           "valueCode": "upsert" 
-
         }, 
 
         { 
-
           "name": "path", 
-
           "valueString": "Resource.meta" 
-
         }, 
 
         { 
-
           "name": "name", 
-
           "valueString": "security" 
-
         }, 
 
         { 
-
           "name": "value", 
-
           "valueCoding": { 
-
             "system": "http://example.org/security-system", 
-
             "code": "SECURITY_TAG_CODE", 
-
             "display": "Updated Security Tag Display" 
-
           } 
-
         } 
-
       ] 
-
     } 
-
   ] 
-
 }
 ```
 
@@ -127,3 +101,95 @@ The following is an example request body.
 On submission of bulk update operation, response of the following format is returned with a Content-Location header pointing to the polling endpoint.
 
 `Content-Location: https://{hostname}/_operations/bulk-update/{job-id}`
+
+### Polling endpoint outcomes
+Requests to the polling endpoint will lead to one of four outcomes, depending on the status of the bulk update job. The outcome is provided within OperationOutcome of the FHIR response.
+
+| Status | Description |
+| ------ | ------ |
+| 202 | Job in progress |
+| 200 | Job completed or canceled by the user |
+| Other | Failure status based on error type |
+
+The response to a bulk update operation includes four key components:
+1. **ResourceUpdatedCount**: Shows the number of resources successfully updated, grouped by resource type.
+2. **ResourceIgnoredCount**: Indicates the number of resources ignored during the bulk update, by resource type. Resources are ignored if there is no corresponding Patch request for their type, or if they are excluded types such as SearchParameter or StructureDefinition.
+3. **ResourcePatchFailedCount**: Displays the number of resources where the Patch operation failed, by resource type. For instance, if a replacement is attempted for a value that does not exist, the Patch will fail and be counted here. The job is considered a "soft fail" if some resources fail but others succeed. A general message is provided in the Issues section, recommending the use of the FHIR PATCH operation on individual resources to get detailed error information.
+4. **Issues**: Provides details about any job failures or reasons for unsuccessful updates.
+
+The following is an example response body.
+```
+{ 
+
+  "resourceType": "Parameters", 
+
+  "parameter": [ 
+    { 
+      "name": "ResourceUpdatedCount", 
+      "part": [ 
+        { "name": "Practitioner", "valueInteger64": 10 }, 
+        { "name": "Specimen", "valueInteger64": 7 }, 
+        { "name": "Device", "valueInteger64": 3 } 
+      ] 
+    }, 
+
+    { 
+      "name": "ResourceIgnoredCount", 
+      "part": [ 
+        { "name": "StructureDefinition", "valueInteger64": 9 }, 
+        { "name": "SearchParameter", "valueInteger64": 8 } 
+      ] 
+    } 
+  ] 
+}
+```
+
+### Response error handling
+
+| HTTP status | Cause | Action |
+| ------ | ------ | ------ |
+| 400 | Job already running, unsupported operation type, excluded resource type.Only one bulk-update job can run at a time. Attempting to start another job while one is already in progress will result in a 400 Bad Request error. | Retry after resolving conflict |
+| 403 | Unauthorized | Assign the required role |
+| 429 | Throttled | Retry with reduced load |
+| 500 | Server error | Create a support ticket |
+| 503 | Database issues | Retry after some time |
+
+## Cancel a bulk update job
+Send a DELETE request to the job’s polling endpoint as follows.
+
+`DELETE https://{FHIR-SERVICE-HOST}/_operations/bulk-update/{job-id}`
+
+> [!NOTE]
+> Canceling a job resumes the deletion process from where it left off if retried.
+
+## Audit logs
+Audit logs can be queried from **MicrosoftHealthcareApisAuditLogs**:
+ - Filter by `ResourceId`.
+ - Look for entries for: Job started, Job succeeded and Patch failures.
+
+## FAQ
+
+**Why do updated resource counts not match expectations?**
+ - Fewer: Resources may have been modified by another job before this job ran.
+ - More: A new import job may have inserted resources after the bulk update was initiated.
+
+**What are the steps for resolution if my bulk update job seems to be stuck?**
+To check if a bulk update job is stuck, run a FHIR search with the same parameters as the bulk update job with the appropriate operation condition added in query and _summary=count. If the count of resources is going down, the job is working. You can also cancel the bulk update job and try again.
+
+**What is the impact to REST API calls when a bulk update operation job is executed concurrently?**
+When you run a bulk update operation, you might see increased latency on concurrent calls to the service. To avoid a latency increase, we recommend that you cancel the bulk update job, and then rerun it during a period of lower traffic.
+
+**Can I revert changes?**
+You should use bulk update capability carefully. For example, if versioning is enabled, fetch historical versions and use PUT to restore them, or restore from a backup (Data is retained for 7–30 days depending on configuration).
+
+**What is ResourcePatchFailedCount?**
+This is a count of the Resources that failed during the `PATCH` operation. Causes may include:
+ - Replacing a non-existent element
+ - Attempting to update an immutable field
+
+Check the audit log or submit a PATCH request individually for error details.
+
+## Next steps
+ - Learn more about [FHIR Path Patch](https://hl7.org/fhir/fhirpatch.html)
+ - Explore Azure Health Data Services FHIR documentation
+ - Manage roles and access 
