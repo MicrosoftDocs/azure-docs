@@ -71,7 +71,8 @@ $ServiceManager.AddService2($ServiceId,7,"")
 Use Group Policy:
 
 1. Go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Windows Update** > **Manage end user experience**
-2. Enable **Install updates for other Microsoft products**
+2. Open the **Configure Automatic Updates** setting
+3. Set this to **Enabled** and check the box labeled **Install updates for other Microsoft products**
 
 ## WSUS Configuration
 
