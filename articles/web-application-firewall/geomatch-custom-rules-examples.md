@@ -53,7 +53,7 @@ Geomatch custom rules prove useful when you aim to block traffic from all countr
 
 ::: zone pivot="application-gateway"
 
-```azurepowershell
+```azurepowershell-interactive
 $RGname = "rg-waf "
 $policyName = "waf-pol"
 $variable = New-AzApplicationGatewayFirewallMatchVariable -VariableName RemoteAddr
@@ -68,7 +68,7 @@ Set-AzApplicationGatewayFirewallPolicy -InputObject $policy
 
 ::: zone pivot="front-door"
 
-```azurepowershell
+```azurepowershell-interactive
 $RGname = "rg-waf"
 $policyName = "wafafdpol"
 $matchCondition = New-AzFrontDoorWafMatchConditionObject -MatchVariable SocketAddr -OperatorProperty GeoMatch -MatchValue "US" -NegateCondition $true
@@ -170,7 +170,7 @@ To create a geomatch custom rule that blocks traffic from all countries or regio
 
 ::: zone pivot="application-gateway"
 
-```azurepowershell
+```azurepowershell-interactive
 $RGname = "rg-waf "
 $policyName = "waf-pol"
 $variable1a = New-AzApplicationGatewayFirewallMatchVariable -VariableName RemoteAddr
@@ -187,7 +187,7 @@ Set-AzApplicationGatewayFirewallPolicy -InputObject $policy
 
 ::: zone pivot="front-door"
 
-```azurepowershell
+```azurepowershell-interactive
 $RGname = "rg-waf"
 $policyName = "wafafdpol"
 $matchCondition1a = New-AzFrontDoorWafMatchConditionObject -MatchVariable SocketAddr -OperatorProperty GeoMatch -MatchValue @(“US”, "CA") -NegateCondition $true
@@ -310,7 +310,7 @@ You can use geomatch custom rules to block traffic from specific countries or re
 
 ::: zone pivot="application-gateway"
 
-```azurepowershell
+```azurepowershell-interactive
 $RGname = "rg-waf "
 $policyName = "waf-pol"
 $variable2 = New-AzApplicationGatewayFirewallMatchVariable -VariableName RemoteAddr
@@ -325,7 +325,7 @@ Set-AzApplicationGatewayFirewallPolicy -InputObject $policy
 
 ::: zone pivot="front-door"
 
-```azurepowershell
+```azurepowershell-interactive
 $RGname = "rg-waf"
 $policyName = "wafafdpol"
 $matchCondition2 = New-AzFrontDoorWafMatchConditionObject -MatchVariable SocketAddr -OperatorProperty GeoMatch -MatchValue "US" -NegateCondition $false
