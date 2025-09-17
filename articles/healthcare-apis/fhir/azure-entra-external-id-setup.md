@@ -355,7 +355,11 @@ az account set --subscription $subscriptionid
 az group create --name $resourcegroupname --location $region
 
 ### deploy the resource
+<<<<<<< HEAD
+az deployment group create --resource-group $resourcegroupname --template-uri https://raw.githubusercontent.com/Azure-Samples/azure-health-data-and-ai-samples/main/samples/fhir-aad-b2c/fhir-service-arm-template.json --parameters tenantid=$tenantid region=$region workspaceName=$workspacename fhirServiceName=$fhirservicename smartAuthorityUrl=$smartAuthorityUrl storageAccountConfirm=$smartClientId
+=======
 az deployment group create --resource-group $resourcegroupname --template-uri https://raw.githubusercontent.com/Azure-Samples/azure-health-data-and-ai-samples/main/samples/fhir-aad-b2c/fhir-service-arm-template.json --parameters tenantid=$tenantid region=$region workspaceName=$workspacename fhirServiceName=$fhirservicename smartAuthorityUrl=$smartAuthorityUrl smartClientId=$smartClientId
+>>>>>>> fd73832ce5189c2ee7400a516904953224a8c5a4
 ```
 
 ##  Validate Microsoft Entra External ID Users are able to access FHIR Resources
