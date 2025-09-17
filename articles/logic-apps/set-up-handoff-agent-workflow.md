@@ -1,6 +1,6 @@
 ---
-title: Call AI Agents Sequentially in Complex Scenarios
-description: Learn how to break a complex scenario or workflow into sequential subtasks so different AI agents and models handle each subtask. In this "prompt chaining" pattern, each agent use output from the previous agent.
+title: Hand Off AI Agent Tasks but Keep Chat Continuity
+description: Learn how to set up transitions or transfer control to specialized AI agents, while keeping chat continuity and context in workflows for Azure Logic Apps.
 service: ecfan
 services: logic-apps
 ms.suite: integration
@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.date: 09/17/2025
 ms.update-cycle: 180-days
-# Customer intent: As an AI developer, I want to break down a complex workflow into sequential subtasks for AI agents to complete by using a large language model (LLM) and Azure Logic Apps.
+# Customer intent: As an AI developer, I want to set up seamless handoffs between specialized agents that run domain-specific tasks, while keeping the same chat continuity and context in my workflow using Azure Logic Apps.
 ---
 
-# Call AI agents sequentially to complete subtasks for complex workflows in Azure Logic Apps (Preview)
+# Delegate tasks between AI agents but keep chat continuity and context in workflows for Azure Logic Apps (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -21,9 +21,9 @@ ms.update-cycle: 180-days
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-When your workflow needs to handle a complex business process or integration scenario, consider whether you can break the workload into smaller sequential tasks, especially when the output from one task flows to the next task. To improve performance, management, scalability, you can set up multiple AI agents that use large language model (LLM) capabilities to complete each subtask. Each agent or model uses outputs from the previous agent or model. This behavior is known as the [*prompt chaining* pattern](single-versus-multiple-agents.md#prompt-chaining-pattern).
+Sometimes your workflow needs to delegate tasks to specialized AI agents but preserve the chat conversation continuity and context across agent transitions. In this scenario, agents perform domain-specific tasks during different stages in the workflow or business process. These agents must also make dynamic decisions and understsand when to hand off tasks to other agents. This behavior is known as the [*handoff* pattern](single-versus-multiple-agents.md#handoff-pattern).
 
-This guide describes how to set up sequential AI agents that follow the prompt chaining pattern. The example sets up a business report processing chain that transforms raw performance data into a formatted executive summary.
+This guide describes how to set up agents that follow the handoff pattern. The example sets up a business report processing chain that transforms raw performance data into a formatted executive summary.
 
 The following table lists the inputs, tasks, and outputs:
 

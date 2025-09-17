@@ -69,8 +69,8 @@ Azure Logic Apps helps you build multiagent systems by providing the following c
 
 For more information, see the following articles:
 
-- [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-pattern)
-- [How to use a multi-AI agent system]((https://microsoft.github.io/ai-agents-for-beginners/08-multi-agent/))
+- [AI agent orchestration patterns](/azure/architecture/ai-ml/guide/ai-agent-design-patterns)
+- [How to use a multi-AI agent system](https://microsoft.github.io/ai-agents-for-beginners/08-multi-agent/)
 - [AI agents: The multi-design pattern](https://techcommunity.microsoft.com/blog/educatordeveloperblog/ai-agents-the-multi-agent-design-pattern---part-8/4402246)
 
 ## Prompt chaining pattern
