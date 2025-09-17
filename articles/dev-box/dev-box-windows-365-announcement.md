@@ -27,5 +27,6 @@ Effective *November 1, 2025*, the following changes will take place:
 For more details, contact your Microsoft account team with additional questions.
 
 ## Related content
+- [Windows 365 integration with Microsoft Dev Box](https://aka.ms/WindowsSeptAnnouncements)
 - [What is Windows 365?](/windows-365/overview)
  
