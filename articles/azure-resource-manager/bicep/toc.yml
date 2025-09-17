@@ -744,6 +744,8 @@ items:
             href: diagnostics/bcp332.md
           - name: BCP333
             href: diagnostics/bcp333.md
+          - name: BCP335
+            href: diagnostics/bcp335.md
           - name: BCP338
             href: diagnostics/bcp338.md
           - name: BCP401
