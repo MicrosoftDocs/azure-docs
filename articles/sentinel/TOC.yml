@@ -833,6 +833,8 @@
       href: publish-sentinel-solutions.md
     - name: Solution lifecycle post publish
       href: sentinel-solutions-post-publish-tracking.md
+    - name: Troubleshoot solutions in Microsoft Sentinel
+      href: troubleshoot-sentinel-solutions.md
     - name: Remove Microsoft Sentinel from your workspace
       items:
         - name: Overview
