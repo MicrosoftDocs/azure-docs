@@ -16,7 +16,7 @@ Browse to the CycleCloud web portal, select the OpenOnDemand cluster, and select
 1. Select **Advanced settings**,
 1. Leave FQDN empty,
 1. Set the Client ID to the registered application ID,
-1. Set the user domain to the enterprise domain,
+1. Set the user domain to the enterprise domain, make sure to respect the case (for example, `Contoso.com`),
 1. Set the Tenant ID to the tenant for the application registration,
 1. Manually set the managed identity to the one named `/ccwOpenOnDemandManagedIdentity`.
    
