@@ -52,7 +52,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 ```
 ---
 
-#### [Azure CLI](#tab/command-line)
+#### [Azure CLI](#tab/command-line-script)
 
 1. Use `az login` to sign in to Azure. After you sign in, use `az account show --output table` to verify the subscription and tenant you want to use. Change the subscription and tenant if needed.
 
