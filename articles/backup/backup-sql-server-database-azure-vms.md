@@ -158,7 +158,7 @@ You can track database discovery in **Notifications**. The time required for thi
 
    :::image type="content" source="./media/backup-azure-sql-database/notifications-db-discovered.png" alt-text="Screenshot shows the deployment success message.":::
 
-1. Azure Backup discovers all SQL Server databases on the VM. During discovery, the following elements occur in the background:
+   Azure Backup discovers all SQL Server databases on the VM. During discovery, the following elements occur in the background:
 
     * Azure Backup registers the VM with the vault for workload backup. All databases on the registered VM can be backed up to this vault only.
     * Azure Backup installs the AzureBackupWindowsWorkload extension on the VM. No agent is installed on a SQL database.
