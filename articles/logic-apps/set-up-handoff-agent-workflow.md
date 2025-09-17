@@ -52,7 +52,7 @@ The following table describes the key concepts to understand for this example ha
 | Concept | Description |
 |---------|-------------|
 | Tool separation | The handoff pattern differentiates between the following kinds of tools: <br><br>- Regular tools that run business logic like "search", "refund", and "order" <br>- Delegation tools that hand off control to other agents |
-| Agent specialization | Each agent has specific, relevant tools and capabilities. <br><br>- Triage agent: Has only handoff tools for delegation - no regular tools. <br>- Sales agent: Has the **execute_order** tool and the **handoff_back_to_triage** delegation tool. <br>- Refund agent | Has the **execute_refund** and **look_up_item** tools along with the **handoff_back_to_triage** delegation tool. |
+| Agent specialization | Each agent has specific, relevant tools and capabilities. <br><br>- Triage agent: Has only handoff tools for delegation - no regular tools. <br>- Sales agent: Has the **execute_order** tool and the **handoff_back_to_triage** delegation tool. <br>- Refund agent: Has the **execute_refund** and **look_up_item** tools along with the **handoff_back_to_triage** delegation tool. |
 
 ## 1 - Create a conversational agent workflow
 
