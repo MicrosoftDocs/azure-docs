@@ -119,3 +119,10 @@ The following is an example request body.
 ```
 
 ### Key points
+ - Each patch path must begin with the ResourceType root (e.g., Patient.meta.tag) to clearly distinguish between meta-level and element updates. Common properties can be patched using the Resource root. Bulk-update can be performed at the system level, for a single resource type, or for multiple resource types. If you need to update different fields for different resource types, you can specify field-value mappings in separate operations.
+ - If your search returns multiple resource types, the patch is only applied to resources whose type matches the ResourceType prefix in the patch path; other types are ignored.
+ - SearchParameter and StructureDefinition are considered out of scope for bulk update operation. Running a bulk-update job by resource type on SearchParameter or StructureDefinition will also result in a 400 Bad Request error. If a bulk-update query at the system or resource type level returns resources of type SearchParameter or StructureDefinition, these will be ignored during the operation, and only other resource types will be updated.
+
+## Response
+On submission of bulk update operation, response of the following format is returned with a Content-Location header pointing to the polling endpoint.
+`Content-Location: https://{hostname}/_operations/bulk-update/{job-id}`
