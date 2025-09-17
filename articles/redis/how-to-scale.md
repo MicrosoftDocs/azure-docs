@@ -145,6 +145,7 @@ The following list contains answers to commonly asked questions about Azure Mana
 - [How are keys distributed in a cluster?](#how-are-keys-distributed-in-a-cluster)
 - [What is the largest cache size I can create?](#what-is-the-largest-cache-size-i-can-create)
 - [Why can only I scale down to a subset of smaller SKUs?](#why-can-only-i-scale-down-to-a-subset-of-smaller-skus)
+- [Can the Clustering Policy be changed after selecting OSS or Enterprise Cluster?](#Can-the-Clustering-Policy-be-changed-after-selecting-OSS-or-Enterprise-Cluster)
 
 ### Can I scale within or across tiers?
 
@@ -232,6 +233,10 @@ To maintain compatibility with number of shards and vCPU, you're allowed to scal
 ```azurecli
 az redisenterprise list-skus-for-scaling --cluster-name <your-redis-instance> --resource-group <your-resource-group>
 ```
+### Can the Clustering Policy be changed after selecting OSS or Enterprise Cluster?
+
+Once a clustering policy is set to either OSSCluster or EnterpriseCluster, it cannot be changed. To switch to a different clustering policy, the Redis cache must be deleted and recreated with the desired configuration. Only caches with the NoCluster policy can be updated to a clustered configuration post-deployment.
+
 
 ## Related content
 
