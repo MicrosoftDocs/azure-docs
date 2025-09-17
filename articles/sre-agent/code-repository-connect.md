@@ -41,19 +41,19 @@ Before you can connect an Azure DevOps Repo to a resource, you first need to ass
 
 1. In the *Users* box, enter and select the name of your agent.
 
+1. Select **Add**.
+
 1. Copy the URL of the repository to the clipboard.
 
 1. Return to the SRE Agent in the portal, and in the chat window ask the agent to connect to the repository.
 
-    For example, your prompt will resemble a request like this:
+    For example, your prompt will resemble a request like the following example.
 
-    > connect <RESOURCE_NAME> to this Azure DevOps repo: <REPO_URL>
-
-    Before running this command, replace `<RESOURCE_NAME>` with the name of the app or resource where the code is deployed.
-
-    Replace `<REPO_URL>` with the URL of the Azure DevOps repository using the following format:
+    Update the example prompt to replace `<RESOURCE_NAME>` with the name of the app or resource where the code is deployed, and replace `<REPO_URL>` with the URL of the Azure DevOps repository using the following format:
 
     `https://dev.azure.com/organization/<PROJECT_NAME>/_git/<REPO_NAME>`
+
+    > connect <RESOURCE_NAME> to this Azure DevOps repo: <REPO_URL>
 
 ::: zone-end
 
