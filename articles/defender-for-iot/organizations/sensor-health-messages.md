@@ -18,15 +18,17 @@ For more information, see [Understand sensor health](how-to-manage-sensors-on-th
 |**Disconnected**     |   This sensor isn't communicating with Azure     |      Sensor is disconnected   |   Try signing into the sensor to check for errors or networking failures. <br><br> We also recommend reviewing the sensor networking configuration and verifying the sensor’s ability to communicate with Azure.      |
 |**Sanity failed**     |    This sensor failed an internal consistency check     |      Sensor fails sanity   |       The sensor is in a degraded state. <br><br> Check the sensor for hardware failures and try restarting the sensor.  If the issue isn't resolved, open a support ticket.  |
 |**No traffic detected**     |   No traffic detected on the monitored network interfaces      |   No traffic detected      |  Check that the monitoring ports are connected to SPAN/monitor ports on the adjacent switch and that traffic is active on the link. At least one link with network traffic should be connected to the monitor ports.       |
+|**Backup failed** | |The sensor failed to run the backup job.| |
 
 ## Warning messages
 
 |Title  |Message  |Description  |Recommendation  |
 |---------|---------|---------|---------|
-|**Package upload failed** |There was an error uploading the file to the sensor |Upload error |Verify the sensor’s ability to communicate with download.microsoft.com and retry. <br><br> If the problem persists,  open a support ticket.|
+|**Failed to send update** |There was an error uploading the file to the sensor |Upload error |Verify the sensor’s ability to communicate with download.microsoft.com and retry. <br><br> If the problem persists,  open a support ticket.|
 |**Sensor update failed** | There was an error installing the update.| Installation error |Open a support ticket. |
 | **Unstable traffic to Azure**|Sensor’s connection to Azure is unstable |Unstable traffic to Azure | We recommend that you check the sensor WAN connection, the BW limit settings, and validate network equipment that might be on the route between the sensor and the cloud.|
-| **Outdated**|Outdated software may result in a non-optimal experience |Sensor version is outdated |Upgrade your sensor software to the latest version to use the most recently available Defender for IoT features.|
+| **Unsupported**|Outdated software may result in a non-optimal experience |Sensor version is outdated |Upgrade your sensor software to the latest version to use the most recently available Defender for IoT features.|
+|**Partially connected** | |The sensor couldn't connect to some of the endpoints. |Verify the sensor’s ability to communicate with Azure. If the problem persists, open a support ticket.|
 
 ## Healthy messages
 
