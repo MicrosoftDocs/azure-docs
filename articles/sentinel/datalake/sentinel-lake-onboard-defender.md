@@ -14,7 +14,7 @@ ms.subservice: sentinel-graph
   
 # Onboard to Microsoft Sentinel data lake from the Defender portal
 
-Onboarding your tenant to the Microsoft Sentinel data lake occurs once and starts from the Microsoft Defender portal. The onboarding process creates a new Microsoft Sentinel data lake for your tenant in the subscription specified during the onboarding process. If you had onboarded to the data lake during public preview, you are automatically upgraded to the generally available data lake and the graph public preview.
+Onboarding your tenant to the Microsoft Sentinel data lake occurs once and starts from the Microsoft Defender portal. The onboarding process creates a new Microsoft Sentinel data lake for your tenant in the subscription specified during the onboarding process. If you had onboarded to the data lake during public preview, you're automatically upgraded to the generally available data lake and the graph public preview.
 
 > [!NOTE]
 > You'll always have one data lake that you can use with multiple Microsoft Security products. During onboarding, we check for and automatically use your existing data lake. When you ingest and store security data in your data lake, this data can be used with multiple Microsoft Security products.
@@ -51,7 +51,7 @@ Use the following steps to onboard to the Microsoft Sentinel data lake from the 
 
     :::image type="content" source="./media/sentinel-lake-onboard-defender/setup-in-progress.png" lightbox="./media/sentinel-lake-onboard-defender/setup-in-progress.png" alt-text="A screenshot showing the setup in progress banner.":::
 
-1. Once the onboarding process is complete, a new banner is shown containing information cards on how to start using the new data lake experiences. For example, select **Query data lake** to open the Data lake exploration KQL queries editor. KQL queries are a new feature in the Defender portal that allows you to explore and analyze data in the Microsoft Sentinel data lake using KQL. For more information, see [Data lake exploration, KQL queries](kql-queries.md).
+1. Once the onboarding process is complete, a new banner is shown containing information cards on how to start using the new data lake experiences. For example, select **Hunt for latent threats with graphs** to open a threat hunting experience that employs interactive graphs to proactively find threats and sources of risk. Select **Query data lake** to open the data lake exploration KQL queries editor. KQL queries are a new feature in the Defender portal that allows you to explore and analyze data in the Microsoft Sentinel data lake using KQL. For more information, see [Data lake exploration, KQL queries](kql-queries.md).
 
     :::image type="content" source="./media/sentinel-lake-onboard-defender/setup-complete.png" lightbox="./media/sentinel-lake-onboard-defender/setup-complete.png" alt-text="A screenshot showing the onboarding process complete banner.":::
 
@@ -62,7 +62,7 @@ If you encounter any issues during the setup process, see the following troubles
 + Ensure that you have the required role to onboard to the Microsoft Sentinel data lake.
 + Verify that your selected subscription and resource group are valid and accessible.
 + Verify your Azure policies allow for creating new resources to enable your Microsoft Sentinel data lake.
-+ Data for newly enabled tables, or tables that have moved between tiers are, available 90 to 120 minutes after the onboarding process is complete.
++ Data for newly enabled tables, or tables that have moved between tiers, are available 90 to 120 minutes after the onboarding process is complete.
 
 The following are errors that you might encounter during the onboarding process.
 
@@ -82,7 +82,6 @@ The following are errors that you might encounter during the onboarding process.
 
 + [Microsoft Sentinel data lake overview (preview)](sentinel-lake-overview.md)
 + [What is Microsoft Sentinel graph? (preview)](sentinel-graph-overview.md)
-+ [Onboard Windows devices into Microsoft 365 overview](/purview/device-onboarding-overview)
 + [Microsoft Sentinel data lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake)
 + [Microsoft Sentinel data lake billing](../billing.md)
 + [Create custom roles with Microsoft Defender XDR Unified role-based access control (RBAC)](/defender-xdr/create-custom-rbac-roles)
