@@ -76,7 +76,15 @@ If you encounter any feature gaps while migrating from legacy connectors, please
 
 If you encounter any errors or bugs while migrating from legacy connectors, please contact our Microsoft support team and open a support ticket. Be sure to include detailed information about the connector, the error encountered, and your use case.
 
-Our Azure Data Factory team will assist you and ensure a smooth transition to the new connectors. We invite you to fill out this [form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR94fEtK94M9FsNIwB3-nUTtUQTFGMjVFNkNEVkFaTEJQMUVaQlc3TlRDVi4u&route=shorturl) to help us better understand your needs and explore possible solutions.
+Our Azure Data Factory team will assist you and ensure a smooth transition to the new connectors. We invite you to fill out this feedback [form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR94fEtK94M9FsNIwB3-nUTtUQTFGMjVFNkNEVkFaTEJQMUVaQlc3TlRDVi4u&route=shorturl) to help us better understand your needs and explore possible solutions.
+
+## How should I get an extension for legacy version of the connectors? 
+
+In general, we do not recommend customers to request an extension. However, we recognize that, due to various factors, some customers may need more time to complete their upgrades. In such cases, we encourage customers to take full advantage of the service’s [automatic upgrade](connector-upgrade-guidance.md#automatic-connector-upgrade) capabilities, which apply at the connector and pipeline activity level. These capabilities effectively grant your workload an extension by automatically upgrading it, thereby preventing failures after the end-of-support date.
+
+It is important to note that the scope of automatic upgrades varies by connector. We strongly recommend reviewing the criteria and supported scenarios for each connector to prioritize workloads that require manual upgrades before the end-of-support date, ensuring uninterrupted operations.
+
+While auto-upgraded workloads are not immediately affected by the announced removal date of the older version, this approach gives customers additional time to evaluate, validate, and transition to the latest GA version without facing unexpected disruptions.
 
 ## Related content
 
