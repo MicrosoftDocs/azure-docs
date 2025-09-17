@@ -125,4 +125,5 @@ The following is an example request body.
 
 ## Response
 On submission of bulk update operation, response of the following format is returned with a Content-Location header pointing to the polling endpoint.
+
 `Content-Location: https://{hostname}/_operations/bulk-update/{job-id}`
