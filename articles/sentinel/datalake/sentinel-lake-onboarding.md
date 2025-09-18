@@ -32,10 +32,15 @@ Onboarding makes the following changes:
 
 + When you enable ingestion of data for the first time or switch ingestion between tiers, it takes 90 to 120 minutes for data to appear in the tables. Once ingestion is enabled for the data lake tier, the data appears simultaneously in the data lake and in your analytics tier tables.
 
-+ Data pertaining to your Microsoft assets are ingested automatically into System tables, which will appear in the workspace selection user interface (UI) inside the Lake exploration experiences, including:
++ The following Microsoft services automatically create system tables to ingest data related to Microsoft resources in your environment:
   - Microsoft Entra
   - Microsoft 365
   - Azure Resource Graph
+
+  These system tables appear in the workspace selection user interface (UI) within the Lake exploration experience.
+  
+  >[!NOTE]
+  >System tables include all tables that Microsoft services create directly in the data lake for Microsoft resources.
 
 + If your Microsoft 365 data isn't in the same region as the data lake, by onboarding to the data lake, you consent to ingest your Microsoft 365 data into the region where your data lake resides.
 
