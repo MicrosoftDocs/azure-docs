@@ -45,15 +45,15 @@ Follow these steps to configure signed request using the Azure portal:
 
 1. Create a signed request key in your Azure Front Door profile.
 
-    :::image type="content" source="./media/front-door-rules-engine/signed-request-config-portal-1.png" alt-text="Screenshot that shows signed request key creation in the Azure portal." lightbox="./media/front-door-rules-engine/signed-request-config-portal-1.png":::
+    :::image type="content" source="./media/front-door-signed-request/signed-request-config-portal-1.png" alt-text="Screenshot that shows signed request key creation in the Azure portal." lightbox="./media/front-door-signed-request/signed-request-config-portal-1.png":::
 
 1. Create a signed request key group and add the key to it.
 
-    :::image type="content" source="./media/front-door-rules-engine/signed-request-config-portal-2.png" alt-text="Screenshot that shows signed request key group creation in the Azure portal." lightbox="./media/front-door-rules-engine/signed-request-config-portal-2.png":::
+    :::image type="content" source="./media/front-door-signed-request/signed-request-config-portal-2.png" alt-text="Screenshot that shows signed request key group creation in the Azure portal." lightbox="./media/front-door-signed-request/signed-request-config-portal-2.png":::
 
 1. Go to the rules engine section of your Front Door profile, create a new rule with the signed request action, and associate it with the key group you created.
 
-    :::image type="content" source="./media/front-door-rules-engine/signed-request-config-portal-3.png" alt-text="Screenshot that shows rules engine configuration with signed request action in the Azure portal." lightbox="./media/front-door-rules-engine/signed-request-config-portal-3.png":::
+    :::image type="content" source="./media/front-door-signed-request/signed-request-config-portal-3.png" alt-text="Screenshot that shows rules engine configuration with signed request action in the Azure portal." lightbox="./media/front-door-signed-request/signed-request-config-portal-3.png":::
 
 1. Attach the rule set to the desired route.
 
