@@ -87,7 +87,7 @@ When you create a generalized VM to capture to an image, the following issues ca
     - Or run the following PowerShell command: `Enable-WindowsOptionalFeature -FeatureName VirtualMachinePlatform -Online`
   
 1. Clean up component store to save disk space and avoid lengthy maintenance tasks that run during provisioning by using the following command: `DISM.exe /Online /Cleanup-Image /StartComponentCleanup`
-    - For more information, see [Clean Up the WinSxS folder](/windows-hardware/manufacture/desktop/clean-up-the-winsxs-folder?view=windows-11)
+    - For more information, see [Clean Up the WinSxS folder](/windows-hardware/manufacture/desktop/clean-up-the-winsxs-folder?view=windows-11&preserve-view=true)
  
 1. Disable the reserved storage state feature in the image by using the following command: `DISM.exe /Online /Set-ReservedStorageState /State:Disabled`. 
     - For more information, see [DISM Storage reserve command-line options](/windows-hardware/manufacture/desktop/dism-storage-reserve?view=windows-11#set-reservedstoragestate&preserve-view=true).
