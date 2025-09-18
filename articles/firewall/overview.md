@@ -32,7 +32,7 @@ Key limitations of Azure Firewall Basic include:
 - Fixed scale unit with two virtual machine backend instances
 - Recommended for environments with an estimated throughput of 250 Mbps
 
-For more information, see [Azure Firewall Basic features](basic-features.md).
+For more information, see [Azure Firewall features by SKU](features-by-sku.md#azure-firewall-basic-features).
 
 ## Azure Firewall Standard
 
@@ -40,7 +40,7 @@ Azure Firewall Standard offers L3-L7 filtering and threat intelligence feeds dir
 
 :::image type="content" source="media/overview/firewall-standard.png" alt-text="Diagram showing Firewall Standard.":::
 
-For more information, see [Azure Firewall Standard features](features.md).
+For more information, see [Azure Firewall features by SKU](features-by-sku.md#azure-firewall-standard-features).
 
 ## Azure Firewall Premium
 
@@ -48,7 +48,7 @@ Azure Firewall Premium provides advanced capabilities, including signature-based
 
 :::image type="content" source="media/overview/firewall-premium.png" alt-text="Diagram showing Firewall Premium.":::
 
-For more information, see [Azure Firewall Premium features](premium-features.md).
+For more information, see [Azure Firewall features by SKU](features-by-sku.md#azure-firewall-premium-features).
 
 ## Feature comparison
 
