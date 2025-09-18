@@ -6,6 +6,7 @@ ms.author: makromer
 ms.topic: conceptual
 ms.date: 10/03/2024
 ms.subservice: data-flows
+ms.custom: sfi-image-nochange
 ---
 
 # Migrate normalized database schema from Azure SQL Database to Azure Cosmos DB denormalized container

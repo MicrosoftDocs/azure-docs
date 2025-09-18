@@ -160,7 +160,10 @@ The table shows two scenarios where the three-workspace dedicated cluster is ing
 
 Since the commitment tier is 5 TB, there's 1 TB of unused ingestion.
 
-The first scenario uses cluster billing mode,  the second uses workspace billing mode. 
+> [!IMPORTANT]
+> Any unused commitment is billed to the Log Analytics commitment tiers regardless of whether the workspaces in the cluster have Microsoft Sentinel enabled.
+ 
+The first scenario uses cluster billing mode, the second uses workspace billing mode. 
 
 In cluster billing mode, the combined 2 TB of Log Analytics usage adds the extra 1 TB of unused usage and is billed to the cluster resource. The Commitment tier detail shows the price equals to 3 TB multiplied by the Log Analytics effective per GB (per day) price of the Commitment tier. The price is also expressed as 0.6 units of the commitment tier per day rate. Workspace C is the Microsoft Sentinel enabled workspace that ingested 2 TB of data. Its commitment tier detail shows the price equals 2 TB multiplied by the Microsoft Sentinel effective per GB (per day) price of the Commitment tier. The price is also expressed as 0.4 units of the commitment tier per day rate. 
 

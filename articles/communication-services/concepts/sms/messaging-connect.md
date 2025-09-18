@@ -20,23 +20,35 @@ ms.custom: references_regions
 
 ## Introduction
 
-Welcome to Messaging Connect—the new way to deliver Short Message Service (SMS) globally with Azure Communication Services (ACS).
+Welcome to Messaging Connect, a new way to deliver Short Message Service (SMS) globally with Azure Communication Services. It integrates trusted partners so you can lease numbers and meet local regulatory requirements while continuing to use the familiar Azure Communication Services: single API endpoint, strong observability, and deep integration across Microsoft services. Whether you're sending appointment reminders, booking confirmations, or intelligent Copilot prompts, Messaging Connect helps you reach users globally with less complexity.
 
-This feature isn't just new—it represents a major evolution in the platform's approach to global messaging. Messaging Connect is a partner-powered model that dramatically expands Azure’s messaging reach while preserving everything developers love about Azure Communication Services: unified APIs, strong observability, and deep integration across Microsoft services.
+Instead of building and maintaining separate integrations with multiple providers, you connect once through Azure Communication Services and route traffic to global partners. The partner handles number leasing and compliance. Messaging, observability, and AI workflows remain inside your Azure environment where you already build, monitor, and scale.
 
-With Messaging Connect, you don’t need to build and maintain separate integrations with providers around the world. Instead, you connect once through Azure Communication Services to access global SMS coverage via trusted partners. Number leasing and compliance are handled through the partner, but everything else—messaging, observability, and AI workflows—stays in your Azure environment, where you already build, monitor, and scale.
+Value at a glance:
 
-This model offers the best of both worlds. You get global coverage, local compliance, and faster provisioning—without giving up the rich analytics, developer experience, and integration surface that Microsoft delivers. Whether you're sending appointment reminders, booking confirmations, or intelligent Copilot prompts, Messaging Connect turns Azure into the central nervous system for SMS engagement at scale.
+- Global reach across 190+ countries
 
-This model represents Microsoft’s approach to global messaging—smart, scalable, and ready for what’s next.
+- Local compliance and faster provisioning through partners
+
+- Simple to use Azure Communication Services APIs/SDKs, diagnostics, and Event Grid observability
+
+- Separation of duties: Microsoft provides the developer platform; partners deliver and provision numbers
 
 ## Conceptual Overview
 
-Messaging Connect gives you a way to bring global SMS into your applications using Azure Communication Services.
+Global SMS is inherently complex: regulations differ by country, sender types vary, and delivery routes are fragmented. Messaging Connect integrates pre-approved partners so you can acquire compliant sender identities and route traffic without leaving the Azure Communication Services developer experience.
 
-If you work with messaging, you know it can be complex: different regulations in every region, separate vendors for different markets, and fragmented delivery infrastructure that’s hard to monitor. That complexity is exactly why Messaging Connect integrates trusted partners—to help you navigate country-specific rules, documentation, and approval processes. With Messaging Connect, you lease numbers directly from one of our messaging partners and use them through Azure Communication Services as if they were native ACS numbers.
+Provisioning flow (high level):
 
-The process starts in the Azure portal. When you search for an SMS number type and country, and Azure Communication Services doesn’t offer direct provisioning, you’re guided to connect with a pre-integrated partner. From there, you’re redirected to the partner’s portal to purchase the number. Depending on the country and sender type, you may need to complete registration steps, submit documentation, or wait for approval. Once the partner assigns the number to you, they initiate the sync to Azure. You then return to the Azure portal, where the numbers appear—ready to use.
+1. In the Azure portal, go to the Messaging Connect blade
+
+2. Select your Messaging Connect partner.
+
+3. You’re redirected to the partner's portal to purchase/configure SMS capable phone numbers, complete any required registrations, and await approval.
+
+4. The partner syncs approved numbers back to your Azure Communication Services resource.
+
+5. The number appears in the Azure portal and is ready for use with Azure Communication Services SMS APIs.
 
 :::image type="content" source="./media/message-connect-provision-concept.png" alt-text="Diagram showing Messaging Connect number provisioning flow in Azure." lightbox="./media/message-connect-provision-concept.png":::
 
@@ -72,7 +84,22 @@ The following table summarizes capabilities available when using Messaging Conne
 | Java SDK                           |    ❌ (coming soon)    |
 | Automatic Country Sender selection (partner-managed)   | Infobip ✔️  |
 
+### 🌐 Country Availability
 
+Messaging Connect significantly expands the number of countries you can reach with Azure Communication Services—supporting over 190 countries through our global partner network.
+During Public Preview, you can acquire and use two types of sender identities from the Messaging Connect Partner:
+
+- Long Codes – Standard local phone numbers or mobile numbers that support two-way SMS. Often known as Virtual Long codes. 
+- Dynamic Alphanumeric Sender IDs – One-way, branded senders (for example, “CONTOSO”) where permitted. You can enable DASID only in non-Azure Communication Services supported countries.
+
+When you search for a country and number type in the Azure portal, you're offered Messaging Connect as an option if Azure Communication Services doesn’t support that configuration directly. You then complete the provisioning process through the partner’s portal.
+
+The Messaging Connect partner determines country availability. The Messaging Connect partner (for example, Infobip) handles number types, compliance requirements, and onboarding steps, which vary by country. 
+
+
+| Partner | Global reach | Supported countries |
+|---------|----------------------|---------|
+| Infobip | Connected to 800+ carriers in 200+ countries, Infobip supports short codes, long codes (VLNs), and alphanumeric senders. One-way SMS is available in nearly all markets; two-way in 100+ countries.| [View Infobip Coverage](https://www.infobip.com/docs/essentials/getting-started/sms-coverage-and-connectivity). |
 
 ### Authentication: Secure Access with Azure Identity
 
@@ -145,20 +172,6 @@ Learn how to configure SMS events: [Handle SMS events](../../quickstarts/sms/han
 
 > [!IMPORTANT]
 > Microsoft doesn't retain any credentials used to access external Messaging Connect partners. Partner API keys are used only to process each message request and are immediately discarded after the request is complete. These credentials aren't stored, logged, or persisted in any form.
-
-### Country Availability
-
-Messaging Connect significantly expands the number of countries you can reach with Azure Communication Services—supporting over 190 countries through our global partner network.
-During Public Preview, you can acquire and use two types of sender identities from the Messaging Connect Partner:
-
-- Long Codes – Standard local phone numbers or mobile numbers that support two-way SMS. Often known as Virtual Long codes. 
-- Dynamic Alphanumeric Sender IDs – One-way, branded senders (for example, “CONTOSO”) where permitted. You can enable DASID only in non-Azure Communication Services supported countries.
-
-When you search for a country and number type in the Azure portal, you're offered Messaging Connect as an option if Azure Communication Services doesn’t support that configuration directly. You then complete the provisioning process through the partner’s portal.
-
-🌐 The Messaging Connect partner determines country availability. The Messaging Connect partner (for example, Infobip) handles number types, compliance requirements, and onboarding steps, which vary by country.
-
-📌 Short codes aren't yet supported in Public Preview but are planned for General Availability.
 
 ### Global Access with Secure and Compliant Messaging
 
@@ -237,6 +250,10 @@ You pay the Messaging Connect partner directly for:
 The partner defines commercial terms and support levels. By default, the Messaging Connect partner (for example, Infobip) bills you directly for delivery and number leasing fees. These charges don't appear on your Azure invoice unless you explicitly set up Marketplace billing.
 There are no subscription restrictions. You can use Messaging Connect with any Azure subscription type, including Pay-as-you-go and Enterprise Agreements. Unlike Microsoft's direct SMS offers, Messaging Connect isn't a telecom service—it's a developer platform model.
 
+| Partner | Delivery fee model | Pricing details |
+|---------|----------------------|---------|
+| Infobip | Pay-as-you-go pricing model for SMS.| [View Infobip SMS rates](https://www.infobip.com/sms/pricing) |
+
 #### Optional: Consolidated Billing via Azure Marketplace
 
 If you prefer to consolidate charges into your Azure invoice, you can request that the partner offer Messaging Connect through the Azure Marketplace.
@@ -248,7 +265,7 @@ Here’s how the Marketplace flow works:
 
 This setup simplifies procurement and allows Messaging Connect usage to count toward your Azure MACC commitment.
 
-Learn more: [Azure Marketplace](https://learn.microsoft.com/marketplace/azure-marketplace-overview)
+Learn more: [Azure Marketplace](/marketplace/azure-marketplace-overview)
 
 > [!TIP] 
 > Whether you choose Partner or Marketplace billing, the technical experience in Azure remains exactly the same.
@@ -279,6 +296,11 @@ Let's go step-by-step:
    To purchase the number, follow the prompts provided by the Messaging Connect partner. Depending on the country, you may need to upload supporting documents or complete identity verification. Once approved, the number is assigned to your partner account.
 
    :::image type="content" source="./media/message-connect-provision-number-4.png" alt-text="Screen showing partner portal with numbers purchased." lightbox="./media/message-connect-provision-number-4.png":::
+
+> [!TIP]
+> Need help configuring the Infobip side?
+> Follow the official guide to connect your Azure Communication Services resource to Infobip and provision SMS numbers:  
+> [SMS for Microsoft Azure Communication Services – Messaging Connect](https://www.infobip.com/docs/integrations/microsoft-azure-acs-messaging-connect)
 
 3. **Return to the Azure portal**
 
@@ -380,4 +402,7 @@ The following table lists the currently supported partners. More partners will b
 > [!IMPORTANT]
 > Messaging Connect partners are selected based on global reach, regulatory expertise, reliability, and strong integration with Microsoft’s ecosystem.
 
+## Next Steps
 
+> [!div class="nextstepaction"]
+> [Send SMS messages](../../quickstarts/sms/send.md)

@@ -2,7 +2,7 @@
 title: Support Matrix for Azure files backup by using Azure Backup
 description: Provides a summary of support settings and limitations when backing up Azure files.
 ms.topic: reference
-ms.date: 07/10/2025
+ms.date: 09/17/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -15,6 +15,8 @@ ms.author: v-mallicka
 This article summarizes the supported settings and limitations when backing up Azure files by using Azure Backup.
 
 You can use the [Azure Backup service](./backup-overview.md) to back up Azure files. This article summarizes support settings when you back up Azure files with Azure Backup.
+
+Azure Backup now offers general availability of Vaulted Backup for Azure Files (Standard tier), enabling secure, long-term protection with ransomware defense, cross-region recovery, and compliance-ready retention—all managed through a unified backup policy. For more insights, see the [Microsoft Community Hub blog](https://techcommunity.microsoft.com/blog/azurestorageblog/general-availability-vaulted-backup-for-azure-files---boost-your-data-security-a/4395344).
 
 > [!NOTE]
 > Azure Backup currently doesn't support Network File Shares(NFS).
@@ -33,7 +35,7 @@ Vaulted backup for Azure Files is available in the following regions: UK South, 
 
 Cross Region Restore is supported in all preceding regions, except Italy North.
 
-Migration of  File Shares protected with snapshot backup to vaulted backup is supported in the following regions: UK South, UK West, Southeast Asia, East Asia, West Central US, India Central, Spain Central, Jio India West, Israel Central, Australia Central 2 and Germany North. 
+Migration of  File Shares protected with snapshot backup to vaulted backup is supported in the following regions: UK South, UK West, Southeast Asia, East Asia, West Central US, India Central, Spain Central, Jio India West, Israel Central, Australia Central 2 and Germany North, Brazil South, Switzerland North, South Africa North, Australia Southeast, Sweden Central, Norway East, UAE North, West US 3, Japan West, Korea Central, Canada East, South India, Italy North, Poland Central, Australia Central. 
 
 >[!Note]
 >Cross Subscription Backup and Restore are supported for vaulted backup.

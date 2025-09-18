@@ -10,6 +10,7 @@ ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:
   - azure-synapse
+  - sfi-image-nochange
 ---
 # Tutorial: Load the New York Taxicab dataset
 

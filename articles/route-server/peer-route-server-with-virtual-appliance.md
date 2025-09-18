@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Configure BGP peering between Azure Route Server and NVA'
 description: This tutorial shows you how to configure an Azure Route Server and peer it with a Network Virtual Appliance (NVA) using the Azure portal.
-author: halkazwini
-ms.author: halkazwini
+author: duongau
+ms.author: duau
 ms.service: azure-route-server
 ms.topic: tutorial
 ms.date: 03/17/2025

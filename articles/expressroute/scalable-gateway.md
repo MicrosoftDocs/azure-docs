@@ -24,6 +24,7 @@ The virtual network gateway infrastructure autoscales between the minimum and ma
 * **Basic IP**: ErGwScale doesn't support the Basic IP SKU. You need to use a Standard IP SKU to configure ErGwScale.
 * **Minimum and maximum scale units**: You can configure the scale unit for ErGwScale between 1 and 40. The *minimum scale unit* can't be lower than 1 and the *maximum scale unit* can't be higher than 40.
 * **Migration scenarios**: You can't migrate from Standard/ErGw1Az or HighPerf/ErGw2Az/UltraPerf/ErGw3Az to ErGwScale in the preview.
+* **IPsec over ExpressRoute**: ErGwScale currently doesn't support IPsec deployment over ExpressRoute. 
 
 ### Supported performance per scale unit
 
@@ -57,9 +58,13 @@ ErGwScale is available in most regions except the following regions:
 
 ErGwScale is free of charge during the preview. For information about ExpressRoute pricing, see [Azure ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/#pricing).
 
+
 ## Next steps
 
 - Learn how to [create an ExpressRoute scalable gateway](expressroute-howto-add-gateway-resource-manager.md).
 - Learn more about [ExpressRoute gateways](expressroute-about-virtual-network-gateways.md).
+
+
+
 
 

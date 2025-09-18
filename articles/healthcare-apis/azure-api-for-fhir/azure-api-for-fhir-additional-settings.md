@@ -6,7 +6,7 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.author: kesheth
 author: expekesheth
-ms.date: 09/27/2023
+ms.date: 07/24/2025
 ---
 
 # Additional settings for Azure API for FHIR

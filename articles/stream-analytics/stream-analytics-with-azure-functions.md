@@ -5,10 +5,14 @@ author: ajetasin
 ms.author: ajetasi
 ms.service: azure-stream-analytics
 ms.topic: tutorial
-ms.custom: "mvc, devx-track-csharp"
 ms.date: 03/29/2024
+ms.custom:
+  - mvc
+  - devx-track-csharp
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 
-#Customer intent: As an IT admin/developer I want to run Azure Functions with Stream Analytics jobs.
+#Customer intent: As an IT admin or developer, I want to run Azure Functions with Stream Analytics jobs.
 ---
 
 # Tutorial: Run Azure Functions from Azure Stream Analytics jobs
@@ -59,7 +63,7 @@ Before you start, make sure you've completed the following steps:
    - [.NET 6.0](/dotnet/core/whats-new/dotnet-6)
    - StackExchange.Redis [2.2.8](https://www.nuget.org/packages/StackExchange.Redis/)
 
-2. Create a default HttpTrigger function app in **Visual Studio Code** by following this [tutorial](../azure-functions/create-first-function-vs-code-csharp.md?tabs=in-process). The following information is used: language: `C#`, runtime: `.NET 6` (under function v4), template:  `HTTP trigger`.
+2. Create a default HttpTrigger function app in **Visual Studio Code** by following this [tutorial](../azure-functions/how-to-create-function-vs-code.md?pivot=programming-language-csharp?tabs=in-process). The following information is used: language: `C#`, runtime: `.NET 6` (under function v4), template:  `HTTP trigger`.
 
 3. Install the Redis client library by running the following command in a terminal located in the project folder:
 
@@ -146,7 +150,7 @@ Before you start, make sure you've completed the following steps:
 
    When Stream Analytics receives the "HTTP Request Entity Too Large" exception from the function, it reduces the size of the batches it sends to functions. The following code ensures that Stream Analytics doesn't send oversized batches. Make sure that the maximum batch count and size values used in the function are consistent with the values entered in the Stream Analytics portal.
 
-5. The function can now be [published](../azure-functions/create-first-function-vs-code-csharp.md#publish-the-project-to-azure) to Azure.
+5. The function can now be [published](../azure-functions/how-to-create-function-vs-code.md?pivot=programming-language-csharp#create-the-function-app-in-azure) to Azure.
 
 6. Open the function on the Azure portal, and set [application settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) for `RedisConnectionString` and `RedisDatabaseIndex`.
 

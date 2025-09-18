@@ -1,6 +1,6 @@
 ---
-title: Web Application Firewall on Application Gateway for Containers - Gateway API
-description: This document provides an example scenario for testing the Web Application Firewall (WAF) on Application Gateway for Containers.
+title: Azure Web Application Firewall on Application Gateway for Containers - Gateway API
+description: This article provides an example scenario for testing Azure Web Application Firewall on Application Gateway for Containers.
 services: application-gateway
 author: jackstromberg
 ms.service: azure-appgw-for-containers
@@ -9,42 +9,46 @@ ms.date: 7/21/2025
 ms.author: jstrom
 ---
 
-# Web Application Firewall on Application Gateway for Containers with Gateway API
+# Azure Web Application Firewall on Application Gateway for Containers with the Gateway API
 
-This document helps set up an example application that uses the following resources from Gateway API. Steps are provided to:
+This article helps you set up an example application that uses resources from the Gateway API. The article provides steps to:
 
-- Create a [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) resource with one HTTPS listener.
-- Create an [HTTPRoute](https://gateway-api.sigs.k8s.io/api-types/httproute) that references a backend service.
-- Create a `WebApplicationFirewallPolicy` resource that references an HTTPRoute.
+- Create a [`Gateway`](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) resource with one HTTPS listener.
+- Create an [`HTTPRoute`](https://gateway-api.sigs.k8s.io/api-types/httproute) resource that references a back-end service.
+- Create a `WebApplicationFirewallPolicy` resource that references an `HTTPRoute` resource.
 
 ## Background
 
-Application Gateway for Containers leverages web application firewall to block a malicious request from being proxied to the backend target. See the following example scenario:
+Application Gateway for Containers uses Azure Web Application Firewall to block a malicious request from being proxied to the back-end target. The following diagram shows an example scenario.
 
-![A figure showing a malicious request being blocked by Application Gateway for Containers with Web Application Firewall enabled in prevention mode.](./media/how-to-web-application-firewall-gateway-api/web-application-firewall.png)
+![Diagram that shows a malicious request being blocked by Application Gateway for Containers with Azure Web Application Firewall enabled in prevention mode.](./media/how-to-web-application-firewall-gateway-api/web-application-firewall.png)
 
 ## Prerequisites
 
-1. If following the BYO deployment strategy, ensure you have set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
-2. If following the ALB managed deployment strategy, ensure you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
-3. Deploy sample HTTP application
-   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate the header rewrite.
+- If you're following the bring-your-own (BYO) deployment strategy, ensure that you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md).
 
-   ```bash
-   kubectl apply -f https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/refs/heads/main/articles/application-gateway/for-containers/examples/traffic-split-scenario/deployment.yaml
-   ```
+- If you're following the Application Load Balancer (ALB) managed deployment strategy, ensure that you:
+
+  - Provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md).
+  - Provisioned the Application Gateway for Containers resources via the [`ApplicationLoadBalancer` custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+
+- Apply the following `deployment.yaml` file on your cluster to create a sample web application that demonstrates the header rewrite:
+
+  ```bash
+  kubectl apply -f https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/refs/heads/main/articles/application-gateway/for-containers/examples/traffic-split-scenario/deployment.yaml
+  ```
   
-   This command creates the following on your cluster:
+  This command creates the following items on your cluster:
 
-   - a namespace called `test-infra`
-   - two services called `backend-v1` and `backend-v2` in the `test-infra` namespace
-   - two deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
+  - A namespace called `test-infra`
+  - Two services called `backend-v1` and `backend-v2` in the `test-infra` namespace
+  - Two deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
 
 ## Deploy the required Gateway API resources
 
 # [ALB managed deployment](#tab/alb-managed)
 
-Create a gateway:
+Create a `Gateway` resource:
 
 ```bash
 kubectl apply -f - <<EOF
@@ -70,53 +74,53 @@ EOF
 
 [!INCLUDE [application-gateway-for-containers-frontend-naming](../../../includes/application-gateway-for-containers-frontend-naming.md)]
 
-# [Bring your own (BYO) deployment](#tab/byo)
+# [BYO deployment](#tab/byo)
 
-1. Set the following environment variables
+1. Set the following environment variables:
 
-```bash
-RESOURCE_GROUP='<resource group name of the Application Gateway For Containers resource>'
-RESOURCE_NAME='alb-test'
+    ```bash
+    RESOURCE_GROUP='<resource group name of the Application Gateway For Containers resource>'
+    RESOURCE_NAME='alb-test'
+    
+    RESOURCE_ID=$(az network alb show --resource-group $RESOURCE_GROUP --name $RESOURCE_NAME --query id -o tsv)
+    FRONTEND_NAME='frontend'
+    ```
 
-RESOURCE_ID=$(az network alb show --resource-group $RESOURCE_GROUP --name $RESOURCE_NAME --query id -o tsv)
-FRONTEND_NAME='frontend'
-```
+2. Create a `Gateway` resource:
 
-2. Create a Gateway
-
-```bash
-kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1
-kind: Gateway
-metadata:
-  name: gateway-01
-  namespace: test-infra
-  annotations:
-    alb.networking.azure.io/alb-id: $RESOURCE_ID
-spec:
-  gatewayClassName: azure-alb-external
-  listeners:
-  - name: http-listener
-    port: 80
-    protocol: HTTP
-    allowedRoutes:
-      namespaces:
-        from: Same
-  addresses:
-  - type: alb.networking.azure.io/alb-frontend
-    value: $FRONTEND_NAME
-EOF
-```
+    ```bash
+    kubectl apply -f - <<EOF
+    apiVersion: gateway.networking.k8s.io/v1
+    kind: Gateway
+    metadata:
+      name: gateway-01
+      namespace: test-infra
+      annotations:
+        alb.networking.azure.io/alb-id: $RESOURCE_ID
+    spec:
+      gatewayClassName: azure-alb-external
+      listeners:
+      - name: http-listener
+        port: 80
+        protocol: HTTP
+        allowedRoutes:
+          namespaces:
+            from: Same
+      addresses:
+      - type: alb.networking.azure.io/alb-frontend
+        value: $FRONTEND_NAME
+    EOF
+    ```
 
 ---
 
-Once the gateway resource is created, ensure the status is valid, the listener is _Programmed_, and an address is assigned to the gateway.
+After you create the `Gateway` resource, ensure that the status is valid, the listener has a status of `Programmed`, and an address is assigned to it:
 
 ```bash
 kubectl get gateway gateway-01 -n test-infra -o yaml
 ```
 
-Example output of successful gateway creation.
+Here's example output for successful creation of a `Gateway` resource:
 
 ```yaml
 status:
@@ -163,7 +167,7 @@ status:
       kind: HTTPRoute
 ```
 
-Once the gateway is created, create an HTTPRoute that listens for hostname contoso.com.
+Create an `HTTPRoute` resource that listens for the host name `contoso.com`:
 
 ```bash
 kubectl apply -f - <<EOF
@@ -185,13 +189,13 @@ spec:
 EOF
 ```
 
-Once the HTTPRoute resource is created, ensure the route is _Accepted_ and the Application Gateway for Containers resource is _Programmed_.
+After you create the `HTTPRoute` resource, ensure that the status of the route is `Accepted` and the status of the Application Gateway for Containers resource is `Programmed`:
 
 ```bash
 kubectl get httproute header-rewrite-route -n test-infra -o yaml
 ```
 
-Verify the status of the Application Gateway for Containers resource has been successfully updated.
+Verify that the status of the Application Gateway for Containers resource was successfully updated:
 
 ```yaml
 status:
@@ -225,7 +229,7 @@ status:
 
 ### Configure WebApplicationFirewallPolicy
 
-Application Gateway for Containers uses a custom resource called `WebApplicationFirewallPolicy` to define WAF protection. In this example, WAF will protect a specific HTTPRoute.
+Application Gateway for Containers uses a custom resource called `WebApplicationFirewallPolicy` to define Azure Web Application Firewall protection. In this example, Azure Web Application Firewall helps protect a specific `HTTPRoute` resource:
 
 ```bash
 kubectl apply -f - <<EOF
@@ -240,12 +244,13 @@ spec:
     kind: HTTPRoute
     name: contoso-waf-route
     namespace: test-infra
-    #sectionNames: ["listenerA"] # defined if targeting a specific listener on a gateway resource or path
+    #sectionNames: ["listenerA"] # defined if you're targeting a specific listener on a gateway resource or path
   webApplicationFirewall:
     id: /subscriptions/.../Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/waf-policy-0
 EOF
 ```
 
+```bash
 kubectl apply -f - <<EOF
 apiVersion: alb.networking.azure.io/v1
 kind: WebApplicationFirewallPolicy
@@ -258,27 +263,28 @@ spec:
     kind: HTTPRoute
     name: contoso-waf-route
     namespace: test-infra
-    #sectionNames: ["listenerA"] # defined if targeting a specific listener on a gateway resource or path
+    #sectionNames: ["listenerA"] # defined if you're targeting a specific listener on a gateway resource or path
   webApplicationFirewall:
     id: /subscriptions/711d99a7-fd79-4ce7-9831-ea1afa18442e/resourceGroups/AGC-RG/providers/Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/agc-waf
 EOF
+```
 
 ## Test access to the application
 
-Now we're ready to send some traffic to our sample application, via the FQDN assigned to the frontend. Use the following command to get the FQDN:
+Now you're ready to send some traffic to the sample application, via the fully qualified domain name (FQDN) assigned to the frontend resource. Use the following command to get the FQDN:
 
 ```bash
 fqdn=$(kubectl get gateway gateway-01 -n test-infra -o jsonpath='{.status.addresses[0].value}')
 ```
 
-If you specify the server name indicator using the curl command, `contoso.com` for the frontend FQDN, the output should return a response from the backend-v1 service.
+If you specify the server name indicator by using the `curl` command, with `contoso.com` for the frontend resource's FQDN, the output should return a response from the `backend-v1` service:
 
 ```bash
 fqdnIp=$(dig +short $fqdn)
 curl -k --resolve contoso.com:80:$fqdnIp http://contoso.com
 ```
 
-Via the response we should see:
+Via the response, you should see:
 
 ```json
 {
@@ -310,18 +316,18 @@ Via the response we should see:
 }
 ```
 
-Now, send a request with a malicious query string to trigger a `403 forbidden` response from your Application Gateway for Containers.
+Now, send a request with a malicious query string to trigger a `403 forbidden` response from Application Gateway for Containers.
 
-**Example 1:**
+Here's one example request:
 
 ```bash
 curl -k --resolve contoso.com:80:$fqdnIp http://contoso.com/?text=/etc/passwd
 ```
 
-**Example 2:**
+Here's another example request:
 
 ```bash
 curl -k --resolve contoso.com:80:$fqdnIp http://contoso.com/?1=1=1
 ```
 
-Congratulations, you have installed ALB Controller, deployed a backend application and used Web Application Firewall functionality to block a malicious request.
+Congratulations! You installed an ALB Controller, deployed a back-end application, and used Azure Web Application Firewall functionality to block a malicious request.

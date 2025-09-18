@@ -4,9 +4,12 @@ description: Shows you how to use VMware Spring Cloud Gateway route filters with
 author: KarlErickson
 ms.author: karler
 ms.topic: how-to
-ms.date: 08/28/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.service: azure-spring-apps
-ms.custom: devx-track-java
+ms.custom:
+  - devx-track-java
+  - sfi-ropc-nochange
 ---
 
 # How to use VMware Spring Cloud Gateway route filters with the Azure Spring Apps Enterprise plan

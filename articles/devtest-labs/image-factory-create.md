@@ -11,6 +11,8 @@ ms.custom: UpdateFrequency2
 # Create a custom image factory in Azure DevTest Labs
 This article shows you how to set up a custom image factory by using sample scripts available in the [Git repository](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory).
 
+[!INCLUDE [direct-azure-image-builder](includes/direct-azure-image-builder.md)]
+
 ## What's an image factory?
 An image factory is a configuration-as-code solution that builds and distributes images automatically regularly with all the desired configurations. The images in the image factory are always up to date, and the ongoing maintenance is almost zero once the whole process is automated. And, because all the required configurations are already in the image, it saves the time from manually configuring the system after a VM has been created with the base OS.
 
@@ -38,7 +40,7 @@ Using the DevTest Labs extension is an easy way to get started with automaticall
 
 There's an alternate implementation using PowerShell script for a more complex scenario. Using PowerShell, you can fully automate an image factory based on DevTest Labs that can be used in your Continuous Integration and Continuous Delivery (CI/CD) toolchain. The principles followed in this alternate solution are:
 
-- Common updates should require no changes to the image factory. (for example, adding a new type of custom image, automatically retiring old images, adding a new ‘endpoint’ DevTest Labs to receive custom images, and so on.)
+- Common updates should require no changes to the image factory. (for example, adding a new type of custom image, automatically retiring old images, adding a new 'endpoint' DevTest Labs to receive custom images, and so on.)
 - Common changes are backed by source code control (infrastructure as code)
 - DevTest Labs receiving custom images may not be in the same Azure Subscription (labs span subscriptions)
 - PowerShell scripts must be reusable so you can spin up more factories as needed

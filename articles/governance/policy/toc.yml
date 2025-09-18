@@ -54,6 +54,9 @@
   - name: Disallow resource types
     displayName: assign, definition, resource, type, exclusion, allow, disallow
     href: ./tutorials/disallowed-resources.md
+  - name: Apply MFA self-enforcement through Azure Policy
+    displayName: assign, definition, enforce
+    href: ./tutorials/mfa-enforcement.md
 - name: Samples
   items:
   - name: Index
@@ -238,9 +241,9 @@
     - name: Modify
       href: ./concepts/effect-modify.md
       displayName: modify
-    - name: Mutate (preview)
+    - name: Mutate
       href: ./concepts/effect-mutate.md
-      displayName: mutate, preview, aks, kubernetes
+      displayName: mutate, aks, kubernetes
   - name: Scope
     displayName: location, notScope, exemption, waiver, save
     href: ./concepts/scope.md

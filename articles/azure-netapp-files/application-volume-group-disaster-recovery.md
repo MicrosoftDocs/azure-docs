@@ -17,7 +17,7 @@ This article describes using an application volume group to add volumes for an S
 
 ## CRR between source and destination HANA servers
 
-The Azure NetApp Files [cross-region replication](cross-region-replication-introduction.md) functionality enables you to replicate volumes between [supported cross-region replication pairs](cross-region-replication-introduction.md#supported-region-pairs). This functionality allows you to [replicate a volume](cross-region-replication-create-peering.md) from a source region to a volume on the destination region for disaster recovery (DR). 
+The Azure NetApp Files [cross-region replication](replication.md) functionality enables you to replicate volumes between [supported cross-region replication pairs](replication.md#supported-region-pairs). This functionality allows you to [replicate a volume](cross-region-replication-create-peering.md) from a source region to a volume on the destination region for disaster recovery (DR). 
 
 Instead of using HANA System Replication (HSR), you can use cross-region replication to protect a database without needing a HANA database server that runs all the time. You need to create replication destination volumes in a region supported for cross-region replication. Application volume group for SAP HANA ensures that the destination volumes are created with the correct volume type that meets all SAP HANA specific requirements.
 
@@ -80,7 +80,7 @@ The following example adds volumes to an SAP HANA system. The system serves as a
     * **Multiple-host**:  
         Select this option if you're adding additional hosts to a multiple-hosts HANA system.
     * **Disaster recover destination**:  
-        Select this option to create volumes for a HANA system as a DR site using [cross-region replication](cross-region-replication-introduction.md).  
+        Select this option to create volumes for a HANA system as a DR site using [cross-region replication](replication.md).  
     
         Selecting **Disaster recover destination** triggers the naming convention for the volume group name to include `"-DR-"` to indicate a disaster-recovery setup. 
 

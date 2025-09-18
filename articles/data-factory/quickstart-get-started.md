@@ -8,7 +8,9 @@ ms.topic: get-started
 ms.date: 02/13/2025
 ms.author: whhender
 ms.reviewer: xupzhou
-ms.custom: subject-armqs
+ms.custom:
+  - subject-armqs
+  - sfi-image-nochange
 ---
 
 # Get started with Azure Data Factory

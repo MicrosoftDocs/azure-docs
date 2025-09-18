@@ -6,10 +6,10 @@ ms.reviewer: zainzaigham
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 02/24/2025
+ms.date: 08/13/2025
 ms.author: zainzaigham
 ms.custom:
-  - build-2025
+- build-2025
 ---
 
 # Microsoft Entra ID Free

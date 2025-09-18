@@ -1,12 +1,14 @@
 ---
-title: Mount NFS volumes for virtual machines | Microsoft Docs
+title: Mount NFS volumes for virtual machines
 description: Learn how to mount an NFS volume for Windows or Linux virtual machines.
 author: b-hchen
 ms.author: anfdocs
 ms.service: azure-netapp-files
-ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 01/28/2025
+ms.date: 06/28/2025
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
 # Customer intent: As a system administrator, I want to configure and mount NFS volumes for my Linux and Windows virtual machines so that I can ensure efficient data access and management across my cloud infrastructure.
 ---
 # Mount NFS volumes for Linux or Windows VMs 

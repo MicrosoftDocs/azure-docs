@@ -9,6 +9,7 @@ ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 04/15/2025
+ms.custom: sfi-image-nochange
 
 #customer intent: As a developer, I want to create a workflow that can generate schemas for SAP artifacts by using Azure Logic Apps.
 ---

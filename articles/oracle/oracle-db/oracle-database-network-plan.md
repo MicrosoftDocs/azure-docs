@@ -24,15 +24,32 @@ Advanced network features enhance the virtual networking experience, offering im
 
 * Australia East
 * Australia Southeast
+* Brazil South
 * Canada Central
+* Central India
 * Central US 
 * East US 
 * East US2
+* France Central
+* Germany North
+* Germany West Central
+* Italy North 
+* Japan East
+* Japan West
+* North Europe
 * South Central US
-* US West  
+* Southeast Asia
+* Spain Central
+* Sweden Central
+* UAE Central
+* UAE North
 * UK South 
 * UK West
-* Germany West Central 
+* US West
+* US West 2
+* US West 3 
+
+
 
 > [!NOTE]
 > Advanced network features are currently supported only for new Oracle Database@Azure deployments. 
@@ -86,6 +103,7 @@ The following table describes required configurations of supported network featu
 | Azure SLB and ILB support for Oracle database cluster traffic  | No | No |
 |Dual stack (IPv4 and IPv6) virtual network|Only IPv4 is supported| Only IPv4 is supported|
 | Service tags support| No | Yes | 
+|Virtual network flow logs| No | Yes |
 
 > [!NOTE]
 > When using NSGs (Network Security Groups) on the Azure side, ensure that any security rules configured on the Oracle (OCI) side are reviewed to avoid conflicts. While applying security policies on both Azure and OCI can enhance the overall security posture, it also introduces additional complexity in terms of management and requires careful manual synchronization between the two environments. Misalignment between these policies could lead to unintended access issues or operational disruptions. 
@@ -120,6 +138,14 @@ When routing traffic to Oracle Database@Azure through a Network Virtual Applianc
 >These UDRs should define the specific destination IP prefixes and set the next hop to the appropriate NVA/firewall in the hub.  
 > Without these routes, outbound traffic may bypass required inspection paths or fail to reach the intended destination.
 
+> [!Note]
+> To access an Oracle Database@Azure instance from an on-premises network via a virtual network gateway (ExpressRoute or VPN) and firewall, configure the route table assigned to the virtual network gateway to include the /32 IPv4 address of the Oracle Database@Azure instance listed and point to the firewall as the next hop. Using an aggregate address space that includes the Oracle Database@Azure instance IP address doesn't forward the Oracle Database@Azure traffic to the firewall.
+
+> [!Note]
+> If you want to configure a route table (UDR route) to control the routing of packets through a network virtual appliance or firewall destined to an Oracle Database@Azure instance from a source in the same virtual network or a peered virtual network, the UDR prefix must be more specific or equal to the delegated subnet size of the Oracle Database@Azure. If the UDR prefix is less specific than the delegated subnet size, it isn't effective.
+> 
+> For example, if your delegated subnet is `x.x.x.x/24`, you must configure your UDR to `x.x.x.x/24` (equal) or `x.x.x.x/32` (more specific). If you configure the UDR route to be `x.x.x.x/16`, undefined behaviors such as asymmetric routing can cause a network drop at the firewall.
+
  
 
 ## FAQ 
@@ -128,7 +154,7 @@ Advanced network features enhance your virtual networking experience by providin
 ### Will advanced network features work for existing deployments? 
 Not at the moment. Support for existing deployments is on our roadmap, and we’re actively working to enable it. Stay tuned for updates in the near future. 
 ### Do I need to self-register to enable advanced network features for new deployments? 
-Yes. To take advantage of advanced network features for new deployments, you must complete a registration process. Please run the registration commands before creating a new VNet and delegated subnet for your Oracle Database@Azure deployments. 
+Yes. To take advantage of advanced network features for new deployments, you must complete a registration process. Run the registration commands before creating a new delegated subnet in your existing or new VNet for your Oracle Database@Azure deployments.
 ### How can I check if my deployment supports advanced network features? 
 Currently, there’s no direct way to verify whether a VNet supports advanced network features. We recommend tracking your feature registration timeline and associating it with the VNets created afterward. You can also use the Activity Log blade under the VNet to review creation details—but note, logs are only available for the past 90 days by default. 
 

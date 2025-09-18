@@ -4,11 +4,12 @@ description: Learn more about using Dapr on your Azure Container App service to 
 ms.author: hannahhunter
 author: hhunter-ms
 ms.service: azure-container-apps
+ms.topic: conceptual
+ms.date: 05/21/2025
 ms.custom:
   - build-2023
   - build-2025
-ms.topic: conceptual
-ms.date: 05/21/2025
+  - sfi-image-nochange
 ---
 
 # Microservice APIs powered by Dapr

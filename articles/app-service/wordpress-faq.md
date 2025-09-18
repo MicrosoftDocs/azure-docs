@@ -4,12 +4,15 @@ description: Use this article to find frequently asked questions and answers abo
 keywords: app service, azure app service, wordpress, preview, app service on linux, plugins, mysql flexible server, wordpress on linux, php
 ai-usage: ai-assisted
 author: reddyabhishek
-ms.subservice: wordpress
+ms.service: azure-app-service
 ms.topic: faq
 ms.date: 12/13/2024
 # ms.devlang: wordpress
-ms.author: areddys
-ms.custom: mvc, linux-related-content
+ms.author: tulikac
+ms.custom:
+  - mvc
+  - linux-related-content
+  - sfi-ropc-nochange
 ---
 # WordPress on App Service: Frequently Asked Questions
 

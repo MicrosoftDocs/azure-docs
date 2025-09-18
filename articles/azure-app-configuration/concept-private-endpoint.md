@@ -5,7 +5,7 @@ services: azure-app-configuration
 author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/15/2023
 
 #Customer intent: As a developer using Azure App Configuration, I want to understand how to use private endpoints to enable secure communication with my App Configuration instance.
@@ -23,7 +23,7 @@ Private endpoints availability varies by App Configuration tier:
 - **Free tier**: Not available
 - **Developer tier**: Up to 1 private endpoint
 - **Standard tier**: Up to 10 private endpoints
-- **Premium tier**: Up to 100 private endpoints
+- **Premium tier**: Up to 40 private endpoints
 
 For more information about pricing, see [Azure App Configuration pricing](https://azure.microsoft.com/pricing/details/app-configuration/).
 

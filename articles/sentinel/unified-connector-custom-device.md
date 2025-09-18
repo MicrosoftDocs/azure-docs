@@ -1,8 +1,8 @@
 ---
 title: Custom logs via AMA connector - Configure data ingestion to Microsoft Sentinel from specific applications
 description: Learn how to configure data ingestion into Microsoft Sentinel from specific or custom applications that produce logs as text files, using the Custom Logs via AMA data connector or manual configuration.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: reference
 ms.custom: linux-related-content
 ms.date: 07/31/2024

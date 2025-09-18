@@ -74,7 +74,7 @@ Each time the prompt is received, the server code uses `ChatCompletionAgent.invo
 
 ## Deploy the sample application
 
-The sample respository contains an Azure Developer CLI (AZD) template, which creates an App Service app with managed identity and deploys your sample application.
+The sample repository contains an Azure Developer CLI (AZD) template, which creates an App Service app with managed identity and deploys your sample application.
 
 1. In the terminal, log into Azure using Azure Developer CLI:
 

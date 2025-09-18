@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: JnHs
   ms.author: jenhayes
-  ms.date: 05/29/2025
+  ms.date: 09/05/2025
   adobe-target: true
   featureFlags:
   - clicktale
@@ -721,12 +721,12 @@ productDirectory:
         - devops
       url: /azure/devops/test/
     # Card
-    - title: Azure Load Testing
-      summary: Generate high-scale load and identify performance bottlenecks
+    - title: Azure App Testing
+      summary: Test your app holistically with Azure Load Testing and Playwright Workspaces
       imageSrc: ./media/index/load-testing.svg
       azureCategories:
         - devops
-      url: load-testing/index.yml
+      url: app-testing/index.yml
     # Card
     - title: Microsoft Playwright Testing (Preview)
       summary: Run end-to-end Playwright tests at scale
@@ -1100,7 +1100,7 @@ productDirectory:
         - media
       url: /azure/media-services/latest/
     # Card
-    - title: Data Box
+    - title: Azure Data Box
       summary: Appliances and solutions for data transfer to Azure
       imageSrc: ./media/index/data-box.svg
       azureCategories:
@@ -1278,27 +1278,6 @@ productDirectory:
         - storage
       url: storage/blobs/access-tiers-overview.md
     # Card
-    - title: Avere vFXT for Azure
-      summary: Run high-performance, file-based workloads in the cloud
-      imageSrc: ./media/index/avere.svg
-      azureCategories:
-        - storage
-      url: avere-vfxt/index.yml
-    # Card
-    - title: Azure FXT Edge Filer
-      summary: Hybrid storage optimization solution for HPC environments
-      imageSrc: ./media/index/fxt-edge-filer.svg
-      azureCategories:
-        - storage
-      url: fxt-edge-filer/index.yml
-    # Card
-    - title: Azure HPC Cache
-      summary: File caching for high-performance computing (HPC)
-      imageSrc: ./media/index/hpc-cache.svg
-      azureCategories:
-        - storage
-      url: hpc-cache/index.yml
-    # Card
     - title: Azure NetApp Files
       summary: Enterprise-grade Azure file shares, powered by NetApp
       imageSrc: ./media/index/netapp-files.svg
@@ -1306,14 +1285,14 @@ productDirectory:
         - storage
       url: azure-netapp-files/index.yml
     # Card
-    - title: Blob Storage
+    - title: Azure Blob Storage
       summary: REST-based object storage for unstructured data
       imageSrc: ./media/index/storage-accounts.svg
       azureCategories:
         - storage
       url: storage/blobs/index.yml
     # Card
-    - title: Disk Storage
+    - title: Azure Disk Storage
       summary: High-performance, highly durable block storage for Azure Virtual Machines
       imageSrc: ./media/index/disk-storage.svg
       azureCategories:
@@ -1354,13 +1333,13 @@ productDirectory:
       azureCategories:
         - storage
       url: vs-azure-tools-storage-manage-with-storage-explorer.md
-    # Card
-    - title: StorSimple
-      summary: Lower costs with an enterprise hybrid cloud storage solution
-      imageSrc: ./media/index/storsimple-device-managers.svg
+          # Card
+    - title: Azure Storage Actions
+      summary: Simplify storage data management at massive scale
+      imageSrc: ./media/index/storage-actions.svg
       azureCategories:
         - storage
-      url: storsimple/index.yml
+      url: storage-actions/storage-tasks/index.yml 
     # Card
     - title: Azure SignalR Service
       summary: Add real-time web functionality easily
@@ -1408,7 +1387,7 @@ productDirectory:
    # Card
     - title: Azure confidential ledger
       summary: Tamperproof, unstructured data store hosted in trusted execution environments (TEEs) and backed by cryptographically verifiable evidence
-      imageSrc: ./media/index/azure.svg
+      imageSrc: ./media/index/confidential-ledger.svg
       azureCategories:
        - storage
        - databases
