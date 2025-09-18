@@ -5,7 +5,7 @@ author: duongau
 ms.author: duau
 ms.service: azure-route-server
 ms.topic: how-to
-ms.date: 0/18/2025
+ms.date: 09/18/2025
 
 #CustomerIntent: As a network administrator, I want to learn how to diagnose and troubleshoot issues related to my Azure Route Server so I can resolve them.
 ---
