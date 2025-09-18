@@ -20,8 +20,7 @@ This article describes features, enhancements, and bug fixes released in 2025 fo
 ## September 2025
 ### FHIR service
 
-
-**Bulk Update content added**: Content added on using the [`$bulk-update`](./fhir/fhir-bulk-update.md) operation to update multiple FHIR resources in bulk using asynchronous processing.
+**Bulk Update capability is in GA** The $bulk-update operation allows you to update multiple FHIR resources in bulk using asynchronous processing. Follow this link to learn more [`$bulk-update`](./fhir/fhir-bulk-update.md).
 
 #### Bug fixes:
 
