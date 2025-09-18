@@ -87,7 +87,7 @@ Azure HPC Cache manages which files are cached and pre-loaded to maximize cache 
 
 Choose a cache storage size that can comfortably hold the active set of working files, plus additional space for metadata and other overhead.
 
-If you need help sizing your cache correctly, contact Microsoft Service and Support.
+If you need help with sizing your cache correctly, contact Microsoft Service and Support.
 
 
 ### Choose the cache type for your needs
@@ -154,7 +154,7 @@ Select **Customer managed** to choose customer-managed key encryption. The key v
 
 Check the **Always use current key version** box if you want to use [automatic key rotation](/azure/virtual-machines/disk-encryption#automatic-key-rotation-of-customer-managed-keys).
 
-If you want to use a specific managed identity for this cache, configure it in the **Managed identities** section. Read [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md) to learn more.
+If you want to use a specific managed identity for this cache, configure it in the **Managed identities** section. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
 
 > [!NOTE]
 > You cannot change the assigned identity after you create the cache.
