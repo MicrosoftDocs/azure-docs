@@ -1,5 +1,5 @@
 ---  
-title: Create and manage Jupyter notebook jobs (preview)
+title: Create and manage Jupyter notebook jobs
 titleSuffix: Microsoft Security  
 description: This article describes how to explore and interact with lake data using Spark notebooks in Visual Studio Code.
 author: EdB-MSFT  
@@ -12,7 +12,7 @@ ms.date: 07/09/2025
 # Customer intent: As a security engineer or data scientist, I want to explore and analyze security data in the Microsoft Sentinel data lake using Jupyter notebooks, so that I can gain insights and build advanced analytics solutions.
 ---
 
-# Create and manage Jupyter notebook jobs (preview)
+# Create and manage Jupyter notebook jobs
  
 You can create scheduled jobs to run at specific times or intervals using the Microsoft Sentinel extension for Visual Studio Code. Jobs allow you to automate data processing tasks to summarize, transform, or analyze data in the Microsoft Sentinel data lake. Jobs are also used to process data and write results to custom tables in the lake tier or analytics tier.
 
@@ -36,32 +36,40 @@ For more information on assigning roles to managed identities, see [Assign Azure
 
 ## Create and schedule a job
 
-To create schedule a job, you must save your notebook as a file.
+You can create a job in one of three ways:
 
-1. Select **File** > **Save As** and save the notebook with a `.ipynb` extension.
-1. Open the folder where you saved the notebook file using **File** > **Open folder**.
-
+1. In the notebook editor, select **Create schedule Job** from the toolbar.
 1. In the **Explorer** pane, right-click the notebook file and select **Microsoft Sentinel**, then select **Create schedule Job**.
 
     :::image type="content" source="./media/notebook-jobs/create-job.png" lightbox="./media/notebook-jobs/create-job.png" alt-text="A screenshot showing how to create a new job in Visual Studio Code."  :::
+1. From the list of jobs, select the **+** icon to create a new job.
+
+    :::image type="content" source="./media/notebook-jobs/create-job-from-toolbar.png" lightbox="./media/notebook-jobs/create-job-from-toolbar.png" alt-text="A screenshot showing how to create a new job from the jobs list in Visual Studio Code."  :::
+1. Select **Use existing notebook** to select an existing notebook file, or select **Create new notebook** to create a new notebook file for the job.
+
+    :::image type="content" source="./media/notebook-jobs/new-or-existing-workbook.png" lightbox="./media/notebook-jobs/new-or-existing-workbook.png" alt-text="A screenshot showing how to select an existing notebook for the job."  :::
+
 
 1. On the **Job configuration** page, in the **Job details** section enter a **name** and **description** for the job.
-1. To run a job manually without a schedule, select **Off** under **Scheduled Run** in the **Schedule Configuration** section.    
-     
-    1. Select **Publish job** to save the job configuration and publish the job.
+1. Select the spark pool size to run the job according to your jobs compute needs.
+1. To run a job manually without a schedule, select **On demand** in the  **Schedule** section., then select **Submit** to save the job configuration and publish the job.
     
-1. To specify a schedule for the job, select **On** under **Scheduled Run** in the **Schedule Configuration** section.  
-    1. Select a **Repeat** frequency for the job. You can choose from **By the minute**, **By the hour**, or **By the day**.
+1. To specify a schedule for the job, select **Scheduled** in the **Schedule** section.  
+    1. Select a **Repeat frequency** for the job. You can choose from **By the minute**, **Hourly**, **Weekly**, **Daily**, or **Monthly**.
+    1. Depending on the frequency you select, additional options are displayed to configure the schedule, for example day of the week, time of day, or day of the month.
 
-    1. Select a **Start and end time** for the job to run.
-    1. Select a **Time zone** for the start and end times.
-    1. Select **Publish job** to save the job configuration and publish the job.
+    1. Select a **Start on** time for the schedule to start running.
+    1. Select an **End on** time for the schedule to stop running. If you don't want to set an end time for the schedule, select **Set job to run indefinitely**.
+    Dates and times are in the users timezone.
+
+    1. Select **Submit** to save the job configuration and publish the job.
 
     :::image type="content" source="./media/notebook-jobs/job-configuration.png" lightbox="./media/notebook-jobs/job-configuration.png" alt-text="A screenshot showing the job configuration page."  :::
 
 1. To view your jobs, select the Microsoft Sentinel shield icon in the left toolbar. Jobs are displayed on the **Jobs** panel.
 
-1. Select the job then select **Run now** to run a job immediately. If your job is a scheduled job, it runs at the specified time and frequency. 
+1. Select a job to see the job details. 
+1. You can run the job immediately by selecting **Run now**, disable and enable the job schedule, or delete the job.
 
     :::image type="content" source="./media/notebook-jobs/job-details.png" lightbox="./media/notebook-jobs/job-details.png" alt-text="A screenshot showing the job details page."  :::
 
@@ -111,11 +119,11 @@ The page shows a list of jobs and their types. Select a notebook job to view its
 For a list of service limits for the Microsoft Sentinel data lake, see [Microsoft Sentinel data lake service limits](notebooks.md#service-parameters-and-limits-for-vs-code-notebooks).  
   
 
-For information on troubleshooting, see [Run notebooks on the Microsoft Sentinel data lake (preview)](notebooks.md#service-parameters-and-limits-for-vs-code-notebooks).
+For information on troubleshooting, see [Run notebooks on the Microsoft Sentinel data lake](notebooks.md#service-parameters-and-limits-for-vs-code-notebooks).
 
 ## Related content
 
-- [Sample notebooks for Microsoft Sentinel data lake (preview)](./notebook-examples.md)
-- [Microsoft Sentinel Provider class reference (preview)](./sentinel-provider-class-reference.md)
-- [Microsoft Sentinel data lake overview (preview)](./sentinel-lake-overview.md)
+- [Sample notebooks for Microsoft Sentinel data lake](./notebook-examples.md)
+- [Microsoft Sentinel Provider class reference](./sentinel-provider-class-reference.md)
+- [Microsoft Sentinel data lake overview](./sentinel-lake-overview.md)
 - [Roles and permissions in Microsoft Sentinel](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake).

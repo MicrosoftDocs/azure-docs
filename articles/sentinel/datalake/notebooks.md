@@ -1,5 +1,5 @@
 ---  
-title: Running notebooks on the Microsoft Sentinel data lake (preview)
+title: Running notebooks on the Microsoft Sentinel data lake
 titleSuffix: Microsoft Security  
 description: This article describes how to explore and interact wit data lake data using Jupyter notebooks in Visual Studio Code.
 author: EdB-MSFT  
@@ -13,15 +13,12 @@ ms.date: 07/16/2025
 # Customer intent: As a security engineer or data scientist, I want to explore and analyze security data in the Microsoft Sentinel data lake using Jupyter notebooks, so that I can gain insights and build advanced analytics solutions.
 ---
 
-# Run notebooks on the Microsoft Sentinel data lake (preview)
+# Run notebooks on the Microsoft Sentinel data lake
  
 Jupyter notebooks provide an interactive environment for exploring, analyzing, and visualizing data in the Microsoft Sentinel data lake. With notebooks, you can write and execute code, document your workflow, and view results—all in one place. This makes it easy to perform data exploration, build advanced analytics solutions, and share insights with others. By leveraging Python and Apache Spark within Visual Studio Code, notebooks help you transform raw security data into actionable intelligence.
 
 This article shows you how to explore and interact with data lake data using Jupyter notebooks in Visual Studio Code. 
 
-> [!NOTE]  
-> The Microsoft Sentinel extension is currently in preview. Some functionality and performance limits may change as new releases are made available.  
- 
 ## Prerequisites
 
 ### Onboard to the Microsoft Sentinel data lake
@@ -82,7 +79,7 @@ After installing the Microsoft Sentinel extension, you can start exploring data 
 
 ### View data lake tables and jobs
 
-Once you sign in, the Microsoft Sentinel extension displays a list of **Lake tables** and **Jobs** in the left pane. Select a table to see the column definitions.
+Once you sign in, the Microsoft Sentinel extension displays a list of **Lake tables** and **Jobs** in the left pane. The tables are grouped by the database and category. Select a table to see the column definitions.
 
 For information on Jobs, see [Jobs and Scheduling](#jobs-and-scheduling).
 
@@ -109,6 +106,7 @@ For information on Jobs, see [Jobs and Scheduling](#jobs-and-scheduling).
    df = data_provider.read_table(table_name)  
    df.select("displayName", "groupTypes", "mail", "mailNickname", "description", "tenantId").show(100,   truncate=False)  
    ```  
+  The editor provides intellisense code completion for both the `MicrosoftSentinelProvider` class and the table names in the data lake.
 
 1. Select the **Run** triangle to execute the code in the notebook. The results are displayed in the output pane below the code cell.  
   :::image type="content" source="./media/notebooks/run-notebook.png" lightbox="./media/notebooks/run-notebook.png" alt-text="A screenshot showing how to run a notebook cell.":::
@@ -128,6 +126,30 @@ When the session is started, the code in the notebook runs and the results are d
 
 
 For sample notebooks that demonstrate how to interact with the Microsoft Sentinel data lake, see [Sample notebooks for Microsoft Sentinel data lake](./notebook-examples.md).
+
+### Status bar
+
+The status bar at the bottom of the notebook provides information about the current state of the notebook and the Spark session. The status bar includes the following information:
+
+- The vCore utilization percentage for the selected Spark pool. Hover over the percentage to see the number of vCores used and the total number of vCores available in the pool. The percentages represent the current usage across interactive and job workloads for the logged in account.
+
+- The connection status of the Spark session for example `Connecting`, `Connected`, or `Not Connected`.
+
+:::image type="content" source="./media/notebooks/status-bar.png" lightbox="./media/notebooks/status-bar.png" alt-text="A screenshot showing the status bar at the bottom of the notebook.":::
+
+
+## Set session timeouts
+
+You can set the session timeout and timeout warnings for interactive notebooks. To change the timeout, select the connection status in the status bar at the bottom of the notebook. Chose from the following options:
+- **Set session timeout period**: Sets the time in minutes before a the session times out. The default is 30 minutes.
+- **Reset session timeout period**: Resets the session timeout to the default value of 30 minutes.
+- **Set session timeout warning period**: Sets the time in minutes before a warning is displayed that the session is about to time out. The default is 5 minutes.
+- **Reset session timeout warning period**: Resets the session timeout warning to the default value of 5 minutes.
+
+   :::image type="content" source="./media/notebooks/set-timeouts.png" lightbox="./media/notebooks/set-timeouts.png" alt-text="A screenshot showing the session timeout setting.":::  
+
+
+
 
 ## Use GitHub Copilot in notebooks
 
