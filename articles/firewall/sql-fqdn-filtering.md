@@ -21,7 +21,7 @@ With SQL FQDNs, you can filter traffic:
 - From on-premises to Azure SQL Managed Instances or SQL IaaS running in your VNets.
 - From spoke-to-spoke to Azure SQL Managed Instances or SQL IaaS running in your VNets.
 
-SQL FQDN filtering is supported in [proxy-mode](/azure/azure-sql/database/connectivity-architecture#connection-policy) only (port 1433). If you use SQL in the default redirect mode, you can filter access using the SQL service tag as part of [network rules](features-by-sku.md#network-traffic-filtering-rules).
+SQL FQDN filtering is supported in [proxy-mode](/azure/azure-sql/database/connectivity-architecture#connection-policy) only (port 1433). If you use SQL in the default redirect mode, you can filter access using the SQL service tag as part of [network rules](features-by-sku.md#key-basic-features).
 If you use non-default ports for SQL IaaS traffic, you can configure those ports in the firewall application rules.
 
 ## Configure using Azure CLI
