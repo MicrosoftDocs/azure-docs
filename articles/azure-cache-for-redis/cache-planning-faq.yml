@@ -7,7 +7,7 @@ metadata:
   appliesto:
     - ✅ Azure Cache for Redis
 title: Azure Cache for Redis planning FAQs
-summary: 
+summary: |
          This article provides answers to common questions about how to plan for Azure Cache for Redis.
          [!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 

@@ -10,7 +10,7 @@ metadata:
     - ✅ Azure Cache for Redis
 
 title: Azure Cache for Redis development FAQs
-summary:  
+summary:  |
           This article provides answers to common questions about how to develop for Azure Cache for Redis.
           [!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 

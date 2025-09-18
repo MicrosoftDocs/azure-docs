@@ -8,9 +8,9 @@ metadata:
   appliesto:
     - ✅ Azure Cache for Redis
 title: Cache management FAQs
-summary: 
+summary: |
           This article provides answers to common questions about how to manage Azure Cache for Redis.
-          
+
           [!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 
