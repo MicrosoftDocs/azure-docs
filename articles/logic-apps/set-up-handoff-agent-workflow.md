@@ -1,10 +1,9 @@
 ---
 title: Hand Off AI Agent Tasks but Keep Chat Context
 description: Learn how to transfer control to specialized AI agents in a workflow but preserve chat continuity in Azure Logic Apps. In this "handoff" pattern, agents pass on control when they get questions outside their expertise or knowledge domain.
-service: ecfan
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, divswa, krmitta, azla
+ms.reviewers: estfan, divswa, krmitta, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.date: 09/17/2025
@@ -23,27 +22,23 @@ ms.update-cycle: 180-days
 
 Sometimes your workflow needs to delegate tasks to specialized AI agents but preserve the chat conversation continuity and context across agent transitions. In this scenario, agents perform domain-specific tasks during different stages in the workflow or business process. These agents must also make dynamic decisions and understand when to hand off tasks to other agents. This behavior is known as the [*handoff* pattern](single-versus-multiple-agents.md#handoff-pattern).
 
-This guide describes how to set up specialized agents that follow the handoff pattern in your workflow. The example sets up a customer service handoff system that manages a complete customer journey from initial triage through specialized support.
+This guide describes how to set up a central agent and specialized agents that follow the handoff pattern in your workflow. The example sets up a customer service handoff system that manages a complete customer journey from initial triage through specialized support.
 
 The following table lists the inputs, tasks, and outputs:
 
 | Element or agent | Description |
 |------------------|-------------|
 | Input | Customer service request |
-| Triage agent | Classify the request and identify routing decisions. |
-| Refund agent | Handle any refund requests and processing. |
-| Sales agent | Handle sales inquiries and product recommendations. |
+| Customer service agent | Triage and classify the customer request. Identify routing options. |
+| Refund agent | Handle any refund requests, billing questions, and refund processing. |
+| Sales agent | Handle sales questions, product recommendations, and order processing. |
 | Output | Specialized response with complete conversation context |
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Same requirements as [Create conversational agent workflows](create-conversational-agent-workflows.md#prerequisites).
 
-- A Standard logic app resource
-
-  This resource can be empty or have other workflows. In this guide, you create the conversational agent workflows that you need. These workflows include an empty agent and the default trigger that fires when a new chat session starts. You can't delete the default trigger, which is required for the workflow.
-
-  If you don't have this resource, see [Create conversational agent workflows](create-conversational-agent-workflows.md).
+The Standard logic app resource that you need can be empty or have other workflows. In this guide, you create the conversational agent workflows that you need. These workflows include an empty agent and the default trigger that fires when a new chat session starts. You can't delete the default trigger, which is required for the workflow.
 
 ## Key concepts
 
@@ -51,8 +46,10 @@ The following table describes the key concepts to understand for this example ha
 
 | Concept | Description |
 |---------|-------------|
-| Tool separation | The handoff pattern differentiates between the following kinds of tools: <br><br>- Regular tools that run business logic like "search", "refund", and "order" <br><br>- Delegation tools that hand off control to other agents |
-| Agent specialization | Each agent has specific, relevant tools and capabilities. <br><br>- Triage agent: Has only handoff tools for delegation - no regular tools. <br><br>- Sales agent: Has the **execute_order** tool and the **handoff_back_to_triage** delegation tool. <br><br>- Refund agent: Has the **execute_refund** and **look_up_item** tools along with the **handoff_back_to_triage** delegation tool. |
+| Tool separation | The handoff pattern differentiates between the following kinds of tools: <br><br>- Regular tools that run business logic or tasks like "search", "refund", and "order" <br><br>- Delegation tools that hand off control to other agents |
+| Agent specialization | Each agent has specific, relevant tools and capabilities. <br><br>- Customer service agent has only agent handoff tools for delegating questions and requests, no regular tools. <br><br>- Refund specialist agent has the following tools: <br>-- **look_up_item** <br>-- **process_refund** <br>-- **handoff_back_to_customer_service_agent** <br><br>- Sales specialist agent has the following tools: <br>-- **search_products** <br>-- **process_order** <br>-- **handoff_back_to_customer_service_agent** |
+
+For more information, see [Handoff pattern best practices](#handoff-pattern-best-practices).
 
 ## 1 - Create a conversational agent workflow
 
@@ -68,18 +65,24 @@ Follow these steps to create a new conversational agent workflow:
 
    The designer opens and shows a workflow with the default trigger named **When a new chat session starts** and an empty **Agent** action.
 
+> [!NOTE]
+>
+> You can't save your workflow until you create a connection between the agent and the LLM that you want to use.
+
 ## 2 - Set up the customer service agent
 
-Follow these steps to add set-up your triage agent:
+Follow these steps to add set-up your customer service agent:
 
 1. On the designer, select the empty **Agent** action.
 
 1. On the information pane that opens, select the default action name, and rename the action to **Customer service agent**.
 
+1. If you don't have a connection between the agent action and the LLM that you want to use, follow these steps to [connect the agent action to your LLM](create-conversational-agent-workflows.md#connect-the-agent-to-your-model).
+
 1. On the **Parameters** tab, in the **System instructions** box, provide the following information:
 
    ```
-   You're a customer service agent for the Fabrikam company. Start by introducing yourself and understanding the customer's request. Based on their needs, you can hand off to specialized agents within this conversation for complex issues that require specialist expertise.
+   You're a customer service agent for Fabrikam, Inc. Start by introducing yourself and understanding the customer's request. Based on their needs, you can hand off to specialized agents within this conversation for complex issues that require specialist expertise.
 
    Your role performs the following tasks:
 
@@ -95,6 +98,8 @@ Follow these steps to add set-up your triage agent:
 
    :::image type="content" source="media/set-up-handoff-agent-workflow/customer-service-agent.png" alt-text="Screenshot shows finished customer service agent." lightbox="media/set-up-handoff-agent-workflow/customer-service-agent.png":::
 
+1. Save your workflow.
+
 ## 3 - Add specialized agents with handoff descriptions
 
 Follow these steps to add specialized agents:
@@ -102,6 +107,8 @@ Follow these steps to add specialized agents:
 ### 3.1 - Add the refund specialist agent
 
 1. On the designer, under your customer service agent, select the plus (**+**) sign, and then select **Add a hand-off agent**.
+
+   :::image type="content" source="media/set-up-handoff-agent-workflow/add-handoff-agent.png" alt-text="Screenshot shows add handoff button between agents and selected option to add a handoff agent." lightbox="media/set-up-handoff-agent-workflow/add-handoff-agent.png":::
 
    A new empty agent appears on the designer. Your **Customer service agent** stays selected, but the agent information pane automatically switches from the **Parameters** tab to the **Handoffs** tab.
 
@@ -113,7 +120,7 @@ Follow these steps to add specialized agents:
 
    For example:
 
-   :::image type="content" source="media/set-up-handoff-agent-workflow/handoff-description-refund-agent.png" alt-text="Screenshot shows customer service agent with handoff description for new refund specialism agent." lightbox="media/set-up-handoff-agent-workflow/handoff-description-refund-agent.png":::
+   :::image type="content" source="media/set-up-handoff-agent-workflow/hand-off-to-refund-agent.png" alt-text="Screenshot shows customer service agent with handoff to new refund specialist agent." lightbox="media/set-up-handoff-agent-workflow/hand-off-to-refund-agent.png":::
 
 1. Select the new agent, and rename the agent to **Refund specialist agent**.
 
@@ -122,14 +129,14 @@ Follow these steps to add specialized agents:
 1. On the refund agent's **Parameters** tab, in the **System instructions** box, provide the following information:
 
    ```
-   You're a refund specialist agent for the Fabrikam company. You handle refund requests, returns, and billing issues with empathy and efficiency. If the request is outside your refund expertise, you can hand back control to the main agent.
+   You're a refund specialist agent for Fabrikam, Inc. You handle refund requests, returns, and billing issues with empathy and efficiency. If the request is outside your refund expertise, you can hand back control to the main agent.
 
    Your role performs the following tasks:
 
    1. Understand the customer's reason for the refund.
    2. Propose appropriate solutions, for example, exchange, fix, or refund.
    3. If a refund is necessary, look up the item details and execute the refund.
-   4. Alwayse use an understanding and helpful voice.
+   4. Always use an understanding and helpful voice.
    5. Hand back control to the main agent for non-refund questions.
 
    You exist in a multi-agent system designed to make agent coordination and execution easy. Agents use two primary abstractions: agents and handoffs. An agent includes instructions, tools, and the capability to hand off a conversation to another agent when appropriate. A handoff calls a handoff function, generally named 'handoff_<ID>_tool'. Transfers between agents happen seamlessly in the background. Don't mention or draw attention to these transfers in your conversation with the customer.
@@ -141,9 +148,7 @@ Follow these steps to add specialized agents:
 
 ### 3.2 - Add the sales specialist agent
 
-1. On the designer, under your customer service agent, hover over the handoff icon, and add another handoff agent.
-
-   :::image type="content" source="media/set-up-handoff-agent-workflow/add-handoff-between-agents.png" alt-text="Screenshot shows handoff button between agents and selected option to add another handoff agent." lightbox="media/set-up-handoff-agent-workflow/add-handoff-between-agents.png":::
+1. On the designer, under your customer service agent, add another handoff agent.
 
    After the new empty agent appears on the designer, your **Customer service agent** stays selected, but the agent information pane now shows the **Handoffs** tab with both the new agent and the refund specialist agent.
 
@@ -153,6 +158,10 @@ Follow these steps to add specialized agents:
    Hand off to the sales specialist agent for product questions, purchase assistance, and sales consultations. This agent excels at understanding customer needs, recommending products, and facilitating purchases.
    ```
 
+   For example:
+
+   :::image type="content" source="media/set-up-handoff-agent-workflow/hand-off-to-sales-agent.png" alt-text="Screenshot shows customer service agent with handoff to new sales specialist agent." lightbox="media/set-up-handoff-agent-workflow/hand-off-to-sales-agent.png":::
+
 1. Select the new agent, and rename the agent to **Sales specialist agent**.
 
    In the customer service agent's **Handoffs** tab, the default name for the sales agent automatically changes to the new name.
@@ -160,7 +169,7 @@ Follow these steps to add specialized agents:
 1. On the sales agent's **Parameters** tab, in the **System instructions** box, provide the following information:
 
    ```
-   You're a sales specialist agent for Fabrikam company. You help customers with product questions, recommendations, and purchase orders. If the question is outside your sales expertise, you can hand back control to the main agent.
+   You're a sales specialist agent for Fabrikam, Inc. You help customers with product questions, recommendations, and purchase orders. If the question is outside your sales expertise, you can hand back control to the main agent.
 
    Your role performs the following tasks:
 
@@ -178,13 +187,13 @@ Follow these steps to add specialized agents:
 
    :::image type="content" source="media/set-up-handoff-agent-workflow/sales-agent.png" alt-text="Screenshot shows finished sales specialist agent." lightbox="media/set-up-handoff-agent-workflow/sales-agent.png":::
 
-## 4 - Add handoff tools to specialized agents
+## 4 - Set up handoffs from specialized agents
 
-The system instruction for each specialist agent describes the capability to hand back control to the main customer service agent when they get requests outside their expertise domain. To provide this capability, you must add a handoff tool to each specialist agent.
+The system instructions for each specialist agent describe the capability to hand back control to the main customer service agent when they get requests outside their expertise domain. To provide this capability, you must set up a handoff from each specialist agent.
 
-### 4.1 - Add a handoff tool to the refund agent
+### 4.1 - Set up handoff from the refund agent
 
-Follow these steps to set up handoff capability from the refund agent to the customer service agent:
+Follow these steps to set up a handoff from the refund agent to the customer service agent:
 
 1. On the designer, select the **Refund specialist agent**. On the information pane that opens, select **Handoffs**.
 
@@ -194,7 +203,13 @@ Follow these steps to set up handoff capability from the refund agent to the cus
 
    `Return control to the customer service agent when the customer's request is unrelated to refunds, returns, or billing. For example, hand off when customers ask about products, orders, have general questions, or need help that's not related to refunds.`
 
-### 4.2 - Add a handoff tool to the sales agent
+The finished handoff looks like the following example:
+
+:::image type="content" source="media/set-up-handoff-agent-workflow/hand-off-from-refund-agent.png" alt-text="Screenshot shows completed handoff from the refund agent." lightbox="media/set-up-handoff-agent-workflow/hand-off-from-refund-agent.png":::
+
+### 4.2 - Set up handoff from the sales agent
+
+Follow these steps to set up a handoff from the sales agent to the customer service agent:
 
 1. On the designer, select the **Sales specialist agent**. On the information pane that opens, select **Handoffs**.
 
@@ -202,17 +217,28 @@ Follow these steps to set up handoff capability from the refund agent to the cus
 
 1. In the **Handoff description** box for the customer service agent, provide a reason for the handoff, for example:
 
-   `Return control to the customer service agent when the customer's request is unrelated to sales, product recommendations, or help with purchaes or orders. For example, hand off when customers ask about refunds, returns, billing, have general questions, or need help that's not related to sales.`
+   `Return control to the customer service agent when the customer's request is unrelated to sales, product recommendations, or help with purchases or orders. For example, hand off when customers ask about refunds, returns, billing, have general questions, or need help that's not related to sales.`
+
+The finished handoff to the customer service agent looks like the following example:
+
+:::image type="content" source="media/set-up-handoff-agent-workflow/hand-off-from-sales-agent.png" alt-text="Screenshot shows completed handoff from the sales agent." lightbox="media/set-up-handoff-agent-workflow/hand-off-from-sales-agent.png":::
 
 ## 5 - Set up agent-specific tools
 
 Each agent has specialized tools to complete expertise-related tasks. In Azure Logic Apps, you build these tools for each agent. For simplicity, this example uses the **Compose** to mock tool calls. In reality, you'd select from available built-in or connector actions to perform real-world tasks for your specific scenario.
 
+For more information, see [Tool assignment best practices](#tool-assignment-best-practices).
+
 ### 5.1 - Add tools to the refund agent
 
-The refund specialist agent has two specialized tools: **look_up_item** and **execute_refund**.
+In this section, you add the following specialized tools to the refund specialist agent:
 
-1. On the designer, in the **Sales specialist agent**, under **Add tool**, select the plus sign (**+**) to add an action.
+- **look_up_item**
+- **process_refund**
+
+#### 5.1.1 - Add the look_up_item tool
+
+1. On the designer, in the **Refund specialist agent**, under **Add tool**, select the plus sign (**+**) to add an action.
 
 1. In the **Add an action** pane, find and select the **Compose** action.
 
@@ -220,33 +246,164 @@ The refund specialist agent has two specialized tools: **look_up_item** and **ex
 
    :::image type="content" source="media/set-up-handoff-agent-workflow/refund-agent-look-up-tool.png" alt-text="Screenshot shows workflow designer, Compose action pane, and Tool container pane." lightbox="media/set-up-handoff-agent-workflow/refund-agent-look-up-tool.png":::
 
-1. Set up the tool to find product items and return an item ID:
+1. Set up the tool to find a product item and return the item ID:
 
-   1. On the **Tool** pane, change pane name to **look_up_item**.
+   1. On the **Tool** pane, change tool name to `look_up_item`.
 
    1. In the **Description** box, provide details about the tool's purpose and tasks, for example:
 
-      `Find the ID for the product or item. The search query can use a description or keywords.`
+      `Find the ID for the product item. The search query can use a description or keywords.`
+
+   1. Under **Agent Parameters**, select **+ Create Parameter**.
+
+   1. Under **New agent parameter**, provide the following information:
+
+      | Property | Value |
+      |-----------|-------|
+      | **Name** | `id` |
+      | **Type** | `String` |
+      | **Description** | `The item ID` |
 
 1. Set up the **Compose** action to implement the tool:
 
-   1. On the **Compose** pane, change pane name to **Find item**.
+   1. On the **Compose** pane, change action name to `Find item`.
 
-   1. Select inside the **Inputs** box to display the input options.
+   1. In the **Inputs** box, enter the following JSON:
 
-   1. At the end of the **Inputs** box, select the stars symbol to generate the agent parameter.
+      ```json
+      {
+         "item_id": "<item-ID>",
+         "status": "found"
+      }
+      ```
 
-   1. In the **Create agent parameter** window, provide the following information:
+   1. Select the `<item-ID>` placeholder text. From the available input sources that appear, select the robot icon so you can choose your previously created agent parameter:
 
-      | Parameter | Value |
-      |-----------|-------|
-      | **Name** | `order_id` |
-      | **Type** | `String` |
-      | **Description** | `The order ID` |
+      :::image type="content" source="media/set-up-handoff-agent-workflow/replace-item-id-placeholder.png" alt-text="Screenshot shows the Compose action named Find item, the selected item-id placeholder text, and the selected robot icon." lightbox="media/set-up-handoff-agent-workflow/replace-item-id-placeholder.png":::
 
-   1. When you're done, select **Create**.
+   1. From the **Agent parameters** list, select **id**.
 
-   1. 
+      The **Find item** action inputs look like the following example:
+
+      :::image type="content" source="media/set-up-handoff-agent-workflow/replaced-item-id-placeholder.png" alt-text="Screenshot shows the Compose action with mock tool call that references the agent parameter." lightbox="media/set-up-handoff-agent-workflow/replaced-item-id-placeholder.png":::
+
+The finished **look_up_item** tool and **Find item** action look like the following example:
+
+:::image type="content" source="media/set-up-handoff-agent-workflow/look-up-tool-complete.png" alt-text="Screenshot shows completed look up item tool and Find item action." lightbox="media/set-up-handoff-agent-workflow/look-up-tool-complete.png":::
+
+#### 5.1.2 - Add the process_refund tool
+
+To add and set up the **process_refund** tool for the refund specialist agent, follow these setps:
+
+1. To the side of the **look_up_item** tool, select the plus sign (**+**) to add the **Compose** action.
+
+1. Repeat the preceding general steps but with the following information:
+
+| Item | Value |
+|------|-------|
+| Tool name | `process_refund` |
+| Tool description | `Process refund for validated items after confirming eligibility.` |
+| Agent parameters for tool | - **Name**: `order-id` <br>- **Type**: `String` <br>- **Description**: `The order ID` |
+| **Compose** action name | `Execute refund` |
+| **Compose** action inputs | `{   "refund_status": "success", "refund_amount": 100.58, "confirmation": "Successfully processed refund."   }` <br><br>**Note**: This example doesn't reference the agent parameter in the inputs. |
+
+The finished **process_refund** tool and **Execute refund** action look like the following example:
+
+:::image type="content" source="media/set-up-handoff-agent-workflow/process-refund-tool-complete.png" alt-text="Screenshot shows completed process refund tool and Execute refund action." lightbox="media/set-up-handoff-agent-workflow/process-refund-tool-complete.png":::
+
+### 5.2 - Add tools to the sales agent
+
+In this section, you add the following specialized tools to the sales specialist agent:
+
+- **search_products**
+- **process_order**
+
+#### 5.2.1 - Add the search_products tool
+
+To add and set up the **search_products** tool for the sales specialist agent, repeat the preceding general steps but with the following information:
+
+| Item | Value |
+|------|-------|
+| Tool name | `search_products` |
+| Tool description | `Search product catalog based on customer needs and preferences.` |
+| Agent parameters for tool | - **Name**: `search-string` <br>- **Type**: `String` <br>- **Description**: `The search string` |
+| **Compose** action name | `Find products` |
+
+For the **Compose** action inputs, you can use the following example:
+
+```json
+{
+  "products": [
+    {
+      "id": "laptop_001",
+      "name": "Adatum 13",
+      "price": 1299.99,
+      "description": "Ultra-portable 13-inch laptop with i7, 16GB RAM, 512GB SSD"
+    },
+    {
+      "id": "laptop_002", 
+      "name": "Adatum M2",
+      "price": 1199.99,
+      "description": "Adatum's thin and light laptop with M2 chip, 8GB RAM, 256GB SSD"
+    },
+    {
+      "id": "laptop_003",
+      "name": "Adatum X1",
+      "price": 1599.99,
+      "description": "Business laptop with i7, 16GB RAM, 1TB SSD, excellent keyboard"
+    },
+    {
+      "id": "laptop_004",
+      "name": "Adatum x360",
+      "price": 1399.99,
+      "description": "2-in-1 convertible laptop with touchscreen, i7, 16GB RAM, 512GB SSD"
+    }
+  ]
+}
+```
+
+> [!NOTE]
+>
+> This example doesn't reference the agent parameter in the inputs.
+
+The finished **search_products** tool and **Find products** action look like the following example:
+
+:::image type="content" source="media/set-up-handoff-agent-workflow/search-products-tool-complete.png" alt-text="Screenshot shows completed search products tool and Find products action." lightbox="media/set-up-handoff-agent-workflow/search-products-tool-complete.png":::
+
+#### 5.2.2 - Add the process_order tool
+
+To add and set up the **process_order** tool for the sales specialist agent, repeat the preceding general steps but with the following information:
+
+| Item | Value |
+|------|-------|
+| Tool name | `process_order` |
+| Tool description | `Process customer order with product details, pricing, and shipping. Use price in US$.` |
+| Agent parameters for tool | Parameter #1: <br>- **Name**: `product_id` <br>- **Type**: `String` <br>- **Description**: `The product ID` <br><br>Parameter #2: <br>- **Name**: `quantity` <br>- **Type**: `String` <br>- **Description**: `The product quantity` |
+| **Compose** action name | `Execute order` |
+
+For the **Compose** action inputs, you can use the following example where you replace the placeholders with the corresponding agent parameters:
+
+```json
+{
+   "order_status": "success",
+   "order_id": "@{guid()}",
+   "quantity": "@agentParameters('quantity')",
+   "product_id": "@agentParameters('id')"
+}
+```
+
+The finished **process_order** tool and **Execute order** action look like the following example:
+
+:::image type="content" source="media/set-up-handoff-agent-workflow/process-order-tool-complete.png" alt-text="Screenshot shows completed process order tool and Execute order action." lightbox="media/set-up-handoff-agent-workflow/process-order-tool-complete.png":::
+
+## 6 - Test the workflow
+
+1. On the designer toolbar, from the **Run** menu, select **Run**.
+
+1.
+
+
+[!INCLUDE [clean-up-resources](includes/clean-up-resources.md)]
 
 ## Best practices
 
@@ -271,11 +428,10 @@ The following table describes best practices for assigning tools to agents:
 
 | Practice | Description |
 |----------|-------------|
-| Relevant, domain-specific tools | Agents only have tools relevant to their expertise area. For example: <br><br>- Refund agents: Item lookup, refund processing, return validation <br><br>- Sales agents: Product search, order processing, pricing tools |
-| No access to cross-domain tools | Agents can't access tools outside their expertise. This practice prevents customer confusion and maintains clear boundaries. For example: <br><br>- Sales agents can't process refunds. <br><br>- Refund agents can't handle sales orders. |
-| Clear tool descriptions | Provide precise information about each tool's purpose and tasks. Specify required input parameters and add usage guidelines like "Use price in US$". |
-
-[!INCLUDE [clean-up-resources](includes/clean-up-resources.md)]
+| Agent-specific and relevant tools | Agents have only tools specific and relevant to their expertise area. For example: <br><br>- Refund agents: Item lookup, refund processing, return validation <br><br>- Sales agents: Product search, order processing, pricing tools |
+| No tool sharing or access to tools outside domain | Each agent can access only tools in their expertise domain. This practice prevents customer confusion and maintains clear boundaries. For example: <br><br>- Refund agents can't use sales tools. <br><br>- Sales agents can't use refund tools. |
+| Focused agent and tool functionality | Each agent and tool focuses on their own specialized domain expertise. |
+| Clear tool descriptions | Provide precise information about each tool's purpose and tasks to help an agent choose the correct tool and know when to use that tool. Specify required input parameters and add usage guidelines like "Use price in US$". |
 
 ## Troubleshoot common problems
 

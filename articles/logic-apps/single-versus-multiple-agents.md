@@ -1,10 +1,9 @@
 ---
 title: Single AI Agent Versus Multiple Agents
 description: Learn how a single agent workflow compares to a multiple agent workflow and the patterns for multiagent approaches to handle complex workflow scenarios and tasks in Azure Logic Apps.
-service: ecfan
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, divswa, krmitta, azla
+ms.reviewers: estfan, divswa, krmitta, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.date: 09/17/2025

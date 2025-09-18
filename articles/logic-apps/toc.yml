@@ -143,7 +143,7 @@ items:
         items:
         - name: Single agent versus multiple agents
           href: single-versus-multiple-agents.md
-        - name: Call AI agents sequentially to complete subtasks
+        - name: Call AI agents sequentially
           href: set-up-prompt-chain-agent-workflow.md
         - name: Hand off AI agent tasks with chat continuity
           href: set-up-handoff-agent-workflow.md

@@ -1,10 +1,9 @@
 ---
 title: Call AI Agents Sequentially
 description: Learn how to break a complex workflow into sequential subtasks so that different AI agents and models handle each subtask in Azure Logic Apps. In this "prompt chaining" pattern, each agent use output from the previous agent.
-service: ecfan
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, divswa, krmitta, azla
+ms.reviewers: estfan, divswa, krmitta, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.date: 09/17/2025
@@ -37,24 +36,22 @@ The following table lists the inputs, tasks, and outputs:
 
 ## Prerequisites
 
-- Same requirements as [Create autonomous agent workflows](create-autonomous-agent-workflows.md)
+Same requirements as [Create autonomous agent workflows](create-autonomous-agent-workflows.md#prerequisites).
 
-- An autonomous agent workflow with an empty agent and a trigger that best matches your scenario.
+The autonomous agent workflow with an empty agent requires that you add a trigger that best matches your scenario. The example in this guide uses the **Request** trigger named **When an HTTP request is received**.
 
-  If you don't have this workflow, see [Create autonomous agent workflows](create-autonomous-agent-workflows.md).
+If you use the same trigger for this example, in the **Request Body JSON Schema** parameter, enter the following schema:
 
-  The example in this guide uses the **Request** trigger named **When an HTTP request is received**. In the **Request Body JSON Schema** parameter, enter the following schema:
-
-  ```json
-  {
-     "type": "object",
-     "properties": {
-        "report": {
-           "type": "string"
-        }
-     }
-  }
-  ```
+```json
+{
+   "type": "object",
+   "properties": {
+      "report": {
+         "type": "string"
+      }
+   }
+}
+```
 
 ## Best practices
 
