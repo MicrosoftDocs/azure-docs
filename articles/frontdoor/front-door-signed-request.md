@@ -108,4 +108,4 @@ For information about quota limits, refer to [Front Door limits, quotas, and con
 
 - Learn how to configure [rules engine match conditions](rules-match-conditions.md).
 - Learn about [rules engine actions](front-door-rules-engine-actions.md).
-- Learn about [server variables](front-door-server-variables.md) using rules engine.
+- Learn about [server variables](/azure/frontdoor/rule-set-server-variables) using rules engine.
