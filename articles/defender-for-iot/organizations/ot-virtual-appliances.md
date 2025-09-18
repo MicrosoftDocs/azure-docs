@@ -41,18 +41,9 @@ This section outlines considerations for virtual appliance components, for both 
 
 ## OT network sensor VM requirements
 
-The following tables list system requirements for OT network sensors on virtual appliances, and performance measured in our qualification labs.
-
 For all deployments, bandwidth results for virtual machines may vary, depending on the distribution of protocols and the actual hardware resources that are available, including the CPU model, memory bandwidth, and IOPS.
 
-|Hardware profile  |Performance / Monitoring  |Physical specifications  |
-|---------|---------|---------|
-|**C5600**     |   **Max bandwidth**: 2.5 Gb/sec <br>**Max monitored assets**: 12,000      | **vCPU**: 32 <br>**Memory**: 32 GB <br>**Storage**: 5.6 TB (600 IOPS)        |
-|**E1800**     |    **Max bandwidth**: 800 Mb/sec <br>**Max monitored assets**: 10,000      | **vCPU**: 8 <br>**Memory**: 32 GB <br>**Storage**: 1.8 TB (300 IOPS)        |
-|**E1000**     |    **Max bandwidth**: 800 Mb/sec <br>**Max monitored assets**: 10,000      | **vCPU**: 8 <br>**Memory**: 32 GB <br>**Storage**: 1 TB (300 IOPS)        |
-|**E500**     |    **Max bandwidth**: 800 Mb/sec <br>**Max monitored assets**: 10,000      | **vCPU**: 8 <br>**Memory**: 32 GB <br>**Storage**: 500 GB (300 IOPS)        |
-|**L500**     |   **Max bandwidth**: 160 Mb/sec <br>**Max monitored assets**: 1,000      | **vCPU**: 4 <br>**Memory**: 8 GB <br>**Storage**: 500 GB (150 IOPS)        |
-|**L100**     |    **Max bandwidth**: 100 Mb/sec <br>**Max monitored assets**: 800      | **vCPU**: 4 <br>**Memory**: 8 GB <br>**Storage**: 100 GB (150 IOPS)        |
+To review system requirements and performance details for OT network sensors on specific virtual appliances, see the [appliance catalog](appliance-catalog/index.yml).
 
 > [!NOTE]
 > You don't need to preinstall an operating system on the VM, the sensor installation includes the operating system image.
