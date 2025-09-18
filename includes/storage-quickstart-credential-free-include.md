@@ -7,7 +7,9 @@ ms.service: azure-storage
 ms.topic: include
 ms.date: 01/30/2024
 ms.author: pauljewell
-ms.custom: include file
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 ### Authenticate to Azure and authorize access to blob data

@@ -5,8 +5,13 @@ ms.service: azure-iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: include
-ms.custom: [mvc, mqtt, 'Role: Cloud Development', devx-track-azurecli]
 ms.date: 03/28/2025
+ms.custom:
+  - mvc
+  - mqtt
+  - 'Role: Cloud Development'
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 ---
 
 The quickstart uses two prewritten .NET applications:

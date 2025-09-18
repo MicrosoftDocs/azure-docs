@@ -4,7 +4,7 @@ titleSuffix: An Azure Communication Services tutorial
 description: Learn how to register for Android SDK push notifications using Google Firebase Cloud Messaging (FCM HTTP v1).
 author: awang119
 services: azure-communication-services
-ms.author: awang119
+ms.author: anniewang
 ms.date: 05/31/2024
 ms.topic: tutorial
 ms.service: azure-communication-services

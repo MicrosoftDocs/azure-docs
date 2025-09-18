@@ -7,6 +7,7 @@ ms.service: azure-firewall-manager
 ms.topic: tutorial
 ms.date: 02/10/2025
 ms.author: duau
+ms.custom: sfi-image-nochange
 ---
 
 # Tutorial: Secure your virtual hub using Azure Firewall Manager

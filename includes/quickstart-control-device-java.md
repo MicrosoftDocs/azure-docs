@@ -5,8 +5,13 @@ ms.service: azure-iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: include
-ms.custom: mvc, mqtt, devx-track-java, devx-track-azurecli
 ms.date: 03/28/2025
+ms.custom:
+  - mvc
+  - mqtt
+  - devx-track-java
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 ---
 
 This quickstart uses two Java applications: 

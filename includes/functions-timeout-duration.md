@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.custom:
   - build-2024
 ms.topic: include
-ms.date: 02/04/2025
+ms.date: 08/29/2025
 ms.author: glenga
 ---
 ## <a name="timeout"></a>Function app time-out duration 
 
-The time-out duration for functions in a function app is defined by the `functionTimeout` property in the [host.json](../articles/azure-functions/functions-host-json.md#functiontimeout) project file. This property applies specifically to function executions. After the trigger starts function execution, the function needs to return/respond within the time-out duration. To avoid time-outs, it's important to [write robust functions](../articles/azure-functions/functions-best-practices.md#write-robust-functions). For more information, see [Improve Azure Functions performance and reliability](../articles/azure-functions/performance-reliability.md#make-sure-background-tasks-complete). 
+The time-out duration for functions in a function app is defined by the `functionTimeout` property in the [host.json](../articles/azure-functions/functions-host-json.md#functiontimeout) project file. This property applies specifically to function executions. After the trigger starts function execution, the function needs to return/respond within the time-out duration. To avoid timeouts, it's important to [write robust functions](../articles/azure-functions/functions-best-practices.md#write-robust-functions). For more information, see [Improve Azure Functions performance and reliability](../articles/azure-functions/performance-reliability.md#make-sure-background-tasks-complete). 
 
 The following table shows the default and maximum values (in minutes) for specific plans:
 
@@ -26,3 +26,5 @@ The following table shows the default and maximum values (in minutes) for specif
 3. Requires the App Service plan be set to [Always On](/azure/azure-functions/dedicated-plan#always-on). A grace period of 10 minutes is given during platform updates.
 4. The default time-out for version 1.x of the Functions host runtime is _unbounded_. 
 5. When the [minimum number of replicas](../articles/container-apps/scale-app.md#scale-definition) is set to zero, the default time-out depends on the specific triggers used in the app.  
+
+The values in this table assume that the Azure Functions host process has started and is running correctly. There is a maximum timeout of 60 seconds allowed for the language-specific worker process to also start. The worker process startup timeout isn't currently configurable.

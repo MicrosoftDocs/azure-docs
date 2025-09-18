@@ -3,6 +3,7 @@ title: Run queries with Azure Resource Graph Power BI connector
 description: In this quickstart, you learn how to run queries with the Azure Resource Graph Power BI connector.
 ms.date: 05/08/2024
 ms.topic: quickstart
+ms.custom: sfi-image-nochange
 ---
 
 # Quickstart: Run queries with the Azure Resource Graph Power BI connector

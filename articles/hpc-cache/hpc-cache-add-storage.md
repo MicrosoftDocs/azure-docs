@@ -5,8 +5,10 @@ author: ekpgh
 ms.service: azure-hpc-cache
 ms.topic: how-to
 ms.date: 3/1/2023
-ms.custom: subject-rbac-steps
 ms.author: kianaharris
+ms.custom:
+  - subject-rbac-steps
+  - sfi-image-nochange
 # Customer intent: "As an IT administrator, I want to configure storage targets for Azure HPC Cache, so that I can optimize data access using my on-premises NFS or Azure Blob storage for efficient file storage and retrieval."
 ---
 

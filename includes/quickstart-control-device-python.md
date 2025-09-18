@@ -5,8 +5,14 @@ ms.service: azure-iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: include
-ms.custom: [mvc, mqtt, devx-track-python, devx-track-azurecli]
 ms.date: 03/28/2025
+ms.custom:
+  - mvc
+  - mqtt
+  - devx-track-python
+  - devx-track-azurecli
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 This quickstart uses two Python applications: 

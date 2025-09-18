@@ -7,7 +7,9 @@ ms.topic: tutorial
 ms.service: azure-firewall-manager
 ms.date: 10/22/2020
 ms.author: duau
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 ---
 
 # Tutorial: Secure your virtual hub using Azure PowerShell

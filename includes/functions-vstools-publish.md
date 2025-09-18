@@ -4,7 +4,9 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 06/29/2025
 ms.author: glenga
-ms.custom: devdivchpfy22
+ms.custom:
+  - devdivchpfy22
+  - sfi-image-nochange
 ---
 
 1. In **Solution Explorer**, right-click the project and select **Publish**. In **Target**, select **Azure**, and then select **Next**.

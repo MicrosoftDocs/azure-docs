@@ -8,6 +8,7 @@ ms.service: azure-data-box-gateway
 ms.topic: tutorial
 ms.date: 08/19/2024
 ms.author: shaas
+ms.custom: sfi-image-nochange
 #Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Gateway so I can use it to transfer data to Azure.  
 # Customer intent: As an IT admin, I want to prepare the Azure portal for deploying Data Box Gateway so that I can efficiently manage data transfer to Azure.
 ---

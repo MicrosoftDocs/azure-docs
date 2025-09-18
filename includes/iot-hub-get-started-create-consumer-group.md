@@ -4,6 +4,7 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.topic: include
 ms.date: 05/22/2025
+ms.custom: sfi-image-nochange
 ---
 ## Add a consumer group to your IoT hub
 

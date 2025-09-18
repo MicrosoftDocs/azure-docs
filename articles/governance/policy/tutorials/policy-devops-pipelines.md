@@ -4,7 +4,9 @@ description: In this tutorial, you implement an Azure Policy with an Azure DevOp
 ms.date: 03/04/2025
 ms.topic: tutorial
 ms.author: jukullam
-ms.custom: devops-pipelines-deploy
+ms.custom:
+  - devops-pipelines-deploy
+  - sfi-image-nochange
 ---
 
 # Implement Azure Policy with Azure DevOps release pipelines
