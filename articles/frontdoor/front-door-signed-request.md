@@ -59,7 +59,7 @@ Follow these steps to configure signed request using the Azure portal:
 
 # [**ARM template**](#tab/arm)
 
-Use the following JSON snippet to configure signed request in your rules engine using an ARM template:
+Use the following JSON snippet to configure signed request in your rules engine using an Azure Resource Manager (ARM) template:
 
 ```json
 {
@@ -88,6 +88,7 @@ The signature is typically passed via:
 - Query string: `?expires=<epoch>&keyId=<keyId>&signature=<hash>`
 - Headers: `expires`, `keyId`, `signature`
 - Cookies: `expires`, `keyId`, `signature`
+
 The hash is computed using HMAC-SHA256 over the request path and parameters.
 
 ## Rules engine match conditions
@@ -118,6 +119,6 @@ For information about quota limits, see [Front Door limits, quotas, and constrai
 
 ## Related content
 
-- Learn how to configure [rules engine match conditions](/azure/frontdoor/rules-match-conditions.md).
-- Learn about [rules engine actions](/azure/frontdoor/front-door-rules-engine-actions.md).
+- Learn how to configure [rules engine match conditions](/azure/frontdoor/rules-match-conditions).
+- Learn about [rules engine actions](/azure/frontdoor/front-door-rules-engine-actions).
 - Learn about [server variables](/azure/frontdoor/rule-set-server-variables) using rules engine.
