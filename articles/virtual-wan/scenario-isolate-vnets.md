@@ -9,7 +9,9 @@ ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 03/26/2025
 ms.author: cherylmc
-ms.custom: fasttrack-edit
+ms.custom:
+  - fasttrack-edit
+  - sfi-image-nochange
 
 ---
 # Scenario: Isolating VNets

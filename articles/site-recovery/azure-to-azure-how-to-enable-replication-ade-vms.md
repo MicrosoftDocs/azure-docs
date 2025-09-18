@@ -6,6 +6,7 @@ ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 08/28/2024
 ms.author: jsuri
+ms.custom: sfi-image-nochange
 
 # Customer intent: As a cloud administrator, I want to configure replication for encrypted Azure VMs to another region, so that I can ensure disaster recovery and maintain data security across regions.
 ---

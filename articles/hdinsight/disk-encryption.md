@@ -6,8 +6,8 @@ ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.date: 06/15/2024
 ms.devlang: azurecli
-author: anuj1905
-ms.author: anujsharda
+author: apurbasroy
+ms.author: apsinhar
 ms.reviewer: hgowrisankar
 ms.custom:
   - devx-track-azurepowershell

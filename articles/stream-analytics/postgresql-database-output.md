@@ -6,6 +6,7 @@ ms.author: ali
 ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 05/12/2023
+ms.custom: sfi-ropc-nochange
 ---
 
 # Azure Database for PostgreSQL output from Azure Stream Analytics

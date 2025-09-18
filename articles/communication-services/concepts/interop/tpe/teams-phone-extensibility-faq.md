@@ -69,6 +69,7 @@ For TPE calls, we provide access to telemetry details similar to what is offered
 ## Why is my end user hearing an announcement that I didn't trigger whenever I start or pause the call recording?
 
 When a recording is started or paused in a call that includes a PSTN user and a Teams or Dual Persona user, the PSTN user will hear an announcement indicating the change. This is due to compliance requirements on Teams to ensure that all participants are aware of the recording status.
+If a partner wishes to disable these announcements, they may submit a request via this [form](https://forms.microsoft.com/r/6vW9Fc7RT8), which will be reviewed and processed promptly.
 
 ## How can I report issues related to TPE calls?
 

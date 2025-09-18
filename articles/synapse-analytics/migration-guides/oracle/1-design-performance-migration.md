@@ -8,6 +8,7 @@ author: ajagadish-24
 ms.author: ajagadish
 
 ms.date: 02/13/2023
+ms.custom: sfi-image-nochange
 ---
 
 # Design and performance for Oracle migrations

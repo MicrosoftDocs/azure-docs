@@ -6,9 +6,11 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: susabat
 ms.subservice: ci-cd
-ms.custom: synapse
 ms.topic: troubleshooting
 ms.date: 05/15/2024
+ms.custom:
+  - synapse
+  - sfi-ropc-nochange
 ---
 
 # Troubleshoot CI-CD, Azure DevOps, and GitHub issues in Azure Data Factory and Synapse Analytics 

@@ -7,6 +7,7 @@ ms.reviewer: whhender
 ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 02/13/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Visually monitor Azure Data Factory

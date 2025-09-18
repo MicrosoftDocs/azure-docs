@@ -6,8 +6,11 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: concept-article
-ms.custom: synapse
 ms.date: 07/25/2025
+ms.custom:
+  - synapse
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Copy and transform data in Azure Cosmos DB for NoSQL by using Azure Data Factory

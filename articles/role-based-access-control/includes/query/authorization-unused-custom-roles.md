@@ -1,9 +1,9 @@
 ---
-author: jenniferf-skc
+author: rolyon
 ms.service: resource-graph
 ms.topic: include
 ms.date: 05/30/2023
-ms.author: jfields
+ms.author: rolyon
 ms.custom:
   - build-2025
 ---
