@@ -98,44 +98,44 @@ Resources
 The following regions do not support Zone Redundant Storage (ZRS), if you have a general purpose v1 (GPv1) with ZRS redundancy account in one or more of the following regions, you will need to convert to GPv2 with GPv2 LRS and before finally converting to GPv2 GRS or migrate to a region that supports GPv2 ZRS.
 
 ### Azure global cloud
-- Australia Central
-- Australia Southeast
-- Canada East
-- Korea South
-- Malaysia South
-- North Central US
-- South India
-- Sweden South
-- UK West
-- West Central US
-- West India
-- West US
+- Australia Central.
+- Australia Southeast.
+- Canada East.
+- Korea South.
+- Malaysia South.
+- North Central US.
+- South India.
+- Sweden South.
+- UK West.
+- West Central US.
+- West India.
+- West US.
 
 ### Access-restricted regions
-- Australia Central 2
-- Brazil Southeast
-- France South
-- Germany North
-- Jio India Central
-- Jio India West
-- Norway West
-- South Africa West
-- Switzerland West
+- Australia Central 2.
+- Brazil Southeast.
+- France South.
+- Germany North.
+- Jio India Central.
+- Jio India West.
+- Norway West.
+- South Africa West.
+- Switzerland West.
 - UAE Central.
-- Taiwan North
-- Taiwan Northwest
+- Taiwan North.
+- Taiwan Northwest.
 
 ### Azure Government regions
-- USDoD Central
-- USDoD East
-- USGov Texas
+- USDoD Central.
+- USDoD East.
+- USGov Texas.
 
 ### Azure operated by 21Vianet
-- China East
-- China East 2
-- China East 3
-- China North
-- China North 2
+- China East.
+- China East 2.
+- China East 3.
+- China North.
+- China North 2.
 
 ### Information required for support request
 When contacting support, please provide the following information to help facilitate the migration process:
