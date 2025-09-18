@@ -118,33 +118,7 @@ You're now signed in to the developer portal for your API Management service ins
 
 ## Related content
 
-*  [Secure access to the API Management developer portal](secure-developer-portal-access.md)
-
-
-[How to add operations to an API]: ./mock-api-responses.md
-[How to add and publish a product]: api-management-howto-add-products.md
-[Monitoring and analytics]: api-management-monitoring.md
-[Add APIs to a product]: api-management-howto-add-products.md#add-apis
-[Publish a product]: api-management-howto-add-products.md#publish-product
-[Get started with Azure API Management]: get-started-create-service-instance.md
-[API Management policy reference]: ./api-management-policies.md
-[Caching policies]: ./api-management-policies.md#caching-policies
-[Create an API Management service instance]: get-started-create-service-instance.md
-
-[https://oauth.net/2/]: https://oauth.net/2/
-[WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[Azure Active Directory B2C overview]: ../active-directory-b2c/overview.md
-[How to authorize developer accounts using Azure Active Directory]: ./api-management-howto-aad.md
-[Azure Active Directory B2C: Extensible policy framework]: ../active-directory-b2c/user-flow-overview.md
-[Use a Microsoft account as an identity provider in Azure Active Directory B2C]: ../active-directory-b2c/identity-provider-microsoft-account.md
-[Use a Google account as an identity provider in Azure Active Directory B2C]: ../active-directory-b2c/identity-provider-google.md
-[Use a Facebook account as an identity provider in Azure Active Directory B2C]: ../active-directory-b2c/identity-provider-facebook.md
-[Use a LinkedIn account as an identity provider in Azure Active Directory B2C]: ../active-directory-b2c/identity-provider-linkedin.md
-
-[Prerequisites]: #prerequisites
-[Configure an OAuth 2.0 authorization server in API Management]: #step1
-[Configure an API to use OAuth 2.0 user authorization]: #step2
-[Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
-[Next steps]: #next-steps
-
-[Log in to the Developer portal using an Azure Active Directory account]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
+* [Secure access to the API Management developer portal](secure-developer-portal-access.md)
+* [Authorize access to API Management developer portal by using Microsoft Entra ID](api-management-howto-aad.md)
+* [Introduction to Microsoft Entra External ID](/entra/external-id/external-identities-overview)
+* [Supported features in workforce and external tenants](/entra/external-id/customers/concept-supported-features-customers)
