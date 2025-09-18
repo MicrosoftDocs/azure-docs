@@ -245,6 +245,10 @@ SDK Type support for Azure Cosmos is in Preview. Follow the [Python SDK Bindings
 
 ---
 
+> [!NOTE]
+> *Direct* mode connects directly to backend replicas over TCP and can provide lower latency, while *Gateway* mode routes requests via the front-end Gateway over HTTPS. For more details on trade-offs between connection modes, see [Azure Cosmos DB SDK connection modes](https://learn.microsoft.com/azure/cosmos-db/nosql/sdk-connection-modes).  
+
+
 ## Next steps
 
 - [Run a function when an Azure Cosmos DB document is created or modified (Trigger)](./functions-bindings-cosmosdb-v2-trigger.md)
