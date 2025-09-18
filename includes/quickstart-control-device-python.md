@@ -7,10 +7,10 @@ ms.devlang: python
 ms.topic: include
 ms.date: 03/28/2025
 ms.custom:
-  - [mvc
+  - mvc
   - mqtt
   - devx-track-python
-  - devx-track-azurecli]
+  - devx-track-azurecli
   - sfi-image-nochange
   - sfi-ropc-nochange
 ---

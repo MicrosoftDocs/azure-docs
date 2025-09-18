@@ -6,12 +6,12 @@ ms.devlang: csharp
 ms.topic: include
 ms.date: 1/6/2025
 ms.custom:
-  - [amqp
+  - amqp
   - mqtt
   - "Role: Cloud Development"
   - "Role: IoT Device"
   - devx-track-csharp
-  - devx-track-dotnet]
+  - devx-track-dotnet
   - sfi-ropc-nochange
 ---
 

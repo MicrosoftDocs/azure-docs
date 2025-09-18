@@ -6,9 +6,9 @@ ms.devlang: nodejs
 ms.topic: include
 ms.date: 12/19/2024
 ms.custom:
-  - [amqp
+  - amqp
   - mqtt
-  - devx-track-js]
+  - devx-track-js
   - sfi-ropc-nochange
 ---
 

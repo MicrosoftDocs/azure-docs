@@ -7,10 +7,10 @@ ms.devlang: nodejs
 ms.topic: include
 ms.date: 03/28/2025
 ms.custom:
-  - [mvc
+  - mvc
   - mqtt
   - "Role: Cloud Development"
-  - devx-track-azurecli]
+  - devx-track-azurecli
   - sfi-ropc-nochange
 ---
 

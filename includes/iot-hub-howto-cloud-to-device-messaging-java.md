@@ -6,10 +6,10 @@ ms.devlang: java
 ms.topic: include
 ms.date: 12/19/2024
 ms.custom:
-  - [amqp
+  - amqp
   - mqtt
   - devx-track-java
-  - devx-track-extended-java]
+  - devx-track-extended-java
   - sfi-ropc-nochange
 ---
 
