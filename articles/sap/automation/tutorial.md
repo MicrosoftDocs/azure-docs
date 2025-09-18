@@ -8,7 +8,9 @@ ms.date: 12/15/2023
 ms.topic: tutorial
 ms.service: sap-on-azure
 ms.subservice: sap-automation
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 # Customer intent: "As a cloud architect, I want to deploy the SAP Deployment Automation Framework on Azure, so that I can automate the provisioning and management of SAP environments at an enterprise scale."
 ---
 

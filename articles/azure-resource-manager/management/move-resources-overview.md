@@ -2,7 +2,7 @@
 title: Move Azure resources across resource groups, subscriptions, or regions.
 description: Overview of Azure resource types that can be moved across resource groups, subscriptions, or regions.
 ms.topic: conceptual
-ms.date: 09/26/2024
+ms.date: 09/15/2025
 ---
 
 # Move Azure resources across resource groups, subscriptions, or regions

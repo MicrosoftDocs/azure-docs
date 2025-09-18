@@ -10,7 +10,9 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 9/01/2021
 ms.author: jushiman
-ms.custom: H1Hack27Feb2017
+ms.custom:
+  - H1Hack27Feb2017
+  - sfi-image-nochange
 # Customer intent: "As a system administrator, I want to configure high availability for SAP HANA on SUSE using fencing devices, so that I can ensure continuous operation and quick recovery in case of failures."
 ---
 # High availability setup in SUSE using the fencing device

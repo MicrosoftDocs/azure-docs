@@ -5,11 +5,15 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/26/2020
-ms.custom: UpdateFrequency2
+ms.custom:
+  - UpdateFrequency2
+  - sfi-image-nochange
 ---
 
 # Save custom images and distribute to multiple labs
 This article gives you the steps to save custom images from the already created virtual machines (VMs). It also covers how to distribute these custom images to other DevTest Labs in the organization.
+
+[!INCLUDE [direct-azure-image-builder](includes/direct-azure-image-builder.md)]
 
 ## Prerequisites
 The following items should already be in place:

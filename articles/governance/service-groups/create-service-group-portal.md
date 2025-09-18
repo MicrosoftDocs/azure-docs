@@ -2,7 +2,7 @@
 title: "Quickstart: Create a service group using the Azure portal - Azure Governance"
 description: In this quickstart, you use the portal to create a service group to organize your resources.
 author: rthorn17
-ms.author: rithorn
+ms.author: kenieva
 ms.service: azure-policy
 ms.topic: quickstart  
 ms.date: 5/19/2025
@@ -26,9 +26,9 @@ Azure Service Groups offer a flexible way to organize and manage resources acros
 
 ## Create in Azure portal
 
-1. Log into the [Azure portal](https://preview.portal.azure.com/#view/Microsoft_Azure_Resources/ServiceGroupsBrowse.ReactView).
+1. Log into the [Azure portal](https://portal.azure.com/).
 3. Search **Service Groups**.
-4. Select **+ Add Service Group**.
+4. Select **+ Create Service Group**.
     
 :::image type="content" source="./media/create-service-group.png" alt-text="Screenshot of new Service Group screen." Lightbox = "./media/create-service-group.png" :::
 5. Fill in the service group ID field
@@ -54,9 +54,7 @@ Azure Service Groups offer a flexible way to organize and manage resources acros
 
 ## Clean up resources
 
-1. Select **All services** > **Management + governance**.
-
-1. Select **Service Groups**.
+1. Search **Service Groups**.
 
 1. Find the service group created that you want to delete, select it, then select the box. 
 

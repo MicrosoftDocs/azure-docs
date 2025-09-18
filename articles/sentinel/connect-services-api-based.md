@@ -1,11 +1,10 @@
 ---
 title: Connect Microsoft Sentinel to other Microsoft services with an API-based data connector
 description: Learn how to connect Microsoft Sentinel to Microsoft services with API-based connections.
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.date: 02/24/2023
-ms.author: yelevin
-
 
 #Customer intent: As a security engineer, I want to connect various Microsoft services to Microsoft Sentinel using API-based data connectors so that I can centralize and streamline security event monitoring and incident management.
 

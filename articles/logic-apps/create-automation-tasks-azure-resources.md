@@ -5,7 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/22/2025
+ms.date: 09/18/2025
+ms.custom: sfi-image-nochange
 #Customer intent: As an integration developer, I want to use automated tasks in Azure Logic Apps to manage resources, like virtual machines and Azure Storage, to create email notifications, power off virtual machines, and other tasks.
 ---
 

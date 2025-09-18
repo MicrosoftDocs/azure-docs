@@ -6,7 +6,9 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/02/2024
-ms.custom: UpdateFrequency2
+ms.custom:
+  - UpdateFrequency2
+  - sfi-image-nochange
 
 #customer intent: As a developer, I want to add and configure virtual networks and subnets in Azure DevTest Labs so I can use them to create virtual machines.
 ---

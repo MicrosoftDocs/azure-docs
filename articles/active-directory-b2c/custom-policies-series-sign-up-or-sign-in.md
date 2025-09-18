@@ -9,11 +9,13 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: how-to
-ms.custom: b2c-docs-improvements
 ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: b2c
+ms.custom:
+  - b2c-docs-improvements
+  - sfi-image-nochange
 
 
 #Customer intent: As a developer, I want to set up a sign-up and sign-in flow for a local account using Azure Active Directory B2C custom policy, so that users can create and sign in to their accounts in my application.

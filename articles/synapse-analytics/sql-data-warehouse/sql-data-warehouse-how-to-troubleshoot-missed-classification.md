@@ -9,6 +9,7 @@ ms.subservice: sql-dw
 ms.topic: how-to
 ms.custom:
   - template-how-to
+  - sfi-image-nochange
 ---
 
 # Troubleshoot a misclassified workload in Azure Synapse Analytics

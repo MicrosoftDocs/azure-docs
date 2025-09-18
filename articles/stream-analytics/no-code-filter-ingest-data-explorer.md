@@ -6,6 +6,7 @@ ms.author: xujiang1
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 10/12/2022
+ms.custom: sfi-image-nochange
 ---
 
 # Filter and ingest to Azure Data Explorer using the Stream Analytics no code editor
