@@ -7,7 +7,7 @@ ms.topic: limits-and-quotas
 
 # OT monitoring with virtual appliances
 
-This article is one in a series of articles describing the [deployment path](ot-deploy/ot-deploy-path.md) for OT monitoring with Microsoft Defender for IoT, and lists the specifications required if you want to install Microsoft Defender for IoT software on your own virtual appliances.
+This article is one in a series of articles describing the [deployment path](ot-deploy/ot-deploy-path.md) for operational technology (OT) monitoring with Microsoft Defender for IoT, and lists the specifications required if you want to install Microsoft Defender for IoT software on your own virtual appliances.
 
 :::image type="content" source="media/deployment-paths/progress-plan-and-prepare.png" alt-text="Diagram of a progress bar with Plan and prepare highlighted." border="false" lightbox="media/deployment-paths/progress-plan-and-prepare.png":::
 
