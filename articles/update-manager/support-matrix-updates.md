@@ -34,12 +34,12 @@ Update Manager supports the following operating system versions on VMs for all o
 
 >[!NOTE]
 > * x64 and select ARM64 operating systems are currently supported.
-> * x86 operating systems are not supported.
+> * x86 operating systems aren't supported.
 > * Azure Update Manager (AUM) doesn't accept End User License Agreements on behalf of users. As a result, AUM can't install updates that require EULA acceptance.
 
 Following is the list of supported images and no other marketplace images released by any other publisher are supported for use with Azure Update Manager.
 
-The asterisk (*) in the Offer or Plan columns acts as a wildcard. * means all possible values are supported.
+An asterisk (*) in the Offer or Plan columns represents a wildcard character. It indicates that all possible values are supported.
 
 - Supported Windows x64 OS images 
 - Supported Linux x64 OS images 
@@ -279,9 +279,6 @@ The asterisk (*) in the Offer or Plan columns acts as a wildcard. * means all po
 |tenable| tenablecorewas| tenablecoreol8wasbyol||
 |thorntechnologiesllc| sftpgateway| sftpgateway||
 |zscaler| zscaler-private-access| zpa-con-azure||
-
-|Publisher |Offer |Plan |Unsupported image(s) |
-|--|--|--|--|
 | canonical  | * |* |  |
 |redhat | rhel-arm64 | 9_0-arm64 | |
 |redhat | rhel-arm64 |8_6-arm64 | |
