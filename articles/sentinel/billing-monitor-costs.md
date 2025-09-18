@@ -185,15 +185,15 @@ To configure a notification threshold policy on a capability:
 
 2. On the **Create new policy** side panel that appears, enter a value for your total threshold. 
    
-     :::image type="content" source="media/billing-monitor-costs/threshold-input.png" alt-text="Screenshot Set up policy side panel with the threshold text box highlighted." lightbox="media/billing-monitor-costs/threshold-input.png":::
+     :::image type="content" source="media/billing-monitor-costs/threshold-input.png" alt-text="Screenshot of the Create new policy side panel with the threshold text box highlighted." lightbox="media/billing-monitor-costs/threshold-input.png":::
 
 3. Enter an **Alert percentage** value to set the alert threshold for the total value you set previously then select **Next**.
 
-      :::image type="content" source="media/billing-monitor-costs/threshold-alert.png" alt-text="Screenshot Set up policy side panel with the alert threshold option highlighted." lightbox="media/billing-monitor-costs/threshold-alert.png":::
+      :::image type="content" source="media/billing-monitor-costs/threshold-alert.png" alt-text="Screenshot of the Create new policy side panel with the alert threshold option highlighted." lightbox="media/billing-monitor-costs/threshold-alert.png":::
 
 4. Review your settings then select **Submit**.
 
-      :::image type="content" source="media/billing-monitor-costs/threshold-submit.png" alt-text="Screenshot Set up policy side panel with the alert threshold option highlighted." lightbox="media/billing-monitor-costs/threshold-submit.png":::
+      :::image type="content" source="media/billing-monitor-costs/threshold-submit.png" alt-text="Screenshot of the Create new policy side panel showing the Review and Submit page." lightbox="media/billing-monitor-costs/threshold-submit.png":::
 
 ## Using Azure Prepayment with Microsoft Sentinel
 
