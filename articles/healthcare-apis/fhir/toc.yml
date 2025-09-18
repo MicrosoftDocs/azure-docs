@@ -84,6 +84,8 @@ items:
   items:
     - name: $bulk-delete
       href: fhir-bulk-delete.md
+    - name: $bulk-delete
+      href: fhir-bulk-update.md      
     - name: $convert-data
       items: 
         - name: Configure settings for $convert-data
