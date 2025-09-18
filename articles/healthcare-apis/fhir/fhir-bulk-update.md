@@ -50,11 +50,11 @@ You can use FHIR search parameters in the request. The bulk update operation sup
 
  `PATCH https://{FHIR-SERVICE-HOST}/$bulk-update`
  
-3. Updates scoped to individual resource type: Execution of the operation for individual resource types allows update on FHIR resources that map to the resource type in the URL.
+2. Updates scoped to individual resource type: Execution of the operation for individual resource types allows update on FHIR resources that map to the resource type in the URL.
  
  `PATCH https://{FHIR-SERVICE-HOST}/[ResourceType]/$bulk-update`
 
-4. Querying resources to update based on search parameters. In this example we will be using `_include` and `_revinclude`
+3. Querying resources to update based on search parameters. In this example we will be using `_include` and `_revinclude`
    Update all Patient resources last updated before 2021-12-18 and any resources referencing them:
 
  `PATCH {FHIR-SERVICE-HOST}/Patient/$bulk-update?_lastUpdated=lt2021-12-18&_revinclude=*`
