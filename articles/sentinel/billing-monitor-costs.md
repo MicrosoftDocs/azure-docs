@@ -169,7 +169,7 @@ When you select one of the capabilities under **Usage reports**, you can view an
 
 - **General trend report** - Displays a trend line of your billable usage for that capability. This report is currently available for data lake query and advanced data insights, and will be made available for the other capabilities over time.
 
-  :::image type="content" source="media/billing-monitor-costs/general-trend-report.png" alt-text="Screenshot of a cost management in the Microsoft Defender portal showing the general trend report for data lake query." lightbox="media/billing-monitor-costs/general-trend-report.png":::
+  :::image type="content" source="media/billing-monitor-costs/general-trend-report.png" alt-text="Screenshot of a cost management in the Microsoft Defender portal showing the general trend report for advanced data insights." lightbox="media/billing-monitor-costs/general-trend-report.png":::
 
 You can use a filter to adjust the default single month time window. A card shows your total usage for the filtered time period. If enough historic data is available, the trend change compared to the previous period is displayed.
 
@@ -177,22 +177,23 @@ You can use a filter to adjust the default single month time window. A card show
 
 The **Notification** page lets you configure notification thresholds for each capability so you can receive email notifications when your usage reaches that threshold. Setting these thresholds helps you keep track of your usage and prevent unexpected charges. Currently, the email notifications go to the billing administrator that configured them.
 
-To configure notification thresholds on a capability:
+To configure a notification threshold policy on a capability:
 
 1. Select **Configuration** beside the capability. 
    
       :::image type="content" source="media/billing-monitor-costs/threshold-configuration.png" alt-text="Screenshot of the Notification page in cost management in the Microsoft Defender portal with the Configuration button highlighted." lightbox="media/billing-monitor-costs/threshold-configuration.png":::
 
-2. On the **Set up policy** side panel that appears, enter a value for **Set up GBs analyzed threshold**.
+2. On the **Create new policy** side panel that appears, enter a value for your total threshold. 
    
      :::image type="content" source="media/billing-monitor-costs/threshold-input.png" alt-text="Screenshot Set up policy side panel with the threshold text box highlighted." lightbox="media/billing-monitor-costs/threshold-input.png":::
 
-3. If you wish to set an alert threshold, tick the optional checkbox and enter a percentage value.
+3. Enter an **Alert percentage** value to set the alert threshold for the total value you set previously then select **Next**.
 
       :::image type="content" source="media/billing-monitor-costs/threshold-alert.png" alt-text="Screenshot Set up policy side panel with the alert threshold option highlighted." lightbox="media/billing-monitor-costs/threshold-alert.png":::
 
-4. Select **Next** to review your settings.
-5. Select **Finish**.
+4. Review your settings then select **Submit**.
+
+      :::image type="content" source="media/billing-monitor-costs/threshold-submit.png" alt-text="Screenshot Set up policy side panel with the alert threshold option highlighted." lightbox="media/billing-monitor-costs/threshold-submit.png":::
 
 ## Using Azure Prepayment with Microsoft Sentinel
 
