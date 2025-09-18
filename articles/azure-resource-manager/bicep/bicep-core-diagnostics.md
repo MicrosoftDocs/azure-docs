@@ -42,7 +42,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP025' />BCP025 | Error | The property `{property}` is declared multiple times in this object. Remove or rename the duplicate properties. |
 | <a id='BCP026' />BCP026 | Error | The output expects a value of type `{expectedType}`, but the provided value is of type `{actualType}`. |
 | <a id='BCP028' />BCP028 | Error | Identifier `{identifier}` is declared multiple times. Remove or rename the duplicates. |
-| <a id='BCP029' />BCP029 | Error | The resource type isn't valid. Specify a valid resource type of format `<types>@<apiVersion>`. |
+| <a id='BCP029' />[BCP029](./diagnostics/bcp029.md) | Error | The resource type isn't valid. Specify a valid resource type of format `<types>@<apiVersion>`. |
 | <a id='BCP030' />BCP030 | Error | The output type isn't valid. Specify one of the following types: `{ToQuotedString(validTypes)}`. |
 | <a id='BCP031' />BCP031 | Error | The parameter type isn't valid. Specify one of the following types: `{ToQuotedString(validTypes)}`. |
 | <a id='BCP032' />BCP032 | Error | The value must be a compile-time constant. |
@@ -401,7 +401,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP419' />BCP419 | Error | Namespace name `{name}` cannot be used as an extension name.|
 | <a id='BCP420' />[BCP420](./diagnostics/bcp420.md) | Error | The scope could not be resolved at compile time because the supplied expression is ambiguous or too complex. Scoping expressions must be reducible to a specific kind of scope without knowledge of parameter values. |
 | <a id='BCP421' />BCP421 | Error | Module `{moduleName}` contains one or more secure outputs, which are not supported with `{LanguageConstants.TargetScopeKeyword}` set to `{LanguageConstants.TargetScopeTypeLocal}`.|
-| <a id='BCP422' />BCP422 | Error | A resource of type `{baseType}` may or may not exist when this function is called, which could cause the deployment to fail.|
+| <a id='BCP422' />[BCP422](./diagnostics/bcp422.md) | Warning | A resource of type `<resource-type>` may or may not exist when this function is called, which could cause the deployment to fail.|
 
 ## Next steps
 
