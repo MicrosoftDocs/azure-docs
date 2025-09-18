@@ -47,9 +47,6 @@ Azure Managed Redis supports Redis version 7.4.x. For more information, see [How
 There are four tiers of Azure Managed Redis available, each with different performance characteristics and price levels.
 
 Three tiers are for in-memory data:
-
-[!INCLUDE [tier-preview](includes/tier-preview.md)]
-
 - **Memory Optimized** Ideal for memory-intensive use cases that require a high memory-to-vCPU ratio (8:1) but don't need the highest throughput performance. It provides a lower price point for scenarios where less processing power or throughput is necessary, making it an excellent choice for development and testing environments.
 - **Balanced (Memory + Compute)** Offers a balanced memory-to-vCPU (4:1) ratio, making it ideal for standard workloads. This tier provides a healthy balance of memory and compute resources.
 - **Compute Optimized** Designed for performance-intensive workloads requiring maximum throughput, with a low memory-to-vCPU (2:1) ratio. It's ideal for applications that demand the highest performance.
@@ -62,16 +59,18 @@ One tier stores data both in-memory and on-disk:
 > For more information on how the Flash Optimized tier is architected, see [Azure Managed Redis Architecture](architecture.md#flash-optimized-tier)
 >
 
+For instructions on how to scale between tiers and SKUs, see [Scale an Azure Managed Redis instance](how-to-scale.md).
+
+[!INCLUDE [tier-preview](includes/tier-preview.md)]
+
 >[!IMPORTANT]
-> You can also use the [data persistence (preview)](how-to-persistence.md) feature to store data on-disk for the in-memory tiers. Data persistence stores a backup copy of data on-disk for quick recovery if you experience  an unexpected outage. This is different than the Flash Optimized tier, which is designed to store data on-disk for typical operations.
+> You can also use the [data persistence](how-to-persistence.md) feature to store data on-disk for the in-memory tiers. Data persistence stores a backup copy of data on-disk for quick recovery if you experience  an unexpected outage. This is different than the Flash Optimized tier, which is designed to store data on-disk for typical operations.
 > Storing some data on-disk using the Flash Optimized tier doesn't increase data resiliency. You can use data persistence on the Flash Optimized tier as well.
 >
 
-For instructions on how to scale between tiers and SKUs, see [Scale an Azure Managed Redis instance](how-to-scale.md).
-
 ### Tiers and SKUs at a glance
 
-:::image type="content" source="media/how-to-scale/tier-diagram.png" alt-text="Table showing the different memory and vCPU configurations for each SKU and tier of Azure Managed Redis.":::
+:::image type="content" source="media/overview/sku-tiers.png" alt-text="An image of a table that shows a comparison of skus and tiers.":::
 
 For pricing information, see the [Azure Managed Redis Pricing](https://aka.ms/amrpricing)
 
@@ -87,8 +86,8 @@ The following table helps describe some of the features supported by tier:
 | [Replication and failover](failover.md)                                                 | Yes               | Yes               | Yes               | Yes               |
 | [Network isolation](private-link.md)                                                    | Yes               | Yes               | Yes               | Yes               |
 | [Microsoft Entra ID based authentication](entra-for-authentication.md)                             | Yes               | Yes               | Yes               | Yes               |
-| [Scaling (preview)](how-to-scale.md)                                                              | Yes               | Yes               | Yes               | Yes               |
-| [Data persistence (preview)](how-to-persistence.md)                                       | Yes               | Yes               | Yes               | Yes               |
+| [Scaling](how-to-scale.md)                                                              | Yes               | Yes               | Yes               | Yes               |
+| [Data persistence](how-to-persistence.md)                                       | Yes               | Yes               | Yes               | Yes               |
 | [Zone redundancy](high-availability.md)                                                 | Yes               | Yes               | Yes               | Yes               |
 | [Geo-replication](how-to-active-geo-replication.md)                                     | Yes (Active)      | Yes (Active)      | Yes (Active)      | No                |
 | Non-clustered instances                                                               | Yes             | Yes               | Yes                 | No                |
@@ -112,7 +111,9 @@ The following table helps describe some of the features supported by tier:
 - **Network performance**: If you have a workload that requires high throughput, network bandwidth might cause a bottleneck. You can increase bandwidth by moving up to a higher performance tier or by moving to a large instance size. Larger size instances have more bandwidth because of the underlying VM that hosts the cache. Higher bandwidth limits help you avoid network saturation that causes timeouts in your application. For more information on bandwidth performance, see [Performance testing](best-practices-performance.md)
 - **Maximum number of client connections**: Each SKU has a maximum number of client connections. This limit increases with higher performance tiers and larger instances sizes. The following table shows the maximum client connections allowed per Azure Managed Redis SKU.
 
-[!INCLUDE [tier-preview](includes/tier-preview.md)]
+
+The following table indicates the maximum number of client connections.
+
 
 |  Size (GB)  |    Memory Optimized   |    Balanced   |   Compute Optimized  |  Flash Optimized (preview)|
 |:-----------:|:---------------------:|:-------------:|:--------------------:|:--------------------:|
@@ -134,7 +135,9 @@ The following table helps describe some of the features supported by tier:
 |     1920 *  |   200,000              |        -       |         -             |       200,000         |
 |     4500 *  |       -                |        -       |         -             |       200,000         |
 
-  \* These tiers are in Public Preview.
+  \* These tiers over 120 GB in size are in Public Preview.
+
+[!INCLUDE [tier-preview](includes/tier-preview.md)]
 
 - **High availability**: Azure Managed Redis provides high availability. The SLA only covers connectivity to the cache endpoints. The SLA doesn't cover protection from data loss. For more information on the SLA, see the [SLA](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). It's possible to disable high availability in an Azure Managed Redis instance. This lowers the price but results in data loss and downtime. We only recommend disabling high availability for dev/test scenarios.
 
