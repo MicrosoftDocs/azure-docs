@@ -208,7 +208,13 @@ public String myOrchestrator(
 > The `context.Version` property is **read-only** and reflects the version that was permanently associated with the orchestration instance when it was created. You cannot modify this value during orchestration execution. If you want to specify a version through means other than `host.json`, you can do so when starting an orchestration instance with the orchestration client APIs (see [Starting new orchestrations and sub-orchestrations with specific versions](#starting-new-orchestrations-and-sub-orchestrations-with-specific-versions)).
 
 > [!TIP]
-> If you're just starting to use orchestration versioning and you already have in-flight orchestrations that were created before you specified a `defaultVersion`, you can still add the `defaultVersion` setting to your `host.json` now. For all previously created orchestrations, `context.Version` returns `null` (or an equivalent language-dependent value), so you can structure your orchestrator logic to handle both the legacy (null version) and new versioned orchestrations accordingly. In C#, you can check for `context.Version == null` or `context.Version is null` to handle the legacy case. In JavaScript, check for `context.df.version == null`. In Python, check for `context.version is None`. In PowerShell, check for `$null -eq $Context.Version`. In Java, check for `context.getVersion() == null`. Also note that specifying `"defaultVersion": null` in `host.json` is equivalent to not specifying it at all.
+> If you're just starting to use orchestration versioning and you already have in-flight orchestrations that were created before you specified a `defaultVersion`, you can still add the `defaultVersion` setting to your `host.json` now. For all previously created orchestrations, `context.Version` returns `null` (or an equivalent language-dependent value), so you can structure your orchestrator logic to handle both the legacy (null version) and new versioned orchestrations accordingly. The following are the language-dependent values to check for the legacy case:
+- C#: `context.Version == null` or `context.Version is null` 
+- JavaScript: `context.df.version == null`
+- Python: `context.version is None`
+- PowerShell: `$null -eq $Context.Version`
+- Java: `context.getVersion() == null`
+Also note that specifying `"defaultVersion": null` in `host.json` is equivalent to not specifying it at all.
 
 > [!TIP]
 > Depending on your situation, you may prefer branching on different levels. You can make a local change precisely where this change is required, like the example shows. Alternatively, you can branch at a higher level, even at the entire orchestrator implementation level, which introduces some code duplication, but may keep the execution flow clear. It's up to you to choose the approach that best fits your scenario and coding style.
