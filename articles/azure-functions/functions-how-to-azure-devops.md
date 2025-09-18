@@ -78,27 +78,34 @@ You can use the following sample to create a YAML file to build a .NET app:
 pool:
   vmImage: 'windows-latest'
 steps:
-- script: |
-    dotnet restore
-    dotnet build --configuration Release
-- task: DotNetCoreCLI@2
-  inputs:
-    command: publish
-    arguments: '--configuration Release --output publish_output'
-    projects: '*.csproj'
-    publishWebProjects: false
-    modifyOutputPath: false
-    zipAfterPublish: false
-- task: ArchiveFiles@2
-  displayName: "Archive files"
-  inputs:
-    rootFolderOrFile: "$(System.DefaultWorkingDirectory)/publish_output"
-    includeRootFolder: false
-    archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
-    artifactName: 'drop'
+  - task: UseDotNet@2
+    displayName: 'Install .NET 8.0 SDK'
+    inputs:
+      packageType: 'sdk'
+      version: '8.0.x'
+      installationPath: $(Agent.ToolsDirectory)/dotnet
+  - script: |
+      dotnet restore
+      dotnet build --configuration Release
+  - task: DotNetCoreCLI@2
+    displayName: 'dotnet publish'
+    inputs:
+      command: publish
+      arguments: '--configuration Release --output $(System.DefaultWorkingDirectory)/publish_output'
+      projects: 'csharp/*.csproj'
+      publishWebProjects: false
+      modifyOutputPath: false
+      zipAfterPublish: false
+  - task: ArchiveFiles@2
+    displayName: "Archive files"
+    inputs:
+      rootFolderOrFile: "$(System.DefaultWorkingDirectory)/publish_output"
+      includeRootFolder: false
+      archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
+      artifactName: 'drop'
 ```
 
 #### [JavaScript](#tab/javascript)
@@ -110,10 +117,6 @@ pool:
   vmImage: ubuntu-latest # Use 'windows-latest' if you have Windows native +Node modules
 steps:
 - bash: |
-    if [ -f extensions.csproj ]
-    then
-        dotnet build extensions.csproj --output ./bin
-    fi
     npm install 
     npm run build --if-present
     npm prune --omit=dev
@@ -139,9 +142,9 @@ pool:
   vmImage: ubuntu-latest
 steps:
 - task: UsePythonVersion@0
-  displayName: "Set Python version to 3.9"
+  displayName: "Set Python version to 3.11"
   inputs:
-    versionSpec: '3.9'
+    versionSpec: '3.11'
     architecture: 'x64'
 - bash: |
     if [ -f extensions.csproj ]
@@ -210,7 +213,7 @@ variables:
     azureSubscription: <AZURE_SERVICE_CONNECTION>
     appType: functionApp # this specifies a Windows-based function app
     appName: $(appName)
-    package: $(System.ArtifactsDirectory)/**/*.zip
+    package: $(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip
     deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required. Deployment method. Default: auto.
     #Uncomment the next lines to deploy to a deployment slot
     #Note that deployment slots is not supported for Linux Dynamic SKU
@@ -237,7 +240,7 @@ variables:
     appType: functionAppLinux # This specifies a Linux-based function app
     #isFlexConsumption: true # Uncomment this line if you are deploying to a Flex Consumption app
     appName: $(appName)
-    package: $(System.ArtifactsDirectory)/**/*.zip
+    package: $(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip
     deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required. Deployment method. Default: auto.
     #Uncomment the next lines to deploy to a deployment slot
     #Note that deployment slots is not supported for Linux Dynamic SKU
@@ -248,7 +251,7 @@ variables:
 
 The snippet assumes that the build steps in your YAML file produce the zip archive in the `$(System.ArtifactsDirectory)` folder on your agent.
 
-If you opted to deploy to a [deployment slot](functions-deployment-slots.md), you can add the following step to perform a slot swap. Deployment slots are not yet available for the Flex Consumption SKU.
+If you opted to deploy to a [deployment slot](functions-deployment-slots.md), you can add the following step to perform a slot swap. Deployment slots are not available for the Flex Consumption SKU.
 ```yaml
 - task: AzureAppServiceManage@0
   inputs:
@@ -259,7 +262,7 @@ If you opted to deploy to a [deployment slot](functions-deployment-slots.md), yo
     SwapWithProduction: true
 ```
 
-## Deploy a container
+<!-- ## Deploy a container
 
 You can automatically deploy your code to Azure Functions as a custom container after every successful build. To learn more about containers, see [Working with containers and Azure Functions](./functions-how-to-custom-container.md) . 
 
@@ -291,7 +294,7 @@ variables:
     imageName: $(containerRegistry)/$(imageRepository):$(tag)
 ```
 
-The snippet pushes the Docker image to your Azure Container Registry. The **Azure Function App on Container Deploy** task pulls the appropriate Docker image corresponding to the `BuildId` from the repository specified, and then deploys the image.
+The snippet pushes the Docker image to your Azure Container Registry. The **Azure Function App on Container Deploy** task pulls the appropriate Docker image corresponding to the `BuildId` from the repository specified, and then deploys the image. -->
 
 ## Create a pipeline with Azure CLI
 
