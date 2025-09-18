@@ -136,4 +136,4 @@ For Service Bus, IoT Central exports new messages data to your Service Bus queue
 
 ## Next steps
 
-Now that you know how to export to Service Bus, a suggested next step is to learn [Export to Event Hubs](howto-export-to-event-hubs.md).
+Now that you know how to export to Service Bus, a suggested next step is to learn how to [export IoT data to Event Hubs](howto-export-to-event-hubs.md).

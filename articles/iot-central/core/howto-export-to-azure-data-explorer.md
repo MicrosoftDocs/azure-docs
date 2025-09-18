@@ -110,7 +110,7 @@ To create the Azure Data Explorer destination in IoT Central on the **Data expor
 
     :::image type="content" source="media/howto-export-data/export-destination-managed.png" alt-text="Screenshot of Azure Data Explorer export destination that uses a managed identity.":::
 
-If you don't see data arriving in your destination service, see [Troubleshoot issues with data exports from your Azure IoT Central application](troubleshooting.md).
+If you don't see data arriving in your destination service, see the sections related to data export issues in [Troubleshooting in Azure IoT Central](troubleshooting.md).
 
 # [Service principal](#tab/service-principal)
 
@@ -196,4 +196,4 @@ To create the Azure Data Explorer destination in IoT Central on the **Data expor
 
 ## Next steps
 
-Now that you know how to export to Azure Data Explorer, a suggested next step is to learn [Export to Webhook](howto-export-to-webhook.md).
+Now that you know how to export to Azure Data Explorer, a suggested next step is to learn how to [export IoT data to Webhook](howto-export-to-webhook.md).

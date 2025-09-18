@@ -132,4 +132,4 @@ For Event Hubs, IoT Central exports new messages data to your event hub in near 
 
 ## Next steps
 
-Now that you know how to export to Event Hubs, a suggested next step is to learn [Export to Azure Data Explorer](howto-export-to-azure-data-explorer.md).
+Now that you know how to export to Event Hubs, a suggested next step is to learn how to [export IoT data to Azure Data Explorer](howto-export-to-azure-data-explorer.md).

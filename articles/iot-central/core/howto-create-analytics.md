@@ -50,7 +50,7 @@ Choose a **Device group** to get started and then the telemetry you want to anal
 - **Group by:** The **Group by** control helps to group the data by using the device properties as dimensions. Device telemetry and properties are combined with cloud properties when the device sends data. If the cloud or device property is updated, then you see the telemetry grouped by different values on the chart.
 
     > [!TIP]
-    > To view data for each device separately, select **Device Id** in the **Group by** control.
+    > To view data for each device separately, select **Device ID** in the **Group by** control.
 
 ## Interact with your data
 
@@ -95,6 +95,6 @@ Select the ellipsis, for more chart controls:
 
 - **Download as CSV:** Export your results as a comma-separated values (CSV) file. The CSV file contains data for each device. Results are exported by using the interval and timeframe specified.
 
-- **Drop a Marker:** The **Drop Marker** control lets you anchor certain data points on the chart. It's useful when you're trying to compare data for multiple lines across different time periods.
+- **Drop A Marker:** The **Drop Marker** control lets you anchor certain data points on the chart. It's useful when you're trying to compare data for multiple lines across different time periods.
 
   :::image type="content" source="media/howto-create-analytics/additional-chart-controls.png" alt-text="A Screenshot that shows how to access the additional chart controls." lightbox="media/howto-create-analytics/additional-chart-controls.png":::

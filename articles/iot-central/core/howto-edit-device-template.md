@@ -21,7 +21,7 @@ Changes to the model in a device template can affect your entire application, in
 
 To help you avoid any unintended consequences from editing a device template, this article includes recommendations based on your current development life-cycle stage. In general, the earlier you are in the development life cycle, the more tolerant you can be to device template changes.
 
-To learn more about device templates and how to create one, see [What are device templates?](concepts-device-templates.md) and [Set up a device template](howto-set-up-template.md).
+To learn more about device templates and how to create one, see [What are device templates?](concepts-device-templates.md) and [Create a device template in your Azure IoT Central application](howto-set-up-template.md).
 
 To learn how to manage device templates by using the IoT Central REST API, see [How to use the IoT Central REST API to manage device templates.](../core/howto-manage-device-templates-with-rest-api.md)
 
@@ -74,7 +74,7 @@ The following snippet shows the device model for a thermostat device. The device
 }
 ```
 
-To view this information in the IoT Central UI, select **View identity** in the device template editor:
+To view this information in the IoT Central UI, select **Edit identity** in the device template editor:
 
 :::image type="content" source="media/howto-edit-device-template/view-identity.png" alt-text="Screenshot that shows how to view the identity of an interface to see the version number." lightbox="media/howto-edit-device-template/view-identity.png":::
 
