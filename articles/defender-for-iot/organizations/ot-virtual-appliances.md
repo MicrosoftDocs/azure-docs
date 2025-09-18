@@ -35,7 +35,7 @@ This section outlines considerations for virtual appliance components, for both 
 |---------|---------|
 |**CPU**     |   Assign dedicated CPU cores (also known as pinning) with at least 2.4 GHz, which are not dynamically allocated. <br><br>CPU usage is high because the appliance continuously records and analyzes network traffic.<br> CPU performance is critical to capturing and analyzing network traffic, and any slowdown could lead to packet drops and performance degradation.   |
 |**Memory**     | RAM should be allocated statically for the required capacity, not dynamically. <br><br>Expect high RAM utilization due to the sensor's constant network traffic recording and analytics,        |
-|**Network interfaces**     |  Physical mapping provides best performance, lowest latency and efficient CPU usage. Our recommendation is to physically map network interface cards (NICs) to the virtual machines with SR-IOV or a dedicated NIC. <br><br>  As a result of high traffic monitoring levels, expect high network utilization. <br><br> Set the promiscuous mode on your vSwitch to **Accept**, which allows all traffic to reach the VM. Some vSwitch implementations may block certain protocols if it isn't configured correctly.|
+|**Network interfaces**     |  Physical mapping provides best performance, lowest latency, and efficient CPU usage. Our recommendation is to physically map network interface cards (NICs) to the virtual machines with SR-IOV or a dedicated NIC. <br><br>  As a result of high traffic monitoring levels, expect high network utilization. <br><br> Set the promiscuous mode on your vSwitch to **Accept**, which allows all traffic to reach the VM. Some vSwitch implementations may block certain protocols if it isn't configured correctly.|
 |**Storage**     | Make sure to allocate enough read and write Input-Output Processors (IOPs) and throughput to match the performance of the appliances listed in this article. <br><br>You should expect high storage usage due to the large traffic monitoring volumes.      |
 
 
@@ -55,7 +55,7 @@ For all deployments, bandwidth results for virtual machines may vary, depending 
 |**L100**     |    **Max bandwidth**: 100 Mb/sec <br>**Max monitored assets**: 800      | **vCPU**: 4 <br>**Memory**: 8 GB <br>**Storage**: 100 GB (150 IOPS)        |
 
 > [!NOTE]
-> There is no need to pre-install an operating system on the VM, the sensor installation includes the operating system image.
+> There is no need to preinstall an operating system on the VM, the sensor installation includes the operating system image.
 
 ## Next steps
 
