@@ -29,13 +29,13 @@ For more information about how to deploy VMs to support your solution's reliabil
 
 VMs are the fundamental compute unit in Azure, whether you provision the VMs yourself or use other Azure compute services that transparently provision and manage them for you.
 
-An individual VM is sometimes known as a *single instance VM*. It runs on a specific host, which is a physical server. Most VMs share their host with other VMs.
+An individual VM is also known as a *single instance VM*. It runs on a specific host, which is a physical server. Most VMs share their host with other VMs.
 
 When you create your VMs, you can influence where they run within the underlying infrastructure. Typically, you make placement decisions based on your requirements for reliability, latency, and isolation. Azure provides several configuration options that affect how your VMs are placed.
 
-- **Regions:** You can select which [Azure region](./regions-overview.md) that your VM should run in. A region is a geographic area that might contain multiple datacenters, each with a large number of hosts.
+- **Region:** You can select which [Azure region](./regions-overview.md) that your VM should run in. A region is a geographic area that might contain multiple datacenters, each with a large number of hosts.
 
-- **Availability zones:** [Availability zones](/azure/reliability/availability-zones-overview) are physically separate groups of datacenters within each Azure region. [In regions that support availability zones](./availability-zones-overview.md), you can select which zone the VM runs in. For more information, see [Availability zone support](#availability-zone-support).
+- **Availability zone:** [Availability zones](/azure/reliability/availability-zones-overview) are physically separate groups of datacenters within each Azure region. [In regions that support availability zones](./availability-zones-overview.md), you can select which zone the VM runs in. For more information, see [Availability zone support](#availability-zone-support).
 
 - **Availability sets:** An availability set is a logical grouping of VMs that allows Azure to understand how your application is built to provide for redundancy and availability.
 
@@ -132,7 +132,7 @@ After the zone is healthy, VMs in the zone restart. You're responsible for any z
 
 ### Testing for zone failures
 
-You can use Azure Chaos Studio to simulate the loss of a VM as part of an experiment. Chaos Studio provides [built-in faults for VMs](/azure/chaos-studio/chaos-studio-fault-library#virtual-machines-service-direct), including the ability to shut down a VM. You can use these capabilities to simulate zone-level disruptions and test your failover processes.
+You can use Azure Chaos Studio to simulate the loss of a VM as part of an experiment. Chaos Studio provides [built-in faults for VMs](/azure/chaos-studio/chaos-studio-fault-library#virtual-machines-service-direct), including the ability to shut down a VM. You can use these capabilities to simulate zone-level failures and test your failover processes.
 
 ### Alternative multi-zone approaches
 
