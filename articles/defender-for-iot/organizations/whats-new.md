@@ -77,40 +77,6 @@ To reduce alert fatigue, multiple versions of the same alert violation and with 
 
 Alert details now display up to 10 source devices involved in DDoS attack.
 
-## October 2024
-
-|Service area  |Updates  |
-|---------|---------|
-| **OT networks** | - [Add wildcards to allowlist domain names](#add-wildcards-allowlist-domain-names)<br> - [Added protocol](#added-protocol) <br> - [New sensor setting type Public addresses](#new-sensor-setting-type-public-addresses) <br>  - [Improved OT sensor onboarding](#improved-ot-sensor-onboarding) |
-
-### Add wildcards allowlist domain names
-
-When adding domain names to the FQDN allowlist use the `*` wildcard to include all sub-domains. For more information, see [allow internet connections on an OT network](how-to-accelerate-alert-incident-response.md#allow-internet-connections-on-an-ot-network).
-
-### Added protocol
-
-We now support the OCPI protocol. See [the updated protocol list](concept-supported-protocols.md#supported-protocols-for-ot-device-discovery).
-
-### New sensor setting type Public addresses
-
-We're adding the **Public addresses** type to the sensor settings, that allows you to exclude public IP addresses that might have been used for internal use and shouldn't be tracked. For more information, see [add sensor settings](configure-sensor-settings-portal.md#add-sensor-settings).
-
-### Improved OT sensor onboarding
-
-If there are connection problems, during sensor onboarding, between the OT sensor and the Azure portal at the configuration stage, the process can't be completed until the connection problem is solved.
-
-We now support completing the configuration process without the need to solve the communication problem, allowing you to continue the onboarding of your OT sensor quickly and solve the problem at a later time. For more information, see [activate your OT sensor](ot-deploy/activate-deploy-sensor.md#activate-your-ot-sensor).
-
-## July 2024
-
-|Service area  |Updates  |
-|---------|---------|
-| **OT networks** | - [Security update](#security-update) |
-
-### Security update
-
-This update resolves a CVE, which is listed in [software version 24.1.4 feature documentation](release-notes.md#version-2414).
-
 ## Next steps
 
 [Getting started with Defender for IoT](getting-started.md)
