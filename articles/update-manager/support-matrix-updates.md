@@ -45,7 +45,7 @@ An asterisk (*) in the Offer or Plan columns represents a wildcard character. It
 - Supported Linux x64 OS images 
 - Supported Linux ARM64 OS images 
 
-#### [Supported Windows OS images](#tab/mpir-winos)
+#### [Supported Windows x64 OS images](#tab/mpir-winos)
 
 |Publisher |Offer |Plan |Unsupported image(s) |
 |--|--|--|--|
@@ -112,7 +112,7 @@ An asterisk (*) in the Offer or Plan columns represents a wildcard character. It
 | veeam | veeam-backup-replication | veeam-backup-replication-v* |  |
 
 
-#### [Supported Linux OS images](#tab/mpir-linos)
+#### [Supported Linux x64 OS images](#tab/mpir-linos)
 
 | Publisher| Offer| Plan| Unsupported image(s)|
 |--|--|--|--|
@@ -279,6 +279,13 @@ An asterisk (*) in the Offer or Plan columns represents a wildcard character. It
 |tenable| tenablecorewas| tenablecoreol8wasbyol||
 |thorntechnologiesllc| sftpgateway| sftpgateway||
 |zscaler| zscaler-private-access| zpa-con-azure||
+
+---
+
+#### [Supported Linux ARM64 OS images](#tab/mpir-arm)
+
+| Publisher| Offer| Plan| Unsupported image(s)|
+|--|--|--|--|
 | canonical  | * |* |  |
 |redhat | rhel-arm64 | 9_0-arm64 | |
 |redhat | rhel-arm64 |8_6-arm64 | |
