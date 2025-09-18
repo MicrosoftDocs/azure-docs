@@ -16,7 +16,7 @@ ms.topic: concept-article
 
 ms.date: 04/20/2023
 
-ms.author: kapilv
+ms.author: mattmcinnes
 # Customer intent: As a data scientist, I want to leverage confidential computing solutions for multi-party data analytics, so that I can securely collaborate with other organizations while preserving the privacy of sensitive data and intellectual property.
 ---
 

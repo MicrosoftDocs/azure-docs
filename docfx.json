@@ -676,7 +676,6 @@
         "articles/operator-5g-core/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/operator-call-protection/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/operator-insights/NO-QA-TAG-USE-GLOBAL/": "",
-        "articles/operator-nexus/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/operator-service-manager/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/oracle/**/*": "https://learn.microsoft.com/answers/tags/94/azure-virtual-machines/",
         "articles/partner-solutions/NO-QA-TAG-USE-GLOBAL/": "",
