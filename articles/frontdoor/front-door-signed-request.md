@@ -11,7 +11,7 @@ ms.date: 09/18/2025
 
 # Configure signed URLs using the rules engine in Azure Front Door (preview)
 
-Azure Front Door supports Signed URL as a security feature that enables fine-grained access control to your content. This is especially useful for scenarios like premium content delivery, temporary access to assets, securing APIs, and geo-restricted access. Signed URL works by validating a cryptographic signature included in the request, which is generated using a shared secret and includes parameters such as expiration time and key ID.
+Azure Front Door supports signed URL as a security feature that enables fine-grained access control to your content. This feature is useful for scenarios like premium content delivery, temporary access to assets, securing APIs, and geo-restricted access. Signed URL works by validating a cryptographic signature included in the request, which is generated using a shared secret and includes parameters such as expiration time and key ID.
 
 ## How signed URL works
 
@@ -29,30 +29,37 @@ What would cause a 403 Forbidden response?
 
 ## Integration with rules engine
 
-Signed URL is implemented as a Rules Engine action called Signed Request. This action is evaluated as part of a rule set associated with a route in your Front Door profile.
+Signed URL is implemented as a rules engine action called signed request. This action is evaluated as part of a rule set associated with a route in your Front Door profile.
 
 ### Terminology
 
-* **Signed Request Key**: A secret stored in Azure Key Vault used to generate and validate signatures.
-* **Signed Request Key Group**: A logical grouping of up to five keys for rotation purposes.
-* **Rules Engine**: A customizable engine that processes incoming requests based on match conditions and executes actions like URL signing validation.
+* **Signed request key**: A secret stored in Azure Key Vault used to generate and validate signatures.
+* **Signed request key group**: A logical grouping of up to five keys for rotation purposes.
+* **Rules engine**: A customizable engine that processes incoming requests based on match conditions and executes actions like URL signing validation.
 
-## Example rule configuration in the Azure portal
+## Configure signed request
 
-To configure Signed request using the Azure portal:
+# [**Portal**](#tab/portal)
 
-1. Create a Signed Request Key in your Azure Front Door profile.
-:::image type="content" source="./media/front-door-rules-engine/signed-request-config-portal-1.png" alt-text="Portal screenshot showing Signed Request Key creation.":::
+Follow these steps to configure signed request using the Azure portal:
 
-1. Create a Signed Request Key Group and add the key to it.
-:::image type="content" source="./media/front-door-rules-engine/signed-request-config-portal-2.png" alt-text="Portal screenshot showing Signed Request Key Group creation.":::
+1. Create a signed request key in your Azure Front Door profile.
 
-1. Navigate to the Rules Engine section of your Azure Front Door profile, create a new rule with the Signed Request action, and associate it with the Key Group you created.
-:::image type="content" source="./media/front-door-rules-engine/signed-request-config-portal-3.png" alt-text="Portal screenshot showing Rules Engine configuration with Signed Request action.":::
+    :::image type="content" source="./media/front-door-rules-engine/signed-request-config-portal-1.png" alt-text="Screenshot that shows signed request key creation in the Azure portal.":::
+
+1. Create a signed request key group and add the key to it.
+
+    :::image type="content" source="./media/front-door-rules-engine/signed-request-config-portal-2.png" alt-text="Screenshot that shows signed request key group creation in the Azure portal.":::
+
+1. Go to the rules engine section of your Front Door profile, create a new rule with the signed request action, and associate it with the key group you created.
+
+    :::image type="content" source="./media/front-door-rules-engine/signed-request-config-portal-3.png" alt-text="Screenshot that shows rules engine configuration with signed request action in the Azure portal.":::
 
 1. Attach the rule set to the desired route.
 
-## Example JSON configuration using ARM
+# [**ARM template**](#tab/arm)
+
+Use the following JSON snippet to configure signed request in your rules engine using an ARM template:
 
 ```json
 {
@@ -71,6 +78,8 @@ To configure Signed request using the Azure portal:
   ]
 }
 ```
+
+---
 
 ## Signature format
 
@@ -100,12 +109,15 @@ This allows you to build complex access control logic.
 
 ## Limitations
 
-**IMPORTANT:** If the signed requests rules aren't the first set of rules in the rules engine, they won't be evaluated. Ensure that the signed requests rules are at the top of the rules engine configuration.
-Presently, the edit key group capability isn't supported in the Azure portal. You can delete and recreate the key group to update it.
-For information about quota limits, refer to [Front Door limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-standard-and-premium-service-limits).
+> [!IMPORTANT]
+> If the signed request rules aren't the first set of rules in the rules engine, they won't be evaluated. Ensure that the signed request rules are at the top of the rules engine configuration.
+
+Currently, the edit key group capability isn't supported in the Azure portal. You can delete and recreate the key group to update it.
+
+For information about quota limits, see [Front Door limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-service-limits).
 
 ## Related content
 
-- Learn how to configure [rules engine match conditions](rules-match-conditions.md).
-- Learn about [rules engine actions](front-door-rules-engine-actions.md).
+- Learn how to configure [rules engine match conditions](/azure/frontdoor/rules-match-conditions.md).
+- Learn about [rules engine actions](/azure/frontdoor/front-door-rules-engine-actions.md).
 - Learn about [server variables](/azure/frontdoor/rule-set-server-variables) using rules engine.
