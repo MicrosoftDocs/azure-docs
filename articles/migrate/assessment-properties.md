@@ -1,6 +1,6 @@
 ---
 title: Assessment properties
-description: Describes the components of of a PostgreSQL assessment in Azure Migrate
+description: Describes the components of a PostgreSQL assessment in Azure Migrate
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
@@ -31,6 +31,8 @@ This article explains the assessment properties on the **General** tab that you 
 |**Security** | **Security** | Specifies if you want to assess readiness and cost for security tooling on Azure. If the setting has the default value **Yes, with Microsoft Defender for Cloud**, it assesses security readiness and costs for your Azure VM with Microsoft Defender for Cloud. | 
 |**VM Security Type** | | Specifies is you want to verify readiness for **Trusted Launch Virtual Machines (TVMs)**, Standard Virtual Machines, or both. By default, readiness is verified for both. We recommend migrating eligible VMs to **Trusted Launch**, as TVMs provide enhanced security features, such as secure boot and virtual TPM.| 
 
+
+
 ## Next steps
 
-- Learn about [PostgreSQL assesssmemt rules](assessment-rules-for-postgresql.md).
+- Learn about [PostgreSQL assessment rules](assessment-rules-for-postgresql.md).

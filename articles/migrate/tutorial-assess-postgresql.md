@@ -53,7 +53,7 @@ To run an assessment, follow these steps:
 
     :::image type="content" source="./media/tutorial-assess-postgresql/assessment-name.png" alt-text="Screenshot shows how to add assessment name." lightbox="./media/tutorial-assess-postgresql/assessment-name.png":::
 
-    :::image type="content" source="./media/tutorial-assess-postgresql/select-workloads.png" alt-text="Screenshot shows how to select workloads" lightbox="./media/tutorial-assess-postgresql/select-workloads.png":::
+    :::image type="content" source="./media/tutorial-assess-postgresql/select-workloads.png" alt-text="Screenshot shows how to select workloads." lightbox="./media/tutorial-assess-postgresql/select-workloads.png":::
 
 1.  After adding the PostgreSQL workloads, select **Next** to proceed.
 
