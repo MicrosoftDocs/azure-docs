@@ -14,6 +14,8 @@ appliesto:
 
 # Manage CPU utilization for Azure Managed Redis (preview)
 
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+
 ## Value sizes
 
 The design of your client application determines whether you should store many small values or a smaller number of larger values. From a Redis server perspective, smaller values give better performance. We recommend keeping value size smaller than 100 kB.

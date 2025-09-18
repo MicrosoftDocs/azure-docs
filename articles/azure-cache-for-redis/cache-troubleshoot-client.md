@@ -1,15 +1,14 @@
 ---
 title: Troubleshoot client issues
 description: See links to troubleshooting issues that occur because of conditions on the Redis client that your application uses.
-
-
-
 ms.topic: troubleshooting
 ms.date: 04/10/2025
 appliesto:
   - ✅ Azure Cache for Redis
 ---
 # Troubleshoot Azure Cache for Redis client-side issues
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 The following links provide troubleshooting information for issues that occur because of conditions on the Redis client that your application uses.
 

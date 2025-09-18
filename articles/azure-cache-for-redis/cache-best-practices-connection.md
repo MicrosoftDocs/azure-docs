@@ -10,6 +10,8 @@ appliesto:
 
 # Connection resilience
 
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+
 ## Retry commands
 
 Configure your client connections to retry commands with exponential backoff. For more information, see [retry guidelines](/azure/architecture/best-practices/retry-service-specific#azure-cache-for-redis).

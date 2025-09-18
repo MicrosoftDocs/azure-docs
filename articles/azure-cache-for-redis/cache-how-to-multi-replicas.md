@@ -1,9 +1,6 @@
 ---
 title: Add replicas to a Premium cache
 description: Learn how to create Premium tier Azure Cache for Redis instances with added replicas.
-
-
-
 ms.topic: how-to
 ms.date: 05/14/2025
 appliesto:
@@ -11,6 +8,8 @@ appliesto:
 ---
 
 # Add replicas to Premium tier Azure Cache for Redis
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 Azure Cache for Redis Standard and Premium tiers offer redundancy by hosting each cache on two dedicated virtual machines (VMs) configured as primary and replica. If the primary VM becomes unavailable, the replica automatically takes over as the new primary.
 

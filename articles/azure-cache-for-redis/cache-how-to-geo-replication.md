@@ -12,6 +12,8 @@ appliesto:
 
 # Configure passive geo-replication for Premium Azure Cache for Redis instances
 
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+
 In this article, you learn how to configure passive geo-replication on a pair of Azure Cache for Redis instances using the Azure portal.
 
 Passive geo-replication links together two Premium tier Azure Cache for Redis instances and creates an _active-passive_ data replication relationship. Active-passive means that there's a pair of caches, primary and secondary, that have their data synchronized. But you can only write to one side of the pair, the primary. The other side of the pair, the secondary cache, is read-only.

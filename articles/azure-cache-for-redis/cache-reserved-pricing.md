@@ -1,19 +1,15 @@
 ---
 title: Prepay for compute with reservations
 description: Prepay for Azure Cache for Redis compute resources with reservations.
-
-
-
-
 ms.topic: conceptual
 ms.date: 05/22/2025
 appliesto:
   - ✅ Azure Cache for Redis
-
-
 ---
 
 # Prepay for Azure Cache for Redis compute resources with reservations
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 Reservations in Azure Cache for Redis can help you save money compared to pay-as-you-go prices by prepaying for compute resources. With reservations, you make an upfront commitment on a cache for one or three years to get a significant discount on the compute costs.
 

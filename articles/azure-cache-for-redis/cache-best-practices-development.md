@@ -14,6 +14,8 @@ appliesto:
 
 # Development
 
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+
 ## Connection resilience and server load
 
 When developing client applications, be sure to consider the relevant best practices for [connection resilience](cache-best-practices-connection.md) and [managing server load](cache-best-practices-server-load.md).

@@ -11,6 +11,8 @@ appliesto:
 
 # Use Microsoft Entra for cache authentication
 
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+
 Azure Cache for Redis offers two methods to [authenticate](cache-configure.md#authentication) to your cache instance: access keys and Microsoft Entra.
 
 Although access key authentication is simple, it comes with a set of challenges around security and password management. For contrast, in this article, you learn how to use a Microsoft Entra token for cache authentication.
