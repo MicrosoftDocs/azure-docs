@@ -10,8 +10,7 @@ ms.topic: how-to
 ms.date: 09/18/2025
 ms.author: danlep
 ms.custom:
-  - engagement-fy23
-  - sfi-image-nochange
+
 ---
 
 # How to authorize developer accounts by using Microsoft Entra External ID
