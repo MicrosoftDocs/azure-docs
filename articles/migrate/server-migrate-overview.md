@@ -11,7 +11,7 @@ ms.custom: vmware-scenario-422, engagement-fy23
 # Customer intent: As an IT administrator, I want to select a VMware migration option using the Migration and modernization tool, so that I can effectively migrate my VMware VMs to Azure while considering the best method for my environment.
 ---
 
-# Agentless and Agent-based Migration methods 
+# Agentless and Agent-based migration methods 
 
 This article provides migration methods across major fabrics and provides guidance for choosing between **Agentless** and **Agent-based** approaches.
 
@@ -24,7 +24,7 @@ Comparing migration methods
 | **Physical & other platforms** (AWS/GCP VMs, Xen, KVM, private clouds)  | Use **Agent-based** replication with the Replication appliance and the Mobility service agent (one agent per VM). This method is recommended for non-VMware and non-Hyper-V sources  |  | 
 
 
-## Criteria for selecting Agent-based Migration
+## Criteria for selecting Agent-based migration
 
 Choose agent-based migration when one or more of the following conditions apply:
 
