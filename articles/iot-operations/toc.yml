@@ -91,6 +91,9 @@ items:
               - name: Detect OPC UA assets
                 href: discover-manage-assets/howto-detect-opc-ua-assets.md
                 displayName: connector, OPC UA, detect, akri, southbound
+              - name: Control OPC UA assets
+                href: discover-manage-assets/howto-control-opc-ua.md
+                displayName: connector, OPC UA, commander, write, southbound, process control
               - name: Understand OPC UA application authentication
                 href: discover-manage-assets/overview-opc-ua-connector-certificates-management.md
                 displayName: connector, X.509, certificate, instance, trusted, issuer, cert-manager, auth, authn, southbound

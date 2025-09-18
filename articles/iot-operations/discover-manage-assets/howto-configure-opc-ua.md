@@ -33,11 +33,11 @@ To configure devices and assets, you need a running preview instance of Azure Io
 
 Your IT administrator must have configured the OPC UA connector template for your Azure IoT Operations instance in the Azure portal.
 
-An OPC UA server that you can reach from your Azure IoT Operations cluster. If you don't have an OPC UA server, use the built-in OPC PLC simulator that comes with Azure IoT Operations.
+An OPC UA server that you can reach from your Azure IoT Operations cluster. If you don't have an OPC UA server, use the OPC PLC simulator from the Azure IoT Operations samples repository.
 
 ## Create a device
 
-An Azure IoT Operations deployment can include an optional built-in OPC PLC simulator. To create a device that uses the built-in OPC PLC simulator:
+An Azure IoT Operations deployment can include a sample OPC PLC simulator. To create a device that uses the OPC PLC simulator:
 
 # [Operations experience](#tab/portal)
 
