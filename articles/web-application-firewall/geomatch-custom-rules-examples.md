@@ -5,8 +5,9 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
-ms.date: 09/16/2025
+ms.date: 09/17/2025
 ms.custom: devx-track-azurepowershell
+zone_pivot_groups: web-application-firewall-types
 
 # Customer intent: As a security engineer, I want to create and manage custom geomatch rules in a web application firewall, so that I can enhance network security by controlling access based on geographic locations.
 ---
@@ -29,27 +30,30 @@ Geomatch custom rules enable you to meet diverse security goals, such as blockin
 
 ### Scenario 1 - Block traffic from all countries or regions except "x"
 
-Geomatch custom rules prove useful when you aim to block traffic from all countries or regions, barring one. For instance, if your web application caters exclusively to users in the United States, you can formulate a geomatch custom rule that obstructs all requests not originating from the US. This strategy effectively minimizes your web application’s attack surface and deters unauthorized access from other regions. This specific technique employs a negating condition to facilitate this traffic pattern. For creating a geomatch custom rule that obstructs traffic from all countries or regions except the US, refer to the following portal, Bicep, and PowerShell examples:
+Geomatch custom rules prove useful when you aim to block traffic from all countries or regions, barring one. For instance, if your web application caters exclusively to users in the United States, you can formulate a geomatch custom rule that obstructs all requests not originating from the US. This strategy effectively minimizes your web application’s attack surface and deters unauthorized access from other regions. This specific technique employs a negating condition to facilitate this traffic pattern. For creating a geomatch custom rule that obstructs traffic from all countries or regions except the US, see to the following portal, PowerShell, or Bicep examples:
 
 # [**Portal**](#tab/portal)
 
-
-**Application Gateway example**
+::: zone pivot="application-gateway"
 
 :::image type="content" source="media/geomatch-custom-rules/add-custom-rule-application-gateway-1.png" alt-text="Screenshot showing the Application Gateway WAF add custom rule screen.":::
 
-**Front Door example**
+::: zone-end
+
+::: zone pivot="front-door"
 
 :::image type="content" source="media/geomatch-custom-rules/add-custom-rule-front-door-1.png" alt-text="Screenshot showing the Front Door WAF add custom rule screen.":::
 
 > [!NOTE]
 > On the Azure Front Door WAF, you use `SocketAddr` as the match variable and not `RemoteAddr`. The `RemoteAddr` variable is the original client IP address that's usually sent via the `X-Forwarded-For` request header. The `SocketAddr` variable is the source IP address the WAF sees.
 
+::: zone-end
+
 # [**PowerShell**](#tab/powershell)
 
-**Application Gateway example**
+::: zone pivot="application-gateway"
 
-```azurepowershell
+```azurepowershell-interactive
 $RGname = "rg-waf "
 $policyName = "waf-pol"
 $variable = New-AzApplicationGatewayFirewallMatchVariable -VariableName RemoteAddr
@@ -60,9 +64,11 @@ $policy.CustomRules.Add($rule)
 Set-AzApplicationGatewayFirewallPolicy -InputObject $policy
 ```
 
-**Front Door example**
+::: zone-end
 
-```azurepowershell
+::: zone pivot="front-door"
+
+```azurepowershell-interactive
 $RGname = "rg-waf"
 $policyName = "wafafdpol"
 $matchCondition = New-AzFrontDoorWafMatchConditionObject -MatchVariable SocketAddr -OperatorProperty GeoMatch -MatchValue "US" -NegateCondition $true
@@ -71,11 +77,13 @@ $afdWAFPolicy= Get-AzFrontDoorWafPolicy -Name $policyName -ResourceGroupName $RG
 Update-AzFrontDoorWafPolicy -InputObject $afdWAFPolicy -Customrule $customRuleObject
 ```
 
+::: zone-end
+
 # [**Bicep**](#tab/bicep)
 
-**Application Gateway example**
+::: zone pivot="application-gateway"
 
-```
+```Bicep
 properties: {
     customRules: [
       {
@@ -101,9 +109,12 @@ properties: {
         state: 'Enabled'
       }
 ```
-**Front Door example**
 
-```
+::: zone-end
+
+::: zone pivot="front-door"
+
+```Bicep
 properties: {
     customRules: {
       rules: [
@@ -127,8 +138,9 @@ properties: {
         }
 ```
 
----
+::: zone-end
 
+---
 
 ### Scenario 2 - Block traffic from all countries or regions except "x" and "y" that target the URI "foo" or "bar"
 
@@ -138,24 +150,27 @@ This pattern processes request payloads from the US and Canada through the manag
 
 To minimize potential false positives, include the country code **ZZ** in the list to capture IP addresses not yet mapped to a country or region in Azure’s dataset. This technique uses a negate condition for the Geolocation type and a non-negate condition for the URI match.
 
-To create a geomatch custom rule that blocks traffic from all countries or regions except the US and Canada to a specified URI, refer to the portal, Bicep, and Azure PowerShell examples provided.
+To create a geomatch custom rule that blocks traffic from all countries or regions except the US and Canada to a specified URI, refer to the portal, PowerShell, and Bicep examples.
 
 # [**Portal**](#tab/portal)
 
-**Application Gateway example**
+::: zone pivot="application-gateway"
 
 :::image type="content" source="media/geomatch-custom-rules/add-custom-rule-application-gateway-2.png" alt-text="Screenshot showing add custom rule for Application Gateway." lightbox="media/geomatch-custom-rules/add-custom-rule-application-gateway-2.png":::
 
-**Front Door example**
+::: zone-end
+
+::: zone pivot="front-door"
 
 :::image type="content" source="media/geomatch-custom-rules/add-custom-rule-front-door-2.png" alt-text="Screenshot showing add custom rule for Front Door." lightbox="media/geomatch-custom-rules/add-custom-rule-front-door-2.png":::
 
+::: zone-end
 
 # [**PowerShell**](#tab/powershell)
 
-**Application Gateway example**
+::: zone pivot="application-gateway"
 
-```azurepowershell
+```azurepowershell-interactive
 $RGname = "rg-waf "
 $policyName = "waf-pol"
 $variable1a = New-AzApplicationGatewayFirewallMatchVariable -VariableName RemoteAddr
@@ -168,9 +183,11 @@ $policy.CustomRules.Add($rule1)
 Set-AzApplicationGatewayFirewallPolicy -InputObject $policy
 ```
 
-**Front Door example**
+::: zone-end
 
-```azurepowershell
+::: zone pivot="front-door"
+
+```azurepowershell-interactive
 $RGname = "rg-waf"
 $policyName = "wafafdpol"
 $matchCondition1a = New-AzFrontDoorWafMatchConditionObject -MatchVariable SocketAddr -OperatorProperty GeoMatch -MatchValue @(“US”, "CA") -NegateCondition $true
@@ -180,11 +197,13 @@ $afdWAFPolicy= Get-AzFrontDoorWafPolicy -Name $policyName -ResourceGroupName $RG
 Update-AzFrontDoorWafPolicy -InputObject $afdWAFPolicy -Customrule $customRuleObject1
 ```
 
+::: zone-end
+
 # [**Bicep**](#tab/bicep)
 
-**Application Gateway example**
+::: zone pivot="application-gateway"
 
-```
+```Bicep
 properties: {
     customRules: [
       {
@@ -226,9 +245,11 @@ properties: {
       }
 ```
 
-**Front Door example**
+::: zone-end
 
-```
+::: zone pivot="front-door"
+
+```Bicep
 properties: {
     customRules: {
       rules: [
@@ -263,27 +284,33 @@ properties: {
         }
 ```
 
+::: zone-end
+
 ---
 
 ### Scenario 3 - Block traffic specifically from country or region "x"
 
-You can use geomatch custom rules to block traffic from specific countries or regions. For instance, if your web application receives many malicious requests from country or region "x", create a geomatch custom rule to block all requests from that country or region. This protects your web application from potential attacks and reduces resource load. Apply this pattern to block multiple malicious or hostile countries or regions. This technique requires a match condition for the traffic pattern. To block traffic from country or region "x", see the following portal, Bicep, and Azure PowerShell examples.
+You can use geomatch custom rules to block traffic from specific countries or regions. For instance, if your web application receives many malicious requests from country or region "x", create a geomatch custom rule to block all requests from that country or region. This protects your web application from potential attacks and reduces resource load. Apply this pattern to block multiple malicious or hostile countries or regions. This technique requires a match condition for the traffic pattern. To block traffic from country or region "x", see the following portal, PowerShell, and Bicep examples.
 
 # [**Portal**](#tab/portal)
 
-**Application Gateway example**
+::: zone pivot="application-gateway"
 
 :::image type="content" source="media/geomatch-custom-rules/add-custom-rule-application-gateway-3.png" alt-text="Screenshot showing the application gateway add custom rule screen.":::
 
-**Front Door example**
+::: zone-end
+
+::: zone pivot="front-door"
 
 :::image type="content" source="media/geomatch-custom-rules/add-custom-rule-front-door-3.png" alt-text="Screenshot showing the front door add custom rule screen.":::
 
+::: zone-end
+
 # [**PowerShell**](#tab/powershell)
 
-**Application Gateway example**
+::: zone pivot="application-gateway"
 
-```azurepowershell
+```azurepowershell-interactive
 $RGname = "rg-waf "
 $policyName = "waf-pol"
 $variable2 = New-AzApplicationGatewayFirewallMatchVariable -VariableName RemoteAddr
@@ -294,9 +321,11 @@ $policy.CustomRules.Add($rule2)
 Set-AzApplicationGatewayFirewallPolicy -InputObject $policy
 ```
 
-**Front Door example**
+::: zone-end
 
-```azurepowershell
+::: zone pivot="front-door"
+
+```azurepowershell-interactive
 $RGname = "rg-waf"
 $policyName = "wafafdpol"
 $matchCondition2 = New-AzFrontDoorWafMatchConditionObject -MatchVariable SocketAddr -OperatorProperty GeoMatch -MatchValue "US" -NegateCondition $false
@@ -305,11 +334,13 @@ $afdWAFPolicy= Get-AzFrontDoorWafPolicy -Name $policyName -ResourceGroupName $RG
 Update-AzFrontDoorWafPolicy -InputObject $afdWAFPolicy -Customrule $customRuleObject2
 ```
 
+::: zone-end
+
 # [**Bicep**](#tab/bicep)
 
-**Application Gateway example**
+::: zone pivot="application-gateway"
 
-```
+```Bicep
 properties: {
     customRules: [
       {
@@ -336,9 +367,11 @@ properties: {
       }
 ```
 
-**Front Door example**
+::: zone-end
 
-```
+::: zone pivot="front-door"
+
+```Bicep
 properties: {
     customRules: {
       rules: [
@@ -361,6 +394,8 @@ properties: {
           action: 'Block'
         }
 ```
+
+::: zone-end
 
 ---
 

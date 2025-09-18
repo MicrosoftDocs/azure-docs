@@ -108,6 +108,10 @@ To enable Grafana Enterprise on an existing Azure Managed Grafana workspace, fol
 
   1. Read and check the box at the bottom of the page to state that you agree with the terms displayed, and select **Update** to finalize the update.
 
+> [!IMPORTANT]
+> Updating the Enterprise configuration for an existing Azure Managed Grafana instance using Infrastructure-as-Code (IaC) tools like ARM templates or Terraform is not supported.
+This prevents accidental billing changes from automated deployments. To manage Enterprise settings, use the Azure portal following the instructions above, or the [Azure REST API - Grafana update command](/rest/api/managed-grafana/grafana/update/).
+
 ## Update a Grafana Enterprise plan
 
 To update the Grafana Enterprise plan of an existing Azure Managed Grafana workspace, follow the steps below:
