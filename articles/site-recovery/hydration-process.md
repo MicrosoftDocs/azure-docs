@@ -12,16 +12,12 @@ ms.date: 09/18/2025
 
 You have to make some changes to the VMs configuration before the failover to ensure that the migrated VMs function properly on Azure. Azure Site Recovery handles these configuration changes via the *hydration* process. The hydration process is only performed for the versions of Azure supported operating systems given above. Before you failover, you may need to perform the required changes manually for other operating system versions that aren't listed above. If the VM is migrated without the required changes, the VM may not boot, or you may not have connectivity to the migrated VM. The following diagram shows you that Azure Site Recovery performs the hydration process.
 
- [![Hydration steps](./media/concepts-prepare-vmware-agentless-migration/hydration-process-inline.png)](./media/concepts-prepare-vmware-agentless-migration/hydration-process-expanded.png#lightbox)
-
 When a user triggers *Test Failover* or *Failover*, Azure Site Recovery performs the hydration process to prepare the on-premises VM for failover to Azure.
 To set up the hydration process, Azure Site Recovery creates a temporary Azure VM and attaches the disks of the source VM to perform changes to make the source VM ready for Azure. The temporary Azure VM is an intermediate VM created during the failover process before the final migrated VM is created. The temporary VM will be created with a similar OS type (Windows/Linux) using one of the marketplace OS images. If the on-premises VM is running Windows, the operating system disk of the on-premises VM will be attached as a data disk to the temporary VM for performing changes. If it's a Linux server, all the disks attached to the on-premises VM will be attached as data disks to the temporary Azure VM.
 
 Azure Site Recovery will create the network interface, a new virtual network, subnet, and a network security group (NSG) to host the temporary VM. These resources are created in the customer's subscription. If there are conflicting policies that prevent the creation of the network artifacts, Azure Site Recovery will attempt to create the temporary Azure VM in the virtual network and subnet provided as part of the replication target settings options.
 
 After the virtual machine is created, Azure Site Recovery will invoke the [Custom Script Extension](/azure/virtual-machines/extensions/custom-script-windows) on the temporary VM using the Azure Virtual Machine REST API. The Custom Script Extension utility will execute a preparation script containing the required configuration for Azure readiness on the on-premises VM disks attached to the temporary Azure VM. The preparation script is downloaded from an Azure Site Recovery owned storage account. The network security group rules of the virtual network will be configured to permit the temporary Azure VM to access the Azure Site Recovery storage account for invoking the script.
-
- ![Migration steps](./media/concepts-prepare-vmware-agentless-migration/migration-steps.png)
 
 >[!NOTE]
 >Hydration VM disks do not support Customer Managed Key (CMK). Platform Managed Key (PMK) is the default option.
@@ -68,19 +64,19 @@ The preparation script executes the following changes based on the OS type of th
 
       - On the on-premises server, open the command prompt with elevated privileges and enter **diskpart**.
 
-        ![Manual Configuration](./media/concepts-prepare-vmware-agentless-migration/command-prompt-diskpart.png)
+        ![Manual Configuration](./media/hydration-process/command-prompt-diskpart.png)
 
       - Enter SAN. If the drive letter of the guest operating system isn't maintained, Offline All or Offline Shared is returned.
 
       - At the DISKPART prompt, enter SAN Policy=OnlineAll. This setting ensures that disks are brought online, and that you can read and write to both disks.
 
-        ![Administrator Command Prompt diskpart online policy](./media/concepts-prepare-vmware-agentless-migration/diskpart-online-policy.png)
+        ![Administrator Command Prompt diskpart online policy](./media/hydration-process/diskpart-online-policy.png)
 
 1. **Set the DHCP start type**
 
    The preparation script will also set the DHCP service start type as Automatic. This will enable the migrated VM to obtain an IP address and establish connectivity post-failover. Make sure the DHCP service is configured, and the status is running.
 
-    ![Set DHCP Start Type](./media/concepts-prepare-vmware-agentless-migration/get-service-dhcp.png)
+    ![Set DHCP Start Type](./media/hydration-process/get-service-dhcp.png)
 
    To edit the DHCP startup settings manually, run the following example in Windows PowerShell:
 
@@ -105,7 +101,7 @@ The preparation script executes the following changes based on the OS type of th
 
     To check if the Azure VM Agent was successfully installed, open Task Manager, select the **Details** tab, and look for the process name *WindowsAzureGuestAgent.exe*. The presence of this process indicates that the VM agent is installed. You can also use [PowerShell to detect the VM agent.](/azure/virtual-machines/extensions/agent-windows#powershell)
 
-    ![Successful Installation of Azure VM Agent](./media/concepts-prepare-vmware-agentless-migration/installation-azure-vm-agent.png)
+    ![Successful Installation of Azure VM Agent](./media/hydration-process/installation-azure-vm-agent.png)
 
     After the aforementioned changes are performed, the system partition will be unloaded. The VM is now ready for failover.
     [Learn more about the changes for Windows servers.](/azure/virtual-machines/windows/prepare-for-upload-vhd-image)
