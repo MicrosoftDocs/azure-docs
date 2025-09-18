@@ -280,8 +280,6 @@ An asterisk (*) in the Offer or Plan columns represents a wildcard character. It
 |thorntechnologiesllc| sftpgateway| sftpgateway||
 |zscaler| zscaler-private-access| zpa-con-azure||
 
----
-
 #### [Supported Linux ARM64 OS images](#tab/mpir-arm)
 
 | Publisher| Offer| Plan| Unsupported image(s)|
