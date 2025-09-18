@@ -26,19 +26,19 @@ The legacy on-premises management console isn't available for download after **J
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | Sensor version 25.2.0 is now available. See [release details and updates](release-notes#version-2520). |
+| **OT networks** | Sensor version 25.2.0 is now available. See [release details and updates](release-notes.md#version-2520). |
 
 ## June 2025
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | Sensor version 25.1.2 is now available. See [release details and updates](release-notes#version-2512). |
+| **OT networks** | Sensor version 25.1.2 is now available. See [release details and updates](release-notes.md#version-2512). |
 
 ## April 2025
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | Sensor version 25.1.1 is now available. See [release details and updates](release-notes#version-2511). |
+| **OT networks** | Sensor version 25.1.1 is now available. See [release details and updates](release-notes.md#version-2511). |
 
 ## March 2025
 
