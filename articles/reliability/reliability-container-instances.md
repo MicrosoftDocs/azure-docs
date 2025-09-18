@@ -12,9 +12,11 @@ ms.date: 08/26/2025
 
 # Reliability in Azure Container Instances
 
-This article describes reliability support in Azure Container Instances, covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
 
-[Container Instances](/azure/container-instances/container-instances-overview) provides a straightforward way to run Linux or Windows containers in Azure, without the need to manage virtual machines (VMs) or adopt a more complex, higher-level service.
+[Azure Container Instances](/azure/container-instances/container-instances-overview) provides a straightforward way to run Linux or Windows containers in Azure, without the need to manage virtual machines (VMs) or adopt a more complex, higher-level service.
+
+This article describes reliability support in Container Instances, covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
+
 
 [!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
@@ -36,7 +38,7 @@ To increase the reliability of production applications built on Container Instan
 
 ## Reliability architecture overview
 
-To use Container Instances, deploy a *container group*, which contains one or more *containers*. Each container is created from a *container image*, which is stored in a registry such as [Azure Container Registry](/azure/container-registry/).
+To use Container Instances, you deploy a *container group*. A container group contains one or more *containers*. Each container is created from a *container image*, which is stored in a registry such as [Azure Container Registry](/azure/container-registry/).
 
 All containers in a container group are deployed together as a single logical unit and share the same physical infrastructure.
 
@@ -198,11 +200,11 @@ This section describes what to expect when Container Instances resources are con
 
     - *Standby pools:* The Container Instances platform isn't guaranteed to respond to zone failures for standby pools. Standby pools shouldn't be used for workloads that require resilience to zone failures.
 
-- **Notification Container Instances:** Container Instances doesn't notify you when a zone is down. However, you can use [Azure Service Health](/azure/service-health/overview) to understand the overall health of the Container Instances service, including any zone failures.
+- **Notification:** Container Instances doesn't notify you when a zone is down. However, you can use [Azure Service Health](/azure/service-health/overview) to understand the overall health of the Container Instances service, including any zone failures.
   
     Set up alerts to receive notifications of zone-level problems. For more information, see [Create Service Health alerts in the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal).
 
-- **Active requests:** If a zone fails, any containers running within that zone are likely to terminate, and any work that they're doing stops.
+- **Active requests:** If a zone fails, all running containers, including the work that they are doing, within that zone are likely to terminate.
 
 - **Expected data loss:** Because containers and container groups are stateless, there's no data loss expected from a zone failure. However, you're responsible for ensuring that each component in your workload is zone resilient, including storage services and databases.
 
