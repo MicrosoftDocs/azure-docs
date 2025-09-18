@@ -87,6 +87,6 @@ To assign Policy 3, follow these steps:
 >
 > - Use [remediation](../governance/policy/how-to/remediate-resources.md) to enable these policies on existing AKS clusters.
 
-## Next step
+## Related content
 
 [Learn more about Azure Policy](../governance/policy/overview.md)
