@@ -68,9 +68,8 @@ If this is your first interaction with **firmware analysis**, then you'll need t
 5. Select a resource group from the **Resource group** drop-down or create a new resource group.
 6. Enter your **Workspace name**.
 7. Select a region to use for storage in the **Location** drop-down.
+8. For the **Tier** field, we currently offer a free tier. In the future, a paid tier may be introduced with additional features and capabilities. For more information, see our [licensing terms and workspace limits](tutorial-analyze-firmware.md#firmware-analysis-workspace-limits)
 8. Select **Onboard** to create your workspace in your selected resource group and onboard your subscription to firmware analysis.
-
-    :::image type="content" source="media/tutorial-firmware-analysis/completed-onboarding.png" alt-text="Screenshot of the 'Onboard subscription' pane when it's completed." lightbox="media/tutorial-firmware-analysis/completed-onboarding.png":::
 
 ## Upload a firmware image for analysis
 
