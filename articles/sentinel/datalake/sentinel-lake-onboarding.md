@@ -58,15 +58,18 @@ Once you're onboarded to the Microsoft Sentinel data lake, you can use the follo
 + [Microsoft Sentinel data lake jobs](kql-jobs.md)
 + [Management of data tiers and retention](../manage-data-overview.md)
 + Microsoft Sentinel cost management
-+ Data risk graphs (in Data Security Investigations and Insider Risk Management only)
 + Blast radius analysis in incident investigations
 + Hunting graph in advanced hunting
+
+You can also use the following features in the Purview solutions portal once you're onboarded to the data lake:
++ Data risk graphs in Data Security Investigations
++ Data risk graphs in Insider Risk Management
 
 This article describes how to onboard to the Microsoft Sentinel data lake for customers who are currently using Microsoft Defender and Microsoft Sentinel. New Microsoft Sentinel customers can follow this procedure after their initial onboarding to the Microsoft Defender portal.
 
 ## Prerequisites
 
-To onboard to the Microsoft Sentinel data lake public preview, you must be an existing Microsoft Defender and Microsoft Sentinel customer with the following prerequisites:
+To onboard to the Microsoft Sentinel data lake and graph (preview), you must be an existing Microsoft Defender and Microsoft Sentinel customer with the following prerequisites:
 
 + You must have Microsoft Defender (`security.microsoft.com`) and Microsoft Sentinel. A Microsoft Defender XDR license isn't required to use Microsoft Sentinel data lake with Microsoft Sentinel in the Microsoft Defender portal.
 + You must have an existing Azure subscription and resource group to set up billing for the data lake. You must be the subscription owner. You can use your existing Microsoft Sentinel SIEM Azure subscription and resource group or create a new one.
