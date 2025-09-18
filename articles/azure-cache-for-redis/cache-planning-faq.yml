@@ -31,9 +31,9 @@ sections:
           
           | Cloud   | Domain Name System (DNS) suffix for Redis            |
           |---------|---------------------------------|
-          | Public  | *.redis.cache.windows.net       |
+          | Public  | `*.redis.cache.windows.net`       |
           | US Government  | *.redis.cache.usgovcloudapi.net |
-          | 21Vianet Cloud (China)   | *.redis.cache.chinacloudapi.cn  |
+          | 21Vianet Cloud (China)   | `*.redis.cache.chinacloudapi.cn`  |
           
           The Azure Redis Enterprise and Enterprise Flash tiers are available only in the Public cloud.
           
