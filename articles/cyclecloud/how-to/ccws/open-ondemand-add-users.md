@@ -19,4 +19,4 @@ After users authenticate with Microsoft Entra ID, Open OnDemand maps each user t
 Users can now sign in to Open OnDemand with their Microsoft Entra ID credentials. A consent message might appear when users try to sign in for the first time. Users should give consent to be redirected to the Open OnDemand dashboard.
 
    > [!NOTE]
-   > Make sure to respect the case of the user name, as the Open OnDemand match is case-sensitive.
+   > Maintain the exact casing of the username, as Open OnDemand requires a case-sensitive match.
