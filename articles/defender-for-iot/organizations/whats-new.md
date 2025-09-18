@@ -26,7 +26,7 @@ The legacy on-premises management console isn't available for download after **J
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | Sensor version 24.1.9 is now available. See [release details and updates](release-notes.md#2419). |
+| **OT networks** | The following sensor versions are now available:<br>-24.1.9: See [release details and updates](release-notes.md#2419).<br>- 25.1.0: See [release details and updates](release-notes.md#version-2510). |
 | **OT networks** | - ["Unauthorized Internet Connectivity Detected" alert now includes URL information](#unauthorized-internet-connectivity-detected-alert-now-includes-url-information)<br>- [Improved RDP Brute Force Detection](#improved-rdp-brute-force-detection) |
 
 ### "Unauthorized Internet Connectivity Detected" alert now includes URL information
