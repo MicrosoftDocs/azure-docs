@@ -125,6 +125,9 @@ Commit Discard is a POST action on NetworkFabric, allowed before a commit is per
 Users may choose to discard pending configuration updates if issues are found during validation using ViewDeviceConfiguration. This operation restores the ARM resource state to its last known good configuration and resets the fabric state from Accepted & Locked to Succeeded.
 
 >[!Note]
+> It is recommended not to trigger a discard operation after a failed commit, as this may lead to inconsistent configurations between Azure Resource Manager (ARM) and the device. In some cases, a device refresh might be required to reconcile the configuration state across ARM and the device.
+
+>[!Note]
 > You can retrieve the CommitBatchId by performing a GET request on the fabric resource with API version `2024-06-15-preview` or above.
 
 > [!IMPORTANT]
