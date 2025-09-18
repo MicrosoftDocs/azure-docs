@@ -4235,6 +4235,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/firewall/basic-features.md",
+      "redirect_url": "/azure/firewall/features-by-sku",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/firewall/long-running-sessions.md",
       "redirect_url": "/azure/firewall/tcp-session-behavior",
       "redirect_document_id": false
@@ -4247,6 +4252,11 @@
     {
       "source_path_from_root": "/articles/firewall/enable-top-ten-and-flow-trace.md",
       "redirect_url": "/azure/firewall/monitor-firewall-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/firewall/features.md",
+      "redirect_url": "/azure/firewall/features-by-sku",
       "redirect_document_id": false
     },
     {
