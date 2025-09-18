@@ -86,7 +86,7 @@ The following geographical regions aren't currently supported for the customer-e
 
 - EU customers, due to EUDB compliance limitations
 - Israel
-- Azure China 21Vianet
+- Azure operated by 21Vianet 
 
 For more information, see [Geographical availability and data residency in Microsoft Sentinel](geographical-availability-data-residency.md).
 
