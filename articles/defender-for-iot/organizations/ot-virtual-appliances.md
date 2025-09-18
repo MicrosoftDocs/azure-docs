@@ -41,11 +41,9 @@ This section outlines considerations for virtual appliance components, for both 
 
 ## OT network sensor VM requirements
 
-The following tables list system requirements for OT network sensors on virtual appliances, and performance measured in our qualification labs.
-
 For all deployments, bandwidth results for virtual machines may vary, depending on the distribution of protocols and the actual hardware resources that are available, including the CPU model, memory bandwidth, and IOPS.
 
-[!INCLUDE [hardware-applicances-table](../includes/hardware-appliances-table.md)]
+To review the system requirements and performance information for OT network sensors on specific virtual appliances, select the relevant appliance from the [appliance catalog page](appliance-catalog.md).
 
 > [!NOTE]
 > There is no need to pre-install an operating system on the VM, the sensor installation includes the operating system image.
