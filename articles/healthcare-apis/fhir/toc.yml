@@ -84,7 +84,7 @@ items:
   items:
     - name: $bulk-delete
       href: fhir-bulk-delete.md
-    - name: $bulk-delete
+    - name: $bulk-update
       href: fhir-bulk-update.md      
     - name: $convert-data
       items: 
