@@ -26,6 +26,7 @@ The legacy on-premises management console isn't available for download after **J
 
 |Service area  |Updates  |
 |---------|---------|
+| **OT networks** | Version 24.1.9 released. See [release details and updates](release-notes.md#2419). |
 | **OT networks** | - ["Unauthorized Internet Connectivity Detected" alert now includes URL information](#unauthorized-internet-connectivity-detected-alert-now-includes-url-information)<br>- [Improved RDP Brute Force Detection](#improved-rdp-brute-force-detection) |
 
 ### "Unauthorized Internet Connectivity Detected" alert now includes URL information
