@@ -104,7 +104,7 @@ To run an assessment, follow these steps:
     :::image type="content" source="./media/tutorial-assess-postgresql/assessments-two.png" alt-text="Screenshot shows users how to select the required assessment." lightbox="./media/tutorial-assess-postgresql/assessments-two.png":::
 
 > [!NOTE]
-> This is a configuration-based assessment that analyses your PostgreSQL setup for compatibility with Azure Database for PostgreSQL flexible server.
+> This is a configuration-based assessment that analyses your PostgreSQL setup for compatibility with Azure Database for PostgreSQL Flexible Server.
 
 ## Next steps
 
