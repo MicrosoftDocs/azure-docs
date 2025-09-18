@@ -9,7 +9,7 @@
  ms.custom: include file
 ---
 
-- **Enable geo-redundancy on an existing storage account.** To convert an existing storage account to geo-redundant storage (GRS), see [Change how a storage account is replicated](/azure/storage/common/redundancy-migration) for step-by-step conversion procedures.
+- **Enable geo-redundancy on an existing storage account.** To convert an existing storage account to geo-redundant storage (GRS), see [Change how a storage account is replicated](/azure/storage/common/redundancy-migration).
 
   > [!WARNING]
   > After your account is reconfigured for geo-redundancy, it might take a significant amount of time before existing data in the new primary region is fully copied to the new secondary region.

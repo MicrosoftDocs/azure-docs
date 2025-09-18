@@ -6,7 +6,10 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 09/30/2023
-ms.custom: engagement-fy23, UpdateFrequency2
+ms.custom:
+  - engagement-fy23
+  - UpdateFrequency2
+  - sfi-image-nochange
 ---
 
 # Publish app for testing on an Azure DevTest Labs VM

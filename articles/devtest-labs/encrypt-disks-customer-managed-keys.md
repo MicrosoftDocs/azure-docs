@@ -5,7 +5,10 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 07/15/2025
-ms.custom: subject-rbac-steps, UpdateFrequency2
+ms.custom:
+  - subject-rbac-steps
+  - UpdateFrequency2
+  - sfi-image-nochange
 
 #customer intent: As a lab owner, I want to use customer-managed keys to manage disk encryption so that I can manage access control with more flexibility.  
 ---

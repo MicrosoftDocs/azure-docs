@@ -5,7 +5,10 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 03/26/2025
-ms.custom: devx-track-azurepowershell, UpdateFrequency2
+ms.custom:
+  - devx-track-azurepowershell
+  - UpdateFrequency2
+  - sfi-image-nochange
 
 #customer intent: As a lab user, I want to add artifacts to my VMs so I can use them to run scripts or commands, install tools or applications, or take other actions on my VMs.
 ---

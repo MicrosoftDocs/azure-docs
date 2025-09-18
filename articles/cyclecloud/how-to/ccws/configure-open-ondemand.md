@@ -2,7 +2,7 @@
 title: Configure Open Demand with CycleCloud
 description: How to configure Open OnDemand with CycleCloud
 author: xpillons
-ms.date: 07/01/2025
+ms.date: 09/18/2025
 ms.author: padmalathas
 ---
 
@@ -13,11 +13,11 @@ Open OnDemand is a web-based interface that provides a user-friendly way to inte
 The Open OnDemand front end uses Open ID Connect (OIDC) for authentication. The OIDC provider is a Microsoft Entra ID application that you register specifically for this purpose (see [How to register a Microsoft Entra ID application for Open OnDemand Authentication](./register-entra-id-app.md)). The following steps describe how to update the settings for Microsoft Entra ID authentication.
 
 Browse to the CycleCloud web portal, select the OpenOnDemand cluster, and select **Edit**. This selection opens the cluster template definition. 
-1. Select **Advanced settings**,
-1. Leave FQDN empty,
-1. Set the Client ID to the registered application ID,
-1. Set the user domain to the enterprise domain,
-1. Set the Tenant ID to the tenant for the application registration,
+1. Select **Advanced settings**.
+1. Leave FQDN empty.
+1. Set the Client ID to the registered application ID.
+1. Set the user's domain to match the enterprise domain exactly, preserving the original casing (example, 'Contoso.com').
+1. Set the Tenant ID to the tenant for the application registration.
 1. Manually set the managed identity to the one named `/ccwOpenOnDemandManagedIdentity`.
    
    > [!NOTE]
