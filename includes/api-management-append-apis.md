@@ -4,6 +4,7 @@ ms.service: azure-api-management
 ms.topic: include
 ms.date: 03/27/2025
 ms.author: vlvinogr
+ms.custom: sfi-image-nochange
 ---
 ## Append other APIs
 
