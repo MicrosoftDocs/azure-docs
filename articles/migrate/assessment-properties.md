@@ -36,7 +36,6 @@ General assessment properties in Azure Migrate help set key options for migratio
 |**VM Security Type** | | Specifies is you want to verify readiness for **Trusted Launch Virtual Machines (TVMs)**, Standard Virtual Machines, or both. By default, readiness is verified for both. We recommend migrating eligible VMs to **Trusted Launch**, as TVMs provide enhanced security features, such as secure boot and virtual TPM.| 
 
 
-
 ## Next steps
 
 - Learn about [PostgreSQL assessment rules](assessment-rules-for-postgresql.md).
