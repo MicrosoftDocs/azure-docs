@@ -11,6 +11,7 @@ ms.date: 10/30/2024
 ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: email
+ms.custom: sfi-ropc-nochange
 ---
 
 # Detect sensitive data using Azure AI

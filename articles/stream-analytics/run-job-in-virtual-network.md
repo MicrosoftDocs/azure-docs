@@ -6,7 +6,10 @@ ms.author: anboisve
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 05/09/2025
-ms.custom: references_regions, ignite-2024
+ms.custom:
+  - references_regions
+  - ignite-2024
+  - sfi-image-nochange
 ---
 
 # Run your Azure Stream Analytics job in an Azure Virtual Network

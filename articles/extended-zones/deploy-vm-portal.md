@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-extended-zones
 ms.topic: quickstart
 ms.date: 11/19/2024
+ms.custom: sfi-image-nochange
 ---
   
 # Quickstart: Deploy a virtual machine in an Extended Zone using the Azure portal

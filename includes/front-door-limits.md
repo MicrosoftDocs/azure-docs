@@ -68,6 +68,7 @@ ms.custom: include file
 | Maximum security policy per profile | 100 | 200 |
 | Maximum associations per security policy | 110 | 225 |
 | Maximum secrets per profile | 100 | 500 |
+| Maximum key groups per profile | 100 | 200 |
 | HTTP header size limit (per header) | 32 KB | 32 KB|
 | Web Application Firewall (WAF) policy per subscription | 100 | 100 |
 | WAF custom rules per policy | 100 | 100 |

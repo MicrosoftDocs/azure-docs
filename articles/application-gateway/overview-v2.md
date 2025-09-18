@@ -104,7 +104,7 @@ The following table compares the features available with each SKU.
 | WebSocket support                                 | &#x2713; | &#x2713; |
 | HTTP/2 support                                    | &#x2713; | &#x2713; |
 | Connection draining                               | &#x2713; | &#x2713; |
-| Proxy NTLM authentication                         | &#x2713; |          |
+| Proxy NTLM authentication                         | &#x2713; | &#x2713; |
 | Path based rule encoding                          | &#x2713; |          |
 | DHE Ciphers                                       | &#x2713; |          |
 > [!NOTE]

@@ -154,6 +154,8 @@ For more information, see [Blob Storage pricing](https://azure.microsoft.com/pri
 
 [!INCLUDE [Storage - Alternative multi-region approaches - reasons](includes/storage/reliability-storage-multi-region-alternative-reasons-include.md)]
 
+[!INCLUDE [Storage - Alternative multi-region approaches - introduction](includes/storage/reliability-storage-multi-region-alternative-introduction-include.md)]
+
 [!INCLUDE [Storage - Alternative multi-region approaches - approach overview](includes/storage/reliability-storage-multi-region-alternative-approach-include.md)]
 
 **Object replication** provides an extra option for cross-region data replication that provides asynchronous copying of block blobs between storage accounts. Unlike the built-in geo-redundant storage options that use fixed paired regions, object replication allows you to replicate data between storage accounts in any Azure region, including nonpaired regions. This approach gives you full control over source and destination regions, replication policies, and the specific containers and blob prefixes to replicate.

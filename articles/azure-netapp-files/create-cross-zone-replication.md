@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 05/30/2025
 ms.author: anfdocs
+ms.custom: sfi-image-nochange
 # Customer intent: "As a cloud administrator, I want to establish cross-zone replication for Azure NetApp Files, so that I can ensure high availability and disaster recovery for my critical applications across availability zones."
 ---
 # Create cross-zone replication relationships for Azure NetApp Files

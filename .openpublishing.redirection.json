@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/managed-grafana/how-to-api-calls.md",
+      "redirect_url": "/azure/managed-grafana/how-to-service-accounts",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/files/storage-how-to-create-file-share.md",
       "redirect_url": "/azure/storage/files/create-classic-file-share",
       "redirect_document_id": false
@@ -5860,6 +5865,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/update-manager/prerequsite-for-schedule-patching.md ",
+      "redirect_url": "/azure/update-manager/dynamic-scope-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/virtual-machines-command-line-tools.md",
       "redirect_url": "/cli/azure/get-started-with-az-cli2",
       "redirect_document_id": false
@@ -7170,8 +7180,23 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/reliability/migrate-container-instances.md",
+      "redirect_url": "/azure/reliability/reliability-container-instances",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/reliability-containers.md",
+      "redirect_url": "/azure/reliability/reliability-container-instances",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/reliability/reliability-operator-nexus.md",
       "redirect_url": "/azure/reliability/overview-reliability-guidance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/reliability-event-hubs.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-business-continuity-outages-disasters",
       "redirect_document_id": false
     }
 
