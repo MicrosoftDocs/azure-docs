@@ -14,6 +14,10 @@ monikerRange: migrate
 
 This article explains the assessment properties on the **General** tab that you can use when creating an assessment. These general properties apply to all workloads in an application or for cross-workload assessments. They also apply to individual workload assessments. 
 
+## Assessment settings in Azure Migrate
+
+General assessment properties in Azure Migrate (preview) help set up key configurations for migration, including target region, sizing options, pricing preferences, and security readiness. These settings apply across workloads and ensure accurate recommendations and cost estimates.
+
 | **Setting Category**  | **Default Setting** | **Details** |                
 |-------------------|---------|--------  |                                                     
 | **Target settings**   | **Target location**         | The Azure region to which you want to migrate. Azure target configuration and cost recommendations are based on the location that you specify. |

@@ -1,6 +1,6 @@
 ---
 title: Assessment properties
-description: Describes the components of a PostgreSQL assessment in Azure Migrate
+description: Describes the components of an assessment in Azure Migrate.
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
@@ -13,6 +13,10 @@ monikerRange: migrate
 # General assessment properties 
 
 This article explains the assessment properties on the **General** tab that you can use when creating an assessment. These general properties apply to all workloads in an application or for cross-workload assessments. They also apply to individual workload assessments. 
+
+## Assessment settings
+
+General assessment properties in Azure Migrate help set key options for migration, like target region, sizing method, pricing preferences, and security settings. These apply across workloads and support accurate planning and cost estimation.
 
 | **Setting Category**  | **Default Setting** | **Details** |                
 |-------------------|---------|--------  |                                                     
