@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot Azure Route Server issues
 description: Learn how to troubleshoot some of the common issues that you may have when you use Azure Route Server in your virtual network.
-author: halkazwini
-ms.author: halkazwini
+author: duongau
+ms.author: duau
 ms.service: azure-route-server
 ms.topic: how-to
 ms.date: 02/07/2025

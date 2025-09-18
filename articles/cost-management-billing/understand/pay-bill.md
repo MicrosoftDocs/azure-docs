@@ -2,9 +2,9 @@
 title: Pay your Microsoft Customer Agreement or Microsoft Online Subscription Program bill
 description: Learn how to pay your bill in the Azure portal. You must be a billing profile owner, contributor, or invoice manager to pay in the portal.
 keywords: billing, past due, balance, pay now,
-author: lindseyshep
-ms.author: lishepar
-ms.reviewer: lishepar, jobailey
+author: kennyday
+ms.author: drjones
+ms.reviewer: drjones
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to

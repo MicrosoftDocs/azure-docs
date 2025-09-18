@@ -2,8 +2,8 @@
 title: Default route injection in spoke virtual networks
 titleSuffix: Azure Route Server
 description: Learn how Azure Route Server injects routes in virtual networks (VNets) in different topologies.
-author: halkazwini
-ms.author: halkazwini
+author: duongau
+ms.author: duau
 ms.service: azure-route-server
 ms.topic: concept-article
 ms.date: 02/10/2025
