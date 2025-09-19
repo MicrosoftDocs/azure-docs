@@ -86,11 +86,23 @@ To create and set up a project in a dev box:
 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-project-create.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a dev box project." lightbox="./media/quickstart-configure-dev-box-service/dev-box-project-create.png":::
 
-1. On the **Dev box management** tab, make sure **No** is selected.
+1. On the **Dev box settings** tab, enter the following values:
 
-   Select **Yes** to limit the number of dev boxes per developer, and enter the maximum number a developer can create. The default, **No**, lets developers create an unlimited number of dev boxes.
+   | Setting | Value |
+   |---|---|
+   | **User customizations** | Select to enable users to customize their dev boxes on creation. |
+   | **Dev box limits** | Ensure the checkbox is cleared to let developers create an unlimited number of dev boxes. </br>Select **Enable** to limit the number of dev boxes per developer, and enter the maximum number a developer can create. </br> To learn more about dev box limits, see [Tutorial: Control costs by setting dev box limits on a project](./tutorial-dev-box-limits.md). |
+  
+   :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-project-create-settings.png" alt-text="Screenshot that shows the Dev box settings tab on the pane for creating a dev box project." lightbox="./media/quickstart-configure-dev-box-service/dev-box-project-create-settings.png":::
 
-   To learn more about dev box limits, see [Tutorial: Control costs by setting dev box limits on a project](./tutorial-dev-box-limits.md).
+1. On the **Catalogs** tab, enter the following values:
+
+   | Setting | Value |
+   |---|---|
+   | **Deployment environment definitions** | Select to enable Dev Box to sync deployment environments definitions from a catalog attached to the project. |
+   | **Image definitions** |  Select to enable Dev Box to sync image definitions from a catalog attached to the project. |
+  
+   :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-project-create-catalogs.png" alt-text="Screenshot that shows the Catalogs tab on the pane for creating a dev box project." lightbox="./media/quickstart-configure-dev-box-service/dev-box-project-create-catalogs.png":::
 
 1. (Optional) On the **Tags** tab, enter a name/value pair to assign.
 
@@ -101,14 +113,6 @@ To create and set up a project in a dev box:
 1. Check the notifications to confirm the project is created. Select **Go to resource**.
 
 1. Check that the project appears on the **Projects** page.
- 
-When you create a project, you might see this informational message about catalogs: *The dev center that contains this project does not have a catalog assigned. Environments cannot be deployed in this project until a catalog containing at least one template has been assigned.*
-
-:::image type="content" source="media/quickstart-configure-dev-box-service/project-catalog-message.png" alt-text="Screenshot showing an information message." lightbox="media/quickstart-configure-dev-box-service/project-catalog-message.png":::
-
-Because you're not setting up Deployment Environments, you can safely ignore this message.
-
-
 
 ## Create a dev box pool
 
