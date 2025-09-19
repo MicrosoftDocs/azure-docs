@@ -160,8 +160,6 @@ If you use any of the OSS SKUs, Basic, Standard, or Premium, moving to Azure Man
 
 Here is a table that compares the features from Azure Cache for Redis to the features in Azure Managed Redis
 
-<!-- ## Feature comparison between Azure Cache for Redis and Azure Managed Redis -->
-
 | Feature Description               | Basic<br>_OSS_ | Standard<br>_OSS_ | Premium<br>_OSS_ | Balanced<br>_AMR_ | Memory Optimized<br>_AMR_ | Compute Optimized<br>_AMR_ |
 |-----------------------------------|:--------------:|:-----------------:|:----------------:|:-----------------:|:-------------------------:|:--------------------------:|
 | Availability                      | N/A            | 99.9%             | 99.9%            | Up to 99.999%     | Up to 99.999%             | Up to 99.999%              |
@@ -183,7 +181,7 @@ Here is a table that compares the features from Azure Cache for Redis to the fea
 | Keyspace notification             | Yes            | Yes               | Yes              | No                | No                        | No                         |
 | Non High-availability             | N/A            | No                | No               | Yes               | Yes                       | Yes                        |
 
-_OSS_ refers to Azure Cache for Redis
+_OSS_ refers to Azure Cache for Redis<br>
 _AMR_ refers to Azure Managed Redis
 
 Here are some other differences to consider when implementing Azure Managed Redis. Consider these client application changes:
