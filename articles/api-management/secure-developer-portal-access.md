@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 09/18/2025
+ms.date: 09/19/2025
 ms.author: danlep
 ms.custom: sfi-image-nochange
 ---
@@ -22,15 +22,14 @@ API Management has a fully customizable, standalone, managed [developer portal](
 
 ## Authentication options
 
-* **External users** - The preferred option when the developer portal is consumed externally is to enable access through A [Microsoft Entra External ID](/entra/external-id/external-identities-overview). 
+* **External users** - The preferred option when the developer portal is consumed externally is to enable access through a [Microsoft Entra External ID](/entra/external-id/external-identities-overview). 
     * Microsoft Entra External ID provides the option of using native accounts: users sign in using that identity to access the developer portal. 
     * It's also useful if you want users to access the developer portal using existing social media or federated organizational accounts.  
     * The service provides many features to improve the end user sign-up and sign-in experience, including conditional access and MFA. 
     
     For steps to enable Microsoft Entra External ID authentication in the developer portal, see [How to authorize developer accounts by using Microsoft Entra External ID](api-management-howto-entra-external-id.md).
 
-    > [!NOTE]
-    > API Management provides legacy support for Azure AD B2C as an external identity provider. However, we recommend that you use [Microsoft Entra External ID](/entra/external-id/external-identities-overview) as an identity provider instead of Azure Active Directory B2C for new deployments of the API Management developer portal. 
+    [!INCLUDE [api-management-active-directory-b2c-support](../../includes/api-management-active-directory-b2c-support.md)]
 
     [!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
@@ -113,7 +112,7 @@ Key configurations:
 |Configuration  |Reference  |
 |---------|---------|
 | Set up products in Azure API Management to represent the combinations of APIs that are exposed to community developers.<br/><br/> Set up subscriptions to enable developers to consume the APIs.  | [Tutorial: Create and publish a product](api-management-howto-add-products.md)<br/><br/>[Subscriptions in Azure API Management](api-management-subscriptions.md)  |
-|  Configure community developer access to the developer portal using Microsoft Entra External ID. Microsoft Entra External ID     can then be configured to work with one or more downstream social media identity providers. |  [How to authorize developer accounts by using Microsoft Entra External ID in Azure API Management](api-management-howto-entra-external-id.md.md) |
+|  Configure community developer access to the developer portal using Microsoft Entra External ID. Microsoft Entra External ID     can then be configured to work with one or more downstream social media identity providers. |  [How to authorize developer accounts by using Microsoft Entra External ID in Azure API Management](api-management-howto-entra-external-id.md) |
 | Set up the test console in the developer portal to obtain a valid OAuth 2.0 token to the backend API using the client credentials flow.  |  [How to authorize test console of developer portal by configuring OAuth 2.0 user authorization](api-management-howto-oauth2.md)<br/><br/>Adjust configuration steps shown in this article to use the [client credentials grant flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) instead of the authorization code grant flow. |
 
 Go a step further by delegating [user registration or product subscription](api-management-howto-setup-delegation.md) and extend the process with your own logic. 
