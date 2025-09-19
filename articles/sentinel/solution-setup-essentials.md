@@ -35,7 +35,7 @@ Before you create or publish a platform solution, make sure you have:
 - [Visual Studio Code](https://code.visualstudio.com/) with
     - The [Microsoft Sentinel extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-sentinel): 
         - In VS Code, open the Extensions Marketplace, search for **Sentinel**, select **Microsoft Sentinel**, and choose **Install**. After installation, the Microsoft Sentinel shield icon appears in the left toolbar.
-        :::image type="content" source="media/vscode-sentinel-extension.png" 
+        :::image type="content" source="media/solution-setup-essentials/vscode-sentinel-extension.png" 
         alt-text="Screenshot of the Microsoft Sentinel extension in the Visual Studio Code Marketplace." 
         lightbox="media/vscode-sentinel-extension.png":::
     - The [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot):
