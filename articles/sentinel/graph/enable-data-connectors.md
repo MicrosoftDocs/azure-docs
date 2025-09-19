@@ -1,5 +1,5 @@
 ---  
-title: Asset data in Microsoft Sentinel data lake  (Preview)
+title: Asset data in Microsoft Sentinel data lake
 titleSuffix: Microsoft Security  
 description: Asset data in security data lake 
 author: mberdugo  
@@ -14,7 +14,7 @@ ms.collection: ms-security
 #Customer intent: As a Microsoft Sentinel user, I want to enable and manage data connectors in the Microsoft Sentinel data lake so that I can ingest and analyze security-related data from various sources.
 ---
 
-# Enable asset data ingestion in the Microsoft Sentinel data lake (preview)
+# Enable asset data ingestion in the Microsoft Sentinel data lake
 
 Asset data refers to structured information about digital or physical entities, such as devices, services, applications, or infrastructure components, that are relevant to an organization’s operations, security, or analytics. This article explains how to enable and manage asset data in Microsoft Sentinel's data lake. Data in the data lake is ingested and managed through data connectors. These data connectors allow you to integrate various data sources into Microsoft Sentinel, enabling enhanced security monitoring and threat detection capabilities.
 
