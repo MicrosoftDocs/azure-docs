@@ -4,7 +4,7 @@ description: This tutorial demonstrates how to containerize ASP.NET applications
 ms.manager: kmadnani
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 19/09/2025
+ms.date: 09/19/2025
 ms.custom:
   - engagement-fy24
   - sfi-image-nochange
