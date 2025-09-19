@@ -1,5 +1,5 @@
 ---
-title: Configuration changes via hydration process
+title: Configure on-premise disks for Azure through Hydration
 description: Learn how to prepare for Configuration changes via hydration process in Azure Site Recovery.
 author: jyothisuri
 ms.author: jsuri
@@ -8,14 +8,18 @@ ms.service: azure-site-recovery
 ms.date: 09/18/2025
 ---
 
-# Configuration changes via hydration process
+# Configure on-premise disks for Azure through Hydration
 
-You have to make some changes to the VMs configuration before the failover to ensure that the migrated VMs function properly on Azure. Azure Site Recovery handles these configuration changes via the *hydration* process. The hydration process is only performed for the versions of Azure supported operating systems given above. Before you failover, you may need to perform the required changes manually for other operating system versions that aren't listed above. If the VM is migrated without the required changes, the VM may not boot, or you may not have connectivity to the migrated VM. The following diagram shows you that Azure Site Recovery performs the hydration process.
+You have to make some changes to the VMs' configuration before the failover to ensure that the migrated VMs function properly on Azure. Azure Site Recovery handles these configuration changes via the *hydration* process. The hydration process is only performed for the versions of [operating systems supported by Azure Site Recovery](/azure/site-recovery/vmware-physical-azure-support-matrix#for-windows). Before you failover, you may need to perform the required changes manually for other operating system versions that aren't listed above. If the VM is migrated without the required changes, the VM may not boot, or you may not have connectivity to the migrated VM. The following diagram shows you that Azure Site Recovery performs the hydration process.
 
 When a user triggers *Test Failover* or *Failover*, Azure Site Recovery performs the hydration process to prepare the on-premises VM for failover to Azure.
 To set up the hydration process, Azure Site Recovery creates a temporary Azure VM and attaches the disks of the source VM to perform changes to make the source VM ready for Azure. The temporary Azure VM is an intermediate VM created during the failover process before the final migrated VM is created. The temporary VM will be created with a similar OS type (Windows/Linux) using one of the marketplace OS images. If the on-premises VM is running Windows, the operating system disk of the on-premises VM will be attached as a data disk to the temporary VM for performing changes. If it's a Linux server, all the disks attached to the on-premises VM will be attached as data disks to the temporary Azure VM.
 
+To troubleshoot the errors observed, see [selection of SKUs for Temporary VM (Hydration VM)](#troubleshoot).
+
 Azure Site Recovery will create the network interface, a new virtual network, subnet, and a network security group (NSG) to host the temporary VM. These resources are created in the customer's subscription. If there are conflicting policies that prevent the creation of the network artifacts, Azure Site Recovery will attempt to create the temporary Azure VM in the virtual network and subnet provided as part of the replication target settings options.
+
+The virtual network must have outbound access to Storage service tag of the target region. For more information, see Available service tags.
 
 After the virtual machine is created, Azure Site Recovery will invoke the [Custom Script Extension](/azure/virtual-machines/extensions/custom-script-windows) on the temporary VM using the Azure Virtual Machine REST API. The Custom Script Extension utility will execute a preparation script containing the required configuration for Azure readiness on the on-premises VM disks attached to the temporary Azure VM. The preparation script is downloaded from an Azure Site Recovery owned storage account. The network security group rules of the virtual network will be configured to permit the temporary Azure VM to access the Azure Site Recovery storage account for invoking the script.
 
@@ -259,6 +263,8 @@ The preparation script executes the following changes based on the OS type of th
 After the necessary changes are performed, Azure Site Recovery will spin down the temporary VM and free the attached OS disks (and data disks). This marks the end of the *hydration process*.
 
 After this, the modified OS disk and the data disks that contain the replicated data are cloned. A new virtual machine is created in the target region, virtual network, and subnet, and the cloned disks are attached to the virtual machine. This marks the completion of the failover process.
+
+### Troubleshoot
 
 | **Error Observed** | **Details** |
 |---------------------|-------------|
