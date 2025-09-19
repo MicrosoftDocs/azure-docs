@@ -38,7 +38,7 @@ The following table lists the inputs, tasks, and outputs:
 
 Same requirements as [Create conversational agent workflows](create-conversational-agent-workflows.md#prerequisites).
 
-The Standard logic app resource that you need can be empty or have other workflows. In this guide, you create the conversational agent workflows that you need. These workflows include an empty agent and the default trigger that fires when a new chat session starts. You can't delete the default trigger, which is required for the workflow.
+The Standard logic app resource that you need can be empty or have other workflows. In this guide, you create the conversational agent workflow that you need. The workflow includes an empty agent and the default trigger that fires when a new chat session starts. You can't delete the default trigger, which is required for the workflow.
 
 ## Key concepts
 
@@ -333,32 +333,32 @@ For the **Compose** action inputs, you can use the following example:
 
 ```json
 {
-  "products": [
-    {
-      "id": "laptop_001",
-      "name": "Adatum 13",
-      "price": 1299.99,
-      "description": "Ultra-portable 13-inch laptop with i7, 16GB RAM, 512GB SSD"
-    },
-    {
-      "id": "laptop_002", 
-      "name": "Adatum M2",
-      "price": 1199.99,
-      "description": "Adatum's thin and light laptop with M2 chip, 8GB RAM, 256GB SSD"
-    },
-    {
-      "id": "laptop_003",
-      "name": "Adatum X1",
-      "price": 1599.99,
-      "description": "Business laptop with i7, 16GB RAM, 1TB SSD, excellent keyboard"
-    },
-    {
-      "id": "laptop_004",
-      "name": "Adatum x360",
-      "price": 1399.99,
-      "description": "2-in-1 convertible laptop with touchscreen, i7, 16GB RAM, 512GB SSD"
-    }
-  ]
+   "products": [
+      {
+         "id": "laptop_001",
+         "name": "Adatum 13",
+         "price": 1299.99,
+         "description": "Laptop with i7, 16GB RAM, 512GB SSD"
+      },
+      {
+         "id": "laptop_002", 
+         "name": "Adatum M2",
+         "price": 1199.99,
+         "description": "Laptop with M2, 8GB RAM, 256GB SSD"
+      },
+      {
+         "id": "laptop_003",
+         "name": "Adatum X1",
+         "price": 1599.99,
+         "description": "Laptop with i7, 16GB RAM, 1TB SSD"
+      },
+      {
+         "id": "laptop_004",
+         "name": "Adatum x360",
+         "price": 1399.99,
+         "description": "Laptop with i7, 16GB RAM, 512GB SSD, touchscreen"
+      }
+   ]
 }
 ```
 
@@ -378,7 +378,7 @@ To add and set up the **process_order** tool for the sales specialist agent, rep
 |------|-------|
 | Tool name | `process_order` |
 | Tool description | `Process customer order with product details, pricing, and shipping. Use price in US$.` |
-| Agent parameters for tool | Parameter #1: <br>- **Name**: `product_id` <br>- **Type**: `String` <br>- **Description**: `The product ID` <br><br>Parameter #2: <br>- **Name**: `quantity` <br>- **Type**: `String` <br>- **Description**: `The product quantity` |
+| Agent parameters for tool | Parameter #1: <br>- **Name**: `product-id` <br>- **Type**: `String` <br>- **Description**: `The product ID` <br><br>Parameter #2: <br>- **Name**: `quantity` <br>- **Type**: `Integer` <br>- **Description**: `The product quantity` |
 | **Compose** action name | `Execute order` |
 
 For the **Compose** action inputs, you can use the following example where you replace the placeholders with the corresponding agent parameters:
@@ -387,8 +387,8 @@ For the **Compose** action inputs, you can use the following example where you r
 {
    "order_status": "success",
    "order_id": "@{guid()}",
-   "quantity": "@agentParameters('quantity')",
-   "product_id": "@agentParameters('id')"
+   "quantity": "<quantity>",
+   "product_id": "<product-ID>"
 }
 ```
 
