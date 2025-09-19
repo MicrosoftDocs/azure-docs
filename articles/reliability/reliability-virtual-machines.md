@@ -23,7 +23,7 @@ This article describes reliability support in [Virtual Machines](/azure/virtual-
 
 ## Production deployment recommendations
 
-For more information about how to deploy VMs to support your solution's reliability requirements and how reliability affects other aspects of your architecture, see [Architecture best practices for Virtual Machines and scale sets](/azure/well-architected/service-guides/virtual-machines).
+For more information about how to deploy VMs to support your solution's reliability requirements and how reliability affects other aspects of your architecture, see [Architecture best practices for Virtual Machines and scale sets in the Azure Well-Architected Framework](/azure/well-architected/service-guides/virtual-machines).
 
 ## Reliability architecture overview
 
@@ -47,7 +47,7 @@ When you create your VMs, you can influence where they run within the underlying
 
 - **Dedicated hosts:** You can use [Azure Dedicated Host](/azure/virtual-machines/dedicated-hosts) to provision your own physical server that runs one or more VMs, such as for strict compliance requirements. However, when you provision a dedicated host, an outage in its datacenter can affect all of the VMs on that host. To achieve high reliability, you might need to provision multiple dedicated hosts in different availability zones.
 
-If you create a set of VMs that perform similar functions, consider using [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) to create and manage the VMs as a group. Scale sets also provide more reliability options, such as spreading the VMs across multiple availability zones.
+If you create a set of VMs that perform similar functions, consider using [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) to create and manage the VMs as a group. Scale sets also provide more reliability options, such as spreading the VMs across multiple availability zones.
 
 For more information about availability for VMs, see [Availability options for Virtual Machines](/azure/virtual-machines/availability).
 
@@ -61,7 +61,7 @@ Applications that run on your VMs should implement appropriate fault-handling st
 
 [!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
 
-An individual VM can be deployed in a *zonal* configuration, which means that it's pinned to a single availability zone that you select. By itself, a zonal VM isn't resilient to zone outages. However, you can create multiple VMs and place them in different availability zones, then spread your applications and data across the VM instances. Alternatively, you can use [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) to deploy a set of VMs across multiple availability zones.
+An individual VM can be deployed in a *zonal* configuration, which means that it's pinned to a single availability zone that you select. By itself, a zonal VM isn't resilient to zone outages. However, you can create multiple VMs and place them in different availability zones, then spread your applications and data across the VM instances. Alternatively, you can use [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) to deploy a set of VMs across multiple availability zones.
 
 If you don't configure a VM to be zonal, it's considered *nonzonal* or *regional*. Nonzonal VMs might be placed in any availability zone within the region. If any availability zone in the region experiences an outage, nonzonal VMs might be in the affected zone and can experience downtime.
 
@@ -178,9 +178,9 @@ Backup also supports disks that are attached to VMs. For more information, see [
 
 ## Service-level agreement
 
-The service-level agreement (SLA) for Virtual Machines describes the expected availability of the service and the conditions that must be met to achieve that availability expectation.
+[!INCLUDE [SLA description](includes/reliability-service-level-agreement-include.md)]
 
-The SLA provides a base level of availability for VMs. The uptime percentage defined in the SLA increases when you have two or more VMs and you take the following actions:
+For VMs, the SLA provides a base level of availability. The uptime percentage defined in the SLA increases when you have two or more VMs and you take the following actions:
 
 - Configure those VMs to be deployed across two or more availability zones.
 - Configure those VMs to be deployed into an availability set.
