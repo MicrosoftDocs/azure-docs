@@ -2,14 +2,14 @@
 title: How to migrate an Enterprise cache to Azure Managed Redis
 description: In this article, you learn how to migrate an Enterprise cache from Azure Cache for Redis to Azure Managed Redis
 ms.date: 09/28/2025
-ms.topic: overview
+ms.topic: conceptual
 appliesto:
   - ✅ Azure Cache for Redis
   - ✅ Azure Managed Redis
 
 #customer intent: As a developer who has Enterprise caches, I want to migrate them to Azure Managed Redis
 ---
-# Migrate from Azure Cache for Redis Enterprise to Azure Managed Redis
+# Migrate from Enterprise tier to Azure Managed Redis
 
 This article discusses the process of migrating from Azure Cache for Redis Enterprise to Azure Managed Redis, including benefits of choosing Azure Managed Redis, feature comparisons, migration strategies, and best practices.
 
