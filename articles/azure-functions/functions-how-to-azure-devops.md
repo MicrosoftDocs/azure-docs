@@ -262,39 +262,34 @@ If you opted to deploy to a [deployment slot](functions-deployment-slots.md), yo
     SwapWithProduction: true
 ```
 
-<!-- ## Deploy a container
+## Deploy a container
 
 You can automatically deploy your code to Azure Functions as a custom container after every successful build. To learn more about containers, see [Working with containers and Azure Functions](./functions-how-to-custom-container.md) . 
 
-### Deploy with the Azure Function App for Container task
+### Deploy to Azure Container Apps
 
-The simplest way to deploy to a container is to use the [Azure Function App on Container Deploy task](/azure/devops/pipelines/tasks/deploy/azure-rm-functionapp-containers).
-
-To deploy, add the following snippet at the end of your YAML file:
+The snippet updates an Azure Container App that is optimized for Azure Functions. Learn more about [native Azure Functions support in Azure Container Apps](https://techcommunity.microsoft.com/blog/appsonazureblog/announcing-native-azure-functions-support-in-azure-container-apps/4414039).
 
 ```yaml
 trigger:
 - main
 
-variables:
-  # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: <DOCKER_REGISTRY_SERVICE_CONNECTION>
-  imageRepository: <IMAGE_REPOSITORY_NAME>
-  containerRegistry: <AZURE_CONTAINER_REGISTRY_NAME>
-  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-  tag: '$(Build.BuildId)'
-  
-  # Agent VM image name
-  vmImageName: 'ubuntu-latest'
+pool:
+  vmImage: 'ubuntu-latest'
 
-- task: AzureFunctionAppContainer@1 # Add this at the end of your file
+steps:
+- task: AzureCLI@2
+  displayName: 'Deploy to Azure Container Apps'
   inputs:
-    azureSubscription: '<AZURE_SERVICE_CONNECTION>'
-    appName: '<APP_NAME>'
-    imageName: $(containerRegistry)/$(imageRepository):$(tag)
+    azureSubscription: 'your-subscription-name'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      az containerapp update \
+        --name your-app-name \
+        --resource-group your-resource-group \
+        --image mcr.microsoft.com/azure-functions/dotnet:4-dotnet8.0
 ```
-
-The snippet pushes the Docker image to your Azure Container Registry. The **Azure Function App on Container Deploy** task pulls the appropriate Docker image corresponding to the `BuildId` from the repository specified, and then deploys the image. -->
 
 ## Create a pipeline with Azure CLI
 
