@@ -155,26 +155,29 @@ Here is a table that compares the features from Azure Cache for Redis to the fea
 
 <!-- ## Feature comparison between Azure Cache for Redis and Azure Managed Redis -->
 
-| Feature Description               | Basic<br>OSS | Standard<br>OSS | Premium<br>OSS | Balanced<br>AMR  | Memory Optimized<br>AMR | Compute Optimized<br>AMR |
-|-----------------------------------|:------------:|:---------------:|:--------------:|:----------------:|:-----------------------:|:------------------------:|
-| Availability                      | N/A          | 99.9%           | 99.9%          | Up to 99.999%    | Up to 99.999%           | Up to 99.999%            |
-| Data encryption in transit        | Yes          | Yes             | Yes            | Yes              | Yes                     | Yes                      |
-| Network isolation                 | Yes          | Yes             | Yes            | Yes              | Yes                     | Yes                      |
-| Scaling up/out                    | Yes          | Yes             | Yes            | Yes              | Yes                     | Yes                      |
-| Scaling down/in                   | Yes          | Yes             | Yes            | No               | No                      | No                       |
-| OSS clustering                    | No           | No              | Yes            | Yes              | Yes                     | Yes                      |
-| Data persistence                  | No           | No              | Yes            | Yes              | Yes                     | Yes                      |
-| Zone redundancy                   | No           | Yes (preview)   | Yes            | Yes              | Yes                     | Yes                      |
-| Geo-replication                   | No           | No              | Yes (Passive)  | Yes (Active)     | Yes (Active)            | Yes (Active)             |
-| Connection audit logs             | No           | No              | Yes            | Yes(Event-based) | Yes(Event-based)        | Yes(Event-based)         |
-| Redis Modules                     | No           | No              | No             | Yes              | Yes                     | Yes                      |
-| Import/Export                     | No           | No              | Yes            | Yes              | Yes                     | Yes                      |
-| Reboot                            | Yes          | Yes             | Yes            | No               | No                      | No                       |
-| Scheduled updates                 | Yes          | Yes             | Yes            | No               | No                      | No                       |
-| Microsoft Entra ID authentication | Yes          | Yes             | Yes            | Yes              | Yes                     | Yes                      |
-| Microsoft Entra ID RBAC           | Yes          | Yes             | Yes            | No               | No                      | No                       |
-| Keyspace notification             | Yes          | Yes             | Yes            | No               | No                      | No                       |
-| Non High-availability             | N/A          | No              | No             | Yes              | Yes                     | Yes                      |
+| Feature Description               | Basic<br>_OSS_ | Standard<br>_OSS_ | Premium<br>_OSS_ | Balanced<br>_AMR_ | Memory Optimized<br>_AMR_ | Compute Optimized<br>_AMR_ |
+|-----------------------------------|:--------------:|:-----------------:|:----------------:|:-----------------:|:-------------------------:|:--------------------------:|
+| Availability                      | N/A            | 99.9%             | 99.9%            | Up to 99.999%     | Up to 99.999%             | Up to 99.999%              |
+| Data encryption in transit        | Yes            | Yes               | Yes              | Yes               | Yes                       | Yes                        |
+| Network isolation                 | Yes            | Yes               | Yes              | Yes               | Yes                       | Yes                        |
+| Scaling up/out                    | Yes            | Yes               | Yes              | Yes               | Yes                       | Yes                        |
+| Scaling down/in                   | Yes            | Yes               | Yes              | No                | No                        | No                         |
+| OSS clustering                    | No             | No                | Yes              | Yes               | Yes                       | Yes                        |
+| Data persistence                  | No             | No                | Yes              | Yes               | Yes                       | Yes                        |
+| Zone redundancy                   | No             | Yes (preview)     | Yes              | Yes               | Yes                       | Yes                        |
+| Geo-replication                   | No             | No                | Yes (Passive)    | Yes (Active)      | Yes (Active)              | Yes (Active)               |
+| Connection audit logs             | No             | No                | Yes              | Yes(Event-based)  | Yes(Event-based)          | Yes(Event-based)           |
+| Redis Modules                     | No             | No                | No               | Yes               | Yes                       | Yes                        |
+| Import/Export                     | No             | No                | Yes              | Yes               | Yes                       | Yes                        |
+| Reboot                            | Yes            | Yes               | Yes              | No                | No                        | No                         |
+| Scheduled updates                 | Yes            | Yes               | Yes              | No                | No                        | No                         |
+| Microsoft Entra ID authentication | Yes            | Yes               | Yes              | Yes               | Yes                       | Yes                        |
+| Microsoft Entra ID RBAC           | Yes            | Yes               | Yes              | No                | No                        | No                         |
+| Keyspace notification             | Yes            | Yes               | Yes              | No                | No                        | No                         |
+| Non High-availability             | N/A            | No                | No               | Yes               | Yes                       | Yes                        |
+
+_OSS_ refers to Azure Cache for Redis
+_AMR_ refers to Azure Managed Redis
 
 Here are some other differences to consider when implementing Azure Managed Redis. Consider these client application changes:
 
