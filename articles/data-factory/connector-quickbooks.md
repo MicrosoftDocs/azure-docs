@@ -18,7 +18,7 @@ ms.custom:
 
 This article outlines how to use the copy activity in an Azure Data Factory or Azure Synapse Analytics pipeline to copy data from QuickBooks Online. It builds on the [overview article about the copy activity](copy-activity-overview.md).
 
-This article also describes how to upgrade the QuickBooks connector from version 1.0 to 2.0. Version 2.0 has improved native QuickBooks support.
+This article also describes how to upgrade the QuickBooks connector from version 1.0 to 2.0. Version 2.0 provides improved native QuickBooks support.
 
 ## Supported capabilities
 
@@ -268,7 +268,7 @@ To upgrade the QuickBooks connector from version 1.0 to version 2.0:
 
 1. On the **Edit linked service** pane, select **2.0** for the version. For more information, see the [linked service properties for version 2.0](#version-20) earlier in this article.
 
-1. If you use a SQL query in the copy activity source or the lookup activity that refers to the version 1.0 linked service, you need to convert it to the QuickBooks native query. Learn more about the native query from [QCopy activity properties](#copy-activity-properties) earlier in this article and from [Query operations and syntax](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries) on the Intuit Developer site.
+1. If you use a SQL query in the copy activity source or the lookup activity that refers to the version 1.0 linked service, you need to convert it to the QuickBooks native query. Learn more about the native query from [Copy activity properties](#copy-activity-properties) earlier in this article and from [Query operations and syntax](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries) on the Intuit Developer site.
 
 ## Related content
 
