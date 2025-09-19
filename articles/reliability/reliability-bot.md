@@ -21,7 +21,7 @@ When you create an application (bot) in Bot Service, you can choose global or lo
 
 For more information on deploying bots with local data residency and regional compliance, see [Regionalization in Azure Bot Service](/azure/bot-service/bot-builder-concept-regionalization).
 
-## Availability zone support and zone redundancy
+## Availability zone support
 
 [!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 

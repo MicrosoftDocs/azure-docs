@@ -44,7 +44,7 @@ If the region supports availability zones, the instance metadata is automaticall
 >Azure Storage Mover instance metadata includes projects, endpoints, agents, job definitions, and job run history, but doesn't include the actual data to be migrated. Azure storage accounts that are used as migration targets have their own reliability support.  
 
 
-### Prerequisites for availability zone support
+### Prerequisites
 
 - To deploy with availability zone support, you must choose a region that supports availability zones. To see which regions support availability zones, see the [list of supported regions](regions-list.md).
 
