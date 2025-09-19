@@ -22,7 +22,7 @@ Azure Update Manager (AUM) uses the native Windows Update client to manage to pa
 |Registry changes by AUM|Yes (when Azure-orchestrated)|No (AUM doesn't modify registry)|
 |Group Policy interaction|Can override AUM settings|Fully controls update behavior|
 |WSUS support|Supported|Supported|
-|Pre-download support|Not supported|Not supported|
+|Pre download support|Not supported|Not supported|
 
 ## What AUM Configures Automatically (Azure VMs Only)
 When **Azure-orchestrated patching** is enabled on an Azure VM, AUM may configure the following registry keys:
@@ -91,7 +91,7 @@ Check these registry keys to confirm update source:
 
 ## Not Supported
 
-- Pre-download of updates isn't supported by AUM.
+- Pre download of updates isn't supported by AUM.
 - To change the patch source (for example, from WSUS to Microsoft Update), use Windows settings or Group Policy. Do not use AUM for this configuration.
 
 ## Next Steps
