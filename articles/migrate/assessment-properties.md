@@ -1,11 +1,11 @@
 ---
-title: Assessment properties
+title: Assessment Properties
 description: Describes the components of an assessment in Azure Migrate.
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
 ms.topic: concept-article
-ms.date: 04/17/2025
+ms.date: 09/19/2025
 monikerRange: migrate
 # Customer intent: As a cloud architect, I want to configure assessment properties for workload migration, so that I can ensure optimal resource allocation, cost management, and security compliance in Azure.
 ---
