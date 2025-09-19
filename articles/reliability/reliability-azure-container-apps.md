@@ -14,7 +14,7 @@ ms.date: 10/23/2023
 
 This article describes reliability support in [Azure Container Apps](/azure/container-apps/overview), including Container Apps environment configuration with replicas and load balancing. It covers how to use availability zones and zone redundancy to improve application uptime and meet SLA requirements. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/well-architected/resiliency/).
 
-## Availability zone support and zone redundancy
+## Availability zone support
 
 [!INCLUDE [availability zone overview](includes/reliability-availability-zone-description-include.md)]
 
