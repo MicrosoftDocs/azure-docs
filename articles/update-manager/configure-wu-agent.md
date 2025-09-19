@@ -12,17 +12,17 @@ ms.custom: engagement-fy24
 
 # Configure Windows update settings for Azure Update Manager
 
-Azure Update Manager (AUM) uses the native Windows Update client to manage patching. However, the behavior differs depending on whether the machine is an Azure VM or an Azure Arc-enabled server. This guide outlines how to configure update settings, what AUM modifies, and how to avoid conflicts with Group Policy.
+Azure Update Manager (AUM) uses the native Windows Update client to manage to patch. However, the behavior differs depending on whether the machine is an Azure VM or an Azure Arc-enabled server. This guide outlines how to configure update settings, what AUM modifies, and how to avoid conflicts with Group Policy.
 
 ##  Key Differences: Azure VMs vs. Arc Machines
 
 |Feature|Azure VMs|Azure Arc Machines|
 |----|----|----|
 |Patch orchestration|Azure-orchestrated or OS-orchestrated|OS-orchestrated only|
-|Registry changes by AUM|Yes (when Azure-orchestrated)|No (AUM does not modify registry)|
+|Registry changes by AUM|Yes (when Azure-orchestrated)|No (AUM doesn't modify registry)|
 |Group Policy interaction|Can override AUM settings|Fully controls update behavior|
 |WSUS support|Supported|Supported|
-|Pre-download support|Not supported|Not supported|
+|Pre download support|Not supported|Not supported|
 
 ## What AUM Configures Automatically (Azure VMs Only)
 When **Azure-orchestrated patching** is enabled on an Azure VM, AUM may configure the following registry keys:
@@ -35,7 +35,7 @@ When **Azure-orchestrated patching** is enabled on an Azure VM, AUM may configur
 |HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update|RebootRequired|Tracks reboot status|
 |HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Services|ServiceID|Registers Microsoft Update service|
 
-These changes are applied only when the VM is configured for Azure-orchestrated patching *(AutomaticByPlatform = Azure-Orchestrated)*. Arc machines are not affected.
+These changes are applied only when the VM is configured for Azure-orchestrated patching *(AutomaticByPlatform = Azure-Orchestrated)*. Arc machines aren't affected.
 
 ## Group Policy Conflicts
 
@@ -71,14 +71,15 @@ $ServiceManager.AddService2($ServiceId,7,"")
 Use Group Policy:
 
 1. Go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Windows Update** > **Manage end user experience**
-2. Enable **Install updates for other Microsoft products**
+2. Open the **Configure Automatic Updates** setting
+3. Set the option to **Enabled** and then select the box labeled **Install updates for other Microsoft products**
 
 ## WSUS Configuration
 
 AUM supports WSUS. To configure:
 
 - Use Group Policy to set the WSUS server location.
-- Ensure updates are approved in WSUS, or AUM deployments will fail.
+- Ensure updates are approved in WSUS, or AUM deployments fails.
 - To restrict internet access, enable **Do not connect to any Windows Update Internet locations**.
 
 ## Verify Patch Source
@@ -90,7 +91,7 @@ Check these registry keys to confirm update source:
 
 ## Not Supported
 
-- Pre-download of updates is not supported by AUM.
+- Pre download of updates isn't supported by AUM.
 - To change the patch source (for example, from WSUS to Microsoft Update), use Windows settings or Group Policy. Do not use AUM for this configuration.
 
 ## Next Steps
