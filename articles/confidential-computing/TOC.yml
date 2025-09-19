@@ -69,12 +69,16 @@
       href: virtual-machine-metablob-disk.md
     - name: Quickly create confidential VMs
       items:
-      - name: Create VM through the Azure portal
+      - name: Create CVM through the Azure portal
         href: quick-create-portal.md
-      - name: Create VM through the Azure Marketplace
+      - name: Create CVM through the Azure Marketplace
         href: quick-create-marketplace.md
+      - name: Create CVM through Azure CLI
+        href: quick-create-confidential-vm-azure-cli.md
       - name: Create Hardened VMSS via Azure CLI
         href: vmss-deployment-from-hardened-linux-image.md
+      - name: Sample scripts to create CVMs
+        href: https://github.com/Azure-Samples/confidential-computing
     - name: Image hardening techniques for deployment
       items:
       - name: Harden a Linux image to remove sudo users
