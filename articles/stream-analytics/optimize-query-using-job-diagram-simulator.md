@@ -4,9 +4,11 @@ description: This article provides guidance for evaluating query parallelism and
 author: alexlzx
 ms.author: zhenxilin
 ms.service: azure-stream-analytics
-ms.custom: build-2023
 ms.topic: how-to
 ms.date: 05/09/2023
+ms.custom:
+  - build-2023
+  - sfi-image-nochange
 ---
 
 # Optimize query using job simulation

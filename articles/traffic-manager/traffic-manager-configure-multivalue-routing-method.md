@@ -7,7 +7,9 @@ ms.service: azure-traffic-manager
 ms.topic: how-to
 ms.date: 05/07/2023
 ms.author: allensu
-ms.custom: template-how-to
+ms.custom:
+  - template-how-to
+  - sfi-image-nochange
 # Customer intent: "As a network administrator, I want to configure the MultiValue traffic-routing method in Traffic Manager, so that I can enhance application reliability by enabling multiple healthy endpoints for client connections."
 ---
 

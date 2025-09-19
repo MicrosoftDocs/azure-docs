@@ -10,6 +10,7 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a security admin, I want to integrate STIX/TAXII feeds into Microsoft Sentinel to ingest threat intelligence, generating alerts and incidents to enhance threat detection and response capabilities.

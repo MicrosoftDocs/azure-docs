@@ -8,6 +8,7 @@ ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 07/28/2023
 ms.author: siddomala
+ms.custom: sfi-image-nochange
 ---
 
 # How to monitor point-to-site connections for Virtual WAN

@@ -6,6 +6,7 @@ ms.date: 08/21/2025
 ms.topic: how-to
 author: habibaum
 ms.author: v-uhabiba
+ms.custom: sfi-image-nochange
 # Customer intent: As an IT administrator managing Arc-enabled machines, I want to implement hotpatching so that I can ensure timely, non-intrusive updates that maintain system reliability and minimize downtime across my environment.
 ---
 

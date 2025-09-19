@@ -6,7 +6,11 @@ ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: quickstart
 ms.date: 07/11/2025
-ms.custom: template-quickstart, mode-ui, engagement-fy23
+ms.custom:
+  - template-quickstart
+  - mode-ui
+  - engagement-fy23
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create a mesh network topology with Azure Virtual Network Manager - Azure portal

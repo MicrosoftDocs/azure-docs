@@ -21,8 +21,6 @@ Make an integrated request for the following quotas:
 
 - Managed environment count
 - Session pools
-- Subscription consumption NCA 100 GPUs
-- Subscription consumption T 4 GPUs
 - Subscription NCA 100 GPUs
 
 ### Make an integrated request
@@ -56,6 +54,8 @@ Manual requests could take up to a few days to complete. Use this option for the
 - Managed environment consumption cores
 - Managed environment general purpose cores
 - Managed environment memory optimized cores
+- Managed environment consumption NCA100 Gpus
+- Managed environment consumption T4 GPUs
 
 ### Make a manual request
 
