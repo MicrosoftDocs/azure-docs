@@ -43,9 +43,15 @@ Create a package manifest to list the solution components. It includes the solut
 1. Right-click an empty area and select **Microsoft Sentinel > Create Package Manifest**.
 1. Enter a name in the **Save As** dialog and save the manifest in your solution folder. VS Code creates a `.package.yaml` file and opens it in the package manifest editor.
 1. Fill in the package details in the editor:
-   - **Package name** – the name that appears in the Microsoft Security Store.
-   - **Description** – a short explanation of what the package does.
-   - **Include paths** – the folders that contain the agent manifest, job YAML files, notebooks, and other required files.
+   - **Package name:** The name that appears in the Microsoft Security Store.
+   - **Description:** A short explanation of what the package does.
+   - **Include paths:** The folders that contain the agent manifest, job YAML files, notebooks, and other required files.
+
+:::image type="content"
+source="media/platform-solution-packaging/package-demo-ui-small.png"
+alt-text="Screenshot of the Create Package Definition dialog in Visual Studio Code showing fields for package name, description, and include paths."
+lightbox="media/platform-solution-packaging/package-demo-ui-big.png":::
+
 1. (Optional) Select **View YAML** to edit the YAML file.
 
 ### Example manifest
@@ -70,9 +76,6 @@ After you define the package manifest, create the ZIP file required by the Micro
 ## Publish to the Microsoft Security Store
 
 After you create the ZIP file, publish it in the Microsoft Security Store.
-
-> [!IMPORTANT]
-> Before you publish, review the [Microsoft Security Store prerequisites and certification policies](<ADD-LINK>).
 
 1. Open the [Microsoft Security Store publisher portal](https://securitystore.microsoft.com/).
 1. Create a new **platform solution** offer and upload the ZIP package.
