@@ -22,21 +22,21 @@ You can authenticate MQTT clients with Microsoft Entra JWT to connect to Event G
 <a name='authentication-using-azure-ad-jwt'></a>
 
 ## Authentication using Microsoft Entra JWT
-You can use the MQTT v5 CONNECT packet to provide the Microsoft Entra JWT token to authenticate your client, and you can use the MQTT v5 AUTH packet to refresh the token.  
+You can use the MQTT v5 CONNECT packet to provide the Microsoft Entra JWT to authenticate your client, and you can use the MQTT v5 AUTH packet to refresh the token.  
 
 In CONNECT packet, you can provide required values in the following fields:
 
 |Field  | Value  |
 |---------|---------|
 |Authentication Method | OAUTH2-JWT |
-|Authentication Data | JWT token |
+|Authentication Data | JWT |
 
 In AUTH packet, you can provide required values in the following fields:
 
 |Field | Value |
 |---------|---------|
 | Authentication Method | OAUTH2-JWT |
-| Authentication Data | JWT token |
+| Authentication Data | JWT |
 | Authentication Reason Code | 25 |
  
 Authenticate Reason Code with value 25 signifies reauthentication.

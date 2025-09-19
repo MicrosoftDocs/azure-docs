@@ -9,6 +9,7 @@ ms.date: 06/28/2024
 ms.author: mbender
 ms.custom: mvc, mode-ui, template-quickstart, engagement-fy23
 #Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
+# Customer intent: As a cloud engineer, I want to create a public load balancer to distribute internet traffic across multiple virtual machines, so that I can ensure high availability and efficient resource utilization for my applications.
 ---
 
 # Quickstart: Create a public load balancer to load balance VMs using the Azure portal

@@ -3,6 +3,8 @@ title: Log compaction in Azure Event Hubs
 description: This article describes how the log compaction feature works in Event Hubs.
 ms.topic: article
 ms.date: 05/18/2023
+ms.custom:
+  - build-2025
 ---
 
 # Log compaction in Azure Event Hubs
@@ -10,7 +12,7 @@ ms.date: 05/18/2023
 Log compaction is a way of retaining data in Event Hubs using event key based retention. By default, each event hub/Kafka topic is created with time-based retention or the *delete* cleanup policy, where events are purged upon the expiration of the retention time. Rather using coarser-grained time based retention, you can use event key-based retention mechanism where Event Hubs retains the last known value for each event key of an event hub or a Kafka topic. 
 
 > [!NOTE] 
-> Log compaction feature isn't supported in the * **basic** tier. 
+> Log compaction feature isn't supported in the **basic** tier. 
 
 
 As shown in the following image, an event log (of an event hub partition) may have multiple events with the same key. If you're using a compacted event hub, then Event Hubs service takes care of purging old events and only keeping the latest events of a given event key. 
@@ -25,13 +27,19 @@ Client application can mark existing events of an event hub to be deleted during
 
 ## How log compaction works
 
-You can enable log compaction at each event hub/Kafka topic level. You can ingest events to a compacted article from any support protocol. Azure Event Hubs service runs a compaction job for each compacted event hub. Compaction job cleans each event hub partition log by only retaining the latest event of a given event key. 
+You can enable log compaction at each event hub/Kafka topic level. You can ingest events to a compacted entity from any supported protocol. Azure Event Hubs service runs a compaction job for each compacted event hub. Compaction job cleans each event hub partition log by only retaining the latest event of a given event key.
 
 :::image type="content" source="./media/event-hubs-log-compaction/how-compaction-work.png" alt-text="Diagram showing how log compaction works." lightbox="./media/event-hubs-log-compaction/how-compaction-work.png":::
 
-At any given time, the event log of a compacted event hub can have a *cleaned* portion and *dirty* portion. The clean portion contains the events that are compacted by the compaction job while the dirty portion comprises the events that are yet to be compacted. 
+At any given time, the event log of a compacted event hub can have a *cleaned* portion and *dirty* portion. The clean portion contains the events that are compacted by the compaction job while the dirty portion comprises the events that are yet to be compacted.
 
 The Event Hubs service manages the execution of the compaction job and user can't control it. Therefore, Event Hubs service determines when to start compaction and how fast it compact a given compacted event hub. 
+
+> [!NOTE]
+> Event Hubs performs compaction to eliminate event payloads with the same key, but this process is triggered non-deterministically, which can result in multiple event payloads with the same key between compaction job runs.
+>
+
+
 
 ## Compaction guarantees
 Log compaction feature of Event Hubs provides the following guarantee: 

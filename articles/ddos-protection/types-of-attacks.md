@@ -5,8 +5,9 @@ services: ddos-protection
 author: AbdullahBell
 ms.service: azure-ddos-protection
 ms.topic: concept-article
-ms.date: 01/21/2025
+ms.date: 03/17/2025
 ms.author: abell
+# Customer intent: As a network security administrator, I want to understand the types of attacks mitigated by DDoS protection, so that I can implement appropriate defenses to safeguard my network and ensure service availability.
 ---
 # Types of attacks Azure DDoS Protection mitigate
 

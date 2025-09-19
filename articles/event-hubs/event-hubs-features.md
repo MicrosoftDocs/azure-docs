@@ -1,8 +1,8 @@
 ---
-title: Overview of features - Azure Event Hubs | Microsoft Docs
+title: Overview of features
 description: This article provides details about features and terminology of Azure Event Hubs.
 ms.topic: overview
-ms.date: 02/15/2024
+ms.date: 03/13/2025
 ---
 
 # Features and terminology in Azure Event Hubs
@@ -52,9 +52,9 @@ If you need to archive events beyond the allowed retention period, you can have 
 The reason for Event Hubs' limit on data retention based on time is to prevent large volumes of historic customer data getting trapped in a deep store that is only indexed by a timestamp and only allows for sequential access. The architectural philosophy here's that historic data needs richer indexing and more direct access than the real-time eventing interface that Event Hubs or Kafka provide. Event streaming engines aren't well suited to play the role of data lakes or long-term archives for event sourcing. 
 
 > [!NOTE]
-> Event Hubs is a real-time event stream engine and is not designed to be used instead of a database and/or as a permanent store for infinitely held event streams. 
+> Event Hubs is a real-time event stream engine and isn't designed to be used instead of a database and/or as a permanent store for infinitely held event streams. 
 > 
-> The deeper the history of an event stream gets, the more you will need auxiliary indexes to find a particular historical slice of a given stream. Inspection of event payloads and indexing aren't within the feature scope of Event Hubs (or Apache Kafka). Databases and specialized analytics stores and engines such as [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md), [Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-overview.md) and [Azure Synapse](../synapse-analytics/overview-what-is.md) are therefore far better suited for storing historic events.
+> The deeper the history of an event stream gets, the more you'll need auxiliary indexes to find a particular historical slice of a given stream. Inspection of event payloads and indexing isn't within the feature scope of Event Hubs (or Apache Kafka). Databases and specialized analytics stores and engines such as [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md), [Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-overview.md), and [Azure Synapse](../synapse-analytics/overview-what-is.md) are therefore far better suited for storing historic events.
 >
 > [Event Hubs Capture](event-hubs-capture-overview.md) integrates directly with Azure Blob Storage and Azure Data Lake Storage and, through that integration, also enables [flowing events directly into Azure Synapse](store-captured-data-data-warehouse.md).
 

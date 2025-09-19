@@ -1,9 +1,8 @@
 ---
 title: "Quickstart: Configure workload isolation - Portal"
 description: Use Azure portal to configure workload isolation for dedicated SQL pool.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.reviewer: whhender
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 11/28/2022
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
@@ -11,6 +10,7 @@ ms.topic: quickstart
 ms.custom:
   - azure-synapse
   - mode-ui
+  - sfi-image-nochange
 ---
 
 # Quickstart: Configure dedicated SQL pool workload isolation using a workload group in the Azure portal

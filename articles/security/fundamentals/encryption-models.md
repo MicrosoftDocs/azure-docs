@@ -3,7 +3,7 @@ title: Data encryption models in Microsoft Azure
 description: This article provides an overview of data encryption models In Microsoft Azure.
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 07/19/2024
+ms.date: 04/23/2025
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article

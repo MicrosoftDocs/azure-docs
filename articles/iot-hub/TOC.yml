@@ -12,7 +12,7 @@
       href: quickstart-send-telemetry-cli.md
     - name: Send telemetry using SDK
       displayName: IoT Plug and Play, Azure IoT Explorer
-      href: ../iot/tutorial-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
+      href: ../iot/tutorial-send-telemetry-iot-hub.md
     - name: Control a device
       displayName: direct method, Azure IoT Explorer
       href: quickstart-control-device.md
@@ -157,14 +157,15 @@
       - name: Understanding IoT hub IP address
         displayName: service tags, firewall rules, IP filter
         href: iot-hub-understand-ip-address.md
-    - name: Scaling and availability
+    - name: Reliability and scaling
       items:
       - name: Best practices for large-scale IoT device deployments
         displayName: device provisioning, staggered provisioning schedule, reprovisioning devices, monitoring devices
         href: ../iot-dps/concepts-deploy-at-scale.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
-      - name: High availability and disaster recovery
-        displayName: HA, DR, availability zone, failover, failback
-        href: iot-hub-ha-dr.md
+      - name: Reliability
+        href: ../reliability/reliability-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
+      - name: Disable disaster recovery
+        href: how-to-disable-dr.md
     - name: Authentication and authorization
       items:
       - name: Microsoft Entra ID
@@ -193,22 +194,6 @@
         - name: Supporting additional protocols
           displayName: gateway, downstream devices, multiplexing, parent, child, protocol translation, identity translation
           href: ../iot-edge/iot-edge-as-gateway.md
-    - name: Security
-      items:
-        - name: TLS support
-          displayName: security, Transport Layer Security
-          href: iot-hub-tls-support.md
-        - name: Virtual networks support
-          displayName: Security, Private Link, network isolation, private endpoint
-          href: virtual-network-support.md
-        - name: Security baseline
-          displayName: security benchmark
-          href: /security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json
-        - name: Security controls by Azure Policy
-          displayName: regulatory, compliance, standards, Azure Security Benchmark, Azure Foundations Benchmark, CMMC, FedRAMP, HIPAA
-          href: ./security-controls-policy.md
-        - name: IoT security best practices
-          href: ../iot/iot-overview-security.md?context=%2fazure%2fiot-hub%2frc%2frc
 - name: How-to guides
   items:
     - name: Manage
@@ -342,6 +327,23 @@
           href: how-to-collect-device-logs.md
     - name: Migrate TLS certificate root
       href: migrate-tls-certificate.md
+- name: Security and best practices
+  items:
+    - name: Secure your Azure IoT Hub
+      displayName: security
+      href: secure-azure-iot-hub.md
+    - name: Transport Layer Security (TLS) support
+      displayName: security, Transport Layer Security
+      href: iot-hub-tls-support.md
+    - name: Virtual networks support
+      displayName: Security, Private Link, network isolation, private endpoint
+      href: virtual-network-support.md
+    - name: Security baseline for IoT Hub
+      displayName: security benchmark
+      href: /security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json
+    - name: Regulatory compliance controls by Azure Policy
+      displayName: regulatory, compliance, standards, Azure Security Benchmark, Azure Foundations Benchmark, CMMC, FedRAMP, HIPAA
+      href: ./security-controls-policy.md
 - name: Reference
   items:
     - name: Azure CLI
@@ -485,7 +487,7 @@
       displayName: GDPR
       href: iot-hub-customer-data-requests.md
     - name: Azure Roadmap
-      href: https://azure.microsoft.com/roadmap/?category=iot
+      href: https://azure.microsoft.com/updates/?category=iot
     - name: Azure IoT Hub extension for Visual Studio Code
       displayName: VS Code, Visual Studio Code, toolkit, azure-iot-toolkit
       href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
@@ -503,4 +505,4 @@
     - name: Technical case studies
       href: https://microsoft.github.io/generative-ai-for-beginners/#technology=IoT&sortBy=featured
     - name: Videos
-      href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
+      href: /shows/Inside-Azure-for-IT/?products=azure-iot-hub

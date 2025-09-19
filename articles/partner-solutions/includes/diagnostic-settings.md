@@ -10,6 +10,6 @@ If you need to delete a resource, rename, or move a resource, or migrate it acro
 
 ## Manual updates to diagnostic settings created via tag rules
 
-Diagnostic settings are created based on tag rules. Currently, modifying log categories through the diagnostic settings page is not permitted. While you may be able to uncheck log categories and save them, they will revert to default settings (as per tag rules).
+Diagnostic settings are created based on tag rules. Currently, changing log categories through the diagnostic settings page is not permitted. While you may be able to uncheck log categories and save them, they will revert to default settings (as per tag rules).
 
 If destination details are modified, a new diagnostic setting with the original configuration is recreated. This is subject to the limitation of a maximum of five diagnostic settings per resource. [Learn More](/azure/azure-monitor/essentials/diagnostic-settings)

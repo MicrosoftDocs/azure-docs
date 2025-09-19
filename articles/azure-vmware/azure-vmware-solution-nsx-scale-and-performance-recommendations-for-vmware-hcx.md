@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 12/19/2024
 ms.custom: engagement-fy25
+# Customer intent: As an IT administrator managing HCX migrations on Azure VMware Solution, I want to optimize NSX Edge performance and mitigate bottlenecks, so that I can ensure efficient data transfer and reliable application performance during migration tasks.
 ---
 
 # NSX Scale and performance recommendations for VMware HCX
@@ -170,7 +171,7 @@ For detailed instructions on NSX Segment creation. [NSX Segment Creation](tutori
 Select the newly created Tier-1 Gateway when creating your new NSX Segment. 
 
 >[!NOTE]
->When creating a new NSX Segment, customers can utilize the Azure VMware Solution reserved IP space. For example, a new segment can be created with an IP range of 10.18.75.129/26, assuming the following IP space 10.18.72.0/22 was used to create the Azure VMware Solution Private Cloud.
+>When creating a new NSX Segment, customers cannot utilize the Azure VMware Solution reserved IP space.
  
 :::image type="content" source="media/nsxt/nsx-segment-creation.png" alt-text="Diagram showing the creation of an NSX segment." border="false" lightbox="media/nsxt/nsx-segment-creation.png":::
 
@@ -214,4 +215,4 @@ Once the new HCX Uplink Network Profile is created, update the existing Service 
 
 ## More information 
 
-[VMware NSX Reference Design Guide](https://www.vmware.com/docs/nsx-t-reference-design-guide-3-2-v1.1-1)
+[VMware NSX Reference Design Guide](https://blogs.vmware.com/affiliates/nsx-t-reference-design-guide-updated-version-for-nsx-t-3-0)

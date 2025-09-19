@@ -4,7 +4,7 @@ description: This article shows you how to enable export of application logs and
 ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 ms.topic: how-to 
-ms.date: 05/16/2024
+ms.date: 05/19/2025
 zone_pivot_groups: programming-languages-set-functions
 
 #CustomerIntent: As a developer, I want to learn how to enable the export of logs and metrics from my function apps by using OpenTelemetry so I can consume and analyze my application telemetry data either in Application Insights or to any OTLP-compliant tools.
@@ -18,44 +18,33 @@ This article shows you how to configure your function app to export log and trac
 
 > [!TIP]  
 > Because this article is targeted at your development language of choice, remember to choose the correct language at the top of the article.
-::: zone pivot="programming-language-java" 
-> Currently, there's no client optimized OpenTelemetry support for Java apps.
-:::zone-end
 ::: zone pivot="programming-language-csharp" 
-> OpenTelemetry currently isn't supported for C# in-process apps.
+> OpenTelemetry currently isn't supported for [C# in-process apps](./functions-dotnet-class-library.md).
 :::zone-end
 
  You can obtain these benefits by enabling OpenTelemetry in your function app: 
 
-+ Correlation across traces and logs being generated both at the host and in your application code.
-+ Consistent, standards-based generation of exportable telemetry data. 
++ Correlates data across traces and logs being generated both at the host and in your application code.
++ Enables consistent, standards-based generation of exportable telemetry data. 
 + Integrates with other providers that can consume OpenTelemetry-compliant data. 
 
 OpenTelemetry is enabled at the function app level, both in host configuration (`host.json`) and in your code project. Functions also provides a client optimized experience for exporting OpenTelemetry data from your function code that's running in a language-specific worker process.
 
-## 1. Enable OpenTelemetry in the Functions host
+## Enable OpenTelemetry in the Functions host
 
 When you enable OpenTelemetry output in the function app's host.json file, your host exports OpenTelemetry output regardless of the language stack used by your app.   
 
-To enable OpenTelemetry output from the Functions host, update the [host.json file](./functions-host-json.md) in your code project to add a `"telemetryMode": "openTelemetry"` element to the root collection. With OpenTelemetry enabled, your host.json file might look like this:
+To enable OpenTelemetry output from the Functions host, update the [host.json file](./functions-host-json.md) in your code project to add a `"telemetryMode": "OpenTelemetry"` element to the root collection. With OpenTelemetry enabled, your host.json file might look like this:
 
 ```json
 {
     "version": "2.0",
-    "logging": {
-        "applicationInsights": {
-            "samplingSettings": {
-                "isEnabled": true,
-                "excludedTypes": "Request"
-            },
-            "enableLiveMetricsFilters": true
-        }
-    },
-    "telemetryMode": "openTelemetry"
+    "telemetryMode": "OpenTelemetry",
+    ...
 }
 ```
 
-## 2. Configure application settings 
+## Configure application settings 
 
 When OpenTelemetry is enabled in the host.json file, the endpoints to which data is sent is determined based on which OpenTelemetry-supported application settings are available in your app's environment variables. 
 
@@ -63,13 +52,24 @@ Create specific application settings in your function app based on the OpenTelem
 
 ### [Application Insights](#tab/app-insights)
 
-**`APPLICATIONINSIGHTS_CONNECTION_STRING`**: the connection string for an Application Insights workspace. When this setting exists, OpenTelemetry data is sent to that workspace. This setting is the same one used to connect to Application Insights without OpenTelemetry enabled. If your app doesn't already have this setting, you might need to [Enable Application Insights integration](configure-monitoring.md#enable-application-insights-integration). 
+**[APPLICATIONINSIGHTS_CONNECTION_STRING](./functions-app-settings.md#applicationinsights_connection_string)**: the connection string for an Application Insights workspace. When this setting exists, OpenTelemetry data is sent to that workspace. This setting is the same one used to connect to Application Insights without OpenTelemetry enabled. If your app doesn't already have this setting, you might need to [Enable Application Insights integration](configure-monitoring.md#enable-application-insights-integration). 
+
+::: zone pivot="programming-language-java"
+**[JAVA_APPLICATIONINSIGHTS_ENABLE_TELEMETRY](./functions-app-settings.md#java_applicationinsights_enable_telemetry)**: set to `true` so that the Functions host allows the Java worker process to stream OpenTelemetry logs directly, which prevents duplicate host-level entries.
+::: zone-end
+::: zone pivot="programming-language-python"
+**[PYTHON_APPLICATIONINSIGHTS_ENABLE_TELEMETRY](./functions-app-settings.md#python_applicationinsights_enable_telemetry)**: set to `true` so that the Functions host allows the Python worker process to stream OpenTelemetry logs directly, which prevents duplicate host-level entries.
+::: zone-end
 
 ### [OTLP Exporter](#tab/otlp-export) 
  
-**`OTEL_EXPORTER_OTLP_ENDPOINT`**: an OTLP exporter endpoint URL. 
+**[OTEL_EXPORTER_OTLP_ENDPOINT](functions-app-settings.md#otel_exporter_otlp_endpoint)**: an OTLP exporter endpoint URL. 
 
-**`OTEL_EXPORTER_OTLP_HEADERS`**: (Optional) list of headers to apply to all outgoing data. This is used by many endpoints to pass an API key.
+**[OTEL_EXPORTER_OTLP_HEADERS](functions-app-settings.md#otel_exporter_otlp_headers)**: (Optional) list of headers to apply to all outgoing data. This setting is used by many endpoints to pass an API key.
+
+::: zone pivot="programming-language-python"
+**[PYTHON_ENABLE_OPENTELEMETRY](./functions-app-settings.md#python_applicationinsights_enable_telemetry)**: set to `true` so that the Functions host allows the Python worker process to stream OpenTelemetry logs directly, which prevents duplicate host-level entries.
+::: zone-end
 
 If your endpoint requires you to set other environment variables, you need to also add them to your application settings. For more information, see the [OTLP Exporter Configuration documentation](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/). 
 
@@ -77,68 +77,166 @@ You should remove the `APPLICATIONINSIGHTS_CONNECTION_STRING` setting, unless yo
 
 ---  
 
-## 3. Enable OpenTelemetry in your app
+## Enable OpenTelemetry in your app
 
 With the Functions host configured to use OpenTelemetry, you should also update your application code to output OpenTelemetry data. Enabling OpenTelemetry in both the host and your application code enables better correlation between traces and logs emitted both by the Functions host process and from your language worker process. 
 
 The way that you instrument your application to use OpenTelemetry depends on your target OpenTelemetry endpoint:
 ::: zone pivot="programming-language-csharp"
+Examples in this article assume your app is using `IHostApplicationBuilder`, which is available in version 2.x and later version of [Microsoft.Azure.Functions.Worker](/dotnet/api/microsoft.extensions.hosting.ihostapplicationbuilder). For more information, see [Version 2.x](dotnet-isolated-process-guide.md#version-2x) in the C# isolated worker model guide.
+
 1. Run these commands to install the required assemblies in your app:
 
     ### [Application Insights](#tab/app-insights)
 
     ```cmd
-    dotnet add package Microsoft.Azure.Functions.Worker.OpenTelemetry --version 1.0.0-preview1 
+    dotnet add package Microsoft.Azure.Functions.Worker.OpenTelemetry --version  1.1.0-preview6
     dotnet add package OpenTelemetry.Extensions.Hosting 
-    dotnet add package Azure.Monitor.OpenTelemetry.AspNetCore  
+    dotnet add package Azure.Monitor.OpenTelemetry.Exporter  
     ```
 
     ### [OTLP Exporter](#tab/otlp-export) 
 
     ```cmd
-    dotnet add package Microsoft.Azure.Functions.Worker.OpenTelemetry --version 1.0.0-preview1 
+    dotnet add package Microsoft.Azure.Functions.Worker.OpenTelemetry --version 1.1.0-preview6
     dotnet add package OpenTelemetry.Extensions.Hosting 
     dotnet add package OpenTelemetry.Exporter.OpenTelemetryProtocol   
     ```
     ---
 
-1. In your Program.cs project file, add this `using` statement:
+2. In your Program.cs project file, add this `using` statement:
 
     ### [Application Insights](#tab/app-insights)
 
     ```csharp
-    using Azure.Monitor.OpenTelemetry.AspNetCore; 
+    using Azure.Monitor.OpenTelemetry.Exporter; 
     ```
+
     ### [OTLP Exporter](#tab/otlp-export) 
 
     ```csharp
     using OpenTelemetry; 
     ```
+
     ---
 
-1. In the `ConfigureServices` delegate, add this service configuration:
+3. The way that you configure OpenTelemetry depends if your project startup uses `IHostBuilder` or `IHostApplicationBuilder`, which was introduced in v2.x of the .NET isolated worker model extension.
 
-    ### [Application Insights](#tab/app-insights)
-
-    ```csharp
-    services.AddOpenTelemetry()
-    .UseFunctionsWorkerDefaults()
-    .UseAzureMonitor();
-    ```
-    ### [OTLP Exporter](#tab/otlp-export) 
+    ### [IHostApplicationBuilder](#tab/ihostapplicationbuilder/app-insights)
+    
+    In *program.cs*, add this line of code after `ConfigureFunctionsWebApplication`:
 
     ```csharp
-    services.AddOpenTelemetry()
-    .UseFunctionsWorkerDefaults()
-    .UseOtlpExporter();
+    builder.Services.AddOpenTelemetry()
+        .UseFunctionsWorkerDefaults()
+        .UseAzureMonitorExporter();
     ```
+
+    ### [IHostBuilder](#tab/ihostbuilder/app-insights)
+    
+    In *program.cs*, add this `ConfigureServices` call in your `HostBuilder` pipeline:
+
+    ```csharp
+    .ConfigureServices(s =>
+    {
+        s.AddOpenTelemetry()
+        .UseFunctionsWorkerDefaults()
+        .UseAzureMonitorExporter();
+    })
+    ```
+
+    ### [IHostApplicationBuilder](#tab/ihostapplicationbuilder/otlp-export)
+
+    In *program.cs*, add this line of code after `ConfigureFunctionsWebApplication`:
+
+    ```csharp
+    builder.Services.AddOpenTelemetry()
+        .UseFunctionsWorkerDefaults()
+        .UseOtlpExporter();
+    ```
+
+    ### [IHostBuilder](#tab/ihostbuilder/otlp-export) 
+
+    In *program.cs*, add this `ConfigureServices` call in your `HostBuilder` pipeline:
+
+    ```csharp
+    .ConfigureServices(s =>
+    {
+        s.AddOpenTelemetry()
+        .UseFunctionsWorkerDefaults()
+        .UseOtlpExporter();
+    })
+    ```
+
     ---
 
-    To export to both OpenTelemetry endpoints, call both `UseAzureMonitor` and `UseOtlpExporter`. 
+    You can export to both OpenTelemetry endpoints from the same app.
 ::: zone-end
 ::: zone pivot="programming-language-java"
-Java worker optimizations aren't yet available for OpenTelemetry, so there's nothing to configure in your Java code.
-::: zone-end 
+1. Add the required libraries to your app. The way you add libraries depends on whether you deploy using Maven or Kotlin and if you want to also send data to Application Insights.
+
+    ### [Maven](#tab/maven/app-insights)
+
+    ```xml
+    <dependency>
+      <groupId>com.microsoft.azure.functions</groupId>
+      <artifactId>azure-functions-java-opentelemetry</artifactId>
+      <version>1.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-monitor-opentelemetry-autoconfigure</artifactId>
+      <version>1.2.0</version>
+    </dependency>
+    ```
+
+    ### [Kotlin](#tab/kotlin/app-insights)
+
+    ```kotlin
+    implementation("com.microsoft.azure.functions:azure-functions-java-opentelemetry:1.0.0")
+    implementation("com.azure:azure-monitor-opentelemetry-autoconfigure:1.2.0")
+    ```
+
+    ### [Maven](#tab/maven/otlp-export) 
+
+    ```xml
+    <dependency>
+      <groupId>com.microsoft.azure.functions</groupId>
+      <artifactId>azure-functions-java-opentelemetry</artifactId>
+      <version>1.0.0</version>
+    </dependency>
+    ```
+
+    ### [Kotlin](#tab/kotlin/otlp-export) 
+
+    ```kotlin
+    implementation("com.microsoft.azure.functions:azure-functions-java-opentelemetry:1.0.0")
+    ```
+
+    ---
+
+2. You can optionally add this code to create custom spans:
+
+    ```java
+    import com.microsoft.azure.functions.opentelemetry.FunctionsOpenTelemetry;
+    import io.opentelemetry.api.trace.Span;
+    import io.opentelemetry.api.trace.SpanKind;
+    import io.opentelemetry.context.Scope;
+    
+    Span span = FunctionsOpenTelemetry.startSpan(
+            "com.contoso.PaymentFunction",  // tracer name
+            "validateCharge",               // span name
+            null,                           // parent = current context
+            SpanKind.INTERNAL);
+    
+    try (Scope ignored = span.makeCurrent()) {
+        // business logic here
+    } finally {
+        span.end();
+    }
+    ```
+
+::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 1. Install these npm packages in your project:
     
@@ -162,7 +260,7 @@ Java worker optimizations aren't yet available for OpenTelemetry, so there's not
 
 ::: zone-end 
 ::: zone pivot="programming-language-javascript"
-1. Create a code file in your project, copy and paste the following code in this new file, and save the file as `src/index.js`:
+2. Create a code file in your project, copy and paste the following code in this new file, and save the file as `src/index.js`:
 
     ### [Application Insights](#tab/app-insights)
 
@@ -174,14 +272,14 @@ Java worker optimizations aren't yet available for OpenTelemetry, so there's not
 
     ---
 
-1. Update the `main` field in your package.json file to include this new `src/index.js` file, which might look like this: 
+3. Update the `main` field in your package.json file to include this new `src/index.js` file, which might look like this: 
 
     ```json
     "main": "src/{index.js,functions/*.js}"
     ```
 ::: zone-end     
 ::: zone pivot="programming-language-typescript"
-1. Create a code file in your project, copy and paste the following code in this new file, and save the file as `src/index.ts`:
+2. Create a code file in your project, copy and paste the following code in this new file, and save the file as `src/index.ts`:
 
     ### [Application Insights](#tab/app-insights)
 
@@ -193,7 +291,7 @@ Java worker optimizations aren't yet available for OpenTelemetry, so there's not
 
     ---
 
-1. Update the `main` field in your package.json file to include the output of this new `src/index.ts` file, which might look like this: 
+3. Update the `main` field in your package.json file to include the output of this new `src/index.ts` file, which might look like this: 
 
     ```json
     "main": "dist/src/{index.js,functions/*.js}"
@@ -224,12 +322,12 @@ These instructions only apply for an OTLP exporter:
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-1. Add this entry in your `requirements.txt` file:
+1. Make sure these libraries are in your `requirements.txt` file, whether from uncommenting or adding yourself:
 
     ### [Application Insights](#tab/app-insights)
 
     ```text
-    azure.monitor.opentelemetry
+    azure-monitor-opentelemetry
     ```
     ### [OTLP Exporter](#tab/otlp-export) 
 
@@ -245,13 +343,15 @@ These instructions only apply for an OTLP exporter:
 
     ### [Application Insights](#tab/app-insights)
 
+    If you already added `PYTHON_APPLICATIONINSIGHTS_ENABLE_TELEMETRY=true` in your application settings, you can skip this step. To manually enable Application Insights collection without automatic instrumentation, add this code to your app:
+   
     ```python
     from azure.monitor.opentelemetry import configure_azure_monitor 
     configure_azure_monitor() 
     ```
     ### [OTLP Exporter](#tab/otlp-export) 
 
-    Traces, metrics, and logs being exported using OpenTelemetry must be configured manually. For more information, see [Instrumentation](https://opentelemetry.io/docs/languages/python/instrumentation/) for Python.
+    Exporting traces, metrics, and logs using OpenTelemetry must be configured manually. For more information, see [Instrumentation](https://opentelemetry.io/docs/languages/python/instrumentation/) for Python.
 
     This is a simple implementation for exporting logs:
 
@@ -282,16 +382,40 @@ These instructions only apply for an OTLP exporter:
 
     ---
 
+1. Review [Azure monitor Distro usage](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor/azure-monitor-opentelemetry#usage) documentation for options on how to further configure the SDK.
+  
 ::: zone-end  
 ## Considerations for OpenTelemetry
 
 When you export your data using OpenTelemetry, keep these current considerations in mind.
 
-+ When the host is configured to use OpenTelemetry, only logs and traces are exported. Host metrics aren't currently exported. 
++ At this time, only HTTP, Service Bus and Event Hubs triggers are supported with OpenTelemetry outputs. 
 
-+ You can't currently run your app project locally using Core Tools when you have OpenTelemetry enabled in the host. You currently need to deploy your code to Azure to validate your OpenTelemetry-related updates. 
++ When the host is configured to use OpenTelemetry, the Azure portal doesn't support log streaming or recent function invocation traces.
+::: zone pivot="programming-language-java" 
++ Custom spans automatically include all resource attributes and use the exporters configured in your app.
 
-+ At this time, only HTTP trigger and Azure SDK-based triggers are supported with OpenTelemetry outputs. 
++ When your app runs outside Azure, including during local development, the resource detector sets the `service.name` attribute to `java-function-app` by default.
+
++ Use these Java Virtual Machine (JVM) flags to silence telemetry when running locally during unit tests:
+
+    + `-Dotel.traces.exporter=none`
+    + `-Dotel.metrics.exporter=none`
+    + `-Dotel.logs.exporter=none`
+
+* You aren't required to manually register middleware; the Java worker autodiscovers `OpenTelemetryInvocationMiddleware`.
+::: zone-end  
++ [Azure Functions diagnostics](functions-diagnostics.md) in the Azure portal is a useful resource for detecting and diagnosing potential monitoring-related issues. 
+
+To access diagnostics in your app:
+
+  1. In the [Azure portal](https://portal.azure.com), navigate to your function app resource. 
+  
+  1. In the left pane, select **Diagnose and solve problems** and search for the *Function App missing telemetry Application Insights or OpenTelemetry* workflow. 
+  
+  1. Select this workflow, choose your ingestion method, and select **Next**.
+  
+  1. Review the guidelines and any recommendations provided by the troubleshooter.
 
 ## Related content
 

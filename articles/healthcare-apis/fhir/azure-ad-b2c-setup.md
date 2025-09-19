@@ -6,11 +6,13 @@ author: namalu
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
-ms.date: 01/21/2024
+ms.date: 05/21/2025
 ms.author: namalu
 ---
 
 # Use Azure Active Directory B2C to grant access to the FHIR service
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Healthcare organizations can use [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C) with the FHIR&reg; service in Azure Health Data Services to grant access to their applications and users. 
 

@@ -3,6 +3,9 @@ title: Enterprise security general guidelines in Azure HDInsight
 description: Some best practices that should make Enterprise Security Package deployment and management easier.
 ms.service: azure-hdinsight
 ms.topic: conceptual
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf 
 ms.date: 06/15/2024
 ---
 
@@ -222,7 +225,7 @@ Most common reasons:
 
 ### LDAP properties in Ambari configuration
 
-For a full list of the Ambari properties that affect your HDInsight cluster configuration, see [Ambari LDAP Authentication Setup](https://ambari.apache.org/1.2.1/installing-hadoop-using-ambari/content/ambari-chap2-4.html).
+For a full list of the Ambari properties that affect your HDInsight cluster configuration, see [Ambari LDAP Authentication Setup](https://docs.cloudera.com/HDPDocuments/HDP3/HDP-3.0.1/ambari-authentication-ldap-ad/content/authe_ldapad_configuring_ambari_for_ldap_or_active_directory_authentication.html).
 
 ### Generate domain user keytab(s) 
 

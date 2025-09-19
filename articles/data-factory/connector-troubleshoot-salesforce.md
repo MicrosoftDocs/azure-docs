@@ -7,7 +7,10 @@ ms.subservice: data-movement
 ms.topic: troubleshooting
 ms.date: 03/04/2024
 ms.author: jianleishen
-ms.custom: has-adal-ref, synapse
+ms.custom:
+  - has-adal-ref
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Troubleshoot the Salesforce and Salesforce Service Cloud connectors in Azure Data Factory and Azure Synapse
@@ -63,7 +66,7 @@ For more troubleshooting help, try these resources:
 - [Connector troubleshooting guide](connector-troubleshoot-guide.md)
 - [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 - [Data Factory feature requests](/answers/topics/azure-data-factory.html)
-- [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+- [Azure videos](/shows/data-exposed/?products=azure&terms=data-factory)
 - [Microsoft Q&A page](/answers/topics/azure-data-factory.html)
 - [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 - [X information about Data Factory](https://x.com/hashtag/DataFactory)

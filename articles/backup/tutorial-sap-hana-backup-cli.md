@@ -2,11 +2,12 @@
 title: Tutorial - SAP HANA DB backup on Azure using Azure CLI 
 description: In this tutorial, learn how to back up SAP HANA databases running on an Azure VM to an Azure Backup Recovery Services vault using Azure CLI.
 ms.topic: tutorial
-ms.date: 03/20/2024
+ms.date: 10/20/2024
 ms.custom: devx-track-azurecli, engagement-fy24
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a database administrator, I want to back up SAP HANA databases on Azure using CLI, so that I can ensure data protection and disaster recovery for my applications running in Azure VMs."
 ---
 
 # Tutorial: Back up SAP HANA databases in an Azure VM using Azure CLI

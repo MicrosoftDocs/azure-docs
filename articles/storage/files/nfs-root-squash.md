@@ -4,9 +4,10 @@ description: Root squash is a security feature that prevents unauthorized root-l
 author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/13/2024
 ms.author: kendownie
+# Customer intent: As a system administrator managing NFS Azure file shares, I want to configure root squash settings so that I can enhance security by preventing unauthorized root-level access from client machines.
 ---
 
 # Configure root squash for Azure Files
@@ -18,12 +19,20 @@ Administrators should enable root squash in environments where multiple users or
 In this article, you learn how to configure and change root squash settings for NFS Azure file shares.
 
 ## Applies to
-
-| File share type | SMB | NFS |
-|-|:-:|:-:|
-| Standard file shares (GPv2), LRS/ZRS | ![No, this article doesn't apply to standard SMB Azure file shares LRS/ZRS.](../media/icons/no-icon.png) | ![NFS shares are only available in premium Azure file shares.](../media/icons/no-icon.png) |
-| Standard file shares (GPv2), GRS/GZRS | ![No, this article doesn't apply to standard SMB Azure file shares GRS/GZRS.](../media/icons/no-icon.png) | ![NFS is only available in premium Azure file shares.](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![No, this article doesn't apply to premium SMB Azure file shares.](../media/icons/no-icon.png) | ![Yes, this article applies to premium NFS Azure file shares.](../media/icons/yes-icon.png) |
+| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
+|-|-|-|-|:-:|:-:|
+| Microsoft.FileShares | Provisioned v2 | SSD (premium)  | Local (LRS)    | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.FileShares | Provisioned v2 | SSD (premium)  | Zone (ZRS)     | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## How root squash works with Azure Files
 
@@ -50,7 +59,7 @@ The following table highlights the UID behavior observed from the server when sp
 | all_squash | 0 | 65534 |
 | all_squash | 1000 | 65534 |
 
-## Configure root squash on an existing NFS file share
+## Configure root squash on an existing NFS file share (Microsoft.Storage)
 
 You can configure root squash settings via the Azure portal, Azure PowerShell, or Azure CLI.
 
@@ -165,6 +174,18 @@ You can configure root squash settings via the Azure portal, Azure PowerShell, o
    ```
 
 ---
+
+## Configure root squash on an existing NFS file share (Microsoft.FileShares)
+
+You can configure root squash settings on an existing NFS file share (Microsoft.FileShares) via the Azure portal.
+
+1. Sign in to the Azure portal and navigate to the file share.
+2. In the service menu, under **Settings**, select **Configuration**.
+3. Toggle the Root squash setting as desired.
+
+   ![image for microsoft.fileshares root squash](./media/nfs-root-squash/file-share-root-squash-configuration.png)
+   
+4. Select **Save** to update the root squash value.
 
 ## See also
 

@@ -196,9 +196,15 @@ For a Standard logic app resource, the following steps apply only if you want to
 
 #### Visual Studio Code
 
-1. In your logic app project's structure, open the **Artifacts** folder and then the **Schemas** folder.
+1. On your computer, go to your project's *local* folder, and expand the following folders: **Artifacts** > **Schemas**.
 
-1. In the **Schemas** folder, add your schema.
+1. In the **Schemas** folder, add your schema (**.xsd**) file.
+
+1. Return to Visual Studio Code.
+
+   Your schema file now appears in your project, for example:
+
+   :::image type="content" source="media/logic-apps-enterprise-integration-schemas/schema-upload-visual-studio-code.png" alt-text="Screenshot shows Visual Studio Code project structure with expanded Artifacts and Schemas folders.":::
 
 ---
 

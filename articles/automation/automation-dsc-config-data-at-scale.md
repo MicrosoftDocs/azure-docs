@@ -8,6 +8,8 @@ ms.date: 08/20/2024
 ms.custom: engagement-fy23
 ms.topic: how-to
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Configure data at scale for Azure Automation State Configuration

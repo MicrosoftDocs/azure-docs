@@ -15,7 +15,6 @@ Depending on the VPN device that you have, you might be able to download a VPN d
 For more configuration information, see the following links:
 
 - For information about compatible VPN devices, see [VPN devices](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md).
-- Before you configure your VPN device, check for any [Known device compatibility issues](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#known) for the VPN device that you want to use.
 - For links to device configuration settings, see [Validated VPN devices](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable). The device configuration links are provided on a best-effort basis. It's always best to check with your device manufacturer for the latest configuration information. The list shows the versions we've tested. If your OS isn't on that list, it's still possible that the version is compatible. Check with your device manufacturer to verify that the OS version for your VPN device is compatible.
 - For an overview of VPN device configuration, see [Overview of third-party VPN device configurations](../articles/vpn-gateway/vpn-gateway-3rdparty-device-config-overview.md).
 - For information about editing device configuration samples, see [Editing samples](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#editing).

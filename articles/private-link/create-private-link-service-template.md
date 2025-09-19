@@ -5,9 +5,10 @@ description: In this quickstart, you use an Azure Resource Manager template (ARM
 author: abell
 ms.service: azure-private-link
 ms.topic: quickstart
-ms.date: 12/04/2024
+ms.date: 03/25/2025
 ms.author: abell
 ms.custom: subject-armqs, mode-arm, template-quickstart, devx-track-arm-template
+# Customer intent: As a cloud architect, I want to deploy a private link service using an ARM template, so that I can securely connect Azure resources while ensuring private network access.
 ---
 
 # Quickstart: Create a private link service using an ARM template

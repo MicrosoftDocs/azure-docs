@@ -5,8 +5,11 @@ ms.author: lle
 author: lrtoyou1223
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.custom: references_regions, devx-track-azurepowershell
 ms.date: 02/13/2025
+ms.custom:
+  - references_regions
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 ---
 
 # Azure Data Factory managed virtual network
@@ -75,6 +78,9 @@ Only a managed private endpoint in an approved state can send traffic to a speci
 
 > [!NOTE]
 > Custom DNS is not supported in managed virtual network.
+
+> [!NOTE]
+> Both managed virtual network and managed private endpoint are under Microsoft subscription.
 
 ## Interactive authoring
 

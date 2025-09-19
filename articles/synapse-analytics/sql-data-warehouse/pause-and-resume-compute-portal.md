@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: Pause and resume compute in dedicated SQL pool via the Azure portal"
 description: Use the Azure portal to pause compute for dedicated SQL pool to save costs. Resume compute when you're ready to use the data warehouse.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 01/05/2023
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
@@ -10,6 +10,7 @@ ms.topic: quickstart
 ms.custom:
   - azure-synapse
   - mode-ui
+  - sfi-image-nochange
 ---
 # Quickstart: Pause and resume compute in dedicated SQL pool via the Azure portal
 

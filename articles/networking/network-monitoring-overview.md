@@ -6,6 +6,7 @@ ms.service: azure-virtual-network
 ms.topic: concept-article
 ms.date: 10/30/2023
 ms.author: allensu
+# Customer intent: As a network administrator, I want to leverage cloud-based monitoring solutions for my hybrid network infrastructure, so that I can ensure optimal performance, troubleshoot issues, and maintain connectivity across my applications and services.
 ---
 # Network monitoring solutions 
 
@@ -26,7 +27,7 @@ Network Performance Monitor is a suite of capabilities that is geared towards mo
 
 * Mission critical multi-tier applications/micro-services
 
-* User locations and web-based applications (HTTP/HTTPs) 
+* User locations and web-based applications (HTTP/HTTPS) 
 
 Performance Monitor, ExpressRoute Monitor, and Service Connectivity Monitor are monitoring capabilities within Network Performance Monitor and are described in the following sections.
 

@@ -18,6 +18,7 @@ ms.custom: "b2c-support"
 ---
 
 # Enable authentication in your own Angular Application by using Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article shows you how to add Azure Active Directory B2C (Azure AD B2C) authentication to your own Angular single-page application (SPA). Learn how to integrate an Angular application with the [MSAL for Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/master/lib/msal-angular) authentication library. 
 
@@ -623,8 +624,7 @@ In the *src/app/profile* folder, update *profile.component.html* with the follow
 To call a [token-based authorization web API](enable-authentication-web-api.md), the app needs to have a valid access token. The [MsalInterceptor](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/msal-interceptor.md) provider automatically acquires tokens for outgoing requests that use the Angular [HttpClient](https://angular.io/api/common/http/HttpClient) class to known protected resources.
 
 > [!IMPORTANT]
-> The MSAL initialization method (in the `app.module.ts` class) maps protected resources, such as web APIs, with the required app scopes by using the `protectedResourceMap` object. If your code needs to call another web API, add the web API URI and the web API HTTP method, with the corresponding scopes, to the `protectedResourceMap` object. For more information, see [Protected Resource Map](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/master/lib/msal-angular/docs/v2-docs/msal-interceptor.md#protected-resource-map).
-
+> The MSAL initialization method (in the `app.module.ts` class) maps protected resources, such as web APIs, with the required app scopes by using the `protectedResourceMap` object. If your code needs to call another web API, add the web API URI and the web API HTTP method, with the corresponding scopes, to the `protectedResourceMap` object. For more information, see [Protected Resource Map](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/msal-interceptor.md#protected-resource-map).
 
 When the [HttpClient](https://angular.io/api/common/http/HttpClient)  object calls a web API, the [MsalInterceptor](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/msal-interceptor.md) provider takes the following steps:
 

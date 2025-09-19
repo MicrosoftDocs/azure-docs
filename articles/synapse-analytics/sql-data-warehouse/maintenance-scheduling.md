@@ -3,11 +3,11 @@ title: Maintenance schedules for Synapse SQL pool
 description: Maintenance scheduling enables customers to plan around the necessary scheduled maintenance events that Azure Synapse Analytics uses to roll out new features, upgrades, and patches.
 author: sowmi93
 ms.author: sosivara
-ms.reviewer: whhender
 ms.date: 01/10/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
+ms.custom: sfi-image-nochange
 ---
 
 # Use maintenance schedules to manage service updates and maintenance

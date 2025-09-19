@@ -4,11 +4,14 @@ description: Describes how to create predictive pipelines using Machine Learning
 titleSuffix: Azure Data Factory & Azure Synapse
 author: dcstwh
 ms.author: weetok
-ms.reviewer: jburchel
-ms.custom: synapse, devx-track-arm-template
+ms.reviewer: whhender
 ms.topic: conceptual
 ms.date: 05/15/2024
 ms.subservice: authoring
+ms.custom:
+  - synapse
+  - devx-track-arm-template
+  - sfi-ropc-nochange
 ---
 
 # Update Machine Learning Studio (classic) models by using Update Resource activity

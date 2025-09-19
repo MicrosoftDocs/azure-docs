@@ -54,10 +54,3 @@ landingContent:
         links:
           - text: What is Azure for Students Starter?
             url: about-azure-for-students-starter.md
-
-  - title: Azure Classroom
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Azure Classroom?
-            url: about-education-hub.md

@@ -1,12 +1,12 @@
 ---
-title: Azure IoT glossary of terms | Microsoft Docs
+title: Azure IoT glossary of terms
 description: Developer guide - a glossary explaining some of the common terms used in the Azure IoT articles.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot
 services: iot
 ms.topic: conceptual
-ms.date: 11/11/2024
+ms.date: 03/31/2025
 
 # Generated from YAML source.
 ---
@@ -39,22 +39,19 @@ Casing rules: Always lowercase.
 
 Applies to: Device Provisioning Service
 
+### Akri services
+
+In [Azure IoT Operations](#azure-iot-operations---enabled-by-azure-arc), Akri services enable dynamic discovery, configuration, and integration of edge devices and assets into Kubernetes clusters. Akri services support various connectivity protocols, simplify device onboarding, and integrate with Azure IoT Operations for asset management and telemetry ingestion. Akri services is a Microsoft implementation of the open-source Akri project.
+
+Casing rules: Always capitalize as *Akri services*.
+
+Applies to: Azure IoT Operations
+
 ### Asset
 
-A physical or virtual item of value that you want to manage, monitor, and collect data from. An asset can be a machine, a device, a software component, an entire system, or a physical object of value such as a field of crops, or a building. Assets are typically in a location that you control (such as a factory) and typically can't connect to the public internet.
+In the context of IoT in general, physical item of value that you want to manage, monitor, and collect data from. An asset can be a machine, a device, a software component, an entire system, or a physical object of value such as a field of crops, or a building.
 
-The following items are examples of IoT assets:
-- robotic arms, conveyor belts, elevators
-- industrial CNC machines, lathes, saws, drills
-- medical diagnostic imaging machines
-- security video cameras
-- software or software components
-- programmable logic controllers (PLC)
-- entire manufacturing systems
-- buildings
-- agricultural crops
-
-In Azure IoT Operations, an [asset](../iot-operations/manage-devices-assets/overview-manage-assets.md) is a core element of a solution.
+In the context of Azure IoT Operations, an asset is also a virtual representation of a physical item that you want to manage, monitor, and collect data from. The virtual representation exits in the Azure IoT Operations edge run time, and in Azure Device Registry.
 
 Casing rules: Always lowercase when you're referring to a specific asset.
 
@@ -116,6 +113,9 @@ Applies to: Azure IoT Operations
 
 A platform as a service (PaaS) offering for creating digital representations of real-world things, places, business processes, and people. Build twin graphs that represent entire environments, and use them to gain insights to drive better products, optimize operations and costs, and create breakthrough customer experiences.
 
+>[!NOTE]
+> Azure Digital Twins is different from [digital twin builder (preview) in Fabric](#digital-twin-builder-preview-in-fabric) and the [device twins](#device-twin) used by IoT Hub.
+
 [Learn more](../digital-twins/overview.md)
 
 Casing rules: Always capitalize when you're referring to the service.
@@ -124,17 +124,17 @@ First and subsequent mentions: When you're referring to the service, always spel
 
 Example usage: The data in your *Azure Digital Twins* model can be routed to downstream Azure services for more analytics or storage.
 
-Applies to: Digital Twins
+Applies to: Azure Digital Twins
 
 ### Azure Digital Twins instance
 
-A single instance of the [Azure Digital Twins](#azure-digital-twins) service in a customer's subscription. While Azure [Digital Twins](#digital-twin) refers to the Azure service as a whole, your Azure Digital Twins *instance* is your individual Azure Digital Twins resource.
+A single instance of the [Azure Digital Twins](#azure-digital-twins) service in a customer's subscription. While [Azure Digital Twins](#digital-twin) refers to the Azure service as a whole, your Azure Digital Twins *instance* is your individual Azure Digital Twins resource.
 
 Casing rules: Always capitalize the service name.
 
 First and subsequent mentions: Always spell out in full as *Azure Digital Twins instance*.
 
-Applies to: Digital Twins
+Applies to: Azure Digital Twins
 
 ### Azure IoT
 
@@ -276,7 +276,7 @@ In IoT Plug and Play and [Azure Digital Twins](#azure-digital-twins), components
 
 Casing rules: Always lowercase.
 
-Applies to: IoT Hub, Digital Twins, Device developer
+Applies to: IoT Hub, Azure Digital Twins, Device developer
 
 ### Configuration
 
@@ -365,21 +365,45 @@ Applies to: IoT Hub
 
 ### Device
 
-In the context of IoT, a device is a piece of computer hardware that can collect or generate data, and send or exchange data with other devices and systems. Devices can connect to edge or cloud solutions. Typically, a device might be in a location you don't control (such as a third party business) and connects to the public internet.
+In the context of IoT, a device is a piece of computer hardware that can collect or generate data, and send or exchange data with other devices and systems.
 
-The following items are examples of IoT devices:
-- consumer wearables
-- connected cars
-- smart coffee machines
-- smart vending machines
-- crop sensors
-- connected thermostats
-- computers, phones, or tablets
-- other computer hardware with microcontroller units (MCUs) or microprocessor units (MPUs).
+It's helpful to categorize IoT devices as follows:
+
+- **Device category 1**: Devices that connect directly to the cloud. This category includes devices that connect to cloud services such as IoT Hub using standard protocols such as HTTP, MQTT, or AMQP. These devices aren't relevant in edge-based solutions such as Azure IoT Operations.
+
+- **Device category 2**: Devices that connect to the cloud through an edge-based proxy or gateway. Examples in this category include devices that:
+
+  - Connect indirectly to the cloud through the MQTT broker in Azure IoT Operations.
+  - Connect indirectly to IoT Hub through an Azure IoT Edge gateway.
+
+- **Device category 3**: These devices connect to an edge-based runtime through a connector that enables the devices to use a specific protocol. For example, an OPC UA server and its attached devices connect through a connector for OPC UA. These devices aren't relevant in cloud-based solutions such as Azure IoT Hub.
+
+The following items are examples of category 1 and 2 IoT devices:
+
+- Consumer wearables
+- Connected cars
+- Smart coffee machines
+- Smart vending machines
+- Crop sensors
+- Connected thermostats
+- Computers, phones, or tablets
+- Other computer hardware with microcontroller units (MCUs) or microprocessor units (MPUs).
+
+The following items are examples of category 3 devices:
+
+- Robotic arms and conveyor belts.
+- Industrial CNC machines, lathes, saws, and drills.
+- Medical diagnostic imaging machines.
+- Security video cameras.
+- Programmable logic controllers.
+
+In the context of Azure IoT Operations v2.x.x and later, a device is a configuration in Azure Device Registry that encapsulates the information, such as address and authentication credentials, required to connect to a physical device or asset. Previous versions of Azure IoT Operations used *asset endpoints* to perform a similar role.
+
+First and subsequent mentions: On first mention, always use *namespace asset*. If the context is clear on subsequent mentions, use *asset*.
 
 Casing rules: Always lowercase.
 
-Applies to: IoT Hub, IoT Central, IoT Edge, Device Provisioning Service
+Applies to: IoT Hub, IoT Central, IoT Edge, Device Provisioning Service, Azure IoT Operations, Azure Device Registry
 
 ### Device Provisioning Service
 
@@ -445,7 +469,7 @@ A description, that uses the [Digital Twins Definition Language](#digital-twins-
 
 Casing rules: Always lowercase.
 
-Applies to: IoT Hub, IoT Central, Device developer, Digital Twins
+Applies to: IoT Hub, IoT Central, Device developer, Azure Digital Twins
 
 ### Device provisioning
 
@@ -471,7 +495,8 @@ Applies to: IoT Central
 
 A [device](#device) twin is JSON document that stores device state information such as metadata, [configurations](#configuration), and conditions. [IoT Hub](#iot-hub) persists a device twin for each device that you provision in your IoT hub. Device twins enable you to synchronize device conditions and configurations between the device and the [solution back end](#solution-back-end). You can query device twins to locate specific devices and for the status of long-running operations.
 
-See also [Digital twin](#digital-twin)
+>[!NOTE]
+> Device twins in IoT Hub are different from [Azure Digital Twins](#azure-digital-twins) (though they can be integrated as part of the same solution), and [digital twin builder (preview) in Fabric](#digital-twin-builder-preview-in-fabric).
 
 Casing rules: Always lowercase.
 
@@ -497,7 +522,7 @@ First and subsequent mentions: Spell out in full as *Digital Twins Definition La
 
 Abbreviation: DTDL
 
-Applies to: IoT Hub, IoT Central, Digital Twins
+Applies to: IoT Hub, IoT Central, Azure Digital Twins
 
 ### Digital twin
 
@@ -507,7 +532,19 @@ See also [Device twin](#device-twin)
 
 Casing rules: Always lowercase.
 
-Applies to: IoT Hub, IoT Central, Digital Twins, Device developer
+Applies to: IoT Hub, IoT Central, Azure Digital Twins, Device developer
+
+### Digital twin builder (preview) in Fabric
+
+The **digital twin builder (preview)** in Microsoft Fabric is a new item within Fabric's [Real-Time Intelligence](/fabric/real-time-intelligence/) workload. It creates digital representations of real-world environments to optimize physical operations using data. It's integrated with the data storage and security options in Microsoft Fabric, and is part of a Fabric-focused solution.
+
+[Learn more](/fabric/real-time-intelligence/digital-twin-builder/overview)
+
+Casing rules: Never capitalize the name of this item, aside from using normal sentence case when it begins a sentence.
+
+Example usage: Digital twin builder (preview) is a new item within the Real-Time Intelligence workload in Microsoft Fabric. Digital twin builder creates digital representations of real-world environments to optimize physical operations using data.
+
+Applies to: Digital twin builder
 
 ### Digital twin change events
 
@@ -539,11 +576,11 @@ Applies to: IoT Hub
 
 ### Downstream service
 
-A relative term describing services that receive data from the current context. For example, in the context of [Azure Digital Twins](#azure-digital-twins), Time Series Insights is a downstream service if you set up your data to flow from Azure [Digital Twins](#digital-twin) into Time Series Insights.
+A relative term describing services that receive data from the current context. For example, in the context of [Azure Digital Twins](#azure-digital-twins), Time Series Insights is a downstream service if you set up your data to flow from [Azure Digital Twins](#azure-digital-twins) into Time Series Insights.
 
 Casing rules: Always lowercase.
 
-Applies to: IoT Hub, IoT Central, Digital Twins
+Applies to: IoT Hub, IoT Central, Azure Digital Twins
 
 ## E
 
@@ -603,11 +640,11 @@ Applies to: IoT Hub
 
 The process of sending events and their data from one [device](#device) or service to the [endpoint](#endpoint) of another.
 
-In [IoT Hub](#iot-hub), you can define [routing rules](#routing-rule) to describe how messages should be sent. In [Azure Digital Twins](#azure-digital-twins), event routes are entities that are created for this purpose. Azure [Digital Twins](#digital-twin) event routes can contain filters to limit what types of events are sent to each endpoint.
+In [IoT Hub](#iot-hub), you can define [routing rules](#routing-rule) to describe how messages should be sent. In [Azure Digital Twins](#azure-digital-twins), event routes are entities that are created for this purpose. [Azure Digital Twins](#azure-digital-twins) event routes can contain filters to limit what types of events are sent to each endpoint.
 
 Casing rules: Always lowercase.
 
-Applies to: IoT Hub, Digital Twins
+Applies to: IoT Hub, Azure Digital Twins
 
 ## F
 
@@ -689,7 +726,7 @@ In [Azure Digital Twins](#azure-digital-twins), *interface* may be used to refer
 
 Casing rules: Always lowercase.
 
-Applies to: Device developer, Digital Twins
+Applies to: Device developer, Azure Digital Twins
 
 ### IoT Edge
 
@@ -839,7 +876,7 @@ In [Azure Digital Twins](#azure-digital-twins), this type of event is fired when
 
 Casing rules: Always lowercase.
 
-Applies to: Digital Twins, IoT Hub, IoT Central
+Applies to: Azure Digital Twins, IoT Hub, IoT Central
 
 ### Linked IoT hub
 
@@ -879,7 +916,7 @@ In the [Azure Digital Twins](#azure-digital-twins) service, models define [devic
 
 Casing rules: Always lowercase.
 
-Applies to: IoT Hub, IoT Central, Digital Twins, Device developer
+Applies to: IoT Hub, IoT Central, Azure Digital Twins, Device developer
 
 ### Model ID
 
@@ -887,7 +924,7 @@ When an [IoT Plug and Play device](#iot-plug-and-play-device) connects to an [Io
 
 Casing rules: Always capitalize as *model ID*.
 
-Applies to: IoT Hub, IoT Central, Device developer, Digital Twins
+Applies to: IoT Hub, IoT Central, Device developer, Azure Digital Twins
 
 ### Model repository
 
@@ -895,7 +932,7 @@ Stores [Digital Twins Definition Language](#digital-twins-definition-language) [
 
 Casing rules: Always lowercase.
 
-Applies to: IoT Hub, IoT Central, Digital Twins
+Applies to: IoT Hub, IoT Central, Azure Digital Twins
 
 ### Model repository REST API
 
@@ -903,7 +940,7 @@ An API for managing and interacting with a [model repository](#model-repository)
 
 Casing rules: Always capitalize as *model repository REST API*.
 
-Applies to: IoT Hub, IoT Central, Digital Twins
+Applies to: IoT Hub, IoT Central, Azure Digital Twins
 
 ### Module
 
@@ -943,15 +980,35 @@ Casing rules: Always lowercase.
 
 Applies to: IoT Hub
 
+## N
+
+### Namespace
+
+In the context of Azure IoT Operations, Azure Device Registry  uses *namespaces* to organize assets and devices. Each Azure IoT Operations instance uses a single namespace for its assets and devices. Multiple instances can share a single namespace.
+
+Casing rules: Always lowercase.
+
+Applies to: Azure IoT Operations, Azure Device Registry
+
+### Namespace asset
+
+In the context of Azure IoT Operations v2.x.x and later, Azure IoT Operations uses *namespaces* to organize assets and devices. An asset that exists in a namespace is referred to as a *namespace asset*. This contrasts with assets created in previous versions of Azure IoT Operations, which are not associated with a namespace.
+
+First and subsequent mentions: On first mention, always use *namespace asset*. If the context is clear on subsequent mentions, use *asset*.
+
+Casing rules: Always lowercase.
+
+Applies to: Azure IoT Operations, Azure Device Registry
+
 ## O
 
 ### Ontology
 
-In the context of [Digital Twins](#digital-twin), a set of [models](#model) for a particular domain, such as real estate, smart cities, IoT systems, energy grids, and more. Ontologies are often used as schemas for knowledge graphs like the ones in [Azure Digital Twins](#azure-digital-twins), because they provide a starting point based on industry standards and best practices.
+In the context of [digital twins](#digital-twin), a set of [models](#model) for a particular domain, such as real estate, smart cities, IoT systems, energy grids, and more. Ontologies are often used as schemas for knowledge graphs like the ones in [Azure Digital Twins](#azure-digital-twins), because they provide a starting point based on industry standards and best practices.
 
 [Learn more](../digital-twins/concepts-ontologies.md)
 
-Applies to: Digital Twins
+Applies to: Azure Digital Twins
 
 ### Operations experience
 
@@ -1003,7 +1060,7 @@ In the context of a [digital twin](#digital-twin), data fields defined in an [in
 
 Casing rules: Always lowercase.
 
-Applies to: IoT Hub, IoT Central, Digital Twins, Device developer
+Applies to: IoT Hub, IoT Central, Azure Digital Twins, Device developer
 
 ### Property change event
 
@@ -1011,7 +1068,7 @@ An event that results from a property change in a [digital twin](#digital-twin).
 
 Casing rules: Always lowercase.
 
-Applies to: IoT Hub, IoT Central, Digital Twins
+Applies to: IoT Hub, IoT Central, Azure Digital Twins
 
 ### Protocol gateway
 
@@ -1045,7 +1102,7 @@ Used in the [Azure Digital Twins](#azure-digital-twins) service to connect [digi
 
 Casing rules: Always lowercase.
 
-Applies to: Digital Twins
+Applies to: Azure Digital Twins
 
 ### Reported configuration
 
@@ -1105,7 +1162,7 @@ An [endpoint](#endpoint) that an administrator uses to manage service settings. 
 
 Casing rules: Always lowercase.
 
-Applies to: IoT Hub, Device Provisioning Service, IoT Edge, Digital Twins
+Applies to: IoT Hub, Device Provisioning Service, IoT Edge, Azure Digital Twins
 
 ### Shared access policy
 
@@ -1123,7 +1180,7 @@ Casing rules: Always lowercase.
 
 Abbreviation: SAS
 
-Applies to: IoT Hub, Digital Twins, IoT Central, IoT Edge
+Applies to: IoT Hub, Azure Digital Twins, IoT Central, IoT Edge
 
 ### Simulated device
 
@@ -1131,7 +1188,7 @@ For convenience, many of the tutorials and quickstarts run [device](#device) cod
 
 Casing rules: Always lowercase.
 
-Applies to: IoT Hub, IoT Central, Device developer, IoT Edge, Digital Twins, Device Provisioning Service
+Applies to: IoT Hub, IoT Central, Device developer, IoT Edge, Azure Digital Twins, Device Provisioning Service
 
 ### Solution
 
@@ -1139,7 +1196,7 @@ In the context of IoT, *solution* typically refers to an end-to-end IoT solution
 
 Casing rules: Always lowercase.
 
-Applies to: IoT Hub, IoT Central, Device Provisioning Service, IoT Edge, Digital Twins
+Applies to: IoT Hub, IoT Central, Device Provisioning Service, IoT Edge, Azure Digital Twins
 
 ### Solution back end
 
@@ -1147,7 +1204,7 @@ The subset of an IoT [solution](#solution) that tends to handle cloud-side tasks
 
 Casing rules: Always lowercase.
 
-Applies to: IoT Hub, IoT Central, Device Provisioning Service, IoT Edge, Digital Twins
+Applies to: IoT Hub, IoT Central, Device Provisioning Service, IoT Edge, Azure Digital Twins
 
 ### System properties
 
@@ -1188,7 +1245,7 @@ Casing rules: Always lowercase.
 Example usage: Don't use the word *telemetries*, telemetry refers to the collection of data a device sends. For example: When the device connects to your IoT hub, it starts sending telemetry. One of the telemetry values the device sends is the environmental temperature.
 
 
-Applies to: IoT Hub, IoT Central, Digital Twins, IoT Edge, Device developer
+Applies to: IoT Hub, IoT Central, Azure Digital Twins, IoT Edge, Device developer
 
 ### Telemetry event
 
@@ -1218,8 +1275,8 @@ Applies to: IoT Hub
 
 ### Upstream service
 
-A relative term describing services that feed data into the current context. For instance, in the context of [Azure Digital Twins](#azure-digital-twins), [IoT Hub](#iot-hub) is considered an upstream service because data flows from IoT Hub into Azure [Digital Twins](#digital-twin).
+A relative term describing services that feed data into the current context. For instance, in the context of [Azure Digital Twins](#azure-digital-twins), [IoT Hub](#iot-hub) is considered an upstream service because data flows from IoT Hub into [Azure Digital Twins](#azure-digital-twins).
 
 Casing rules: Always lowercase.
 
-Applies to: IoT Hub, IoT Central, Digital Twins
+Applies to: IoT Hub, IoT Central, Azure Digital Twins

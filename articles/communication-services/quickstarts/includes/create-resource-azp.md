@@ -12,7 +12,7 @@ ms.author: rifox
 
 If you're planning to use phone numbers, you can't use the free trial account. Check that your subscription meets all the [requirements](../../concepts/telephony/plan-solution.md) if you plan to purchase phone numbers before creating your resource. 
 
-## Create Azure Communication Services resource
+## Create an Azure Communication Services resource using Azure portal
 
 To create an Azure Communication Services resource, first sign in to the [Azure portal](https://portal.azure.com). In the upper-left corner of the page, select **+ Create a resource**. 
 
@@ -28,14 +28,14 @@ Select **Communication Services** in the results, and then select **Create**.
 
 You can now configure your Communication Services resource. On the first page of the create process, you need to specify:
 
-* The subscription
-* The [resource group](../../../azure-resource-manager/management/manage-resource-groups-portal.md) (you can create a new one or choose an existing resource group)
-* The name of the Communication Services resource
-* The geography associated with the resource
+* The subscription.
+* The [resource group](../../../azure-resource-manager/management/manage-resource-groups-portal.md) (you can create a new one or choose an existing resource group).
+* The name of the Communication Services resource.
+* The geography associated with the resource.
 
 In the next step, you can assign tags to the resource. You can use tags to organize your Azure resources. For more information about tags, see [Use tags to organize your Azure resources and management hierarchy](../../../azure-resource-manager/management/tag-resources.md).
 
-Finally, you can review your configuration and **Create** the resource. Deployment takes a few minutes to complete.
+Finally, review your configuration and click **Create** to deploy the resource. Deployment takes a few minutes to complete.
 
 ## Manage your Communication Services resource
 

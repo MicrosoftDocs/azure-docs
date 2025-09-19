@@ -4,9 +4,10 @@ description: This article helps you understand the allow local NFS users option 
 services: azure-netapp-files
 author: whyistheinternetbroken
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/18/2025
 ms.author: anfdocs
+# Customer intent: "As a system administrator managing NFS access in Azure NetApp Files, I want to understand the implications of enabling the 'Allow local NFS users with LDAP' option, so that I can ensure proper user authentication and access control for both UNIX and NTFS security style volumes."
 ---
 
 # Understand the allow local NFS users with LDAP option Understand name mapping using LDAP in Azure NetApp Files

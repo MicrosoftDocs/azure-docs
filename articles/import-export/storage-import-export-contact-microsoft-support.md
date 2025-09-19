@@ -4,9 +4,11 @@ description: Learn how to log support request for issues related to your Import/
 services: storsimple
 author: stevenmatthew
 ms.service: azure-import-export
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/14/2022
 ms.author: shaas
+ms.custom: sfi-image-nochange
+# Customer intent: "As a service user experiencing issues with my Import/Export job, I want to create and manage a support request, so that I can resolve my technical problems efficiently and ensure a smooth data transfer experience."
 ---
 # Open a support ticket for an Import/Export job
 

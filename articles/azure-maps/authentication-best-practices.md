@@ -12,23 +12,23 @@ ms.subservice: authentication
 
 # Authentication best practices
 
-The single most important part of your application is its security. No matter how good the user experience might be, if your application isn't secure a hacker can ruin it.
+The security of your application is crucial. Regardless of how excellent the user experience is, an insecure application can be compromised by hackers, undermining its integrity and deteriorating user trust.
 
-The following are some tips to keep your Azure Maps application secure. When using Azure, be sure to familiarize yourself with the security tools available to you. For more information, See the [introduction to Azure security].
+This article contains tips to ensure the security of your Azure Maps application. When using Azure, it's important to familiarize yourself with the available security tools. For more information, See [Introduction to Azure security] in the Azure security documentation.
 
 ## Understanding security threats
 
-Hackers gaining access to your account could potentially make unlimited billable transactions, resulting in unexpected costs and decreased performance due to QPS limits.
+If hackers gain access to your account, they could potentially execute unlimited billable transactions, leading to unexpected costs and reduced performance due to QPS limits.
 
-When considering best practices for securing your Azure Maps applications, you need to understand the different authentication options available.
+To implement best practices for securing your Azure Maps applications, it's essential to understand the various authentication options available.
 
 ## Authentication best practices in Azure Maps
 
-When creating publicly facing client applications with Azure Maps, you must ensure that your authentication secrets aren't publicly accessible.
+When developing publicly facing client applications with Azure Maps, it's crucial to ensure that your authentication secrets remain private and aren't publicly accessible.
 
-Subscription key-based authentication (Shared Key) can be used in either client side applications or web services, however it's the least secure approach to securing your application or web service. The reason is the key is easily obtained from an HTTP request and grants access to all Azure Maps REST API available in the SKU (Pricing Tier). If you do use subscription keys, be sure to [rotate them regularly] and keep in mind that Shared Key doesn't allow for configurable lifetime, it must be done manually. You should also consider using [Shared Key authentication with Azure Key Vault], which enables you to securely store your secret in Azure.
+Subscription key-based authentication (Shared Key) can be used in client-side applications or web services, but it's the least secure method for protecting your application or web service. This is because the key can be easily extracted from an HTTP request, granting access to all Azure Maps REST APIs available in the SKU (Pricing Tier). If you use subscription keys, make sure to [rotate them regularly] and remember that Shared Key doesn't support configurable lifetimes, so rotation must be done manually. Consider using [Shared Key authentication with Azure Key Vault] to securely store your secret in Azure.
 
-If using [Microsoft Entra authentication] or [Shared Access Signature (SAS) Token authentication], access to Azure Maps REST APIs is authorized using [role-based access control (RBAC)]. RBAC enables you to control what access is given to the issued tokens. You should consider how long access should be granted for the tokens. Unlike Shared Key authentication, the lifetime of these tokens is configurable.
+When using [Microsoft Entra authentication] or [Shared Access Signature (SAS) Token authentication], access to Azure Maps REST APIs is authorized using [role-based access control (RBAC)]. RBAC enables you to specify the level of access granted to the issued tokens. It's important to consider the duration for which access should be granted. Unlike Shared Key authentication, the lifetime of these tokens is configurable.
 
 > [!TIP]
 >
@@ -43,14 +43,14 @@ There are different security concerns between public and confidential client app
 
 ### Public client applications
 
-For apps that run on devices or desktop computers or in a web browser, you should consider defining which domains have access to your Azure Map account using [Cross origin resource sharing (CORS)]. CORS instructs the clients' browser on which origins such as "https://microsoft.com" are allowed to request resources for the Azure Map account.
+For applications running on devices, desktop computers, or web browsers, it's advisable to define which domains can access your Azure Maps account using [Cross origin resource sharing (CORS)]. CORS informs the client's browser which origins, such as "https://microsoft.com," are permitted to request resources for the Azure Maps account.
 
 > [!NOTE]
-> If you're developing a web server or service, your Azure Maps account does not need to be configured with CORS. If you have JavaScript code in the client side web application, CORS does apply.
+> If you're developing a web server or service, configuring your Azure Maps account with CORS is unnecessary. However, if your client-side web application includes JavaScript code, CORS does apply.
 
 ### Confidential client applications
 
-For apps that run on servers (such as web services and service/daemon apps), if you prefer to avoid the overhead and complexity of managing secrets, consider [Managed Identities]. Managed identities can provide an identity for your web service to use when connecting to Azure Maps using [Microsoft Entra authentication]. If so, your web service uses that identity to obtain the required Microsoft Entra tokens. You should use Azure RBAC to configure what access the web service is given, using the [Least privileged roles] possible.
+For server-based applications, such as web services and service/daemon apps, consider using [Managed Identities] to avoid the complexity of managing secrets. Managed identities can provide an identity for your web service to connect to Azure Maps using [Microsoft Entra authentication]. Your web service can then use this identity to obtain the necessary Microsoft Entra tokens. It's recommended to use Azure RBAC to configure the access granted to the web service, applying the [Least privileged roles] possible.
 
 ## Next steps
 
@@ -68,7 +68,7 @@ For apps that run on servers (such as web services and service/daemon apps), if 
 [Configurable token lifetimes in the Microsoft identity platform (preview)]: ../active-directory/develop/configurable-token-lifetimes.md
 [Create SAS tokens]: azure-maps-authentication.md#create-sas-tokens
 [Cross origin resource sharing (CORS)]: azure-maps-authentication.md#cross-origin-resource-sharing-cors
-[introduction to Azure security]: ../security/fundamentals/overview.md
+[Introduction to Azure security]: ../security/fundamentals/overview.md
 [Least privileged roles]: ../active-directory/roles/delegate-by-task.md
 [Manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Managed Identities]: ../active-directory/managed-identities-azure-resources/overview.md

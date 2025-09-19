@@ -12,6 +12,7 @@ ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a developer, I want to enable phone sign-up and sign-in for user flows, so that users can sign up for my application using their phone number as an identity option.
@@ -19,6 +20,7 @@ ms.subservice: b2c
 ---
 
 # Set up phone sign-up and sign-in for user flows
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In addition to email and username, you can enable phone number as a sign-up option tenant-wide by adding phone sign-up and sign-in to your local account identity provider. After you enable phone sign-up and sign-in for local accounts, you can add phone sign-up to your user flows.
 

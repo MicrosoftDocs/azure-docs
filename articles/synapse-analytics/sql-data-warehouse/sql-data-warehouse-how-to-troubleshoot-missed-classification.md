@@ -1,15 +1,15 @@
 ---
 title: Troubleshoot misclassified workload in a dedicated SQL pool
 description: Identify and troubleshoot scenarios where workloads are misclassified to unintended workload groups in a dedicated SQL pool in Azure Synapse Analytics.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.reviewer: wiassaf
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 07/29/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: how-to
 ms.custom:
   - template-how-to
+  - sfi-image-nochange
 ---
 
 # Troubleshoot a misclassified workload in Azure Synapse Analytics

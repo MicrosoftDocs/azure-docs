@@ -9,11 +9,13 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: how-to
-ms.custom: b2c-docs-improvements
-ms.date: 11/27/2024
+ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: b2c
+ms.custom:
+  - b2c-docs-improvements
+  - sfi-image-nochange
 
 
 #Customer intent: As a developer, I want to set up a sign-up and sign-in flow for a local account using Azure Active Directory B2C custom policy, so that users can create and sign in to their accounts in my application.
@@ -22,6 +24,7 @@ ms.subservice: b2c
 
 
 # Set up a sign-up and sign-in flow for a local account by using Azure Active Directory B2C custom policy
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In [Create and read a user account by using Azure Active Directory B2C custom policy](custom-policies-series-store-user.md) article, a user creates a new user account but doesn't sign in to it. 
 
@@ -325,7 +328,7 @@ Follow the steps in [Test the custom policy](custom-policies-series-validate-use
 
 You can sign in by entering the **Email Address** and **Password** of an existing account. If you don't already have an account, you need to select the **Sign up now** link to create a new user account. 
 
-## Next steps
+## Related content
 
 - Learn how to [Set up a sign-up and sign-in flow with a social account by using Azure Active Directory B2C custom policy](custom-policies-series-sign-up-or-sign-in-federation.md).
 

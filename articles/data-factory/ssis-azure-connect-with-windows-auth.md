@@ -6,7 +6,8 @@ ms.topic: conceptual
 ms.subservice: integration-services
 author: chugugrace
 ms.author: chugu
-ms.reviewer: jburchel
+ms.reviewer: whhender
+ms.custom: sfi-ropc-nochange
 ---
 
 # Access data stores and file shares with Windows authentication from SSIS packages in Azure

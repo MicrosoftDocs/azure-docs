@@ -1102,32 +1102,32 @@
     },
     {
       "source_path_from_root": "/articles/app-service/app-service-linux-readme.md",
-      "redirect_url": "/azure/app-service/overview#app-service-on-linux",
+      "redirect_url": "/azure/app-service/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/containers/app-service-linux-intro.md",
-      "redirect_url": "/azure/app-service/overview#app-service-on-linux",
+      "redirect_url": "/azure/app-service/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/containers/choose-deployment-type.md",
-      "redirect_url": "/azure/app-service/overview#app-service-on-linux",
+      "redirect_url": "/azure/app-service/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-web/app-service-linux-choose-deployment-type.md",
-      "redirect_url": "/azure/app-service/overview#app-service-on-linux",
+      "redirect_url": "/azure/app-service/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-web/app-service-linux-how-to-create-web-app.md",
-      "redirect_url": "/azure/app-service/overview#app-service-on-linux",
+      "redirect_url": "/azure/app-service/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-web/app-service-linux-intro.md",
-      "redirect_url": "/azure/app-service/overview#app-service-on-linux",
+      "redirect_url": "/azure/app-service/overview",
       "redirect_document_id": false
     },
     {
@@ -1871,6 +1871,91 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/app-service/scripts/powershell-deploy-github.md",
+      "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples/blob/master/app-service/deploy-github/deploy-github.ps1",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/powershell-continuous-deployment-github.md",
+      "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples/blob/master/app-service/deploy-github-continuous/deploy-github-continuous.ps1",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/powershell-deploy-ftp.md",
+      "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples/blob/master/app-service/deploy-ftp/deploy-ftp.ps1",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/powershell-deploy-local-git.md",
+      "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples/blob/master/app-service/deploy-local-git/deploy-local-git.ps1",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/powershell-deploy-staging-environment.md",
+      "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples/blob/master/app-service/deploy-deployment-slot/deploy-deployment-slot.ps1",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/powershell-configure-custom-domain.md",
+      "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples/blob/master/app-service/map-custom-domain/map-custom-domain.ps1",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/powershell-configure-ssl-certificate.md",
+      "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples/blob/master/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/powershell-scale-manual.md",
+      "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples/blob/master/app-service/scale-manual/scale-manual.ps1",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/powershell-scale-high-availability.md",
+      "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples/blob/master/app-service/scale-geographic/scale-geographic.ps1",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/powershell-connect-to-sql.md",
+      "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples/blob/master/app-service/connect-to-sql/connect-to-sql.ps1",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/powershell-connect-to-storage.md",
+      "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples/blob/master/app-service/connect-to-storage/connect-to-storage.ps1",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/powershell-backup-onetime.md",
+      "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples/blob/master/app-service/backup-onetime/backup-onetime.ps1",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/powershell-backup-scheduled.md",
+      "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples/blob/master/app-service/backup-scheduled/backup-scheduled.ps1",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/powershell-backup-delete.md",
+      "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples/blob/master/app-service/backup-delete/backup-delete.ps1",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/powershell-backup-restore.md",
+      "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples/blob/master/app-service/backup-restore/backup-restore.ps1",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/powershell-backup-restore-diff-sub.md",
+      "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples/blob/master/app-service/backup-restore-diff-sub/backup-restore-diff-sub.ps1",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/powershell-monitor.md",
+      "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples/blob/master/app-service/monitor-with-logs/monitor-with-logs.ps1",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service/get-resource-events.md",
       "redirect_url": "/azure/app-service/monitor-app-service",
       "redirect_document_id": false
@@ -1977,11 +2062,6 @@
     },
     {
       "source_path_from_root": "/articles/app-service/app-service-web-tutorial-java-mysql.md",
-      "redirect_url": "/azure/app-service/tutorial-java-spring-cosmosdb",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/app-service/tutorial-java-quarkus-postgresql-app.md",
       "redirect_url": "/azure/app-service/tutorial-java-spring-cosmosdb",
       "redirect_document_id": false
     },
@@ -2853,6 +2933,16 @@
     {
       "source_path_from_root": "/articles/app-service/environment/how-to-migrate.md",
       "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/tutorial-sidecar-local-small-language-model.md",
+      "redirect_url": "/azure/app-service/tutorial-ai-slm-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/deploy-intelligent-apps.md",
+      "redirect_url": "/azure/app-service/overview-ai-integration",
       "redirect_document_id": false
     }
   ]

@@ -2,12 +2,12 @@
 title: Azure built-in roles for Compute - Azure RBAC
 description: This article lists the Azure built-in roles for Azure role-based access control (Azure RBAC) in the Compute category. It lists Actions, NotActions, DataActions, and NotDataActions.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 ms.workload: identity
 author: rolyon
-manager: amycolannino
+manager: pmwongera
 ms.author: rolyon
-ms.date: 01/25/2025
+ms.date: 09/03/2025
 ms.custom: generated
 ---
 
@@ -38,7 +38,7 @@ Arc VMware VM Contributor has permissions to perform all VM actions.
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/write | Creates or updates an deployment. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/delete | Deletes a deployment. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/cancel/action | Cancels a deployment. |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates an deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates a deployment. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/whatIf/action | Predicts template deployment changes. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/exportTemplate/action | Export template for a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
@@ -166,6 +166,219 @@ Arc VMware VM Contributor has permissions to perform all VM actions.
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
+## Azure Batch Account Contributor
+
+Grants full access to manage all Batch resources, including Batch accounts, pools and jobs.
+
+[Learn more](/azure/batch/batch-role-based-access-control)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/* | Manage all Batch resources. |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/* | Manage all Batch resources. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants full access to manage all Batch resources, including Batch accounts, pools and jobs.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/29fe4964-1e60-436b-bd3a-77fd4c178b3c",
+  "name": "29fe4964-1e60-436b-bd3a-77fd4c178b3c",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Batch/*",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Batch/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Batch Account Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Batch Account Reader
+
+Lets you view all resources including pools and jobs in the Batch account.
+
+[Learn more](/azure/batch/batch-role-based-access-control)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/*/read | View all resources in Batch account. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/*/read | View all resources in Batch account. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you view all resources including pools and jobs in the Batch account.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/11076f67-66f6-4be0-8f6b-f0609fd05cc9",
+  "name": "11076f67-66f6-4be0-8f6b-f0609fd05cc9",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Batch/*/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Batch/*/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Batch Account Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Batch Data Contributor
+
+Grants permissions to manage Batch pools and jobs but not to modify accounts.
+
+[Learn more](/azure/batch/batch-role-based-access-control)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/read | Lists Batch accounts or gets the properties of a Batch account |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/applications/* | Create and manage applications and application packages on a Batch account. |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/certificates/* | Create and manage certificates on a Batch account. (Warning: Certificate feature was retired) |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/certificateOperationResults/* | Gets the results of a long running certificate operation on a Batch account. (Warning: Certificate feature was retired) |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/pools/* | Create and manage pools on a Batch account. |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/poolOperationResults/* | Gets the results of a long running pool operation on a Batch account. |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/locations/*/read | Get Batch account operation result/Batch quota/supported VM size at the given location. |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/jobSchedules/* | Create and manage job schedules on a Batch account. |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/jobs/* | Create and manage jobs on a Batch account. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants permissions to manage Batch pools and jobs but not to modify accounts.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/6aaa78f1-f7de-44ca-8722-c64a23943cae",
+  "name": "6aaa78f1-f7de-44ca-8722-c64a23943cae",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Batch/batchAccounts/read",
+        "Microsoft.Batch/batchAccounts/applications/*",
+        "Microsoft.Batch/batchAccounts/certificates/*",
+        "Microsoft.Batch/batchAccounts/certificateOperationResults/*",
+        "Microsoft.Batch/batchAccounts/pools/*",
+        "Microsoft.Batch/batchAccounts/poolOperationResults/*",
+        "Microsoft.Batch/locations/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Batch/batchAccounts/jobSchedules/*",
+        "Microsoft.Batch/batchAccounts/jobs/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Batch Data Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Batch Job Submitter
+
+Lets you submit and manage jobs in the Batch account.
+
+[Learn more](/azure/batch/batch-role-based-access-control)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/applications/read | Lists applications or gets the properties of an application |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/applications/versions/read | Gets the properties of an application package |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/pools/read | Lists pools on a Batch account or gets the properties of a pool |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/jobSchedules/* | Create and manage job schedules on a Batch account. |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/jobs/* | Create and manage jobs on a Batch account. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you submit and manage jobs in the Batch account.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/48e5e92e-a480-4e71-aa9c-2778f4c13781",
+  "name": "48e5e92e-a480-4e71-aa9c-2778f4c13781",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Batch/batchAccounts/applications/read",
+        "Microsoft.Batch/batchAccounts/applications/versions/read",
+        "Microsoft.Batch/batchAccounts/pools/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Batch/batchAccounts/jobSchedules/*",
+        "Microsoft.Batch/batchAccounts/jobs/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Batch Job Submitter",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
 
 ## Classic Virtual Machine Contributor
 
@@ -233,6 +446,55 @@ Lets you manage classic virtual machines, but not access to them, and not the vi
     }
   ],
   "roleName": "Classic Virtual Machine Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Compute Fleet Contributor
+
+Allows users to manage Compute Fleet resources.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.AzureFleet](../permissions/compute.md#microsoftazurefleet)/fleets/* | Create and manage compute fleets |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows users to manage Compute Fleet resources.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/2bed379c-9fba-455b-99e4-6b911073bcf2",
+  "name": "2bed379c-9fba-455b-99e4-6b911073bcf2",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.AzureFleet/fleets/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Compute Fleet Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -783,15 +1045,15 @@ Provide permission to the Azure Virtual Desktop Resource Provider to start and s
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/read | Get the properties of a virtual machine |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/restart/action | Restarts the virtual machine |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/start/action | Starts the virtual machine |
-> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesCancelOperations/action | virtualMachinesCancelOperations: cancelOperations for a virtual machine |
-> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesExecuteDeallocate/action | virtualMachinesExecuteDeallocate: executeDeallocate for a virtual machine |
-> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesExecuteHibernate/action | virtualMachinesExecuteHibernate: executeHibernate for a virtual machine |
-> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesExecuteStart/action | virtualMachinesExecuteStart: executeStart for a virtual machine |
-> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesGetOperationErrors/action |  |
-> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesGetOperationStatus/action | virtualMachinesGetOperationStatus: getOperationStatus for a virtual machine |
-> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesSubmitDeallocate/action | virtualMachinesSubmitDeallocate: submitDeallocate for a virtual machine |
-> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesSubmitHibernate/action | virtualMachinesSubmitHibernate: submitHibernate for a virtual machine |
-> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesSubmitStart/action | virtualMachinesSubmitStart: submitStart for a virtual machine |
+> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesCancelOperations/action | VirtualMachinesCancelOperations: Cancel a previously submitted (start/deallocate/hibernate) request |
+> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesExecuteDeallocate/action | VirtualMachinesExecuteDeallocate: Execute deallocate operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
+> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesExecuteHibernate/action | VirtualMachinesExecuteHibernate: Execute hibernate operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
+> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesExecuteStart/action | VirtualMachinesExecuteStart: Execute start operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
+> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesGetOperationErrors/action | VirtualMachinesGetOperationErrors: Get error details on operation errors (like transient errors encountered, additional logs) if they exist. |
+> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesGetOperationStatus/action | VirtualMachinesGetOperationStatus: Polling endpoint to read status of operations performed on virtual machines |
+> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesSubmitDeallocate/action | VirtualMachinesSubmitDeallocate: Schedule deallocate operation for a batch of virtual machines at datetime in future. |
+> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesSubmitHibernate/action | VirtualMachinesSubmitHibernate: Schedule hibernate operation for a batch of virtual machines at datetime in future. |
+> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesSubmitStart/action | VirtualMachinesSubmitStart: Schedule start operation for a batch of virtual machines at datetime in future. |
 > | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/register/action | Register the subscription for Microsoft.ComputeSchedule |
 > | [Microsoft.DesktopVirtualization](../permissions/compute.md#microsoftdesktopvirtualization)/hostpools/read | Read hostpools |
 > | [Microsoft.DesktopVirtualization](../permissions/compute.md#microsoftdesktopvirtualization)/hostpools/sessionhosts/read | Read hostpools/sessionhosts |
@@ -1088,7 +1350,7 @@ This role is in preview and subject to change. Provide permission to the Azure V
 > | --- | --- |
 > | [Microsoft.DesktopVirtualization](../permissions/compute.md#microsoftdesktopvirtualization)/hostpools/read | Read hostpools |
 > | [Microsoft.DesktopVirtualization](../permissions/compute.md#microsoftdesktopvirtualization)/hostpools/write | Write hostpools |
-> | [Microsoft.DesktopVirtualization](../permissions/compute.md#microsoftdesktopvirtualization)/hostpools/retrieveRegistrationToken/action | List registration tokens for host pool |
+> | [Microsoft.DesktopVirtualization](../permissions/compute.md#microsoftdesktopvirtualization)/hostpools/retrieveRegistrationToken/action | Retrieve registration token for host pool |
 > | [Microsoft.DesktopVirtualization](../permissions/compute.md#microsoftdesktopvirtualization)/hostpools/sessionhosts/read | Read hostpools/sessionhosts |
 > | [Microsoft.DesktopVirtualization](../permissions/compute.md#microsoftdesktopvirtualization)/hostpools/sessionhosts/write | Write hostpools/sessionhosts |
 > | [Microsoft.DesktopVirtualization](../permissions/compute.md#microsoftdesktopvirtualization)/hostpools/sessionhosts/delete | Delete hostpools/sessionhosts |
@@ -1678,6 +1940,8 @@ Create and manage virtual machines, manage disks, install and run software, rese
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/write | Creates a new Disk or updates an existing one |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/read | Get the properties of a Disk |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/delete | Deletes the Disk |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/hostgroups/write | Creates a new host group or updates an existing host group |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/hostgroups/hosts/write | Creates a new host or updates an existing host |
 > | [Microsoft.DevTestLab](../permissions/devops.md#microsoftdevtestlab)/schedules/* |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/applicationGateways/backendAddressPools/join/action | Joins an application gateway backend address pool. Not Alertable. |
@@ -1739,6 +2003,8 @@ Create and manage virtual machines, manage disks, install and run software, rese
         "Microsoft.Compute/disks/write",
         "Microsoft.Compute/disks/read",
         "Microsoft.Compute/disks/delete",
+        "Microsoft.Compute/hostgroups/write",
+        "Microsoft.Compute/hostgroups/hosts/write",
         "Microsoft.DevTestLab/schedules/*",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Network/applicationGateways/backendAddressPools/join/action",

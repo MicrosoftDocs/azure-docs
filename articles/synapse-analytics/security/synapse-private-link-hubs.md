@@ -1,13 +1,13 @@
 ---
 title: Connect to Azure Synapse Studio using private links
 description: Learn how to connect securely to Azure Synapse Studio from your virtual network using Azure private link hubs.
-author: WilliamDAssafMSFT 
+author: meenalsri
 ms.service: azure-synapse-analytics
 ms.topic: concept-article
 ms.subservice: security 
 ms.date: 02/06/2025 
-ms.author: wiassaf
-ms.reviewer: whhender
+ms.author: mesrivas
+ms.custom: sfi-image-nochange
 ---
 
 # Connect to Azure Synapse Studio using Azure private link hubs

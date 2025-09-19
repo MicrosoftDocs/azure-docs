@@ -5,7 +5,7 @@ author: dlepow
 ms.author: danlep
 ms.service: azure-api-management
 ms.custom: devx-track-azurecli
-ms.topic: article 
+ms.topic: how-to 
 ms.date: 06/12/2023
 ---
 
@@ -112,7 +112,7 @@ To enable monitoring of the self-hosted gateway, configure the following Log Ana
 > 1. Walk through the [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace) quickstart. 
 > 1. Learn where to find the [Log Analytics agent settings](/azure/azure-monitor/agents/log-analytics-agent).
 
-## Next Steps
+## Related content
 
 * To learn more about the self-hosted gateway, see [Azure API Management self-hosted gateway overview](self-hosted-gateway-overview.md).
 * Learn more about the [observability capabilities of the Azure API Management gateways](observability.md).

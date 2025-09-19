@@ -1,13 +1,13 @@
 ---
 title: Understand your detailed usage and charges
 description: Learn how to read and understand your detailed usage and charges file. View a list of terms and descriptions used in the file.
-author: bandersmsft
-ms.reviewer: micflan
+author: Jkinma39
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 09/19/2024
-ms.author: banders
+ms.date: 04/30/2025
+ms.author: jkinma
 #customer intent: As a billing administrator, I want to understand usage and charges so that I can manage Azure billing.
 ---
 
@@ -17,9 +17,8 @@ The detailed usage and charges file contains daily rated usage based on negotiat
 purchases (for example, reservations, Marketplace fees), and refunds for the specified period.
 Fees don't include credits, taxes, or other charges or discounts. You manually download the usage and charges file.
 
-The information in the usage and charges file is the same information that gets [exported from Cost Management](../costs/tutorial-export-acm-data.md). And, it's the same information that gets retrieved from the Cost Details API. For more information about choosing a method to get cost details, see [Choose a cost details solution](../automate/usage-details-best-practices.md).
-
 ## Charges for account types
+The information in the usage and charges file is the same information that's [exported from Cost Management](../costs/tutorial-improved-exports.md). And, it's the same information that gets retrieved from the Cost Details API. For more information about choosing a method to get cost details, see [Choose a cost details solution](../automate/usage-details-best-practices.md).
 
 The following table covers which charges are included for each account type.
 

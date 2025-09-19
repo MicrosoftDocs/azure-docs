@@ -9,13 +9,16 @@ ms.topic: how-to
 ms.date: 02/17/2025
 ms.author: kengaderdus
 ms.subservice: b2c
-ms.custom: "b2c-support"
 zone_pivot_groups: b2c-policy-type
+ms.custom:
+  - "b2c-support"
+  - sfi-image-nochange
 
 #Customer intent: As a developer, I want to use my own domain name for the sign-in and sign-up experience, so that my users have a seamless experience.
 ---
 
 # Enable custom domains in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 

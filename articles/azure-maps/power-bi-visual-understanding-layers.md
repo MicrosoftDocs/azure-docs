@@ -84,9 +84,33 @@ The general layer section of the **Format** pane are common settings that apply 
 
 | Setting        | Description                            |
 |----------------|----------------------------------------|
-| Unselected transparency | The transparency of shapes that aren't selected, when one or more shapes are selected.  |
-| Min data value | The minimum value of the input data to scale against. Good for clipping outliers.  |
-| Max data value | The maximum value of the input data to scale against. Good for clipping outliers.  |
+| Unselected transparency | The transparency of shapes that aren't selected, when one or more shapes are selected. |
+| Min data value | The minimum value of the input data to scale against. Good for clipping outliers. |
+| Max data value | The maximum value of the input data to scale against. Good for clipping outliers. |
+
+## Layer positions
+
+In the Azure Maps visual, certain layers are fixed, meaning they're set at a predefined level and can't be repositioned. Other layers are adjustable, giving users the flexibility to choose from three positioning options: "Above Labels," "Below Labels," or "Below Roads."
+
+:::image type="content" source="media/power-bi-visual/layer-position.png" alt-text="a screenshot showing the layer position drop-down list.":::
+
+Within each Layer position, the order of layers remains consistent. For instance, the 3D bar chart layer always appears above the bubble layer due to its higher layer order, regardless of whether they're placed in "Below Labels" or "Above Labels."
+
+## Layer order
+
+The following table outlines the layer order from top to bottom along with their respective layer position types. Layers marked as "Adjustable" can have their position changed using the Layer position dropdown, as shown in the previous screenshot. Layers marked as "Fixed" don't offer this option.
+
+| Layer Name           | Layer Order | Position type | Description                                           |
+|----------------------|-------------|---------------|-------------------------------------------------------|
+| Category Labels      | 1           | Fixed         |  The Category Labels is fixed as the top-most layer. You can consider this layer as "fixed" at the highest position. |
+| Selection Tools      | 2           | Fixed         |The Selection tool layer is fixed as the second-highest layer, overlaying all other map layers. "Fixed" means it remains in the second level.|
+| 3D Bar chart Layer   | 3           | Adjustable    |                                                       |
+| Pie chart Layer<br>Bubble Layer<br>Cluster Bubble Layer<br>Path Layer | 4 | Adjustable | These layers share the same "Layer position" as the bubble layer, and their relative order within this group remains fixed. |
+| Heat Map Layer       | 5           | Adjustable    |                                                       |
+| Reference Layer      | 6           | Fixed         |The Reference Layer is fixed at "Below labels".   |
+| Filled Map Layer     | 7           | Adjustable    |                                                       |
+| Tile Layer           | 8           | Adjustable    |                                                       |
+| Map Tiles            | 9           | Fixed         |The Map Tiles layer is fixed as the bottom-most map layer. It's the base map layer of the Azure Maps visual.|
 
 ## Next steps
 

@@ -5,6 +5,7 @@ author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 02/10/2025
+ms.update-cycle: 180-days
 ms.author: danlep 
 ms.collection: ce-skilling-ai-copilot
 ms.custom: 
@@ -14,9 +15,6 @@ ms.custom:
 # Design and develop APIs using API Center plugin for GitHub Copilot for Azure
 
 The API Center plugin for [GitHub Copilot for Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot) (preview) accelerates design and development of new APIs starting from natural language prompts. With AI assistance available through the API Center plugin combined with the API Center VS Code extension, simply describe your API and quickly generate an OpenAPI spec for API development that complies with your organization's standards. After you generate a compliant spec, you can register the API with your [API center](overview.md).
-
-> [!NOTE]
-> This feature is available in the pre-release version of the API Center extension.
 
 [!INCLUDE [vscode-extension-basic-prerequisites](includes/vscode-extension-basic-prerequisites.md)]  
 * [GitHub Copilot for Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot) - to generate OpenAPI specification files using the Azure API Center Plugin for [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/introduction) (preview)
@@ -78,6 +76,6 @@ After the API is registered, you can perform various tasks using the extension. 
 * [Build and register APIs with the Azure API Center extension for Visual Studio Code](build-register-apis-vscode-extension.md)
 * [Discover and consume APIs with the Azure API Center extension for Visual Studio Code](discover-apis-vscode-extension.md)
 * [Govern APIs with the Azure API Center extension for Visual Studio Code](govern-apis-vscode-extension.md)
-* [Enable and view platform API catalog in Visual Studio Code](enable-platform-api-catalog-vscode-extension.md)
+* [Enable and view API Center portal in Visual Studio Code](enable-api-center-portal-vs-code-extension.md)
 * [Overview of GitHub Copilot for Azure](/azure/developer/github-copilot-azure/introduction)
 

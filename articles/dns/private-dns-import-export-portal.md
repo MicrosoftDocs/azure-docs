@@ -3,11 +3,12 @@ title: Import and export a private DNS zone file - Azure portal
 titleSuffix: Azure DNS
 description: Learn how to import and export a private DNS (Domain Name System) zone file to Azure DNS by using Azure portal.
 services: dns
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.date: 02/07/2025
-ms.author: greglin
+ms.author: allensu
 ms.topic: how-to
+# Customer intent: "As a DNS administrator, I want to import and export DNS zone files using a management portal, so that I can efficiently transfer DNS records to and from Azure DNS while maintaining accurate configurations."
 ---
 
 # Import and export a private DNS zone file using the Azure portal

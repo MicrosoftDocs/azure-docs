@@ -2,16 +2,20 @@
 title: 'Quickstart: Get started ingesting data with pipelines (Preview)'
 description: In this quickstart, you'll learn to ingest data to Data Explorer pools using Azure Synapse Pipelines.
 ms.topic: quickstart
-ms.date: 11/02/2021
+ms.date: 03/24/2025
 author: shsagir
 ms.author: shsagir
 ms.reviewer: tzgitlin
 ms.service: azure-synapse-analytics
 ms.subservice: data-explorer
-ms.custom: mode-other
+ms.custom:
+  - mode-other
+  - sfi-image-nochange
 ---
 
 # Quickstart: Ingest data using Azure Synapse Pipelines (Preview)
+
+[!INCLUDE [data-explorer-deprecation-notice](../includes/data-explorer-deprecation-notice.md)]
 
 In this quickstart, you learn how to load data from a data source into Azure Synapse Data Explorer pool.
 

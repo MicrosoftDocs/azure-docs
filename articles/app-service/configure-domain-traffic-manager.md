@@ -1,20 +1,21 @@
 ---
-title: Set up Traffic Manager for your domain
+title: Set up Traffic Manager for Your Domain
 description: Discover how to use Azure Traffic Manager with a custom domain to improve app performance and global availability.
 keywords: Azure Traffic Manager, custom domain, load balancing, Azure App Service, traffic management
 ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/14/2025
 author: msangapu-msft
 ms.author: msangapu
+ms.service: azure-app-service 
+# As a systems administrator, I want to use Traffic Manager with a custom domain so that I can improve app performance and global availability. 
+  
 ---
 # Configure Traffic Manager for your Azure App Service domain
 
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
-> [!NOTE]
-> For Cloud Services, see 
-[Configuring a custom domain name for an Azure cloud service](../cloud-services/cloud-services-custom-domain-name-portal.md).
+[!INCLUDE [app-service-managed-certificate](./includes/managed-certs/managed-certs-note.md)]
 
 When you use [Azure Traffic Manager](../traffic-manager/index.yml) to load balance traffic to [Azure App Service](overview.md), the App Service app can be accessed using **\<traffic-manager-endpoint>.trafficmanager.net**. You can assign a custom domain name, such as www\.contoso.com, with your App Service app in order to provide a more recognizable domain name for your users.
 
@@ -30,25 +31,29 @@ To map a custom DNS name to an app that's integrated with Azure Traffic Manager,
 
 ### Check the pricing tier
 
-In the [Azure portal](https://portal.azure.com), search for and select **App Services**.
+To check the pricing tier:
 
-On the **App Services** page, select the name of your Azure app.
+1. In the [Azure portal](https://portal.azure.com), search for and select **App Services**.
 
-![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/select-app.png)
+1. On the **App Services** page, select the name of your Azure app.
 
-In the left navigation of the app page, select **Scale up (App Service plan)**.
+   ![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
-![Scale-up menu](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
+1. In the left navigation of the app page, select **Scale up (App Service plan)**.
 
-The app's current tier is highlighted by a blue border. Check to make sure that the app is in **Standard** tier or above (any tier in the **Production** or **Isolated** category). If yes, close the **Scale up** page and skip to [Create the CNAME mapping](#create-the-cname-mapping).
+   ![Scale-up menu](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-![Check pricing tier](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
+1. The app's current tier is highlighted by a blue border. Check to make sure that the app is in **Standard** tier or above (any tier in the **Production** or **Isolated** category). If yes, close the **Scale up** page and skip to [Create the CNAME mapping](#create-the-cname-mapping).
+
+    ![Check pricing tier](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
 ### Scale up the App Service plan
 
-If you need to scale up your app, select any of the pricing tiers in the **Production** category. For additional options, click **See additional options**.
+If you need to scale up your app:
 
-Click **Apply**.
+1. Select any of the pricing tiers in the **Production** category. For additional options, click **See additional options**.
+
+1. Click **Apply**.
 
 ## Create Traffic Manager endpoint
 
@@ -93,7 +98,7 @@ After the records for your domain name have propagated, use the browser to verif
 
     ![Add DNS name to the app](./media/configure-domain-traffic-manager/enable-traffic-manager-domain.png)
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Secure a custom DNS name with an TLS/SSL binding in Azure App Service](configure-ssl-bindings.md)

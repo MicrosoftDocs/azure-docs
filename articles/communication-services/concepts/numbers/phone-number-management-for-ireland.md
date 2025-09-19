@@ -22,21 +22,25 @@ Use the below tables to find all the relevant information on number availability
 | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
 | Toll-Free   |-  | - | General Availability | General Availability\* |
 | Local       | -                    | -                    | General Availability | General Availability\* |
+| Mobile                    | General Availability\**       | General Availability\**       | -                    | -                      |
 |Alphanumeric Sender ID\**|General Availability|-|-|-|
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
 \** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
 
+> [!IMPORTANT]
+> Effective **July 3, 2025**, unregistered alphanumeric sender IDs sending messages to Ireland phone numbers will have its messages marked as "Spam" for recipients. To prevent this, a [registration application](https://forms.office.com/r/pK8Jhyhtd4) needs to be submitted. If your Sender ID isn't registered by **October 3, 2025**, all traffic from the unregistered Sender IDs will be blocked entirely.
+
 ## Subscription eligibility
 
-To acquire a phone number, you need to be on a paid Azure subscription. Phone numbers can't be acquired by Azure free credits. Also, due to regulatory reasons phone number availability is dependent on your Azure subscription billing location.
+To acquire a phone number, you need to be on a paid Azure subscription. Phone numbers can't be acquired with Azure free credits. Also, due to regulatory reasons phone number availability is dependent on your Azure subscription billing location.
 
 More details on eligible subscription types are as follows:
 
 | Number Type                      | Eligible Azure Agreement Type                                                                             |
 | :------------------------------- | :-------------------------------------------------------------------------------------------------------- |
-| Toll-Free and Local (Geographic/National) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement, Pay-As-You-Go |
+| Toll-Free, Local (Geographic/National), Mobile | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement, Pay-As-You-Go |
 | Alphanumeric Sender ID            | Modern Customer Agreement (Field Led and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement**, Pay-As-You-Go                                      |
 
 \** Applications from all other subscription types are reviewed and approved on a case-by-case basis. Reach out to acstns@microsoft.com for assistance with your application.
@@ -61,6 +65,21 @@ More details on eligible subscription types are as follows:
 |United States|
 
 [!INCLUDE [Azure Prepayment](../../includes/azure-prepayment.md)]
+
+## Azure subscription billing locations where Ireland mobile numbers are available
+| Country/Region |
+| :---------- |
+| Australia       |
+| Belgium         |
+| Denmark         |
+| Finland         |
+| Ireland         |
+| Latvia          |
+| Netherlands     |
+| Poland          |
+| Sweden          |
+| United Kingdom  |
+| United States  |
 
 ## Azure subscription billing locations where Ireland alphanumeric sender IDs are available
 | Country/Region |
@@ -95,3 +114,4 @@ For more information about Azure Communication Services' telephony options, see 
 
 - [Learn more about Telephony](../telephony/telephony-concept.md)
 - Get a Telephony capable [phone number](../../quickstarts/telephony/get-phone-number.md)
+

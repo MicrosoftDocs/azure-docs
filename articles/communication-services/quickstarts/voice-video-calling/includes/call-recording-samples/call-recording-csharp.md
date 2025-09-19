@@ -3,7 +3,9 @@ author: dbasantes
 ms.service: azure-communication-services
 ms.date: 06/11/2023
 ms.topic: include
-ms.custom: public_preview
+ms.custom:
+  - public_preview
+  - sfi-ropc-nochange
 ---
 ## Sample Code
 
@@ -75,7 +77,6 @@ StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCal
     RecordingFormat = RecordingFormat.Wav,
     RecordingStateCallbackUri = new Uri("<CallbackUri>"),
     RecordingStorage = RecordingStorage.CreateAzureBlobContainerRecordingStorage(new Uri("<YOUR_STORAGE_CONTAINER_URL>"))
-    ExternalStorage = new BlobStorage(new Uri("<Insert Container / Blob Uri>"))
 };
 Response<RecordingStateResult> response = await callAutomationClient.GetCallRecording()
 .StartAsync(recordingOptions);

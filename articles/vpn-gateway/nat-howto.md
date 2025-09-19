@@ -7,7 +7,9 @@ ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 10/16/2024
 ms.author: cherylmc 
+ms.custom: sfi-image-nochange
 
+# Customer intent: As a network engineer, I want to configure NAT settings on a VPN gateway, so that I can manage IP address translations for seamless connectivity between overlapping networks.
 ---
 # How to configure NAT for Azure VPN Gateway
 

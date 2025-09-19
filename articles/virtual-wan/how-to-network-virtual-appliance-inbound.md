@@ -6,6 +6,7 @@ ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 12/11/2024
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 # Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub and leverage destination NAT.
 ---
 # How to configure Destination NAT (DNAT) for Network Virtual Appliance in an Azure Virtual WAN hub
@@ -14,6 +15,9 @@ The following article describes how to configure Destination NAT for Next-Genera
 
 > [!Important]
 > Destination NAT (DNAT) for Virtual WAN integrated Network Virtual Appliances is currently in Public Preview and is provided without a service-level agreement. It shouldn't be used for production workloads. Certain features might not be supported, might have constrained capabilities, or might not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+> [!Important]
+> This document applies to Integrated Network Virtual Appliances deployed in the Virtual WAN hub and does **not** apply to software-as-a-service (SaaS) solutions. See [third-party integrations](third-party-integrations.md) for more information on the differences between Integrated Network Virtual Appliances and SaaS solutions. Reference your SaaS provider's documentation for information related to infrastructure operations available for SaaS solutions. 
 
 ## Background
 
@@ -65,11 +69,7 @@ The following section describes known issues, limitations, and considerations as
 
 ### Known Issues
 
-The following table describes known issues related to the internet inbound/DNAT feature.
-
-|Issue | Description| Mitigation|
-|--|--|--|
-| DNAT traffic isn't forwarded to the NVA after associating an additional IP address.| After associating additional IP address(es) to an NVA that already has active inbound security rules, DNAT traffic isn't forwarded properly to the NVA due to a code defect. | Use partner orchestration/management software to modify (create or delete existing) configured inbound-security rules to restore connectivity. |
+There are currently no known issues related to the destination NAT (DNAT) capability for NVAs deployed in the Virtual WAN hub.
 
 ### Limitations
 
@@ -142,7 +142,7 @@ The following section describes some common troubleshooting scenarios.
 
 ### <a name="healthprobeconfigs"></a> Load balancer health probes
 
-NVA with internet inbound/DNAT capabilities relies on the NVA responding to three different Azure Load Balancer health probes to ensure the NVA is functioning as expected and route traffic. Health probe requests are always made from the nonpublically routable Azure IP Address [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md). You should see a three-way TCP handshake performed with 168.63.129.16 in your NVA logs.
+NVA with internet inbound/DNAT capabilities relies on the NVA responding to three different Azure Load Balancer health probes to ensure the NVA is functioning as expected and route traffic. Health probe requests are always made from the nonpublicly routable Azure IP Address [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md). You should see a three-way TCP handshake performed with 168.63.129.16 in your NVA logs.
 
 For more information on Azure Load Balancer health probes, see [health probe documentation](../load-balancer/load-balancer-custom-probe-overview.md).
 

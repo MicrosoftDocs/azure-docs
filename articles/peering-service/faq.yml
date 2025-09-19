@@ -6,7 +6,7 @@ metadata:
   ms.author: halkazwini
   ms.service: azure-peering-service
   ms.topic: faq
-  ms.date: 10/08/2024
+  ms.date: 04/11/2025
 title: Azure Peering Service frequently asked questions (FAQ)
 summary: |
 
@@ -24,6 +24,12 @@ sections:
         answer: |
           Peering Service optimizes routing on the Microsoft network and guarantees that customer traffic is only handed off to the peering service provider chosen by the customer at a preferred location. This ensures that customer traffic stays on the Microsoft network rather than routing through various other networks before returning to the customer’s last mile network. With Peering Service, the end users have more control and performance assurance with how their traffic will be handled compared to normal internet routing.
 
+      - question: |
+          How does Internet Routing Preference impact Peering Service?
+        answer: |
+          Internet Routing Preference directs public IP traffic to exit the Microsoft network as close as possible to the associated Azure public resource. This approach contrasts with Peering Service, which optimizes routing within the Microsoft network and ensures traffic is handed off at a preferred location through a designated provider. As a result, Internet Routing Preference and Peering Service aren't compatible and can't be used together.
+          For more information about public IP routing preference, see [What is routing preference?](/azure/virtual-network/ip-services/routing-preference-overview)
+          
       - question: |
           How is Peering Service different from ExpressRoute?
         answer: |

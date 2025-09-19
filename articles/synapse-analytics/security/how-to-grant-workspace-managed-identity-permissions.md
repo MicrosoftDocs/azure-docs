@@ -3,12 +3,13 @@ title: Grant permissions to managed identity in Synapse workspace
 description: Learn how to configure permissions for managed identity in Azure Synapse workspace.
 author: meenalsri
 ms.author: mesrivas
-ms.reviewer: whhender
 ms.date: 02/11/2025
 ms.service: azure-synapse-analytics
 ms.subservice: security
 ms.topic: how-to
-ms.custom: subject-rbac-steps
+ms.custom:
+  - subject-rbac-steps
+  - sfi-image-nochange
 ---
 
 # Grant permissions to workspace managed identity

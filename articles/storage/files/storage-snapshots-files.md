@@ -4,8 +4,9 @@ description: A share snapshot is a read-only, point-in-time copy of an Azure fil
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 12/09/2024
+ms.date: 09/16/2025
 ms.author: kendownie
+# Customer intent: "As a data administrator, I want to use file share snapshots for Azure Files, so that I can efficiently recover previous versions of files and protect against accidental deletions or data corruption."
 ---
 
 # Use share snapshots with Azure Files
@@ -16,12 +17,22 @@ Azure Files provides the capability to take snapshots of SMB and NFS file shares
 > Share snapshots provide only file-level protection. They don't prevent fat-finger deletions on a file share or storage account. To help protect a storage account from accidental deletion, you can either [enable soft delete](storage-files-prevent-file-share-deletion.md), or lock the storage account and/or the resource group.
 
 ## Applies to
-
-| File share type | SMB | NFS |
-|-|:-:|:-:|
-| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
+|-|-|-|-|:-:|:-:|
+| Microsoft.FileShares | Provisioned v2 | SSD (premium)  | Local (LRS)    | ![No](../media/icons/no-icon.png)   | ![No](../media/icons/no-icon.png) |
+| Microsoft.FileShares | Provisioned v2 | SSD (premium)  | Zone (ZRS)     | ![No](../media/icons/no-icon.png)   | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage    | Provisioned v2 | SSD (premium)  | Local (LRS)    | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage    | Provisioned v2 | SSD (premium)  | Zone (ZRS)     | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)|
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## When to use share snapshots
 
@@ -290,8 +301,6 @@ Only file management APIs (`AzRmStorageShare`) are supported for NFS Azure file 
 
 Azure Backup isn't currently supported for NFS file shares.
 
-AzCopy isn't currently supported for NFS file shares. To copy data from an NFS Azure file share or share snapshot, use file system copy tools such as rsync or fpsync.
-
 NFS Azure file share snapshots are available in all Azure public cloud regions.
 
 ### Create an NFS file share snapshot
@@ -368,7 +377,7 @@ az storage share list --account-name <storage-account-name> --include-snapshots
 
 To mount an NFS Azure file share snapshot to a Linux VM (NFS client) and restore files, follow these steps.
 
-1. Run the following command in a console. See [Mount options](storage-files-how-to-mount-nfs-shares.md#mount-options) for other recommended mount options. To improve copy performance, mount the snapshot with [nconnect](nfs-performance.md#nconnect) to use multiple TCP channels.
+1. Run the following command in a console. See [Mount options](storage-files-how-to-mount-nfs-shares.md#mount-options) for other recommended mount options. To improve copy performance, mount the snapshot with [nconnect](nfs-performance.md#nfs-nconnect) to use multiple TCP channels.
    
    ```bash
    sudo mount -o vers=4,minorversion=1,proto=tcp,sec=sys $server:/nfs4account/share /media/nfs

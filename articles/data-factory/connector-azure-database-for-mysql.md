@@ -6,8 +6,11 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: synapse
 ms.date: 10/20/2023
+ms.custom:
+  - synapse
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Copy and transform data in Azure Database for MySQL using Azure Data Factory or Synapse Analytics
@@ -26,7 +29,7 @@ This connector is specialized for
 
 This quickstart requires the following resources and configuration mentioned below as a starting point:
 
-- An existing Azure database for MySQL Single server or MySQL Flexible Server with public access or private endpoint. 
+- An existing Azure Database for MySQL Single Server or MySQL Flexible Server with public access or private endpoint. 
 - Enable **Allow public access from any Azure service within Azure to this server** in networking page of the MySQL server . This will allow you to use Data factory studio.
 
 ## Supported capabilities

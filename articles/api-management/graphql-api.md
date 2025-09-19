@@ -6,7 +6,10 @@ author: dlepow
 ms.author: danlep
 ms.topic: how-to
 ms.date: 04/10/2023
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Import a GraphQL API
@@ -139,7 +142,3 @@ If your GraphQL  API supports a subscription, you can test it in the test consol
 Secure your GraphQL API by applying both existing [authentication and authorization policies](api-management-policies.md#authentication-and-authorization) and a [GraphQL validation policy](validate-graphql-request-policy.md) to protect against GraphQL-specific attacks.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
-
-## Next steps
-> [!div class="nextstepaction"]
-> [Transform and protect a published API](transform-api.md)

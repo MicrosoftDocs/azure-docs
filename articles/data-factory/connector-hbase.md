@@ -4,10 +4,12 @@ description: Learn how to copy data from HBase to supported sink data stores usi
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.subservice: data-movement
-ms.custom: synapse
 ms.topic: conceptual
 ms.date: 01/26/2025
 ms.author: jianleishen
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 # Copy data from HBase using Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -44,9 +46,9 @@ For more information about the network security mechanisms and options supported
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-## Create a linked service to Hbase using UI
+## Create a linked service to HBase using UI
 
-Use the following steps to create a linked service to Hbase in the Azure portal UI.
+Use the following steps to create a linked service to HBase in the Azure portal UI.
 
 1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
 
@@ -58,14 +60,14 @@ Use the following steps to create a linked service to Hbase in the Azure portal 
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
-2. Search for Hbase and select the Hbase connector.
+2. Search for HBase and select the HBase connector.
 
-   :::image type="content" source="media/connector-hbase/hbase-connector.png" alt-text="Screenshot of the Hbase connector.":::    
+   :::image type="content" source="media/connector-hbase/hbase-connector.png" alt-text="Screenshot of the HBase connector.":::    
 
 
 1. Configure the service details, test the connection, and create the new linked service.
 
-   :::image type="content" source="media/connector-hbase/configure-hbase-linked-service.png" alt-text="Screenshot of linked service configuration for Hbase.":::
+   :::image type="content" source="media/connector-hbase/configure-hbase-linked-service.png" alt-text="Screenshot of linked service configuration for HBase.":::
 
 ## Connector configuration details
 

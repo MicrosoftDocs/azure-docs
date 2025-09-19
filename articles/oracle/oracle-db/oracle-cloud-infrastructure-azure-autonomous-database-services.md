@@ -6,6 +6,7 @@ ms.author: jacobjaygbay
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024
+# Customer intent: As a cloud architect, I want to utilize Terraform modules for provisioning Oracle Database on Azure, so that I can streamline deployments while ensuring proper identity and access management within a multicloud environment.
 ---
 
 
@@ -64,9 +65,9 @@ For more information about modules, see [Oracle multicloud landing zone for Azur
 
 ## Related content
 
-- [Quickstart: Oracle Database@Azure with Terraform or OpenTofu modules](https://docs.oracle.com/learn/dbazure-terraform/index.html)
+- [Quickstart: Oracle Database@Azure with Terraform or OpenTofu modules](https://docs.oracle.com/en/learn/dbazure-terraform/index.html)
 - [Set up OCI Terraform](https://docs.oracle.com/iaas/developer-tutorials/tutorials/tf-provider/01-summary.htm)
-- [Import OCI resources into a Terraform state file](https://docs.oracle.com/learn/terraform-statefile-oci-resources/index.html)
+- [Import OCI resources into a Terraform state file](https://docs.oracle.com/en/learn/terraform-statefile-oci-resources/index.html)
 - [Azure Verified Modules for a virtual network](https://github.com/Azure/terraform-azurerm-avm-res-network-virtualnetwork)
 - [Quickstart: Install and configure Terraform for Azure](/azure/developer/terraform/quickstart-configure)
 - [Authenticate Terraform to Azure](/azure/developer/terraform/authenticate-to-azure)

@@ -5,9 +5,10 @@ description: Learn how to create a Basic SKU virtual network gateway for a VPN c
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 08/15/2024
+ms.date: 03/31/2025
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
+# Customer intent: "As a network engineer, I want to create a Basic SKU VPN gateway using PowerShell, so that I can establish a secure connection between my virtual network and on-premises infrastructure or other virtual networks."
 ---
 
 # Create a Basic SKU VPN gateway using PowerShell

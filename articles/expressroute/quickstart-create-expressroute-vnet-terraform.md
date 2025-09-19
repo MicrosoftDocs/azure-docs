@@ -4,12 +4,13 @@ description: In this quickstart, you create a resource group, a virtual network,
 ms.topic: quickstart
 ms.date: 01/29/2025
 ms.custom: devx-track-terraform
-ms.service: azure-virtual-network
+ms.service: azure-expressroute
 author: duongau
 ms.author: duau
 #customer intent: As a Terraform user, I want to see how to create a resource group, a virtual network, a subnet for the gateway, a public IP for the gateway, an Azure ExpressRoute gateway, an ExpressRoute circuit, and an ExpressRoute circuit peering in Azure.
 content_well_notification: 
   - AI-contribution
+# Customer intent: As a Terraform user, I want to configure an Azure ExpressRoute circuit and its associated resources so that I can establish a dedicated network connection for reliable performance and security.
 ---
 
 # Quickstart: Configure an Azure virtual network gateway with Terraform

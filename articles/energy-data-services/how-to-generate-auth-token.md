@@ -1,8 +1,8 @@
 ---
 title: Generate a refresh token for Azure Data Manager for Energy
 description: This article describes how to generate an auth token.
-author: shikhagarg1
-ms.author: shikhagarg
+author: bharathim
+ms.author: bselvaraj
 ms.service: azure-data-manager-energy
 ms.topic: how-to
 ms.date: 01/03/2024
@@ -17,7 +17,7 @@ In this article, you learn how to generate the service principal auth token, a u
 ## Register your app with Microsoft Entra ID
 
 1. To provision the Azure Data Manager for Energy platform, you must register your app on the [Azure portal app registration page](https://go.microsoft.com/fwlink/?linkid=2083908). You can use either a Microsoft account or a work or school account to register an app. For steps on how to configure, see [Register your app documentation](../active-directory/develop/quickstart-register-app.md#register-an-application).
-1. In the app overview section, if there are no redirect URIs specified, you can select **Add a platform** > **Web**, add `http://localhost:8080`, and select **Save**.
+1. In the application overview section, if no redirect Uniform Resource Identifiers (URIs) are specified, select **Add a platform** > **Web**, add `http://localhost:8080`, and then select **Save**.
   
    :::image type="content" source="media/how-to-generate-auth-token/app-registration-uri.png" alt-text="Screenshot that shows adding the URI to the app.":::
 
@@ -38,7 +38,7 @@ You can also find the parameters after the app is registered on the Azure portal
 
 ### Find client-id
 
-A `client-id` is the same value that you use to register your application during the provisioning of your [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md). It's often referred to as `app-id`.
+A `client-id` is the value used to register your application during the provisioning of your [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md). It is often referred to as `app-id`.
 
 1. Go to the Azure Data Manager for Energy **Overview** page. On the **Essentials** pane, find **client ID**.
 1. Copy the `client-id` value and paste it into an editor to be used later.
@@ -51,7 +51,7 @@ A `client-id` is the same value that you use to register your application during
 
 ### Find client-secret
 
-A `client-secret` is a string value your app can use in place of a certificate to identify itself. It's sometimes referred to as an application password.
+A `client-secret` is a string value your app can use in place of a certificate to identify itself. It is sometimes called an application password.
 
 1. Go to **App registrations**.
 1. Under the **Manage** section, select **Certificates & secrets**.
@@ -76,7 +76,7 @@ The `redirect-uri` of your app, where your app sends and receives the authentica
 
 ### Find the adme-url for your Azure Data Manager for Energy instance
 
-1. Create an [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md) using the `client-id` generated above.
+1.  Create an [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md) using the `client-id` obtained in the [Find client-id](#find-client-id) section.
 1. Go to your Azure Data Manager for Energy **Overview** page on the Azure portal.
 1. On the **Essentials** pane, copy the URI.
 
@@ -159,11 +159,11 @@ The first step to get an access token for many OpenID Connect (OIDC) and OAuth 2
    |Parameter| Description|
    | --- | --- |
    |code|The authorization code that the app requested. The app can use the authorization code to request an access token for the target resource. Authorization codes are short lived. Typically, they expire after about 10 minutes.|
-   |state|If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. This check helps to detect [CSRF attacks](https://tools.ietf.org/html/rfc6749#section-10.12) against the client.|
+   |state|If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. This check helps to detect Cross-Site Request Forgery (CSRF) attacks. For more information, see [CSRF attacks](https://tools.ietf.org/html/rfc6749#section-10.12).|
    |session_state|A unique value that identifies the current user session. This value is a GUID, but it should be treated as an opaque value that's passed without examination.|
 
 > [!WARNING]
-> Running the URL in Postman won't work because it requires extra configuration for token retrieval.
+> Running the URL in other GUI-based API clients doesn't work because they require extra configuration for token retrieval.
 
 ### Get an auth token and a refresh token
 

@@ -55,7 +55,7 @@ For more information about WhatsApp requirements for templates, see the WhatsApp
 - [Create and Manage Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/).
 - [View Template Components](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/components).
 - [Send Template Messages](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates).
-- Businesses must also adhere to [opt-in requirements](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in) before sending messages to WhatsApp users.
+- [Adhere to opt-in requirements](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in) before sending messages to WhatsApp users.
 
 [!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting-java.md)]
 
@@ -90,6 +90,9 @@ Selecting a template to view the template details.
 The **Content** field of the template details can include parameter bindings. The parameter bindings can be denoted as:
 - A `"format"` field with a value such as `IMAGE`.
 - Double brackets surrounding a number, such as `{{1}}`. The number, index started at 1, indicates the order in which the binding values must be supplied to create the message template.
+- Double brackets surrounding a name, such as `{{movie_name}}`. The named parameters allow developers to reference parameters by name instead of position.
+  > [!IMPORTANT]
+  > When using named parameters, you must ensure that the name you use when sending the message **exactly matches** the name defined in the template you created in the Meta WhatsApp Manager.
 
 :::image type="content" source="../../media/template-messages/sample-movie-ticket-confirmation-azure-portal.png" lightbox="../../media/template-messages/sample-movie-ticket-confirmation-azure-portal.png" alt-text="Screenshot that shows template details.":::
 

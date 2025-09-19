@@ -2,8 +2,10 @@
 title: Learn modules for Bicep
 description: Get started with an overview of Microsoft Learn modules for Bicep.
 ms.topic: conceptual
-ms.date: 01/15/2025
-ms.custom: devx-track-bicep
+ms.custom:
+  - devx-track-bicep
+  - build-2025
+ms.date: 04/09/2025
 ---
 
 # Learn modules for Bicep
@@ -15,11 +17,11 @@ Once you're ready to see how Bicep can help simplify and accelerate your deploym
 
 ## Get started
 
-Learn provides free access to resources that can help you apply concepts in Azure.If you're new to Bicep, one way to get started is by reviewing the following Learn module. You'll learn how Bicep makes it easier to define how your Azure resources should be configured and deployed in a way that's automated and repeatable. You’ll deploy several Azure resources to see how Bicep works.
+Learn provides free access to resources that can help you apply concepts in Azure. If you're new to Bicep, one way to get started is by reviewing the following Learn modules. You'll learn how Bicep makes it easier to define how your Azure resources should be configured and deployed in a way that's automated and repeatable. You’ll deploy several Azure resources to see how Bicep works.
 
-[<img src="media/learn-bicep/build-first-bicep-template.svg" width="101" height="120" alt="The badge for the Build your first Bicep template module." role="presentation"></img>](/training/modules/build-first-bicep-template/)
+[<img src="media/learn-bicep/build-first-bicep-file.svg" width="101" height="120" alt="The badge for the Build your first Bicep file module." role="presentation"></img>](/training/modules/build-first-bicep-template/)
 
-[Build your first Bicep template](/training/modules/build-first-bicep-template/)
+[Build your first Bicep file](/training/modules/build-first-bicep-template/)
 
 ## Learn more
 
@@ -45,7 +47,7 @@ Follow these learning paths to discover more Bicep features:
 
 ## Use Bicep in a deployment pipeline
 
-After that, you might be interested in adding your Bicep code to a deployment pipeline. Take one of these two learning paths based on the tool that you want to use:
+After that, you might be interested in adding your Bicep code to a deployment pipeline. Follow one of these two learning paths based on the tool that you want to use:
 
 :::row:::
 :::column:::
@@ -84,5 +86,5 @@ Learn how to use deployment stacks to manage resource lifecycles:
 
 ## Next steps
 
-* See [Bicep quickstart](./quickstart-create-bicep-use-visual-studio-code.md) for a brief introduction to Bicep.
+* See this [Bicep quickstart](./quickstart-create-bicep-use-visual-studio-code.md) for a brief introduction to Bicep.
 * See [best practices for Bicep](./best-practices.md) for suggestions about how to improve your Bicep files.

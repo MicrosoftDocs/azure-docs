@@ -1,19 +1,12 @@
 ---
-# Mandatory fields.
 title: DTDL models
 titleSuffix: Azure Digital Twins
 description: Learn how Azure Digital Twins uses custom models to describe entities in your environment and how to define these models using the Digital Twin Definition Language (DTDL).
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 01/27/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
-
 ms.custom: fasttrack-edit
 ---
 
@@ -51,7 +44,7 @@ Azure Digital Twins also supports using a mix of v2 and v3 models within the sam
 
 You can also migrate existing v2 models to v3. For instructions on how to do this, see [Convert v2 models to v3](how-to-manage-model.md#convert-v2-models-to-v3).
 
-[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
+[!INCLUDE [digital-twins-explorer-dtdl](includes/digital-twins-explorer-dtdl.md)]
 
 ## Model overview
 
@@ -312,7 +305,7 @@ While designing models to reflect the entities in your environment, it can be us
 
 ### Validate models
 
-[!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
+[!INCLUDE [Azure Digital Twins: validate models info](includes/digital-twins-validate.md)]
 
 ### Upload and delete models in bulk
 
@@ -330,7 +323,7 @@ Or, if you want to clear out the data in an instance by deleting all the models 
 
 Once you have uploaded models into your Azure Digital Twins instance, you can use [Azure Digital Twins Explorer](https://explorer.digitaltwins.azure.net/) to view them. The explorer contains a list of all models in the instance, as well as a **model graph** that illustrates how they relate to each other, including any inheritance and model relationships.
 
-[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
+[!INCLUDE [digital-twins-explorer-dtdl](includes/digital-twins-explorer-dtdl.md)]
 
 Here's an example of what a model graph might look like:
 

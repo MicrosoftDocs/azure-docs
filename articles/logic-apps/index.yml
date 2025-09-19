@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: ecfan
   ms.author: estfan
-  ms.date: 08/23/2024
+  ms.date: 03/27/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -64,6 +64,10 @@ landingContent:
             url: create-single-tenant-workflows-azure-portal.md
           - text: Create Standard workflow from template - Portal
             url: create-single-tenant-workflows-templates.md
+          - text: Create Consumption workflows with Visual Studio Code
+            url: quickstart-create-logic-apps-visual-studio-code.md
+          - text: Create Standard workflows with Visual Studio Code
+            url: create-standard-workflows-Visual-Studio-Code.md
       - linkListType: tutorial
         links:
           - text: Create a schedule-based workflow
@@ -97,8 +101,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Manage logic apps - Visual Studio
-            url: manage-logic-apps-with-visual-studio.md
+          - text: Manage logic apps - Visual Studio Code
+            url: manage-logic-apps-visual-studio-code.md
           - text: Secure access and data
             url: logic-apps-securing-a-logic-app.md
           - text: Authenticate with managed identities

@@ -7,7 +7,8 @@ ms.topic: how-to
 ms.subservice: synapse-link
 ms.date: 11/16/2022
 ms.author: yexu
-ms.reviewer: whhender, wiassaf
+ms.custom: sfi-image-nochange
+
 ---
 
 # Configure Azure Synapse Link for Azure SQL Database with network security

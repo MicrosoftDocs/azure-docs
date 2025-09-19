@@ -10,6 +10,8 @@ ms.author: henikaraa
 ms.date: 02/13/2025
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.custom:
+  - build-2025
 ---
 
 # Define your caller identity
@@ -31,8 +33,12 @@ providers in the US) using the caller\'s phone number. In Canada, you can add th
 
 To request a CNAM registration for an Azure Communication Services number, customers need to send an email to `<acstns@microsoft.com>`, using `"ACS Number Request -- CNAM Registration"` as part of subject line. In the body or the email, provide the following details:
 
-- Customer and Azure account details.
-
+- Customer and Azure account details including:
+   - Company name
+   - Company website
+   - Azure subscription ID
+   - Azure Communication Services Resource name
+   - Azure Tenant ID
 - List a number and the corresponding caller name to register for each number. The customer must own these numbers under the Azure Resource provided. Customer can register only **US local numbers**.
 
 CNAM caller names are limited to 15 characters (including spaces) and support the following special characters:
@@ -56,4 +62,4 @@ Once the request is approved by the carrier, it takes **48 hours to be published
 - This registration is available only for US local numbers. It doesn't support toll free numbers.
 - This service only applies to *outbound* calls for numbers that customer owns.
 - CNAM databases aren't always up to date and not consistently updated. There's a potential for misspellings.
-- There are multiple CNAM databases across the country and terminating carriers may subscribe to one or more databases.
+- There are multiple CNAM databases across the country/region and terminating carriers may subscribe to one or more databases.

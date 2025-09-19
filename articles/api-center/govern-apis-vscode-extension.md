@@ -6,7 +6,8 @@ ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 10/16/2024
 ms.author: danlep 
-ms.custom: 
+ms.custom:
+  - sfi-image-nochange
 # Customer intent: As an API developer, I want to use my Visual Studio Code environment to check API compliance in my organization's API center.
 ---
 
@@ -57,5 +58,5 @@ Visual Studio Code opens a diff view between the two API specifications. Any bre
 * [Azure API Center - key concepts](key-concepts.md)
 * [Build and register APIs with the Azure API Center extension for Visual Studio Code](build-register-apis-vscode-extension.md)
 * [Discover and consume APIs with the Azure API Center extension for Visual Studio Code](discover-apis-vscode-extension.md)
-* [Enable and view platform API catalog in Visual Studio Code](enable-platform-api-catalog-vscode-extension.md)
+* [Enable and view API Center portal in Visual Studio Code](enable-api-center-portal-vs-code-extension.md)
 

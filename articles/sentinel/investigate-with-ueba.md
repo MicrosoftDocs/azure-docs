@@ -1,12 +1,13 @@
 ---
 title: Investigate incidents with UEBA data | Microsoft Docs
 description: Learn how to use UEBA data while investigating to gain greater context to potentially malicious activity occurring in your organization.
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.date: 11/09/2021
-ms.author: yelevin
-appliesto: 
-  - Microsoft Sentinel in the Azure portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+ms.custom: sfi-image-nochange
 #Customer intent: As a security analyst, I want to use User and Entity Behavior Analytics (UEBA) data to investigate incidents so that I can identify and respond to potential security threats more effectively.
 ---
 

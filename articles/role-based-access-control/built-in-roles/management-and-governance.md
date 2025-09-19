@@ -2,12 +2,12 @@
 title: Azure built-in roles for Management and governance - Azure RBAC
 description: This article lists the Azure built-in roles for Azure role-based access control (Azure RBAC) in the Management and governance category. It lists Actions, NotActions, DataActions, and NotDataActions.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 ms.workload: identity
 author: rolyon
-manager: amycolannino
+manager: pmwongera
 ms.author: rolyon
-ms.date: 01/25/2025
+ms.date: 07/24/2025
 ms.custom: generated
 ---
 
@@ -57,7 +57,7 @@ View assessment recommendations, accepted review recommendations, and manage the
   ],
   "roleName": "Advisor Recommendations Contributor (Assessments and Reviews)",
   "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
+  "type": "Microsoft.Authorization/roleDefinitions"S
 }
 ```
 
@@ -75,6 +75,7 @@ View reviews for a workload and triage recommendations linked to them.
 > | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/triageRecommendations/approve/action | Approve triageRecommendations |
 > | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/triageRecommendations/reject/action | Reject triageRecommendations |
 > | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/triageRecommendations/reset/action | Reset triageRecommendations |
+> | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/triageResources/read | Read triageResources |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
@@ -102,6 +103,7 @@ View reviews for a workload and triage recommendations linked to them.
         "Microsoft.Advisor/triageRecommendations/approve/action",
         "Microsoft.Advisor/triageRecommendations/reject/action",
         "Microsoft.Advisor/triageRecommendations/reset/action",
+        "Microsoft.Advisor/triageResources/read",
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Resources/deployments/*",
@@ -129,6 +131,7 @@ View reviews for a workload and recommendations linked to them.
 > | --- | --- |
 > | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/resiliencyReviews/read | Read resiliencyReviews |
 > | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/triageRecommendations/read | Read triageRecommendations |
+> | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/triageResources/read | Read triageResources |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -148,7 +151,8 @@ View reviews for a workload and recommendations linked to them.
     {
       "actions": [
         "Microsoft.Advisor/resiliencyReviews/read",
-        "Microsoft.Advisor/triageRecommendations/read"
+        "Microsoft.Advisor/triageRecommendations/read",
+        "Microsoft.Advisor/triageResources/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -859,8 +863,15 @@ Can onboard Azure Connected Machines.
 > | --- | --- |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/read | Read any Azure Arc machines |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/write | Writes an Azure Arc machines |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/settings/read | Reads any Azure Arc settings |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/settings/write | Writes an Azure Arc settings |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/gateways/read | Reads any Azure Arc gateways |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/privateLinkScopes/read | Read any Azure Arc privateLinkScopes |
 > | [Microsoft.GuestConfiguration](../permissions/management-and-governance.md#microsoftguestconfiguration)/guestConfigurationAssignments/read | Get guest configuration assignment. |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/dataCollectionRuleAssociations/write | Create or update a resource's association with a data collection rule |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/dataCollectionRuleAssociations/delete | Delete a resource's association with a data collection rule |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/dataCollectionRuleAssociations/read | Read a resource's association with a data collection rule |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/addExtensions/action | Setup Extensions on Azure Arc machines |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -881,8 +892,15 @@ Can onboard Azure Connected Machines.
       "actions": [
         "Microsoft.HybridCompute/machines/read",
         "Microsoft.HybridCompute/machines/write",
+        "Microsoft.HybridCompute/settings/read",
+        "Microsoft.HybridCompute/settings/write",
+        "Microsoft.HybridCompute/gateways/read",
         "Microsoft.HybridCompute/privateLinkScopes/read",
-        "Microsoft.GuestConfiguration/guestConfigurationAssignments/read"
+        "Microsoft.GuestConfiguration/guestConfigurationAssignments/read",
+        "Microsoft.Insights/dataCollectionRuleAssociations/write",
+        "Microsoft.Insights/dataCollectionRuleAssociations/delete",
+        "Microsoft.Insights/dataCollectionRuleAssociations/read",
+        "Microsoft.HybridCompute/machines/addExtensions/action"
       ],
       "notActions": [],
       "dataActions": [],
@@ -909,6 +927,8 @@ Can read, write, delete and re-onboard Azure Connected Machines.
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/* |  |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/runCommands/* |  |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/UpgradeExtensions/action | Upgrades Extensions on Azure Arc machines |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/settings/* |  |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/gateways/* |  |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/privateLinkScopes/* |  |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/licenses/* |  |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/locations/* |  |
@@ -937,6 +957,8 @@ Can read, write, delete and re-onboard Azure Connected Machines.
         "Microsoft.HybridCompute/machines/licenseProfiles/*",
         "Microsoft.HybridCompute/machines/runCommands/*",
         "Microsoft.HybridCompute/machines/UpgradeExtensions/action",
+        "Microsoft.HybridCompute/settings/*",
+        "Microsoft.HybridCompute/gateways/*",
         "Microsoft.HybridCompute/privateLinkScopes/*",
         "Microsoft.HybridCompute/licenses/*",
         "Microsoft.HybridCompute/locations/*",
@@ -1269,6 +1291,7 @@ Allow read access to Azure Carbon Optimization data
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.Carbon](../permissions/management-and-governance.md#microsoftcarbon)/carbonEmissionReports/action | API for Carbon Emissions Reports |
+> | [Microsoft.Carbon](../permissions/management-and-governance.md#microsoftcarbon)/carbonEmissionReports/read | API for Carbon Emissions Reports |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1287,7 +1310,8 @@ Allow read access to Azure Carbon Optimization data
   "permissions": [
     {
       "actions": [
-        "Microsoft.Carbon/carbonEmissionReports/action"
+        "Microsoft.Carbon/carbonEmissionReports/action",
+        "Microsoft.Carbon/carbonEmissionReports/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -1553,9 +1577,11 @@ Lets you read and perform actions on Managed Application resources
 }
 ```
 
-## Managed Applications Reader
+## Managed Application Publisher Operator
 
-Lets you read resources in a managed app and request JIT access.
+Allows the publisher to read resources in the managed resource group for Managed Application and request JIT access for additional operations. This role is only used by the Managed Application service to provide access to publishers.
+
+This role was previously named Managed Applications Reader. 
 
 [!INCLUDE [role-read-permissions.md](../includes/role-read-permissions.md)]
 
@@ -1577,7 +1603,7 @@ Lets you read resources in a managed app and request JIT access.
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you read resources in a managed app and request JIT access.",
+  "description": "Allows the publisher to read resources in the managed resource group for Managed Application and request JIT access for additional operations. This role is only used by the Managed Application service to provide access to publishers.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/b9331d33-8a36-4f8c-b097-4f54124fdb44",
   "name": "b9331d33-8a36-4f8c-b097-4f54124fdb44",
   "permissions": [
@@ -1592,7 +1618,7 @@ Lets you read resources in a managed app and request JIT access.
       "notDataActions": []
     }
   ],
-  "roleName": "Managed Applications Reader",
+  "roleName": "Managed Application Publisher Operator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -2027,6 +2053,7 @@ Users with rights to create/modify resource policy, create support ticket and re
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/policyassignments/* | Create and manage policy assignments |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/policydefinitions/* | Create and manage policy definitions |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/policyexemptions/* | Create and manage policy exemptions |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/policyenrollments/* |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/policysetdefinitions/* | Create and manage policy sets |
 > | [Microsoft.PolicyInsights](../permissions/management-and-governance.md#microsoftpolicyinsights)/* |  |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
@@ -2053,6 +2080,7 @@ Users with rights to create/modify resource policy, create support ticket and re
         "Microsoft.Authorization/policyassignments/*",
         "Microsoft.Authorization/policydefinitions/*",
         "Microsoft.Authorization/policyexemptions/*",
+        "Microsoft.Authorization/policyenrollments/*",
         "Microsoft.Authorization/policysetdefinitions/*",
         "Microsoft.PolicyInsights/*",
         "Microsoft.Resources/deployments/*",
@@ -2149,6 +2177,8 @@ Provides access to manage maintenance configurations with maintenance scope InGu
 > | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/maintenanceConfigurations/maintenanceScope/InGuestPatch/read | Read maintenance configuration for InGuestPatch maintenance scope. |
 > | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/maintenanceConfigurations/maintenanceScope/InGuestPatch/write | Create or update a maintenance configuration for InGuestPatch maintenance scope. |
 > | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/maintenanceConfigurations/maintenanceScope/InGuestPatch/delete | Delete maintenance configuration for InGuestPatch maintenance scope. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/applyUpdates/read | Read apply updates to a resource. |
+> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/updates/read | Read updates to a resource. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2178,7 +2208,9 @@ Provides access to manage maintenance configurations with maintenance scope InGu
         "Microsoft.Maintenance/configurationAssignments/maintenanceScope/InGuestPatch/delete",
         "Microsoft.Maintenance/maintenanceConfigurations/maintenanceScope/InGuestPatch/read",
         "Microsoft.Maintenance/maintenanceConfigurations/maintenanceScope/InGuestPatch/write",
-        "Microsoft.Maintenance/maintenanceConfigurations/maintenanceScope/InGuestPatch/delete"
+        "Microsoft.Maintenance/maintenanceConfigurations/maintenanceScope/InGuestPatch/delete",
+        "Microsoft.Maintenance/applyUpdates/read",
+        "Microsoft.Maintenance/updates/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -2186,6 +2218,160 @@ Provides access to manage maintenance configurations with maintenance scope InGu
     }
   ],
   "roleName": "Scheduled Patching Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+## Service Group Administrator
+
+Manage all aspects of service groups and relationships. The default role assigned to users when they create a service group. Includes an ABAC condition to constrain role assignments.
+
+[Learn more](/azure/governance/service-groups/overview)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | * |  |
+> | **NotActions** |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/write | Create a role assignment at the specified scope. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/delete | Delete a role assignment at the specified scope. |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+> | **Actions** |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/write | Create a role assignment at the specified scope. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/delete | Delete a role assignment at the specified scope. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+> | **Condition** |  |
+> | ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{4e50c84cc78e4e37b47ee60ffea0a775,32e6a4ec60954e37b54b12aa350ba81f,de754d53652d4c75a67f1e48d8b49c97})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{4e50c84cc78e4e37b47ee60ffea0a775,32e6a4ec60954e37b54b12aa350ba81f,de754d53652d4c75a67f1e48d8b49c97})) | Add or remove role assignments for the following roles:<br/>Service Group Administrator<br/>Service Group Contributor<br/>Service Group Reader |
+
+```json
+{
+  "assignableScopes": [
+    "/providers/Microsoft.Management/serviceGroups"
+  ],
+  "description": "Role Definition for administrator of a Service Group",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/4e50c84c-c78e-4e37-b47e-e60ffea0a775",
+  "name": "4e50c84c-c78e-4e37-b47e-e60ffea0a775",
+  "permissions": [
+    {
+      "actions": [
+        "*"
+      ],
+      "notActions": [
+        "Microsoft.Authorization/roleAssignments/write",
+        "Microsoft.Authorization/roleAssignments/delete"
+      ],
+      "dataActions": [],
+      "notDataActions": []
+    },
+    {
+      "actions": [
+        "Microsoft.Authorization/roleAssignments/write",
+        "Microsoft.Authorization/roleAssignments/delete"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": [],
+      "conditionVersion": "2.0",
+      "condition": "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{4e50c84cc78e4e37b47ee60ffea0a775,32e6a4ec60954e37b54b12aa350ba81f,de754d53652d4c75a67f1e48d8b49c97})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{4e50c84cc78e4e37b47ee60ffea0a775,32e6a4ec60954e37b54b12aa350ba81f,de754d53652d4c75a67f1e48d8b49c97}))"
+    }
+  ],
+  "roleName": "Service Group Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Service Group Contributor
+
+Manage all aspects of service groups and relationships, but does not allow you to assign roles.
+
+[Learn more](/azure/governance/service-groups/overview)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | * |  |
+> | **NotActions** |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/write | Create a role assignment at the specified scope. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/delete | Delete a role assignment at the specified scope. |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/providers/Microsoft.Management/serviceGroups"
+  ],
+  "description": "Role Definition for contributor of a Service Group",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/32e6a4ec-6095-4e37-b54b-12aa350ba81f",
+  "name": "32e6a4ec-6095-4e37-b54b-12aa350ba81f",
+  "permissions": [
+    {
+      "actions": [
+        "*"
+      ],
+      "notActions": [
+        "Microsoft.Authorization/roleAssignments/write",
+        "Microsoft.Authorization/roleAssignments/delete"
+      ],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Service Group Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Service Group Reader
+
+Read service groups and view the connected relationships.
+
+[Learn more](/azure/governance/service-groups/overview)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | */read | Read control plane information for all Azure resources. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/providers/Microsoft.Management/serviceGroups"
+  ],
+  "description": "Role Definition for reader of a Service Group",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/de754d53-652d-4c75-a67f-1e48d8b49c97",
+  "name": "de754d53-652d-4c75-a67f-1e48d8b49c97",
+  "permissions": [
+    {
+      "actions": [
+        "*/read",
+        "Microsoft.Authorization/*/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Service Group Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

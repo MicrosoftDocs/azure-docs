@@ -2,11 +2,14 @@
 title: Create and use private endpoints for Azure Backup
 description: Understand the process to creating private endpoints for Azure Backup where using private endpoints helps maintain the security of your resources.
 ms.topic: how-to
-ms.date: 11/20/2024
-ms.custom: devx-track-azurepowershell
+ms.date: 06/26/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
+# Customer intent: "As a cloud administrator, I want to create and manage private endpoints for Azure Backup, so that I can ensure secure communication and access to my backup resources within a virtual network."
 ---
 
 # Create and use private endpoints (v1 experience) for Azure Backup
@@ -48,7 +51,8 @@ Follow these steps:
    :::image type="content" source="./media/backup-azure-private-endpoints/deny-public-network.png" alt-text="Screenshot showing how to select the Deny option.":::
 
    >[!Note]
-   >- Once you deny access, you can still access the vault, but you can't move data to/from networks that don't contain private endpoints. For more information, see [Create private endpoints for Azure Backup](#create-private-endpoints-for-azure-backup).
+   >- After you deny access, you can still access the vault, but you can't move data to/from networks that don't contain private endpoints. For more information, see [Create private endpoints for Azure Backup](#create-private-endpoints-for-azure-backup).
+   >- If public access is denied and a private endpoint isn’t enabled, backups succeed, but restore operations fail for all workloads except Virtual Machines. However, Virtual Machine item-level recovery also fails. Ensure that you configure network restrictions carefully.
    >- Denying public access is currently not supported for [vaults that have cross-regions restore](backup-create-rs-vault.md#set-cross-region-restore) enabled.
 
 3. Select **Apply** to save the changes.
@@ -554,6 +558,8 @@ To configure a proxy server for Azure VM or on-premises machine, follow these st
 The following diagram shows a setup (while using the Azure Private DNS zones) with a proxy server, whose VNet is linked to a private DNS zone with required DNS entries. The proxy server can also have its own custom DNS server, and the above domains can be conditionally forwarded to 168.63.129.16. If you're using a custom DNS server/host file for DNS resolution, see the sections on [managing DNS entries](#manage-dns-records) and [configuring protection](#configure-backup).
 
 :::image type="content" source="./media/private-endpoints/setup-with-proxy-server.png" alt-text="Diagram showing a setup with a proxy server." lightbox="./media/private-endpoints/setup-with-proxy-server.png":::
+
+3. To auto-update the MARS Agent allow access to `download.microsoft.com/download/MARSagent/*`.
 
 ### Create DNS entries when the DNS server/DNS zone is present in another subscription
 

@@ -7,7 +7,6 @@ ms.topic: tutorial
 ms.subservice: sql
 ms.date: 02/17/2023
 ms.author: jovanpop
-ms.reviewer: whhender
 ---
 
 # Tutorial: Create Logical Data Warehouse with serverless SQL pool

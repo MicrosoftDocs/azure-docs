@@ -2,11 +2,12 @@
 title: Overview of Azure Blobs backup
 description: Learn about Azure Blobs backup.
 ms.topic: overview
-ms.date: 01/22/2025
+ms.date: 09/02/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: "As an IT professional managing Azure storage, I want to implement backups for Azure Blobs, so that I can protect against data loss from accidental deletion or corruption and ensure compliance with retention policies."
 ---
 
 # Overview of Azure Blob backup
@@ -18,6 +19,8 @@ This article gives you an understanding about configuring the following types of
 - **Continuous backups**: You can configure operational backup, a managed local data protection solution, to protect your block blobs from accidental deletion or corruption. The data is stored locally within the source storage account  and not transferred to the backup vault. You don’t need to define any schedule for backups. All changes are retained, and you can restore them from the state at a selected point in time. 
 
 - **Periodic backups**: You can configure vaulted backup, a managed offsite data protection solution, to get protection against any accidental or malicious deletion of blobs or storage account. The backup data using vaulted backups is copied and stored in the Backup vault as per the schedule and frequency you define via the backup policy and retained as per the retention configured in the policy.
+
+Vaulted backup for Azure Blob Storage is now generally available, offering secure, offsite protection with granular restore options, automation support, and enhanced compliance and security features.For more information, see the [Microsoft Community Hub blog](https://azure.microsoft.com/updates?id=ga-vaulted-backup-azure-blob-storage).
 
 You can choose to configure vaulted backups, operational backups, or both on your storage accounts using a single backup policy. The integration with [Azure Business Continuity Center](../business-continuity-center/business-continuity-center-overview.md) enables you to govern, monitor, operate, and analyze backups at scale.
 
@@ -90,7 +93,7 @@ Both operational and vaulted backups integrate directly with Azure Business Cont
 
 ## Restore
 
-You can restore data from any point in time for which a recovery point exists. A recovery point is created when a storage account is in protected state, and can be used to restore data as long as it falls in the retention period defined by the backup policy (and so the point-in-time restore capability of the blob service in the storage account). Operational backup uses blob point-in-time restore to restore data from a recovery point.
+You can restore data from any point in time for which a recovery point exists. A recovery point is created when a storage account is in protected state and can be used to restore data as long as it falls in the retention period defined by the backup policy (and so the point-in-time restore capability of the blob service in the storage account). Operational backup uses blob point-in-time restore to restore data from a recovery point.
 
 Operational backup gives you the option to restore all block blobs in the storage account, browse and restore specific containers, or use prefix matches to restore a subset of blobs. All restores can be performed to the source storage account only.
 
@@ -122,3 +125,9 @@ For generating the estimate for your scenario see the [Azure Backup pricing calc
 ## Next steps
 
 - [Configure and manage Azure Blobs backup](blob-backup-configure-manage.md)
+
+## Related content
+
+- [Create a backup policy for  Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-create-update-blob-policy.md).
+- [Back up Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-backup-blobs.md).
+- Restore Azure Blobs by Azure Backup using [Azure portal](blob-restore.md), [Azure PowerShell](restore-blobs-storage-account-ps.md), [Azure CLI](restore-blobs-storage-account-cli.md), [REST API](backup-azure-dataprotection-use-rest-api-restore-blobs.md).

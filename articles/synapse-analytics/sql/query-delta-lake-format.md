@@ -8,7 +8,7 @@ ms.subservice: sql
 ms.date: 02/10/2025
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: whhender, wiassaf
+
 ---
 
 # Query Delta Lake (v1) files using serverless SQL pool in Azure Synapse Analytics

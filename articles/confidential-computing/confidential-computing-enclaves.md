@@ -4,9 +4,10 @@ description: Learn about Intel SGX hardware to enable your confidential computin
 author: ju-shim
 ms.service: azure-virtual-machines
 ms.subservice: workloads
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/01/2021
 ms.author: jushiman
+# Customer intent: As a cloud developer, I want to utilize Intel SGX enclaves for my applications, so that I can ensure my sensitive data remains secure and protected from unauthorized access during processing.
 ---
 
 # SGX enclaves 

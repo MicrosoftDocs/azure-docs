@@ -34,16 +34,18 @@ The `cache-remove-value` deletes a cached item identified by its key. The key ca
 ## Usage
 
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ## Example
 
+The following example shows how to use the `cache-remove-value` policy to remove a user profile from the cache. The key for the cache REMOVAL is constructed using a policy expression that combines a string with the value of the `enduserid` context variable.
+
 ```xml
-<cache-store-value
-    key="@("userprofile-" + context.Variables["enduserid"])"
-    value="@((string)context.Variables["userprofile"])" duration="100000" />
+<cache-remove-value
+    key="@("userprofile-" + context.Variables["enduserid"])"  />
+
 ```
 
 For more information and examples of this policy, see [Custom caching in Azure API Management](./api-management-sample-cache-by-key.md).

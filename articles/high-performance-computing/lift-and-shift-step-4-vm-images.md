@@ -1,15 +1,16 @@
 ---
-title: "Deployment step 4: compute nodes - VM images component"
-description: Learn about the configuration of virtual machine (VM) images during migration deployment step four.
+title: "Virtual machine (VM) image configuration"
+description: Learn how to configure VM images during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 08/30/2024
+ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+# Customer intent: "As an HPC system administrator, I want to configure VM images with the necessary libraries and drivers, so that I can ensure optimal performance for high-performance computing applications during migration."
 ---
 
-# Deployment step 4: compute nodes - VM images component
+# Virtual machine (VM) image configuration
 
 A Virtual Machine (VM) image is a snapshot of a virtual machine's operating system, software, configurations, and data stored at a specific point in time. It's a valuable asset that encapsulates most of what is required to enable virtual machines to run end-user jobs.
 

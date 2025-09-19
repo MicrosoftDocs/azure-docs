@@ -3,18 +3,19 @@ title: High availability and disaster recovery with DPS
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: Describes the Azure and Device Provisioning Service features that help you to build highly available Azure IoT solutions with disaster recovery capabilities.
 author: SoniaLopezBravo
-
 ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 02/04/2022
-ms.custom: references_regions
 ms.subservice: azure-iot-hub-dps
+ms.custom:
+  - references_regions
+  - sfi-image-nochange
 ---
 
 # IoT Hub Device Provisioning Service high availability and disaster recovery
 
-Device Provisioning Service (DPS) is a helper service for IoT Hub that enables zero-touch device provisioning at-scale. DPS is an important part of your IoT solution. This article describes the High Availability (HA) and Disaster Recovery (DR) capabilities that DPS provides. To learn more about how to achieve HA-DR across your entire IoT solution, see [Disaster recovery and high availability for Azure applications](/azure/architecture/reliability/disaster-recovery). To learn about HA-DR in IoT Hub, see [IoT Hub high availability and disaster recovery](../iot-hub/iot-hub-ha-dr.md).
+Device Provisioning Service (DPS) is a helper service for IoT Hub that enables zero-touch device provisioning at-scale. DPS is an important part of your IoT solution. This article describes the High Availability (HA) and Disaster Recovery (DR) capabilities that DPS provides. To learn more about how to achieve HA-DR across your entire IoT solution, see [Disaster recovery and high availability for Azure applications](/azure/architecture/reliability/disaster-recovery). To learn more, see [Reliability in Azure IoT Hub](/azure/reliability/reliability-iot-hub).
 
 ## High availability
 

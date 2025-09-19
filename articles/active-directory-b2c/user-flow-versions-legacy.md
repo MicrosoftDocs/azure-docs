@@ -11,6 +11,7 @@ ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: b2c
+ms.custom: sfi-ropc-blocked
 
 
 #Customer intent: As a developer using Azure Active Directory B2C, I want to understand the differences between legacy and recommended user flow versions, so that I can choose the appropriate user flow for my production applications.
@@ -18,6 +19,7 @@ ms.subservice: b2c
 ---
 
 # Legacy user flow versions in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 > [!IMPORTANT]
 > This article describes the legacy versioning method for user flows, which offers V1 (production-ready) versions, and V1.1 and V2 (preview) versions of user flows. Environments other than the Azure public cloud will continue to use this legacy versioning method. In the Azure public cloud, this method being replaced by [new **Recommended** and **Preview** versions](user-flow-versions.md).

@@ -1,14 +1,15 @@
 ---
 title: Attribute based virtual machine selection 
 description: Learn about attribute based virtual machine (VM) selection to configure your VM requirements.
-author: rrajeesh
-ms.author: rajeeshr
+author: shandilvarun
+ms.author: vashan
 ms.topic: concept-article
 ms.service: azure-compute-fleet
 ms.custom:
   - ignite-2024
-ms.date: 11/12/2024
+ms.date: 04/21/2025
 ms.reviewer: jushiman
+# Customer intent: "As an IT administrator, I want to configure virtual machine requirements using attributes like memory and vCPU, so that I can streamline VM selection and automatically incorporate newer VM generations for my workloads."
 ---
 
 # Attribute based VM selection for Azure Compute Fleet (Preview)

@@ -5,7 +5,8 @@ description: Describes how to secure communications end-to-end or terminate tran
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: conceptual
-ms.date: 06/27/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.author: karler
 ms.reviewer: asirveda
 ms.custom: devx-track-java
@@ -63,7 +64,7 @@ A Spring Boot app can use Spring's approach to enable HTTPS, or the app can secu
 
 You need the following three configuration steps to secure communications using a TLS/SSL certificate from an Azure Key Vault. No code is necessary.
 
-1. Include the following Azure Key Vault Certificates Spring Boot Starter dependency in your *pom.xml* file:
+1. Include the following Azure Key Vault Certificates Spring Boot Starter dependency in your **pom.xml** file:
 
    ```xml
    <dependency>

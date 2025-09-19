@@ -27,6 +27,8 @@
 - name: Tutorials
   expanded: false
   items:
+    - name: Use LiveTry to explore
+      href: quickstarts-livetry.md
     - name: Publish and subscribe messages
       href: tutorial-pub-sub-messages.md
     - name: Build a chat app

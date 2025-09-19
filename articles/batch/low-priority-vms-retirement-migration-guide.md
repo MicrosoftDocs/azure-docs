@@ -1,11 +1,12 @@
 ---
 title: Migrate low-priority VMs to spot VMs in Batch
 description: Learn how to migrate Azure Batch low-priority VMs to Spot VMs and plan for feature end of support.
-author: harperche
-ms.author: harpercheng
+author: padmalathas
+ms.author: padmalathas
 ms.service: azure-batch
 ms.topic: how-to
-ms.date: 10/14/2022
+ms.date: 04/09/2025
+# Customer intent: As an Azure Batch user, I want to migrate my low-priority VMs to Spot VMs before the retirement deadline, so that I can continue to benefit from cost-effective compute resources without service disruption.
 ---
 
 # Migrate Batch low-priority VMs to Spot VMs
@@ -41,6 +42,19 @@ See the [detailed breakdown](batch-spot-vms.md) between the low-priority and spo
 1. For an existing pool, select the pool, and then select **Scale** to update the number of spot nodes required based on the job scheduled.
 
 1. Select **Save**.
+
+## To Ensure the Migration is Correctly Applied:
+```azurecli-interactive
+az batch pool show 
+
+--account-name <your-batch-account-name> 
+
+--account-endpoint "https://<your-batch-account-name>.<region>.batch.azure.com" 
+
+--pool-id <your-pool-id> 
+
+--query "{PoolID:id, VMSize:vmSize, SpotNodes:scaleSettings.targetLowPriorityNodes}"
+```
 
 ## FAQs
 

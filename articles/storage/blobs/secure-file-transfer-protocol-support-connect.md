@@ -5,9 +5,10 @@ description: Learn how to connect to Azure Blob Storage by using an SSH File Tra
 author: normesta
 ms.custom:
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/18/2024
 ms.author: normesta
+# Customer intent: As a cloud administrator, I want to connect to Azure Blob Storage using an SFTP client, so that I can securely transfer and manage files while modifying access permissions as needed.
 ---
 
 # Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)
@@ -36,6 +37,8 @@ The SFTP username is `storage_account_name`.`username`.  In the example above th
 
 To complete the connection, you might have to respond to one or more prompts. For example, if you configured the local user with password authentication, then you are prompted to enter that password. You might also be prompted to trust a host key. Valid host keys are published [here](secure-file-transfer-protocol-host-keys.md).  
 
+> [!NOTE]
+> SFTP operates over the Blob Storage endpoint (blob.core.windows.net) and NOT the Data Lake Storage endpoint (dfs.core.windows.net). Therefore, Data Lake Storage endpoints such as contoso4.contosouser@contoso4.dfs.core.windows.net aren't supported. 
 ### Connect using a custom domain
 
 If you want to connect to the blob service endpoint by using a custom domain, then the connection string is `myaccount.myuser@customdomain.com`. If the home directory isn't specified for the user, then the connection string is `myaccount.mycontainer.myuser@customdomain.com`.
@@ -77,10 +80,22 @@ After the transfer is complete, you can view and manage the file in the Azure po
 
 See the documentation of your SFTP client for guidance about how to connect and transfer files.
 
+## Resume upload
+The resumable upload feature for Azure Blob Storage SFTP is now generally available. This feature allows users to resume file uploads from the point of failure in the event of partial transfer failures, thereby saving time and reducing network bandwidth usage.
+The SFTP transfer modes that Azure Blob Storage SFTP supports are below. 
+-	Write: This mode lets the client continue an upload by adding data to an existing file from a specific point without creating a new file.
+-	Write + Create: This mode allows the client to resume an upload by either adding to an existing file or creating a new one if it doesn't exist, providing flexibility when the file might not be present initially.
+-	Append: This mode adds data to the end of an existing file without overwriting its current contents.
+Previously, this feature only supported append mode in public preview, which limited upload resumption with SFTP clients that lacked append mode support. With general availability, we now support write and write + create modes, which benefits users who use SFTP clients without append mode.
+
+> [!NOTE]
+> Resumable upload is only supported for blobs created with the SFTP protocol. You can't resume an upload for existing blobs that were created with a protocol other than SFTP such as REST. 
+
 ### Modify the ACL of a file or directory
 
-You can modify the permission level of the owning user, owning group, and all other users of an ACL by using an SFTP client. You can also change the ID of the owning user and the owning group. To learn more about ACL support for SFTP clients, see [ACLs](secure-file-transfer-protocol-support.md#access-control-lists-acls).
-
+You can modify the permission level of the owning user, owning group, and all other users of an ACL by using an SFTP client. You can also change the owning user and the owning group. To learn more about ACL support for SFTP clients, see [ACLs](secure-file-transfer-protocol-support.md#access-control-lists-acls).
+> [!NOTE]
+> Owning users can now also modify owning group and permissions of a blob or directory without container permissions. This is a new feature enhancement added during the General Availability phase of ACLs for local users. For any user that is not the owning user, container permissions are still required. 
 #### Modify permissions
 
 To change the permission level of the owning user, owning group, or all other users of an ACL, the local user must have `Modify Permission` permission. See [Give permission to containers](secure-file-transfer-protocol-support-authorize-access.md#give-permission-to-containers).

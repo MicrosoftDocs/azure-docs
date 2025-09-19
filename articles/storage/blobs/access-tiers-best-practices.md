@@ -5,9 +5,10 @@ description: Learn about best practice guidelines that help you use access tiers
 author: normesta
 
 ms.author: normesta
-ms.date: 08/10/2023
+ms.date: 06/13/2025
 ms.service: azure-data-lake-storage
-ms.topic: conceptual
+ms.topic: concept-article
+# Customer intent: "As a cloud storage manager, I want to optimize blob data access tiers, so that I can reduce storage costs and improve data accessibility based on usage patterns."
 ---
 
 # Best practices for using blob access tiers
@@ -37,7 +38,7 @@ Choosing the most optimal tier up front can reduce costs. If you change the tier
 
 After data is uploaded, you should periodically analyze your containers and blobs to understand how they are stored, organized, and used in production. Then, use lifecycle management policies to move data to the most cost-efficient tiers. For example, data that has not been accessed for more than 30 days might be more cost efficient if placed into the cool tier. Consider archiving data that has not been accessed for over 180 days. 
 
-To gather telemetry, enable [blob inventory reports](blob-inventory.md) and enable [last access time tracking](lifecycle-management-policy-configure.md#optionally-enable-access-time-tracking). Analyze use patterns based on the last access time by using tools such as Azure Synapse or Azure Databricks. To learn about ways to analyze your data, see any of these articles:
+To gather telemetry, enable [blob inventory reports](blob-inventory.md) and enable [last access time tracking](lifecycle-management-policy-configure.md#enable-access-time-tracking). Analyze use patterns based on the last access time by using tools such as Azure Synapse or Azure Databricks. To learn about ways to analyze your data, see any of these articles:
 
 - [Tutorial: Analyze blob inventory reports](storage-blob-inventory-report-analytics.md)
 

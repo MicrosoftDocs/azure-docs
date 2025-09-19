@@ -7,7 +7,7 @@ ms.subservice: sql
 ms.topic: overview
 ms.date: 3/07/2022
 ms.author: vvasic
-ms.reviewer: whhender
+ms.custom: sfi-image-nochange
 ---
 # Use Microsoft Entra authentication for authentication with Synapse SQL
 

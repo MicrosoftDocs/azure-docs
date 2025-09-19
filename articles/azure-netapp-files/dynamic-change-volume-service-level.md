@@ -5,8 +5,10 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 09/27/2024
+ms.date: 09/03/2025
 ms.author: anfdocs
+ms.custom: sfi-image-nochange
+# Customer intent: As a storage administrator, I want to dynamically change the service level of an Azure NetApp Files volume, so that I can optimize performance and cost according to workload demands without data migration interruptions.
 ---
 # Dynamically change the service level of an Azure NetApp Files volume
 
@@ -20,6 +22,8 @@ The capacity pool that you want to move the volume to must already exist. The ca
 
 * Dynamically changing the service level of a volume is supported within the same NetApp account. You can't move the volume to a capacity pool in a different NetApp Account.
 
+* You can't convert a Flexible service level capacity pool to Standard, Premium, or Ultra. Standard, Premium, and Ultra service level capacity pools can't be converted to the Flexible service level.
+
 * After the volume is moved to another capacity pool, you no longer have access to the previous volume activity logs and volume metrics. The volume starts with new activity logs and metrics under the new capacity pool.
 
 * If you move a volume to a capacity pool of a higher service level (for example, moving from *Standard* to *Premium* or *Ultra* service level), you must wait at least 24 hours before you can move that volume *again* to a capacity pool of a lower service level (for example, moving from *Ultra* to *Premium* or *Standard*). You can always change to higher service level without wait time.
@@ -29,6 +33,8 @@ The capacity pool that you want to move the volume to must already exist. The ca
 * Regardless of the source pool’s QoS type, when the target pool is of the *auto* QoS type, the volume's throughput is changed with the move to match the service level of the target capacity pool.
 
 * If you use cool access, see [Manage Azure NetApp Files storage with cool access](manage-cool-access.md#considerations) for more considerations. 
+
+* If you're using a custom IAM role with an Azure NetApp Files datastore for Azure VMware Service, ensure you have the correct permissions to update the service level. For specific permissions, see [prerequisites](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md#prerequisites).
  
 ## Move a volume to another capacity pool
 

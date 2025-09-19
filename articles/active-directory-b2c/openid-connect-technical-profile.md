@@ -1,7 +1,7 @@
 ---
 title: Define an OpenID Connect technical profile in a custom policy
 titleSuffix: Azure AD B2C
-description: Define an OpenID Connect technical profile in a custom policy in Azure Active Directory B2C.
+description: Define an OpenID Connect technical profile in a custom policy in Azure AD B2C. Integrate with OpenID Connect identity providers for social or enterprise sign-in.
 
 author: kengaderdus
 manager: CelesteDG
@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 01/11/2024
+ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 
@@ -19,6 +19,8 @@ ms.subservice: b2c
 ---
 
 # Define an OpenID Connect technical profile in an Azure Active Directory B2C custom policy
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 

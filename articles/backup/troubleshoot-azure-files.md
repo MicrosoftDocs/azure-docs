@@ -2,11 +2,14 @@
 title: Troubleshoot Azure Files backup
 description: This article is troubleshooting information about issues occurring when protecting your Azure Files.
 ms.service: azure-backup
-ms.date: 03/05/2025
+ms.date: 08/11/2025
 ms.topic: troubleshooting
-author: jyothisuri
-ms.author: jsuri
-ms.custom: engagement-fy24
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+ms.custom:
+  - engagement-fy24
+  - sfi-image-nochange
+# Customer intent: "As an IT administrator managing Azure Files, I want to troubleshoot backup and restore issues, so that I can ensure reliable data protection and recovery for our file shares."
 ---
 
 # Troubleshoot problems while backing up Azure Files
@@ -25,7 +28,7 @@ This article provides troubleshooting information to address any issues you come
 
 - Ensure that the file share isn't present in any of the unsupported Storage Accounts. You can refer to the [Support matrix for Azure Files backup](azure-file-share-support-matrix.md) to find supported Storage Accounts.
 - Ensure that the storage account and recovery services vault are present in the same region.
-- Ensure that the combined length of the storage account name and the resource group name don't exceed 84 characters in the case of new Storage accounts and 77 characters in the case of classic storage accounts.
+- Ensure that the combined length of the storage accounts name and the resource group name don't exceed 84 characters in the case of new Storage accounts and 77 characters in the case of classic storage accounts.
 - Check the firewall settings of storage account to ensure that the exception "_Allow Azure services on the trusted services list to access this storage account_" is granted. You can refer [this](../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions) link for the steps to grant exception.
 
 
@@ -286,7 +289,7 @@ Recommended Actions: Ensure that the following configurations in the storage acc
 
   :::image type="content" source="./media/troubleshoot-azure-files/storage-account-network-configuration.png" alt-text="Screenshot shows the required networking details in a storage account." lightbox="./media/troubleshoot-azure-files/storage-account-network-configuration.png":::
 
-- Ensure that the target storage account has the following configuration: *Permitted scope for copy operations* is set to *From storage accounts in the same Microsoft Entra tenant*.
+- Ensure that the target storage account has the [supported configurations](azure-file-share-support-matrix.md#permitted-scope-for-copy-operationspreview).
 
   :::image type="content" source="./media/troubleshoot-azure-files/target-storage-account-configuration.png" alt-text="Screenshot shows the target storage account configuration." lightbox="./media/troubleshoot-azure-files/target-storage-account-configuration.png":::
 
@@ -306,6 +309,13 @@ Recommended Actions: Ensure that the following configurations in the storage acc
  
 **Recommended action**: The next backup will be automatically triggered with increased vault storage.
 
+### UserErrorStorageKeyBasedAuthenticationNotPermitted
+
+**Error code**: `UserErrorStorageKeyBasedAuthenticationNotPermitted`
+
+**Error message**: Storage account does not support key based authentication required for Azure Backup integration.
+
+**Recommended action**: Enable storage key based authentication on storage account and the retry opertaion.
 
 ## Common policy modification errors
 

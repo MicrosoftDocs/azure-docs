@@ -3,8 +3,8 @@ title: List blob containers with JavaScript or TypeScript
 titleSuffix: Azure Storage 
 description: Learn how to list blob containers in your Azure Storage account using the JavaScript client library.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 
 ms.service: azure-blob-storage
 ms.topic: how-to
@@ -12,6 +12,7 @@ ms.date: 10/28/2024
 
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
+# Customer intent: As a developer, I want to list blob containers in my Azure Storage account using JavaScript or TypeScript, so that I can efficiently manage and retrieve container data based on specific options and filters.
 ---
 
 # List blob containers with JavaScript or TypeScript
@@ -87,3 +88,4 @@ The Azure SDK for JavaScript contains libraries that build on top of the Azure R
 - [Enumerating Blob Resources](/rest/api/storageservices/enumerating-blob-resources)
 
 [!INCLUDE [storage-dev-guide-resources-javascript](../../../includes/storage-dev-guides/storage-dev-guide-resources-javascript.md)]
+

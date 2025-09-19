@@ -78,16 +78,22 @@
       href: ./how-to/multiple-installs.md
     - name: Move a Cluster to Another Resource Group
       href: ./how-to/move-resource-group.md
+  - name: Cloud Bursting
+    items:
     - name: Cloud Bursting Using Azure CycleCloud and Slurm
-      href: ./how-to/slurm-cloud-bursting-setup.md
+      href: ./how-to/bursting/slurm-cloud-bursting-setup.md
   - name: CycleCloud Workspace for Slurm
     items:
     - name: Plan your CycleCloud Workspace for Slurm Deployment
       href: ./how-to/ccws/plan-your-deployment.md
+    - name: Register a Microsoft Entra ID application for Open OnDemand Authentication
+      href: ./how-to/ccws/register-entra-id-app.md
+    - name: Configure Open OnDemand with CycleCloud
+      href: ./how-to/ccws/configure-open-ondemand.md
+    - name: Add users for Open OnDemand
+      href: ./how-to/ccws/open-ondemand-add-users.md
     - name: How to deploy using the CLI
       href: ./how-to/ccws/deploy-with-cli.md
-    - name: How to clean up roles using the CLI
-      href: ./how-to/ccws/cleanup-roles.md
     - name: How to connect to a Login Node through Bastion
       href: ./how-to/ccws/connect-to-login-node-with-bastion.md
     - name: How to connect to the CycleCloud Portal through Bastion
@@ -242,14 +248,18 @@
     href: https://social.msdn.microsoft.com/Forums/home?forum=azurecyclecloud
   - name: Azure CycleCloud Feedback
     href: https://feedback.azure.com/d365community/forum/ca60b1c2-eb24-ec11-b6e6-000d3a4f0da0
-  - name: Release Notes
+  - name: Release Notes - CycleCloud
     items:
-    - name: Current Release - v8.x
-      href: release-notes.md
-    - name: Previous Release - v7.x
-      href: /previous-versions/azure/cyclecloud/release-notes-previous
-    - name: Older Releases
-      href: /previous-versions/azure/cyclecloud/release-notes-archive
+      - name: Current Release - v8.x
+        href: release-notes.md
+      - name: Previous Release - v7.x
+        href: /previous-versions/azure/cyclecloud/release-notes-previous
+      - name: Older Releases
+        href: /previous-versions/azure/cyclecloud/release-notes-archive
+  - name: Release Notes - CycleCloud Workspace for Slurm
+    items:
+    - name: Current Release - 2025.04.24
+      href: ./release-notes/ccws/release-notes.md       
   - name: Service Policy
     href: service-policy.md
   - name: Data Usage Policy

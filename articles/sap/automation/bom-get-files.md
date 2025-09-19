@@ -8,6 +8,7 @@ ms.date: 11/17/2021
 ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+# Customer intent: "As a system administrator, I want to download the required SAP media for building a Bill of Materials (BOM), so that I can effectively deploy the SAP on Azure Deployment Automation Framework."
 ---
 
 # Acquire media for BOM creation

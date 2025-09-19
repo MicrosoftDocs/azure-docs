@@ -3,7 +3,7 @@ title: Configure rules and actions in Azure IoT Central
 description: This how-to article shows you, as a builder, how to configure telemetry-based rules and actions in your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/16/2024
+ms.date: 04/25/2025
 ms.topic: how-to
 ms.service: azure-iot-central
 services: iot-central
@@ -46,7 +46,7 @@ You can specify a time aggregation to trigger your rule based on a time window. 
 
 ## Create an email action
 
-When you create an email action, the email address must be a **user ID** in the application, and the user must have signed in to the application at least once. You can also specify a note to include in the email. IoT Central shows an example of what the email looks like when the rule triggers:
+When you create an email action, the email address must be a **user ID** in the application, and the user must sign in to the application at least once. You can also specify a note to include in the email. IoT Central shows an example of what the email looks like when the rule triggers:
 
 :::image type="content" source="media/howto-configure-rules/email-action.png" alt-text="Screenshot that shows an email action for a rule." lightbox="media/howto-configure-rules/email-action.png":::
 
@@ -58,9 +58,11 @@ In this example, you connect to *RequestBin* to test the notification:
 
 1. Navigate to [RequestBin](https://requestbin.com/).
 
-1. Select **Create a RequestBin**.
+1. Select **Create Request Bin**.
 
 1. Sign in with one of the available methods.
+
+1. If necessary, follow the instructions to create a RequestBin workspace.
 
 1. Copy the URL of your RequestBin endpoint.
 
@@ -188,7 +190,7 @@ If you have one or more webhooks created and saved before **3 April 2020**, dele
 
 This section describes how to use [Azure Monitor](/azure/azure-monitor/overview) *action groups* to attach multiple actions to an IoT Central rule. You can attach an action group to multiple rules. An [action group](/azure/azure-monitor/alerts/action-groups) is a collection of notification preferences defined by the owner of an Azure subscription.
 
-You can [create and manage action groups in the Azure portal](/azure/azure-monitor/alerts/action-groups) or with an [Azure Resource Manager template](/azure/azure-monitor/alerts/action-groups-create-resource-manager-template).
+You can [create and manage action groups in the Azure portal](/azure/azure-monitor/alerts/action-groups#create-an-action-group-in-the-azure-portal) or with an [Azure Resource Manager template](/azure/azure-monitor/alerts/action-groups#create-an-action-group-with-a-resource-manager-template).
 
 An action group can:
 
@@ -228,4 +230,4 @@ A restriction applies to rules that are applied to IoT Edge modules. Rules on te
 
 ## Next steps
 
-Now that you've learned how to configure a rule in your Azure IoT Central application, you can learn how to [Configure advanced rules](howto-configure-rules-advanced.md) using Power Automate or Azure Logic Apps.
+Now that you know how to configure a rule in your Azure IoT Central application, you can learn how to [configure advanced rules](howto-configure-rules-advanced.md) using Power Automate or Azure Logic Apps.

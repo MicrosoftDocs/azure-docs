@@ -12,6 +12,7 @@ ms.author: normesta
 ms.devlang: powershell
 # ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+# Customer intent: "As a data administrator, I want to configure version-level immutability policies for blob storage, so that I can ensure critical data remains unchanged and protected against accidental deletion or modification."
 ---
 
 # Configure immutability policies for blob versions
@@ -150,7 +151,7 @@ To configure version-level immutability policies for an existing container, you 
 
 To migrate an existing container to support version-level immutability policies, the container must have a container-level time-based retention policy configured. The migration fails unless the container has an existing policy. The retention interval for the container-level policy is maintained as the retention interval for the default version-level policy on the container.
 
-If the container has an existing container-level legal hold, then it can't be migrated until the legal hold is removed.
+If the container has an existing container-level legal hold, then it can't be migrated until the legal hold is removed. If a container or any blob within that container has an active lease, it cannot be migrated.
 
 ##### [Portal](#tab/azure-portal)
 

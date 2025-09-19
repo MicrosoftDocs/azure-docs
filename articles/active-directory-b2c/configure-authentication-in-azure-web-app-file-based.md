@@ -10,7 +10,9 @@ ms.topic: how-to
 ms.date: 02/19/2025
 ms.author: kengaderdus
 ms.subservice: b2c
-ms.custom: "b2c-support"
+ms.custom:
+  - "b2c-support"
+  - sfi-image-nochange
 
 
 #Customer intent: As a web app developer, I want to configure Azure AD B2C authentication in my Azure Web App, so that users can securely sign in to the app using their Azure AD B2C credentials.
@@ -18,6 +20,7 @@ ms.custom: "b2c-support"
 ---
 
 # Configure authentication in an Azure Web App configuration file by using Azure AD B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article explains how to add Azure Active Directory B2C (Azure AD B2C) authentication functionality to an Azure Web App. For more information, check out the [File-based configuration in Azure App Service authentication](../app-service/configure-authentication-file-based.md) article.
 

@@ -3,6 +3,9 @@ title: InvalidNetworkSecurityGroupSecurityRules error - Azure HDInsight
 description: Cluster Creation Fails with the ErrorCode InvalidNetworkSecurityGroupSecurityRules
 ms.service: azure-hdinsight
 ms.topic: troubleshooting
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 07/12/2024
 ---
 

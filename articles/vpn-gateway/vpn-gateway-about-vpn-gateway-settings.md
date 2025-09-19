@@ -4,10 +4,11 @@ description: Learn about VPN Gateway resources and configuration settings.
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 10/30/2024
+ms.date: 03/31/2025
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 ms.devlang: azurecli
+# Customer intent: As a network administrator, I want to configure a VPN gateway for a virtual network, so that I can establish secure site-to-site connections between on-premises networks and Azure resources.
 ---
 # About VPN Gateway configuration settings
 

@@ -9,7 +9,7 @@ manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 06/27/2024
+ms.date: 04/23/2025
 ms.author: mbaldwin
 
 ---
@@ -189,7 +189,7 @@ You can use [Azure Resource Manager](../../azure-resource-manager/templates/synt
 **Detail**: [Azure Pipelines](/azure/devops/pipelines/index) is a solution for automating multiple-stage deployment and managing the release process. Create managed continuous deployment pipelines to release quickly, easily, and often. With Azure Pipelines, you can automate your release process, and you can have predefined approval workflows. Deploy on-premises and to the cloud, extend, and customize as required.
 
 **Best practice**: Check your app's performance before you launch it or deploy updates to production.  
-**Detail**: Run cloud-based [load tests](../../load-testing/index.yml) to:
+**Detail**: Run cloud-based [load tests](../../app-testing/index.yml) to:
 
 - Find performance problems in your app.
 - Improve deployment quality.

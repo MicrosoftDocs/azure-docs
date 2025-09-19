@@ -179,7 +179,7 @@ The following table lists common and recommended alert rules for App C
 
 | Alert type | Condition | Description  |
 |:---|:---|:---|
-|Request quota usage exceeded | RequestQuotaUsage >= 100 | The configuration store has exceeded the [request quota usage](./faq.yml#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration). Upgrade to a standard tier store or follow the [best practices](./howto-best-practices.md#reduce-requests-made-to-app-configuration) to optimize your usage. |
+|Request quota usage exceeded | RequestQuotaUsage >= 100 | The configuration store has exceeded the [request quota usage](./faq.yml#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration). Upgrade your store or follow the [best practices](./howto-best-practices.md#reduce-requests-made-to-app-configuration) to optimize your usage. |
 
 
 

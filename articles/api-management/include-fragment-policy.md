@@ -34,7 +34,7 @@ The policy inserts the policy fragment as-is at the location you select in the p
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 

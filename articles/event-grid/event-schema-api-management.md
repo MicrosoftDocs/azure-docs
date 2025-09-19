@@ -4,7 +4,7 @@ description: This article describes how to use Azure API Management as an Event 
 ms.topic: conceptual
 author: spelluru
 ms.author: spelluru
-ms.date: 06/15/2022
+ms.date: 05/01/2025
 ---
 
 # Azure API Management as an Event Grid source
@@ -26,23 +26,27 @@ API Management emits the following event types:
 | Microsoft.ApiManagement.ProductCreated | Raised when a product is created. |
 | Microsoft.ApiManagement.ProductUpdated | Raised when a product is updated. |
 | Microsoft.ApiManagement.ProductDeleted | Raised when a product is deleted. |
-| Microsoft.ApiManagement.ReleaseCreated | Raised when an API release is created. |
-| Microsoft.ApiManagement.ReleaseUpdated | Raised when an API release is updated. |
-| Microsoft.ApiManagement.ReleaseDeleted | Raised when an API release is deleted. |
+| Microsoft.ApiManagement.APIReleaseCreated | Raised when an API release is created. |
+| Microsoft.ApiManagement.APIReleaseUpdated | Raised when an API release is updated. |
+| Microsoft.ApiManagement.APIReleaseDeleted | Raised when an API release is deleted. |
 | Microsoft.ApiManagement.SubscriptionCreated | Raised when a subscription is created. |
 | Microsoft.ApiManagement.SubscriptionUpdated | Raised when a subscription is updated. |
 | Microsoft.ApiManagement.SubscriptionDeleted | Raised when a subscription is deleted. |
 | Microsoft.ApiManagement.GatewayCreated | Raised when a self-hosted gateway is created. |
 | Microsoft.ApiManagement.GatewayDeleted | Raised when a self-hosted gateway is updated. |
 | Microsoft.ApiManagement.GatewayUpdated | Raised when a self-hosted gateway is deleted. |
-| Microsoft.ApiManagement.GatewayAPIAdded | Raised when an API was removed from a self-hosted gateway. |
-| Microsoft.ApiManagement.GatewayAPIRemoved | Raised when an API was removed from a self-hosted gateway. |
-| Microsoft.ApiManagement.GatewayCertificateAuthorityCreated | Raised when a certificate authority was updated for a self-hosted. |
-| Microsoft.ApiManagement.GatewayCertificateAuthorityDeleted | Raised when a certificate authority was deleted for a self-hosted. |
-| Microsoft.ApiManagement.GatewayCertificateAuthorityUpdated | Raised when a certificate authority was updated for a self-hosted. |
-| Microsoft.ApiManagement.GatewayHostnameConfigurationCreated | Raised when a hostname configuration was created for a self-hosted. |
-| Microsoft.ApiManagement.GatewayHostnameConfigurationDeleted | Raised when a hostname configuration was deleted for a self-hosted. |
-| Microsoft.ApiManagement.GatewayHostnameConfigurationUpdated | Raised when a hostname configuration was updated for a self-hosted. |
+| Microsoft.ApiManagement.GatewayAPIAdded | Raised when an API is added to a self-hosted gateway. |
+| Microsoft.ApiManagement.GatewayAPIRemoved | Raised when an API is removed from a self-hosted gateway. |
+| Microsoft.ApiManagement.GatewayCertificateAuthorityCreated | Raised when a certificate authority is updated for a self-hosted gateway. |
+| Microsoft.ApiManagement.GatewayCertificateAuthorityDeleted | Raised when a certificate authority is deleted for a self-hosted gateway. |
+| Microsoft.ApiManagement.GatewayCertificateAuthorityUpdated | Raised when a certificate authority is updated for a self-hosted gateway. |
+| Microsoft.ApiManagement.GatewayHostnameConfigurationCreated | Raised when a hostname configuration is created for a self-hosted gateway. |
+| Microsoft.ApiManagement.GatewayHostnameConfigurationDeleted | Raised when a hostname configuration is deleted for a self-hosted gateway. |
+| Microsoft.ApiManagement.GatewayHostnameConfigurationUpdated | Raised when a hostname configuration is updated for a self-hosted gateway. |
+| Microsoft.ApiManagement.GatewayTokenNearExpiry (preview)| Raised when a self-hosted gateway access token is near expiry. |
+| Microsoft.ApiManagement.GatewayTokenExpired (preview) | Raised when a self-hosted gateway access token is expired. |
+| Microsoft.ApiManagement.CircuitBreaker.Opened (preview) | Raised when a backend circuit breaker is opened. |
+| Microsoft.ApiManagement.CircuitBreaker.Closed (preview)  | Raised when a backend circuit breaker is closed. |
 
 ## Example event
 
@@ -162,6 +166,113 @@ The following example shows the schema of an API updated event. The schema of ot
 
 ---
 
+# [Cloud event schema](#tab/cloud-event-schema)
+
+The following example shows the schema of a circuit breaker opened event. 
+
+```json
+{
+  "source": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}",
+  "subject": "/backends/{backend-name}/circuit-breaker/rules/{rule-name}",
+  "type": "Microsoft.ApiManagement.CircuitBreaker.Opened",
+  "time": "2025-04-02T00:47:47.8536532Z",
+  "id": "92c502f2-a966-42a7-a428-d3b319844544",
+  "data": {
+    "backendName": "{backend-name}",
+    "circuitBreaker": {
+      "rules": {
+        "{rule-name}": {
+          "tripDuration": "00:00:01"
+        }
+      }
+    }
+  },
+  "specVersion": "1.0"
+}
+```
+
+
+# [Event Grid event schema](#tab/event-grid-event-schema)
+
+The following example shows the schema of a circuit breaker opened event. The schema of a circuit breaker closed event is similar.
+  
+```json
+{
+  "id": "92c502f2-a966-42a7-a428-d3b319844544",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}",
+  "subject": "/backends/{backend-name}/circuit-breaker/rules/{rule-name}",
+  "data": {
+    "backendName": "{backend-name}",
+    "circuitBreaker": {
+      "rules": {
+        "{rule-name}": {
+          "tripDuration": "00:00:01"
+        }
+      }
+    }
+  },
+  "eventType": "Microsoft.ApiManagement.CircuitBreaker.Opened",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "eventTime": "2025-04-02T00:47:48.8269769Z"
+}
+```
+
+---
+
+# [Cloud event schema](#tab/cloud-event-schema)
+
+The following example shows the schema of a gateway token expired event. The schema of a gateway token near expiry event is similar, but substitutes an `expiresAtUtc` property for the `expiredAtUtc` property.
+
+```json
+{
+  "source": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}",
+  "subject": "/gateways/{gateway-name}/{instance-name}",
+  "type": "Microsoft.ApiManagement.GatewayTokenExpired",
+  "time": "2025-04-02T00:47:47.8536532Z",
+  "id": "92c502f2-a966-42a7-a428-d3b319844544",
+  "data": {
+    "gatewayInfo": {
+      "gatewayId": "{gateway-name}",
+      "instanceId": "{instance-name}"
+    },
+    "tokenInfo": {
+      "expiredAtUtc": "2025-02-25T08:56:00.0000000Z"
+    }
+  },
+  "specVersion": "1.0"
+}
+
+```
+
+
+# [Event Grid event schema](#tab/event-grid-event-schema)
+
+The following example shows the schema of a gateway token expired event. 
+
+```json
+{
+  "id": "92c502f2-a966-42a7-a428-d3b319844544",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}",
+  "subject": "/gateways/{gateway-name}/{instance-name}",
+  "data": {
+    "gatewayInfo": {
+      "gatewayId": "{gateway-name}",
+      "instanceId": "{instance-name}"
+    },
+    "tokenInfo": {
+      "expiredAtUtc": "2025-02-25T08:56:00.0000000Z"
+    }
+  },
+  "eventType": "Microsoft.ApiManagement.GatewayTokenExpired",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "eventTime": "2025-04-02T00:47:48.8269769Z"
+}
+```
+
+---
+
 ## Event properties
 
 
@@ -196,11 +307,37 @@ An event has the following top-level data:
 
 ---
 
-The data object has the following properties:
+
+### Data object properties
+
+
+#### Control plane events
+
+The `data` object has the following properties for control plane events such as creating, updating, and deleting API Management resources. 
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | `resourceUri` | string | The fully qualified ID of the resource that the compliance state change is for, including the resource name and resource type. Uses the format, `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>/Microsoft.ApiManagement/service/<ServiceName>/<ResourceType>/<ResourceName>` |
+
+#### Circuit breaker events
+
+The `data` object has the following properties for circuit breaker events. 
+
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+|`backendNme` | string | The name (ID) of the backend entity in which the circuit breaker is configured. |
+|`circuitBreaker` | object | The circuit breaker configured in the backend, consisting of a `rules` object specifying the rule that tripped the backed. The rule has a `tripDuration` property in hh:mm:ss format specifying the duration for which the circuit breaker is tripped.
+
+#### Self-hosted gateway authentication token events
+
+The `data` object has the following properties for self-hosted gateway authentication token events.
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `gatewayInfo` | object | The self-hosted gateway information, consisting of the following string properties:<br/><br/>*  `gatewayId` - The fully qualified ID of the gateway resource<br/>* `instanceId` - Unique instance ID of the deployed gateway |
+| `tokenInfo` | object | The token information, consisting of one of the following properties in the provider's UTC time:<br/><br/>* `expiresAtUtc` - for `GatewayTokenNearExpiry` event, or<br/>* `expiredAtUtc` - for `GatewayTokenExpired` event |
+
 
 ## Tutorials and how-tos
 

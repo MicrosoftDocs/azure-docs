@@ -8,8 +8,10 @@ ms.service: azure-data-box-gateway
 ms.topic: tutorial
 ms.date: 12/20/2023
 ms.author: shaas
+ms.custom: sfi-image-nochange
 #Customer intent: As an IT admin, I need to understand how to provision a virtual device for Data Box Gateway in VMware so I can use it to transfer data to Azure. 
 #Initial doc score: 72 
+# Customer intent: "As an IT admin, I want to provision a virtual device for Azure Data Box Gateway in VMware, so that I can facilitate efficient data transfer to Azure."
 ---
 # Tutorial: Provision Azure Data Box Gateway in VMware
 

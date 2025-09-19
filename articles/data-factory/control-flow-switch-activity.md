@@ -3,11 +3,13 @@ title: Switch activity in Azure Data Factory
 description: The Switch activity allows you to control the processing flow based on a condition.
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 09/26/2024
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-ropc-nochange
 ---
 
 # Switch activity in Azure Data Factory

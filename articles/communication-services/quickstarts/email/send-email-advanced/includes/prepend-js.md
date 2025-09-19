@@ -8,6 +8,7 @@ ms.author: natekimball
 ms.date: 04/07/2023
 ms.topic: include
 ms.service: azure-communication-services
+ms.custom: sfi-ropc-nochange
 ---
 
 Get started with Azure Communication Services by using the Communication Services JS Email client library to send Email messages.
@@ -137,7 +138,7 @@ const emailClient = new EmailClient(endpoint, credential);
 
 #### [AzureKeyCredential](#tab/azurekeycredential)
 
-Email clients can also be authenticated using an [AzureKeyCredential](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.credentials.AzureKeyCredential). Both the `key` and the `endpoint` can be founded on the "Keys" pane under "Settings" in your Communication Services Resource.
+Email clients can also be authenticated using an [AzureKeyCredential](/python/api/azure-core/azure.core.credentials.azurekeycredential). Both the `key` and the `endpoint` can be founded on the "Keys" pane under "Settings" in your Communication Services Resource.
 
 ```javascript
 const { EmailClient, KnownEmailSendStatus } = require("@azure/communication-email");

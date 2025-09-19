@@ -2,16 +2,20 @@
 author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 10/16/2022
-ms.author: rifox
+ms.date: 06/05/2025
+ms.author: micahvivion
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-windows.md)]
 
+## Implement the sample app in Visual Studio
+
+This section describes how to develop the app to manage calls working in Visual Studio.
+
 ### Request access to the microphone
 
-The app requires access to the microphone to run properly. In UWP apps, the microphone capability should be declared in the app manifest file.
+The app requires access to the microphone. In Universal Windows Platform (UWP) apps, the microphone capability must be declared in the app manifest file.
 
-The following steps exemplify how to achieve that.
+To access the microphone:
 
 1. In the `Solution Explorer` panel, double click on the file with `.appxmanifest` extension.
 2. Click on the `Capabilities` tab.
@@ -19,24 +23,27 @@ The following steps exemplify how to achieve that.
 
 ### Create UI buttons to place and hang up the call
 
-This simple sample app contains two buttons. One for placing the call and another to hang up a placed call.
-The following steps exemplify how to add these buttons to the app.
+This sample app contains two buttons. One for placing the call and another to hang up a placed call.
+
+Add two buttons to the app.
 
 1. In the `Solution Explorer` panel, double click on the file named `MainPage.xaml` for UWP, or `MainWindows.xaml` for WinUI 3.
 2. In the central panel, look for the XAML code under the UI preview.
 3. Modify the XAML code by the following excerpt:
-```xml
-<TextBox x:Name="CalleeTextBox" PlaceholderText="Who would you like to call?" />
-<StackPanel>
-    <Button x:Name="CallButton" Content="Start/Join call" Click="CallButton_Click" />
-    <Button x:Name="HangupButton" Content="Hang up" Click="HangupButton_Click" />
-</StackPanel>
-```
 
-### Setting up the app with Calling SDK APIs
+  ```xml
+  <TextBox x:Name="CalleeTextBox" PlaceholderText="Who would you like to call?" />
+  <StackPanel>
+      <Button x:Name="CallButton" Content="Start/Join call" Click="CallButton_Click" />
+      <Button x:Name="HangupButton" Content="Hang up" Click="HangupButton_Click" />
+  </StackPanel>
+  ```
+
+### Set up the app with Calling SDK APIs
 
 The Calling SDK APIs are in two different namespaces.
-The following steps inform the C# compiler about these namespaces allowing Visual Studio's Intellisense to assist with code development.
+
+The following steps inform the C# compiler about these namespaces, enabling Visual Studio's Intellisense to help with code development.
 
 1. In the `Solution Explorer` panel, click on the arrow on the left side of the file named `MainPage.xaml` for UWP, or `MainWindows.xaml` for WinUI 3.
 2. Double click on file named `MainPage.xaml.cs` or `MainWindows.xaml.cs`.
@@ -46,14 +53,15 @@ The following steps inform the C# compiler about these namespaces allowing Visua
 using Azure.Communication.Calling.WindowsClient;
 ```
 
-Keep `MainPage.xaml.cs` or `MainWindows.xaml.cs` open. The next steps will add more code to it.
+Keep `MainPage.xaml.cs` or `MainWindows.xaml.cs` open. The next steps add more code.
 
-## Allow app interactions
+## Enable app interactions
 
 The UI buttons previously added need to operate on top of a placed `CommunicationCall`. It means that a `CommunicationCall` data member should be added to the `MainPage` or `MainWindow` class.
 Additionally, to allow the asynchronous operation creating `CallAgent` to succeed, a `CallAgent` data member should also be added to the same class.
 
 Add the following data members to the `MainPage` pr `MainWindow` class:
+
 ```csharp
 CallAgent callAgent;
 CommunicationCall call;
@@ -80,8 +88,8 @@ private async void HangupButton_Click(object sender, RoutedEventArgs e)
 
 The following classes and interfaces handle some of the major features of the Azure Communication Services Calling client library for UWP.
 
-| Name                                  | Description                                                  |
-| ------------------------------------- | ------------------------------------------------------------ |
+| Name | Description |
+| --- | --- |
 | `CallClient` | The `CallClient` is the main entry point to the Calling client library. |
 | `CallAgent` | The `CallAgent` is used to start and join calls. |
 | `CommunicationCall` | The `CommunicationCall` is used to manage placed or joined calls. |
@@ -95,7 +103,7 @@ To create a `CallAgent` instance from `CallClient`, you must use `CallClient.Cre
 
 To create `CallAgent`, you must pass a `CallTokenCredential` object and a `CallAgentOptions` object. Keep in mind that `CallTokenCredential` throws if a malformed token is passed.
 
-The following code should be added inside and helper function to be called in app initialization.
+To call during app initialization, add the following code inside and helper function.
 
 ```csharp
 var callClient = new CallClient();
@@ -110,13 +118,13 @@ var callAgentOptions = new CallAgentOptions()
 this.callAgent = await callClient.CreateCallAgentAsync(tokenCredential, callAgentOptions);
 ```
 
-Change the `<AUTHENTICATION_TOKEN>` with a valid credential token for your resource. Refer to the [user access token](../../../../quickstarts/identity/access-tokens.md) documentation if a credential token has to be sourced.
+Change the `<AUTHENTICATION_TOKEN>` with a valid credential token for your resource. If you need to source a credential token, see [user access token](../../../../quickstarts/identity/access-tokens.md).
 
 ## Create CallAgent and place a call
 
-The objects needed for creating a `CallAgent` are now ready. It's time to asynchronously create `CallAgent` and place a call.
+The objects you need to create a `CallAgent` are now ready. It's time to asynchronously create `CallAgent` and place a call.
 
-The following code should be added after handling the exception from the previous step.
+Add the following code after handling the exception from the previous step.
 
 ```csharp
 var startCallOptions = new StartCallOptions();
@@ -126,10 +134,11 @@ this.call = await this.callAgent.StartCallAsync(callees, startCallOptions);
 this.call.OnStateChanged += Call_OnStateChangedAsync;
 ```
 
-Feel free to use `8:echo123` to talk to the Azure Communication Services echo bot.
+Use `8:echo123` to talk to the Azure Communication Services echo bot.
 
 ## Mute and unmute
-To mute or unmute the outgoing audio you can use the `MuteOutgoingAudioAsync` and `UnmuteOutgoingAudioAsync` asynchronous APIs:
+
+To mute or unmute the outgoing audio, use the `MuteOutgoingAudioAsync` and `UnmuteOutgoingAudioAsync` asynchronous operations:
 
 ```csharp
 // mute outgoing audio
@@ -140,10 +149,13 @@ await this.call.UnmuteOutgoingAudioAsync();
 ```
 
 ## Mute other participants
-> [!NOTE]
-> To use this API please use the Azure Communication Services Calling Windows SDK version 1.9.0 or higher. 
 
-To mute all other participants or mute a specific participant, you can use the asynchronous APIs `MuteAllRemoteParticipantsAsync` on the call and `MuteAsync` on the remote participant:
+> [!NOTE]
+> Use the Azure Communication Services Calling Windows SDK version 1.9.0 or higher. 
+
+When a PSTN participant is muted, they must receive an announcement that they have been muted and that they can press a key combination (such as **\*6**) to unmute themselves. When they press **\*6**, they must be unmuted.
+
+To mute all other participants or mute a specific participant, use the asynchronous operations `MuteAllRemoteParticipantsAsync` on the call and `MuteAsync` on the remote participant:
 
 ```csharp
 // mute all participants except yourself
@@ -153,15 +165,15 @@ await this.call.MuteAllRemoteParticipantsAsync();
 await this.call.RemoteParticipants.FirstOrDefault().MuteAsync();
 ```
 
-To notify the local participant they have been muted by others, subscribe to the `MutedByOthers` event. 
+To notify the local participant that they're muted by others, subscribe to the `MutedByOthers` event.
 
 ## End a call
 
-Once a call is placed, the `HangupAsync` method of the `CommunicationCall` object should be used to hang up the call.
+Once a call is placed, use the `HangupAsync` method of the `CommunicationCall` object to hang up the call.
 
-An instance of `HangupOptions` should also be used to inform if the call must be terminated to all its participants.
+Use an instance of `HangupOptions` to inform all participants if the call must be terminated.
 
-The following code should be added inside `HangupButton_Click`.
+Add the following code inside `HangupButton_Click`:
 
 ```csharp
 this.call.OnStateChanged -= Call_OnStateChangedAsync;
@@ -170,6 +182,8 @@ await this.call.HangUpAsync(new HangUpOptions() { ForEveryone = false });
 
 ## Run the code
 
-Make sure Visual Studio builds the app for `x64`, `x86` or `ARM64`, then hit `F5` to start running the app. After that, click on the `Call` button to place a call to the callee defined.
+1. Make sure Visual Studio builds the app for `x64`, `x86` or `ARM64`.
+2. Press **F5** to start running the app.
+3. Once the app is running, click the **Call** button to place a call to the defined recipient.
 
-Keep in mind that the first time the app runs, the system prompts user for granting access to the microphone.
+The first time the app runs, the system prompts the user to grant access to the microphone.

@@ -6,7 +6,7 @@ ms.author: jovinson
 ms.service: azure-health-data-services
 ms.subservice: deidentification-service
 ms.topic: tutorial
-ms.date: 11/01/2024
+ms.date: 06/19/2025
 
 #customer intent: As an IT admin, I want to know how to configure an Azure Storage account to allow access to the de-identification service to de-identify documents.
 

@@ -7,8 +7,10 @@ ms.topic: reference
 ms.subservice: spark
 ms.date: 07/27/2022
 ms.author: jingzh
-ms.reviewer: whhender
-ms.custom: subject-rbac-steps
+ms.custom:
+  - subject-rbac-steps
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Introduction to file mount/unmount APIs in Azure Synapse Analytics 

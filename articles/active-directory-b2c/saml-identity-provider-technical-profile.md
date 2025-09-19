@@ -12,6 +12,7 @@ ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a developer integrating Azure AD B2C with a SAML-based identity provider, I want to understand how to define a SAML identity provider technical profile, so that I can configure the necessary metadata and certificates for the integration.
@@ -19,6 +20,7 @@ ms.subservice: b2c
 ---
 
 # Define a SAML identity provider technical profile in an Azure Active Directory B2C custom policy
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 

@@ -8,6 +8,7 @@ ms.date: 02/28/2023
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.reviewer: zezha-msft
+# Customer intent: As a cloud storage administrator, I want to configure AzCopy v10 using environment variables, so that I can optimize data transfer performance and manage authentication settings efficiently.
 ---
 
 # AzCopy v10 configuration settings (Azure Storage)

@@ -3,7 +3,7 @@ title: Azure Synapse RBAC roles
 description: This article describes the built-in Synapse RBAC (role-based access control) roles, the permissions they grant, and the scopes at which they can be used.
 author: meenalsri
 ms.author: mesrivas
-ms.reviewer: whhender, wiassaf
+
 ms.date: 11/05/2024
 ms.service: azure-synapse-analytics
 ms.subservice: security
@@ -51,7 +51,7 @@ The following table lists the built-in roles and the actions/permissions that ea
 |Role|Actions|
 |--|--|
 |Synapse Administrator|workspaces/read</br>workspaces/roleAssignments/write, delete</br>workspaces/managedPrivateEndpoint/write, delete</br>workspaces/bigDataPool/useCompute/action</br>workspaces/bigDataPool/viewLogs/action</br>workspaces/scopePool/useCompute/action</br>workspaces/scopePool/viewLogs/action</br>workspaces/integrationRuntime/useCompute/action</br>workspaces/integrationRuntime/viewLogs/action</br>workspaces/artifacts/read</br>workspaces/notebooks/write</br>workspaces/sparkJobDefinitions/write, delete</br>workspaces/scopeJobDefinitions/write, delete</br>workspaces/sqlScripts/write, delete</br>workspaces/dataFlows/write, delete</br>workspaces/dataMappers/write, delete</br>workspaces/pipelines/write, delete</br>workspaces/triggers/write, delete</br>workspaces/datasets/write, delete</br>workspaces/linkedServices/write, delete</br>workspaces/credentials/write, delete</br>workspaces/notebooks/delete</br>workspaces/cancelPipelineRun/action</br>workspaces/notebooksViewOutputs/action</br>workspaces/pipelinesViewOutputs/action</br>workspaces/linkedServicesUseSecret/action</br>workspaces/credentialsUseSecret/action</br>workspaces/libraries/write, delete</br>workspaces/kQLScripts/write, delete</br>workspaces/sparkConfigurations/write, delete</br>workspaces/synapseLinkConnections/read, write, delete</br>workspaces/synapseLinkConnections/useCompute/action|
-|Synapse Apache Spark Administrator|workspaces/read</br>orkspaces/bigDataPoolUseCompute/action</br>orkspaces/bigDataPoolViewLogs/action</br>orkspaces/artifacts/read</br>orkspaces/notebooks/write, delete</br>orkspaces/sparkJobDefinitions/write, delete</br>orkspaces/linkedServices/write, delete</br>orkspaces/credentials/write, delete</br>orkspaces/libraries/write, delete</br>orkspaces/notebooksViewOutputs/action</br>|
+|Synapse Apache Spark Administrator|workspaces/read</br>workspaces/bigDataPoolUseCompute/action</br>workspaces/bigDataPoolViewLogs/action</br>workspaces/artifacts/read</br>workspaces/notebooks/write, delete</br>workspaces/sparkJobDefinitions/write, delete</br>workspaces/linkedServices/write, delete</br>workspaces/credentials/write, delete</br>workspaces/libraries/write, delete</br>workspaces/notebooksViewOutputs/action</br>|
 |Synapse SQL Administrator|workspaces/read</br>workspaces/artifacts/read</br>workspaces/sqlScripts/write, delete</br>workspaces/linkedServices/write, delete</br>workspaces/credentials/write, delete|
 |Synapse Scope Administrator|workspaces/read</br>workspaces/scopePoolUseCompute/action</br>workspaces/scopePoolViewLogs/action</br>workspaces/linkedServices/write, delete</br>workspaces/credentials/write, delete</br>workspaces/scopeJobDefinitions/write, delete|
 |Synapse Private Endpoint Manager|workspaces/read</br>workspaces/managedPrivateEndpoint/write, delete</br>workspaces/linkedServices/write, delete</br>workspaces/credentials/write, delete|

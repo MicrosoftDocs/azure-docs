@@ -6,11 +6,14 @@ ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 04/30/2024
+ms.custom: sfi-image-nochange
 
 #CustomerIntent: As an Azure administrator, I want to use the log scrubbing tool so that I can protect sensitive data in Azure Front Door logs.
 ---
 
 # Protect sensitive data in Azure Front Door logs
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 In this article, you learn how to use the log scrubbing tool to protect sensitive data in Azure Front Door logs. For more information about sensitive data protection in Azure Front Door, see [Azure Front Door sensitive data protection](sensitive-data-protection.md).
 

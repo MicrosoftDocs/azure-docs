@@ -1,8 +1,9 @@
 ---
 title: Nodes and pools in Azure Batch
-description: Learn about compute nodes and pools and how they are used in an Azure Batch workflow from a development standpoint.
-ms.topic: conceptual
-ms.date: 08/08/2024
+description: Learn about compute nodes and pools and how they're used in an Azure Batch workflow from a development standpoint.
+ms.topic: concept-article
+ms.date: 04/17/2025
+# Customer intent: As a developer, I want to understand how to create and manage compute nodes and pools in a cloud-based workload system, so that I can effectively scale and optimize resource allocation for my applications.
 ---
 # Nodes and pools in Azure Batch
 
@@ -14,7 +15,7 @@ A node is an Azure virtual machine (VM) or cloud service VM that is dedicated to
 
 You can create pools of Windows or Linux nodes by using Azure Cloud Services, images from the [Azure Virtual Machines Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?filters=virtual-machine-images&page=1), or custom images that you prepare.
 
-Nodes can run any executable or script that is supported by the operating system environment of the node. Executables or scripts include \*.exe, \*.cmd, \*.bat, and PowerShell scripts (for Windows) and binaries, shell, and Python scripts (for Linux).
+Nodes can run any executable or script supported by the operating system environment of the node. Executables or scripts include \*.exe, \*.cmd, \*.bat, and PowerShell scripts (for Windows) and binaries, shell, and Python scripts (for Linux).
 
 All compute nodes in Batch also include:
 
@@ -22,7 +23,7 @@ All compute nodes in Batch also include:
 - **Firewall** settings that are configured to control access.
 - [Remote access](error-handling.md#connect-to-compute-nodes) to both Windows (Remote Desktop Protocol (RDP)) and Linux (Secure Shell (SSH)) nodes (unless you [create your pool with remote access disabled](pool-endpoint-configuration.md)).
 
-By default, nodes can communicate with each other, but they can't communicate with virtual machines that are not part of the same pool. To allow nodes to communicate securely with other virtual machines, or with an on-premises network, you can provision the pool [in a subnet of an Azure virtual network (VNet)](batch-virtual-network.md). When you do so, your nodes can be accessed through public IP addresses. These public IP addresses are created by Batch and may change over the lifetime of the pool. You can also [create a pool with static public IP addresses](create-pool-public-ip.md) that you control, which ensures that they won't change unexpectedly.
+By default, nodes can communicate with each other, but they can't communicate with virtual machines that aren't part of the same pool. To allow nodes to communicate securely with other virtual machines, or with an on-premises network, you can provision the pool [in a subnet of an Azure virtual network (VNet)](batch-virtual-network.md). When you do so, your nodes can be accessed through public IP addresses. Batch creates these public IP addresses and may change over the lifetime of the pool. You can also [create a pool with static public IP addresses](create-pool-public-ip.md) that you control, which ensures that they don't change unexpectedly.
 
 ## Pools
 
@@ -32,7 +33,7 @@ Azure Batch pools build on top of the core Azure compute platform. They provide 
 
 Every node that is added to a pool is assigned a unique name and IP address. When a node is removed from a pool, any changes that are made to the operating system or files are lost, and its name and IP address are released for future use. When a node leaves a pool, its lifetime is over.
 
-A pool can be used only by the Batch account in which it was created. A Batch account can create multiple pools to meet the resource requirements of the applications it will run.
+A pool can only be used by the Batch account in which it was created. A Batch account can create multiple pools to meet the resource requirements of the applications that need to run.
 
 The pool can be created manually, or [automatically by the Batch service](#autopools) when you specify the work to be done. When you create a pool, you can specify the following attributes:
 
@@ -60,7 +61,7 @@ The pool can be created manually, or [automatically by the Batch service](#autop
   - [Next steps](#next-steps)
 
 > [!IMPORTANT]
-> Batch accounts have a default quota that limits the number of cores in a Batch account. The number of cores corresponds to the number of compute nodes. You can find the default quotas and instructions on how to [increase a quota](batch-quota-limit.md#increase-a-quota) in [Quotas and limits for the Azure Batch service](batch-quota-limit.md). If your pool is not achieving its target number of nodes, the core quota might be the reason.
+> Batch accounts have a default quota that limits the number of cores in a Batch account. The number of cores corresponds to the number of compute nodes. You can find the default quotas and instructions on how to [increase a quota](batch-quota-limit.md#increase-a-quota) in [Quotas and limits for the Azure Batch service](batch-quota-limit.md). If your pool isn't achieving its target number of nodes, the core quota might be the reason.
 
 ## Operating system and version
 
@@ -92,26 +93,32 @@ For more information, see [Run Docker container applications on Azure Batch](bat
 
 When you create a pool, you can specify which types of nodes you want and the target number for each. The two types of nodes are:
 
-- **Dedicated nodes.** Dedicated compute nodes are reserved for your workloads. They are more expensive than Spot nodes, but they are guaranteed to never be preempted.
+- **Dedicated nodes.** Dedicated compute nodes are reserved for your workloads. They're typically more expensive than Spot nodes, but they're guaranteed to never be preempted.
 - **Spot nodes.** Spot nodes take advantage of surplus capacity in Azure to run your Batch workloads. Spot nodes are less expensive per hour than dedicated nodes, and enable workloads requiring significant compute power. For more information, see [Use Spot VMs with Batch](batch-spot-vms.md).
 
-Spot nodes may be preempted when Azure has insufficient surplus capacity. If a node is preempted while running tasks, the tasks are requeued and run again once a compute node becomes available again. Spot nodes are a good option for workloads where the job completion time is flexible and the work is distributed across many nodes. Before you decide to use Spot nodes for your scenario, make sure that any work lost due to preemption will be minimal and easy to recreate.
+Spot nodes may be preempted when Azure has insufficient surplus capacity. If a node is preempted while running tasks, the tasks are requeued and run again once a compute node becomes available again. Spot nodes are a good option for workloads where the job completion time is flexible and the work is distributed across many nodes. Before you decide to use Spot nodes for your scenario, make sure that any work lost due to preemption is minimal and easy to resume or recreate.
 
 You can have both Spot and dedicated compute nodes in the same pool. Each type of node has its own target setting, for which you can specify the desired number of nodes.
 
-The number of compute nodes is referred to as a *target* because, in some situations, your pool might not reach the desired number of nodes. For example, a pool might not achieve the target if it reaches the [core quota](batch-quota-limit.md) for your Batch account first. Or, the pool might not achieve the target if you have applied an automatic scaling formula to the pool that limits the maximum number of nodes.
+The number of compute nodes is referred to as a *target* because, in some situations, your pool might not reach the desired number of nodes. For example, a pool might not achieve the target if it reaches the [core quota](batch-quota-limit.md) for your Batch account first. Or, the pool might not achieve the target if you applied an automatic scaling formula to the pool that limits the maximum number of nodes.
+
+> [!NOTE]
+> When Batch spot compute nodes are preempted, they transition to `unusable` state first. After some time, these compute nodes
+> will then transition to reflect the `preempted` state. Batch automatically enables
+> [Try & restore](/azure/virtual-machine-scale-sets/use-spot#try--restore) behavior to restore evicted spot instances with a
+> best-effort goal to maintain target instance counts.
 
 For pricing information for both Spot and dedicated nodes, see [Batch Pricing](https://azure.microsoft.com/pricing/details/batch/).
 
 ## Node size
 
-When you create an Azure Batch pool, you can choose from among almost all the VM families and sizes available in Azure. Azure offers a range of VM sizes for different workloads, including specialized [HPC](/azure/virtual-machines/sizes-hpc) or [GPU-enabled](/azure/virtual-machines/sizes-gpu) VM sizes. Note that node sizes can only be chosen at the time a pool is created. In other words, once a pool is created, its node size cannot be changed.
+When you create an Azure Batch pool, you can choose from among almost all the VM families and sizes available in Azure. Azure offers a range of VM sizes for different workloads, including specialized [HPC](/azure/virtual-machines/sizes-hpc) or [GPU-enabled](/azure/virtual-machines/sizes-gpu) VM sizes. Node VM sizes can only be chosen at the time a pool is created. In other words, once a pool is created, its VM size can't be changed.
 
 For more information, see [Choose a VM size for compute nodes in an Azure Batch pool](batch-pool-vm-sizes.md).
 
 ## Automatic scaling policy
 
-For dynamic workloads, you can apply an automatic scaling policy to a pool. The Batch service will periodically evaluate your formula and dynamically adjusts the number of nodes within the pool according to the current workload and resource usage of your compute scenario. This allows you to lower the overall cost of running your application by using only the resources you need, and releasing those you don't need.
+For dynamic workloads, you can apply an automatic scaling policy to a pool. The Batch service periodically evaluates your formula and dynamically adjusts the number of nodes within the pool according to the current workload and resource usage of your compute scenario. This allows you to lower the overall cost of running your application by using only the resources you need, and releasing those you don't need.
 
 You enable automatic scaling by writing an [automatic scaling formula](batch-automatic-scaling.md#autoscale-formulas) and associating that formula with a pool. The Batch service uses the formula to determine the target number of nodes in the pool for the next scaling interval (an interval that you can configure). You can specify the automatic scaling settings for a pool when you create it, or enable scaling on a pool later. You can also update the scaling settings on a scaling-enabled pool.
 
@@ -123,7 +130,7 @@ A scaling formula can be based on the following metrics:
 - **Resource metrics** are based on CPU usage, bandwidth usage, memory usage, and number of nodes.
 - **Task metrics** are based on task state, such as *Active* (queued), *Running*, or *Completed*.
 
-When automatic scaling decreases the number of compute nodes in a pool, you must consider how to handle tasks that are running at the time of the decrease operation. To accommodate this, Batch provides a [*node deallocation option*](/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) that you can include in your formulas. For example, you can specify that running tasks are stopped immediately and then requeued for execution on another node, or allowed to finish before the node is removed from the pool. Note that setting the node deallocation option as `taskcompletion` or `retaineddata` will prevent pool resize operations until all tasks have completed, or all task retention periods have expired, respectively.
+When automatic scaling decreases the number of compute nodes in a pool, you must consider how to handle tasks that are running at the time of the decrease operation. To accommodate this, Batch provides a [*node deallocation option*](/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) that you can include in your formulas. For example, you can specify that running tasks are stopped immediately and then requeued for execution on another node, or allowed to finish before the node is removed from the pool. Setting the node deallocation option as `taskcompletion` or `retaineddata` prevents pool resize operations until all tasks complete, or when all task retention periods expire, respectively.
 
 For more information about automatically scaling an application, see [Automatically scale compute nodes in an Azure Batch pool](batch-automatic-scaling.md).
 
@@ -134,21 +141,21 @@ For more information about automatically scaling an application, see [Automatica
 
 The [max tasks per node](batch-parallel-node-tasks.md) configuration option determines the maximum number of tasks that can be run in parallel on each compute node within the pool.
 
-The default configuration specifies that one task at a time runs on a node, but there are scenarios where it is beneficial to have two or more tasks executed on a node simultaneously. See the [example scenario](batch-parallel-node-tasks.md#example-scenario) in the [concurrent node tasks](batch-parallel-node-tasks.md) article to see how you can benefit from multiple tasks per node.
+The default configuration specifies that one task at a time runs on a node, but there are scenarios where it's beneficial to have two or more tasks executed on a node simultaneously. See the [example scenario](batch-parallel-node-tasks.md#example-scenario) in the [concurrent node tasks](batch-parallel-node-tasks.md) article on how you can potentially benefit from multiple tasks per node.
 
 You can also specify a *fill type*, which determines whether Batch spreads the tasks evenly across all nodes in a pool, or packs each node with the maximum number of tasks before assigning tasks to another node.
 
 ## Communication status
 
-In most scenarios, tasks operate independently and do not need to communicate with one another. However, there are some applications in which tasks must communicate, like [MPI scenarios](batch-mpi.md).
+In most scenarios, tasks operate independently and don't need to communicate with one another. However, there are some applications in which tasks must communicate, like [MPI scenarios](batch-mpi.md).
 
-You can configure a pool to allow **internode communication** so that nodes within a pool can communicate at runtime. When internode communication is enabled, nodes in Cloud Services Configuration pools can communicate with each other on ports greater than 1100, and Virtual Machine Configuration pools do not restrict traffic on any port.
+You can configure a pool to allow **internode communication** so that nodes within a pool can communicate at runtime. When internode communication is enabled, nodes in Cloud Services Configuration pools can communicate with each other on ports greater than 1100, and Virtual Machine Configuration pools don't restrict traffic on any port.
 
-Enabling internode communication also impacts the placement of the nodes within clusters and might limit the maximum number of nodes in a pool because of deployment restrictions. If your application does not require communication between nodes, the Batch service can allocate a potentially large number of nodes to the pool from many different clusters and data centers to enable increased parallel processing power.
+Enabling internode communication also impacts the placement of the nodes within clusters and might limit the maximum number of nodes in a pool because of deployment restrictions. If your application doesn't require communication between nodes, the Batch service can allocate a potentially large number of nodes to the pool from many different clusters and data centers to enable increased parallel processing power.
 
 ## Start tasks
 
-If desired, you can add a [start task](jobs-and-tasks.md#start-task) that will execute on each node as that node joins the pool, and each time a node is restarted or reimaged. The start task is especially useful for preparing compute nodes for the execution of tasks, like installing the applications that your tasks run on the compute nodes.
+If desired, you can add a [start task](jobs-and-tasks.md#start-task) that executes on each node as that node joins the pool, and each time a node is restarted or reimaged. The start task is especially useful for preparing compute nodes for the execution of tasks, like installing the applications that your tasks run on the compute nodes.
 
 ## Application packages
 
@@ -171,7 +178,7 @@ For more information about setting up a Batch pool in a VNet, see [Create a pool
 
 When you design your Azure Batch solution, you must specify how and when pools are created, and how long compute nodes within those pools are kept available.
 
-On one end of the spectrum, you can create a pool for each job that you submit, and delete the pool as soon as its tasks finish execution. This maximizes utilization because the nodes are only allocated when needed, and they are shut down once they're idle. While this means that the job must wait for the nodes to be allocated, it's important to note that tasks are scheduled for execution as soon as nodes are individually allocated and the start task has completed. Batch does *not* wait until all nodes within a pool are available before assigning tasks to the nodes. This ensures maximum utilization of all available nodes.
+On one end of the spectrum, you can create a pool for each job that you submit, and delete the pool as soon as its tasks finish execution. This maximizes utilization because the nodes are only allocated when needed, and they're shut down once they're idle. While this means that the job must wait for the nodes to be allocated, it's important to note that tasks are scheduled for execution as soon as nodes are individually allocated and the start task completes, if specified to wait for start task completion. Batch *doesn't* wait until all nodes within a pool are available before assigning tasks to the nodes. This ensures maximum utilization of all available nodes.
 
 At the other end of the spectrum, if having jobs start immediately is the highest priority, you can create a pool ahead of time and make its nodes available before jobs are submitted. In this scenario, tasks can start immediately, but nodes might sit idle while waiting for them to be assigned.
 
@@ -179,7 +186,7 @@ A combined approach is typically used for handling a variable but ongoing load. 
 
 ## Autopools
 
-An [autopool](/rest/api/batchservice/job/add#autopoolspecification) is a pool that is created by the Batch service when a job is submitted, rather than being created prior to the jobs that will run in the pool. The Batch service will manage the lifetime of an autopool according to the characteristics that you specify. Most often, these pools are also set to delete automatically after their jobs have completed.
+An [autopool](/rest/api/batchservice/job/add#autopoolspecification) is a pool that the Batch service creates when a job is submitted, rather than being created explicitly before the jobs that will run in the pool. The Batch service manages the lifetime of an autopool according to the characteristics that you specify. Most often, these pools are also set to delete automatically after their jobs complete.
 
 ## Security with certificates
 

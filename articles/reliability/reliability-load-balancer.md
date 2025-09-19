@@ -29,7 +29,7 @@ Although it's recommended that you deploy Load Balancer with zone-redundancy, a 
 
 ### Prerequisites
 
-- To use availability zones with Load Balancer, you need to create your load balancer in a region that supports availability zones. To see which regions support availability zones, see the [list of supported regions](availability-zones-region-support.md). 
+- To use availability zones with Load Balancer, you need to create your load balancer in a region that supports availability zones. To see which regions support availability zones, see the [list of supported regions](regions-list.md). 
 
 - Use Standard SKU for load balancer and Public IP for availability zones support.
 

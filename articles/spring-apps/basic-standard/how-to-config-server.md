@@ -7,7 +7,8 @@ ms.author: karler
 ms.reviewer: guitarsheng
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 06/10/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 zone_pivot_groups: spring-apps-tier-selection
 ---
@@ -244,7 +245,7 @@ After you save your configuration files in a repository, use the following steps
 
 1. Select **Spring Cloud Config Server** in the navigation pane.
 
-1. In the **Default repository** section, set **URI** to `https://github.com/Azure-Samples/piggymetrics-config`.
+1. In the **Default repository** section, set **URI** to **https://github.com/Azure-Samples/piggymetrics-config**.
 
 1. Select **Validate**.
 

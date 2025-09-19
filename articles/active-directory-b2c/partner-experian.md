@@ -15,6 +15,8 @@ ms.subservice: b2c
 ---
 # Tutorial: Configure Experian with Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 In this tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2C) with Experian CrossCore, a service that verifies user identification. It does risk analysis based on information provided by the user during sign-up. CrossCore permits users to sign in, or not.
 
 Learn more about [Experian](https://www.experian.com/business/products/crosscore) solutions, services, etc. 

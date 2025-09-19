@@ -6,6 +6,7 @@ ms.service: azure-avere-vfxt
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
+# Customer intent: "As a cloud administrator, I want to configure back-end storage for my Avere vFXT cluster in Azure, so that I can enhance data management and connectivity for my applications."
 ---
 
 # Configure storage

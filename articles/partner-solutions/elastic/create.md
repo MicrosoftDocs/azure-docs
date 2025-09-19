@@ -1,10 +1,10 @@
 ---
 title: Create Elastic application
-description: This article describes how to use the Azure portal to create an instance of Elastic.
+description: This article describes how to use the Azure portal to create an instance of Elastic, including Elastic Search, Elastic Observability, and Elastic Security.
 ms.topic: quickstart
-ms.date: 06/01/2023
-
-
+zone_pivot_groups: elastic-resource-type
+ms.date: 07/15/2025
+#customer intent: As an Azure developer, I want to create Elastic resources to use search, log analytics, and security monitoring functions for Azure environments.
 
 ---
 
@@ -14,95 +14,185 @@ In this quickstart, you use the Azure portal to integrate an instance of Elastic
 
 ## Prerequisites
 
-- Subscription owner - The Elastic integration with Azure can only be created by users who have _Owner_ or _Contributor_ permissions on the Azure subscription. [Confirm that you have the appropriate access](../../role-based-access-control/check-access.md) before starting the setup.
-- Single sign-on app - The ability to automatically navigate between the Azure portal and Elastic Cloud is enabled via single sign-on (SSO). This option is automatically enabled and turned on for all Azure users.
+[!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
+- You must [subscribe to Elastic](overview.md#subscribe-to-elastic).
 
-## Find offer
+> [!NOTE]
+> The ability to automatically navigate between the Azure portal and Elastic Cloud is enabled by using single sign-on (SSO). This option is automatically enabled and turned on for all Azure users.
 
-Use the Azure portal to find the Elastic application.
+## Create an Elastic resource
 
-1. In a web browser, go to the [Azure portal](https://portal.azure.com/) and sign in.
+[!INCLUDE [create-resource](../includes/create-resource.md)]
 
-1. If you've visited the **Marketplace** in a recent session, select the icon from the available options. Otherwise, search for _Marketplace_.
+:::image type="content" source="media/create/create-elastic.png" alt-text="Screenshot shows the create page for Elastic Cloud with options to create Elastic Search, Elastic Observability, and Elastic Security." lightbox="media/create/create-elastic.png":::
 
-1. Search for _Elastic_ and select **Elastic Cloud (Elasticsearch) - An Azure Native ISV Service** from the available offerings.
+::: zone pivot="elastic-search"
 
-1. Select **Set up + subscribe**.
+Select **Elastic Search**.
 
-   :::image type="content" source="media/create/set-up.png" alt-text="select offer.":::
+### Basics tab
 
-## Create resource
+1. In the **Basics** tab, enter values for the settings:
 
-After you've selected the offer for Elastic, you're ready to set up the application.
+    | Field               | Action                                                    |
+    |---------------------|-----------------------------------------------------------|
+    | Subscription        | Select a subscription from the options. You must be an *Owner* or *Contributor*.   |
+    | Resource group      | Use an existing resource group or create a new one.       |
+    | Resource name       | Specify a unique name for the resource.                   |
+    | Hosting Type        | Select **Serverless** or **Cloud Hosted**.                |
+    | Configuration (**Serverless** only) | Select **General purpose** or **Optimized for Vectors**.  |
+    | Region              | Select a region to deploy your resource.                  |
+    | Version (**Cloud Hosted** only) | Select a version.                             |
+    | Size (**Cloud Hosted** only) | Review this information.                         |
+    | Plan                | To choose a different plan, select **Change plan**.       |
+    | Billing term        | Select a value.                                           | 
+    | Price + Payment options | Review this information.                              |
 
-1. On the **Create Elastic Resource** basics page, provide the following values.
+    > [!NOTE]
+    > Currently, the **Serverless** hosting type is available only in the East US region.
 
-    :::image type="content" source="media/create/create-resource.png" alt-text="Form to set up Elastic resource.":::
+1. At the bottom of the page, select **Next: Logs & metrics**.
 
-    | Property | Description |
-    | ---- | ---- |
-    | **Subscription** | From the drop-down, select an Azure subscription where you have owner access. |
-    | **Resource group** | Specify whether you want to create a new resource group or use an existing resource group. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../../azure-resource-manager/management/overview.md). |
-    | **Elastic account name** | Provide the name for the Elastic account you want to create |
-    | **Region** | Select the region you want to deploy to. |
-    | **Pricing Plan** | **Pay as you go**. |
-    | **Price** | Specified based on the selected Elastic plan. |
+### Logs & metrics tab (optional)
 
-   When you've finished, select **Next: Logs and Metrics**.
+You can configure resources to send metrics and logs to Elastic.
 
-1. On **Logs & metrics**, specify which logs to send to Elastic.
+- Select **Send subscription activity logs**.
+- Select **Send Azure resource logs for all defined sources**.
 
-    :::image type="content" source="media/create/configure-logs.png" alt-text="Select logs to send.":::
+Enter the names and values for each **Action** listed under **Logs**.
 
-   There are two types of logs that can be emitted from Azure to Elastic.
+At the bottom of the page, select **Next: Azure OpenAI configuration**.
 
-   **Subscription logs** provide insights into the operations on each Azure resource in the subscription from the [management plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). The logs also provide updates on Service Health events. Use the activity log to determine what, who, and when for any write operations (PUT, POST, DELETE) on the resources in your subscription. There's a single activity log for each Azure subscription.
+### Azure OpenAI configuration tab
 
-   **Azure resource logs** provide insights into operations that happen within the [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). For example, getting a secret from a key vault or making a request to a database are data plane activities. The content of resource logs varies by the Azure service and resource type. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](/azure/azure-monitor/essentials/resource-logs-categories).
+1. Select an existing **Azure OpenAI Resource**.
 
-   To filter the Azure resources that send logs to Elastic, use resource tags. The tag rules for sending logs are:
+1. Select an existing **Azure OpenAI Deployment**.
 
-   - By default, logs are collected for all resources.
-   - Resources with _Include_ tags send logs to Elastic.
-   - Resources with _Exclude_ tags don't send logs to Elastic.
-   - If there's a conflict between inclusion and exclusion rules, exclusion takes priority.
+1. At the bottom of the page, select **Next: Tags**.
 
-   Select **Next: Azure OpenAI configuration** to create and configure Azure OpenAI connector that can be used within Elastic's AI Assistant.
+### Tags tab (optional)
 
-1. On **Azure OpenAI configuration**, specify the Azure OpenAI resource and the deployment that would be required to configure the connector. The details of the deployment (url, API keys etc.) are passed on to Elastic to prepare the connector to be used with Elastic's AI Assistant.
+[!INCLUDE [tags](../includes/tags.md)]
 
-    :::image type="content" source="media/create/configure-aoai-connector.png" alt-text="Screenshot of how to configure Azure OpenAI Connector.":::
+### Review + create tab
 
-   >[!Note]
-   >Only deployments of text/chat completion models (like gpt4) are supported currently. Learn more about Elastic Connectors [here](https://www.elastic.co/guide/en/kibana/current/openai-action-type.html).
+[!INCLUDE [review-create](../includes/review-create.md)]
 
-   Select **Next: Tags** to set up tags for the new Elastic resource.
+::: zone-end
 
-1. In **Tags**, add custom tags for the new Elastic resource. Each tag consists of a name and value. When you've finished adding tags, select **Next: Review+Create** to navigate to the final step for resource creation.
+::: zone pivot="elastic-observability"
 
-   :::image type="content" source="media/create/add-tags.png" alt-text="Screenshot of add tags to Elastic resource.":::
+Select **Elastic Observability**.
 
-1. On **Review + create**, your configuration is validated. You can review the selections you made in the earlier forms. You can also review the terms for this offering.
+### Basics tab
 
-   :::image type="content" source="media/create/review-validation.png" alt-text="Review and validation selections":::
+1. In the **Basics** tab, enter values for the settings:
 
-   After validation has succeeded and you've reviewed the terms, select **Create**.
+    | Field               | Action                                                    |
+    |---------------------|-----------------------------------------------------------|
+    | Subscription        | Select a subscription from the options. You must be an *Owner* or *Contributor*.   |
+    | Resource group      | Use an existing resource group or create a new one.       |
+    | Resource name       | Specify a unique name for the resource.                   |
+    | Hosting Type        | Select **Serverless** or **Cloud Hosted**.                |
+    | Region              | Select a region to deploy your resource.                  |
+    | Version (Cloud Hosted only) | Select a version.                                 |
+    | Size (Cloud Hosted only) | Review this information.                             |
+    | Plan                | To choose a different plan, select **Change plan**.       |
+    | Billing term        | Select a value.                                           | 
+    | Price + Payment options | Review this information.                              |
 
-1. Azure starts the deployment.
+    > [!NOTE]
+    > Currently, the **Serverless** hosting type is available only in the East US region.
 
-   :::image type="content" source="media/create/deployment-in-progress.png" alt-text="Deployment status":::
+1. At the bottom of the page, select **Next: Logs & metrics**.
 
-1. After the deployment is finished, select **Go to resource** to view the deployed resource.
+### Logs & metrics tab (optional)
 
-    :::image type="content" source="media/create/deployment-complete.png" alt-text="Screenshot of view status of deployment.":::
+You can configure resources to send metrics and logs to Elastic.
 
-## Next steps
+- Select **Send subscription activity logs**.
+- Select **Send Azure resource logs for all defined sources** (default).
 
-- [Manage the Elastic resource](manage.md)
-- Get started with Elastic Cloud (Elasticsearch) - An Azure Native ISV Service on
+Enter the names and values for each **Action** listed under **Logs**.
 
-    > [!div class="nextstepaction"]
-    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Elastic%2Fmonitors)
+At the bottom of the page, select **Next: Azure OpenAI configuration**.
 
-    > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp?tab=Overview)
+### Azure OpenAI configuration tab
+
+1. Select an existing **Azure OpenAI Resource**.
+
+1. Select an existing **Azure OpenAI Deployment**.
+
+1. At the bottom of the page, select **Next: Tags**.
+
+### Tags tab (optional)
+
+[!INCLUDE [tags](../includes/tags.md)]
+
+### Review + create tab
+
+[!INCLUDE [review-create](../includes/review-create.md)]
+
+::: zone-end
+
+::: zone pivot="elastic-security"
+
+Select **Elastic Security**.
+
+### Basics tab
+
+1. In the **Basics** tab, enter values for the settings:
+
+    | Field               | Action                                                    |
+    |---------------------|-----------------------------------------------------------|
+    | Subscription        | Select a subscription from the options. You must be an *Owner* or *Contributor*.   |
+    | Resource group      | Use an existing resource group or create a new one.       |
+    | Resource name       | Specify a unique name for the resource.                   |
+    | Hosting Type        | Select **Serverless** or **Cloud Hosted**.                |
+    | Region              | Select a region to deploy your resource.                  |
+    | Version (Cloud Hosted only) | Select a version.                                 |
+    | Size (Cloud Hosted only) | Review this information.                             |
+    | Plan                | To choose a different plan, select **Change plan**.       |
+    | Billing term        | Select a value.                                           | 
+    | Price + Payment options | Review this information.                              |
+
+    > [!NOTE]
+    > Currently, the **Serverless** hosting type is available only in the East US region.
+
+1. At the bottom of the page, select **Next: Logs & metrics**.
+
+### Logs & metrics tab (optional)
+
+You can configure resources to send metrics and logs to Elastic.
+
+- Select **Send subscription activity logs**.
+- Select **Send Azure resource logs for all defined sources** (default).
+
+Enter the names and values for each **Action** listed under **Logs**.
+
+At the bottom of the page, select **Next: Azure OpenAI configuration**.
+
+### Azure OpenAI configuration tab
+
+1. Select an existing **Azure OpenAI Resource**.
+
+1. Select an existing **Azure OpenAI Deployment**.
+
+1. At the bottom of the page, select **Next: Tags**.
+
+### Tags tab (optional)
+
+[!INCLUDE [tags](../includes/tags.md)]
+
+### Review + create tab
+
+[!INCLUDE [review-create](../includes/review-create.md)]
+
+::: zone-end
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Manage Elastic resources](manage.md)

@@ -8,7 +8,10 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.date: 10/05/2024
 ms.author: juergent
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - sfi-image-nochange
+# Customer intent: As an SAP administrator, I want to understand how to configure SAP workloads across Azure Availability Zones so that I can improve high availability and disaster recovery for my deployments.
 ---
 
 # SAP workload configurations with Azure Availability Zones
@@ -116,9 +119,6 @@ The following considerations apply for this configuration:
 - The third zone is used to host the SBD device if you build a [SUSE Linux Pacemaker cluster](./high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-device) and use SBD devices instead of the Azure Fencing Agent. Or for more application instances.
 - To achieve run time consistency for critical business processes, you can try directing certain batch jobs and users to application instances that are in-zone with the active database instance by using SAP batch server groups, SAP logon groups, or RFC groups. However, in zonal failover process, you would need to manually move these groups to instances running on VMs that are in-zone with the active DB VM.  
 - You might want to deploy dormant dialog instances in each of the zones. 
-
-> [!IMPORTANT]
-> In this active/active scenario charges for cross zone traffic apply. Check the document [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/). The data transfer between the SAP application layer and SAP database layer is quite intensive. Therefore the active/active scenario can contribute to costs.
 
 ## Active/Passive deployment
 

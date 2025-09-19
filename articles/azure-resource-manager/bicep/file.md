@@ -1,12 +1,12 @@
 ---
 title: Bicep file structure and syntax
-description: This article describes the structure and properties of a Bicep file by using declarative syntax.
+description: Understand how to use declarative syntax to understand the structure and properties of Bicep files.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 08/20/2024
+ms.date: 07/25/2025
 ---
 
-# Understand the structure and syntax of Bicep files
+# Bicep file structure and syntax
 
 This article describes the structure and syntax of a Bicep file. It presents the different sections of the file and the properties that are available in those sections.
 
@@ -53,7 +53,7 @@ module <module-symbolic-name> '<path-to-file>' = {
 output <output-name> <output-data-type> = <output-value>
 ```
 
-The following example shows an implementation of these elements.
+The following example shows an implementation of these elements:
 
 ```bicep
 metadata description = 'Creates a storage account and a web app'
@@ -68,7 +68,7 @@ param location string = resourceGroup().location
 
 var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 
-resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2025-01-01' = {
   name: uniqueStorageName
   location: location
   sku: {
@@ -99,7 +99,7 @@ By default, the target scope is set to `resourceGroup`. If you deploy at the res
 
 The allowed values are:
 
-* `resourceGroup`: Default value, used for [resource group deployments](deploy-to-resource-group.md).
+* `resourceGroup`: Default value used for [resource group deployments](deploy-to-resource-group.md).
 * `subscription`: Used for [subscription deployments](deploy-to-subscription.md).
 * `managementGroup`: Used for [management group deployments](deploy-to-management-group.md).
 * `tenant`: Used for [tenant deployments](deploy-to-tenant.md).
@@ -118,7 +118,7 @@ You can add one or more decorators for each of the following elements:
 * [func](#functions)
 * [type](#types)
 
-The following table lists the decorators.
+The following table lists the decorators:
 
 | Decorator | Apply to element | Apply to data type | Argument | Description |
 | --------- | ---- | ----------- | ------- |
@@ -137,7 +137,7 @@ The following table lists the decorators.
 
 ## Parameters
 
-Use parameters for values that need to vary for different deployments. You can define a default value for the parameter that's used if no value is provided during deployment.
+Use parameters for values that need to vary for different deployments. You can define a default value for the parameter that's used if a value isn't provided during deployment.
 
 For example, you can add an `SKU` parameter to specify different sizes for a resource. You might pass in different values depending on whether you're deploying to test or production.
 
@@ -168,7 +168,7 @@ var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 Apply this variable wherever you need the complex expression.
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2025-01-01' = {
   name: uniqueStorageName
 ```
 
@@ -195,7 +195,7 @@ param storageAccountConfig storageAccountConfigType = {
   sku: 'Standard_LRS'
 }
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-01-01' = {
   name: storageAccountConfig.name
   location: location
   sku: {
@@ -207,7 +207,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
 
 You can add one or more decorators for each user-defined data type. For more information, see [Use decorators](./user-defined-data-types.md#use-decorators).
 
-For more information, see [User-defined data types](./user-defined-data-types.md).
+For more information, see [User-defined data types in Bicep](./user-defined-data-types.md).
 
 ## Functions
 
@@ -219,7 +219,7 @@ func buildUrl(https bool, hostname string, path string) string => '${https ? 'ht
 output azureUrl string = buildUrl(true, 'microsoft.com', 'azure')
 ```
 
-For more information, see [User-defined functions](./user-defined-functions.md).
+For more information, see [User-defined functions in Bicep](./user-defined-functions.md).
 
 ## Resources
 
@@ -228,7 +228,7 @@ Use the `resource` keyword to define a resource to deploy. Your resource declara
 The resource declaration includes the resource type and API version. Within the body of the resource declaration, include properties that are specific to the resource type.
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2025-01-01' = {
   name: uniqueStorageName
   location: location
   sku: {
@@ -250,7 +250,7 @@ Some resources have a parent/child relationship. You can define a child resource
 The following example shows how to define a child resource within a parent resource. It contains a storage account with a child resource (file service) that's defined within the storage account. The file service also has a child resource (share) that's defined within it.
 
 ```bicep
-resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storage 'Microsoft.Storage/storageAccounts@2025-01-01' = {
   name: 'examplestorage'
   location: resourceGroup().location
   kind: 'StorageV2'
@@ -271,7 +271,7 @@ resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
 The next example shows how to define a child resource outside of the parent resource. You use the parent property to identify a parent/child relationship. The same three resources are defined.
 
 ```bicep
-resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storage 'Microsoft.Storage/storageAccounts@2025-01-01' = {
   name: 'examplestorage'
   location: resourceGroup().location
   kind: 'StorageV2'
@@ -364,7 +364,7 @@ resource dnsZone 'Microsoft.Network/dnsZones@2023-07-01-preview' = if (deployZon
 }
 ```
 
-For more information, see [Conditional deployment in Bicep](conditional-resource-deployment.md).
+For more information, see [Conditional deployments in Bicep with the if expression](conditional-resource-deployment.md).
 
 ## Whitespace
 
@@ -373,7 +373,7 @@ Spaces and tabs are ignored when you author Bicep files.
 Bicep is newline sensitive. For example:
 
 ```bicep
-resource sa 'Microsoft.Storage/storageAccounts@2023-04-01' = if (newOrExisting == 'new') {
+resource sa 'Microsoft.Storage/storageAccounts@2025-01-01' = if (newOrExisting == 'new') {
   ...
 }
 ```
@@ -381,7 +381,7 @@ resource sa 'Microsoft.Storage/storageAccounts@2023-04-01' = if (newOrExisting =
 Can't be written as:
 
 ```bicep
-resource sa 'Microsoft.Storage/storageAccounts@2023-04-01' =
+resource sa 'Microsoft.Storage/storageAccounts@2025-01-01' =
     if (newOrExisting == 'new') {
       ...
     }
@@ -397,7 +397,7 @@ The following example shows a single-line comment.
 
 ```bicep
 // This is your primary NIC.
-resource nic1 'Microsoft.Network/networkInterfaces@2023-11-01' = {
+resource nic1 'Microsoft.Network/networkInterfaces@2024-07-01' = {
   ...
 }
 ```
@@ -418,7 +418,7 @@ You can break a string into multiple lines. Use three single quotation marks `''
 
 Characters within the multi-line string are handled as is. Escape characters are unnecessary. You can't include `'''` in the multi-line string. String interpolation isn't currently supported.
 
-You can start your string right after the opening `'''` or include a new line. In either case, the resulting string doesn't include a new line. Depending on the line endings in your Bicep file, new lines are interpreted as `\r\n` or `\n`.
+You can start your string right after the opening `'''`, or include a new line. In either case, the resulting string doesn't include a new line. Depending on the line endings in your Bicep file, new lines are interpreted as `\r\n` or `\n`.
 
 The following example shows a multi-line string.
 
@@ -430,7 +430,7 @@ this is multi-line
 '''
 ```
 
-The preceding example is equivalent to the following JSON.
+The preceding example is equivalent to the following JSON:
 
 ```json
 "variables": {
@@ -454,9 +454,9 @@ For multiple-line declaration samples, see [arrays](./data-types.md#arrays) and 
 
 ## Known limitations
 
-* No support is available for the concept of `apiProfile`, which is used to map a single `apiProfile` to a set `apiVersion` for each resource type.
-* User-defined functions aren't supported at the moment. An experimental feature is currently accessible. For more information, see [User-defined functions in Bicep](./user-defined-functions.md).
-* Some Bicep features require a corresponding change to the intermediate language (Azure Resource Manager JSON templates). We announce these features as available after all the required updates are deployed to global Azure. If you use a different environment, such as Azure Stack, there might be a delay in the availability of the feature. The Bicep feature is available only after the intermediate language is also updated in that environment.
+* Support isn't available for the concept of `apiProfile`, which is used to map a single `apiProfile` to a set `apiVersion` for each resource type.
+* User-defined functions aren't supported at this time. An experimental feature is currently accessible. For more information, see [User-defined functions in Bicep](./user-defined-functions.md).
+* Some Bicep features require a corresponding change to the intermediate language (Azure Resource Manager JSON templates). We announce these features as available after all the required updates are deployed to global Azure. If you use a different environment such as Azure Stack, there might be a delay in the availability of the feature. The Bicep feature is available only after the intermediate language is also updated in that environment.
 
 ## Related content
 

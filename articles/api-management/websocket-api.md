@@ -6,7 +6,9 @@ author: dlepow
 ms.author: danlep
 ms.topic: how-to
 ms.date: 02/18/2025
-ms.custom: template-how-to
+ms.custom:
+  - template-how-to
+  - sfi-image-nochange
 ---
 
 # Import a WebSocket API
@@ -144,7 +146,3 @@ The following policies aren't supported by and can't be applied to the onHandsha
 > If you applied the policies at higher scopes (for example, global or product) and they're inherited by a WebSocket API through the policy, they are skipped at runtime.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
-
-## Related content
-> [!div class="nextstepaction"]
-> [Transform and protect a published API](transform-api.md)

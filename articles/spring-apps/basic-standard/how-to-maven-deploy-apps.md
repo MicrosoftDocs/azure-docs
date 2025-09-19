@@ -7,7 +7,8 @@ ms.reviewer: jialuogan
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: tutorial
-ms.date: 04/23/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
@@ -116,7 +117,7 @@ To generate configurations and deploy the app, follow these steps:
 
    * **Subscription ID** - the subscription you used to create an Azure Spring Apps instance.
    * **Service instance** - the name of your Azure Spring Apps instance.
-   * **App name** - an app name of your choice, or use the default value `artifactId`.
+   * **App name** - an app name of your choice, or use the default value **artifactId**.
    * **Public endpoint** - **true** to expose the app to public access; otherwise, **false**.
 
 1. Verify that the `appName` element in the POM file has the correct value. The relevant portion of the POM file should look similar to the following example.

@@ -13,6 +13,7 @@ ms.date: 09/11/2024
 ms.author: kengaderdus
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a developer integrating Azure Active Directory B2C with my application, I want to pass the access token from an identity provider to my application, so that I can retrieve information about the user and enable seamless sign-up and sign-in experiences.
@@ -20,6 +21,8 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Pass an identity provider access token to your application in Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 

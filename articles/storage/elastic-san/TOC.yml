@@ -13,7 +13,7 @@ items:
   - name: Planning
     href: elastic-san-planning.md
   - name: Networking
-    href: elastic-san-networking-concepts.md
+    href: elastic-san-networking.md
   - name: Scale targets
     href: elastic-san-scale-targets.md
   - name: Best practices
@@ -24,6 +24,8 @@ items:
     href: elastic-san-shared-volumes.md
   - name: Encryption
     href: elastic-san-encryption-overview.md
+  - name: Backup
+    href: ../../backup/azure-elastic-san-backup-overview.md?toc=/azure/storage/elastic-san/toc.json&bc=/azure/storage/elastic-san/breadcrumb/toc.json
   - name: Metrics
     href: elastic-san-metrics.md
   - name: Reliability
@@ -32,8 +34,10 @@ items:
   items:
   - name: Deploy an Elastic SAN
     href: elastic-san-create.md
-  - name: Configure networking
-    href: elastic-san-networking.md
+  - name: Configure private endpoints
+    href: elastic-san-configure-private-endpoints.md
+  - name: Configure service endpoints
+    href: elastic-san-configure-service-endpoints.md
   - name: Connect to an Elastic SAN volume - Windows
     href: elastic-san-connect-windows.md
   - name: Connect to an Elastic SAN volume - Linux
@@ -46,10 +50,22 @@ items:
       href: ../container-storage/use-container-storage-with-elastic-san.md?toc=/azure/storage/elastic-san/toc.json&bc=/azure/storage/elastic-san/breadcrumb/toc.json
     - name: Use Kubernetes iSCSI CSI driver
       href: elastic-san-connect-aks.md
+  - name: Deploy and configure Elastic SAN for SQL Server on Azure VMs
+    href: /azure/azure-sql/virtual-machines/windows/storage-configuration-azure-elastic-san?toc=/azure/storage/elastic-san/toc.json&bc=/azure/storage/elastic-san/breadcrumb/toc.json
+  - name: Configure failover cluster instance to use an Elastic SAN volume
+    href: /azure/azure-sql/virtual-machines/windows/failover-cluster-instance-azure-elastic-san-manually-configure?toc=/azure/storage/elastic-san/toc.json&bc=/azure/storage/elastic-san/breadcrumb/toc.json
   - name: Resize an Elastic SAN
     href: elastic-san-expand.md
   - name: Use volume snapshots
     href: elastic-san-snapshots.md
+  - name: Backup
+    items:
+    - name: Configure backup for Elastic SAN volumes
+      href: ../../backup/azure-elastic-san-backup-configure.md?toc=/azure/storage/elastic-san/toc.json&bc=/azure/storage/elastic-san/breadcrumb/toc.json
+    - name: Manage backups
+      href: ../../backup/azure-elastic-san-backup-manage.md?toc=/azure/storage/elastic-san/toc.json&bc=/azure/storage/elastic-san/breadcrumb/toc.json
+    - name: Restore backups
+      href: ../../backup/azure-elastic-san-backup-restore.md?toc=/azure/storage/elastic-san/toc.json&bc=/azure/storage/elastic-san/breadcrumb/toc.json
   - name: Delete an Elastic SAN
     href: elastic-san-delete.md
   - name: Connect to Azure VMware Solutions
@@ -60,6 +76,8 @@ items:
       href: elastic-san-configure-customer-managed-keys.md
     - name: Manage customer keys
       href: elastic-san-encryption-manage-customer-keys.md
+  - name: Troubleshoot your Elastic SAN
+    href: elastic-san-troubleshoot.md
 - name: Samples
   items:
   - name: Create elastic SAN volumes in a batch

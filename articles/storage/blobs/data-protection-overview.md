@@ -4,12 +4,13 @@ titleSuffix: Azure Storage
 description: The data protection options available for you're for Blob Storage and Azure Data Lake Storage data enable you to protect your data from being deleted or overwritten. If you should need to recover data that has been deleted or overwritten, this guide can help you to choose the recovery option that's best for your scenario.
 services: storage
 author: normesta
-
+ms.custom: copilot-scenario-highlight
 ms.service: azure-blob-storage
 ms.date: 07/29/2024
 ms.topic: overview
 ms.author: normesta
 ms.reviewer: prishet
+# Customer intent: "As a data manager, I want to understand the data protection strategies available for Blob Storage and Data Lake Storage, so that I can effectively safeguard and recover my data from accidental deletion or modification."
 ---
 
 # Data protection overview
@@ -31,6 +32,9 @@ If you're looking for basic data protection coverage for your storage account an
 These options, as well as other data protection options for other scenarios, are described in more detail in the following section.
 
 For an overview of the costs involved with these features, see [Summary of cost considerations](#summary-of-cost-considerations).
+
+> [!TIP]
+> You can use Microsoft Copilot in Azure to get suggestions on enhancing your storage account's data resiliency. For more information, see [Manage and troubleshoot storage accounts using Microsoft Copilot in Azure](/azure/copilot/improve-storage-accounts#enhance-data-resiliency).
 
 ## Overview of data protection options
 

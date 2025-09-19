@@ -3,6 +3,9 @@ title: Switch users through the Ambari UI
 description: Known issue affecting HDInsight 5.1 clusters.
 ms.service: azure-hdinsight
 ms.topic: troubleshooting-known-issue
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: sairamyeturi
 ms.date: 04/05/2024
 ---
 

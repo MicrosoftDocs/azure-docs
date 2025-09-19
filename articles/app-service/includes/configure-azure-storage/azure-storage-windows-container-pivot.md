@@ -30,7 +30,7 @@ Here are the three options to mount Azure storage to your app:
 | Mounting option | Usage |
 |:----------------|:------|
 | Basic | Choose this option when mounting storage using the Azure portal. You can use the basic option as long as the storage account doesn't use [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), [private endpoints](../../../storage/common/storage-private-endpoints.md), or [Azure Key Vault](/azure/key-vault/general/overview). In this case, the portal gets and stores the access key for you. |
-| Access Key | If you plan to mount storage using the Azure CLI, you need to obtain an access key. Choose this option storage account doesn't use [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), [private endpoints](../../../storage/common/storage-private-endpoints.md), or [Azure Key Vault](/azure/key-vault/general/overview). |
+| Access Key | If you plan to mount storage using the Azure CLI, you need to obtain an access key. Choose this option if storage account doesn't use [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), [private endpoints](../../../storage/common/storage-private-endpoints.md), or [Azure Key Vault](/azure/key-vault/general/overview). |
 | Key Vault | Also use this option when you plan to mount storage using the Azure CLI, which requires the access key. Choose this option when using Azure Key Vault to securely store and retrieve access keys. [Azure Key Vault](/azure/key-vault/general/overview) has the benefits of storing application secrets centrally and securely with the ability to monitor, administer, and integrate with other Azure services like Azure App Service. |
 
 ## Prerequisites
@@ -94,6 +94,8 @@ Now you're ready to use Key Vault to access your storage account.
 ## Mount storage to Windows container
 
 # [Azure portal](#tab/portal/basic)
+
+To mount storage to a Windows container by using the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to the app.
 1. From the left navigation, select **Settings** > **Configuration**. Select **Path mappings**, then **New Azure Storage Mount**.
@@ -199,4 +201,5 @@ The Azure CLI doesn't currently support mounting storage with Key Vault access. 
 
 ## Next step
 
-- [Migrate custom software to Azure App Service using a custom container](../../tutorial-custom-container.md?pivots=container-windows).
+> [!div class="nextstepaction"]
+> [Migrate custom software to Azure App Service using a custom container](../../tutorial-custom-container.md?pivots=container-windows)

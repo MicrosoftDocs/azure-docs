@@ -12,7 +12,10 @@ ms.topic: how-to
 ms.author: kengaderdus
 ms.subservice: b2c
 ms.date: 09/11/2024
-ms.custom: "b2c-support"
+ms.custom:
+  - "b2c-support"
+  - sfi-image-nochange
+  - sfi-ga-nochange
 
 
 #Customer intent: As an Azure AD B2C administrator, I want to monitor sign-in and auditing logs using Azure Monitor, so that I can route the logs to different monitoring solutions and gain insights into my environment.
@@ -20,6 +23,8 @@ ms.custom: "b2c-support"
 ---
 
 # Monitor Azure AD B2C with Azure Monitor
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Use Azure Monitor to route Azure Active Directory B2C (Azure AD B2C) sign in and [auditing](view-audit-logs.md) logs to different monitoring solutions. You can retain the logs for long-term use or integrate with third-party security information and event management (SIEM) tools to gain insights into your environment.
 

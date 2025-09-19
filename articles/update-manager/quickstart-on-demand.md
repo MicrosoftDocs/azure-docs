@@ -3,9 +3,10 @@ title: 'Quickstart: Deploy updates by using Update Manager in the Azure portal'
 description: This quickstart helps you to deploy updates immediately and view results for supported machines in Azure Update Manager by using the Azure portal.
 ms.service: azure-update-manager
 ms.date: 03/06/2024
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ms.topic: quickstart
+# Customer intent: As a system administrator, I want to deploy on-demand updates to selected Azure virtual machines, so that I can ensure they are compliant and maintain optimal performance.
 ---
 
 # Quickstart: Check and install on-demand updates
@@ -36,7 +37,7 @@ After the assessment is finished, a confirmation message appears in the upper-ri
 
 ## Configure settings
 
-For the assessed machines that are reporting updates, you can configure [periodic assessment](assessment-options.md#periodic-assessment), [hotpatching](updates-maintenance-schedules.md#hotpatching),and [patch orchestration](manage-multiple-machines.md#summary-of-machine-status) either immediately or schedule the updates by defining the maintenance window.
+For the assessed machines that are reporting updates, you can configure [periodic assessment](assessment-options.md#periodic-assessment), [hotpatching](updates-maintenance-schedules.md#hotpatching), and [patch orchestration](manage-multiple-machines.md#summary-of-machine-status) either immediately or schedule the updates by defining the maintenance window.
 
 To configure the settings on your machines:
 

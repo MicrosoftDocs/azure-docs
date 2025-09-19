@@ -1,9 +1,8 @@
 ---
 title: Workload management
 description: Guidance for implementing workload management in Azure Synapse Analytics.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.reviewer: whhender
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 02/04/2020
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
@@ -37,7 +36,7 @@ For example, granting an ad-hoc user role membership to smallrc allowed that use
 
 Dedicated SQL pool workload management in Azure Synapse consists of three high-level concepts: [Workload Classification](sql-data-warehouse-workload-classification.md), [Workload Importance](sql-data-warehouse-workload-importance.md), and [Workload Isolation](sql-data-warehouse-workload-isolation.md).  These capabilities give you more control over how your workload utilizes system resources.
 
-Workload classification is the concept of assigning a request to a workload group and setting importance levels.  Historically, this assignment was done via role membership using [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  This action can now be done via the [CREATE WORKLOAD CLASSIFER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  The classification capability provides a richer set of options such as label, session, and time to classify requests.
+Workload classification is the concept of assigning a request to a workload group and setting importance levels.  Historically, this assignment was done via role membership using [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  This action can now be done via the [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  The classification capability provides a richer set of options such as label, session, and time to classify requests.
 
 Workload importance influences the order in which a request gets access to resources.  On a busy system, a request with higher importance has first access to resources.  Importance can also ensure ordered access to locks.
 

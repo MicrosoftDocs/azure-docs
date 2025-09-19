@@ -1,15 +1,19 @@
 ---
 title: Prerequisites for deploying Cloud Services (extended support)
 description: Learn about the prerequisites for deploying Azure Cloud Services (extended support).
-ms.topic: article
+ms.topic: concept-article
 ms.service: azure-cloud-services-extended-support
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
+# Customer intent: As a cloud solutions architect, I want to understand the prerequisites for deploying cloud services with extended features, so that I can properly prepare configurations, eliminate deprecated components, and set up access controls for successful deployments.
 ---
 
 # Prerequisites for deploying Azure Cloud Services (extended support)
+
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 To help ensure a successful Azure Cloud Services (extended support) deployment, review the following steps. Complete each prerequisitive before you begin to create a deployment.
 

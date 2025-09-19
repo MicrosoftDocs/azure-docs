@@ -8,9 +8,10 @@ ms.author: glenga
 
 # [Azure portal](#tab/portal)
 
-In the Azure portal, in your function app, choose **Configuration** and on the **Function runtime settings** tab turn **Runtime scale monitoring** to **On**.
+1. In the Azure portal, in your function app, select **Configuration**.
+1. On the **Function runtime settings** tab, for **Runtime Scale Monitoring**, select **On**.
 
-:::image type="content" source="../articles/azure-functions/media/functions-create-vnet/11-enable-runtime-scaling.png" alt-text="Screenshot of Azure portal panel to enable runtime scaling."::: 
+   :::image type="content" source="../articles/azure-functions/media/functions-create-vnet/11-enable-runtime-scaling.png" alt-text="Screenshot of the Azure portal area for enabling runtime scaling.":::
 
 # [Azure CLI](#tab/azure-cli)
 

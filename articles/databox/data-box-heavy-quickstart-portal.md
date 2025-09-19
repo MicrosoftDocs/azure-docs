@@ -9,11 +9,14 @@ ms.date: 06/13/2022
 ms.author: shaas
 ms.custom: mode-ui, devx-track-azurecli
 #Customer intent: As an IT admin, I need to quickly deploy Data Box Heavy so as to import data into Azure.
+# Customer intent: "As an IT admin, I want to deploy and configure Azure Data Box Heavy using the Azure portal, so that I can efficiently transfer large volumes of data to Azure."
 ---
 
 ::: zone target = "docs"
 
 # Quickstart: Deploy Azure Data Box Heavy using the Azure portal
+
+[!INCLUDE [data-box-heavy-retirement](includes/data-box-heavy-retirement.md)]
 
 This quickstart describes how to deploy the Azure Data Box Heavy using the Azure portal. The steps include how to cable, configure, and copy data to Data Box Heavy so that it uploads to Azure. The quickstart is performed in the Azure portal and on the local web UI of the device.
 

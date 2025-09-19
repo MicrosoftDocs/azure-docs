@@ -2,8 +2,9 @@
 title: Azure Service Bus Geo-Replication | Microsoft Docs
 description: How to use geographical regions to promote between regions in Azure Service Bus for metadata and data
 ms.topic: article
-ms.date: 04/29/2024
-ms.custom: references_regions
+ms.date: 07/15/2025
+ms.custom:
+  - references_regions
 ---
 
 # Azure Service Bus Geo-Replication (Preview)
@@ -22,38 +23,18 @@ The Geo-Replication feature ensures that the metadata and data of a namespace ar
 > [!NOTE]
 > Currently only a single secondary is supported.
 
-This feature allows promoting any secondary region to primary, at any time. Promoting a secondary repoints the name for the namespace to the selected secondary region, and switches the roles between the primary and secondary region. The promotion is nearly instantaneous once initiated. 
+This feature allows promoting any secondary region to primary, at any time. Promoting a secondary repoints the namespace to the selected secondary region, and switches the roles between the primary and secondary region. The promotion is nearly instantaneous once initiated. 
 
 > [!IMPORTANT]
 > - This feature is currently in public preview, and as such shouldn't be used in production scenarios.
-> - The below regions are currently supported in the public preview.
->
-> | Region              | Region               | Region             |
-> |--------------------|--------------------|------------------|
-> | AustraliaCentral   | GermanyNorth       | NorwayWest       |
-> | AustraliaCentral2  | GermanyWestCentral | PolandCentral    |
-> | AustraliaEast      | IsraelCentral      | SouthAfricaNorth |
-> | AustraliaSoutheast | ItalyNorth         | SouthAfricaWest  |
-> | BrazilSoutheast    | JapanEast          | SoutheastAsia    |
-> | CanadaCentral      | JapanWest          | SouthIndia       |
-> | CanadaEast         | JioIndiaCentral    | SpainCentral     |
-> | CentralIndia       | JioIndiaWest       | SwedenCentral    |
-> | CentralUS          | KoreaCentral       | SwitzerlandNorth |
-> | CentralUSEUAP      | KoreaSouth         | SwitzerlandWest  |
-> | EastAsia           | MexicoCentral      | UAECentral       |
-> | EastUS2            | NorthCentralUS     | UAENorth         |
-> | FranceCentral      | NorthEurope        | UKSouth          |
-> | FranceSouth        | NorwayEast         | UKWest           |
-> 
 > - This feature is currently available on new namespaces. If a namespace had this feature enabled before, it can be disabled (by removing the secondary regions), and re-enabled.
-> - The following features currently aren't supported. We're continuously working on bringing more features to the public preview, and will update this list with the latest status.
->     - Large message support.
->     - VNET / advanced network features (private endpoints, IP ACLs, NSP, service endpoints).
->     - Identities (MSI, disable local auth) and encryption settings (customer-managed key (CMK) encryption or bring your own key (BYOK) encryption).
->     - Autoscaling.
->     - Partitioned namespaces.
->     - Send events to Event Grid.
 > - This feature can't be used in combination with the [Azure Service Bus Geo-Disaster Recovery](service-bus-geo-dr.md) feature.
+> - The following features currently aren't supported. We're continuously working on bringing more features, and will update this list with the latest status.
+>     - Large message support.
+> - When you have Event Grid integration enabled on a namespace that is using Geo-Replication, note the following.
+>   - Event Grid replicates to the [geo-paired location](/azure/reliability/reliability-event-grid#set-up-disaster-recovery), not the secondary region set up for geo-replication.
+>   - [Promotion](#promotion-flow) of a secondary region for Service Bus doesn't initiate a failover of Event Grid. Consequently, after promotion, Service Bus is now running in the new primary region, however Event Grid is still running in the initial primary region.
+>   - If the initial primary region is [removed](#delete-secondary-region) from the Geo-Replication configuration, this breaks the Event Grid integration.
 
 ## Scenarios
 The Geo-replication feature can be used to implement different scenarios, as described here.
@@ -83,7 +64,7 @@ There are two replication modes, synchronous and asynchronous. It's important to
 
 ### Asynchronous replication
 
-Using asynchronous replication, all requests are committed on the primary, after which an acknowledgment is sent to the client. Replication to the secondary regions happens asynchronously. Users can configure the maximum acceptable amount of lag time. The lag time is the service side offset between the latest action on the primary and the secondary regions. If the lag for an active secondary grows beyond user configuration, the primary starts throttling incoming requests.
+Using asynchronous replication, all requests are committed on the primary, after which an acknowledgment is sent to the client. Replication to the secondary regions happens asynchronously. Users can configure the maximum acceptable amount of lag time. The lag time is the service side offset between the latest action on the primary and the secondary regions. The service continuously replicates the data and metadata, ensuring the lag remains as small as possible. If the lag for an active secondary grows beyond the user configured maximum replication lag, the primary starts throttling incoming requests.
 
 ### Synchronous replication
 
@@ -114,6 +95,7 @@ The replication mode can be changed after configuring Geo-Replication. You can g
 
 > [!NOTE]
 > In case a secondary region lags or becomes unavailable, the application will no longer be able to replicate to this region and will start throttling once the replication lag is reached. To continue using the namespace in the primary location, the afflicted secondary region can be removed. If no more secondary regions are configured, the namespace will continue without Geo-Replication enabled. It's possible to add additional secondary regions at any time.
+> Top-level entities, which are queues and topics, are replicated synchronously, regardless of the replication mode configured. However, topic subscriptions adhere to the selected replication mode, and therefore, it's crucial to take them into account when deciding on the appropriate replication mode.
 
 ## Secondary region selection
 
@@ -123,8 +105,8 @@ To enable the Geo-Replication feature, you need to use primary and secondary reg
 
 The Geo-Replication feature enables customers to configure a secondary region towards which to replicate metadata and data. As such, customers can perform the following management tasks:
 - Configure Geo-Replication; Secondary regions can be configured on any new or existing namespace in a region with the Geo-Replication feature enabled.
-    > [!NOTE]
-    > Currently in the public preview only new namespaces are supported.
+> [!NOTE]
+> Currently in the public preview only new namespaces are supported.
 - Configure the replication consistency; Synchronous and asynchronous replication is set when Geo-Replication is configured but can also be switched afterwards.
 - Trigger promotion; All promotions are customer initiated.
 - Remove a secondary; If at any time you want to remove a secondary region, you can do so after which the data in the secondary region is deleted.
@@ -134,16 +116,14 @@ The Geo-Replication feature enables customers to configure a secondary region to
 ### Using Azure portal
 
 The following section is an overview to set up the Geo-Replication feature on a new namespace through the Azure portal.
-> [!NOTE]
-> This experience might change during public preview. We'll update this document accordingly.
 
 1. Create a new premium-tier namespace.
-1. Check the **Enable Geo-replication checkbox** under the *Replication (preview)* section.
+1. Check the **Enable Geo-replication checkbox** under the *Geo-Replication (preview)* section.
 1. Click on the **Add secondary region** button, and choose a region.
 1. Either check the **Synchronous replication** checkbox, or specify a value for the **Async Replication - Max Replication lag** value in seconds.
 :::image type="content" source="./media/service-bus-geo-replication/create-namespace-with-geo-replication.png" alt-text="Screenshot showing the Create Namespace experience with Geo-Replication enabled.":::
 
-### Using Bicep template
+### Using Bicep file
 
 To create a namespace with the Geo-Replication feature enabled, add the *geoDataReplication* properties section.
 
@@ -153,7 +133,7 @@ param primaryLocation string
 param secondaryLocation string
 param maxReplicationLagInSeconds int
 
-resource sb 'Microsoft.ServiceBus/namespaces@2023-01-01-preview' = {
+resource sb 'Microsoft.ServiceBus/namespaces@2024-01-01' = {
   name: serviceBusName
   location: primaryLocation
   sku: {
@@ -181,7 +161,7 @@ resource sb 'Microsoft.ServiceBus/namespaces@2023-01-01-preview' = {
 
 ## Management
 
-Once you create a namespace with the Geo-Replication feature enabled, you can manage the feature from the **Replication (preview)** blade. 
+Once you create a namespace with the Geo-Replication feature enabled, you can manage the feature from the **Geo-Replication (preview)** blade. 
 
 ### Switch replication mode
 
@@ -198,7 +178,7 @@ To remove a secondary region, click on the **...**-ellipsis next to the region, 
 A promotion is triggered manually by the customer (either explicitly through a command, or through client owned business logic that triggers the command) and never by Azure. It gives the customer full ownership and visibility for outage resolution on Azure's backbone. When choosing **Planned** promotion, the service waits to catch up the replication lag before initiating the promotion. On the other hand, when choosing **Forced** promotion, the service immediately initiates the promotion. The namespace will be placed in read-only mode from the time that a promotion is requested, until the time that the promotion has completed. It is possible to do a forced promotion at any time after a planned promotion has been initiated. This puts the user in control to expedite the promotion, when a planned failover takes longer than desired.
 
 > [!IMPORTANT]
-> When using **Forced** promotion, any data that has not been replicated may be lost.
+> When using **Forced** promotion, any data or metadata that has not been replicated may be lost. Additionally, as specific state changes have not been replicated yet, this may also result in duplicate messages being received, for example when a Complete or Defer state change was not replicated.
 
 After the promotion is initiated:
 
@@ -224,12 +204,12 @@ In the portal, click on the **Promote** icon, and follow the instructions in the
 Execute the Azure CLI command to initiate the promotion. The **Force** property is optional, and defaults to **false**.
 
 ```azurecli
-az rest --method post --url https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.ServiceBus/namespaces/<namespaceName>/failover?api-version=2023-01-01-preview --body "{'properties': {'PrimaryLocation': '<newPrimaryLocation>', 'api-version':'2023-01-01-preview', 'Force':'false'}}"
+az rest --method post --url https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.ServiceBus/namespaces/<namespaceName>/failover?api-version=2024-01-01 --body "{'properties': {'PrimaryLocation': '<newPrimaryLocation>', 'api-version':'2024-01-01', 'Force':'false'}}"
 ```
 
 ### Monitoring data replication
 Users can monitor the progress of the replication job by monitoring the replication lag metric in Log Analytics.
-- Enable Metrics logs in your Service Bus namespace as described at [Monitor Azure Service Bus](/azure/service-bus-messaging/monitor-service-bus). 
+- Enable Metrics logs in your Service Bus namespace as described at [Monitor Azure Service Bus](monitor-service-bus.md). 
 - Once Metrics logs are enabled, you need to produce and consume data from the namespace for a few minutes before you start to see the logs. 
 - To view Metrics logs, navigate to Monitoring section of Service Bus and click on the **Logs** blade. You can use the following query to find the replication lag (in seconds) between the primary and secondary regions. 
 
@@ -252,19 +232,57 @@ Consuming applications can consume data using the namespace hostname of a namesp
 
 ## Considerations
 
-Note the following considerations to keep in mind with this release:
+Note the following considerations to keep in mind with this feature:
 
 - In your promotion planning, you should also consider the time factor. For example, if you lose connectivity for longer than 15 to 20 minutes, you might decide to initiate the promotion.
 - Promoting a complex distributed infrastructure should be [rehearsed](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) at least once.
 
 ## Pricing
-The Premium tier for Service Bus is priced per [Messaging Unit](service-bus-premium-messaging.md#how-many-messaging-units-are-needed). With the Geo-Replication feature, secondary regions run on the same number of MUs as the primary region, and the pricing is calculated over the total number of MUs. Additionally, there's a charge for based on the published bandwidth times the number of secondary regions. During the early public preview, this charge is waived.
+The Premium tier for Service Bus is priced per [Messaging Unit](service-bus-premium-messaging.md#how-many-messaging-units-are-needed). With the Geo-Replication feature, secondary regions run on the same number of MUs as the primary region, and the pricing is calculated over the total number of MUs. Additionally, there's a charge for based on the published bandwidth times the number of secondary regions.
+
+The total cost can be calculated as following.
+</br>
+(number of replicas x number of MUs configured on primary x hours x hourly rate) + (number of GBs replicated * Geo-Replication Data Transfer rate for the zone where the primary region was located at the time).
+
+For example, if you have a namespace with 2MU configured on the primary namespace, and you have 10GB of data transfer, the calculation would look as below.
+</br>
+(2 * 2 * hours * hourly rate) + (10 * Geo-Replication Data Transfer rate)
+
+## Criteria to trigger promotion
+Here are some cases where a promotion of secondary to primary may be triggered.
+- Regional Outage: If there is a regional outage affecting the primary region, you should promote the secondary region to ensure business continuity and minimize downtime.
+- Maintenance Activities: During planned maintenance activities in the primary region, promoting the secondary region can help maintain high availability for mission-critical applications.
+- Disaster Recovery: In the event of a disaster affecting the primary region, promoting the secondary region ensures that your data remains accessible and your applications continue to function.
+- Performance Issues: If the primary region is experiencing performance issues that impact the availability or reliability of your namespace, promoting the secondary region can help mitigate these issues.
+
+It is recommended to periodically test failover mechanisms to ensure the business continuity plan is effective and your applications can seamlessly switch to the secondary region when needed.
+
+## Migration
+To migrate from [Geo-Disaster Recovery](service-bus-geo-dr.md) to Geo-Replication, first break the pairing on your primary namespace.
+
+:::image type="content" source="./media/service-bus-geo-replication/break-geo-dr-pairing.png" alt-text="Screenshot showing to click the Break pairing button in the Geo-DR overview.":::
+
+Once the pairing has been broken, you can follow the [setup](#setup) to enable Geo-Replication.
+
+## Private endpoints
+
+This section provides additional considerations when using Geo-Replication with namespaces that utilize private endpoints. For general information on using private endpoints with Service Bus, see [Integrate Azure Service Bus with Azure Private Link](private-link-service.md).
+
+When implementing Geo-Replication for a Service Bus namespace that uses private endpoints, it is important to create private endpoints for both the primary and secondary regions. These endpoints should be configured against virtual networks hosting both primary and secondary instances of your application. For example, if you have two virtual networks, VNET-1 and VNET-2, you need to create two private endpoints on the Service Bus namespace, using subnets from VNET-1 and VNET-2 respectively. Moreover, the VNETs should be set up with [cross-region peering](/azure/virtual-network/virtual-network-peering-overview), so that clients can communicate with either of the private endpoints. Finally, the [DNS](/azure/private-link/private-endpoint-dns) needs to be managed in such a way that all clients get the DNS information, which should point the namespace endpoint (namespacename.servicebus.windows.net) to the IP address of the private endpoint in the current primary region.
+
+> [!IMPORTANT]
+> When [promoting](#promotion-flow) a secondary region for Service Bus, the DNS entry also needs to be updated to point to the corresponding endpoint.
+
+:::image type="content" source="./media/service-bus-geo-replication/geo-replication-private-endpoints.png" alt-text="Screenshot showing two VNETs with their own private endpoints and VMs connected to an on-premises instance and a Service Bus namespace.":::
+
+The advantage of this approach is that failover can occur independently at the application layer or on the Service Bus namespace:
+
+- Application-only failover: In this scenario, the application moves from VNET-1 to VNET-2. Since private endpoints are configured on both VNET-1 and VNET-2 for both primary and secondary namespaces, the application continues to function seamlessly.
+- Service Bus namespace-only failover: Similarly, if the failover occurs only at the Service Bus namespace level, the application remains operational because private endpoints are configured on both virtual networks.
+
+By following these guidelines, you can ensure robust and reliable failover mechanisms for your Service Bus namespaces using private endpoints.
 
 ## Next steps
-
-- See the Geo-Replication [REST API reference here](/rest/api/servicebus/controlplane-stable/disaster-recovery-configs).
-- Run the Geo-Replication [sample on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2).
-- See the Geo-Replication [sample that sends messages to an alias](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1).
 
 To learn more about Service Bus messaging, see the following articles:
 

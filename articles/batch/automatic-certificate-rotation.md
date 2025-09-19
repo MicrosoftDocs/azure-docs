@@ -1,9 +1,10 @@
 ---
 title: Enable automatic certificate rotation in a Batch pool
 description: You can create a Batch pool with a managed identity and a certificate that can automatically be renewed.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom:
 ms.date: 04/16/2024
+# Customer intent: As a cloud architect, I want to enable automatic certificate rotation in a Batch pool, so that I can maintain secure application environments without manual certificate management.
 ---
 
 # Enable automatic certificate rotation in a Batch pool

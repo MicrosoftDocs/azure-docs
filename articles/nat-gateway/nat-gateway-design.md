@@ -6,6 +6,7 @@ ms.author: allensu
 ms.service: azure-nat-gateway
 ms.topic: concept-article #Required; leave this attribute/value as-is.
 ms.date: 04/29/2024
+# Customer intent: "As a network architect, I want to design virtual networks using a NAT gateway so that I can ensure efficient outbound connectivity and manage SNAT port inventory for scalable production workloads."
 ---
 
 # Design virtual networks with Azure NAT Gateway

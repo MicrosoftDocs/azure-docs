@@ -406,7 +406,7 @@ $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import –S
 New-AzureRMDisk -ResourceGroupName <Resource group name> -DiskName <Disk name> -Disk $DiskConfig
 ```
 
-Here's some example output. For more information about this cmdlet, see [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk?view=azurermps-6.13.0&preserve-view=true).
+Here's some example output. For more information about this cmdlet, see [New-AzureRmDisk](/powershell/azure/what-is-azure-powershell).
 
 ```output
 Tags               : New-AzureRmDisk -ResourceGroupName rg191113014333 -DiskName ld191113014333 -Disk $DiskConfig
@@ -503,7 +503,7 @@ New-AzureRmImage -Image $imageConfig -ImageName <Image name>  -ResourceGroupName
 
 The supported OS types are Linux and Windows.
 
-Here's some example output. For more information about this cmdlet, see [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage?view=azurermps-6.13.0&preserve-view=true).
+Here's some example output. For more information about this cmdlet, see [New-AzureRmImage](/powershell/azure/what-is-azure-powershell).
 
 ```output
 PS C:\Windows\system32> New-AzImage -Image $imageConfig -ImageName ig191113014333    -ResourceGroupName RG191113014333
@@ -949,7 +949,7 @@ For more information about this cmdlet, see [Start-AzVM](/powershell/module/az.c
 Start-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>
 ```
 
-For more information about this cmdlet, see [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0&preserve-view=true).
+For more information about this cmdlet, see [Start-AzureRmVM](/powershell/azure/get-started-azureps).
 
 ---
 
@@ -971,7 +971,7 @@ For more information about this cmdlet, see [Stop-AzVM cmdlet](/powershell/modul
 Stop-AzureRmVM [-Name] <String> [-StayProvisioned] [-ResourceGroupName] <String>
 ```
 
-For more information about this cmdlet, see [Stop-AzureRmVM cmdlet](/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-6.13.0&preserve-view=true).
+For more information about this cmdlet, see [Stop-AzureRmVM cmdlet](/powershell/module/az.compute/stop-azvm).
 
 ---
 
@@ -1043,10 +1043,10 @@ For more information about this cmdlet, see [Remove-AzVm cmdlet](/powershell/mod
 ```powershell
 Remove-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>
 ```
-For more information about this cmdlet, see [Remove-AzureRmVm cmdlet](/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0&preserve-view=true).
+For more information about this cmdlet, see [Remove-AzureRmVm cmdlet](/powershell/azure/uninstall-az-ps).
 
 ---
 
 ## Next steps
 
-[Azure Resource Manager cmdlets](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)
+[Azure Resource Manager cmdlets](/azure/automation/shared-resources/modules)

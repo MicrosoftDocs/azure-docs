@@ -8,7 +8,7 @@ ms.topic: overview
 ms.subservice: sql 
 ms.date: 04/15/2020 
 ms.author: stefanazaric 
-ms.reviewer: whhender
+ms.custom: sfi-image-nochange
 ---
  
 # Connect to Synapse SQL with Azure Data Studio

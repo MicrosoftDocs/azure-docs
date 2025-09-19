@@ -1,13 +1,13 @@
 ---
 title: Get started with Microsoft Customer Agreement billing account - Azure
 description: Learn about your Microsoft Customer Agreement billing account, including billing profiles and invoice payment methods.
-author: bandersmsft
-ms.reviewer: amberbhargava
+author: jkinma39
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 06/27/2024
-ms.author: banders
+ms.date: 04/27/2025
+ms.author: jkinma
 ---
 
 # Get started with your Microsoft Customer Agreement billing account
@@ -28,7 +28,7 @@ Roles on the billing account have the highest level of permissions. By default, 
 
 ## Billing profiles
 
-Use a billing profile to manage your invoice and payment methods. A monthly invoice is generated at the beginning of the month for each billing profile in your account. The invoice contains respective charges for all Azure subscriptions and other purchases from the previous month.
+Use a billing profile to manage your invoice and payment methods. A monthly invoice is generated at the beginning of the month for each billing profile in your account. The invoice contains respective charges for all Azure subscriptions from the previous month.
 
 A billing profile is automatically created for your billing account. It contains one invoice section by default. You can create more sections to easily track and organize costs based on your needs whether is it per project, department, or development environment. The sections are shown on the billing profile's invoice reflecting the usage of each subscription and purchases you assigned to it.
 

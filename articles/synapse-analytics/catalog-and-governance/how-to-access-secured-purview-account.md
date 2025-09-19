@@ -7,7 +7,7 @@ ms.subservice: purview
 ms.topic: how-to
 ms.date: 09/02/2021
 ms.author: jingwang
-ms.reviewer: whhender
+ms.custom: sfi-image-nochange
 ---
 
 # Access a secured Microsoft Purview account from Azure Synapse Analytics

@@ -1,14 +1,16 @@
 ---
 title: 'Quickstart: Create an Azure Synapse Analytics workspace using PowerShell'
 description: Create an Azure Synapse Analytics workspace using Azure PowerShell by following the steps in this article.
-author: WilliamDAssafMSFT
+author: juluczni
 ms.service: azure-synapse-analytics
 ms.topic: quickstart
 ms.subservice: workspace
 ms.date: 02/04/2022
-ms.author: wiassaf
-ms.reviewer: whhender
-ms.custom: devx-track-azurepowershell, mode-api
+ms.author: juluczni
+ms.custom:
+  - devx-track-azurepowershell
+  - mode-api
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create an Azure Synapse Analytics workspace with Azure PowerShell

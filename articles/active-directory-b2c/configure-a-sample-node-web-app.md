@@ -6,15 +6,18 @@ titleSuffix: Azure AD B2C
 author: kengaderdus
 manager: CelesteDG
 ms.service: azure-active-directory
-ms.custom: devx-track-js
 ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: b2c
+ms.custom:
+  - devx-track-js
+  - sfi-image-nochange
 #Customer intent: As a developer, I want to configure authentication in a Node.js web application using Azure Active Directory B2C, so that I can enable users to sign in, sign out, update profile, and reset password using Azure AD B2C user flows.
 ---
 
 # Configure authentication in a sample Node.js web application by using Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This sample article uses a sample Node.js application to show how to add Azure Active Directory B2C (Azure AD B2C) authentication to a Node.js web application. The sample application enables users to sign in, sign out, update profile and reset password using Azure AD B2C user flows. The sample web application uses [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) to handle authentication and authorization.
 

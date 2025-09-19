@@ -3,13 +3,14 @@ title: Upload a blob with JavaScript or TypeScript
 titleSuffix: Azure Storage
 description: Learn how to upload a blob to your Azure Storage account using the JavaScript client library.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
-ms.date: 10/28/2024
+author: stevenmatthew
+ms.author: shaas
+ms.date: 03/25/2025
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
+# Customer intent: As a developer using JavaScript or TypeScript, I want to upload blobs to Azure Storage so that I can manage data efficiently and utilize various upload methods suited to different data types and requirements.
 ---
 
 # Upload a blob with JavaScript or TypeScript
@@ -35,6 +36,9 @@ You can use any of the following methods to upload data to a block blob:
 - [uploadStream](/javascript/api/@azure/storage-blob/blockblobclient#@azure-storage-blob-blockblobclient-uploadstream) (only available in Node.js runtime)
 
 Each of these methods can be called using a [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object.
+
+> [!NOTE]
+> The Azure Storage client libraries don't support concurrent writes to the same blob. If your app requires multiple processes writing to the same blob, you should implement a strategy for concurrency control to provide a predictable experience. To learn more about concurrency strategies, see [Manage concurrency in Blob Storage](concurrency-manage.md).
 
 ## Upload a block blob from a file path
 
@@ -185,3 +189,4 @@ View code samples from this article (GitHub):
 - [Use blob index tags to manage and find data on Azure Blob Storage](storage-blob-index-how-to.md)
 
 [!INCLUDE [storage-dev-guide-next-steps-javascript](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-javascript.md)]
+

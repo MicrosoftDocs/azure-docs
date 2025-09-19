@@ -5,9 +5,14 @@ author: KarlErickson
 ms.author: karler
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 06/27/2024
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 zone_pivot_groups: spring-apps-tier-selection
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 ---
 
 # Use Application Insights Java In-Process Agent in Azure Spring Apps
@@ -50,7 +55,7 @@ When the **Application Insights** feature is enabled, you can:
 
    :::image type="content" source="media/how-to-application-insights/insights-process-agent-map.png" alt-text="Screenshot of the Azure portal that shows the Application Insights Application map page." lightbox="media/how-to-application-insights/insights-process-agent-map.png":::
 
-* Select the link between customers-service and `petclinic` to see more details such as a query from SQL.
+* Select the link between **customers-service** and **petclinic** to see more details such as a query from SQL.
 * Select an endpoint to see all the applications making requests to the endpoint.
 
 * In the navigation pane, select **Performance** to see the performance data of all applications' operations, dependencies, and roles.
@@ -74,7 +79,7 @@ When the **Application Insights** feature is enabled, you can:
 
    :::image type="content" source="media/how-to-application-insights/petclinic-microservices-availability.png" alt-text="Screenshot of the Azure portal that shows the Application Insights Availability page." lightbox="media/how-to-application-insights/petclinic-microservices-availability.png":::
 
-* In the navigation pane, select **Logs** to view all applications' logs, or one application's logs when filtering by `cloud_RoleName`.
+* In the navigation pane, select **Logs** to view all applications' logs, or one application's logs when filtering by **cloud_RoleName**.
 
    :::image type="content" source="media/how-to-application-insights/application-insights-application-logs.png" alt-text="Screenshot of the Azure portal that shows the Application Insights Logs page." lightbox="media/how-to-application-insights/application-insights-application-logs.png":::
 

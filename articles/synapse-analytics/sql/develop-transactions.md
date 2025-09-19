@@ -7,7 +7,7 @@ ms.subservice: sql
 ms.date: 04/15/2020
 author: KevinConanMSFT
 ms.author: kecona
-ms.reviewer: wiassaf 
+ 
 ---
 
 # Use transactions with dedicated SQL pool in Azure Synapse Analytics

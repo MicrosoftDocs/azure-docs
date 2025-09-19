@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: Troubleshoot resource health
 titleSuffix: Azure Digital Twins
 description: Learn how to use Azure Resource Health to check the health of your Azure Digital Twins instance.
 author: baanders
-ms.author: baanders # Microsoft employees only
-ms.date: 11/1/2022
+ms.author: baanders
+ms.date: 06/17/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Troubleshoot Azure Digital Twins resource health
@@ -27,11 +21,11 @@ To check the health of your instance, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Digital Twins instance. You can find it by typing its name into the portal search bar. 
 
-2. From your instance's menu, select **Resource health** under **Support + troubleshooting**. This will take you to the page for viewing resource health history. 
+2. From your instance's menu, select **Help** > **Resource health**. This will take you to the page for viewing resource health history. 
 
-    :::image type="content" source="media/troubleshoot-resource-health/resource-health.png" alt-text="Screenshot showing the 'Resource health' page. There is a 'Health history' section showing a daily report from the last nine days.":::
+    :::image type="content" source="media/troubleshoot-resource-health/resource-health.png" alt-text="Screenshot showing the Resource health page. There is a Health history section showing a daily report from the last nine days.":::
 
-In the image above, this instance is showing as **Available**, and has been for the past nine days. To learn more about the Available status and the other status types that may appear, see [Resource Health overview](/azure/service-health/resource-health-overview).
+In the previous image, this instance is showing as **Available**, and has been for the past nine days. To learn more about the Available status and the other status types that may appear, see [Resource Health overview](/azure/service-health/resource-health-overview).
 
 You can also learn more about the different checks that go into resource health for different types of Azure resources in [Resource types and health checks in Azure resource health](/azure/service-health/resource-health-checks-resource-types).
 

@@ -10,7 +10,9 @@ ms.topic: reference
 ms.date: 10/11/2024
 ms.author: kengaderdus
 ms.subservice: b2c
-ms.custom: "b2c-support"
+ms.custom:
+  - "b2c-support"
+  - sfi-image-nochange
 
 
 #Customer intent: As a developer building a single-page application, I want to configure Azure AD B2C authentication in my application, so that users can sign up, sign in, and access protected resources using the OIDC PKCE flow.
@@ -18,6 +20,7 @@ ms.custom: "b2c-support"
 ---
 
 # Configure authentication in a sample single-page application by using Azure AD B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article uses a sample JavaScript single-page application (SPA) to illustrate how to add Azure Active Directory B2C (Azure AD B2C) authentication to your SPAs.
 

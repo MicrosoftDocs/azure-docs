@@ -82,7 +82,7 @@ Follow these steps to plug Google Tag Manager into your managed or self-hosted d
     }
     ```
 
-## Next steps
+## Related content
 
 - [Automate portal deployments](automate-portal-deployments.md)
 - [Self-host the developer portal](developer-portal-self-host.md)

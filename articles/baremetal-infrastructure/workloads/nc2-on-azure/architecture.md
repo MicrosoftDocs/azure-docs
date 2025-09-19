@@ -6,8 +6,9 @@ description: Learn about the architecture of several configurations of BareMetal
 ms.topic: reference
 ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
-ms.date: 08/15/2024
+ms.date: 04/23/2025
 ms.service: azure-baremetal-infrastructure
+# Customer intent: "As a cloud architect, I want to understand the architecture of BareMetal Infrastructure for NC2 on Azure, so that I can design scalable and efficient private cloud solutions integrated with existing services."
 ---
 
 # Nutanix Cloud Clusters (NC2) on Azure architectural concepts
@@ -17,7 +18,7 @@ NC2 provides Nutanix-based private clouds in Azure. The private cloud hardware a
 A private cloud includes clusters with:
 
 - Dedicated bare-metal server hosts provisioned with Nutanix AHV hypervisor
-- Nutanix Prism Central for managing Nutanix Prism Element, Nutanix AHV and Nutanix AOS.
+- Nutanix Prism Central for managing Nutanix Prism Element, Nutanix AHV, and Nutanix AOS.
 - Nutanix Flow software-defined networking for Nutanix AHV workload VMs
 - Nutanix AOS software-defined storage for Nutanix AHV workload VMs
 - Nutanix Move for workload mobility
@@ -27,7 +28,7 @@ Private clouds are installed and managed within an Azure subscription. The numbe
 
 The following diagram describes the architectural components of the NC2 on Azure.
 
-:::image type="content" source="media/nc2-on-azure-architecture-overview.png" alt-text="Diagram illustrating the NC2 on Azure architecutural overview." border="false"  lightbox="media/nc2-on-azure-architecture-overview.png":::
+:::image type="content" source="media/nc2-on-azure-architecture-overview.png" alt-text="Diagram illustrating the NC2 on Azure architectural overview." border="false"  lightbox="media/nc2-on-azure-architecture-overview.png":::
 
 Each NC2 on Azure architectural component has the following function:
 
@@ -39,8 +40,8 @@ Each NC2 on Azure architectural component has the following function:
 - Nutanix Disaster Recovery: Provides disaster recovery automation and storage replication services.
 - Nutanix Files: Provides filer services.
 - Nutanix Self Service: Provides application lifecycle management and cloud orchestration.
-- Nutanix Cost Governance: Provides multi-cloud optimization to reduce cost & enhance cloud security.
-- Azure Virtual Network (VNet): Private network used to connect AHV hosts, Azure services and resources together.
+- Nutanix Cost Governance: Provides multicloud optimization to reduce cost & enhance cloud security.
+- Azure Virtual Network (VNet): Private network used to connect AHV hosts, Azure services, and resources together.
 - Azure Route Server: Enables network appliances to exchange dynamic route information with Azure networks.
 - Azure Virtual Network Gateway: Cross premises gateway for connecting Azure services and resources to other private networks using IPsec VPN, ExpressRoute, and VNet to VNet.
 - Azure ExpressRoute: Provides high-speed private connections between Azure data centers and on-premises or colocation infrastructure.
@@ -55,76 +56,19 @@ Learn about use cases and supported scenarios for NC2 on Azure, including cluste
 That operations and cluster management be nearly identical to on-premises is critical to customers.
 Customers can update capacity, monitor alerts, replace hosts, monitor usage, and more by combining the respective strengths of Microsoft and Nutanix.
 
-### Disaster recovery
-
-Disaster recovery is critical to cloud functionality.
-A disaster can be any of the following:
-
-- Cyber attack
-- Data breach
-- Equipment failure
-- Natural disaster
-- Data loss
-- Human error
-- Malware and viruses
-- Network and internet blips
-- Hardware and/or software failure
-- Weather catastrophes
-- Flooding
-- Office vandalism
-
-When a disaster strikes, the goal of any DR plan is to ensure operations run as normally as possible.
-While the business will be aware of the crisis, ideally, its customers and end-users shouldn't be affected.
-
-### On-demand elasticity
-
-Scale up and scale out as you like.
-We provide the flexibility that means you don't have to procure hardware yourself - with just a click of a button you can get additional nodes in the cloud nearly instantly.
-
 ### Lift and shift
 
 Move applications to the cloud and modernize your infrastructure.
 Applications move with no changes, allowing for flexible operations and minimum downtime.
 
-## Supported SKUs and instances
+### Disaster recovery
 
-The following table presents component options for each available SKU.
+Use Azure as a disaster recovery site to provision nodes and failover your Nutanix VMs and workloads. The hardware is available on-demand and in the cloud without requiring you to invest in pre-provisioning a secondary data center environment. 
+ 
+### On-demand elasticity
 
-| Component |Ready Node for Nutanix AN36|Ready Node for Nutanix AN36P|
-| :------------------- | -------------------: |:---------------:|
-|Core|Intel 6140, 36 Core, 2.3 GHz|Intel 6240, 36 Core, 2.6 GHz|
-|vCPUs|72|72|
-|RAM|576 GB|768 GB|
-|Storage|18.56 TB (8 x 1.92 TB SATA SSD, 2x1.6TB NVMe)|20.7 TB (2x750 GB Optane, 6x3.2-TB NVMe)|
-|Network (available bandwidth between nodes)|25 Gbps|25 Gbps|
-
-Nutanix Clusters on Azure supports:
-
-* Minimum of three bare metal nodes per cluster.
-* Maximum of 28 bare metal nodes per cluster.
-* Only the Nutanix AHV hypervisor on Nutanix clusters running in Azure.
-* Prism Central instance deployed on Nutanix Clusters on Azure to manage the Nutanix clusters in Azure.
-
-## Supported regions
-
-When planning your NC2 on Azure design, use the following table to understand what SKUs are available in each Azure region.
-
-| Azure region | SKU   |
-| :---         | :---: |
-| Australia East | AN36P |
-| Central India | AN36P |
-| East US | AN36 |
-| East US 2 | AN36P |
-| Germany West Central | AN36P |
-| Japan East | AN36P |
-| North Central US | AN36P |
-| Qatar Central | AN36P |
-| Southeast Asia | AN36P |
-| South India | AN36P |
-| UAE North | AN36P |
-| UK South | AN36P |
-| West Europe | AN36P |
-| West US 2 | AN36 |
+Scale up and scale out as you like.
+We provide the flexibility that means you don't have to procure hardware yourself - with just a click of a button you can get additional nodes in the cloud nearly instantly.
 
 ## Deployment example
 
@@ -160,35 +104,35 @@ The following table describes the network topologies supported by each network f
 | :------------------- |:---------------:|
 |Connectivity to BareMetal Infrastructure (BMI) in a local VNet| Yes |
 |Connectivity to BMI in a peered VNet (Same region)|Yes |
-|Connectivity to BMI in a peered VNet\* (Cross region or global peering) with VWAN\*|Yes |
-|Connectivity to BM in a peered VNet* (Cross region or global peering)* without VWAN| No|
-|On-premises connectivity to Delegated Subnet via Global and Local Expressroute |Yes|
-|ExpressRoute (ER) FastPath |No |
+|Connectivity to BMI in a peered VNet (Cross region or global peering) with VWAN |Yes |
+|Connectivity to BMI in a peered VNet (Cross region or global peering) without VWAN*| No|
+|On-premises connectivity to Delegated Subnet via Global and Local ExpressRoute |Yes|
 |Connectivity from on-premises to BMI in a spoke VNet over ExpressRoute gateway and VNet peering with gateway transit|Yes |
-|On-premises connectivity to Delegated Subnet via VPN GW| Yes |
+|ExpressRoute (ER) FastPath |No |
+|On-premises connectivity to Delegated Subnet via VPN Gateway| Yes |
 |Connectivity from on-premises to BMI in a spoke VNet over VPN gateway and VNet peering with gateway transit| Yes |
-|Connectivity over Active/Passive VPN gateways| Yes |
-|Connectivity over Active/Active VPN gateways| No |
+|Connectivity over Active/Passive VPN Gateways| Yes |
+|Connectivity over Active/Active VPN Gateways| No |
 |Connectivity over Active/Active Zone Redundant gateways| No |
 |Transit connectivity via vWAN for Spoke Delegated VNETS| Yes |
 |On-premises connectivity to Delegated subnet via vWAN attached SD-WAN| No|
-|On-premises connectivity via Secured HUB(Az Firewall NVA) | No|
-|Connectivity from UVMs on NC2 nodes to Azure resources|Yes|
+|VWAN enables traffic inspection via NVA (Secure vWAN)**|Yes|
+|[User-defined routes (UDRs)](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) on NC2 on Azure-delegated subnets| Yes|
+|Connectivity from BareMetal to [service endpoints](../../../virtual-network/virtual-network-service-endpoints-overview.md) or [private endpoints][def] in a different spoke Vnet connected to vWAN|Yes|
+|Connectivity from BareMetal to [service endpoints](../../../virtual-network/virtual-network-service-endpoints-overview.md) or [private endpoints][def] in the same Vnet on Azure-delegated subnets|No|
+|Connectivity from User VMs (UVMs) on NC2 nodes to Azure resources|Yes|
 
 \* You can overcome this limitation by setting Site-to-Site VPN.
 
+\** If using Routing Intent you must add either the full delegated subnet CIDR or a more specific CIDR range as "Additional Prefixes" section under the Routing Intent and Routing Policies page in the portal 
 ## Constraints
 
 The following table describes what’s supported for each network features configuration:
 
-|Features |Basic network features |
+|Features |Support or Limit|
 | :------------------- | -------------------: |
 |Delegated subnet per VNet |1|
 |[Network Security Groups](../../../virtual-network/network-security-groups-overview.md) on NC2 on Azure-delegated subnets|No|
-|VWAN enables traffic inspection via NVA (Virtual WAN Hub routing intent)|Yes|
-|[User-defined routes (UDRs)](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) on NC2 on Azure-delegated subnets without VWAN| Yes|
-|Connectivity from BareMetal to [private endpoints](../../../private-link/private-endpoint-overview.md) in the same Vnet on Azure-delegated subnets|No|
-|Connectivity from BareMetal to [private endpoints](../../../private-link/private-endpoint-overview.md) in a different spoke Vnet connected to vWAN|Yes|
 |Load balancers for NC2 on Azure traffic|No|
 |Dual stack (IPv4 and IPv6) virtual network|IPv4 only supported|
 
@@ -198,3 +142,6 @@ Learn more:
 
 > [!div class="nextstepaction"]
 > [Getting Started](get-started.md)
+
+
+[def]: ../../../private-link/private-endpoint-overview.md

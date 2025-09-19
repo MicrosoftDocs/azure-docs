@@ -7,9 +7,11 @@ author: cherylmc
 
 ms.service: azure-virtual-wan
 ms.topic: concept-article
-ms.date: 07/28/2023
+ms.date: 03/26/2025
 ms.author: cherylmc
-ms.custom: references_pricing
+ms.custom:
+  - references_pricing
+  - sfi-image-nochange
 
 ---
 

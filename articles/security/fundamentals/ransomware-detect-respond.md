@@ -6,15 +6,15 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 01/10/2022
+ms.date: 04/16/2025
 
 ---
 
 # Detect and respond to ransomware attacks
 
-There are several potential triggers that might indicate a ransomware incident.  Unlike many other types of malware, most will be higher-confidence triggers (where little additional investigation or analysis should be required prior to the declaration of an incident) rather than lower-confidence triggers (where more investigation or analysis would likely be required before an incident should be declared).  
+Ransomware incidents typically present with distinct warning signs that security teams can identify. Unlike other malware types, ransomware usually produces highly evident indicators that require minimal investigation before declaring an incident. These high-confidence triggers stand in contrast to more subtle threats that would demand extensive analysis before escalation. When ransomware strikes, the evidence is often unmistakable.
 
-In general, such infections obvious from basic system behavior, the absence of key system or user files and the demand for ransom.  In this case, the analyst should consider whether to immediately declare and escalate the incident, including taking any automated actions to mitigate the attack. 
+In general, such infections are obvious from basic system behavior, the absence of key system or user files, and the demand for ransom. In such cases, the analyst should consider whether to immediately declare and escalate the incident, including taking any automated actions to mitigate the attack.
 
 ## Detecting ransomware attacks
 
@@ -25,7 +25,7 @@ Ensure rapid detection and remediation of common attacks on VMs, SQL Servers, We
 - **Prioritize Common Entry Points** – Ransomware (and other) operators favor Endpoint/Email/Identity + Remote Desktop Protocol (RDP)
   - **Integrated XDR** - Use integrated Extended Detection and Response (XDR) tools like Microsoft [Defender for Cloud](https://azure.microsoft.com/services/azure-defender/) to provide high quality alerts and minimize friction and manual steps during response
   - **Brute Force** - Monitor for brute-force attempts like [password spray](/defender-for-identity/compromised-credentials-alerts)
-- **Monitor for Adversary Disabling Security** – as this is often part of Human-Operated Ransomware (HumOR) attack chain
+- **Monitor for Adversary Disabling Security** – Often part of Human-Operated Ransomware (HumOR) attack chain
 
 - **Event Logs Clearing** – especially the Security Event log and PowerShell Operational logs
   - **Disabling of security tools/controls** (associated with some groups)
@@ -37,19 +37,19 @@ Ensure rapid detection and remediation of common attacks on VMs, SQL Servers, We
 
 ### Incident declaration
 
-Once a successful ransomware infection has been confirmed, the analyst should verify this represents a new incident or whether it might be related to an existing incident.  Look for currently open tickets that indicate similar incidents.  If so, update the current incident ticket with new information in the ticketing system. If this is a new incident, an incident should be declared in the relevant ticketing system and escalated to the appropriate teams or providers to contain and mitigate the incident.  Be mindful that managing ransomware incidents might require actions taken by multiple IT and security teams.  Where possible, ensure that the ticket is clearly identified as a ransomware incident to guide workflow.
+Once a successful ransomware infection is confirmed, the analyst should verify whether it represents a new incident or if it might be related to an existing incident. Look for currently open tickets that indicate similar incidents. If so, update the current incident ticket with new information in the ticketing system. If it is a new incident, an incident should be declared in the relevant ticketing system and escalated to the appropriate teams or providers to contain and mitigate the incident. Be mindful that managing ransomware incidents might require actions taken by multiple IT and security teams. Where possible, ensure that the ticket is clearly identified as a ransomware incident to guide workflow.
 
 ### Containment/Mitigation
 
-In general, various server/endpoint antimalware, email antimalware and network protection solutions should be configured to automatically contain and mitigate known ransomware.  There might be cases, however, where the specific ransomware variant has been able to bypass such protections and successfully infect target systems.
+In general, various server/endpoint anti-malware, email anti-malware, and network protection solutions should be configured to automatically contain and mitigate known ransomware. There might be cases, however, where the specific ransomware variant is able to bypass such protections and successfully infect target systems.
 
 Microsoft provides extensive resources to help update your incident response processes on the [Top Azure Security Best Practices](/azure/cloud-adoption-framework/secure/security-top-10#4-process-update-incident-response-processes-for-cloud).
 
-The following are recommended actions to contain or mitigate a declared incident involving ransomware where automated actions taken by antimalware systems have been unsuccessful:
+The following are recommended actions to contain or mitigate a declared incident involving ransomware where automated actions taken by anti-malware systems are unsuccessful:
 
-1. Engage antimalware vendors through standard support processes
-1. Manually add hashes and other information associated with malware to antimalware systems  
-1. Apply antimalware vendor updates
+1. Engage anti-malware vendors through standard support processes
+1. Manually add hashes and other information associated with malware to anti-malware systems  
+1. Apply anti-malware vendor updates
 1. Contain affected systems until they can be remediated 
 1. Disable compromised accounts
 1. Perform root cause analysis
@@ -59,7 +59,7 @@ The following are recommended actions to contain or mitigate a declared incident
 
 ## Road to recovery
 
-The Microsoft Detection and Response Team will help protect you from attacks
+The Microsoft Detection and Response Team help protect you from attacks
 
 Understanding and fixing the fundamental security issues that led to the compromise in the first place should be a priority for ransomware targets.
 

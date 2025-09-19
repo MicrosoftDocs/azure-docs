@@ -5,8 +5,10 @@ description: Learn about packet capture functionality that you can use on VPN ga
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 08/24/2023
+ms.date: 03/31/2025
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
+# Customer intent: As a network administrator, I want to configure packet capture on my VPN gateway, so that I can effectively diagnose and troubleshoot connectivity issues by narrowing down traffic analysis to specific network segments.
 ---
 
 # Configure packet capture for VPN gateways

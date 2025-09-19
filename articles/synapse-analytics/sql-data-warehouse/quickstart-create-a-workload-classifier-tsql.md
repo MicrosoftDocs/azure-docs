@@ -1,9 +1,8 @@
 ---
 title: "Quickstart: Create a workload classifier - T-SQL"
 description: Use T-SQL to create a workload classifier with high importance.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.reviewer: whhender
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 02/04/2020
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
@@ -11,6 +10,7 @@ ms.topic: quickstart
 ms.custom:
   - azure-synapse
   - mode-other
+  - sfi-ropc-nochange
 ---
 
 # Quickstart: Create a workload classifier using T-SQL

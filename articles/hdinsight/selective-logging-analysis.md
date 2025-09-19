@@ -3,8 +3,13 @@ title: Use selective logging with a script action for Azure Monitor Agent (AMA) 
 description: Learn how to use the selective logging feature with a script action to monitor logs for Azure Monitor Agent (AMA).
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.custom: references-regions
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 09/06/2024
+ms.custom:
+  - references-regions
+  - sfi-image-nochange
 ---
 
 # Use selective logging with a script action  for Azure Monitor Agent (AMA) in Azure HDInsight
@@ -152,7 +157,7 @@ For example, assume that `spark HDInsightSecurityLogs` is a table that has two l
 If you need to disable two tables and two source types, use the following syntax:
 
 - Spark: `InteractiveHiveMetastoreLog` log type in the `HDInsightHiveAndLLAPLogs` table
-- Hbase: `InteractiveHiveHSILog` log type in the `HDInsightHiveAndLLAPLogs` table
+- HBase: `InteractiveHiveHSILog` log type in the `HDInsightHiveAndLLAPLogs` table
 - Hadoop: `HDInsightHiveAndLLAPMetrics` table
 - Hadoop: `HDInsightHiveTezAppStats` table
 

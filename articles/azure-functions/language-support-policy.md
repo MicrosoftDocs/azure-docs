@@ -2,7 +2,7 @@
 title: Azure Functions language stack support policy
 description: Learn about the support policy for the various language stacks that Azure Functions supports.
 ms.topic: conceptual
-ms.date: 01/02/2025
+ms.date: 09/03/2025
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -20,7 +20,7 @@ The Functions runtime includes the Functions host and programming language-speci
 
 + **Retirement phase**:
 
-    After the language end-of-life date, function apps that use retired language versions can still be created and deployed, and they continue to run on the platform. However, these apps aren't eligible for new features, security patches, and performance optimizations until after you upgrade them to a supported language version.
+    After the language end-of-life date, function apps that use retired language versions can still be created and deployed, and they continue to run on the platform. However, these apps aren't eligible for new features, security patches, and performance optimizations until after you upgrade them to a supported language version. Further, if required, in certain cases we will limit the number of instances allocated to these apps including limit scaling to 1 instance.
 
     > [!IMPORTANT]
     >If you're running function apps using an unsupported runtime or language version, you might encounter issues and performance implications and are required to upgrade before receiving support for your function app. As such, you're highly encouraged to upgrade the language version of such an app to a supported version. TO learn how, see [Update language stack versions in Azure Functions](./update-language-versions.md).
@@ -38,33 +38,43 @@ Use these resources to better understand and plan for language support-related c
  
 | Resource | Details  |
 | --- | --- |
+| **Supported versions** | [Currently supported stack versions](supported-languages.md?pivots=programming-language-csharp#languages-by-runtime-version) | 
 | **Language version support timelines** | [.NET support policy page](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)|
 | **Configuring language versions** | [Isolated worker model](./dotnet-isolated-process-guide.md#supported-versions)<br/>[In-process model](./functions-dotnet-class-library.md#supported-versions)|
-| **Retired runtime versions**<sup>*</sup> | **v2.x**: .NET Core 2.1<br/>**v3.x**: .NET Core 3.1 & .NET 5<sup>**</sup>  |
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-typescript" 
+::: zone pivot="programming-language-typescript" 
 
 | Resource | Details  |
 | --- | --- |
+| **Supported versions** | [Currently supported stack versions](supported-languages.md?pivots=programming-language-typescript#languages-by-runtime-version) | 
 | **Language version support timelines** | [Node.js release page on GitHub](https://github.com/nodejs/Release#release-schedule)|
 | **Configuring language versions** | [Setting the Node version](./functions-reference-node.md#setting-the-node-version)|
-| **Retired runtime versions**<sup>*</sup> | **v2.x**: Node.js 10 & 8<br/>**v3.x**: Node.js 14, 12, & 10  |
+
+::: zone-end  
+::: zone pivot="programming-language-javascript" 
+
+| Resource | Details  |
+| --- | --- |
+| **Supported versions** | [Currently supported stack versions](supported-languages.md?pivots=programming-language-javascript#languages-by-runtime-version) | 
+| **Language version support timelines** | [Node.js release page on GitHub](https://github.com/nodejs/Release#release-schedule)|
+| **Configuring language versions** | [Setting the Node version](./functions-reference-node.md#setting-the-node-version)|
 
 ::: zone-end  
 ::: zone pivot="programming-language-java" 
 
 | Resource | Details  |
 | --- | --- |
+| **Supported versions** | [Currently supported stack versions](supported-languages.md?pivots=programming-language-java#languages-by-runtime-version) | 
 | **Language version support timelines** | [Java support on Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure)|
 | **Configuring language versions** | [Update the stack configuration](./update-language-versions.md#update-the-stack-configuration)|
-| **Retired runtime versions**<sup>*</sup> | **v2.x**: Java 8<br/>**v3.x**: Java 11 & 8  |
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 
 | Resource | Details  |
 | --- | --- |
+| **Supported versions** | [Currently supported stack versions](supported-languages.md?pivots=programming-language-powershell#languages-by-runtime-version) | 
 | **Language version support timelines** | [PowerShell Support Lifecycle](/powershell/scripting/powershell-support-lifecycle#powershell-end-of-support-dates)|
 | **Configuring language versions** | [Changing the PowerShell version](./functions-reference-python.md#python-version)|
 
@@ -73,18 +83,11 @@ Use these resources to better understand and plan for language support-related c
 
 | Resource | Details  |
 | --- | --- |
+| **Supported versions** | [Currently supported stack versions](supported-languages.md?pivots=programming-language-python#languages-by-runtime-version) | 
 | **Language version support timelines** | [Python developer's guide](https://devguide.python.org/#status-of-python-branches)|
 | **Configuring language versions** | [Changing Python version](functions-reference-python.md#changing-python-version)|
-| **Retired runtime versions**<sup>*</sup> | **v2.x**: Python 3.7<br/>**v3.x**: Python 3.9, 3.8, 3.7  |
 
 ::: zone-end  
-<sup>*</sup>Indicates the highest language stack level for no-longer-supported versions of the Functions runtime, such as runtime version 2.x.  
-::: zone pivot="programming-language-csharp"  
-<sup>**</sup>.NET 5 was only supported for C# apps running in the [isolated worker model](dotnet-isolated-process-guide.md).
-:::zone-end
-
-
-For the language levels currently supported by Azure Functions, see [Languages by runtime version](supported-languages.md#languages-by-runtime-version). 
 
 ## Frequently asked questions
 

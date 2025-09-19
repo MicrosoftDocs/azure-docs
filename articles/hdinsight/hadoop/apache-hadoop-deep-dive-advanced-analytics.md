@@ -4,6 +4,9 @@ description: Learn how advanced analytics uses algorithms to process big data in
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 09/06/2024
 ---
 
@@ -37,7 +40,7 @@ Along with selecting one or more best-fitting algorithms, you need to consider w
 | Algorithm Category| Use | Learning Type | Algorithms |
 | --- | --- | --- | -- |
 | Classification | Classify people or things into groups | Supervised | Decision trees, Logistic regression, neural networks |
-| Clustering | Dividing a set of examples into homogenous groups | Unsupervised | K-means clustering |
+| Clustering | Dividing a set of examples into homogeneous groups | Unsupervised | K-means clustering |
 | Pattern detection | Identify frequent associations in the data | Unsupervised | Association rules |
 | Regression | Predict numerical outcomes | Supervised | Linear regression, neural networks |
 | Reinforcement | Determine optimal behavior for robots | Reinforcement | Monte Carlo Simulations, DeepMind |

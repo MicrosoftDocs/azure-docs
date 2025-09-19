@@ -8,7 +8,8 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 09/04/2024
 ms.author: danlep
-
+ms.custom:
+  - build-2025
 ---
 # How to log events to Azure Event Hubs in Azure API Management
 
@@ -58,7 +59,7 @@ To create an Event Hubs connection string, see [Get an Event Hubs connection str
 ## Create an API Management logger
 The next step is to configure a [logger](/rest/api/apimanagement/current-ga/logger) in your API Management service so that it can log events to the event hub.
 
-Create and manage API Management loggers by using the [API Management REST API](/rest/api/apimanagement/current-preview/logger/create-or-update) directly or by using tools including [Azure PowerShell](/powershell/module/az.apimanagement/new-azapimanagementlogger), a Bicep template, or an Azure Resource Management template.
+Create and manage API Management loggers by using the [API Management REST API](/rest/api/apimanagement/current-preview/logger/create-or-update) directly or by using tools including [Azure PowerShell](/powershell/module/az.apimanagement/new-azapimanagementlogger), a Bicep file, or an Azure Resource Management template.
 
 ### Option 1: Logger with managed identity credentials (recommended)
 
@@ -89,7 +90,7 @@ Use the API Management [Logger - Create or Update](/rest/api/apimanagement/curre
 
 #### [Bicep](#tab/bicep)
 
-Include a snippet similar to the following in your Bicep template.
+Include a snippet similar to the following in your Bicep file.
 
 ```Bicep
 resource ehLoggerWithSystemAssignedIdentity 'Microsoft.ApiManagement/service/loggers@2022-08-01' = {
@@ -155,7 +156,7 @@ Use the API Management [Logger - Create or Update](/rest/api/apimanagement/curre
 
 #### [Bicep](#tab/bicep)
 
-Include a snippet similar to the following in your Bicep template.
+Include a snippet similar to the following in your Bicep file.
 
 ```Bicep
 resource ehLoggerWithUserAssignedIdentity 'Microsoft.ApiManagement/service/loggers@2022-08-01' = {
@@ -220,7 +221,7 @@ New-AzApiManagementLogger -Context $context -LoggerId "ContosoLogger1" -Name "Ap
 
 #### [Bicep](#tab/bicep)
 
-Include a snippet similar to the following in your Bicep template.
+Include a snippet similar to the following in your Bicep file.
 
 ```Bicep
 resource ehLoggerWithConnectionString 'Microsoft.ApiManagement/service/loggers@2022-08-01' = {
@@ -302,7 +303,7 @@ You can preview the log in Event Hubs by using [Azure Stream Analytics queries](
 3. On the **Enable real time insights from events** card, select **Start**.
 4. You should be able to preview the log on the **Input preview** tab. If the data shown isn't current, select **Refresh** to see the latest events.
 
-## Next steps
+## Related content
 * Learn more about Azure Event Hubs
   * [Get started with Azure Event Hubs](../event-hubs/event-hubs-c-getstarted-send.md)
   * [Receive messages with EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)

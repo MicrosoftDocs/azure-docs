@@ -8,11 +8,13 @@ manager: CelesteDG
 
 ms.service: azure-active-directory
 
-ms.custom: devx-track-js
 ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: b2c
+ms.custom:
+  - devx-track-js
+  - sfi-image-nochange
 
 
 #Customer intent: As a developer, I want to configure authentication in a Node.js web API using Azure Active Directory B2C, so that I can protect the web API with token-based authentication and ensure that requests are accompanied by a valid access token.
@@ -20,6 +22,7 @@ ms.subservice: b2c
 ---
 
 # Configure authentication in a sample Node.js web API by using Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In this article, you'll learn how to configure a sample Node.js web application to call a sample Node.js web API. The web API needs to be protected by Azure AD B2C itself. In this setup, a web app, such as *App ID: 1* calls a web API, such as *App ID: 2*. Users authenticate into the web app to acquire an access token, which is then used to call a protected web API.
 

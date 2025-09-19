@@ -143,7 +143,7 @@ For a fully functional sample that shows how to use an image template as a fill 
 ------------------------------------------------------------>
 
 > [!TIP]
-> The Azure Maps web SDK provides several customizable image templates you can use as fill patterns. For more information, see the [How to use image templates] document.
+> The Azure Maps Web SDK provides several customizable image templates you can use as fill patterns. For more information, see the [How to use image templates] document.
 
 ## Customize a polygon layer
 

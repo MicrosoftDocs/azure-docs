@@ -11,7 +11,7 @@ ms.subservice: device-update
 
 # Azure Device Update for IoT Hub import manifest schema
 
-When you import an update into Azure Device Update for Iot Hub, you also submit an associated JSON import manifest file that defines important information about the update. This article describes the schema used to create the JSON import manifest file.
+When you import an update into Azure Device Update for IoT Hub, you also submit an associated JSON import manifest file that defines important information about the update. This article describes the schema used to create the JSON import manifest file.
 
 To learn more about import manifest concepts and file structure, see [Azure Device Update for IoT Hub import manifest](import-concepts.md). To learn how to create the file, see [Prepare an update to import into Device Update for IoT Hub](import-update.md).
 

@@ -4,10 +4,11 @@ description: Learn best practice guidelines and how to them when using metrics a
 recommendations: false
 author: normesta
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: normesta
 ms.date: 05/10/2023
 ms.custom: "monitoring"
+# Customer intent: "As a storage administrator, I want to implement best practices for monitoring Azure Blob Storage, so that I can effectively analyze usage metrics and logs for improved performance, security, and cost management."
 ---
 
 # Best practices for monitoring Azure Blob Storage

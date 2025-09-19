@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 05/16/2024
 ms.author: kendownie
 recommendations: false
+# Customer intent: "As an IT administrator managing on-premises NAS solutions, I want to migrate our file storage to Azure file shares using DataBox, so that I can ensure data integrity, maintain accessibility during the transition, and eliminate reliance on local storage infrastructure."
 ---
 
 # Use DataBox to migrate from Network Attached Storage (NAS) to Azure file shares

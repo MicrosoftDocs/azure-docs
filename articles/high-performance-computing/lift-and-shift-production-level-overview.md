@@ -1,15 +1,16 @@
 ---
-title: "Production-level environment migration guide overview"
-description: Learn about what a production-level environment migration entails.
+title: "Production level environment migration overview"
+description: Learn what a high performance computing production-level environment migration entails.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 08/30/2024
+ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+# Customer intent: "As an IT administrator, I want to migrate my high-performance computing environment to the cloud, so that I can enhance performance, scalability, and efficiency while managing component dependencies effectively during the deployment process."
 ---
 
-# Production-level environment migration guide overview
+# Production level environment migration overview
 
 When you move an HPC infrastructure from the on-premises environment to the cloud, there are various aspects to be taken into account. This document provides guidance on how to create such HPC environment in the cloud. We recommend
 a two-phase approach. First, a proof-of-concept, and then a production-level environment. Once the production environment is up and running, only certain components should be modified over time, including changes on VM types and storage capabilities to best meet the varying requirements of users, projects, and business.

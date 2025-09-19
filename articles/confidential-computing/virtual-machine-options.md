@@ -6,8 +6,9 @@ ms.author: jushiman
 ms.reviewer: mattmcinnes
 ms.service: azure-virtual-machines
 ms.custom: devx-track-azurecli
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/15/2023
+# Customer intent: "As a cloud administrator, I want to evaluate confidential VM options on AMD and Intel processors, so that I can select the most suitable environment for my workloads with optimal security and performance."
 ---
 
 # Azure Confidential VM options
@@ -26,6 +27,10 @@ We offer the following VM sizes:
 | **DCadsv5-series** | AMD SEV-SNP | General purpose CVM with local temporary disk.                                        |
 | **ECasv5-series** | AMD SEV-SNP | Memory-optimized CVM with remote storage. No local temporary disk. |
 | **ECadsv5-series** | AMD SEV-SNP | Memory-optimized CVM with local temporary disk.                      |
+| **DCasv6-series** | AMD SEV-SNP | General purpose CVM with remote storage. No local temporary disk.                  |
+| **DCadsv6-series** | AMD SEV-SNP | General purpose CVM with local temporary disk.                                        |
+| **ECasv6-series** | AMD SEV-SNP | Memory-optimized CVM with remote storage. No local temporary disk. |
+| **ECadsv6-series** | AMD SEV-SNP | Memory-optimized CVM with local temporary disk.                      |
 | **DCesv5-series** | Intel TDX | General purpose CVM with remote storage. No local temporary disk.                  |
 | **DCedsv5-series** | Intel TDX | General purpose CVM with local temporary disk.                                        |
 | **ECesv5-series** | Intel TDX | Memory-optimized CVM with remote storage. No local temporary disk. |

@@ -4,9 +4,10 @@ description: Learn about the different control plane security features in Azure 
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: conceptual
-ms.date: 09/30/2024
+ms.topic: concept-article
+ms.date: 07/30/2025
 ms.author: anfdocs
+# Customer intent: "As a cloud administrator, I want to understand the control plane security features of Azure NetApp Files so that I can effectively manage resources, enforce access controls, and maintain compliance within my organization."
 ---
 # Understand Azure NetApp Files control plane security
 

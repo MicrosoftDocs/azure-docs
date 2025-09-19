@@ -2,18 +2,18 @@
 title: Include file
 description: Include file
 services: iot-edge
-author: PatAltimore
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-edge
 ms.topic: include
-ms.date: 08/10/2018
-ms.author: patricka
+ms.date: 04/29/2025
 ms.custom: include file
 ---
 
 
 ### Delete Azure resources
 
-Deleting Azure resources and resource groups is irreversible. Make sure that you don't accidentally delete the wrong resource group or resources. If you created the IoT hub inside an existing resource group that has resources that you want to keep, delete only the IoT hub resource itself, not the resource group.
+Deleting Azure resources and resource groups is irreversible. Make sure that you don't accidentally delete the wrong resource group or resources. If you created the IoT Hub inside an existing resource group that has resources that you want to keep, delete only the IoT Hub resource itself, not the resource group.
 
 To delete the resources:
 

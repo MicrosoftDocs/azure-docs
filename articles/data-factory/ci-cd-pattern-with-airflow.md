@@ -3,7 +3,7 @@ title: CI/CD patterns with Workflow Orchestration Manager
 description: This article talks about recommended deployment patterns with Workflow Orchestration Manager.
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.topic: how-to
 ms.date: 01/29/2025
 ---
@@ -314,5 +314,5 @@ For more information, see:
 
 ## Related content
 
-- [Source code for airflow.models.dagbag](https://airflow.apache.org/docs/apache-airflow/stable/_modules/airflow/models/dagbag.html)
+- [Source code for airflow.models.dagbag](https://airflow.apache.org/docs/apache-airflow/3.0.2/_modules/airflow/models/dagbag.html)
 - [Apache Airflow unit tests](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html#unit-tests)

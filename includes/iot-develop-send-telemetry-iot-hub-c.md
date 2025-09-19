@@ -6,8 +6,11 @@
  ms.topic: include
  ms.date: 1/10/2025
  ms.author: dobett
- ms.custom: include file, devx-track-azurecli
  ms.devlang: azurecli
+ ms.custom:
+   - include file
+   - devx-track-azurecli
+   - sfi-ropc-nochange
 ---
 
 [![Browse code](../articles/iot/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/pnp)

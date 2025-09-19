@@ -7,6 +7,7 @@ ms.service: azure-network-function-manager
 ms.topic: tutorial
 ms.date: 11/02/2021
 ms.author: tobiaw
+ms.custom: sfi-image-nochange
 ---
 # Tutorial: Deploy network functions on Azure Stack Edge
 

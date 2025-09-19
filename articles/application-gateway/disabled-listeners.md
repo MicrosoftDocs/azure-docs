@@ -2,12 +2,13 @@
 title: Understanding disabled listeners
 titleSuffix: Azure Application Gateway
 description: The article explains the details of a disabled listener and ways to resolve the problem.
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: troubleshooting
 ms.date: 04/25/2023
-ms.author: greglin
+ms.author: mbender
 
+# Customer intent: As an IT administrator managing an Application Gateway, I want to troubleshoot disabled listeners due to Key Vault access issues, so that I can ensure the proper functioning of TLS termination and maintain the overall health of the gateway resource.
 ---
 
 # Understanding disabled listeners

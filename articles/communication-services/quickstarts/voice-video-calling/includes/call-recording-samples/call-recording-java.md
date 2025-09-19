@@ -3,7 +3,9 @@ author: dbasantes
 ms.service: azure-communication-services
 ms.date: 06/11/2023
 ms.topic: include
-ms.custom: public_preview
+ms.custom:
+  - public_preview
+  - sfi-ropc-nochange
 ---
 
 ## Sample Code
@@ -77,8 +79,7 @@ Start recording using your designated Azure Blob Storage to store the recorded f
         .setRecordingChannel(RecordingChannel.MIXED)
         .setRecordingContent(RecordingContent.AUDIO_VIDEO)
         .setRecordingFormat(RecordingFormat.MP4)
-        .setRecordingStorage(new AzureBlobContainerRecordingStorage("<YOUR_STORAGE_CONTAINER_URL>"))
-        .setExternalStorage(new BlobStorage("<Insert Container / Blob Uri>"));
+        .setRecordingStorage(new AzureBlobContainerRecordingStorage("<YOUR_STORAGE_CONTAINER_URL>"));
  
        // //start recording
        RecordingStateResult result = callRecording.start(recordingOptions);

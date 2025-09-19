@@ -1,10 +1,10 @@
 ---
- title: include file
- description: include file
+ title: Include file
+ description: Include file
  author: rolyon
  ms.service: role-based-access-control
  ms.topic: include
- ms.date: 02/26/2025
+ ms.date: 04/24/2025
  ms.author: rolyon
  ms.custom: include file
 ---
@@ -23,3 +23,5 @@
 |  | Size of description for Azure custom roles | Recommended maximum: 512 chars |
 |  | Size of an Azure custom role definition | 1 MB |
 |  | Number of assignable scopes for Azure custom roles | 2,000 |
+| [Azure deny assignments](../../articles/role-based-access-control/deny-assignments.md) |  |  |
+|  | Number of system-managed deny assignments per Azure subscription | 2,000 |

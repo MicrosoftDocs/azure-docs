@@ -4,8 +4,9 @@ description: Migrate bulk data offline that's compatible with Azure File Sync. A
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/24/2024
+ms.date: 04/18/2025
 ms.author: kendownie
+# Customer intent: "As an IT administrator, I want to migrate bulk data from on-premises Windows Server to Azure File Sync using Azure Data Box, so that I can ensure zero downtime and keep my file shares updated with the latest changes during the migration process."
 ---
 
 # Migrate data offline to Azure File Sync with Azure Data Box
@@ -83,7 +84,7 @@ For a standard migration, choose one or a combination of these Data Box options:
 * **Data Box Disk**.
   Microsoft will send you between one and five SSD disks that have a capacity of 8 TiB each, for a maximum total of 40 TiB. The usable capacity is about 20 percent less because of encryption and file-system overhead. For more information, see [Data Box Disk documentation](../../databox/data-box-disk-overview.md).
 * **Data Box**.
-  This option is the most common. Microsoft will send you a ruggedized Data Box appliance that works similar to a NAS. It has a usable capacity of 80 TiB. For more information, see [Data Box documentation](../../databox/data-box-overview.md).
+  This option is the most common. Microsoft will send you a ruggedized Data Box appliance that works similar to a NAS. It has a usable capacity of 80, 120, or 525 TiB, depending upon the SKU you choose. For more information, see [Data Box documentation](../../databox/data-box-overview.md?pivots=dbx-ng).
 * **Data Box Heavy**.
   This option features a ruggedized Data Box appliance on wheels that works similar to a NAS. It has a capacity of 1 PiB. The usable capacity is about 20 percent less because of encryption and file-system overhead. For more information, see [Data Box Heavy documentation](../../databox/data-box-heavy-overview.md).
 

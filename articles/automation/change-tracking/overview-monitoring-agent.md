@@ -3,9 +3,11 @@ title: Azure Automation Change Tracking and Inventory overview using Azure Monit
 description: This article describes the Change Tracking and Inventory feature using Azure monitoring agent, which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 03/12/2025
+ms.date: 03/13/2025
 ms.topic: overview
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Overview of change tracking and inventory using Azure Monitoring Agent
@@ -198,6 +200,7 @@ The default collection frequency for Windows services is 30 minutes. To configur
 Change Tracking and Inventory using Azure Monitoring Agent doesn't support or has the following limitations:
 
 - Recursion for Windows registry tracking
+- Currently, only the HKEY_LOCAL_MACHINE is supported. You will encounter this limitation whenever you manually add the registry key.
 - Network file systems
 - Different installation methods
 - ***.exe** files stored on Windows
@@ -209,7 +212,8 @@ Change Tracking and Inventory using Azure Monitoring Agent doesn't support or ha
 - If you modify a configuration while a machine or server is shut down, it might post changes belonging to the previous configuration.
 - Collecting Hotfix updates on Windows Server 2016 Core RS3 machines.
 - Linux daemons might show a changed state even though no change has occurred. This issue arises because of how the `SvcRunLevels` data in the Azure Monitor [ConfigurationChange](/azure/azure-monitor/reference/tables/configurationchange) table is written. 
-- Change Tracking extension doesn't support any hardening standards for any Linux Operating systems or Distros. 
+- Change Tracking extension doesn't support any hardening standards for any Linux operating systems or Distros.
+- Change Tracking extension doesn't support inventory for Microsoft store applications for any Windows operating systems or Distros.
 
 
 ## Support for alerts on configuration state

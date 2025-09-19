@@ -6,8 +6,9 @@ author: cherylmc
 ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
 ms.topic: concept-article
-ms.date: 10/03/2024
+ms.date: 03/14/2025
 ms.author: cherylmc
+# Customer intent: "As a network administrator, I want to access the latest versions of the Azure VPN Client, so that I can ensure compatibility and optimize secure connections for our remote users."
 ---
 # Azure VPN Client versions
 
@@ -24,7 +25,6 @@ This article helps you view each of the versions of the Azure VPN Client. As new
 ## Azure VPN Client - macOS
 
 [!INCLUDE [macOS client versions](../../includes/vpn-gateway-azure-vpn-client-macos-table.md)]
-
 
 ## Next steps
 

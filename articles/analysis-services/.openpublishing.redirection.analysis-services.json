@@ -109,6 +109,216 @@
             "source_path_from_root": "/articles/analysis-services/tutorials/aas-supplemental-lesson-ragged-hierarchies.md",
             "redirect_url": "/azure/analysis-services/analysis-services-overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/tutorials/analysis-services-tutorial-pbid.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/tutorials/analysis-services-tutorial-pbid",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/tutorials/analysis-services-tutorial-roles.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/tutorials/analysis-services-tutorial-roles",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-addservprinc-admins.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-addservprinc-admins",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-async-refresh.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-async-refresh",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-backup.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-backup ",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-bcdr.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-bcdr",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-capacity-limits.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-capacity-limits",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-connect.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-connect",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-connect-excel.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-connect-excel",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-connect-pbi.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-connect-pbi",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-create-bicep-file.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-create-bicep-file",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-create-powershell.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-create-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-create-sample-model.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-create-sample-model",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-create-server.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-create-server",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-create-template.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-create-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-create-terraform.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-create-terraform",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-database-users.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-database-users",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-datasource.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-datasource",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-deploy.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-deploy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-gateway.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-gateway",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-gateway-install.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-gateway-install",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-logging.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-logging",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-long-operations.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-long-operations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-manage.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-manage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-manage-users.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-manage-users",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-network-faq.yml",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-network-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-odc.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-odc",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-overview.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-powershell.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-qs-firewall.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-qs-firewall",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-refresh-azure-automation.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-refresh-azure-automation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-refresh-logic-app.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-refresh-logic-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-samples.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-scale-out.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-scale-out",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-server-admins.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-server-admins",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-server-alias.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-server-alias",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-service-principal.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-service-principal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/analysis-services-vnet-gateway.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/analysis-services-vnet-gateway",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/index.yml",
+            "redirect_url": "/analysis-services/azure-analysis-services/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/monitor-analysis-services.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/monitor-analysis-services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/monitor-analysis-services-reference.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/monitor-analysis-services-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/analysis-services/move-between-regions.md",
+            "redirect_url": "/analysis-services/azure-analysis-services/move-between-regions",
+            "redirect_document_id": false
         }
     ]
 }

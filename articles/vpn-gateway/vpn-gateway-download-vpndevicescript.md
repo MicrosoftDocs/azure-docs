@@ -5,10 +5,13 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 03/18/2024
+ms.date: 03/31/2025
 ms.author: cherylmc 
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 
+# Customer intent: "As a network administrator, I want to download VPN device configuration scripts for site-to-site connections, so that I can configure my on-premises VPN device to securely connect with Azure VPN Gateway."
 ---
 # Download VPN device configuration scripts for S2S VPN connections
 

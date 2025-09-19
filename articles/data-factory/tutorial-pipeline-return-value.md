@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 09/26/2024
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ---
 
 # Set Pipeline Return Value in Azure Data Factory and Azure Synapse Analytics

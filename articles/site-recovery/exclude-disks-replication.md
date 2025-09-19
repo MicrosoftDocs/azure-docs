@@ -4,8 +4,9 @@ description: How to exclude disks from replication to Azure with Azure Site Reco
 ms.topic: how-to
 ms.date: 12/20/2024
 ms.service: azure-site-recovery
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
+# Customer intent: "As a cloud administrator, I want to exclude specific disks from replication during disaster recovery, so that I can optimize bandwidth and storage resources by preventing unnecessary data replication."
 ---
 # Exclude disks from disaster recovery
 

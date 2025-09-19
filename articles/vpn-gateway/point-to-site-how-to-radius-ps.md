@@ -7,8 +7,11 @@ ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 12/06/2024
 ms.author: cherylmc 
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 
+# Customer intent: As a network administrator, I want to configure point-to-site connections with RADIUS authentication using PowerShell, so that I can securely connect VPN clients to the virtual network.
 ---
 # Configure P2S VPN Gateway server settings - RADIUS authentication
 

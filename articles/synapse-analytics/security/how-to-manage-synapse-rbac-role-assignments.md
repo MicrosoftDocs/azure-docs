@@ -7,7 +7,8 @@ ms.topic: how-to
 ms.subservice: security
 ms.date: 02/18/2025
 ms.author: mesrivas
-ms.reviewer: whhender, wiassaf
+ms.custom: sfi-image-nochange
+
 ---
 
 # How to manage Synapse RBAC role assignments in Synapse Studio

@@ -9,8 +9,12 @@ ms.topic: how-to
 ms.date: 10/11/2024
 ms.author: kengaderdus
 ms.subservice: b2c
-ms.custom: b2c-support, has-azure-ad-ps-ref,azure-ad-ref-level-one-done
 zone_pivot_groups: b2c-policy-type
+ms.custom:
+  - b2c-support
+  - has-azure-ad-ps-ref
+  - azure-ad-ref-level-one-done
+  - sfi-image-nochange
 
 
 #Customer intent: As an Azure Active Directory B2C administrator, I want to set up a force password reset flow, so that I can ensure users reset their passwords when necessary for security purposes.
@@ -18,6 +22,7 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Set up a force password reset flow in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 

@@ -1,17 +1,18 @@
 ---
-title: "Deployment step 2: base services - overview"
-description: Learn about production-level environment migration deployment step two.
+title: "Base services migration overview"
+description: Get a high level idea of the steps involved when migrating base services during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 08/30/2024
+ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+# Customer intent: As an HPC architect, I want to understand the steps involved in migrating base services to the cloud, so that I can ensure a seamless transition while maintaining performance, scalability, and cost-effectiveness of my high-performance computing environment.
 ---
 
-# Deployment step 2: base services - overview
+# Base services migration overview
 
-One of the key component's users interact with in an on-premises environment is the job scheduler (for example, Slurm, PBS, and LSF). During a lift-and-shift process, users should retain the same level of interaction with these schedulers. However, the difference is that resources are no longer static; they're provisioned on-demand.
+One of the key components users interact with in an on-premises environment is the job scheduler (for example, Slurm, PBS, and LSF). During a lift-and-shift process, users should retain the same level of interaction with these schedulers. However, the difference is that resources are no longer static; they're provisioned on-demand.
 
 This section covers the core components related to the job scheduler, including the resource orchestrator for provisioning and setting up resources, identity management for user authentication, monitoring (including node health checks), and accounting to better understand the status and usage of resources. Each component plays a crucial role in ensuring the performance, scalability, and security of the HPC environment. By utilizing familiar on-premises technologies like Active Directory and established application runtimes, organizations can transition to the cloud more smoothly while maintaining continuity. A comprehensive overview of tools, best practices, and quick-start setups is provided, with the goal of progressively automating these services as the cloud environment evolves.
 

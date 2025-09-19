@@ -7,6 +7,8 @@ items:
     href: service-overview.md
   - name: Cloud migration basics
     href: migration-basics.md
+  - name: Get started with cloud-to-cloud migration
+    href: cloud-to-cloud-migration.md
   expanded: true
 - name: Concepts
   items: 
@@ -46,11 +48,11 @@ items:
     items: 
     - name: Job run error codes
       href: status-code.md
+    - name: Collect a support bundle
+      href: troubleshooting.md
 - name: Resources
   items:
   - name: Monitor copy and job run logs
     href: log-monitoring.md
-  - name: Collect a support bundle
-    href: troubleshooting.md
   - name: Release notes
     href: release-notes.md

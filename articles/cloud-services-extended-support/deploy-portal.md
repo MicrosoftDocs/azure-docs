@@ -7,9 +7,13 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
+# Customer intent: As a cloud administrator, I want to deploy Cloud Services (extended support) in the Azure portal, so that I can host scalable applications and manage required configurations in a virtual network.
 ---
 
 # Deploy Cloud Services (extended support) by using the Azure portal
+
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 This article shows you how to use the Azure portal to create an Azure Cloud Services (extended support) deployment.
 

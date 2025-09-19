@@ -4,6 +4,9 @@ description: 'Learn about Apache Kafka on HDInsight: What it is, what it does, a
 ms.service: azure-hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 05/09/2024
 #Customer intent: As a developer, I want to understand how Kafka on HDInsight is different from Kafka on other platforms.
 ---

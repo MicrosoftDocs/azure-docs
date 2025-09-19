@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Release notes for the Azure Maps Drawing Tools Module. 
 author: sinnypan
 ms.author: sipa
-ms.date: 10/25/2023
+ms.date: 11/07/2024
 ms.topic: reference
 ms.service: azure-maps
 ms.subservice: web-sdk

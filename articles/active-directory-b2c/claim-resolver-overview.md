@@ -12,6 +12,7 @@ ms.topic: reference
 ms.date: 02/19/2025
 ms.author: kengaderdus
 ms.subservice: b2c
+ms.custom: sfi-ropc-nochange
 
 
 #Customer intent: As a developer using Azure AD B2C custom policies, I want to understand how to use claim resolvers in my technical profiles, so that I can provide context information about authorization requests and populate claims with dynamic values.
@@ -19,6 +20,7 @@ ms.subservice: b2c
 ---
 
 # About claim resolvers in Azure Active Directory B2C custom policies
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Claim resolvers in Azure Active Directory B2C (Azure AD B2C) [custom policies](custom-policy-overview.md) provide context information about an authorization request, such as the policy name, request correlation ID, user interface language, and more.
 

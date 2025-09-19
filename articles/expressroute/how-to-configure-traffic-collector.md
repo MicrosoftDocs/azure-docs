@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 06/19/2024
 ms.author: duau
 #Customer intent: As a network engineer, I want to configure ExpressRoute Traffic Collector to import flow logs into a Log Analytics workspace.
+# Customer intent: As a network engineer, I want to configure an ExpressRoute Traffic Collector to import flow logs into a Log Analytics workspace, so that I can effectively monitor and analyze network traffic.
 ---
 
 # Configure Traffic Collector for ExpressRoute

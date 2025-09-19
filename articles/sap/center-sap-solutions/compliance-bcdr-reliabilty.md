@@ -8,6 +8,7 @@ ms.custom: subject-reliability, references_regions
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.date: 05/15/2023
+# Customer intent: As an SAP system administrator, I want to implement zone redundancy for SAP workloads in Azure, so that I can ensure high availability and minimize disruptions during local outages or regional failures.
 ---
 
 # What is reliability in *Azure Center for SAP Solutions*?

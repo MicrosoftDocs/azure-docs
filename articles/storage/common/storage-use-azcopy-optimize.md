@@ -8,6 +8,7 @@ ms.date: 06/02/2023
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.reviewer: dineshm
+# Customer intent: As a cloud administrator, I want to optimize the performance of AzCopy v10 for Azure Storage transfers, so that I can efficiently manage large data movements while minimizing resource consumption and improving throughput.
 ---
 
 # Optimize the performance of AzCopy with Azure Storage
@@ -80,7 +81,7 @@ File scans on some Linux systems don't execute fast enough to saturate all of th
 
 You can increase throughput by setting the `AZCOPY_CONCURRENCY_VALUE` environment variable. This variable specifies the number of concurrent requests that can occur.
 
-If your computer has fewer than 5 CPUs, then the value of this variable is set to `32`. Otherwise, the default value is equal to 16 multiplied by the number of CPUs. The maximum default value of this variable is `3000`, but you can manually set this value higher or lower.
+If your computer has fewer than 5 CPUs, then the value of this variable is set to `32`. Otherwise, the default value is equal to 16 multiplied by the number of CPUs. The maximum default value of this variable is `300`, but you can manually set this value higher or lower.
 
 | Operating system | Command  |
 |--------|-----------|
@@ -94,7 +95,7 @@ Before you set this variable, we recommend that you run a benchmark test. The be
 
 ## Limit the throughput data rate
 
-You can use the `cap-mbps` flag in your commands to place a ceiling on the throughput data rate. For example, the following command resumes a job and caps throughput to `10` megabits (Mb) per second.
+You can use the `cap-mbps` flag in your commands to place a ceiling on the throughput data rate. For example, the following command resumes a job and caps throughput to `10` megabits (Mb) per second. Please note, this is only supported for uploading or downloading files, not copying between accounts.
 
 ```azcopy
 azcopy jobs resume <job-id> --cap-mbps 10

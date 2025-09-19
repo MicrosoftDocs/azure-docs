@@ -42,7 +42,10 @@ Consider the following issues when deciding whether to use Event Grid or Azure M
 
 ## Event Grid: Monitor connect and disconnect events
 
-To monitor device connect and disconnect events in production, we recommend subscribing to the [**DeviceConnected** and **DeviceDisconnected** events](iot-hub-event-grid.md#event-types) in Event Grid to trigger alerts and monitor device connection state. Event Grid provides lower event latency than Azure Monitor, and you can monitor on a per-device basis. These factors make Event Grid the preferred method for monitoring critical devices and infrastructure.
+Event Grid provides lower event latency than Azure Monitor, and you can monitor on a per-device basis. These factors make Event Grid the preferred method for monitoring critical devices and infrastructure.
+
+> [!NOTE]
+> To monitor device connect and disconnect events in production, we recommend subscribing to the [**DeviceConnected** and **DeviceDisconnected** events](iot-hub-event-grid.md#event-types) in Event Grid to trigger alerts and monitor device connection state.
 
 When you use Event Grid to monitor or trigger alerts on device disconnects, make sure you build in a way of filtering out the periodic disconnects due to SAS token renewal on devices that use the Azure IoT SDKs. To learn more, see [MQTT device disconnect behavior with Azure IoT SDKs](#mqtt-device-disconnect-behavior-with-azure-iot-sdks).
 
@@ -161,7 +164,7 @@ If the previous steps didn't help, try:
 
 * Verify that your devices are **Enabled** in the Azure portal > your IoT hub > IoT devices.
 
-* If your device uses MQTT protocol, verify that port 8883 is open. For more information, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
+* If your device uses MQTT protocol, verify that port 8883 is open. For more information, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connect-to-iot-hub).
 
 * Get help from [Microsoft Q&A question page for Azure IoT Hub](/answers/topics/azure-iot-hub.html), [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub), or [Azure support](https://azure.microsoft.com/support/options/).
 

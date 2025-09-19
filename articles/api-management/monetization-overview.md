@@ -4,7 +4,7 @@ description: Learn how to set up your monetization strategy for Azure API Manage
 author: dlepow
 ms.author: danlep
 ms.date: 08/23/2021
-ms.topic: article
+ms.topic: concept-article
 ms.service: azure-api-management
 ---
 
@@ -187,6 +187,6 @@ Remember that the monetization strategy is only one facet of a successful API im
 * The legal terms
 * Your ability to scale the API to meet the committed service levels.
 
-## Next Steps
+## Related content
 * [How API Management supports monetization](monetization-support.md).
 * Deploy a demo Adyen or Stripe integration via the associated [Git repo](https://github.com/microsoft/azure-api-management-monetization).

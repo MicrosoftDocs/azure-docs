@@ -2,11 +2,12 @@
 title: URL Redirect for Azure Application Gateway for Containers - Ingress API
 description: Learn how to redirect URLs in Ingress API for Application Gateway for Containers.
 services: application gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
 ms.date: 3/7/2025
-ms.author: greglin
+ms.author: mbender
+# Customer intent: As a cloud infrastructure administrator, I want to configure URL redirection using an ingress API for my application gateway, so that I can manage client requests effectively, ensuring proper routing between HTTP and HTTPS and specific resource paths.
 ---
 
 # URL Redirect for Azure Application Gateway for Containers - Ingress API
@@ -393,4 +394,4 @@ Via the response we should see:
 * Connection #0 to host contoso.com left intact
 ```
 
-Congratulations, you have installed ALB Controller, deployed a backend application, and used Ingress API to configure both an HTTP to HTTPs redirect and path based redirection to specific client requests.
+Congratulations, you have installed ALB Controller, deployed a backend application, and used Ingress API to configure both an HTTP to HTTPS redirect and path based redirection to specific client requests.

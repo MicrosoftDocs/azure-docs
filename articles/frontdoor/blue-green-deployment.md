@@ -7,9 +7,12 @@ ms.reviewer: gamullen, hmb
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 11/18/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Blue/Green Deployments Using Azure Front Door
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium :heavy_check_mark: Front Door (classic)
 
 *Blue/Green deployment* is a software release strategy that gradually introduces application updates to a small group of users. If the updates are successful, the number of users accessing the new deployment is gradually increased until all users are on the new version. If issues arise, traffic can be redirected to the old version, ensuring minimal disruption. This approach is safer than deploying updates to all users at once.
 

@@ -4,6 +4,9 @@ description: This article discusses best practices for managing Java Archive (JA
 ms.custom: hdinsightactive, devx-track-extended-java
 ms.service: azure-hdinsight
 ms.topic: how-to
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
 ms.date: 07/12/2024
 ---
 

@@ -6,6 +6,10 @@ ms.author: yexu
 ms.topic: conceptual
 ms.date: 10/03/2024
 ms.subservice: data-movement
+ms.collection:
+ - migration
+ - aws-to-azure
+ms.custom: sfi-image-nochange
 ---
 
 # Migrate data from Amazon S3 to Azure Data Lake Storage Gen2

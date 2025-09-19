@@ -19,4 +19,4 @@ Storage account access keys provide full access to the storage account data and 
 >
 > To protect an Azure Storage account with Microsoft Entra Conditional Access policies, you must disallow Shared Key authorization for the storage account.
 > 
-> If you have disabled shared key access and you are seeing Shared Key authorization reported in the diagnostic logs, this indicates that trusted access is being used to access storage. For more details, see [Trusted access for resources registered in your Microsoft Entra tenant](../articles/storage/common/storage-network-security.md#trusted-access-for-resources-registered-in-your-microsoft-entra-tenant).
+> If you have disabled shared key access and you are seeing Shared Key authorization reported in the diagnostic logs, this indicates that trusted access is being used to access storage. For more details, see [Trusted access for resources registered in your Microsoft Entra tenant](../articles/storage/common/storage-network-security-trusted-azure-services.md#trusted-access-for-resources-registered-in-your-microsoft-entra-tenant).

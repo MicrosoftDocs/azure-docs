@@ -6,8 +6,8 @@ ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2024
 ms.date: 11/19/2024
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ---
 
 # Quickstart: Understand the protection estate

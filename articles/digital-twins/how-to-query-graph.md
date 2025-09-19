@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: Query the twin graph
 titleSuffix: Azure Digital Twins
 description: See how to query the Azure Digital Twins twin graph for information.
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 03/06/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Query the Azure Digital Twins twin graph
@@ -24,7 +18,7 @@ The article contains sample queries that illustrate the query language structure
 > [!NOTE]
 > If you run the following sample queries with an API or SDK call, you need to condense the query text into a single line.
 
-[!INCLUDE [digital-twins-query-reference.md](../../includes/digital-twins-query-reference.md)]
+[!INCLUDE [digital-twins-query-reference.md](includes/digital-twins-query-reference.md)]
 
 ## Show all digital twins
 

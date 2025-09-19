@@ -1,13 +1,13 @@
 ---
 title: Understand admin roles for Enterprise Agreements in Azure
 description: Learn about the administrative roles available to manage Azure Enterprise Agreements (EA), including permissions and how to assign them.
-author: bandersmsft
-ms.reviewer: sapnakeshari
+author: prashantsaini4
+ms.reviewer: prsaini
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: concept-article
-ms.date: 01/22/2025
-ms.author: banders
+ms.date: 04/01/2025
+ms.author: prsaini
 #customer intent: As an enterprise administrator, I want learn about the administrative roles available to manage Azure Enterprise Agreements so that manage my enterprise agreement.
 ---
 
@@ -22,7 +22,7 @@ To help manage your organization's usage and spend, Azure customers with an Ente
 - Department Administrator (read only)
 - Account Owner²
 
-¹ The Bill-To contact of the EA contract is under this role.
+¹ The Bill-To contact on the direct EA contract gets this role.
 
 ² The Bill-To contact can't be added or changed in the Azure portal. It gets added to the EA enrollment based on the user who is set up as the Bill-To contact on agreement level. To change the Bill-To contact, a request needs to be made through a partner/software advisor to the Regional Operations Center (ROC).
 
@@ -164,17 +164,17 @@ The following table shows user limits and permissions associated with each admin
 
 |Tasks| Enterprise Administrator|Enterprise Administrator (read only)| EA Purchaser | Department Administrator|Department Administrator (read only)|Account Owner| Partner|
 |---|---|---|---|---|---|---|---|
-|View Enterprise Administrators|✔|✔| ✔|✘|✘|✘|✔|
-|Add or remove Enterprise Administrators|✔|✘|✘|✘|✘|✘|✘|
-|View Notification Contacts⁴ |✔|✔|✔|✘|✘|✘|✔|
-|Add or remove Notification Contacts⁴ |✔|✘|✘|✘|✘|✘|✘|
-|Create and manage Departments |✔|✘|✘|✘|✘|✘|✘|
-|View Department Administrators|✔|✔|✔|✔|✔|✘|✔|
-|Add or remove Department Administrators|✔|✘|✘|✔|✘|✘|✘|
-|View Accounts in the enrollment |✔|✔|✔|✔⁵|✔⁵|✘|✔|
-|Add Accounts to the enrollment and change Account Owner|✔|✘|✘|✔⁵|✘|✘|✘|
-|Purchase reservations/savings plans|✔|✘⁶|✔|✘|✘|✘|✘|
-|Create and manage subscriptions |✔|✘|✘|✘|✘|✔|✘|
+|View Enterprise Administrators|〇|〇| 〇|✘|✘|✘|〇|
+|Add or remove Enterprise Administrators|〇|✘|✘|✘|✘|✘|✘|
+|View Notification Contacts⁴ |〇|〇|〇|✘|✘|✘|〇|
+|Add or remove Notification Contacts⁴ |〇|✘|✘|✘|✘|✘|✘|
+|Create and manage Departments |〇|✘|✘|✘|✘|✘|✘|
+|View Department Administrators|〇|〇|〇|〇|〇|✘|〇|
+|Add or remove Department Administrators|〇|✘|✘|〇|✘|✘|✘|
+|View Accounts in the enrollment |〇|〇|〇|〇⁵|〇⁵|✘|〇|
+|Add Accounts to the enrollment and change Account Owner|〇|✘|✘|〇⁵|✘|✘|✘|
+|Purchase reservations/savings plans|〇|✘⁶|〇|✘|✘|✘|✘|
+|Create and manage subscriptions |〇|✘|✘|✘|✘|〇|✘|
 
 - ⁴ Notification contacts are sent email communications about the Azure Enterprise Agreement.
 - ⁵ Task is limited to accounts in your department.

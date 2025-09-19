@@ -5,9 +5,12 @@ description: Learn how to create custom activities by using .NET, and then use t
 author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
-ms.custom: synapse, devx-track-dotnet
-ms.date: 10/03/2024
+ms.date: 03/27/2025
 ms.subservice: orchestration
+ms.custom:
+  - synapse
+  - devx-track-dotnet
+  - sfi-ropc-nochange
 ---
 
 # Use custom activities in an Azure Data Factory or Azure Synapse Analytics pipeline
@@ -30,7 +33,7 @@ See following articles if you are new to Azure Batch service:
 * [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet to create an Azure Batch pool.
 
 > [!IMPORTANT]
-> When creating a new Azure Batch pool, ‘VirtualMachineConfiguration’ must be used and NOT ‘CloudServiceConfiguration'. For more details refer [Azure Batch Pool migration guidance](../batch/batch-pool-cloud-service-to-virtual-machine-configuration.md). 
+> When creating a new Azure Batch pool, ‘VirtualMachineConfiguration’ must be used and NOT ‘CloudServiceConfiguration'.  
 
 ## Add custom activities to a pipeline with UI
 

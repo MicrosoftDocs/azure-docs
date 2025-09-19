@@ -4,9 +4,10 @@ description: Learn how to use custom parameters in a Resource Manager template w
 ms.subservice: ci-cd
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.topic: conceptual
 ms.date: 01/29/2025
+ms.custom: sfi-ropc-nochange
 ---
 
 # Use custom parameters with the Resource Manager template

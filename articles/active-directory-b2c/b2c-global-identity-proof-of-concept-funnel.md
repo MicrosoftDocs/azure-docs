@@ -11,11 +11,13 @@ ms.topic: concept-article
 ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: b2c
+ms.custom: sfi-ropc-nochange
 
 # Customer intent: As a developer, I want to understand how to build a global identity solution using a funnel-based approach, so I can implement it in my organization's Azure AD B2C environment.
 ---
 
 # Azure Active Directory B2C global identity framework proof of concept for funnel-based configuration
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 The following section describes how to create proof of concept implementations for funnel-based orchestration. The completed Azure Active Directory B2C (Azure AD B2C) custom policies can be found [here](https://github.com/azure-ad-b2c/samples/tree/master/policies/global-architecture-model/funnel-based-approach).
 

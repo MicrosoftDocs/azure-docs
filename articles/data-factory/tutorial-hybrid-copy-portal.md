@@ -6,6 +6,7 @@ author: nabhishek
 ms.topic: tutorial
 ms.date: 10/03/2024
 ms.subservice: data-movement
+ms.custom: sfi-image-nochange
 ---
 
 # Copy data from a SQL Server database to Azure Blob storage
@@ -100,7 +101,7 @@ In this section, you create a blob container named **adftutorial** in your Blob 
 In this step, you create a data factory and start the Data Factory UI to create a pipeline in the data factory.
 
 1. Open the **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-1. On the left menu, select **Create a resource** > **Integration** > **Data Factory**:
+1. On the top menu, select **Create a resource** > **Analytics** > **Data Factory** :
 
    :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the &quot;New&quot; pane":::
 

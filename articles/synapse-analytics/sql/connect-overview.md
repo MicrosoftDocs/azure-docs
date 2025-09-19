@@ -1,14 +1,16 @@
 ---
 title: Connect to Synapse SQL
 description: Get connected to Synapse SQL.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: azaricstefan
+ms.author: stefanazaric
 ms.service: azure-synapse-analytics
 ms.topic: overview 
 ms.subservice: sql
 ms.date: 09/23/2024
-ms.reviewer: whhender, stefanazaric
-ms.custom: devx-track-csharp
+ms.reviewer:  stefanazaric
+ms.custom:
+  - devx-track-csharp
+  - sfi-image-nochange
 ---
 # Connect to Synapse SQL
 

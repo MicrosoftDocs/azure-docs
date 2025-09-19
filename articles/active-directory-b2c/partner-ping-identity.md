@@ -10,11 +10,14 @@ ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 # Customer intent: I'm a developer, and I want to learn how to configure Ping Identity with Azure Active Directory B2C for secure hybrid access (SHA). I need to extend the capabilities of Azure AD B2C and enable secure hybrid access using PingAccess and PingFederate.
 ---
 
 # Tutorial: Configure Ping Identity with Azure Active Directory B2C for secure hybrid access
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In this tutorial, learn how to extend the capabilities of Azure Active Directory B2C (Azure AD B2C) with [PingAccess](https://www.pingidentity.com/en/platform/capabilities/web-api-access/pingaccess.html) and [PingFederate](https://www.pingidentity.com/en/platform/capabilities/authentication-authority/pingfederate.html). PingAccess provides access to applications and APIs, and a policy engine for authorized user access. PingFederate is an enterprise federation server for user authentication and single sign-on, an authority that permits customers, employees, and partners to access applications from devices. Use them together to enable secure hybrid access (SHA).
 
@@ -95,7 +98,7 @@ You can use basic user flows or advanced Identity Enterprise Framework (IEF) pol
 
    ![Screenshot of the subject sub claim URL on the Token compatibility dialog.](./media/partner-ping/token-setting.png)
 
-In the advanced policies, configuration includes the IssuanceClaimPattern metadata element to AuthorityWithTfp value in the [JWT token issuer technical profile](./jwt-issuer-technical-profile.md).
+In the advanced policies, configuration includes the IssuanceClaimPattern metadata element to AuthorityWithTfp value in the [JWT issuer technical profile](./jwt-issuer-technical-profile.md).
 
 ## Configure PingAccess and PingFederate
 

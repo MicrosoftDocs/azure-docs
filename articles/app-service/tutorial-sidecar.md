@@ -2,24 +2,23 @@
 title: 'Tutorial: Configure a sidecar container'
 description: Add sidecar containers to your Linux app in Azure App Service. Add or update services to your application without changing your application code.
 ms.topic: tutorial
-ms.date: 02/20/2025
+ms.date: 05/08/2025
 ms.author: cephalin
 author: cephalin
 keywords: azure app service, web app, linux, windows, docker, sidecar
+ms.service: azure-app-service
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Tutorial: Configure a sidecar container for a Linux app in Azure App Service
 
 In this tutorial, you add an OpenTelemetry collector as a sidecar container to a Linux (bring-your-own-code) app in Azure App Service. For custom containers, see [Tutorial: Configure a sidecar container for custom container in Azure App Service](tutorial-custom-container-sidecar.md).
 
-In Azure App Service, you can add up to nine sidecar containers for each Linux app. Sidecar containers let you deploy extra services and features to your Linux apps without making them tightly coupled to the main (built-in) container. For example, you can add monitoring, logging, configuration, and networking services as sidecar containers. An OpenTelemetry collector sidecar is one such monitoring example. 
-
-For more information about side container in App Service, see:
-
-- [Introducing Sidecars for Azure App Service for Linux: Now Generally Available](https://azure.github.io/AppService/2024/11/08/Global-Availability-Sidecars.html)
-- [Announcing the general availability of sidecar extensibility in Azure App Service](https://techcommunity.microsoft.com/blog/appsonazureblog/announcing-the-general-availability-of-sidecar-extensibility-in-azure-app-servic/4267985)
-
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [sidecar-overview](includes/tutorial-sidecar/sidecar-overview.md)]
 
 ## 1. Set up the needed resources
 
@@ -246,30 +245,7 @@ cd ~/app-service-sidecar-tutorial-prereqs
 azd down
 ```
 
-## Frequently asked questions
-
-- [How do sidecar containers handle internal communication?](#how-do-sidecar-containers-handle-internal-communication)
-- [How do I instrument other language stacks?](#how-do-i-instrument-other-language-stacks)
-
-#### How do sidecar containers handle internal communication?
-
-Sidecar containers share the same network host as the main container, so the main container (and other sidecar containers) can reach any port on the sidecar with `localhost:<port>`. The example *startup.sh* uses `localhost:4318` to access port 4318 on the **otel-collector** sidecar.
-
-In the **Edit container** dialog, the **Port** box isn't currently used by App Service. You can use it as part of the sidecar metadata, such as to indicate which port the sidecar is listening to.
-
-#### How do I instrument other language stacks?
-
-You can use a similar approach to instrument apps in other language stacks. For more information, see OpenTelemetry documentation:
-
-- [.NET](https://opentelemetry.io/docs/zero-code/net/)
-- [PHP](https://opentelemetry.io/docs/zero-code/php/)
-- [Python](https://opentelemetry.io/docs/zero-code/python/)
-- [Java](https://opentelemetry.io/docs/zero-code/java/)
-- [Node.js](https://opentelemetry.io/docs/zero-code/js/)
-
 ## More resources
 
-- [Run a local SLM in a sidecar container in Azure App Service](tutorial-sidecar-local-small-language-model.md)
-- [Try out sidecars in this guided lab](https://mslabs.cloudguides.com/guides/Sidecars%20in%20Azure%20App%20Service)
-- [Deploy to App Service using GitHub Actions](deploy-github-actions.md)
-- [OpenTelemetry](https://opentelemetry.io/)
+- [Sidecars overview](overview-sidecar.md)
+- [Configure sidecar](configure-sidecar.md)

@@ -3,7 +3,7 @@ title: Declare resources in templates
 description: Describes how to declare resources to deploy in an Azure Resource Manager template (ARM template).
 ms.topic: how-to
 ms.custom: devx-track-arm-template
-ms.date: 03/20/2024
+ms.date: 04/28/2025
 ---
 
 # Resource declaration in ARM templates
@@ -11,12 +11,6 @@ ms.date: 03/20/2024
 To deploy a resource through an Azure Resource Manager template (ARM template), you add a resource declaration. Use the `resources` array in a JSON template.
 
 [languageVersion 2.0](./syntax.md#languageversion-20) makes a list of enhancements to ARM JSON templates, such as changing the resources declaration from an array to an object. Most the samples shown in this article still use `resources` array.  For languageVersion 2.0 specific information, see [Use symbolic name](#use-symbolic-name).
-
-
-
-
-
-[!INCLUDE [VSCode ARM Tools extension doesn't support languageVersion 2.0](../../../includes/resource-manager-vscode-language-version-20.md)]
 
 > [!TIP]
 > We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [resource declaration](../bicep/resource-declaration.md).

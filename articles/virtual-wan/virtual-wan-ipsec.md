@@ -6,7 +6,7 @@ services: virtual-wan
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: conceptual
-ms.date: 07/28/2023
+ms.date: 03/27/2025
 ms.author: cherylmc
 #Customer intent: As a Virtual WAN software-defined connectivity provider, I want to know the IPsec policies
 ---

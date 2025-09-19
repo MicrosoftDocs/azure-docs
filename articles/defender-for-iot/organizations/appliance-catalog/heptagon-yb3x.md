@@ -1,13 +1,13 @@
 ---
-title: Heptagon YB3x for OT monitoring in L100 deployments - Microsoft Defender for IoT
-description: Learn about the YB3x appliance when used for OT monitoring with Microsoft Defender for IoT in L100 deployments.
+title: Heptagon Systems YB3x for OT monitoring in L100 deployments - Microsoft Defender for IoT
+description: Learn about the Heptagon Systems YB3x appliance when used for OT monitoring with Microsoft Defender for IoT in L100 deployments.
 ms.date: 04/01/2024
 ms.topic: reference
 ---
 
-# Heptagon YB3x
+# Heptagon Systems YB3x
 
-This article describes the **Heptagon YB3x** appliance deployment and installation for OT sensors.
+This article describes the **Heptagon Systems YB3x** appliance deployment and installation for OT sensors.
 
 | Appliance characteristic |Details |
 |---------|---------|
@@ -16,9 +16,9 @@ This article describes the **Heptagon YB3x** appliance deployment and installati
 |**Physical specifications** | Ports: 6 x 1-GbE ports|
 |**Status** | Supported, available as preconfigured |
 
-The following image shows a view of the Heptagon YB3x front panel:
+The following image shows a view of the Heptagon Systems YB3x front panel:
 
-:::image type="content" source="media/yb3x.png" alt-text="Picture of the front view of the Heptagon YB3x." border="false":::
+:::image type="content" source="media/yb3x.png" alt-text="Picture of the front view of the Heptagon Systems YB3x." border="false":::
 
 ## Specifications
 
@@ -40,7 +40,7 @@ The following image shows a view of the Heptagon YB3x front panel:
 |Safety |IEC 60950-1, AS/NZS  |
 |EMC |CE, FCC, AS/NZS |
 
-## Heptagon YB3x - Bill of Materials
+## Heptagon Systems YB3x - Bill of Materials
 
 |Description| PN|Quantity|
 |--------------|--------------|---------|
@@ -50,9 +50,9 @@ The following image shows a view of the Heptagon YB3x front panel:
 |8 GB 2,666 MT/s DDR4 ECC Reg CL19 DIMM 1Rx8 Hynix D IDT  | KSM26RS8/8HDI  | 2|
 |Power supply, 110-220 VAC to 12 VDC, 100 W, IP 67, Industrial temp   | PS100-12-IP67  | 1 |
 
-## Heptagon YB3x software setup
+## Heptagon Systems YB3x software setup
 
-This procedure describes how to install Defender for IoT software on the Heptagon YB3x. The installation process takes about 20 minutes. After the installation, the system restarts several times.
+This procedure describes how to install Defender for IoT software on the Heptagon Systems YB3x. The installation process takes about 20 minutes. After the installation, the system restarts several times.
 
 To install Defender for IoT software:
 

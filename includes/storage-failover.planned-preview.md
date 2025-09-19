@@ -11,19 +11,10 @@ ms.author: shaas
 ms.custom: "include file", references_regions
 ---
 
+<!-- User feedback is being incorporated into customer-managed planned failover (preview) and the feature is temporarily unavailable in all regions. After completion, updated documentation will be released to reflect the regions in which the feature is available.-->
+
 > [!IMPORTANT]
-> Customer-managed planned failover is currently in PREVIEW and limited to the following regions:
->
-> - East Asia
-> - Southeast Asia
-> - Australia East
-> - Australia Southeast
-> - France Central 
-> - France South 
-> - India Central 
-> - India West 
-> - Switzerland West
-> - Switzerland North
+> Customer-managed planned failover is currently in PREVIEW and is supported in all public GRS/GZRS regions. To determine if a region supports GZRS, see the [Azure regions list](/azure/reliability/regions-list#azure-regions-list-1). To support GZRS, a region must support availability zones and have a paired region.
 >
 > To opt in to the preview, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal#register-preview-feature) and specify AllowSoftFailover as the feature name. The provider name for this preview feature is Microsoft.Storage.
 > 

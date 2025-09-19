@@ -5,8 +5,9 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 03/31/2024
+ms.date: 04/30/2025
 zone_pivot_groups: front-door-tiers
+ms.custom: sfi-image-nochange
 ---
 
 # Onboard a root or apex domain to Azure Front Door
@@ -142,7 +143,7 @@ Follow the guidance for [configuring HTTPS for your custom domain](standard-prem
 
 ::: zone-end
 
-## Next steps
+## Related content
 
-- Learn how to [create an Azure Front Door profile](quickstart-create-front-door.md).
-- Learn [how Azure Front Door works](front-door-routing-architecture.md).
+- Learn how to [create an Azure Front Door profile](quickstart-create-front-door.md)
+- Learn [how Azure Front Door works](front-door-routing-architecture.md)

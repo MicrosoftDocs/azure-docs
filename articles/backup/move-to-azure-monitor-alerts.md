@@ -2,11 +2,12 @@
 title: Backup Classic Alerts using Azure Backup
 description: Learn how to back up Classic Alerts in the Azure Recovery Services vault.
 ms.topic: how-to
-ms.date: 12/30/2024
+ms.date: 03/17/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: As a cloud administrator, I want to back up classic alerts in the Azure Recovery Services vault, so that I can maintain alerting functionality while transitioning to Azure Monitor for improved alert management and monitoring capabilities.
 ---
 
 # Backup Classic Alerts
@@ -19,7 +20,7 @@ This article describes how to back up Classic Alerts in the Azure Recovery Servi
 ## Backup alerts in Recovery Services vault
 
 > [!IMPORTANT]
-> This section describes an older alerting solution (referred to as classic alerts). We recommend you to switch to using Azure Monitor based alerts as it offers multiple benefits. For more information on how to switch, see [Switch Azure Monitor Based alerts](./move-to-azure-monitor-alerts.md).
+> This section describes an older alerting solution (referred to as classic alerts). We recommend you to switch to using Azure Monitor based alerts as it offers multiple benefits. Learn [how to migrate to  Azure Monitor Based alerts](backup-azure-monitoring-alerts.md?tabs=recovery-services-vaults#migrate-from-classic-alerts-to-built-in-azure-monitor-alerts).
 
 Alerts are primarily the scenarios where you're notified to take relevant action. The **Backup Alerts** section shows alerts that the Azure Backup service generates. These alerts are defined by the service and you can't custom create any alerts.
 
@@ -52,7 +53,7 @@ The following are alerts from Azure Backup solutions are:
 
 For Azure workload backup solutions, such as SQL and SAP HANA, log backups can be generated frequently (up to every 15 minutes according to the policy). So, you might encounter frequent log backup failures (up to every 15 minutes). In this scenario, the end user will be overwhelmed if an alert is raised for each failure occurrence.
 
-So, an alert is sent for the first occurrence, and if the later failures are because of the same root cause, then further alerts aren't generated. The first alert is updated with the failure count. But if you've inactivated the alert, the next occurrence will trigger another alert and this will be treated as the first alert for that occurrence. This is how Azure Backup performs alert consolidation for SQL and SAP HANA backups.
+So, an alert is sent for the first occurrence, and if the later failures are because of the same root cause, then further alerts aren't generated. The first alert is updated with the failure count. But if you've deactivated the alert, the next occurrence will trigger another alert and this will be treated as the first alert for that occurrence. This is how Azure Backup performs alert consolidation for SQL and SAP HANA backups.
 
 On-demand backup jobs aren't consolidated.
 
@@ -94,9 +95,9 @@ If the frequency was set to an hourly digest, and an alert was raised and resolv
 
 ## Inactivating alerts
 
-To inactivate/resolve an active alert, you can select the list item corresponding to the alert you wish to inactivate. This opens up a screen that shows detailed information about the alert, with an **Inactivate** button at the top. Selecting this button will change the status of the alert to **Inactive**. You may also inactivate an alert by right-clicking the list item corresponding to that alert and selecting **Inactivate**.
+To deactivate/resolve an active alert, you can select the list item corresponding to the alert you wish to deactivate. This opens up a screen that shows detailed information about the alert, with an **Inactivate** button at the top. Selecting this button will change the status of the alert to **Inactive**. You may also deactivate an alert by right-clicking the list item corresponding to that alert and selecting **Inactivate**.
 
-:::image type="content" source="./media/backup-azure-monitoring-laworkspace/vault-alert-inactivate.png" alt-text="Screenshot showing how to inactivate alerts via Backup center.":::
+:::image type="content" source="./media/backup-azure-monitoring-laworkspace/vault-alert-inactivate.png" alt-text="Screenshot showing how to deactivate alerts via Backup center.":::
 
 
 

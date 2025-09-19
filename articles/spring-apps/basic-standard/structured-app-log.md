@@ -4,7 +4,8 @@ description: This article explains how to generate and collect structured applic
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: conceptual
-ms.date: 08/29/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java
 ---
@@ -66,7 +67,7 @@ When using Spring Boot starters, Logback is used by default. For Logback apps, u
 
 The procedure:
 
-1. Add logstash dependency in your `pom.xml` file.
+1. Add logstash dependency in your **pom.xml** file.
 
     ```xml
     <dependency>
@@ -152,7 +153,7 @@ For log4j2 apps, use [json-template-layout](https://logging.apache.org/log4j/2.x
 
 The procedure:
 
-1. Exclude `spring-boot-starter-logging` from `spring-boot-starter`, add dependencies `spring-boot-starter-log4j2`, `log4j-layout-template-json` in your `pom.xml` file.
+1. Exclude `spring-boot-starter-logging` from `spring-boot-starter`, add dependencies `spring-boot-starter-log4j2`, `log4j-layout-template-json` in your **pom.xml** file.
 
     ```xml
     <dependency>

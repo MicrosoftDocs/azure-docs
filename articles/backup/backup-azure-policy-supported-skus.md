@@ -4,8 +4,9 @@ description: 'An article describing the supported VM SKUs (by Publisher, Image O
 ms.topic: reference
 ms.date: 10/16/2024
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a cloud administrator, I want to review the supported VM SKUs for Azure Backup policies, so that I can ensure compliance and properly configure backup settings for our virtual machines."
 ---
 
 # Supported VM SKUs for Azure Policy
@@ -106,3 +107,5 @@ OpenLogic | CentOS–LVM | 6.X, 7.X
 OpenLogic | CentOS–SRIOV | 6.X, 7.X
 cloudera | cloudera-centos-os | 7.X
 
+>[!NOTE]
+> * This policy only supports certain VM SKUs because some backup features depend on platform-specific capabilities. Custom images, even with the same OS, may not be supported if they don’t include the required platform components for backup.

@@ -7,6 +7,8 @@ ms.custom: devx-track-python
 ms.date: 09/10/2024
 ms.topic: how-to 
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Manage credentials in Azure Automation

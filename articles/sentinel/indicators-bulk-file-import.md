@@ -2,15 +2,16 @@
 title: Add threat intelligence in bulk by file
 titleSuffix: Microsoft Sentinel
 description: Learn how to add threat intelligence in bulk from flat files like .csv or .json into Microsoft Sentinel. 
-author: austinmccollum
+author: poliveria  
 ms.service: microsoft-sentinel
 ms.topic: how-to
 ms.date: 3/14/2024
-ms.author: austinmc
+ms.author: pauloliveria 
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a security analyst, I want to import threat intelligence in bulk from CSV or JSON files so that I can quickly integrate and analyze emerging threats within Microsoft Sentinel.
@@ -40,12 +41,14 @@ Add multiple threat intelligence objects with a specially crafted CSV or JSON fi
 
 1. Select **Import** > **Import using a file**.
 
+    #### [Defender portal](#tab/defender-portal)
+
+    :::image type="content" source="media/indicators-bulk-file-import/import-using-file-menu-defender-portal.png" alt-text="Screenshot that shows the menu options to import threat intelligence by using a file menu from the Defender portal." lightbox="media/indicators-bulk-file-import/import-using-file-menu-defender-portal.png":::
+
     #### [Azure portal](#tab/azure-portal)
 
     :::image type="content" source="media/indicators-bulk-file-import/import-using-file-menu-fixed.png" alt-text="Screenshot that shows the menu options to import threat intelligence by using a file menu." lightbox="media/indicators-bulk-file-import/import-using-file-menu-fixed.png":::
-    
-    #### [Defender portal](#tab/defender-portal)
-    :::image type="content" source="media/indicators-bulk-file-import/import-using-file-menu-defender-portal.png" alt-text="Screenshot that shows the menu options to import threat intelligence by using a file menu from the Defender portal." lightbox="media/indicators-bulk-file-import/import-using-file-menu-defender-portal.png":::
+
     ---
 
 1. On the **File format** dropdown menu, select **CSV** or **JSON**.

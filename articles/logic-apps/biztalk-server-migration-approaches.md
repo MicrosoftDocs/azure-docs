@@ -7,8 +7,8 @@ ms.suite: integration
 author: haroldcampos
 ms.author: hcampos
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 12/03/2024
+ms.topic: concept-article
+ms.date: 06/03/2025
 # Customer intent: As a BizTalk Server customer, I want to learn about migration options, planning considerations, and best practices for moving from BizTalk Server to Azure Logic Apps.
 ---
 
@@ -261,7 +261,7 @@ Make sure to set up and consistently apply good naming conventions across all Az
 For guidance around this practice, review the following Microsoft recommendations and resources:
 
 - [Abbreviation examples for Azure resources](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations) 
-- [Azure Naming Tool](https://github.com/microsoft/CloudAdoptionFramework/tree/master/ready/AzNamingTool), which generates Azure-compliant names, helps you standardize on names, and automates your naming process.
+- [Azure Naming Tool](https://github.com/mspnp/AzureNamingTool), which generates Azure-compliant names, helps you standardize on names, and automates your naming process.
 
 ### Naming conventions for Azure Logic Apps resources
 

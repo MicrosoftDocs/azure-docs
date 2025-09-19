@@ -3,7 +3,8 @@ author: KarlErickson
 ms.author: v-shilichen
 ms.service: azure-spring-apps
 ms.topic: include
-ms.date: 02/01/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ---
 
 <!--
@@ -51,7 +52,7 @@ Use the following steps if you want to run the application locally. Otherwise, y
        -pl spring-petclinic-api-gateway
    ```
 
-1. Open a new Bash window and navigate to the project `spring-petclinic-frontend` directory. Use the following commands to install dependencies and run the frontend application:
+1. Open a new Bash window and navigate to the project **spring-petclinic-frontend** directory. Use the following commands to install dependencies and run the frontend application:
 
    ```bash
    npm install

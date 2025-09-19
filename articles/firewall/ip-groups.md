@@ -8,6 +8,7 @@ ms.custom: devx-track-azurepowershell
 ms.topic: concept-article
 ms.date: 02/10/2025
 ms.author: duau
+# Customer intent: "As a network administrator, I want to create and manage IP Groups for Azure Firewall, so that I can efficiently organize and apply IP address rules across multiple firewalls and enhance network security."
 ---
 
 # IP Groups in Azure Firewall
@@ -57,40 +58,27 @@ You can see all the IP addresses in the IP Group and the rules or resources that
 
 You can now select **IP Group** as a **Source type** or **Destination type** for the IP address(es) when you create Azure Firewall DNAT, application, or network rules.
 
-## Parallel IP Group updates (preview)
+## Parallel IP Group updates
 
-You can now update multiple IP Groups in parallel at the same time. This is particularly useful for administrators who want to make configuration changes more quickly and at scale, especially when making those changes using a dev ops approach (templates, ARM, CLI, and Azure PowerShell).
+You can now update multiple IP Groups in parallel at the same time. This is particularly useful for environments requiring faster changes at scale, especially when making those changes using a dev ops approach (templates, ARM, CLI, and Azure PowerShell).
 
-With this support, you can now:
+With this support, you can perform the following:
 
-- Update 50 IP Groups at a time
-- Update the firewall and firewall policy during IP Group updates
-- Use the same IP Group in parent and child policy
-- Update multiple IP Groups referenced by firewall policy or classic firewall simultaneously
-- Receive new and improved error messages
-   - Fail and succeed states
+- **Update 20 IP Groups at a time:** Perform simultaneous updates up to 20 IP Groups in one operation, referenced by firewall policy or classic firewall. 
+- **Update Azure Firewall and IP Groups together:** You can update IP Groups simultaneously with the firewall or with firewall policies. 
+- **Improved efficiency:** Parallel IP Group updates now run twice as fast. 
+- **Receive new and improved error messages:**
 
-     For example, if there is an error with one IP Group update out of 20 parallel updates, the other updates proceed, and the errored IP Group fails. In addition, if the IP Group update fails, and the firewall is still healthy, the firewall remains in a *Succeeded* state. To check if the IP Group update has failed or succeeded, you can view the status on the IP Group resource.
-
-To activate Parallel IP Group support, you can register the feature using either Azure PowerShell or the Azure portal.
-
-### Azure PowerShell
-
-Use the following Azure PowerShell commands:
-
-```azurepowershell
-Connect-AzAccount
-Select-AzSubscription -Subscription <subscription_id> or <subscription_name>
-Register-AzProviderFeature -FeatureName AzureFirewallParallelIPGroupUpdate -ProviderNamespace Microsoft.Network
-Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-```
-It can take several minutes for this to take effect. Once the feature is completely registered, consider performing an update on Azure Firewall for the change to take effect immediately.
-
-### Azure portal
-
-1. Navigate to **Preview features** in the Azure portal.
-1. Search and register **AzureFirewallParallelIPGroupUpdate**.
-1. Ensure the feature is enabled.
+   |Error message  |Description  |Recommended action|
+   |---------|---------|---------|
+   |**In failed state (skipping update)**  |Azure Firewall or Firewall Policy is in a failed state. Updates cannot proceed until the resource is healthy. |Review previous operations and correct any misconfigurations to ensure the resource is healthy.|
+   | **Backend server could not update Firewall at this time** | The backend server was unable to successfully process the request.| Create a support request.|
+   | **Error occurred during FW update** | The error is related to the underlying backend servers.| Retry the operation or create a support request if the issue persists.|
+   | **Internal server error** | An unexpected backend error has occurred. | Retry the operation or create a support request.|
+  
+Additionally, note the following status updates:
+- **One or more IP Group failure:** If one IP Group update (out of 20 parallel updates) fails, the provisioning state changes to "Failed" while the remaining IP Groups will continue to update and succeed.
+- **Status update:** If an IP Group update fails, and if the firewall remains healthy, its state will still show as "Succeeded." To verify, check the status on the IP Group resource itself. 
 
 ## Region availability
 

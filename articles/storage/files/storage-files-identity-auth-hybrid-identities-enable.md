@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 02/10/2025
 ms.author: kendownie
 recommendations: false
+# Customer intent: As a storage administrator, I want to enable Microsoft Entra Kerberos authentication for hybrid user identities on Azure Files, so that users can securely access file shares with their existing credentials without requiring constant connectivity to on-premises domain controllers.
 ---
 
 # Enable Microsoft Entra Kerberos authentication for hybrid identities on Azure Files
@@ -21,12 +22,18 @@ For more information on supported options and considerations, see [Overview of A
 > You can only use one AD method for identity-based authentication with Azure Files. If Microsoft Entra Kerberos authentication for hybrid identities doesn't fit your requirements, you might be able to use [on-premises Active Directory Domain Service (AD DS)](storage-files-identity-ad-ds-overview.md) or [Microsoft Entra Domain Services](storage-files-identity-auth-domain-services-enable.md) instead. The configuration steps and supported scenarios are different for each method.
 
 ## Applies to
-
-| File share type | SMB | NFS |
-|-|:-:|:-:|
-| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
+|-|-|-|-|:-:|:-:|
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Prerequisites
 
@@ -40,7 +47,9 @@ The following prerequisites are mandatory. Without these, you can't authenticate
 
 - This feature doesn't currently support user accounts that you create and manage solely in Microsoft Entra ID. User accounts must be [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need AD DS and either [Microsoft Entra Connect](../../active-directory/hybrid/whatis-azure-ad-connect.md) or [Microsoft Entra Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md). You must create these accounts in Active Directory and sync them to Microsoft Entra ID. To assign Azure Role-Based Access Control (RBAC) permissions for the Azure file share to a user group, you must create the group in Active Directory and sync it to Microsoft Entra ID.
 
-- The WinHTTP Web Proxy Auto-Discovery Service (`WinHttpAutoProxySvc`) and IP Helper service (`iphlpsvc`) are required. Their state should be set to running.
+- The WinHTTP Web Proxy Auto-Discovery Service (`WinHttpAutoProxySvc`) is required, and must be in the "running" state. You may optionally [disable Web Proxy Auto-Discovery (WPAD)](/troubleshoot/windows-server/networking/disable-http-proxy-auth-features#how-to-disable-wpad), but the service should still be running.
+
+- The IP Helper service (`iphlpsvc`) is required, and must be in the "running" state.
 
 - You must disable multifactor authentication (MFA) on the Microsoft Entra app representing the storage account. For instructions, see [Disable multifactor authentication on the storage account](#disable-multifactor-authentication-on-the-storage-account).
 
@@ -50,7 +59,7 @@ The following prerequisites are mandatory. Without these, you can't authenticate
 
 ### Operating system and domain prerequisites
 
-The following prerequisites are required for the standard Microsoft Kerberos authentication flow as described in this article. If some or all of your client machines don't meet these, you can still enable Microsoft Kerberos authentication, but you'll also need to [configure a cloud trust](storage-files-identity-auth-hybrid-cloud-trust.md) to allow these clients to access file shares.
+The following prerequisites are required for the standard Microsoft Entra Kerberos authentication flow as described in this article. If some or all of your client machines don't meet these, you can still enable Microsoft Entra Kerberos authentication for SMB file shares, but you'll also need to [configure a cloud trust](storage-files-identity-auth-hybrid-cloud-trust.md) to allow these clients to access file shares.
 
 Operating system requirements:
 
@@ -199,9 +208,16 @@ Use one of the following three methods:
 
 Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the client(s): [Kerberos/CloudKerberosTicketRetrievalEnabled](/windows/client-management/mdm/policy-csp-kerberos#cloudkerberosticketretrievalenabled), set to 1
 
+> > [!NOTE]
+> > When configuring **CloudKerberosTicketRetrievalEnabled** via Intune, use the **Settings Catalog** instead of the OMA-URI method.  
+> The OMA-URI method does **not** work on **Azure Virtual Desktop (AVD) multi-session** devices. AVD multi-session is a common deployment scenario for **Entra Kerberos with hybrid identities**, including configurations involving **Entra ID Join**, **FSLogix**, and **Azure Files**.  
+
+
 # [Group Policy](#tab/gpo)
 
 Configure this group policy on the client(s) to "Enabled": `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
+
+This setting allows the client to retrieve a cloud-based Kerberos Ticket Granting Ticket (TGT) during user logon.
 
 # [Registry Key](#tab/regkey)
 
@@ -351,4 +367,4 @@ If needed, you can run the `Debug-AzStorageAccountAuth` cmdlet to conduct a set 
 
 - [Mount an Azure file share](storage-files-identity-mount-file-share.md)
 - [Potential errors when enabling Microsoft Entra Kerberos authentication for hybrid users](files-troubleshoot-smb-authentication.md#potential-errors-when-enabling-azure-ad-kerberos-authentication-for-hybrid-users)
-- [Create a profile container with Azure Files and Microsoft Entra ID](../../virtual-desktop/create-profile-container-azure-ad.yml)
+- [Create a profile container with Azure Files and Microsoft Entra ID](/azure/virtual-desktop/create-profile-container-azure-ad)

@@ -4,7 +4,10 @@ description: Learn how to use Azure Data Lake Storage Gen2 with Azure HDInsight 
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 05/10/2024
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
+ms.date: 08/11/2025
 ---
 
 # Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters
@@ -28,7 +31,7 @@ Use the following links for detailed instructions on how to create HDInsight clu
 
 * [Using Portal](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2-portal.md)
 * [Using Azure CLI](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2-azure-cli.md)
-* PowerShell isn't currently supported for creating an HDInsight cluster with Azure Data Lake Storage Gen2.
+* [Using PowerShell](/powershell/module/az.hdinsight/new-azhdinsightcluster#example-8-create-an-azure-hdinsight-cluster-with-azure-data-lake-gen2-storage)
 
 ## Access control for Data Lake Storage Gen2 in HDInsight
 

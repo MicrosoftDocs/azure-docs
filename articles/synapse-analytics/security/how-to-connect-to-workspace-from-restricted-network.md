@@ -7,7 +7,8 @@ ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: security 
 ms.date: 06/05/2023
-ms.reviewer: whhender, wiassaf
+ms.custom: sfi-image-nochange
+
 ---
 
 # Connect to workspace resources from a restricted network

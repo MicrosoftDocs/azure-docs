@@ -4,11 +4,13 @@ description: Link your Synapse workspace to an Azure Machine Learning workspace
 ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: quickstart
-ms.reviewer: whhender, garye
+
 ms.date: 02/29/2024
 author: nelgson
 ms.author: negust
-ms.custom: mode-other
+ms.custom:
+  - mode-other
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create a new Azure Machine Learning linked service in Synapse

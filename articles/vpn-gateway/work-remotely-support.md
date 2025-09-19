@@ -5,9 +5,10 @@ description: Learn how you can use VPN Gateway point-to-site connections in orde
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 07/10/2024
+ms.date: 03/31/2025
 ms.author: cherylmc
 
+# Customer intent: As a remote worker, I want to establish a point-to-site VPN connection, so that I can securely access Azure resources and on-premises data centers from home or during travel.
 ---
 # Remote work using Azure VPN Gateway VPN connections
 

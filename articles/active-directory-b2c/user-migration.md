@@ -11,12 +11,14 @@ ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As an IT admin migrating user accounts to Azure AD B2C, I want to understand the different migration methods (pre migration and seamless migration), so that I can choose the appropriate approach and write the necessary application or script using the Microsoft Graph API.
 
 ---
 # Migrate users to Azure AD B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Migrating from another identity provider to Azure Active Directory B2C (Azure AD B2C) might also require migrating existing user accounts. Two migration methods are discussed here, *pre migration* and *seamless migration*. With either approach, you're required to write an application or script that uses the [Microsoft Graph API](microsoft-graph-operations.md) to create user accounts in Azure AD B2C.
 

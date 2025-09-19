@@ -190,12 +190,12 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 2. To request pickup, email SingPost Customer Service by using the following template with the tracking number (the tracking number can be found on the return label provided in the delivered package).
 
     ```
-    To: g-corpsgcs@singpost.com
+    To:  g-keyacct@singpost.com
     Subject: Microsoft Azure Pickup - XZ00001234567
     Body:
-     a.    Requestor name
-     b.    Requestor contact number
-     c.    Requestor collection address
+     a.    Requester name
+     b.    Requester contact number
+     c.    Requester collection address
      d.    Preferred collection date
     ```
 

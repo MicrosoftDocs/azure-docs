@@ -1,12 +1,13 @@
 ---
-title: Azure Update Manager operations
+title: Azure Update Manager Operations
 description: This article tells what Azure Update Manager works in Azure is and the system updates for your Windows and Linux machines in Azure.
 ms.service: azure-update-manager
 ms.custom: linux-related-content
-author: SnehaSudhirG
-ms.author: sudhirsneha
-ms.date: 07/14/2024
+author: habibaum
+ms.author: v-uhabiba
+ms.date: 08/21/2025
 ms.topic: overview
+# Customer intent: "As an IT administrator managing Azure and Arc-enabled servers, I want to automate the process of assessing and applying updates, so that I can ensure my systems remain secure and compliant without manual intervention."
 ---
 
 # How Update Manager works
@@ -29,7 +30,7 @@ Customer doesn't have to explicitly install the extension and its lifecycle as i
 - [Azure Arc-enabled servers agent](/azure/azure-arc/servers/agent-overview) 
 
 >[!NOTE]
-> Arc connectivity is a prerequisite for Update Manager, non-Azure machines including Arc-enabled VMWare, SCVMM etc.
+> Arc connectivity is a prerequisite for Update Manager, non-Azure machines including Arc-enabled VMWare, SCVMM, etc.
 
 For Azure machines, single extension is installed whereas for Azure Arc-enabled machines, two extensions are installed. Below are the details of extensions, which get installed:
 
@@ -60,11 +61,11 @@ Azure Update Manager honors the update source settings on the machine and will f
 
 #### [Windows](#tab/update-win)
 
-If the [Windows Update Agent (WUA)](/windows/win32/wua_sdk/updating-the-windows-update-agent) is configured to fetch updates from Windows Update repository or Microsoft Update repository or [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) (WSUS), AUM will honor these settings. For more information, see how to [configure Windows Update client](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus). By default, **it is configured to fetch updates from Windows Updates repository**. 
+If the [Windows Update Agent (WUA)](/windows/win32/wua_sdk/updating-the-windows-update-agent) is configured to fetch updates from Windows Update repository or Microsoft Update repository or [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) (WSUS), AUM honors these settings. For more information, see how to [configure Windows Update client](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus). By default, **it is configured to fetch updates from Windows Updates repository**. 
 
 #### [Linux](#tab/update-lin)
 
-If the package manager points to a public YUM, APT or Zypper repository or a local repository, AUM will honor the settings of the package manager.  
+If the package manager points to a public YUM, APT or Zypper repository or a local repository, AUM honors the settings of the package manager.  
 
 ---
 
@@ -74,8 +75,9 @@ AUM performs the following steps:
 - Initiate the download and installation of updates with the Windows Update client or Linux package manager.
 
 >[!Note]
-> 1. The machines will report their update status based on the source they are configured to synchronize with. If the Windows Update service is configured to report to WSUS, the results in Update Manager might differ from what Microsoft Update shows, depending on when WSUS last synchronized with Microsoft Update. This behavior is the same for Linux machines that are configured to report to a local repository instead of a public package repository.
-> 1. Update Manager will only find updates that the Windows Update service finds when you select the local **Check for updates** button on the local Windows system. On Linux systems only updates on the local repository will be discovered.
+> - The machines will report their update status based on the source they are configured to synchronize with. If the Windows Update service is configured to report to WSUS, the results in Update Manager might differ from what Microsoft Update shows, depending on when WSUS last synchronized with Microsoft Update. This behavior is the same for Linux machines that are configured to report to a local repository instead of a public package repository.
+> - Update Manager will only find updates that the Windows Update service finds when you select the local **Check for updates** button on the local Windows system. On Linux systems only updates on the local repository are discovered.
+> - Azure Update Manager uses Windows Update Agent (WUA) APIs to install updates. The updates installed using WUA APIs do not reflect in Windows Update page within the Settings app in the machine and hence the updates installed through Azure Update Manager are not visible in Windows Update page in the Settings app. The Windows Update page in the Settings app shows the progress and history of updates managed by the Windows Update orchestrator workflow. [Learn more](/windows/win32/wua_sdk/portal-client#purpose).
 
 ## Updates data stored in Azure Resource Graph
 
@@ -93,12 +95,12 @@ For more information, see [log structure of Azure Resource Graph](query-logs.md)
 In Azure Update Manager, patches are installed in the following manner:
 
 1. It begins with a fresh assessment of the available updates on the VM.
-1. Update installation follows the assessment. 
+1. To Update installation, do the following:
     - In Windows, the selected updates that meet the customer's criteria are installed one by one, 
     - In Linux, they're installed in batches.
 1. During update installation, Maintenance window utilization is checked at multiple steps. For Windows and Linux, 10 and 15 minutes of the maintenance window are reserved for reboot at any point respectively. Before proceeding with the installation of the remaining updates, it checks whether the expected reboot time plus the average update installation time (for the next update or next set of updates) doesn't exceed the maintenance window.
 In the case of Windows, the average update installation time is 10 minutes for all types of updates except for service pack updates. For service pack updates, it’s 15 minutes.
-1. Note that an ongoing update installation (once started based on the calculation above) isn't forcibly stopped even if it exceeds the maintenance window, to avoid landing the machine in a possibly undetermined state. However, it doesn't continue installing the remaining updates once the maintenance window has been exceeded, and a maintenance window exceeded error is thrown in such cases.
+1. An ongoing update installation (once started based on the calculation above) isn't forcibly stopped even if it exceeds the maintenance window, to avoid landing the machine in a possibly undetermined state. However, it doesn't install the remaining updates after the maintenance window ends, and it shows a maintenance window exceeded error.
 1. Patching/Update installation is only marked as successful if all selected updates are installed, and all operations involved (including Reboot & Assessment) succeed. Otherwise, it's marked as Failed or Completed with warnings. For example,
 
     |Scenario    |Update installation status |
@@ -109,7 +111,7 @@ In the case of Windows, the average update installation time is 10 minutes for a
     | Initial or final assessment failed| Failed |
     | Reboot is required by the updates, but Never reboot option is selected. | Completed with warnings|
     | ESM packages skipped patching in ubuntu 18 or lower if Ubuntu pro license wasn't present. | Completed with warnings| 
-1. An assessment is conducted at the end. Note that the reboot and assessment done at the end of the update installation may not occur in some cases, for example if the maintenance window has already been exceeded, if the update installation fails for some reason, etc.
+1. An assessment happens at the end. Sometimes, the reboot and assessment don’t happen—for example, if the maintenance window ends or the update installation fails.
 
 ## Next steps
 

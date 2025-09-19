@@ -1,8 +1,8 @@
 ---
 title: Manage users in Azure Data Manager for Energy
 description: This article describes how to manage users in Azure Data Manager for Energy.
-author: shikhagarg1
-ms.author: shikhagarg
+author: bharathim
+ms.author: bselvaraj
 ms.service: azure-data-manager-energy
 ms.topic: how-to
 ms.date: 08/19/2022

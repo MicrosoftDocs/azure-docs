@@ -7,8 +7,10 @@ ms.service: azure-communication-services
 ms.subservice: advanced-messaging
 ms.date: 02/29/2024
 ms.topic: include
-ms.custom: include file
 ms.author: armohamed
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 ## Prerequisites
@@ -189,4 +191,4 @@ for (MessageReceipt messageReceipt : docMessageResult.getReceipts()) {
 
 ## Full sample code
 
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication/azure-communication-messages/src/samples/java/com/azure/communication/messages).
+Find the finalized on GitHub at [Azure Messages client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication/azure-communication-messages/src/samples/java/com/azure/communication/messages).

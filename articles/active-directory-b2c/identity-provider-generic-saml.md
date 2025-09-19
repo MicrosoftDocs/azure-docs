@@ -10,6 +10,7 @@ ms.date: 01/24/2024
 ms.author: godonnell
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 #Customer Intent: As a developer integrating Azure AD B2C with a SAML identity provider, I want to configure the SAML technical profile and map the claims, so that users can sign in to my application using an existing social or enterprise identity.
 
@@ -17,6 +18,8 @@ zone_pivot_groups: b2c-policy-type
 
 
 # Set up sign-up and sign-in with SAML identity provider using Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Azure Active Directory B2C (Azure AD B2C) supports federation with SAML 2.0 identity providers. This article shows you how to enable sign-in with a SAML identity provider user account, allowing users to sign in with their existing social or enterprise identities, such as [ADFS](./identity-provider-adfs.md) and [Salesforce](identity-provider-salesforce-saml.md).
 

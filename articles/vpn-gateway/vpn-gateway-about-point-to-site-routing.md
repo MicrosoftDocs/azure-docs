@@ -5,9 +5,10 @@ description: Learn about Azure Point-to-Site VPN routing for different operating
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 07/28/2023
+ms.date: 03/31/2025
 ms.author: cherylmc
 
+# Customer intent: "As a network engineer, I want to understand Point-to-Site VPN routing behavior across various operating systems and configurations, so that I can ensure proper connectivity and access to my virtual networks."
 ---
 # About Point-to-Site VPN routing
 

@@ -4,8 +4,8 @@ description: How to create a support request in the Azure portal for Azure Data 
 ms.topic: conceptual
 ms.date: 10/03/2024
 ms.subservice: data-movement
-author: jonburchel
-ms.author: jburchel
+author: whhender
+ms.author: whhender
 ---
 
 # Request quota increases and get support for Azure Data Factory

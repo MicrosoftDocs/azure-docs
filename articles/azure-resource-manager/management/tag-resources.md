@@ -2,7 +2,7 @@
 title: Use tags to organize your Azure resources and management hierarchy 
 description: Understand how to tag Azure resources, resource groups, and subscriptions for logical organization. Learn about the conditions and limitations of using tags with Azure resources.
 ms.topic: conceptual
-ms.date: 02/06/2025
+ms.date: 09/15/2025
 ---
 
 # Use tags to organize your Azure resources and management hierarchy
@@ -74,7 +74,7 @@ The following limitations apply to tags:
 
 * Classic resources such as Cloud Services don't support tags.
 
-* Azure IP Groups and Azure Firewall policies don't support PATCH operations. Therefore, PATCH API method operations can't update tags through the Azure portal. Instead, use the update commands for those resources. For example, you can update tags for an IP group with the [`az network ip-group update`](/cli/azure/network/ip-group?view=azure-cli-latest) command.
+* Azure IP Groups and Azure Firewall policies don't support PATCH operations. Therefore, PATCH API method operations can't update tags through the Azure portal. Instead, use the update commands for those resources. For example, you can update tags for an IP group with the [`az network ip-group update`](/cli/azure/network/ip-group) command.
 
 * Tag names can't contain these characters: `<`, `>`, `%`, `&`, `\`, `?`, `/`
 
@@ -88,7 +88,8 @@ The following limitations apply to tags:
    > * The following Azure resources only support 15 tags:
    >     * Azure Automation
    >     * Azure Content Delivery Network
-   >     * Azure DNS (Zone and A records)
+   >     * Azure Public DNS (Zone and A records)
+   >     * Azure Private DNS (Zone and A records)
    >     * Azure Log Analytics saved search
 
 ## Next steps

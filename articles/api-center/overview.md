@@ -19,6 +19,9 @@ With an API center, stakeholders throughout your organization - including API pr
 > [!NOTE]
 > Azure API Center is a solution for design-time API governance and centralized API discovery. Azure also offers complementary services such as Azure API Management, a solution for runtime API governance and observability using an API gateway. [Learn more](frequently-asked-questions.yml#what-s-the-difference-between-azure-api-management-and-azure-api-center) about the differences and how Azure API Center and API Management can work together.
 
+> [!TIP]
+> Getting started with API Center just got easier! The Free plan is now available with no time constraints. [Limits](/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#azure-api-center-limits) apply.
+
 
 ## Benefits
 
@@ -47,7 +50,7 @@ Create and use an API center for the following:
 
     API developers can shift-left API design conformance checks into Visual Studio Code with integrated linting support and breaking change detection. Integrate with tools such as Dev Proxy to ensure that apps don't use unregistered [shadow APIs](discover-shadow-apis-dev-proxy.md) or APIs that don't meet organizational standards.
 
-* **API discovery and reuse** - Enable enterprise developers and API program managers to discover APIs via an [API Center portal](set-up-api-center-portal.md) or an [API platform catalog](enable-platform-api-catalog-vscode-extension.md) that's accessed using the Azure API Center Visual Studio Code extension.
+* **API discovery and reuse** - Enable enterprise developers and API program managers to discover APIs via an [API Center portal](set-up-api-center-portal.md). You can also enable the portal using the [Azure API Center Visual Studio Code extension](enable-api-center-portal-vs-code-extension.md).
 
 For more about the entities you can manage and the capabilities in Azure API Center, see [Key concepts](key-concepts.md).
 

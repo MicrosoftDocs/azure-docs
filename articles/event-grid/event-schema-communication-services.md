@@ -3,7 +3,6 @@ title: Azure Communication Services as an Event Grid source
 description: This article describes how to use Azure Communication Services as an Event Grid event source and what events are supported. 
 ms.topic: concept-article
 ms.date: 12/16/2024
-ms.author: mikben
 # Customer intent: I want to know what events Azure Communication Services support via Azure Event Grid. 
 ---
 

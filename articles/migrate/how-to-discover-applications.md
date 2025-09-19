@@ -1,20 +1,21 @@
 ---
 title: Discover software inventory on on-premises servers with Azure Migrate 
 description: Learn how to discover software inventory on on-premises servers with Azure Migrate Discovery and assessment.
-author: Vikram1988
-ms.author: vibansa
+author: ankitsurkar06
+ms.author: ankitsurkar
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 11/22/2023
+ms.date: 02/06/2025
 ms.custom: engagement-fy23
+# Customer intent: As an IT professional, I want to discover software inventory on my on-premises servers using a cloud-based assessment tool, so that I can effectively plan and implement a migration strategy to Azure for my workloads.
 ---
 
 # Discover installed software inventory, web apps, and SQL Server instances and databases
 
 This article describes how to discover installed software inventory, web apps, and SQL Server instances and databases on servers running in your on-premises environment, using the Azure Migrate: Discovery and assessment tool.
 
-Performing software inventory helps identify and tailor a migration path to Azure for your workloads. Software inventory uses the Azure Migrate appliance to perform discovery, using server credentials. It's completely agentless, that is, no agents are installed on the servers to collect this data.
+Performing software inventory helps identify and tailor a migration path to Azure for your workloads. Software inventory uses the Azure Migrate appliance to perform discovery, using server credentials. It's agentless, that is, no agents are installed on the servers to collect this data.
 
 
 ## Before you start
@@ -33,7 +34,7 @@ Performing software inventory helps identify and tailor a migration path to Azur
 
 1. Deploy the Azure Migrate appliance to start discovery. To deploy the appliance, you can use the [deployment method](migrate-appliance.md#deployment-methods) as per your environment. After deploying the appliance, you need to register it with the project and configure it to initiate the discovery.
 2. As you configure the appliance, you need to specify the following in the appliance configuration manager:
-    - The details of the source environment (vCenter Server(s) /Hyper-V host(s) or cluster(s)/physical servers) which you want to discover.
+    - The details of the source environment (vCenter Servers /Hyper-V host(s) or cluster(s)/physical servers) which you want to discover.
     - Server credentials, which can be domain/ Windows (non-domain)/ Linux (non-domain) credentials. [Learn more](add-server-credentials.md) about how to provide credentials and how the appliance handles them.
     - Verify the permissions required to perform software inventory. You need a guest user account for Windows servers, and a regular/normal user account (non-sudo access) for all Linux servers.
 
@@ -53,7 +54,7 @@ Performing software inventory helps identify and tailor a migration path to Azur
 
 After software inventory has completed, you can review and export the inventory in the Azure portal.
 
-1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the displayed count to open the **Discovered servers** page.
+1. In **Azure Migrate - Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the displayed count to open the **Discovered servers** page.
 
     > [!NOTE]
     > At this stage you can optionally also enable dependency analysis for the discovered servers, so that you can visualize dependencies across servers you want to assess. [Learn more](concepts-dependency-visualization.md) about dependency analysis.
@@ -71,13 +72,48 @@ The software inventory is exported and downloaded in Excel format. The **Softwar
     > [!NOTE]
     > Appliance can connect to only those SQL Server instances to which it has network line of sight, whereas software inventory by itself may not need network line of sight.
 
-The sign-in used to connect to a source SQL Server instance requires sysadmin role.
+To discover SQL Server instances and databases, the Windows/ Domain account, or SQL Server account [requires these low privilege read permissions](migrate-support-matrix-vmware.md#configure-the-custom-login-for-sql-server-discovery) for each SQL Server instance. You can use the [low-privilege account provisioning utility](least-privilege-credentials.md) to create custom accounts or use any existing account that is a member of the sysadmin server role for simplicity.
 
 <!--
 [!INCLUDE [Minimal Permissions for SQL Assessment](../../includes/database-migration-service-sql-permissions.md)]
 --->
 
-Once connected, the appliance gathers configuration and performance data of SQL Server instances and databases. The SQL Server configuration data is updated once every 24 hours, and the performance data is captured every 30 seconds. Hence, any change to the properties of the SQL Server instance and databases such as database status, compatibility level etc. can take up to 24 hours to update on the portal.
+Once connected, the appliance gathers configuration and performance data of SQL Server instances and databases. The SQL Server configuration data is updated once every 24 hours, and the performance data is captured every 30 seconds. Hence, any change to the properties of the SQL Server instance and databases such as database status, compatibility level, etc. can take up to 24 hours to update on the portal.
+
+## Discover PostgreSQL instances and databases (preview) 
+
+- Software inventory also identifies the PostgreSQL instances running in your VMware, Microsoft Hyper-V, and Physical/Bare-metal environments as well as IaaS services of other public cloud. 
+
+- If you haven't provided Windows or Linux authentication and PostgreSQL instance authentication credentials on the appliance configuration manager, then add the credentials so that the appliance can use them to connect to respective PostgreSQL instances. 
+
+    > [!NOTE]
+    > Appliance can connect to only those PostgreSQL Server instances to which it has network line of sight, whereas software inventory by itself may not need network line of sight.
+
+- PostgreSQL authentication requirements: To connect to a source PostgreSQL Server instance, the sign-in must meet the following requirements:
+    - You must have at least the `CONNECT` privilege on the PostgreSQL databases.
+    - You must be assigned the `pg_read_all_settings role` or have equivalent permissions to read server configuration settings.
+- Learn more about [minimum user privileged script](postgresql-least-privilege-configuration.md).
+- After the connection, the appliance collects configuration data from PostgreSQL instances and databases. It updates the PostgreSQL configuration data every 24 hours.   
+- The appliance collects detailed configuration data from the PostgreSQL Server, including server parameters from `postgresql.conf,` database properties and sizes, installed extensions, replication settings, and user and role configurations.
+- Configuration data is refreshed every 24 hours. As a result, changes to the PostgreSQL Server instance—such as updates to database status, server parameters, or newly installed extensions—may take up to 24 hours to appear in the portal.
+
+> [!IMPORTANT]
+> - Ensure your PostgreSQL instances are set up to accept connections from the appliance IP address.
+> - The default PostgreSQL port 5432 or the custom port is accessible if one is configured.
+> - The listen_addresses parameter in postgresql.conf must include the network interface that the appliance can access.
+> - Add entries in the pg_hba.conf file to allow connections from the appliance IP address.
+
+Learn more about [PostgreSQL configuration](https://www.postgresql.org/docs/current/auth-pg-hba-conf.html).
+
+## Discover MySQL Server instances and databases (preview)
+
+- Software inventory also identifies the MySQL Server instances running in your VMware, Microsoft Hyper-V, and Physical/ Bare-metal environments as well as IaaS services of other public cloud.
+- If you haven't provided Windows or Linux authentication and MySQL Server authentication credentials on the appliance configuration manager, then add the credentials so that the appliance can use them to connect to respective MySQL Server instances.
+
+    > [!NOTE]
+    > Appliance can connect to only those MySQL Server instances to which it has network line of sight, whereas software inventory by itself may not need network line of sight.
+
+Once connected, the appliance gathers configuration and performance data of MySQL Server instances and databases. The MySQL Server configuration data is updated once every 24 hours, and the performance data is captured every 30 seconds. Hence, any change to the properties of the MySQL Server instance and databases such as database status, compatibility level, etc. can take up to 24 hours to update on the portal.
 
 ## Discover ASP.NET web apps
 

@@ -12,11 +12,13 @@ ms.topic: reference
 ms.date: 01/17/2024
 ms.author: kengaderdus
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 #Customer intent: As a developer integrating customer-facing apps with Azure AD B2C, I want to learn how to define a CAPTCHA display control for Azure AD B2C's custom policies so that I can protect my authentication flows from automated attacks. 
 ---
 
 # Verify CAPTCHA challenge string using CAPTCHA display control
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Use CAPTCHA display controls to generate a CAPTCHA challenge string, then verify it by asking the user to enter what they see or hear. To display a CAPTCHA display control, you reference it from a [self-asserted technical profile](self-asserted-technical-profile.md), and you must set the self-asserted technical profile's `setting.enableCaptchaChallenge` metadata value to *true*.
 

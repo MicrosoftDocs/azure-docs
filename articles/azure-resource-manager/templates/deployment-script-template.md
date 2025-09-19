@@ -1,9 +1,11 @@
 ---
 title: Use deployment scripts in templates | Microsoft Docs
 description: Use deployment scripts in Azure Resource Manager templates.
-ms.custom: devx-track-arm-template
+ms.custom:
+  - devx-track-arm-template
+  - build-2025
 ms.topic: conceptual
-ms.date: 06/14/2024
+ms.date: 04/28/2025
 ---
 
 # Use deployment scripts in ARM templates
@@ -24,7 +26,7 @@ These scripts can be used for performing custom steps such as:
 
 The benefits of deployment script:
 
-- Easy to code, use, and debug. You can develop deployment scripts in your favorite development environments. The scripts can be embedded in templates or in external script files.
+- You can develop deployment scripts in your favorite development environments. The scripts can be embedded in templates or in external script files.
 - You can specify the script language and platform. Currently, Azure PowerShell and Azure CLI deployment scripts on the Linux environment are supported.
 - Allow passing command-line arguments to the script.
 - Can specify script outputs and pass them back to the deployment.
@@ -61,6 +63,9 @@ For deployment script API version 2020-10-01 or later, there are two principals 
             "Microsoft.Resources/deployments/*",
             "Microsoft.Resources/deploymentScripts/*"
           ],
+         "dataActions": [
+            "Microsoft.Storage/storageAccounts/fileServices/*"
+          ]
         }
       ],
       "assignableScopes": [
@@ -108,7 +113,7 @@ The following JSON is an example. For more information, see the latest [template
       "storageAccountName": "myStorageAccount",
       "storageAccountKey": "myKey"
     },
-    "azPowerShellVersion": "9.7",  // or "azCliVersion": "2.47.0",
+    "azPowerShellVersion": "14.0",  // or "azCliVersion": "2.47.0",
     "arguments": "-name \\\"John Dole\\\"",
     "environmentVariables": [
       {
@@ -397,7 +402,7 @@ SubscriptionId      : aaaabbbb-0000-cccc-1111-dddd2222eeee
 ProvisioningState   : Succeeded
 Identity            : /subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/mydentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami
 ScriptKind          : AzurePowerShell
-AzPowerShellVersion : 9.7
+AzPowerShellVersion : 14.0
 StartTime           : 5/11/2023 7:46:45 PM
 EndTime             : 5/11/2023 7:49:45 PM
 ExpirationDate      : 5/12/2023 7:49:45 PM
@@ -536,7 +541,7 @@ The output is similar to:
   "properties": {
     "provisioningState": "Succeeded",
     "forceUpdateTag": "20220625T025902Z",
-    "azPowerShellVersion": "9.7",
+    "azPowerShellVersion": "14.0",
     "scriptContent": "\r\n          param([string] $name)\r\n          $output = \"Hello {0}\" -f $name\r\n          Write-Output $output\r\n          $DeploymentScriptOutputs = @{}\r\n          $DeploymentScriptOutputs['text'] = $output\r\n        ",
     "arguments": "-name \\\"John Dole\\\"",
     "retentionInterval": "P1D",

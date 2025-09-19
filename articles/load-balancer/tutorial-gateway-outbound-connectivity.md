@@ -8,6 +8,7 @@ ms.service: azure-load-balancer
 ms.topic: tutorial
 ms.date: 11/26/2024
 ms.custom: template-tutorial
+# Customer intent: "As a network administrator, I want to configure a Gateway Load Balancer for my virtual machines' outbound connectivity, so that I can ensure high performance and scalability while securing both inbound and outbound traffic."
 ---
 
 # Tutorial: Configure outbound connectivity with a gateway load balancer
@@ -25,7 +26,7 @@ In this tutorial, you learn how to:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An existing public standard SKU Azure Load Balancer. For more information on creating a load balancer, see [Create a public load balancer using the Azure portal](quickstart-load-balancer-standard-public-portal.md).
     - For the purposes of this tutorial, the standard load balancer is named **myLoadBalancer** and is located in a resource group called **myResourceGroup**.
-- An existing Gateway SKU Azure Load Balancer. For more information on creating a gateway load balancer, see [Create a gateway load balancer using the Azure portal](tutorial-gateway-portal.md).
+- An existing Gateway SKU Azure Load Balancer. For more information on creating a gateway load balancer, see [Create a gateway load balancer using the Azure portal](tutorial-create-gateway-load-balancer.md).
     - For the purposes of this tutorial, the gateway load balancer in the examples is name **myGatewayLoadBalancer**.
 - A virtual machine or network virtual appliance deployed in the same region and resource group as the load balancers. For more information on deploying a virtual machine, see [Create a Windows VM in the Azure portal](/azure/virtual-machines/windows/quick-create-portal).
     - For the purposes of this tutorial, the virtual machine is named **myVM1**.

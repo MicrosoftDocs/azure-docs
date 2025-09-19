@@ -2,11 +2,12 @@
 title: Azure Quickstart - Create a Batch account - Bicep file
 description: This quickstart shows how to create a Batch account by using a Bicep file.
 author: FuzziWumpus
-ms.date: 04/11/2023
+ms.date: 04/02/2025
 ms.topic: quickstart
 ms.author: padmalathas
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 tags: azure-resource-manager, bicep
+# Customer intent: As a cloud developer, I want to create a Batch account using a Bicep file, so that I can deploy compute resources and manage workloads efficiently.
 ---
 
 # Quickstart: Create a Batch account by using a Bicep file

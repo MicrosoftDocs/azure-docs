@@ -16,6 +16,13 @@ You can use Azure Key Vault (including Azure Key Vault Managed Hardware Security
 
 If you only need to encrypt certain properties of your messages, consider using a library like [NServiceBus](https://docs.particular.net/nservicebus/security/property-encryption).
 
+> [!NOTE]
+> A customer-managed keys for is considered disabled in the following scenarios:
+> - Revoking access: If Service Bus no longer has permission to access the key in Azure Key Vault.
+> - Disabling the key: Manually disabling the key in Key Vault renders it unusable.
+> - Letting the key expire: If the key reaches its expiration date without renewal. Letting a key expire has the same effect as revoking or disabling it. Always rotate or renew keys before they expire to avoid unintended outages.
+> - Deleting the key: Once deleted, the key is permanently inaccessible.
+
 ## Enable customer-managed keys (Azure portal)
 
 To enable customer-managed keys in the Azure portal, follow these steps:
@@ -616,7 +623,9 @@ If you require a higher level of assurance that your data is secure, you can ena
 
 When infrastructure encryption is enabled, data in the Azure Service Bus is encrypted twice, once at the service level and once at the infrastructure level, using two different encryption algorithms and two different keys. Hence, infrastructure encryption of Azure Service Bus data protects against a scenario where one of the encryption algorithms or keys can be compromised.
 
-You can enable infrastructure encryption by updating the Azure Resource Manager template with `requireInfrastructureEncryption` property in the **UpdateServiceBusNamespaceWithEncryption.json** as shown in the following example. 
+Also, infrastructure encryption can be enabled only while switching from "Microsoft-managed key" to "Customer-managed key". 
+
+You can enable infrastructure encryption later even by updating the Azure Resource Manager template with `requireInfrastructureEncryption` property in the **UpdateServiceBusNamespaceWithEncryption.json** as shown in the following example. 
 
 ```json
 "properties":{

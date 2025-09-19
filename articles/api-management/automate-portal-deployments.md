@@ -40,7 +40,7 @@ After the script is successfully executed, the target API Management service sho
 * If you're using a managed portal, you can set the script to auto-publish the destination portal to make the migrated version automatically available to the visitors. 
 * If you're using a self-hosted portal, you need to publish the destination portal manually. Follow the publishing and hosting instructions in the tutorial to [set up a self-hosted developer portal](developer-portal-self-host.md).
 
-## Next steps
+## Related content
 
 Learn more about the developer portal:
 

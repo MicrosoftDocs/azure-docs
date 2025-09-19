@@ -4,8 +4,12 @@ description: This article describes how to replicate appliance for VMware disast
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 01/24/2025
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ga-nochange
+# Customer intent: As a system administrator, I want to deploy the Azure Site Recovery replication appliance for VMware, so that I can ensure effective disaster recovery of my on-premises VMs to Azure.
 ---
 
 # Deploy Azure Site Recovery replication appliance - Modernized
@@ -157,6 +161,9 @@ If there are any organizational restrictions, you can manually set up the Site R
   - After pasting the key, select **Login.** You're redirected to a new authentication tab.
 
       By default, an authentication code is generated as highlighted below, in the **Appliance configuration manager** page. Use this code in the authentication tab.
+
+     >[!NOTE]
+     >  During Azure Site Recovery modernized appliance deployment, you must use the device code flow for authentication during registration.
 
   - Enter your Microsoft Azure credentials to complete registration.
 

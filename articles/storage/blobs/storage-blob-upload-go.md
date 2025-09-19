@@ -3,14 +3,15 @@ title: Upload a blob with Go
 titleSuffix: Azure Storage
 description: Learn how to upload a blob to your Azure Storage account using the Go client library.
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
-ms.date: 08/05/2024
+ms.author: shaas
+ms.date: 03/25/2025
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
+# Customer intent: As a developer using Go, I want to upload blobs to Azure Storage so that I can efficiently manage and store data from various sources in my applications.
 ---
 
 # Upload a block blob with Go
@@ -39,6 +40,9 @@ To upload a blob, call any of the following methods from the client object:
 - [UploadStream](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.UploadStream)
 
 To perform the upload, the client library might use either [Put Blob](/rest/api/storageservices/put-blob) or a series of [Put Block](/rest/api/storageservices/put-block) calls followed by [`Put Block List`](/rest/api/storageservices/put-block-list). This behavior depends on the overall size of the object and how the data transfer options are set.
+
+> [!NOTE]
+> The Azure Storage client libraries don't support concurrent writes to the same blob. If your app requires multiple processes writing to the same blob, you should implement a strategy for concurrency control to provide a predictable experience. To learn more about concurrency strategies, see [Manage concurrency in Blob Storage](concurrency-manage.md).
 
 ## Upload a block blob from a local file path
 

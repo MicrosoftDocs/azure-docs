@@ -2,18 +2,14 @@
 title: Reserved capacity for Azure NetApp Files
 description: Learn how to optimize total cost of ownership (TCO) with Azure NetApp Files reservations. 
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.topic: conceptual
-ms.date: 09/17/2024
+ms.topic: concept-article
+ms.date: 03/25/2025
 ms.author: anfdocs
+# Customer intent: "As a finance manager, I want to purchase reserved capacity for Azure NetApp Files, so that I can optimize our storage costs and improve our total cost of ownership over the term of the reservation."
 ---
 # Reserved capacity for Azure NetApp Files
 
@@ -29,6 +25,9 @@ This section describes the terms of an Azure NetApp Files reservation.
 
 >[!NOTE]
 >Azure NetApp Files reservations cover matching capacity pools in the selected service level and region. When using capacity pools configured with [cool access](manage-cool-access.md), only "hot" tier consumption is covered by the reservation benefit.
+
+>[!NOTE]
+>Azure NetApp Files reservations aren't currently supported on the [Flexible service level](azure-netapp-files-service-levels.md).
 
 ### Reservation quantity
 

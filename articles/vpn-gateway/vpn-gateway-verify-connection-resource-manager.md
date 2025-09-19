@@ -6,8 +6,9 @@ author: cherylmc
 ms.service: azure-vpn-gateway
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 06/13/2022
+ms.date: 03/31/2025
 ms.author: cherylmc
+# Customer intent: As a network administrator, I want to verify the VPN gateway connection, so that I can ensure secure and reliable communication between my networks.
 ---
 # Verify a connection for VPN Gateway
 

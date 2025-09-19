@@ -6,6 +6,7 @@ ms.author: xujiang1
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 02/14/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Build real-time dashboard with Power BI dataset produced from Stream Analytics no code editor

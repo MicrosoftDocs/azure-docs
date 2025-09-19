@@ -6,7 +6,7 @@ author: maud-lv
 ms.service: azure-app-configuration
 ms.custom: service-connector
 ms.topic: quickstart
-ms.date: 12/11/2024
+ms.date: 09/19/2025
 ms.author: malev
 
 ---
@@ -17,6 +17,9 @@ In this quickstart, you use Azure App Configuration in an app running in Azure C
 
 > [!TIP]
 > While following this quickstart, preferably register all new resources within a single resource group, so that you can regroup them all in a single place and delete them faster later on if you don't need them anymore.
+
+> [!IMPORTANT]
+> Support for Service Connector (preview) on Azure Container Apps ends on March 30, 2026. After that date, new service connections using Service Connector (preview) aren't available through any interface. For more information, see [RETIREMENT: Service Connector (Preview) on Azure Container Apps](https://aka.ms/serviceconnectoraca).
 
 ## Prerequisites
 

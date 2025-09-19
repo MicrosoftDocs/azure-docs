@@ -1,8 +1,8 @@
 ---
 title: Partitioning tables in dedicated SQL pool
 description: Recommendations and examples for using table partitions in dedicated SQL pool.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 01/21/2025
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw

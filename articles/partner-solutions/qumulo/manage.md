@@ -1,53 +1,55 @@
 ---
-title: Manage Azure Native Qumulo Scalable File Service
-description: This article describes how to manage Azure Native Qumulo Scalable File Service in the Azure portal. 
+title: Manage Azure Native Qumulo
+description: Learn how to manage your Azure Native Qumulo settings.
 
 ms.topic: how-to 
-ms.date: 11/15/2023
+ms.date: 02/09/2024
 ms.custom:
   - ignite-2023
 ---
 
 
-# Manage Azure Native Qumulo Scalable File Service
+# Manage Azure Native Qumulo
 
-This article describes how to manage your instance of Azure Native Qumulo Scalable File Service.
+This article describes how to manage the settings for an Azure Native Qumulo resource.
 
-## Manage the Qumulo resource 
+## Resource overview 
 
-1. In the Azure portal, browse to your instance of Azure Native Qumulo Scalable File Service.
+[!INCLUDE [manage](../includes/manage.md)]
 
-1. On the **Resource** menu, select **Overview** to see some of the settings for your Qumulo resource.
+:::image type="content" source="media/manage/resource-overview.png" alt-text="A screenshot of a Qumulo resource in the Azure portal with the overview displayed in the working pane.":::
 
-   :::image type="content" source="media/qumulo-how-to-manage/qumulo-overview.png" alt-text="Screenshot that shows selections for getting details about a Qumulo resource.":::
+The *Essentials* details include:
 
-1. The **Resource** menu has other settings that you can examine and change. For example, selecting **IP addresses** displays the IP addresses that you can use to manage the file system.
+- Resource group
+- Location
+- Subscription
+- Subscription ID
+- Tags
+- Qumulo Core Web UI Login
+- Service type
+- Availability Zone
+- Virtual network/subnet
+- Status
 
-   :::image type="content" source="media/qumulo-how-to-manage/qumulo-ip-addresses.png" alt-text="Screenshot that shows selections for displaying IP addresses associated with a file system.":::
+To manage your resource, select the links next to corresponding details.
 
-## Configure and use the Qumulo file system
+Below the essentials, you can navigate to other details about your resource.
 
-For help with configuring and using your file system, see the [Qumulo documentation hub](https://docs.qumulo.com/azure-guide/).
+## Manage a resource
 
-## Delete the Qumulo file system
+To manage your Qumulo file system or to mount your file system for data access, select **Qumulo config** > **IP addresses** from the service menu. 
 
-To delete your Qumulo file system, you delete your deployment of Azure Native Qumulo Scalable File Service:
+## Delete a resource
 
-1. In the Azure portal, select your deployment of Azure Native Qumulo Scalable File Service.
-1. On the **Resource** menu, select **Overview**.
-1. Select **Delete**.
-1. Confirm that you want to delete Azure Native Qumulo Scalable File Service, along with associated data and other resources attached to the service.
-1. Select **Delete**. This action is not reversible. The data contained in the file system is permanently deleted.
+[!INCLUDE [delete-resource](../includes/delete-resource.md)]
 
-:::image type="content" source="media/qumulo-how-to-manage/qumulo-delete.png" alt-text="Screenshot of a Qumulo overview with the delete button.":::
+## Get support
 
-## Next steps
-- [Quickstart: Get started with Azure Native Qumulo Scalable File Service](create.md)
-- [Troubleshoot Azure Native Qumulo Scalable File Service](troubleshoot.md)
-- Get started with Azure Native Qumulo Scalable File Service on
+You can request support from the Azure portal, or go to the [Qumulo support page](https://aka.ms/partners/Qumulo/Support).
 
-    > [!div class="nextstepaction"]
-    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Qumulo.Storage%2FfileSystems)
+[!INCLUDE [contact-support](../includes/contact-support.md)]
 
-    > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qumulo1584033880660.qumulo-saas-mpp?tab=Overview)
+## Related content
+
+- [Troubleshoot Azure Native Qumulo](troubleshoot.md)

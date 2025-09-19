@@ -6,6 +6,7 @@ ms.author: xujiang1
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 06/13/2023
+ms.custom: sfi-image-nochange
 ---
 
 # Use Azure Stream Analytics no-code editor to transform and store data in Azure SQL database

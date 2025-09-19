@@ -11,7 +11,9 @@ ms.topic: overview
 ms.date: 02/17/2025
 ms.author: kengaderdus
 ms.subservice: b2c
-ms.custom: "b2c-support"
+ms.custom:
+  - "b2c-support"
+  - sfi-image-nochange
 
 
 #Customer intent: As an identity developer working with Azure AD B2C, I want to understand the basics of custom policies, so that I can configure and customize the behavior of my Azure AD B2C tenant for different identity tasks.
@@ -19,6 +21,7 @@ ms.custom: "b2c-support"
 ---
 
 # Azure AD B2C custom policy overview
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Custom policies are configuration files that define the behavior of your Azure Active Directory B2C (Azure AD B2C) tenant. While [user flows](user-flow-overview.md) are predefined in the Azure AD B2C portal for the most common identity tasks, an identity developer can edit custom policies to complete many different tasks.
 

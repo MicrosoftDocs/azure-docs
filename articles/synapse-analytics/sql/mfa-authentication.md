@@ -7,8 +7,9 @@ ms.subservice: sql
 ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
-ms.reviewer: whhender
-ms.custom: has-adal-ref
+ms.custom:
+  - has-adal-ref
+  - sfi-image-nochange
 ---
 
 # Use multifactor Microsoft Entra authentication with Synapse SQL (SSMS support for MFA)

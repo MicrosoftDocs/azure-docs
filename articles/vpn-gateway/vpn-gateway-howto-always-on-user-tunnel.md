@@ -5,9 +5,10 @@ description: Learn how to configure an Always On VPN user tunnel for your VPN ga
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 08/11/2023
+ms.date: 03/31/2025
 ms.author: cherylmc
 
+# Customer intent: As a network administrator, I want to configure an Always On VPN user tunnel, so that I can maintain persistent, secure connections for remote users without manual intervention.
 ---
 # Configure an Always On VPN user tunnel
 

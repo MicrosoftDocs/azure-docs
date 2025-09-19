@@ -4,7 +4,7 @@ description: Learn how to create a trigger in Azure Data Factory that runs a pip
 ms.subservice: orchestration
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.topic: conceptual
 ms.date: 12/16/2024
 ai-usage: ai-assisted
@@ -168,5 +168,5 @@ Specifically, you need `Microsoft.EventGrid/EventSubscriptions/Write` permission
 
 ## Related content
 
-* Get detailed information about [trigger execution](concepts-pipeline-execution-triggers.md#trigger-execution-with-json).
+* Get detailed information about [trigger execution](concepts-pipeline-execution-triggers.md#trigger-types).
 * Learn how to [reference trigger metadata in pipeline runs](how-to-use-trigger-parameterization.md).

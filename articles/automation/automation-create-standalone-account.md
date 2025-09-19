@@ -6,6 +6,8 @@ ms.subservice: process-automation
 ms.date: 08/20/2024
 ms.topic: how-to
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 # Create a standalone Azure Automation account
 
@@ -46,7 +48,7 @@ The following table describes the fields on the **Basics** tab.
 |---|---|---|
 |Subscription|Required |From the drop-down list, select the Azure subscription for the account.|
 |Resource group|Required |From the drop-down list, select your existing resource group, or select **Create new**.|
-|Automation account name|Required |Enter a name unique for it's location and resource group. Names for Automation accounts that have been deleted might not be immediately available. You can't change the account name once it has been entered in the user interface. |
+|Automation account name|Required |Enter a name unique for its location and resource group. Names for Automation accounts that have been deleted might not be immediately available. You can't change the account name once it has been entered in the user interface. |
 |Region|Required |From the drop-down list, select a region for the account. For an updated list of locations that you can deploy an Automation account to, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all).|
 
 The following image shows a standard configuration for a new Automation account.
@@ -66,7 +68,7 @@ The following table describes the fields on the **Advanced** tab.
 |System-assigned |Optional |A Microsoft Entra identity that is tied to the lifecycle of the Automation account. |
 |User-assigned |Optional |A managed identity represented as a standalone Azure resource that is managed separately from the resources that use it.|
 
-You can chose to enable managed identities later, and the Automation account is created without one. To enable a managed identity after the account is created, see [Enable managed identity](enable-managed-identity-for-automation.md). If you select both options, for the user-assigned identity, select the **Add user assigned identities** option. On the **Select user assigned managed identity** page, select a subscription and add one or more user-assigned identities created in that subscription to assign to the Automation account.
+You can choose to enable managed identities later, and the Automation account is created without one. To enable a managed identity after the account is created, see [Enable managed identity](enable-managed-identity-for-automation.md). If you select both options, for the user-assigned identity, select the **Add user assigned identities** option. On the **Select user assigned managed identity** page, select a subscription and add one or more user-assigned identities created in that subscription to assign to the Automation account.
 
 The following image shows a standard configuration for a new Automation account.
 
@@ -107,7 +109,7 @@ When the Automation account is successfully created, several resources are autom
 
 ## Manage Automation account keys
 
-When you create an Automation account, Azure generates two 512-bit automation account access keys for that account. These keys are shared access keys that are used as registration keys for registering [DSC nodes](./automation-dsc-onboarding.md#use-dsc-metaconfiguration-to-register-hybrid-machines) as well as [Windows](./automation-windows-hrw-install.md#manual-deployment) and [Linux](./automation-linux-hrw-install.md#manually-run-powershell-commands) Hybrid runbook workers. These keys are only used while registering DSC nodes and Hybrid workers. Existing machines configured as DSC nodes or hybrid workers won’t be affected after rotation of these keys. 
+When you create an Automation account, Azure generates two 512-bit automation account access keys for that account. These keys are shared access keys that are used as registration keys for registering [DSC nodes](./automation-dsc-onboarding.md#use-dsc-metaconfiguration-to-register-hybrid-machines) These keys are only used while registering DSC nodes. Existing machines configured as DSC nodes or hybrid workers won’t be affected after rotation of these keys. 
 
 ### View Automation account keys
 
@@ -122,7 +124,7 @@ You can use any of the two keys to access your Automation account. However, we r
 
 We recommend that you rotate your access keys periodically to keep the Automation account secure. As you have two access keys, you can rotate them using Azure portal or Azure PowerShell cmdlet.
 
-Choose a client
+Choose a client:
 
 # [Azure portal](#tab/azureportal)
 

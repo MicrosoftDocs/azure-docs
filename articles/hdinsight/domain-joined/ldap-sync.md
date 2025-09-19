@@ -3,6 +3,9 @@ title: LDAP sync in Ranger and Apache Ambari in Azure HDInsight
 description: Address the LDAP sync in Ranger and Ambari and provide general guidelines.
 ms.service: azure-hdinsight
 ms.topic: conceptual
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf 
 ms.date: 06/15/2024
 ---
 
@@ -30,7 +33,7 @@ HDInsight Enterprise Security Package (ESP) clusters use Ranger for authorizatio
 
 From the head nodes, a cron job, `/opt/startup_scripts/start_ambari_ldap_sync.py`, is run every hour to schedule the user sync. The cron job calls the Ambari rest APIs to perform the sync. The script submits a list of users and groups to sync (as the users may not belong to the specified groups, both are specified individually). Ambari syncs the sAMAccountName as the username and all the group members, transitively.
 
-The logs should be in `/var/log/ambari-server/ambari-server.log`. For more information, see [Configure Ambari logging level](https://docs.cloudera.com/HDPDocuments/Ambari-latest/administering-ambari/content/amb_configure_ambari_logging_level.html).
+The logs should be in `/var/log/ambari-server/ambari-server.log`. For more information, see [Configure Ambari logging level](https://docs-archive.cloudera.com/HDPDocuments/Ambari-2.7.4.0/administering-ambari/content/amb_configure_ambari_logging_level.html).
 
 In Data Lake clusters, the post user creation hook is used to create the home folders for the synced users and they're set as the owners of the home folders. If the user isn't synced to Ambari correctly, then the user could face failures in running jobs as the home folder may not be set up correctly.
 

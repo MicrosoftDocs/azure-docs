@@ -9,6 +9,7 @@ ms.service: azure-elastic-san-storage
 ms.topic: how-to
 ms.date: 05/31/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, references_regions
+# Customer intent: As a cloud administrator, I want to configure customer-managed keys for Azure Elastic SAN encryption, so that my data management practices meet compliance requirements.
 ---
 
 # Configure customer-managed keys for an Azure Elastic SAN
@@ -116,7 +117,7 @@ You can use a new or existing key vault to store customer-managed keys. The encr
 
 Using customer-managed keys with encryption requires that both soft delete and purge protection are enabled for the key vault. Soft delete is enabled by default when you create a new key vault and can't be disabled. You can enable purge protection either when you create the key vault or after it's created. Azure Elastic SAN encryption supports RSA keys of sizes 2048, 3072 and 4096.
 
-Azure Key Vault supports authorization with Azure RBAC via an Azure RBAC permission model. Microsoft recommends using the Azure RBAC permission model over key vault access policies. For more information, see [Grant permission to applications to access an Azure key vault using Azure RBAC](/azure/key-vault/general/rbac-guide).
+Azure Key Vault supports authorization with Azure RBAC via an Azure RBAC permission model. Microsoft recommends using the Azure RBAC permission model over key vault access policies. For more information, see [Provide access to Key Vault keys, certificates, and secrets with Azure role-based access control](/azure/key-vault/general/rbac-guide).
 
 There are two steps involved in preparing a key vault as a store for your volume group KEKs:
 

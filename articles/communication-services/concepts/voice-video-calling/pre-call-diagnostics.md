@@ -9,6 +9,7 @@ ms.author: chpalm
 ms.date: 04/01/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.custom: sfi-ropc-nochange
 ---
 
 # Pre-call diagnostic overview
@@ -124,7 +125,7 @@ If devices aren't available, the user shouldn't continue into joining a call. Ra
 
 Performs a quick call to check in-call metrics for audio and video and provides results back. Includes connectivity (`connected`, boolean), bandwidth quality (`bandWidth`, `'Bad' | 'Average' | 'Good'`) and call diagnostics for audio and video (`diagnostics`). Provided diagnostic categories include `jitter`, `packetLoss`, and `rtt` and results are generated using a simple quality grade (`'Bad' | 'Average' | 'Good'`).
 
-InCall diagnostics uses [Media quality statistics](./media-quality-sdk.md) to calculate quality scores and diagnose issues. During the pre-call diagnostic, the full set of media quality statistics are available for consumption. These statistics include raw values across video and audio metrics that you can use programatically.
+InCall diagnostics uses [Media quality statistics](./media-quality-sdk.md) to calculate quality scores and diagnose issues. During the pre-call diagnostic, the full set of media quality statistics are available for consumption. These statistics include raw values across video and audio metrics that you can use programmatically.
 
 The InCall diagnostic provides a convenience layer on top of media quality statistics to consume the results without the need to process all the raw data. For more information including instructions to access, see [Media quality statistics for an ongoing call](./media-quality-sdk.md#media-quality-statistics-for-an-ongoing-call).
 

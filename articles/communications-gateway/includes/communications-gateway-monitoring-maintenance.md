@@ -1,6 +1,4 @@
 ---
-author: rcdun
-ms.author: rdunstan
 ms.service: azure-communications-gateway
 ms.topic: include
 ms.date: 04/10/2024

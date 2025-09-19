@@ -1,11 +1,15 @@
 ---
 title: Migrate Ambari to the recent version of Azure HDInsight
 description: Learn how to migrate Ambari to the recent version of Azure HDInsight.
-author: AmithshaS
-ms.author: amithshas
 ms.service: azure-hdinsight
 ms.topic: how-to
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 05/22/2024
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Ambari user configs migration

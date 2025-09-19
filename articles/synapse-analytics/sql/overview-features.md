@@ -8,7 +8,8 @@ ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 03/24/2022
-ms.reviewer: whhender, wiassaf
+ms.custom: sfi-ropc-nochange
+
 ---
 
 # Transact-SQL features supported in Azure Synapse SQL

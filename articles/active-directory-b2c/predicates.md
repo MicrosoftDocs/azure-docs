@@ -12,6 +12,7 @@ ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a developer using Azure Active Directory B2C, I want to perform validation on user input data, so that I can ensure that only properly formed data is entered into the system.
@@ -19,6 +20,7 @@ ms.subservice: b2c
 ---
 
 # Predicates and PredicateValidations
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 

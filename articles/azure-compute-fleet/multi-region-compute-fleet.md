@@ -1,14 +1,15 @@
 ---
 title: Multi-Region Compute Fleet (Preview)
 description: Learn about Azure Compute Fleet and how to accelerate your access to Azure's capacity through multi-region deployment.
-author: rrajeesh
-ms.author: rajeeshr
+author: shandilvarun
+ms.author: vashan
 ms.topic: concept-article
 ms.service: azure-compute-fleet
 ms.custom:
   - ignite-2024
 ms.date: 11/13/2024
 ms.reviewer: jushiman
+# Customer intent: "As a cloud architect, I want to distribute workloads across multiple regions using a compute fleet, so that I can enhance scalability, optimize performance, and ensure fault tolerance for my applications."
 ---
 
 # Multi-Region Compute Fleet (Preview)
