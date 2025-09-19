@@ -63,7 +63,7 @@
       href: how-to-leverage-virtual-tpms-in-azure-confidential-vms.md
     - name: Create a custom image for a confidential VM
       href: how-to-create-custom-image-confidential-vm.md
-    - name: Quickstart - create confidential VMs
+    - name: Quickstarts - create confidential VMs
       items:
       - name: Create VM through the Azure portal
         href: quick-create-portal.md
