@@ -7,7 +7,7 @@ ms.topic: quickstart
 author: RoseHJM
 ms.author: rosemalcolm
 ms.update-cycle: 90-days
-ms.date: 05/02/2025
+ms.date: 09/19/2025
 #Customer intent: As an enterprise admin, I want to understand how to create and configure dev box components so that I can provide dev box projects for my users.
 ---
 
@@ -47,6 +47,20 @@ To get started with Microsoft Dev Box, first create a dev center. A dev center i
 Follow these steps to create a dev center and manage your dev box resources:
 
 [!INCLUDE [create-dev-center-steps](includes/create-dev-center-steps.md)]
+
+### Create a dev box definition
+
+Create a dev box definition in your dev center. A dev box definition specifies the VM image and VM SKU (compute size and storage) used to create dev boxes. Depending on the development project or developer profile, you might need multiple dev box definitions. For example, some developers need a specific tool set, while others need a cloud workstation with more compute resources.
+
+Dev box definitions in a dev center are available to all projects associated with that dev center. Add at least one dev box definition to your dev center.
+
+To create and set up a dev box definition for your dev center:
+
+1. Open the dev center where you want to create the dev box definition.
+
+1. Select **Dev box definitions**.
+
+1. On the **Dev box definitions** page, select **Create**.
 
 ## Create a project
 
@@ -94,34 +108,7 @@ When you create a project, you might see this informational message about catalo
 
 Because you're not setting up Deployment Environments, you can safely ignore this message.
 
-## Create a dev box definition
 
-Create a dev box definition in your dev center. A dev box definition specifies the VM image and VM SKU (compute size and storage) used to create dev boxes. Depending on the development project or developer profile, you might need multiple dev box definitions. For example, some developers need a specific tool set, while others need a cloud workstation with more compute resources.
-
-Dev box definitions in a dev center are available to all projects associated with that dev center. Add at least one dev box definition to your dev center.
-
-To create and set up a dev box definition for your dev center:
-
-1. Open the dev center where you want to create the dev box definition.
-
-1. Select **Dev box definitions**.
-
-1. On the **Dev box definitions** page, select **Create**.
-
-1. On the **Create dev box definition** page, enter the following values:
-
-   | Setting | Value | Note |
-   |---|---|---|
-   | **Name** | Enter a descriptive name for your dev box definition. | |
-   | **Image** | Select the base operating system for the dev box. Select an image from Azure Marketplace or Azure Compute Gallery.</br> If you're creating a dev box definition for testing, consider using the **Visual Studio 2022 Enterprise on Windows 11 Enterprise + Microsoft 365 Apps 24H2 \| Hibernate supported** image. | To use custom images when you create a dev box definition, use Azure Compute Gallery. For more information, see [Configure Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md). |
-   | **Image version** | Select a specific, numbered version to make sure all dev boxes in the pool use the same image version. Select **Latest** to let new dev boxes use the latest image available.|Selecting the **Latest** image version lets the dev box pool use the most recent version of your chosen image from the gallery. This approach keeps new dev boxes up to date with the latest tools and code for your image. Existing dev boxes aren't changed when an image version is updated. |
-   | **Compute** | Select the compute combination for your dev box definition. | |
-   | **Storage** | Select the amount of storage for your dev box definition. | |
-   | **Enable hibernation**| Leave this checkbox unselected. | |
-
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/recommended-test-image.png" alt-text="Screenshot of the page for creating a dev box definition." lightbox="./media/quickstart-configure-dev-box-service/recommended-test-image.png":::
-
-1. Select **Create**.
 
 ## Create a dev box pool
 
