@@ -1,12 +1,12 @@
 ---
-title: Provide server credentials to discover software inventory, dependencies, web apps, and SQL Server instances and databases
+title: Provide Server Credentials to Discover Software Inventory, Dependencies, Web apps, and SQL Server Instances and Databases
 description: Learn how to provide server credentials on appliance configuration manager.
 author: vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 03/21/2025
+ms.date: 09/21/2025
 ms.custom: engagement-fy25
 # Customer intent: As a cloud migration consultant, I want to provide server credentials in the configuration manager, so that I can accurately discover software inventory, web apps, and SQL Server instances to facilitate a smooth migration process.
 ---
