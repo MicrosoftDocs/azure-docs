@@ -76,14 +76,14 @@ Container Instances supports availability zones in different ways, depending on 
    The image shows three availability zones: Availability Zone 1, Availability Zone 2, and Availability Zone 3. A container group in Availability Zone 1 includes two containers.
 :::image-end:::
 
-    > [!NOTE]
-    > To ensure that your application continues to run when any single zone in the region experiences an outage, we recommend that you create a minimum of two container groups across two different availability zones. 
+   > [!NOTE]
+   > To ensure that your application continues to run when any single zone in the region experiences an outage, we recommend that you create a minimum of two container groups across two different availability zones. 
 
-    If you don't specify availability zones to use for your container group, it's *nonzonal* or *regional*, which means that it might be placed in any availability zone within the region or within the same zone. If any availability zone in the region has a problem, your container group might experience downtime.
+   If you don't specify availability zones to use for your container group, it's *nonzonal* or *regional*, which means that it might be placed in any availability zone within the region or within the same zone. If any availability zone in the region has a problem, your container group might experience downtime.
 
 - **NGroups:** When you deploy an NGroup, you can specify one or more zones to deploy it to. If you deploy an NGroup to two or more zones, it's a *zone-redundant* NGroup, and an outage of one availability zone only causes problems for the container groups within the affected zone.
 
-:::image type="complex" border="false" source="./media/reliability-containers/ngroup-zone-redundant.png" alt-text="Diagram that shows an NGroup with three container groups, deployed into three availability zones." lightbox="./media/reliability-containers/ngroup-zone-redundant.png":::
+   :::image type="complex" border="false" source="./media/reliability-containers/ngroup-zone-redundant.png" alt-text="Diagram that shows an NGroup with three container groups, deployed into three availability zones." lightbox="./media/reliability-containers/ngroup-zone-redundant.png":::
    The image shows three availability zones. Each availability zone includes a container group and two containers. A rectangle labeled NGroupdesiredCount=3, zones=1,2,3 spans all three availability zones.
 :::image-end:::
 
