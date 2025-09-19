@@ -4,6 +4,7 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 06/10/2022
 ms.author: glenga
+ms.custom: sfi-image-nochange
 ---
 
 1. In the Azure portal, go to the **Resource group** page. 

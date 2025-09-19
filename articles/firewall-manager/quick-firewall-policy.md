@@ -7,7 +7,11 @@ ms.author: duau
 ms.date: 01/08/2025
 ms.topic: quickstart
 ms.service: azure-firewall-manager
-ms.custom: subject-armqs, mode-arm, devx-track-arm-template
+ms.custom:
+  - subject-armqs
+  - mode-arm
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create an Azure Firewall and a firewall policy - ARM template

@@ -46,11 +46,11 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 |------------|--|--------------------------|------------------------------| ------| ---- | ---- |----|
 | France Central       |France central (Paris) | ✓   | ✓ | ✓ | | |  Dual |
 | Germany North |Germany Central (Frankfurt) | ✓  | | | |  |   Single    |
-| Germany West Central |Germany Central (Frankfurt) |  ✓  | ✓ | ✓| ✓| Preview available | Dual |
-| Italy North          | Italy North (Milan)   | ✓   | ✓   |✓ |✓ | Preview available | Dual |
-| North Europe | Ireland East (Dublin) | ✓  | | | |  |   Single   |
+| Germany West Central |Germany Central (Frankfurt) |  ✓  | ✓ | ✓| ✓| ✓  | Dual |
+| Italy North          | Italy North (Milan)   | ✓   | ✓   |✓ |✓ | ✓  | Dual |
+| North Europe | Ireland East (Dublin) | ✓  |✓  | | |  |   Single   |
 | Sweden Central | 	Sweden Central (Stockholm) | ✓  | | | |  |   Dual    |
-| UK South             | UK South (London)   | ✓   | ✓   | ✓ | ✓| Preview available | Dual|
+| UK South             | UK South (London)   | ✓   | ✓   | ✓ | ✓| ✓  | Dual|
 | UK West | UK West (Newport)	   | ✓   | ✓  | | ✓| |  Single |
 | UAE Central | UAE Central (Abu Dhabi) | ✓  | | | |  |   Single    |
 | UAE North | UAE North (Dubai) | ✓  | | | |  |   Single    |
@@ -59,14 +59,14 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 
 | Azure region     | OCI region                 | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure | Oracle Database Autonomous Recovery Service@Azure | Exadata Database Service on Exascale Infrastructure@Azure | BaseDB            | Regional Availability |
 | ---------------- | -------------------------- | ----------------------------- | -------------------------------- | ------------------------------------------------- | --------------------------------------------------------- | ----------------- | --------------------- |
-| Central US       | US Midwest (Chicago)       | ✓                             | ✓                                | ✓                                                 |                                                           |                   | Dual                  |
-| East US          | US East (Ashburn)          | ✓                             | ✓                                | ✓                                                 | ✓                                                         | Preview available | Dual                  |
-| East US 2        | US East (Ashburn)          | ✓                             | ✓                                | ✓                                                 |                                                           |                   | Dual                  |
-| South Central US | US South (Dallas)                     | ✓                             |                                  |                                                   |                                                           |                   | Dual                  |
-| West US          | US West (San Jose)         | ✓                             | ✓                                | ✓                                                 |                                                           | Preview available | Single                |
-| West US 2        | US West (Quincy)           | ✓                             |                                  |                                                   |                                                           |                   | Single                |
-| West US 3        | US West (Phoenix)          | ✓                             |                                  |                                                   |                                                           |                   | Single                |
-| Canada Central   | Canada Southeast (Toronto) | ✓                             | ✓                                |                                                   | ✓                                                         |                   | Dual                  |
+| Central US       | US Midwest (Chicago)       | ✓       | ✓      | ✓    |        |          | Dual    |
+| East US          | US East (Ashburn)          | ✓     | ✓      | ✓      | ✓     |✓  | Dual|
+| East US 2        | US East (Ashburn)          | ✓    | ✓         | ✓       |          |     | Dual     |
+| South Central US | US South (Dallas)   | ✓     |  ✓        |           |    |      | Dual |
+| West US          | US West (San Jose)    | ✓    | ✓      | ✓     |     | ✓  | Single   |
+| West US 2        | US West (Quincy)  | ✓    |     |     |     |    | Single |
+| West US 3        | US West (Phoenix)   | ✓   |   |     |    |    | Single   |
+| Canada Central   | Canada Southeast (Toronto) | ✓      | ✓   |    | ✓   |✓    | Dual |
 
 > [!NOTE]
 > To provision Oracle Database@Azure resources in a supported region, your tenancy must be subscribed to the target region. Learn how to [manage regions](https://docs.oracle.com/iaas/Content/Identity/regions/managingregions.htm#Managing_Regions) and [subscribe to an infrastructure region](https://docs.oracle.com/iaas/Content/Identity/regions/To_subscribe_to_an_infrastructure_region.htm#subscribe).

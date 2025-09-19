@@ -7,6 +7,7 @@ services: firewall-manager
 ms.topic: concept-article
 ms.date: 01/09/2025
 ms.author: duau
+ms.custom: sfi-image-nochange
 ---
 
 # What are security partner providers?
