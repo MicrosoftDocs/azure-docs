@@ -145,10 +145,8 @@ RIOT-X provides a way to migrate your content from Enterprise to Azure Managed R
 - Pros: Full control, customizable.
 - Cons: Requires development effort.
 
-
 <!-- combine document -->
 
----
 ## Move from Basic, Standard, or Premium caches  to Azure Managed Redis
 
 If you use any of the OSS SKUs, Basic, Standard, or Premium, moving to Azure Managed Redis offers you more features at every level cache.
