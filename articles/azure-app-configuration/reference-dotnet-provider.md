@@ -641,6 +641,9 @@ For information about using snapshots, go to [Create and use snapshots](./howto-
 
 A snapshot reference is a configuration setting whose value points to an existing snapshot in the same store. When loaded, the provider resolves it and adds all key-values and feature flags from that snapshot. Unlike `SelectSnapshot("...")`, which locks a snapshot at startup, it allows to switch different snapshots at runtime (through dynamic refresh).
 
+> [!NOTE] 
+> To use snapshot reference, you need to install the version *8.4.0* or later of `Microsoft.Extensions.Configuration.AzureAppConfiguration`.
+
 ## Startup retry
 
 Configuration loading is a critical path operation during application startup. To ensure reliability, the Azure App Configuration provider implements a robust retry mechanism during the initial configuration load. This helps protect your application from transient network issues that might otherwise prevent successful startup.
