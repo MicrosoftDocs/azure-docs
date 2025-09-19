@@ -19,11 +19,11 @@ A dev box is a daily cloud-based workstation for the developer. It's a virtual m
 
 Setting up Microsoft Dev Box has two phases. First, platform engineers set up the necessary Microsoft Dev Box resources in the Azure portal. After this phase, users create and manage their dev boxes in the developer portal. This quickstart shows how to finish the first phase.
 
-The following diagram shows the steps to set up Microsoft Dev Box in the Azure portal.
+The following diagram shows the steps to set up Microsoft Dev Box.
 
 :::image type="content" source="media/quickstart-configure-dev-box-service/dev-box-build-stages.png" alt-text="Diagram that shows the stages to set up Microsoft Dev Box in the Azure portal." lightbox="media/quickstart-configure-dev-box-service/dev-box-build-stages.png":::
 
-First, create a dev center and a project to organize dev box resources. Next, create a dev box definition to use when you create dev boxes. Then, create a dev box pool to define the network connection and dev box definition that dev boxes use. Users who have access to a project can create dev boxes from the pools associated with that project.
+First, create a dev center and a project to organize dev box resources. Next, create a dev box pool to define the network connection and dev box definition that dev boxes use. Users who have access to a project can create dev boxes from the pools associated with that project.
 
 If you already set up Microsoft Dev Box and want to learn how to create and connect to dev boxes, see [Quickstart: Create a dev box by using the developer portal](quickstart-create-dev-box.md).
 
@@ -48,19 +48,19 @@ Follow these steps to create a dev center and manage your dev box resources:
 
 [!INCLUDE [create-dev-center-steps](includes/create-dev-center-steps.md)]
 
-### Create a dev box definition
+### View a dev box definition
 
-Create a dev box definition in your dev center. A dev box definition specifies the VM image and VM SKU (compute size and storage) used to create dev boxes. Depending on the development project or developer profile, you might need multiple dev box definitions. For example, some developers need a specific tool set, while others need a cloud workstation with more compute resources.
+When you select the **Create a default dev box definition (recommended)** option, Dev Box creates a dev box definition in your dev center. A dev box definition specifies the VM image and VM SKU (compute size and storage) used to create dev boxes. Depending on the development project or developer profile, you might need multiple dev box definitions. For example, some developers need a specific tool set, while others need a cloud workstation with more compute resources. Dev box definitions in a dev center are available to all projects associated with that dev center. 
 
-Dev box definitions in a dev center are available to all projects associated with that dev center. Add at least one dev box definition to your dev center.
-
-To create and set up a dev box definition for your dev center:
+To view the dev box definitions for your dev center:
 
 1. Open the dev center where you want to create the dev box definition.
 
 1. Select **Dev box definitions**.
 
-1. On the **Dev box definitions** page, select **Create**.
+1. On the **Dev box definitions** page, you see a list of all dev box definitions associated with this dev center, along with their details.
+
+You can edit a dev box definition to change the VM image or VM SKU, or to enable hibernation. For more information, see [How to manage dev box definitions](./how-to-manage-dev-box-definitions.md).
 
 ## Create a project
 
