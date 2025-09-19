@@ -60,7 +60,7 @@ Microsoft-provided SDKs usually handle transient faults. Because you host your o
 
 - Build your application code to be resilient to transient faults in services that you connect to, such as by using retry policies with backoff strategies.
 
-For more information about other errors that might occur at runtime and how to respond to them, see [Problems during container group runtime](/azure/container-instances/container-instances-troubleshooting#issues-during-container-group-runtime).
+For more information about other errors that might occur at runtime and how to respond to them, see [Issues during container group runtime](/azure/container-instances/container-instances-troubleshooting#issues-during-container-group-runtime).
 
 ## Availability zone support
 
