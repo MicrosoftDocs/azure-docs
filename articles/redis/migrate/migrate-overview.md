@@ -15,7 +15,12 @@ appliesto:
 ---
 # Migrate from Basic, Standard, Premium, and Enterprise tiers to Azure Managed Redis
 
-This article discusses the merits and process of migrating from Azure Cache for Redis tier Enterprise to Azure Managed Redis, including benefits of choosing Azure Managed Redis, feature comparisons, migration strategies, and best practices.
+This article discusses the merits and process of migrating from Azure Cache for Redis instances, including Enterprise, to Azure Managed Redis, including benefits of choosing Azure Managed Redis, feature comparisons, migration strategies, and best practices.
+
+The document divides into two sections. One is about Enterprise instances. The other is about the Basic, Standard, and Premium tiers of Azure Cache for Redis.
+
+- [Benefits of moving from Enterprise to Azure Managed Redis](#benefits-of-moving-from-enterprise-to-azure-managed-redis)
+- [Move from Basic, Standard, or Premium caches  to Azure Managed Redis](#move-from-basic-standard-or-premium-caches-to-azure-managed-redis)
 
 ## Benefits of moving from Enterprise to Azure Managed Redis
 
