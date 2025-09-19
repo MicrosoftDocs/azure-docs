@@ -13,7 +13,7 @@ items:
     href: update-manager-faq.md
   - name: Release Notes
     items:
-    - name: 2025
+    - name: "2025"
       items:
       - name: March 2025
         href: overview-arc-enabled-vm-extensions.md
@@ -53,14 +53,14 @@ items:
     href: tutorial-assessment-deployment-using-policy.md
   - name: Dynamic scope
     items:
-      - name: Schedule updates dynamically and at scale using dynamic scope
-        href: tutorial-dynamic-grouping-for-scheduled-patching.md
+    - name: Schedule updates dynamically and at scale using dynamic scope
+      href: tutorial-dynamic-grouping-for-scheduled-patching.md
   - name: Pre and Post Events
     items:
-      - name: Create pre and post events using a webhook with Automation Runbooks
-        href: tutorial-webhooks-using-runbooks.md
-      - name: Create pre and post events using Azure Functions
-        href: tutorial-using-functions.md
+    - name: Create pre and post events using a webhook with Automation Runbooks
+      href: tutorial-webhooks-using-runbooks.md
+    - name: Create pre and post events using Azure Functions
+      href: tutorial-using-functions.md
 - name: Concepts
   items:
   - name: Update options and orchestration
@@ -90,19 +90,6 @@ items:
   - name: Manage
     items:
     - name: Migration from Automation Update Management to Azure Update Manager
-      items:
-      - name: Overview
-        href: migration-overview.md
-      - name: Using Azure portal
-        href: migration-using-portal.md
-      - name: Using runbook scripts
-        href: migration-using-runbook-scripts.md
-      - name: Key points to note for automated migration
-        href: migration-key-points.md
-      - name: Troubleshoot automated migration
-        href: migration-troubleshoot.md
-      - name: Using manual migration
-        href: migration-manual.md
     - name: Check update compliance
       href: view-updates.md
     - name: Automate assessment at scale using Policy
@@ -155,4 +142,3 @@ items:
   items:
   - name: Troubleshoot issues
     href: troubleshoot.md
-
