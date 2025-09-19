@@ -21,7 +21,7 @@ Steps:
 
 1. Sign in to your Azure account using `az login`. If you have more than one subscription, you can view them using `az account list` and select the subscription containing your Bastion resource using `az account set --subscription "<subscription ID>"`.
 
-1. Open the tunnel to your target VM.
+1. Open the tunnel to your target VM. Without root privileges use local port 1024 or above as ports below that are privileged ports only accessible by root.
 
    ```azurecli
    az network bastion tunnel --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId or VMSSInstanceResourceId>" --resource-port "<TargetVMPort>" --port "<LocalMachinePort>"
