@@ -1,6 +1,6 @@
 ---
- title: Description of Azure Storage alternative multi-region deployment introductoin
- description: Description of Azure Storage alternative multi-region deployment introductoin
+ title: Description of Azure Storage alternative multi-region deployment introduction
+ description: Description of Azure Storage alternative multi-region deployment introduction.
  author: anaharris-ms
  ms.service: azure
  ms.topic: include
