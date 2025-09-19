@@ -159,6 +159,9 @@ For more information about options pattern in .NET, go to the [documentation](/d
 
 You can create JSON key-values in App Configuration. When a key-value with the content type `"application/json"` is read, the configuration provider will flatten it into individual settings inside of `IConfiguration`. For more information, go to [Use content type to store JSON key-values in App Configuration](./howto-leverage-json-content-type.md).
 
+> [!NOTE]
+> Starting with version *8.4.0* of `Microsoft.Extensions.Configuration.AzureAppConfiguration`, the configuration provider can properly recognize JSON with comments([JSONC](https://jsonc.org/)) and convert it into object.
+
 ### Load specific key-values using selectors
 
 By default, the configuration provider loads all key-values with no label from App Configuration. You can selectively load key-values from your App Configuration store by calling the `Select` method on `AzureAppConfigurationOptions`.
@@ -633,6 +636,10 @@ builder.Configuration.AddAzureAppConfiguration(options =>
 ```
 
 For information about using snapshots, go to [Create and use snapshots](./howto-create-snapshots.md).
+
+### Snapshot reference
+
+A snapshot reference is a configuration setting whose value points to an existing snapshot in the same store. When loaded, the provider resolves it and adds all key-values and feature flags from that snapshot. Unlike `SelectSnapshot("...")`, which locks a snapshot at startup, it allows to switch different snapshots at runtime (through dynamic refresh).
 
 ## Startup retry
 
