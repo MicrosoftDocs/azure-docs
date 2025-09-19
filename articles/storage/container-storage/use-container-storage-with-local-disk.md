@@ -257,22 +257,22 @@ An ephemeral volume is allocated on a single node. When you configure the size o
 
 Run the following commands to check the available capacity of ephemeral disk for a single node.
 
-```azurecli
+<pre>
 kubectl get csistoragecapacities.storage.k8s.io -n kube-system \
   -o=jsonpath='{.items[?(@.storageClassName=="local")]}' | \
 kubectl get -o custom-columns=NAME:.metadata.name,\
 STORAGE_CLASS:.storageClassName,\
 CAPACITY:.capacity,\
 NODE:.nodeTopology.matchLabels."topology\.localdisk\.csi\.acstor\.io/node" -f -
-```
+</pre>
 
 You should see output similar to this:
 
-```output
+<pre>
 NAME          STORAGE_CLASS   CAPACITY    NODE
 csisc-2pkx4   local           1373172Mi   aks-storagepool-31410930-vmss000001
 csisc-gnmm9   local           1373172Mi   aks-storagepool-31410930-vmss000000
-```
+</pre>
 
 ### Expand storage capacity
 
