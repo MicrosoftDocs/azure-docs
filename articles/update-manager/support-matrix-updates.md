@@ -41,10 +41,6 @@ Following is the list of supported images and no other marketplace images releas
 
 An asterisk (*) in the Offer or Plan columns represents a wildcard character. It indicates that all possible values are supported.
 
-- Supported Windows x64 OS images 
-- Supported Linux x64 OS images 
-- Supported Linux ARM64 OS images 
-
 #### [Supported Windows x64 OS images](#tab/mpir-winos)
 
 |Publisher |Offer |Plan |Unsupported image(s) |
