@@ -15,7 +15,7 @@ ms.custom: mvc, engagement-fy25
 
 [Azure Migrate](migrate-services-overview.md) helps you discover, assess, and migrate on-premises servers, apps, and data to the Azure cloud platform. This article summarizes new releases and features in Azure Migrate.
 
-## Update (August 2025)
+## Update (September 2025)
 
 Public preview: Azure Migrate now supports discovery and assessment of PostgreSQL instances. 
 You can use this capability to:
