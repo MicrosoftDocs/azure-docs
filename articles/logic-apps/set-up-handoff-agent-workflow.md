@@ -47,7 +47,7 @@ The following table describes the key concepts to understand for this example ha
 | Concept | Description |
 |---------|-------------|
 | Tool separation | The handoff pattern differentiates between the following kinds of tools: <br><br>- Regular tools that run business logic or tasks like "search", "refund", and "order" <br><br>- Delegation tools that hand off control to other agents |
-| Agent specialization | Each agent has specific, relevant tools and capabilities. <br><br>- Customer service agent has only agent handoff tools for delegating questions and requests, no regular tools. <br><br>- Refund specialist agent has the following tools: <br>-- **look_up_item** <br>-- **process_refund** <br>-- **handoff_<ID>_tool** <br><br>- Sales specialist agent has the following tools: <br>-- **search_products** <br>-- **process_order** <br>-- **handoff_<ID>_tool** |
+| Agent specialization | Each agent has specific, relevant tools and capabilities. <br><br>- Customer service agent has only agent handoff tools for delegating questions and requests, no regular tools. <br><br>- Refund specialist agent has the following tools: <br>-- `look_up_item` <br>-- `process_refund` <br>-- `handoff_<agent-ID>_tool` <br><br>- Sales specialist agent has the following tools: <br>-- `search_products` <br>-- `process_order` <br>-- `handoff_<agent-ID>_tool` |
 
 For more information, see [Handoff pattern best practices](#handoff-pattern-best-practices).
 
