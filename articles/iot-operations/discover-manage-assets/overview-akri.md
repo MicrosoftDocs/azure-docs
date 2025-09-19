@@ -17,7 +17,7 @@ ms.date: 09/08/2025
 The Microsoft Akri framework lets you do the following in Azure IoT Operations:
 
 - **Connect**: The Azure IoT Operations Akri connectors let you make southbound connections to a wide variety of assets and devices in Azure IoT Operations, ingest telemetry from them, and use command and control. The connectors send data to the MQTT broker, which uses data flows for northbound connectivity to cloud services.
-- **Discover**: The Akri services include discovery handlers that let you find devices on your network for easy onboarding to Azure IoT Operations.
+- **Discover**: The Akri services enable the discovery handlers that let you find devices on your network for easy onboarding to Azure IoT Operations.
 - **Monitor**: The Akri connectors and discovery handlers use the Akri diagnostics service to consolidate and send observability data to the OTEL service.
 
 The following diagram shows the architecture of the Akri services in Azure IoT Operations.
@@ -27,7 +27,7 @@ The following diagram shows the architecture of the Akri services in Azure IoT O
 
 ## Connectors
 
-Akri services include connectors that let you connect to different devices and assets. Microsoft provides these connectors:
+Akri services enable the connectors that let you connect to different devices and assets. Microsoft provides these connectors:
 
 - **Connector for OPC UA**: Connects to OPC UA servers, ingests telemetry data, and lets you use command and control scenarios.
 - **Media connector**: Connects to media devices and ingests stream data like video and image snapshots.
@@ -52,7 +52,7 @@ The Akri Azure Device Registry service works with connectors and discovery handl
 
 ## Discovery handlers
 
-Akri services include discovery handlers that let you find devices and assets on your network. Currently, there are no built-in discovery handlers for the connectors.
+Akri services enable the discovery handlers that let you find devices and assets on your network. Currently, there are no built-in discovery handlers for the connectors.
 
 ## Akri SDKs
 
