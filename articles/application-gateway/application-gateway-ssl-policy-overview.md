@@ -20,6 +20,9 @@ The TLS policy includes control of the TLS protocol version as well as the ciphe
 
 > [!IMPORTANT]
 > Starting **August 31, 2025**, all clients and backend servers interacting with Azure Application Gateway must use Transport Layer Security (TLS) 1.2 or higher, as [support for TLS 1.0 and 1.1 will be discontinued](https://azure.microsoft.com/updates/azure-application-gateway-support-for-tls-10-and-tls-11-will-end-by-31-august-2025). Visit [TLS 1.0 and 1.1 retirement](application-gateway-tls-version-retirement.md) for more details on deprecating policies and resource configuration changes.
+> 
+> Configuration changes to TLS policies are designed to be non-disruptive when done correctly. However, deprecated policies (like TLS 1.0/1.1) must be updated before enforcement deadlines to avoid service failures.
+
 
 - SSL 2.0 and 3.0 are disabled for all application gateways and are not configurable.
 - A custom TLS policy allows you to select any TLS protocol as the minimum protocol version for your gateway: TLSv1_0, TLSv1_1, TLSv1_2, or TLSv1_3.
