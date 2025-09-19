@@ -177,7 +177,7 @@ items:
 #         href: assessment-properties.md
 #       - name: Review assessment report
 #         href: review-sap-assessment.md
-- name: Execute Migrations
+- name: Execute migrations
   items:
   - name: Overview of migration method
     href: server-migrate-overview.md
