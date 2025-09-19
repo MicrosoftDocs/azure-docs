@@ -11,9 +11,12 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python
  
 #customer intent: As a developer, I want to set up mutual authentication so that I can restrict access to an App Service app. 
+ms.service: azure-app-service
 ---
 
 # Configure TLS mutual authentication in Azure App Service
+
+[!INCLUDE [app-service-managed-certificate](./includes/managed-certs/managed-certs-note.md)]
 
 You can restrict access to your Azure App Service app by enabling various types of authentication for the app. One way to set up authentication is to request a client certificate when the client request is sent by using Transport Layer Security (TLS) / Secure Sockets Layer (SSL) and to validate the certificate. This mechanism is called *mutual authentication* or *client certificate authentication*. This article shows how to set up your app to use client certificate authentication.
 

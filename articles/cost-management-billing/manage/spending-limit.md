@@ -6,10 +6,10 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/22/2025
+ms.date: 07/24/2025
 ms.author: jkinma
 ms.custom:
-  - build-2025
+- build-2025
 ---
 
 # Azure spending limit

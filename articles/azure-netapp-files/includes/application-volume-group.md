@@ -9,6 +9,7 @@ ms.custom: include file
 # \sap\workloads\sap-hana-high-availability-netapp-files-red-hat.md
 # sap/workloads/sap-hana-scale-out-standby-netapp-files-suse
 # sap/workloads/sap-hana-scale-out-standby-netapp-files-rhel
+# Customer intent: As an SAP administrator, I want to use Azure NetApp Files for deploying HANA volumes, so that I can ensure high availability and optimal performance for my production workloads.
 ---
 
 >[!IMPORTANT]

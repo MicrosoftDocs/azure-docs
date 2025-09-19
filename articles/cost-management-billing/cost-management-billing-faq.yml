@@ -162,7 +162,7 @@ sections:
           If you’re an EA or MCA customer, `PayGPrice` is populated only for first-party Azure usage charges where `PricingModel` is `OnDemand`, `Spot`, or `SavingsPlan`. `PayGprice` isn't populated when `PricingModel` is `Reservations` or `Marketplace`.
       - question: Does Cost and usage details data have Reservation charges?
         answer: |
-          Yes it does. You can see those charges when the actual charges occurred in the Actual Cost dataset or you can see the charges spread across the resources that consumed the Reservation or Savings Plan in the Amortized Cost dataset. For more information, see [Get amortized costs](costs/manage-automation.md#get-amortized-cost-details).
+          Yes it does. You can see those charges when the actual charges occurred in the Actual Cost dataset or you can see the charges spread across the resources that consumed the Reservation or Savings Plan in the Amortized Cost dataset.
       - question: Am I charged for using Cost Details API or Exports?
         answer: |
           The Cost Details API is free. However, make sure to abide by the rate-limiting policies. For more information, see [Data latency and rate limits](costs/manage-automation.md#data-latency-and-rate-limits). The Exports feature is free to use, but you pay for the storage account that you use to store the exported data.

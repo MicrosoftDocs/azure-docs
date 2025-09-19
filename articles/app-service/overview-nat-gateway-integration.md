@@ -2,14 +2,16 @@
 title: Azure NAT Gateway Integration
 description: Learn how Azure NAT Gateway integrates with Azure App Service.
 services: app-service
-author: madsd
+author: seligj95
 ms.assetid: 0a84734e-b5c1-4264-8d1f-77e781b28426
 ms.service: azure-app-service
 ms.topic: overview
 ms.date: 04/08/2022
-ms.author: madsd
-ms.custom: devx-track-azurecli
+ms.author: jordanselig
 ms.devlang: azurecli
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Azure NAT Gateway integration

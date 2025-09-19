@@ -7,6 +7,7 @@ ms.topic: reference
 ms.service: azure-queue-storage
 author: normesta
 ms.author: normesta
+# Customer intent: As a cloud administrator, I want to access monitoring data and metrics for Azure Queue Storage, so that I can efficiently track performance and troubleshoot issues within the storage service.
 ---
 
 # Azure Queue Storage monitoring data reference

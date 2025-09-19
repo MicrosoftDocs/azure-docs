@@ -10,6 +10,7 @@ ms.author: mbender
 ms.custom: devx-track-azurecli, template-how-to
 ms.devlang: azurecli
 ROBOTS: NOINDEX
+# Customer intent: "As a cloud network administrator, I want to add IPv6 support to an existing IPv4 application in Azure, so that I can ensure compatibility with modern networking standards and improve the application's scalability."
 ---
 
 # Add IPv6 to an IPv4 application in Azure virtual network using Azure CLI

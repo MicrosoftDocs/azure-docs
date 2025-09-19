@@ -21,9 +21,6 @@ Use the `cache-lookup` policy to perform cache lookup and return a valid cached 
 > [!NOTE]
 > This policy must have a corresponding [Store to cache](cache-store-policy.md) policy.
 
-> [!IMPORTANT]
-> This policy is not supported inside a policy fragment.
-
 [!INCLUDE [api-management-cache-volatile](../../includes/api-management-cache-volatile.md)]
 
 [!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
@@ -75,12 +72,18 @@ Use the `cache-lookup` policy to perform cache lookup and return a valid cached 
 - API Management only performs cache lookup for HTTP GET requests.
 * When using `vary-by-query-parameter`, you might want to declare the parameters in the rewrite-uri template or set the attribute `copy-unmatched-params` to `false`. By deactivating this flag, parameters that aren't declared are sent to the backend.
 - This policy can only be used once in a policy section.
-- This policy is not supported with policy fragments.
+- This policy is not supported inside a policy fragment.
+- [!INCLUDE [api-management-cache-rate-limit](../../includes/api-management-cache-rate-limit.md)]
 
 
 ## Examples
 
 ### Example with corresponding cache-store policy
+
+This example shows how to use the `cache-store` policy along with a `cache-lookup` policy to cache responses in the built-in API Management cache. 
+
+> [!NOTE]
+> [!INCLUDE [api-management-cache-availability](../../includes/api-management-cache-availability.md)]
 
 ```xml
 <policies>
@@ -89,6 +92,7 @@ Use the `cache-lookup` policy to perform cache lookup and return a valid cached 
         <cache-lookup vary-by-developer="false" vary-by-developer-groups="false" downstream-caching-type="none" must-revalidate="true" caching-type="internal" >
             <vary-by-query-parameter>version</vary-by-query-parameter>
         </cache-lookup>
+        <rate-limit calls="10" renewal-period="60" />
     </inbound>
     <outbound>
         <cache-store duration="seconds" />
@@ -108,6 +112,7 @@ This example shows how to configure API Management response caching duration tha
   <vary-by-header>Accept</vary-by-header>
   <vary-by-header>Accept-Charset</vary-by-header>
 </cache-lookup>
+ <rate-limit calls="10" renewal-period="60" />
 
 <!-- Copy this snippet into the outbound section. Note that cache duration is set to the max-age value provided in the Cache-Control header received from the backend service or to the default value of 5 min if none is found  -->
 <cache-store duration="@{

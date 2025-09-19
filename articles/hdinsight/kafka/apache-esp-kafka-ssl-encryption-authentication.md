@@ -3,11 +3,14 @@ title: Apache Kafka TLS encryption & authentication for ESP Kafka Clusters - Azu
 description: Set up TLS encryption for communication between Kafka clients and Kafka brokers, Set up SSL authentication of clients for ESP Kafka clusters.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
 author: yeturis
 ms.author: sairamyeturi
 ms.reviewer: nijelsf
 ms.date: 04/11/2024
+ms.custom:
+  - hdinsightactive
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Set up TLS encryption and authentication for ESP Apache Kafka cluster in Azure HDInsight

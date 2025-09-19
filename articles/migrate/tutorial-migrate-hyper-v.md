@@ -7,7 +7,12 @@ ms.manager: kmadnani
 ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 02/07/2025
-ms.custom: MVC, fasttrack-edit, engagement-fy24
+ms.custom:
+  - MVC
+  - fasttrack-edit
+  - engagement-fy24
+  - sfi-image-nochange
+# Customer intent: "As an IT administrator, I want to migrate my on-premises Hyper-V virtual machines to Azure using a dedicated migration tool, so that I can leverage cloud resources while ensuring a seamless transition and maintaining operational continuity."
 ---
 
 # Migrate Hyper-V VMs to Azure

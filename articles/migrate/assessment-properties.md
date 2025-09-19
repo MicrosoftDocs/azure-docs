@@ -1,17 +1,22 @@
 ---
-title: Assessment properties
-description: Describes the components of an assessment in Azure Migrate
+title: Assessment Properties
+description: Describes the components of an assessment in Azure Migrate.
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
 ms.topic: concept-article
-ms.date: 04/17/2025
+ms.date: 09/19/2025
 monikerRange: migrate
+# Customer intent: As a cloud architect, I want to configure assessment properties for workload migration, so that I can ensure optimal resource allocation, cost management, and security compliance in Azure.
 ---
 
 # General assessment properties 
 
 This article explains the assessment properties on the **General** tab that you can use when creating an assessment. These general properties apply to all workloads in an application or for cross-workload assessments. They also apply to individual workload assessments. 
+
+## Assessment settings
+
+General assessment properties in Azure Migrate help set key options for migration, like target region, sizing method, pricing preferences, and security settings. These apply across workloads and support accurate planning and cost estimation.
 
 | **Setting Category**  | **Default Setting** | **Details** |                
 |-------------------|---------|--------  |                                                     
@@ -28,4 +33,9 @@ This article explains the assessment properties on the **General** tab that you 
 | | **VM uptime** | The duration in days per month and hours per day for Azure VMs that won't run continuously. Cost estimates are based on that duration. The default values are 31 days per month and 24 hours per day. | 
 | | **Azure Hybrid Benefit**| Specifies if you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) to use your existing OS licenses. For Azure VM assessments, you can bring in both Windows and Linux licenses. If the setting is enabled, Azure prices for selected operating systems aren't considered for VM costing.  |
 |**Security** | **Security** | Specifies if you want to assess readiness and cost for security tooling on Azure. If the setting has the default value **Yes, with Microsoft Defender for Cloud**, it assesses security readiness and costs for your Azure VM with Microsoft Defender for Cloud. | 
-|**VM Security Type** | | Specifies is you want to verify readiness for **Trusted Launch Virtual Machines (TVMs)**, Standard Virtual Machines, or both. By default, readiness is verified for both. We recommend to migrate eligible VMs to **Trusted Launch**, as TVMs provide enhanced security features, such as secure boot and virtual TPM at no extra cost.| 
+|**VM Security Type** | | Specifies is you want to verify readiness for **Trusted Launch Virtual Machines (TVMs)**, Standard Virtual Machines, or both. By default, readiness is verified for both. We recommend migrating eligible VMs to **Trusted Launch**, as TVMs provide enhanced security features, such as secure boot and virtual TPM.| 
+
+
+## Next steps
+
+- Learn about [PostgreSQL assessment rules](assessment-rules-for-postgresql.md).

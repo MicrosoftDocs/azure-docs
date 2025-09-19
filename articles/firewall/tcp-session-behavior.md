@@ -7,6 +7,7 @@ ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 03/25/2025
 ms.author: duau
+# Customer intent: As a network administrator, I want to understand the TCP session management and idle timeout behavior of Azure Firewall, so that I can configure settings to optimize network performance and prevent disruption of long-running connections for critical applications.
 ---
 
 # Understanding Azure Firewall TCP session management and idle timeout behavior

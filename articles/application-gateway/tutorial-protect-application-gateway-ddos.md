@@ -8,6 +8,7 @@ ms.author: duau
 ms.date: 09/20/2023
 ms.topic: quickstart
 ms.service: azure-application-gateway
+# Customer intent: "As a cloud architect, I want to implement Azure DDoS Network Protection for my application gateway, so that I can safeguard my resources against large-scale DDoS attacks and ensure high availability of my applications."
 ---
 
 # Tutorial: Protect your application gateway with Azure DDoS Network Protection

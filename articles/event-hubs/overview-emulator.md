@@ -1,43 +1,46 @@
 ---
-title: Overview of the Azure Event Hubs emulator
-description: This article describes benefits, features, limitations, and other overview information for the Azure Event Hubs emulator.
-ms.topic: article
+title: Azure Event Hubs Emulator Overview
+description: Learn about the Azure Event Hubs emulator, a local development tool for testing Event Hubs apps offline with cost efficiency and isolated environments.
+#customer intent: As a developer, I want to understand the Azure Event Hubs emulator so that I can test Event Hubs applications locally.  
+ms.topic: concept-article
 ms.author: Saglodha
-ms.date: 05/06/2024
+ms.date: 07/25/2025
+ms.custom:
+  - ai-gen-docs-bap
+  - ai-gen-description
+  - ai-seo-date:07/25/2025
 ---
 
 
-# Overview of the Azure Event Hubs emulator
+# Azure Event Hubs emulator overview
 
-The Azure Event Hubs emulator offers a local development experience for the Event Hubs service. You can use the emulator to develop and test code against the service in isolation, free from cloud interference.
+The **Azure Event Hubs emulator** is a local development tool designed to help developers test and prototype Event Hubs applications in an offline, cost-effective, and isolated environment. The emulator simulates the Event Hubs service locally, which enables faster development cycles, eliminates cloud-related costs, and provides a controlled testing environment. This article provides an overview of the emulator's benefits, features, limitations, and usage guidelines to help you get started.
 
 ## Benefits
 
-The primary advantages of using the emulator are:
+The primary advantages of using the emulator are:  
 
-- **Local development**: The emulator provides a local development experience, so you can work offline and avoid network latency.
-- **Cost efficiency**: With the emulator, you can test your applications without incurring any cloud usage costs.
-- **Isolated testing environment**: You can test your code in isolation, to help ensure that other activities in the cloud don't affect the tests.
-- **Optimized inner development loop**: You can use the emulator to quickly prototype and test your applications before deploying them to the cloud.
+- **Local development**: The emulator provides a local development experience, so you can work offline and avoid network latency.  
+- **Cost efficiency**: With the emulator, you can test your applications without incurring any cloud usage costs.  
+- **Isolated testing environment**: You can test your code in isolation, to help ensure that other activities in the cloud don't affect the tests.  
+- **Optimized inner development loop**: You can use the emulator to quickly prototype and test your applications before deploying them to the cloud.   
 
-> [!NOTE]
-> The Event Hubs emulator is available under the [Microsoft Software License Terms](https://github.com/Azure/azure-event-hubs-emulator-installer/blob/main/EMULATOR_EULA.md).
 
 ## Features
 
-The emulator provides these features:
+The emulator provides these features:  
 
-- **Containerized deployment**: It runs as a Docker container (Linux based).
-- **Cross-platform compatibility**: You can use it on any platform, including Windows, macOS, and Linux.
-- **Configurability**: You can manage the number of event hubs, partitions, and other entities by using the JSON supplied configuration.
-- **Streaming support**: It supports streaming events using Kafka and Advanced Message Queuing Protocol (AMQP).
+- **Containerized deployment**: It runs as a Docker container (Linux based).  
+- **Cross-platform compatibility**: You can use it on any platform, including Windows, macOS, and Linux.  
+- **Configurability**: You can manage the number of event hubs, partitions, and other entities by using the JSON supplied configuration.  
+- **Streaming support**: It supports streaming events using Kafka and Advanced Message Queuing Protocol (AMQP).  
 - **Observability**: It provides observability features, including console and file logging.
 
 ## Known limitations
 
 The current version of the emulator has the following limitations:
 
-- When using Kafka, only producer and consumer APIs are compatible with Event Hubs emulator.
+- When you use Kafka, only producer and consumer APIs are compatible with Event Hubs emulator.
 - Under Kafka configuration, `securityProtocol` and `saslmechanism` can only have the following values:
   ```
     SecurityProtocol = SecurityProtocol.SaslPlaintext,
@@ -49,14 +52,14 @@ The current version of the emulator has the following limitations:
 > [!NOTE]
 > After a container restart, data and entities don't persist in the emulator.
 
-## Differences from the cloud service
+## Differences between the emulator and cloud service
 
 Because the Event Hubs emulator is meant only for development and test purposes, there are functional differences between the emulator and the cloud service.
 
 The emulator doesn't support these high-level features:
 
 - Azure features like virtual network integration, Microsoft Entra ID integration, activity logs, and a UI portal
-- Event Hubs capture
+- Event Hubs Capture
 - Resource governance features like application groups
 - Autoscale capabilities
 - Geo-disaster recovery capabilities
@@ -70,7 +73,7 @@ The emulator doesn't support these high-level features:
 
 ## Usage quotas
 
-Like the Event Hubs cloud service, the emulator provides the following quotas for usage:
+Like Event Hubs on Azure, the emulator provides the following quotas for usage:
 
 | Property| Value| User configurable within limits
 | ----|----|----
@@ -81,7 +84,7 @@ Like the Event Hubs cloud service, the emulator provides the following quotas fo
 | Maximum size of an event being published to an event hub (batch/nonbatch) |1 MB |No
 | Minimum event retention time | 1 hr | No
 
-These limits are enforced by the emulator. While some values are configurable using config.json, you cannot exceed the listed maximums. Any configuration changes must be made before starting the emulator.
+Emulator enforces these limits. While some values are configurable using config.json, you can't exceed the listed maximums. Any configuration changes must be made before starting the emulator.
 
 ## Quota configuration changes
 

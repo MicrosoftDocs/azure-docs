@@ -6,8 +6,17 @@ ms.author: karler
 ms.reviewer: v-muyaofeng
 ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 05/21/2024
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, engagement-fy23, references_regions, devx-track-extended-azdevcli
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - devx-track-azurecli
+  - mode-other
+  - engagement-fy23
+  - references_regions
+  - devx-track-extended-azdevcli
+  - sfi-image-nochange
 ---
 
 # Quickstart: Deploy your first Spring Batch application to Azure Spring Apps

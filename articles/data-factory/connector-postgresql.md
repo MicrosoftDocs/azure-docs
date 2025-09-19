@@ -4,10 +4,12 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from PostgreSQL V2 to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 author: jianleishen
 ms.subservice: data-movement
-ms.custom: synapse
 ms.topic: conceptual
 ms.date: 04/14/2025
 ms.author: jianleishen
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 # Copy data from PostgreSQL V2 using Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -260,7 +262,7 @@ When copying data from PostgreSQL, the following mappings are used from PostgreS
 |`Integer`|`Int32`|`Int32`|
 |`BigInt`|`Int64`|`Int64`|
 |`Decimal` (Precision <= 28)|`Decimal`|`Decimal`|
-|`Decimal` (Precision > 28)|Unsupport |`String`|
+|`Decimal` (Precision > 28)|Unsupported |`String`|
 |`Numeric`|`Decimal`|`Decimal`|
 |`Real`|`Single`|`Single`|
 |`Double`|`Double`|`Double`|

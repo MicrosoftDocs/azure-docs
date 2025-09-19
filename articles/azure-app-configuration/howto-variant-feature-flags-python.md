@@ -7,11 +7,11 @@ author: mrm9084
 ms.author: mametcal
 ms.service: azure-app-configuration
 ms.devlang: python
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 05/06/2025
 ---
 
-# Use variant feature flags in a Python application
+# Tutorial: Use variant feature flags in a Python application
 
 In this tutorial, you use a variant feature flag to manage experiences for different user segments in an example application, *Quote of the Day*. You utilize the variant feature flag created in [How to variant feature flags](./howto-variant-feature-flags.md). Before proceeding, ensure you create the variant feature flag named *Greeting* in your App Configuration store.
 

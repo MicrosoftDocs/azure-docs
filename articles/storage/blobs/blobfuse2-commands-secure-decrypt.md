@@ -7,6 +7,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/02/2022
 ms.author: akashdubey
+# Customer intent: "As a system administrator, I want to use the command-line tool to decrypt a BlobFuse2 configuration file, so that I can access the sensitive information stored in it securely."
 ---
 
 # How to use the BlobFuse2 secure decrypt command to decrypt a BlobFuse2 configuration file
@@ -27,7 +28,7 @@ The following flags are inherited from grandparent command [`blobfuse2`](blobfus
 
 | Flag | Short version | Value type | Default value | Description |
 |--|--|--|--|--|
-| disable-version-check |    | boolean | false | Enables or disables automatic version checking of the BlobFuse2 binaries |
+| disable-version-check |    | boolean | false | Enables or disables automatic version checking of the blobfuse2 binaries |
 | help                  | -h | n/a     |       | Help info for the blobfuse2 command and subcommands                      |
 
 ### Flags inherited from the BlobFuse2 secure command
@@ -36,18 +37,18 @@ The following flags are inherited from parent command [`blobfuse2 secure`](blobf
 
 | Flag | Value type | Default value | Description |
 |--|--|--|--|
-| config-file        | string  | ./config.yaml                  | The path configuration file       |
-| output-file        | string  |                                | Path and name for the output file |
-| passphrase         | string  |                                | The Key to be used for encryption or decryption<br />Can also be specified by environment variable BLOBFUSE2_SECURE_CONFIG_PASSPHRASE.<br />The key must be 16 (AES-128), 24 (AES-192), or 32 (AES-256) bytes in length. |
+| config-file        | string  | ./config.yaml                  | The path of encrypted configuration file       |
+| output-file        | string  |                                | The path and name for the output decrypted configuration file |
+| passphrase         | string  |                                | The key to be used for encryption or decryption<br />Can also be specified by environment variable BLOBFUSE2_SECURE_CONFIG_PASSPHRASE.<br />The key must be 16 (AES-128), 24 (AES-192), or 32 (AES-256) bytes in length. |
 
 ## Examples
 
 > [!NOTE]
-> The following examples assume you have already created a configuration file in the current directory.
+> The following examples assume that you have already created an encrypted configuration file in the current directory.
 
 Decrypt a BlobFuse2 configuration file using a passphrase:
 
-`blobfuse2 secure decrypt --config-file=./config.yaml --passphrase=PASSPHRASE`
+`blobfuse2 secure decrypt --config-file=./config.yaml --passphrase=PASSPHRASE --output-file=./decryptedconfig.yaml` 
 
 ## See also
 

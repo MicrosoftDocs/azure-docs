@@ -7,6 +7,7 @@ ms.service: azure-expressroute
 ms.topic: concept-article
 ms.date: 11/18/2024
 ms.author: duau
+# Customer intent: As a network architect, I want to design a high availability Azure ExpressRoute setup, so that I can ensure robust and uninterrupted connectivity for my organization's critical applications and services.
 ---
 
 # Designing for high availability with Azure ExpressRoute

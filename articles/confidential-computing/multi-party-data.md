@@ -16,7 +16,8 @@ ms.topic: concept-article
 
 ms.date: 04/20/2023
 
-ms.author: kapilv
+ms.author: mattmcinnes
+# Customer intent: As a data scientist, I want to leverage confidential computing solutions for multi-party data analytics, so that I can securely collaborate with other organizations while preserving the privacy of sensitive data and intellectual property.
 ---
 
 # Cleanroom and Multi-party Data Analytics
@@ -31,11 +32,10 @@ Data cleanroom solutions typically offer a means for one or more data providers 
 
 With ACC, customers and partners build privacy preserving multi-party data analytics solutions, sometimes referred to as "confidential cleanrooms" – both net new solutions uniquely confidential, and existing cleanroom solutions made confidential with ACC.
 
-1. **Royal Bank of Canada** - [Virtual clean room](https://aka.ms/RBCstory) solution combining merchant data with bank data in order to provide personalized offers, using Azure confidential computing VMs and Azure SQL AE in secure enclaves.
-2. **Scotiabank** – Proved the use of AI on cross-bank money flows to identify money laundering to flag human trafficking instances, using Azure confidential computing and a solution partner, Opaque.
-3. **Novartis Biome** – used a partner solution from [BeeKeeperAI](https://aka.ms/ACC-BeeKeeperAI) running on ACC in order to find candidates for clinical trials for rare diseases.
-4. **Leading payment providers** connecting data across banks for fraud and anomaly detection.
-5. **Data analytic services** and clean room solutions using ACC to increase data protection and meet EU customer compliance needs and privacy regulation.
+- **Scotiabank** – Proved the use of AI on cross-bank money flows to identify money laundering to flag human trafficking instances, using Azure confidential computing and a solution partner, Opaque.
+- **Novartis Biome** – used a partner solution from [BeeKeeperAI](https://aka.ms/ACC-BeeKeeperAI) running on ACC in order to find candidates for clinical trials for rare diseases.
+- **Leading payment providers** connecting data across banks for fraud and anomaly detection.
+- **Data analytic services** and clean room solutions using ACC to increase data protection and meet EU customer compliance needs and privacy regulation.
 
 
 ## Why confidential computing?

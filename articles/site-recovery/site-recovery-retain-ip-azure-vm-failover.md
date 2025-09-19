@@ -6,7 +6,9 @@ ms.date: 12/23/2024
 author: jyothisuri
 ms.topic: concept-article
 ms.author: jsuri
+ms.custom: sfi-image-nochange
 
+# Customer intent: As a cloud architect, I want to retain IP addresses during Azure VM failover so that I can ensure seamless connectivity and maintain application performance in the event of a disaster.
 ---
 # Retain IP addresses during failover
 

@@ -7,6 +7,7 @@ ms.topic: concept-article
 author: normesta
 ms.author: normesta
 ms.service: azure-blob-storage
+# Customer intent: As a cloud administrator, I want to monitor Azure Blob Storage metrics and logs, so that I can ensure optimal performance, analyze usage patterns, and troubleshoot any issues effectively.
 ---
 
 # Monitor Azure Blob Storage

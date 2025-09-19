@@ -1,23 +1,22 @@
 ---
-title: Get active speakers
-titleSuffix: An Azure Communication Services how-to guide
+title: Show active speakers
+titleSuffix: An Azure Communication Services article
 description: Use Azure Communication Services SDKs to render the active speakers in a call.
 author: jsaurezlee-msft
 ms.author: jsaurezlee
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.topic: how-to 
-ms.date: 08/10/2021
+ms.date: 06/15/2025
 ms.custom: template-how-to
 zone_pivot_groups: acs-plat-web-ios-android-windows
 
 #Customer intent: As a developer, I want to get a list of active speakers within a call.
 ---
 
-# Get active speakers within a call
+# Show active speakers within a call
 
-
-During an active call, you may want to get a list of active speakers in order to render or display them differently. Here's how.
+During an active call, you might want to get a list of active speakers in order to render or display them differently. Here's how.
 
 ## Prerequisites
 

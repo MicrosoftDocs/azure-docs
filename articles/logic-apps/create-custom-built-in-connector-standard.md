@@ -5,7 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, daviburg, apseth, psrivas, azla
 ms.topic: how-to
-ms.date: 08/06/2024
+ms.date: 07/16/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Create custom built-in connectors for Standard logic apps in single-tenant Azure Logic Apps

@@ -1,26 +1,30 @@
 ---
 title: Azure virtual network traffic routing
 titlesuffix: Azure Virtual Network
-description: Learn how Azure routes virtual network traffic and how you can customize routing for Azure.
+description: Learn how Azure routes virtual network traffic, customize routing with user-defined routes, and configure BGP for optimal connectivity between Azure and on-premises resources.
 services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
 ms.date: 10/30/2024
 ms.author: allensu
+ms.custom: sfi-image-nochange
+# Customer intent: "As a network engineer, I want to configure and customize traffic routing in an Azure virtual network, so that I can optimize connectivity between my virtual and on-premises resources."
 ---
 
-# Virtual network traffic routing
+# Azure virtual network traffic routing
 
-In this article, you learn how Azure routes traffic between Azure, on-premises, and internet resources. Azure automatically creates a route table for each subnet within an Azure virtual network and adds system default routes to the table. To learn more about virtual networks and subnets, see [Virtual network overview](virtual-networks-overview.md). You can override some of the Azure system routes with [custom routes](#custom-routes) and add more custom routes to route tables. Azure routes outbound traffic from a subnet based on the routes in a subnet's route table.
+
+In this article, you learn how Azure virtual network traffic routing works between Azure, on-premises, and internet resources. Azure automatically creates a route table for each subnet within an Azure virtual network and adds system default routes to the table. Understanding traffic routing helps you optimize connectivity and troubleshoot network issues in your Azure environment. To learn more about virtual networks and subnets, see [Virtual network overview](virtual-networks-overview.md). You can override some of the Azure system routes with [custom routes](#custom-routes) and add more custom routes to route tables. Azure routes outbound traffic from a subnet based on the routes in a subnet's route table.
 
 ## System routes
 
 Azure automatically creates system routes and assigns the routes to each subnet in a virtual network. You can't create system routes, and you can't remove system routes, but you can override some system routes with [custom routes](#custom-routes). Azure creates default system routes for each subnet and adds more [optional default routes](#optional-default-routes) to specific subnets, or every subnet, when you use specific Azure capabilities.
 
-### Default
+### Default system routes
+<a name="default"></a>
 
-Each route contains an address prefix and next hop type. When traffic leaving a subnet is sent to an IP address within the address prefix of a route, the route that contains the prefix is the route that Azure uses. Learn more about [how Azure selects a route](#how-azure-selects-a-route) when multiple routes contain the same prefixes or overlapping prefixes. Whenever a virtual network is created, Azure automatically creates the following default system routes for each subnet within the virtual network:
+Each route includes an address prefix and next hop type. Azure uses the route with the matching address prefix when traffic exits a subnet toward an IP address. Learn more about [how Azure selects a route](#how-azure-selects-routes-for-traffic-routing) when multiple routes contain identical or overlapping prefixes. Whenever a virtual network is created, Azure automatically creates the following default system routes for each subnet within the virtual network:
 
 |Source |Address prefixes                                        |Next hop type  |
 |-------|---------                                               |---------      |
@@ -44,7 +48,7 @@ The next hop types listed in the previous table represent how Azure routes traff
 
 ### Optional default routes
 
-Azure adds more default system routes for different Azure capabilities, but only if you enable the capabilities. Depending on the capability, Azure adds optional default routes to either specific subnets within the virtual network or to all subnets within a virtual network. The following table lists the other system routes and next hop types that Azure might add when you enable different capabilities.
+Azure creates more default system routes for different Azure capabilities, but only if you enable the capabilities. Depending on the capability, Azure creates optional default routes to either specific subnets within the virtual network or to all subnets within a virtual network. The following table lists the other system routes and next hop types that Azure might add when you enable different capabilities.
 
 |Source                 |Address prefixes                       |Next hop type|Subnet within virtual network that route is added to|
 |-----                  |----                                   |---------                    |--------|
@@ -54,8 +58,7 @@ Azure adds more default system routes for different Azure capabilities, but only
 
 * **Virtual network peering**: When you create a virtual network peering between two virtual networks, the system adds a route for each address range within the address space of each virtual network involved in the peering. Learn more about [virtual network peering](virtual-network-peering-overview.md).
 * **Virtual network gateway**: One or more routes with **Virtual network gateway** listed as the next hop type are added when a virtual network gateway is added to a virtual network. The source is also **Virtual network gateway** because the gateway adds the routes to the subnet. If your on-premises network gateway exchanges BGP routes with a virtual network gateway, the system adds a route for each route. These routes are propagated from the on-premises network gateway. We recommend that you summarize on-premises routes to the largest address range possible so that you propagate the fewest number of routes to an Azure virtual network gateway. There are limits to the number of routes you can propagate to an Azure virtual network gateway. For more information, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-networking-limits).
-* `VirtualNetworkServiceEndpoint`: The public IP addresses for certain services are added to the route table by Azure when you enable a service endpoint to the service. Service endpoints are enabled for individual subnets within a virtual network, so the route is added only to the route table of a subnet for which a service endpoint is enabled. The public IP addresses of Azure services change periodically. Azure manages the addresses in the route table automatically when the addresses change. Learn more about [virtual network service endpoints](virtual-network-service-endpoints-overview.md) and the services for which you can create service endpoints.
-
+* `VirtualNetworkServiceEndpoint`: Azure includes public IP addresses of certain services to the route table when you enable a service endpoint. Azure includes these routes only to subnets with service endpoints enabled. Azure automatically updates these addresses in the route table when service IP addresses change. Learn more about [virtual network service endpoints](virtual-network-service-endpoints-overview.md) and supported services.
     > [!NOTE]
     > The **Virtual network peering** and `VirtualNetworkServiceEndpoint` next hop types are added only to route tables of subnets within virtual networks created through the Azure Resource Manager deployment model. The next hop types aren't added to route tables that are associated to virtual network subnets created through the classic deployment model. Learn more about Azure [deployment models](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -63,7 +66,8 @@ Azure adds more default system routes for different Azure capabilities, but only
 
 You create custom routes by either creating [user-defined](#user-defined) routes (UDRs) or exchanging [BGP](#border-gateway-protocol) routes between your on-premises network gateway and an Azure virtual network gateway.
 
-### User-defined
+### User-defined routes
+<a name="user-defined"></a>
 
 To customize your traffic routes, you shouldn't modify the default routes. You should create custom or user-defined (static) routes, which override the Azure default system routes. In Azure, you create a route table and then associate the route table to zero or more virtual network subnets. Each subnet can have zero or one route table associated to it. To learn about the maximum number of routes that you can add to a route table and the maximum number of UDR tables you can create per Azure subscription, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-networking-limits).
 
@@ -88,15 +92,15 @@ You can specify the following next hop types when you create a UDR:
 
     You can define a route with 0.0.0.0/0 as the address prefix and a next hop type of virtual appliance. This configuration allows the appliance to inspect the traffic and determine whether to forward or drop the traffic. If you intend to create a UDR that contains the 0.0.0.0/0 address prefix, read [0.0.0.0/0 address prefix](#default-route) first.
 
-* **Virtual network gateway**: User-defined routes with next hop type Virtual Network Gateway allow you to route traffic to a Virtual Network's gateway. A Virtual Network has a single gateway that is automatically set by the underlying software-defined networking platform based on your deployment. User-defined routes with next hop Virtual Network Gateway are supported only when the Virtual Network's gateway is a **VPN gateway (and not ExpressRoute, RouteServer or Virtual WAN hub router)**.  
+* **Virtual network gateway**: User-defined routes with next hop type Virtual Network Gateway allow you to route traffic to a Virtual Network's gateway. A Virtual Network has a single gateway automatically set by the underlying software-defined networking platform based on your deployment. User-defined routes with next hop Virtual Network Gateway are supported only when the Virtual Network's gateway is a **VPN gateway (and not ExpressRoute, RouteServer or Virtual WAN hub router)**.  
    * For Virtual Networks with a VPN Gateway, ExpressRoute Gateway and/or Route Server:
-      * If RouteServer is deployed in a VNET, RouteServer is set as the Virtual Network's gateway.
-      * If VPN Gateway and ExpressRoute Gateway are deployed in the same VNET (without RouteServer), ExpressRoute Gateway is set as the Virtual Network's gateway.  
-      * If either an VPN Gateway or ExpressRoute Gateway is the only gateway in the VNET (without RouteServer), the deployed gateway is the Virtual Network's gateway.
+      * If RouteServer is deployed in a virtual network, RouteServer is set as the Virtual Network's gateway.
+      * If VPN Gateway and ExpressRoute Gateway are deployed in the same virtual network (without RouteServer), ExpressRoute Gateway is set as the Virtual Network's gateway.  
+      * If either a VPN Gateway or ExpressRoute Gateway is the only gateway in the virtual network (without RouteServer), the deployed gateway is the Virtual Network's gateway.
    * For Virtual Networks peered to another Virtual Network with gateways or RouteServer and the "Use the remote virtual network's gateway  or Route Server" setting is **enabled**:
-      * If RouteServer is deployed in the peered VNET, the remote RouteServer is set as the Virtual Network's gateway.
-      * If VPN Gateway and ExpressRoute Gateway are deployed in the peered VNET (without RouteServer), the remote ExpressRoute Gateway is set as the Virtual Network's gateway.  
-      * If either an VPN Gateway or ExpressRoute Gateway is the only gateway in the peered VNET (without RouteServer), the remote gateway is set as the Virtual Network's gateway.
+      * If RouteServer is deployed in the peered virtual network, the remote RouteServer is set as the Virtual Network's gateway.
+      * If VPN Gateway and ExpressRoute Gateway are deployed in the peered virtual network (without RouteServer), the remote ExpressRoute Gateway is set as the Virtual Network's gateway.  
+      * If either a VPN Gateway or ExpressRoute Gateway is the only gateway in the peered virtual network (without RouteServer), the remote gateway is set as the Virtual Network's gateway.
    * For Virtual Networks connected to a Virtual WAN hub:
       * The Virtual Network's gateway is always set to the Virtual WAN hub router.
 
@@ -162,11 +166,12 @@ The name displayed and referenced for next hop types is different between the Az
 |Virtual network peering         |Virtual network peering                                    |Not applicable|
 |Virtual network service endpoint|`VirtualNetworkServiceEndpoint`                   |Not applicable|
 
-### Border gateway protocol
+### Border Gateway Protocol (BGP)
+<a name="border-gateway-protocol"></a>
 
 An on-premises network gateway can exchange routes with an Azure virtual network gateway by using the BGP. Using BGP with an Azure virtual network gateway is dependent on the type you selected when you created the gateway:
 
-* **ExpressRoute**: You must use BGP to advertise on-premises routes to the Microsoft edge router. You can't create UDRs to force traffic to the ExpressRoute virtual network gateway if you deploy a virtual network gateway deployed as the type **ExpressRoute**. You can use UDRs for forcing traffic from the express route to, for example, a network virtual appliance.
+* **ExpressRoute**: You must use BGP to advertise on-premises routes to the edge router in the Microsoft datacenter. You can't create UDRs to force traffic to the ExpressRoute virtual network gateway if you deploy a virtual network gateway deployed as the type **ExpressRoute**. You can use UDRs for forcing traffic from the express route to, for example, a network virtual appliance.
 * **VPN**: Optionally, you can use BGP. For more information, see [BGP with site-to-site VPN connections](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 When you exchange routes with Azure by using BGP, a separate route is added to the route table of all subnets in a virtual network for each advertised prefix. The route is added with **Virtual network gateway** listed as the source and next hop type.
@@ -174,9 +179,10 @@ When you exchange routes with Azure by using BGP, a separate route is added to t
 You can disable ExpressRoute and Azure VPN Gateway route propagation on a subnet by using a property on a route table. When you disable route propagation, the system doesn't add routes to the route table of all subnets with virtual network gateway route propagation disabled. This process applies to both static routes and BGP routes. Connectivity with VPN connections is achieved by using [custom routes](#custom-routes) with a next hop type of **Virtual network gateway**. For more information, see [Disable virtual network gateway route propagation](manage-route-table.yml#create-a-route-table).
 
 > [!NOTE]
-> Route propagation shouldn't be disabled on `GatewaySubnet`. The gateway won't function if this setting is disabled.
+> Route propagation shouldn't be disabled on `GatewaySubnet`. If this setting is disabled, the gateway doesn't function.
 
-## How Azure selects a route
+## How Azure selects routes for traffic routing
+<a name="how-azure-selects-a-route"></a>
 
 When outbound traffic is sent from a subnet, Azure selects a route based on the destination IP address by using the longest prefix match algorithm. For example, a route table has two routes. One route specifies the 10.0.0.0/24 address prefix, and the other route specifies the 10.0.0.0/16 address prefix.
 
@@ -218,7 +224,7 @@ When you override the 0.0.0.0/0 address prefix, outbound traffic from the subnet
 
    When the next hop type for the route with the 0.0.0.0/0 address prefix is **Internet**, traffic from the subnet destined to the public IP addresses of Azure services never leaves the Azure backbone network, regardless of the Azure region in which the virtual network or Azure service resource exist.
 
-   When you create a UDR or a BGP route with a **Virtual network gateway** or **Virtual appliance** next hop type, all traffic is sent to the next hop type specified in the route. This includes traffic sent to public IP addresses of Azure services for which you haven't enabled [service endpoints](virtual-network-service-endpoints-overview.md).
+   When you create a UDR or a BGP route with a **Virtual network gateway** or **Virtual appliance** next hop type, all traffic is sent to the next hop type specified in the route. Including traffic sent to public IP addresses of Azure services that aren't enabled [service endpoints](virtual-network-service-endpoints-overview.md).
 
    When you enable a service endpoint for a service, Azure creates a route with address prefixes for the service. Traffic to the service doesn't route to the next hop type in a route with the 0.0.0.0/0 address prefix. The address prefixes for the service are longer than 0.0.0.0/0.
 
@@ -247,7 +253,7 @@ To illustrate the concepts in this article, the following sections describe:
 * The route table that exists for one subnet that includes the default and custom routes that are necessary to meet the requirements.
 
 > [!NOTE]
-> This example isn't intended to be a recommended or best practices implementation. It's provided only to illustrate concepts in this article.
+> This example isn't intended to be a recommended or best practices implementation. The example is provided only to illustrate concepts in this article.
 
 ### Requirements
 
@@ -299,7 +305,7 @@ Here's an explanation of each route ID:
 
 * **ID1**: Azure automatically added this route for all subnets within *Virtual-network-1* because 10.0.0.0/16 is the only address range defined in the address space for the virtual network. If you don't create the UDR in route ID2, traffic sent to any address between 10.0.0.1 and 10.0.255.254 is routed within the virtual network. This process occurs because the prefix is longer than 0.0.0.0/0 and doesn't fall within the address prefixes of any other routes.
 
-   Azure automatically changed the state from **Active** to **Invalid**, when ID2, a UDR, was added. It has the same prefix as the default route, and UDRs override default routes. The state of this route is still **Active** for *Subnet2* because the route table that the UDR, ID2, is in isn't associated to *Subnet2*.
+   Azure automatically changed the state from **Active** to **Invalid**, when ID2, a UDR, was added. It has the same prefix as the default route, and UDRs override default routes. The state of this route is still **Active** for *Subnet2* because the route table that the UDR, ID2, isn't associated to *Subnet2*.
 
 * **ID2**: Azure added this route when a UDR for the 10.0.0.0/16 address prefix was associated to the *Subnet1* subnet in the *Virtual-network-1* virtual network. The UDR specifies 10.0.100.4 as the IP address of the virtual appliance because the address is the private IP address assigned to the virtual appliance virtual machine. The route table in which this route exists isn't associated to *Subnet2*, so the route doesn't appear in the route table for *Subnet2*.
 

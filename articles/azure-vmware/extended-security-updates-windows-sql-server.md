@@ -6,6 +6,7 @@ ms.author: michwe
 ms.service: azure-vmware
 ms.topic: how-to  
 ms.date: 04/04/2024
+# Customer intent: As an IT admin managing legacy applications in Azure VMware Solution, I want to configure my SQL Server and Windows Server VMs for no-cost Extended Security Updates, so that I can ensure they remain secure and compliant despite their end-of-support status.
 ---
 
 # ESUs for SQL Server and Windows Server in Azure VMware Solution VMs

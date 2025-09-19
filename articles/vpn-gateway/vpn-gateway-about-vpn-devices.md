@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 03/31/2025
 ms.author: cherylmc
 
+# Customer intent: "As a network administrator, I want to configure validated VPN devices for Site-to-Site connections, so that I can establish secure connections between on-premises networks and Azure virtual networks."
 ---
 # About VPN devices and IPsec/IKE parameters for Site-to-Site VPN Gateway connections
 
@@ -143,7 +144,7 @@ MSS clamping is done bidirectionally on the Azure VPN Gateway. The following tab
 
 | **Packet Flow**               |**IPv4**        | **IPv6**   |
 | ---                           | ---            | ---        |
-| Over Internet                 | 1340 bytes     | 1360 bytes |
+| Over Internet                 | 1360 bytes     | 1340 bytes |
 | Over Express Route Gateway    | 1250 bytes     | 1250 bytes |
 
 

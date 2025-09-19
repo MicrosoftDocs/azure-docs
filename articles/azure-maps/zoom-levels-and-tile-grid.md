@@ -430,7 +430,7 @@ namespace AzureMaps
             var tl = GlobalPixelToPosition(new double[] { left, top }, zoom, tileSize);
             var br = GlobalPixelToPosition(new double[] { right, bottom }, zoom, tileSize);
 
-            //Boudning box in the format: [west, south, east, north];
+            //Bounding box in the format: [west, south, east, north];
             var bounds = new double[] { tl[0], br[1], br[0], tl[1] };
 
             return GetQuadkeysInBoundingBox(bounds, zoom, tileSize);
@@ -838,7 +838,7 @@ module AzureMaps {
             var tl = this.GlobalPixelToPosition([left, top], zoom, tileSize);
             var br = this.GlobalPixelToPosition([right, bottom], zoom, tileSize);
 
-            //Boudning box in the format: [west, south, east, north];
+            //Bounding box in the format: [west, south, east, north];
             var bounds = [tl[0], br[1], br[0], tl[1]];
 
             return this.GetQuadkeysInBoundingBox(bounds, zoom, tileSize);

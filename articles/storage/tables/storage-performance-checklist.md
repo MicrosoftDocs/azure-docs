@@ -10,6 +10,7 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
+# Customer intent: As a developer, I want to follow a performance and scalability checklist for Table storage, so that I can optimize my application and avoid throttling issues while effectively managing data operations.
 ---
 
 # Performance and scalability checklist for Table storage

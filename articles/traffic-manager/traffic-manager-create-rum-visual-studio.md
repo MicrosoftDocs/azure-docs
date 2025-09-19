@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 07/13/2023
 ms.author: allensu
 ms.custom: template-how-to, devx-track-java
+# Customer intent: As a mobile app developer, I want to integrate Real User Measurements into my app using Traffic Manager, so that I can analyze user interactions and optimize performance effectively.
 ---
 
 # How to send Real User Measurements to Traffic Manager with Visual Studio App Center

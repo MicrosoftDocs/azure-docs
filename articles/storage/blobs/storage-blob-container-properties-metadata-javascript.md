@@ -3,8 +3,8 @@ title: Use JavaScript or TypeScript to manage properties and metadata for a blob
 titleSuffix: Azure Storage
 description: Learn how to set and retrieve system properties and store custom metadata on blob containers in your Azure Storage account using the JavaScript client library.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 
 ms.service: azure-blob-storage
 ms.topic: how-to
@@ -12,6 +12,7 @@ ms.date: 10/28/2024
 
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
+# Customer intent: As a developer, I want to manage blob container properties and metadata using JavaScript or TypeScript, so that I can effectively organize and retrieve additional information about my storage resources.
 ---
 
 # Manage container properties and metadata with JavaScript or TypeScript
@@ -93,3 +94,4 @@ The Azure SDK for JavaScript contains libraries that build on top of the Azure R
 The `getProperties` method retrieves container properties and metadata by calling both the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation and the [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata) operation.
 
 [!INCLUDE [storage-dev-guide-resources-javascript](../../../includes/storage-dev-guides/storage-dev-guide-resources-javascript.md)]
+

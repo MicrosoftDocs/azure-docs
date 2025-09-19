@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 06/28/2024
 ms.author: mbender
 ms.custom: template-how-to
+# Customer intent: As a cloud operator, I want to retrieve load balancer metadata using the Instance Metadata Service, so that I can analyze network traffic and manage IP configurations for virtual machines effectively.
 ---
 
 # Retrieve load balancer metadata using Azure Instance Metadata Service (IMDS)

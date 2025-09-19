@@ -5,7 +5,7 @@ ms.service: role-based-access-control
 ms.topic: generated-reference
 ms.workload: identity
 author: rolyon
-manager: femila
+manager: pmwongera
 ms.author: rolyon
 ms.date: 05/25/2025
 ms.custom: generated
@@ -979,7 +979,6 @@ Allows read-only access to Azure API Center service.
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
-
 ## Azure Relay Listener
 
 Allows for listen access to Azure Relay resources.

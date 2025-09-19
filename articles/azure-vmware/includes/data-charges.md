@@ -7,6 +7,7 @@ ms.date: 1/03/2024
 author: rvandenbedem
 ms.author: rvandenbedem
 ms.custom: engagement-fy23
+# Customer intent: "As a network architect, I want to understand the data charge implications of using Azure VMware Solution with ExpressRoute, so that I can optimize my cloud network costs and ensure budget adherence."
 ---
 
 <!-- Used in faq.yml -->

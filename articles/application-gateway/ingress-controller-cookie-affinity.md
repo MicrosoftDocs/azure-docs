@@ -7,6 +7,7 @@ ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 9/17/2024
 ms.author: mbender
+# Customer intent: As a cloud architect, I want to enable cookie-based affinity with Application Gateway, so that I can ensure user sessions consistently route to the same server for improved application performance and user experience.
 ---
 
 # Enable cookie-based affinity with Application Gateway

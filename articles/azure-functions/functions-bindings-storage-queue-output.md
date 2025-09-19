@@ -5,8 +5,15 @@ ms.topic: reference
 ms.date: 03/06/2023
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
+ms.custom:
+  - devx-track-csharp
+  - cc996988-fb4f-47
+  - devx-track-python
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-ts
+  - sfi-ropc-nochange
 ---
 
 # Azure Queue storage output bindings for Azure Functions
@@ -593,6 +600,8 @@ There are two options for writing from your function to the configured queue:
 - **Return value**: Set the `name` property in *function.json* to `$return`. With this configuration, the function's return value is persisted as a Queue storage message.
 
 - **Imperative**: Pass a value to the [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) method of the parameter declared as an [Out](/python/api/azure-functions/azure.functions.out) type. The value passed to `set` is persisted as a Queue storage message.
+
+The output function parameter must be defined as `func.Out[func.QueueMessage]`, `func.Out[str]`, or `func.Out[bytes]`. Refer to the [output example](#example) for details.
 
 ::: zone-end  
 

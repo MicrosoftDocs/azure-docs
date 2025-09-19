@@ -7,6 +7,7 @@ ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 06/06/2022
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 ---
 # Monitor site-to-site VPN BGP routes using the BGP dashboard
 

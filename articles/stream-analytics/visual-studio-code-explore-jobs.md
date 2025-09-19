@@ -6,6 +6,7 @@ author: alexlzx
 ms.author: zhenxilin
 ms.date: 05/24/2023
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Export and manage Stream Analytics jobs in Visual Studio Code

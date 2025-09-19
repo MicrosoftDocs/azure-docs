@@ -1,9 +1,9 @@
 ---
 title: Limitations and known issues with Azure Synapse Link for SQL
 description: Learn about limitations and known issues with Azure Synapse Link for SQL.
-author: jonburchel
-ms.author: jburchel
-ms.reviewer: jburchel, chuckheinzelman, imotiwala
+author: ajagadish-24
+ms.author: ajagadish
+ms.reviewer: chuckheinzelman, imotiwala
 ms.date: 05/07/2025
 ms.service: azure-synapse-analytics
 ms.subservice: synapse-link

@@ -8,6 +8,7 @@ ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 03/31/2025
 ms.author: cherylmc
+# Customer intent: "As a network administrator, I want to generate VPN client profile configuration files for Microsoft Entra ID authentication, so that I can properly configure VPN clients for secure point-to-site connections."
 ---
 # Generate VPN Client profile configuration files - Microsoft Entra ID authentication
 

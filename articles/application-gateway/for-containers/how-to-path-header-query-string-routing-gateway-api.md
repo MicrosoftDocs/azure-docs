@@ -7,6 +7,7 @@ ms.service: azure-appgw-for-containers
 ms.topic: how-to
 ms.date: 11/5/2024
 ms.author: mbender
+# Customer intent: "As a cloud operator, I want to configure path, header, and query string routing for my application using Gateway API, so that I can manage traffic and direct requests to the appropriate backend services efficiently."
 ---
 
 # Path, header, and query string routing with Application Gateway for Containers - Gateway API

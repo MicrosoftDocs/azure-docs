@@ -7,6 +7,7 @@ ms.service: azure-virtual-network-manager
 ms.topic: tutorial
 ms.date: 05/21/2025
 ms.custom:
+  - references_regions
   - ai-gen-docs-bap
   - ai-gen-title
   - ai-seo-date:05/21/2025
@@ -14,6 +15,8 @@ ms.custom:
 ---
 
 # Configure cross-tenant IPAM with Azure Virtual Network Manager
+
+[!INCLUDE [virtual-network-manager-ipam](../../includes/virtual-network-manager-ipam.md)]
 
 Managing IP addresses across multiple Azure tenants can be complex, especially in large or distributed organizations. Azure Virtual Network Manager simplifies this process by enabling centralized IP address management (IPAM) across tenants. This article shows you how to deploy a virtual network in a managed tenant using an IP address allocation from an IPAM pool in a management tenant, all through the Azure portal. You'll learn about prerequisites, step-by-step configuration, and how to remove IPAM allocations when they're no longer needed.
 

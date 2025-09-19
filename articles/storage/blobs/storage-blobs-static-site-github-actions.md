@@ -8,6 +8,7 @@ ms.author: shaas
 ms.reviewer: dineshm
 ms.date: 02/12/2025
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
+# Customer intent: As a web developer, I want to set up a GitHub Actions workflow for deploying my static website to Azure Storage, so that I can automate updates and improve deployment efficiency every time I push changes to my GitHub repository.
 ---
 
 # Use GitHub Actions workflow to deploy your static website in Azure Storage

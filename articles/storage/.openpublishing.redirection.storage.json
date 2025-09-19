@@ -1346,6 +1346,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/storage/elastic-san/elastic-san-networking-concepts.md",
+            "redirect_url": "/azure/storage/elastic-san/elastic-san-networking",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/storage/file-sync/file-sync-offline-data-transfer.md",
             "redirect_url": "/azure/storage/file-sync/file-sync-server-endpoint-create",
             "redirect_document_id": false

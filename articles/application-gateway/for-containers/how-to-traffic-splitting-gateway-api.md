@@ -7,6 +7,7 @@ ms.service: azure-appgw-for-containers
 ms.topic: how-to
 ms.date: 11/5/2024
 ms.author: mbender
+# Customer intent: "As a cloud engineer, I want to configure traffic splitting with the Application Gateway for Containers, so that I can manage workload distribution across multiple backend services effectively."
 ---
 
 # Traffic splitting with Application Gateway for Containers - Gateway API

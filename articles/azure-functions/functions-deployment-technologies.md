@@ -34,7 +34,7 @@ Currently, Functions offers five options for hosting your function apps:
 + [Consumption](consumption-plan.md)
 + [Elastic Premium plan](functions-premium-plan.md)
 + [Dedicated (App Service) plan](dedicated-plan.md)
-+ [Azure Container Apps](functions-container-apps-hosting.md)
++ [Azure Container Apps](../container-apps/functions-overview.md)
 
 Each plan has different behaviors. Not all deployment technologies are available for each hosting plan and operating system. This chart provides information on the supported deployment technologies:
 
@@ -104,7 +104,7 @@ To enable remote build on Linux Consumption, Elastic Premium, and App Service pl
 + [`ENABLE_ORYX_BUILD=true`](functions-app-settings.md#enable_oryx_build)
 + [`SCM_DO_BUILD_DURING_DEPLOYMENT=true`](functions-app-settings.md#scm_do_build_during_deployment)
 
-By default, both [Azure Functions Core Tools](functions-run-local.md) and the [Azure Functions Extension for Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) perform remote builds when deploying to Linux. Because of this, both tools automatically create these settings for you in Azure.
+By default, both [Azure Functions Core Tools](functions-run-local.md) and the [Azure Functions Extension for Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-csharp#deploy-the-project-to-azure) perform remote builds when deploying to Linux. Because of this, both tools automatically create these settings for you in Azure.
 
 When apps are built remotely on Linux, they [run from the deployment package](run-functions-from-deployment-package.md).
 
@@ -174,7 +174,7 @@ You can deploy a function app running in a Linux container.
 >
 >+ Deploy to Azure Functions resources you create in the Azure portal. For more information, see [Azure portal create using containers](functions-how-to-custom-container.md#azure-portal-create-using-containers). 
 >+ Deploy to Azure Functions resources you create from the command line. Requires either a Premium or Dedicated (App Service) plan. To learn how, see [Create your first containerized Azure Functions](functions-deploy-container.md). 
->+ Deploy to Azure Container Apps. To learn how, see [Create your first containerized Azure Functions on Azure Container Apps](functions-deploy-container-apps.md).
+>+ Deploy to Azure Container Apps. To learn how, see [Create your first containerized Azure Functions on Azure Container Apps](../container-apps/functions-usage.md).
 >+ Deploy to Azure Arc (preview). To learn how, see [Working with containers and Azure Functions](functions-how-to-custom-container.md?pivots=azure-arc).
 >+ Deploy to a Kubernetes cluster. You can deploy to a cluster using [Azure Functions Core Tools](functions-run-local.md). Use the [`func kubernetes deploy`](functions-core-tools-reference.md#func-kubernetes-deploy) command. 
 
@@ -220,7 +220,7 @@ In the portal-based editor, you can directly edit the files that are in your fun
 
 >__When to use it:__ The portal is a good way to get started with Azure Functions. Because of [development limitations in the Azure portal](functions-how-to-use-azure-function-app-settings.md#development-limitations-in-the-azure-portal), you should use one of the following client tools more advanced development work:
 >
->+ [Visual Studio Code](./create-first-function-vs-code-csharp.md)
+>+ [Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-csharp)
 >+ [Azure Functions Core Tools (command line)](functions-run-local.md)
 >+ [Visual Studio](functions-create-your-first-function-visual-studio.md)
 

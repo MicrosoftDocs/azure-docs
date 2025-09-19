@@ -8,9 +8,12 @@ ms.author: mbender
 ms.date: 01/08/2025
 ms.service: azure-virtual-network
 ms.subservice: ip-services
-ms.custom: devx-track-azurepowershell
 ms.topic: concept-article
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 
+# Customer intent: As a network administrator, I want to manage custom IP address prefixes in my Azure subscription so that I can efficiently migrate and decommission my IP ranges while ensuring uninterrupted service and optimal routing.
 ---
 
 # Manage a custom IP address prefix

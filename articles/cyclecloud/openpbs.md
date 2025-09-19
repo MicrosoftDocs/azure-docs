@@ -2,7 +2,7 @@
 title: OpenPBS Integration
 description: OpenPBS scheduler configuration in Azure CycleCloud.
 author: adriankjohnson
-ms.date: 06/11/2025
+ms.date: 07/01/2025
 ms.author: adjohnso
 ---
 
@@ -11,7 +11,7 @@ ms.author: adjohnso
 [//]: # (Need to link to the scheduler README on GitHub)
 
 ::: moniker range="=cyclecloud-7"
-[OpenPBS](http://openpbs.org/) can easily be enabled on a CycleCloud cluster by modifying the "run_list", in the configuration section of your cluster definition. A PBS Professional (PBS Pro) cluster has two main parts: the 'master' node, which runs the software on a shared filesystem, and the 'execute' nodes, which mount that filesystem and run the submitted jobs. For example, a simple cluster template snippet may look like:
+You can enable [OpenPBS](http://openpbs.org/) on a CycleCloud cluster by changing the `run_list` in the configuration section of your cluster definition. A PBS Professional (PBS Pro) cluster has two main parts: the **primary** node, which runs the software on a shared filesystem, and the **execute** nodes, which mount that filesystem and run the submitted jobs. For example, a simple cluster template snippet might look like:
 
 ``` ini
 [cluster my-pbspro]
@@ -31,30 +31,30 @@ ms.author: adjohnso
     run_list = role[pbspro_execute_role]
 ```
 
-Importing and starting a cluster with definition in CycleCloud yields a single 'master' node. Execute nodes can be added to the cluster via the `cyclecloud add_node` command. For example, to add 10 more execute nodes:
+When you import and start a cluster with this definition in CycleCloud, you get a single **primary** node. You can add **execute** nodes to the cluster by using the `cyclecloud add_node` command. For example, to add 10 more **execute** nodes, use:
 
 ```azurecli-interactive
 cyclecloud add_node my-pbspro -t execute -c 10
 ```
 
-## PBS Resource-based Autoscaling
+## PBS resource-based autoscaling
 
-Cyclecloud maintains two resources to expand the dynamic provisioning capability. These resources are *nodearray* and *machinetype*.
+CycleCloud maintains two resources to expand the dynamic provisioning capability. These resources are *nodearray* and *machinetype*.
 
-If you submit a job and specify a nodearray resource by `qsub -l nodearray=highmem -- /bin/hostname` then, CycleCloud adds nodes to the nodearray named 'highmem'. If no such nodearray exists, the job stays idle.
+When you submit a job and specify a node array resource with `qsub -l nodearray=highmem -- /bin/hostname`, CycleCloud adds nodes to the node array named `highmem`. If the node array doesn't exist, the job stays idle.
 
-Similarly, if a machinetype resource is specified which a job submission, for example, `qsub -l machinetype:Standard_L32s_v2 my-job.sh`, then CycleCloud autoscales the 'Standard_L32s_v2' in the 'execute' (default) nodearray. If that machine type isn’t available in the 'execute' node array, the job stays idle.
+When you specify a machine type resource in a job submission, such as `qsub -l machinetype:Standard_L32s_v2 my-job.sh`, CycleCloud autoscales the `Standard_L32s_v2` machines in the `execute` (default) node array. If the machine type isn't available in the `execute` node array, the job stays idle.
 
-These resources can be used in combination as:
+You can use these resources together as:
 
 ```bash
 qsub -l nodes=8:ppn=16:nodearray=hpc:machinetype=Standard_HB60rs my-simulation.sh
 ```
-Which autoscales only if the 'Standard_HB60rs' machines are specified in the 'hpc' node array.
+Autoscales only if you specify the `Standard_HB60rs` machines in the `hpc` node array.
 
-## Adding extra queues assigned to nodearrays
+## Adding extra queues assigned to node arrays
 
-On clusters with multiple nodearrays, it's common to create separate queues to automatically route jobs to the appropriate VM type. In this example, we assume the following "gpu" nodearray is defined in your cluster template:
+On clusters with multiple node arrays, create separate queues to automatically route jobs to the appropriate VM type. In this example, assume the following `gpu` node array is defined in your cluster template:
 
 ```bash
     [[nodearray gpu]]
@@ -65,7 +65,7 @@ On clusters with multiple nodearrays, it's common to create separate queues to a
         pbspro.slot_type = gpu
 ```
 
-After importing the cluster template and starting the cluster, the following commands can be ran on the server node to create the "gpu" queue:
+After you import the cluster template and start the cluster, run the following commands on the server node to create the `gpu` queue:
 
 ```bash
 /opt/pbs/bin/qmgr -c "create queue gpu"
@@ -80,17 +80,17 @@ After importing the cluster template and starting the cluster, the following com
 ```
 
 > [!NOTE]
-> As shown in the example, queue definition packs all VMs in the queue into a single VM scale set to support MPI jobs. To define the queue for serial jobs and allow multiple VM Scalesets, set `ungrouped = true` for both `resources_default` and `default_chunk`. You can also set `resources_default.place = pack` if you want the scheduler to pack jobs onto VMs instead of round-robin allocation of jobs. For more information on PBS job packing, see the official [PBS Professional OSS documentation](https://www.altair.com/pbs-works-documentation/).
+> As shown in the example, the queue definition packs all VMs in the queue into a single virtual machine scale set to support MPI jobs. To define the queue for serial jobs and allow multiple virtual machine scale sets, set `ungrouped = true` for both `resources_default` and `default_chunk`. Set `resources_default.place = pack` if you want the scheduler to pack jobs onto VMs instead of round-robin allocation of jobs. For more information on PBS job packing, see the official [PBS Professional OSS documentation](https://www.altair.com/pbs-works-documentation/).
 
-## PBS Professional Configuration Reference
+## PBS Professional configuration reference
 
-The following are the PBS Professional(PBS Pro) specific configuration options you can toggle to customize functionality:
+The following table describes the PBS Professional (PBS Pro) specific configuration options you can toggle to customize functionality:
 
 | PBS Pro Options | Description |
 | --------------- | ----------- |
-| pbspro.slots                           | The number of slots for a given node to report to PBS Pro. The number of slots is the number of concurrent jobs a node can execute, this value defaults to the number of CPUs on a given machine. You can override this value in cases where you don't run jobs based on CPU but on memory, GPUs, etc.                                                               |
-| pbspro.slot_type                       | The name of type of 'slot' a node provides. The default is 'execute'. When a job is tagged with the hard resource  `slot_type=<type>`, that job runs *only* on the machine of the same slot type. It allows you to create a different software and hardware configurations per node and ensure an appropriate job is always scheduled on the correct type of node.  |
-| pbspro.version                         | Default: '18.1.3-0'. This is currently the default version and *only* option to install and run. This is currently the default version and *only* option. In the future more versions of the PBS Pro software may be supported. |
+| pbspro.slots                           | The number of slots for a given node to report to PBS Pro. The number of slots is the number of concurrent jobs a node can execute. This value defaults to the number of CPUs on a given machine. You can override this value in cases where you don't run jobs based on CPU but on memory, GPUs, and other resources.                                                               |
+| pbspro.slot_type                       | The name of the type of 'slot' a node provides. The default is 'execute'. When you tag a job with the hard resource `slot_type=<type>`, the job runs *only* on the machines with the same slot type. This setting lets you create different software and hardware configurations for each node and ensures that the right job is always scheduled on the correct type of node.  |
+| pbspro.version                         | Default: '18.1.3-0'. This version is currently the default and *only* option to install and run. In the future, more versions of the PBS Pro software might be supported. |
 
 ::: moniker-end
 
@@ -98,7 +98,7 @@ The following are the PBS Professional(PBS Pro) specific configuration options y
 
 ## Connect PBS with CycleCloud
 
-CycleCloud manages [OpenPBS](http://openpbs.org/)  clusters through an installable agent called [`azpbs`](https://github.com/Azure/cyclecloud-pbspro). This agent connects to CycleCloud to read cluster and VM configurations and also integrates with OpenPBS to effectively process the job and host information. All `azpbs` configurations are found in the `autoscale.json` file, normally `/opt/cycle/pbspro/autoscale.json`. 
+CycleCloud manages [OpenPBS](http://openpbs.org/) clusters through an installable agent called [`azpbs`](https://github.com/Azure/cyclecloud-pbspro). This agent connects to CycleCloud to read cluster and VM configurations. It also integrates with OpenPBS to process the job and host information. You can find all `azpbs` configurations in the `autoscale.json` file, usually located at `/opt/cycle/pbspro/autoscale.json`.
 
 ```
   "password": "260D39rWX13X",
@@ -110,24 +110,24 @@ CycleCloud manages [OpenPBS](http://openpbs.org/)  clusters through an installab
   "cluster_name": "mechanical_grid",
 ```
 
-### Important Files
+### Important files
 
-The `azpbs` agent parses the PBS configuration each time it's called - jobs, queues, resources. Information is provided in the stderr and stdout of the command and to a log file, both at configurable levels. All PBS management commands (`qcmd`) with arguments are logged to file as well.
+The `azpbs` agent parses the PBS configuration each time it's called - jobs, queues, resources. The agent provides this information in the stderr and stdout of the command and to a log file, both at configurable levels. The agent also logs all PBS management commands (`qcmd`) with arguments to a file.
 
-All these files can be found in the _/opt/cycle/pbspro/_ directory where the agent is installed.
+You can find all these files in the _/opt/cycle/pbspro/_ directory where you install the agent.
 
 | File  |  Location | Description |
 |---|---|---|
 | Autoscale Config  | autoscale.json  | Configuration for Autoscale, Resource Map, CycleCloud access information |
 | Autoscale Log  | autoscale.log  | Agent main thread logging including CycleCloud host management |
 | Demand Log | demand.log | Detailed log for resource matching |
-| qcmd Trace Log  | qcmd.log | Logging the agent `qcmd` calls | 
+| qcmd Trace Log  | qcmd.log | Logging the agent `qcmd` calls |
 | Logging Config | logging.conf | Configurations for logging masks and file locations | 
 
 
 ### Defining OpenPBS Resources
-This project allows general association of OpenPBS resources with Azure VM resources via the cyclecloud-pbspro (azpbs) project. This resource relationship defined in `autoscale.json`.
-The default resources defined with the cluster template we ship with are
+This project enables you to associate OpenPBS resources with Azure VM resources through the cyclecloud-pbspro (azpbs) project. You define this resource relationship in `autoscale.json`.
+The cluster template includes the following default resources:
 
 ```json
 {"default_resources": [
@@ -164,9 +164,9 @@ The default resources defined with the cluster template we ship with are
 }
 ```
 
-The OpenPBS resource named `mem` is equated to a node attribute named `node.memory`, which is the total memory of any virtual machine. This configuration allows `azpbs` to process a resource request such as `-l mem=4gb` by comparing the value of the job resource requirements to node resources. 
+The OpenPBS resource named `mem` corresponds to a node attribute named `node.memory`, which represents the total memory of any virtual machine. This configuration lets `azpbs` handle a resource request like `-l mem=4gb` by comparing the value of the job resource requirements to node resources. 
 
-Currently, disk size is hardcoded to `size::20g`. Here's an example of handling VM Size specific disk size
+Currently, the disk size is set to `size::20g`. Here's an example of how to handle VM Size specific disk size:
 ```json
    {
       "select": {"node.vm_size": "Standard_F2"},
@@ -180,7 +180,7 @@ Currently, disk size is hardcoded to `size::20g`. Here's an example of handling 
    }
 ```
 
-### Autoscale and Scalesets
+### Autoscale and scale sets
 
 CycleCloud treats spanning and serial jobs differently in OpenPBS clusters. Spanning jobs land on nodes that are part of the same placement group. The placement group has a particular platform meaning VirtualMachineScaleSet with SinglePlacementGroup=true) and CycleCloud manages a named placement group for each spanned node set. Use the PBS resource `group_id` for this placement group name.
 
@@ -189,7 +189,7 @@ The `hpc` queue appends the equivalent of `-l place=scatter:group=group_id` by u
 
 ### Installing the CycleCloud OpenPBS Agent `azpbs`
 
-The OpenPBS CycleCloud cluster manages the installation and configuration of the agent on the server node. The preparation includes setting PBS resources, queues, and hooks. A scripted install can be done outside of CycleCloud as well.
+The OpenPBS CycleCloud cluster manages the installation and configuration of the agent on the server node. The preparation steps include setting PBS resources, queues, and hooks. You can also perform a scripted installation outside of CycleCloud.
 
 ```bash
 # Prerequisite: python3, 3.6 or newer, must be installed and in the PATH

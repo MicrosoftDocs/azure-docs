@@ -14,14 +14,19 @@ Azure Front Door and Azure CDN are both Azure services that offer global content
 
 :::image type="content" source="./media/front-door-cdn-comparison/architecture.png" alt-text="Diagram of Azure Front Door architecture.":::
 
+> [!IMPORTANT]
+> - Starting August 15, 2025, Azure Front Door (classic) and Azure CDN from Microsoft (classic) will no longer support new domain onboarding or profile creation. Migrate to [AFD Standard and Premium](/azure/frontdoor/tier-migration) to create new domains or profiles and avoid service disruption. [Learn more](https://azure.microsoft.com/updates?id=498522)
+> - Starting August 15, 2025, Azure Front Door (classic) and Azure CDN from Microsoft (classic) will [no longer support Managed certificates](/azure/security/fundamentals/managed-tls-changes). To avoid service disruption, either switch to Bring Your Own Certificate (BYOC) or migrate to [AFD Standard and Premium](/azure/frontdoor/tier-migration) by August 15, 2025. Existing managed certificates will be auto renewed before August 15, 2025, and remain valid until April 14, 2026.  [Learn more](https://azure.microsoft.com/updates?id=498522)
+> - Azure Front Door (classic) will be retired on March 31, 2027. To avoid service disruption ⁠[migrate to ⁠AFD Standard or Premium](/azure/frontdoor/tier-migration). ⁠[Learn more](https://azure.microsoft.com/updates?id=azure-front-door-classic-will-be-retired-on-31-march-2027).
+> - Azure CDN Standard from Microsoft (classic) will be retired on September 30, 2027. To avoid service disruption ⁠[migrate to AFD Standard or Premium](/azure/cdn/migrate-tier). ⁠[Learn more.](https://azure.microsoft.com/updates?id=Azure-CDN-Standard-from-Microsoft-classic-will-be-retired-on-30-September-2027)
+
 > [!NOTE]
-> To switch between tiers, you must recreate the Azure Front Door profile:
+> To switch between tiers:
 > - From Azure Front Door (classic) to the Standard or Premium tier: use the [**migration capability**](migrate-tier.md).
+> - From CDN Standard from Microsoft (classic) to the Standard or Premium tier: use the [**migration capability**](../cdn/migrate-tier.md).
 > - From Azure Front Door Standard to Premium: use the [**upgrade capability**](tier-upgrade.md).
+> - From Azure Front Door Premium to Standard: No seamless downgrade tool exists. You can recreate the profile instead.
 
-[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
-
-[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
 ## Service comparison
 
@@ -39,7 +44,7 @@ The following table provides a comparison between Azure Front Door and Azure CDN
 | HTTPS support | &check; | &check; | &check; | &check; |
 | Custom domain HTTPS | &check; | &check; | &check; | &check; |
 | Bring your own certificate | &check; | &check; | &check; | &check; |
-| Supported TLS versions | TLS1.3, TLS1.2 | TLS1.3 TLS1.2 | TLS1.3, TLS1.2 | TLS1.3, TLS 1.2 |
+| Supported TLS versions | TLS1.3, TLS1.2 | TLS1.3, TLS1.2 | TLS1.3, TLS1.2 | TLS1.3, TLS 1.2 |
 | **Caching** | | | | |
 | Query string caching | &check; | &check; | &check; | &check; |
 | Cache management (purge, rules, and compression) | &check; | &check; | &check; | &check; |
@@ -85,15 +90,21 @@ The following table provides a comparison between Azure Front Door and Azure CDN
 ## Services on retirement path
 The following table lists services that are on retirement path, frequently asked questions regarding retirement, and migration guidance.
 
-| Details | Front Door (classic) | CDN Standard from Microsoft (classic) | CDN Standard from Akamai | CDN Standard/Premium from Edgio |
-| --- | --- | --- | --- | --- |
-| Retirement date | March 31, 2027 | September 30, 2027 | December 31, 2023 | January 15, 2025 |
-| Date until new resources can be created | March 31, 2025 | September 30, 2025 | Service retired | Service retired |
-| Documentation | [Azure update](https://azure.microsoft.com/updates/azure-front-door-classic-will-be-retired-on-31-march-2027/), [FAQ](classic-retirement-faq.md) | [Azure update](https://azure.microsoft.com/updates/v2/Azure-CDN-Standard-from-Microsoft-classic-will-be-retired-on-30-September-2027), [FAQ](../cdn/classic-cdn-retirement-faq.md) | [FAQ](/previous-versions/azure/cdn/akamai-retirement-faq?toc=/azure/frontdoor/toc.json)|[FAQ](/previous-versions/azure/cdn/edgio-retirement-faq?toc=/azure/frontdoor/toc.json) |
-| Migration | [Considerations](tier-migration.md), [Step-by-step instructions](migrate-tier.md) | [Considerations](../cdn/tier-migration.md), [Step-by-step instructions](../cdn/migrate-tier.md) | Service retired | Service retired |
+| Details | Front Door (classic) | CDN Standard from Microsoft (classic) |
+| --- | --- | --- |
+| Retirement date | March 31, 2027 | September 30, 2027 |
+| Date until new resources can be created | March 31, 2025 | August 15, 2025 **|
+| Documentation | [Azure update](https://azure.microsoft.com/updates/azure-front-door-classic-will-be-retired-on-31-march-2027/), [FAQ](classic-retirement-faq.md) | [Azure update](https://azure.microsoft.com/updates/v2/Azure-CDN-Standard-from-Microsoft-classic-will-be-retired-on-30-September-2027), [FAQ](../cdn/classic-cdn-retirement-faq.md) |
+| Migration | [Considerations](tier-migration.md), [Step-by-step instructions](migrate-tier.md) | [Considerations](../cdn/tier-migration.md), [Step-by-step instructions](../cdn/migrate-tier.md) |
+
+> [!NOTE]
+> ** Azure-managed certificates will no longer be supported on CDN Standard from Microsoft (classic) starting August 15, 2025. Existing managed certificates will remain valid until April 14, 2026. [Learn more](https://azure.microsoft.com/updates?id=498522)
 
 ## Related content
 
 - [Create an Azure Front Door](create-front-door-portal.md)
+
 - [Azure Front Door routing architecture](front-door-routing-architecture.md)
+
 - [Best practices for Azure Front Door](best-practices.md)
+

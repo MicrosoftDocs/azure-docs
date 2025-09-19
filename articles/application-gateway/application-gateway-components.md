@@ -7,6 +7,7 @@ ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 05/21/2025
 ms.author: mbender
+# Customer intent: As a cloud architect, I want to understand the components of an application gateway, so that I can effectively design and implement a solution to manage incoming application traffic and distribute it across backend resources.
 ---
 
 # Application gateway components

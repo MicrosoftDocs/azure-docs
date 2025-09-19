@@ -5,10 +5,11 @@ description: Use Azure Blob Storage lifecycle management policies to create auto
 author: normesta
 
 ms.author: normesta
-ms.date: 06/13/2025
+ms.date: 09/15/2025
 ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.custom: references_regions, engagement-fy23
+# Customer intent: As a data manager, I want to establish lifecycle management policies for our blob storage, so that I can automate data transitions and deletions to optimize storage costs and enhance data management efficiency.
 ---
 
 # Azure Blob Storage lifecycle management overview
@@ -74,6 +75,8 @@ For more information about pricing, see [Block Blob pricing](https://azure.micro
 
 - Tiering isn't yet supported in a premium block blob storage account. For all other accounts, tiering is allowed only on block blobs and not for append and page blobs.
 
+- Lifecycle management policies can't be used to rehydrate blobs to an online tier.
+
 - A lifecycle management policy must be read or written in full. Partial updates aren't supported.
 
 - Each rule can have up to 10 case-sensitive prefixes and up to 10 blob index tag conditions.
@@ -81,6 +84,8 @@ For more information about pricing, see [Block Blob pricing](https://azure.micro
 - A lifecycle management policy can't be used to change the tier of a blob that uses an encryption scope to the archive tier.
 
 - The delete action of a lifecycle management policy won't work with any blob in an immutable container. With an immutable policy, objects can be created and read, but not modified or deleted. For more information, see [Store business-critical blob data with immutable storage](./immutable-storage-overview.md).
+
+- A delete action might fail if an Azure Storage Action attempts to delete the same blob. 
 
 - Lifecycle management doesn't affect system containers such as the `$logs` or `$web containers`.
 

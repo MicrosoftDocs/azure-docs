@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.author: jgao
 ms.date: 10/19/2023
+# Customer intent: As a cloud architect, I want to deploy an Azure Firewall with multiple public IP addresses using a Bicep file, so that I can enable secure remote access to my virtual machines efficiently.
 ---
 
 # Quickstart: Create an Azure Firewall with multiple public IP addresses - Bicep

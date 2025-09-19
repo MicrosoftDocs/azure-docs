@@ -7,6 +7,7 @@ services: firewall
 ms.topic: concept-article
 ms.date: 12/11/2022
 ms.author: duau
+# Customer intent: As a network engineer, I want to configure TLS inspection on Azure Firewall Premium using Intermediate CA certificates stored in Azure Key Vault, so that I can ensure secure traffic management and compliance with organizational standards.
 ---
 
 # Azure Firewall Premium certificates 

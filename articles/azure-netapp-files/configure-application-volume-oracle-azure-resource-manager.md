@@ -12,6 +12,7 @@ ms.custom:
 ms.topic: concept-article
 ms.date: 02/20/2025
 ms.author: anfdocs
+# Customer intent: As a database administrator, I want to deploy an application volume group for Oracle using an ARM template, so that I can effectively manage storage resources for my Oracle databases in Azure.
 ---
 # Deploy application volume group for Oracle using Azure Resource Manager
 

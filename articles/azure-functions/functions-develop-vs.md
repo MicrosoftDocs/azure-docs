@@ -2,10 +2,13 @@
 title: Develop Azure Functions using Visual Studio  
 description: Learn how to develop and test Azure Functions by using Azure Functions Tools for Visual Studio 2022.
 ms.devlang: csharp
-ms.custom: devdivchpfy22
 ms.topic: concept-article
 ms.date: 03/17/2025
 zone_pivot_groups: function-worker-process
+ms.custom:
+  - devdivchpfy22
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Develop Azure Functions using Visual Studio  
@@ -47,8 +50,8 @@ The Azure Functions project template in Visual Studio creates a C# class library
 1. In **Configure your new project**, enter a **Project name** for your project, and then select **Create**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other nonalphanumeric characters.
 
 1. For the **Create a new Azure Functions application** settings, use the values in the following table:
-
     ::: zone pivot="isolated"  
+
     | Setting      | Value  | Description                      |
     | ------------ | ------ |--------------------------------- |
     | **.NET version** | **.NET 8 Isolated** | This value creates a function project that runs in an [isolated worker process](dotnet-isolated-process-guide.md). Isolated worker process supports other non-LTS version of .NET and also .NET Framework. For more information, see [Azure Functions runtime versions overview](functions-versions.md).   |
@@ -60,6 +63,7 @@ The Azure Functions project template in Visual Studio creates a C# class library
 
     ::: zone-end  
     ::: zone pivot="in-proc"  
+
     | Setting      | Value  | Description                      |
     | ------------ | ------ |--------------------------------- |
     | **.NET version** | **.NET 8** | This value creates a function project that runs in-process with version 4.x of the Azure Functions runtime. For more information, see [Azure Functions runtime versions overview](functions-versions.md).   |

@@ -90,7 +90,7 @@ The second tip for using GitHub Copilot is to provide detailed, step-by-step ins
 <blockquote>
 Write an HTML program using Azure Maps Web SDK v3 to make a geocode request for the coordinates of '1 Microsoft Way, Redmond, WA' and then place a marker at that location.
 
-Step 1. Utilize the Geocode API endpoint: <https://atlas.microsoft.com/geocode?api-version=2023-06-01&subscription-key=${subscriptionKey}&query=${query}>. An example response is provided for reference.
+Step 1. Utilize the Geocode API endpoint: `<https://atlas.microsoft.com/geocode?api-version=2023-06-01&subscription-key=${subscriptionKey}&query=${query}>`. An example response is provided for reference.
 
 {"type":"FeatureCollection","features":[{"type":"Feature","properties":{"address":{"countryRegion":{"name":"United States"},"adminDistricts":[{"shortName":"WA"},{"shortName":"King County"}],"formattedAddress":"15127 NE 24th St, Redmond, WA 98052","locality":"Redmond","postalCode":"98052","addressLine":"15127 NE 24th St"},"type":"Address","confidence":"High","matchCodes":["Good"],"geocodePoints":[{"geometry":{"type":"Point","coordinates":[-122.138681,47.630358]},"calculationMethod":"Rooftop","usageTypes":["Display"]},{"geometry":{"type":"Point","coordinates":[-122.1386787,47.6302179]},"calculationMethod":"Rooftop","usageTypes":["Route"]}]},"geometry":{"type":"Point","coordinates":[-122.138681,47.630358]},"bbox":[-122.14632282407,47.626495282429325,-122.13103917593001,47.63422071757068]}]}
 
@@ -208,7 +208,7 @@ Step 6. Create and add a SymbolLayer to the map.
 
 Step 7. Create and add a LineLayer to the map.
 
-Step 8. Utilize the Route POST API: <https://atlas.microsoft.com/route/directions?api-version=2025-01-01&subscription-key=${subscriptionKey}> to find the route between the start and end points. Add the GeoJSON response to the DataSource and adjust the map's camera based on the bounding box of the response.
+Step 8. Utilize the Route POST API: `https://atlas.microsoft.com/route/directions?api-version=2025-01-01&subscription-key=${subscriptionKey}` to find the route between the start and end points. Add the GeoJSON response to the DataSource and adjust the map's camera based on the bounding box of the response.
 
 Example request body:
 

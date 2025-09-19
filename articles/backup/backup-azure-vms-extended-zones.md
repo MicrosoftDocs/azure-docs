@@ -2,9 +2,10 @@
 title: Back up an Azure virtual machine with Azure extended zones portal
 description: In this article, learn how to back up an Azure virtual machine (VM) with the Azure Backup extended zones service.
 ms.topic: how-to
-ms.date: 09/27/2024
-author: ankitaduttaMSFT
-ms.author: ankitadutta
+ms.date: 07/24/2025
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As an IT administrator, I want to back up Azure virtual machines using the Azure portal, so that I can protect data and ensure high availability through enhanced resiliency in Azure Extended Zones."
 ---
 
 # Back up an Azure Virtual Machine in Azure Extended Zones
@@ -25,13 +26,18 @@ Before you start backing up a VM in Extended Zones, review the [supported scenar
 
 To apply a backup policy to your Azure VMs, follow these steps:
 
-1. Go to **Backup center** and select **+Backup** from the **Overview** tab.
+1. Go to **Business Continuity Center** and select **+ Configure protection**.
 
-   :::image type="content" source="./media/backup-azure-arm-vms-prepare/backup-button.png" alt-text="Screenshot showing the Backup button." lightbox="./media/backup-azure-arm-vms-prepare/backup-button.png":::
+   :::image type="content" source="./media/backup-azure-arm-vms-prepare/configure-protection.png" alt-text="Screenshot shows how to start configuring system backup." lightbox="./media/backup-azure-arm-vms-prepare/configure-protection.png":::
 
-1. On the **Start: Configure Backup** blade, select **Azure Virtual machines** as the **Datasource type** and select the vault you have created. Then select **Continue**.
+1. On the **Configure protection** pane, select **Resource managed by** as **Azure**, **Datasource type** as **Azure Virtual machines**, **Solution** as **Azure Backup**, and then select **Continue**.
 
-   :::image type="content" source="./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png" alt-text="Screenshot showing Backup and Backup Goal blades." lightbox="./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png":::
+   :::image type="content" source="./media/backup-azure-arm-vms-prepare/configure-system-protection.png" alt-text="Screenshot shows how to set the system backup." lightbox="./media/backup-azure-arm-vms-prepare/configure-system-protection.png":::  
+
+
+1. On the **Start: Configure Backup** pane, select **Azure Virtual machines** as the **Datasource type** and select the vault you have created. Then select **Continue**.
+
+   :::image type="content" source="./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png" alt-text="Screenshot showing Backup and Backup Goal panes." lightbox="./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png":::
 
 1. Select the [Enhanced Backup policy](./backup-azure-vms-enhanced-policy.md), as that is the one compatible with Azure Extended Zones.
     
@@ -54,7 +60,7 @@ To create a simple scheduled daily backup to a Recovery Services vault, follow t
 
 1. The **Select virtual machines** pane opens. Select the VMs you want to back up using the policy. Then select **OK**.
 
-   :::image type="content" source="./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png" alt-text="Screenshot showing the Select virtual machines blade." lightbox="./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png":::
+   :::image type="content" source="./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png" alt-text="Screenshot showing the Select virtual machines pane." lightbox="./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png":::
 
     >[!NOTE]
     > You can configure backup for all VMs in the same region and subscription as the vault.
@@ -104,16 +110,16 @@ The initial backup runs in accordance with the schedule in the Backup policy. Ho
 
 ## Monitor the backup job
 
-Monitor the portal notifications. To  monitor the job progress, go to **Backup center** > **Backup Jobs** and filter the list for **In progress** jobs. Depending on the size of your VM, creating the initial backup may take a while.
+Monitor the portal notifications. To  monitor the job progress, go to **Business Continuity Center** < **Monitoring + Reporting**> > **Jobs** and filter the list for **In progress** jobs. Depending on the size of your VM, creating the initial backup may take a while.
 
 The Backup job details for each VM backup consist of two phases, the **Snapshot** phase followed by the **Transfer data to vault** phase.
 
 - The snapshot phase ensures the availability of a recovery point stored along with the disks for **Instant Restores** and are available for a maximum of five days depending on the snapshot retention configured by the user. 
 - Transfer data to vault creates a recovery point in the vault for long-term retention. This phase starts after the snapshot phase is completed.
 
-   :::image type="content" source="./media/backup-azure-arm-vms-prepare/backup-job-status.png" alt-text="Screenshot showing the backup job status." lightbox="./media/backup-azure-arm-vms-prepare/backup-job-status.png":::
+   :::image type="content" source="./media/backup-azure-arm-vms-prepare/backup-job-status.png" alt-text="Screenshot shows the backup job status." lightbox="./media/backup-azure-arm-vms-prepare/backup-job-status.png":::
 
-There are two **Sub Tasks** running at the backend, one for front-end backup job that can be checked from the **Backup Job** details blade as shown:
+There are two **Sub Tasks** running at the backend, one for front-end backup job that can be checked from the **Backup Job** details pane as shown:
 
    :::image type="content" source="./media/backup-azure-arm-vms-prepare/backup-job-phase.png" alt-text="Screenshot showing backup job status sub-tasks." lightbox="./media/backup-azure-arm-vms-prepare/backup-job-phase.png":::
 

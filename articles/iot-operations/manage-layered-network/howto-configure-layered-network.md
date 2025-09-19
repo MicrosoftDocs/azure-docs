@@ -1,9 +1,9 @@
 ---
 title: Create sample network environment for Layered Network Management (preview)
 description: Set up a test or sample network environment for Azure IoT Layered Network Management (preview).
-author: PatAltimore
+author: SoniaLopezBravo
 ms.subservice: layered-network-management
-ms.author: patricka
+ms.author: sonialopez
 ms.topic: how-to
 ms.custom:
   - ignite-2023
@@ -20,6 +20,8 @@ To use Azure IoT Layered Network Management (preview) service, you need to confi
 - *Logical segmentation* - The network is logically segmented with configurations such as VLAN, subnet, or firewall. The Layered Network Management has a single endpoint and configured to be visible to its own network layer and the isolated layer.
 
 Both approaches require you to configure a custom DNS in the isolated network layer to direct the network traffic to the Layered Network Management instance in upper layer.
+
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 
 > [!IMPORTANT]
 > The network environments outlined in Layered Network Management documentation are examples for testing the Layered Network Management. It's not a recommendation of how you build your network and cluster topology for production.

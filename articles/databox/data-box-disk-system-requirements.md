@@ -9,6 +9,7 @@ ms.custom: linux-related-content
 ms.topic: concept-article
 ms.date: 04/18/2024
 ms.author: shaas
+# Customer intent: As a systems administrator, I want to review the system and software requirements for Azure Data Box Disk, so that I can ensure my environment is properly configured for deployment and data transfer.
 ---
 
 ::: zone target="docs"

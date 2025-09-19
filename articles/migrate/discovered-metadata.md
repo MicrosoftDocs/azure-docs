@@ -3,16 +3,16 @@ title: Discovered Metadata
 description: Get details about the metadata that the Azure Migrate appliance discovers.
 author: Vikram1988
 ms.author: vibansa
-ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: concept-article
-ms.date: 02/06/2025
+ms.date: 09/11/2025
 ms.custom: engagement-fy25, devx-track-extended-java
+# Customer intent: As a systems administrator, I want to understand the metadata collected by the Azure Migrate appliance for server discovery, so that I can assess server readiness for migration to the cloud and optimize resource allocation.
 ---
 
 # Metadata that an Azure Migrate appliance discovers
 
-The Azure Migrate Discovery and Assessment tool uses the lightweight [Azure Migrate appliance](migrate-appliance.md) to discover servers running in your environment and send server configuration and performance metadata to Azure.
+The Azure Migrate Discovery and Assessment tool uses the lightweight [Azure Migrate appliance](migrate-appliance.md) to discover servers running in your environment and send server configuration and performance metadata to Azure. 
 
 This article provides details about the metadata that the Azure Migrate appliance discovers. This metadata helps you assess server readiness for migration to Azure, right-size servers, and plan costs. Microsoft doesn't use this data in any license compliance audit.
 
@@ -208,7 +208,7 @@ Disk details | `cat /proc/diskstats`
 
 ## Software inventory data
 
-The appliance collects data about installed applications, roles, and features (software inventory) from servers running in a VMware environment or Hyper-V environment, from physical servers, or from servers running on other clouds (like AWS or GCP).
+The appliance collects data about installed applications, roles, and features (software inventory) and pending updates from servers running in a VMware environment or Hyper-V environment, from physical servers, or from servers running on other clouds (like AWS or GCP).
 
 ### Windows server application data
 
@@ -240,6 +240,18 @@ Name  | `Win32_operatingsystem`  | `Caption`
 Version  | `Win32_operatingsystem`  | `Version`
 Architecture  | `Win32_operatingsystem`  | `OSArchitecture`
 
+### Windows server pending updates data
+
+Here's the pending updates data that the appliance collects from each discovered Windows server:
+
+Data | PowerShell cmdlet | Property
+--- | --- | ---
+Update Title | `New-Object -com "Microsoft.Update.Session"` | `Title`
+Update ID | `New-Object -com "Microsoft.Update.Session"` | `Identity.UpdateID`
+Update Version(KB-ID) | `New-Object -com "Microsoft.Update.Session"` | `KBArticleIDs`
+Classification/Severity | `New-Object -com "Microsoft.Update.Session"` | `Categories.CatergoryID`
+Published date | `New-Object -com "Microsoft.Update.Session"` | `LastDeploymentChangeTime`
+
 ### SQL Server data
 
 Here's the SQL Server data that the appliance collects from each discovered Windows server:
@@ -251,6 +263,15 @@ Edition  | `HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\<InstanceName>\Set
 Service pack  | `HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\<InstanceName>\Setup`  | `SP`
 Version  | `HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\<InstanceName>\Setup`  | `Version`
 
+### Linux server operating system data
+
+Here's the operating system data that the appliance collects from each discovered Linux server:
+
+Data  | Commands
+--- | ---
+Name/version | Gathered from one or more of the following files:<br/> <br/>`/etc/os-release`  <br> `/usr/lib/os-release`  <br> `/etc/enterprise-release`  <br> `/etc/redhat-release`  <br> `/etc/oracle-release`  <br> `/etc/SuSE-release`  <br> `/etc/lsb-release`  <br> `/etc/debian_version`
+Architecture | `uname`
+
 ### Linux server application data
 
 Here's the software inventory data that the appliance collects from each discovered Linux server. Based on the operating system of the server, one or more of the commands are run.
@@ -261,14 +282,17 @@ Name | `rpm`, `dpkg-query`, `snap`
 Version | `rpm`, `dpkg-query`, `snap`
 Provider | `rpm`, `dpkg-query`, `snap`
 
-### Linux server operating system data
+### Linux server pending updates data
 
-Here's the operating system data that the appliance collects from each discovered Linux server:
+Here's the pending updates data that the appliance collects from each discovered Linux server:
 
-Data  | Commands
+Data | Commands
 --- | ---
-Name/version | Gathered from one or more of the following files:<br/> <br/>`/etc/os-release`  <br> `/usr/lib/os-release`  <br> `/etc/enterprise-release`  <br> `/etc/redhat-release`  <br> `/etc/oracle-release`  <br> `/etc/SuSE-release`  <br> `/etc/lsb-release`  <br> `/etc/debian_version`
-Architecture | `uname`
+Update Title | `apt-get -s dist-upgrade, yum -q check-update, zypper list-updates`
+Update ID | `apt-get -s dist-upgrade, yum -q check-update, zypper list-updates`
+Updated Software version | `apt-get -s dist-upgrade, yum -q check-update, zypper list-updates`
+Classification/Severity | `apt-get -s dist-upgrade, yum -q check-update, zypper list-updates`
+Published date | `apt-get -s dist-upgrade, yum -q check-update, zypper list-updates`
 
 ## SQL Server instance and database data
 
@@ -416,6 +440,53 @@ Process ID  | `netstat`
 Process name | `ps`
 Process arguments | `ps`
 Application name | `dpkg` or `rpm`
+
+## Storage metadata
+
+The appliance collects storage related data about configuration, roles, and features from Windows servers.
+Here's the full list of metadata that the appliance collects and sends to Azure:
+
+### Windows server metadata
+
+Data | WMI class | WMI class property
+--- | --- | ---
+FQDN | `Win32_OperatingSystem` | `Name`, `Domain`, `PartOfDomain`
+OS version | `Win32_OperatingSystem` | `Version`
+NIC details | `Win32_NetworkAdapter` | `NetConnectionID`, `Description`, `MACAddress`, `NetConnectionStatus`, `Speed`, `PNPDeviceID`
+ISCSI Target query from Initiator | `MSiSCSIInitiator_SessionClass`  | `TargetName`, `TargetAddress`, `Devices`, `LegacyName`
+Physical Disk information | `Win32_DiskDrive` | `PNPDeviceID`, `Index`, `Caption`, `SerialNumber`, `BusType`, `BytesPerSector`,`InterfaceType`, `Size`, `Status`, `FirmwareRevision`, `MediaType`, `Manufacturer`
+Logical Disk Information | `Win32_Volume` | `DeviceID`, `DriveLetter`, `FileSystem`, `BootVolume`, `Capacity`, `FreeSpace`
+Logical Disk Information | `Win32_DiskPartition` | `DiskIndex`, `AccessPaths`, `DiskNumber`
+Logical Disk Information | `Win32_LogicalDiskToPartition` | `Antecedent`, `Dependent`
+
+
+Data | PowerShell cmdlet | Property
+--- | --- | ---
+SMB server - Protocol Version | `Get-SmbServerConfiguration` | `EnableSMB1Protocol`, `EnableSMB2Protocol`
+SMB server | `Get-WindowsFeature` | `FileAndStorage-Services`, `FS-FileServer`
+NFS server | `Get-WindowsFeature` | `FS-NFS-Service`
+iSCSI target | `Get-IscsiServerTarget`  | `TargetIqn`
+Physical Disk information | `Get-PhysicalDisk` | `DeviceID`, `uniqueId`, `PhysicalSectorSize`, `LogicalSectorSize`,`BusType`
+PhysicalDisk information | `Get-Disk` | `Number`, `IsBoot`
+Virtual Disk Information | `Get-VirtualDisk` | `UniqueId`, `FriendlyName`, `Caption`, `Size`, `ResiliencySettingName`, `HealthStatus`, `MediaType`, `ObjectId`, `LogicalSectorSize`, `PhysicalSectorSize`
+Storage Pool Information | `Get-StoragePool` | `FriendlyName`, `HealthStatus`, `OperationalStatus`, `ResiliencySettingNameDefault`
+Logical Disk Information | `Get-Partition` | `AccessPaths`, `DiskNumber`
+FileShare - SMB | `Get-SmbShare` | `Name`, `Path, Volume`
+FileShare - NFS | `Get-NfsShare` | `Name`, `SharePath`
+NFS server - Protocol Version | `Get-NfsServerConfiguration` | `EnableNFSv2`, `EnableNFSv3`, `EnableNFSv4`
+
+### Linux server metadata
+Data | Command 
+--- | --- 
+FQDN | `hostname -f`
+OS version | 	`/etc/os-release`<br/>  `/etc/lsb-release`<br/> `/etc/redhat-release`<br/> `uname -n`<br/> `uname -o`<br/> `uname -s`<br/> `uname -m`<br/> `uname -r`
+Block device information | 	`lsblk -ndo MODEL`<br/>  `lsblk -nbdo SIZE`<br/> `lsblk -ndo LABEL`<br/> `lsblk -ndo VENDOR`<br/> `udevadm info --query=property --name`<br/> `lsblk -ndo STATE`<br/> `lsblk -ndo PHY-SEC`<br/> `lsblk -ndo LOG-SEC`<br/> `lsblk -ndo ROTA`<br/> `lsblk -nr -o NAME,MOUNTPOINT`<br/> `udevadm info --query=all --name \| grep ID_REVISION`<br/> `udevadm info --query=all --name \| grep ID_BUS`<br/> `udevadm info --query=all --name \| grep ID_INTERFACE`<br/> `lsblk -o NAME,TYPE -n \| awk '{ gsub(/^[^a-zA-Z0-9]+/, "", $1); print $1, $2 }' \| awk ' $2 == "part" { part=$1 } ($2 == "lvm" \|\| $2 ~ /^dm-/ \|\| $2 ~ /dm-/) && part { print $1 " " "/dev/"part" " }' \| awk '{print $2}' \| sort -u`
+Partitions, LVM, RAID information | 	`lsblk -nr -o NAME, TYPE -n \| awk '{ gsub(/^[^a-zA-Z0-9]+/, "", $1); print $1, $2 }' \| awk ' $2 == "part" { part=$1 } ($2 == "lvm" \|\| $2 ~ /^dm-/ \|\| $2 ~ /dm-/) && part { print $1 " " "/dev/"part" " }' \| awk '{print $2}' \| sort -u`<br/>`pvs --noheadings -o pv_name`<br/> `lsblk -nro NAME,TYPE,FSTYPE \| awk '($2 == "part" && $3 != "linux_raid_member") \|\| ($2 ~ /^raid/) \|\| ($2 == "lvm" \|\| $2 ~ /^dm-/ \|\| $2 ~ /dm-/) { print "/dev/" $1, $2 }' \| sort -u`<br/> `lsblk -nbo SIZE`<br/> `lsblk -no LABEL`<br/> `lsblk -no FSTYPE`<br/> `udevadm info --query=property --name \| grep ID_FS_TYPE \| cut -d= -f2`<br/> `blkid`<br/> `df, df -T`<br/> `lsblk -no MOUNTPOINT`<br/> `lsblk -nr -o NAME,MOUNTPOINT`<br/> `mdadm --detail`<br/> `cat /proc/mdstat`
+iSCSI session information from initiator | 	`cat /sys/class/iscsi_session/session*/targetname`<br/>  `cat /sys/class/iscsi_session/session*/device/connection*/*/address`<br/> `cat /sys/class/iscsi_session/session*/device/connection*/*/port`<br/> `cat /sys/class/iscsi_session/session*/device/connection*/iscsi_connection/connection*/address`<br/> `cat /sys/class/iscsi_session/session*/device/connection*/iscsi_connection/connection*/port`<br/> `iscsiadm -m session -P 3`
+iSCSI target information | `targetcli`<br/>`tgtadm`<br/>`/etc/scst.conf`
+Fileshare information (SMB/NFS) | `testparm -s`<br/>`smbd --version`<br/>`rpcinfo -p`<br/>`df /etc/samba/smb.conf`<br/>`cat /etc/exports`
+NIC information |`ip a`<br/> `ip link show \| awk '/link\/ether/ {print $2}'`<br/> `ip link show \| awk '/state/ {print $9}'`<br/>`ip link show  \| grep -q "veth"`<br/>`cat /sys/class/net/*/device/uevent`<br/>`cat /sys/class/net/*/speed`<br/> `ethtool \| grep "Speed:" \| awk '{print $2}'`
+NIC information |`rpm -qa \| grep samba`<br/>`dpkg -l \| grep -E '^ii.*samba'`<br/>`-f /etc/redhat-release`<br/>`-f /etc/debian-version`<br/>`rpm -qa \| grep nfs-utils`<br/>`dpkg -l \| grep -E 'nfs-kernel-server'`
 
 ## Related content
 

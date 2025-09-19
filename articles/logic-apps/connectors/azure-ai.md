@@ -4,10 +4,11 @@ description: Integrate with Azure OpenAI and Azure AI Search in workflows for Az
 author: ecfan
 services: logic-apps
 ms.suite: integration
-ms.collection: ce-skilling-ai-copilot
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/21/2025
+ms.date: 09/11/2025
+ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
 ---
 
 # Connect to Azure AI services from workflows in Azure Logic Apps

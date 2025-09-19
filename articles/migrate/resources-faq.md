@@ -6,6 +6,7 @@ ms.author: v-uhabiba
 ms.topic: faq
 ms.date: 06/20/2024
 ms.custom: engagement-fy25
+# Customer intent: As a cloud administrator, I want to find comprehensive answers to common questions about Azure Migrate, so that I can effectively manage and execute the migration of on-premises infrastructure and applications to Azure.
 ---
 
 # Azure Migrate: Common questions
@@ -89,6 +90,15 @@ Learn how to [delete a project](how-to-delete-project.md).
 ## Can an Azure Migrate resource be moved?
 
 No, Azure Migrate doesn't support moving resources. To move resources created by Azure Migrate, consider creating a new project in the desired region.
+
+
+## Is Azure Migrate still supporting VDI migration?
+
+Yes, Azure Migrate supports Virtual Desktop Infrastructure (VDI) migrations. For more information, see [tech community blog](https://techcommunity.microsoft.com/blog/azuremigrationblog/migrate-virtual-desktops-to-azure/1361120).
+
+## Can I use Azure Migrate to move VMs from Azure VMware Solution (AVS) to Azure?
+
+Yes, you can use Azure Migrate to move virtual machines (VMs) from Azure VMware Solution (AVS) to Azure. Azure Migrate supports migrating VMware VMs from both on-premises environments and AVS to Azure. However, it doesn't support migrating VMs from Azure back to AVS.
 
 ## What skills and expertise help manage migration effectively with Azure Migrate?
 

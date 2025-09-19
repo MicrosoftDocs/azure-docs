@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.date: 12/23/2024
 ms.author: jsuri
 author: jyothisuri
+# Customer intent: "As an IT administrator managing mobility service updates, I want to automate mobility agent and appliance component updates, so that I can maintain system performance without needing to handle credentials for upgrades or disrupting ongoing replication."
 ---
 
 

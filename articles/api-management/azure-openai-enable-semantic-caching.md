@@ -7,6 +7,7 @@ ms.custom:
   - build-2024
 ms.topic: how-to
 ms.date: 01/13/2025
+ms.update-cycle: 180-days
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ---
@@ -22,8 +23,9 @@ Enable semantic caching of responses to Azure OpenAI API requests to reduce band
 
 ## Prerequisites
 
-* One or more Azure OpenAI Service APIs must be added to your API Management instance. For more information, see [Add an Azure OpenAI Service API to Azure API Management](azure-openai-api-from-specification.md).
-* The Azure OpenAI service must have deployments for the following:
+* One or more Azure OpenAI in Foundry Models APIs must be added to your API Management instance. For more information, see [Add an Azure OpenAI API to Azure API Management](azure-openai-api-from-specification.md).
+* The Azure OpenAI instance must have deployments for the following:
+
     * Chat Completion API - Deployment used for API consumer calls 
     * Embeddings API - Deployment used for semantic caching
 * The API Management instance must be configured to use managed identity authentication to the Azure OpenAI APIs. For more information, see [Authenticate and authorize access to Azure OpenAI APIs using Azure API Management ](api-management-authenticate-authorize-azure-openai.md#authenticate-with-managed-identity).
@@ -57,17 +59,15 @@ Configure a [backend](backends.md) resource for the embeddings API deployment wi
 
 * **Name** - A name of your choice, such as `embeddings-backend`. You use this name to reference the backend in policies.
 * **Type** - Select **Custom URL**.
-* **Runtime URL** - The URL of the embeddings API deployment in the Azure OpenAI Service, similar to:
-        ```
-        https://my-aoai.openai.azure.com/openai/deployments/embeddings-deployment/embeddings
-        ```
+* **Runtime URL** - The URL of the embeddings API deployment in Azure OpenAI, similar to: `https://my-aoai.openai.azure.com/openai/deployments/embeddings-deployment/embeddings`
+
 * **Authorization credentials** - Go to **Managed Identity** tab.
   * **Client identity** - Select *System assigned identity* or type in a User assigned managed identity client ID.
-  * **Resource ID** - Enter `https://cognitiveservices.azure.com/` for Azure OpenAI Service.
+  * **Resource ID** - Enter `https://cognitiveservices.azure.com/` for Azure OpenAI.
 
 ### Test backend 
 
-To test the backend, create an API operation for your Azure OpenAI Service API:
+To test the backend, create an API operation for your Azure OpenAI API:
 
 1. On the **Design** tab of your API, select **+ Add operation**.
 1. Enter a **Display name** and optionally a **Name** for the operation.
@@ -132,6 +132,11 @@ To enable semantic caching for Azure OpenAI APIs in Azure API Management, apply 
         max-message-count="10">
         <vary-by>@(context.Subscription.Id)</vary-by>
     </azure-openai-semantic-cache-lookup>
+    <rate-limit calls="10" renewal-period="60" />
+    ```
+    
+    > [!NOTE]
+    > [!INCLUDE [api-management-cache-availability](../../includes/api-management-cache-availability.md)]
     
 * In the **Outbound processing** section for the API, add the [azure-openai-semantic-cache-store](azure-openai-semantic-cache-store-policy.md) policy.
 

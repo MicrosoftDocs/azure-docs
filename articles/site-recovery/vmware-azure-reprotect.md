@@ -6,6 +6,7 @@ ms.service: azure-site-recovery
 ms.topic: how-to
 ms.author: jsuri
 ms.date: 03/13/2024
+# Customer intent: As a system administrator, I want to reprotect VMware VMs after failover to Azure so that I can ensure data consistency and facilitate a seamless failback to the on-premises site.
 ---
 
 # Reprotect from Azure to on-premises

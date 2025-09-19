@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 04/09/2025
+ms.date: 08/07/2025
 zone_pivot_groups: front-door-tiers
 ---
 
@@ -33,9 +33,9 @@ Azure Front Door offloads the TLS sessions at the edge and decrypts client reque
 Azure Front Door supports two versions of the TLS protocol: TLS versions 1.2 and 1.3. All Azure Front Door profiles created after September 2019 use TLS 1.2 as the default minimum with TLS 1.3 enabled. Currently, Azure Front Door doesn't support client/mutual authentication (mTLS).
 
 > [!IMPORTANT]
-> As of March 1, 2025, TLS 1.0 and 1.1 are not allowed on new Azure Front Door profiles. 
+> As of March 1, 2025, TLS 1.0 and 1.1 aren't allowed on new Azure Front Door profiles. 
 
-For Azure Front Door Standard and Premium, you can configure predefined TLS policy or choose the TLS cipher suite based on your organization's security needs. For more information, see [Azure Front Door TLS policy](/azure/frontdoor/standard-premium/tls-policy) and [configure TLS policy on a Front oor custom domain](/azure/frontdoor/standard-premium/tls-policy-configure).
+For Azure Front Door Standard and Premium, you can configure predefined TLS policy or choose the TLS cipher suite based on your organization's security needs. For more information, see [Azure Front Door TLS policy](/azure/frontdoor/standard-premium/tls-policy) and [configure TLS policy on a Front Door custom domain](/azure/frontdoor/standard-premium/tls-policy-configure).
 
 For Azure Front Door classic and Microsoft CDN classic, you can configure the minimum TLS version in Azure Front Door in the custom domain HTTPS settings using the Azure portal or the [Azure REST API](/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). For a minimum TLS version 1.2, the negotiation will attempt to establish TLS 1.3 and then TLS 1.2. When Azure Front Door initiates TLS traffic to the origin, it will attempt to negotiate the best TLS version that the origin can reliably and consistently accept. Supported TLS versions for origin connections are TLS 1.2 and TLS 1.3. If you want to custom the cipher suite per needs, [migrate Front Door classic](/azure/frontdoor/tier-migration) and [Microsoft CDN classic](/azure/cdn/tier-migration?toc=/azure/frontdoor/TOC.json) to Azure Front Door standard and premium.
 
@@ -45,7 +45,7 @@ For Azure Front Door classic and Microsoft CDN classic, you can configure the mi
 
 ## Supported certificates
 
-When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed Certificate Authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If you use a non-allowed CA, your request will be rejected.
+When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed Certificate Authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT). If you use a non-allowed CA, your request will be rejected.
 
 Certificates from internal CAs or self-signed certificates aren't allowed.
 
@@ -58,7 +58,7 @@ OCSP stapling is supported by default in Azure Front Door and no configuration i
 For HTTPS connections, Azure Front Door expects that your origin presents a certificate from a valid certificate authority (CA) with a subject name matching the origin *hostname*. As an example, if your origin hostname is set to `myapp-centralus.contoso.net` and the certificate that your origin presents during the TLS handshake doesn't have `myapp-centralus.contoso.net` or `*.contoso.net` in the subject name, then Azure Front Door refuses the connection and the client sees an error.
 
 > [!NOTE]
-> The certificate must have a complete certificate chain with leaf and intermediate certificates. The root CA must be part of the [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT). If a certificate without complete chain is presented, the requests which involve that certificate aren't guaranteed to work as expected.
+> The certificate must have a complete certificate chain with leaf and intermediate certificates. The root CA must be part of the [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT). If a certificate without complete chain is presented, the requests that involve that certificate aren't guaranteed to work as expected.
 
 In certain use cases, such as testing, you can disable certificate subject name checks for your Azure Front Door as a workaround for resolving failing HTTPS connections. The origin must still present a certificate with a valid, trusted chain, but it doesn't need to match the origin hostname.
 
@@ -97,7 +97,11 @@ If you choose to use your own certificate, you can onboard a certificate from a 
 
 ### Certificate autorotation
 
-For the Azure Front Door managed certificate option, the certificates are managed and auto-rotates within 90 days of expiry time by Azure Front Door. For the Azure Front Door Standard/Premium managed certificate option, the certificates are managed and auto-rotates within 45 days of expiry time by Azure Front Door. If you're using an Azure Front Door managed certificate and see that the certificate expiry date is less than 60 days away or 30 days for the Standard/Premium SKU, file a support ticket. 
+For the Azure Front Door Standard/Premium managed certificate option, the certificates are managed and auto-rotates within 45 days of expiry time by Azure Front Door. For the Azure Front Door Classic and Azure CDN Classic managed certificate option, the certificates are managed and auto-rotates within 90 days of expiry time by Azure Front Door.  If you're using classic SKUs managed certificate and see that the certificate expiry date is less than 60 days away or 30 days for the Standard/Premium SKU, file a support ticket. 
+
+> [!IMPORTANT]
+> - For Azure Front Door Classic and Azure CDN Classic, managed certificates will no longer be supported starting August 15, 2025. To avoid service disruption, either switch to **Bring Your Own Certificate (BYOC)** or migrate to Azure Front Door Standard/Premium before this date. Existing managed certificates will continue to autorenew until August 15, 2025, and remain valid until April 14, 2026. However, it's highly recommended to switch to **BYOC** or migrate to Front Door Standard/Premium before August 15, 2025, to avoid unexpected certificate revocation.
+> - Auto-rotation for managed certificates fails if your domains don't have direct CNAME mapping to Azure Front Door Classic or Azure CDN Classic endpoints. See [Azure CDN Classic HTTPS for custom domains](/azure/cdn/cdn-custom-ssl?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate#tlsssl-certificates) and [Azure Front Door Classic HTTPS for custom domains](/azure/frontdoor/front-door-custom-domain-https?tabs=powershell#option-1-default-use-a-certificate-managed-by-front-door).
 
 For your own custom TLS/SSL certificate:
 
@@ -107,7 +111,7 @@ For your own custom TLS/SSL certificate:
 
     > [!NOTE]
     > Azure Front Door (Standard and Premium) managed certificates are automatically rotated if the domain CNAME record points directly to a Front Door endpoint or points indirectly to a Traffic Manager endpoint. Otherwise, you need to re-validate the domain ownership to rotate the certificates.
-
+ 
     The service principal for Front Door must have access to the key vault. The updated certificate rollout operation by Azure Front Door won't cause any production downtime, as long as the subject name or subject alternate name (SAN) for the certificate hasn't changed.
 
 ## Supported cipher suites

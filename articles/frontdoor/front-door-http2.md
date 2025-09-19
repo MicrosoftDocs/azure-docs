@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 11/18/2024
+ms.date: 11/19/2024
 ---
 
 # HTTP/2 support in Azure Front Door

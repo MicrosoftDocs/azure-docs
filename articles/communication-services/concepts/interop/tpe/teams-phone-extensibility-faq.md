@@ -6,18 +6,16 @@ author: henikaraa
 manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: teams-interop
-ms.date: 05/20/2025
+ms.date: 09/01/2025
 ms.topic: conceptual
 ms.author: henikaraa
-ms.custom: public_preview
+ms.custom: general_availability
 services: azure-communication-services
 ---
 
 # Teams Phone extensibility FAQ
 
 This article answers frequently asked questions about the Teams Phone extensibility (TPE).
-
-[!INCLUDE [public-preview-notice.md](../../../includes/public-preview-include-document.md)]
 
 ## Can I use an Azure Communication Services phone number to place and receive PSTN calls for TPE scenarios?
 
@@ -27,7 +25,7 @@ No, the Teams Phone extensibility calls are designed to use Teams Phone and asso
 
 Inbound PSTN calls to the phone number assigned to the Teams Resource Account triggers an **Incoming Call** Event Grid notification to the configured endpoint in the Azure Communication Services Resource. This Resource is linked to the RA during provisioning. The CCaaS server-side application then uses the Call Automation SDK to answer the call.
 
-## What are the benefits from having OBO instead of direct outbound calling?
+## What are the benefits from having On-Behalf-OF (OBO) instead of direct outbound calling?
 
 Using a resource account for outbound calls ensures that the customer sees the company’s caller ID and potentially a name, maintaining a professional image and consistent branding. Using a resource account also enables the server application to have greater control over which numbers agent can call, enhancing operational efficiency and ensuring compliance with organizational policies.
 
@@ -67,6 +65,11 @@ The business model for TPE is consistent with Azure Communication Services regul
 ## How can I monitor and debug calling issues?
 
 For TPE calls, we provide access to telemetry details similar to what is offered on Azure today for regular Azure Communication Services calls. These details include [Call Summary](/azure/azure-monitor/reference/tables/acscallsummary), [Call Diagnostics](/azure/azure-monitor/reference/tables/acscalldiagnostics), and what is available on the Teams admin center. You can also differentiate between Azure Communication Services and Teams Phone extensibility calls.
+
+## Why is my end user hearing an announcement that I didn't trigger whenever I start or pause the call recording?
+
+When a recording is started or paused in a call that includes a PSTN user and a Teams or Dual Persona user, the PSTN user will hear an announcement indicating the change. This is due to compliance requirements on Teams to ensure that all participants are aware of the recording status.
+If a partner wishes to disable these announcements, they may submit a request via this [form](https://forms.microsoft.com/r/6vW9Fc7RT8), which will be reviewed and processed promptly.
 
 ## How can I report issues related to TPE calls?
 

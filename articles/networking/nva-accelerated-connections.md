@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.date: 02/01/2023
 ms.author: steveesp
 
+# Customer intent: As a network administrator, I want to enable Accelerated Connections on virtual network interfaces for NVAs and VMs, so that I can optimize networking performance and improve the efficiency of handling high numbers of simultaneous connections without upgrading to larger VM sizes.
 ---
 
 # Accelerated connections on NVAs or other VMs (Limited GA)
@@ -81,7 +82,7 @@ This list will be updated as more regions become available. The following region
 
 ## Supported SKUs
 
-This feature is supported on all SKUs supported by [Accelerated Networking](../virtual-network/accelerated-networking-overview.md) except the Dv5 VM family, which isn't yet supported during limited GA.
+This feature is supported on all SKUs supported by [Accelerated Networking](../virtual-network/accelerated-networking-overview.md) up to the v5 VM series.
 
 ## Supported enablement methods
 

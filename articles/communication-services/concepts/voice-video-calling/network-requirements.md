@@ -1,12 +1,12 @@
 ---
-title: Prepare your organization's network for Azure Communication Services
-description: Learn about the network requirements for Azure Communication Services voice and video calling.
+title: Network recommendations
+titleSuffix: An Azure Communication Services article
+description: This article describes the network requirements for Azure Communication Services voice and video calling.
 author: nmurav
 manager: chpalm
 services: azure-communication-services
-
 ms.author: nmurav
-ms.date: 02/19/2024
+ms.date: 06/20/2025
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -15,7 +15,7 @@ ms.custom: devx-track-js
 
 # Network recommendations
 
-This article summarizes how the network environment affects voice and video calling quality. Many factors contribute to the quality of Azure Communication Services real-time media that includes audio, video, and application sharing. Some of the factors include network quality and bandwidth, firewall, host, and device configurations.
+This article describes how the network environment affects voice and video calling quality. Many factors contribute to the quality of Azure Communication Services real-time media including audio, video, and application sharing. Some of the factors include network quality and bandwidth, firewall, host, and device configurations.
 
 ## Network quality
 
@@ -92,7 +92,7 @@ Validate NAT pool size | Validate the NAT pool size required for user connectivi
 | Intrusion detection and prevention guidance | If your environment has an [intrusion detection system](../../../network-watcher/network-watcher-intrusion-detection-open-source-tools.md) or intrusion prevention system deployed for an extra layer of security for outbound connections, allow all Communication Services URLs. |
 | Configure split-tunnel VPN | Provide an alternate path for Teams traffic that bypasses the virtual private network (VPN), commonly known as [split-tunnel VPN](/windows/security/identity-protection/vpn/vpn-routing). Split tunneling means that traffic for Communication Services doesn't go through the VPN but instead goes directly to Azure. Bypassing your VPN has a positive impact on media quality, and it reduces load from the VPN devices and the organization's network. To implement a split-tunnel VPN, work with your VPN vendor. Other reasons why we recommend bypassing the VPN: <ul><li> VPNs are typically not designed or configured to support real-time media.</li><li> VPNs might also not support UDP, which is required for Communication Services.</li><li>VPNs also introduce an extra layer of encryption on top of media traffic that's already encrypted.</li><li>Connectivity to Communication Services might not be efficient because of hair-pinning traffic through a VPN device.</li></ul>|
 | Implement QoS | [Use Quality of Service (QoS)](/microsoftteams/qos-in-teams) to configure packet prioritization. QoS improves call quality and helps you monitor and troubleshoot call quality. QoS should be implemented on all segments of a managed network. Even when a network is adequately provisioned for bandwidth, QoS provides risk mitigation if unanticipated network events occur. With QoS, voice traffic is prioritized so that these unanticipated events don't negatively affect quality. | 
-| Optimize Wi-Fi | Similar to VPN, Wi-Fi networks aren't necessarily designed or configured to support real-time media. Planning for, or optimizing, a Wi-Fi network to support Communication Services is an important consideration for a high-quality deployment. Consider these factors: <ul><li>Implement QoS or Wi-Fi Multimedia to ensure that media traffic is getting prioritized appropriately over your Wi-Fi networks.</li><li>Plan and optimize the Wi-Fi bands and access point placement. The 2.4-GHz range might provide an adequate experience depending on access point placement. Other consumer devices that operate in that range can also negatively affect access points. The 5-GHz range is better suited to real-time media because of its dense range, but it requires more access points to get sufficient coverage. Endpoints also need to support that range and configured to use those bands accordingly.</li><li>If you're using dual-band Wi-Fi networks, consider implementing band steering. Band steering is a technique implemented by Wi-Fi vendors to influence dual-band clients to use the 5-GHz range.</li><li>When access points of the same channel are too close together, they can cause signal overlap and unintentionally compete, which results in a degraded user experience. Ensure that access points next to each other are on channels that don't overlap.</li></ul> Each wireless vendor has its own recommendations for deploying its wireless solution. Consult your Wi-Fi vendor for specific guidance.|
+| Optimize Wi-Fi | Similar to VPN, Wi-Fi networks aren't necessarily designed or configured to support real-time media. It's important for you to optimize a Wi-Fi network to support Communication Services, ensuring a high-quality deployment. Consider these factors: <ul><li>Implement QoS or Wi-Fi Multimedia to ensure that media traffic is getting prioritized appropriately over your Wi-Fi networks.</li><li>Plan and optimize the Wi-Fi bands and access point placement. The 2.4-GHz range might provide an adequate experience depending on access point placement. Other consumer devices that operate in that range can also negatively affect access points. The 5-GHz range is better suited to real-time media because of its dense range, but it requires more access points to get sufficient coverage. Endpoints also need to support that range and configured to use those bands accordingly.</li><li>If you're using dual-band Wi-Fi networks, consider implementing band steering. Band steering is a technique implemented by Wi-Fi vendors to influence dual-band clients to use the 5-GHz range.</li><li>When access points of the same channel are too close together, they can cause signal overlap and unintentionally compete, which results in a degraded user experience. Ensure that access points next to each other are on channels that don't overlap.</li></ul> Each wireless vendor has its own recommendations for deploying its wireless solution. Consult your Wi-Fi vendor for specific guidance.|
 
 ## Operating systems and browsers (for JavaScript SDKs)
 

@@ -7,6 +7,7 @@ ms.date: 05/02/2025
 ms.custom: devx-track-azurepowershell
 author: msangapu-msft
 ms.author: msangapu
+ms.service: azure-app-service
 ---
 # Clone an Azure App Service app by using PowerShell
 
@@ -119,7 +120,6 @@ Here are the known restrictions of app cloning:
 
 * Autoscale settings aren't cloned.
 * Backup schedule settings aren't cloned.
-* Virtual network settings aren't cloned.
 * Application Insights isn't automatically set up on the destination app.
 * Easy Auth settings aren't cloned.
 * Kudu extensions aren't cloned.

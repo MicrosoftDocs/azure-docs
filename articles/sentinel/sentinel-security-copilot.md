@@ -5,8 +5,8 @@ keywords: security copilot, Microsoft Defender XDR, embedded experience, inciden
 ms.service: microsoft-sentinel
 ms.collection: usx-security
 ms.pagetype: security
-ms.author: austinmc
-author: austinmccollum
+ms.author: macapara 
+author: mjcaparas 
 ms.localizationpriority: medium
 audience: ITPro
 ms.topic: conceptual
@@ -15,6 +15,7 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Security Copilot
 ms.date: 11/16/2024
+ms.custom: sfi-image-nochange
 #Customer intent: As a security analyst, I want to integrate Security Copilot with Microsoft Sentinel data so that I can investigate incidents and generate advanced hunting queries at machine speed and scale.
 ---
 

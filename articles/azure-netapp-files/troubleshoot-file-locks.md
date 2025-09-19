@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 05/03/2025
 ms.author: anfdocs
+# Customer intent: As an IT administrator managing Azure NetApp Files, I want to break file locks on volumes, so that I can resolve issues with file accessibility and ensure uninterrupted client operations.
 ---
 # Troubleshoot file locks on an Azure NetApp Files volume
 

@@ -8,6 +8,7 @@ ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 03/21/2023
 ms.author: stegag
+# Customer intent: As a network administrator, I want to troubleshoot failed provisioning states of Azure Network resources, so that I can restore operations and ensure my network services are functioning correctly.
 ---
 
 # Troubleshoot Azure Microsoft.Network failed provisioning state

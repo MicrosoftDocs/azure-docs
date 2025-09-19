@@ -4,8 +4,13 @@ description: Learn how to configure function app settings in Azure Functions.
 ms.service: azure-functions
 ms.topic: how-to
 ms.date: 05/21/2025
-ms.custom: cc996988-fb4f-47, devx-track-azurecli, devx-track-azurepowershell, ignite-2024
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
+ms.custom:
+  - cc996988-fb4f-47
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - ignite-2024
+  - sfi-image-nochange
 ---
 
 # Manage your function app
@@ -182,7 +187,12 @@ In the previous example, replace `<RESOURCE_GROUP>` and `<FUNCTION_APP_NAME>` wi
 
 ## Plan migration
 
-You can migrate a function app between a Consumption plan and a Premium plan on Windows. When migrating between plans, keep in mind the following considerations:
+You can migrate a function app between a Consumption plan and a Premium plan on Windows. 
+
+>[!TIP]  
+>We recommend you migrate your Consumption plan app to run in a Flex Consumption plan instead of a Premium plan. This is the only migration option for a Linux Consumption plan app. For more information, see [Migrate Consumption plan apps to the Flex Consumption plan](migration/migrate-plan-consumption-to-flex.md).   
+
+When migrating between plans, keep in mind the following considerations:
 
 + Direct migration to a Dedicated (App Service) plan isn't supported.
 + Migration isn't supported on Linux.

@@ -18,9 +18,9 @@ Take the following steps if you're returning the device in Singapore.
     To: g-keyacct@singpost.com
     Subject: Microsoft Azure Pickup - OrderName 
     Body: 
-        1. Requestor name  
-        2. Requestor contact number
-        3. Requestor collection address
+        1. Requester name  
+        2. Requester contact number
+        3. Requester collection address
         4. Preferred collection date
     ```
 

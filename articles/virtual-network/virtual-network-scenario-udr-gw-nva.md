@@ -7,6 +7,8 @@ ms.service: azure-virtual-network
 ms.topic: concept-article
 ms.date: 03/22/2023
 ms.author: allensu
+ms.custom: sfi-image-nochange
+# Customer intent: As a network architect, I want to design and deploy a two-tier application architecture in Azure with secure connectivity to on-premises resources, so that I can ensure controlled access to public and internal components while maintaining a robust security posture.
 ---
 
 # Virtual appliance scenario

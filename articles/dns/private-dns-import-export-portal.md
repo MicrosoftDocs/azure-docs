@@ -8,6 +8,7 @@ ms.service: azure-dns
 ms.date: 02/07/2025
 ms.author: allensu
 ms.topic: how-to
+# Customer intent: "As a DNS administrator, I want to import and export DNS zone files using a management portal, so that I can efficiently transfer DNS records to and from Azure DNS while maintaining accurate configurations."
 ---
 
 # Import and export a private DNS zone file using the Azure portal

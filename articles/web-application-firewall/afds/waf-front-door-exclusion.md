@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 03/07/2023
+# Customer intent: As a web application administrator, I want to configure exclusion lists in my web application firewall, so that I can prevent legitimate requests from being blocked by false positives.
 ---
 
 # Web Application Firewall with Azure Front Door exclusion lists
@@ -21,6 +22,9 @@ You can create exclusions at the following scopes:
 - **Rule set**: These exclusions apply to all rules within a rule set.
 - **Rule group**: These exclusions apply to all the rules of a particular category within a rule set. For example, you can configure an exclusion that applies to all the SQL injection rules.
 - **Rule**: These exclusions apply to a single rule.
+
+> [!TIP]
+> It's a good practice to make exclusions as narrow and specific as possible, to avoid accidentally leaving room for attackers to exploit your system. When you need to add an exclusion rule, use per-rule exclusions wherever possible.
 
 ## Exclusion selectors
 
