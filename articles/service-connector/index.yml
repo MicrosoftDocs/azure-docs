@@ -66,9 +66,7 @@ landingContent:
             url: tutorial-connect-web-app-app-configuration.md
           - text: Passwordless connection to database
             url: tutorial-passwordless.md
-          - text: Connect to Azure OpenAI in AKS using a connection string
-            url: tutorial-python-aks-openai-connection-string.md
-          - text: Connect to Azure OpenAI in AKS using workload identity
+          - text: Connect AKS to Azure OpenAI
             url: tutorial-python-aks-openai-workload-identity.md  
           - text: Connect to Azure SQL Database
             url: tutorial-python-aks-sql-database-connection-string.md

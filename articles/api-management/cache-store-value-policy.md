@@ -46,7 +46,17 @@ The `cache-store-value` performs cache storage by key. The key can have an arbit
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
+### Usage notes
+
+- API Management only caches responses to HTTP GET requests.
+- This policy can only be used once in a policy section.
+- [!INCLUDE [api-management-cache-rate-limit](../../includes/api-management-cache-rate-limit.md)]
+
 ## Example
+
+This example shows how to use the `cache-store-value` policy to store a user profile in the cache. The key for the cache entry is constructed using a policy expression that combines a string with the value of the `enduserid` context variable. 
+
+See a [cache-lookup-value](cache-lookup-value-policy.md#example) example to retrieve the user profile from the cache.
 
 ```xml
 <cache-store-value

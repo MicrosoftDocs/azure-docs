@@ -9,6 +9,7 @@ ms.author: chpalm
 ms.topic: how-to
 ms.service: azure-communication-services
 ms.date: 03/01/2023
+ms.custom: sfi-ropc-nochange
 ---
 
 # Record a call when it starts

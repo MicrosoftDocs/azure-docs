@@ -4,9 +4,11 @@ description: Learn how to manually set up permissions that allow your Azure Mana
 author: maud-lv 
 ms.author: malev 
 ms.service: azure-managed-grafana
-ms.custom: engagement-fy23
 ms.topic: how-to 
 ms.date: 10/23/2024
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 #customer intent: I want to grant the Azure Monitor role to an Azure Managed Grafana workspace so that I can start monitoring an Azure service in Grafana.
 ---
 

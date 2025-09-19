@@ -6,6 +6,7 @@ ms.author: xujiang1
 ms.service: azure-stream-analytics
 ms.topic: tutorial
 ms.date: 12/17/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Tutorial: Capture Event Hubs data in parquet format and analyze with Azure Synapse Analytics

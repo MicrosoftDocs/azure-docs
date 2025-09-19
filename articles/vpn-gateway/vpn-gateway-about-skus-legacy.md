@@ -57,7 +57,7 @@ The UltraPerformance gateway SKU isn't represented in this table. For informatio
 
 ### <a name="migrate"></a>Migrate a gateway SKU
 
-Your legacy gateway will be migrated seamlessly from backend without any connectivity impact before September 30, 2025. This is different from the initial approach of providing a migration path.
+Your legacy gateway will be migrated seamlessly from backend without any connectivity impact before February 28, 2026(extended from September 30, 2025). This is different from the initial approach of providing a migration path.
 
 ### <a name="resize"></a>Upgrade to a gateway SKU in the same SKU family
 
@@ -84,13 +84,13 @@ Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerfor
 
 ### <a name="change"></a>Change to the new gateway SKUs
 
-Standard and High Performance SKUs will be deprecated September 30, 2025. The product team will migrate the legacy SKUs from backend. For more information, See the [Legacy SKU deprecation](#sku-deprecation) section. You can choose to change from a legacy SKU to one of the new SKUs at any point. However, changing to a new SKU requires more steps than migrating and incurs downtime.
+Standard and High Performance SKUs will be deprecated on February 28, 2026 (extended from September 30, 2025). The product team will migrate the legacy SKUs from backend. For more information, See the [Legacy SKU deprecation](#sku-deprecation) section. You can choose to change from a legacy SKU to one of the new SKUs at any point. However, changing to a new SKU requires more steps than migrating and incurs downtime.
 
 [!INCLUDE [Change to the new SKUs](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 
 ## SKU deprecation
 
-The Standard and High Performance SKUs will be deprecated on September 30, 2025. The product team will initiate backend seamless migration for these SKUs starting June 2025. This is a change from originally announced November 2024 date **At this time, there's no action that you need to take**.
+The Standard and High Performance SKUs will be deprecated on February 28, 2026 (extended from September 30, 2025). The product team will initiate backend seamless migration for these SKUs starting June 2025. This is a change from originally announced November 2024 date **At this time, there's no action that you need to take**.
 
 * View the [Announcement](https://go.microsoft.com/fwlink/?linkid=2255127)
 * See the SKU deprecation [FAQs](#sku-deprecation-faqs)
@@ -114,7 +114,7 @@ Important Dates:
 
 * **December 1, 2023**: No new gateway creations are possible using Standard or High Performance SKUs.
 * **May 31, 2025**: Begin migrating gateways to other SKUs.
-* **September 30, 2025**: Standard/High Performance SKUs will be retired and remaining deprecated legacy gateways will be automatically migrated and upgraded to AZ SKUs.
+* **February 28, 2025**: Standard/High Performance SKUs will be retired and remaining deprecated legacy gateways will be automatically migrated and upgraded to AZ SKUs.
 
 ## SKU deprecation FAQs
 

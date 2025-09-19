@@ -1,8 +1,8 @@
 ---
 title: Discover software inventory on on-premises servers with Azure Migrate 
 description: Learn how to discover software inventory on on-premises servers with Azure Migrate Discovery and assessment.
-author: Vikram1988
-ms.author: vibansa
+author: ankitsurkar06
+ms.author: ankitsurkar
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
@@ -72,13 +72,38 @@ The software inventory is exported and downloaded in Excel format. The **Softwar
     > [!NOTE]
     > Appliance can connect to only those SQL Server instances to which it has network line of sight, whereas software inventory by itself may not need network line of sight.
 
-The sign-in used to connect to a source SQL Server instance requires sysadmin role.
+To discover SQL Server instances and databases, the Windows/ Domain account, or SQL Server account [requires these low privilege read permissions](migrate-support-matrix-vmware.md#configure-the-custom-login-for-sql-server-discovery) for each SQL Server instance. You can use the [low-privilege account provisioning utility](least-privilege-credentials.md) to create custom accounts or use any existing account that is a member of the sysadmin server role for simplicity.
 
 <!--
 [!INCLUDE [Minimal Permissions for SQL Assessment](../../includes/database-migration-service-sql-permissions.md)]
 --->
 
 Once connected, the appliance gathers configuration and performance data of SQL Server instances and databases. The SQL Server configuration data is updated once every 24 hours, and the performance data is captured every 30 seconds. Hence, any change to the properties of the SQL Server instance and databases such as database status, compatibility level, etc. can take up to 24 hours to update on the portal.
+
+## Discover PostgreSQL instances and databases (preview) 
+
+- Software inventory also identifies the PostgreSQL instances running in your VMware, Microsoft Hyper-V, and Physical/Bare-metal environments as well as IaaS services of other public cloud. 
+
+- If you haven't provided Windows or Linux authentication and PostgreSQL instance authentication credentials on the appliance configuration manager, then add the credentials so that the appliance can use them to connect to respective PostgreSQL instances. 
+
+    > [!NOTE]
+    > Appliance can connect to only those PostgreSQL Server instances to which it has network line of sight, whereas software inventory by itself may not need network line of sight.
+
+- PostgreSQL authentication requirements: To connect to a source PostgreSQL Server instance, the sign-in must meet the following requirements:
+    - You must have at least the `CONNECT` privilege on the PostgreSQL databases.
+    - You must be assigned the `pg_read_all_settings role` or have equivalent permissions to read server configuration settings.
+- Learn more about [minimum user privileged script](postgresql-least-privilege-configuration.md).
+- After the connection, the appliance collects configuration data from PostgreSQL instances and databases. It updates the PostgreSQL configuration data every 24 hours.   
+- The appliance collects detailed configuration data from the PostgreSQL Server, including server parameters from `postgresql.conf,` database properties and sizes, installed extensions, replication settings, and user and role configurations.
+- Configuration data is refreshed every 24 hours. As a result, changes to the PostgreSQL Server instance—such as updates to database status, server parameters, or newly installed extensions—may take up to 24 hours to appear in the portal.
+
+> [!IMPORTANT]
+> - Ensure your PostgreSQL instances are set up to accept connections from the appliance IP address.
+> - The default PostgreSQL port 5432 or the custom port is accessible if one is configured.
+> - The listen_addresses parameter in postgresql.conf must include the network interface that the appliance can access.
+> - Add entries in the pg_hba.conf file to allow connections from the appliance IP address.
+
+Learn more about [PostgreSQL configuration](https://www.postgresql.org/docs/current/auth-pg-hba-conf.html).
 
 ## Discover MySQL Server instances and databases (preview)
 

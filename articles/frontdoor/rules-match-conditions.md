@@ -7,6 +7,7 @@ ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 11/12/2024
 zone_pivot_groups: front-door-tiers
+ms.custom: sfi-image-nochange
 ---
 
 # Rules match conditions

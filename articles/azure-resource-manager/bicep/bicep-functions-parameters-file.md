@@ -2,13 +2,52 @@
 title: Bicep functions for Bicep parameters files 
 description: Learn about the functions that can be used in Bicep parameters files.
 ms.topic: reference
-ms.date: 02/12/2025
+ms.date: 09/17/2025
 ms.custom: devx-track-bicep
 ---
 
 # Bicep functions for Bicep parameters files
 
-Bicep provides a function called `readEnvironmentVariable()` that allows you to retrieve values from environment variables. It also offers the flexibility to set a default value if the environment variable doesn't exist. This function can only be used in `.bicepparam` files.
+This article describes the Bicep functions that can be used in [Bicep parameters files (`.bicepparam`)](./parameter-files.md).
+
+## externalInput
+
+`externalInput(name, config)`
+
+This function allows you to define inputs that should be supplied by external tools when a deployment is initiated, instead of requiring them to be known when you compile.
+
+Available in Bicep version 0.37.4 and later.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| name | Yes | string | The name of the input provided by the external tool. |
+| config | No | any | The optional configuration for the input. The configuration is specific to the external tool you are requesting an input from. |
+
+### Return value
+
+The actual value retrieved from the external source at deployment time.
+
+### Example
+
+The following `.bicepparam` file requests input from a fictitious tool named `someTool`, which can provide an input named `myInput`.
+
+```bicep
+using './main.bicep'
+
+// without configuration
+param foo = externalInput('someTool.myInput')
+
+// with string configuration
+param bar = externalInput('someTool.myInput', 'Indy')
+
+// with complex configuration
+param baz = externalInput('someTool.myInput', {
+  name: 'Indy'
+  legs: 3
+})
+```
 
 ## getSecret
 
