@@ -32,15 +32,17 @@ Before you create or publish a platform solution, make sure you have:
 - A [Microsoft Sentinel data lake](<link-to-data-lake-doc>) in your workspace, to analyze data and write to the data lake:
     - If you haven’t onboarded yet, see [Onboard to the Microsoft Sentinel data lake (preview)](<link-to-onboarding-doc>). 
     - After onboarding, wait for enough data to be ingested to support meaningful notebook analysis.
-- [Visual Studio Code](https://code.visualstudio.com/) with:
-  - The [Microsoft Sentinel extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-sentinel)  
-    – In VS Code, open the Extensions Marketplace, search for **Sentinel**, select **Microsoft Sentinel**, and choose **Install**.  
-    – After installation, the Microsoft Sentinel shield icon appears in the left toolbar.
-  - The [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)  
-    – In the Extensions Marketplace, search for **GitHub Copilot** and install it.  
-    – After installation, sign in to GitHub Copilot with your GitHub account.
-- Access to the Microsoft Security Store to publish your platform solution.  
-  You need a Partner Center account, enrollment in the Microsoft AI Cloud Partner Program (MAICPP), and registration for Microsoft Security Store.
+- [Visual Studio Code](https://code.visualstudio.com/) with
+    - The [Microsoft Sentinel extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-sentinel): 
+        - In VS Code, open the Extensions Marketplace, search for **Sentinel**, select **Microsoft Sentinel**, and choose **Install**. After installation, the Microsoft Sentinel shield icon appears in the left toolbar.
+        :::image type="content" source="media/vscode-sentinel-extension.png" 
+        alt-text="Screenshot of the Microsoft Sentinel extension in the Visual Studio Code Marketplace." 
+        lightbox="media/vscode-sentinel-extension.png":::
+    - The [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot):
+        - In the Extensions Marketplace, search for **GitHub Copilot** and install it.
+        - After installing, sign in to GitHub Copilot with your GitHub account.
+- Access to the Microsoft Security Store to publish your platform solution.
+    - You need a Partner Center account, enrollment in the Microsoft AI Cloud Partner Program (MAICPP), and registration for Microsoft Security Store.
 
 ## Next steps
 
