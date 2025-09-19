@@ -1,5 +1,5 @@
 ---
-title: Manage Apache Hadoop clusters in HDInsight by using the .NET SDK
+title: Manage Apache Hadoop clusters in Entra Auth enabled HDInsight clusters by using the .NET SDK
 description: Learn how to manage Apache Hadoop clusters in HDInsight by using the .NET SDK
 ms.service: azure-hdinsight
 ms.topic: how-to
@@ -134,7 +134,7 @@ C#
 
 
  ```
-You see a prompt when you run this program. If you don't want to see the prompt, see [Create noninteractive authentication .NET HDInsight applications](../../hdinsight-create-non-interactive-authentication-dotnet-applications.md).
+You see a prompt when you run this program. If you don't want to see the prompt, see [Create noninteractive authentication .NET HDInsight applications](../hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 ## **List clusters**
 
 The following code snippet lists clusters and some properties:
@@ -168,7 +168,7 @@ Use the cluster scaling feature to change the number of worker nodes used by a c
 
 >[!Note]
 >Only clusters with HDInsight version 5.1 or higher are supported. If you're unsure of the version of your cluster, check the **Properties** page. For more information, 
-see [**List and show clusters**](../../hdinsight-administer-use-portal-linux.md#showClusters).
+see [**List and show clusters**](../hdinsight-administer-use-portal-linux.md#showClusters).
 
 
 The effect of changing the number of data nodes for each type of cluster supported by HDInsight:
