@@ -47,7 +47,7 @@ The following table describes the key concepts to understand for this example ha
 | Concept | Description |
 |---------|-------------|
 | Tool separation | The handoff pattern differentiates between the following kinds of tools: <br><br>- Regular tools that run business logic or tasks like "search", "refund", and "order" <br><br>- Delegation tools that hand off control to other agents |
-| Agent specialization | Each agent has specific, relevant tools and capabilities. <br><br>- Customer service agent has only agent handoff tools for delegating questions and requests, no regular tools. <br><br>- Refund specialist agent has the following tools: <br>-- **look_up_item** <br>-- **process_refund** <br>-- **handoff_back_to_customer_service_agent** <br><br>- Sales specialist agent has the following tools: <br>-- **search_products** <br>-- **process_order** <br>-- **handoff_back_to_customer_service_agent** |
+| Agent specialization | Each agent has specific, relevant tools and capabilities. <br><br>- Customer service agent has only agent handoff tools for delegating questions and requests, no regular tools. <br><br>- Refund specialist agent has the following tools: <br>-- **look_up_item** <br>-- **process_refund** <br>-- **handoff_<ID>_tool** <br><br>- Sales specialist agent has the following tools: <br>-- **search_products** <br>-- **process_order** <br>-- **handoff_<ID>_tool** |
 
 For more information, see [Handoff pattern best practices](#handoff-pattern-best-practices).
 
@@ -67,7 +67,7 @@ Follow these steps to create a new conversational agent workflow:
 
 > [!NOTE]
 >
-> You can't save your workflow until you create a connection between the agent and the LLM that you want to use.
+> You can't save your workflow until you create a connection between the agent and the large language model (LLM) that you want to use.
 
 ## 2 - Set up the customer service agent
 
@@ -260,7 +260,7 @@ In this section, you add the following specialized tools to the refund specialis
 
       | Property | Value |
       |-----------|-------|
-      | **Name** | `id` |
+      | **Name** | `item_id` |
       | **Type** | `String` |
       | **Description** | `The item ID` |
 
@@ -281,7 +281,7 @@ In this section, you add the following specialized tools to the refund specialis
 
       :::image type="content" source="media/set-up-handoff-agent-workflow/replace-item-id-placeholder.png" alt-text="Screenshot shows the Compose action named Find item, the selected item-id placeholder text, and the selected robot icon." lightbox="media/set-up-handoff-agent-workflow/replace-item-id-placeholder.png":::
 
-   1. From the **Agent parameters** list, select **id**.
+   1. From the **Agent parameters** list, select **item_id**.
 
       The **Find item** action inputs look like the following example:
 
@@ -289,11 +289,11 @@ In this section, you add the following specialized tools to the refund specialis
 
 The finished **look_up_item** tool and **Find item** action look like the following example:
 
-:::image type="content" source="media/set-up-handoff-agent-workflow/look-up-tool-complete.png" alt-text="Screenshot shows completed look up item tool and Find item action." lightbox="media/set-up-handoff-agent-workflow/look-up-tool-complete.png":::
+:::image type="content" source="media/set-up-handoff-agent-workflow/look-up-tool-complete.png" alt-text="Screenshot shows completed look-up item tool and Find item action." lightbox="media/set-up-handoff-agent-workflow/look-up-tool-complete.png":::
 
 #### 5.1.2 - Add the process_refund tool
 
-To add and set up the **process_refund** tool for the refund specialist agent, follow these setps:
+To add and set up the **process_refund** tool for the refund specialist agent, follow these steps:
 
 1. To the side of the **look_up_item** tool, select the plus sign (**+**) to add the **Compose** action.
 
@@ -303,7 +303,7 @@ To add and set up the **process_refund** tool for the refund specialist agent, f
 |------|-------|
 | Tool name | `process_refund` |
 | Tool description | `Process refund for validated items after confirming eligibility.` |
-| Agent parameters for tool | - **Name**: `order-id` <br>- **Type**: `String` <br>- **Description**: `The order ID` |
+| Agent parameters for tool | - **Name**: `order_id` <br>- **Type**: `String` <br>- **Description**: `The order ID` |
 | **Compose** action name | `Execute refund` |
 | **Compose** action inputs | `{   "refund_status": "success", "refund_amount": 100.58, "confirmation": "Successfully processed refund."   }` <br><br>**Note**: This example doesn't reference the agent parameter in the inputs. |
 
@@ -326,7 +326,7 @@ To add and set up the **search_products** tool for the sales specialist agent, r
 |------|-------|
 | Tool name | `search_products` |
 | Tool description | `Search product catalog based on customer needs and preferences.` |
-| Agent parameters for tool | - **Name**: `search-string` <br>- **Type**: `String` <br>- **Description**: `The search string` |
+| Agent parameters for tool | - **Name**: `search_string` <br>- **Type**: `String` <br>- **Description**: `The search string` |
 | **Compose** action name | `Find products` |
 
 For the **Compose** action inputs, you can use the following example:
@@ -378,7 +378,7 @@ To add and set up the **process_order** tool for the sales specialist agent, rep
 |------|-------|
 | Tool name | `process_order` |
 | Tool description | `Process customer order with product details, pricing, and shipping. Use price in US$.` |
-| Agent parameters for tool | Parameter #1: <br>- **Name**: `product-id` <br>- **Type**: `String` <br>- **Description**: `The product ID` <br><br>Parameter #2: <br>- **Name**: `quantity` <br>- **Type**: `Integer` <br>- **Description**: `The product quantity` |
+| Agent parameters for tool | Parameter #1: <br>- **Name**: `product_id` <br>- **Type**: `String` <br>- **Description**: `The product ID` <br><br>Parameter #2: <br>- **Name**: `quantity` <br>- **Type**: `Integer` <br>- **Description**: `The product quantity` |
 | **Compose** action name | `Execute order` |
 
 For the **Compose** action inputs, you can use the following example where you replace the placeholders with the corresponding agent parameters:
@@ -396,11 +396,57 @@ The finished **process_order** tool and **Execute order** action look like the f
 
 :::image type="content" source="media/set-up-handoff-agent-workflow/process-order-tool-complete.png" alt-text="Screenshot shows completed process order tool and Execute order action." lightbox="media/set-up-handoff-agent-workflow/process-order-tool-complete.png":::
 
+Your completed handoff agent workflow looks like the following example:
+
+:::image type="content" source="media/set-up-handoff-agent-workflow/handoff-agent-workflow-complete.png" alt-text="Screenshot shows completed handoff agent workflow." lightbox="media/set-up-handoff-agent-workflow/handoff-agent-workflow-complete.png":::
+
 ## 6 - Test the workflow
 
-1. On the designer toolbar, from the **Run** menu, select **Run**.
+Confirm that the workflow behaves as expected for both the refund and sales scenarios. Your actual agent responses might vary somewhat from the examples. However, expect the agent responses to include essential, core details.
 
-1.
+### 6.1 - Test the refund scenario
+
+For this scenario, the expected behavior follows these steps, while keeping the chat context across agent handoffs:
+
+1. The **Customer service agent** greets the customer and understands the return request.
+1. The **Customer service agent** automatically hands off to the **Refund specialist agent**.
+1. The **Refund specialist agent** processes the return using the tools you built.
+
+To test this scenario, follow these steps:
+
+1. On the designer toolbar, select **Chat**.
+
+1. In the chat box, enter the following text: `Hi, I want to return a pair of shoes. They're too small.`
+
+   The customer service agent responds with a prompt for an order number.
+
+1. Enter an example order ID: `XYZ3245`
+
+   The refund agent responds with a prompt to confirm the item's condition.
+
+1. Enter a confirmation: `Yes`
+
+   The refund agent responds that the return successfully processed, reports the refund amount, and includes instructions for returning the item.
+
+The following screenshot shows an example chat history for the refund scenario and where different agents have control at different points in the conversation:
+
+:::image type="content" source="media/set-up-handoff-agent-workflow/test-refund-scenario.png" alt-text="Screenshot shows the chat history for the test refund scenario." lightbox="media/set-up-handoff-agent-workflow/test-refund-scenario.png":::
+
+### 6.2 - Review the workflow run history for the refund scenario
+
+To view the workflow run history, agent transitions, and handoff calls for this scenario, follow these steps:
+
+1. From the chat page, return to the designer.
+
+1. On the workflow sidebar, under **Tools**, select **Run history**.
+
+1. On the **Run history** page, on the **Run history** tab, in the **Identifier** column, select the most recent workflow run.
+
+   The monitoring view opens and shows the **Agent log** pane where you can view the agent transitions:
+
+1. In monitoring view, 
+
+### 6.3 - Test the sales scenario
 
 
 [!INCLUDE [clean-up-resources](includes/clean-up-resources.md)]
