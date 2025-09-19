@@ -61,7 +61,7 @@ The connector supports QuickBooks OAuth 2.0 authentication.
 
 ## Understand connector configuration details
 
-You use properties to define Data Factory entities specific to the QuickBooks connector.
+You use properties to define Data Factory entities that are specific to the QuickBooks connector.
 
 ### Linked service properties
 
@@ -113,7 +113,7 @@ The QuickBooks linked service supports the following properties for connector ve
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | `type` | The type of the linked service. It must be set to `QuickBooks`. | Yes |
-| `connectionProperties` | A group of properties that defines how to connect to QuickBooks. | Yes |
+| `connectionProperties` | A group of properties that define how to connect to QuickBooks. | Yes |
 | Under `connectionProperties`: | | |
 | `endpoint` | The endpoint of the QuickBooks Online server. The value is `quickbooks.api.intuit.com`.  | Yes |
 | `companyId` | The company ID of the QuickBooks company to authorize. For info about how to find the company ID, see the [QuickBooks Online help topic](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551). | Yes |
@@ -149,11 +149,13 @@ Here's an example:
 }
 ```
 
-#### Handling refresh tokens for the linked service
+### Handling refresh tokens for the linked service
 
-When you use the QuickBooks Online connector in a linked service, it's important to manage OAuth 2.0 refresh tokens from QuickBooks correctly. The linked service uses a refresh token to obtain new access tokens.
+When you use the QuickBooks Online connector in a linked service, it's important to manage OAuth 2.0 refresh tokens from QuickBooks correctly.
 
-However, QuickBooks Online periodically updates the refresh token. This action invalidates the previous one. The linked service doesn't automatically update the refresh token in Azure Key Vault, so you need to manage updating the refresh token to ensure uninterrupted connectivity. Otherwise, you might encounter authentication failures after the refresh token expires.
+The linked service uses a refresh token to obtain new access tokens. However, QuickBooks Online periodically updates the refresh token. This action invalidates the previous token.
+
+The linked service doesn't automatically update the refresh token in Azure Key Vault, so you need to manage updating the refresh token to ensure uninterrupted connectivity. Otherwise, you might encounter authentication failures after the refresh token expires.
 
 You can manually update the refresh token in Azure Key Vault based on the QuickBooks Online policy for expiry of refresh tokens. Another approach is to automate updates by using a scheduled task or an [Azure function](https://github.com/Azure-Samples/serverless-keyvault-secret-rotation-handling) that checks for a new refresh token and updates it in Azure Key Vault.
 
@@ -183,7 +185,7 @@ Here's an example:
 }
 ```
 
-For a full list of sections and properties available for defining datasets, see [Datasets in Azure Data Factory and Azure Synapse Analytics](concepts-datasets-linked-services.md).
+For a full list of available sections and properties for defining datasets, see [Datasets in Azure Data Factory and Azure Synapse Analytics](concepts-datasets-linked-services.md).
 
 ### Copy activity properties
 
@@ -226,7 +228,7 @@ Here's an example:
 ]
 ```
 
-For a full list of sections and properties available for defining activities, see [Pipelines and activities in Azure Data Factory and Azure Synapse Analytics](concepts-pipelines-activities.md).
+For a full list of available sections and properties for defining activities, see [Pipelines and activities in Azure Data Factory and Azure Synapse Analytics](concepts-pipelines-activities.md).
 
 ## Copy data from QuickBooks Desktop
 
