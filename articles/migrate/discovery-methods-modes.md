@@ -14,10 +14,9 @@ ms.custom: engagement-fy24
 
 This article explains the different discovery methods in Azure Migrate and gives guidance to choose the most suitable approach based on your requirements.
  
-
 ## Prerequisites
 
-Before you begin, make sure you create an Azure Migrate project by following the steps in [Quickstart: Create an Azure Migrate project using portal](quickstart-create-project.md).
+Before you begin, ensure you create an Azure Migrate project by following the steps in [Quickstart: Create an Azure Migrate project using portal](quickstart-create-project.md).
 
 ## Appliance-based discovery
 
@@ -26,7 +25,7 @@ The appliance-based discovery method involves deploying a virtual appliance that
 ### Key features
 
 - Continuous collection of configuration and performance data.  
-- Supports discovering workloads such as SQL databases, webapps, and MySQL. 
+- Supports discovering workloads such as SQL databases, webapps, PostgreSQL and MySQL. 
 - Discover software inventory and enable dependency analysis.  
 
 ## Guidance to choose the right appliance
@@ -48,7 +47,6 @@ Import-based discovery is a simpler and faster alternative, relying on manual up
 - Supports VMware inventory exported from RVTools XLSX file. 
 - Build a quick business case using the servers discovered via import. 
 
-
 ## Supported workloads for discovery 
 
 Ensure that software inventory is enabled before initiating workload discovery. Azure Migrate supports the following workloads: 
@@ -56,7 +54,7 @@ Ensure that software inventory is enabled before initiating workload discovery. 
 - Discovery of SQL Server instances and databases. 
 - Discovery of ASP.NET web apps. 
 - Discovery of MySQL database instances. 
-
+- Discovery of PostgreSQL instances and databases.
 
 ## Next steps
 

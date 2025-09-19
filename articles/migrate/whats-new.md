@@ -15,7 +15,25 @@ ms.custom: mvc, engagement-fy25
 
 [Azure Migrate](migrate-services-overview.md) helps you discover, assess, and migrate on-premises servers, apps, and data to the Azure cloud platform. This article summarizes new releases and features in Azure Migrate.
 
-## Update (August 2025)
+## Update (September 2025)
+
+Public preview: Azure Migrate now supports discovery and assessment of PostgreSQL instances. 
+You can use this capability to:
+
+- Discover PostgreSQL instances and their attributes within your environment. 
+- Assess the readiness of these instances for migration to Azure Database for PostgreSQL flexible server.
+- Obtain recommendations on suitable compute and storage options, along with the associated costs.
+- Analyze configuration compatibility including server parameters, extensions, and authentication methods.
+- Review migration blockers and receive remediation guidance for seamless migration.
+
+  Key features include:
+
+    - **Configuration-based assessment**: Analyzes PostgreSQL configuration metadata to provide migration recommendations
+    - **Comprehensive discovery**: Identifies PostgreSQL instances across VMware, Hyper-V, physical servers, and other cloud environments
+    - **Cost estimation**: Provides detailed monthly cost breakdowns for compute and storage in Azure
+    - **Migration readiness**: Categorizes instances as Ready, Ready with conditions, Not ready, or Unknown with detailed remediation steps. 
+[Learn more](tutorial-assess-postgresql.md).
+
 
 - General availability: Azure Migrate enhances resiliency by supporting migration to [ZRS Disks](/azure/virtual-machines/disks-deploy-zrs?tabs=portal) during Migration. **Zone-Redundant Storage (ZRS)** for Azure Disks synchronously replicates data across three physically separate availability zones within a region – each with independent power, cooling, and networking – enhancing Disk availability and resiliency.
 

@@ -1,12 +1,12 @@
 ---
-title: Azure Migrate appliance FAQ
+title: Azure Migrate Appliance FAQ
 description: Get answers to common questions about the Azure Migrate appliance.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: concept-article
-ms.date: 09/03/2024
+ms.date: 08/03/2025
 ms.custom:
   - engagement-fy25
   - sfi-image-nochange

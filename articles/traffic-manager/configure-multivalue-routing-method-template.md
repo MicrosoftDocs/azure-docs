@@ -7,7 +7,10 @@ ms.author: allensu
 ms.service: azure-traffic-manager
 ms.topic: how-to
 ms.date: 08/08/2024
-ms.custom: template-how-to, devx-track-arm-template
+ms.custom:
+  - template-how-to
+  - devx-track-arm-template
+  - sfi-image-nochange
 # Customer intent: As a cloud engineer, I want to configure a Multivalue routing method with nested endpoints using an ARM template, so that I can efficiently manage traffic distribution in my Azure environment.
 ---
 

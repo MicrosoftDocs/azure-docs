@@ -8,7 +8,10 @@ ms.author: allensu
 ms.date: 02/18/2023
 ms.topic: quickstart
 ms.service: azure-traffic-manager
-ms.custom: template-quickstart, mode-ui
+ms.custom:
+  - template-quickstart
+  - mode-ui
+  - sfi-image-nochange
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 # Customer intent: As an IT administrator, I want to configure a Traffic Manager profile for my web applications, so that I can ensure high availability and automatic failover in case of primary endpoint issues.
 ---

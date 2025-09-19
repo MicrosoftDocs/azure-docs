@@ -7,7 +7,9 @@ ms.service: azure-traffic-manager
 ms.topic: tutorial
 ms.date: 04/26/2023
 ms.author: allensu
-ms.custom: template-tutorial
+ms.custom:
+  - template-tutorial
+  - sfi-image-nochange
 # Customer intent: "As a network administrator, I want to configure priority traffic routing in a traffic management system, so that I can ensure reliable service failover and optimal traffic distribution to my endpoints."
 ---
 

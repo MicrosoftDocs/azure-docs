@@ -76,6 +76,8 @@ landingContent:
             url: tutorial-reservoir-ddms-apis.md
           - text: Reservoir DDMS websocket API tutorial
             url: tutorial-reservoir-ddms-websocket.md
+          - text: Rock and Fluid Samples DDMS tutorial
+            url: tutorial-rock-and-fluid-samples-ddms.md
       - linkListType: how-to-guide
         links:
           - text: How to convert SEG-Y to oVDS
