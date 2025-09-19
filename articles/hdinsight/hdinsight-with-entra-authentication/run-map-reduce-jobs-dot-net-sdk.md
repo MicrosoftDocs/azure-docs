@@ -1,6 +1,6 @@
 ---
-title: Run MapReduce jobs using HDInsight .NET SDK
-description: Learn how to run MapReduce jobs using HDInsight .NET SDK
+title: Run MapReduce jobs using HDInsight .NET SDK for Entra Auth enabled Azure HDInsight clusters
+description: Learn how to run MapReduce jobs using HDInsight .NET SDK  for Entra Auth enabled Azure HDInsight clusters
 ms.service: azure-hdinsight
 ms.topic: how-to
 author: apurbasroy
@@ -23,7 +23,7 @@ If you want to rerun the application, you must first clean up the output folder.
 
 **Prerequisites**
 
-- An Entra enabled Apache Hadoop cluster on HDInsight. See [Create Apache Hadoop clusters using the Azure portal](azure/hdinsight/hdinsight-hadoop-create-linux-clusters-portal).
+- An Entra enabled Apache Hadoop cluster on HDInsight. See [Create Apache Hadoop clusters using the Azure portal](../../hdinsight-hadoop-create-linux-clusters-portal.md).
 - [Visual Studio](https://visualstudio.microsoft.com/vs/community/).
 
 
@@ -34,9 +34,9 @@ The HDInsight .NET SDK provides .NET client libraries, which make it easier to w
 1. Start Visual Studio and create a C# console application.
 1. Navigate to **Tools** > **NuGet Package Manager** > **Package Manager Console** and enter the following command:
 
-        ```
-        Install-Package Microsoft.Azure.HDInsight.Job -Version 3.0.0-preview.3
-        ```
+   ```
+   Install-Package Microsoft.Azure.HDInsight.Job -Version 3.0.0-preview.3
+   ```
 
 1. Copy the code below into **Program.cs**. Then edit the code by setting the values for: `existingClusterName`, `existingClusterPassword`, `defaultStorageAccountName`, `defaultStorageAccountKey`, and `defaultStorageContainerName`.
     
