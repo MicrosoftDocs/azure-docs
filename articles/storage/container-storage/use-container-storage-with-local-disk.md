@@ -255,24 +255,19 @@ In this section, you'll learn how to check node ephemeral disk capacity, expand 
 
 An ephemeral volume is allocated on a single node. When you configure the size of your ephemeral volumes, the size should be less than the available capacity of the single node's ephemeral disk.
 
-Run the following commands to check the available capacity of ephemeral disk for a single node.
+Run the following command to check the available capacity of ephemeral disk for a single node. Replace `storageClassName` with your storage class name.
 
-<pre>
-kubectl get csistoragecapacities.storage.k8s.io -n kube-system \
-  -o=jsonpath='{.items[?(@.storageClassName=="local")]}' | \
-kubectl get -o custom-columns=NAME:.metadata.name,\
-STORAGE_CLASS:.storageClassName,\
-CAPACITY:.capacity,\
-NODE:.nodeTopology.matchLabels."topology\.localdisk\.csi\.acstor\.io/node" -f -
-</pre>
+```azurecli
+kubectl get csistoragecapacities.storage.k8s.io -n kube-system -o custom-columns=NAME:.metadata.name,STORAGE_CLASS:.storageClassName,CAPACITY:.capacity,NODE:.nodeTopology.matchLabels."topology\.localdisk\.csi\.acstor\.io/node"
+```
 
 You should see output similar to this:
 
-<pre>
+```output
 NAME          STORAGE_CLASS   CAPACITY    NODE
 csisc-2pkx4   local           1373172Mi   aks-storagepool-31410930-vmss000001
 csisc-gnmm9   local           1373172Mi   aks-storagepool-31410930-vmss000000
-</pre>
+```
 
 ### Expand storage capacity
 
