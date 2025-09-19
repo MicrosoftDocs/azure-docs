@@ -9,7 +9,7 @@ ms.reviewer: nijelsf
 ms.date: 09/19/2025
 ---
 
-# Run MapReduce jobs using HDInsight .NET SDK
+# Run MapReduce jobs in Entra Auth enable clusters using HDInsight .NET SDK
 
 This article explains how to submit MapReduce jobs to an HDInsight cluster by using the HDInsight .NET SDK. HDInsight clusters include a JAR file, `/example/jars/hadoop-mapreduce-examples.jar`, that contains several 
 MapReduce samples. One of these samples is wordcount.
@@ -23,7 +23,7 @@ If you want to rerun the application, you must first clean up the output folder.
 
 **Prerequisites**
 
-- An Entra enabled Apache Hadoop cluster on HDInsight. See [Create Apache Hadoop clusters using the Azure portal](../../hdinsight-hadoop-create-linux-clusters-portal.md).
+- An Entra enabled Apache Hadoop cluster on HDInsight. See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 - [Visual Studio](https://visualstudio.microsoft.com/vs/community/).
 
 
