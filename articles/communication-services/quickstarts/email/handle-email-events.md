@@ -10,6 +10,7 @@ ms.date: 03/31/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: email
+ms.custom: sfi-image-nochange
 ---
 
 # Handle Email events

@@ -8,6 +8,7 @@ ms.date: 01/16/2024
 ms.topic: how-to
 ms.service: azure-iot-hub
 ms.subservice: azure-iot-hub-dps
+ms.custom: sfi-image-nochange
 ---
 
 # How to verify X.509 CA certificates with your Device Provisioning Service

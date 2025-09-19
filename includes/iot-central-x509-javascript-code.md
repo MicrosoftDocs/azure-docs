@@ -4,6 +4,7 @@ ms.author: dobett
 ms.service: azure-iot
 ms.topic: include
 ms.date: 09/01/2025
+ms.custom: sfi-ropc-nochange
 ---
 
 To modify the sample code to use the X.509 certificates:

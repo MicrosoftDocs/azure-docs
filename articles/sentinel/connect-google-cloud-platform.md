@@ -1,10 +1,11 @@
 ---
 title: Ingest Google Cloud Platform log data into Microsoft Sentinel 
 description: This article describes how to ingest service log data from the Google Cloud Platform (GCP) into Microsoft Sentinel.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.date: 01/17/2024
+ms.custom: sfi-image-nochange
 
 #Customer intent: As a security engineer, I want to ingest Google Cloud Platform log data into Microsoft Sentinel so that analysts can monitor and detect potential threats across my multicloud environment.
 

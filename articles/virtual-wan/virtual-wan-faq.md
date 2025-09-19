@@ -3,12 +3,13 @@ title: 'Azure Virtual WAN FAQ'
 description: See answers to frequently asked questions about Azure Virtual WAN networks, clients, gateways, devices, partners, and connections.
 author: cherylmc
 ms.service: azure-virtual-wan
-ms.custom:
-  - devx-track-azurepowershell
-  - build-2025
 ms.topic: faq
 ms.date: 03/26/2025
 ms.author: cherylmc
+ms.custom:
+  - devx-track-azurepowershell
+  - build-2025
+  - sfi-image-nochange
 # Customer intent: As someone with a networking background, I want to read more details about Virtual WAN in a FAQ format.
 ---
 
@@ -60,6 +61,11 @@ Virtual WAN is a collection of hubs and services made available inside the hub. 
 Currently, Azure Firewall can be deployed to support Availability Zones using Azure Firewall Manager Portal, [PowerShell](/powershell/module/az.network/new-azfirewall#example-6--create-a-firewall-with-no-rules-and-with-availability-zones), or CLI. There's currently no way to configure an existing Firewall to be deployed across availability zones. You need to delete and redeploy your Azure Firewall.
 
 While the concept of Virtual WAN is global, the actual Virtual WAN resource is Resource Manager-based and deployed regionally. If the virtual WAN region itself has an issue, all hubs in that virtual WAN continue to function. However, the user can't create new hubs until the virtual WAN region is available.
+
+### How do I delete or clean up my Virtual WAN resources?
+When you no longer need the resources that you created, delete them. Some of the Virtual WAN resources must be deleted in a certain order due to dependencies. Deleting can take about 30 minutes to complete.
+
+[!INCLUDE [Delete resources](../../includes/virtual-wan-resource-cleanup.md)]
 
 ### Is it possible to share the Firewall in a protected hub with other hubs?
 
@@ -383,7 +389,7 @@ For new deployments, this connectivity is blocked by default. To allow this conn
 * The ExpressRoute gateway, which has lower bandwidth limits than the hub router
 * and the Microsoft Enterprise Edge routers/MSEE, which is an extra hop in the datapath.
 
-In the diagram below, both toggles need to be enabled to allow connectivity between the standalone VNet 4 and the VNets directly connected to hub 2 (VNet 2 and VNet 3): **Allow traffic from remote Virtual WAN networks** for the virtual network gateway and **Allow traffic from non Virtual WAN networks** for the virtual hub's ExpressRoute gateway. If an Azure Route Server is deployed in standalone VNet 4, and the Route Server has [branch-to-branch](../route-server/configure-route-server.md#configure-route-exchange) enabled, then connectivity will be blocked between VNet 1 and standalone VNet 4. 
+In the diagram below, both toggles need to be enabled to allow connectivity between the standalone VNet 4 and the VNets directly connected to hub 2 (VNet 2 and VNet 3): **Allow traffic from remote Virtual WAN networks** for the virtual network gateway and **Allow traffic from non Virtual WAN networks** for the virtual hub's ExpressRoute gateway. If an Azure Route Server is deployed in standalone VNet 4, and the Route Server has [branch-to-branch](../route-server/configure-route-server.md#configure-route-exchange-with-virtual-network-gateways) enabled, then connectivity will be blocked between VNet 1 and standalone VNet 4. 
 
 Enabling or disabling the toggle will only affect the following traffic flow: traffic flowing between the Virtual WAN hub and standalone VNet(s) via the ExpressRoute circuit. Enabling or disabling the toggle will **not** incur downtime for all other traffic flows (Ex: on-premises site to spoke VNet 2 won't be impacted, VNet 2 to VNet 3 won't be impacted, etc.). 
 

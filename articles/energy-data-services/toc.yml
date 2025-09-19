@@ -38,6 +38,8 @@ items:
       href: tutorial-reservoir-ddms-apis.md
     - name: Use Reservoir DDMS websocket APIs
       href: tutorial-reservoir-ddms-websocket.md
+    - name: Use Rock and Fluid Samples DDMS APIs
+      href: tutorial-rock-and-fluid-samples-ddms.md
 - name: Concepts
   items:
     - name: OSDU® services available on Azure Data Manager for Energy
