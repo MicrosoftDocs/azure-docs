@@ -226,7 +226,7 @@ items:
       href: tutorial-modernize-asp-net-appservice-code.md
 - name: Tutorials 
   items:
-  - name: Migration Scenarios
+  - name: Migration scenarios
     items:
     - name: Migrate VMware servers 
       items:
