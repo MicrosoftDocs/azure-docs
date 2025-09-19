@@ -42,4 +42,4 @@ Before you create or publish a platform solution, make sure you have:
         - In the Extensions Marketplace, search for **GitHub Copilot** and install it.
         - After installing, sign in to GitHub Copilot with your GitHub account.
 - Access to the [Microsoft Security Store](https://security.microsoft.com/securitystore) to publish your platform solution.
-    - You need a Partner Center account, enrollment in the Microsoft AI Cloud Partner Program (MAICPP), and registration for Microsoft Security Store.
+    - Make sure you have a Partner Center account, are enrolled in the Microsoft AI Cloud Partner Program (MAICPP), and are registered in the Microsoft Security Store.
