@@ -12,11 +12,9 @@ ms.date: 08/26/2025
 
 # Reliability in Azure Container Instances
 
-
 [Azure Container Instances](/azure/container-instances/container-instances-overview) provides a straightforward way to run Linux or Windows containers in Azure, without the need to manage virtual machines (VMs) or adopt a more complex, higher-level service.
 
 This article describes reliability support in Container Instances, covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
-
 
 [!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
