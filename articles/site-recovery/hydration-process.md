@@ -32,7 +32,7 @@ The preparation script executes the following changes based on the OS type of th
 
 # [Windows servers](#tab/windows)
 
-1. **Discover and prepare the Windows OS volume**
+1. **Discover and prepare the Windows OS volume**.
 
    Before performing relevant configuration changes, the preparation script will validate if the correct OS disk was selected for failover. The preparation script will look through all the attached volumes visible to the system and look for the SYSTEM registry hive file path to find the source OS volume.
 
@@ -46,11 +46,11 @@ The preparation script executes the following changes based on the OS type of th
    >[!NOTE]
    >This step isn't relevant if you’re manually preparing the servers for failover.
 
-1. **Make boot and connectivity related changes**
+1. **Make boot and connectivity related changes**.
 
    After the source OS volume files are detected, the preparation script will load the SYSTEM registry hive into the registry editor of the temporary Azure VM and perform the following changes to ensure VM boot up and connectivity. You need to configure these settings manually if the OS version isn't supported for hydration.
 
-   1. **Validate the presence of the required drivers**
+   1. **Validate the presence of the required drivers**.
 
       Ensure if the required drivers are installed and are set to load at **boot start**. These Windows drivers allow the server to communicate with the hardware and other connected devices.
 
@@ -60,7 +60,7 @@ The preparation script executes the following changes based on the OS type of th
       - Storvsc
       - VMbus
 
-   1. **Set storage area network (SAN) policy to Online All**
+   1. **Set storage area network (SAN) policy to Online All**.
 
       This ensures that the Windows volumes in the Azure VM use the same drive letter assignments as the on-premises VM. By default, Azure VMs are assigned drive D: to use as temporary storage. This drive assignment causes all other attached storage drive assignments to increment by one letter. To prevent this automatic assignment, and to ensure that Azure assigns the next free drive letter to its temporary volume, set the storage area network (SAN) policy to Online All.
 
@@ -68,19 +68,19 @@ The preparation script executes the following changes based on the OS type of th
 
       - On the on-premises server, open the command prompt with elevated privileges and enter **diskpart**.
 
-        ![Manual Configuration](./media/hydration-process/command-prompt-diskpart.png)
+        ![Screenshot showing Manual Configuration.](./media/hydration-process/command-prompt-diskpart.png)
 
       - Enter SAN. If the drive letter of the guest operating system isn't maintained, Offline All or Offline Shared is returned.
 
       - At the DISKPART prompt, enter SAN Policy=OnlineAll. This setting ensures that disks are brought online, and that you can read and write to both disks.
 
-        ![Administrator Command Prompt diskpart online policy](./media/hydration-process/diskpart-online-policy.png)
+        ![Screenshot showing Administrator Command Prompt diskpart online policy.](./media/hydration-process/diskpart-online-policy.png)
 
-1. **Set the DHCP start type**
+1. **Set the DHCP start type**.
 
    The preparation script will also set the DHCP service start type as Automatic. This will enable the migrated VM to obtain an IP address and establish connectivity post-failover. Make sure the DHCP service is configured, and the status is running.
 
-    ![Set DHCP Start Type](./media/hydration-process/get-service-dhcp.png)
+    ![Screenshot showing how to set DHCP Start Type.](./media/hydration-process/get-service-dhcp.png)
 
    To edit the DHCP startup settings manually, run the following example in Windows PowerShell:
 
@@ -90,14 +90,14 @@ The preparation script executes the following changes based on the OS type of th
    Set-Service -StartupType Automatic
    ```
 
-1. **Disable VMware Tools**
+1. **Disable VMware Tools**.
 
    Make “VMware Tools” service start-type to disabled if it exists as they aren't required for the VM in Azure.
 
    >[!NOTE]
    >To connect to Windows Server 2003 VMs, Hyper-V Integration Services must be installed on the Azure VM. Windows Server 2003 machines don't have this installed by default. See this [article](/azure/migrate/prepare-windows-server-2003-migration?view=migrate-classic) to install and prepare for failover.
 
-1. **Install the Windows Azure Guest Agent**
+1. **Install the Windows Azure Guest Agent**.
 
     Azure Site Recovery will attempt to install the Microsoft Azure Virtual Machine Agent (VM Agent), a secure, lightweight process that manages virtual machine (VM) interaction with the Azure Fabric Controller. The VM Agent has a primary role in enabling and executing Azure virtual machine extensions that enable post-deployment configuration of VM, such as installing and configuring software. Azure Site Recovery automatically installs the Windows VM agent on Windows Server 2008 R2 and higher versions.
 
@@ -105,14 +105,14 @@ The preparation script executes the following changes based on the OS type of th
 
     To check if the Azure VM Agent was successfully installed, open Task Manager, select the **Details** tab, and look for the process name *WindowsAzureGuestAgent.exe*. The presence of this process indicates that the VM agent is installed. You can also use [PowerShell to detect the VM agent.](/azure/virtual-machines/extensions/agent-windows#powershell)
 
-    ![Successful Installation of Azure VM Agent](./media/hydration-process/installation-azure-vm-agent.png)
+    ![Screenshot showing successful Installation of Azure VM Agent.](./media/hydration-process/installation-azure-vm-agent.png)
 
     After the aforementioned changes are performed, the system partition will be unloaded. The VM is now ready for failover.
     [Learn more about the changes for Windows servers.](/azure/virtual-machines/windows/prepare-for-upload-vhd-image)
 
 # [Linux servers](#tab/linux)
 
-1. **Discover and mount Linux OS partitions**
+1. **Discover and mount Linux OS partitions**.
 
    Before performing relevant configuration changes, the preparation script will validate if the correct OS disk was selected for failover. The script will collect information on all partitions, their UUIDs, and mount points. The script will look through all these visible partitions to locate the /boot and /root partitions.
 
@@ -126,7 +126,7 @@ The preparation script executes the following changes based on the OS type of th
      - Use fstab content to determine if /boot is a separate partition. If it’s a separate partition, then obtain the boot partition device name from the fstab content or look for the partition, which has the boot flag.
      - The script will proceed to discover and mount /boot, and other necessary partitions on “/mnt/azure_sms_root” to build the root filesystem tree required for chroot jail. Other necessary partitions include: /boot/grub/menu.lst, /boot/grub/grub.conf, /boot/grub2/grub.cfg, /boot/grub/grub.cfg, /boot/efi (for UEFI boot), /var, /lib, /etc, /usr, and others.
 
-1. **Discover OS Version**
+1. **Discover OS Version**.
 
    Once the root partition is discovered, the script will use the following files to determine the Linux Operating System distribution and version.
 
@@ -136,22 +136,22 @@ The preparation script executes the following changes based on the OS type of th
    - Ubuntu: etc/lsb-release
    - Debian: etc/debian_version
 
-1. **Install Hyper-V Linux Integration Services and regenerate kernel image**
+1. **Install Hyper-V Linux Integration Services and regenerate kernel image**.
 
    The next step is to inspect the kernel image and rebuild the Linux init image so, that it contains the necessary Hyper-V drivers (**hv_vmbus, hv_storvsc, hv_netvsc**) on the initial ramdisk. Rebuilding the init image ensures that the VM will boot in Azure.
 
    Azure runs on the Hyper-V hypervisor. So, Linux requires certain kernel modules to run in Azure. To prepare your Linux image, you need to rebuild the initrd so that at least the hv_vmbus and hv_storvsc kernel modules are available on the initial ramdisk. The mechanism for rebuilding the initrd or initramfs image may vary depending on the distribution. Consult your distribution's documentation or support for the proper procedure. Here's one example for rebuilding the initrd by using the mkinitrd utility:
 
-   1. Find the list of kernels installed on the system (/lib/modules)
+   1. Find the list of kernels installed on the system (/lib/modules).
    1. For each module, inspect if the Hyper-V drivers are already included.
    1. If any of these drivers are missing, add the required drivers and regenerate the image for the corresponding kernel version.
 
       >[!NOTE]
-      >This step may not apply to Ubuntu and Debian VMs as the Hyper-V drivers are built-in by default. [Learn more about the changes.](/azure/virtual-machines/linux/create-upload-generic#install-kernel-modules-without-hyper-v)
+      >This step may not apply to Ubuntu and Debian VMs as the Hyper-V drivers are built in by default. [Learn more about the changes.](/azure/virtual-machines/linux/create-upload-generic#install-kernel-modules-without-hyper-v)
 
-      An illustrative example for rebuilding initrd
+      An illustrative example for rebuilding initrd:
 
-      - Back up the existing initrd image
+      - Back up the existing initrd image.
 
        ```bash
         cd /boot
@@ -165,7 +165,7 @@ The preparation script executes the following changes based on the OS type of th
        ```
    Most new versions of Linux distributions have this included by default. If not included, install manually for all versions except those called out, using the aforementioned steps.
 
-1. **Enable Azure Serial Console logging**
+1. **Enable Azure Serial Console logging**.
 
    The script will then make changes to enable Azure Serial Console logging. Enabling console logging helps with troubleshooting issues on the Azure VM. Learn more about Azure Serial Console for Linux [Azure Serial Console for Linux - Virtual Machines | Microsoft Docs](/troubleshoot/azure/virtual-machines/serial-console-linux).
 
@@ -182,13 +182,13 @@ The preparation script executes the following changes based on the OS type of th
    ```
     [Refer to this article](/azure/virtual-machines/linux/create-upload-generic#general-linux-system-requirements) for specific changes.
 
-1. **Network changes for connectivity**
+1. **Network changes for connectivity**.
 
    Based on the OS Version, the script will perform the required network changes for connectivity to the migrated VM. The changes include:
 
    1. Move (or remove) the udev rules to avoid generating static rules for the Ethernet interface. These rules cause problems when you clone a virtual machine in Azure.
 
-      An illustrative example for RedHat servers
+      An illustrative example for RedHat servers:
 
       ```bash
          sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
@@ -199,7 +199,7 @@ The preparation script executes the following changes based on the OS type of th
 
    1. Uninstall this package by running the following command:
 
-      An illustrative example for RedHat servers
+      An illustrative example for RedHat servers:
 
       ```bash
          sudo rpm -e --nodeps NetworkManager
@@ -207,7 +207,7 @@ The preparation script executes the following changes based on the OS type of th
 
    1. Backup existing NIC settings and create eth0 NIC configuration file with DHCP settings. To do this, the script will create or edit the /etc/sysconfig/network-scripts/ifcfg-eth0 file, and add the following text:
 
-      An illustrative example for RedHat servers
+      An illustrative example for RedHat servers:
 
       ```config
          DEVICE=eth0
@@ -223,14 +223,14 @@ The preparation script executes the following changes based on the OS type of th
 
    1. Reset etc/sysconfig/network file as follows:
 
-      An illustrative example for RedHat servers
+      An illustrative example for RedHat servers:
 
       ```config
          NETWORKING=yes
          HOSTNAME=localhost.localdomain
       ```
 
-1. **Fstab validation**
+1. **Fstab validation**.
 
     Azure Site Recovery will validate the entries of the fstab file and replace fstab entries with persistent volume identifiers, UUIDs wherever needed. This ensures the drive/partition name remains constant no matter the system it's attached to.
 
@@ -240,7 +240,7 @@ The preparation script executes the following changes based on the OS type of th
    - If the device name is UUID/LABEL/LV, then no changes will be done.
    - If it’s a network device (nfs, cifs, smbfs, and etc), then the script will comment the entry. To access it, you can uncomment the same and reboot your Azure VM.
 
-1. **Install the Linux Azure Guest Agent**
+1. **Install the Linux Azure Guest Agent**.
 
     Azure Site Recovery will attempt to install the Microsoft Azure Linux Agent (waagent), a secure, lightweight process that manages Linux & FreeBSD provisioning, and VM interaction with the Azure Fabric Controller.  [Learn more](/azure/virtual-machines/extensions/agent-linux) about the functionality enabled for Linux and FreeBSD IaaS deployments via the Linux agent.
 
