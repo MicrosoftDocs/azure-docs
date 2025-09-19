@@ -75,15 +75,17 @@ Azure Cache for Redis Enterprise instances can be scaled out to provide both mor
 
 To choose the right Azure Managed Redis memory size: 
 
-1. Go to the Azure portal, select Overview from the resource menu. 
-1. Check the **Status** field in the Overview of your Enterprise instance.
+1. Go to the Azure portal, select **Overview** from the resource menu. 
+1. Check the **Status** field in the **Overview** of your Enterprise instance.
     The **Status** field shows the memory size of your Redis Enterprise instance.
 
 Let's look at a possible scenario. 
 
 :::image type="content" source="../media/migrate-overview/enterprise-overview-resource.png" alt-text="Screenshot of the overview of a enterprise cache." lightbox="../media/migrate-overview/enterprise-overview-resource.png":::
 
-You're using E5 with scale 2. Looking at the **Status** on Overview pane, you see Enterprise 8GB (2 x 4GB). This means you're currently using a 8-GB cache. Therefore, you should start with at least 10GB cache on Azure Managed Redis. In this case, use the any of these tiers that offer 12 GB of memory.
+Looking at the **Status** on **Overview** pane, you see **Running - Enterprise 8GB (2 x 4GB)**. This means this cache is currently using a E5 Enterprise SKU with a scale of 2, yielding an 8GB cache. Therefore, you should start with at least 10GB cache on Azure Managed Redis. 
+
+In this case, use the any of these tiers that offer 12 GB of memory.
 
 | SKU     |    Tier           |
 |---------|-------------------|
@@ -110,12 +112,12 @@ Next, you need to choose a strategy for moving your data. And finally, you need 
 
 #### Update app to connect to Azure Managed Redis instance
 
-Once you create a new Azure Managed Redis instance, you must change the Redis endpoint/hostname and the access key in your application to point to your new Azure Managed Redis instance. We recommend publishing this endpoint change during off-business hours because it results in connectivity blip.
+Once you create a new Azure Managed Redis instance, you must change the Redis endpoint/hostname and the access key in your application to point to your new Azure Managed Redis instance. We recommend publishing this endpoint change during off-business hours because it results in connectivity a blip.
 
 > [!NOTE]
 > If you connect to your existing Redis Enterprise instance through a private endpoint, ensure that your new Azure Managed Redis cache is also peered to the virtual network of your application. The new cache must have a similar set-up as existing Redis Enterprise instance.
 
-Verify that your application is running as expected and then delete your Redis Enterprise instance.
+Verify that your application is running as expected and then delete your previous Redis Enterprise instance.
 
 ## Moving your data from your Enterprise cache to a new Azure Managed Redis cache
 
@@ -151,7 +153,6 @@ RIOT-X provides a way to migrate your content from Enterprise to Azure Managed R
 
 - Pros: Full control, customizable.
 - Cons: Requires development effort.
-
 
 ## Move from Basic, Standard, or Premium caches  to Azure Managed Redis
 
@@ -201,7 +202,6 @@ Here are some other differences to consider when implementing Azure Managed Redi
 | Supported TLS versions           | 1.2 and 1.3                | 1.2 and 1.3                                   |
 
 
-
 ### Migrate your Azure Cache for Redis instance to Azure Managed Redis
 
 Based on the table, here are some mappings between the Azure Cache for Redis SKUs and options for caches in Azure Managed Redis.
@@ -228,8 +228,8 @@ Based on the table, here are some mappings between the Azure Cache for Redis SKU
 | Premium - P4          | Balanced - B50           | 12                    |
 | Premium - P5          | Balanced - B100          | 0                     |
 
-- *This option is for cost efficiency. Ensure the peak of total used memory in the past month is less than the suggested Azure Managed Redis memory to choose this option.
-- ** This option is for abundant memory consumption.
+- \* This option is for cost efficiency. Ensure the peak of total used memory in the past month is less than the suggested Azure Managed Redis memory to choose this option.
+- \*\* This option is for abundant memory consumption.
 
 #### Azure Cache for Redis Premium clustered
 
@@ -326,3 +326,5 @@ Azure Managed Redis is continually expanding into new regions. To check the avai
 ## Related content
 
 - [What is Azure Managed Redis?](../overview.md)
+- [Azure Managed Redis architecture](../architecture.md)
+
