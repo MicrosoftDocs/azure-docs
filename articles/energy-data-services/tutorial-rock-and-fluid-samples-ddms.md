@@ -347,7 +347,7 @@ Sample response:
 ```
 
 ## 3. Ingest RAFS master data
-Use RAFS DDMS API `/v2/masterdata` to load Generic Facility, Generic Site, Sample Acquisition Job, Sample Acqusition Container, Sample and Sample Chain of Custody Event master data.
+Use RAFS DDMS API `/v2/masterdata` to load Generic Facility, Generic Site, Sample Acquisition Job, Sample Acquisition Container, Sample and Sample Chain of Custody Event master data.
 
 ### 3.1 Generic Facility
 
