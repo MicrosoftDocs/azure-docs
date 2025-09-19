@@ -6,14 +6,18 @@ author: samheetamistry
 ms.author: smistry
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/22/2025
 ---
 
 # Configure signed URLs using the rules engine in Azure Front Door (preview)
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
+
 Azure Front Door supports signed URL as a security feature that enables fine-grained access control to your content. This feature is useful for scenarios like premium content delivery, temporary access to assets, securing APIs, and geo-restricted access. Signed URL works by validating a cryptographic signature included in the request, which is generated using a shared secret and includes parameters such as expiration time and key ID.
 
 ## How signed URL works
+
+Signed URL is implemented as a rules engine action called signed request. This action is evaluated as part of a rule set associated with a route in your Front Door profile:
 
 1. The client authenticates with your origin server.
 1. The origin generates a signature using a shared secret, expiration time, and key ID.
@@ -27,10 +31,6 @@ What would cause a 403 Forbidden response?
 - The signature is invalid.
 - The KeyID used in the request isn't configured for this route.
 
-## Integration with rules engine
-
-Signed URL is implemented as a rules engine action called signed request. This action is evaluated as part of a rule set associated with a route in your Front Door profile.
-
 ### Terminology
 
 * **Signed request key**: A secret stored in Azure Key Vault used to generate and validate signatures.
@@ -43,19 +43,23 @@ Signed URL is implemented as a rules engine action called signed request. This a
 
 Follow these steps to configure signed request using the Azure portal:
 
-1. Create a signed request key in your Azure Front Door profile.
+1. In the Azure portal, go to your Azure Front Door profile.
 
-    :::image type="content" source="./media/front-door-signed-request/signed-request-config-portal-1.png" alt-text="Screenshot that shows signed request key creation in the Azure portal." lightbox="./media/front-door-signed-request/signed-request-config-portal-1.png":::
+1. Under **Security**, select **Signed request key**.
 
-1. Create a signed request key group and add the key to it.
+1. Select **+ Add** to create a new signed request key.
 
-    :::image type="content" source="./media/front-door-signed-request/signed-request-config-portal-2.png" alt-text="Screenshot that shows signed request key group creation in the Azure portal." lightbox="./media/front-door-signed-request/signed-request-config-portal-2.png":::
+1. In **Add a key** page, enter or select your Key vault, secret name and version, and key name and ID. Then select **Save**.
 
-1. Go to the rules engine section of your Front Door profile, create a new rule with the signed request action, and associate it with the key group you created.
+1. Under the **Signed request key groups** tab, select **+ Add** to use the rule engine to create a new signed URL rule set.
 
-    :::image type="content" source="./media/front-door-signed-request/signed-request-config-portal-3.png" alt-text="Screenshot that shows rules engine configuration with signed request action in the Azure portal." lightbox="./media/front-door-signed-request/signed-request-config-portal-3.png":::
+1. Under **Settings**, select **Rules sets**, and then select **+ Add** to create a new rules set.
 
-1. Attach the rule set to the desired route.
+1. Select **Save** to save the rules set.
+
+1. In the **Rule sets** page, select **Refresh** to include the Signed URL rule set.
+
+1. Select the rule set dropdown, and then select **Associate a route** to attach a route to the rule set to implement it.
 
 # [**ARM template**](#tab/arm)
 
@@ -108,12 +112,10 @@ This allows you to build complex access control logic.
 - Combine with WAF policies for enhanced protection.
 - Use server variables to dynamically capture and validate request metadata.
 
-## Limitations
-
 > [!IMPORTANT]
-> If the signed request rules aren't the first set of rules in the rules engine, they won't be evaluated. Ensure that the signed request rules are at the top of the rules engine configuration.
-
-Currently, the edit key group capability isn't supported in the Azure portal. You can delete and recreate the key group to update it.
+> - If the signed request rules aren't the first set of rules in the rules engine, they won't be evaluated. Ensure that the signed request rules are at the top of the rules engine configuration.
+>
+> - Currently, the edit key group capability isn't supported in the Azure portal. You can delete and recreate the key group to update it.
 
 For information about quota limits, see [Front Door limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-service-limits).
 
