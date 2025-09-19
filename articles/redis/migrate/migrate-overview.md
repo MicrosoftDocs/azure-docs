@@ -78,7 +78,7 @@ Let's look at a possible scenario.
 
 You're using E5 with scale 2. Looking at the **Status** on Overview pane, you see Enterprise 8GB (2 x 4GB). This means you're currently using a 8-GB cache. Therefore, you should start with at least 10GB cache on Azure Managed Redis. In this case, use the any of these tiers that offer 12 GB of memory.
 
-| Column1 | Column2           |
+| SKU     |    Tier           |
 |---------|-------------------|
 | M10     | Memory Optimized  |
 | B10     | Balanced          |
