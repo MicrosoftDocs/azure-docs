@@ -73,7 +73,7 @@ Container Instances supports availability zones in different ways, depending on 
 - **Manually created container groups:** An individual container group is a *zonal* resource, which means that it can be deployed into a single availability zone that you select. All containers within the group are deployed into the same availability zone. If that availability zone has an outage, the container group and all of its containers might experience downtime.
 
    :::image type="complex" border="false" source="./media/reliability-containers/container-groups-containers-zonal.png" alt-text="Diagram that shows a container group with two containers deployed into a single availability zone" lightbox="./media/reliability-containers/container-groups-containers-zonal.png":::
-   The image shows three availability zones: Availability Zone 1, Availability Zone 2, and Availability Zone 3. A container group in Availability zone 1 includes two containers.
+   The image shows three availability zones: Availability Zone 1, Availability Zone 2, and Availability Zone 3. A container group in Availability Zone 1 includes two containers.
 :::image-end:::
 
     > [!NOTE]
