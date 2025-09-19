@@ -6,6 +6,7 @@ ms.author: adamdor
 ms.date: 06/10/2025
 ms.topic: how-to
 ms.service: azure-operator-service-manager
+ms.custom: sfi-image-nochange
 ---
 
 # Delete operator resources in Azure Operator Service Manager

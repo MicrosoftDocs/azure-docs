@@ -1368,7 +1368,7 @@ productDirectory:
       imageSrc: ./media/index/operator-nexus.svg
       azureCategories:
        - hybrid
-      url: operator-nexus/index.yml
+      url: /azure/operator-nexus/
     # Card
     - title: Azure Container Storage
       summary: Manage persistent volumes for stateful container applications

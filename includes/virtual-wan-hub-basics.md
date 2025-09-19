@@ -4,6 +4,7 @@ author: cherylmc
 ms.date: 01/14/2025
 ms.service: azure-virtual-wan
 ms.topic: include
+ms.custom: sfi-image-nochange
 ---
 
 1. Go to the virtual WAN that you created. On the virtual WAN page left pane, under the **Connectivity**, select **Hubs**.

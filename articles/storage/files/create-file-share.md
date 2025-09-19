@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 08/22/2025
+ms.date: 09/18/2025
 ms.author: kendownie
 # Customer intent: "As an IT admin, I want to learn how to deploy an NFS file share with Microsoft.FileShares resource provider (preview)."
 ---
@@ -42,6 +42,14 @@ For more information on Azure Files management concepts, see [Planning for an Az
 ## Prerequisites
 
 This article assumes that you have an Azure subscription. If you don't have an Azure subscription, then create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+Please make sure both "Microsoft.FileShares" and "Microsoft.Storage" resource providers are registered for the subscription. 
+To register a resource provider: 
+1. Sign in to Azure portal.
+2. In the search box, enter subscriptions.
+3. Select the subscription you want to use to register a resource provider.
+4. To see the list of resource providers, under Settings select Resource providers.
+5. To register a resource provider, select the resource provider you intend to add and then select Register.
 
 ## Create a file share (Microsoft.FileShares)
 

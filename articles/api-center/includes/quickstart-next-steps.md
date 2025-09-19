@@ -11,7 +11,7 @@ ms.author: danlep
 ms.custom: Include file
 ---
 
-## Next steps
+## Next step
 
 Now you can start adding information to the inventory in your API center. To help you organize your APIs and other information, begin by defining custom metadata in your API center.
 

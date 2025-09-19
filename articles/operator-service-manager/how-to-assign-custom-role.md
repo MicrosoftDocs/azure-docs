@@ -6,6 +6,7 @@ ms.author: sherryg
 ms.date: 10/19/2023
 ms.topic: how-to
 ms.service: azure-operator-service-manager
+ms.custom: sfi-image-nochange
 ---
 
 # Assign a custom role
