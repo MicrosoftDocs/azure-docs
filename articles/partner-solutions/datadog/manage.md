@@ -8,6 +8,7 @@ ms.custom:
   - ai-gen-desc
   - ai-seo-date:12/03/2024
   - ai-gen-title
+  - sfi-image-nochange
 ---
 
 # Manage Datadog resources
