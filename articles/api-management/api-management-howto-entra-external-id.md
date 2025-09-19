@@ -21,8 +21,8 @@ ms.custom:
 
 In this article, you learn the configuration required in your API Management service to integrate with Microsoft Entra External ID. 
 
-    * Currently, API Management supports integration with Microsoft Entra External ID in your *workforce tenant*. For example, if your workforce tenant is for the Contoso organization, you might want to configure Google or Facebook as an external identity provider so that these external users can sign in using those accounts. 
-    * Support for external identity providers in an *external tenant* isn't currently available.
+* Currently, API Management supports integration with Microsoft Entra External ID in your *workforce tenant*. For example, if your workforce tenant is for the Contoso organization, you might want to configure Google or Facebook as an external identity provider so that these external users can sign in using those accounts. 
+* Support for external identity providers in an *external tenant* isn't currently available.
 
 For an overview of options to secure access to the developer portal, see [Secure access to the API Management developer portal](secure-developer-portal-access.md).
 
@@ -102,7 +102,7 @@ In the developer portal, sign-in with Microsoft Entra External ID is possible wi
 
 1. On the **Sign in** page, select **Azure Active Directory**.
 
-    :::image type="content" source="media/api-management-howto-external-id/sign-in.png" alt-text="Select Azure Active Directory on Sign in page in developer portal.":::
+    :::image type="content" source="media/api-management-howto-external-id/developer-portal-sign-in.png" alt-text="Select Azure Active Directory on Sign in page in developer portal.":::
 
 1. In the sign-in window for your Microsoft Entra tenant, select **Sign-in options**. Select the identity provider you configured in your Microsoft Entra tenant to sign in. For example, if you configured Google as an identity provider, select **Sign in with Google**.
 
