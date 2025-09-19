@@ -48,7 +48,7 @@ There are four tiers of Azure Managed Redis available, each with different perfo
 
 ### Tiers and SKUs at a glance
 
-:::image type="content" source="media/overview/sku-tiers.png" alt-text="An image of a table that shows a comparison of skus and tiers." lightbox="media/overview/sku-tiers.png":::
+:::image type="content" source="media/overview/sku-tiers.png" alt-text="An image of a table that shows a comparison of skus and tiers." lightbox="media/overview/sku-tiers-large.png":::
 
 Three tiers store in-memory data:
 - **Memory Optimized** Ideal for memory-intensive use cases that require a high memory-to-vCPU ratio (8:1) but don't need the highest throughput performance. It provides a lower price point for scenarios where less processing power or throughput is necessary, making it an excellent choice for development and testing environments.
