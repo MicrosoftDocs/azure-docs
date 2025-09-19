@@ -2,32 +2,32 @@
   "redirections": [
     {
       "source_path": "articles/update-manager/migration-overview.md",
-      "redirect_url": "/previous-versions/azure/update-manager/migration-overview",
+      "redirect_url": "/azure/update-manager",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/update-manager/migration-using-portal.md",
-      "redirect_url": "/previous-versions/azure/update-manager/migration-using-portal",
+      "redirect_url": "/azure/update-manager",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/update-manager/migration-using-runbook-scripts.md",
-      "redirect_url": "/previous-versions/azure/update-manager/migration-using-runbook-scripts",
+      "redirect_url": "/azure/update-managers",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/update-manager/migration-key-points.md",
-      "redirect_url": "/previous-versions/azure/update-manager/migration-key-points",
+      "redirect_url": "/azure/update-manager",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/update-manager/migration-troubleshoot.md",
-      "redirect_url": "/previous-versions/azure/update-manager/migration-troubleshoot",
+      "redirect_url": "/azure/update-manager",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/update-manager/migration-manual.md",
-      "redirect_url": "/previous-versions/azure/update-manager/migration-manual",
+      "redirect_url": "/azure/update-manager",
       "redirect_document_id": false
     },
     {
