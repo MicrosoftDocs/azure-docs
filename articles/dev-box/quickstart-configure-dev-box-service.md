@@ -50,7 +50,7 @@ Follow these steps to create a dev center and manage your dev box resources:
 
 ### View a dev box definition
 
-When you select the **Create a default dev box definition (recommended)** option, Dev Box creates a dev box definition in your dev center. A dev box definition specifies the VM image and VM SKU (compute size and storage) used to create dev boxes. Depending on the development project or developer profile, you might need multiple dev box definitions. For example, some developers need a specific tool set, while others need a cloud workstation with more compute resources. Dev box definitions in a dev center are available to all projects associated with that dev center. 
+When you select the **Create a default dev box definition (recommended)** option as you create a dev center, Dev Box creates a dev box definition. A dev box definition specifies the VM image and VM SKU (compute size and storage) used to create dev boxes. Depending on the development project or developer profile, you might need multiple dev box definitions. For example, some developers need a specific tool set, while others need a cloud workstation with more compute resources. Dev box definitions in a dev center are available to all projects associated with that dev center. 
 
 To view the dev box definitions for your dev center:
 
@@ -112,11 +112,10 @@ To create and set up a project in a dev box:
 
 1. Check the notifications to confirm the project is created. Select **Go to resource**.
 
-1. Check that the project appears on the **Projects** page.
 
 ## Create a dev box pool
 
-After you define a dev box definition in your dev center, create a dev box pool in the project. A dev box pool is a collection of dev boxes with the same settings, like the dev box definition and network connection. Developers who have access to the project in the dev center can create a dev box from a dev box pool.
+After you create a project in your dev center, create a dev box pool in the project. A dev box pool is a collection of dev boxes with the same settings, like the dev box definition and network connection. Developers who have access to the project can create a dev box from a dev box pool.
 
 Dev box pools set the location of the dev boxes through the specified network connection. Deploy dev boxes to a Microsoft-hosted network or to a network you manage. If you deploy dev boxes to a network you manage, first [configure a network connection](./how-to-configure-network-connections.md). Organizations that support developers in different geographical locations can create dev box pools for each location by specifying a nearby region.
 
@@ -137,20 +136,38 @@ To create a dev box pool associated with a project:
 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/create-pool.png" alt-text="Screenshot of an empty list of dev box pools within a project, along with selections to start creating a pool." lightbox="./media/quickstart-configure-dev-box-service/create-pool.png":::
 
-1. On the **Create a dev box pool** pane, enter the following values:
+1. On the **Create a dev box pool** pane, on the **Basics** tab, enter the following values:
 
    | Setting | Value |
    |---|---|
    | **Name** | Enter a name for the pool. The pool name is visible to developers to select when they're creating dev boxes. The name must be unique within a project. |
-   | **Dev box definition** | Select an existing dev box definition. The definition determines the base image and size for the dev boxes that are created in this pool. |
+   | **Definition** | Select an existing dev box definition or image definition. </br>A dev box definition determines the base image and size for the dev boxes that are created. </br>An image defintion allows you to secify your required Compute and SKU.  |
+   | **Compute** | Image definitions only. Select the VM size for the dev boxes in this pool. |
+   | **Storage** | Image defintions only. Select the storage size for the dev boxes in this pool. |
+   | **Hibernation** | Shows whether hibernation is supported or not. |
+   | **Region** |  |
    | **Network connection** | 1. Select **Deploy to a Microsoft hosted network**. </br>2. Select your desired deployment region for the dev boxes. Choose a region close to your expected dev box users for the optimal user experience. |
-   | **Dev box Creator Privileges** | Select **Local Administrator** or **Standard User**. |
-   | **Enable Auto-stop** | **Yes** is the default. Select **No** to disable an autostop schedule. You can configure an autostop schedule after the pool is created. |
-   | **Stop time** | Select a time to shut down all the dev boxes in the pool. All dev boxes in this pool shut down at this time every day. |
-   | **Time zone** | Select the time zone for the stop time. |
    | **Licensing** | Select this checkbox to confirm that your organization has Azure Hybrid Benefit licenses that you want to apply to the dev boxes in this pool. |
 
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-pool-details.png" alt-text="Screenshot of the pane for creating a dev box pool." lightbox="./media/quickstart-configure-dev-box-service/create-pool-details.png":::
+   :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-pool-create-basics-hibernation.png" alt-text="Screenshot of the Basics pane for creating a dev box pool." lightbox="./media/quickstart-configure-dev-box-service/dev-box-pool-create-basics-hibernation.png":::
+
+1. on the **Management** tab, enter the following values:
+
+   | Setting | Value |
+   |---|---|
+   | **Roles** | |
+   | **Dev box Creator Privileges** | Select **Local Administrator** or **Standard User**. |
+   | **Access** | |
+   | **Enable single sign-on (SSO)** | Select to enable users to sign in to their dev boxes by using their organizational credentials. |
+   | **Headless connections** | Select to enable developers to open a dev box in VS Code without a full desktop experience. |
+   | **Cost controls** | |
+   | **Auto-stop on schedule** | Select the checkbox to enable an autostop schedule. You can also configure an autostop schedule after the pool is created. |
+   | **Stop time** | Select a time to shut down all the dev boxes in the pool. Dev boxes that support hibernation will hibernate at the sepcifiued time. Dev Boxes that do not support hibnation will shut down.  |
+   | **Time zone** | Select the time zone for the stop time. |
+   | **Hibernate on disconnect** | Hibernates dev boxes that no one is connected to after a specified grace period. |
+   | **Grace period** | Hibernates dev boxes that have never been connected to after a specified grace period. |
+
+   :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-pool-create-management-hibernation.png" alt-text="Screenshot of the Management pane for creating a dev box pool." lightbox="./media/quickstart-configure-dev-box-service/dev-box-pool-create-management-hibernation.png":::
 
 1. Select **Create**.
 
