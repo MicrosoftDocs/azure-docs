@@ -76,6 +76,8 @@ To choose the right Azure Managed Redis memory size:
 
 Let's look at a possible scenario. 
 
+:::image type="content" source="../media/migrate-overview/enterprise-overview-resource.png" alt-text="Screenshot of the overview of a enterprise cache." lightbox="../media/migrate-overview/enterprise-overview-resource.png":::
+
 You're using E5 with scale 2. Looking at the **Status** on Overview pane, you see Enterprise 8GB (2 x 4GB). This means you're currently using a 8-GB cache. Therefore, you should start with at least 10GB cache on Azure Managed Redis. In this case, use the any of these tiers that offer 12 GB of memory.
 
 | SKU     |    Tier           |
@@ -145,7 +147,6 @@ RIOT-X provides a way to migrate your content from Enterprise to Azure Managed R
 - Pros: Full control, customizable.
 - Cons: Requires development effort.
 
-<!-- combine document -->
 
 ## Move from Basic, Standard, or Premium caches  to Azure Managed Redis
 
@@ -194,16 +195,11 @@ Here are some other differences to consider when implementing Azure Managed Redi
 | Redis version                    | 6                          | 7.4                                           |
 | Supported TLS versions           | 1.2 and 1.3                | 1.2 and 1.3                                   |
 
-products-by-region/table).
 
-## Migrate your Azure Cache for Redis instance to Azure Managed Redis
 
-> [!NOTE]
-> Make sure to update the rest of your application and related Azure resources as needed to use the cache.
+### Migrate your Azure Cache for Redis instance to Azure Managed Redis
 
-### Select the cache you want to move from the Azure portal
-
-#### Azure Cache for Redis Basic / Standard / Premium nonclustered
+Based on the table, here are some mappings between the Azure Cache for Redis SKUs and options for caches in Azure Managed Redis.
 
 > [!NOTE]
 > Use non High Availability option of Azure Managed Redis for Migrating Basic SKUs
@@ -235,10 +231,6 @@ products-by-region/table).
 - For sharded cluster, choose a Memory Optimized tier that has equivalent total memory.
 - For clusters with more than one read replica, choose a Compute Optimized tier with equivalent total memory as the primary replica.
  
-## Regional availability for Azure Managed Redis
-
-Azure Managed Redis is continually expanding into new regions. To check the availability by region, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/
-
 ### Migration options
 
 Client applications should be able to use an Azure Managed Redis instance that has different clustering modes and endpoints. Azure Cache for Redis and Azure Managed Redis are compatible so no application code changes other than connection configurations are required for most scenarios.
@@ -321,6 +313,10 @@ General steps to implement this option are:
 1. Flush data from the new cache to ensure that it's empty. This step is required because the copy tool itself doesn't overwrite any existing key in the target cache.
  Important: Make sure to NOT flush from the source cache.
 1. Use an application such as the open-source tool mentioned previously to automate the copying of data from the source cache to the target. Remember that the copy process could take a while to complete depending on the size of your dataset.
+ 
+## Regional availability for Azure Managed Redis
+
+Azure Managed Redis is continually expanding into new regions. To check the availability by region, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table).
 
 ## Related content
 
