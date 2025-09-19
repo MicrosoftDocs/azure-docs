@@ -434,7 +434,7 @@ The following screenshot shows an example chat history for the refund scenario a
 
 ### 6.2 - Review the workflow run history for the refund scenario
 
-To view the workflow run history, agent transitions, and handoff calls for this scenario, follow these steps:
+To view the workflow run history and chat history with agent transitions, handoff tool calls, and agent tool calls, follow these steps:
 
 1. From the chat page, return to the designer.
 
@@ -442,9 +442,9 @@ To view the workflow run history, agent transitions, and handoff calls for this 
 
 1. On the **Run history** page, on the **Run history** tab, in the **Identifier** column, select the most recent workflow run.
 
-   The monitoring view opens and shows the **Agent log** pane where you can view the agent transitions:
+   The monitoring view opens and shows the **Agent log** pane, which shows the chat history embedded with agent transitions, handoff tool calls, and agent tool calls. For example:
 
-1. In monitoring view, 
+   :::image type="content" source="media/set-up-handoff-agent-workflow/agent-log-refund-scenario.png" alt-text="Screenshot shows the monitoring view and the agent log pane with chat history, agent transitions, and handoff tool calls for the refund scenario." lightbox="media/set-up-handoff-agent-workflow/agent-log-refund-scenario.png":::
 
 ### 6.3 - Test the sales scenario
 
