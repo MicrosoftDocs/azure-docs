@@ -197,15 +197,6 @@
         href: devtest-lab-upload-vhd-using-storage-explorer.md
     - name: Manage formulas
       href: devtest-lab-manage-formulas.md
-    - name: Create an image factory
-      href: image-factory-create.md
-      items:
-      - name: Run an image factory from Azure DevOps
-        href: image-factory-set-up-devops-lab.md
-      - name: Save custom images and distribute to multiple labs
-        href: image-factory-save-distribute-custom-images.md
-      - name: Set retention policy and run cleanup scripts
-        href: image-factory-set-retention-policy-cleanup.md
   - name: Manage artifacts
     items:
     - name: Add artifacts to a VM

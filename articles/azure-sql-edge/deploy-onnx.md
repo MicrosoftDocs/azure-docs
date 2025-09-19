@@ -9,8 +9,10 @@ ms.date: 09/21/2024
 ms.service: sql
 ms.subservice: machine-learning
 ms.topic: quickstart
-ms.custom: mode-other
 keywords: deploy SQL Edge
+ms.custom:
+  - mode-other
+  - sfi-ropc-nochange
 ---
 # Deploy and make predictions with an ONNX model and SQL machine learning
 

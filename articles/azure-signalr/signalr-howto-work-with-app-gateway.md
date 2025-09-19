@@ -6,6 +6,7 @@ ms.author: lianwei
 ms.date: 05/10/2024
 ms.service: azure-signalr-service
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # How to use Azure SignalR Service with Azure Application Gateway

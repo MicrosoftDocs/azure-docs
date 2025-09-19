@@ -6,6 +6,7 @@ ms.service: azure-avere-vfxt
 ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
+ms.custom: sfi-image-nochange
 # Customer intent: As a cloud administrator, I want to connect to the Avere vFXT control panel via SSH tunnel or VPN, so that I can monitor and configure the vFXT cluster settings effectively.
 ---
 
@@ -21,9 +22,9 @@ There are two basic steps:
 1. Load the cluster's control panel in a web browser
 
 > [!NOTE]
-> This article assumes that you have set a public IP address on the cluster controller or on another VM inside your cluster's virtual network. This article describes how to use that VM as a host to access the cluster. If you are using a VPN or ExpressRoute for virtual network access, skip to [Connect to the Avere Control Panel](#connect-to-the-avere-control-panel-in-a-browser).
+> This article assumes that you've set a public IP address on the cluster controller or on another VM inside your cluster's virtual network. This article describes how to use that VM as a host to access the cluster. If you are using a VPN or ExpressRoute for virtual network access, skip to [Connect to the Avere Control Panel](#connect-to-the-avere-control-panel-in-a-browser).
 
-Before connecting, make sure that the SSH public/private key pair that you used when creating the cluster controller is installed on your local machine. Read the SSH keys documentation for [Windows](/azure/virtual-machines/linux/ssh-from-windows) or for [Linux](/azure/virtual-machines/linux/mac-create-ssh-keys) if you need help. If you used a password instead of a public key, you will be prompted to enter it when you connect.
+Before connecting, make sure that the SSH public/private key pair that you used when creating the cluster controller is installed on your local machine. Read the SSH keys documentation for [Windows](/azure/virtual-machines/linux/ssh-from-windows) or for [Linux](/azure/virtual-machines/linux/mac-create-ssh-keys) if you need help. If you used a password instead of a public key, you're prompted to enter it when you connect.
 
 ## Create an SSH tunnel
 
@@ -41,7 +42,7 @@ Example:
 ssh -L 8443:10.0.0.5:443 azureuser@203.0.113.51
 ```
 
-Authentication is automatic if you used your SSH public key to create the cluster and the matching key is installed on the client system. If you used a password, the system will prompt you to enter it.
+Authentication is automatic if you used your SSH public key to create the cluster and the matching key is installed on the client system. If you used a password, the system prompts you to enter it.
 
 ## Connect to the Avere Control Panel in a browser
 
@@ -61,4 +62,4 @@ Click **Login** or press enter on your keyboard.
 
 ## Next steps
 
-After you have logged in to the cluster's control panel, enable [support](avere-vfxt-enable-support.md).
+After you've logged in to the cluster's control panel, enable [support](avere-vfxt-enable-support.md).

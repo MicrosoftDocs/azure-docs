@@ -2465,6 +2465,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/devtest-labs/image-factory-create.md",
+      "redirect_url": "/azure/virtual-machines/image-builder-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/devtest-labs/image-factory-save-distribute-custom-images.md",
+      "redirect_url": "/azure/virtual-machines/image-builder-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/devtest-labs/image-factory-set-retention-policy-cleanup.md",
+      "redirect_url": "/azure/virtual-machines/image-builder-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/devtest-labs/image-factory-set-up-devops-lab.md",
+      "redirect_url": "/azure/virtual-machines/image-builder-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/devtest-labs/devtest-lab-integrate-ci-cd.md",
       "redirect_url": "/previous-versions/azure/devtest-labs/devtest-lab-integrate-ci-cd",
       "redirect_document_id": false

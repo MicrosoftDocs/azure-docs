@@ -3,6 +3,7 @@ title: Get Support for Confluent Cloud
 description: Learn how to contact support for Confluent Cloud in the Azure portal.
 ms.topic: conceptual
 ms.date: 1/31/2024
+ms.custom: sfi-image-nochange
 
 #customer intent: As a developer, I want learn how to contact support for Apache Kafka & Apache Flink on Confluent Cloud so that I can get help with a problem.
 ---

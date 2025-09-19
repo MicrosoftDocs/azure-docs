@@ -7,6 +7,7 @@ ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 04/12/2023
 ms.author: junbchen
+ms.custom: sfi-ropc-nochange
 #Customer intent: As an Azure Kubernetes Service user, I want to manage all my app settings in one place using Azure App Configuration.
 ---
 

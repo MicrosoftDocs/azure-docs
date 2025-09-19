@@ -6,6 +6,7 @@ ms.author: adamdor
 ms.date: 08/27/2025
 ms.topic: concept-article
 ms.service: azure-operator-service-manager
+ms.custom: sfi-ropc-blocked
 ---
 
 # Helm package requirements for Azure Operator Service Manager

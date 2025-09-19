@@ -4,6 +4,7 @@ description: Manage settings, view resources, reconfigure metrics/logs, and more
 ms.topic: how-to
 zone_pivot_groups: elastic-resource-type
 ms.date: 07/30/2025
+ms.custom: sfi-image-nochange
 #customer intent: As an Azure developer, I want to use the Azure portal manage my Elastic resources that use search, log analytics, and security monitoring functions for Azure environments.
 
 ---

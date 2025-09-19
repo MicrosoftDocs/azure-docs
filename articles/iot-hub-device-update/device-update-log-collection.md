@@ -7,6 +7,7 @@ ms.date: 10/26/2022
 ms.topic: how-to
 ms.service: azure-iot-hub
 ms.subservice: device-update
+ms.custom: sfi-image-nochange
 ---
 
 # Remotely collect diagnostic logs from devices using Device Update for IoT Hub

@@ -6,11 +6,13 @@ ms.author: randolphwest
 ms.date: 10/28/2024
 ms.service: azure-sql-edge
 ms.topic: quickstart
-ms.custom: mode-other
 keywords:
   - SQL Edge
   - container
   - Docker
+ms.custom:
+  - mode-other
+  - sfi-ropc-nochange
 ---
 # Deploy Azure SQL Edge with Docker
 

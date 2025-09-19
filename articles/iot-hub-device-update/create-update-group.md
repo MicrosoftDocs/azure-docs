@@ -7,6 +7,7 @@ ms.date: 01/23/2025
 ms.topic: how-to
 ms.service: azure-iot-hub
 ms.subservice: device-update
+ms.custom: sfi-image-nochange
 ---
 
 # Manage device groups for Azure Device Update for IoT Hub
