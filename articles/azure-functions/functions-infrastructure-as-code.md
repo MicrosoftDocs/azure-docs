@@ -33,6 +33,10 @@ The template code to create the required Azure resources depends on the desired 
 | [Azure Container Apps](functions-infrastructure-as-code.md?pivots=premium-plan) | Container-only | [Container Apps hosting of Azure Functions](../container-apps/functions-overview.md)|
 | [Azure Arc](functions-infrastructure-as-code.md?pivots=premium-plan) | Code \| Container | [App Service, Functions, and Logic Apps on Azure Arc (Preview)](../app-service/overview-arc-integration.md)| 
 
+::: zone pivot="consumption-plan"  
+[!INCLUDE [functions-linux-consumption-retirement](../../includes/functions-linux-consumption-retirement.md)]
+::: zone-end  
+
 When using this article, keep these considerations in mind:
 
 + There's no canonical way to structure an ARM template.

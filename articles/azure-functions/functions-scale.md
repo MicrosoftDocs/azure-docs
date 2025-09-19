@@ -18,6 +18,8 @@ When you create a function app in Azure, you must choose a hosting option for yo
 | **[Container Apps]** | Azure Container Apps | GA | Linux |
 | **[Consumption plan]** | Azure Functions | GA | None |
 
+[!INCLUDE [functions-linux-consumption-retirement](../../includes/functions-linux-consumption-retirement.md)]
+
 Azure Functions hosting options are facilitated by Azure App Service infrastructure on both Linux and Windows virtual machines. The hosting option you choose dictates the following behaviors:
 
 * How your function app is scaled.
@@ -53,10 +55,11 @@ This table shows operating system support for the hosting options.
 | **[Premium plan]** | ✅ Code-only<br/>✅ Container | ✅ Code-only | 
 | **[Dedicated plan]** | ✅ Code-only<br/>✅ Container | ✅ Code-only |
 | **[Container Apps]** | ✅ Container-only | ❌ Not supported |
-| **[Consumption plan]** | ✅ Code-only<br/>❌ Container (not supported) | ✅ Code-only |
+| **[Consumption plan]**<sup>3</sup> | ✅ Code-only<br/>❌ Container (not supported) | ✅ Code-only |
 
 1. Linux is the only supported operating system for the [Python runtime stack](./functions-reference-python.md).  
 2. Windows deployments are code-only. Functions doesn't currently support Windows containers. 
+3. The ability to run your app on Linux in a Consumption plan is planned to be retired on 30 September 2028. For more information, see [Consumption plan].   
 
 [!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 

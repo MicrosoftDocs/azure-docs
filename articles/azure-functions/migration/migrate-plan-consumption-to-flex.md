@@ -6,6 +6,7 @@ ms.collection:
  - migration
 ms.date: 08/28/2025
 ms.topic: concept-article
+zone_pivot_groups: app-service-platform-windows-linux
 
 #customer intent: As a developer, I want to learn how to migrate my existing serverless applications in Azure Functions from the Consumption host plan to the Flex Consumption hosting plan.
 ---
@@ -13,6 +14,8 @@ ms.topic: concept-article
 # Migrate Consumption plan apps to the Flex Consumption plan
 
 This article provides step-by-step instructions for migrating your existing function apps hosted in the [Consumption plan](../consumption-plan.md) in Azure Functions to instead use the [Flex Consumption plan](../flex-consumption-plan.md).
+
+The way you migrate your app to the Flex Consumption plan depends on whether your app runs on Linux or on Windows. Make sure to select your operating system at the top of the article.
 
 When you migrate your existing serverless apps, your functions can easily take advantage of these benefits of the Flex Consumption plan:
 
@@ -101,7 +104,8 @@ Use these steps to make a list of the function apps you need to migrate. In this
 
 The way that function app information is maintained depends on whether your app runs on Linux or Windows.
 
-#### [Linux](#tab/linux/azure-cli)
+::: zone pivot="platform-linux" 
+#### [Azure CLI](#tab/azure-cli)
 
 Use this [`az graph query`](/cli/azure/graph#az-graph-query) command to list all function apps in your subscription that are running in a Consumption plan:
 
@@ -117,7 +121,7 @@ This command generates a table with the app name, location, resource group, and 
 
 You're promoted to install the [resource-graph extension](/cli/azure/graph), if it isn't already installed.
 
-#### [Linux](#tab/linux/azure-portal)
+#### [Azure portal](#tab/azure-portal)
 
 1. Navigate to the [Azure Resource Graph Explorer](https://portal.azure.com/#view/HubsExtension/ArgQueryBlade) in the Azure portal.
 
@@ -136,7 +140,10 @@ You're promoted to install the [resource-graph extension](/cli/azure/graph), if 
 
 This command generates a table with the app name, location, resource group, and runtime stack for all Consumption apps running on Linux in the current subscription.
 
-#### [Windows](#tab/windows/azure-cli)
+---
+::: zone-end
+::: zone pivot="platform-windows" 
+#### [Azure CLI](#tab/azure-cli)
 
 Use this [`az graph query`](/cli/azure/graph#az-graph-query) command to list all function apps in your subscription that are running in a Consumption plan:
 
@@ -151,7 +158,7 @@ This command generates a table with the app name, location, and resource group f
 
 You're promoted to install the [resource-graph extension](/cli/azure/graph), if it isn't already installed.
 
-#### [Windows](#tab/windows/azure-portal)
+#### [Azure portal](#tab/azure-portal)
 
 1. Navigate to the [Azure Resource Graph Explorer](https://portal.azure.com/#view/HubsExtension/ArgQueryBlade) in the Azure portal.
 
@@ -168,6 +175,7 @@ You're promoted to install the [resource-graph extension](/cli/azure/graph), if 
 This command generates a table with the app name, location, and resource group for all Consumption apps running on Windows in the current subscription.
 
 ---
+::: zone-end
 
 ### Confirm region compatibility
 
@@ -643,8 +651,7 @@ To be able to redeploy your app, you must have either your project's source file
 
 If you no longer have access to your project source files, you can download the current deployment package from the existing Consumption plan app in Azure. The location of the deployment package depends on whether you run on Linux or Windows.
 
-#### [Linux](#tab/linux)
-
+::: zone pivot="platform-linux"  
 Consumption plan apps on Linux maintain the deployment zip package file in one of these locations:
 
 + An Azure Blob storage container named `scm-releases` in the default host storage account (`AzureWebJobsStorage`). This container is the default deployment source for a Consumption plan app on Linux.
@@ -653,9 +660,8 @@ Consumption plan apps on Linux maintain the deployment zip package file in one o
 
 >[!TIP]  
 >If your storage account is restricted to managed identity access only, you might need to grant your Azure account read access to the storage container by adding it to the `Storage Blob Data Reader` role.
-
-#### [Windows](#tab/windows)
-
+::: zone-end  
+::: zone pivot="platform-windows"  
 The location of your project source files depends on the `WEBSITE_RUN_FROM_PACKAGE` app setting as follows:
 
 | `WEBSITE_RUN_FROM_PACKAGE` value | Source file location |
@@ -663,11 +669,12 @@ The location of your project source files depends on the `WEBSITE_RUN_FROM_PACKA
 | `1` | The files are in a zip package that is stored in the Azure Files share of the storage account defined by the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` setting. The name of the files share is defined by the `WEBSITE_CONTENTSHARE` setting. |
 | An endpoint URL | The files are in a zip package in an externally accessible location that you maintain. An external package should be hosted in a blob storage container with restricted access. For more information, see [External package URL](../functions-deployment-technologies.md#external-package-url). |
 
----
+::: zone-end
 
 Use these steps to download the deployment package from your current app:
 
-#### [Linux](#tab/linux/azure-cli)
+::: zone pivot="platform-linux" 
+#### [Azure CLI](#tab/azure-cli)
 
 1. Use this [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-list) command to get the  `WEBSITE_RUN_FROM_PACKAGE` app setting, if present:
 
@@ -706,7 +713,7 @@ Use these steps to download the deployment package from your current app:
 
     Again, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with your resource group name and app name. The package .zip file is downloaded to the directory from which you executed the command.
 
-#### [Linux](#tab/linux/azure-portal)
+#### [Azure portal](#tab/azure-portal)
 
 1. In the [Azure portal], search for or otherwise navigate to your function app page.
 
@@ -724,7 +731,10 @@ Use these steps to download the deployment package from your current app:
 
 1. Expand **Data storage** > **Containers** and select `scm_releases`. Choose the file named `scm-latest-<APP_NAME>.zip` and select **Download**.
 
-#### [Windows](#tab/windows/azure-cli)
+---
+::: zone-end
+::: zone pivot="platform-windows" 
+#### [Azure CLI](#tab/azure-cli)
 
 1. Use this [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-list) command to get the  `WEBSITE_RUN_FROM_PACKAGE` app setting, if present:
 
@@ -767,7 +777,7 @@ Use these steps to download the deployment package from your current app:
 
     Again, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with your resource group name and app name. The package .zip file is downloaded to the directory from which you executed the command.
 
-#### [Windows](#tab/windows/azure-portal)
+#### [Azure portal](#tab/azure-portal)
 
 1. In the [Azure portal], search for or otherwise navigate to your function app page.
 
@@ -786,6 +796,7 @@ Use these steps to download the deployment package from your current app:
 1. Expand **Data storage** > **File shares**, select the share name from `WEBSITE_CONTENTSHARE`, and browse to the `data\SitePackages` subfolder. Choose the most recent .zip file and select **Download**.  
 
 ---
+::: zone-end
 
 The deployment package is compressed using the `squashfs` format. To see what's inside the package, you must use tools that can decompress this format.
 

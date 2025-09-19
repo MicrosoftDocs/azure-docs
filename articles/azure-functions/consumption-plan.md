@@ -12,6 +12,8 @@ ms.custom:
 
 When you're using the Consumption plan, instances of the Azure Functions host are dynamically added and removed based on the number of incoming events. The Consumption plan, along with the [Flex Consumption plan](./flex-consumption-plan.md), is a fully *serverless* hosting option for Azure Functions.
 
+[!INCLUDE [functions-linux-consumption-retirement](../../includes/functions-linux-consumption-retirement.md)]
+
 ## Benefits
 
 The Consumption plan scales automatically, even during periods of high load. When running functions in a Consumption plan, you're charged for compute resources only when your functions are running. On a Consumption plan, a function execution times out after a configurable period of time.
