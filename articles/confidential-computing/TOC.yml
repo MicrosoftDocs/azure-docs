@@ -71,10 +71,12 @@
       items:
       - name: Create CVM through the Azure portal
         href: quick-create-portal.md
-      - name: Create CVM through the Azure Marketplace
-        href: quick-create-marketplace.md
       - name: Create CVM through Azure CLI
         href: quick-create-confidential-vm-azure-cli.md
+      - name: Create CVM through ARM template
+        href: quick-create-confidential-vm-arm.md
+      - name: Create CVM through the Azure Marketplace
+        href: quick-create-marketplace.md
       - name: Create Hardened VMSS via Azure CLI
         href: vmss-deployment-from-hardened-linux-image.md
       - name: Sample scripts to create CVMs
