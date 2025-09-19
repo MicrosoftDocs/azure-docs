@@ -179,17 +179,15 @@ items:
 #         href: review-sap-assessment.md
 - name: Execute Migrations
   items:
-  - name: Migration overview
-    items: 
-    - name: Overview of Migration method
-      href: server-migrate-overview.md
+  - name: Overview of migration method
+    href: server-migrate-overview.md
   - name: Support Matrix
     items:
-    - name: Support matrix for VMware 
+    - name: VMware vSphere migration requirements 
       href: migrate-support-matrix-vmware-migration.md
-    - name: Physical agent-based
+    - name: Physical Agent-based migration requirements
       href: ../site-recovery/vmware-physical-azure-support-matrix.md?=/learn/azure/site-recovery/toc.json
-    - name: Hyper-V support matrix
+    - name: Hyper-V migration requirements
       href: migrate-support-matrix-hyper-v-migration.md
   # - name: Agent-based migrations
   #   items:
