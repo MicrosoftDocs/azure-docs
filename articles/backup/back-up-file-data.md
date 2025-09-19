@@ -2,7 +2,7 @@
 title: Back up file data with MABS
 description: You can back up file data on server and client computers with MABS.
 ms.topic: how-to
-ms.date: 09/11/2024
+ms.date: 09/19/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: As a system administrator, I want to implement file data backups using Azure Backup Server, so that I can ensure the safety and availability of critical data on both server and client machines.
@@ -43,11 +43,11 @@ To back up file data with MABS, follow these steps:
 1. In **Select Group Members** add the machines for which you want to back up file data to the protection group. On those machines you select the locations, shares, and folders you want to protect.  [Deploy protection groups](backup-support-matrix-mabs-dpm.md). You can select different types of folders (such as Desktop) or different file  or the entire volume. You can also exclude specific locations from protection.
 
    >[!NOTE]
-   > If you are protecting the volume on which the deduplication is enabled, ensure that the [Data Deduplication](/windows-server/storage/data-deduplication/install-enable) server role is installed on the MABS server. See the [support matrix](backup-support-matrix-mabs-dpm.md#deduplicated-volumes-support) for detailed information on deduplication.   
+   > If you're protecting the volume on which the deduplication is enabled, ensure that the [Data Deduplication](/windows-server/storage/data-deduplication/install-enable) server role is installed on the MABS server. See the [support matrix](backup-support-matrix-mabs-dpm.md#deduplicated-volumes-support) for detailed information on deduplication.   
 
-1. In **Select data protection method**  specify how you want to manage short and long-term backup. Short-term backup is always to disk first, with the option of backing up from the disk to the Azure cloud with Azure backup (for short or long-term). As an alternative to long-term backup to the cloud you can also configure long-term back up to a standalone tape device or tape library connected to the MABS server.
+1. On **Select data protection method**  specify how you want to manage short and long-term backup. Short-term backup is always to disk first, with the option of backing up from the disk to the Azure cloud with Azure backup (for short or long-term). As an alternative to long-term backup to the cloud you can also configure long-term back up to a standalone tape device or tape library connected to the MABS server.
 
-1. In **Select short-term goals** specify how you want to back up to short-term storage on disk.  In **Retention range** specify how long you want to retain the data on disk. In **Synchronization frequency** specify how often you want to run an incremental backup to disk. If you don't want to set a backup interval, you can check **Just before a recovery point** so that MABS runs an express full backup just before each recovery point is scheduled.
+1. On **Select short-term goals** specify how you want to back up to short-term storage on disk. On **Retention range** specify how long you want to retain the data on disk. In **Synchronization frequency** specify how often you want to run an incremental backup to disk. If you don't want to set a backup interval, you can check **Just before a recovery point** so that MABS runs an express full backup just before each recovery point is scheduled.
 
 1. If you want to store data on tape for long-term storage in **Specify long-term goals** indicate how long you want to retain tape data (1-99 years). In Frequency of backup specify how often backups to tape should run. The frequency is based on the retention range you've specified:
 
@@ -57,7 +57,7 @@ To back up file data with MABS, follow these steps:
 
    - When the retention range is 1-4 weeks, you can select backups to occur daily or weekly.
 
-   On a stand-alone tape drive, for a single protection group, MABS uses the same tape for daily backups until there is insufficient space on the tape. You can also co-locate data from different protection groups on tape.
+   On a stand-alone tape drive, for a single protection group, MABS uses the same tape for daily backups until there's insufficient space on the tape. You can also colocate data from different protection groups on tape.
 
    On the **Select Tape and Library Details** page specify the tape/library to use, and whether data should be compressed and encrypted on tape.
 
@@ -65,9 +65,9 @@ To back up file data with MABS, follow these steps:
 
    **Total Data size** is the size of the data you want to back up, and **Disk space to be provisioned on MABS** is the space that MABS recommends for the protection group. MABS chooses the ideal backup volume, based on the settings. However, you can edit the backup volume choices in the **Disk allocation details**. For the workloads, select the preferred storage in the dropdown menu. Your edits change the values for **Total Storage** and **Free Storage** in the **Available Disk Storage** pane. Underprovisioned space is the amount of storage MABS suggests you add to the volume, to continue with backups smoothly in the future.
 
-1. In **Choose replica creation method** select how you want to handle the initial full data replication.  If you select to replicate over the network we recommended you choose an off-peak time. For large amounts of data or less than optimal network conditions, consider replicating the data offline using removable media.
+1. On **Choose replica creation method** select how you want to manage the initial full data replication. If you select to replicate over the network we recommended you choose an off-peak time. For large amounts of data or less than optimal network conditions, consider replicating the data offline using removable media.
 
-1. In **Choose consistency check options**, select how you want to automate consistency checks. You can enable a check to run only when replica data becomes inconsistent, or according to a schedule. If you don't want to configure automatic consistency checking, you can run a manual check at any time by right-clicking the protection group in the **Protection** area of the MABS console, and selecting **Perform Consistency Check**.
+1. On **Choose consistency check options**, select how you want to automate consistency checks. You can enable a check to run only when replica data becomes inconsistent, or according to a schedule. If you don't want to configure automatic consistency checking, you can run a manual check at any time by right-clicking the protection group in the **Protection** area of the MABS console, and selecting **Perform Consistency Check**.
 
  1. If you've selected to back up to the cloud with Azure Backup, on the **Specify online protection data** page, make sure that the workloads you want to back up to Azure are selected.
 
@@ -124,7 +124,7 @@ To recover data from the MABS console, follow these steps:
    >[!Note]
    >Any synchronization job for the selected recovery item will be canceled while the recovery is in progress.
 
-When using Modern Backup Storage (MBS), File Server end-user recovery (EUR) is not supported. File Server EUR has a dependency on the Volume Shadow Copy Service (VSS), which Modern Backup Storage does not use. If end-user recovery is enabled, then recover data as follows:
+When you use Modern Backup Storage (MBS), File Server end-user recovery (EUR) isn't supported. File Server EUR has a dependency on the Volume Shadow Copy Service (VSS), which Modern Backup Storage doesn't use. If end-user recovery is enabled, then recover data as follows:
 
 1. Go to the protected data file. Right-click the file name > **Properties**.
 
