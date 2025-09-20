@@ -446,8 +446,71 @@ To view the workflow run history and chat history with agent transitions, handof
 
    :::image type="content" source="media/set-up-handoff-agent-workflow/agent-log-refund-scenario.png" alt-text="Screenshot shows the monitoring view and the agent log pane with chat history, agent transitions, and handoff tool calls for the refund scenario." lightbox="media/set-up-handoff-agent-workflow/agent-log-refund-scenario.png":::
 
+1. Confirm the following behavior for the system:
+
+   - The agent transitions, handoff tool calls, and agent tool calls look correct.
+   - The refund specialist agent uses only the **look_up_item** and **process_refund** tools.
+
 ### 6.3 - Test the sales scenario
 
+For this scenario, the expected behavior follows these steps, while keeping the chat context across agent handoffs:
+
+1. The **Customer service agent** identifies the request as a sales question.
+1. The **Customer service agent** automatically hands off to the **Sales specialist agent**.
+1. The **Sales specialist agent** searches for products and helps with the customer purchase using the tools you built.
+
+To test this scenario, follow these steps:
+
+1. On the designer toolbar, select **Chat**.
+
+1. In the chat box, enter the following text: `I'm looking for a new laptop for work. Can you help me find something?`
+
+   The customer service agent greets the customer and asks for more information about the customers's needs and budget.
+
+1. Enter an example budget amount: `$1200`
+
+   The sales agent responds with products that match closest to the customer's criteria.
+
+1. Enter a request to place an order, for example: `Please place an order for an Adatum M2?`
+
+   The sales agent responds that the order is successfully processed, and offers more help for shipping or other needs.
+
+The following screenshot shows an example chat history for the sales scenario and where different agents have control at different points in the conversation:
+
+:::image type="content" source="media/set-up-handoff-agent-workflow/test-sales-scenario.png" alt-text="Screenshot shows the chat history for the test sales scenario." lightbox="media/set-up-handoff-agent-workflow/test-sales-scenario.png":::
+
+### 6.4 - Review the workflow run history for the sales scenario
+
+To view the workflow run history and chat history with agent transitions, handoff tool calls, and agent tool calls, follow these steps:
+
+1. From the chat page, return to the designer.
+
+1. On the workflow sidebar, under **Tools**, select **Run history**.
+
+1. On the **Run history** page, on the **Run history** tab, in the **Identifier** column, select the most recent workflow run.
+
+   The monitoring view opens and shows the **Agent log** pane, which shows the chat history embedded with agent transitions, handoff tool calls, and agent tool calls. For example:
+
+   :::image type="content" source="media/set-up-handoff-agent-workflow/agent-log-sales-scenario.png" alt-text="Screenshot shows the monitoring view and the agent log pane with chat history, agent transitions, and handoff tool calls for the sales scenario." lightbox="media/set-up-handoff-agent-workflow/agent-log-sales-scenario.png":::
+
+1. Confirm the following behavior for the system:
+
+   - The agent transitions, handoff tool calls, and agent tool calls look correct.
+   - The refund specialist agent uses only the **search_products** and **process_order** tools.
+
+### 6.5 - Try other tests
+
+You can perform other tests to check that the handoff pattern works as expected, for example:
+
+- Mixed request test: Start with a refund request, and then ask about sales.
+
+  Prompt: `Actually, after the refund, I want to buy something new. What do you recommend?`
+  Expected behavior: The refund specialist agent hands back control to the customer service agent, which then hands off control to the sales specialist agent.
+
+- Outside the domain test: When you're chatting with the sales specialist agent, ask the agent about an unrelated topic.
+
+  Prompt: `Can you help me with a billing dispute?`
+  Expected behavior: The sales specialist agent hands back control to the customer service agent, which then hands off control to the refund specialist agent.
 
 [!INCLUDE [clean-up-resources](includes/clean-up-resources.md)]
 
@@ -495,3 +558,5 @@ The following table lists common problems that you might encounter with the hand
 
 - [Single agent versus multiple agents](single-versus-multiple-agents.md)
 - [Create conversational agent workflows](create-conversational-agent-workflows.md)
+- [Lab: Implement the handoff pattern](https://azure.github.io/logicapps-labs/docs/logicapps-ai-course/build_multi_agent_systems/handoff-pattern)
+
