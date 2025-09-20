@@ -52,15 +52,15 @@ You can create a job in one of three ways:
 
 1. On the **Job configuration** page, in the **Job details** section enter a **name** and **description** for the job.
 1. Select the spark pool size to run the job according to your jobs compute needs.
-1. To run a job manually without a schedule, select **On demand** in the  **Schedule** section., then select **Submit** to save the job configuration and publish the job.
+1. To run a job manually without a schedule, select **On demand** in the  **Schedule** section, then select **Submit** to save the job configuration and publish the job.
     
 1. To specify a schedule for the job, select **Scheduled** in the **Schedule** section.  
     1. Select a **Repeat frequency** for the job. You can choose from **By the minute**, **Hourly**, **Weekly**, **Daily**, or **Monthly**.
-    1. Depending on the frequency you select, additional options are displayed to configure the schedule, for example day of the week, time of day, or day of the month.
+    1. Additional options are displayed to configure the schedule, depending on the frequency you select. For example day of the week, time of day, or day of the month.
 
     1. Select a **Start on** time for the schedule to start running.
     1. Select an **End on** time for the schedule to stop running. If you don't want to set an end time for the schedule, select **Set job to run indefinitely**.
-    Dates and times are in the users timezone.
+    Dates and times are in the user's timezone.
 
     1. Select **Submit** to save the job configuration and publish the job.
 
@@ -73,35 +73,34 @@ You can create a job in one of three ways:
 
     :::image type="content" source="./media/notebook-jobs/job-details.png" lightbox="./media/notebook-jobs/job-details.png" alt-text="A screenshot showing the job details page."  :::
 
-1. View the job status in the **Runs** tab.
+1. View the job history in the **Run history** tab.
 
-    :::image type="content" source="./media/notebook-jobs/job-runs.png" lightbox="./media/notebook-jobs/job-runs.png" alt-text="A screenshot showing the job runs page."  :::
+    :::image type="content" source="./media/notebook-jobs/run-history.png" lightbox="./media/notebook-jobs/run-history.png" alt-text="A screenshot showing the job runs page."  :::
 
+1. Select an activity to see more details.
+    :::image type="content" source="./media/notebook-jobs/run-details.png" lightbox="./media/notebook-jobs/run-details.png" alt-text="A screenshot showing the job details page.":::
 
-## Edit a published job
+## Edit a submitted job
 
-Publishing a job creates a job definition that includes the notebook file, the job configuration, and the schedule. The job definition is uploaded from your VS Code editor and stored in the Microsoft Sentinel data lake. Once published, the job is no longer connected to the notebook file on your local file system. If you want to edit the code in the notebook job, you must download the job definition, edit the notebook file, and then republish the job.
+Submitting a job creates a job definition that includes the notebook file, the job configuration, and the schedule. The job definition is uploaded from your VS Code editor and stored in the Microsoft Sentinel data lake. Once submitted, the job is no longer connected to the notebook file on your local file system. If you want to edit the code in the notebook job, you must download the job definition, edit the notebook file, and then resubmit the job.
 
-To edit a published job follow the steps below:
-
-### Download a published job to your local file system
+To edit a submitted job follow the steps below:
 
 1. In the **Jobs** section, select the job you want to edit.
-1. Select the **Download** icon to download the job definition to your local file system.
-1. Save the workbook to your local file system.
-    :::image type="content" source="./media/notebook-jobs/download-job.png" lightbox="./media/notebook-jobs/download-job.png" alt-text="A screenshot showing the download job icon in VS Code."  :::
+1. Select the **Download** cloud icon to download the job definition to your local file system. In the jobs details editor, you can see the job configuration. You can also select **Download latest notebook**.
+
+    :::image type="content" source="./media/notebook-jobs/edit-download-job.png" lightbox="./media/notebook-jobs/edit-download-job.png" alt-text="A screenshot showing the edit and download job icon in VS Code."  :::
+
 1. Edit the downloaded `ipynb` workbook file to make your changes.
-1. Test the notebook file in your local environment to ensure it runs correctly.
 
-### Edit the configuration and republish
+1. Return to the **Job details** tab and select **Edit job**.
 
-1. Right-click the yaml file for your notebook and select **Open With...** 
-    :::image type="content" source="./media/notebook-jobs/right-click-yaml.png" lightbox="./media/notebook-jobs/right-click-yaml.png" alt-text="A screenshot showing how to open the job configuration editor in VS Code."  :::    
-1. Select  **Scheduled job configuration editor** to open the job configuration editor.
-    :::image type="content" source="./media/notebook-jobs/select-scheduled-jobs-configuration-editor.png" lightbox="./media/notebook-jobs/select-scheduled-jobs-configuration-editor.png" alt-text="A screenshot showing the editor selection dropdown.":::
+1. Edit the job name, description, cluster configuration, and schedule. Changing the job name creates a new job definition when you submit the job.
+1. Select **Submit** to upload the updated notebook file and job configuration.
 
-1. In the job configuration editor, you can edit the job name, description, and schedule. Changing the job name creates a new job definition when you publish the job.
-1. Select **Publish job** to upload the updated notebook file and job configuration.
+1. A confirmation is displayed when the job is successfully submitted.
+
+    :::image type="content" source="./media/notebook-jobs/edit-job.png" lightbox="./media/notebook-jobs/edit-job.png" alt-text="A screenshot showing the edit jib page in VS Code.":::
 
 
 
@@ -112,6 +111,15 @@ In addition to viewing jobs in VS Code, you can also view your notebook jobs in 
 The page shows a list of jobs and their types. Select a notebook job to view its details. You can enable and disable the job's schedule but you can't edit a notebook job in the Defender portal.
 
 :::image type="content" source="media/notebook-jobs/view-jobs-in-defender-portal.png" lightbox="media/notebook-jobs/view-jobs-in-defender-portal.png" alt-text="A screenshot showing the jobs page in the Defender portal.":::
+
+1. Select a job to view the job details.
+
+:::image type="content" source="media/notebook-jobs/portal-job-details.png" lightbox="media/notebook-jobs/portal-job-details.png" alt-text="A screenshot showing the job details in the Defender portal.":::
+
+1. Select **View history** to see the history of job runs.
+
+:::image type="content" source="media/notebook-jobs/portal-job-history.png" lightbox="media/notebook-jobs/portal-job-history.png" alt-text="A screenshot showing the jobs history page in the Defender portal.":::
+
 
 
 ## Service parameters and limits and troubleshooting

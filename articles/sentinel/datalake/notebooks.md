@@ -23,7 +23,7 @@ This article shows you how to explore and interact with data lake data using Jup
 
 ### Onboard to the Microsoft Sentinel data lake
 
-To use notebooks in the Microsoft Sentinel data lake, you must first onboard to the data lake. If you haven't onboarded to the Microsoft Sentinel data lake, see [Onboarding to Microsoft Sentinel data lake](./sentinel-lake-onboarding.md). If you have recently onboarded to the data lake, it may take some time until sufficient volume of data is ingested before you can create meaningful analyses using notebooks.
+To use notebooks in the Microsoft Sentinel data lake, you must first onboard to the data lake. If you haven't onboarded to the Sentinel data lake, see [Onboarding to Microsoft Sentinel data lake](./sentinel-lake-onboarding.md). If you have recently onboarded to the data lake, it may take some time until sufficient volume of data is ingested before you can create meaningful analyses using notebooks.
 
 ### Permissions
 
@@ -79,7 +79,7 @@ After installing the Microsoft Sentinel extension, you can start exploring data 
 
 ### View data lake tables and jobs
 
-Once you sign in, the Microsoft Sentinel extension displays a list of **Lake tables** and **Jobs** in the left pane. The tables are grouped by the database and category. Select a table to see the column definitions.
+Once you sign in, the Sentinel extension displays a list of **Lake tables** and **Jobs** in the left pane. The tables are grouped by the database and category. Select a table to see the column definitions.
 
 For information on Jobs, see [Jobs and Scheduling](#jobs-and-scheduling).
 
@@ -140,15 +140,13 @@ The status bar at the bottom of the notebook provides information about the curr
 
 ## Set session timeouts
 
-You can set the session timeout and timeout warnings for interactive notebooks. To change the timeout, select the connection status in the status bar at the bottom of the notebook. Chose from the following options:
-- **Set session timeout period**: Sets the time in minutes before a the session times out. The default is 30 minutes.
+You can set the session timeout and timeout warnings for interactive notebooks. To change the timeout, select the connection status in the status bar at the bottom of the notebook. Choose from the following options:
+- **Set session timeout period**: Sets the time in minutes before the session times out. The default is 30 minutes.
 - **Reset session timeout period**: Resets the session timeout to the default value of 30 minutes.
-- **Set session timeout warning period**: Sets the time in minutes before a warning is displayed that the session is about to time out. The default is 5 minutes.
+- **Set session timeout warning period**: Sets the time in minutes before the timeout that a warning is displayed that the session is about to time out. The default is 5 minutes.
 - **Reset session timeout warning period**: Resets the session timeout warning to the default value of 5 minutes.
 
    :::image type="content" source="./media/notebooks/set-timeouts.png" lightbox="./media/notebooks/set-timeouts.png" alt-text="A screenshot showing the session timeout setting.":::  
-
-
 
 
 ## Use GitHub Copilot in notebooks
