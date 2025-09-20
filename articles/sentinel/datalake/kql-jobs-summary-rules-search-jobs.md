@@ -53,7 +53,7 @@ If you have any of the following requirements, use search jobs:
 
 | Feature | KQL Jobs | Summary Rules | Search jobs |
 |---|---|---|---|
-| **Source data tier** | Microsoft Sentinel data lake tier | Analytics, auxiliary, basic, data lake (except for tables in the default workspace) | Analytics, data lake (except for tables in the default workspace). For non-data-lake workspaces: Auxiliary, Basic, Archived tier |
+| **Source data tier** | Microsoft Sentinel data lake tier | Analytics, auxiliary, basic, data lake (except for tables in System tables) | Analytics, data lake (except for tables in System tables). For non-data-lake workspaces: Auxiliary, Basic, Archived tier |
 | **Workspace scope** | Any Microsoft Sentinel workspace connected to Microsoft Defender | Any Microsoft Sentinel workspace connected to Microsoft Defender | Any Microsoft Sentinel workspace |
 | **Table scope** | Multiple tables | Multiple tables | Single table |
 | **Query language** | [KQL jobs supported operators](/azure/sentinel/datalake/kql-jobs#considerations-and-limitations)| Limited [KQL operators](/azure/azure-monitor/logs/summary-rules?tabs=api#create-or-update-a-summary-rule) | [Limited KQL operators](/azure/azure-monitor/logs/search-jobs#kql-query-considerations) |
