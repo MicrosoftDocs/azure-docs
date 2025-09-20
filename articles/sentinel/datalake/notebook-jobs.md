@@ -34,7 +34,7 @@ To assign the role, follow the steps below:
 
 For more information on assigning roles to managed identities, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
-## Create and schedule a job
+## Create and schedule a job 
 
 You can create a job in one of three ways:
 
