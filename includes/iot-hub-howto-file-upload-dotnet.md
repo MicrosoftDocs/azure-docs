@@ -8,7 +8,11 @@ ms.service: azure-iot-hub
 ms.devlang: csharp
 ms.topic: include
 ms.date: 12/12/2024
-ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
+ms.custom:
+  - mqtt
+  - devx-track-csharp
+  - devx-track-dotnet
+  - sfi-ropc-nochange
 ---
 
 ## Overview

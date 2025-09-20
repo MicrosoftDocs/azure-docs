@@ -6,7 +6,6 @@ ms.author: guywild
 ms.topic: reference
 ms.date: 10/18/2021
 
-
 #Customer intent: As a security analyst, I want to integrate various security tools and automate threat responses using SOAR capabilities, so that I can enhance incident management and streamline security operations.
 
 ---

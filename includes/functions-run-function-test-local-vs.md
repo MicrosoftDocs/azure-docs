@@ -4,6 +4,7 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/06/2020
 ms.author: glenga
+ms.custom: sfi-image-nochange
 ---
 
 1. To run your function, press <kbd>F5</kbd> in Visual Studio. You might need to enable a firewall exception so that the tools can handle HTTP requests. Authorization levels are never enforced when you run a function locally.
