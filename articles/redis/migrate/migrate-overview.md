@@ -210,7 +210,7 @@ Here are some other differences to consider when implementing Azure Managed Redi
 | Supported TLS versions           | 1.2 and 1.3                | 1.2 and 1.3                                   |
 
 
-### Migrate your Azure Cache for Redis instance to Azure Managed Redis
+### Migrate your Basic, Standard, or Premium cache to Azure Managed Redis
 
 Based on the table, here are some mappings between the Azure Cache for Redis SKUs and options for caches in Azure Managed Redis.
 
