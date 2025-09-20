@@ -465,7 +465,7 @@ To test this scenario, follow these steps:
 
 1. In the chat box, enter the following text: `I'm looking for a new laptop for work. Can you help me find something?`
 
-   The customer service agent greets the customer and asks for more information about the customers's needs and budget.
+   The customer service agent greets the customer and asks for more information about the customer's needs and budget.
 
 1. Enter an example budget amount: `$1200`
 
@@ -507,7 +507,7 @@ You can perform other tests to check that the handoff pattern works as expected,
   Prompt: `Actually, after the refund, I want to buy something new. What do you recommend?`
   Expected behavior: The refund specialist agent hands back control to the customer service agent, which then hands off control to the sales specialist agent.
 
-- Outside the domain test: When you're chatting with the sales specialist agent, ask the agent about an unrelated topic.
+- Outside the domain test: When you're chatting with the sales specialist agent, ask the agent about an unrelated area.
 
   Prompt: `Can you help me with a billing dispute?`
   Expected behavior: The sales specialist agent hands back control to the customer service agent, which then hands off control to the refund specialist agent.
