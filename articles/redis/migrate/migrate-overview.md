@@ -218,7 +218,7 @@ Based on the table, here are some mappings between the Azure Cache for Redis SKU
 > Use non High Availability option of Azure Managed Redis for Migrating Basic SKUs
 
 | Azure Cache for Redis | Azure Managed Redis      | Additional memory (%) |
-|:-----------------------|:------------------------|:---------------------|
+|:-----------------------|:------------------------|---------------------:|
 | Basic/Standard - C0   | Balanced - B0            | 50                    |
 | Basic/Standard - C1   | Balanced - B1            | 0                     |
 | Basic/Standard - C2   | Balanced - B3            | 17                    |
