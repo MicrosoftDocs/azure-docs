@@ -144,7 +144,7 @@ Here's the basic export/import procedure:
 
 1. Export RDB from existing Redis Enterprise cache to your Azure Storage account.
 1. Import data from Azure Storage account into a new Azure Managed Redis cache.
-1. Read more about data export/import here [Import and Export data in Azure Managed Redis](how-to-import-export-data).
+1. Read more about data export/import here [Import and Export data in Azure Managed Redis](../how-to-import-export-data.md).
 
 ### Dual-Write Strategy
 
