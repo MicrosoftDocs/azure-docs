@@ -1,5 +1,5 @@
 ---
-title: 'Guidance on publishing high quality solutions for Microsoft Sentinel'
+title: Sentinel solution quality guidelines
 description: This article guides you through the process of publishing high quality solutions for Microsoft Sentinel.
 author: anilgodavarthy
 ms.author: angodavarthy
@@ -10,7 +10,7 @@ ms.date: 10/08/2024
 #CustomerIntent: As a ISV partner, I want clear guidance on how I can build and publish high quality solutions to Microsoft Sentinel so that customers can get a truly out-of-the-box experience using my solution.
 ---
 
-# Guidance on publishing high quality solutions for Microsoft Sentinel
+# Sentinel solution quality guidelines
 
 Microsoft Sentinel is a scalable, cloud-native security information event management (SIEM) and security orchestration automated response (SOAR) solution. It provides intelligent security analytics and threat intelligence across the enterprise. This document outlines the requirements and best practices to be considered when building solutions for Microsoft Sentinel. Some of the recommendations, such as using Codeless Connector Framework (CCF) for building data connectors, is a requirement that the partners must meet to have their code certified in GitHub by the Microsoft Sentinel team. These requirements are classified as must-haves in this document. This document also provides best practices that, while not mandatory, are highly recommended to help customers maximize the benefits of their solutions and encourage the use of your products and services.
 

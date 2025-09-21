@@ -812,28 +812,32 @@
   items:
     - name: Overview
       href: sentinel-integration-guide.md
+    - name: Components and patterns
+      href: partner-integrations.md
     - name: Sentinel solution quality guidelines
       href: sentinel-solution-quality-guidance.md
-    - name: Partner integrations best practices
-      href: partner-integrations.md
-    - name: Creating codeless data connectors (CCF)
-      href: create-codeless-connector.md
-    - name: Creating analytics rules
-      href: sentinel-analytic-rules-creation.md
-    - name: Creating hunting queries
-      href: sentinel-hunting-rules-creation.md
-    - name: Creating summary rules
-      href: sentinel-summary-rules-creation.md
-    - name: Creating workbooks
-      href: sentinel-workbook-creation.md
-    - name: Creating playbooks
-      href: sentinel-playbook-creation.md
-    - name: Creating ASIM parsers
-      href: normalization-develop-parsers.md
+    - name: Sentinel SIEM content 
+      items:
+      - name: Creating codeless data connectors (CCF)
+        href: create-codeless-connector.md
+      - name: Creating analytics rules
+        href: sentinel-analytic-rules-creation.md
+      - name: Creating hunting queries
+        href: sentinel-hunting-rules-creation.md
+      - name: Creating summary rules
+        href: sentinel-summary-rules-creation.md
+      - name: Creating workbooks
+        href: sentinel-workbook-creation.md
+      - name: Creating playbooks
+        href: sentinel-playbook-creation.md
+      - name: Creating ASIM parsers
+        href: normalization-develop-parsers.md
     - name: Publish solutions
-      href: publish-sentinel-solutions.md
-    - name: Solution lifecycle post publish
-      href: sentinel-solutions-post-publish-tracking.md
+      items:
+      - name: Publishing a Sentinel SIEM solution
+        href: publish-sentinel-solutions.md
+      - name: Solution lifecycle post publish
+        href: sentinel-solutions-post-publish-tracking.md
     - name: Remove Microsoft Sentinel from your workspace
       items:
         - name: Overview
