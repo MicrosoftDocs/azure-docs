@@ -208,51 +208,38 @@ You can schedule jobs to run at specific times or intervals using the Microsoft 
 
 The following table lists common errors you may encounter when working with notebooks, their root causes and suggested actions to resolve them.
 
-### Spark compute
 
-| Error message| Display surface | Message description  | Root cause | Suggested action |
-|-------------------|-----------------|----------------------|------------|------------------|
-| **LIVY_JOB_TIMED_OUT: Livy session has failed. Session state: Dead. Error code: LIVY_JOB_TIMED_OUT. Job failed during run time with state=[dead]. Source: Unknown.**  | In-Line. | Session timed out or user stopped the session. | Session timed out or user stopped the session.  | Execute the cell again.  |
-| **Not enough capacity is available. User requested for X vCores but only {number-of-cores} vCores are available.** | Output channel – “Window”. | Spark compute pool not available. | Compute pool hasn't started or is being used by other users or jobs. | Retry with a smaller pool, stop any active Notebooks locally, or stop any active Notebook Job Runs. |
-| **Unable to access Spark Pool – 403 Forbidden.** | Output channel – “Window”. | Spark pools aren't displayed. | User doesn't have the required roles to run interactive notebook or schedule job. | Check if you have the required role for interactive notebooks or notebook jobs. |
-| **Spark Pool – \<name\> – is being upgraded.** | Toast alert. | One of the Spark pools is Not available. | Spark pool is being upgraded to the latest version of Microsoft Sentinel Provider. | Wait for ~20-30 mins for the Pool to be available. |
-| **An error occurred while calling z:org.apache.spark.api.python.PythonRDD.collectAndServe. : org.apache.spark.SparkException: Job aborted due to stage failure: Total size of serialized results (4.0 GB) is bigger than spark.driver.maxResultSize (4.0 GB)** | Inline. | Driver memory exceeded or executor failure. | Job ran out of driver memory, or one or more executors failed. | View job run logs or optimize your query. Avoid using toPandas() on large datasets. Consider setting `spark.conf.set("spark.sql.execution.arrow.pyspark.enabled", "true")` if needed. |
-| **Failed to connect to the remote Jupyter Server 'https://api.securityplatform.microsoft.com/spark-notebook/interactive'. Verify the server is running and reachable.**|	Toast alert |	User stopped the session, and failed to connect to server. |	User stopped the session.	| Run the cell again to reconnect the session.|
-
-### VS Code Runtime
-
-| Error message | Display surface | Message description  | Root cause | Suggested action |
-|-------------------|-----------------|----------------------|------------|------------------|
-| **Kernel with id – k1 - has been disposed.** | Output channel – “Jupyter”. | Kernel not connected. | VS Code lost connection to the compute kernel. | Reselect the Spark pool and execute a cell. |
-| **ModuleNotFoundError: No module named 'MicrosoftSentinelProvider'.** | Inline. | Module not found. | Missing import for example, Microsoft Sentinel Library library | Run the setup/init cell again. |
-| **Cell In[{cell number}], line 1 if: ^ SyntaxError: invalid syntax.** | Inline. | Invalid syntax. | Python or PySpark syntax error. | Review code syntax; check for missing colons, parentheses, or quotes. |
-| **NameError Traceback (most recent call last) Cell In[{cell number}], line 1 ----> 1 data_loader12 NameError: name 'data_loader' is not defined.** | Inline. | Unbound variable. | Variable used before assignment. | Ensure all required setup cells were run in order. |
-
-### Interactive notebooks
-
-| Error message | Display surface | Message description  | Root cause | Suggested action |
-|-------------------|-----------------|----------------------|------------|------------------|
-| **{"level": "ERROR", "run_id": "...", "message": "Error loading table {table-name}: No container of kind 'DeltaParquet' found for table '...\|{table-name}'."}.** | Inline. | The specified source table doesn't exist.  | One or more source tables don't exist in the given workspaces. The table may have been recently deleted from your workspace | Verify if source tables exist in the workspace. |
-| **{"level": "ERROR", "run_id": "...", "message": "Database Name {table-name} doesnt exist."}.** | Inline. | The workspace or database name provided in the query is invalid or inaccessible.  | The referenced database doesn't exist. | Confirm the database name is correct. |
-| **401 Unauthorized.** | Output channel – “Window”. | Gateway 401 error. | Gateway has a 1 hour timeout that was reached. | Run a cell again to establish a new connection. |
-
-### Library
-
-| Error message| Display surface | Message description  | Root cause | Suggested action |
-|-------------------|-----------------|----------------------|------------|------------------|
-| **403 Forbidden.** | Inline. | Access denied. | User doesn’t have permission to read/write/delete the specified table. | Verify user has the role required. |
-| **TableOperationException: Error saving DataFrame to table {table-name}_SPRK: 'schema'.** | Inline. | Schema mismatch on write. | save_as_table() is writing data that doesn’t match the existing schema. | Check the dataframe schema and align it with the destination table. |
-| **{"level": "ERROR", "run_id": "...", "message": "Error saving DataFrame to table {table-name}: Tables created in MSG database must have suffix '_SPRK'"}**. | Inline. | Missing suffix _SPRK for writing table to data lake. | save_as_table() is writing data to a table that requires _SPRK. | Add _SPRK as suffix for writing to a custom table in the data lake. |
-| **{"level": "ERROR", "run_id": "...", "message": "Error saving DataFrame to table siva_test_0624_1: Tables created in LA database must have suffix '_SPRK_CL'"}**. | Inline. | Missing suffix _SPRK_CL for writing table to analytics tier | save_as_table() is writing data to a table that requires _SPRK_CL. | Add _SPRK_CL as suffix for writing to custom table in analytics tier. |
-| **{"level": "ERROR", "run_id": "...", "message": "Error saving DataFrame to table EntraUsers: Tables created in MSG database must have suffix '_SPRK'"}**. | Inline. | Invalid write. | Attempted to write to system table, this action isn't permitted.  | Specify a custom table to write to. |
-| **TypeError: DataProviderImpl.save_as_table() missing 1 required positional argument: 'table_name'.** | Inline. | Invalid notebook. | Incorrect arguments passed to a library method (for example, missing ‘mode’ in save_as_table). | Validate parameter names and values. Refer to method documentation. |
-
-### Jobs
-
-| Error message | Display surface | Message description  | Root cause | Suggested action |
-|-------------------|-----------------|----------------------|------------|------------------|
-| **Job Run status shows the Status as Failed.** | Inline. | Job Run failure. | The notebook is corrupted or contains unsupported syntax for scheduled execution. | Open the Notebook Run Snapshot and validate that all cells run sequentially without manual input. |
-
+Error Category|Error Name|Error Code| Error Message |Suggested Action|
+---|---|---|---|---|
+DatabaseError|DatabaseNotFound|2001|Database {DatabaseName} not found.|Verify that the database exists. If the database is new, wait for a metadata refresh.|
+DatabaseError|AmbiguousDatabaseName|2002|Several databases (IDs: {DatabaseID1}, {DatabaseID2}, ...) share the name {DatabaseName}. Provide a specific database ID.|Specify a database ID when multiple databases have the same name.|
+DatabaseError|DatabaseIdMismatch|2003|Database ({DatabaseName}, ID {DatabaseID}) not found.|Check both the database name and ID. To obtain database IDs, list all the databases.|
+DatabaseError|ListDatabasesFailure|2004|Can't fetch databases. Restart the session and try again.|Restart the session and retry the operation after a few minutes. |
+TableError|TableDoesNotExist|2100|Table {TableName} not found in the database {DatabaseName}.|Verify that the table exists in the database. If the table or database is new, wait a few minutes and try again.|
+TableError|ProvisioningIncomplete|2101|Table {TableName} is not ready. Wait a few minutes before trying again.|The table is being provisioned. Wait a few minutes before trying again.|
+TableError|DeltaTableMissing|2102|Table {TableName} is empty. New tables can take up to a few hours to be ready.|It can take a few hours to fully synchronize an analytics table into the data lake. For tables that are only in the data lake, check if the data needs to be loaded or restored.|
+TableError|TableDoesNotExistForDelete|2103|Can't delete table. Table {TableName} not found.|Verify that the table exists in the database. If the table or database is new, wait a few minutes and try again.|
+AuthorizationFailure|MissingSASToken|2201|Can't access table. Restart the session and try again.|Authorization failed while trying to fetch the access token for the table. Restart the session and try again.|
+AuthorizationFailure|InvalidSASToken|2202|{Same as 2201}|{Same as 2201}|
+AuthorizationFailure|TokenExpired|2203|{Same as 2201}|{Same as 2201}|
+AuthorizationFailure|TableInsufficientPermissions|2204|Access needed for the table {TableName} in the database {DatabaseName}.|Contact an administrator to request access to the table or the database (workspace).|
+AuthorizationFailure|InternalTableAccessDenied|2205|Access to the table {TableName} is restricted.|Only system or user-defined tables can be accessed from a notebook.|
+AuthorizationFailure|TableAuthFailure|2206|Can't save data to the table. Restart the session and try again.|Authorization failed while trying to save data to the table. Restart the session and try again.|
+ConfigurationError|HadoopConfigFailure|2301|Can't update session configuration. Restart the session and try again.|This problem is transient and can be resolved by restarting the session and trying again. If this problem persists, contact support.|
+DataError|JsonParsingFailure|2302|Table metadata has been corrupted. Contact support for assistance.|Contact support for assistance. Provide your tenant ID, the table name, and the database name.|
+TableSchemaError|TableSchemaMismatch|2401|Column not found in the destination table. Align the DataFrame schema and the destination table or use overwrite mode.|Update the DataFrame schema to match the table in your target database. You can also replace the table entirely in overwrite mode.|
+TableSchemaError|MissingRequiredColumns|2402|Column {ColumnName} is missing from the DataFrame. Check the DataFrame schema and align it with the destination table.|Update the DataFrame schema to match the table in your target database. You can also replace the table entirely in overwrite mode.|
+TableSchemaError|ColumnTypeChangeNotAllowed|2403|Can't change the data type of the column {ColumnName}.|A data type change is not allowed for the column. Check existing columns in the destination table and align all data types in the DataFrame.|
+TableSchemaError|ColumnNullabilityChangeNotAllowed|2404|Can't change nullability of the column {ColumnName}.|Can't update nullability settings of the column. Check the destination table and align the settings with the DataFrame.|
+IngestionError|FolderCreationFailure|2501|Can't create storage for the table {TableName}.|This problem is transient and can be resolved by restarting the session and trying again. If this problem persists, contact support.|
+IngestionError|SubJobRequestFailure|2502|Can't create ingestion job for the table {TableName}.|This problem is transient and can be resolved by restarting the session and trying again. If this problem persists, contact support.|
+IngestionError|SubJobCreationFailure|2503|{same as 2502}|{same as 2502}|
+InputError|InvalidWriteMode|2601|Invalid write mode. Use append or overwrite.|
+Specify a valid write mode (append or overwrite) before saving the DataFrame.|
+InputError|PartitioningNotAllowed|2602|Can't partition analytics tables.|Remove any partitioning for all columns in analytics tables.|
+InputError|MissingTableSuffixLake|2603|Invalid custom table name. All names of custom tables in the data lake must end with _SPRK.|Add _SPRK as a suffix to the table name before writing it to the data lake.|
+InputError|MissingTableSuffixLA|2604|Invalid custom table name. All names of custom analytics tables must end with _SPRK_CL. |Add _SPRK_CL as a suffix to the table name before writing it to analytics storage.|
+UnknownError|InternalServerError|2901|Something went wrong. Restart the session and try again.|This problem is transient and can be resolved by restarting the session and trying again. If this problem persists, contact support.|
 
 
 
