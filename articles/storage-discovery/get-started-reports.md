@@ -18,15 +18,15 @@ Azure Storage Discovery reports organize insights into distinct categories that 
 - <b>Errors</b>: Highlights failed operations and error codes to help identify patterns of issues.
 - <b>Configurations</b>: Surfaces configuration patterns across your storage accounts.
 - <b>Security</b>: Provides visibility into access controls and encryption settings.
-- <b>Consumption</b>: Shows storage resources capacity and activity insights that helps you understand how your usage corresponds to the cost incurred.
+- <b>Consumption</b>: Shows storage resources capacity and activity insights that help you understand how your usage corresponds to the cost incurred.
 
 :::image source="media/insights/workspace-reports.png" alt-text="Screenshot of Reports."  lightbox="media/insights/workspace-reports.png":::
 
-`Capacity`, `Activity` and `Errors` reports use interactive charts to present data in a unified format, making it easier to explore trends, derive insights, and take action to optimize your storage estate.
+`Capacity`, `Activity`, and `Errors` reports use interactive charts to present data in a unified format, making it easier to explore trends, derive insights, and take action to optimize your storage estate.
 
 Storage Discovery reports include top-level filters that help you focus on specific aspects of your storage estate. These filters apply across all reports and charts, allowing you to tailor the insights to your business context.
 
-Each chart also offers additional options to drill down or pivot into detailed views of your storage estate. These interactive features enhance your ability to explore trends, identify patterns, and take informed actions. Top-level filters include:
+Each chart also offers other options to drill down or pivot into detailed views of your storage estate. These interactive features enhance your ability to explore trends, identify patterns, and take informed actions. Top-level filters include:
 - Time range
 - Subscriptions
 - Storage accounts
@@ -60,7 +60,7 @@ Trends charts are available in the Capacity, Activity, Errors, and Consumption r
 These metrics can be grouped by dimensions like region, performance type, and redundancy type.
 
 ## Top items
-The Top items chart in the Capacity, Activity, and Errors reports provides a ranked view of storage resources within your selected scope. Depending on the report, this chart highlights either the largest or smallest contributors to key metrics, helping you identify which resources have the most impact on your storage estate.
+The Top items chart in the Capacity, Activity, and Errors reports provide a ranked view of storage resources within your selected scope. Depending on the report, this chart highlights either the largest or smallest contributors to key metrics, helping you identify which resources have the most impact on your storage estate.
 
 Each report includes multiple pivot options that allow you to slice and analyze the data from different perspectives. For example, in the Activity report, you can view storage accounts or resource groups with the highest read operations. You can also pivot by dimensions such as performance type, redundancy type, or operation type to drill into specific insights—like write operations grouped by performance tier.
 
@@ -76,6 +76,6 @@ This visualization provides a quick, intuitive view of regional concentration, h
 
 ## Next steps
 
-Now that you understand the common structure and patterns of Azure Storage Discovery reports, explore these additional resources to get the most out of your Discovery workspace:
+Now that you understand the common structure and patterns of Azure Storage Discovery reports, explore these other resources to get the most out of your Discovery workspace:
 
 - [Frequently asked questions](frequently-asked-questions.md.md)
