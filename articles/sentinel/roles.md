@@ -90,9 +90,9 @@ To use the Microsoft Sentinel data lake, your workspace must be [onboarded to th
 
 ### Microsoft Sentinel data lake read permissions
 
-Microsoft Entra ID roles provide broad access across all content in the data lake. Use the following roles to provide read access to all workspaces within the Microsoft Sentinel data lake, such as for running queries.
+Microsoft Entra ID roles provide broad access across all workspaces in the data lake. Use the following roles to provide read access to all workspaces within the Microsoft Sentinel data lake, such as for running queries.
 
-|Permission type|Supported roles  |
+|Permission type  |Supported roles  |
 |---------|---------|
 |**Read access across all workspaces**     | Use any of the following Microsoft Entra ID roles: <br><br>- [Global reader](/entra/identity/role-based-access-control/permissions-reference#global-reader)<br>- [Security reader](/azure/role-based-access-control/built-in-roles/security#security-reader)<br>- [Security operator](/entra/identity/role-based-access-control/permissions-reference#security-operator)<br>  - [Security administrator](/entra/identity/role-based-access-control/permissions-reference#security-administrator)<br>  - [Global administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator)         |
 
@@ -100,7 +100,7 @@ Alternatively, you might want to assign the ability to read tables from within a
 
 |Tasks   |Permissions |
 |---------|---------|
-|**Read permissions on the [system tables](https://go.microsoft.com/fwlink/?linkid=2325420)**| Use a [custom Microsoft Defender XDR unified RBAC role with ](/defender-xdr/custom-permissions-details)*[data (read)](/defender-xdr/custom-permissions-details)* permissions over the Microsoft Sentinel data collection.     |
+|**Read permissions on the default workspace**     | Use a [custom Microsoft Defender XDR unified RBAC role with ](/defender-xdr/custom-permissions-details)*[data (read)](/defender-xdr/custom-permissions-details)* permissions over the Microsoft Sentinel data collection.     |
 |**Read permissions on any other workspace enabled for Microsoft Sentinel in the data lake**     | Use one of the following built-in roles in Azure RBAC for permissions on that workspace: <br>- [Log Analytics Reader](/azure/role-based-access-control/built-in-roles/monitor#log-analytics-reader) <br>- [Log Analytics Contributor](/azure/role-based-access-control/built-in-roles/monitor#log-analytics-contributor) <br>- [Microsoft Sentinel Contributor](/azure/role-based-access-control/built-in-roles/security#microsoft-sentinel-contributor) <br>- [Microsoft Sentinel Reader](/azure/role-based-access-control/built-in-roles/security#microsoft-sentinel-reader) <br>- [Reader](/azure/role-based-access-control/built-in-roles/general#reader)<br>- [Contributor](/azure/role-based-access-control/built-in-roles/privileged#contributor)<br>- [Owner](/azure/role-based-access-control/built-in-roles/privileged#owner)|
 
 
@@ -117,7 +117,7 @@ Alternatively, you might want to assign the ability to write output to a specifi
 
 |Tasks  |Permissions |
 |---------|---------|
-|**Update [system tables](https://go.microsoft.com/fwlink/?linkid=2325420) in the data lake**|   Use a [custom Microsoft Defender XDR unified RBAC role with ](https://aka.ms/data-lake-custom-urbac)*[data (manage)](https://aka.ms/data-lake-custom-urbac)* permissions over the Microsoft Sentinel data collection.       |
+|**For edit permissions on the default workspace**     |   Use a [custom Microsoft Defender XDR unified RBAC role with *data (manage)*](https://aka.ms/data-lake-custom-urbac) permissions over the Microsoft Sentinel data collection.       |
 |**For any other Microsoft Sentinel workspace in the data lake**     |  Use any built-in or custom role that includes the following Azure RBAC  [Microsoft operational insights](/azure/role-based-access-control/permissions/monitor#microsoftoperationalinsights) permissions on that workspace:<br>    - *microsoft.operationalinsights/workspaces/write*<br>   - *microsoft.operationalinsights/workspaces/tables/write*<br>    - *microsoft.operationalinsights/workspaces/tables/delete* <br><br>For example, built-in roles that include these permissions [Log Analytics Contributor](/azure/role-based-access-control/built-in-roles/monitor#log-analytics-contributor), [Owner](/azure/role-based-access-control/built-in-roles/privileged#owner), and [Contributor](/azure/role-based-access-control/built-in-roles/privileged#contributor).       |
 
 ### Manage jobs in the Microsoft Sentinel data lake
