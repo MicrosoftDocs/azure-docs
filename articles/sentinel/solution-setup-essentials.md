@@ -15,8 +15,8 @@ Microsoft Sentinel solutions help you package and share custom security content.
 
 Microsoft Sentinel supports two solution types:
 
-- **SIEM solutions** deliver detections, investigations, and automation. They can include analytics rules, hunting queries, summary rules, workbooks, playbooks, data connectors, and ASIM (Advanced Security Information Model) parsers.
-- **Platform solutions** work with the Microsoft Sentinel data lake to analyze and act on security data and other platform capabilities.
+- [**SIEM solutions**](#siem-solutions-prerequisites) deliver detections, investigations, and automation. They can include analytics rules, hunting queries, summary rules, workbooks, playbooks, data connectors, and ASIM (Advanced Security Information Model) parsers.
+- [**Platform solutions**](#platform-solutions-prerequisites) work with the Microsoft Sentinel data lake to analyze and act on security data and other platform capabilities.
 
 ## SIEM solutions prerequisites
 
@@ -36,9 +36,11 @@ Before you create or publish a platform solution, make sure you have:
     - The [Microsoft Sentinel extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-sentinel): 
         - In VS Code, open the Extensions Marketplace, search for **Sentinel**, select **Microsoft Sentinel**, and choose **Install**. After installation, the Microsoft Sentinel shield icon appears in the left toolbar.
 
+
 :::image type="content" source="media/solution-setup-essentials/vscode-sentinel-extension.png"
 alt-text="Screenshot of the Microsoft Sentinel extension in the Visual Studio Code Marketplace."
 lightbox="media/solution-setup-essentials/vscode-sentinel-extension.png":::
+
 
     - The [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot):
         - In the Extensions Marketplace, search for **GitHub Copilot** and install it.
