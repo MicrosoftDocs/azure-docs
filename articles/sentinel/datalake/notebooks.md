@@ -234,8 +234,7 @@ TableSchemaError|ColumnNullabilityChangeNotAllowed|2404|Can't change nullability
 IngestionError|FolderCreationFailure|2501|Can't create storage for the table {TableName}.|This problem is transient and can be resolved by restarting the session and trying again. If this problem persists, contact support.|
 IngestionError|SubJobRequestFailure|2502|Can't create ingestion job for the table {TableName}.|This problem is transient and can be resolved by restarting the session and trying again. If this problem persists, contact support.|
 IngestionError|SubJobCreationFailure|2503|{same as 2502}|{same as 2502}|
-InputError|InvalidWriteMode|2601|Invalid write mode. Use append or overwrite.|
-Specify a valid write mode (append or overwrite) before saving the DataFrame.|
+InputError|InvalidWriteMode|2601|Invalid write mode. Use append or overwrite.|Specify a valid write mode (append or overwrite) before saving the DataFrame.|
 InputError|PartitioningNotAllowed|2602|Can't partition analytics tables.|Remove any partitioning for all columns in analytics tables.|
 InputError|MissingTableSuffixLake|2603|Invalid custom table name. All names of custom tables in the data lake must end with _SPRK.|Add _SPRK as a suffix to the table name before writing it to the data lake.|
 InputError|MissingTableSuffixLA|2604|Invalid custom table name. All names of custom analytics tables must end with _SPRK_CL. |Add _SPRK_CL as a suffix to the table name before writing it to analytics storage.|
