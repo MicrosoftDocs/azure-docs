@@ -20,14 +20,14 @@ Microsoft Sentinel supports two solution types:
 
 ## SIEM solutions prerequisites
 
-Publish a SIEM solution to Azure Commercial Marketplace:
+ Before you create and publish a SIEM solution to Azure Commercial Marketplace:
 
 - Join the [Microsoft Cloud Partner Program](https://partner.microsoft.com/).
 - Create a [Commercial Marketplace account in Partner Center](/partner-center/marketplace/create-account).
 
 ## Platform solutions prerequisites
 
-Before you create or publish a platform solution, make sure you have:
+Before you create and publish a platform solution, make sure you have:
 
 - A [Microsoft Sentinel data lake](/datalake/sentinel-lake-overview.md) to analyze data and write to the data lake:
     - If you haven’t onboarded yet, see [Onboard to the Microsoft Sentinel data lake (preview)](/datalake/sentinel-lake-onboarding). 
@@ -35,9 +35,11 @@ Before you create or publish a platform solution, make sure you have:
 - [Visual Studio Code](https://code.visualstudio.com/) with:
     - The [Microsoft Sentinel extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-sentinel): 
         - In VS Code, open the Extensions Marketplace, search for **Sentinel**, select **Microsoft Sentinel**, and choose **Install**. After installation, the Microsoft Sentinel shield icon appears in the left toolbar.
+        
         :::image type="content" source="media/solution-setup-essentials/vscode-sentinel-extension.png"
         alt-text="Screenshot of the Microsoft Sentinel extension in the Visual Studio Code Marketplace."
         lightbox="media/solution-setup-essentials/vscode-sentinel-extension.png":::
+
     - The [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot):
         - In the Extensions Marketplace, search for **GitHub Copilot** and install it.
         - After installing, sign in to GitHub Copilot with your GitHub account.
