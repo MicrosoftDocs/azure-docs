@@ -38,6 +38,11 @@ additionalContent:
           - url: create-workspace.md
             text: Deploying a Storage Discovery resource
         # Card
+        - title: Understand Storage Discovery Reports
+          links:
+          - url: get-started-reports.md
+            text: Discovery Reports
+        # Card
         - title: Understand Storage Discovery Pricing
           links:
           - url: pricing.md
