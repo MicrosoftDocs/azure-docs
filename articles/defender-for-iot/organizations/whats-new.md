@@ -18,10 +18,6 @@ Features released earlier than nine months ago are described in the [What's new 
 
 [!INCLUDE [defender-iot-defender-reference](../includes/defender-for-iot-defender-reference.md)]
 
-## On-premises management console retirement
-
-The legacy on-premises management console isn't available for download after **January 1st, 2025**. We recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs before this date. For more information, see [on-premises management console retirement](ot-deploy/on-premises-management-console-retirement.md).
-
 ## September 2025
 
 |Service area  |Updates  |
@@ -62,6 +58,10 @@ The “Excessive Number of Sessions” alert now includes support by default to 
 |Service area  |Updates  |
 |---------|---------|
 | **OT networks** | - [Aggregating multiple alerts violations with the same parameters](#aggregating-multiple-alerts-violations-with-the-same-parameters)|
+
+## On-premises management console retirement
+
+The legacy on-premises management console isn't available for download after **January 1st, 2025**. We recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs before this date. For more information, see [on-premises management console retirement](ot-deploy/on-premises-management-console-retirement.md).
 
 ### Aggregating multiple alerts violations with the same parameters
 
