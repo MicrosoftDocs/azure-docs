@@ -156,7 +156,7 @@ The following diagram shows a weather agent that can get the weather forecast an
 
 :::image type="content" source="media/agents-workflows-concepts/agent-tools.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and example agent with tools structure." lightbox="media/agents-workflows-concepts/agent-tools.png":::
 
-## Other example scenarios
+## More example scenarios
 
 The following section describes a few more ways that an agent can complete tasks in a workflow:
 
@@ -193,6 +193,39 @@ To support an internal facilities team, a work order agent performs the followin
 - Update work orders with jobs progress and status.
 - Close work orders when jobs are complete.
 - Notify the appropriate parties about completed jobs.
+
+<name="easy-auth"></a>
+
+## Built-in authentication and authorization with Easy Auth
+
+Non-agent workflows usually interact with a small, known, and predictable set of callers. Agent workflows communicate with broader range of callers, such as people, agents, Model Context Protocol (MCP) servers, tool brokers, and external services. This wider reach increases integration options but introduces different security challenges because callers can originate from dynamic, unknown, or untrusted networks. When callers come from networks you don't control, or when identities are external or unbounded identities, you must authenticate and authorize each caller so you can protect your workflows.
+
+Formerly known as App Service Authentication, Easy Auth provides a built‑in enforcement layer that offers the following benefits and lets you focus more on workflow business logic:
+
+- Handles sign-in, authentication, and authorization for Microsoft Entra and OpenID Connect providers without custom code.
+
+- Keeps secrets, long-lived Shared Access Signature (SAS) URLs, and access keys out of workflows, reducing secrets sprawl, rotation overhead, and exposure risk.
+
+- Enables least-privilege design by mapping access to roles and scopes rather than IP ranges or static keys.
+
+- Validates access tokens before the workflow runs. Injects a validated identity into each caller request so workflows can make per‑request, least-privilege authorization decisions.
+
+- Provides a validated identity for each request sent to your workflow so you can enforce least‑privilege decisions inside workflows.
+
+- Centralizes Conditional Access policies, tenant restrictions, role-based access control (RBAC), and permission scopes for consistent policy application and enforcement.
+
+- Injects normalized identity claims such as `X-MS-CLIENT-PRINCIPAL`, groups, roles, scopes, and tenant into each caller request. Eliminates custom middleware and lets downstream workflow actions like **Compose** or **Parse JSON** apply fine-grained authorization against claims and scopes.
+
+- Produces consistent authentication and authorization logs for debugging, anomaly detection, diagnostic activities, auditing, and governance.
+
+The following diagram shows where Easy Auth fits into Azure Logic Apps:
+
+:::image type="content" source="{source}" alt-text="{alt-text}":::
+
+For more information, see the following articles:
+
+- [Secure agent workflows with Easy Auth in Azure Logic Apps](set-up-easy-auth.md)
+- [Authentication and authorization in Azure App Service and Azure Functions](../app-service/overview-authentication-authorization.md)
 
 ## Billing
 
