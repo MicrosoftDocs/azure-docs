@@ -59,13 +59,13 @@ The “Excessive Number of Sessions” alert now includes support by default to 
 |---------|---------|
 | **OT networks** | - [Aggregating multiple alerts violations with the same parameters](#aggregating-multiple-alerts-violations-with-the-same-parameters)|
 
-## On-premises management console retirement
-
-The legacy on-premises management console isn't available for download after **January 1st, 2025**. We recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs before this date. For more information, see [on-premises management console retirement](ot-deploy/on-premises-management-console-retirement.md).
-
 ### Aggregating multiple alerts violations with the same parameters
 
 To reduce alert fatigue, multiple versions of the same alert violation and with the same parameters are grouped together and listed in the alerts table as one item. The alert details pane lists each of the identical alert violations in the **Violations** tab and the appropriate remediation actions are listed in the **Take action** tab. For more information, see [aggregating alerts with the same parameters](alerts.md#aggregating-alert-violations).
+
+## On-premises management console retirement
+
+The legacy on-premises management console isn't available for download after **January 1st, 2025**. We recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs before this date. For more information, see [on-premises management console retirement](ot-deploy/on-premises-management-console-retirement.md).
 
 ## December 2024
 
