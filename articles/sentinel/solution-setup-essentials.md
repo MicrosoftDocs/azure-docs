@@ -29,7 +29,7 @@ Publish a SIEM solution to Azure Commercial Marketplace:
 
 Before you create or publish a platform solution, make sure you have:
 
-- A [Microsoft Sentinel data lake](<link-to-data-lake-doc>) to analyze data and write to the data lake:
+- A [Microsoft Sentinel data lake](/datalake/sentinel-lake-overview.md) to analyze data and write to the data lake:
     - If you haven’t onboarded yet, see [Onboard to the Microsoft Sentinel data lake (preview)](/datalake/sentinel-lake-onboarding). 
     - After onboarding, ingest enough data to support notebook analysis.
 - [Visual Studio Code](https://code.visualstudio.com/) with:
