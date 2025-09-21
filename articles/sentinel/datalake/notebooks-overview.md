@@ -1,5 +1,5 @@
 --- 
-title: Exploring and interacting with lake data using Jupyter Notebooks (preview)
+title: Exploring and interacting with lake data using Jupyter Notebooks
 titleSuffix: Microsoft Security 
 description: This article gives an overview of Jupyter notebooks in Visual Studio Code for the Microsoft Sentinel data lake.
 author: EdB-MSFT 
@@ -12,9 +12,9 @@ ms.author: edbaynash
 # Customer intent: As a security engineer or data scientist, I want to explore and analyze security data in the Microsoft Sentinel data lake using Jupyter notebooks, so that I can gain insights and build advanced analytics solutions.
 ---
 
-# Jupyter notebooks and the Microsoft Sentinel data lake (preview)
+# Jupyter notebooks and the Microsoft Sentinel data lake
  
-Jupyter notebooks are an integral part of the Microsoft Sentinel data lake ecosystem, offering powerful tools for data analysis and visualization. The notebooks are provided by the Microsoft Sentinel Visual Studio Code extension (preview) that allows you to interact with the data lake using Python for Spark (PySpark). Notebooks enable you to perform complex data transformations, run machine learning models, and create visualizations directly within the notebook environment. 
+Jupyter notebooks are an integral part of the Microsoft Sentinel data lake ecosystem, offering powerful tools for data analysis and visualization. The notebooks are provided by the Microsoft Sentinel Visual Studio Code extension that allows you to interact with the data lake using Python for Spark (PySpark). Notebooks enable you to perform complex data transformations, run machine learning models, and create visualizations directly within the notebook environment. 
 
 The Microsoft Sentinel Visual Studio Code extension with Jupyter notebooks provides a powerful environment for exploring and analyzing lake data with the following benefits:
 
@@ -46,12 +46,12 @@ You can write data to the lake tier and analytics tier using notebooks. The Micr
  
 ## Jobs and scheduling
 
-You can schedule jobs to run at specific times or intervals using the Microsoft Sentinel extension for Visual Studio Code. Jobs allow you to automate data processing tasks to summarize, transform, or analyze data in the Microsoft Sentinel data lake. Use jobs to process data and write results to custom tables in the lake tier or analytics tier. For more information, see [Create and manage Jupyter notebook jobs (preview)](./notebook-jobs.md).
+You can schedule jobs to run at specific times or intervals using the Microsoft Sentinel extension for Visual Studio Code. Jobs allow you to automate data processing tasks to summarize, transform, or analyze data in the Microsoft Sentinel data lake. Use jobs to process data and write results to custom tables in the lake tier or analytics tier. For more information, see [Create and manage Jupyter notebook jobs](./notebook-jobs.md).
 
 
 ## Related content
 
-- [Microsoft Sentinel data lake overview (preview)](./sentinel-lake-overview.md)
-- [Explore the Microsoft Sentinel data lake using Jupyter notebooks (preview)](./notebooks.md)
-- [Sample notebooks for Microsoft Sentinel data lake (preview)](./notebook-examples.md)
-- [Microsoft Sentinel Provider class reference (preview)](./sentinel-provider-class-reference.md)
+- [Microsoft Sentinel data lake overview](./sentinel-lake-overview.md)
+- [Explore the Microsoft Sentinel data lake using Jupyter notebooks](./notebooks.md)
+- [Sample notebooks for Microsoft Sentinel data lake](./notebook-examples.md)
+- [Microsoft Sentinel Provider class reference](./sentinel-provider-class-reference.md)
