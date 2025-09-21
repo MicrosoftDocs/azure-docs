@@ -20,13 +20,13 @@ Before you build a solution, it is important to understand how all the pieces fi
 
 ## Understanding Data 
 
-**Ingesting data**: Data connectors <link to lower section> are the foundation for both SIEM and Platform solutions, as having the right data is prerequisite to providing any insights or taking action. Data connectors are distributed via SIEM solutions. This means that platform solutions may need to take a dependency on a SIEM solution.  
+**Ingesting data**: [Data connectors](#data-connectors) are the foundation for both SIEM and Platform solutions, as having the right data is prerequisite to providing any insights or taking action. Data connectors are distributed via SIEM solutions. This means that platform solutions may need to take a dependency on a SIEM solution.  
 
-**Data tiers**: Data connectors ingest data either to the SIEM analytic and data lake tiers <links TBD>, or just the data lake tiers. The Analytic tier provides unlimited querying and supports SIEM solution components, such as analytic rules. The data lake provides low-cost storage, long retention and is provided free of charge with the analytic tier. Platform solutions should interact with the data lake tier to maximize data coverage and retention. The non-data connector components of SIEM solutions (for example, analytic rules) require use the analytic tier data.
+**Data tiers**: Data connectors ingest data either to the SIEM analytic and [data lake tiers](/azure/sentinel/manage-data-overview), or just the data lake tiers. The Analytic tier provides unlimited querying and supports SIEM solution components, such as analytic rules. The data lake provides low-cost storage, long retention and is provided free of charge with the analytic tier. Platform solutions should interact with the data lake tier to maximize data coverage and retention. The non-data connector components of SIEM solutions (for example, analytic rules) require use the analytic tier data.
 
 ## Platform Solutions 
 
-A Microsoft Sentinel platform solution consists of multiple content items, including security Copilot Agents, MCP tools, notebooks, and notebook jobs. These components provide AI tools to improve Security teams efficiency and using Spark jobs to perform data lake. Platform solutions often depend on the data ingested by data connectors <Link to data connectors section>, provided via SIEM solutions <link to SIEM solutions section>.   
+A Microsoft Sentinel platform solution consists of multiple content items, including security Copilot Agents, MCP tools, notebooks, and notebook jobs. These components provide AI tools to improve Security teams efficiency and using Spark jobs to perform data lake. Platform solutions often depend on the data ingested by data connectors <TBD>, provided via [SIEM solutions](#siem-solutions).   
 
 Listed next are the key components that make up Microsoft Sentinel platform solutions and how they relate to each other: 
 
@@ -43,7 +43,7 @@ When releasing agents in a solution that query the data lake and call APIs, thes
 
   - **Notebook Jobs**: can do the heavy lifting of processing data deterministically and efficiently using Spark jobs and storing processed data in the data lake for agents to consume (see “Notebook and Notebooks jobs" description below).
 
-  - **Fetch skills**: Fetch skills can run KQL queries iteratively on a timer and in parallel. They can also keep state between queries to ensure no overlap between queries and agents don’t “lose their place” if querying must occur between sessions. <link TBD> 
+  - **Fetch skills**: Fetch skills can run KQL queries iteratively on a timer and in parallel. They can also keep state between queries to ensure no overlap between queries and agents don’t “lose their place” if querying must occur between sessions. <TBD> 
 
 - **Simplify authentication for complex agents**: Agents that call APIs to enrich data or communicate with remote endpoints must authenticate with the API. Managing basic passwords and client secrets can be a burden and introduces security risks. Use the following mechanisms below to simplify the user experience. 
 
@@ -73,11 +73,11 @@ Best practices include:
 
 - **Use Notebook examples:** [Example notebooks](/azure/sentinel/datalake/notebook-examples) provide common calling patterns and inspiration for creating security solutions.  
 
-- **Use workspace autodetection logic**: As a solution provider, you will not know ahead of time from which workspace to query Sentinel data. You can use the following sample to programmatically discover what workspaces contain your required data tables. Additionally, if the same table is present in multiple workspaces, you can union the tables into one dataframe for easy data manipulation. See example here. <link TBD>. 
+- **Use workspace autodetection logic**: As a solution provider, you will not know ahead of time from which workspace to query Sentinel data. You can use the following sample to programmatically discover what workspaces contain your required data tables. Additionally, if the same table is present in multiple workspaces, you can union the tables into one dataframe for easy data manipulation. See example here. <TBD>. 
 
 - **Write to the default directory**: As a solution provider, you can count on the default workspace to always be present in the data lake. Reading and writing to this table does not require any specific detection logic. 
 
-- **Include a notebook job**: To make your solution visible in the Defender Portal and accessible via Microsoft VS Code extensions, be sure to include a corresponding notebook job in your solution. See administration section <link TBD> for more details.  
+- **Include a notebook job**: To make your solution visible in the Defender Portal and accessible via Microsoft VS Code extensions, be sure to include a corresponding notebook job in your solution. See administration section <TBD> for more details.  
 
 - **Use required permissions**: Users installing solutions containing notebook jobs must have a Security Operator, Security Admin, or Global Administrator role for a successful install.  
 
@@ -103,11 +103,11 @@ A Microsoft Sentinel SIEM solution consists of multiple content items, each serv
 
 **Partners must create at least one analytic rule as part of their Sentinel solution** Analytic rules are at the core of the value a Microsoft Sentinel SIEM solution can offer to customers. Getting the data into Microsoft Sentinel is only the first step. However, it's important for customers to monitor their security infrastructure and get notified of any issues. Getting data into Microsoft Sentinel without any detections written on the data wouldn't add any value for customers. To ensure that customers can deploy a Microsoft Sentinel SIEM solution and get started with monitoring their security infrastructure, it's important to have prebuilt analytic rules as part of the solution. This ensures that customers get value out-of-the-box as soon as they install and configure the Microsoft Sentinel SIEM solution, without any extra development effort by the customers.
 
-Analytic rules must have appropriate MITRE mappings to ensure that customers can monitor and visualize their threat coverage across their security infrastructure. For more information, see [View MITRE coverage for your organization from Microsoft Sentinel | Microsoft Learn](/azure/sentinel/mitre-coverage?tabs=azure-portal). **Analytic rules without MITRE mapping will be rejected during certification.**
+Analytic rules must have appropriate MITRE mappings to ensure that customers can monitor and visualize their threat coverage across their security infrastructure. For more information, see [View MITRE coverage for your organization from Microsoft Sentinel](/azure/sentinel/mitre-coverage?tabs=azure-portal). **Analytic rules without MITRE mapping will be rejected during certification.**
 
 When creating analytic rules, it's important to ensure that the rules are scoped to cover all key data columns that are being pulled by the data connector. As customers pay for the data they ingest, it's important to ensure that the analytic rules are scoped to cover all the data that is being pulled by the data connector. This ensures that customers aren't charged for data that isn't being used.
 
-When creating analytic rules, where applicable ensure that entities are mapped to the rule output. Mapping rule output to standardized entities ensures that the rule output can be correlated with other data points in Microsoft Sentinel in order to provide a more comprehensive threat story to SOC analysts. Some common examples of entities are user accounts, hosts, mailboxes, IP addresses, files, cloud applications, processes, and URLs. To know more about entities in Microsoft Sentinel, see [Entities in Microsoft Sentinel | Microsoft Learn](/azure/sentinel/entities)
+When creating analytic rules, where applicable ensure that entities are mapped to the rule output. Mapping rule output to standardized entities ensures that the rule output can be correlated with other data points in Microsoft Sentinel in order to provide a more comprehensive threat story to SOC analysts. Some common examples of entities are user accounts, hosts, mailboxes, IP addresses, files, cloud applications, processes, and URLs. To know more about entities in Microsoft Sentinel, see [Entities in Microsoft Sentinel](/azure/sentinel/entities)
 
 > [!CAUTION]
 > Solutions are required to have at least one analytic rule. If you have a valid reason for not including analytic rules in your solution, provide your reasoning in the comments section of the pull request. The Microsoft Sentinel team will review your PR and provide feedback accordingly.
@@ -128,14 +128,14 @@ Hunting queries are KQL queries that are used to proactively search for potentia
 When building Hunting queries, consider the following best practices:
 - Use MITRE framework to identify potential threats: The MITRE framework provides a comprehensive set of tactics, techniques, and procedures (TTPs) that can be used to identify potential threats in your data. By using the MITRE framework, you can ensure that your hunting queries are aligned with industry best practices and can help you identify potential threats more effectively.
 - Create queries that cover all important data columns that are being pulled by the data connector. This ensures that your hunting queries are comprehensive and also provide guidance on whether new data points have to be added to the data connector or if any of the existing data points have to remove.
-- Incorporating Threat intelligence (TI) can provide valuable context for your hunting queries. Incorporating threat intelligence available in Microsoft Sentinel into your hunting queries ensure that the SOC analysts have valuable context to identify potential threats. For more information on threat intelligence in Microsoft Sentinel, see [Threat intelligence in Microsoft Sentinel | Microsoft Learn](/azure/sentinel/understand-threat-intelligence). 
+- Incorporating Threat intelligence (TI) can provide valuable context for your hunting queries. Incorporating threat intelligence available in Microsoft Sentinel into your hunting queries ensure that the SOC analysts have valuable context to identify potential threats. For more information on threat intelligence in Microsoft Sentinel, see [Threat intelligence in Microsoft Sentinel](/azure/sentinel/understand-threat-intelligence). 
 
 > [!NOTE]
 > Although we don't mandate the availability of hunting queries as part of the solution, we strongly recommend that you include hunting queries as part of your solution. Creating hunting queries enable SOC analysts to understand the underlying schema better and inspire them to think of new scenarios.
 
 ## Parsers
 
-Parsers are KQL functions that transform custom data from third-party products into a normalized ASIM schema. Normalization ensures that SOC analysts don’t have to learn details about new schemas and instead build analytic rules and hunting queries on the normalized schema that they're already familiar with. Review the available ASIM schemas provided by Microsoft Sentinel to identify relevant ASIM schemas (one or more) for your data to ensure easier onboarding for SOC analysts and to ensure that the existing security content written for the ASIM schema is applicable out-of-the-box for your product data. For more information on the available ASIM schemas, see [Advanced Security Information Model (ASIM) schemas | Microsoft Learn](/azure/sentinel/normalization-about-schemas).
+Parsers are KQL functions that transform custom data from third-party products into a normalized ASIM schema. Normalization ensures that SOC analysts don’t have to learn details about new schemas and instead build analytic rules and hunting queries on the normalized schema that they're already familiar with. Review the available ASIM schemas provided by Microsoft Sentinel to identify relevant ASIM schemas (one or more) for your data to ensure easier onboarding for SOC analysts and to ensure that the existing security content written for the ASIM schema is applicable out-of-the-box for your product data. For more information on the available ASIM schemas, see [Advanced Security Information Model (ASIM) schemas](/azure/sentinel/normalization-about-schemas).
 
 Microsoft Sentinel provides several built-in, source-specific parsers for many of the data sources. You may want to modify, or develop new parsers in the following situations:
 - When your device provides events that fit an ASIM schema, but a source-specific parser for your device and the relevant schema isn't available in Microsoft Sentinel.
