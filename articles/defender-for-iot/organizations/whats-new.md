@@ -58,6 +58,7 @@ The “Excessive Number of Sessions” alert now includes support by default to 
 |Service area  |Updates  |
 |---------|---------|
 | **OT networks** | - [Aggregating multiple alerts violations with the same parameters](#aggregating-multiple-alerts-violations-with-the-same-parameters)|
+| **OT networks** | - [On-premises management console retirement](#on-premises-management-console-retirement) |
 
 ### Aggregating multiple alerts violations with the same parameters
 
