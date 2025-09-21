@@ -36,7 +36,7 @@ Each chart also offers other options to drill down or pivot into detailed views 
 - Redundancy type
 - Tags
 
-# Common information patterns across reports
+## Common information patterns across reports
 Azure Storage Discovery reports—Capacity, Activity, Errors, and Consumption—follow a consistent information pattern that guides users from a high-level overview to actionable insights.
 
 Each report begins with overview tiles that display aggregate metrics for the selected [scope](management-components.md#scope). These tiles provide a snapshot of the current state of your storage estate. Next, the Trends chart shows how each metric evolves over time, helping you identify shifts and patterns. Finally, the Top items chart lists the specific storage resources that contribute to the metrics, enabling deeper analysis.
@@ -48,7 +48,8 @@ The Capacity, Activity, Errors, and Consumption reports in Azure Storage Discove
 
 Users who regularly review these reports can monitor the breadth of their storage estate and detect shifts - such as changes in the number of regions included in the scope.
 
-> [!TIP] The overview tiles display aggregate metrics based on the latest available data. These values remain unchanged when you adjust the time range.
+> [!TIP] 
+> The overview tiles display aggregate metrics based on the latest available data. These values remain unchanged when you adjust the time range.
 
 ## Trends charts
 The Trends chart illustrates how metrics change over time, helping you track usage patterns and shifts in your storage estate.
@@ -66,16 +67,16 @@ Each report includes multiple pivot options that allow you to slice and analyze 
 
 These flexible pivots support deeper analysis and help you uncover opportunities for optimization, performance tuning, or configuration adjustments to improve security and compliance.
 
-:::image source="media/insights/transactions-top-items-chart.png" alt-text="Screenshot of Reports."  lightbox="media/insights/transactions-top-items-chart.png":::
+:::image source="media/insights/transactions-top-items-chart.png" alt-text="Top items on Activity report."  lightbox="media/insights/transactions-top-items-chart.png":::
 
 ## Regional distribution
 The Regional distribution chart visualizes how your storage resources are geographically distributed across Azure regions. For example, in the Capacity report, this chart plots key metrics - such as size, container count, and blob count - on a world map.
 This visualization provides a quick, intuitive view of regional concentration, helping you identify imbalances and understand how storage usage varies by location. It’s especially useful for evaluating data residency, optimizing performance, and ensuring alignment with compliance requirements.
 
-:::image source="media/insights/regional-distribution-chart.png" alt-text="Screenshot of Reports."  lightbox="media/insights/regional-distribution-chart.png":::
+:::image source="media/insights/regional-distribution-chart.png" alt-text="Regional distribution chart."  lightbox="media/insights/regional-distribution-chart.png":::
 
 ## Next steps
 
 Now that you understand the common structure and patterns of Azure Storage Discovery reports, explore these other resources to get the most out of your Discovery workspace:
 
-- [Frequently asked questions](frequently-asked-questions.md.md)
+- [Frequently asked questions](frequently-asked-questions.md)
