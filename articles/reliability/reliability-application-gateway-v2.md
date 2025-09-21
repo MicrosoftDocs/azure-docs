@@ -235,6 +235,10 @@ For configuration management and disaster recovery, you should take the followin
 
 For most solutions, you shouldn't rely exclusively on backups. Instead, use the other capabilities described in this guide to support your resiliency requirements. However, backups protect against some risks that other approaches don't. For more information, see [Redundancy, replication, and backup](concept-redundancy-replication-backup.md).
 
+## Reliability during service maintenance
+
+Application Gateway v2 performs regular service upgrades and other maintenance tasks. To maintain your expected capacity during an upgrade, the platform automatically adds extra instances of your gateway during the upgrade process. However, you need to ensure that the gateway's subnet has sufficient free IP address space for the temporary instances to be created. For more information, see [How does Application Gateway handle routine maintenance?](/azure/application-gateway/application-gateway-faq#maintenance).
+
 ## Service-level agreement
 
 [!INCLUDE [SLA description](includes/reliability-service-level-agreement-include.md)]
