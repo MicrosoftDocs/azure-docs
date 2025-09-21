@@ -20,6 +20,9 @@ This article describes features, enhancements, and bug fixes released in 2025 fo
 ## September 2025
 ### FHIR service
 
+#### Bulk Update capability is in GA
+The $bulk-update operation allows you to update multiple FHIR resources in bulk using asynchronous processing. Follow this link to learn more [`$bulk-update`](./fhir/fhir-bulk-update.md).
+
 #### Bug fixes:
 
 **Bug fix for $status requests with empty parameters**: Previously, there were issues when using selectable search parameters SearchParameter/$status request with an unexpected request body returning misleading error messages. When the request body was omitted, 500 (Internal Server Error) was returned due to mishandling of the missing body. This issue is now fixed, and a 400 (Bad Request) will be returned. When the request body was an empty array of parameters, a 200 response was returned, which is misleading, as no search parameter status is actually updated. This issue is now fixed, and a 400 (Bad Request) response will be returned now, as the request requires search parameter URLs whose status need to be updated.

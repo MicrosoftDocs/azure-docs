@@ -49,7 +49,7 @@ For more information, see [Optimize Microsoft Sentinel costs with a pre-purchase
 
 Microsoft Sentinel analyzes all the data ingested into Microsoft Sentinel-enabled Log Analytics workspaces. It's best to have a separate workspace for non-security operations data, to ensure it doesn't incur Microsoft Sentinel costs.
 
-## Use the Microsoft Sentinel data lake (preview) for lower fidelity or secondary security data 
+## Use the Microsoft Sentinel data lake for lower fidelity or secondary security data 
 
 While the analytics tier is most appropriate for continuous, real-time threat detection, the Microsoft Sentinel data lake is well-suited for query and analytics of secondary security data that is not needed for real time threat detection. Microsoft Sentinel data lake offers ingestion and storage at a significantly reduced cost. For more information, see [Microsoft Sentinel Pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
 

@@ -5,6 +5,7 @@ author: iancarter-msft
 ms.author: daphnema
 ms.date: 06/14/2024
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # View resource changes in the Azure portal (preview)

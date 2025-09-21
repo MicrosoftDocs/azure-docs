@@ -7,6 +7,7 @@ ms.date: 01/15/2025
 ms.topic: concept-article
 ms.service: azure-iot-hub
 ms.subservice: device-update
+ms.custom: sfi-image-nochange
 ---
 
 # Azure Device Update for IoT Hub network security

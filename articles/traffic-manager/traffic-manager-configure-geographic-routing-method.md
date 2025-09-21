@@ -8,7 +8,9 @@ ms.service: azure-traffic-manager
 ms.topic: tutorial
 ms.date: 08/08/2024
 ms.author: allensu
-ms.custom: template-tutorial
+ms.custom:
+  - template-tutorial
+  - sfi-image-nochange
 # Customer intent: As a cloud engineer, I want to configure geographic traffic routing in Traffic Manager, so that I can direct user traffic to the appropriate endpoints based on their geographic location for optimized performance and compliance.
 ---
 
