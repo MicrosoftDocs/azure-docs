@@ -28,7 +28,7 @@ For more information about Azure Cache for Redis triggers and bindings, [Redis E
 >
 
 > [!IMPORTANT]
-> Redis triggers aren't currently supported for functions running in the [Consumption plan](consumption-plan.md).
+> Redis triggers aren't currently supported for functions running in the [Consumption plan](consumption-plan.md) or the [Flex Consumption plan](flex-consumption-plan.md).
 >
 
 ::: zone pivot="programming-language-javascript"  
