@@ -195,7 +195,7 @@ Get-AzMigrateServerMigrationStatus   -ProjectName "<your-project-name>"   -Resou
 
 16. You run this command to get the following output: <br /><br />
 
-:::image type="content" source="./media/tutorial-migrate-vmware/appliance-name.png" alt-text="Screenshot shows azure migrate server migration status." lightbox="./media/tutorial-migrate-vmware/appliance-name.png":::
+:::image type="content" source="./media/tutorial-migrate-vmware/appliance-name.png" alt-text="Screenshot shows Azure Migrate server migration status." lightbox="./media/tutorial-migrate-vmware/appliance-name.png":::
 
 ## Run a test migration
 
