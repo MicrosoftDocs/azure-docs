@@ -5,16 +5,16 @@ description: Learn to migrate existing Service Bus applications away from connec
 ms.reviewer: randolphwest
 ms.date: 07/25/2025
 ms.topic: how-to
-ms.custom: |
-- sfi-ropc-nochange
-- devx-track-csharp
-- devx-track-azurecli
-- devx-track-azurepowershell
-- passwordless-dotnet
-- passwordless-go
-- passwordless-java
-- passwordless-js
-- passwordless-python
+ms.custom: 
+  - sfi-ropc-nochange
+  - devx-track-csharp
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - passwordless-dotnet
+  - passwordless-go
+  - passwordless-java
+  - passwordless-js
+  - passwordless-python
 ---
 
 # Migrate an application to use passwordless connections with Azure Service Bus
