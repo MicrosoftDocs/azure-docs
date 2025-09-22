@@ -5,7 +5,7 @@ author: iyervarsha
 ms.author: varshaiyer
 ms.service: dev-box
 ms.topic: how-to
-ms.date: 09/19/2025
+ms.date: 09/22/2025
 #Customer intent: As a platform engineer, I want to add a display name to my projects and pools, so I can provide clarity for developers when renaming resources.
 ---
 
@@ -56,7 +56,7 @@ Developers also see the display names for projects and pools during dev box crea
 
 :::image type="content" source="media/how-to-add-project-pool-display-name/dev-portal-display-names-during-creation.png" alt-text="Screenshot showing display names on the dev box creation pane.":::
 
-To view information on the pool resource name for the associated dev box, view the **Support panel** of the developer portal. You see both the resource name and display name for the associated pool: 
+To view information about the pool resource for a dev box in the developer portal, select **More actions** (**...**) > **Support** for the dev box. You see both the resource name and display name for the associated pool: 
 
 :::image type="content" source="media/how-to-add-project-pool-display-name/dev-portal-support-panel.png" alt-text="Screenshot showing the support panel in the developer portal.":::
 
