@@ -5,10 +5,12 @@ author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
-ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 08/21/2025
 ms.author: primittal
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-ga-nochange
 ---
 
 # Permissions to view and manage Azure reservations
