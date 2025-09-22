@@ -6,7 +6,9 @@ ms.service: azure-service-bus
 ms.topic: include
 ms.date: 06/19/2025
 ms.author: spelluru
-ms.custom: "include file"
+ms.custom:
+  - "include file"
+  - sfi-ropc-nochange
 
 ---
 

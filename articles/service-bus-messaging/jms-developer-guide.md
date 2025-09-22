@@ -2,8 +2,10 @@
 title: Azure Service Bus JMS 2.0 developer guide
 description: How to use the Java Message Service (JMS) 2.0 API to communicate with Azure Service Bus
 ms.topic: article
-ms.custom: devx-track-extended-java
 ms.date: 06/16/2025
+ms.custom:
+  - devx-track-extended-java
+  - sfi-ropc-nochange
 ---
 
 # Azure Service Bus JMS 2.0 developer guide
