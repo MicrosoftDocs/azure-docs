@@ -152,26 +152,31 @@ Once onboarded, usage of data lake tier capabilities is billed using new Microso
 
 The new cost management experience, currently in preview and under **Microsoft Sentinel** > **Cost management** in the [Microsoft Defender portal](https://security.microsoft.com), helps you manage and monitor costs associated with your use of the data lake tier.
 
+>[!IMPORTANT]
+>You must have both the Billing Administrator and Security Administrator roles to access the Sentinet cost management pages. 
+
 #### Usage
 
 The **Usage** page provides you with entry points to relevant cost tracking capabilities and a direct link to usage reports and settings, so you can navigate to the cost management action most relevant to you.
 
-+ Usage reports - Visualizes your usage by capability over time. It can be found under **Currently billed capabilities**.
-+ Cost management - Leads you to the **Cost Management + Billing** blade in the Azure portal to help track costs and create budgets. For more information on how to use Cost Management + Billing in the Azure portal, see [Start using cost analysis](../cost-management/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-+ Cost forecast - Leads you to a forecast report in the **Cost Management + Billing** blade in the Azure portal. For more information on how to use the forecast functionality, see [View forecast costs](/azure/cost-management-billing/costs/cost-analysis-common-uses#view-forecast-costs).
-+ Microsoft Sentinel settings - Opens the Microsoft Sentinel settings to show your relevant billing information, such as subscription and resource group selected for the data lake.
++ **Usage reports** - Visualizes your usage by capability over time. It can be found under **Currently billed capabilities**.
++ **Cost management** - Leads you to the **Cost Management + Billing** blade in the Azure portal to help track costs and create budgets. For more information on how to use Cost Management + Billing in the Azure portal, see [Start using cost analysis](../cost-management/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
++ **Cost forecast** - Leads you to a forecast report in the **Cost Management + Billing** blade in the Azure portal. For more information on how to use the forecast functionality, see [View forecast costs](/azure/cost-management-billing/costs/cost-analysis-common-uses#view-forecast-costs).
++ **Microsoft Sentinel settings** - Opens the Microsoft Sentinel settings to show your relevant billing information, such as subscription and resource group selected for the data lake.
+
+:::image type="content" source="media/billing-monitor-costs/usage-page.png" alt-text="Screenshot of the Usage page in the Microsoft Sentienl cost management experience in the Microsoft Defender portal." lightbox="media/billing-monitor-costs/usage-page.png":::
 
 When you select one of the capabilities under **Usage reports**, you can view any of the following reports:
 
 - **Cost driver report** - Displays the top 10 cost drivers for the capability and a detailed list breaking down usage by cost drivers. This report is available for data lake ingestion, data lake storage, and data processing. The only usage captured for these reports is billable usage.
   
-    :::image type="content" source="media/billing-monitor-costs/cost-driver-report.png" alt-text="Screenshot of a cost management in the Microsoft Defender portal showing the cost driver report for data lake ingestion." lightbox="media/billing-monitor-costs/cost-driver-report.png":::
+    :::image type="content" source="media/billing-monitor-costs/cost-driver-report.png" alt-text="Screenshot of the cost driver report for data lake ingestion." lightbox="media/billing-monitor-costs/cost-driver-report.png":::
 
 - **General trend report** - Displays a trend line of your billable usage for that capability. This report is currently available for data lake query and advanced data insights, and will be made available for the other capabilities over time.
 
-  :::image type="content" source="media/billing-monitor-costs/general-trend-report.png" alt-text="Screenshot of a cost management in the Microsoft Defender portal showing the general trend report for advanced data insights." lightbox="media/billing-monitor-costs/general-trend-report.png":::
+  :::image type="content" source="media/billing-monitor-costs/general-trend-report.png" alt-text="Screenshot of the general trend report for advanced data insights." lightbox="media/billing-monitor-costs/general-trend-report.png":::
 
-You can use a filter to adjust the default single month time window. A card shows your total usage for the filtered time period. If enough historic data is available, the trend change compared to the previous period is displayed.
+You can use a filter to adjust the default single month time window. A card shows your total usage for the filtered time. If enough historical data is available, the trend change compared to the previous period is displayed.
 
 #### Notification
 
