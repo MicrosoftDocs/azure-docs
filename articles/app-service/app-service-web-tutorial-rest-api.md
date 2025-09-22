@@ -4,7 +4,7 @@ description: Learn how Azure App Service helps you host your RESTful APIs with C
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/05/2024
+ms.date: 08/29/2025
 ms.update-cycle: 1095-days
 ms.custom: "UpdateFrequency3, devx-track-csharp, mvc, devcenter, devx-track-azurecli"
 ms.author: msangapu
@@ -14,13 +14,13 @@ ms.service: azure-app-service
 
 # Tutorial: Host a RESTful API with CORS in Azure App Service
 
-[Azure App Service](overview.md) provides a highly scalable self-patching web hosting service. In addition, App Service has built-in support for [cross-origin resource sharing (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) for RESTful APIs. This tutorial shows how to deploy an ASP.NET Core API app to App Service with CORS support. You configure the app using command-line tools and deploy the app using Git. 
+[Azure App Service](overview.md) provides a highly scalable self-patching web hosting service. In addition, App Service has built-in support for [cross-origin resource sharing (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) for RESTful APIs. This tutorial shows how to deploy an ASP.NET Core API app to App Service with CORS support. You configure the app by using command-line tools and deploy the app by using Git. 
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create App Service resources using Azure CLI.
-> * Deploy a RESTful API to Azure using Git.
+> * Create App Service resources by the using the Azure CLI.
+> * Deploy a RESTful API to Azure by using Git.
 > * Enable App Service CORS support.
 
 You can complete this tutorial on macOS, Linux, or Windows.
@@ -47,7 +47,7 @@ In this step, you set up the local ASP.NET Core project. App Service supports th
     cd dotnet-core-api
     ```
 
-    This repository contains an app that's created based on the tutorial [ASP.NET Core web API documentation with Swagger / OpenAPI](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio). It uses a Swagger generator to serve the [Swagger UI](https://swagger.io/swagger-ui/) and the Swagger JSON endpoint.
+    This repository contains an app that's based on the tutorial [ASP.NET Core web API documentation with Swagger / OpenAPI](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio). It uses a Swagger generator to serve the [Swagger UI](https://swagger.io/swagger-ui/) and the Swagger JSON endpoint.
 
 1. Make sure the default branch is `main`.
 
@@ -56,7 +56,7 @@ In this step, you set up the local ASP.NET Core project. App Service supports th
     ```
     
     > [!TIP]
-    > The branch name change isn't required by App Service. However, since many repositories are changing their default branch to `main` (see [Change deployment branch](deploy-local-git.md#change-deployment-branch)), this tutorial shows you how to deploy a repository from `main`.
+    > The branch name change isn't required by App Service. However, because many repositories are changing their default branch to `main` (see [Change deployment branch](deploy-local-git.md#change-deployment-branch)), this tutorial shows how to deploy a repository from `main`.
 
 ### Run the application
 
@@ -67,13 +67,13 @@ In this step, you set up the local ASP.NET Core project. App Service supports th
     dotnet run
     ```
 
-1. Navigate to `http://localhost:5000/swagger` in a browser to try the Swagger UI.
+1. Go to `http://localhost:5000/swagger` in a browser to try the Swagger UI.
 
     ![Screenshot of an ASP.NET Core API running locally.](./media/app-service-web-tutorial-rest-api/azure-app-service-local-swagger-ui.png)
 
-1. Navigate to `http://localhost:5000/api/todo` to see a list of ToDo JSON items.
+1. Go to `http://localhost:5000/api/todo` to see a list of ToDo JSON items.
 
-1. Navigate to `http://localhost:5000` and experiment with the browser app. Later, you'll point the browser app to a remote API in App Service to test CORS functionality. Code for the browser app is found in the repository's _wwwroot_ directory.
+1. Go to `http://localhost:5000` and experiment with the browser app. Later, you'll point the browser app to a remote API in App Service to test CORS functionality. Code for the browser app is found in the repository's _wwwroot_ directory.
 
 1. To stop ASP.NET Core at any time, select **Ctrl+C** in the terminal.
 
@@ -132,13 +132,13 @@ In this step, you deploy your .NET Core application to App Service.
 
 ### Browse to the Azure app
 
-1. Navigate to `http://<app_name>.azurewebsites.net/swagger` in a browser and view the Swagger UI.
+1. Go to `http://<app_name>.azurewebsites.net/swagger` in a browser and view the Swagger UI.
 
     ![Screenshot of an ASP.NET Core API running in Azure App Service.](./media/app-service-web-tutorial-rest-api/azure-app-service-browse-app.png)
 
-1. Navigate to `http://<app_name>.azurewebsites.net/swagger/v1/swagger.json` to see the _swagger.json_ for your deployed API.
+1. Go to `http://<app_name>.azurewebsites.net/swagger/v1/swagger.json` to see the _swagger.json_ for your deployed API.
 
-1. Navigate to `http://<app_name>.azurewebsites.net/api/todo` to see your deployed API working.
+1. Go to `http://<app_name>.azurewebsites.net/api/todo` to see your deployed API working.
 
 ## Add CORS functionality
 
@@ -148,7 +148,7 @@ Next, you enable the built-in CORS support in App Service for your API.
 
 1. In your local repository, open _wwwroot/index.html_.
 
-1. On line 51, set the `apiEndpoint` variable to the URL of your deployed API (`http://<app_name>.azurewebsites.net`). Replace _\<appname>_ with your app name in App Service.
+1. On line 51, set the `apiEndpoint` variable to the URL of your deployed API (`http://<app_name>.azurewebsites.net`). Replace _\<appname>_ with your app name.
 
 1. In your local terminal window, run the sample app again.
 
@@ -156,7 +156,7 @@ Next, you enable the built-in CORS support in App Service for your API.
     dotnet run
     ```
 
-1. Navigate to the browser app at `http://localhost:5000`. Open the developer tools window in your browser (**Ctrl**+**Shift**+**i** in Chrome for Windows) and inspect the **Console** tab. You should now see the error message, `No 'Access-Control-Allow-Origin' header is present on the requested resource`.
+1. Go to the browser app at `http://localhost:5000`. Open the developer tools window in your browser (**Ctrl**+**Shift**+**i** in Chrome for Windows) and inspect the **Console** tab. You should now see the error message `No 'Access-Control-Allow-Origin' header is present on the requested resource`.
 
     ![Screenshot of the CORS error in the browser client.](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-error.png)
 
@@ -190,9 +190,9 @@ Congratulations, you're running an API in Azure App Service with CORS support.
 
 #### App Service CORS vs. your CORS
 
-You can use your own CORS utilities instead of App Service CORS for more flexibility. For example, you might want to specify different allowed origins for different routes or methods. Since App Service CORS lets you specify only one set of accepted origins for all API routes and methods, you would want to use your own CORS code. See how CORS is enabled in ASP.NET Core at [Enable CORS](/aspnet/core/security/cors).
+To get more flexibility, you can use your own CORS utilities instead of App Service CORS. For example, you might want to specify different allowed origins for different routes or methods. Because App Service CORS lets you specify only one set of accepted origins for all API routes and methods, you would need to use your own CORS code. To learn how to enable CORS in ASP.NET Core, see [Enable CORS](/aspnet/core/security/cors).
 
-The built-in App Service CORS feature doesn't have options to allow only specific HTTP methods or verbs for each origin that you specify. It will automatically allow all methods and headers for each origin defined. This behavior is similar to [ASP.NET Core CORS](/aspnet/core/security/cors) policies when you use the options `.AllowAnyHeader()` and `.AllowAnyMethod()` in the code.
+The built-in App Service CORS feature doesn't have options to allow only specific HTTP methods or verbs for each origin that you specify. It automatically allows all methods and headers for each origin defined. This behavior is similar to [ASP.NET Core CORS](/aspnet/core/security/cors) policies when you use the options `.AllowAnyHeader()` and `.AllowAnyMethod()` in the code.
 
 > [!NOTE]
 > Don't try to use App Service CORS and your own CORS code together. If you try to use them together, App Service CORS takes precedence and your own CORS code has no effect.
@@ -201,7 +201,7 @@ The built-in App Service CORS feature doesn't have options to allow only specifi
 
 #### How do I set allowed origins to a wildcard subdomain?
 
-A wildcard subdomain like `*.contoso.com` is more restrictive than the wildcard origin `*`. The app's CORS management page in the Azure portal doesn't let you set a wildcard subdomain as an allowed origin. However, you can do that by using Azure CLI, like so:
+A wildcard subdomain like `*.contoso.com` is more restrictive than the wildcard origin `*`. The app's CORS management page in the Azure portal doesn't let you set a wildcard subdomain as an allowed origin. However, you can do that by using the Azure CLI:
 
 ```azurecli-interactive
 az webapp cors add --resource-group <group-name> --name <app-name> --allowed-origins 'https://*.contoso.com'
@@ -222,16 +222,16 @@ This operation isn't allowed when allowed origins include the wildcard origin `'
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 <a name="next"></a>
-## Next steps
+## Next step
 
 What you learned:
 
 > [!div class="checklist"]
-> * Create App Service resources using Azure CLI.
-> * Deploy a RESTful API to Azure using Git.
+> * Create App Service resources by using the Azure CLI.
+> * Deploy a RESTful API to Azure by using Git.
 > * Enable App Service CORS support.
 
-Go to the next tutorial to learn how to authenticate and authorize users.
+Go to the following tutorial to learn how to authenticate and authorize users.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Authenticate and authorize users end-to-end](tutorial-auth-aad.md)

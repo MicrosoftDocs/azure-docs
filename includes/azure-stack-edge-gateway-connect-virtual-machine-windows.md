@@ -4,6 +4,7 @@ ms.service: azure-databox
 ms.topic: include
 ms.date: 08/04/2020
 ms.author: alkohli
+ms.custom: sfi-image-nochange
 ---
 
 Connect to your Windows VM by using the Remote Desktop Protocol (RDP) via the IP that you passed during the VM creation.

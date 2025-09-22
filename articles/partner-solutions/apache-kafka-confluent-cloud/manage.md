@@ -3,6 +3,7 @@ title: Manage a Confluent Cloud Resource
 description: Learn how to manage your Confluent Cloud resource settings.
 ms.topic: how-to
 ms.date: 02/27/2025
+ms.custom: sfi-image-nochange
 
 ---
 

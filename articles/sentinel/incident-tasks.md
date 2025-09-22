@@ -1,8 +1,8 @@
 ---
 title: Use tasks to manage incidents in Microsoft Sentinel in the Azure portal
 description: This article describes incident tasks and how to work with them to ensure all required steps are taken in triaging, investigating, and responding to incidents in Microsoft Sentinel.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: conceptual
 ms.date: 11/14/2022
 appliesto:
