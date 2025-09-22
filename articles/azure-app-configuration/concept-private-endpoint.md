@@ -64,7 +64,7 @@ Azure relies on DNS resolution to route connections from the virtual network to 
 > By default, when you add a private endpoint to your App Configuration store, all requests for your App Configuration data over the public network are denied. You can enable public network access by using the following Azure CLI command. It's important to consider the security implications of enabling public network access in this scenario.
 >
 > ```azurecli-interactive
-> az appconfig update -g <resource-group-name> -n <App-Configuration-store-name> --enable-public-network true
+> az appconfig update --resource-group <resource-group-name> --name <App-Configuration-store-name> --enable-public-network true
 > ```
 
 ## DNS changes for private endpoints
