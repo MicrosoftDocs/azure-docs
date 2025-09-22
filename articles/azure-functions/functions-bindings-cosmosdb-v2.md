@@ -215,8 +215,8 @@ SDK Type support for Azure Cosmos is in Preview. Follow the [Python SDK Bindings
 
 |Property  |Default |Description |
 |----------|--------|------------|
-|**connectionMode**|`Gateway`|The connection mode used by the function when connecting to the Azure Cosmos DB service. Options are `Direct` and `Gateway`|
-|**userAgentSuffix**| n/a | Adds the specified string value to all requests made by the trigger or binding to the service. This makes it easier for you to track the activity in Azure Monitor, based on a specific function app and filtering by `User Agent`.
+|**connectionMode**|`Gateway`|The connection mode used by the function when connecting to the Azure Cosmos DB service. Options: `Direct` connects directly to backend replicas over TCP and can provide lower latency, and `Gateway` routes requests through a front-end gateway over HTTPS. For more information, see [Azure Cosmos DB SDK connection modes](/azure/cosmos-db/nosql/sdk-connection-modes).|
+|**userAgentSuffix**| n/a | Adds the specified string value to all requests made by the trigger or binding to the service. This makes it easier for you to track the activity in Azure Monitor, based on a specific function app and filtering by `User Agent`. |
 
 
 # [Functions 2.x+](#tab/functionsv2)
