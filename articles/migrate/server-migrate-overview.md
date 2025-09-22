@@ -20,7 +20,7 @@ Comparing migration methods
 | **Fabric** |  **Recommended method**  | **Alternate method(s)**|
 | --- | --- | --- |
 | VMware vSphere  | Use **Agentless** replication with the Azure Migrate appliance. This method doesn’t require in-guest agents and is recommended for most VMware scenarios.    | Use **Agent-based** replication with the Replication appliance and the Mobility service agent (one agent per VM). Choose this method when agentless prerequisites or limits aren’t met   | 
-| HyperV  | Use **Agentless** replication. Providers run on Hyper-V hosts or cluster nodes, so no installation is required inside individual VMs.   | Use **Agent-based** replication (treat the VM as a physical server) when host access isn’t available or agentless requirements can’t be met    | 
+| Hyper-V  | Use **Agentless** replication. Providers run on Hyper-V hosts or cluster nodes, so no installation is required inside individual VMs.   | Use **Agent-based** replication (treat the VM as a physical server) when host access isn’t available or agentless requirements can’t be met    | 
 | **Physical & other platforms** (AWS/GCP VMs, Xen, KVM, private clouds)  | Use **Agent-based** replication with the Replication appliance and the Mobility service agent (one agent per VM). This method is recommended for non-VMware and non-Hyper-V sources  |  | 
 
 
@@ -45,9 +45,9 @@ Migrating VMware vSphere servers refers to the process of moving virtual machine
 **Agentless (recommended)**: Use agentless replication with the Azure Migrate appliance to perform discovery, replication (using snapshots based on Changed Block Tracking), test migration, and final migration. This method doesn’t require installing agents inside guest operating systems. An automated hydration process prepares supported operating systems for successful boot in Azure. For more information, see [Migrate VMware vSphere servers](tutorial-migrate-vmware.md). 
 
 **Agent-based**: Use agent-based replication with the Replication appliance and the Mobility service agent (installed per virtual machine) to enable replication and migration.
-For more information, see [migrate vmware physical](tutorial-migrate-vmware.md)
+For more information, see [migrate VMware physical](tutorial-migrate-vmware.md)
 
-## Migrating HyperV servers 
+## Migrating Hyper-V servers 
 
 Migrating Hyper-V servers refers to the process of moving virtual machines (VMs) hosted on Hyper-V infrastructure to Microsoft Azure, typically using the Azure Migrate: Migration and Modernization tool. This process supports both agentless and agent-based migration methods depending on the environment and requirements.
 
@@ -57,7 +57,7 @@ Migrating Hyper-V servers refers to the process of moving virtual machines (VMs)
 
 **Agent-based**: Use this method when host-level protection or connectivity requirements aren’t met. Treat the virtual machines as physical machines and install the Mobility service agent inside each VM to enable replication and migration.
 
-Learn more about [Migrating HyperV servers](tutorial-migrate-hyper-v.md).
+Learn more about [Migrating Hyper-V servers](tutorial-migrate-hyper-v.md).
  
 ## Migrating Physical and Cloud-based Servers (AWS, GCP, Xen, KVM)
 
@@ -72,5 +72,5 @@ Learn more about [Migrating Physical and Cloud-based Servers (AWS, GCP, Xen, KVM
 ## Next steps
 
 - Learn more about [architecture overview for VMware Agentless migration](concepts-vmware-agentless-migration.md).
-- Learn more about [architecture overview for Hyper-v migration](hyper-v-migration-architecture.md).
+- Learn more about [architecture overview for Hyper-V migration](hyper-v-migration-architecture.md).
 - Learn more about [architecture overview for Agent-based (physical or other) migration](../site-recovery/vmware-azure-architecture-modernized.md).
