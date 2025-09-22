@@ -9,7 +9,10 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 05/19/2025
 ms.author: danlep 
-ms.custom: devx-track-azurepowershell, engagement-fy23
+ms.custom:
+  - devx-track-azurepowershell
+  - engagement-fy23
+  - sfi-image-nochange
 
 #customer intent: As an API developer, I want to secure backend services by using client certificate authentication. 
 ---

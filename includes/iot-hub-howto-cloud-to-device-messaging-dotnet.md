@@ -5,7 +5,14 @@ ms.service: azure-iot-hub
 ms.devlang: csharp
 ms.topic: include
 ms.date: 1/6/2025
-ms.custom: [amqp, mqtt, "Role: Cloud Development", "Role: IoT Device", devx-track-csharp, devx-track-dotnet]
+ms.custom:
+  - amqp
+  - mqtt
+  - "Role: Cloud Development"
+  - "Role: IoT Device"
+  - devx-track-csharp
+  - devx-track-dotnet
+  - sfi-ropc-nochange
 ---
 
 ## Create a device application

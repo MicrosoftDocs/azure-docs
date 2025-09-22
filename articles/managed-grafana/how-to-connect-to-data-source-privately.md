@@ -5,7 +5,8 @@ ms.service: azure-managed-grafana
 ms.topic: how-to
 author: maud-lv
 ms.author: malev
-ms.date: 07/17/2025
+ms.date: 08/19/2025
+ms.custom: sfi-image-nochange
 #customer intent: As a Grafana user, I want to connect an Azure Managed Grafana workspace a data source using Managed Private Endpoint, so that the traffic stays on the Azure network instead of the internet.
 --- 
 
@@ -44,9 +45,6 @@ Managed private endpoints work with Azure services that support private link. Us
 When you create a managed private endpoint in your Azure Managed Grafana workspace, a private endpoint connection is created in a *Pending* state. This action begins an approval workflow. The private link resource owner is responsible for approving or rejecting the new connection. If the owner approves the connection, the private link is established. Otherwise, the private link isn't set up.
 
 Azure Managed Grafana shows the current connection status. Only a managed private endpoint in an *approved* state can be used to send traffic to the private link resource that is connected to the managed private endpoint.
-
-> [!NOTE]
-> Managed private endpoints are currently only available in Azure Global.
 
 Managed private endpoints are free. There can be charges associated with private link usage on a data source. For more information, see pricing details for your data source.
 

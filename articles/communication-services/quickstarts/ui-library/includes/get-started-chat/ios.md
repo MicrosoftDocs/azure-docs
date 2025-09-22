@@ -1,6 +1,6 @@
 ---
-author: Leah-Xia-Microsoft
-ms.author: leahxia
+author: awang119
+ms.author: awang119
 ms.date: 01/04/2023
 ms.topic: include
 ms.service: azure-communication-services
@@ -58,6 +58,8 @@ In Xcode, create a new project.
 1. In Xcode, open the generated *xcworkspace* file.
 
 ### Turn off User Script Sandboxing
+
+Some of the scripts within the linked libraries write files during the build process. To enable file writing, disable the User Script Sandboxing in Xcode.
 
 In the Xcode project, under **Build Settings**, set the **User Script Sandboxing** option to **No**. To find the setting, change the filter from **Basic** to **All** or use the search bar.
 

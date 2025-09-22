@@ -8,7 +8,9 @@ ms.topic: quickstart
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.custom: mode-other
+ms.custom:
+  - mode-other
+  - sfi-image-nochange
 ---
 
 # Quickstart: Configure prerequisites for using Azure AI services in Azure Synapse Analytics

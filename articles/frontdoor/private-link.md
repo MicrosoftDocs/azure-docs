@@ -10,6 +10,7 @@ ms.custom:
   - references_regions
   - ignite-2024
   - build-2025
+  - sfi-image-nochange
 ---
 
 # Secure your Origin with Private Link in Azure Front Door Premium
@@ -31,9 +32,6 @@ You must approve the private endpoint connection before traffic can pass to the 
 After you enable an origin for Private Link and approve the private endpoint connection, it can take a few minutes for the connection to be established. During this time, requests to the origin receives an Azure Front Door error message. The error message goes away once the connection is established.
 
 Once your request is approved, a dedicated private endpoint gets assigned for routing your traffic from the Azure Front Door managed virtual network. Traffic from your clients will reach Azure Front Door Global POPs and is then routed over the Microsoft backbone network to the AFD regional cluster which hosts the managed virtual network containing the dedicated private endpoint. The traffic is then routed to your origin via the private link platform over Microsoft backbone network. Hence the incoming traffic to your origin secured upon the moment it arrives to Azure Front Door. 
-
-> [!NOTE]
-> * This feature only supports private link connectivity from your AFD to your origin. Client to AFD private connectivity is not supported.
 
 ## Supported origins
 
@@ -64,22 +62,17 @@ Azure Front Door private link is available in the following regions:
 | East US | Norway East | | Korea Central |
 | East US 2 | UK South | | East Asia |
 | South Central US | West Europe | | South East Asia |
-| West US 2 | Sweden Central | | |
-| West US 3 | | | |
+| West US 2 | Sweden Central | | China East 3 |
+| West US 3 | | | China North 3 |
 | US Gov Arizona | | | |
 | US Gov Texas | | | |
 | US Gov Virginia | | | |
+| US Nat East | | | |
+| US Nat West | | | |
+| US Sec East | | | |
+| US Sec West | | | |
 
-The Azure Front Door Private Link feature is region agnostic but for the best latency, you should always pick an Azure region closest to your origin when choosing to enable Azure Front Door Private Link endpoint. If your origin's region is not supported in the list of regions AFD Private Link supports, pick the next nearest region. You can use [Azure network round-trip latency statistics](../networking/azure-network-latency.md) to determine the next nearest region in terms of latency.
-
-## Tips while using AFD Private Link integration
-* Azure Front Door doesn't allow mixing public and private origins in the same origin group. Doing so can cause errors during configuration or while AFD tries to send traffic to the public/private origins. Keep all your public origins in a single origin group and keep all your private origins in a different origin group.
-* Improving redundancy:
-    * To improve redundancy at origin level, make sure you have multiple private link enabled origins within the same origin group so that AFD can distribute traffic across multiple instances of the application. If one instance is unavailable, then other origins can still receive traffic.
-    * To route Private Link traffic, requests are routed from AFD POPs to the AFD managed virtual network hosted in AFD regional clusters. To have redundancy in case the regional cluster is not reachable, it is recommended to configure multiple origins (each with a different Private Link region) under the same AFD origin group. This way even if one regional cluster is unavailable, then other origins can still receive traffic via a different regional cluster. Below is how an origin group with both origin level and region level redundancy would look like.
-        :::image type="content" source="./media/private-link/redundant-origin-group.png" alt-text="Diagram showing an origin group with both origin level and region level redundancy.":::
-* While approving the private endpoint connection or after approving the private endpoint connection, if you double click on the private endpoint, you will see an error message saying "You don't have access. Copy the error details and send them to your administrator(s) to get access to this page." This is expected as the private endpoint is hosted within a subscription managed by Azure Front Door.
-* For platform protection, each AFD regional cluster has a limit of 7200 RPS (requests per second) per AFD profile. Requests beyond 7200 RPS will be rate limited with "429 Too Many Requests". If you are onboarding or expecting traffic more than 7200 RPS, we recommend deploying multiple origins (each with a different Private Link region) so that traffic is spread across multiple AFD regional clusters. It is recommended that each origin is a separate instance of your application to improve origin level redundancy. But if you can not maintain separate instances, you can still configure multiple origins at AFD level with each origin pointing to the same hostname but the regions are kept different. This way AFD will route the traffic to the same instance but via different regional clusters.
+The Azure Front Door Private Link feature is region agnostic but for the best latency, you should always pick an Azure region closest to your origin when choosing to enable Azure Front Door Private Link endpoint. If your origin's region is not supported in the list of regions AFD Private Link supports, pick the next nearest region. You can use [Azure network round-trip latency statistics](../networking/azure-network-latency.md) to determine the next nearest region in terms of latency. We are in the process of enabling support for more regions. Once a new region is supported, you can follow these [instructions](blue-green-deployment.md) to gradually shift traffic to the new region.
 
 ## Association of a private endpoint with an Azure Front Door profile
 
@@ -134,6 +127,29 @@ If AFD-Profile-1 gets deleted, then the PE1 private endpoint across all the orig
     * If AFD-Profile-3 gets deleted, only PE6 is removed.
     * If AFD-Profile-4 gets deleted, only PE7 is removed.
     * If AFD-Profile-5 gets deleted, only PE8 is removed.
+
+## Frequently asked questions
+
+1. Does this feature support private link connectivity from client to Front Door?
+* No. This feature only supports private link connectivity from your AFD to your origin.
+
+2. How to improve redundancy while using Private Link with AFD?
+* To improve redundancy at origin level, make sure you have multiple private link enabled origins within the same origin group so that AFD can distribute traffic across multiple instances of the application. If one instance is unavailable, then other origins can still receive traffic.
+* To route Private Link traffic, requests are routed from AFD POPs to the AFD managed virtual network hosted in AFD regional clusters. To have redundancy in case the regional cluster is not reachable, it is recommended to configure multiple origins (each with a different Private Link region) under the same AFD origin group. This way even if one regional cluster is unavailable, then other origins can still receive traffic via a different regional cluster. Below is how an origin group with both origin level and region level redundancy would look like.
+        :::image type="content" source="./media/private-link/redundant-origin-group.png" alt-text="Diagram showing an origin group with both origin level and region level redundancy.":::
+
+3. Can I mix public and private origins in the same origin group?
+* No. Azure Front Door doesn't allow mixing public and private origins in the same origin group. This can cause configuration errors or traffic routing issues. Keep all public origins in one origin group and all private origins in a separate origin group.
+
+4. Why do I see an error when trying to access the private endpoint details by double clicking on the private endpoint in Azure portal?
+* While approving the private endpoint connection or after approving the private endpoint connection, if you double click on the private endpoint, you will see an error message saying "You don't have access. Copy the error details and send them to your administrator(s) to get access to this page." This is expected as the private endpoint is hosted within a subscription managed by Azure Front Door.
+
+5. What are the rate limits for Private Link traffic and how can I handle high traffic scenarios?
+* For platform protection, each AFD regional cluster has a limit of 7200 RPS (requests per second) per AFD profile. Requests beyond 7200 RPS at a region will be rate limited with "429 Too Many Requests". 
+* If you are onboarding or expecting traffic more than 7200 RPS, we recommend deploying multiple origins (each with a different Private Link region) so that traffic is spread across multiple AFD regional clusters. It is recommended that each origin is a separate instance of your application to improve origin level redundancy. But if you can not maintain separate instances, you can still configure multiple origins at AFD level with each origin pointing to the same hostname but the regions are kept different. This way AFD will route the traffic to the same instance but via different regional clusters.
+
+6. For private link enabled origins, will health probes also follow the same network path as actual traffic?
+* Yes.
 
 ## Next steps
 

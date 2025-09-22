@@ -10,6 +10,7 @@ ms.date: 09/16/2021
 ms.author: godonnell
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 #Customer Intent: As a developer using Azure Active Directory B2C, I want to set up sign-up and sign-in with a WeChat account, so that users can authenticate using their WeChat credentials.
 

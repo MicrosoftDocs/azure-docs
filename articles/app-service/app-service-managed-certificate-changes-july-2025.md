@@ -16,16 +16,16 @@ For a detailed explanation of the underlying changes at DigiCert, refer to [chan
 
 ## What’s changing
 
-- **Validation method update**: ASMC now uses HTTP Token validation for both apex and subdomains. Previously, subdomains were validated using CNAME records, which did not require public access. With HTTP Token, DigiCert must reach a specific endpoint on your app to verify domain ownership.
+**Validation method update**: ASMC now uses HTTP Token validation for both apex and subdomains. Previously, subdomains were validated using CNAME records, which did not require public access. With HTTP Token, DigiCert must reach a specific endpoint on your app to verify domain ownership.
 
-  App Service automatically places the required token at the correct path for validation. This process applies to both initial certificate issuance and renewals, meaning:
+App Service automatically places the required token at the correct path for validation. This process applies to both initial certificate issuance and renewals, meaning:
 
-  - The customer experience for requesting an ASMC or proving domain ownership remains unchanged.
-  - All API and CLI request payloads for ASMC creation or renewal are unaffected.
-  - No customer action is needed to place or manage the token.
+- The customer experience for requesting an ASMC or proving domain ownership remains unchanged.
+- All API and CLI request payloads for ASMC creation or renewal are unaffected.
+- No customer action is needed to place or manage the token.
 
-  > [!IMPORTANT]
-  > While App Service continues to handle token placement automatically during renewals, DigiCert must still reach the validation endpoint on your app. Public access is still required at the time of renewal. If your app is not publicly accessible, renewal fails even if the token is correctly placed.
+> [!IMPORTANT]
+> While App Service continues to handle token placement automatically during renewals, DigiCert must still reach the validation endpoint on your app. Public access is still required at the time of renewal. If your app is not publicly accessible, renewal fails even if the token is correctly placed.
 
 ## Impacted scenarios
 
@@ -42,11 +42,18 @@ You can't create or renew ASMCs if your:
 
 Existing certificates remain valid until expiration (up to six months), but will not renew automatically if your configuration is unsupported.
 
+> [!NOTE]
+> In addition to the new changes, all existing ASMC requirements still apply. Refer to [App Service Managed Certificate documentation](configure-ssl-certificate.md#create-a-free-managed-certificate) for more information.
+
 ## Identify impacted resources
 You can use [Azure Resource Graph (ARG)](https://portal.azure.com/?feature.customPortal=false#view/HubsExtension/ArgQueryBlade) queries to help identify resources that may be affected under each scenario. These queries are provided as a starting point and may not capture every configuration. Review your environment for any unique setups or custom configurations. 
 
 ### Scenario 1: Site is not publicly accessible
 This ARG query retrieves a list of sites that either have the public network access property disabled or are configured to use client certificates. It then filters for sites that are using App Service Managed Certificates (ASMC) for their custom hostname SSL bindings. These certificates are the ones that could be affected by the upcoming changes. However, this query does not provide complete coverage, as there may be other configurations impacting public access to your app that are not included here. Ultimately, this query serves as a helpful guide for users, but a thorough review of your environment is recommended. You can copy this query, paste it into [ARG Explorer](https://portal.azure.com/?feature.customPortal=false#view/HubsExtension/ArgQueryBlade), and then click "Run query" to view the results for your environment. 
+
+> [!NOTE]
+> ARG can only retrive site property values (ie. client certificate and public network access), however it cannot retrieve any site config values (ie. IP restrictions). If you would like to retrive both site properties and site config values as well, you can refer to this [PowerShell script from GitHub](https://github.com/nimccoll/AppServiceManagedCertificates).
+> 
 
 ```kql
 // ARG Query: Identify App Service sites that commonly restrict public access and use ASMC for custom hostname SSL bindings 
@@ -83,7 +90,6 @@ resources
 // Final output: sites with restricted public access and using ASMC for custom hostname SSL bindings 
 | project siteName, siteId, siteResourceGroup, publicNetworkAccess, clientCertEnabled, thumbprint, certName, certId, certResourceGroup, certExpiration, canonicalName
 ```
-
 
 ### Scenario 2: Site is an Azure Traffic Manager "nested" or "external" endpoint
 If your App Service uses custom domains routed through **Azure Traffic Manager**, you may be impacted if your profile includes **external** or **nested endpoints**. These endpoint types are not supported for certificate issuance or renewal under the new validation.

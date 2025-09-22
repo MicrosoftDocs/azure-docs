@@ -6,7 +6,8 @@ manager: dcscontentpm
 tags: top-support-issue
 ms.topic: troubleshooting-general
 ms.date: 03/01/2019
-ms.author: genli
+ms.author: jarrettr
+ms.service: azure-app-service
 ---
 
 # Troubleshoot domain and TLS/SSL certificate problems in Azure App Service

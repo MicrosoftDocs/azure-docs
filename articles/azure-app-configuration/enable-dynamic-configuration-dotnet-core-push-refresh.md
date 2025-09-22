@@ -7,10 +7,12 @@ author: MBSolomon
 manager: zhenlan
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: devx-track-dotnet
 ms.topic: tutorial
 ms.date: 08/07/2025
 ms.author: malev
+ms.custom:
+  - devx-track-dotnet
+  - sfi-ropc-nochange
 # customer intent: As a developer, I want to use a push refresh model to dynamically update my app so that my app can use the latest configuration data in Azure App Configuration without restarting.
 ---
 

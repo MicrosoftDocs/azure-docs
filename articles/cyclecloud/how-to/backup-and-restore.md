@@ -3,6 +3,7 @@ title: Backup and Restore
 description: Learn about the backup and restore process for Azure CycleCloud. By default, CycleCloud takes underlying application datastore snapshots as recovery points.
 author: mvrequa
 ms.date: 06/30/2025
+ms.update-cycle: 3650-days
 ms.author: mirequa
 ms.custom: compute-evergreen
 ---

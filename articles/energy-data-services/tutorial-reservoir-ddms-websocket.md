@@ -54,7 +54,7 @@ For more information about DDMS, see [DDMS concepts](concepts-ddms.md).
 1. Create the data space:
 
     ```bash
-    docker run -it --rm open-etp:ssl-client openETPServer space -S wss://${RDDMS_URL} --new -s <data_space_name> --data-partition-id ${PARTITION} --auth bearer --jwt-token ${TOKEN}
+    docker run -it --rm open-etp:ssl-client openETPServer space -S wss://${RDDMS_URL} --new -s <data_space_name> --data-partition-id ${PARTITION} --auth bearer --jwt-token ${TOKEN} --xdata "{\"viewers\":[\"data.default.viewers@<data_partition_name>.dataservices.energy\"],\"owners\":[\"data.default.owners@<data_partition_name>.dataservices.energy\"],\"legaltags\":\"<legal_tag_name>\",\"otherRelevantDataCountries\":[\"<country_code1\", \"country_code2\"]}"
     ```
 1. Get the data space:
 

@@ -2,14 +2,16 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: probableprime
+author: awang119
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 06/30/2021
 ms.topic: include
-ms.custom: include file
-ms.author: rifox
+ms.author: anniewang
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 ## Prerequisites
@@ -30,18 +32,19 @@ ms.author: rifox
 ### Create a new android application
 
 1. Open Android Studio and select `Create a new project`. 
-2. On the next window, select `Empty Activity` as the project template.
+2. On the next window, select `Empty Views Activity` as the project template.
 3. When choosing options, enter `ChatQuickstart` as the project name.
-4. Click next and choose the directory where you want the project to be created.
+4. This sample uses Java as language 
+5. Click next and choose the directory where you want the project to be created.
 
 ### Install the libraries
 
 We use Gradle to install the necessary Communication Services dependencies. From the command line, navigate inside the root directory of the `ChatQuickstart` project. Open the app's build.gradle file and add the following dependencies to the `ChatQuickstart` target:
 
 ```groovy
-implementation 'com.azure.android:azure-communication-common:' + $azureCommunicationCommonVersion
-implementation 'com.azure.android:azure-communication-chat:' + $azureCommunicationChatVersion
-implementation 'org.slf4j:slf4j-log4j12:1.7.29'
+implementation libs.azure.communication.common
+implementation libs.azure.communication.chat
+implementation libs.slf4j.log4j12
 ```
 
 For the latest version numbers, see https://search.maven.org/artifact/com.azure.android/azure-communication-common and https://search.maven.org/artifact/com.azure.android/azure-communication-chat.
@@ -120,7 +123,6 @@ Copy the following code into class `MainActivity` in file `MainActivity.java`:
     private ChatAsyncClient chatAsyncClient;
 
     private void log(String msg) {
-        Log.i(TAG, msg);
         Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
     }
     

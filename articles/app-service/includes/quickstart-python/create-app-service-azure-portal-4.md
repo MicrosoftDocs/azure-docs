@@ -3,6 +3,7 @@ author: DavidCBerry13
 ms.author: daberry
 ms.topic: include
 ms.date: 07/26/2023
+ms.service: azure-app-service
 ---
 The App Service plan controls the amount of resources (CPU/memory) that are available to your app and the cost of those resources.<br>
 <br>

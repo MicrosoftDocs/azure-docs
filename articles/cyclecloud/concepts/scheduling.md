@@ -3,6 +3,7 @@ title: Azure CycleCloud Scheduling Concepts
 description: CycleCloud's scheduling concepts
 author: adriankjohnson
 ms.date: 03/27/2023
+ms.update-cycle: 3650-days
 ms.author: adjohnso
 ms.custom: compute-evergreen
 ---

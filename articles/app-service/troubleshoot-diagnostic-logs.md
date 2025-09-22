@@ -9,6 +9,7 @@ author: msangapu-msft
 ms.custom: devx-track-csharp, ai-video-demo, linux-related-content
 ai-usage: ai-assisted
 #customer intent: As an app developer, I want to understand troubleshooting in Azure App Service to fix issues with my app and make improvements.
+ms.service: azure-app-service
 ---
 
 # Enable diagnostic logging for apps in Azure App Service
@@ -205,4 +206,4 @@ For information about restrictions for diagnostic settings, see [Destination lim
 - [Log queries in Azure Monitor](/azure/azure-monitor/logs/log-query-overview)
 - [Azure App Service quotas and alerts](web-sites-monitor.md)
 - [Troubleshoot an app in Azure App Service by using Visual Studio](troubleshoot-dotnet-visual-studio.md)
-- [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)
+- [Tutorial: Run a load test to identify performance bottlenecks in a web app](../app-testing/load-testing/tutorial-identify-bottlenecks-azure-portal.md)

@@ -5,11 +5,13 @@ author: vicancy
 ms.service: azure-signalr-service
 ms.topic: conceptual
 ms.devlang: csharp
-ms.custom: devx-track-csharp
 ms.date: 03/01/2019
 ms.author: lianwei
 zone_pivot_group_filename: azure-signalr/zone-pivot-groups.json
 zone_pivot_groups: azure-signalr-service-mode
+ms.custom:
+  - devx-track-csharp
+  - sfi-ropc-nochange
 ---
 # Resiliency and disaster recovery in Azure SignalR Service
 

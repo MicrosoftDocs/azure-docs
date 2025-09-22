@@ -80,6 +80,10 @@ The Auto-Assigned Public IP feature simplifies ExpressRoute gateway deployment b
 
 :::image type="content" source="media/expressroute-about-virtual-network-gateways/hobo-ip.png" alt-text="Screenshot of the create for virtual network gateway for ExpressRoute.":::
 
+When Auto-Assigned Public IP is enabled, the ExpressRoute gateway's Overview page no longer shows a Public IP address field — this means the gateway’s public IP is automatically provisioned and managed by Microsoft.
+
+:::image type="content" source="media/expressroute-about-virtual-network-gateways/hobo-overview.png" alt-text="Screenshot of the overview for virtual network gateway for ExpressRoute.":::
+
 **Key benefits:**
 
 - **Improved security:** The public IP is managed internally by Microsoft and isn't exposed to you, reducing risks associated with open management ports.
@@ -112,6 +116,7 @@ The ExpressRoute virtual network gateway facilitates connectivity to private end
 > * The throughput and control plane capacity for connectivity to private endpoint resources might be reduced by half compared to connectivity to non-private endpoint resources.
 > * During a maintenance period, you might experience intermittent connectivity problems to private endpoint resources.
 > * You need to ensure that on-premises configuration, including router and firewall settings, are correctly set up to ensure that packets for the IP 5-tuple transits use a single next hop (Microsoft Enterprise Edge router) unless there's a maintenance event. If your on-premises firewall or router configuration is causing the same IP 5-tuple to frequently switch next hops, you'll experience connectivity problems.
+> * Ensure that [network policies](../private-link/disable-private-endpoint-network-policy.md) (at a minimum, for UDR support) are enabled on the subnet(s) where private endpoints are deployed
 
 ### Private endpoint connectivity and planned maintenance events
 

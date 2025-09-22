@@ -117,18 +117,26 @@ items:
       href: create-single-tenant-workflows-visual-studio-code.md
     - name: Export Standard from portal to Visual Studio Code
       href: export-standard-logic-app-to-visual-studio-code.md
+    - name: Create autonomous agent workflows
+      href: create-autonomous-agent-workflows.md
+    - name: Create conversational agent workflows
+      href: create-conversational-agent-workflows.md
+    - name: Create and register MCP servers and tools
+      href: create-mcp-server-api-center.md
+    - name: Set up Standard logic apps as MCP servers
+      href: set-up-model-context-protocol-server-standard.md
+    - name: Parse or chunk content
+      href: parse-document-chunk-text.md
+    - name: Create chat completions with prompt templates
+      href: connectors/create-chat-completions-prompt-template.md
+    - name: Process files in AI agent workflows
+      href: connectors/code-interpreter-python-container-apps-session.md
     - name: Create and run .NET code
       href: create-run-custom-code-functions.md
     - name: Add and run C# scripts
       href: add-run-csharp-scripts.md
     - name: Add and run PowerShell scripts
       href: add-run-powershell-scripts.md
-    - name: Parse or chunk content
-      href: parse-document-chunk-text.md
-    - name: Create chat completions with prompt templates
-      href: connectors/create-chat-completions-prompt-template.md
-    - name: Create AI agent workflows
-      href: create-agent-workflows.md
     - name: Edit app and host settings
       href: edit-app-settings-host-settings.md
     - name: Enable stateful mode for stateless built-in connectors
@@ -169,6 +177,8 @@ items:
       href: set-up-devops-deployment-single-tenant-azure-logic-apps.md
     - name: Automate DevOps build and deployment
       href: automate-build-deployment-standard.md
+    - name: Set up CD with Deployment Center
+      href: set-up-cd-deployment-center-standard.md
     - name: Deploy Standard logic apps to private storage accounts
       href: deploy-single-tenant-logic-apps-private-storage-account.md
     - name: Export Consumption workflows to Standard logic app
@@ -179,12 +189,6 @@ items:
       href: set-up-standard-workflows-hybrid-deployment-requirements.md
     - name: Create Standard workflows for hybrid deployment
       href: create-standard-workflows-hybrid-deployment.md
-  - name: Azure Arc-enabled Logic Apps
-    items:
-    - name: About Azure Arc-enabled Logic Apps
-      href: azure-arc-enabled-logic-apps-overview.md
-    - name: Create and deploy Azure Arc-enabled logic apps
-      href: azure-arc-enabled-logic-apps-create-deploy-workflows.md
   - name: Migrate
     items:
     - name: Migration from Power Automate

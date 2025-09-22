@@ -44,14 +44,15 @@ Targeting Filter | [GA](./feature-management-dotnet-reference.md#targeting) | GA
 Targeting Exclusion | [GA](./feature-management-dotnet-reference.md#targeting-exclusion) | GA | [GA](./feature-management-python-reference.md#targeting-exclusion) | [GA](./feature-management-javascript-reference.md#targeting-exclusion) | GA
 Ambient Targeting | [GA](./feature-management-dotnet-reference.md#targeting-in-a-web-application) | WIP | WIP | [GA](./feature-management-javascript-reference.md#targeting-in-a-web-application) | WIP
 Time Window Filter | [GA](./feature-management-dotnet-reference.md#microsofttimewindow) | GA | [GA](./feature-management-python-reference.md#microsofttimewindow) | [GA](./feature-management-javascript-reference.md#microsofttimewindow) | GA
-Recurring Time Window | [GA](./feature-management-dotnet-reference.md#microsofttimewindow) | GA | WIP | WIP | WIP
+Recurring Time Window | [GA](./feature-management-dotnet-reference.md#microsofttimewindow) | GA | GA | [GA](./feature-management-javascript-reference.md#microsofttimewindow) | WIP
 Custom Feature Filter | [GA](./feature-management-dotnet-reference.md#implementing-a-feature-filter) | GA | [GA](./feature-management-python-reference.md#implementing-a-feature-filter) | [GA](./feature-management-javascript-reference.md#implementing-a-feature-filter) | GA
 Feature Filter Requirement Type (AND/OR) | [GA](./feature-management-dotnet-reference.md#requirement-type) | GA | [GA](./feature-management-python-reference.md#requirement-type) | [GA](./feature-management-javascript-reference.md#requirement-type) | GA
-Variant Feature Flag | [GA](./feature-management-dotnet-reference.md#variants) | GA | [GA](./feature-management-python-reference.md#variants) | [GA](./feature-management-javascript-reference.md#variants) | WIP
+Variant Feature Flag | [GA](./feature-management-dotnet-reference.md#variants) | GA | [GA](./feature-management-python-reference.md#variants) | [GA](./feature-management-javascript-reference.md#variants) | GA
 Feature Flag Telemetry | [GA](./feature-management-dotnet-reference.md#telemetry) | GA | [GA](./feature-management-python-reference.md#telemetry) | [GA](./feature-management-javascript-reference.md#telemetry) | WIP
 Application Insights Integration | [GA](./feature-management-dotnet-reference.md#application-insights-telemetry) | GA | [GA](./feature-management-python-reference.md#application-insights-telemetry) | [GA](./feature-management-javascript-reference.md#application-insights-integration) | WIP
 Feature Gate | [GA](./feature-management-dotnet-reference.md#controllers-and-actions) | GA | N/A | N/A | N/A
 Feature Gated Middleware | [GA](./feature-management-dotnet-reference.md#application-building) | GA | N/A | N/A | N/A
+Custom Feature Flag Configuration Merging | [GA](./feature-management-dotnet-reference.md#handling-multiple-configuration-sources) | N/A | N/A | N/A | N/A
 
 ## Support policy
 

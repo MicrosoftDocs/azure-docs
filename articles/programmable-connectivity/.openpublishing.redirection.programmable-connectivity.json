@@ -1,0 +1,59 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/programmable-connectivity/azure-programmable-connectivity-abstraction.md",
+            "redirect_url": "https://www.microsoft.com/industry/telecommunications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/programmable-connectivity/azure-programmable-connectivity-aggregation.md",
+            "redirect_url": "https://www.microsoft.com/industry/telecommunications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/programmable-connectivity/azure-programmable-connectivity-availability.md",
+            "redirect_url": "https://www.microsoft.com/industry/telecommunications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/programmable-connectivity/azure-programmable-connectivity-billing.md",
+            "redirect_url": "https://www.microsoft.com/industry/telecommunications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/programmable-connectivity/azure-programmable-connectivity-create-gateway.md",
+            "redirect_url": "https://www.microsoft.com/industry/telecommunications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/programmable-connectivity/azure-programmable-connectivity-locations-partners.md",
+            "redirect_url": "https://www.microsoft.com/industry/telecommunications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/programmable-connectivity/azure-programmable-connectivity-network-apis.md",
+            "redirect_url": "https://www.microsoft.com/industry/telecommunications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/programmable-connectivity/azure-programmable-connectivity-overview.md",
+            "redirect_url": "https://www.microsoft.com/industry/telecommunications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/programmable-connectivity/azure-programmable-connectivity-security-overview.md",
+            "redirect_url": "https://www.microsoft.com/industry/telecommunications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/programmable-connectivity/azure-programmable-connectivity-using-network-apis.md",
+            "redirect_url": "https://www.microsoft.com/industry/telecommunications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/programmable-connectivity/index.yml",
+            "redirect_url": "https://www.microsoft.com/industry/telecommunications",
+            "redirect_document_id": false
+        }
+   ]
+}

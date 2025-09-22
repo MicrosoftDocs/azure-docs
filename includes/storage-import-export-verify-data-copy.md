@@ -8,7 +8,9 @@ ms.service: azure-storage
 ms.topic: include
 ms.date: 12/27/2021
 ms.author: shaas
-ms.custom: include file
+ms.custom:
+  - include file
+  - sfi-image-nochange
 ---
 
 Track the job to completion, then verify that the upload was successful and all data is present. 

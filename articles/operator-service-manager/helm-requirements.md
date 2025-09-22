@@ -3,9 +3,10 @@ title: Helm Package Requirements for Azure Operator Service Manager
 description: Learn about the Helm package requirements for Azure Operator Service Manager.
 author: msftadam
 ms.author: adamdor
-ms.date: 01/30/2025
+ms.date: 08/27/2025
 ms.topic: concept-article
 ms.service: azure-operator-service-manager
+ms.custom: sfi-ropc-blocked
 ---
 
 # Helm package requirements for Azure Operator Service Manager
@@ -51,7 +52,7 @@ Azure Operator Service Manager uses the Azure Network Function Manager service t
 
 The following Helm deployment template shows an example of how you should expose `registryPath` and `imagePullSecrets`:
 
-```json
+```
 apiVersion: apps/v1 
 kind: Deployment 
 metadata: 
@@ -80,7 +81,7 @@ spec:
 
 The following `values.yaml` template shows an example of how you can provide the `registryPath` and `imagePullSecrets` values:
 
-```json
+```
 global: 
    imagePullSecrets: [] 
    registryPath: "" 
@@ -88,7 +89,7 @@ global:
 
 The following `values.schema.json` file shows an example of how you can define the `registryPath` and `imagePullSecrets` values:
 
-```json
+```
 { 
   "$schema": "http://json-schema.org/draft-07/schema#", 
   "title": "StarterSchema", 
@@ -110,7 +111,7 @@ The following `values.schema.json` file shows an example of how you can define t
 
 The following network function definition version (NFDV) request payload shows an example of how you can provide the `registryPath` and `imagePullSecrets` values at deployment:
 
-```json
+```
 "registryValuesPaths": [ "global.registryPath" ], 
 "imagePullSecretsValuesPaths": [ "global.imagePullSecrets" ], 
 ```
@@ -138,7 +139,7 @@ Review the images and container specifications to ensure that the images have a 
 
 Here's another example:
 
-```shell
+```
  helm install --set "global.imagePullSecrets[0].name=<secretName>" --set "global.registry.url=<registryPath>" <release-name> <chart-name> --dry-run
  kubectl create secret <secretName> regcred --docker-server=<registryPath> --dockerusername=<regusername> --docker-password=<regpassword>
 ```
@@ -152,11 +153,11 @@ Each Helm chart should contain a static image repository and tags. You set the s
 
 An NFDV should map to a static set of Helm charts and images. You update the charts and images only by publishing a new NFDV, as shown in the following examples:
 
-```json
+```
  image: "{{ .Values.global.registryPath }}/contosoapp:1.14.2"
 ```
 
-```json
+```
  image: "{{ .Values.global.registryPath }}/{{ .Values.image.repository }}:{{ .Values.image.tag}}"
  
 YAML values.yaml
@@ -165,7 +166,7 @@ image:
   tag: 1.14.2
 ```
 
-```json
+```
  image: http://myUrl/{{ .Values.image.repository }}:{{ .Values.image.tag}}
 ```
 
@@ -177,7 +178,7 @@ With `injectArtifactStoreDetails` enabled, you use a webhook method to inject th
 
 The following `values.yaml` example shows how you can provide the `registryPath` and `imagePullSecrets` values for compatibility with the `injectArtifactStoreDetails` approach:
 
-```json
+```
 global: 
    registryPath: "azure.io"
    imagePullSecrets: ["abc123"] 
@@ -190,7 +191,7 @@ global:
 
 To enable `injectArtifactStoreDetails`, set the `installOptions` parameter in the NF resource's `roleOverrides` section to `true`, as shown in the following example:
 
-```bash
+```
 resource networkFunction 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = {
   name: nfName
   location: location
@@ -221,7 +222,7 @@ With a cluster registry, images are copied from Azure Container Registry to a lo
 
 The following `values.yaml` example shows how you can provide the `registryPath` and `imagePullSecrets` values for compatibility with the cluster registry approach:
 
-```json
+```
 global: 
    registryPath: "azure.io"
    imagePullSecrets: ["abc123"] 
@@ -232,14 +233,28 @@ global:
 
 For more information on using a cluster registry, see the [concept documentation](get-started-with-cluster-registry.md).
 
-## Chart immutability restrictions
+## Recommendations for immutability restrictions
 
 Immutability restrictions prevent changes to a file or directory. For example, an immutable file can't be changed or renamed. You should avoid using mutable tags such as `latest`, `dev`, or `stable`. For example, if `deployment.yaml` uses `latest` for `.Values.image.tag`, the deployment fails.
 
-```json
+```
  image: "{{ .Values.global.registryPath }}/{{ .Values.image.repository }}:{{ .Values.image.tag}}"
 ```
 
-## Chart CRD declaration and usage split
+## Recommendations for CRD declaration and usage split
 
 We recommend splitting the declaration and usage of customer resource definitions (CRDs) into separate Helm charts to support updates. For detailed information, see the [Helm documentation about separating charts](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/#method-2-separate-charts).
+
+## Recommendations for Image Version Tagging
+
+To ensure consistent and predictable deployments, we recommend the following for all container images:
+* Avoid using `:latest` in production environments.
+  * Using latest can cause unexpected behavior because the actual image behind latest can change without notice.
+  * In a cluster registry setup, if the tag value changes but the tag name stays the same, the cluster registry will not re-download the updated image.
+  * This can lead to running outdated or inconsistent images.
+* Instead, alway Use immutable tags like `:1.4.2` 
+*	Ensure every build produces a unique tag, do not overwrite existing tags.
+
+These practices help prevent deployment issues and improve traceability, rollback safety, and security compliance.
+
+

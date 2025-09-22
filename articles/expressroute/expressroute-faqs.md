@@ -142,6 +142,10 @@ Dynamics 365 and Common Data Service (CDS) environments are hosted on Azure and 
 
 We don't set a limit on the amount of data transfer. Refer to [pricing details](https://azure.microsoft.com/pricing/details/expressroute/) for information on bandwidth rates.
 
+### Why can't I see connection details on the circuit page of the Azure portal?
+
+When a circuit and its associated connections reside in different subscriptions, the resources from other subscriptions aren’t visible by default. To view the connection details, you’ll need to manually refresh the circuit page. This triggers an API call that fetches and displays the connection information on the circuit page.
+
 ### What connection speeds are supported for ExpressRoute?
 
 Supported bandwidth offers:
@@ -154,7 +158,7 @@ Supported bandwidth offers:
 
 ### What's the maximum MTU supported?
 
-ExpressRoute supports the standard internet MTU of 1,500 bytes. See [TCP/IP performance tuning for Azure VMs](../virtual-network/virtual-network-tcpip-performance-tuning.md) for tuning the MTU of your VMs.
+ExpressRoute supports the MTU of 1,400 bytes. See [TCP/IP performance tuning for Azure VMs](../virtual-network/virtual-network-tcpip-performance-tuning.md) for tuning the MTU of your VMs.
 
 ### Which service providers are available?
 
