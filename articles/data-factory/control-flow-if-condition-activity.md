@@ -8,7 +8,10 @@ ms.reviewer: whhender
 ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 09/25/2024
-ms.custom: devx-track-azurepowershell, synapse
+ms.custom:
+  - devx-track-azurepowershell
+  - synapse
+  - sfi-ropc-nochange
 ---
 
 # If Condition activity in Azure Data Factory and Synapse Analytics pipelines

@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 03/01/2021
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017
+# Customer intent: As a cloud architect, I want to understand high availability and disaster recovery options for SAP HANA on Azure Large Instances, so that I can implement robust strategies for my organization's mission-critical applications.
 ---
 # SAP HANA Large Instances high availability and disaster recovery on Azure 
 

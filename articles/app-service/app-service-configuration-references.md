@@ -9,6 +9,8 @@ ms.author: mubatra
 
 #customer intent: As a developer, I want to use Azure App Configuration references so that I can make configuration key/value pairs available to code.  
 
+ms.service: azure-app-service
+ms.custom: sfi-ropc-nochange
 ---
 
 # Use App Configuration references for Azure App Service and Azure Functions

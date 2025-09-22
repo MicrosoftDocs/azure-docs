@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.custom: devx-track-azurecli
+# Customer intent: "As a SAP administrator, I want to upgrade the SAP Deployment Automation Framework, so that I can ensure my deployment pipelines and infrastructure are using the latest features and security updates."
 ---
 
 # Upgrade SAP Deployment Automation Framework

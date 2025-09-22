@@ -6,10 +6,12 @@ author: garrodonnell
 manager: CelesteDG
 ms.author: godonnell
 ms.date: 01/05/2025
-ms.custom: mvc
 ms.topic: how-to
 ms.service: azure-active-directory
 ms.subservice: b2c
+ms.custom:
+  - mvc
+  - sfi-image-nochange
 
 #Customer Intent: As a developer integrating Azure AD B2C into my application, I want to add an identity provider, so that users can sign in with their existing social or enterprise accounts without creating a new account.
 

@@ -2,40 +2,40 @@
 title: Prevent Node Termination
 description: How to prevent CycleCloud from terminating nodes
 author: adriankjohnson
-ms.date: 03/20/2020
+ms.date: 07/01/2025
 ms.author: adjohnso
 ---
 
-# Preventing Node Termination
+# Preventing node termination
 
-CycleCloud nodes are generally disposable. They can automatically be terminated by autoscale and are attached to the cluster's life cycle, so when a cluster is terminated all nodes associated with the cluster are terminated as well.
+CycleCloud nodes are generally disposable. Autoscale can automatically terminate them. They're attached to the cluster's life cycle, so when you terminate a cluster, all nodes associated with the cluster are terminated.
 
-There are a number of cases where it is useful to prevent a node from being terminated:
+There are several cases where it helps to prevent a node from being terminated:
 
-* When a node is started for something besides running jobs.
+* When you start a node for something other than running jobs.
 * When a problem arises on a node while running jobs and it needs to be "frozen" for debugging.
 * To protect important nodes from accidental termination.
 
-## Using the KeepAlive Attribute
+## Using the KeepAlive attribute
 
-The `KeepAlive` attribute will prevent CycleCloud from terminating or deallocating the node. The `KeepAlive` attribute must be disabled before the node can be terminated.
+The `KeepAlive` attribute prevents CycleCloud from terminating or deallocating the node. You must disable the `KeepAlive` attribute before the node can be terminated.
 
 > [!WARNING]
-> KeepAlive does not use Azure locks so does not prevent VMs from being deleted or deallocated from the Azure portal.
+> KeepAlive doesn't use Azure locks, so it doesn't prevent VMs from being deleted or deallocated from the Azure portal.
 
 ### via CycleCloud GUI
 
-When a node is manually added to a cluster using  **Add Node**, the `KeepAlive` option is selected by default. Generally, manually created nodes should be terminated manually so `KeepAlive` will prevent autoscaling from terminating them.
+When you add a node to a cluster using **Add Node**, the `KeepAlive` option is selected by default. Generally, you should terminate manually created nodes, so the `KeepAlive` option prevents autoscaling from terminating these nodes.
 
 ![KeepAlive add node dialog](~/articles/cyclecloud/images/keep-alive-add-dialog.png)
 
-In some situations it is useful to prevent an autoscaling node from being terminated. For instance, a user can enable `KeepAlive` through the **Edit** interface to prevent an unresponsive node that warrants further debugging from being terminated by the autoscaler.
+In some situations, it helps to prevent autoscaling from terminating a node. For example, you can enable `KeepAlive` through the **Edit** interface to prevent autoscaling from terminating an unresponsive node that needs further debugging.
 
 ![KeepAlive edit node dialog](~/articles/cyclecloud/images/keep-alive-edit-dialog.png)
 
-### via Template
+### Via template
 
-Some important nodes should be protected as soon as they are started. When the `KeepAlive` attribute is set on a node in the cluster template, the node can not be terminated until `KeepAlive` is removed.
+Protect important nodes as soon as they start. When you set the `KeepAlive` attribute on a node in the cluster template, you can't terminate the node until you remove `KeepAlive`.
 
 ```ini
 [node my_important_node]

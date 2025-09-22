@@ -4,8 +4,11 @@ description: Learn how to create a Go function as an Azure Functions custom hand
 ms.topic: quickstart
 ms.date: 05/20/2025
 ms.devlang: golang
+ms.custom:
+  - mode-api
+  - vscode-azure-extension-update-complete
+  - sfi-image-nochange
 # ms.devlang: golang, rust
-ms.custom: mode-api, vscode-azure-extension-update-complete
 ---
 
 # Quickstart: Create a Go or Rust function in Azure using Visual Studio Code
@@ -329,7 +332,15 @@ In this section, you create a function app and related resources in your Azure s
 
 [!INCLUDE [functions-deploy-project-vs-code](../../includes/functions-deploy-project-vs-code.md)]
 
-[!INCLUDE [functions-vs-code-run-remote](../../includes/functions-vs-code-run-remote.md)]
+## Run the function in Azure
+
+1. Press <kbd>F1</kbd> to display the command palette, then search for and run the command `Azure Functions:Execute Function Now...`. If prompted, select your subscription.
+
+2.  Select your new function app resource and `HttpExample` as your function.
+
+3. In **Enter request body** type `{ "name": "Azure" }`, then press Enter to send this request message to your function.
+
+4. When the function executes in Azure, the response is displayed in the notification area. Expand the notification to review the full response.
 
 [!INCLUDE [functions-cleanup-resources-vs-code.md](../../includes/functions-cleanup-resources-vs-code.md)]
 

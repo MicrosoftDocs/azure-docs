@@ -3,8 +3,8 @@ title: Prevent authorization with Shared Key
 titleSuffix: Azure Storage
 description: To require clients to use Microsoft Entra ID to authorize requests, you can disallow requests to the storage account that are authorized with Shared Key.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: normesta
+ms.author: normesta
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
@@ -109,7 +109,7 @@ resources
 
 Azure Policy **Storage accounts should prevent shared key access** prevents users with appropriate permissions from configuring new or existing storage accounts to permit Shared Key authorization. Configure this policy in audit mode to identify storage accounts where Shared Key authorization is allowed. After you have changed applications to use Microsoft Entra rather than Shared Key for authorization, you can [update the policy to prevent allowing Shared Key access](#update-the-azure-policy-to-prevent-allowing-shared-key-access).
 
-For more information about the built-in policy, see **Storage accounts should prevent shared key access** in [List of built-in policy definitions](../../governance/policy/samples/built-in-policies.md#storage).
+For more information about the built-in policy, see **Storage accounts should prevent shared key access** in [List of built-in policy definitions](/azure/governance/policy/samples/built-in-policies#storage).
 
 #### Assign the built-in policy for a resource scope
 

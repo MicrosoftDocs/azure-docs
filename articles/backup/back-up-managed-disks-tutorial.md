@@ -4,8 +4,8 @@ description: In this tutorial, learn how to back up Azure Managed Disks from the
 ms.topic: tutorial
 ms.date: 06/11/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As an IT administrator, I want to back up Azure Managed Disks using cloud-based solutions, so that I can ensure data security and enable recovery in case of a disaster."
 ---
 

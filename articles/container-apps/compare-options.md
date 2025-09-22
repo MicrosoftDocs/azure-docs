@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: quickstart
-ms.date: 07/12/2024
+ms.date: 07/18/2025
 ms.author: cshoe
 ms.custom: mode-other
 ---
@@ -18,7 +18,6 @@ There are many options for teams to build and deploy cloud native and containeri
 - [Azure Container Instances](#azure-container-instances)
 - [Azure Kubernetes Service](#azure-kubernetes-service)
 - [Azure Functions](#azure-functions)
-- [Azure Spring Apps](#azure-spring-apps)
 - [Azure Red Hat OpenShift](#azure-red-hat-openshift)
 
 There's no perfect solution for every use case and every team. The following explanation provides general guidance and recommendations as a starting point to help find the best fit for your team and your requirements.
@@ -50,9 +49,6 @@ You can get started building your first container app [using the quickstarts](ge
 
 ### Azure Functions
 [Azure Functions](../azure-functions/functions-overview.md) is a serverless Functions-as-a-Service (FaaS) solution. It's optimized for running event-driven applications using the functions programming model. It shares many characteristics with Azure Container Apps around scale and integration with events, but optimized for ephemeral functions deployed as either code or containers. The Azure Functions programming model provides productivity benefits for teams looking to trigger the execution of your functions on events and bind to other data sources. When building FaaS-style functions, Azure Functions is the ideal option. The Azure Functions programming model is available as a base container image, making it portable to other container based compute platforms allowing teams to reuse code as environment requirements change. 
-
-### Azure Spring Apps
-[Azure Spring Apps](../spring-apps/basic-standard/overview.md) is a fully managed service for Spring developers. If you want to run Spring Boot, Spring Cloud or any other Spring applications on Azure, Azure Spring Apps is an ideal option. The service manages the infrastructure of Spring applications so developers can focus on their code. Azure Spring Apps provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more. 
 
 ### Azure Red Hat OpenShift
 [Azure Red Hat OpenShift](/azure/openshift/intro-openshift) is an integrated product with Red Hat and Microsoft jointly engineered, operated, and supported. This collaboration provides an integrated product and support experience for running Kubernetes-powered OpenShift. With Azure Red Hat OpenShift, teams can choose their own registry, networking, storage, and CI/CD solutions. Alternatively, they can use the built-in solutions for automated source code management, container and application builds, deployments, scaling, health management, and more from OpenShift. If your team or organization is using OpenShift, Azure Red Hat OpenShift is an ideal option.

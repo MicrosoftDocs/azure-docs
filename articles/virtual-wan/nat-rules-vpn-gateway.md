@@ -8,6 +8,7 @@ ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 10/16/2024
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 
 ---
 

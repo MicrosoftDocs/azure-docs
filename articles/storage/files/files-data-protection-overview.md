@@ -4,7 +4,7 @@ description: Learn how to protect your data in Azure Files. Understand the conce
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: overview
-ms.date: 08/04/2024
+ms.date: 07/25/2025
 ms.author: kendownie
 # Customer intent: "As a systems administrator, I want to implement data protection for Azure file shares, so that I can ensure recovery from accidental loss, protect against ransomware, and maintain business continuity."
 ---
@@ -25,6 +25,8 @@ Azure Files gives you many tools to protect your data, including soft delete, sh
 ## Applies to
 | Management model | Billing model | Media tier | Redundancy | SMB | NFS |
 |-|-|-|-|:-:|:-:|
+| Microsoft.Storage | Provisioned v2 | SSD (premium) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v2 | SSD (premium) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
@@ -114,6 +116,16 @@ Storage account locks enable admins to lock the storage account to prevent users
 - **ReadOnly** lock prevents users from deleting a storage account or modifying its configuration.
 
 For more information, see [Apply an Azure Resource Manager lock to a storage account](../common/lock-account-resource.md).
+
+### Storage account recovery
+
+You can recover an accidentally deleted storage account if the following criteria are met:
+- The storage account was deleted within the past 14 days.
+- The storage account was created with the Azure Resource Manager deployment model.
+- A new storage account with the same name hasn't been created since the original account was deleted.
+- The user who is recovering the storage account must be assigned an Azure RBAC role that provides the Microsoft.Storage/storageAccounts/write permission. 
+
+Storage account recovery is a feature and can't be disabled. For more information and step-by-step instructions, see [Recover a deleted storage account](../common/storage-account-recover.md).
 
 ### Soft delete
 

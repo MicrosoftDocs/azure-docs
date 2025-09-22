@@ -8,6 +8,7 @@ ms.subservice: enterprise
 ms.topic: how-to
 ms.date: 06/25/2025
 ms.author: prsaini
+ms.custom: sfi-image-nochange
 ---
 
 # Assign Enterprise Agreement roles to service principals

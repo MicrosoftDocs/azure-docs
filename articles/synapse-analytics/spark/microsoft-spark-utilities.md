@@ -8,7 +8,11 @@ ms.subservice: spark
 ms.date: 09/10/2020
 ms.author: jingzh
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.custom: subject-rbac-steps, devx-track-python
+ms.custom:
+  - subject-rbac-steps
+  - devx-track-python
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Introduction to Microsoft Spark Utilities

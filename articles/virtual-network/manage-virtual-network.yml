@@ -11,11 +11,12 @@ metadata:
   ms.service: azure-virtual-network
   ms.topic: how-to
   ms.custom:
-    - template-how-to
-    - engagement-fy23
-    - devx-track-azurecli
-    - devx-track-azurepowershell
+    - sfi-image-nochange
     - ge-structured-content-pilot
+    - devx-track-azurepowershell
+    - devx-track-azurecli
+    - engagement-fy23
+    - template-how-to
 
 title: |
   Create, change, or delete a virtual network

@@ -7,9 +7,14 @@ manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ms.date: 11/19/2024
 ms.author: radeltch
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - linux-related-content
+  - sfi-image-nochange
+# Customer intent: As a system administrator, I want to configure high availability for SAP NetWeaver on Azure VMs using NFS on Azure Files, so that I can ensure reliable performance and resilience for critical SAP applications running on SUSE Linux Enterprise Server.
 ---
 
 # High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server with NFS on Azure Files  
@@ -40,7 +45,7 @@ ms.author: radeltch
 
 This article describes how to deploy and configure VMs, install the cluster framework, and install an HA SAP NetWeaver system, using [NFS on Azure Files](../../storage/files/files-nfs-protocol.md). The example configurations use VMs that run on SUSE Linux Enterprise Server (SLES).
 
-For new implementations on SLES for SAP Applications 15, we  recommended deploying high availability for SAP ASCS/ERS in [simple mount configuration](./high-availability-guide-suse-nfs-simple-mount.md). The classic Pacemaker configuration, based on cluster-controlled file systems for the SAP central services directories, described in this article is still [supported](https://documentation.suse.com/sbp/all/single-html/SAP-nw740-sle15-setupguide/#id-introduction).
+For new implementations on SLES for SAP Applications 15, we recommended deploying high availability for SAP ASCS/ERS in [simple mount configuration](./high-availability-guide-suse-nfs-simple-mount.md). The classic Pacemaker configuration, based on cluster-controlled file systems for the SAP central services directories, described in this article is still [supported](https://documentation.suse.com/sbp/all/single-html/SAP-nw740-sle15-setupguide/#id-introduction).
 
 ## Prerequisites  
 
@@ -51,26 +56,26 @@ For new implementations on SLES for SAP Applications 15, we  recommended deployi
   * Supported SAP software, and operating system (OS) and database combinations.
   * Required SAP kernel version for Windows and Linux on Microsoft Azure.
 * SAP Note [2015553][2015553] lists prerequisites for SAP-supported SAP software deployments in Azure.
-* SAP Note [2205917][2205917] has recommended OS settings for SUSE Linux Enterprise Server for SAP Applications.
+* SAP Note [2205917][2205917] recommends OS settings for SUSE Linux Enterprise Server for SAP Applications.
 * SAP Note [2178632][2178632] has detailed information about all monitoring metrics reported for SAP in Azure.
 * SAP Note [2191498][2191498] has the required SAP Host Agent version for Linux in Azure.
 * SAP Note [2243692][2243692] has information about SAP licensing on Linux in Azure.
 * SAP Note [1984787][1984787] has general information about SUSE Linux Enterprise Server 12.
 * SAP Note [2578899][2578899] has general information about SUSE Linux Enterprise Server 15
-* SAP Note [1999351][1999351] has additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
+* SAP Note [1999351][1999351] has other troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
 * [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide].
 * [Azure Virtual Machines deployment for SAP on Linux][deployment-guide].
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide].
 * [SUSE SAP HA Best Practice Guides][suse-ha-guide].
-  The guides contain all required information to set up Netweaver HA and SAP HANA System Replication on-premises. Use these guides as a general baseline. They provide much more detailed information.
+  The guides contain all required information to setup Netweaver HA and SAP HANA System Replication on-premises. Use these guides as a general baseline. They provide much more detailed information.
 * [SUSE High Availability Extension Release Notes][suse-relnotes].
 
 ## Overview
 
-To deploy the SAP NetWeaver application layer, you need shared directories like `/sapmnt/SID` and `/usr/sap/trans` in the environment. Additionally, when deploying an HA SAP system, you need to protect and make highly available file systems like `/sapmnt/SID` and `/usr/sap/SID/ASCS`.
+To deploy the SAP NetWeaver application layer, you need shared directories like `/sapmnt/SID` and `/usr/sap/trans` in the environment. Also, when deploying an HA SAP system, you need to protect and make highly available file systems like `/sapmnt/SID` and `/usr/sap/SID/ASCS`.
 
-Now you can place these file systems on [NFS on Azure Files](../../storage/files/files-nfs-protocol.md). NFS on Azure Files is an HA storage solution. This solution offers synchronous Zone redundant storage (ZRS) and is suitable for SAP  ASCS/ERS instances deployed across Availability Zones.  You still need a Pacemaker cluster to protect single point of failure components like SAP Netweaver central services(ASCS/SCS).  
+Now you can place these file systems on [NFS on Azure Files](../../storage/files/files-nfs-protocol.md). NFS on Azure Files is an HA storage solution. This solution offers synchronous Zone redundant storage (ZRS) and is suitable for SAP  ASCS/ERS instances deployed across Availability Zones. You still need a Pacemaker cluster to protect single point of failure components like SAP Netweaver central services(ASCS/SCS).  
 
 The example configurations and installation commands use the following instance numbers:
 
@@ -92,13 +97,13 @@ The resource agent for SAP Instance is included in SUSE Linux Enterprise Server 
 
 ### Deploy Linux VMs manually via Azure portal
 
-This document assumes that you've already deployed a resource group, [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md), and subnet.
+This document assumes that you already deployed a resource group, [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md), and subnet.
 
 Deploy virtual machines with SLES for SAP Applications image. Choose a suitable version of SLES image that is supported for SAP system. You can deploy VM in any one of the availability options - virtual machine scale set, availability zone, or availability set.
 
 ### Configure Azure load balancer
 
-During VM configuration, you have an option to create or select exiting load balancer in networking section. Follow the steps below to configure a standard load balancer for the high-availability setup of SAP ASCS and SAP ERS.
+While setting up the VM, you can either create a new load balancer or choose an existing one in the networking section. Follow the leading steps to configure a standard load balancer for the high-availability setup of SAP ASCS and SAP ERS.
 
 #### [Azure portal](#tab/lb-portal)
 
@@ -115,12 +120,12 @@ During VM configuration, you have an option to create or select exiting load bal
 ---
 
 > [!NOTE]
-> When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
+> When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless other configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 > [!IMPORTANT]
 >
-> * Don't enable TCP time stamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set the `net.ipv4.tcp_timestamps` parameter to `0`. For details, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
-> * To prevent saptune from changing the manually set `net.ipv4.tcp_timestamps` value from `0` back to `1`, you should update saptune version to 3.1.1 or higher. For more details, see [saptune 3.1.1 – Do I Need to Update?](https://www.suse.com/c/saptune-3-1-1-do-i-need-to-update/).
+> * Don't enable TCP time stamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps cause the health probes to fail. Set the `net.ipv4.tcp_timestamps` parameter to `0`. For details, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
+> * To prevent Saptune from changing the manually set `net.ipv4.tcp_timestamps` value from `0` back to `1`, you should update Saptune version to 3.1.1 or higher. For more information, see [Saptune 3.1.1 � Do I Need to Update?](https://www.suse.com/c/saptune-3-1-1-do-i-need-to-update/).
 
 ### Deploy Azure Files storage account and NFS shares
 
@@ -133,7 +138,7 @@ There are two options for redundancy within an Azure region:
 
 Check if your selected Azure region offers NFS 4.1 on Azure Files with the appropriate redundancy. Review the [availability of Azure Files by Azure region][afs-avail-matrix] under **Premium Files Storage**. If your scenario benefits from ZRS,  [verify that Premium File shares with ZRS are supported in your Azure region](../../storage/common/storage-redundancy.md#zone-redundant-storage).
 
-It's recommended to access your Azure Storage account through an [Azure Private Endpoint](../../storage/files/storage-files-networking-endpoints.md?tabs=azure-portal). Make sure to deploy the Azure Files storage account endpoint and the VMs, where you need to mount the NFS shares, in the same Azure VNet or peered Azure VNets.
+Use an [Azure Private Endpoint](../../storage/files/storage-files-networking-endpoints.md?tabs=azure-portal) to access your Azure Storage account. Make sure to deploy the Azure Files storage account endpoint and the VMs, where you need to mount the NFS shares, in the same Azure VNet or peered Azure VNets.
 
 1. Deploy a File Storage account named `sapafsnfs`. In this example, we use ZRS. If you're not familiar with the process, see [Create a storage account](../../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#create-a-storage-account) for the Azure portal.
 2. In the **Basics** tab, use these settings:
@@ -142,7 +147,7 @@ It's recommended to access your Azure Storage account through an [Azure Private 
     3. For **Premium account type**, select **FileStorage**.
     4. For **Replication**, select zone redundancy (ZRS).
 3. Select **Next**.
-4. In the **Advanced** tab, deselect **Require secure transfer for REST API Operations**. If you don't deselect this option, you can't mount the NFS share to your VM. The mount operation will time out.
+4. In the **Advanced** tab, deselect **Require secure transfer for REST API Operations**. If you don't deselect this option, the NFS share can't be mounted to your VM and the mount operation times out.
 5. Select **Next**.
 6. In the **Networking** section, configure these settings:
     1. Under **Networking connectivity**, for **Connectivity method**, select **Private endpoint**.
@@ -167,28 +172,31 @@ Next, deploy the NFS shares in the storage account you created. In this example,
 4. On the resource menu for **sapafsnfs**, select **File shares** under **Data storage**.
 5. On the **File shares** page, select **File share**.
    1. For **Name**, enter `sapnw1`, `saptrans`.
-   2. Select an appropriate share size. For example, **128 GB**.  Consider the size of the data stored on the share, IOPs and throughput requirements.  For more information, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets).
+   2. Select an appropriate share size. For example, **128 GB**. Consider the size of the data stored on the share, IOPs and throughput requirements. For more information, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md).
    3. Select **NFS** as the protocol.
-   4. Select **No root Squash**.  Otherwise, when you mount the shares on your VMs, you can't see the file owner or group.
+   4. Select **No root Squash**. Otherwise, when you mount the shares on your VMs, you can't see the file owner or group.
 
    > [!IMPORTANT]
-   > The share size above is just an example. Make sure to size your shares appropriately. Size not only based on the size of the of data stored on the share, but also based on the requirements for IOPS and throughput. For details see [Azure file share targets](../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets).  
+   > The share size shown is only an example. Size your shares based on how much data they store and what�s needed for IOPS and throughput. For details see [Azure file share targets](../../storage/files/storage-files-scale-targets.md).  
 
    The SAP file systems that don't need to be mounted via NFS can also be deployed on [Azure disk storage](/azure/virtual-machines/disks-types#premium-ssds). In this example, you can deploy `/usr/sap/NW1/D02` and `/usr/sap/NW1/D03` on Azure disk storage.
+
+> [!Note]
+> Azure Files NFS supports Encryption in Transit (EiT). If you would like to use Encryption in Transit, read [Azure Files NFS Encryption in Transit for SAP on Azure Systems](./sap-azure-files-nfs-encryption-in-transit-guide.md) to learn how to configure and deploy.
 
 ### Important considerations for NFS on Azure Files shares
 
 When you plan your deployment with NFS on Azure Files, consider the following important points:  
 
 * The minimum share size is 100 GiB. You only pay for the [capacity of the provisioned shares](../../storage/files/understanding-billing.md#provisioned-v1-model).
-* Size your NFS shares not only based on capacity requirements, but also on IOPS and throughput requirements. For details see [Azure file share targets](../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets).
+* Size your NFS shares not only based on capacity requirements, but also on IOPS and throughput requirements. For details see [Azure file share targets](../../storage/files/storage-files-scale-targets.md).
 * Test the workload to validate your sizing and ensure that it meets your performance targets. To learn how to troubleshoot performance issues on Azure Files, consult [Troubleshoot Azure file shares performance](../../storage/files/files-troubleshoot-performance.md).
-* For SAP J2EE systems, it's not supported to place `/usr/sap/<SID>/J<nr>` on NFS on Azure Files.
+* For SAP J2EE systems, placing components `/usr/sap/<SID>/J<nr>` on NFS using Azure Files isn't supported.
 * If your SAP system has a heavy batch jobs load, you may have millions of job logs. If the SAP batch job logs are stored in the file system, pay special attention to the sizing of the `sapmnt` share. As of SAP_BASIS 7.52 the default behavior for the batch job logs is to be stored in the database. For details see [Job log in the database][2360818].
 * Deploy a separate `sapmnt` share for each SAP system.
 * Don't use the `sapmnt` share for any other activity, such as interfaces, or `saptrans`.
 * Don't use the `saptrans` share for any other activity, such as interfaces, or `sapmnt`.
-* Avoid consolidating the shares for too many SAP systems in a single storage account. There are also [Storage account performance scale targets](../../storage/files/storage-files-scale-targets.md#storage-account-scale-targets). Be careful to not exceed the limits for the storage account, too.
+* Avoid consolidating the shares for too many SAP systems in a single storage account. There are also [Storage account performance scale targets](../../storage/files/storage-files-scale-targets.md#storage-account-data-plane-limits). Be careful to not exceed the limits for the storage account, too.
 * In general,  don't consolidate the shares for more than 5 SAP systems in a single storage account. This guideline helps avoid exceeding the storage account limits and simplifies performance analysis.
 * In general, avoid mixing shares like `sapmnt` for non-production and production SAP systems in the same storage account.
 * We recommend deploying on SLES 15 SP2 or higher to benefit from [NFS client improvements](../../storage/files/files-troubleshoot-linux-nfs.md#ls-hangs-for-large-directory-enumeration-on-some-kernels).
@@ -198,11 +206,11 @@ When you plan your deployment with NFS on Azure Files, consider the following im
 
 ## Setting up (A)SCS
 
-Next, you'll prepare and install the SAP ASCS and ERS instances.
+Next, you prepare and install the SAP ASCS and ERS instances.
 
 ### Create Pacemaker cluster
 
-Follow the steps in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure](high-availability-guide-suse-pacemaker.md) to create a basic Pacemaker cluster for SAP (A)SCS.
+To create a basic Pacemaker cluster for SAP (A)SCS, follow the steps in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure](high-availability-guide-suse-pacemaker.md).
 
 ### Installation
 
@@ -215,7 +223,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     ```
 
    > [!NOTE]
-   > The known issue with using a dash in host names is fixed with version **3.1.1** of package **sap-suse-cluster-connector**. Make sure that you are using at least version 3.1.1 of package sap-suse-cluster-connector, if using cluster nodes with dash in the host name. Otherwise your cluster will not work.
+   > The known issue with using a dash in host names is fixed with version **3.1.1** of package **sap-suse-cluster-connector**. Use at least version 3.1.1 of the sap-suse-cluster-connector package when cluster nodes have a dash in the host name. Otherwise, the cluster doesn't work.
 
    Make sure that you installed the new version of the SAP SUSE cluster connector. The old one was called sap_suse_cluster_connector and the new one is called **sap-suse-cluster-connector**.  
 
@@ -233,9 +241,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     <parameter name="IS_ERS" unique="0" required="0">;
     ```
 
-   If the grep command does not find the IS_ERS parameter, you need to install the patch listed on [the SUSE download page](https://download.suse.com/patch/finder/#bu=suse&familyId=&productId=&dateRange=&startDate=&endDate=&priority=&architecture=&keywords=resource-agents)
+   If the grep command doesn't find the IS_ERS parameter, you need to install the patch listed on [the SUSE download page](https://download.suse.com/patch/finder/#bu=suse&familyId=&productId=&dateRange=&startDate=&endDate=&priority=&architecture=&keywords=resource-agents)
 
-3. **[A]** Set up host name resolution
+3. **[A]** Setup host name resolution
 
    You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
    Replace the IP address and the hostname in the following commands
@@ -254,11 +262,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      # IP address of the load balancer frontend configuration for SAP Netweaver ASCS
      10.90.90.10   sapascs
      # IP address of the load balancer frontend configuration for SAP Netweaver ERS
-     10.90.90.9    sapers
+     10.90.90.9    sapconf
     ```
 
 4. **[1]** Create the SAP directories on the NFS share.  
-   Mount temporarily the NFS share **sapnw1** one of the VMs and create the SAP directories that will be used as nested mount points.  
+   Mount the NFS share **sapnw1** temporarily on one of the VMs and create the SAP directories that's used as nested mount points.
 
     ```bash
     # mount temporarily the volume
@@ -294,7 +302,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     sudo chattr +i /usr/sap/NW1/ERS01
     ```
 
-2. **[A]** Mount the file systems that will not be controlled by the Pacemaker cluster.  
+2. **[A]** Mount the file systems that Pacemaker doesn't control.  
 
     ```bash
     vi /etc/fstab
@@ -306,6 +314,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     # Mount the file systems
     mount -a 
     ```
+
+   > [!Note]
+   > For Encryption in Transit enabled File systems, use ‘aznfs’ as filesystem type in the mount command syntax. Read [Azure Files NFS Encryption in Transit for SAP on Azure Systems](./sap-azure-files-nfs-encryption-in-transit-guide.md), to learn how to enable Encryption in Transit and mounting the file systems.
 
 3. **[A]** Configure SWAP file
 
@@ -325,7 +336,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     ResourceDisk.SwapSizeMB=2000
     ```
 
-   Restart the Agent to activate the change
+   To activate the change, restart the Agent.
 
     ```bash
     sudo service waagent restart
@@ -359,7 +370,10 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
       meta resource-stickiness=3000
     ```
 
-   Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
+   > [!Note]
+   > For Encryption in Transit enabled File systems for ‘/usr/sap/NW1/ASCS00’, use fstype=’aznfs’ as filesystem type in the cluster resource agent setup command syntax. Read [Azure Files NFS Encryption in Transit for SAP on Azure Systems](./sap-azure-files-nfs-encryption-in-transit-guide.md), to learn how to enable Encryption in Transit and mounting the file systems.
+
+   Make sure that the cluster status is ok and that all resources are started. It isn't important on which node the resources are running.
 
     ```bash
     sudo crm_mon -r
@@ -413,7 +427,10 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     sudo crm configure group g-NW1_ERS fs_NW1_ERS nc_NW1_ERS vip_NW1_ERS
     ```
 
-   Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
+   > [!Note]
+   > For Encryption in Transit enabled File systems for ‘/usr/sap/NW1/ERS01’, use fstype=’aznfs’ as filesystem type in the cluster resource agent setup command syntax. Read [Azure Files NFS Encryption in Transit for SAP on Azure Systems](./sap-azure-files-nfs-encryption-in-transit-guide.md), to learn how to enable Encryption in Transit and mounting the file systems.
+
+   Make sure that the cluster status is ok and that all resources are started. It isn't important on which node the resources are running.
 
     ```bash
     sudo crm_mon -r
@@ -445,7 +462,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     ```
 
    > [!NOTE]
-   > Use SWPM SP 20 PL 05 or higher. Lower versions do not set the permissions correctly and the installation will fail.
+   > Use SWPM SP 20 PL 05 or higher. Lower versions set the permissions incorrectly, and the installation fails.
 
    If the installation fails to create a subfolder in /usr/sap/**NW1**/ERS**01**, try setting the owner and group of the ERS**01** folder and retry.
 
@@ -494,7 +511,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 6. **[A]** Configure Keep Alive
 
-   The communication between the SAP NetWeaver application server and the ASCS/SCS is routed through a software load balancer. The load balancer disconnects inactive connections after a configurable timeout. To prevent this you need to set a parameter in the SAP NetWeaver ASCS/SCS profile, if using ENSA1. Change the Linux system `keepalive` settings on all SAP servers for both ENSA1/ENSA2. Read [SAP Note 1410736][1410736] for more information.
+   The communication between the SAP NetWeaver application server and the ASCS/SCS is routed through a software load balancer. The load balancer disconnects inactive connections after a configurable timeout. To prevent this, you need to set a parameter in the SAP NetWeaver ASCS/SCS profile, if using ENSA1. Change the Linux system `keepalive` settings on all SAP servers for both ENSA1/ENSA2. Read [SAP Note 1410736][1410736] for more information.
 
     ```bash
     # Change the Linux system configuration
@@ -517,10 +534,10 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     sudo ssh sap-cl2 "cat /usr/sap/sapservices" | grep ERS01 | sudo tee -a /usr/sap/sapservices
     ```
 
-9. **[A]** Disabling `systemd` services of the ASCS and ERS SAP instance. This step is only applicable, if SAP startup framework is managed by systemd as per SAP Note [3115048](https://me.sap.com/notes/3115048)
+9. **[A]** Disabling `systemd` services of the ASCS and ERS SAP instance. Systemd manages the SAP startup framework, as described in SAP Note [3115048](https://me.sap.com/notes/3115048), so this step applies.
 
    > [!NOTE]
-   > When managing SAP instances like SAP ASCS and SAP ERS using SLES cluster configuration, you would need to make additional modifications to integrate the cluster with the native systemd-based SAP start framework. This ensures that maintenance procedures do no compromise cluster stability. After installation or switching SAP startup framework to systemd-enabled setup as per SAP Note [3115048](https://me.sap.com/notes/3115048), you should disable the `systemd` services for the ASCS and ERS SAP instances.
+   > When managing SAP instances like SAP ASCS and SAP ERS using SLES cluster configuration, you would need to make other modifications to integrate the cluster with the native systemd-based SAP start framework. This configuration ensures that maintenance procedures don't compromise cluster stability. After installation or switching SAP startup framework to systemd-enabled setup as per SAP Note [3115048](https://me.sap.com/notes/3115048), you should disable the `systemd` services for the ASCS and ERS SAP instances.
 
    ```bash
    # Stop ASCS and ERS instances using <sid>adm
@@ -530,15 +547,15 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sapcontrol -nr 01 -function Stop
    sapcontrol -nr 01 -function StopService
 
-   # Execute below command on VM where you have performed ASCS instance installation (e.g. sap-cl1)
+   # Execute the following command on VM where you have performed ASCS instance installation (e.g. sap-cl1)
    sudo systemctl disable SAPNW1_00
-   # Execute below command on VM where you have performed ERS instance installation (e.g. sap-cl2)
+   # Execute the following command on VM where you have performed ERS instance installation (e.g. sap-cl2)
    sudo systemctl disable SAPNW1_01
    ```
 
 10. **[1]** Create the SAP cluster resources
 
-    Depending on whether you are running an ENSA1 or ENSA2 system, select respective tab to define the resources. SAP introduced support for [ENSA2](https://help.sap.com/docs/ABAP_PLATFORM_NEW/cff8531bc1d9416d91bb6781e628d4e0/6d655c383abf4c129b0e5c8683e7ecd8.html), including replication, in SAP NetWeaver 7.52. Starting with ABAP Platform 1809, ENSA2 is installed by default. For ENSA2 support, see SAP Note [2630416](https://launchpad.support.sap.com/#/notes/2630416).
+    Depending on whether you're running an ENSA1 or ENSA2 system, select respective tab to define the resources. SAP introduced support for [ENSA2](https://help.sap.com/docs/ABAP_PLATFORM_NEW/cff8531bc1d9416d91bb6781e628d4e0/6d655c383abf4c129b0e5c8683e7ecd8.html), including replication, in SAP NetWeaver 7.52. Starting with ABAP Platform 1809, ENSA2 is installed by default. For ENSA2 support, see SAP Note [2630416](https://launchpad.support.sap.com/#/notes/2630416).
 
     #### [ENSA1](#tab/ensa1)
 
@@ -574,7 +591,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     #### [ENSA2](#tab/ensa2)
 
     > [!NOTE]
-    > If you have a two-node cluster running ENSA2, you have the option to configure priority-fencing-delay cluster property. This property introduces additional delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For more information, see [SUSE Linux Enteprise Server high availability extension administration guide](https://documentation.suse.com/sle-ha/15-SP3/single-html/SLE-HA-administration/#pro-ha-storage-protect-fencing).
+    > If virtual machines without public IPs are added to the backend pool of an internal Standard Azure load balancer, they won�t have internet access unless you set up extra routing to public endpoints. For more information, see [SUSE Linux Enteprise Server high availability extension administration guide](https://documentation.suse.com/sle-ha/15-SP3/single-html/SLE-HA-administration/#pro-ha-storage-protect-fencing).
     >
     > The property priority-fencing-delay is only applicable for ENSA2 running on two-node cluster.
 
@@ -607,9 +624,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
      ---
 
-If you are upgrading from an older version and switching to enqueue server 2, see SAP note [2641019](https://launchpad.support.sap.com/#/notes/2641019).
+If you're upgrading from an older version and switching to enqueue server 2, see SAP note [2641019](https://launchpad.support.sap.com/#/notes/2641019).
 
-Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
+Make sure that the cluster status is ok and that all resources are started. It isn't important on which node the resources are running.
 
 ```bash
 sudo crm_mon -r
@@ -632,9 +649,7 @@ sudo crm_mon -r
 
 Some databases require that the database instance installation is executed on an application server. Prepare the application server virtual machines to be able to use them in these cases.
 
-The steps below assume that you install the application server on a server different from the ASCS/SCS and HANA servers. Otherwise some of the steps below (like configuring host name resolution) are not needed.
-
-The following items are prefixed with either **[A]** - applicable to both PAS and AAS, **[P]** - only applicable to PAS or **[S]** - only applicable to AAS.
+These steps assume the application server is installed on a different server than the ASCS/SCS and HANA servers. If not, some steps like configuring host name resolution, may not be necessary. The items are prefixed with either **[A]** - applicable to both PAS and AAS, **[P]** - only applicable to PAS or **[S]** - only applicable to AAS.
 
 1. **[A]** Configure operating system
 
@@ -647,7 +662,7 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
     vm.dirty_background_bytes = 314572800
     ```
 
-1. **[A]** Set up host name resolution
+1. **[A]** Setup host name resolution
 
    You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
    Replace the IP address and the hostname in the following commands
@@ -691,6 +706,9 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
     mount -a 
     ```
 
+    > [!Note]
+    > For Encryption in Transit enabled File systems, use ‘aznfs’ as filesystem type in the mount command syntax. Read [Azure Files NFS Encryption in Transit for SAP on Azure Systems](./sap-azure-files-nfs-encryption-in-transit-guide.md), to learn how to enable Encryption in Transit and mounting the file systems.
+
 1. **[A]** Configure SWAP file
 
     ```bash
@@ -728,7 +746,7 @@ sudo <swpm>/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin
 Follow these steps to install an SAP application server.
 
 1. **[A]** Prepare application server
-   Follow the steps in the chapter [SAP NetWeaver application server preparation](#sap-netweaver-application-server-preparation) above to prepare the application server.
+   Follow the steps in the chapter [SAP NetWeaver application server preparation](#sap-netweaver-application-server-preparation) overhead to prepare the application server.
 
 2. **[A]** Install SAP NetWeaver application server.  
    Install a primary or additional SAP NetWeaver applications server.

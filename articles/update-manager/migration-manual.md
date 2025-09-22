@@ -1,11 +1,11 @@
 ---
-title: Manual migration from Automation Update Management to Azure Update Manager
+title: Manual Migration from Automation Update Management to Azure Update Manager
 description: Guidance on manual migration while migrating from Automation Update Management to Azure Update Manager.
 author: habibaum
 ms.author: v-uhabiba
 ms.service: azure-update-manager
 ms.topic: concept-article
-ms.date: 08/01/2024
+ms.date: 08/21/2025
 
 # Customer intent: As a system administrator migrating from an existing update management solution, I want to manually transfer resources to Azure Update Manager, so that I can ensure continued patch management and maintenance for both Azure and non-Azure environments.
 ---

@@ -1,9 +1,9 @@
 ---
 title: VMware server discovery support in Azure Migrate and Modernize
 description: Learn about Azure Migrate and Modernize discovery and assessment support for servers in a VMware environment.
-author: Vikram1988
-ms.author: vibansa
-ms.manager: abhemraj
+author: molir
+ms.author: molir
+ms.manager: ronai
 ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 05/09/2025
@@ -69,7 +69,7 @@ Supported servers | You can perform software inventory on up to 10,000 servers r
 Operating systems | Servers running all Windows and Linux versions are supported.
 Server requirements | For software inventory, VMware Tools must be installed and running on your servers. The VMware Tools version must be version 10.2.1 or later.<br /><br /> Windows servers must have PowerShell version 2.0 or later installed.<br/><br/>Windows Management Instrumentation (WMI) must be enabled and available on Windows servers to gather the details of the roles and features installed on the servers.
 vCenter Server account | To interact with the servers for software inventory, the vCenter Server read-only account used for assessment must have privileges for guest operations on VMware VMs.
-Server access | You can add multiple domain and nondomain (Windows/Linux) credentials in the appliance configuration manager for software inventory.<br /><br /> You must have a guest user account for Windows servers and a standard user account (non-sudo access) for all Linux servers.
+Server access | You can add multiple domains and nondomain (Windows/Linux) credentials in the appliance configuration manager for software inventory.<br /><br /> You must have a guest user account for Windows servers and a standard user account (non-sudo access) for all Linux servers.
 Port access | The Azure Migrate appliance must be able to connect to TCP port 443 on ESXi hosts running servers on which you want to perform software inventory. The server running vCenter Server returns an ESXi host connection to download the file that contains the details of the software inventory. <br /><br /> If you use domain credentials, the Azure Migrate appliance must be able to connect to the following TCP and UDP ports: <br /> <br />TCP 135 – RPC Endpoint<br />TCP 389 – LDAP<br />TCP 636 – LDAP SSL<br />TCP 445 – SMB<br />TCP/UDP 88 – Kerberos authentication<br />TCP/UDP 464 – Kerberos change operations
 Discovery | Software inventory is performed from vCenter Server by using VMware Tools installed on the servers.<br/><br/> The appliance gathers the information about the software inventory from the server running vCenter Server through vSphere APIs.<br/><br/> Software inventory is agentless. No agent is installed on the server, and the appliance doesn't connect directly to the servers.
 
@@ -85,7 +85,7 @@ Supported servers | Supported only for servers running SQL Server in your VMware
 Windows servers | Windows Server 2008 and later are supported.
 Linux servers | Currently not supported.
 Authentication mechanism | Both Windows and SQL Server authentication are supported. You can provide credentials of both authentication types in the appliance configuration manager.
-SQL Server access | To discover SQL Server instances and databases, the Windows or SQL Server account must be a member of the sysadmin server role or have [these permissions](#configure-the-custom-login-for-sql-server-discovery) for each SQL Server instance.
+SQL Server access | To discover SQL Server instances and databases, the Windows/ Domain account, or SQL Server account [requires these low privilege read permissions](#configure-the-custom-login-for-sql-server-discovery) for each SQL Server instance. You can use the [low-privilege account provisioning utility](least-privilege-credentials.md) to create custom accounts or use any existing account that is a member of the sysadmin server role for simplicity.
 SQL Server versions | SQL Server 2008 and later are supported.
 SQL Server editions | Enterprise, Standard, Developer, and Express editions are supported.
 Supported SQL configuration | Discovery of standalone, highly available, and disaster-protected SQL deployments is supported. Discovery of high-availability disaster recovery SQL deployments powered by Always On failover cluster Instances and Always On availability groups is also supported.
@@ -312,7 +312,7 @@ Linux servers | Red Hat Enterprise Linux 6.x, 7.x, 8.x, 9.x, 9.5 <br /> Ubuntu 2
 Server requirements | VMware Tools (10.2.1 and later) must be installed and running on servers you want to analyze.<br /><br /> Windows Servers have PowerShell version 2.0 or later.<br /><br /> Linux Servers have Bash version 4.0 or later installed. <br /><br/> WMI should be enabled and available on Windows servers.
 vCenter Server account | The read-only account used by Azure Migrate and Modernize for assessment must have privileges for guest operations on VMware VMs.
 Windows server access |  A user account (local or domain) with administrator permissions on servers.
-Linux server access | A sudo user account with permissions to execute ls and netstat commands. If you're providing a sudo user account, ensure that you enable **NOPASSWD** for the account to run the required commands without prompting for a password every time a sudo command is invoked. <br /><br /> Alternatively, you can create a user account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files set by using the following commands:<br /><code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls<br /> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat</code>|
+Linux server access | A sudo user account with permissions to execute ls and netstat commands. If you're providing a sudo user account, ensure that you enable **NOPASSWD** for the account to run the required commands without prompting for a password every time a sudo command is invoked. <br /><br /> |
 |Port access | The Azure Migrate appliance must be able to connect to TCP port 443 on ESXi hosts running the servers that have dependencies you want to discover. The server running vCenter Server returns an ESXi host connection to download the file containing the dependency data.
 Discovery method |  Dependency information between servers is gathered by using VMware Tools installed on the server running vCenter Server.<br /><br /> The appliance gathers the information from the server by using vSphere APIs.<br /><br /> No agent is installed on the server, and the appliance doesn't connect directly to servers.
 
@@ -341,7 +341,7 @@ Azure Government | Agent-based dependency analysis isn't supported.
 
 Requirement | Details
 --- | ---
-Project limits | You can create multiple Azure Migrate projects in an Azure subscription.<br /><br /> You can discover and assess up to 50,000 servers in a VMware environment in a single [project](migrate-support-matrix.md#project). A project can include physical servers and servers from a Hyper-V environment, up to the assessment limits.
+Project limits | You can create multiple Azure Migrate projects in an Azure subscription.<br /><br /> You can discover and assess up to 35,000 servers in a VMware environment in a single [project](migrate-support-matrix.md#project). A project can include physical servers and servers from a Hyper-V environment, up to the assessment limits.
 Discovery | The Azure Migrate appliance can discover up to 10,000 servers running across multiple vCenter Servers.<br /><br /> The appliance supports adding multiple vCenter Servers. You can add up to 10 vCenter Servers per appliance.<br /><br />The scale is also valid to access discovered servers for Azure Migrate VMware Solution (AVS).<br /><br />The same vCenter can be discovered by multiple appliances within the same project, but it is not recommended to have same VM discovered by multiple appliances. More details on how to set [discovery scope](set-discovery-scope.md).
 Assessment | You can add up to 35,000 servers in a single group.<br /><br /> You can assess up to 35,000 servers in a single assessment.
 
@@ -369,7 +369,7 @@ This section discusses limitations to consider.
 
 If you're importing servers by using an RVTools XLSX file and building a business case, here are a few limitations:
 
-- Performance history duration in Azure settings aren't applicable.
+- Performance history duration in Azure settings isn't applicable.
 - Servers are classified as unknown in the business case utilization insights chart and are sized as is without right-sizing for Azure or Azure VMware Solution cost.
 
 #### [Assessment considerations](#tab/assessmentcase)

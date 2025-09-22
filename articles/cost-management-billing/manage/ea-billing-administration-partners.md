@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: racheg
+ms.custom: sfi-image-nochange
 ---
 
 # EA billing administration for partners in the Azure portal

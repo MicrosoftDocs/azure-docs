@@ -58,7 +58,7 @@ The `llm-emit-token-metric` policy sends custom metrics to Application Insights 
 | ----------- | --------------------------------------------------------------------------------- | -------- |
 | dimension   | Add one or more of these elements for each dimension included in the metric.  | Yes      |
 
-### dimension attributes
+### Dimension attributes
 
 | Attribute | Description                | Required |  Default value  |
 | --------- | -------------------------- |  ------------------ | -------------- |
@@ -77,7 +77,7 @@ The `llm-emit-token-metric` policy sends custom metrics to Application Insights 
 ### Usage notes
 
 * This policy can be used multiple times per policy definition.
-* You can configure at most 10 custom dimensions for this policy.
+* You can configure at most 5 custom dimensions for this policy.
 * Where available, values in the usage section of the response from the LLM API are used to determine token metrics.
 * Certain LLM endpoints support streaming of responses. When `stream` is set to `true` in the API request to enable streaming, token metrics are estimated.
 

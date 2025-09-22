@@ -3,6 +3,7 @@ author: DavidCBerry13
 ms.author: daberry
 ms.topic: include
 ms.date: 01/29/2022
+ms.service: azure-app-service
 ---
 Select **Log stream** from the **Monitoring** section in the navigation pane on the left. Refresh the home page in the app or attempt other requests to generate some log messages.<br>
 <br>

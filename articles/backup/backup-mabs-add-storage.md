@@ -4,9 +4,11 @@ description: Learn about the new features in Azure Backup Server. This article d
 ms.topic: how-to
 ms.date: 07/15/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
-ms.custom: engagement-fy24
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+ms.custom:
+  - engagement-fy24
+  - sfi-image-nochange
 # Customer intent: As a backup administrator, I want to upgrade to Azure Backup Server V2 and implement Modern Backup Storage, so that I can enhance backup performance and reduce storage costs while efficiently managing different workloads.
 ---
 

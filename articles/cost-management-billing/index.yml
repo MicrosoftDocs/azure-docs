@@ -51,7 +51,7 @@ productDirectory:
       links:
         - url: costs/pricing-calculator.md
           text: Estimate prices with the Azure pricing calculator
-        - url: https://azure.microsoft.com/pricing/tco/calculator
+        - url: https://aka.ms/tco-blog
           text: TCO calculator
         - url: ../migrate/index.yml
           text: Azure Migrate

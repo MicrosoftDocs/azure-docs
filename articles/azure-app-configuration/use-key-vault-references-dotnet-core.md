@@ -8,7 +8,11 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/17/2025
 ms.author: zhiyuanliang
-ms.custom: devx-track-csharp, mvc, devx-track-dotnet
+ms.custom:
+  - devx-track-csharp
+  - mvc
+  - devx-track-dotnet
+  - sfi-ropc-nochange
 # customer intent: As a developer, I want to use the Azure App Configuration client provider in an ASP.NET Core app to retrieve Azure Key Vault references so that I can improve the security of sensitive data while also using a centralized way to access that data.
 ---
 # Tutorial: Use Key Vault references in an ASP.NET Core app
@@ -19,6 +23,10 @@ Your application can use the App Configuration client provider to retrieve Key V
 
 Your application is responsible for authenticating properly to both App Configuration and Key Vault. The two services don't communicate directly.
 
+This tutorial shows you how to implement Key Vault references in your code. It builds on the web app introduced in the ASP.NET Core quickstart listed in the prerequisites. Before you continue, complete that [quickstart](./quickstart-aspnet-core-app.md).
+
+You can use any code editor to do the steps in this tutorial. For example, [Visual Studio Code](https://code.visualstudio.com/) is a cross-platform code editor that's available for the Windows, macOS, and Linux operating systems.
+
 In this tutorial, you:
 
 > [!div class="checklist"]
@@ -27,9 +35,7 @@ In this tutorial, you:
 
 ## Prerequisites
 
-- The ASP.NET Core web app that you create when you complete the [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) quickstart. This tutorial shows you how to implement Key Vault references in your code. It builds on the web app introduced in the ASP.NET Core quickstart.
-- The App Configuration store that you create when you complete the [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) quickstart.
-- A code editor. You can use any editor to complete the steps in this tutorial. For example, [Visual Studio Code](https://code.visualstudio.com/) is a cross-platform code editor that's available for the Windows, macOS, and Linux operating systems.
+Finish the [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) quickstart.
 
 ## Create a key vault
 
@@ -59,7 +65,7 @@ At this point, your Azure account is the only one authorized to access this new 
 
 To test Key Vault retrieval in your app, first add a secret to the vault by taking the following steps. The secret that you add is called **Message**, and its value is "Hello from Key Vault."
 
-1. On the Key Vault overview page, select **Secrets**.
+1. On the Key Vault resource menu, select **Objects** > **Secrets**.
 
 1. Select **Generate/Import**.
 
@@ -88,7 +94,7 @@ To test Key Vault retrieval in your app, first add a secret to the vault by taki
 
 ## Update your code to use a Key Vault reference
 
-1. Go to the folder that contains the ASP.NET Core web app project that you create in the [quickstart](./quickstart-aspnet-core-app.md).
+1. Go to the folder that contains the ASP.NET Core web app project that you created in the [quickstart](./quickstart-aspnet-core-app.md).
 
 1. At a command prompt, run the following command. This command adds the `Azure.Identity` NuGet package reference to your project file or updates it.
 
