@@ -517,7 +517,7 @@ CycleCloud project for GridEngine uses _sge-2011.11_ by default. You may use you
 
 ### Prerequisites
 
-This example, uses the 8.6.1-demo version, but all ge versions > 8.4.0 are supported.
+This example uses the 8.6.1-demo version, but all GE versions greater than 8.4.0 are supported.
 
 1. Users must provide UGE binaries
 
@@ -581,5 +581,5 @@ In the _gridengine.txt_ file, locate the first occurrence of `[[[configuration]]
 
 ```
 
-These GridEngine configs override the default GridEngine version and installation location when the cluster starts. It's not safe to move off of the `/sched` as it's a shared nfs location in the cluster.
+These GridEngine configs override the default GridEngine version and installation location when the cluster starts. It's not safe to move off of the `/sched` as it's a shared NFS location in the cluster.
 ::: moniker-end
