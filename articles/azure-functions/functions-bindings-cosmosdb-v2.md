@@ -28,7 +28,7 @@ This set of articles explains how to work with [Azure Cosmos DB](/azure/cosmos-d
 
 ## Supported APIs
 
-[!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
+[!INCLUDE [Azure Cosmos DB supported APIs note](../../includes/functions-cosmosdb-sqlapi-note.md)]
 
 ::: zone pivot="programming-language-csharp"
 ## Install extension
