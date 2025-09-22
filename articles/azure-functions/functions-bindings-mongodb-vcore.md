@@ -30,6 +30,10 @@ Considerations for the Azure Cosmos DB for MongoDB (vCore) extension:
 
 [!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
+## Supported APIs
+
+[!INCLUDE [Azure Cosmos DB supported APIs note](../../includes/functions-cosmosdb-sqlapi-note.md)]
+
 ## Install extension 
 
 Add the extension to your .NET project for an in-process app by installing [this preview NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AzureCosmosDb.Mongo/1.1.0-preview):

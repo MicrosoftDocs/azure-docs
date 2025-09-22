@@ -176,6 +176,13 @@ Yes, [Microsoft-registered app](/azure/virtual-wan/point-to-site-entra-gateway) 
 
 A scale unit is a unit defined to pick an aggregate throughput of a gateway in Virtual hub. 1 scale unit of VPN = 500 Mbps. 1 scale unit of ExpressRoute = 2 Gbps. Example: 10 scale unit of VPN would imply 500 Mbps * 10 = 5 Gbps.
 
+You can manually scale up or down the gateway scale unit based on your need. See [About Virtual WAN gateway settings](gateway-settings.md) to learn more about gateway settings.
+
+To learn more about support limits for gateway scale units, see:
+* [In Virtual WAN, what are the estimated performances by ExpressRoute gateway SKU?](virtual-wan-faq.md#in-virtual-wan-what-are-the-estimated-performances-by-expressroute-gateway-sku) for ExpressRoute Gateways
+* [What is the recommended algorithm and Packets per second per site-to-site instance in Virtual WAN hub? How many tunnels is support per instance? What is the max throughput supported in a single tunnel?](virtual-wan-faq.md#packets) for Site-to-Site VPN Gateways
+* [For User VPN (point-to-site)- how many clients are supported?](virtual-wan-faq.md#p2s-concurrent) for User VPN (point-to-site) Gateways
+
 ### What is the difference between an Azure virtual network gateway (VPN Gateway) and an Azure Virtual WAN VPN gateway?
 
 Virtual WAN provides large-scale site-to-site connectivity and is built for throughput, scalability, and ease of use. When you connect a site to a Virtual WAN VPN gateway, it's different from a regular virtual network gateway that uses a gateway type 'site-to-site VPN'. When you want to connect remote users to Virtual WAN, you use a gateway type 'point-to-site VPN'. The point-to-site and site-to-site VPN gateways are separate entities in the Virtual WAN hub and must be individually deployed. Similarly, when you connect an ExpressRoute circuit to a Virtual WAN hub, it uses a different resource for the ExpressRoute gateway than the regular virtual network gateway that uses gateway type 'ExpressRoute'.
@@ -355,7 +362,11 @@ For information, see the  [Virtual hub routing preference](about-virtual-hub-rou
 
 ### Does the Virtual WAN hub allow connectivity between ExpressRoute circuits?
 
-Transit between ER-to-ER is always via Global reach. Virtual hub gateways are deployed in DC or Azure regions. When two ExpressRoute circuits connect via Global reach, there's no need for the traffic to come all the way from the edge routers to the virtual hub DC.
+Transit between ER-to-ER is available via Global reach. Virtual hub gateways are deployed in DC or Azure regions. When two ExpressRoute circuits connect via Global reach, there's no need for the traffic to come all the way from the edge routers to the virtual hub DC.
+
+Routing Intent can also be used with private traffic routing policies to enable ExpressRoute transit connectivity via a security appliance deployed in the virtual hub.
+
+For further information, see [About Virtual WAN Global Reach](virtual-wan-global-transit-network-architecture.md#expressroute-global-reach-and-virtual-wan).
 
 ### Is there a concept of weight in Azure Virtual WAN ExpressRoute circuits or VPN connections
 

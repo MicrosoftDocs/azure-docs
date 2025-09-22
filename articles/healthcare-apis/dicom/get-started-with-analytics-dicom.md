@@ -8,6 +8,7 @@ ms.subservice: dicom-service
 ms.topic: quickstart
 ms.date: 07/23/2025
 ms.author: buchvarun
+ms.custom: sfi-image-nochange
 ---
 
 # Get started using DICOM data in analytics workloads
