@@ -40,7 +40,7 @@ Azure Files is available in two media tiers:
 
 For more information, see [Plan to deploy Azure Files - Storage tiers](/azure/storage/files/storage-files-planning#storage-tiers).
 
-Azure Files implements redundancy at the storage account level, and file shares inherit that configuration automatically. The service supports multiple redundancy models that differ in their approach to data protection.
+Azure Files implements redundancy at the storage account level, and file shares inherit that redundancy configuration automatically. The service supports multiple redundancy models that differ in their approach to data protection.
 
 [!INCLUDE [Storage - Reliability architecture overview](includes/storage/reliability-storage-architecture-include.md)]
 
