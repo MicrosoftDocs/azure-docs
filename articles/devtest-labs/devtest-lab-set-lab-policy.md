@@ -5,7 +5,9 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 03/31/2025
-ms.custom: UpdateFrequency2
+ms.custom:
+  - UpdateFrequency2
+  - sfi-image-nochange
 
 #customer intent: As a lab administrator, I want to be able to set policies like allowed numbers of VMs per user and shutdown schedules, so I can control lab costs and improve manageability.
 ---

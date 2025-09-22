@@ -5,7 +5,10 @@ ms.topic: quickstart
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 03/09/2025
-ms.custom: mode-ui, UpdateFrequency2
+ms.custom:
+  - mode-ui
+  - UpdateFrequency2
+  - sfi-image-nochange
 
 #customer intent: As a lab administrator, I want to learn how to quickly set up Azure DevTest Labs by using the Azure portal, so I can create labs for development, testing, or training.
 ---
