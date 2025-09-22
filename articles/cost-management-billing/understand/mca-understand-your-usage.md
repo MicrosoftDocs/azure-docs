@@ -7,7 +7,7 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.date: 09/16/2025
-ms.author: shrshett
+ms.author: shrutis06
 ---
 
 # Terms in the Azure usage and charges file for a Microsoft Customer Agreement
