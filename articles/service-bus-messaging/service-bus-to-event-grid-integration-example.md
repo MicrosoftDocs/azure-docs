@@ -5,6 +5,7 @@ author: spelluru
 ms.topic: tutorial
 ms.date: 06/19/2025
 ms.author: spelluru
+ms.custom: sfi-image-nochange
 #customer intent: As a developer, I want to learn how to respond to Azure Service Bus events that are received over Azure Event Grid to support my Azure Logic Apps. 
 ---
 

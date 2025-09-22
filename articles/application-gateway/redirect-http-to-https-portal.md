@@ -7,7 +7,9 @@ ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 05/19/2023
 ms.author: mbender 
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 
 # Customer intent: "As a cloud architect, I want to configure an application gateway for HTTP to HTTPS redirection, so that I can ensure secure communication for users accessing my web applications."
 ---

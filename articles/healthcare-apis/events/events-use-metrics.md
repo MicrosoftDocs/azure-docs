@@ -8,6 +8,7 @@ ms.subservice: fhir
 ms.topic: how-to
 ms.date: 11/26/2024
 ms.author: chrupa
+ms.custom: sfi-image-nochange
 ---
 
 # How to use events metrics
