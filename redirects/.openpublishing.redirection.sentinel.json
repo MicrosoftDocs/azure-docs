@@ -1,6 +1,10 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/sentinel/summary-rules-tutorial.md",
+            "redirect_url": "/azure/sentinel/datalake/kql-jobs",
+            "redirect_document_id": false
+        },        {
             "source_path_from_root": "/articles/sentinel/sap/deployment-attack-disrupt.md",
             "redirect_url": "/defender-xdr/automatic-attack-disruption",
             "redirect_document_id": false
