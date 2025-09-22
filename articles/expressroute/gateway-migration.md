@@ -113,7 +113,7 @@ No changes at this stage; nothing to roll back​
 The process can be aborted after step 2 and the new gateway will be deleted.​
 
 3. Migrate – Transfer the configuration from the existing gateway to the new one.​
-If needed, the configuration can be reverted to the existing gateway after step 3.​
+If needed, the configuration can be reverted to the existing gateway after step 3.​ Do not navigate away from the migration page while traffic is being moved. Leaving the page may interrupt the process.
 
 4. Commit – Finalize the migration by decommissioning the old gateway and its connections. ​
 Once the change has been committed, it can no longer be rolled back.
