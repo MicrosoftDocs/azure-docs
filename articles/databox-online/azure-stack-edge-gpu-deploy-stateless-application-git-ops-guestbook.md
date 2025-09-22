@@ -25,9 +25,6 @@ The deployment is done using GitOps on the Azure Arc-enabled Kubernetes cluster 
 
 This procedure is intended for people who have reviewed the [Kubernetes workloads on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-workload-management.md) and are familiar with the concepts of [What is Azure Arc-enabled Kubernetes (Preview)](/azure/azure-arc/kubernetes/overview).
 
-> [!NOTE]
-> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
-
 ## Prerequisites
 
 Before you can deploy the stateless application, make sure that you have completed the following prerequisites on your device and the client that you'll use to access the device:
@@ -59,12 +56,12 @@ Before you can deploy the stateless application, make sure that you have complet
 
 1. You have a [GitOps configuration that you can use to run an Azure Arc deployment](https://github.com/kagoyal/dbehaikudemo). In this example, you use the following `yaml` files to deploy on your Azure Stack Edge Pro device.
 
-    - `frontend-deployment.yaml`<!-- - The guestbook application has a web frontend serving the HTTP requests written in PHP. It is configured to connect to the redis-master Service for write requests and the redis-slave service for Read requests. This file describes a deployment that runs the frontend of the guestbook application.-->
+    - `frontend-deployment.yaml`<!-- - The guestbook application has a web frontend serving the HTTP requests written in PHP. It is configured to connect to the redis-master Service for write requests and the redis-replica service for Read requests. This file describes a deployment that runs the frontend of the guestbook application.-->
     - `frontend-service.yaml` <!-- - This allows you to configure an externally visible frontend Service that can be accessed from outside the Kubernetes cluster on your device.-->
-    - `redis-master-deployment.yaml` <!-- - This deployment file runs a single replica Redis master Pod. The guestbook application uses Redis to store its data. It writes its data to a Redis master instance and reads data from multiple Redis slave instances.-->
+    - `redis-master-deployment.yaml` <!-- - This deployment file runs a single replica Redis master Pod. The guestbook application uses Redis to store its data. It writes its data to a Redis master instance and reads data from multiple Redis replica instances.-->
     - `redis-master-service.yaml` <!-- - The guestbook application needs to communicate to the Redis master to write its data. You need to apply a Service to proxy the traffic to the Redis master Pod. A Service defines a policy to access the Pods.-->
-    - `redis-slave-deployment.yaml` <!-- - Although the Redis master is a single pod, you can make it highly available to meet traffic demands by adding replica Redis slaves. The Redis Slave Deployment specifies two replicas.-->
-    - `redis-slave-service.yaml` <!-- - The guestbook application needs to communicate to Redis slaves to read data. To make the Redis slaves discoverable, you need to set up a Service. A Service provides transparent load balancing to a set of Pods.-->
+    - `redis-replica-deployment.yaml` <!-- - Although the Redis master is a single pod, you can make it highly available to meet traffic demands by adding replica Redis replicas. The Redis replica Deployment specifies two replicas.-->
+    - `redis-replica-service.yaml` <!-- - The guestbook application needs to communicate to Redis replicas to read data. To make the Redis replicas discoverable, you need to set up a Service. A Service provides transparent load balancing to a set of Pods.-->
 
 <!-- az cli version requirements-->
 
@@ -128,8 +125,8 @@ The deployment via the GitOps configuration creates a `demotestguestbook` namesp
     frontend-6cb7f8bd65-xpzs6       1/1     Running   0          91m
     memcached-86bdf9f56b-5l2fq      1/1     Running   0          91m
     redis-master-7db7f6579f-2z29w   1/1     Running   0          91m
-    redis-slave-7664787fbc-lgr2n    1/1     Running   0          91m
-    redis-slave-7664787fbc-vlvzn    1/1     Running   0          91m
+    redis-replica-7664787fbc-lgr2n    1/1     Running   0          91m
+    redis-replica-7664787fbc-vlvzn    1/1     Running   0          91m
     [10.128.44.240]: PS>
     ```  
 
@@ -143,7 +140,7 @@ The deployment via the GitOps configuration creates a `demotestguestbook` namesp
     frontend       LoadBalancer   10.96.79.38      10.128.44.245   80:31238/TCP   85m
     memcached      ClusterIP      10.102.47.75     <none>          11211/TCP      85m
     redis-master   ClusterIP      10.104.32.99     <none>          6379/TCP       85m
-    redis-slave    ClusterIP      10.104.215.146   <none>          6379/TCP       85m
+    redis-replica    ClusterIP      10.104.215.146   <none>          6379/TCP       85m
     [10.128.44.240]: PS>
     ```
 1. The frontend service of `type:LoadBalancer` has an external IP address. This IP is from the IP address range that you specified for external services when configuring the Compute network settings on the device. Use this IP address to view the `guestbook` at URL: `https://<external-IP-address>`.
