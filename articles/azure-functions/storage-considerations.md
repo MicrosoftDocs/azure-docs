@@ -104,7 +104,7 @@ A key scenario for Functions is file processing of files in a blob container, su
 
 There are several ways to run your function code based on changes to blobs in a storage container, as indicated by this diagram: 
 
-:::image type="content" source="media/storage-considerations/functions-blob-storage-trigger-options.png" alt-text="Diagram that shows the various options for triggering a function when items are added or updated in a Blob Storage container in Azure":::
+:::image type="content" source="media/storage-considerations/functions-blob-storage-trigger-options.png" alt-text="Diagram that shows the various options for triggering a function when items are added or updated in a Blob Storage container in Azure.":::
 
 Use the following table to determine which function trigger best fits your needs for processing added or updated blobs in a container:
 
@@ -124,7 +124,7 @@ Use the following table to determine which function trigger best fits your needs
 
 1. Blob storage input and output bindings support blob-only accounts.
 2. High scale can be loosely defined as containers that have more than 100,000 blobs in them or storage accounts that have more than 100 blob updates per second.
-3. You can workaround inbound access restrictions by having the event subscription deliver events over an encrypted channel in public IP space using a known user identity. For more information, see [Deliver events securely using managed identities](../event-grid/deliver-events-using-managed-identity.md).
+3. You can work around inbound access restrictions by having the event subscription deliver events over an encrypted channel in public IP space using a known user identity. For more information, see [Deliver events securely using managed identities](../event-grid/deliver-events-using-managed-identity.md).
 
 ## Storage data encryption
 
