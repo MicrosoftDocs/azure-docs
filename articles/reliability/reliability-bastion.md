@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Bastion
-description: Find out about reliability in Azure Bastion, including availability zones and multi-region deployments.
+description: Improve reliability in Azure Bastion by using availability zones and zone redundancy for RDP/SSH connections. Understand disaster recovery best practices.
 author: anaharris-ms 
 ms.author: anaharris
 ms.topic: reliability-article
@@ -11,7 +11,7 @@ ms.date: 04/04/2025
 
 # Reliability in Azure Bastion
 
-This article describes reliability support in Azure Bastion. It covers intra-regional resiliency via [availability zones](#availability-zone-support). It also covers [multi-region deployments](#multi-region-support).
+This article describes reliability support in Azure Bastion and how to use [availability zones](#availability-zone-support) and zone redundancy to reduce downtime and improve resiliency for production workloads. It also covers [multi-region deployment](#multi-region-support) guidance for disaster recovery.
 
 [!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
@@ -46,8 +46,7 @@ Azure Bastion supports availability zones in both zonal and zone-redundant confi
     
     The following diagram shows a zone-redundant Azure Bastion resource, with its instances spread across three zones:
     
-   
-    :::image type="content" source="media/bastion/bastion-instances-zones.png" alt-text="Diagram that shows Azure Bastion with three instances, each in a separate availability zone." border="false":::
+    :::image type="content" source="media/bastion/bastion-instances-zones.png" alt-text="Diagram that shows Azure Bastion with three instances distributed across three availability zones to illustrate zone-redundant deployment." border="false":::
 
     > [!NOTE]
     > If you specify more availability zones than you have instances, Azure Bastion spreads instances across as many zones as it can. If an availability zone is unavailable, the instance in the faulty zone is replaced with another instance in a healthy zone.
@@ -116,7 +115,7 @@ This section describes what to expect when an Azure Bastion resource is configur
 
 When the availability zone recovers, Azure Bastion automatically restores instances in the availability zone, and reroutes traffic between your instances as normal.
 
-### Testing for zone failures
+### Test for zone failures
 
 The Azure Bastion platform manages traffic routing, failover, and failback for zone-redundant Azure Bastion resources. Because this feature is fully managed, you don't need to initiate anything or validate availability zone failure processes.
 

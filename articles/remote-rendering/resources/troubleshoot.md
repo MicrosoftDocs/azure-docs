@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
+ms.custom: sfi-image-nochange
 ---
 
 # Troubleshoot

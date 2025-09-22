@@ -7,7 +7,9 @@ services: iot-hub
 ms.topic: include
 ms.date: 10/20/2021
 ms.author: sonialopez
-ms.custom: include file
+ms.custom:
+  - include file
+  - sfi-image-nochange
 ---
 <!-- This tells how to get the connection string for the service shared access policy of your IoT hub -->
 

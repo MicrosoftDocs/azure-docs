@@ -9,6 +9,7 @@ ms.subservice: cost-management
 ms.topic: conceptual
 ms.date: 06/26/2025
 ms.author: shasulin
+ms.custom: sfi-image-nochange
 ---
 
 # Identify anomalies and unexpected changes in cost

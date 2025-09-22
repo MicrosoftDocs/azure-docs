@@ -5,7 +5,9 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 03/20/2020
-ms.custom: UpdateFrequency2
+ms.custom:
+  - UpdateFrequency2
+  - sfi-image-nochange
 #customer intent: As a lab admin, I want to troubleshoot virtual machine (VM) and environment creation failures in Azure DevTest Labs so that I can resolve issues.
 ---
 

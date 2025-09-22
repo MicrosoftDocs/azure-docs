@@ -8,7 +8,7 @@ ms.service: azure-data-box-gateway
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: shaas 
-ms.custom:
+ms.custom: sfi-image-nochange
 # Customer intent: As a cloud administrator, I want to manage the access, power, and connectivity mode of the Data Box Gateway device, so that I can ensure secure data transfer and optimize device performance based on network conditions.
 ---
 

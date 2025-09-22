@@ -6,6 +6,7 @@ ms.author: zhenlwa
 ms.service: azure-app-configuration
 ms.topic: concept-article
 ms.date: 05/30/2024
+ms.custom: sfi-ropc-nochange
 ---
 
 # Azure App Configuration support for configuration files
