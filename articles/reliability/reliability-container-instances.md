@@ -208,7 +208,7 @@ This section describes what to expect when Container Instances resources are con
   
     Set up alerts to receive notifications of zone-level problems. For more information, see [Create Service Health alerts in the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal).
 
-- **Active requests:** If a zone fails, all running containers, including the work that they are doing, within that zone are likely to terminate.
+- **Active requests:** If a zone fails, all containers running in that zone are likely to stop, including any active work that they're handling
 
 - **Expected data loss:** Because containers and container groups are stateless, there's no data loss expected from a zone failure. However, you're responsible for ensuring that each component in your workload is zone resilient, including storage services and databases.
 
