@@ -47,7 +47,7 @@ Use these steps to create your function app and related Azure resources in the A
     | ------------ | ---------------- | ----------- |
     | **Subscription** | Your subscription | The subscription under which you create your new function app. |
     | **[Resource Group](../azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Name for the new resource group in which you create your function app. You should create a new resource group because there are [known limitations when creating new function apps in an existing resource group](functions-scale.md#limitations-for-creating-new-function-apps-in-an-existing-resource-group).|
-    | **Function App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z` (case insensitive), `0-9`, and `-`.  |
+    | **Function App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z` (case insensitive), `0-9`, and `-`. To guarantee a unique app name, you can optionally enable **Secure unique default hostname**, which is currently in preview. |
     |**Region**| Preferred region | Select a [region](https://azure.microsoft.com/regions/) that's near you or near other services that your functions can access. |
     | **Runtime stack** | Preferred language | Choose a runtime that supports your favorite function programming language.  |
     |**Version**| Version number | Choose the version of your installed runtime. |
@@ -57,7 +57,7 @@ Use these steps to create your function app and related Azure resources in the A
 
 1. On the **Monitoring** page, make sure that **Enable Application Insights** is selected. Accept the default to create a new Application Insights instance, or else choose to use an existing instance. When you create an Application Insights instance, you're also asked to select a Log Analytics **Workspace**.
 
-1. On the **Authentication** page, change the **Authentication type** to **Managed identity** for all resources. By default, a user-assigned managed identity is also created that your app uses to access these Azure resources by using Microsoft Entra ID authentication. Managed identities with Microsoft Entra provides the highest level of security when connecting to Azure resources.   
+1. On the **Authentication** page, change the **Authentication type** to **Managed identity** for all resources. With this option, a user-assigned managed identity is also created that your app uses to access these Azure resources using Microsoft Entra ID authentication. Managed identities with Microsoft Entra ID provides the highest level of security for connecting to Azure resources.   
 
 1. Accept the default options in the remaining tabs and then select **Review + create** to review the app configuration you chose.
 
