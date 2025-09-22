@@ -28,7 +28,7 @@ Data flow graphs use registry endpoints to pull WebAssembly (WASM) modules and g
 A registry endpoint defines the connection details and authentication method for accessing a container registry. Registry endpoints are used by:
 
 - **Data flow graphs**: To pull WASM modules and graph definitions
-- **Akri connectors**: To pull custom discovery handlers and protocol adapters
+- **Akri connectors**: To pull custom connector templates
 
 Registry endpoints support authentication through:
 - System-assigned managed identity

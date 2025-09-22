@@ -1,5 +1,5 @@
 ---
-title: Learn about Akri (preview)
+title: Learn about Akri services (preview)
 description: Understand how the Akri services enable you to dynamically configure and deploy Akri connectors to connect a broad variety of assets and devices to the Azure IoT Operations cluster, ingest telemetry from them, and use command and control.
 author: dominicbetts
 ms.author: dobett
@@ -14,54 +14,78 @@ ms.date: 09/08/2025
 
 # What are Akri services (preview)
 
-The Microsoft Akri framework lets you do the following in Azure IoT Operations:
+The Microsoft Akri framework lets you perform the following tasks in Azure IoT Operations:
 
-- **Connect**: The Azure IoT Operations Akri connectors let you make southbound connections to a wide variety of assets and devices in Azure IoT Operations, ingest telemetry from them, and use command and control. The connectors send data to the MQTT broker, which uses data flows for northbound connectivity to cloud services.
-- **Discover**: The Akri services enable the discovery handlers that let you find devices on your network for easy onboarding to Azure IoT Operations.
-- **Monitor**: The Akri connectors and discovery handlers use the Akri diagnostics service to consolidate and send observability data to the OTEL service.
+- **Connect**: The Azure IoT Operations Akri connectors let you establish southbound connections to a wide variety of assets and devices in Azure IoT Operations, ingest telemetry from them, and use command and control. The connectors send data to the MQTT broker, which uses data flows for northbound connectivity to cloud services.
+- **Discover**: The Akri services let you discover devices on your network for easy onboarding to Azure IoT Operations.
+- **Monitor**: The Akri connectors use the Akri diagnostics service to collect and send observability data to the OTel service.
 
 The following diagram shows the architecture of the Akri services in Azure IoT Operations.
 
 <!-- Art Library Source# ConceptArt-0-000-92 -->
 :::image type="content" source="media/overview-akri/akri-architecture.svg" alt-text="Diagram that shows the Akri services in Azure IoT Operations." lightbox="media/overview-akri/akri-architecture.png" border="false":::
 
+The following steps explain how the Akri services work together to configure devices and namespace assets, and connect them to your physical assets and devices:
+
+1. An IT admin creates a connector template in the Azure portal with configurations for a connector like the media connector.
+1. The connector template syncs to the edge. The Akri operator detects the new connector template.
+1. An OT user creates a device and inbound endpoint in the operations experience portal. The Akri operator detects the device and inbound endpoint and deploys a matching connector instance. The Akri operator uses the configuration  details in the connector template to configure the connector instance to connect to the physical device or asset.
+1. Data starts flowing from the physical device or asset through the connector instance to destinations set in the namespace assets associated with the inbound endpoint.
+1. If the OT user enables asset discovery on the device, the connector creates the necessary custom resources (CRs) for any discovered assets. For example, the connector for ONVIF discovers media profiles in an ONVIF-compliant camera and creates the necessary CRs for each profile. The OT user can then easily onboard the discovered namespace assets through the operations experience portal.
+1. The Akri operator handles any updates to configurations or secrets. The Akri operator also automatically deploys more connector instances to scale up as more devices are added.
+
 ## Connectors
 
 Akri services enable the connectors that let you connect to different devices and assets. Microsoft provides these connectors:
 
-- **Connector for OPC UA**: Connects to OPC UA servers, ingests telemetry data, and lets you use command and control scenarios.
+- **Connector for OPC UA**: Connects to OPC UA servers, ingests telemetry data, and lets you use command-and-control scenarios.
 - **Media connector**: Connects to media devices and ingests stream data like video and image snapshots.
 - **Connector for ONVIF**: Connects to ONVIF-compliant cameras, ingests event data like motion detection alerts, and lets you use command and control scenarios like pan-tilt-zoom control.
 - **Connector for REST/HTTP**: Connects to REST/HTTP endpoints and ingests telemetry data.
 
 ## Akri operator
 
-The Akri operator manages the lifecycle of Akri connectors and discovery handlers. It lets you deploy connectors and discovery handlers dynamically when the cluster finds certain types of devices and allocates the corresponding namespace assets to the inbound connector.
+The Akri operator manages the lifecycle of the Akri connector. It lets you deploy connectors dynamically when the cluster detects certain types of devices and allocates the corresponding namespace assets to the inbound connector.
 
-Akri operator uses the _connector templates_ to deploy and configure the connectors. The IT admin adds the connector templates to the Azure IoT Operations environment from the Azure portal. The templates define how to deploy and configure the connectors and discovery handlers. For example, the connector template for the media connector lets the IT admin specify how the connector synchronizes captured media streams to Azure storage.
+The Akri operator uses *connector templates* to deploy and configure connectors. The IT admin adds the connector templates to the Azure IoT Operations environment from the Azure portal. Templates define how to deploy and configure connectors. For example, the connector template for the media connector lets the IT admin specify how the connector syncs captured media streams to Azure Storage.
 
-After the IT admin adds a connector template like the one for the media connector, Akri operator watches for namespace assets and devices in the cluster that match the criteria in the template. When it finds a match, it deploys and configures the connector dynamically.
+After the IT admin adds a connector template, such as the one for the media connector, the Akri operator watches for namespace assets and devices in the cluster that match the criteria in the template. When it finds a match, it deploys and configures the connector dynamically. Dynamic configuration includes:
 
-## Akri diagnostics service
+- An identity for the connector instance.
+- Custom configurations, such as Azure Storage account details.
+- Connection details for the MQTT broker.
+- Connections for the OpenTelemetry (OTel) monitoring endpoint.
+- Volume mounts for secrets.
 
-The Akri diagnostics service collects and sends observability data from Akri connectors and discovery handlers to the OTEL service. You can monitor the health and performance of your Akri services with cloud-based monitoring solutions like Azure Monitor.
+The Akri operator also handles any updates the IT admin makes to secrets or connector configurations.
 
 ## Akri Azure Device Registry service
 
-The Akri Azure Device Registry service works with connectors and discovery handlers so they can interact with device and namespace asset custom resources in the Azure IoT Operations environment. For example, the Akri Azure Device Registry service helps an OT user to onboard media devices from the media profiles the connector for ONVIF discovers in an ONVIF compliant camera.
+The Akri Azure Device Registry service works with connectors so they can interact with device and namespace asset custom resources in the Azure IoT Operations environment. The Azure Device Registry Service:
 
-## Discovery handlers
+- Enables secure access to assets and devices from other Azure IoT Operations components.
+- Works with the connectors to support discovery of devices and assets.
 
-Akri services enable the discovery handlers that let you find devices and assets on your network. Currently, there are no built-in discovery handlers for the connectors.
+For example, the Akri Azure Device Registry service helps an OT user to onboard media devices from the media profiles the connector for ONVIF discovers in an ONVIF compliant camera.
 
 ## Akri SDKs
 
-Akri SDKs (preview) let you build custom connectors and discovery handlers that integrate with Akri services. The SDKs offer a framework that makes it easier to develop connectors by letting you focus on the specific logic for your southbound connector. The SDKs handle all the interfacing with other Azure IoT Operations services for you.
+Akri SDKs (preview) let you build custom connectors that integrate with Akri services. The SDKs provide a framework that simplifies connector development, so you can focus on the specific logic for your southbound connector. The SDKs manage all interactions with other Azure IoT Operations services for you.
 
-For information about the languages the SDKs support and the available libraries, see [Overview of the Azure IoT Operations SDKs (preview)](../develop-edge-apps/overview-iot-operations-sdks.md).
+To learn about the languages the SDKs support and the available libraries, see [Overview of the Azure IoT Operations SDKs (preview)](../develop-edge-apps/overview-iot-operations-sdks.md).
 
 ## Open-source Akri
 
-Akri services are a Microsoft-managed commercial version of [Akri](https://docs.akri.sh/), an open-source Cloud Native Computing Foundation (CNCF) project.
+Akri services are a Microsoft-managed commercial version of [Akri](https://docs.akri.sh/), an open-source project from the Cloud Native Computing Foundation (CNCF).
 
-Akri services build on the capabilities of the open-source Akri project and give you additional features and support for enterprise scenarios.
+> [!NOTE]
+> Currently, Akri services in Azure IoT Operations has an API that differs from the CNCF Akri project.
+
+Akri services build on the capabilities of the open-source Akri project and provide additional features and support for enterprise scenarios.
+
+## Next steps
+
+- [Configure the connector for ONVIF (preview)](howto-use-onvif-connector.md)
+- [Configure the media connector (preview)](howto-use-media-connector.md)
+- [Configure the connector for OPC UA](howto-configure-opc-ua.md)
+- [Configure the connector for REST/HTTP (preview)](howto-use-http-connector.md)
