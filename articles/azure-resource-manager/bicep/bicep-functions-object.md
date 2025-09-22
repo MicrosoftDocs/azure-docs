@@ -432,7 +432,7 @@ The output from the preceding example is:
 
 `shallowMerge(inputArray)`
 
-Combines an array of objects, where only the top-level objects are merged. This means that if the objects being merged contain nested objects, those nested object aren't deeply merged. Instead, they're replaced entirely by the corresponding property from the merging object.
+Combines an array of objects, where only the top-level objects are merged. This means that if the objects being merged contain nested objects, those nested object aren't deeply merged. Instead, the corresponding property from the merging object entirely replaces them.
 
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
@@ -467,7 +467,7 @@ The output from the preceding example with the default values is:
 
 **firstOutput** shows the properties from the merging objects are combined into a new object. If there are conflicting properties (that is, properties with the same name), the property from the last object being merged usually takes precedence.
 
-**secondOutput** shows the shallow merge doesn't recursively merge these nested objects. Instead, the entire nested object is replaced by the corresponding property from the merging object.
+**secondOutput** shows the shallow merge doesn't recursively merge these nested objects. Instead, the corresponding property from the merging object replaces the entire nested object.
 
 ## union
 
@@ -493,7 +493,7 @@ An array or object.
 
 The union function uses the sequence of the parameters to determine the order and values of the result.
 
-For arrays, the function iterates through each element in the first parameter and adds it to the result if it isn't already present. Then, it repeats the process for the second parameter and any other parameters. If a value is already present, it's earlier placement in the array is preserved.
+For arrays, the function iterates through each element in the first parameter and adds it to the result if it isn't already present. Then, it repeats the process for the second parameter and any other parameters. If a value is already present, its earlier placement in the array is preserved.
 
 For objects, property names and values from the first parameter are added to the result. For later parameters, any new names are added to the result. If a later parameter has a property with the same name, that value overwrites the existing value. The order of the properties isn't guaranteed.
 
