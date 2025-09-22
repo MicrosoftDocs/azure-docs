@@ -46,6 +46,9 @@ Create a package manifest to list the solution components. It includes the solut
    - **Package name:** The name that appears in the Microsoft Security Store.
    - **Description:** A short explanation of what the package does.
    - **Include paths:** The folders that contain the agent manifest, job YAML files, notebooks, and other required files.
+
+:::image type="content" source="media/platform-solution-packaging/package-demo-ui-small.png" alt-text="Screenshot of the Create Package Definition dialog in Visual Studio Code showing fields for package name, description, and include paths." lightbox="media/platform-solution-packaging/package-demo-ui-big.png":::
+
 1. (Optional) Select **View YAML** to edit the YAML file.
 
 ### Example manifest
@@ -82,5 +85,5 @@ After you create the ZIP file, publish it in the Microsoft Security Store.
 
 For an introduction to Microsoft Sentinel SIEM solutions, see:
 
-- [Publish solutions to Microsoft Sentinel](publish-sentinel-solutions).
-- [Create a codeless connector for Microsoft Sentinel](create-codeless-connector).
+- [Publish solutions to Microsoft Sentinel](publish-sentinel-solutions.md).
+- [Create a codeless connector for Microsoft Sentinel](create-codeless-connector.md).

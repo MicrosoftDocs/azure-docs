@@ -25,7 +25,7 @@ Uninstalling the solution doesn’t remove the agent from the catalog. Enabled o
 # [Notebooks and notebook jobs](#tab/notebooks)
 
 **Configure**  
-Use the [Microsoft Sentinel Jobs page](/notebook-jobs-create-manage) to enable, disable, schedule, or view notebook jobs. You can also review notebook content and execution history.
+Use the Microsoft Sentinel Jobs page to enable, disable, schedule, or view notebook jobs. You can also review notebook content and execution history.
 
 **Update**  
 To update notebooks or jobs, go to the [Microsoft Security Store](https://security.microsoft.com/securitystore), find the solution, and install the latest version. This deployment overwrites existing notebooks and jobs that share the same name. Each solution and publisher uses unique names to prevent conflicts.
