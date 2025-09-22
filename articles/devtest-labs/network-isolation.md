@@ -4,8 +4,10 @@ description: Learn how to enable and configure network isolation for labs in Azu
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.custom: UpdateFrequency2
 ms.date: 03/31/2025
+ms.custom:
+  - UpdateFrequency2
+  - sfi-image-nochange
 
 #customer intent: As a lab administrator, I want to configure a network-isolated lab so I can completely isolate all lab resources to an existing virtual network.
 ---

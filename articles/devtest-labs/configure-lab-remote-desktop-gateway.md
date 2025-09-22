@@ -5,7 +5,9 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 07/17/2025
-ms.custom: UpdateFrequency2
+ms.custom:
+  - UpdateFrequency2
+  - sfi-image-nochange
 #customer intent: As a lab administrator, I want to configure a remote desktop gateway in Azure DevTest Labs so that I can secure my labs. 
 ---
 

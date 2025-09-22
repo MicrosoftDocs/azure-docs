@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure API Management
-description: Learn about reliability features in Azure API Management, including availability zones and multi-region deployments in the Premium tier.
+description: Learn how to configure availability zones and multi-region deployments in Azure API Management to achieve high availability and meet SLA requirements.
 author: dlepow
 ms.author: danlep
 ms.topic: reliability-article
@@ -11,11 +11,9 @@ ms.date: 07/17/2025
 
 # Reliability in Azure API Management
 
-Azure API Management is a fully managed service that helps organizations publish, secure, transform, maintain, and monitor APIs. The service acts as a gateway that sits between API consumers and backend services. It provides essential capabilities like authentication, rate limiting, response caching, and request and response transformations. Organizations can use API Management to create a consistent and secure API experience while abstracting the complexity of the underlying backend services.
+Azure API Management is a fully managed service that helps organizations publish, secure, transform, maintain, and monitor APIs. This article describes reliability features in [API Management](/azure/api-management/api-management-key-concepts), including intra-regional resiliency via [availability zones](#availability-zone-support), [multi-region deployments](#multi-region-support), gateway zone redundancy, and automatic failover. Learn how to configure these features to achieve high availability and meet SLA requirements. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/reliability/overview).
 
 API Management provides several reliability features designed to ensure high availability and fault tolerance for your API infrastructure. The service provides built-in redundancy through multiple deployment units, automatic failover capabilities between availability zones, and multi-region deployment options for global API distribution. API Management includes intelligent traffic routing, health monitoring, and automatic retry mechanisms that help maintain service continuity even during infrastructure failures or high-traffic scenarios.
-
-This article describes reliability in [API Management](/azure/api-management/api-management-key-concepts), including intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/reliability/overview).
 
 [!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
@@ -46,7 +44,7 @@ Units within an instance work together to process requests and automatically loa
 
 To learn about how to deploy API Management to support your solution's reliability requirements and how reliability affects other aspects of your architecture, see [Architecture best practices for API Management in the Azure Well-Architected Framework](/azure/well-architected/service-guides/azure-api-management).
 
-## Transient faults
+## Transient faults and retry policies
 
 [!INCLUDE[introduction to transient faults](./includes/reliability-transient-fault-description-include.md)]
 

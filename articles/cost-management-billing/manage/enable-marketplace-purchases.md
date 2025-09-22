@@ -7,7 +7,8 @@ ms.service: cost-management-billing
 ms.subservice: microsoft-customer-agreement
 ms.topic: conceptual
 ms.date: 01/22/2025
-ms.author: echung
+ms.author: nicholak
+ms.custom: sfi-ga-nochange
 ---
 
 # Enable marketplace purchases in Azure
