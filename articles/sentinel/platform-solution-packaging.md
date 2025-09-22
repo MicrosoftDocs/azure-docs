@@ -82,5 +82,5 @@ After you create the ZIP file, publish it in the Microsoft Security Store.
 
 For an introduction to Microsoft Sentinel SIEM solutions, see:
 
-- [Publish solutions to Microsoft Sentinel](publish-sentinel-solutions.md).
-- [Create a codeless connector for Microsoft Sentinel](create-codeless-connector.md).
+- [Publish solutions to Microsoft Sentinel](publish-sentinel-solutions).
+- [Create a codeless connector for Microsoft Sentinel](create-codeless-connector).
