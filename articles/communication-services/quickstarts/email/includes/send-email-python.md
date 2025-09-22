@@ -8,7 +8,9 @@ ms.author: natekimball
 ms.date: 03/24/2023
 ms.topic: include
 ms.service: azure-communication-services
-ms.custom: mode-other
+ms.custom:
+  - mode-other
+  - sfi-ropc-nochange
 ---
 
 Get started with Azure Communication Services by using the Communication Services Python Email SDK to send Email messages.

@@ -17,7 +17,7 @@ This article shows how you can use PowerShell or Azure CLI commands to script or
 
 - Test a three-tier application where the tiers need to start in a sequence.
 - Turn off your VMs to save costs when they meet custom criteria.
-- Start and stop a VM when a continuous integration and continuous delivery (CI/CD) workflow begins and finishes. For an example of this workflow, see [Run an image factory from Azure DevOps](image-factory-set-up-devops-lab.md).
+- Start and stop a VM when a continuous integration and continuous delivery (CI/CD) workflow begins and finishes.
 
 >[!NOTE]
 >You can also start, stop, or [restart](devtest-lab-restart-vm.md) DevTest Labs VMs by using the Azure portal. Lab admins can use the portal to configure [automatic startup](devtest-lab-auto-startup-vm.yml) and [automatic shutdown](devtest-lab-auto-shutdown.md) schedules and policies for lab VMs.

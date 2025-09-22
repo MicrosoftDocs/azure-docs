@@ -8,6 +8,8 @@ items:
       href: overview.md
     - name: Use Azure SRE Agent
       href: usage.md
+    - name: Ask the agent for help
+      href: ask-agent.md
     - name: Tutorials
       items:
       - name: Troubleshoot App Service
@@ -17,14 +19,23 @@ items:
 - name: Key concepts
   expanded: true
   items:
-    - name: Access management
-      href: access-management.md
     - name: Incident management
       href: incident-management.md
     - name: FAQ
       href: faq.md
     - name: Billing
       href: billing.md
+- name: Roles, permissions, and actions
+  expanded: true
+  items:
+    - name: Overview
+      href: roles-permissions-overview.md
+    - name: User access roles
+      href: user-access-roles.md
+    - name: Agent managed identity
+      href: agent-managed-identity.md
+    - name: Agent run modes
+      href: agent-run-modes.md
 - name: Reference
   items:
     - name: Starter prompts

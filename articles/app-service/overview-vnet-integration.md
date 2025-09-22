@@ -3,7 +3,7 @@ title: Integrate your app with an Azure virtual network
 description: Integrate your app in Azure App Service with Azure virtual networks.
 author: seligj95
 ms.topic: conceptual
-ms.date: 08/11/2025
+ms.date: 09/03/2025
 ms.update-cycle: 1095-days
 ms.author: jordanselig
 ms.custom:
@@ -110,7 +110,7 @@ You must have at least the following Role-based access control permissions on th
 |-|-|
 | Microsoft.Network/virtualNetworks/read | Read the virtual network definition |
 | Microsoft.Network/virtualNetworks/subnets/read | Read a virtual network subnet definition |
-| Microsoft.Network/virtualNetworks/subnets/write | Delegate the subnet. Only required when the subnet has not been delegated or has not already been used for virtual network integration |
+| Microsoft.Network/virtualNetworks/subnets/write | Delegate the subnet. Only required when the subnet hasn't been delegated or hasn't already been used for virtual network integration |
 | Microsoft.Network/virtualNetworks/subnets/join/action | Joins a virtual network |
 
 If the virtual network is in a different subscription than the app, you must ensure that the subscription with the virtual network is registered for the `Microsoft.Web` resource provider. You can explicitly register the provider [by following this documentation](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider), but it also automatically registers when creating the first web app in a subscription.
@@ -131,7 +131,7 @@ Application routing applies to traffic that is sent from your app after it start
 Learn [how to configure application routing](./configure-vnet-integration-routing.md#configure-application-routing).
 
 > [!NOTE]
-> Outbound SMTP connectivity (port 25) is supported for App Service when the SMTP traffic is routed through the virtual network integration. The supportability is determined by a setting on the subscription where the virtual network is deployed. For virtual networks/subnets created before 1. August 2022 you need to initiate a temporary configuration change to the virtual network/subnet for the setting to be synchronized from the subscription. An example could be to add a temporary subnet, associate/dissociate an NSG temporarily or configure a service endpoint temporarily. For more information, see [Troubleshoot outbound SMTP connectivity problems in Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md).
+> Outbound SMTP connectivity (port 25) is supported for App Service when the SMTP traffic is routed through the virtual network integration. The supportability is determined by a setting on the subscription where the virtual network is deployed. For virtual networks/subnets created before 1. August 2022 you need to initiate a temporary configuration change to the virtual network/subnet for the setting to be synchronized from the subscription. An example could be to add a temporary subnet, associate/dissociate an NSG temporarily, or configure a service endpoint temporarily. For more information, see [Troubleshoot outbound SMTP connectivity problems in Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md).
 
 ### Configuration routing
 
@@ -181,7 +181,7 @@ Specifically for [Linux continuous deployment](https://github.com/microsoft/Oryx
 
 #### Health checks
 
-Azure uses UDP port 30,000 to do network health checks. If you block this traffic, it will not directly impact your app, but it will be more difficult for Azure support to detect and troubleshoot network related issues.
+Azure uses UDP port 30,000 to do network health checks. If you block this traffic, it doesn't directly affect your app, but it's more difficult for Azure support to detect and troubleshoot network related issues.
 
 #### Private ports
 
@@ -221,7 +221,7 @@ There are some limitations with using virtual network integration:
 * You can't have more than two virtual network integrations per App Service plan. Multiple apps in the same App Service plan can use the same virtual network integration.
 * You can't change the subscription of an app or a plan while there's an app that's using virtual network integration.
 * App Service Logs to private storage accounts is currently not supported. We recommend using Diagnostics Logging and allowing Trusted Services for the storage account.
-* Connectivity to public Azure Storage accounts might fail for VNet-integrated apps when VNet Route All is enabled and the app does not use service endpoints, private endpoints, or User-Defined Routes (UDRs). Traffic is expected to route via the default route (Internet). This scenario is common when the storage account is in a different region than the virtual network.
+* Connectivity to global Azure Storage accounts might fail for VNet-integrated apps when virtual network Route All is enabled and the app doesn't use service endpoints, private endpoints, or User-Defined Routes (UDRs). Traffic is expected to route via the default route (Internet). This scenario is common when the storage account is in a different region than the virtual network.
   * To restore or ensure connectivity, enable service endpoints for the storage account, configure private endpoints, or move the storage account to the same region as the virtual network. 
 
 ## Access on-premises resources
@@ -241,7 +241,7 @@ In the app view of your virtual network integration instance, you can disconnect
 The private IP assigned to the instance is exposed via the environment variable WEBSITE_PRIVATE_IP. Kudu console UI also shows the list of environment variables available to the web app. This IP is assigned from the address range of the integrated subnet. This IP is used by the web app to connect to the resources through the Azure virtual network.
 
 > [!NOTE]
-> The value of WEBSITE_PRIVATE_IP is bound to change. However, it will be an IP within the address range of the integration subnet, so you'll need to allow access from the entire address range.
+> The value of WEBSITE_PRIVATE_IP is bound to change. However, it's an IP within the address range of the integration subnet, so you need to allow access from the entire address range.
 >
 
 ## Pricing details
@@ -254,13 +254,35 @@ The feature is easy to set up, but that doesn't mean your experience is problem 
 
 > [!NOTE]
 > * Virtual network integration isn't supported for Docker Compose scenarios in App Service.
-> * Access restrictions does not apply to traffic coming through a private endpoint.
+> * Access restrictions don't apply to traffic coming through a private endpoint.
 
-### Deleting the App Service plan or app before disconnecting the network integration
+### Cleaning up orphaned Service Association Links (SAL)
 
-If you deleted the app or the App Service plan without disconnecting the virtual network integration first, you aren't able to do any update/delete operations on the virtual network or subnet that was used for the integration with the deleted resource. A subnet delegation 'Microsoft.Web/serverFarms' remains assigned to your subnet and prevents the update and delete operations. 
+When an App Service is integrated with a virtual network, a Service Association Link (SAL) is created. If the App Service is deleted without properly disconnecting the virtual network, the SAL might remain orphaned, preventing subnet deletion or updates.
 
-In order to do update/delete the subnet or virtual network again, you need to re-create the virtual network integration, and then disconnect it:
+#### Method 1: Purging orphaned Service Association Links (SAL)
+
+First, try to delete the orphan SAL using the following Azure CLI command. Replace the placeholders for `SUBSCRIPTION-ID`, `LOCATION`, and `SUBNET-RESOURCE-ID`. The location in the URI must match the location of the virtual network/subnet. You must have at a minimum the permissions associated with the [Network Contributor](../role-based-access-control/built-in-roles/networking.md#network-contributor) role on the subnet to execute this command.
+
+```bash
+az rest --method POST \
+  --uri "/subscriptions/<SUBSCRIPTION-ID>/providers/Microsoft.Web/locations/<LOCATION>/purgeUnusedVirtualNetworkIntegration?api-version=2024-04-01" \
+  --body "{'subnetResourceId': '<SUBNET-RESOURCE-ID>'}"
+```
+
+Successful execution of this command gives the following response:
+
+```bash
+{
+  "message": "Purged unused virtual network integration.",
+  "swiftVirtualNetwork": null
+}
+```
+
+#### Method 2: Re-creating and disconnecting the integration (if Method 1 fails)
+
+If the purge command doesn't resolve the issue and you still can't perform update/delete operations on the virtual network or subnet, a subnet delegation 'Microsoft.Web/serverFarms' might remain assigned to your subnet. In this case, you need to re-create the virtual network integration and then disconnect it:
+
 1. Re-create the App Service plan and app (it's mandatory to use the exact same web app name as before).
 1. Navigate to **Networking** on the app in Azure portal and configure the virtual network integration. 
 1. After the virtual network integration is configured, select the 'Disconnect' button.

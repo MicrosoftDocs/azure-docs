@@ -6,7 +6,12 @@ ms.topic: quickstart
 ms.date: 05/31/2025
 ms.reviewer: azfuncdf, lilyjma
 ms.devlang: python
-ms.custom: mode-api, devdivchpfy22, vscode-azure-extension-update-complete, devx-track-python
+ms.custom:
+  - mode-api
+  - devdivchpfy22
+  - vscode-azure-extension-update-complete
+  - devx-track-python
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create a Python Durable Functions app

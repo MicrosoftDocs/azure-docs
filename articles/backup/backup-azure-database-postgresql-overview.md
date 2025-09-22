@@ -6,6 +6,7 @@ ms.date: 08/18/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
+ms.custom: sfi-image-nochange
 # Customer intent: "As a database administrator, I want to implement long-term backup solutions for Azure Database for PostgreSQL, so that I can ensure data compliance and recoverability over an extended period."
 ---
 
