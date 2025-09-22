@@ -48,7 +48,7 @@ Elastic SAN backup has the following supported and unsupported scenarios:
    | On-demand backup | 10 per backup instance per day. |
    | Restore | 10 per backup instance per day. |
 >[!Note]
-  >- The Backup preview solution supports Elastic SAN volumes size of <= 4 TB.
+  >- The Backup solution in preview supports Elastic SAN volumes size of <= 4 TB.
 
 ## Next steps
 
