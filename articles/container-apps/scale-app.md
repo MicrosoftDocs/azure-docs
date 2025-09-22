@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 06/26/2025
+ms.date: 06/30/2025
 ms.author: cshoe
 zone_pivot_groups: arm-azure-cli-portal-bicep
 ---
@@ -1177,6 +1177,41 @@ If the app was scaled to the maximum replica count of 20, scaling goes through t
 
 - You need to enable data protection for all .NET apps on Azure Container Apps. See [Deploying and scaling an ASP.NET Core app on Azure Container Apps](/aspnet/core/host-and-deploy/scaling-aspnet-apps/scaling-aspnet-apps) for details.
 
+### Scaling apps and scaling jobs
+
+Azure Container Apps supports two distinct workload types, apps and [jobs](jobs.md). While both can scale dynamically, their scaling behaviors are tailored to their use cases:
+
+- Apps are typically web APIs, background services, or microservices that run continuously and respond to incoming traffic or events.
+    - Scaling mechanism: Powered by KEDA, apps scale based on declarative rules tied to metrics like:
+        - [HTTP request concurrency](#http)
+        - [TCP connections](#tcp)
+        - [CPU or memory usage](./tutorial-scaling.md#cpu-and-memory-scaling)
+        - [Event sources (e.g., Azure Service Bus, Event Hubs, Kafka)](#custom)
+    - Behavior:
+        - You define min/max replica counts.
+        - You can combine multiple scale rules, and the app will scale out when any rule is triggered. This allows apps to respond to diverse traffic patterns.
+        - Scaling is horizontal: more replicas are added or removed based on demand.
+        - Apps can scale to zero when idle, saving costs.
+
+- Jobs are designed for discrete, event-triggered tasks, such as batch processing or queue-based workloads.
+    - Scaling mechanism: Also powered by KEDA, but jobs use [ScaledJobs](https://keda.sh/docs/1.4/concepts/scaling-jobs/), which are optimized for one-off tasks. Jobs don’t scale based on HTTP or TCP traffic, since they’re not designed to be always-on services. Instead, they scale based on discrete events that require processing.
+    - Triggers include queue length (for Azure Storage Queues or Azure Service Bus), cron schedules, or custom scalers.
+    - Behavior:
+        - Each job run spins up a new container instance.
+        - You can configure [parallelism and retry policies](./jobs.md#job-settings).
+        - Jobs run to completion and then shut down.
+
+In summary:
+
+|Feature|Container Apps|Container App Jobs|
+|---|---|---|
+|Trigger types|HTTP, TCP, CPU, memory, events|Queues, schedules, custom triggers|
+|Scaling behavior|Horizontal scaling of replicas|One-off job tasks|
+|Use case|APIs, background services|Batch jobs, queue processing|
+|KEDA scaler support|Many built-in, as well as custom|Event-driven, job-oriented|
+
+If you're designing a system that mixes both—for example, an API that triggers background processing—you can use apps and jobs together, each with the scaling rules that suit its role.
+
 ### Known limitations
 
 - Vertical scaling isn't supported.
@@ -1186,6 +1221,7 @@ If the app was scaled to the maximum replica count of 20, scaling goes through t
 - If you're using [Dapr actors](https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/) to manage states, you should keep in mind that scaling to zero isn't supported. Dapr uses virtual actors to manage asynchronous calls, which means their in-memory representation isn't tied to their identity or lifetime.
 
 - Changing KEDA proxies through the [proxies](https://keda.sh/docs/2.16/operate/cluster/#http-proxies) settings aren't supported. Consider using Workload Profiles with a NAT Gateway or User Defined Route (UDR) to send traffic to a network appliance, where traffic can be inspected or proxied from there.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
