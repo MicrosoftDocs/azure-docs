@@ -264,7 +264,7 @@ If you opted to deploy to a [deployment slot](functions-deployment-slots.md), yo
 
 ## Deploy a container
 
-You can automatically deploy your code to Azure Functions as a custom container after every successful build. To learn more about containers, see [Working with containers and Azure Functions](./functions-how-to-custom-container.md) . 
+You can automatically deploy your code to Azure Functions as a custom container after every successful build. To learn more about containers, see [Working with containers and Azure Functions](./functions-how-to-custom-container.md). 
 
 ### Deploy to Azure Container Apps
 
