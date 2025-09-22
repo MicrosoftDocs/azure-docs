@@ -16,7 +16,7 @@ ms.subservice: sentinel-graph
 
 The [Microsoft Sentinel data lake](sentinel-lake-overview.md)  is a tenant-wide repository for collecting, storing, and managing large volumes of security-related data from various sources. It enables comprehensive, unified analysis and visibility across your security landscape. [Microsoft Sentinel graph (preview) ](sentinel-graph-overview.md) is a unified graph capability within Microsoft Sentinel platform powering graph-based experiences across security, compliance, identity, and the entire ecosystem. These solutions use advanced analytics, machine learning, graphs, and artificial intelligence to help detect threats, investigate and respond to incidents, and improve overall security posture.
 
-[!INCLUDE sentinel-graph-preview.md]
+[!INCLUDE [sentinel-graph-preview](../includes/sentinel-graph-preview.md)]
 
 Microsoft Sentinel data lake and graph are available in the following solutions:
 +	[Microsoft Defender XDR](/defender-xdr/microsoft-365-defender)
