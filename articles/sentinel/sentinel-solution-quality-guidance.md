@@ -16,24 +16,24 @@ Microsoft Sentinel is a scalable, cloud-native security information event manage
 
 There are two types of packages to distribute solutions for Microsoft Sentinel. The first is a platform solution distributed via the Microsoft Security Store. It contains Security Copilot Agents, notebooks, and notebook jobs. The second is a SIEM Solution, this consists data connectors, analytic rules, Playbooks, and additional items.
 
-Before you build a solution, it is important to understand how all the pieces fit together to culminate into a cohesive whole. See below for a description of the different parts of the solutions and how they relate to each other. 
+Before you build a solution, it is important to understand how all the pieces fit together to culminate into a cohesive whole. See below for a description of the different parts of the solutions and how they relate to each other.
 
-## Understanding Data 
+## Understanding data 
 
 **Ingesting data**: [Data connectors](#data-connectors) are the foundation for both SIEM and Platform solutions, as having the right data is prerequisite to providing any insights or taking action. Data connectors are distributed via SIEM solutions. This means that platform solutions may need to take a dependency on a SIEM solution.  
 
 **Data tiers**: Data connectors ingest data either to the SIEM analytic and [data lake tiers](/azure/sentinel/manage-data-overview), or just the data lake tiers. The Analytic tier provides unlimited querying and supports SIEM solution components, such as analytic rules. The data lake provides low-cost storage, long retention and is provided free of charge with the analytic tier. Platform solutions should interact with the data lake tier to maximize data coverage and retention. The non-data connector components of SIEM solutions (for example, analytic rules) require use the analytic tier data.
 
-## Platform Solutions 
+## Platform solutions 
 
-A Microsoft Sentinel platform solution consists of multiple content items, including security Copilot Agents, MCP tools, notebooks, and notebook jobs. These components provide AI tools to improve Security teams efficiency and using Spark jobs to perform data lake. Platform solutions often depend on the data ingested by data connectors`<TBD>`, provided via [SIEM solutions](#siem-solutions).   
+A Microsoft Sentinel platform solution consists of multiple content items, including security Copilot Agents, MCP tools, notebooks, and notebook jobs. These components provide AI tools to improve Security teams efficiency and using Spark jobs to perform data lake. Platform solutions often depend on the data ingested by [data connectors](#data-connectors), provided via [SIEM solutions](#siem-solutions).   
 
 Listed next are the key components that make up Microsoft Sentinel platform solutions and how they relate to each other: 
 
-- **Security Copilot Agents** automate repetitive tasks and reduce manual workloads. They enhance security and IT operations across cloud, data security and privacy, identity, and network security. In the context of Sentinel platform solutions, agents can query the SIEM or data lake,and call APIs and plugins to enrich Microsoft Sentinel data. To perform jobs requiring intensive data processing or analysis, agents can utilize notebooks and notebook jobs (See below) to efficiently and deterministically do the heavy lifting, while the agent can use the processed data to generate reports, communicate findings to remote endpoints, and utilize any number of plugins.
+- **Security Copilot Agents** automate repetitive tasks and reduce manual workloads. They enhance security and IT operations across cloud, data security and privacy, identity, and network security. In the context of Sentinel platform solutions, agents can query the SIEM or data lake, and call APIs and plugins to enrich Microsoft Sentinel data. To perform jobs requiring intensive data processing or analysis, agents can utilize notebooks and notebook jobs (See below) to efficiently and deterministically do the heavy lifting, while the agent can use the processed data to generate reports, communicate findings to remote endpoints, and utilize any number of plugins.
 - **Notebooks and Notebook jobs** provide powerful tools for performing complex data transformations and running machine learning models. Additionally, [notebooks](/azure/sentinel/datalake/notebooks-overview) augment Security Copilot agents with a deterministic and efficient means of performing data analysis and summarization.  Notebooks and notebook jobs are authored using a Microsoft Sentinel Visual Studio Code extension (preview) and interact with analytic tier and data lake using Python for Spark (PySpark). Notebooks write custom data tables to the analytic tier and data lake to be used by downstream applications such as Security Copilot skills and agents. [Notebook jobs](/azure/sentinel/datalake/notebook-jobs) enable notebooks to run on a schedule creating data on a reoccurring basis. 
 
- ## Security Copilot Agents  
+ ## Security Copilot agents  
 
 [Microsoft Security Copilot](/copilot/security/agents-overview) agents automate provide security analysts insights, take on tedious jobs, improve analyst efficiency. With Microsoft Sentinel, agents can take advantage of MCP tools, and skills for querying the data lake, and calling APIs to enrich data from 3rd party endpoints. 
 
@@ -43,7 +43,7 @@ When releasing agents in a solution that query the data lake and call APIs, thes
 
   - **Notebook Jobs**: can do the heavy lifting of processing data deterministically and efficiently using Spark jobs and storing processed data in the data lake for agents to consume (see “Notebook and Notebooks jobs" description below).
 
-  - **Fetch skills**: Fetch skills can run KQL queries iteratively on a timer and in parallel. They can also keep state between queries to ensure no overlap between queries and agents don’t “lose their place” if querying must occur between sessions. `<TBD>`
+  - **Fetch skills**: Fetch skills can run KQL queries iteratively on a timer and in parallel. They can also keep state between queries to ensure no overlap between queries and agents don’t “lose their place” if querying must occur between sessions.
 
 - **Simplify authentication for complex agents**: Agents that call APIs to enrich data or communicate with remote endpoints must authenticate with the API. Managing basic passwords and client secrets can be a burden and introduces security risks. Use the following mechanisms below to simplify the user experience. 
 
@@ -57,7 +57,7 @@ When releasing agents in a solution that query the data lake and call APIs, thes
 
     - **Auth types with secrets**: For auth types requiring secrets such as  account passwords or client app secret keys, follow best practices for managing secrets: for example, using Azure Key Vault when storing secrets. 
 
-## Notebooks and Notebook jobs  
+## Notebooks and notebook jobs  
 
 [Notebooks](/azure/sentinel/datalake/notebooks-overview) and [notebook jobs](/azure/sentinel/datalake/notebook-jobs) are powerful tools to transform data and provide complex ML models. Notebooks also augment Security Copilot agents by providing a deterministic and efficient means of providing data analysis and summarization. Processed data can be written to custom tables in the data lake and read by agents using the KQL Skill. 
 
@@ -73,15 +73,15 @@ Best practices include:
 
 - **Use Notebook examples:** [Example notebooks](/azure/sentinel/datalake/notebook-examples) provide common calling patterns and inspiration for creating security solutions.  
 
-- **Use workspace autodetection logic**: As a solution provider, you will not know ahead of time from which workspace to query Sentinel data. You can use the following sample to programmatically discover what workspaces contain your required data tables. Additionally, if the same table is present in multiple workspaces, you can union the tables into one dataframe for easy data manipulation. See example here. `<TBD>`. 
+- **Use workspace autodetection logic**: As a solution provider, you will not know ahead of time from which workspace to query Sentinel data. You can use the following sample to programmatically discover what workspaces contain your required data tables. Additionally, if the same table is present in multiple workspaces, you can union the tables into one dataframe for easy data manipulation.
 
 - **Write to the default directory**: As a solution provider, you can count on the default workspace to always be present in the data lake. Reading and writing to this table does not require any specific detection logic. 
 
-- **Include a notebook job**: To make your solution visible in the Defender Portal and accessible via Microsoft VS Code extensions, be sure to include a corresponding notebook job in your solution. See administration section `<TBD>` for more details.  
+- **Include a notebook job**: To make your solution visible in the Defender Portal and accessible via Microsoft VS Code extensions, be sure to include a corresponding notebook job in your solution.
 
 - **Use required permissions**: Users installing solutions containing notebook jobs must have a Security Operator, Security Admin, or Global Administrator role for a successful install.  
 
-## SIEM Solutions 
+## SIEM solutions 
 
 A Microsoft Sentinel SIEM solution consists of multiple content items, each serving a specific purpose. Together, they enable customers to configure the solution quickly and begin monitoring their security infrastructure within minutes. Listed next are the key components that make up Microsoft Sentinel SIEM solutions: 
 
@@ -107,7 +107,7 @@ Analytic rules must have appropriate MITRE mappings to ensure that customers can
 
 When creating analytic rules, it's important to ensure that the rules are scoped to cover all key data columns that are being pulled by the data connector. As customers pay for the data they ingest, it's important to ensure that the analytic rules are scoped to cover all the data that is being pulled by the data connector. This ensures that customers aren't charged for data that isn't being used.
 
-When creating analytic rules, where applicable ensure that entities are mapped to the rule output. Mapping rule output to standardized entities ensures that the rule output can be correlated with other data points in Microsoft Sentinel in order to provide a more comprehensive threat story to SOC analysts. Some common examples of entities are user accounts, hosts, mailboxes, IP addresses, files, cloud applications, processes, and URLs. To know more about entities in Microsoft Sentinel, see [Entities in Microsoft Sentinel](/azure/sentinel/entities)
+When creating analytic rules, where applicable ensure that entities are mapped to the rule output. Mapping rule output to standardized entities ensures that the rule output can be correlated with other data points in Microsoft Sentinel in order to provide a more comprehensive threat story to SOC analysts. Some common examples of entities are user accounts, hosts, mailboxes, IP addresses, files, cloud applications, processes, and URLs. To know more about entities in Microsoft Sentinel, see [Entities in Microsoft Sentinel](/azure/sentinel/entities).
 
 > [!CAUTION]
 > Solutions are required to have at least one analytic rule. If you have a valid reason for not including analytic rules in your solution, provide your reasoning in the comments section of the pull request. The Microsoft Sentinel team will review your PR and provide feedback accordingly.
