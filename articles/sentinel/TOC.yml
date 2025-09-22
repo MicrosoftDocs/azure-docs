@@ -1,4 +1,4 @@
-- name: Microsoft Sentinel Platform Documentation
+- name: Microsoft Sentinel Documentation
   href: index.yml
 - name: Overview
   items:
@@ -75,179 +75,7 @@
       href: configure-data-retention-archive.md
     - name: Deploy side-by-side
       href: deploy-side-by-side.md
-- name: Collect and manage data
-  items:
-    - name: Overview
-      href: connect-data-sources.md
-    - name: Best practices
-      href: best-practices-data.md
-    - name: Tutorial - Forward syslog data to workspace
-      href: forward-syslog-monitor-agent.md
-    - name: Connect data sources
-      href: configure-data-connector.md
-    - name: Ingestion-time data transformation
-      href: data-transformation.md
-    - name: AMA migration for Microsoft Sentinel
-      href: ama-migrate.md
-    - name: Find data connector
-      href: data-connectors-reference.md
-    - name: Connection instructions by type
-      items:
-        - name: General instructions for Microsoft connectors
-          items:
-            - name: Connect Microsoft Sentinel to Microsoft connectors
-              href: connect-azure-windows-microsoft-services.md
-            - name: Connect via API-based connectors
-              href: connect-services-api-based.md
-            - name: Connect via diagnostic settings-based connectors
-              href: connect-services-diagnostic-setting-based.md
-            - name: Connect via Windows agent-based connectors
-              href: connect-services-windows-based.md
-        - name: Azure Functions API connection
-          href: connect-azure-functions-template.md
-        - name: CEF/Syslog
-          items:
-            - name: Overview
-              href: cef-syslog-ama-overview.md
-            - name: CEF and Syslog via AMA
-              href: connect-cef-syslog-ama.md
-            - name: CEF - configure security device
-              href: unified-connector-cef-device.md
-            - name: Syslog - configure security device
-              href: unified-connector-syslog-device.md
-        - name: Custom log sources (text files)
-          items:
-            - name: Collect logs from text files via AMA
-              href: connect-custom-logs-ama.md
-            - name: Custom logs - configure security device
-              href: unified-connector-custom-device.md
-        - name: DNS via AMA
-          href: connect-dns-ama.md
-        - name: Logstash plugin with Data Collection Rules
-          href: connect-logstash-data-connection-rules.md
-    - name: Connection instructions for service
-      items:
-        - name: Amazon Web Services
-          items:
-            - name: Connect Microsoft Sentinel to AWS
-              href: connect-aws-configure-environment.md
-            - name: AWS service logs
-              href: connect-aws.md
-            - name: AWS S3 WAF logs
-              href: connect-aws-s3-waf.md
-        - name: Troubleshoot AWS S3 connector issues
-          href: aws-s3-troubleshoot.md
-        - name: Cisco FTD firewall
-          href: cisco-ftd-firewall.md
-        - name: Google Cloud Platform connectors
-          href: connect-google-cloud-platform.md
-        - name: Microsoft Entra
-          href: connect-azure-active-directory.md
-        - name: Azure Stack VMs
-          href: connect-azure-stack.md
-        - name: Azure Virtual Desktop
-          href: connect-azure-virtual-desktop.md
-        - name: Microsoft Defender for Cloud
-          href: connect-defender-for-cloud.md
-        - name: Microsoft Defender XDR
-          href: connect-microsoft-365-defender.md
-        - name: Integrate Microsoft Purview
-          href: purview-solution.md
-        - name: Purview Information Protection data
-          href: connect-microsoft-purview.md
-        - name: Windows security events
-          href: data-connectors-reference.md#windows-security-events-via-ama
-    - name: Configure ingestion-time transformation
-      href: configure-data-transformation.md
-    - name: Configure RDP login detection
-      href: configure-connector-login-detection.md
-    - name: Create a custom connector
-      href: create-custom-connector.md
-    - name: Normalize data
-      items:
-        - name: ASIM overview
-          href: normalization.md
-        - name: ASIM schemas
-          href: normalization-about-schemas.md
-        - name: ASIM parsers
-          href: normalization-parsers-overview.md
-        - name: Ingest-time normalization
-          href: normalization-ingest-time.md
-        - name: Use ASIM
-          href: normalization-about-parsers.md
-        - name: Manage ASIM parsers
-          href: normalization-manage-parsers.md
-        - name: Modify content to use ASIM
-          href: normalization-modify-content.md
-    - name: Aggregate data
-      items:
-        - name: Aggregate data with summary rules
-          href: summary-rules.md
-        - name: Aggregate insights from raw data into an Auxiliary table
-          href: summary-rules-tutorial.md
-    - name: Manage data
-      items:
-        - name: Data management overview
-          href: manage-data-overview.md
-          displayName: table management, tiers, retention, manage data, tables
-        - name: Manage tables, tiers, and retention
-          href: manage-table-tiers-retention.md
-          displayName: table management, tiers, retention, tables
-- name: Explore your data lake
-  items:
-    - name: What is the Microsoft Sentinel data lake?
-      href: datalake/sentinel-lake-overview.md
-      displayName: data lake
-    - name: Microsoft Sentinel graph overview
-      href: datalake/sentinel-graph-overview.md
-    - name: Microsoft Sentinel MCP overview
-      href: datalake/sentinel-mcp-overview.md
-    - name: Compare KQL jobs, summary rules, and search jobs
-      href: datalake/kql-jobs-summary-rules-search-jobs.md
-      displayName: data lake
-    - name: MCP server
-      href: datalake/sentinel-mcp-server.md
-      displayName: data lake
-    - name: KQL for data lake exploration
-      items:
-        - name: Overview
-          href: datalake/kql-overview.md
-          displayName: data lake
-        - name: Run KQL queries
-          href: datalake/kql-queries.md
-          displayName: data lake
-        - name: Sample KQL queries
-          href: datalake/kql-sample-queries.md
-          displayName: data lake KQL
-        - name: Create KQL jobs
-          href: datalake/kql-jobs.md
-          displayName: data lake
-        - name: Manage KQL jobs
-          href: datalake/kql-manage-jobs.md
-          displayName: data lake
-        - name: Troubleshoot KQL for the lake
-          href: datalake/kql-troubleshoot.md
-          displayName: data lake
-    - name: Notebooks for data lake exploration
-      items:
-        - name: Overview
-          href: datalake/notebooks-overview.md
-          displayName: data lake
-        - name: Run notebooks
-          href: datalake/notebooks.md
-          displayName: data lake
-        - name: Microsoft Sentinel provider class reference
-          href: datalake/sentinel-provider-class-reference.md
-          displayName: data lake
-        - name: Create and manage notebook jobs
-          href: datalake/notebook-jobs.md
-          displayName: data lake
-        - name: Notebook examples for data lake exploration
-          href: datalake/notebook-examples.md
-    - name: Microsoft Sentinel data lake service limits
-      href: datalake/sentinel-lake-service-limits.md
-
-- name: SIEM functionality and automation
+- name: Microsoft Sentinel SIEM
   items:
     - name: What is Microsoft Sentinel SIEM?
       href: overview.md
@@ -742,6 +570,179 @@
     - name: Microsoft Sentinel SIEM service limits
       href: sentinel-service-limits.md
 
+- name: Microsoft Sentinel platform
+  items:
+    - name: What is the Microsoft Sentinel data lake?
+      href: datalake/sentinel-lake-overview.md
+      displayName: data lake
+    - name: Microsoft Sentinel graph overview
+      href: datalake/sentinel-graph-overview.md
+    - name: Microsoft Sentinel MCP overview
+      href: datalake/sentinel-mcp-overview.md
+    - name: Compare KQL jobs, summary rules, and search jobs
+      href: datalake/kql-jobs-summary-rules-search-jobs.md
+      displayName: data lake
+    - name: MCP server
+      href: datalake/sentinel-mcp-server.md
+      displayName: data lake
+    - name: KQL for data lake exploration
+      items:
+        - name: Overview
+          href: datalake/kql-overview.md
+          displayName: data lake
+        - name: Run KQL queries
+          href: datalake/kql-queries.md
+          displayName: data lake
+        - name: Sample KQL queries
+          href: datalake/kql-sample-queries.md
+          displayName: data lake KQL
+        - name: Create KQL jobs
+          href: datalake/kql-jobs.md
+          displayName: data lake
+        - name: Manage KQL jobs
+          href: datalake/kql-manage-jobs.md
+          displayName: data lake
+        - name: Troubleshoot KQL for the lake
+          href: datalake/kql-troubleshoot.md
+          displayName: data lake
+    - name: Notebooks for data lake exploration
+      items:
+        - name: Overview
+          href: datalake/notebooks-overview.md
+          displayName: data lake
+        - name: Run notebooks
+          href: datalake/notebooks.md
+          displayName: data lake
+        - name: Microsoft Sentinel provider class reference
+          href: datalake/sentinel-provider-class-reference.md
+          displayName: data lake
+        - name: Create and manage notebook jobs
+          href: datalake/notebook-jobs.md
+          displayName: data lake
+        - name: Notebook examples for data lake exploration
+          href: datalake/notebook-examples.md
+    - name: Microsoft Sentinel data lake service limits
+      href: datalake/sentinel-lake-service-limits.md
+
+- name: Collect and manage data
+  items:
+    - name: Overview
+      href: connect-data-sources.md
+    - name: Best practices
+      href: best-practices-data.md
+    - name: Tutorial - Forward syslog data to workspace
+      href: forward-syslog-monitor-agent.md
+    - name: Connect data sources
+      href: configure-data-connector.md
+    - name: Ingestion-time data transformation
+      href: data-transformation.md
+    - name: AMA migration for Microsoft Sentinel
+      href: ama-migrate.md
+    - name: Find data connector
+      href: data-connectors-reference.md
+    - name: Connection instructions by type
+      items:
+        - name: General instructions for Microsoft connectors
+          items:
+            - name: Connect Microsoft Sentinel to Microsoft connectors
+              href: connect-azure-windows-microsoft-services.md
+            - name: Connect via API-based connectors
+              href: connect-services-api-based.md
+            - name: Connect via diagnostic settings-based connectors
+              href: connect-services-diagnostic-setting-based.md
+            - name: Connect via Windows agent-based connectors
+              href: connect-services-windows-based.md
+        - name: Azure Functions API connection
+          href: connect-azure-functions-template.md
+        - name: CEF/Syslog
+          items:
+            - name: Overview
+              href: cef-syslog-ama-overview.md
+            - name: CEF and Syslog via AMA
+              href: connect-cef-syslog-ama.md
+            - name: CEF - configure security device
+              href: unified-connector-cef-device.md
+            - name: Syslog - configure security device
+              href: unified-connector-syslog-device.md
+        - name: Custom log sources (text files)
+          items:
+            - name: Collect logs from text files via AMA
+              href: connect-custom-logs-ama.md
+            - name: Custom logs - configure security device
+              href: unified-connector-custom-device.md
+        - name: DNS via AMA
+          href: connect-dns-ama.md
+        - name: Logstash plugin with Data Collection Rules
+          href: connect-logstash-data-connection-rules.md
+    - name: Connection instructions for service
+      items:
+        - name: Amazon Web Services
+          items:
+            - name: Connect Microsoft Sentinel to AWS
+              href: connect-aws-configure-environment.md
+            - name: AWS service logs
+              href: connect-aws.md
+            - name: AWS S3 WAF logs
+              href: connect-aws-s3-waf.md
+        - name: Troubleshoot AWS S3 connector issues
+          href: aws-s3-troubleshoot.md
+        - name: Cisco FTD firewall
+          href: cisco-ftd-firewall.md
+        - name: Google Cloud Platform connectors
+          href: connect-google-cloud-platform.md
+        - name: Microsoft Entra
+          href: connect-azure-active-directory.md
+        - name: Azure Stack VMs
+          href: connect-azure-stack.md
+        - name: Azure Virtual Desktop
+          href: connect-azure-virtual-desktop.md
+        - name: Microsoft Defender for Cloud
+          href: connect-defender-for-cloud.md
+        - name: Microsoft Defender XDR
+          href: connect-microsoft-365-defender.md
+        - name: Integrate Microsoft Purview
+          href: purview-solution.md
+        - name: Purview Information Protection data
+          href: connect-microsoft-purview.md
+        - name: Windows security events
+          href: data-connectors-reference.md#windows-security-events-via-ama
+    - name: Configure ingestion-time transformation
+      href: configure-data-transformation.md
+    - name: Configure RDP login detection
+      href: configure-connector-login-detection.md
+    - name: Create a custom connector
+      href: create-custom-connector.md
+    - name: Normalize data
+      items:
+        - name: ASIM overview
+          href: normalization.md
+        - name: ASIM schemas
+          href: normalization-about-schemas.md
+        - name: ASIM parsers
+          href: normalization-parsers-overview.md
+        - name: Ingest-time normalization
+          href: normalization-ingest-time.md
+        - name: Use ASIM
+          href: normalization-about-parsers.md
+        - name: Manage ASIM parsers
+          href: normalization-manage-parsers.md
+        - name: Modify content to use ASIM
+          href: normalization-modify-content.md
+    - name: Aggregate data
+      items:
+        - name: Aggregate data with summary rules
+          href: summary-rules.md
+        - name: Aggregate insights from raw data into an Auxiliary table
+          href: summary-rules-tutorial.md
+    - name: Manage data
+      items:
+        - name: Data management overview
+          href: manage-data-overview.md
+          displayName: table management, tiers, retention, manage data, tables
+        - name: Manage tables, tiers, and retention
+          href: manage-table-tiers-retention.md
+          displayName: table management, tiers, retention, tables
+
 - name: SOC optimizations
   items:
     - name: Optimize your security operations
@@ -811,28 +812,32 @@
   items:
     - name: Overview
       href: sentinel-integration-guide.md
+    - name: Components and patterns
+      href: partner-integrations.md
     - name: Sentinel solution quality guidelines
       href: sentinel-solution-quality-guidance.md
-    - name: Partner integrations best practices
-      href: partner-integrations.md
-    - name: Creating codeless data connectors (CCF)
-      href: create-codeless-connector.md
-    - name: Creating analytics rules
-      href: sentinel-analytic-rules-creation.md
-    - name: Creating hunting queries
-      href: sentinel-hunting-rules-creation.md
-    - name: Creating summary rules
-      href: sentinel-summary-rules-creation.md
-    - name: Creating workbooks
-      href: sentinel-workbook-creation.md
-    - name: Creating playbooks
-      href: sentinel-playbook-creation.md
-    - name: Creating ASIM parsers
-      href: normalization-develop-parsers.md
+    - name: Sentinel SIEM content 
+      items:
+      - name: Creating codeless data connectors (CCF)
+        href: create-codeless-connector.md
+      - name: Creating analytics rules
+        href: sentinel-analytic-rules-creation.md
+      - name: Creating hunting queries
+        href: sentinel-hunting-rules-creation.md
+      - name: Creating summary rules
+        href: sentinel-summary-rules-creation.md
+      - name: Creating workbooks
+        href: sentinel-workbook-creation.md
+      - name: Creating playbooks
+        href: sentinel-playbook-creation.md
+      - name: Creating ASIM parsers
+        href: normalization-develop-parsers.md
     - name: Publish solutions
-      href: publish-sentinel-solutions.md
-    - name: Solution lifecycle post publish
-      href: sentinel-solutions-post-publish-tracking.md
+      items:
+      - name: Publishing a Sentinel SIEM solution
+        href: publish-sentinel-solutions.md
+      - name: Solution lifecycle post publish
+        href: sentinel-solutions-post-publish-tracking.md
     - name: Remove Microsoft Sentinel from your workspace
       items:
         - name: Overview

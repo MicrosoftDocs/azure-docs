@@ -1,8 +1,8 @@
 ---
 title: Monitor the health and audit the integrity of your Microsoft Sentinel analytics rules
 description: Use the SentinelHealth data table to keep track of your analytics rules' execution and performance.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: conceptual
 ms.date: 08/24/2025
 ms.custom: sfi-image-nochange

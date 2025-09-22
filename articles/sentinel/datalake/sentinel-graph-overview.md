@@ -1,22 +1,22 @@
 ---
-title: What is  Microsoft Sentinel Graph? (Preview)
+title: What is Microsoft Sentinel graph? (Preview)
 titleSuffix: Microsoft Security  
-description: Learn how Microsoft Sentinel Graph enables multi-modal security analytics through graph-based representation of security data, providing deep insights into digital environments and attack paths.
+description: Learn how Microsoft Sentinel graph enables multi-modal security analytics through graph-based representation of security data, providing deep insights into digital environments and attack paths.
 author: mberdugo
 ms.topic: overview
-ms.date: 09/2/2025
+ms.date: 09/20/2025
 ms.author: monaberdugo
 ms.service: microsoft-sentinel
 ms.subservice: sentinel-graph
 
-#customer intent: As a security analyst, I want to understand Microsoft Sentinel Graph capabilities so that I can detect complex attack paths and relationships that are difficult to identify with traditional tabular queries..
+#customer intent: As a security analyst, I want to understand Microsoft Sentinel graph capabilities so that I can detect complex attack paths and relationships that are difficult to identify with traditional tabular queries.
 ---
 
 # What is Microsoft Sentinel graph? (preview)
 
-Microsoft Sentinel graph is a unified graph analytics capability within Microsoft Sentinel which powers graph-based experiences across security, compliance, identity, and the entire ecosystem - empowering security teams to model, analyze, and visualize complex relationships across their digital estate.  
+Microsoft Sentinel graph is a unified graph analytics capability within Microsoft Sentinel which powers graph-based experiences across security, compliance, identity, and the Microsoft Security ecosystem - empowering security teams to model, analyze, and visualize complex relationships across their digital estate.  
 
-Unlike traditional tabular data approaches, Sentinel graph enables defenders and AI agents to reason over interconnected assets, identities, activities, and threat intelligence—unlocking deeper insights and accelerating response to evolving cyber threats across prebreach and post breach. Graphs natively represent the real-world web of users, devices, cloud resources, data flows, activities, and attacker actions. By representing these relationships as nodes and edges, security teams can answer questions that are slow or impossible with tables, such as what could happen if a specific user account is compromised? Or what is the blast radius of a compromised document?  Sentinel graph offers  interconnected security graphs to help you at every stage of defense from prebreach to post breach.  
+Unlike traditional tabular data approaches, Sentinel graph enables defenders and AI agents to reason over interconnected assets, identities, activities, and threat intelligence—unlocking deeper insights and accelerating response to evolving cyber threats across prebreach and post breach. Sentinel's pre-generated graphs natively represent the real-world web of users, devices, cloud resources, data flows, activities, and attacker actions. By representing these relationships as nodes and edges, security teams can answer questions that are slow or impossible with tables, such as what could happen if a specific user account is compromised? Or what is the blast radius of a compromised document?  Sentinel graph offers  interconnected security graphs to help you at every stage of defense from pre-breach to post-breach.  
 
 [!INCLUDE [sentinel-graph-preview](../includes/sentinel-graph-preview.md)]
 
@@ -40,14 +40,14 @@ Collectively, Sentinel graph’s capabilities deliver robust defense across all 
 
 ## Integration with Microsoft Security solutions
 
-Sentinel Graph powers advanced capabilities across Microsoft's security portfolio:
+Sentinel graph powers new advanced capabilities across Microsoft's security portfolio:
 
 | Solution | Capability | Description |
 |----------|------------|-------------|
-| **Microsoft Defender XDR** | Incident graph extended with Blast Radius | Visualize current impact of a breach and the possible future impact in one consolidated graph |
-| **Microsoft Defender XDR** | Hunting graph in Defender | Interactively traverse graphs to uncover hidden relationships between assets |
-| **Microsoft Purview** | Data risk graph in Insider Risk Management (IRM) | Map user activities to detect data exfiltration patterns and understand data leak blast radius |
-| **Microsoft Purview** | Data risk graph in Data Security Investigation (DSI) | Trace sensitive data access and movement. Understand data leak blast radius |
+| **Microsoft Defender XDR** | [Incident graph](/defender-xdr/incidents-overview) extended with Blast Radius | Visualize current impact of a breach and the possible future impact in one consolidated graph |
+| **Microsoft Defender XDR** | [Hunting graph](/defender-xdr/advanced-hunting-overview) in Defender | Interactively traverse graphs to uncover hidden relationships between assets |
+| **Microsoft Purview** | Data risk graph in [Insider Risk Management (IRM)](/purview/insider-risk-management-solution-overview) | Map user activities to detect data exfiltration patterns and understand data leak blast radius |
+| **Microsoft Purview** | Data risk graph in [Data Security Investigation (DSI)](/purview/data-security-investigations) | Trace sensitive data access and movement. Understand data leak blast radius |
 
 ## Architecture
 
@@ -59,17 +59,17 @@ At its core, the Microsoft Sentinel graph is built around the concept of an ente
 
 ## Get started
 
-To begin using Microsoft Sentinel Graph:
+To begin using Microsoft Sentinel graph:
 
 ### [Defender](#tab/defender)
 
 * [Onboarding to Microsoft Sentinel data lake](./sentinel-lake-onboarding.md)
-* [Hunting Graph](/defender-xdr/defender-experts-for-hunting)
-* [Blast Radius](../identify-threats-with-entity-behavior-analytics.md)
+* [Hunting graph](/defender-xdr/defender-experts-for-hunting)
+* [Blast radius](../identify-threats-with-entity-behavior-analytics.md)
 
 ### [Microsoft Purview](#tab/purview)
 
-To begin using Microsoft Sentinel Graph:
+To begin using Microsoft Sentinel graph:
 
 * [Onboarding to Microsoft Sentinel data lake](./sentinel-lake-onboarding.md)
 * [Data risk graph in Insider Risk Management (IRM)](/purview/insider-risk-management-configure)

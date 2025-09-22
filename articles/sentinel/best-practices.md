@@ -20,7 +20,7 @@ To get started with Microsoft Sentinel, see the [deployment guide](deploy-overvi
 
 ## Adopt a single-platform architecture
 
-Microsoft Sentinel is integrated with a modern data lake that offers affordable, long-term storage enabling teams to simplify data management, optimize costs, and accelerate the adoption of AI. The Microsoft Sentinel data lake (preview) enables a single-platform architecture for security data and empowers analysts with a unified query experience while leveraging Microsoft Sentinel’s rich connector ecosystem. For more information, see [Microsoft Sentinel data lake (preview)](datalake/sentinel-lake-overview.md).
+Microsoft Sentinel is integrated with a modern data lake that offers affordable, long-term storage enabling teams to simplify data management, optimize costs, and accelerate the adoption of AI. The Microsoft Sentinel data lake enables a single-platform architecture for security data and empowers analysts with a unified query experience while leveraging Microsoft Sentinel’s rich connector ecosystem. For more information, see [Microsoft Sentinel data lake ](datalake/sentinel-lake-overview.md).
 
 ## Onboard Microsoft Sentinel to the Microsoft Defender portal and integrate with Microsoft Defender XDR
 
@@ -50,7 +50,7 @@ More than ingesting alerts and logs from other sources, Microsoft Sentinel also 
 | Capability | Description |
 |------------|-------------|
 | **Threat detection** | [Threat detection capabilities](overview.md#detect-threats) with artificial intelligence, allowing you to build and present interactive visuals via workbooks, run playbooks to automatically act on alerts, integrate [machine learning models](bring-your-own-ml.md) to enhance your security operations, and ingest and fetch enrichment feeds from threat intelligence platforms. |
-| **Threat investigation** | [Threat investigation capabilities](overview.md#respond-to-incidents-rapidly), allowing you to visualize and explore alerts and entities, detect anomalies in user and entity behavior, and monitor real-time events during an investigation. |
+| **Threat investigation** | [Threat investigation capabilities](overview.md#respond-to-incidents-rapidly) allowing you to visualize and explore alerts and entities, detect anomalies in user and entity behavior, and monitor real-time events during an investigation. |
 | **Data collection** | [Collect data](overview.md#collect-data-at-scale) across all users, devices, applications, and infrastructure, both on-premises and in multiple clouds. |
 | **Threat response** | [Threat response capabilities](overview.md#respond-to-incidents-rapidly), such as playbooks that integrate with Azure services and your existing tools. |
 | **Partner integrations** | Integrates with partner platforms using [Microsoft Sentinel data connectors](connect-data-sources.md), providing essential services for SOC teams. |

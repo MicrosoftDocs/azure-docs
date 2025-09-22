@@ -6,6 +6,7 @@ ms.service: azure-private-link
 ms.topic: troubleshooting
 ms.date: 02/18/2025
 ms.author: abell
+ms.custom: sfi-image-nochange
 # Customer intent: As a network administrator, I want to troubleshoot Azure Private Endpoint connectivity issues, so that I can ensure secure and reliable access to Azure services from my virtual network.
 ---
 

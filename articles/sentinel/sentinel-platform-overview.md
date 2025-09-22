@@ -1,6 +1,6 @@
 ---
-title: What is the Microsoft Sentinel Platform?
-description: Learn about Microsoft Sentinel, which consolidates security telemetry in a cloud-native data lake and graph, enabling cost‑efficient retention, KQL/AI analytics, and automated SOAR workflows with MCP support.
+title: What is Microsoft Sentinel?
+description: Learn about Microsoft Sentinel, an AI-first, cloud-native security platform and security information and event management (SIEM) that consolidates and analyzes security data at scale, empowers security operations teams with proactive, AI-enhanced defense capabilities, and provides unified tools for detecting, investigating, and responding to threats across hybrid and multicloud environments.
 author: guywi-ms
 ms.author: guywild
 ms.topic: overview
@@ -25,6 +25,16 @@ This article provides an overview of Microsoft Sentinel, its core components, an
 This diagram illustrates the high-level architecture of the Microsoft Sentinel platform and SIEM, highlighting its core components and its integration with [Microsoft Security Copilot](/copilot/security/microsoft-security-copilot).
 
 :::image type="content" source="media/sentinel-platform-overview/microsoft-sentinel-platform.png" alt-text="A diagram that depicts the Microsoft Sentinel platform overview" link="media/sentinel-platform-overview/microsoft-sentinel-platform.png" lightbox="media/sentinel-platform-overview/microsoft-sentinel-platform.png":::
+
+## Microsoft Sentinel SIEM
+
+The cloud-native Microsoft Sentinel SIEM solution delivers cost-efficient, AI-powered security across multicloud and multiplatform environments. Built on a modern data lake architecture, it provides comprehensive capabilities for threat detection, investigation, response, and proactive hunting—giving security teams a unified view of their enterprise.
+
+Microsoft Sentinel SIEM is available in the Microsoft Defender portal - for customers with or without Defender XDR or an E5 license - offering a unified security operations experience. This integration streamlines workflows, enhances visibility, and helps analysts respond faster and more precisely to increasingly complex threats.
+
+The integration of Microsoft Sentinel SIEM with the Defender portal and Security Copilot creates a powerful ecosystem that enhances security operations. Security Copilot enables analysts to interact with Sentinel data using natural language, generate hunting queries, and automate investigations, making threat response faster and more accessible.
+
+For more information, see [What is Microsoft Sentinel SIEM?](./overview.md).
 
 ## Core components of the Microsoft Sentinel platform
 
@@ -57,7 +67,7 @@ Graph-based analytics enable deep visibility into threat relationships and attac
 
 For more information, see [What is Microsoft Sentinel graph?](../sentinel/datalake/sentinel-graph-overview.md).
 
-### Model Context Protocol (MCP) server
+### Microsoft Sentinel model context protocol (MCP) server
 
 The MCP server acts as a secure bridge between Security Copilot agents and Microsoft Sentinel data:
 
@@ -73,17 +83,7 @@ The MCP server acts as a secure bridge between Security Copilot agents and Micro
 
 For more information, see [What is MCP? (Preview) - Microsoft Security | Microsoft Learn](../sentinel/datalake/sentinel-mcp-overview.md).
 
-## Microsoft Sentinel SIEM
-
-The cloud-native Microsoft Sentinel SIEM solution delivers cost-efficient, AI-powered security across multicloud and multiplatform environments. Built on a modern data lake architecture, it provides comprehensive capabilities for threat detection, investigation, response, and proactive hunting—giving security teams a unified view of their enterprise.
-
-Microsoft Sentinel SIEM is available in the Microsoft Defender portal - for customers with or without Defender XDR or an E5 license - offering a unified security operations experience. This integration streamlines workflows, enhances visibility, and helps analysts respond faster and more precisely to increasingly complex threats.
-
-The integration of Microsoft Sentinel SIEM with the Defender portal and Security Copilot creates a powerful ecosystem that enhances security operations. Security Copilot enables analysts to interact with Sentinel data using natural language, generate hunting queries, and automate investigations, making threat response faster and more accessible.
-
-For more information, see [What is Microsoft Sentinel SIEM?](./overview.md).
-
-## Microsoft Sentinel data connectors
+### Data connectors
 
 Collect data across your entire digital estate wherever the data resides, including all users, devices, applications, and infrastructure, both on-premises and in multiple clouds:
 
@@ -98,6 +98,7 @@ Collect data across your entire digital estate wherever the data resides, includ
 - Data normalization to translate various sources into a uniform, normalized view
 
 For more information, see [Microsoft Sentinel data connectors](./connect-data-sources.md).
+
 
 ## Get started
 

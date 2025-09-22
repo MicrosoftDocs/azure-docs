@@ -18,7 +18,7 @@ appliesto:
 
 # Manage and monitor costs for Microsoft Sentinel
 
-After you've started using Microsoft Sentinel resources, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. With the data lake, currently in preview, you can also view your usage directly in the Microsoft Defender portal.
+After you've started using Microsoft Sentinel resources, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. With the data lake, you can also view your usage directly in the Microsoft Defender portal.
 
 Costs for Microsoft Sentinel are only a portion of the monthly costs in your Azure bill. Although this article explains how to manage and monitor costs for Microsoft Sentinel, you're billed for all Azure services and resources your Azure subscription uses, including Partner services.
 
