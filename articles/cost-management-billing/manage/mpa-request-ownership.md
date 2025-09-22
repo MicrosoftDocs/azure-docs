@@ -45,8 +45,7 @@ There are four options to transfer products:
 
 >[!IMPORTANT]
 > When you transfer subscriptions, cost and usage data for your Azure products aren't accessible after the transfer. We recommend that you [download your cost and usage data](../understand/download-azure-daily-usage.md) and invoices before you transfer subscriptions.
-
-When transferring Subscriptions, Reservations and Savings Plan please review these [important prerequisites](../manage/mca-request-billing-ownership#prerequisites).
+>When transferring Subscriptions, Reservations and Savings Plan please review these [important prerequisites](../manage/mca-request-billing-ownership#prerequisites).
 
 1. Establish [reseller relationship](/partner-center/request-a-relationship-with-a-customer) with the customer.
     1. Make sure that both the customer and Partner tenants are within the same authorized region. Check [CSP Regional Authorization Overview](/partner-center/regional-authorization-overview).
