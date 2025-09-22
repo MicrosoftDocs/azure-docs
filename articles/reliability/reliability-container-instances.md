@@ -74,7 +74,7 @@ Container Instances supports availability zones in different ways, depending on 
 
    :::image type="complex" border="false" source="./media/reliability-containers/container-groups-containers-zonal.png" alt-text="Diagram that shows a container group with two containers deployed into a single availability zone" lightbox="./media/reliability-containers/container-groups-containers-zonal.png":::
    The image shows three availability zones: Availability Zone 1, Availability Zone 2, and Availability Zone 3. A container group in Availability Zone 1 includes two containers.
-:::image-end:::
+   :::image-end:::
 
    > [!NOTE]
    > To ensure that your application continues to run when any single zone in the region experiences an outage, we recommend that you create a minimum of two container groups across two different availability zones. 
@@ -85,7 +85,7 @@ Container Instances supports availability zones in different ways, depending on 
 
    :::image type="complex" border="false" source="./media/reliability-containers/ngroup-zone-redundant.png" alt-text="Diagram that shows an NGroup with three container groups, deployed into three availability zones." lightbox="./media/reliability-containers/ngroup-zone-redundant.png":::
    The image shows three availability zones. Each availability zone includes a container group and two containers. A rectangle labeled NGroupdesiredCount=3, zones=1,2,3 spans all three availability zones.
-:::image-end:::
+   :::image-end:::
 
     If you don't specify availability zones to use for your NGroup, it's nonzonal and might experience downtime if any availability zone in the region has a problem.
 
