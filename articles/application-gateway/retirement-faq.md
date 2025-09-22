@@ -68,6 +68,11 @@ Post your issues and questions about migration to our [Microsoft Q&A](https://ak
 
 Yes, see [Caveats/Limitations](./migrate-v1-v2.md#caveatslimitations).
 
+### Does Application Gateway V2 support NTLM or Kerberos authentication?
+Yes. Application Gateway v2 now supports proxying requests with NTLM or Kerberos authentication.For more information, see [Dedicated backend connection](configuration-http-settings.md#dedicated-backend-connection).
+
+### Application Gateway V1 supports authentication certificates ,while Application Gateway V2 requires trusted root certificates
+        
 ### Is this article and the Azure PowerShell script applicable for Application Gateway WAF product as well?
 
 Yes.
