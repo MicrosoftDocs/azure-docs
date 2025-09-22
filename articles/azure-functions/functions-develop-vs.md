@@ -319,11 +319,13 @@ This section assumes a debug configuration to your function app is published.
 ### Remote debugging considerations
 
 - Remote debugging isn't recommended on a production service.
+- To use remote debugging, you must host your function app in a Premium or App Service plan. 
+- Remote debugging is currently only supported when running your C# app on Windows.
 - If you have the Just My Code feature turned on in Visual Studio, turn it off. For instructions, see [Enable or disable Just My Code](/visualstudio/debugger/just-my-code#BKMK_Enable_or_disable_Just_My_Code).
 - Avoid long stops at breakpoints when you use remote debugging. When a process is stopped for longer than a few minutes, Azure treats it as an unresponsive process and shuts it down.
 - While you're debugging, the server sends data to Visual Studio, which can affect bandwidth charges. For information about bandwidth rates, see [Pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 - Remote debugging is automatically turned off in your function app after 48 hours. After that point, you need to turn remote debugging back on.
-- To use remote debugging, you must host your function app in a Premium or App Service plan. For the .NET stack, remote debugging also currently requires Windows.
+
 
 ### Attach the debugger
 
