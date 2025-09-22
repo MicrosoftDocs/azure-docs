@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure App Service
-description: Learn how to improve reliability in Azure App Service by using zone redundancy, multiple-region deployments, and best practices for scaling and fault tolerance.
+description: Learn how to improve reliability in Azure App Service by using zone redundancy, multi-region deployments, and best practices for scaling and fault tolerance.
 author: anaharris-ms 
 ms.author: anaharris
 ms.topic: reliability-article
@@ -13,7 +13,7 @@ ms.date: 07/17/2025
 
 # Reliability in Azure App Service
 
-Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. App Service integrates with Microsoft Azure to provide security, load balancing, autoscaling, and automated management for applications. This article describes reliability support in [App Service](../app-service/overview.md). It covers intra-regional resiliency via [availability zones](#availability-zone-support) and [multiple-region deployments](#multiple-region-support).
+This article describes reliability support in [Azure App Service](../app-service/overview.md). It covers intra-regional resiliency via [availability zones](#availability-zone-support) and [multiple-region deployments](#multiple-region-support). App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. App Service integrates with Microsoft Azure to provide security, load balancing, autoscaling, and automated management for applications. 
 
 For more information about reliability support in App Service Environment, see [Reliability in App Service Environment](./reliability-app-service-environment.md).
 
@@ -45,7 +45,13 @@ For **Premium v2 to v4 tiers**, you can configure App Service as *zone redundant
 
 ### Region support
 
-You can deploy zone-redundant App Service **Premium v2 to v4** plans in [any region that supports availability zones](./regions-list.md).
+- For App Service **Premium v2 and v3** plans, zone redundancy is supported in [any region that supports availability zones](./regions-list.md).
+
+- To enable zone redundancy for **App Service Premium v4** plans:
+
+   1. [Confirm that your desired region supports v4 plans](/azure/app-service/app-service-configure-premium-v4-tier#regions).
+   2. [Determine if that region supports availability zones](./regions-list.md).
+
 
 ### Requirements
 
@@ -99,7 +105,7 @@ If you enable availability zones but specify a capacity of less than two, the pl
 
 [!INCLUDE [Failback description](includes/app-service/reliability-failback-include.md)]
 
-### Testing for zone failures
+### Test for zone failures
 
 [!INCLUDE [Testing for zone failures description](includes/app-service/reliability-testing-for-zone-failures-include.md)]
 

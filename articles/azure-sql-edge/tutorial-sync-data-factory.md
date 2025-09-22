@@ -10,6 +10,7 @@ keywords:
   - SQL Edge
   - sync data from SQL Edge
   - SQL Edge data factory
+ms.custom: sfi-ropc-nochange
 ---
 # Tutorial: Sync data from SQL Edge to Azure Blob storage by using Azure Data Factory
 

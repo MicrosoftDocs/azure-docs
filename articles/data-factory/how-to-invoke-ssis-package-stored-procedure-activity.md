@@ -7,7 +7,10 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/15/2024
 ms.author: chugu 
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 # Run an SSIS package with the Stored Procedure activity
 

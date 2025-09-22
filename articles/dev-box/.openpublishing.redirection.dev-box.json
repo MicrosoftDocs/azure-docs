@@ -131,6 +131,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/dev-box/how-to-dev-box-user.md",
+      "redirect_url": "/azure/dev-box/how-to-manage-dev-box-project-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-box/how-to-project-admin.md",
+      "redirect_url": "/azure/dev-box/how-to-manage-dev-box-access",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/dev-box/how-to-use-copilot-generate-image-definition-file.md",
       "redirect_url": "/azure/dev-box/how-to-configure-team-customizations",
       "redirect_document_id": false

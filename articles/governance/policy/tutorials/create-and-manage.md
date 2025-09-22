@@ -3,7 +3,10 @@ title: "Tutorial: Build policies to enforce compliance"
 description: In this tutorial, you use policies to enforce standards, control costs, maintain security, and impose enterprise-wide design principles.
 ms.date: 03/04/2025
 ms.topic: tutorial
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 ---
 # Tutorial: Create and manage policies to enforce compliance
 

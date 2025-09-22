@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 11/18/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Migrate Azure Front Door (classic) to Standard or Premium tier

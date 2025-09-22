@@ -4,6 +4,7 @@
  ms.topic: include
  ms.date: 11/14/2024
  ms.author: cherylmc
+ ms.custom: sfi-image-nochange
 ---
 
 1. In the Azure portal, open your virtual network gateway (VPN gateway).

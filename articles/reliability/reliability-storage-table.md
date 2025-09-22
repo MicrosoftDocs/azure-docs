@@ -171,6 +171,8 @@ For detailed pricing information, see [Table Storage pricing](https://azure.micr
 
 [!INCLUDE [Storage - Alternative multi-region approaches - reasons](includes/storage/reliability-storage-multi-region-alternative-reasons-include.md)]
 
+[!INCLUDE [Storage - Alternative multi-region approaches - introduction](includes/storage/reliability-storage-multi-region-alternative-introduction-include.md)]
+
 > [!NOTE]
 > For applications built to use Table Storage, consider using [Azure Cosmos DB for Table](/azure/cosmos-db/table/overview). Azure Cosmos DB for Table supports advanced multi-region requirements, including support for nonpaired regions. It's also designed for compatibility with applications built for Table Storage.
 
