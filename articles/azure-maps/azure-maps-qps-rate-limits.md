@@ -17,7 +17,7 @@ Azure Maps doesn't have any maximum daily limits on the number of requests that 
 >
 > **Azure Maps Gen1 pricing tier retirement**
 >
-> Gen1 pricing tier is now deprecated and will be retired on 9/15/26. Gen2 pricing tier replaces Gen1 (both S0 and S1) pricing tier. If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 pricing tier before it’s retired, otherwise it will automatically be updated. For more information, see [Manage the pricing tier of your Azure Maps account].
+> Gen1 pricing tier is now deprecated and will be retired on 9/15/26. Gen2 pricing tier replaces Gen1 (both S0 and S1) pricing tier. If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 pricing tier before it's retired, otherwise it will automatically be updated. For more information, see [Manage the pricing tier of your Azure Maps account].
 
 The following list shows the QPS usage limits for each Azure Maps service by Pricing Tier.
 
@@ -43,5 +43,3 @@ When QPS limits are reached, an HTTP 429 error is returned. If you're using the 
 
 [Azure portal]: https://portal.azure.com/
 [Manage the pricing tier of your Azure Maps account]: how-to-manage-pricing-tier.md
-[v1]: /rest/api/maps/data?view=rest-maps-1.0&preserve-view=true
-[v2]: /rest/api/maps/data

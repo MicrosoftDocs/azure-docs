@@ -26,7 +26,6 @@ The most recent stable release of the Azure Maps services.
 | [Render] |  2024-04-01  | Get road, satellite/aerial, weather, traffic map tiles, and static map images. |
 | [Route] |  2025-01-01  | Calculate optimized travel times and distances between locations for multiple modes of transportation and returns localized travel instructions. Now supports [Snap to Roads] API that snaps GPS data to road aligned coordinates. |
 | [Search] |  2025-01-01  | Geocode addresses and coordinates, search for business listings and places by name or category and get administrative boundary polygons. |
-| [Spatial] |  2022-08-01  | Use geofences, great circle distances, and other spatial operations to analyze location data.<br>The Spatial service is deprecated and will be retired on 9/30/25. |
 | [Timezone] |  1.0  | Get time zone and sunrise/sunset information for specified locations. |
 | [Traffic] |  2025-01-01  | Provides traffic incident data, such as construction, traffic congestion, accidents, and more, within a specified bounding box. |
 | [Weather] |  1.1  | Get current, forecasted, and historical weather conditions, air quality, tropical storm details, and weather along a route. |
@@ -58,7 +57,6 @@ Prerelease version of an Azure Maps service. Preview releases contain new functi
 [Route]: /rest/api/maps/route
 [Search]: /rest/api/maps/search
 [Snap to Roads]: /azure/azure-maps/tutorial-snap-to-road
-[Spatial]: /rest/api/maps/spatial
 [Timezone]: /rest/api/maps/timezone
 [Traffic]: /rest/api/maps/traffic
 [Weather]: /rest/api/maps/weather
