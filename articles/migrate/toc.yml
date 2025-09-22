@@ -192,7 +192,7 @@ items:
     - name: VMware vSphere migration requirements 
       href: migrate-support-matrix-vmware-migration.md
     - name: Physical Agent-based migration requirements
-      href: ../site-recovery/vmware-physical-azure-support-matrix.md?=/learn/azure/migrate/toc.json
+      href: ../site-recovery/vmware-physical-azure-support-matrix.md?toc=/azure/migrate/toc.json
     - name: Hyper-V migration requirements
       href: migrate-support-matrix-hyper-v-migration.md
   # - name: Agent-based migrations
