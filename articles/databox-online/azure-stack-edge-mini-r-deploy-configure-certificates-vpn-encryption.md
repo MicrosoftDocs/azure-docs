@@ -41,13 +41,13 @@ Before you configure and set up your Azure Stack Edge Mini R device, make sure t
 
 ## Configure certificates for device
 
-1. In the **Certificates** page, you will configure your certificates. Depending on whether you changed the device name or the DNS domain in the **Device** page, you can choose one of the following options for your certificates.
+1. In the **Certificates** page, configure your certificates. Depending on whether you changed the device name or the DNS domain in the **Device** page, you can choose one of the following options for your certificates.
 
-    - If you have not changed the default device name or the default DNS domain in the earlier step and do not wish to bring your own certificates, then you can skip this step and proceed to the next step. The device has automatically generated self-signed certificates to begin with. 
+    - If you have not changed the default device name or the default DNS domain in the earlier step and don't wish to bring your own certificates, then you can skip this step and proceed to the next step. The device has automatically generated self-signed certificates to begin with. 
 
        <!-- ![Local web UI "Certificates" page](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/certificate-1.png)-->
 
-    - If you changed the device name or DNS domain, you will see that the status of certificates will show as **Not valid**. 
+    - If you changed the device name or DNS domain, the status of certificates will show as **Not valid**. 
 
         ![Local web UI "Certificates" page 2](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/certificate-2.png)    
 
@@ -55,10 +55,10 @@ Before you configure and set up your Azure Stack Edge Mini R device, make sure t
 
         <!--![Local web UI "Certificates" page 3](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1a.png)-->  
 
-        The certificate status is **Not valid** because the certificates do not reflect the updated device name and DNS domain (that are used in subject name and subject alternative). To successfully activate your device, you can bring your own signed endpoint certificates and the corresponding signing chains. You first add the signing chain and then upload the endpoint certificates. For more information, go to [Bring your own certificates on your Azure Stack Edge Mini R device](#bring-your-own-certificates).
+        The certificate status is **Not valid** because the certificates don't reflect the updated device name and DNS domain (that are used in subject name and subject alternative). To successfully activate your device, you can bring your own signed endpoint certificates and the corresponding signing chains. You first add the signing chain and then upload the endpoint certificates. For more information, go to [Bring your own certificates on your Azure Stack Edge Mini R device](#bring-your-own-certificates).
 
 
-    - If you changed the device name or DNS domain, and you do not bring your own certificates, then the **activation will be blocked**.
+    - If you changed the device name or DNS domain, and you don't bring your own certificates, then the **activation will be blocked**.
 
 
 #### Bring your own certificates
@@ -74,7 +74,7 @@ You already added the signing chain in an earlier step on this device. You can n
 
     ![Local web UI "Certificates" page 6](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/add-certificate-3.png)
 
-1. You can also upload the local web UI certificate. After you upload this certificate, you will be required to start your browser and clear the cache. You will then need to connect to the device local web UI.  
+1. You can also upload the local web UI certificate. After you upload this certificate, you're required to start your browser and clear the cache. You then need to connect to the device local web UI.  
 
     ![Local web UI "Certificates" page 7](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/add-certificate-4.png)
 
