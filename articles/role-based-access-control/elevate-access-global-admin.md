@@ -7,7 +7,10 @@ ms.service: role-based-access-control
 ms.topic: how-to
 ms.date: 03/10/2025
 ms.author: rolyon
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
+  - sfi-ga-nochange
 ---
 # Elevate access to manage all Azure subscriptions and management groups
 
