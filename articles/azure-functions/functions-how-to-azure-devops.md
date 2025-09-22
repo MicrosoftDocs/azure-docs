@@ -203,14 +203,14 @@ trigger:
 
 variables:
   # Azure service connection established during pipeline creation
-  azureSubscription: <SUBSCRIPTION_NAME>
-  appName: <APP_NAME>
+  azureSubscription: <Name of your Azure subscription>
+  appName: <Name of the function app>
   # Agent VM image name
   vmImageName: 'windows-latest'
 
 - task: AzureFunctionApp@2 # Add this at the end of your file
   inputs:
-    azureSubscription: <AZURE_SERVICE_CONNECTION>
+    azureSubscription: <Name of your Azure subscription>
     appType: functionApp # this specifies a Windows-based function app
     appName: $(appName)
     package: $(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip
@@ -229,14 +229,14 @@ trigger:
 
 variables:
   # Azure service connection established during pipeline creation
-  azureSubscription: <SUBSCRIPTION_NAME>
-  appName: <APP_NAME>
+  azureSubscription: <Name of your Azure subscription>
+  appName: <Name of the function app>
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
 
 - task: AzureFunctionApp@2 # Add this at the end of your file
   inputs:
-    azureSubscription: <AZURE_SERVICE_CONNECTION>
+    azureSubscription: <Name of your Azure subscription>
     appType: functionAppLinux # This specifies a Linux-based function app
     #isFlexConsumption: true # Uncomment this line if you are deploying to a Flex Consumption app
     appName: $(appName)
@@ -281,7 +281,7 @@ steps:
 - task: AzureCLI@2
   displayName: 'Deploy to Azure Container Apps'
   inputs:
-    azureSubscription: 'your-subscription-name'
+    azureSubscription: '<Name of your Azure subscription>'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
@@ -475,7 +475,7 @@ variables:
     downloadPath: '$(System.ArtifactsDirectory)'
 - task: AzureFunctionApp@1
   inputs:
-    azureSubscription: <Azure service connection>
+    azureSubscription: $(azureSubscription)
     appType: functionAppLinux # default is functionApp
     appName: $(appName)
     package: $(System.ArtifactsDirectory)/**/*.zip
