@@ -5,8 +5,10 @@ author: xujxu
 ms.author: xujiang1
 ms.service: azure-stream-analytics
 ms.topic: how-to
-ms.custom: mvc
 ms.date: 01/23/2025
+ms.custom:
+  - mvc
+  - sfi-image-nochange
 # Customer intent: I want to lean how to use the no-code editor to automatically capture streaming data in Azure Event Hubs to an Azure Data Lake Storage Gen2 account in the Parquet format. 
 ---
 # Capture data from Event Hubs in Parquet format

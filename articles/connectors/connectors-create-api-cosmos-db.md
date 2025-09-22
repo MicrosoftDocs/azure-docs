@@ -8,6 +8,7 @@ ms.author: jucocchi
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 04/15/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Access, create, or process documents in Azure Cosmos DB with workflows in Azure Logic Apps

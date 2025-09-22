@@ -138,9 +138,12 @@ const appConfig = await load(endpoint, credential);
 const { size, color } = appConfig.get("font");
 ```
 
+> [!NOTE]
+> Starting with version *2.2.0* of `@azure/app-configuration-provider`, the configuration provider allows comments, as defined in ([JSONC](https://jsonc.org/)), in key-values with an `application/json` content type.
+
 ### Load specific key-values using selectors
 
-By default, the `load` method will load all configurations with no label from the configuration store. You can configure the behavior of the `load` method through the optional parameter of [`AzureAppConfigurationOptions`](https://github.com/Azure/AppConfiguration-JavaScriptProvider/blob/main/src/AzureAppConfigurationOptions.ts) type.
+By default, the `load` method will load all configurations with no label from the configuration store. You can configure the behavior of the `load` method through the optional parameter of [`AzureAppConfigurationOptions`](https://github.com/Azure/AppConfiguration-JavaScriptProvider/blob/main/src/appConfigurationOptions.ts) type.
 
 To refine or expand the configurations loaded from the App Configuration store, you can specify the key or label selectors under the `AzureAppConfigurationOptions.selectors` property.
 
@@ -151,8 +154,9 @@ const appConfig = await load(endpoint, credential, {
             keyFilter: "app1.*",
             labelFilter: "test"
         },
-        { // load the subset of keys starting with "dev" label"
-            labelFilter: "dev*"
+        { // load the subset of keys with "dev" label"
+            keyFilter: "*",
+            labelFilter: "dev"
         }
     ]
 });
@@ -160,6 +164,29 @@ const appConfig = await load(endpoint, credential, {
 
 > [!NOTE]
 > Key-values are loaded in the order in which the selectors are listed. If multiple selectors retrieve key-values with the same key, the value from the last one will override any previously loaded value.
+
+#### Tag filters
+
+The tag filters parameter selects key-values with specific tags. A key-value is only loaded if it has all of the tags and corresponding values specified in the filters.
+
+```typescript
+const appConfig = await load(endpoint, credential, {
+    selectors: [
+        { // load the subset of keys with "test" label" and three tags
+            keyFilter: "*",
+            labelFilter: "test",
+            tagFilters: [
+                "emptyTag=",
+                "nullTag=\0",
+                "tag1=value1"
+            ]
+        }
+    ]
+});
+```
+
+> [!NOTE]
+> The characters asterisk (`*`), comma (`,`), and backslash (`\`) are reserved and must be escaped with a backslash when used in a tag filter.
 
 ### Trim prefix from keys
 
@@ -391,6 +418,26 @@ const appConfig = await load(endpoint, credential, {
 > When resolving secret in parallel, you may encounter the [service limit](/azure/key-vault/general/service-limits#secrets-managed-storage-account-keys-and-vault-transactions) of Azure Key Vault.
 > To handle throttling effectively, implement the [client-side throttling best practices](/azure/key-vault/general/overview-throttling#how-to-throttle-your-app-in-response-to-service-limits) by configuring appropriate retry options for the `SecretClient`. You can either register custom `SecretClient` instances or configure `clientOptions` via the `AzureAppConfigurationOptions.keyVaultOptions`.
 
+### Key Vault secret refresh
+
+Azure App Configuration enables you to configure secret refresh intervals independently of your configuration refresh cycle. This is crucial for security because while the Key Vault reference URI in App Configuration remains unchanged, the underlying secret in Key Vault might be rotated as part of your security practices.
+
+To ensure your application always uses the most current secret values, configure the `secretRefreshIntervalInMs` property in `KeyVaultOptions`. This forces the provider to retrieve fresh secret values from Key Vault when:
+
+- Your application calls `AzureAppConfiguration.refresh`
+- The configured refresh interval for the secret has elapsed
+
+This mechanism works even when no changes are detected in your App Configuration store, ensuring your application stays in sync with rotated secrets.
+
+```typescript
+const credential = new DefaultAzureCredential();
+const appConfig = await load(endpoint, credential, {
+    keyVaultOptions: {
+        credential: credential,
+        secretRefreshIntervalInMs: 7200_000 // 2 hours
+    }
+});
+```
 
 ## Snapshot
 

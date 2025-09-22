@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 06/03/2025
+ms.date: 08/19/2025
 ms.author: danlep
 #customer intent: As administrator of an API Management instance, I want to learn about using workspaces to manage APIs in a decentralized way, so that I can enable my development teams to manage and productize their own APIs.
 ms.custom:
@@ -39,7 +39,8 @@ In Azure API Management, use *workspaces* to implement federated API management.
 * Each workspace contains APIs, products, subscriptions, named values, and related resources. See the API Management [REST API reference](/rest/api/apimanagement/workspace?view=rest-apimanagement-2023-09-01-preview&preserve-view=true) for a full list of resources and operations supported in workspaces.
 * Teams' access to resources within a workspace is managed through Azure's role-based access control (RBAC) with built-in or custom roles assignable to Microsoft Entra accounts and scoped to a workspace. 
 * Each workspace is associated with one or more [workspace gateways](#workspace-gateway) for routing API traffic to the backend services of APIs in the workspace.
-* The platform team can apply API policies spanning APIs in workspaces and implement a centralized API discovery experience with a developer portal.
+* The platform team can apply policies spanning APIs and products in workspaces to govern API runtime across the organization. A built-in [Azure Policy definition](policy-reference.md) (`API Management policies should inherit parent scope policies using <base/>`) lets you audit or enforce that these policies are applied across all workspace resources.
+* The platform team can implement a centralized API discovery experience with a developer portal.
 * Each workspace team can gather and analyze gateway resource logs to monitor their own workspace APIs, while the platform team has federated access to logs across all workspaces in the API Management service, providing oversight, security, and compliance across their API ecosystem.
 
 
@@ -71,6 +72,10 @@ Workspace gateways are managed independently from the API Management service and
 
 * For information on the cost of workspace gateways, see [API Management pricing](https://aka.ms/apimpricing).
 * For a detailed comparison of API Management gateways, see [API Management gateways overview](api-management-gateways-overview.md).
+
+> [!NOTE]
+> In August 2025, we announced upcoming changes to gateway and tier support in workspaces. [See the announcement for details](https://aka.ms/apim/workspaces/built-in-gateway-changes)
+> 
 
 ### Associate workspaces with a workspace gateway
 
@@ -129,6 +134,7 @@ The following constraints currently apply to workspace gateways:
 * Workspace gateways support only internal cache; external cache isn't supported 
 * Workspace gateways don't support synthetic GraphQL APIs
 * Workspace gateways don't support creating APIs directly from Azure resources such as Azure OpenAI Service, App Service, Function Apps, and so on
+* Workspace gateways don't support MCP servers
 * Request metrics can't be split by workspace in Azure Monitor; all workspace metrics are aggregated at the service level
 * Workspace gateways don't support CA certificates
 * Workspace gateways don't support managed identities, including related features like storing secrets in Azure Key Vault and using the `authentication-managed-identity` policy

@@ -8,14 +8,16 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 04/17/2025
 ms.update-cycle: 180-days
+zone_pivot_groups: app-service-portal-azd
+ms.collection: ce-skilling-ai-copilot
+ms.service: azure-app-service
 ms.custom:
   - mvc
   - cli-validate
   - devdivchpfy22
   - AppServiceConnectivity
   - build-2025
-zone_pivot_groups: app-service-portal-azd
-ms.collection: ce-skilling-ai-copilot
+  - sfi-image-nochange
 ---
 
 # Tutorial: Deploy a PHP, MySQL, and Redis app to Azure App Service

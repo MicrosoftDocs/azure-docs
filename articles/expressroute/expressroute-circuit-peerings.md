@@ -24,7 +24,7 @@ An ExpressRoute circuit is a logical connection between your on-premises infrast
 
 ExpressRoute circuits are identified by a standard GUID called a service key (s-key). The s-key is the only information exchanged between Microsoft, the connectivity provider, and you. It isn't a secret for security purposes. Each ExpressRoute circuit has a unique s-key.
 
-New ExpressRoute circuits can include two independent peerings: Private peering and Microsoft peering. Each peering consists of a pair of independent BGP sessions, configured redundantly for high availability. An ExpressRoute circuit can have one, two, or all three peerings enabled.
+New ExpressRoute circuits can include two independent peerings: Private peering and Microsoft peering. Each peering consists of a pair of independent BGP sessions, configured redundantly for high availability. An ExpressRoute circuit can have one or both peerings enabled.
 
 Each circuit has a fixed bandwidth (50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps) shared across all circuit peerings and is mapped to a connectivity provider and a peering location.
 

@@ -11,6 +11,7 @@ ms.subservice: sql
 ms.topic: how-to
 ms.custom:
   - devx-track-azurepowershell
+  - sfi-image-nochange
 ---
 
 # Restore an existing dedicated SQL pool

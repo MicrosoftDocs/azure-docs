@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: apseth, divswa, azla
 ms.topic: how-to
 ms.date: 01/04/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Send related messages in order by using a sequential convoy in Azure Logic Apps with Azure Service Bus

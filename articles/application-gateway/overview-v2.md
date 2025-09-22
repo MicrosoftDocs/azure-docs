@@ -104,7 +104,7 @@ The following table compares the features available with each SKU.
 | WebSocket support                                 | &#x2713; | &#x2713; |
 | HTTP/2 support                                    | &#x2713; | &#x2713; |
 | Connection draining                               | &#x2713; | &#x2713; |
-| Proxy NTLM authentication                         | &#x2713; |          |
+| Proxy NTLM authentication                         | &#x2713; | &#x2713; |
 | Path based rule encoding                          | &#x2713; |          |
 | DHE Ciphers                                       | &#x2713; |          |
 > [!NOTE]
@@ -118,10 +118,9 @@ This section describes features and limitations of the v2 SKU that differ from t
 |--|--|
 |Mixing Standard_v2 and Standard Application Gateway on the same subnet|Not supported|
 |User-Defined Route (UDR) on Application Gateway subnet|For information about supported scenarios, see [Application Gateway configuration overview](configuration-infrastructure.md#supported-user-defined-routes).|
-|NSG for Inbound port range| - 65200 to 65535 for Standard_v2 SKU<br>- 65503 to 65534 for Standard SKU.<br>Not required for v2 SKUs in public preview [Learn more](application-gateway-private-deployment.md).<br>For more information, see the [FAQ](application-gateway-faq.yml#are-network-security-groups-supported-on-the-application-gateway-subnet).|
+|NSG for Inbound port range| - 65200 to 65535 for Standard_v2 SKU<br>- 65503 to 65534 for Standard SKU.<br>Not required for v2 SKUs in private deployment [Learn more](application-gateway-private-deployment.md).<br>For more information, see the [FAQ](application-gateway-faq.yml#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Performance logs in Azure diagnostics|Not supported.<br>Azure metrics should be used.|
 |FIPS mode|Currently not supported.|
-|Private frontend configuration only mode|Currently in public preview [Learn more](application-gateway-private-deployment.md).|
 |Path based rule encoding |Not supported.<br> V2 decodes paths before routing. For example, V2 treats `/abc%2Fdef` the same as `/abc/def`. |
 |Chunked file transfer |In the Standard_V2 configuration, turn off request buffering to support chunked file transfer. <br> In WAF_V2, turning off request buffering isn't possible because it has to look at the entire request to detect and block any threats. Therefore, the suggested alternative is to create a path rule for the affected URL and attach a disabled WAF policy to that path rule.|
 |Cookie Affinity |Current V2 doesn't support appending the domain in session affinity Set-Cookie, which means that the cookie can't be used by client for the subdomains.|

@@ -3,9 +3,9 @@ title: Azure permissions for Databases - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the Databases category.
 ms.service: role-based-access-control
 ms.topic: generated-reference
-author: jenniferf-skc
+author: rolyon
 manager: pmwongera
-ms.author: jfields
+ms.author: rolyon
 ms.date: 05/25/2025
 ms.custom: generated
 ---

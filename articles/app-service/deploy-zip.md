@@ -8,6 +8,7 @@ ms.date: 01/24/2025
 ms.custom: devx-track-azurecli
 
 #customer intent: As a web app developer, I want to deploy my Azure App Service code as a ZIP, WAR, JAR, or EAR package or deploy individual files.
+ms.service: azure-app-service
 ---
 
 # Deploy files to Azure App Service

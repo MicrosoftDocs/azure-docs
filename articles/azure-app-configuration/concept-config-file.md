@@ -6,6 +6,7 @@ ms.author: zhenlwa
 ms.service: azure-app-configuration
 ms.topic: concept-article
 ms.date: 08/05/2025
+ms.custom: sfi-ropc-nochange
 # customer intent: As a developer, I want to become familiar with import tooling for Azure App Configuration and with the KVSet and default file content profiles so that I can work with configuration data in bulk and exchange data between my App Configuration store and code projects.
 ---
 

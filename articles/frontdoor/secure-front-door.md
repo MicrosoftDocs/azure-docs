@@ -26,7 +26,7 @@ Network security for Azure Front Door focuses on establishing secure connections
 
 * **Configure Web Application Firewall for application-layer protection**: Deploy Azure Web Application Firewall (WAF) to protect your applications from common web vulnerabilities and exploits. WAF provides managed rule sets for OWASP Top 10 protection, bot management, and custom rules for specific threat patterns. For more information, see [Web Application Firewall (WAF) on Azure Front Door](./web-application-firewall.md).
 
-* **Implement origin security controls**: Configure your origins to accept traffic only from Azure Front Door by using IP filtering with the `AzureFrontDoor.Backend` service tag and validating the X-Azure-FDID header value. This prevents attackers from bypassing Front Door's security features. For more information, see [Secure traffic to Azure Front Door origins](./origin-security.md).
+* **Implement origin security controls**: Configure your origins to accept traffic only from Azure Front Door by using managed identities or IP filtering with the `AzureFrontDoor.Backend` service tag and validating the X-Azure-FDID header value. This prevents attackers from bypassing Front Door's security features. For more information, see [Secure traffic to Azure Front Door origins](./origin-security.md).
 
 * **Use rate limiting to prevent abuse**: Configure WAF rate limiting rules to protect against high-volume attacks and prevent individual IP addresses from overwhelming your service. Rate limiting helps mitigate application-layer DDoS attacks and abusive traffic patterns. For more information, see [Rate limiting](/azure/web-application-firewall/afds/waf-front-door-rate-limit).
 

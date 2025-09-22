@@ -10,6 +10,7 @@ ms.date: 03/31/2025
 ms.author: msangapu
 author: msangapu-msft
 #customer intent: As an app developer, I need to troubleshoot common errors if they occur using tools provided by Azure App Service.
+ms.service: azure-app-service
 ---
 
 # Troubleshoot HTTP 502 and 503 errors in Azure App Service

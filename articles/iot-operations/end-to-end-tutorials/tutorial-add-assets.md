@@ -23,16 +23,17 @@ In this tutorial, you use the operations experience web UI to create your assets
 
 ## Prerequisites
 
-An instance of Azure IoT Operations with secure settings enabled deployed in a Kubernetes cluster. To create an instance, use one of the following to deploy Azure IoT Operations:
+A preview instance of Azure IoT Operations with secure settings enabled deployed in a Kubernetes cluster. To create a preview instance, use one of the following to deploy Azure IoT Operations:
 
 - [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) provides simple instructions to deploy an Azure IoT Operations instance that you can use for the tutorials. Then, to enable secure settings follow the steps in [Enable secure settings in Azure IoT Operations](../deploy-iot-ops/howto-enable-secure-settings.md).
-- [Deployment overview](../deploy-iot-ops/overview-deploy.md) provides detailed instructions to deploy an Azure IoT Operations instance on Windows using Azure Kubernetes Service Edge Essentials or Ubuntu using K3s. Follow the steps in the deployment article for a secure settings deployment.
+- [Deployment overview](../deploy-iot-ops/overview-deploy.md) provides detailed instructions to deploy an Azure IoT Operations instance on Windows using Azure Kubernetes Service Edge Essentials or Ubuntu using K3s. Follow the steps in the deployment article for a secure settings deployment and to install the latest preview version.
 
 After you enable secure settings, the resource group that contains your Azure IoT Operations instance also contains the following resources:
 
 - An Azure Key Vault instance to store the secrets to synchronize into your Kubernetes cluster.
 - A user-assigned managed identity that Azure IoT Operations uses to access the Azure Key Vault instance.
 - A user-assigned managed identity that Azure IoT Operations components such as data flows can use to uses to connect to cloud endpoints such as Azure Event Hubs.
+- An Azure Device Registry namespace to store your namespace assets and devices.
 
 Ensure that when you configure secure settings that you [give your user account permissions to manage secrets](/azure/key-vault/secrets/quick-create-cli#give-your-user-account-permissions-to-manage-secrets-in-key-vault) with the **Key Vault Secrets Officer** role.
 
@@ -197,7 +198,6 @@ To create an asset, select **Create namespace asset**. Then enter the following 
 | Inbound endpoint | `opc-ua-connector-0` |
 | Asset name | `thermostat` |
 | Description | `A simulated thermostat asset` |
-| Default MQTT topic | `azure-iot-operations/data/thermostat` |
 
 Remove the existing **Custom properties** and add the following custom properties. Be careful to use the exact property names, as the Power BI template in a later tutorial queries for them:
 
@@ -215,17 +215,19 @@ Select **Next** to go to the **Add tags** page.
 
 ### Create OPC UA tags
 
-Add an OPC UA tag on the **Add tags** page. To add a tag, select **Add tag**. Enter the tag details shown in the following table:
+Add an OPC UA tag on the **Tags** page. To add a tag, select **Add tag**. Enter the tag details shown in the following table:
 
-| Node ID            | Tag name    |
+| Data source        | Tag name    |
 | ------------------ | ----------- |
 | ns=3;s=SpikeData   | temperature |
 
-The node ID here is specific to the OPC UA simulator. The node generates random values within a specified range and also has intermittent spikes.
+The data source value here is a specific OPC UA simulator node. The node generates random values within a specified range and also has intermittent spikes.
 
 You can select **Manage default settings** to change the default sampling interval and queue size for each tag.
 
 :::image type="content" source="media/tutorial-add-assets/add-tag.png" lightbox="media/tutorial-add-assets/add-tag.png" alt-text="Screenshot of Azure IoT Operations add tag page.":::
+
+To configure the MQTT topic to publish the tag data to, select **Manage default dataset**. Enter `azure-iot-operations/data/thermostat` as the MQTT topic, then select **Update**. This topic is used by the data flow in the next tutorial to send messages to the cloud.
 
 Select **Next** to go to the **Add events** page and then **Next** to go to the **Review** page.
 
@@ -235,10 +237,10 @@ Review your asset and tag details and make any adjustments you need before you s
 
 :::image type="content" source="media/tutorial-add-assets/review-asset.png" lightbox="media/tutorial-add-assets/review-asset.png" alt-text="Screenshot of Azure IoT Operations create asset review page.":::
 
-This configuration deploys a new asset called `thermostat` to the cluster. You can view your assets in your resource group in the Azure portal. You can also use `kubectl` to view the assets locally in your cluster:
+This configuration deploys a new asset called `thermostat` to the cluster. You can also use `kubectl` to view the assets locally in your cluster:
 
 ```console
-kubectl get assets -n azure-iot-operations
+kubectl get assets.namespace -n azure-iot-operations
 ```
 
 ## View resources in the Azure portal
@@ -255,7 +257,7 @@ The portal enables you to view the asset details. Select **JSON View** for more 
 
 [!INCLUDE [deploy-mqttui](../includes/deploy-mqttui.md)]
 
-To verify that the thermostat asset you added is publishing data, view the messages in the `azure-iot-operations/data` topic:
+To verify that the thermostat asset you added is publishing data, view the messages in the `azure-iot-operations/data/thermostat` topic:
 
 ```output
 Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/thermostat', ... (92 bytes))

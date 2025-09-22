@@ -7,10 +7,12 @@ ms.custom:
   - build-2024
 ms.topic: how-to
 ms.date: 05/06/2024
-ms.author: vanshsingh
+ms.author: johnsta
 ---
 
 # Use Microsoft Playwright Testing Reporting preview with Playwright sharding
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 In this article, you learn how to use the Microsoft Playwright Testing service's reporting feature with test runs that use [Playwright's sharding features](https://playwright.dev/docs/test-sharding). 
 

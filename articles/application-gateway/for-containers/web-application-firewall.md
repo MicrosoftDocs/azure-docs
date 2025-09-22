@@ -1,41 +1,85 @@
 ---
-title: Web Application Firewall on Application Gateway for Containers
-description: This page provides an overview of the Web Application Firewall (WAF) on Application Gateway for Containers, including setup, limitations, known issues, and more.
+title: Azure Web Application Firewall on Application Gateway for Containers
+description: This article provides an overview of Azure Web Application Firewall on Application Gateway for Containers, including setup, limitations, and pricing.
 services: application-gateway
 author: jackstromberg
 ms.service: azure-appgw-for-containers
-ms.topic: how-to
-ms.date: 7/22/2025
+ms.topic: concept-article
+ms.date: 8/15/2025
 ms.author: jstrom
 ---
 
-# Web Application Firewall on Application Gateway for Containers
+# Azure Web Application Firewall on Application Gateway for Containers
 
-Web Application Firewall (WAF) provides centralized protection of your web applications from common exploits and vulnerabilities. All WAF functionality exists inside of a WAF policy, which can be referenced at listener or path-based routing rules within Gateway API yaml configuration.
+Azure Web Application Firewall provides centralized protection of your web applications from common exploits and vulnerabilities. All Azure Web Application Firewall functionality exists inside a policy, which can be referenced at listener or path-based routing rules within the Gateway API YAML configuration.
 
-![Diagram depicting a request being blocked by a web application firewall rule.](./media/how-to-web-application-firewall-gateway-api/web-application-firewall.png)
+![Diagram that shows an Azure Web Application Firewall rule blocking a request.](./media/how-to-web-application-firewall-gateway-api/web-application-firewall.png)
 
 ## Application Gateway for Containers implementation
 
-### Security Policy
+### Security policy
 
-Application Gateway for Containers introduces a new child resource in Azure Resource Manager (ARM), called a SecurityPolicy. The SecurityPolicy is what brings scope to which WAF policies may be referenced by the ALB Controller.
+Application Gateway for Containers introduces a new child resource called `SecurityPolicy` in Azure Resource Manager. The `SecurityPolicy` resource brings scope to which Azure Web Application Firewall policies the ALB Controller can reference.
 
-### Kubernetes Custom Resource
+### Kubernetes custom resource
 
-Application Gateway for Containers introduces a new custom resource called `WebApplicationFirewallPolicy`. The custom resource is responsible for defining which WAF Policy should be used at which scope.
+Application Gateway for Containers introduces a new custom resource called `WebApplicationFirewallPolicy`. The custom resource is responsible for defining which Azure Web Application Firewall policy should be used at which scope.
 
-The following scopes may be defined:
+The WebApplicationFirewallPolicy resource can target the following Kubernetes resources:
 
-* Gateway
-* HTTPRoute
+* `Gateway`
+* `HTTPRoute`
 
-In addition, the following sections may be referenced by name for each of the parent resources:
+The WebApplicationFirewallPolicy resource can also reference the following sections by name for further granularity:
 
-* Gateway - Listener
-* HTTPRoute - Path
+* `Gateway`: `Listener`
 
-Here is an example YAML configuration that shows targeting a specific path called `pathA` on an HTTPRoute resource:
+### Example implementations
+
+#### Scope a policy to a Gateway resource
+
+Here's an example YAML configuration that shows targeting a Gateway resource, which would apply to all listeners on a given Application Gateway for Containers' frontend resource.
+
+```yaml
+apiVersion: alb.networking.azure.io/v1
+kind: WebApplicationFirewallPolicy
+metadata:
+  name: sample-waf-policy
+  namespace: test-infra
+spec:
+  targetRef:
+    group: gateway.networking.k8s.io
+    kind: Gateway
+    name: contoso-waf-route
+    namespace: test-infra
+  webApplicationFirewall:
+    id: /subscriptions/.../Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/waf-policy-0
+```
+
+#### Scope policy to a specific listener of a Gateway resource
+
+Within a `Gateway` resource, you may have different hostnames defined by different listeners (e.g. contoso.com and fabrikam.com). If contoso.com is a hostname of listenerA and fabrikam.com is a hostname of listenerB, you can define the `sectionNames` property to select the proper listener (for example, listenerA for contoso.com).
+
+```yaml
+apiVersion: alb.networking.azure.io/v1
+kind: WebApplicationFirewallPolicy
+metadata:
+  name: sample-waf-policy
+  namespace: test-infra
+spec:
+  targetRef:
+    group: gateway.networking.k8s.io
+    kind: Gateway
+    name: contoso-waf-route
+    namespace: test-infra
+    sectionNames: ["contoso-listener"]
+  webApplicationFirewall:
+    id: /subscriptions/.../Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/waf-policy-0
+```
+
+#### Scope policy across all routes and paths
+
+This example shows how to target a defined HTTPRoute resource to apply the policy to any routing rules and paths within a given HTTPRoute resource.
 
 ```yaml
 apiVersion: alb.networking.azure.io/v1
@@ -47,32 +91,53 @@ spec:
   targetRef:
     group: gateway.networking.k8s.io
     kind: HTTPRoute
-    name: contoso-waf-route
+    name: contoso-pathA
     namespace: test-infra
-    sectionNames: ["pathA"]
   webApplicationFirewall:
     id: /subscriptions/.../Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/waf-policy-0
+  ```
+
+#### Scope policy to a particular path
+
+To use different WAF policies to different paths of the same `Gateway` or Gateway -> Listener sectionName, you can define two HTTPRoute resources, each with a unique path, that each references its applicable WAF policy.
+
+```yaml
+apiVersion: alb.networking.azure.io/v1
+kind: WebApplicationFirewallPolicy
+metadata:
+  name: sample-waf-policy-A
+  namespace: test-infra
+spec:
+  targetRef:
+    group: gateway.networking.k8s.io
+    kind: HTTPRoute
+    name: contoso-pathA
+    namespace: test-infra
+  webApplicationFirewall:
+    id: /subscriptions/.../Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/waf-policy-0
+---
+apiVersion: alb.networking.azure.io/v1
+kind: WebApplicationFirewallPolicy
+metadata:
+  name: sample-waf-policy-B
+  namespace: test-infra
+spec:
+  targetRef:
+    group: gateway.networking.k8s.io
+    kind: HTTPRoute
+    name: contoso-pathB
+    namespace: test-infra
+  webApplicationFirewall:
+    id: /subscriptions/.../Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/waf-policy-1
 ```
 
 ## Limitations
 
-The following functionality is not supported on a WAF Policy associated with Application Gateway for Containers:
+The following functionality is not supported on an Azure Web Application Firewall policy that's associated with Application Gateway for Containers:
 
-* WAF Security Copilot
-* JavaScript (JS) Challenge Actions
-* CRS 3.2 and lower ruleset
-
-## Pricing
-
-WAF is incrementally billed in addition to Application Gateway for Containers. Two meters track WAF consumption: 
-
-* AGC WAF Hour
-* AGC 1M WAF Requests
-
-An AGC WAF Hour is incurred for the duration a security policy has a WAF policy referenced.
-
-As each request is processed by WAF rules or Bot Protection, a consumption rate is billed per 1 million requests.
+* Azure Web Application Firewall integration in Microsoft Security Copilot
+* JavaScript challenge actions
+* Core Rule Set (CRS) 3.2 and earlier rule sets
 
 > [!NOTE]
-> Application Gateway for Containers + WAF is in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The association of Application Gateway for Containers with Azure Web Application Firewall is in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
