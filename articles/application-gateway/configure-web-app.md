@@ -5,10 +5,12 @@ description: This article provides guidance on how to configure Application Gate
 services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
-ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 07/09/2025
 ms.author: mbender
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: As an IT administrator, I want to configure an Application Gateway with an App Service backend, so that I can manage traffic and improve performance while maintaining control over the hostnames in the request flow.
 ---
 
