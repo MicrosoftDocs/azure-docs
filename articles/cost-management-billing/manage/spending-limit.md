@@ -10,7 +10,7 @@ ms.date: 07/24/2025
 ms.author: jkinma
 ms.custom:
   - sfi-image-nochange
-- build-2025
+  - build-2025
 ---
 
 # Azure spending limit

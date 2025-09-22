@@ -10,7 +10,7 @@ ms.date: 07/29/2025
 ms.author: jkinma
 ms.custom:
   - sfi-image-nochange
-- build-2025
+  - build-2025
 ---
 
 # Transfer Azure product billing ownership to your Microsoft Partner Agreement (MPA)

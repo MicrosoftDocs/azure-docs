@@ -12,7 +12,7 @@ ms.date: 08/13/2025
 ms.custom:
   - sfi-image-nochange
   - sfi-ga-nochange
-- build-2025
+  - build-2025
 ---
 
 # Create a Microsoft Customer Agreement subscription
