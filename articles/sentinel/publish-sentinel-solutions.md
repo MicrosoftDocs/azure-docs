@@ -1,5 +1,5 @@
 ---
-title: 'Publish Solutions to Microsoft Sentinel'
+title: Publish security information and event management (SIEM) solutions to Microsoft Sentinel
 description: This article guides you through the process of publishing solutions to Microsoft Sentinel.
 author: anilgodavarthy
 ms.author: angodavarthy
@@ -10,9 +10,9 @@ ms.date: 10/08/2024
 #CustomerIntent: As a ISV partner, I want to publish my solutions to Azure Marketplace so that customers can find and install the solutions from Microsoft Sentinel content hub.
 ---
 
-# Publish solutions to Microsoft Sentinel
+# Publish security information and event management (SIEM) solutions to Microsoft Sentinel
 
-[Microsoft’s commercial marketplace](https://azuremarketplace.microsoft.com/home) is an online marketplace for applications and services that lets businesses of all sizes offer solutions to customers around the world. As an independent software vendor (ISV) member of the Partner Program, you can create, publish, and manage your Microsoft Sentinel solutions in Partner Center. Your solutions are listed together with other Microsoft solutions, connecting you to businesses, organizations, and government agencies around the world. Microsoft Sentinel solutions published in the marketplace are available to customers in Azure Marketplace and Microsoft Sentinel content hub.
+[Microsoft’s commercial marketplace](https://azuremarketplace.microsoft.com/home) is an online marketplace for applications and services that lets businesses of all sizes offer solutions to customers around the world. As an independent software vendor (ISV) member of the Partner Program, you can create, publish, and manage your Microsoft Sentinel SIEM solutions in Partner Center. Your solutions are listed together with other Microsoft solutions, connecting you to businesses, organizations, and government agencies around the world. Microsoft Sentinel solutions published in the marketplace are available to customers in Azure Marketplace and Microsoft Sentinel content hub.
 
 This article walks you through the process of publishing your solutions to Microsoft Sentinel.
 
