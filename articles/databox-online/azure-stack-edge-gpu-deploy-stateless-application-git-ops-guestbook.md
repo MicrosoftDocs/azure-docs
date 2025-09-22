@@ -15,7 +15,7 @@ ms.custom: sfi-image-nochange
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article shows you how to build and deploy a simple, multi-tier web application using Kubernetes and Azure Arc. This example consists of the following components:
+This article shows you how to build and deploy a multi-tier web application using Kubernetes and Azure Arc. This example consists of the following components:
 
 - A single-instance Redis master to store `guestbook` entries
 - Multiple replicated Redis instances to serve reads
@@ -26,11 +26,11 @@ The deployment is done using GitOps on the Azure Arc-enabled Kubernetes cluster 
 This procedure is intended for people who have reviewed the [Kubernetes workloads on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-workload-management.md) and are familiar with the concepts of [What is Azure Arc-enabled Kubernetes (Preview)](/azure/azure-arc/kubernetes/overview).
 
 > [!NOTE]
-> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 ## Prerequisites
 
-Before you can deploy the stateless application, make sure that you have completed the following prerequisites on your device and the client that you will use to access the device:
+Before you can deploy the stateless application, make sure that you have completed the following prerequisites on your device and the client that you'll use to access the device:
 
 ### For device
 
@@ -57,7 +57,7 @@ Before you can deploy the stateless application, make sure that you have complet
       - In the local UI of your Azure Stack Edge Pro device, go to **Overview** and note the Kubernetes software number. 
       - Verify these two versions for compatibility from the mapping provided in the Supported Kubernetes version. <!--insert link-->
 
-1. You have a [GitOps configuration that you can use to run an Azure Arc deployment](https://github.com/kagoyal/dbehaikudemo). In this example, you will use the following `yaml` files to deploy on your Azure Stack Edge Pro device.
+1. You have a [GitOps configuration that you can use to run an Azure Arc deployment](https://github.com/kagoyal/dbehaikudemo). In this example, you use the following `yaml` files to deploy on your Azure Stack Edge Pro device.
 
     - `frontend-deployment.yaml`<!-- - The guestbook application has a web frontend serving the HTTP requests written in PHP. It is configured to connect to the redis-master Service for write requests and the redis-slave service for Read requests. This file describes a deployment that runs the frontend of the guestbook application.-->
     - `frontend-service.yaml` <!-- - This allows you to configure an externally visible frontend Service that can be accessed from outside the Kubernetes cluster on your device.-->
@@ -94,7 +94,7 @@ Follow these steps to configure the Azure Arc resource to deploy a GitOps config
     |Operator scope     | Select **Namespace**. <br>This parameter defines the scope at which the operator is installed. Select Namespace to install your operator in the namespace specified in the deployment yaml files.       |
     |Operator type     | Leave at default. <br>This parameter specifies the type of the operator - by default, set as flux.        |
     |Operator params     | Leave this blank. <br>This parameter contains parameters to pass to the flux operator.        |
-    |Helm     | Leave this checkbox **Unchecked**. <br>Enable this option if you will do chart-based deployments.        |
+    |Helm     | Leave this checkbox **Unchecked**. <br>Enable this option if you'll do chart-based deployments.        |
 
 
     ![Add configuration](media/azure-stack-edge-gpu-connect-powershell-interface/add-configuration-1.png)
@@ -133,7 +133,7 @@ The deployment via the GitOps configuration creates a `demotestguestbook` namesp
     [10.128.44.240]: PS>
     ```  
 
-1. In this example, the frontend service was deployed as type:LoadBalancer. You will need to find the IP address of this service to view the `guestbook`. Run the following command.
+1. In this example, the frontend service was deployed as type:LoadBalancer. You need to find the IP address of this service to view the `guestbook`. Run the following command.
 
     `kubectl get service -n <your-namespace>`
     
@@ -165,7 +165,7 @@ kubectl delete deployment <deployment-name> -n <your-namespace>
 kubectl delete service <service-name> -n <your-namespace>
 ```
 
-Here is a sample output of when you delete the deployments and the services.
+Here's a sample output of when you delete the deployments and the services.
 
 ```powershell
 C:\Users\user>kubectl delete deployment,svc mysql -n userns1
