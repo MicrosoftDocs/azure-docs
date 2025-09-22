@@ -21,13 +21,15 @@ Azure Virtual Enclaves offers customers the flexibility of an hourly pay-as-you-
 
 Customers pay for:
 1.	Each enclave on an hourly basis. An enclave deployed during an hour is charged for that hour.
-2.	The usage for any resources managed by Azure Virtual Enclaves to create the community or enclave boundaries and 
-3.	Any workloads the customer deploys within their enclaves.
+2.	The usage for any resources managed by Azure Virtual Enclaves to create the community or enclave boundaries
+3.	Any workloads the customer deploys within their enclaves. These workloads include the Azure resource you deploy like Virutal Machines, Azure Kubernetes Service, or Azure App Service web apps.
 
-Managed resources for AVE include:
+Managed resources for the community include:
   - Azure Firewall required for the community
   - Virtual WAN required for the community
+Managed resources for the enclaves include:
   - Virtual Network required for the enclave
+  - Network Secury Groups (NSGs) for each subnet
   - Azure DNS required for the enclave
   - LogA user selectable for community, enclave, or both.
 
