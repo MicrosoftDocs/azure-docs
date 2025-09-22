@@ -1,12 +1,12 @@
 ---
-title: Migrate applications to use passwordless authentication with Azure Service Bus
-titleSuffix: Azure Service Bus
+title: Migrate applications to use passwordless authentication with Azure Event Hubs
+titleSuffix: Azure Event Hubs
 description: Learn to migrate existing Service Bus applications away from connection strings and use Microsoft Entra ID and Azure Role Based Access Control (RBAC) for enhanced security.
 ms.reviewer: randolphwest
 ms.date: 07/25/2025
 ms.topic: how-to
-ms.custom:
-  - sfi-ropc-nochange
+ms.custom: |
+- sfi-ropc-nochange
 - devx-track-csharp
 - devx-track-azurecli
 - devx-track-azurepowershell
