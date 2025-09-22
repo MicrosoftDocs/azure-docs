@@ -160,7 +160,7 @@ For more information about options pattern in .NET, go to the [documentation](/d
 You can create JSON key-values in App Configuration. When a key-value with the content type `"application/json"` is read, the configuration provider will flatten it into individual settings inside of `IConfiguration`. For more information, go to [Use content type to store JSON key-values in App Configuration](./howto-leverage-json-content-type.md).
 
 > [!NOTE]
-> Starting with version *8.4.0* of `Microsoft.Extensions.Configuration.AzureAppConfiguration`, the configuration provider can properly recognize JSON with comments([JSONC](https://jsonc.org/)) and convert it into object.
+> Starting with version *8.4.0* of `Microsoft.Extensions.Configuration.AzureAppConfiguration`, the configuration provider allows comments, as defined in ([JSONC](https://jsonc.org/)), in key-values with an `application/json` content type.
 
 ### Load specific key-values using selectors
 
@@ -639,10 +639,10 @@ For information about using snapshots, go to [Create and use snapshots](./howto-
 
 ### Snapshot reference
 
-A snapshot reference is a configuration setting whose value points to an existing snapshot in the same store. When loaded, the provider resolves it and adds all key-values and feature flags from that snapshot. Unlike `SelectSnapshot("...")`, which locks a snapshot at startup, it allows to switch different snapshots at runtime (through dynamic refresh).
+A snapshot reference is a configuration setting that references a snapshot in the same App Configuration store. When loaded, the provider resolves it and adds all key-values from that snapshot. Using snapshot references enables switching between snapshots at runtime, unlike `SelectSnapshot("...")`, which requires code changes and/or restarts to switch to a new snapshot.
 
 > [!NOTE] 
-> To use snapshot reference, you need to install the version *8.4.0* or later of `Microsoft.Extensions.Configuration.AzureAppConfiguration`.
+> To use snapshot references, use the version *8.4.0* or later of `Microsoft.Extensions.Configuration.AzureAppConfiguration`.
 
 ## Startup retry
 
