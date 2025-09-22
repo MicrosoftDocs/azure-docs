@@ -816,6 +816,8 @@
       href: partner-integrations.md
     - name: Sentinel solution quality guidelines
       href: sentinel-solution-quality-guidance.md
+    - name: Microsoft Sentinel solution setup essentials
+      href: solution-setup-essentials.md      
     - name: Sentinel SIEM content 
       items:
       - name: Creating codeless data connectors (CCF)
@@ -834,10 +836,14 @@
         href: normalization-develop-parsers.md
     - name: Publish solutions
       items:
+      - name: Packaging and publishing a Sentinel platform solution
+        href: package-platform-solution.md
       - name: Publishing a Sentinel SIEM solution
         href: publish-sentinel-solutions.md
       - name: Solution lifecycle post publish
         href: sentinel-solutions-post-publish-tracking.md
+    - name: Managing Platform Solutions
+      href: manage-platform-solutions.md
     - name: Remove Microsoft Sentinel from your workspace
       items:
         - name: Overview
