@@ -372,6 +372,46 @@ The final step is to restart the `autofs` service.
 ```bash
 sudo systemctl restart autofs
 ```
+## Mount with Password rotation
+With cifs-utils version 7.4 onwards, we now support an additional parameter called password2 as an optional, second secret you can pass to the Linux SMB client to enable seamless credential rotation (for example, rotating an Azure Storage account key used with NTLMv2) without unmounting or interrupting I/O. When present, the client will accept both password and password2 during session setup/reconnects, so you can introduce a new key while the old one is still in use. password2 can be supplied either on the mount command line (-o password2=<new-secret>, including via -o remount during rotation) or inside the SMB credentials file alongside username and password.
+
+See [mount options](#mount-options) for a list of SMB mount options.
+
+### Prerequisites
+
+You need cifs-utils version 7.4 and above to be able to successfully use "password2" mount option. In addition to correct cifs-utils package, your distribution must support the minimum required kernel versions as highlighted in the below table
+
+| **Distribution** | **Release**  |**Supported  Kernel Version** |
+|***********************************************|
+| Ubuntu | 22.04 LTS | 6.8-1027 |
+| Ubuntu | 24.04 LTS | 6.14.0-1006 |
+| Ubuntu | 24.04 LTS | 6.14.0-1006 |
+| RHEL | 9.5 | 5.14.0-503.11.1.el9_5 |
+| RHEL | 9.6 | 5.14.0-570.12.1.el9_6 |
+| Alma | 9.6 | 5.14.0-570.12.1 |
+| Rocky | 9.6 | 5.14.0-570.17.1 |
+
+
+> [!NOTE]
+> If your distribution is not in the above list, it currently does not have the required backports from Kernel 6.6 Stable branch.
+
+
+### Via credential file
+Put both secrets in your credentials file, then mount with credentials=; when rotating, update password2 to the new key first, remount (or wait for reconnects), then swap the values at your next maintenance window so the new key becomes password.
+
+```bash
+# /etc/smbcredentials/<storage-account-name>.cred
+username=<storage-account-name>
+password=<current-key>
+password2=<new-rotating-key>
+```
+### Update existing volume mount
+If you have already a volume mounted on a supported Distro with an appropiate version of cifs-utils, you can use the below command to modify the mount option by adding the `password2=` option.
+
+```bash
+# During rotation:
+sudo mount -o remount,password2=<new-rotating-key> /mnt/share
+```
 
 ### Mount options
 
