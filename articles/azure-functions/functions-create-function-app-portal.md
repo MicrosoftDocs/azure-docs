@@ -2,7 +2,7 @@
 title: Create a function app in the Azure portal
 description: Learn how to create a function app for serverless execution in Azure Functions using the Azure portal.
 ms.topic: how-to
-ms.date: 05/08/2025
+ms.date: 09/22/2025
 zone_pivot_groups: functions-hosting-plan-dynamic
 ---
 
@@ -15,6 +15,8 @@ This article shows you how to use the Azure portal to create a function app that
 | [Flex Consumption plan](./flex-consumption-plan.md) | Linux-only plan that provides rapid horizontal scaling with support for managed identities, virtual networking, and pay-as-you-go billing. |
 | [Premium plan](./functions-premium-plan.md) | Provides longer execution times, more control over CPU/memory, and support for containers and virtual networks. |
 | [Consumption plan](./consumption-plan.md) | Original dynamic hosting plan, which supports portal development for some languages. |
+
+The Flex Consumption plan is the recommended plan for hosting serverless compute resources in Azure.
 
 Choose your preferred hosting plan at the [top](#top) of the article. For more information about all supported hosting options, see [Azure Functions hosting options](functions-scale.md).  
 
@@ -51,9 +53,15 @@ Use these steps to create your function app and related Azure resources in the A
     |**Version**| Version number | Choose the version of your installed runtime. |
     |**Instance Size**| 2048 MB | The instance memory size used for each instance of the app as it scales. |
 
-1. Accept the default options in the remaining tabs, including the default behavior of creating a new storage account on the **Storage** tab and a new Application Insights instance on the **Monitoring** tab. You can also choose to use an existing storage account or Application Insights instance, and change Azure OpenAI, Networking, Deployment, and Authentication settings.
+1. On the **Storage** page, accept the default behavior of creating a new [default host storage account](storage-considerations.md) or choose to use an existing storage account.
 
-1. Select **Review + create** to review the app configuration you chose, and then select **Create** to provision and deploy the function app.
+1. On the **Monitoring** page, make sure that **Enable Application Insights** is selected. Accept the default to create a new Application Insights instance, or else choose to use an existing instance. When you create an Application Insights instance, you're also asked to select a Log Analytics **Workspace**.
+
+1. On the **Authentication** page, change the **Authentication type** to **Managed identity** for all resources. By default, a user-assigned managed identity is also created that your app uses to access these Azure resources by using Microsoft Entra ID authentication. Managed identities with Microsoft Entra provides the highest level of security when connecting to Azure resources.   
+
+1. Accept the default options in the remaining tabs and then select **Review + create** to review the app configuration you chose.
+
+1. When you're satisfied, select **Create** to provision and deploy the function app and related resources.
 
 1. Select the **Notifications** icon in the upper-right corner of the portal and watch for the **Deployment succeeded** message.
 
