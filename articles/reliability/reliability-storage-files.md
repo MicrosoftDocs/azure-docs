@@ -21,7 +21,7 @@ Azure Files provides fully managed file shares in the cloud that are accessible 
 
  - *Locally redundant storage (LRS) and zone-redundant storage (ZRS)* are designed for HA and ensure data durability within a single datacenter or across availability zones.
 
- - *GRS and geo-zone-redundant storage (GZRS)* provide cross-region DR, and replicate data to a secondary region to safeguard against regional outages.
+ - *GRS and geo-zone-redundant storage (GZRS)* provide cross-region DR and replicate data to a secondary region to safeguard against regional outages.
 
 > [!NOTE]
 > Azure Files is part of the Azure Storage platform. Some of the capabilities of Azure Files are common across many Azure Storage services. In this article, we use *Azure Storage* to refer to these common capabilities.
@@ -34,7 +34,7 @@ To learn how to deploy Azure Files to support your solution's reliability requir
 
 Azure Files is available in two media tiers: 
 
-- The **Premium tier** uses solid state disks (SSD) for high performance. This tier is recommended for workloads that require low latency.
+- The **Premium tier** uses solid-state drives (SSD) for high performance. This tier is recommended for workloads that require low latency.
 
 - The **Standard tier** supports hard disk drives (HDD). HDD file shares provide a cost-effective storage option for general purpose file shares.
 
@@ -74,7 +74,7 @@ ZRS is supported by all file share types.
 
 [!INCLUDE [Storage - Availability zone cost](includes/storage/reliability-storage-availability-zone-cost-include.md)]
 
-For more information about pricing, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/).
+detailed pricing information, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ### Configure availability zone support
 
@@ -164,7 +164,7 @@ For detailed pricing information, see [Azure Files pricing](https://azure.micros
 
 This section describes what to expect when a storage account is configured for geo-redundancy and all regions are operational.
 
-- **Traffic routing between regions:** Azure Files uses an active/passive approach where all read and write operations are directed to the primary region.
+- **Traffic routing between regions:** Azure Files uses an active-passive approach where all read and write operations are directed to the primary region.
 
 - **Data replication between regions:** Write operations are first committed to the primary region using the configured redundancy type (LRS for GRS, or ZRS for GZRS). After successful completion in the primary region, data is asynchronously replicated to the secondary region where it's stored by using LRS.
 
@@ -180,7 +180,7 @@ This section describes what to expect when a storage account is configured for g
 
 ### Testing for region failures
 
-For GRS accounts, you can perform planned failover operations during maintenance windows to test the complete failover and failback process. Planned failover doesn't require data loss, but it does involve downtime during both failover and failback.
+For GRS accounts, you can perform planned failover operations during maintenance windows to test the complete failover and failback process. Planned failover doesn't require data loss, but it does require downtime during both failover and failback.
 
 ### Alternative multi-region approaches
 
@@ -218,7 +218,7 @@ You can create your snapshots and store them in two different ways:
 
 - **Share-level storage:** For operational and short-term recovery scenarios, you can create share-level snapshots and store them within the same storage account. Share-level snapshots enable rapid recovery of individual files or entire file shares to either the original or an alternate location.
 
-- **Vaulted backup storage:** With vaulted backup, you can copy your daily snapshots to an Azure Recovery Services vault. To enhance security, this vault is isolated and air-gapped from the primary storage account
+- **Vaulted backup storage:** With vaulted backup, you can copy your daily snapshots to an Azure Recovery Services vault. To enhance security, this vault is isolated and air-gapped from the primary storage account.
   
   When you use a paired Azure region and configure the vault to use GRS, the vault replicates data to the paired region. This replication supports cross-region recovery and DR workflows.
 

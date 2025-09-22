@@ -9,4 +9,4 @@
  ms.custom: include file
 ---
 
-This section provides a high-level overview of some approaches to consider. A complete treatment of multi-region deployment topologies for Azure Storage is outside the scope of this article.
+This section provides a high-level overview of some approaches to consider. A comprehensive overview of multi-region deployment topologies for Azure Storage is outside the scope of this article.
