@@ -50,7 +50,8 @@ For more information, see the [Spring Boot documentation on data access](https:/
 ::: zone pivot="java-tomcat"
 
 > [!TIP]
-> By default, the Linux Tomcat containers can automatically configure shared data sources for you in the Tomcat server. The only thing for you to do is add an app setting that contains a valid JDBC connection string to an Oracle, SQL Server, PostgreSQL, or MySQL database (including the connection credentials), and App Service automatically adds the corresponding shared database to */usr/local/tomcat/conf/context.xml*, using an appropriate driver available in the container. For an end-to-end scenario using this approach, see [Tutorial: Build a Tomcat web app with Azure App Service on Linux and MySQL](tutorial-java-tomcat-mysql-app.md).
+> Linux Tomcat containers can automatically configure shared data sources for you in the Tomcat server by setting the environment variable `WEBSITE_AUTOCONFIGURE_DATABASE
+` to `true`. The only thing for you to do is add an app setting that contains a valid JDBC connection string to an Oracle, SQL Server, PostgreSQL, or MySQL database (including the connection credentials), and App Service automatically adds the corresponding shared database to */usr/local/tomcat/conf/context.xml*, using an appropriate driver available in the container. For an end-to-end scenario using this approach, see [Tutorial: Build a Tomcat web app with Azure App Service on Linux and MySQL](tutorial-java-tomcat-mysql-app.md).
 
 These instructions apply to all database connections. You need to fill placeholders with your chosen database's driver class name and JAR file. Provided is a table with class names and driver downloads for common databases.
 
