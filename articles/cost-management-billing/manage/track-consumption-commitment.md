@@ -8,6 +8,7 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 01/22/2025
 ms.author: shrshett
+ms.custom: sfi-image-nochange
 ---
 
 # Track your Microsoft Azure Consumption Commitment (MACC)
