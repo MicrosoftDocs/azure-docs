@@ -9,6 +9,7 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 07/29/2025
 ms.author: jkinma
+ms.custom: sfi-image-nochange
 ---
 
 # Download or view your Azure billing invoice

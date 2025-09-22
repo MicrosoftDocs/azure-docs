@@ -8,6 +8,7 @@ ms.subservice: reservations
 ms.topic: troubleshooting
 ms.date: 07/08/2025
 ms.author: primittal
+ms.custom: sfi-image-nochange
 ---
 
 # Find a reservation purchaser from Azure logs

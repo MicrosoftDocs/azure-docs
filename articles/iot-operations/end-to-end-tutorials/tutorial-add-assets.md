@@ -4,9 +4,10 @@ description: "Tutorial: Add OPC UA assets that publish messages to the MQTT brok
 author: dominicbetts
 ms.author: dobett
 ms.topic: tutorial
+ms.date: 07/25/2025
 ms.custom:
   - ignite-2023
-ms.date: 07/25/2025
+  - sfi-image-nochange
 
 #CustomerIntent: As an OT user, I want to create assets in Azure IoT Operations so that I can subscribe to asset data points, and then process the data before I send it to the cloud.
 ---

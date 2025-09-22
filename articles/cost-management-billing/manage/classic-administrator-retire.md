@@ -8,6 +8,7 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/14/2025
 ms.author: macyso
+ms.custom: sfi-ga-nochange
 ---
 
 # Prepare for Azure classic administrator roles retirement

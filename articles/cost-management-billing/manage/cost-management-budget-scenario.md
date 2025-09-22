@@ -8,6 +8,7 @@ ms.subservice: cost-management
 ms.topic: how-to
 ms.date: 06/26/2025
 ms.author: jojoh
+ms.custom: sfi-image-nochange
 ---
 
 # Manage costs with budgets

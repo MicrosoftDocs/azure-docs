@@ -9,6 +9,7 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 07/28/2025
 ms.author: jkinma
+ms.custom: sfi-image-nochange
 ---
 
 # Upgrade your Azure free account or Azure for Students Starter account

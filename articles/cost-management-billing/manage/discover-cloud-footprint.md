@@ -11,6 +11,7 @@ ms.reviewer: nicholak
 #customer intent: As a billing administrator, I want to understand how to view and manage my Microsoft cloud footprint so that I can effectively oversee my organization's cloud resources and costs.
 
 stid: stid-goes-here
+ms.custom: sfi-ga-nochange
 ---
 
 # Discover your Microsoft cloud footprint FAQ

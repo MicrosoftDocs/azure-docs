@@ -9,6 +9,7 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/18/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Transfer billing ownership of an MOSP Azure subscription to another account

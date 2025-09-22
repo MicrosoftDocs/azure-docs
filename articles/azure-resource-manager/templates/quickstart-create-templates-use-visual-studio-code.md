@@ -3,7 +3,10 @@ title: Create template - Visual Studio Code
 description: Use Visual Studio Code to work on Azure Resource Manager templates (ARM templates).
 ms.date: 07/23/2025
 ms.topic: quickstart
-ms.custom: mode-ui, devx-track-arm-template
+ms.custom:
+  - mode-ui
+  - devx-track-arm-template
+  - sfi-image-nochange
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Resource Manager templates, so I can use the templates to deploy Azure resources.
 ---
 

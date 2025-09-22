@@ -8,7 +8,9 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 05/01/2025
 ms.author: drjones
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - sfi-image-nochange
 ---
 
 # Add, update, or delete a payment method

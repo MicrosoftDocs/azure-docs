@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.date: 04/24/2025
 ms.author: rolyon
 ms.reviewer: bagovind
+ms.custom: sfi-image-nochange
 ---
 
 # List Azure deny assignments

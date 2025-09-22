@@ -37,7 +37,7 @@ All containers in a container group are deployed together as a single logical un
 
 The following diagram shows the relationship between container groups, containers, and images:
 
-:::image type="content" source="./media/reliability-containers/container-groups-containers.png" alt-text="Diagram that shows a container group with two containers, each using a separate image in a registry." border="false":::
+:::image type="content" source="./media/reliability-container-instances/container-groups-containers.png" alt-text="Diagram that shows a container group with two containers, each using a separate image in a registry." border="false":::
 
 Additionally, Container Instances provides the following features to manage container groups:
 
@@ -67,13 +67,13 @@ Container Instances supports availability zones in different ways depending on h
     > [!NOTE]
     > To ensure that your application remains running whenever any single zone in the region experiences an outage, we recommend that you create a minimum of two container groups across two different availability zones. 
 
-    :::image type="content" source="./media/reliability-containers/container-groups-containers-zonal.png" alt-text="Diagram that shows a container group with two containers deployed into a single availability zone." border="false":::
+    :::image type="content" source="./media/reliability-container-instances/container-groups-containers-zonal.png" alt-text="Diagram that shows a container group with two containers deployed into a single availability zone." border="false":::
 
     If you don't specify availability zones to use for your container group, it's *nonzonal* or *regional*, which means it might be placed in any availability zone within the region, or within the same zone. If any availability zone in the region has a problem, your container group might experience downtime.
 
 - *NGroups:* When you deploy an NGroup, you can specify one or more zones to deploy it to. If you deploy it to two or more zones, it's a *zone-redundant* NGroup, and an outage of one availability zone only causes problems for the container groups within the affected zone.
 
-    :::image type="content" source="./media/reliability-containers/ngroup-zone-redundant.png" alt-text="Diagram that shows an NGroup with three container groups, deployed into three availability zones." border="false":::
+    :::image type="content" source="./media/reliability-container-instances/ngroup-zone-redundant.png" alt-text="Diagram that shows an NGroup with three container groups, deployed into three availability zones." border="false":::
 
     If you don't specify availability zones to use for your NGroup, it's nonzonal and might experience downtime if any availability zone in the region has a problem.
 

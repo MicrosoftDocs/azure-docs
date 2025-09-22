@@ -8,9 +8,11 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/14/2025
 ms.author: macyso
-#customer intent: As a Microsoft Customer Agreement billing owner, I want learn about managing a MACC so that I move it when needed.
 ms.custom:
-- build-2025
+  - sfi-image-nochange
+  - build-2025
+#customer intent: As a Microsoft Customer Agreement billing owner, I want learn about managing a MACC so that I move it when needed.
+
 ---
 
 # Manage a Microsoft Azure Consumption Commitment resource under a subscription

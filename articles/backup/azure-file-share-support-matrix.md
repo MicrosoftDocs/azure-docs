@@ -2,7 +2,7 @@
 title: Support Matrix for Azure files backup by using Azure Backup
 description: Provides a summary of support settings and limitations when backing up Azure files.
 ms.topic: reference
-ms.date: 09/17/2025
+ms.date: 09/22/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -87,7 +87,7 @@ Migration of  File Shares protected with snapshot backup to vaulted backup is su
 | -------------------------------------------------- | ------  |
 | Standard                                           | Supported  |
 | Large                                              | Supported |
-| Premium                                            | Supported (in preview) |
+| Premium                                            | Supported |
 | File Shares connected with Azure File Sync service | Supported |
 
 

@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.date: 09/09/2025
 ms.author: kenday
 ms.reviewer: clionabolger
+ms.custom: sfi-ga-nochange
 ---
 
 # Onboard to the Microsoft Customer Agreement (MCA)

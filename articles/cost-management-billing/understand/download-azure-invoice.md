@@ -9,6 +9,7 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 04/07/2025
 ms.author: jkinma
+ms.custom: sfi-image-nochange
 ---
 
 # View and download your Microsoft Azure invoice

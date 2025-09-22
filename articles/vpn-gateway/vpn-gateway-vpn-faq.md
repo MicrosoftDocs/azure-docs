@@ -276,6 +276,18 @@ Other software VPN solutions should work with the gateway, as long as they confo
 
 Yes, but the public IP addresses of the point-to-site client must be different from the public IP addresses that the site-to-site VPN device uses, or else the point-to-site connection won't work. Point-to-site connections with IKEv2 can't be initiated from the same public IP addresses where a site-to-site VPN connection is configured on the same VPN gateway.
 
+### How does Azure VPN Gateway handle traffic flow in Active-Active mode, and what should I consider if my on-premises setup requires symmetric routing?
+
+In Azure VPN Gateway Active-Active mode, each gateway instance has its own public IP and tunnel, and Azure may send traffic over either tunnel. For a given TCP/UDP flow, Azure will try to use the same tunnel in one direction, but there’s no guarantee that return traffic will follow the same path. This means flows can be asymmetric, which Azure handles natively, but if your on-premises firewall or VPN device requires strict symmetry, you’ll need to adjust routing policies (e.g., with BGP attributes or traffic selectors) or consider Active-Standby mode instead.
+
+### Does Azure guarantee symmetric routing for a given flow in Active-Active VPN mode?
+
+No, Azure does not guarantee symmetric routing for a given flow in Active-Active VPN mode.
+* An Active-Active VPN Gateway has two gateway instances (Gateway0 and Gateway1), each with its own public IP.
+* The on-premises VPN device(s) typically establish two tunnels (one per gateway instance).
+* Azure’s BGP advertisements make both tunnels available for routing.
+* Depending on the on-premises routing policy and Azure’s route selection, packets may egress one tunnel and ingress the other.
+
 ## <a name="P2S"></a>Point-to-site connections
 
 [!INCLUDE [P2S FAQ All](../../includes/vpn-gateway-faq-p2s-all-include.md)]

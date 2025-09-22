@@ -6,6 +6,7 @@ ms.author: dobett
 ms.topic: overview
 ms.date: 07/28/2025
 ai-usage: ai-assisted
+ms.custom: sfi-image-nochange
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to understand the key components in the Azure IoT Operations for managing devices and assets, so that I can effectively manage the devices and assets in my solution. 
 ---

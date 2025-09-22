@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 07/25/2025
+ms.date: 09/22/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -19,6 +19,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- September 2025
+  - [Vaulted backup support for Azure Files (Premium) is now generally available](#vaulted-backup-support-for-azure-files-premium-is-now-generally-available)
 - July 2025
   - [Agentless multi-disk crash-consistent backups for Azure VMs is now generally available](#agentless-multi-disk-crash-consistent-backups-for-azure-vms-is-now-generally-available)
 - June 2025
@@ -116,6 +118,12 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Archive Tier for Azure Backup (in preview)](#archive-tier-for-azure-backup-in-preview)
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
+
+## Vaulted backup support for Azure Files (Premium) is now generally available
+
+Azure Backup now supports vaulted backup File Shares in standard storage accounts to protect against ransomware and data loss. You can define backup schedules and retention settings to store data in the Backup vault for up to **10 years**.
+
+For more information, see [Overview of Azure Files backup](azure-file-share-backup-overview.md).
 
 ## Agentless multi-disk crash-consistent backups for Azure VMs is now generally available
 

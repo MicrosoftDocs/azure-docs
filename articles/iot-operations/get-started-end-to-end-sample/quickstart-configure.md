@@ -4,9 +4,10 @@ description: "Quickstart: Configure devices, assets, and data flows in your clus
 author: dominicbetts
 ms.author: dobett
 ms.topic: quickstart
+ms.date: 07/18/2025
 ms.custom:
   - ignite-2023
-ms.date: 07/18/2025
+  - sfi-image-nochange
 
 #CustomerIntent: As an OT user, I want to configure my Azure IoT Operations cluster so that I can see how to process and route data to a cloud endpoint.
 ---

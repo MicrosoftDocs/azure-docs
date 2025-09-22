@@ -6,6 +6,7 @@ ms.service: role-based-access-control
 ms.topic: conceptual
 ms.date: 12/12/2024
 ms.author: rolyon
+ms.custom: sfi-ga-nochange
 ---
 
 # Eligible and time-bound role assignments in Azure RBAC

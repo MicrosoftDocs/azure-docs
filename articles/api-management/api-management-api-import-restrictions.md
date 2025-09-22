@@ -52,7 +52,7 @@ If you receive errors while importing your OpenAPI document, make sure you've va
 | **Defined URL parameter** | Must be part of the URL template. |
 | **Available source file URL** | Applied to relative server URLs. |
 | **`\$ref` pointers** | Can't reference external files. |
-
+| **Maximum URL Length** | API URL must be less than 128 characters long. |
 
 #### OpenAPI specifications
 

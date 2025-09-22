@@ -2,8 +2,10 @@
 title: Bicep functions - string
 description: Describes the functions to use in a Bicep file to work with strings.
 ms.topic: reference
-ms.custom: devx-track-bicep
 ms.date: 06/19/2025
+ms.custom:
+  - devx-track-bicep
+  - sfi-ropc-nochange
 ---
 
 # String functions for Bicep

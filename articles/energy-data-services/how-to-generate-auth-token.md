@@ -6,7 +6,9 @@ ms.author: bselvaraj
 ms.service: azure-data-manager-energy
 ms.topic: how-to
 ms.date: 01/03/2024
-ms.custom: template-how-to
+ms.custom:
+  - template-how-to
+  - sfi-image-nochange
 #Customer intent: As a developer, I want to learn how to generate an auth token.
 ---
 

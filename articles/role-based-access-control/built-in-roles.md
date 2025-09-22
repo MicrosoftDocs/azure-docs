@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon    
 manager: pmwongera
 ms.author: rolyon
-ms.date: 09/03/2025
+ms.date: 09/19/2025
 ms.custom: generated
 ---
 
@@ -218,6 +218,8 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='azure-kubernetes-service-cluster-monitoring-user'></a>[Azure Kubernetes Service Cluster Monitoring User](./built-in-roles/containers.md#azure-kubernetes-service-cluster-monitoring-user) | List cluster monitoring user credential action. | 1afdec4b-e479-420e-99e7-f82237c7c5e6 |
 > | <a name='azure-kubernetes-service-cluster-user-role'></a>[Azure Kubernetes Service Cluster User Role](./built-in-roles/containers.md#azure-kubernetes-service-cluster-user-role) | List cluster user credential action. | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
 > | <a name='azure-kubernetes-service-contributor-role'></a>[Azure Kubernetes Service Contributor Role](./built-in-roles/containers.md#azure-kubernetes-service-contributor-role) | Grants access to read and write Azure Kubernetes Service clusters | ed7f3fbd-7b88-4dd4-9017-9adb7ce333f8 |
+> | <a name='azure-kubernetes-service-namespace-contributor'></a>[Azure Kubernetes Service Namespace Contributor](./built-in-roles/containers.md#azure-kubernetes-service-namespace-contributor) | Allows users to create and manage Azure Kubernetes Service namespace resources. | 289d8817-ee69-43f1-a0af-43a45505b488 |
+> | <a name='azure-kubernetes-service-namespace-user'></a>[Azure Kubernetes Service Namespace User](./built-in-roles/containers.md#azure-kubernetes-service-namespace-user) | Allows users to read Azure Kubernetes Service namespace resources. In-cluster namespace access further requires assignment of Azure Kubernetes Service RBAC roles to the namespace resource for an Entra ID enabled cluster. | c9f76ca8-b262-4b10-8ed2-09cf0948aa35 |
 > | <a name='azure-kubernetes-service-rbac-admin'></a>[Azure Kubernetes Service RBAC Admin](./built-in-roles/containers.md#azure-kubernetes-service-rbac-admin) | Lets you manage all resources under cluster/namespace, except update or delete resource quotas and namespaces. | 3498e952-d568-435e-9b2c-8d77e338d7f7 |
 > | <a name='azure-kubernetes-service-rbac-cluster-admin'></a>[Azure Kubernetes Service RBAC Cluster Admin](./built-in-roles/containers.md#azure-kubernetes-service-rbac-cluster-admin) | Lets you manage all resources in the cluster. | b1ff04bb-8a4e-4dc4-8eb5-8693973ce19b |
 > | <a name='azure-kubernetes-service-rbac-reader'></a>[Azure Kubernetes Service RBAC Reader](./built-in-roles/containers.md#azure-kubernetes-service-rbac-reader) | Allows read-only access to see most objects in a namespace. It does not allow viewing roles or role bindings. This role does not allow viewing Secrets, since reading the contents of Secrets enables access to ServiceAccount credentials in the namespace, which would allow API access as any ServiceAccount in the namespace (a form of privilege escalation). Applying this role at cluster scope will give access across all namespaces. | 7f6c6a51-bcf8-42ba-9220-52d62157d7db |

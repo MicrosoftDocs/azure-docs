@@ -1,7 +1,7 @@
 ---
 title: Reliability in Azure AI Search
 titleSuffix: Azure AI Search
-description: Find out about reliability in Azure AI Search, including availability zones, multi-region deployments, transient faults, and backup options.
+description: Learn how to improve reliability in Azure AI Search by using availability zones, replicas, and multi-region deployments for more resilient performance.
 author: haileytap
 ms.author: haileytapia
 ms.service: azure-ai-search
@@ -18,7 +18,7 @@ This article describes reliability support in [Azure AI Search](/azure/search/se
 
 [!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
-## Production deployment recommendations
+## Production deployment recommendations for reliability
 
 For production workloads, we recommend that you use a [billable tier](/azure/search/search-sku-tier) that has at least [two replicas](/azure/search/search-capacity-planning#add-or-remove-partitions-and-replicas). This configuration makes your search service more resilient to transient faults and maintenance operations. It also meets the [service-level agreement (SLA)](#service-level-agreement) for AI Search. The SLA requires two replicas for read-only workloads and three or more replicas for read-write workloads.
 

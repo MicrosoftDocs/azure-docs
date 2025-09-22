@@ -2,8 +2,10 @@
 title: Bicep functions - arrays
 description: Describes the functions to use in a Bicep file for working with arrays.
 ms.topic: reference
-ms.custom: devx-track-bicep
 ms.date: 02/12/2025
+ms.custom:
+  - devx-track-bicep
+  - sfi-ropc-nochange
 ---
 
 # Array functions for Bicep

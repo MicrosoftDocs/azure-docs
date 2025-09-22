@@ -8,6 +8,7 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 05/29/2025
 ms.author: jkinma
+ms.custom: sfi-ga-nochange
 ---
 
 # Understand Microsoft Customer Agreement administrative roles in Azure

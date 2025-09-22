@@ -6,9 +6,12 @@ manager: pmwongera
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 12/01/2023
 ms.author: rolyon
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-ga-nochange
 #Customer intent: As a dev, devops, or it admin, I want to
 ---
 
