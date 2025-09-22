@@ -816,6 +816,14 @@
       href: partner-integrations.md
     - name: Sentinel solution quality guidelines
       href: sentinel-solution-quality-guidance.md
+    - name: Platform solutions
+      items:
+        - name: Solution setup essentials
+          href: solution-setup-essentials.md
+        - name: Package and publish a Microsoft Sentinel platform solution
+          href: platform-solution-packaging.md
+        - name: Manage Microsoft Sentinel platform solutions
+          href: manage-platform-solutions.md      
     - name: Sentinel SIEM content 
       items:
       - name: Creating codeless data connectors (CCF)
