@@ -2,8 +2,11 @@
 title: Configure IP firewall rules for Azure Service Bus
 description: This article describes how to use Firewall Rules to allow connections from specific IP addresses to Azure Service Bus. 
 ms.topic: how-to
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 12/02/2024
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: As an IT administrator, I would like to know how to configure IP firewall rules for an Azure Service Bus namespace. 
 ---
 

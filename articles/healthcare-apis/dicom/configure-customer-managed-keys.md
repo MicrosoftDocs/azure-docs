@@ -7,6 +7,7 @@ ms.subservice: fhir
 ms.topic: how-to
 ms.date: 06/30/2025
 ms.author: buchvarun
+ms.custom: sfi-image-nochange
 ---
 
 # Configure customer-managed keys for the DICOM service

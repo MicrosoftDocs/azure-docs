@@ -8,6 +8,7 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 09/27/2023
 ms.author: ounyman
+ms.custom: sfi-image-nochange
 ---
 
 # Configure private link

@@ -5,9 +5,12 @@ author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
-ms.custom: references_regions, subject-rbac-steps
 ms.date: 08/12/2025
 ms.author: kesheth
+ms.custom:
+  - references_regions
+  - subject-rbac-steps
+  - sfi-image-nochange
 ---
 
 # Configure export settings and set up a storage account

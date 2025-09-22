@@ -39,7 +39,7 @@ Use the following table to compare feature and functional differences between th
 | Middleware | [Supported](dotnet-isolated-process-guide.md#middleware) | Not supported |
 | Logging | [`ILogger<T>`]/[`ILogger`] obtained from [FunctionContext](/dotnet/api/microsoft.azure.functions.worker.functioncontext) or by using [dependency injection](dotnet-isolated-process-guide.md#dependency-injection)| [`ILogger`] passed to the function<br/>[`ILogger<T>`] by using [dependency injection](functions-dotnet-dependency-injection.md) |
 | Application Insights dependencies | [Supported](./dotnet-isolated-process-guide.md#application-insights) | [Supported](functions-monitoring.md#dependencies) |
-| Cancelation tokens | [Supported](dotnet-isolated-process-guide.md#cancelation-tokens) | [Supported](functions-dotnet-class-library.md#cancellation-tokens) |
+| Cancellation tokens | [Supported](dotnet-isolated-process-guide.md#cancellation-tokens) | [Supported](functions-dotnet-class-library.md#cancellation-tokens) |
 | Cold start times<sup>2</sup> | [Configurable optimizations](./dotnet-isolated-process-guide.md#performance-optimizations) | Optimized |
 | ReadyToRun | [Supported](dotnet-isolated-process-guide.md#readytorun) | [Supported](functions-dotnet-class-library.md#readytorun) |
 | [Flex Consumption] | [Supported](./flex-consumption-plan.md#supported-language-stack-versions) | Not supported |

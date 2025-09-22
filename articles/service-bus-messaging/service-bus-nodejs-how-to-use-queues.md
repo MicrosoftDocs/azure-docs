@@ -6,7 +6,10 @@ ms.author: spelluru
 ms.date: 06/13/2025
 ms.topic: quickstart
 ms.devlang: javascript
-ms.custom: devx-track-js, mode-api
+ms.custom:
+  - devx-track-js
+  - mode-api
+  - sfi-ropc-nochange
 #customer intent: As a developer, I want to learn how to send and receive messages with Azure Service Bus queues by using the Python programming language.
 ---
 

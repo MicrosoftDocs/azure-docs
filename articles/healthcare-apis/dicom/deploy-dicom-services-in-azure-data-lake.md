@@ -7,7 +7,10 @@ ms.subservice: dicom-service
 ms.topic: how-to
 ms.date: 06/30/2025
 ms.author: buchvarun
-ms.custom: mode-api, devx-track-arm-template
+ms.custom:
+  - mode-api
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # Deploy the DICOM service with Azure Data Lake Storage

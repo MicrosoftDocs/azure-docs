@@ -5,10 +5,12 @@ services: databox
 author: alkohli
 
 ms.service: azure-stack-edge
-ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 08/09/2022
 ms.author: alkohli
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
 #Customer intent: As an IT admin, I need to understand how to create Azure VM images that I can use to deploy virtual machines on my Azure Stack Edge Pro GPU device.
 ---
 

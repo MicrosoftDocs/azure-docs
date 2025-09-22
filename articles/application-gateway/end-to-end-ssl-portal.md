@@ -8,7 +8,9 @@ ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 03/28/2023
 ms.author: mbender
-ms.custom: mvc
+ms.custom:
+  - mvc
+  - sfi-image-nochange
 # Customer intent: As a network engineer, I want to configure end-to-end TLS encryption for an application gateway, so that I can ensure secure communication between clients and backend servers.
 ---
 

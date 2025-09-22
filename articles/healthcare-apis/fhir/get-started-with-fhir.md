@@ -7,7 +7,9 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 06/06/2022
 ms.author: kesheth
-ms.custom: mode-api
+ms.custom:
+  - mode-api
+  - sfi-image-blocked
 ---
 
 # Get started with the FHIR service

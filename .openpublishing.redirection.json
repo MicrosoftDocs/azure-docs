@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/azure-app-configuration/quickstart-container-apps.md",
+      "redirect_url": "/previous-versions/azure/azure-app-configuration/quickstart-container-apps",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/update-manager/migration-overview.md",
       "redirect_url": "/azure/update-manager",
       "redirect_document_id": false

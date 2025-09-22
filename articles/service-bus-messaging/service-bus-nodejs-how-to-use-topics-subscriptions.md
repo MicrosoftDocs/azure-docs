@@ -6,7 +6,10 @@ ms.author: spelluru
 ms.date: 12/08/2023
 ms.topic: quickstart
 ms.devlang: javascript
-ms.custom: devx-track-js, mode-api
+ms.custom:
+  - devx-track-js
+  - mode-api
+  - sfi-ropc-nochange
 ---
 
 # Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic (JavaScript)

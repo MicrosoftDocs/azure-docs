@@ -8,6 +8,7 @@ ms.subservice: medtech-service
 ms.topic: how-to
 ms.date: 8/18/2025
 ms.author: chrupa
+ms.custom: sfi-image-nochange
 ---
 
 # How to enable diagnostic settings for the MedTech service

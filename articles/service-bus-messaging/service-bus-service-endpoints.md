@@ -3,7 +3,11 @@ title: Configure network service endpoints
 description: This article provides information on how to add a Microsoft.ServiceBus service endpoint to a virtual network. 
 ms.topic: how-to
 ms.date: 07/31/2024
-ms.custom: fasttrack-edit, devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
+  - fasttrack-edit
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: As a developer or IT Admin, I want to know how to allow access to my Service Bus namespace only from selected networks. 
 ---
 

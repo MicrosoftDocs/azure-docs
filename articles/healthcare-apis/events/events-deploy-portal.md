@@ -8,6 +8,7 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 11/26/2024
 ms.author: chrupa
+ms.custom: sfi-image-nochange
 ---
 
 # Quickstart: Deploy events using the Azure portal

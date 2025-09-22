@@ -7,6 +7,7 @@ ms.service: azure-health-data-services
 ms.topic: tutorial
 ms.date: 06/06/2022
 ms.author: kesheth
+ms.custom: sfi-image-nochange
 ---
 
 # Access the Azure Health Data Services with cURL

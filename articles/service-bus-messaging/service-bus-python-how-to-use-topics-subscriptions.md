@@ -6,7 +6,11 @@ ms.author: spelluru
 ms.date: 02/06/2024
 ms.topic: quickstart
 ms.devlang: python
-ms.custom: devx-track-python, mode-api, passwordless-python
+ms.custom:
+  - devx-track-python
+  - mode-api
+  - passwordless-python
+  - sfi-ropc-nochange
 ---
 
 # Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic (Python)

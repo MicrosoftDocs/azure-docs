@@ -5,6 +5,7 @@ author: videlalvaro
 ms.topic: how-to
 ms.date: 01/10/2024
 ms.author: alvidela
+ms.custom: sfi-image-nochange
 ---
 
 # How to integrate Service Bus with RabbitMQ

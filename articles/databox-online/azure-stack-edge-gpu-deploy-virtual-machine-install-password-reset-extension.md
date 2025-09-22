@@ -5,10 +5,12 @@ services: databox
 author: alkohli
 
 ms.service: azure-stack-edge
-ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 04/14/2022
 ms.author: alkohli
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 #Customer intent: As an IT admin, I need to understand how install the password reset extension on virtual machines (VMs) on my Azure Stack Edge Pro GPU device.
 ---
 # Install the password reset extension on VMs for your Azure Stack Edge Pro GPU device

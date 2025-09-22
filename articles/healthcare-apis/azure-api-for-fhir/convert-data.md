@@ -8,6 +8,7 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 09/27/2023
 ms.author: irenejoseph
+ms.custom: sfi-image-nochange
 ---
 
 # Converting your data to FHIR for Azure API for FHIR

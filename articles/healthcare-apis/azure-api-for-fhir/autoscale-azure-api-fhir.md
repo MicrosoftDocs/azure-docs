@@ -7,6 +7,7 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 07/24/2025
 ms.author: kesheth
+ms.custom: sfi-image-nochange
 ---
 
 # Autoscale for Azure API for FHIR 

@@ -5,10 +5,13 @@ services: databox
 author: alkohli
 
 ms.service: azure-stack-edge
-ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 08/30/2022
 ms.author: alkohli
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Deploy IoT Edge on an Ubuntu VM on Azure Stack Edge

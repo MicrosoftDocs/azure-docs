@@ -8,7 +8,10 @@ ms.topic: how-to
 ms.date: 04/04/2024
 ms.author: mbender
 ms.service: azure-application-gateway
-ms.custom: mvc, mode-ui
+ms.custom:
+  - mvc
+  - mode-ui
+  - sfi-image-nochange
 # Customer intent: As a network engineer, I want to configure an application gateway with a frontend public IPv6 address, so that I can ensure dual stack connectivity and effectively manage traffic between my infrastructure and users.
 ---
 
