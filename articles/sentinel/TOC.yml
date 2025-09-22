@@ -837,7 +837,7 @@
     - name: Publish solutions
       items:
       - name: Packaging and publishing a Sentinel platform solution
-        href: platform-solution-packaging.md
+        href: package-platform-solution.md
       - name: Publishing a Sentinel SIEM solution
         href: publish-sentinel-solutions.md
       - name: Solution lifecycle post publish

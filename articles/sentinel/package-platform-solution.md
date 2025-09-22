@@ -47,7 +47,7 @@ Create a package manifest to list the solution components. It includes the solut
    - **Description:** A short explanation of what the package does.
    - **Include paths:** The folders that contain the agent manifest, job YAML files, notebooks, and other required files.
 
-:::image type="content" source="media/platform-solution-packaging/package-demo-ui-small.png" alt-text="Screenshot of the Create Package Definition dialog in Visual Studio Code showing fields for package name, description, and include paths." lightbox="media/platform-solution-packaging/package-demo-ui-big.png":::
+        :::image type="content" source="media/package-platform-solution/package-demo-ui-small.png" alt-text="Screenshot of the Create Package     Definition dialog in Visual Studio Code showing fields for package name, description, and include paths." lightbox="media/package-platform-solution/package-demo-ui-big.png":::
 
 1. (Optional) Select **View YAML** to edit the YAML file.
 
