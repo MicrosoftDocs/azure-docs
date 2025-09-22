@@ -9,6 +9,7 @@ ms.date: 05/19/2025
 ms.author: rolyon
 ms.custom:
   - build-2025
+  - sfi-image-nochange
 ---
 
 # Create or update Azure custom roles using the Azure portal
