@@ -54,7 +54,7 @@ Dynamic Refresh (Poll Mode) | [GA](./reference-dotnet-provider.md#refresh-on-sen
 Dynamic Refresh (Push Mode) | GA | GA | N/A | N/A | N/A | N/A
 Dynamic Refresh (Collection Monitoring) | [GA](./reference-dotnet-provider.md#configuration-refresh) | WIP | GA | WIP | [GA](./reference-javascript-provider.md#configuration-refresh) | GA
 JSON Content Type Handling | [GA](./reference-dotnet-provider.md#json-content-type-handling) | GA | GA | GA | [GA](./reference-javascript-provider.md#json-content-type-handling) | GA
-JSON with Comments | WIP | WIP | GA | WIP | [GA](./reference-javascript-provider.md#json-content-type-handling) | GA
+JSON with Comments | [GA](./reference-dotnet-provider.md#json-content-type-handling) | GA | GA | GA | [GA](./reference-javascript-provider.md#json-content-type-handling) | GA
 Configuration Setting Mapping | [GA](./reference-dotnet-provider.md#configuration-setting-mapping) | N/A | N/A | N/A | N/A | N/A
 Key Vault References | [GA](./reference-dotnet-provider.md#key-vault-reference) | GA | GA | GA | [GA](./reference-javascript-provider.md#key-vault-reference) | GA
 Key Vault Secret Refresh | [GA](./reference-dotnet-provider.md#key-vault-secret-refresh) | WIP | GA | WIP | [GA](./reference-javascript-provider.md#key-vault-secret-refresh) | GA
@@ -72,6 +72,7 @@ Snapshots | [GA](./reference-dotnet-provider.md#snapshot) | GA | GA | WIP | [GA]
 Distributed Tracing | [GA](./reference-dotnet-provider.md#distributed-tracing) | WIP | WIP | WIP | WIP | N/A
 Health Check | [GA](./reference-dotnet-provider.md#health-check) | GA | WIP | WIP | WIP | N/A 
 Select by Tag Filters | [GA](./reference-dotnet-provider.md#load-specific-key-values-using-selectors) | WIP | WIP | GA | [GA](./reference-javascript-provider.md#tag-filters) | WIP 
+Snapshot Reference | [GA](./reference-dotnet-provider.md#snapshot-reference) | WIP | WIP | WIP | WIP | WIP
 
 ## Support policy
 
