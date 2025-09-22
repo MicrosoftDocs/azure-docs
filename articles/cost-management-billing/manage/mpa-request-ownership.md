@@ -6,11 +6,11 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 07/29/2025
+ms.date: 09/21/2025
 ms.author: jkinma
 ms.custom:
-  - sfi-image-nochange
-  - build-2025
+- sfi-image-nochange
+- build-2025
 ---
 
 # Transfer Azure product billing ownership to your Microsoft Partner Agreement (MPA)
