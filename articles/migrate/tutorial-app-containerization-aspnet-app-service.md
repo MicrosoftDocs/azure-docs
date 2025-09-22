@@ -61,7 +61,6 @@ Before you start this tutorial, you should:
 **Application servers** | Enable PowerShell remoting on the application servers: sign in to the application server and follow [these instructions to turn on PowerShell remoting](/powershell/module/microsoft.powershell.core/enable-psremoting). <br/><br/> Ensure that PowerShell 5.1 is installed on the application server. Follow the instructions in [Install and Configure WMF 5.1](/previous-versions/powershell/scripting/windows-powershell/wmf/setup/install-configure) on the application server. <br/><br/> If the Microsoft Web Deployment tool isn't already installed on the machine running the App Containerization tool and the application server, install it. You can [download the tool](https://aka.ms/webdeploy3.6).
 **ASP.NET application** | The tool currently supports: <br> <ul><li> ASP.NET applications that use .NET Framework 3.5 or later.<br/> <li>Application servers that run Windows Server 2012 R2 or later. (Application servers should be running PowerShell 5.1.) <br/><li> Applications that run on Internet Information Services 7.5 or later.</ul> <br/><br/> The tool currently doesn't support: <br/> <ul><li>Applications that require Windows authentication. <br/> <li> Applications that depend on other Windows services hosted outside of Internet Information Services.
 
-
 ## Prepare an Azure user account
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you start.
