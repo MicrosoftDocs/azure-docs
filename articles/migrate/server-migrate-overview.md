@@ -67,7 +67,7 @@ Migrating physical servers and non-traditional platforms (such as AWS, GCP, Xen,
 
 **Agent-based**: Deploy the Replication appliance and install the Mobility service agent on each virtual machine to enable replication and migration. Use this method for VMware or Hyper-V workloads that don’t meet the requirements for agentless migration.
 
-Learn more about [Migrating Physical and Cloud-based Servers (AWS, GCP, Xen, KVM)](tutorial-migrate-physical-virtual-machines.md)
+Learn more about [Migrating Physical and Cloud-based Servers (AWS, GCP, Xen, KVM)](tutorial-migrate-physical-virtual-machines.md).
 
 ## Next steps
 
