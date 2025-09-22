@@ -571,7 +571,7 @@ This feature gives you access the video frames inside the `IncomingVideoStream` 
     }
     private void OnRawIncomingVideoStreamStateChanged(RawIncomingVideoStream rawIncomingVideoStream)
     {
-        switch (incomingVideoStream.State)
+        switch (rawIncomingVideoStream.State)
         {
             case VideoStreamState.Available:
                 // There is a new IncomingVideoStream
