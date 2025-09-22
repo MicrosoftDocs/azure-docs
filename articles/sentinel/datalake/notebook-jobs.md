@@ -78,7 +78,7 @@ You can create a job in one of three ways:
     :::image type="content" source="./media/notebook-jobs/run-history.png" lightbox="./media/notebook-jobs/run-history.png" alt-text="A screenshot showing the job runs page."  :::
 
 1. Select an activity to see more details.
-    :::image type="content" source="./media/notebook-jobs/run-details.png" lightbox="./media/notebook-jobs/run-details.png" alt-text="A screenshot showing the job details page.":::
+    :::image type="content" source="./media/notebook-jobs/run-details.png" lightbox="./media/notebook-jobs/run-details.png" alt-text="A screenshot showing the job run details page.":::
 
 ## Edit a submitted job
 
