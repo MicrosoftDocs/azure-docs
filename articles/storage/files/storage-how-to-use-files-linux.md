@@ -232,7 +232,7 @@ sudo mount -t cifs $SMB_PATH $MNT_PATH -o vers=2.1,credentials=$SMB_CREDENTIAL_F
 
 ---
 
-You can also mount the same Azure file share to multiple mount points if desired. 
+You can also mount the same Azure file share to multiple mount points if desired.
 
 When you're done using the Azure file share, use `sudo umount $mntPath` to unmount the share.
 
@@ -373,7 +373,7 @@ The final step is to restart the `autofs` service.
 sudo systemctl restart autofs
 ```
 ## Mount with Password rotation
-With cifs-utils version 7.4 onwards, we now support an additional parameter called password2 as an optional, second secret you can pass to the Linux SMB client to enable seamless credential rotation (for example, rotating an Azure Storage account key used with NTLMv2) without unmounting or interrupting I/O. When present, the client will accept both password and password2 during session setup/reconnects, so you can introduce a new key while the old one is still in use. password2 can be supplied either on the mount command line (-o password2=<new-secret>, including via -o remount during rotation) or inside the SMB credentials file alongside username and password.
+With cifs-utils version 7.4 onwards, we now support an additional parameter called password2 as an optional, second secret you can pass to the Linux SMB client to enable seamless credential rotation (for example, rotating an Azure Storage account key used with NTLMv2) without unmounting or interrupting I/O. When present, the client will accept both password and password2 during session setup/reconnects, so you can introduce a new key while the old one is still in use. password2 can be supplied either on the mount command line (-o password2=`new-secret`, including via -o remount during rotation) or inside the SMB credentials file alongside username and password.
 
 See [mount options](#mount-options) for a list of SMB mount options.
 
