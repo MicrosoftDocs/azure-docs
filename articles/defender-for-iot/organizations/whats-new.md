@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes new features available in Microsoft Defender for IoT, including both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 05/05/2025
+ms.date: 09/21/2025
 ms.custom: enterprise-iot
 ---
 
@@ -17,10 +17,6 @@ Features released earlier than nine months ago are described in the [What's new 
 >
 
 [!INCLUDE [defender-iot-defender-reference](../includes/defender-for-iot-defender-reference.md)]
-
-## On-premises management console retirement
-
-The legacy on-premises management console isn't available for download after **January 1st, 2025**. We recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs before this date. For more information, see [on-premises management console retirement](ot-deploy/on-premises-management-console-retirement.md).
 
 ## September 2025
 
@@ -62,10 +58,15 @@ The “Excessive Number of Sessions” alert now includes support by default to 
 |Service area  |Updates  |
 |---------|---------|
 | **OT networks** | - [Aggregating multiple alerts violations with the same parameters](#aggregating-multiple-alerts-violations-with-the-same-parameters)|
+| **OT networks** | - [On-premises management console retirement](#on-premises-management-console-retirement) |
 
 ### Aggregating multiple alerts violations with the same parameters
 
 To reduce alert fatigue, multiple versions of the same alert violation and with the same parameters are grouped together and listed in the alerts table as one item. The alert details pane lists each of the identical alert violations in the **Violations** tab and the appropriate remediation actions are listed in the **Take action** tab. For more information, see [aggregating alerts with the same parameters](alerts.md#aggregating-alert-violations).
+
+## On-premises management console retirement
+
+The legacy on-premises management console isn't available for download after **January 1st, 2025**. We recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs before this date. For more information, see [on-premises management console retirement](ot-deploy/on-premises-management-console-retirement.md).
 
 ## December 2024
 

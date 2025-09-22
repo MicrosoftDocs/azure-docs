@@ -7,7 +7,9 @@
  ms.topic: include
  ms.date: 09/04/2019
  ms.author: kendownie
- ms.custom: include file
+ ms.custom:
+   - include file
+   - sfi-image-nochange
 ---
 
 ## Error ConditionHeadersNotSupported from a Web Application using Azure Files from Browser

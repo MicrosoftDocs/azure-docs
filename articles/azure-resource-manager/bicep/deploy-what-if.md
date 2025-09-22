@@ -2,12 +2,13 @@
 title: 'Bicep What-If: Preview Changes Before Deployment'
 description: Determine what changes will happen to your resources before deploying a Bicep file.
 ms.topic: conceptual
+ms.date: 08/19/2025
 ms.custom:
   - devx-track-bicep, devx-track-azurecli, devx-track-azurepowershell
   - ai-gen-docs-bap
   - ai-gen-title
   - ai-seo-date:08/19/2025
-ms.date: 08/19/2025
+  - sfi-image-nochange
 ---
 
 # Bicep What-If: Preview Changes Before Deployment

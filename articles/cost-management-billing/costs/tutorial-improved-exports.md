@@ -10,6 +10,7 @@ ms.subservice: cost-management
 ms.reviewer: jojoh
 ms.custom:
   - build-2025
+  - sfi-image-nochange
 ---
 
 # Tutorial: Create and manage Cost Management exports

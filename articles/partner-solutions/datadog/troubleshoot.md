@@ -4,6 +4,7 @@ description: This article provides information about troubleshooting for Datadog
 
 ms.topic: conceptual
 ms.date: 12/05/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Fix common errors for Datadog
