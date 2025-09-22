@@ -7,7 +7,10 @@ ms.service: role-based-access-control
 ms.topic: how-to
 ms.date: 03/30/2025
 ms.author: rolyon
-ms.custom: it-pro,subject-rbac-steps
+ms.custom:
+  - it-pro
+  - subject-rbac-steps
+  - sfi-image-nochange
 ---
 
 # Assign Azure roles to external users using the Azure portal

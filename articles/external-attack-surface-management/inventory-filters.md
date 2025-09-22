@@ -7,6 +7,7 @@ ms.author: dandennis
 ms.service: defender-easm
 ms.date: 12/14/2022
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Defender EASM inventory filters overview

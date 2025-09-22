@@ -23,7 +23,7 @@ Restore data from an archived log to use in high performing queries and analytic
 
 ## Prerequisites
 
-Before you restore data in an archived log, see [Start an investigation by searching large datasets (preview)](investigate-large-datasets.md) and [Restore in Azure Monitor](/azure/azure-monitor/logs/restore).
+Before you restore data in an archived log, see [Restore in Azure Monitor](/azure/azure-monitor/logs/restore).
 
 ## Restore archived log data
 

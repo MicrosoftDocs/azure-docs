@@ -9,6 +9,7 @@ ms.author: glenga
 ms.custom:
   - include file
   - build-2025
+  - sfi-ropc-nochange
 ---
 
 Configuration settings for [Durable Functions](../articles/azure-functions/durable/durable-functions-overview.md).

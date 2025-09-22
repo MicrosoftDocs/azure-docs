@@ -9,7 +9,9 @@ ms.service: azure-app-configuration
 ms.topic: sample
 ms.date: 04/12/2024
 ms.author: malev 
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 ---
 
 # Create an Azure App Configuration store with the Azure CLI
