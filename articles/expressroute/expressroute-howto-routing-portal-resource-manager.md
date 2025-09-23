@@ -7,6 +7,7 @@ ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 07/29/2025
 ms.author: duau
+ms.custom: sfi-image-nochange
 ---
 
 # Create and modify peering for an ExpressRoute circuit using the Azure portal
