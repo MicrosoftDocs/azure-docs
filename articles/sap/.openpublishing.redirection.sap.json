@@ -91,11 +91,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/sap/large-instances/large-instance-high-availability-rhel.md",
-      "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/sap/large-instances/os-upgrade-hana-large-instance.md",
       "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
       "redirect_document_id": true
