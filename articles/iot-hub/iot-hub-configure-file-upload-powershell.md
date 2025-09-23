@@ -7,7 +7,9 @@ ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 07/20/2021
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-ropc-nochange
 ---
 
 # Configure IoT Hub file uploads using PowerShell

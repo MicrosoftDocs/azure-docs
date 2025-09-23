@@ -41,6 +41,9 @@ The module logs all upgrade activity to a file named `PublicIPUpgrade.log`, crea
 
 ## Download the script
 
+> [!NOTE]
+> This process requires the download and execution of a PowerShell script. You need to ensure you have the proper permissions within your environment to complete this task. Since PowerShell modules are installed, check with your organization's security function to determine if usage of the script violates your security practices. You're responsible for ensuring usage of this script is allowed within your organization.
+
 Download the migration script from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureVMPublicIPUpgrade).
 
 ```powershell

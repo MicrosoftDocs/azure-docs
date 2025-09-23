@@ -8,7 +8,11 @@ ms.service: azure-notification-hubs
 ms.topic: quickstart
 ms.date: 05/01/2025
 ms.author: sethm
-ms.custom: mode-ui, devx-track-azurecli
+ms.custom:
+  - mode-ui
+  - devx-track-azurecli
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Quickstart: Set up push notifications in a notification hub

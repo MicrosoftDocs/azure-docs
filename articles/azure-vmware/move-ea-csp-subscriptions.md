@@ -1,11 +1,13 @@
 ---
 title: Move Azure VMware Solution subscription to another subscription
 description: This article describes how to move Azure VMware Solution subscription to another subscription. You might move your resources for various reasons, such as billing.  
-ms.custom: "subject-moving-resources, engagement-fy23"
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 12/19/2023
-
+ms.custom:
+  - subject-moving-resources
+  - engagement-fy23
+  - sfi-image-nochange
 # Customer intent: As an Azure service administrator, I want to move my Azure VMware Solution subscription to another subscription.
 ---
 

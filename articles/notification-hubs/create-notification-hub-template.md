@@ -9,7 +9,11 @@ ms.date: 09/21/2022
 ms.lastreviewed: 05/15/2020
 ms.topic: quickstart
 ms.service: azure-notification-hubs
-ms.custom: subject-armqs, mode-arm, devx-track-arm-template
+ms.custom:
+  - subject-armqs
+  - mode-arm
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create a notification hub using a Resource Manager template

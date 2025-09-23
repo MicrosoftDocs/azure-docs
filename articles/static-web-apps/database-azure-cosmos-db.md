@@ -6,6 +6,7 @@ ms.author: wujia
 ms.service: azure-static-web-apps
 ms.topic: tutorial
 ms.date: 03/07/2023
+ms.custom: sfi-ropc-nochange
 ---
 
 # Tutorial: Add an Azure Cosmos DB database connection in Azure Static Web Apps (preview)

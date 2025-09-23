@@ -7,7 +7,10 @@ ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: tutorial
 ms.date: 08/01/2024
-ms.custom: template-tutorial, references_regions
+ms.custom:
+  - template-tutorial
+  - references_regions
+  - sfi-image-nochange
 #Customer intent: As a administrator, I want to deploy a global load balancer for global high availability of my application or service.
 # Customer intent: As an IT administrator, I want to deploy a global load balancer using Azure tools, so that I can ensure high availability and failover capabilities for my application across multiple regions.
 ---

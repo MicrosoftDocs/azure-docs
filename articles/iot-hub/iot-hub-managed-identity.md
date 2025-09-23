@@ -7,7 +7,9 @@ ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 07/01/2025
-ms.custom: subject-rbac-steps
+ms.custom:
+  - subject-rbac-steps
+  - sfi-image-nochange
 ---
 
 # IoT Hub support for managed identities 

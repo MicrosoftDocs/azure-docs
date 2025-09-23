@@ -4,7 +4,9 @@ description: In this tutorial, learn how to configure the on-premises VMware HCX
 ms.topic: tutorial
 ms.service: azure-vmware
 ms.date: 02/26/2024
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 # Customer intent: "As a cloud administrator, I want to configure the VMware HCX Connector for Azure VMware Solution, so that I can enable efficient workload migrations and disaster recovery for my virtual machines."
 ---
 

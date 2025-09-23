@@ -7,7 +7,9 @@ ms.author: alzam
 ms.service: azure-private-5g-core
 ms.topic: conceptual
 ms.date: 01/19/2022
-ms.custom: template-concept
+ms.custom:
+  - template-concept
+  - sfi-image-nochange
 ---
 
 # Packet core dashboards

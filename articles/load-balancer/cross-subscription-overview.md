@@ -8,7 +8,8 @@ ms.service: azure-load-balancer
 ms.topic: overview
 ms.date: 02/20/2025
 ms.author: mbender
-ms.custom: 
+ms.custom:
+  - sfi-image-nochange
 # Customer intent: As a network architect, I want to implement cross-subscription load balancing, so that I can manage frontend IP and backend pool resources efficiently across multiple subscriptions in my organization.
 ---
 

@@ -4,10 +4,12 @@ titleSuffix: Azure Web PubSub
 description: Learn how to secure Azure Web PubSub outbound traffic to Azure Function by using shared private endpoints.
 author: ArchangelSDY
 ms.service: azure-web-pubsub
-ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 08/16/2024
 ms.author: dayshen
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Secure outbound traffic to Azure Functions through shared private endpoints

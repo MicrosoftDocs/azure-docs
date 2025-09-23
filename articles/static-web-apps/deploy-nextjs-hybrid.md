@@ -7,7 +7,9 @@ ms.service: azure-static-web-apps
 ms.topic:  tutorial
 ms.date: 04/25/2024
 ms.author: wujia
-ms.custom: devx-track-js
+ms.custom:
+  - devx-track-js
+  - sfi-image-nochange
 ---
 
 

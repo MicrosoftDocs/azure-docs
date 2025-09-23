@@ -7,7 +7,9 @@ ms.service: azure-expressroute
 ms.topic: concept-article
 ms.date: 04/09/2025
 ms.author: duau
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - sfi-image-nochange
 ---
 
 # About ExpressRoute Global Reach

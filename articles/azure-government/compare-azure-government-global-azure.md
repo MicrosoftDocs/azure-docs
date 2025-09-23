@@ -5,9 +5,11 @@ ms.service: azure-government
 ms.topic: article
 author: EliotSeattle
 ms.author: eliotgra
-ms.custom: references_regions
 recommendations: false
 ms.date: 08/21/2025
+ms.custom:
+  - references_regions
+  - sfi-ropc-nochange
 ---
 
 # Compare Azure Government and global Azure

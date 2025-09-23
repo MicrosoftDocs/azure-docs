@@ -3,7 +3,9 @@ title: How to add additional owners to a lab in Azure Lab Services
 description: This article shows you how an administrator can add a user as an owner to a lab in Azure Lab Services. 
 ms.topic: how-to
 ms.date: 08/03/2021
-ms.custom: subject-rbac-steps
+ms.custom:
+  - subject-rbac-steps
+  - sfi-image-nochange
 ---
 
 # How to add additional owners to an existing lab in Azure Lab Services

@@ -5,6 +5,7 @@ ms.topic: how-to
 author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 08/28/2023
+ms.custom: sfi-image-nochange
 ---
 
 # Restrict allowed virtual machine sizes for labs

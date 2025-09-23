@@ -7,7 +7,10 @@ ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: tutorial
 ms.date: 10/24/2023
-ms.custom: template-tutorial, engagement-fy24
+ms.custom:
+  - template-tutorial
+  - engagement-fy24
+  - sfi-image-nochange
 # Customer intent: "As a cloud architect, I want to deploy a load balancer with multiple availability sets in the backend pool, so that I can ensure high availability and efficient traffic distribution for my applications."
 ---
 

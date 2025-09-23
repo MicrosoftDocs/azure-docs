@@ -6,6 +6,7 @@ ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: how-to 
 ms.date: 08/16/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Use private endpoints for access control

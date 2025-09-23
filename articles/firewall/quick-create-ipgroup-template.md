@@ -5,9 +5,13 @@ services: firewall
 author: duau
 ms.service: azure-firewall
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.date: 05/10/2021
 ms.author: duau
+ms.custom:
+  - subject-armqs
+  - mode-arm
+  - devx-track-arm-template
+  - sfi-image-nochange
 # Customer intent: As an IT administrator, I want to deploy an Azure Firewall and configure IP Groups using an ARM template, so that I can efficiently manage network security and access for my Azure resources.
 ---
 

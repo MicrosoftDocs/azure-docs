@@ -7,7 +7,9 @@ ms.date: 10/14/2024
 ms.topic: overview
 ms.service: azure-iot-central
 services: iot-central
-ms.custom: mvc
+ms.custom:
+  - mvc
+  - sfi-image-nochange
 ---
 
 # Take a tour of the Azure IoT Central UI

@@ -8,7 +8,10 @@ services: iot-hub
 ms.topic: how-to
 ms.date: 08/14/2024
 ms.author: sonialopez 
-ms.custom: devx-track-portal, devx-track-azurecli
+ms.custom:
+  - devx-track-portal
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # How to view and update devices based on device twin properties

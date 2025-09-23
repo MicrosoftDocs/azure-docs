@@ -7,7 +7,10 @@ ms.author: alzam
 ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 03/21/2022
-ms.custom: template-how-to, devx-track-arm-template
+ms.custom:
+  - template-how-to
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # Provision new SIMs for Azure Private 5G Core - ARM template

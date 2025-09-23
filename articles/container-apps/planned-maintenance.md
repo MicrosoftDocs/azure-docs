@@ -127,6 +127,16 @@ In the *Diagnose and solve problems* window, you can view the configured mainten
 
 :::image type="content" source="media/planned-maintenance/azure-container-apps-planned-maintenance-upgrade-events.png" alt-text="Screenshot of an Azure Container Apps planned maintenance event history graph." lightbox="media/planned-maintenance/azure-container-apps-planned-maintenance-upgrade-events.png":::
 
+## Billing for Planned Maintenance
+
+Planned Maintenance is a paid feature. When you enable a planned maintenance configuration, usage is billed through the [Dedicated plan's](./billing.md#dedicated-plan) **Management (hour) meter**.
+
+This meter also applies to other premium features like private endpoint. If multiple features are enabled in the same environment, charges are **additive**, each feature is billed separately.
+
+
+For pricing details in your account's currency, see [Azure Container Apps pricing](https://azure.microsoft.com/pricing/details/container-apps/).
+
+
 ## Next steps
 
 > [!div class="nextstepaction"]

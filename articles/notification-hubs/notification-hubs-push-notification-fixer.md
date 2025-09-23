@@ -9,7 +9,9 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 06/08/2023
 ms.author: sethm
-ms.custom: devx-track-csharp
+ms.custom:
+  - devx-track-csharp
+  - sfi-ropc-nochange
 ---
 
 # Diagnose dropped notifications in Azure Notification Hubs

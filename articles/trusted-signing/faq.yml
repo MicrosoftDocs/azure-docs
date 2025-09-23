@@ -181,3 +181,11 @@ sections:
        - question: How do I unenroll from Trusted Signing?
          answer: |
           To unenroll from Trusted Signing, delete your Trusted Signing account. Deleting the account also deletes the associated identity validation and certificate profiles. This stops certificate renewal, effectively halting the signing process that's associated with those specific certificate profiles. However, deleting the account doesn't affect the certificates that were already used to sign your files.   
+  - name: Misuse and abuse of Trusted Signing certificates
+    questions:  
+       - question: How can someone external report to Microsoft the suspected misuse and abuse of Trusted Signing certificates?
+         answer: |
+          Please reach out here: https://www.microsoft.com/en-us/wdsi/filesubmission.
+       - question: What happens when misuse and abuse of Trusted Signing certificate is confirmed?
+         answer: |
+          Trusted Signing may revoke certificate(s) and suspend access to Trusted Signing service if misuse or abuse is confirmed.

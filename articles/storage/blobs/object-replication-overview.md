@@ -252,7 +252,7 @@ Here's a breakdown of the costs. To find the price of each cost component, see [
 |Transaction cost of a write operation|Transaction cost to read a change feed record|
 |Storage cost of the blob and each blob version<sup>1</sup>|Transaction cost to read the blob and blob versions<sup>2</sup>|
 |Cost to add a change feed record|Transaction cost to write the blob and blob versions<sup>2</sup>|
-||Storage cost of the blob and each blob version<sup>1</sup>|
+|Data retrieval costs on cool and cold tiers|Storage cost of the blob and each blob version<sup>1</sup>|
 ||Cost of network egress<sup>3</sup>|
 
 <sup>1</sup>    On the source account, if you haven't changed a blob or version's tier, then you're billed for unique blocks of data across that blob, its versions. See [Blob versioning pricing and Billing](versioning-overview.md#pricing-and-billing). At the destination account, for a version, you're billed for all of the blocks of a version whether or not those blocks are unique.

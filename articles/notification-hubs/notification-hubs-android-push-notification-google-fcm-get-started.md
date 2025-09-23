@@ -9,9 +9,12 @@ ms.service: azure-notification-hubs
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
-ms.custom: mvc, devx-track-java
 ms.date: 05/01/2025
 ms.author: sethm
+ms.custom:
+  - mvc
+  - devx-track-java
+  - sfi-ropc-nochange
 
 ---
 

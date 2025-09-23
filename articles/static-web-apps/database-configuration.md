@@ -6,6 +6,7 @@ ms.author: wujia
 ms.service: azure-static-web-apps
 ms.topic: how-to
 ms.date: 05/28/2024
+ms.custom: sfi-ropc-nochange
 ---
 
 # Database connection configuration in Azure Static Web Apps (preview)

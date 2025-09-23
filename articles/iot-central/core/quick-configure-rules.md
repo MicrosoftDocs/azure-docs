@@ -7,7 +7,10 @@ ms.date: 01/03/2024
 ms.topic: quickstart
 ms.service: azure-iot-central
 services: iot-central
-ms.custom: mvc, mode-other
+ms.custom:
+  - mvc
+  - mode-other
+  - sfi-image-nochange
 
 # Customer intent: As a new user of IoT Central, I want to learn how to use rules to notify me when a specific condition is detected on one of my device.
 ---

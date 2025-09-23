@@ -4,7 +4,9 @@ description: Learn how to use Azure VMware Solution to set an external identity 
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 3/29/2024
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 # Customer intent: As a network administrator, I want to configure an external LDAP identity source for VMware NSX in Azure VMware Solution, so that I can manage user authentication and access control using existing Active Directory accounts.
 ---
 

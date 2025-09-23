@@ -9,7 +9,9 @@ ms.service: azure-iot-hub
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 11/05/2024
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Regenerate shared access policy keys

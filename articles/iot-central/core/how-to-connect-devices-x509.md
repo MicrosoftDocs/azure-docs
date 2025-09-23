@@ -7,8 +7,13 @@ ms.date: 03/01/2024
 ms.topic: how-to
 ms.service: azure-iot-central
 services: iot-central
-ms.custom: device-developer, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-ten
+ms.custom:
+  - device-developer
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - sfi-image-nochange
 
 # - id: programming-languages-set-ten
 #     title: Python

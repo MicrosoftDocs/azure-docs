@@ -6,8 +6,11 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: quickstart
 ms.date: 01/17/2023
-ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
+ms.custom:
+  - mode-api
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 ---
 
 # Quickstart: Publish messages using the Azure Web PubSub service SDK

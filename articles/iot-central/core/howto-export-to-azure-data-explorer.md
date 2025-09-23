@@ -7,6 +7,7 @@ ms.author: dobett
 ms.date: 03/05/2024
 ms.topic: how-to
 ms.service: azure-iot-central
+ms.custom: sfi-image-nochange
 ---
 
 # Export IoT data to Azure Data Explorer

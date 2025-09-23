@@ -6,6 +6,7 @@ ms.author: delnas
 ms.service: azure-private-5g-core
 ms.topic: how-to 
 ms.date: 5/28/2024
+ms.custom: sfi-image-nochange
 
 ---
 

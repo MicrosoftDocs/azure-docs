@@ -7,7 +7,9 @@ ms.author: dobett
 ms.date: 04/25/2025
 ms.topic: how-to
 ms.service: azure-iot-central
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 ---
 
 # Export IoT data to Blob Storage

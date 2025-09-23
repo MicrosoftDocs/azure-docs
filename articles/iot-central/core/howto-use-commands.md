@@ -7,6 +7,7 @@ ms.date: 02/27/2024
 ms.topic: how-to
 ms.service: azure-iot-central
 services: iot-central
+ms.custom: sfi-image-nochange
 
 # Device developer
 ---

@@ -1322,7 +1322,7 @@ Azure Functions currently can be used with the following "Preview" or "Go-live" 
 
 | Operating system | .NET preview version          |
 |------------------|-------------------------------|
-| Linux            | .NET 10 Preview 5<sup>1,2,3</sup> |
+| Linux            | .NET 10 RC1<sup>1,2,3</sup> |
 | Windows          | .NET 10 Preview 5<sup>1,2</sup> |
 
 1. Apps targeting .NET 10 must use [version 2.0.5 or later of `Microsoft.Azure.Functions.Worker.Sdk`][Microsoft.Azure.Functions.Worker.Sdk]. You should also update to [version 2.50.0-preview1 or later of `Microsoft.Azure.Functions.Worker`][Microsoft.Azure.Functions.Worker], which updates dependencies to align with .NET 10. When using Visual Studio, you also need to use [Visual Studio 2026 Insiders][vs-insiders] and [update the Functions tools and templates](#considerations-for-using-net-preview-versions) to version 4.114.0 or later.

@@ -7,9 +7,12 @@ author: anzaman
 ms.author: alzam
 ms.service: azure-private-5g-core
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-arm-template
 zone_pivot_groups: ase-pro-version
 ms.date: 01/15/2025
+ms.custom:
+  - subject-armqs
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # Quickstart: Deploy a private mobile network and site - ARM template

@@ -8,6 +8,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: how-to
 ms.date: 03/28/2023
+ms.custom: sfi-image-nochange
 ---
 
 # Connect your lab's network with a peer virtual network in Azure Lab Services

@@ -2,12 +2,14 @@
 title: 'Deploy a Blazor app on Azure Static Web Apps'
 description: Learn to deploy a Blazor app on Azure Static Web Apps.
 services: static-web-apps
-ms.custom: engagement-fy23
 author: v1212
 ms.service: azure-static-web-apps
 ms.topic: tutorial
 ms.date: 09/27/2024
 ms.author: wujia
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 ---
 
 # Deploy a Blazor app on Azure Static Web Apps
