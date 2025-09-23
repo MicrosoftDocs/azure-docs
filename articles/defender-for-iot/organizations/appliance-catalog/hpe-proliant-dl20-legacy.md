@@ -3,6 +3,7 @@ title: HPE ProLiant DL20 for OT monitoring in enterprise deployments - Microsoft
 description: Learn about the HPE ProLiant DL20 appliance when used for OT monitoring with Microsoft Defender for IoT in enterprise deployments.
 ms.date: 10/30/2022
 ms.topic: reference
+ms.custom: sfi-image-nochange
 ---
 
 # HPE ProLiant DL20 Gen10
