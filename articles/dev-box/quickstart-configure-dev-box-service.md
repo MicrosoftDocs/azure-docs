@@ -7,7 +7,7 @@ ms.topic: quickstart
 author: RoseHJM
 ms.author: rosemalcolm
 ms.update-cycle: 90-days
-ms.date: 09/19/2025
+ms.date: 09/23/2025
 #Customer intent: As an enterprise admin, I want to understand how to create and configure dev box components so that I can provide dev box projects for my users.
 ---
 
@@ -115,9 +115,7 @@ To create and set up a project in a dev box:
 
 ## Create a dev box pool
 
-After you create a project in your dev center, create a dev box pool in the project. A dev box pool is a collection of dev boxes with the same settings, like the dev box definition and network connection. Developers who have access to the project can create a dev box from a dev box pool.
-
-Dev box pools set the location of the dev boxes through the specified network connection. Deploy dev boxes to a Microsoft-hosted network or to a network you manage. If you deploy dev boxes to a network you manage, first [configure a network connection](./how-to-configure-network-connections.md). Organizations that support developers in different geographical locations can create dev box pools for each location by specifying a nearby region.
+After you create a project in your dev center, create a dev box pool in the project. A dev box pool is a collection of dev boxes with the same settings, like the definition, location and network connection. Developers who have access to the project can create a dev box from a dev box pool.
 
 > [!IMPORTANT]
 > Associate at least one dev box pool with your project before users can create a dev box.

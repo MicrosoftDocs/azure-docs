@@ -39,9 +39,9 @@ To manage a dev box pool, you need the following permissions:
 
 In Microsoft Dev Box, a dev box pool is a collection of dev boxes that you manage together. You must have at least one dev box pool before users can create a dev box. 
 
-The following steps show you how to create a dev box pool associated with a project. You use an existing dev box definition and network connection in the dev center to configure the pool.
+The following steps show you how to create a dev box pool associated with a project. 
 
-If you don't have an available dev center with an existing dev box definition and network connection, follow the steps in [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md) to create them.
+If you don't have an available dev center with an existing definition, follow the steps in [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md) to create them.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
