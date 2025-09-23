@@ -50,7 +50,7 @@ Use the command's output as the firmware ID in the subsequent examples
 2. Create a firmware image to be uploaded. Insert your resource group name, subscription ID, and workspace name into the respective parameters.
 
     ```azurecli
-    az firmwareanalysis firmware create --resource-group myResourceGroup --subscription 123e4567-e89b-12d3-a456-426614174000 --workspace-name default
+    az firmwareanalysis firmware create --resource-group myResourceGroup --subscription 123e4567-e89b-12d3-a456-426614174000 --workspace-name default --firmware-id {firmware ID from command above} --vendor {vendor name} --model {model name} --version {version number}
     ```
 
 The output of this command includes a `name` property, which is your firmware ID. **Save this ID for the next command.**
