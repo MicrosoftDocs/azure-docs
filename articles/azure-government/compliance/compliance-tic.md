@@ -7,6 +7,7 @@ ms.service: azure-government
 ms.topic: article
 recommendations: false
 ms.date: 06/28/2022
+ms.custom: sfi-image-nochange
 ---
 
 # Trusted Internet Connections guidance

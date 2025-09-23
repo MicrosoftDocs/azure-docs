@@ -7,7 +7,9 @@ services: firewall
 ms.topic: how-to
 ms.date: 03/30/2022
 ms.author: duau
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: "As a network administrator, I want to migrate my Azure Firewall from Standard to Premium, so that I can leverage enhanced security features and improved performance for my firewall infrastructure."
 ---
 

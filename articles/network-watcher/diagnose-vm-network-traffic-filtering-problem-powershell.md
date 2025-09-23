@@ -6,10 +6,9 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: quickstart
-ms.date: 09/30/2024
+ms.date: 09/23/2025
 ms.custom: devx-track-azurepowershell, mode-api
 
-#Customer intent: I want to diagnose a virtual machine (VM) network traffic filter using IP flow verify to know which security rule is denying the traffic and causing the communication problem to the VM.
 # Customer intent: "As a cloud administrator, I want to diagnose network traffic filter issues on a virtual machine using IP flow verify, so that I can identify and resolve security rules causing connectivity problems."
 ---
 

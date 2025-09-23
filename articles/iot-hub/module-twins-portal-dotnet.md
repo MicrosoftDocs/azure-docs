@@ -9,7 +9,11 @@ ms.service: azure-iot-hub
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 08/20/2019
-ms.custom: amqp, devx-track-csharp, devx-track-dotnet
+ms.custom:
+  - amqp
+  - devx-track-csharp
+  - devx-track-dotnet
+  - sfi-image-nochange
 ---
 # Get started with IoT Hub module identity and module twin using the Azure portal and a .NET device
 

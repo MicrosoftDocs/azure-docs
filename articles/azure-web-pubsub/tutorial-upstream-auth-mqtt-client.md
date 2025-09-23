@@ -6,6 +6,7 @@ ms.author: zityang
 ms.service: azure-web-pubsub
 ms.topic: tutorial
 ms.date: 07/12/2024
+ms.custom: sfi-ropc-nochange
 ---
 
 # Tutorial - Authenticate and authorize MQTT clients based on client certificates with event handlers

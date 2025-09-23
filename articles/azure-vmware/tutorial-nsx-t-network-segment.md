@@ -2,9 +2,11 @@
 title: Tutorial - Add an NSX network segment in Azure VMware Solution
 description: Learn how to add an NSX network segment to use for virtual machines (VMs) in vCenter Server.
 ms.topic: tutorial
-ms.custom: engagement-fy23
 ms.service: azure-vmware
 ms.date: 6/12/2024
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 # Customer intent: "As a VMware administrator, I want to add an NSX network segment in the Azure VMware Solution, so that I can manage virtual machines efficiently and ensure proper connectivity within my cloud environment."
 ---
 
