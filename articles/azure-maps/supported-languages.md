@@ -343,7 +343,6 @@ The following table provides supported views.
 | AE      | United Arab Emirates (Arabic View)    | ✓    |        |             |
 | AR      | Argentina (Argentinian View)          | ✓    | ✓      | ✓          |
 | BH      | Bahrain (Arabic View)                 | ✓    |        |             |
-| CN      | China                                 |      |        | ✓           |
 | IN      | India (Indian View)                   | ✓    | ✓      | ✓          |
 | IQ      | Iraq (Arabic View)                    | ✓    |        |             |
 | JO      | Jordan (Arabic View)                  | ✓    |        |             |
