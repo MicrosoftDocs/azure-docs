@@ -7,6 +7,7 @@ ms.service: azure-virtual-network
 ms.topic: overview
 ms.date: 06/26/2025
 ms.author: mbender
+ms.custom: sfi-image-nochange
 # Customer intent: "As a cloud architect, I want to understand the various Azure networking services, so that I can design and implement a secure, efficient networking infrastructure for my applications and resources in the cloud."
 ---
 

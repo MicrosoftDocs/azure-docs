@@ -1,5 +1,5 @@
 ---
-title: The Advanced Security Information Model (ASIM) Authentication normalization schema reference (Public preview) | Microsoft Docs
+title: The Advanced Security Information Model (ASIM) Authentication normalization schema reference | Microsoft Docs
 description: This article describes the Microsoft Sentinel Authentication normalization schema.
 author: oshezaf
 ms.topic: reference
@@ -11,19 +11,13 @@ ms.author: ofshezaf
 
 ---
 
-# The Advanced Security Information Model (ASIM) Authentication normalization schema reference (Public preview)
+# The Advanced Security Information Model (ASIM) Authentication normalization schema reference
 
 The Microsoft Sentinel Authentication schema is used to describe events related to user authentication, sign-in, and sign-out. Authentication events are sent by many reporting devices, usually as part of the event stream alongside other events. For example, Windows sends several authentication events alongside other OS activity events.
 
 Authentication events include both events from systems that focus on authentication such as VPN gateways or domain controllers, and direct authentication to an end system, such as a computer or firewall.
 
 For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).
-
-> [!IMPORTANT]
-> The Authentication normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.
->
-> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 ## Parsers
 

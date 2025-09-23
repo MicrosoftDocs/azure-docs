@@ -3,7 +3,9 @@ title: Install the Microsoft Defender for IoT micro agent
 description: Learn how to install and authenticate the Defender for IoT micro agent.
 ms.date: 04/26/2022
 ms.topic: tutorial
-ms.custom: mode-other
+ms.custom:
+  - mode-other
+  - sfi-ropc-blocked
 #Customer intent: As an Azure admin I want to install the Defender for IoT agent on devices connected to an Azure IoT Hub
 ---
 

@@ -10,6 +10,9 @@ ms.devlang: python
 ms.topic: how-to
 ms.date: 08/25/2025
 ms.author: ikivanc
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 # Customer intent: "As a software developer, I want to run automated tests against Azure Blob Storage using a local emulator, so that I can efficiently validate my code without relying on a cloud environment."
 ---
 
