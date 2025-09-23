@@ -14,11 +14,11 @@ ms.date: 08/06/2025
 
 This article provides answers to frequently asked questions about the migration from Azure Front Door (classic) and CDN Standard from Microsoft (classic) to Front Door Standard or Premium.
 
-## Will the migration involve any downtime?
+## Does the migration involve any downtime?
 
-No, there's no downtime during the migration. This is a control plane-only migration, meaning traffic delivery is unaffected.
+No, there's no downtime during the migration. The process is a control plane-only migration, meaning traffic delivery is unaffected.
 
-During migration, the Azure Front Door (classic) endpoint `mydomain.azurefd.net` is created as a dummy custom domain on Front Door standard/premium. Both classic endpoint and standard/premium endpoints point to the same Front Door IP so the final resolution remains the same before and after DNS propagation. It continues to receive traffic until you update the DNS record of the Front Door custom domain `www.mydomain.com` to `mydomain.randomstring.z01.azurefd.net` directly. It's recommended to change the CNAME from classic endpoint to Front Door standard/premium endpoint after verification.
+During migration, the Azure Front Door (classic) endpoint `mydomain.azurefd.net` is created as a dummy custom domain on Front Door standard/premium. Both classic endpoint and standard/premium endpoints point to the same Front Door IP so the final resolution remains the same before and after DNS propagation. It continues to receive traffic until you update the DNS record of the Front Door custom domain `www.mydomain.com` to `mydomain.randomstring.z01.azurefd.net` directly. We recommend changing the CNAME from classic endpoint to Front Door standard/premium endpoint after verification.
 
 Even in rare cases where the migration fails, traffic delivery continues to work as expected.
 
@@ -54,7 +54,7 @@ Yes. After migration, make sure to update your DevOps pipeline to reflect the ne
 
 ## Related content
 
-* Understand the [settings mapping between Azure Front Door tiers](tier-mapping.md).
-* Learn how to [migrate from Azure Front Door (classic) to Standard or Premium tier](migrate-tier.md) using the Azure portal.
-* Learn how to [migrate from Azure Front Door (classic) to Standard or Premium tier](migrate-tier-powershell.md) using Azure PowerShell.
-* Learn how to [migrate from Azure CDN from Microsoft (classic)](migrate-tier.md) to Azure Front Door using the Azure portal.
+- Understand the [settings mapping between Azure Front Door tiers](tier-mapping.md).
+- Learn how to [migrate from Azure Front Door (classic) to Standard or Premium tier](migrate-tier.md) using the Azure portal.
+- Learn how to [migrate from Azure Front Door (classic) to Standard or Premium tier](migrate-tier-powershell.md) using Azure PowerShell.
+- Learn how to [migrate from Azure CDN from Microsoft (classic)](migrate-tier.md) to Azure Front Door using the Azure portal.
