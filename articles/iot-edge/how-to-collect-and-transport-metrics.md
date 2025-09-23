@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.reviewer: veyalla
 ms.service: azure-iot-edge
 services: iot-edge
+ms.custom: sfi-image-nochange
 ---
 
 # Collect and transport metrics
