@@ -4,7 +4,7 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 07/11/2025
+ms.date: 09/23/2025
 ms.author: kendownie
 ms.custom:
   - build-2025
@@ -18,6 +18,13 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 ## What's new in 2025
 
 ### 2025 quarter 3 (July, August, September)
+
+#### Azure file share using Microsoft.FileShares is now in public preview
+
+Azure file share using Microsoft.FileShares is now in public preview, bringing a modern, share-centric management experience to Azure Files. This update makes file shares a top-level resource in Azure, eliminating the need for storage accounts and enabling several key enhancements. This new model is ideal for cloud-native applications, CI/CD pipelines, and teams managing large volumes of file shares. In preview, we support NFSv4.1 on SSD with provisioned v2 billing only.
+
+To learn more, read the [blog post](https://techcommunity.microsoft.com/blog/azurestorageblog/simplifying-file-share-management-and-control-for-azure-files/4452634).
+
 #### Provisioned v2 for SSD file shares
 The provisioned v2 model for Azure Files SSD (premium) pairs predictability of total cost of ownership with flexibility, allowing you to create a file share that meets your exact storage and performance requirements. Provisioned v2 SSD shares enable independent provisioning of storage, IOPS, and throughput. In addition to predictable pricing and flexible provisioning, provisioned v2 SSD also enables increased file share size range from 32 GiB up to 256 TiB.
 
