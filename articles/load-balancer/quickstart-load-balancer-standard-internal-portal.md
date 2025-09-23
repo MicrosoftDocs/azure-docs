@@ -8,7 +8,12 @@ ms.service: azure-load-balancer
 ms.topic: quickstart
 ms.date: 06/28/2024
 ms.author: mbender
-ms.custom: mvc, mode-ui, template-quickstart, engagement-fy24
+ms.custom:
+  - mvc
+  - mode-ui
+  - template-quickstart
+  - engagement-fy24
+  - sfi-image-nochange
 #Customer intent: I want to create a internal load balancer so that I can load balance internal traffic to VMs.
 # Customer intent: "As a cloud engineer, I want to create an internal load balancer with traffic rules and health probes for my VMs, so that I can efficiently distribute internal traffic and ensure high availability of my applications."
 ---
