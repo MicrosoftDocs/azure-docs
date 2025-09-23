@@ -131,7 +131,7 @@ In the *Diagnose and solve problems* window, you can view the configured mainten
 
 Planned Maintenance is a paid feature. When you enable a planned maintenance configuration, usage is billed through the [Dedicated plan's](/articles/container-apps/billing.md#dedicated-plan) **Management (hour) meter**.
 
-This meter also applies to other premium features like Private endpoint. If multiple features are enabled in the same environment, charges are **additive**, each feature is billed separately.
+This meter also applies to other premium features like private endpoint. If multiple features are enabled in the same environment, charges are **additive**, each feature is billed separately.
 
 
 For pricing details in your account's currency, see [Azure Container Apps pricing](https://azure.microsoft.com/pricing/details/container-apps/).
