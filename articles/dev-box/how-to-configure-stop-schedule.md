@@ -1,7 +1,7 @@
 ---
-title: Set Dev Box Auto-Stop Schedule
+title: Set Dev Box Autostop Schedule
 titleSuffix: Microsoft Dev Box
-description: Learn how to configure an auto-stop schedule to automatically shut down dev boxes in a pool at a specified time and save on costs.
+description: Learn how to configure an autostop schedule to automatically shut down dev boxes in a pool at a specified time and save on costs.
 services: dev-box
 ms.service: dev-box
 ms.custom: devx-track-azurecli
@@ -10,15 +10,12 @@ ms.author: rosemalcolm
 ms.date: 09/23/2024
 ms.topic: how-to
 
-#Customer intent: As a Dev Box administrator, I want to configure an auto-stop schedule on a pool, so I can automatically shut down dev boxes in the pool at a specified time and save on costs.
+#Customer intent: As a Dev Box administrator, I want to configure an autostop schedule on a pool, so I can automatically shut down dev boxes in the pool at a specified time and save on costs.
 ---
 
-# Auto-stop your Dev Boxes on schedule
+# Autostop your dev boxes on schedule
 
-To save on costs, you can enable an auto-stop schedule on a dev box pool. Microsoft Dev Box attempts to stop all dev boxes in the pool at the time specified in the schedule. You can configure one stop time in one timezone for each pool.
-
-> [!NOTE]
-> Auto-stop schedules hibernate Dev Boxes that were created with a hibernation-enabled Dev Box definition. Dev boxes that were created by using Dev Box definitions that don't support hibernation are shut down. To learn more about enabling hibernation on your Dev Box definitions, see [How to configure dev box hibernation](./how-to-configure-dev-box-hibernation.md).
+To save on costs, you can enable an autostop schedule on a dev box pool. Microsoft Dev Box attempts to stop or hibernate all dev boxes in the pool at the time specified in the schedule. You can configure one stop time in one timezone for each pool.
 
 ## Prerequisites
 
@@ -28,17 +25,24 @@ To manage a dev box schedule, you need the following permissions:
 |---|---|
 | _Configure a schedule_ | Owner, Contributor, or DevCenter Project Admin. |
 
-## Manage an auto-stop schedule in the Azure portal
+## Manage an autostop schedule in the Azure portal
 
-You can enable, modify, and disable auto-stop schedules by using the Azure portal.
+You can enable, modify, and disable autostop schedules by using the Azure portal.
 
-### Create an auto-stop schedule
+> [!NOTE]
+> When you define an autostop schedule for a dev box, the stop behavior depends on the applied dev box definition.
+> - A dev box created with a hibernation-enabled dev box definition hibernates at the scheduled autostop time.
+> - A dev box created with a dev box definition that doesn't support hibernation shuts downs at the scheduled autostop time.
+>
+> To learn more about enabling hibernation on your dev box definitions, see [How to configure dev box hibernation](./how-to-configure-dev-box-hibernation.md).
 
-You can create an auto-stop schedule while configuring a new dev box pool, or by modifying an already existing dev box pool. The following steps show you how to use the Azure portal to create and configure an auto-stop schedule.
+### Create an autostop schedule
 
-### Add an auto-stop schedule to an existing pool
+You can create an autostop schedule while configuring a new dev box pool, or by modifying an already existing dev box pool. The following steps show you how to use the Azure portal to create and configure an autostop schedule.
 
-Follow these steps to add an auto-stop schedule to an existing dev box pool:
+### Add an autostop schedule to an existing pool
+
+Follow these steps to add an autostop schedule to an existing dev box pool:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -60,17 +64,17 @@ Follow these steps to add an auto-stop schedule to an existing dev box pool:
 
    | Setting | Value |
    |---|---|
-   | **Auto-stop on schedule** | Select the checkbox to enable an auto-stop schedule after the pool is created. |
+   | **Auto-stop on schedule** | Select the checkbox to enable an autostop schedule after the pool is created. |
    | **Stop time** | Select a time to shutdown all the dev boxes in the pool. All dev boxes in this pool shutdown at this time every day. |
    | **Time zone** | Select the time zone that the stop time is in. |
    
-   :::image type="content" source="./media/how-to-manage-stop-schedule/dev-box-enable-stop.png" alt-text="Screenshot of the edit dev box pool page showing the Cost controls section and the Auto-stop option selected." lightbox="./media/how-to-manage-stop-schedule/dev-box-enable-stop.png"::: 
+   :::image type="content" source="./media/how-to-manage-stop-schedule/dev-box-enable-stop.png" alt-text="Screenshot of the edit dev box pool page showing the Cost controls section and the autostop option selected." lightbox="./media/how-to-manage-stop-schedule/dev-box-enable-stop.png"::: 
 
 1. Select **Save**. 
 
-### Add an auto-stop schedule when you create a pool
+### Add an autostop schedule when you create a pool
 
-Follow these steps to add an auto-stop schedule when you create a dev box pool:
+Follow these steps to add an autostop schedule when you create a dev box pool:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -86,7 +90,7 @@ Follow these steps to add an auto-stop schedule when you create a dev box pool:
 
    | Setting | Value |
    |---|---|
-   | **Auto-stop on schedule** | Select the checkbox to enable an auto-stop schedule after the pool is created. |
+   | **Auto-stop on schedule** | Select the checkbox to enable an autostop schedule after the pool is created. |
    | **Stop time** | Select a time to shutdown all the dev boxes in the pool. All dev boxes in this pool shutdown at this time every day. |
    | **Time zone** | Select the time zone that the stop time is in. |
 
@@ -98,9 +102,9 @@ Follow these steps to add an auto-stop schedule when you create a dev box pool:
  
 1. Verify the new dev box pool appears in the list. You might need to refresh the screen.
 
-### Delete an auto-stop schedule
+### Delete an autostop schedule
 
-Follow these steps to delete an auto-stop schedule associated with a dev box pool:
+Follow these steps to delete an autostop schedule associated with a dev box pool:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -114,19 +118,19 @@ Follow these steps to delete an auto-stop schedule associated with a dev box poo
 
 1. Under **Cost controls**, unselect the **Auto-stop on schedule** checkbox:
 
-   :::image type="content" source="./media/how-to-manage-stop-schedule/dev-box-disable-stop.png" alt-text="Screenshot of the edit dev box pool page showing the Auto-stop on schedule option unselected."::: 
+   :::image type="content" source="./media/how-to-manage-stop-schedule/dev-box-disable-stop.png" alt-text="Screenshot of the edit dev box pool page showing the autostop on schedule option unselected."::: 
 
 1. Select **Save**. 
 
 After you change the setting, dev boxes in this pool don't automatically shut down.
 
-## Manage an auto-stop schedule with the Azure CLI
+## Manage an autostop schedule with the Azure CLI
 
-You can also manage auto-stop schedules by using the Azure CLI.
+You can also manage autostop schedules by using the Azure CLI.
 
-### Create an auto-stop schedule
+### Create an autostop schedule
 
-The following Azure CLI command creates an auto-stop schedule:
+The following Azure CLI command creates an autostop schedule:
 
 ```azurecli
 az devcenter admin schedule create --pool-name {poolName} --project {projectName} --resource-group {resourceGroupName} --time {hh:mm} --time-zone {"timeZone"} --state Enabled
@@ -141,9 +145,9 @@ az devcenter admin schedule create --pool-name {poolName} --project {projectName
 | `time-zone` | Standard timezone string to determine the local time, such as `"America/Los_Angeles"`. |
 | `state` | Indicates whether the schedule is in use. The options include `Enabled` or `Disabled`. |
 
-### Delete an auto-stop schedule
+### Delete an autostop schedule
 
-The following Azure CLI command deletes an auto-stop schedule:
+The following Azure CLI command deletes an autostop schedule:
 
 ```azurecli
 az devcenter admin schedule delete --pool-name {poolName} --project-name {projectName}
