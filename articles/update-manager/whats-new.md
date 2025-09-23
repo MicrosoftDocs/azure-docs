@@ -16,7 +16,7 @@ ms.date: 08/21/2025
 ## August 2025
 General Availability:Azure Update Manager now provides enhanced reports with separate views for overall compliance, recommendations, pending updates, updates history, schedules, and operations history.
 
-Public preview: You can now create quick alerts using Azure Update Manager [Learn more](manage-alerts.md).
+Public preview: You can now create quick alerts using Azure Update Manager. [Learn more](manage-alerts.md).
 
 ## November 2024
 
