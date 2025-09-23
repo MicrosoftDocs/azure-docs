@@ -10,7 +10,7 @@ ms.author: v-mallicka
 
 # Back up the MABS server
 
-To ensure that data can be recovered if Microsoft Azure Backup Server (MABS) fails, you'll need a strategy for backing up the MABS server. If it isn't backed up you'll need to rebuild it manually after a failure, and disk-based recovery points won't be recoverable. You can back up MABS servers by backing up the MABS database.
+This article describes how to create a robust backup strategy for Microsoft Azure Backup Server (MABS). It explains the importance of backing up both the MABS server and its database to ensure reliable data recovery and maintain business continuity in case of server failure. Without a proper backup plan, organizations risk losing access to disk-based recovery points and may be forced to manually rebuild the server, which can be time-consuming and disruptive. The article provides an overview of available backup methods, discusses their advantages and limitations, and offers detailed guidance on backing up and restoring the MABS database using Azure services, local storage, and native SQL Server tools. Backing up the MABS database is a critical component of this strategy, helping safeguard essential recovery data and minimize downtime.
 
 ## Back up the MABS database
 
@@ -75,6 +75,8 @@ You can recover the database from Azure using any MABS server that's registered 
 4. Select the recovery point you want to use from the list of available points. Select **Clear External MABS** to return to the local MABS view.
 
 ## Back up the MABS database to MABS storage pool
+
+To back up the MABS database to MABS storage pool, follow these steps:
 
 > [!NOTE]  
 > This option is applicable for MABS with Modern Backup Storage.
@@ -178,7 +180,7 @@ If the MABS server is still operational and the storage pool is intact (such as 
 
 5. Now you can restore the database files by using SQL Management Studio or by running **DPMSYNC\-RESTOREDB**.
 
-## Back up with native SQL Server backup to a local disk
+## Back up the MABS database using native SQL Server backup to a local disk
 
 You can back up the MABS database to a local disk with native SQL Server backup, independent of MABS.
 
@@ -186,7 +188,7 @@ You can back up the MABS database to a local disk with native SQL Server backup,
 
 - [Learn more](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service) about backing up SQL Server to the cloud.
 
-## Back up to a share protected by MABS
+## Back up to a shared folder protected by MABS
 
 This backup option uses native SQL to back up the MABS database to a share, protects the share with MABS, and uses Windows VSS previous versions to facilitate the restore.
 
@@ -276,7 +278,7 @@ You can back up the MABS database as you would any other SQL Server database usi
 
     4. Right-click the **dpmdb.bak** file to view the properties. On the **Previous Versions** tab are all the backups that you can select and copy.
 
-## Using DPMSync
+## Restore and synchronize the MABS database with DPMSync
 
 **DpmSync** is a command-line tool that enables you to synchronize the MABS database with the state of the disks in the storage pool and with the installed protection agents. DpmSync restores the MABS database, synchronizes the MABS database with the replicas in the storage pool, restores the Report database, and reallocates missing replicas.
 
