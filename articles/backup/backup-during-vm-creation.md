@@ -15,11 +15,11 @@ ms.custom:
 
 This article describes how to enable backup when you create a virtual machine (VM) in the Azure portal.  
 
-You can use Azure Backup to protect VMs during creation. Backups follow a predefined schedule in a backup policy and generate recovery points stored in Azure Recovery Services vaults.
+You can use Azure Backup to protect VMs during creation. Backups follow a predefined schedule in a backup policy and generate recovery points stored in Recovery Services vaults.
 
 ## Prerequisite
 
-Before you create an Azure VM, review the [supported operating systems for the Backup service](backup-support-matrix-iaas.md#supported-backup-actions).
+Before you create an Azure VM, review the [supported operating systems for Azure Backup](backup-support-matrix-iaas.md#supported-backup-actions).
 
 ## Sign in to the Azure portal
 
@@ -39,9 +39,9 @@ To create a VM and configure backup, follow these steps:
 1. Set up the VM in accordance with the [Windows](/azure/virtual-machines/windows/quick-create-portal) or [Linux](/azure/virtual-machines/linux/quick-create-portal) instructions.
 
 1. On the **Management** tab, for **Enable backup**, select **On**.
-1. Backup backs up to a Recovery Services vault. Select **Create New** if you don't have an existing vault.
+1. Azure Backup backs up to a Recovery Services vault. Select **Create New** if you don't have an existing vault.
 1. Accept the suggested vault name or specify your own.
-1. Specify or create a resource group (RG) in which the vault is located. The RG vault can be different from the VM RG.
+1. Specify or create a resource group in which the vault is located. The resource group vault can be different from the VM resource group.
 
     :::image type="content" source="./media/backup-during-vm-creation/enable-backup.png" alt-text="Screenshot that shows how to enable backup for a VM.":::
 
@@ -56,34 +56,34 @@ To create a VM and configure backup, follow these steps:
 
 >[!NOTE]
 >- [Server-side encryption and platform-managed keys are the default encryption methods](backup-encryption.md) for Azure VMs. Backup supports backup and restore of these Azure VMs.
->- Backup now supports the migration to the Enhanced policy for the Azure VM backups by using the Standard policy. [Learn more](backup-azure-vm-migrate-enhanced-policy.md).
+>- Azure Backup now supports the migration to the Enhanced policy for the Azure VM backups by using the Standard policy. [Learn more](backup-azure-vm-migrate-enhanced-policy.md).
 
 ## Azure Backup resource group for virtual machines
 
-Backup creates a separate RG, different than the RG of the VM, to store the restore point collection (RPC). The RPC houses the instant recovery points of managed VMs. The default naming format of the RG created by the Backup service is `AzureBackupRG_<Geo>_<number>`. An example is *AzureBackupRG_northeurope_1*. You can now customize the RG name that Backup created.
+Azure Backup creates a separate resource group, different than the resource group of the VM, to store the restore point collection (RPC). The RPC houses the instant recovery points of managed VMs. The default naming format of the resource group created by Azure Backup is `AzureBackupRG_<Geo>_<number>`. An example is *AzureBackupRG_northeurope_1*. You can now customize the resource group name that Azure Backup created.
 
 Points to note:
 
-- Use the default name of the RG or customize the name according to organizational requirements.
+- Use the default name of the resource group or customize the name according to organizational requirements.
 
-  When Backup creates an RG, a numeric is appended to the name of the RG and used for restore point collection.
+  When Azure Backup creates an resource group, a numeric is appended to the name of the resource group and used for restore point collection.
 
-- Provide the RG name pattern as input during VM backup policy creation. Use the following format for the RG name:
+- Provide the resource group name pattern as input during VM backup policy creation. Use the following format for the resource group name:
 
-    `<alpha-numeric string>* n <alpha-numeric string>`. The `n` is replaced with an integer (starting from 1) and is used for scaling out if the first RG is full. One RG can have a maximum of 600 RPCs today.
+    `<alpha-numeric string>* n <alpha-numeric string>`. The `n` is replaced with an integer (starting from 1) and is used for scaling out if the first resource group is full. One resource group can have a maximum of 600 RPCs today.
 
    :::image type="content" source="./media/backup-during-vm-creation/create-policy.png" alt-text="Screenshot that shows the selection of a name when you create a policy.":::
-- Follow RG naming rules for the pattern. The total length shouldn't exceed the maximum-allowed RG name length.
-  - RG names allow only alphanumeric characters, periods, underscores, hyphens, and parentheses. They can't end in a period.
-  - RG names can contain up to 74 characters, including the name of the RG and the suffix.
+- Follow resource group naming rules for the pattern. The total length shouldn't exceed the maximum-allowed resource group name length.
+  - Resource group names allow only alphanumeric characters, periods, underscores, hyphens, and parentheses. They can't end in a period.
+  - Resource group names can contain up to 74 characters, including the name of the resource group and the suffix.
 - Remember that the first `<alpha-numeric-string>` is mandatory. The second one after `n` is optional. This naming pattern applies only if you give a customized name. If you don't enter anything in either of the text boxes, the default name is used.
-- Edit the name of the RG by modifying the policy if and when required. If the name pattern is changed, new recovery points (RPs) are created in the new RG. The old RPs still reside in the old RG and aren't moved because RP collection doesn't support moving resources. Eventually, the RPs get garbage collected as the points expire.
+- Edit the name of the resource group by modifying the policy if and when required. If the name pattern is changed, new recovery points (RPs) are created in the new resource group. The old RPs still reside in the old resource group and aren't moved because RP collection doesn't support moving resources. Eventually, the RPs get garbage collected as the points expire.
 
    :::image type="content" source="./media/backup-during-vm-creation/modify-policy.png" alt-text="Screenshot that shows the change of name when you modify a policy." lightbox="./media/backup-during-vm-creation/modify-policy.png":::
 
-- Don't lock the RG created for use by the Backup service.
+- Don't lock the resource group created for use by Azure Backup.
 
-To configure the Backup RG for VMs by using PowerShell, see [Create an Azure Backup resource group during snapshot retention](backup-azure-vms-automation.md#creating-azure-backup-resource-group-during-snapshot-retention).
+To configure the Azure Backup resource group for VMs by using PowerShell, see [Create an Azure Backup resource group during snapshot retention](backup-azure-vms-automation.md#creating-azure-backup-resource-group-during-snapshot-retention).
 
 ## Run an on-demand backup after VM creation
 

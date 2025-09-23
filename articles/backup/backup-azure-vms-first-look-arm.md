@@ -12,7 +12,7 @@ ms.custom: engagement-fy24
 
 This article describes how to back up Azure virtual machines (VMs) by using [Azure Backup](backup-overview.md).
 
-Backup protects VM data with independent, isolated backups. It stores backups in an Azure Recovery Services vault and manages recovery points automatically. You can configure and scale backups easily, restore data quickly, and optimize storage. Use one of the following methods to back up your Azure VMs:
+Azure Backup protects VM data with independent, isolated backups. It stores backups in a Recovery Services vault and manages recovery points automatically. You can configure and scale backups easily, restore data quickly, and optimize storage. Use one of the following methods to back up your Azure VMs:
 
 - **Single Azure VM**: This article provides the steps to back up an Azure VM directly from the VM settings.
 - **Multiple Azure VMs**: You can create a Recovery Services vault and configure backup for multiple Azure VMs. Learn how to [back up multiple Azure VMs](backup-azure-arm-vms-prepare.md).
@@ -25,10 +25,10 @@ Backup protects VM data with independent, isolated backups. It stores backups in
 
 ### Install an Azure VM agent
 
-To back up Azure VMs, Backup installs an extension on the VM agent that runs on the machine. If your VM was created from an Azure Marketplace image, the agent is running. In some cases, for example, if you create a custom VM or migrate a machine from on-premises, you might need to install the agent manually.
+To back up Azure VMs, Azure Backup installs an extension on the VM agent that runs on the machine. If your VM was created from an Azure Marketplace image, the agent is running. In some cases, for example, if you create a custom VM or migrate a machine from on-premises, you might need to install the agent manually.
 
 - If you do need to install the VM agent manually, follow the instructions for [Windows](/azure/virtual-machines/extensions/agent-windows) or [Linux](/azure/virtual-machines/extensions/agent-linux) VMs.
-- After the agent is installed, when you enable backup, Backup installs the backup extension to the agent. It updates and patches the extension without user intervention.
+- After the agent is installed, when you enable backup, Azure Backup installs the backup extension to the agent. It updates and patches the extension without user intervention.
 
 ## Back up from Azure VM settings
 

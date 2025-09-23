@@ -1,6 +1,6 @@
 ---
 title: Back Up Azure VMs in a Recovery Services Vault
-description: This article describes how to back up Azure VMs in an Azure Recovery Services vault by using Azure Backup.
+description: This article describes how to back up Azure VMs in a Recovery Services vault by using Azure Backup.
 ms.topic: how-to
 ms.date: 11/22/2024
 ms.service: azure-backup
@@ -11,7 +11,7 @@ ms.author: v-mallicka
 
 # Back up Azure VMs in a Recovery Services vault
 
-This article describes how to back up Azure virtual machines (VMs) in an Azure Recovery Services vault by using [Azure Backup](backup-overview.md).
+This article describes how to back up Azure virtual machines (VMs) in a Recovery Services vault by using [Azure Backup](backup-overview.md).
 
 In this article, you learn how to:
 
@@ -32,9 +32,7 @@ In this article, you learn how to:
 * [Learn about](backup-azure-vms-introduction.md) Azure VM backup and the backup extension.
 * [Review the support matrix](backup-support-matrix-iaas.md) before you configure backup.
 
-In some circumstances, you might also need to install the VM agent on the VM.
-
-Backup backs up Azure VMs by installing an extension to the Azure VM agent that runs on the machine. If your VM was created from an Azure Marketplace image, the agent is installed and running. If you create a custom VM or you migrate an on-premises machine, you might need to [install the agent manually](#install-the-vm-agent).
+In some circumstances, you might also need to install the VM agent on the VM. Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent that runs on the machine. If your VM was created from an Azure Marketplace image, the agent is installed and running. If you create a custom VM or you migrate an on-premises machine, you might need to [install the agent manually](#install-the-vm-agent).
 
 [!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
@@ -102,16 +100,16 @@ To apply a backup policy to your Azure VMs, follow these steps:
 
 After you enable backup:
 
-* Backup installs the backup extension whether or not the VM is running.
+* Azure Backup installs the backup extension extension irrespective of the VM's running state.
 * An initial backup runs in accordance with your backup schedule.
 * When backups run:
   * A VM that's running has the greatest chance for capturing an application-consistent recovery point.
-  * Even if the VM is turned off, it's backed up. Such a VM is known as an offline VM. In this case, the recovery point is crash consistent.
+  * Even if the VM is turned off, it's backed up. Such a VM is called an offline VM. In this case, the recovery point is crash consistent.
 * Explicit outbound connectivity isn't required to allow backup of Azure VMs.
 
 ### Create a custom policy
 
-To create a new backup policy, fill in the following policy settings:
+To create a new backup policy, fill in the following policy settings and then select **OK**:
 
 - **Policy name**: Specify a meaningful name.
 - **Backup schedule**: Specify the timing for backups. You can take daily or weekly backups for Azure VMs.
@@ -120,13 +118,13 @@ To create a new backup policy, fill in the following policy settings:
     * You can retain snapshots for Instant Restore for one to five days. The default setting is *two days*.
 - **Retention range**: Specify how long you want to keep your daily or weekly backup points.
 - **Retention of monthly backup point** and **Retention of yearly backup point**: Specify whether you want to keep a monthly or yearly backup of your daily or weekly backups.
-- Select **OK** to save the policy.
 
-    To store the restore point collection, Backup creates a separate resource group. This resource group is different than the resource group of the VM. [Learn more about resource groups for VMs](backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
+    To store the restore point collection, Azure Backup creates a separate resource group. This resource group is different than the resource group of the VM. [Learn more about resource groups for VMs](backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
 
     ![Screenshot that shows the new backup policy.](./media/backup-azure-arm-vms-prepare/new-policy.png)
 
-Backup doesn't support automatic clock adjustment for daylight-saving time changes for Azure VM backups. As time changes occur, modify backup policies manually as required.
+> [!NOTE]
+> Azure Backup doesn't support automatic clock adjustment for daylight-saving time changes for Azure VM backups. As time changes occur, modify backup policies manually as required.
 
 If you want hourly backups, configure the Enhanced backup policy. For more information, see [Back up an Azure VM by using the Enhanced policy](backup-azure-vms-enhanced-policy.md#create-an-enhanced-policy-and-configure-the-vm-backup).
 
@@ -175,7 +173,7 @@ The incremental recovery point created in the vault captures all the churn from 
 
 ### Install the VM agent
 
-Backup backs up Azure VMs by installing an extension to the Azure VM agent that runs on the machine. If your VM was created from an Azure Marketplace image, the agent is installed and running. If you create a custom VM or you migrate an on-premises machine, you might need to install the agent manually, as summarized in the following table.
+Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent that runs on the machine. If your VM was created from an Azure Marketplace image, the agent is installed and running. If you create a custom VM or you migrate an on-premises machine, you might need to install the agent manually, as summarized in the following table.
 
 VM | Details
 --- | ---

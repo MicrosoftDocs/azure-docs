@@ -55,7 +55,7 @@ To apply a backup policy to your Azure VMs, follow these steps:
 
 ## Select a VM to back up
 
-To create a scheduled daily backup to an Azure Recovery Services vault, follow these steps:
+To create a scheduled daily backup to a Recovery Services vault, follow these steps:
 
 1. Under **Virtual Machines**, select **Add**.
 
@@ -98,7 +98,7 @@ If you selected to create a new backup policy, fill in the policy settings.
     - **Retention of monthly backup point** and **Retention of yearly backup point**: Specify whether you want to keep a monthly or yearly backup of your daily or weekly backups.
 1. Select **OK** to save the policy.
    
-   To enable Backup on Azure VMs in Extended Zones, use only the Enhanced policy. Backup creates a separate resource group to store the restore point collection. This resource group is different from the resource group of the VM.
+   To enable Azure Backup on Azure VMs in Extended Zones, use only the Enhanced policy. Backup creates a separate resource group to store the restore point collection. This resource group is different from the resource group of the VM.
 
     :::image type="content" source="./media/backup-azure-arm-vms-prepare/new-policy.png" alt-text="Screenshot that shows the new backup policy." lightbox="./media/backup-azure-arm-vms-prepare/new-policy.png":::
 
@@ -115,7 +115,7 @@ The initial backup runs in accordance with the schedule in the backup policy. To
 
 Monitor the portal notifications. To monitor the job progress, go to **Business Continuity Center** > **Monitoring + Reporting** > **Jobs** and filter the list for **In progress** jobs. Depending on the size of your VM, creating the initial backup might take a while.
 
-Backup job details for each VM backup consist of the following two phases:
+Backup job details for each VM backup consist of the following phases:
 
 - **Snapshot**: Ensures that the availability of a recovery point is stored along with the disks for instant restores. They're available for a maximum of five days depending on the snapshot retention that the user configured.
 - **Transfer data to vault**: Creates a recovery point in the vault for long-term retention. This phase starts after the snapshot phase is finished.
@@ -146,7 +146,7 @@ The incremental recovery point created in the vault captures all the churn from 
 
 ### Install the VM agent
 
-Backup backs up Azure VMs by installing an extension to the Azure VM agent that runs on the machine. If your VM was created from an Azure Marketplace image, the agent is already installed and running. If you create a custom VM or migrate an on-premises machine, you might need to install the agent manually, as summarized in the following table.
+Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent that runs on the machine. If your VM was created from an Azure Marketplace image, the agent is already installed and running. If you create a custom VM or migrate an on-premises machine, you might need to install the agent manually, as summarized in the following table.
 
 VM | Details
 --- | ---

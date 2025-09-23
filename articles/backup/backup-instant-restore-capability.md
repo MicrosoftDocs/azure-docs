@@ -18,7 +18,7 @@ Instant Restore provides the following capabilities:
 
 * Uses snapshots taken as part of a backup job that's available for recovery without waiting for data transfer to the vault to finish. It reduces the wait time for snapshots to copy to the vault before triggering restore.
 * Reduces backup and restore times by retaining snapshots locally for 2 days with the Standard policy and 7 days with the Enhanced policy, by default. You can configure this default snapshot retention value from 1 to 5 days for the Standard policy and from 1 to 30 days for the Enhanced policy.
-* Supports disk sizes up to 32 TB. Don't use Backup to resize disks.
+* Supports disk sizes up to 32 TB. Don't use Azure Backup to resize disks.
 * Supports Standard solid-state drive (SSD) disks along with Standard hard-disk drive (HDD) disks and Premium SSD disks with the Standard policy. Supports backup and instant restore of Premium SSD v2 and Ultra Disks, in addition to Standard HDD, Standard SSD, and Premium SSD v1 disks, with the Enhanced policy.
 * Uses an unmanaged virtual machine's (VM) original storage accounts (per disk) when restoring. This ability exists even when the VM has disks that are distributed across storage accounts. It speeds up restore operations for various VM configurations.
 * Uses unmanaged Premium disks in storage accounts for backup of VMs. We recommend that you allocate *50%* of free space of the total allocated storage space with Instant Restore. The 50% free space isn't a requirement for backups after the first backup is finished.
@@ -28,7 +28,7 @@ Instant Restore provides the following capabilities:
 A backup job consists of two phases:
 
 1. Take a VM snapshot.
-1. Transfer the VM snapshot to the Azure Recovery Services vault.
+1. Transfer the VM snapshot to the Recovery Services vault.
 
 A recovery point is created as soon as the snapshot is finished. You can use this recovery point of snapshot type to perform a restore by using the same restore flow. You can identify this recovery point in the Azure portal by using *snapshot* as the recovery point type. After the snapshot is transferred to the vault, the recovery point type changes to *snapshot and vault*.
 
@@ -131,8 +131,10 @@ So, if the policy is set for `n` snapshots, you can find `n+1` snapshots at time
 - The garbage collector in the back end is under heavy load.
 
 > [!NOTE]
-> Azure Backup manages backups in an automatic way. Backup retains old snapshots because they're needed to maintain this backup for consistency purposes. If you delete snapshots manually, you might encounter problems in backup consistency.
+> Azure Backup manages backups in an automatic way. Azure Backup retains old snapshots because they're needed to maintain this backup for consistency purposes. If you delete snapshots manually, you might encounter problems in backup consistency.
+>
 > If there are errors in your backup history, use the **Retain data** option to stop the backup and then resume the backup.
+>
 > Consider creating a *backup strategy* if you have a particular scenario (for example, a VM with multiple disks that requires oversize space). You need to create a backup for **VM with OS Disk** separately, and then create a different backup for the other disks.
 
 ### I don't need Instant Restore functionality. Can it be disabled?

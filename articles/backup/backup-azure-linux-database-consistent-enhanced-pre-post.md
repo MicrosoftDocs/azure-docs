@@ -13,11 +13,11 @@ ms.author: v-mallicka
 
 Azure Backup offers a built-in [prescript and postscript framework](./backup-azure-linux-app-consistent.md) to ensure application consistency for Linux VMs during backup. This framework automatically runs a prescript to quiet applications before disk snapshots and a postscript to restore applications to normal operation after the snapshot.
 
-Managing custom prescripts and postscripts is often complex and time-consuming. To simplify this process, Backup provides ready-to-use prescripts and postscripts for popular databases to enable application-consistent snapshots with minimal effort and maintenance.
+Managing custom prescripts and postscripts is often complex and time-consuming. To simplify this process, Azure Backup provides ready-to-use prescripts and postscripts for popular databases to enable application-consistent snapshots with minimal effort and maintenance.
 
-The following diagram illustrates how Backup uses enhanced prescripts and postscripts to achieve application-consistent snapshots for Linux databases to ensure reliable backup and recovery.
+The following diagram illustrates how Azure Backup uses enhanced prescripts and postscripts to achieve application-consistent snapshots for Linux databases to ensure reliable backup and recovery.
 
-:::image type="content" source="./media/backup-azure-linux-database-consistent-enhanced-pre-post/linux-application-consistent-snapshot.png" alt-text="Diagram that shows a Linux application-consistent snapshot by Backup.":::
+:::image type="content" source="./media/backup-azure-linux-database-consistent-enhanced-pre-post/linux-application-consistent-snapshot.png" alt-text="Diagram that shows a Linux application-consistent snapshot by Azure Backup.":::
 
 ## Key benefits of an enhanced prescript and postscript framework
 
@@ -44,7 +44,7 @@ The following databases are covered under the enhanced framework:
 
 ## Prerequisites
 
-You need to modify only a configuration file, workload.conf in /etc/azure, to provide connection details. In this way, Backup can connect to the relevant application and run prescripts and postscripts. The configuration file has the following parameters:
+You need to modify only a configuration file, workload.conf in `/etc/azure`, to provide connection details. In this way, Azure Backup can connect to the relevant application and run prescripts and postscripts. The configuration file has the following parameters:
 
 ```json
 [workload]
@@ -69,7 +69,7 @@ The following table describes the parameters.
 |`timeout`     |    Yes     |     Maximum time limit for which the database is in a quiet state. The default value is 90 seconds. Don't set a value less than 60 seconds.    |
 
 > [!NOTE]
-> The JSON definition is a template that Backup might modify to suit a particular database. To understand the configuration file for each database, refer to [each database's manual](#support-matrix).
+> The JSON definition is a template that Azure Backup might modify to suit a particular database. To understand the configuration file for each database, refer to [each database's manual](#support-matrix).
 
 The overall experience to use the enhanced prescript and postscript framework is:
 

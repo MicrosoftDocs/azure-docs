@@ -14,7 +14,7 @@ ms.author: v-mallicka
 
 This article describes how to create application-consistent backups for Azure-deployed Linux virtual machines (VMs) by using Azure Backup. It covers how to configure the script framework and troubleshooting.
 
-When Backup takes a snapshot of a VM, application consistency ensures that applications start correctly after VM restoration. To achieve this behavior, use the Linux prescript and postscript framework, which supports Linux VMs deployed with Azure Resource Manager. These scripts don't work for VMs deployed with System Center Service Manager or Windows.
+When Azure Backup takes a snapshot of a VM, application consistency ensures that applications start correctly after VM restoration. To achieve this behavior, use the Linux prescript and postscript framework, which supports Linux VMs deployed with Azure Resource Manager. These scripts don't work for VMs deployed with System Center Service Manager or Windows.
 
 ## How does the framework work?
 
@@ -53,15 +53,15 @@ To configure prescript and postscript, follow these steps:
     - `preScriptNoOfRetries`: Set the number of times that the prescript should be retried if an error occurs before terminating. Zero means only one try, and no retry if there's a failure.
     - `postScriptNoOfRetries`: Set the number of times that the postscript should be retried if an error occurs before terminating. Zero means only one try, and no retry if there's a failure.
     - `timeoutInSeconds`: Specify individual timeouts for the prescript and the postscript (maximum value is **1800**).
-    - `continueBackupOnFailure`: Set this value to **true** if you want Backup to fall back to a file system-consistent/crash-consistent backup if prescript or postscript fails. Setting this value to **false** fails the backup if a script failure occurs. (An exception is when you have a single-disk VM that falls back to crash-consistent backup regardless of this setting.) When the `continueBackupOnFailure` value is set to **false**, if the backup fails, the backup operation is attempted again based on a retry logic in service (for the stipulated number of attempts).
+    - `continueBackupOnFailure`: Set this value to **true** if you want Azure Backup to fall back to a file system-consistent/crash-consistent backup if prescript or postscript fails. Setting this value to **false** fails the backup if a script failure occurs. (An exception is when you have a single-disk VM that falls back to crash-consistent backup regardless of this setting.) When the `continueBackupOnFailure` value is set to **false**, if the backup fails, the backup operation is attempted again based on a retry logic in service (for the stipulated number of attempts).
     - `fsFreezeEnabled`: Specify whether Linux `fsfreeze` should be called while you're taking the VM snapshot to ensure file system consistency. We recommend that you keep this setting set to **true** unless your application has a dependency on disabling `fsfreeze`.
     - `ScriptsExecutionPollTimeSeconds`: Set the time that the extension has to sleep between each poll to the script execution. For example, if the value is **2**, the extension checks whether the prescript or postscript execution completed every 2 seconds. The minimum and maximum value it can take is **1** and **5**, respectively. The value should be strictly an integer.
 
-1. The script framework is now configured. If the VM backup is already configured, the next backup invokes the scripts and triggers application-consistent backup. If the VM backup isn't configured, configure it by following the steps in [Back up Azure virtual machines to Azure Recovery Services vaults.](./backup-azure-vms-first-look-arm.md)
+1. The script framework is now configured. If the VM backup is already configured, the next backup invokes the scripts and triggers application-consistent backup. If the VM backup isn't configured, configure it by following the steps in [Back up Azure virtual machines to Recovery Services vaults.](./backup-azure-vms-first-look-arm.md)
 
 ## Troubleshoot Azure Linux VM application-consistent backup errors
 
-Make sure that you add appropriate logging while you write your prescript and postscript. Review your script logs to fix any script issues. If you still have problems running scripts, refer to the following table.
+Make sure that you add appropriate logging while you write the prescript and postscript. Review your script logs to fix any script issues. If you still have problems running scripts, refer to the following table.
 
 | Error | Error message | Recommended action |
 | ------------------------ | -------------- | ------------------ |

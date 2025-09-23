@@ -43,7 +43,7 @@ The preceding screenshot shows that one of the backups was transferred to the **
 
 Follow these steps:
 
-1. In the Azure portal, select an Azure Recovery Services vault to back up the VM.
+1. In the Azure portal, select a Recovery Services vault to back up the VM.
 
 1. Under **Backup**, select **Backup policies**.
 

@@ -48,7 +48,7 @@ Ensure that you're using the Azure CLI version 2.0.80 or later. You can get the 
 az --version
 ```
 
-Sign in to the subscription ID, where the Azure Recovery Services vault and the VM exist:
+Sign in to the subscription ID, where the Recovery Services vault and the VM exist:
 
 ```azurecli
 az account set -s {subscriptionID}
@@ -361,8 +361,8 @@ If you use the Enhanced policy, protected instance (PI) costs, snapshot costs, a
 
 | OS type | Limitation |
 | --- | --- |
-| Windows | **Spanned volumes**: For spanned volumes (volumes spread across more than one physical disk), ensure that all disks are included in the backup. If not, Backup might not be able to reliably restore the data and exclude it in billing. <br><br> **Storage pool**: If you use disks carved out of a storage pool and if a *LUN number* included for backup is common across virtual disks and data disks, the size of the virtual disk is also included in the backup size in addition to the data disks. |
-|	Linux | **Logical volumes**: For logical volumes spread across more than one disk, ensure that all disks are included in the backup. If not, Backup might not be able to reliably restore the data and exclude it in billing. <br><br> **Distro support**: Backup uses `lsscsi` and `lsblk` to determine the disks being excluded for backup and to estimate the size of the data backed up for the [PI fee](selective-disk-backup-restore.md#how-is-pi-cost-calculated-for-only-os-disk-backup-in-windows-and-linux) calculation. If your distro (Debian 8.11, 10.13, and so on) doesn't support `lsscsi`, install it by using `sudo apt install lsscsi` to ensure that selective disk backup works. If not, the PI fee is calculated based on the backup data transferred instead of using `lsscsi` and `lsblk`. |
+| Windows | **Spanned volumes**: For spanned volumes (volumes spread across more than one physical disk), ensure that all disks are included in the backup. If not, Azure Backup might not be able to reliably restore the data and exclude it in billing. <br><br> **Storage pool**: If you use disks carved out of a storage pool and if a *LUN number* included for backup is common across virtual disks and data disks, the size of the virtual disk is also included in the backup size in addition to the data disks. |
+|	Linux | **Logical volumes**: For logical volumes spread across more than one disk, ensure that all disks are included in the backup. If not, Azure Backup might not be able to reliably restore the data and exclude it in billing. <br><br> **Distro support**: Azure Backup uses `lsscsi` and `lsblk` to determine the disks being excluded for backup and to estimate the size of the data backed up for the [PI fee](selective-disk-backup-restore.md#how-is-pi-cost-calculated-for-only-os-disk-backup-in-windows-and-linux) calculation. If your distro (Debian 8.11, 10.13, and so on) doesn't support `lsscsi`, install it by using `sudo apt install lsscsi` to ensure that selective disk backup works. If not, the PI fee is calculated based on the backup data transferred instead of using `lsscsi` and `lsblk`. |
 
 If you select the CRR feature, the [CRR pricing](https://azure.microsoft.com/pricing/details/backup/) applies on the backup storage cost after excluding the disk.
 

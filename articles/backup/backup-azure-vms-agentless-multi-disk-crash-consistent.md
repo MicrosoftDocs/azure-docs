@@ -27,7 +27,7 @@ You need to set *crash-consistent backup* explicitly in this policy because *app
 
 The agentless crash-consistent backup is available with the *Enhanced VM backup policy* only.
 
-To configure backup for a new Azure VM with agentless multidisk crash-consistent backup enabled, [create an Azure Recovery Services vault](backup-create-recovery-services-vault.md#create-a-recovery-services-vault) and follow these steps:
+To configure backup for a new Azure VM with agentless multidisk crash-consistent backup enabled, [create a Recovery Services vault](backup-create-recovery-services-vault.md#create-a-recovery-services-vault) and follow these steps:
 
 1. On the **Configure backup** pane, under **Policy sub type**, select **Enhanced** > **Create a new policy**.
 
@@ -45,6 +45,8 @@ If you have VMs that are backed up with the Enhanced policy, you can move them f
 - Edit the policy setting directly.
 
 ### Option 1: Change the VM backup policy to switch from application/file system-consistent backup to crash-consistent backup (recommended)
+
+To change the VM backup policy, follow these steps:
 
 1. Go to a Recovery Services vault, and then select **Manage** > **Backup policies** to check the policy for the VMs that you want to move to crash-consistent backup.
 
@@ -89,6 +91,8 @@ If you have VMs that are backed up with the Enhanced policy, you can move them f
 ### Option 2: Modify the backup policy to change from application/file system-consistent backup to crash-consistent backup
 
 If you don't want to create a new policy and move only specific VMs, edit the **Consistency type** option in the existing policy.
+
+To change from application/file system-consistent backup to crash-consistent backup, follow these steps:
 
 1. Go to the Recovery Services vault, select **Backup policies**, and then choose an existing policy.
 
