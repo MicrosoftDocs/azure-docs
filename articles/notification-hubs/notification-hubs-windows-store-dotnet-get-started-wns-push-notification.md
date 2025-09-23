@@ -12,7 +12,7 @@ ms.date: 05/01/2025
 ms.author: sethm
 ms.custom:
   - mvc
-  - ms.custom: devx-track-csharp
+  - devx-track-csharp
   - sfi-image-nochange
 ---
 
