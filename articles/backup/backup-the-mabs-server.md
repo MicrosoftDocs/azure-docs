@@ -20,8 +20,8 @@ As part of your MABS backup strategy, you'll have to back up the MABS database. 
 |--------------------------|--------------|-----------------|
 |[Back up to Azure](#back-up-to-azure)|<li>Easily configured and monitored in MABS.<li>Multiple locations of the backup database files.<li>Cloud storage provides a robust solution for disaster recovery.<li>Very secure storage for the database.<li>Supports 120 online recovery points.|<li>Requires Azure account and additional MABS configuration. Incurs some cost for Azure storage.<li> Requires a supported version of Windows Server based system with the Azure agent to gain access to MABS backups stored in the Azure backup vault. This can't be another MABS server.<li>Not an option if the database is hosted locally and you want to enable secondary protection. <li>Some extra preparation and recovery time is incurred.|
 |[Back up the database by backing up the MABS storage pool](#back-up-the-database-by-backing-up-the-mabs-storage-pool)|<li>Simple to configure and monitor.<li>The backup is kept on the MABS storage pool disks and is easy to access locally.<li>MABS scheduled backups support 512 express full backups. If you back up hourly, you'll have 21 days of full protection.|<li>Not a good option for disaster recovery. It's online and recovery might not work as expected if the MABS server or storage pool disk fails.<li>Not an option if the database is hosted locally and you want to enable secondary protection. <li>Some preparation and special steps are required to gain access to the recovery points if the MABS service or console isn't running or working.|
-|[Back up with native SQL Server backup to a local disk](#back-up-with-native-sql-server-backup-to-a-local-disk)|<li>Built-in to SQL Server.<li>The backup is kept on a local disk that is easily accessible.<li>It can be scheduled to run as often as you like.<li>Totally independent of MABS.<li>You can schedule a backup file cleanup.|<li>Not a good option for disaster recovery unless the backups are copied to a remote location.<li>Requires local storage for backups, which may limit retention and frequency.|
-|[Back up with native SQL backup and MABS protection to a share protected by MABS](#back-up-to-a-share-protected-by-mabs)|<li>Easily monitored in MABS.<li>Multiple locations of the backup database files.<li>Easily accessible from any Windows machine on the network.<li>Potentially the fastest recovery method.|<li>Only supports 64 recovery points.<li>Not a good option for site disaster recovery. MABS server or MABS storage pool disk failure may hinder recovery efforts.<li>Not an option if the MABS DB is hosted locally and you want to enable secondary protection. <li>Some extra preparation is needed to get it configured and tested.<li>Some extra preparation and recovery time is needed should the MABS server itself be down but MABS storage pool disks are fine.|
+|[Back up with native SQL Server backup to a local disk](#back-up-the-mabs-database-using-native-sql-server-backup-to-a-local-disk)|<li>Built-in to SQL Server.<li>The backup is kept on a local disk that is easily accessible.<li>It can be scheduled to run as often as you like.<li>Totally independent of MABS.<li>You can schedule a backup file cleanup.|<li>Not a good option for disaster recovery unless the backups are copied to a remote location.<li>Requires local storage for backups, which may limit retention and frequency.|
+|[Back up with native SQL backup and MABS protection to a share protected by MABS](#back-up-to-a-shared-folder-protected-by-mabs)|<li>Easily monitored in MABS.<li>Multiple locations of the backup database files.<li>Easily accessible from any Windows machine on the network.<li>Potentially the fastest recovery method.|<li>Only supports 64 recovery points.<li>Not a good option for site disaster recovery. MABS server or MABS storage pool disk failure may hinder recovery efforts.<li>Not an option if the MABS DB is hosted locally and you want to enable secondary protection. <li>Some extra preparation is needed to get it configured and tested.<li>Some extra preparation and recovery time is needed should the MABS server itself be down but MABS storage pool disks are fine.|
 
 - If you back up by using a MABS protection group, we recommend that you use a unique protection group for the database.
 
@@ -42,7 +42,7 @@ As part of your MABS backup strategy, you'll have to back up the MABS database. 
 
 ### Back up to Azure
 
-1. Before you start, you'll need to run a script to retrieve the MABS replica volume mount point path so that you know which recovery point contains the MABS backup. Do this after initial replication with Azure Backup. In the script, replace `dplsqlservername%` with the name of the SQL Server instance hosting the MABS database.
+1. Before you start, run a script to retrieve the MABS replica volume mount point paths so you know which recovery points contain the MABS backups. Do this after initial replication with Azure Backup. In the script, replace `%dpmsqlservername%` with the name of the SQL Server instance hosting the MABS database.
 
     ```SQL
     Select ag.NetbiosName as ServerName,ds.DataSourceName,vol.MountPointPath
@@ -140,7 +140,7 @@ To reconstruct your MABS with the same DB, you need to first recover the MABS da
 > [!NOTE]
 > This option is applicable for MABS with legacy storage.
 
-Before you start, you'll need to run a script to retrieve the MABS replica volume mount point path so that you know which recovery point contains the MABS backup. Do this after initial replication with Azure Backup. In the script, replace `dplsqlservername%` with the name of the SQL Server instance hosting the MABS database.
+Before you start, run a script to retrieve the MABS replica volume mount point path so that you know which recovery points contain the MABS backups. Do this after initial replication with Azure Backup. In the script, replace `%dpmsqlservername%` with the name of the SQL Server instance hosting the MABS database.
 
 ```SQL
 Select ag.NetbiosName as ServerName,ds.DataSourceName,vol.MountPointPath
@@ -248,7 +248,7 @@ You can back up the MABS database as you would any other SQL Server database usi
 
 2. Right-click the **dpmdb.bak** file to view properties. On the **Previous Versions** tab are all the backups that you can select and copy. There is also the very last backup still located in the C:\MABSBACKUP folder that is also easily accessible.
 
-3. If you need to move a SAN attached MABS storage pool disk to another server to be able to read from the replica volume, or to reinstall Windows to read locally attached disks, you'll need to know the MABS Replica volume Mount point path or Volume GUID beforehand so you know what volume holds the database backup. You can use the SQL script below to extract that information any time after initial protection but before the need to restore. Replace the `%dpmsqlservername%` with the name of the SQL Server hosting the database.
+3. If you need to move a SAN-attached MABS storage pool disk to another server, or reinstall Windows to access a locally attached disk, it's essential to identify the MABS replica volume mount point path or volume GUID in advance. This information helps you locate the volume containing the database backup. Use the following SQL script to retrieve these details after initial protection, but before a restore is required. Replace `%dpmsqlservername%` with the name of the SQL Server instance hosting the MABS database.
 
     ```sql
     Select ag.NetbiosName as
