@@ -7,7 +7,10 @@ ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 05/22/2025
-ms.custom: [amqp, 'Role: Cloud Development']
+ms.custom:
+  - amqp
+  - 'Role: Cloud Development'
+  - sfi-image-nochange
 ---
 
 # Read device-to-cloud messages from the built-in endpoint

@@ -8,6 +8,7 @@ ms.date: 06/19/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
 ms.devlang: azurecli
+ms.custom: sfi-image-nochange
 ---
 
 # Enable private access to Azure Digital Twins using Private Link

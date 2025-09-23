@@ -7,6 +7,7 @@ services: firewall
 ms.topic: concept-article
 ms.date: 12/11/2022
 ms.author: duau
+ms.custom: sfi-image-nochange
 # Customer intent: As a network engineer, I want to configure TLS inspection on Azure Firewall Premium using Intermediate CA certificates stored in Azure Key Vault, so that I can ensure secure traffic management and compliance with organizational standards.
 ---
 
@@ -20,15 +21,15 @@ There are three types of certificates used in a typical deployment:
 
 - **Intermediate CA Certificate (CA Certificate)**
 
-   A Certificate Authority (CA) is an organization that is trusted to sign digital certificates. A CA verifies identity and legitimacy of a company or individual requesting a certificate. If the verification is successful, the CA issues a signed certificate. When the server presents the certificate to the client (for example, your web browser) during a SSL/TLS handshake, the client attempts to verify the signature against a list of *known good* signers. Web browsers normally come with lists of CAs that they implicitly trust to identify hosts. If the authority is not in the list, as with some sites that sign their own certificates, the browser alerts the user that the certificate is not signed by a recognized authority and asks the user if they wish to continue communications with unverified site.
+   A Certificate Authority (CA) is an organization that is trusted to sign digital certificates. A CA verifies identity and legitimacy of a company or individual requesting a certificate. If the verification is successful, the CA issues a signed certificate. When the server presents the certificate to the client (for example, your web browser) during a SSL/TLS handshake, the client attempts to verify the signature against a list of *known good* signers. Web browsers normally come with lists of CAs that they implicitly trust to identify hosts. If the authority is not in the list, as with some sites that sign their own certificates, the browser alerts the user that no recognized authority signed the certificate. The browser and asks the user if they wish to continue communications with unverified site.
 
 - **Server Certificate (Website certificate)**
 
    A certificate associated with a specific domain name. If a website has a valid certificate, it means that a certificate authority has taken steps to verify that the web address actually belongs to that organization. When you type a URL or follow a link to a secure website, your browser checks the certificate for the following characteristics:
    - The website address matches the address on the certificate.
-   - The certificate is signed by a certificate authority that the browser recognizes as a *trusted* authority.
+   - A certificate authority that the browser recognizes as a *trusted* authority signed the certificate.
    
-   Occasionally users may connect to a server with an untrusted certificate. Azure Firewall will drop the connection as if the server terminated the connection.
+   Occasionally users may connect to a server with an untrusted certificate. Azure Firewall drops the connection as if the server terminated the connection.
 
 - **Root CA Certificate (root certificate)**
 
@@ -68,7 +69,7 @@ To configure your key vault:
 - You need to import an existing certificate with its key pair into your key vault. 
 - Alternatively, you can also use a key vault secret that's stored as a password-less, base-64 encoded PFX file.  A PFX file is a digital certificate containing both private key and public key.
 - It's recommended to use a CA certificate import because it allows you to configure an alert based on certificate expiration date.
-- After you've imported a certificate or a secret, you need to define access policies in the key vault to allow the identity to be granted get access to the certificate/secret.
+- After you import a certificate or a secret, you need to define access policies in the key vault to allow the identity to be granted get access to the certificate/secret.
 - The provided CA certificate needs to be trusted by your Azure workload. Ensure they are deployed correctly.
 - Since Azure Firewall Premium is listed as Key Vault [Trusted Service](/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services), it allows you to bypass Key Vault internal Firewall and to eliminate any exposure of your Key Vault to the Internet.
 
@@ -95,7 +96,7 @@ To configure a CA certificate in your Firewall Premium policy, select your polic
 If you want to create your own certificates to help you test and verify TLS inspection, you can use the following scripts to create your own self-signed Root CA and Intermediate CA.
 
 > [!IMPORTANT]
-> For production, you should use your corporate PKI to create an Intermediate CA certificate. A corporate PKI leverages the existing infrastructure and handles the Root CA distribution to all endpoint machines. 
+> For production, you should use your corporate PKI to create an Intermediate CA certificate. A corporate PKI uses the existing infrastructure and handles the Root CA distribution to all endpoint machines. 
 > For more information, see [Deploy and configure Enterprise CA certificates for Azure Firewall](premium-deploy-certificates-enterprise-ca.md).
 
 There are two versions of this script:
@@ -107,11 +108,11 @@ There are two versions of this script:
 The scripts generate the following files:
 - rootCA.crt/rootCA.key - Root CA public certificate and private key.
 - interCA.crt/interCA.key - Intermediate CA public certificate and private key
-- interCA.pfx - Intermediate CA pkcs12 package which will be used by firewall
+- interCA.pfx - Intermediate CA pkcs12 package that the firewall uses
 
 > [!IMPORTANT]
 > rootCA.key should be stored in a secure offline location. The scripts generate a certificate with validity of 1024 days.
-> The scripts require openssl binaries installed in your local machine. For more information see https://www.openssl.org/
+> The scripts require openssl binaries installed in your local machine. For more information, see https://www.openssl.org/
 > 
 After the certificates are created, deploy them to the following locations:
 - rootCA.crt - Deploy on endpoint machines (Public certificate only).

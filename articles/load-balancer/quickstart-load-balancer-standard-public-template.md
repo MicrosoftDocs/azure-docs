@@ -9,7 +9,14 @@ ms.service: azure-load-balancer
 ms.topic: quickstart
 ms.date: 11/26/2024
 ms.author: mbender
-ms.custom: mvc, subject-armqs, mode-arm, template-quickstart, engagement-fy23, devx-track-arm-template
+ms.custom:
+  - mvc
+  - subject-armqs
+  - mode-arm
+  - template-quickstart
+  - engagement-fy23
+  - devx-track-arm-template
+  - sfi-image-nochange
 #Customer intent: I want to create a load balancer by using an Azure Resource Manager template so that I can load balance internet traffic to VMs.
 # Customer intent: As a cloud architect, I want to deploy a standard load balancer using an ARM template, so that I can efficiently distribute internet traffic across multiple virtual machines.
 ---
