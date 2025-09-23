@@ -3,6 +3,7 @@ title: Track usage of a lab in Azure Lab Services | Microsoft Docs
 description: In this tutorial, you, as a lab creator/owner, track the usage of your lab. 
 ms.topic: tutorial
 ms.date: 01/06/2022
+ms.custom: sfi-image-nochange
 ---
 
 # Tutorial: Track usage of a lab in Azure Lab Service
