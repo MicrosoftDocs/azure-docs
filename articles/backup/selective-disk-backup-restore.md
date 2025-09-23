@@ -355,7 +355,7 @@ If you select **Cross Region Restore** (CRR), the [CRR pricing](https://azure.mi
 
 ### Enhanced policy
 
-If you use the Enhanced policy, protected instance (PI) costs, snapshot costs, and vault tier storage costs are all calculated based on the disks that you include for backup.
+If you use the Enhanced policy, PI costs, snapshot costs, and vault tier storage costs are all calculated based on the disks that you include for backup.
 
 #### Known limitations
 
