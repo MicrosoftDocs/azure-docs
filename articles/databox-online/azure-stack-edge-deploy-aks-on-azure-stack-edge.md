@@ -8,6 +8,7 @@ ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 11/29/2023
 ms.author: alkohli
+ms.custom: sfi-image-nochange
 # Customer intent: As an IT admin, I need to understand how to deploy and configure Azure Kubernetes service on Azure Stack Edge.
 ---
 # Deploy Azure Kubernetes service on Azure Stack Edge

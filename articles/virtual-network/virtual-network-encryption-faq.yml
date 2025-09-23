@@ -21,9 +21,9 @@ sections:
         answer: |
           Encryption verification is limited to the status of the network interface resource, vnetEncryptionSupported, and Accelerated networking during public preview. After public preview, virtual network flow logs can be used to see the encrypted and unencrypted flows between virtual machines.
       
-      - question: Is there data not encrypted?
+      - question: Why are packets dropped in encrypted virtual networks, and how can I prevent it?
         answer: |
-          Fragmented packets aren't offloaded to hardware and don't get encrypted. Use an MTU of 1500 in the network configuration of your virtual machines.
+          UDP fragmented packets are not offloaded to hardware and are therefore dropped. To avoid this, ensure the "Don't Fragment" (DF) flag is set and packets are not fragmented leaving the virtual machine. Packets exceeding the MTU limit will be dropped rather than fragmented."
 
       - question: What certificate is used for the DTLS establishment on the Azure Host? 
         answer: |

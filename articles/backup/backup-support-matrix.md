@@ -5,8 +5,8 @@ ms.topic: reference
 ms.date: 06/24/2025
 ms.custom: references_regions, linux-related-content
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a cloud administrator, I want to understand the support matrix for Azure Backup so that I can make informed decisions about data protection strategies and ensure compliance with our backup requirements."
 ---
 

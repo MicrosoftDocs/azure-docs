@@ -19,8 +19,9 @@ The following Azure Storage Mover agent versions are supported:
 
 | Milestone                                     | Version number | Release date       | Status                                        |
 |-----------------------------------------------|----------------|--------------------|-----------------------------------------------|
-| Enhanced Network checks                       | 3.3.760        | April 8, 2025      | Current                                       |
-| Bandwidth Management and general improvements | 3.1.613        | July 10, 2024      | Supported. Downloading latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent) is recommended.|
+| Enhanced Network checks and OS update         | 3.4.846        | Jul 30, 2025       | Current                                       |
+| Enhanced Network checks and support for data transfers from SMB source to Azure Blob target | 3.3.760        | April 8, 2025      | Supported. Downloading latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent) is recommended.|
+| Bandwidth Management and general improvements | 3.1.613        | July 10, 2024      | No longer supported. Decommission and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
 | Performance and security improvements         | 3.1.593        | June 16, 2024      | No longer supported. Decommission and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
 | Agent registration and private networking improvements | 3.0.500| April 2, 2024     | No longer supported. Decommission and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
 | Important security release                    | 3.0.412        | November 30, 2023  | No longer supported. Decommission and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
@@ -51,6 +52,18 @@ Azure Storage Mover is a hybrid service, which continuously introduces new featu
 > [!IMPORTANT]
 > Preview versions of the Storage Mover agent can't update themselves. You must replace them manually by deploying the [latest available agent](https://aka.ms/StorageMover/agent).
 > 
+## 2025 Jul 30
+
+Refresh release notes for: 
+
+- Service version: Jul 30, 2025 
+- Agent version: 3.4.846 
+
+### What's new 
+
+- Ability to test HTTP endpoint connectivity using Curl and Traceroute
+- Upgraded Mover VM Linux version to 6.8.0
+
 
 ## 2025 May 30
 

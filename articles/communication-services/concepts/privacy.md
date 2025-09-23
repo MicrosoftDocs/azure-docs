@@ -69,7 +69,7 @@ You can use the Azure portal or Azure Resource Manager APIs with Azure Communica
 
 ### Telephone number management
 
-Azure Communication Services maintains a directory of phone numbers associated with a Communication Services resource. Use [Phone Number Administration APIs](/rest/api/communication/phonenumbers) to retrieve phone numbers and delete them:
+Azure Communication Services maintains a directory of phone numbers associated with a Communication Services resource. Use [Phone Number Administration APIs](/rest/api/communication/phonenumbers/phone-numbers) to retrieve phone numbers and delete them:
 
 - `Get All Phone Numbers`
 - `Release Phone Number`
@@ -77,8 +77,6 @@ Azure Communication Services maintains a directory of phone numbers associated w
 ### Chat
 
 Azure Communication Services stores chat threads according to the [data retention policy](/purview/create-retention-policies) in effect when the thread is created. You can update the retention policy if needed during the retention time period you set. After you delete a chat thread (by policy or by a Delete API request), it can't be retrieved.
-
-[!INCLUDE [chat-retention-policy.md](../includes/chat-retention-policy.md)]
 
 You can choose between indefinite thread retention, automatic deletion between 30 and 90 days via the retention policy on the [Create Chat Thread API](/rest/api/communication/chat/chat/create-chat-thread), or immediate deletion using the APIs [Delete Chat Message](/rest/api/communication/chat/chat-thread/delete-chat-message) or [Delete Chat Thread](/rest/api/communication/chat/chat/delete-chat-thread). 
 

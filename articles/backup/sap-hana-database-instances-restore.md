@@ -2,10 +2,11 @@
 title: Restore SAP HANA database instances on Azure VMs
 description: In this article, you'll learn how to restore SAP HANA database instances on Azure virtual machines.
 ms.topic: how-to
-ms.date: 06/05/2025
+ms.date: 08/19/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+ms.custom: sfi-ropc-nochange
 # Customer intent: "As a database administrator, I want to restore SAP HANA database instances from snapshots on Azure virtual machines, so that I can recover critical data efficiently and ensure business continuity."
 ---
 
@@ -146,3 +147,4 @@ The managed disk snapshots don't get transferred to the Recovery Services vault.
 - [About SAP HANA database backup on Azure VMs](sap-hana-db-about.md).
 - [Manage SAP HANA database instances on Azure VMs using Azure portal](sap-hana-database-manage.md).
 - [Manage SAP HANA databases that are backed up by Azure Backup using Azure CLI](tutorial-sap-hana-manage-cli.md).
+- [Troubleshoot SAP HANA snapshot backup jobs on Azure Backup](sap-hana-database-instance-troubleshoot.md).

@@ -6,7 +6,10 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 06/18/2025
-ms.custom: fasttrack-edit
+ms.custom:
+  - fasttrack-edit
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 # Customer intent: As a logic app workflow developer, I want to learn about application settings and host settings that I can edit to customize the way that my Standard workflows run.
 ---
 
@@ -189,17 +192,21 @@ The following settings are used to manually stop and immediately delete the spec
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
-| `Jobs.CleanupJobPartitionPrefixes` | None | Immediately deletes all the run jobs for the specified workflows. |
-| `Jobs.SuspendedJobPartitionPrefixes` | None | Stops the run jobs for the specified workflows. |
-| `SequencerJobs.SuspendedSequencerPartitionPrefixes` | None | Stops the sequencer run jobs for the specified workflows. |
+| `Jobs.CleanupJobPartition` | None | Immediately deletes all the run jobs for the specified workflows. |
+| `Jobs.SuspendedJobPartition` | None | Stops the run jobs for the specified workflows. |
+| `SequencerJobs.SuspendedSequencerPartition` | None | Stops the sequencer run jobs for the specified workflows. |
 
-The following example shows the syntax for these settings where each workflow ID is followed by a colon (`:`) and separated by a semicolon (`;`):
+To specify individual workflows, use the following syntax where each workflow ID is followed by a colon (`:`) and is separated by a semicolon (`;`):
 
 ```json
-"Jobs.CleanupJobPartitionPrefixes": "<workflow-ID-1>:;<workflow-ID-2>:",
-"Jobs.SuspendedJobPartitionPrefixes": "<workflow-ID-1>:;<workflow-ID-2>:",
-"SequencerJobs.SuspendedSequencerPartitionPrefixes": "<workflow-ID-1>:;<workflow-ID-2>:"
+"Jobs.CleanupJobPartition": "<workflow-ID-1>:;<workflow-ID-2>",
+"Jobs.SuspendedJobPartition": "<workflow-ID-1>:;<workflow-ID-2>:",
+"SequencerJobs.SuspendedSequencerPartition": "<workflow-ID-1>:;<workflow-ID-2>:"
 ```
+
+To cancel a specific run, provide the run ID following the workflow ID with **2D** as the separator, for example:
+
+`"Jobs.SuspendedJobPartition": "<workflow-ID-1>:2D<run-ID>;",`
 
 <a name="recurrence-triggers"></a>
 
@@ -298,7 +305,7 @@ For built-in operations that run as function calls in Azure Functions, add both 
 |---------|---------------|-------------|
 | `Runtime.FlowRunEngine.ForeachMaximumItemsForContentInlining` | `20` items | When a `For each` loop is running, each item's value is stored either inline with other metadata in table storage or separately in blob storage. Sets the number of items to store inline with other metadata. |
 | `Runtime.FlowRunRetryableActionJobCallback.MaximumPagesForContentInlining` | `20` pages | Sets the maximum number of pages to store as inline content in table storage before storing in blob storage. |
-| `Runtime.FlowTriggerSplitOnJob.MaximumItemsForContentInlining` | `40` items | When the `SplitOn` setting debatches array items into multiple workflow instances, each item's value is stored either inline with other metadata in table storage or separately in blob storage. Sets the number of items to store inline. |
+| `Runtime.FlowTriggerSplitOnJob.MaximumItemsForContentInlining` | `40` items | When a trigger that supports debatching has the **Split on** or `splitOn` setting enabled, the trigger debatches array items into multiple workflow instances. Each array item's value is stored either inline with other metadata in table storage or separately in blob storage. Sets the number of items to store inline. |
 | `Runtime.ScaleUnit.MaximumCharactersForContentInlining` | `32384` characters | Sets the maximum number of operation input and output characters to store inline in table storage before storing in blob storage. |
 
 <a name="for-each-loop"></a>
@@ -308,7 +315,7 @@ For built-in operations that run as function calls in Azure Functions, add both 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
 | `Runtime.Backend.FlowDefaultForeachItemsLimit` | `100000` array items | For a *stateful workflow*, sets the maximum number of array items to process in a `For each` loop. |
-| `Runtime.Backend.FlowDefaultSplitOnItemsLimit` | `100000` array items | Sets the maximum number of array items to debatch or split into multiple workflow instances based on the `SplitOn` setting. |
+| `Runtime.Backend.FlowDefaultSplitOnItemsLimit` | `100000` array items | Sets the maximum number of array items to debatch or split into multiple workflow instances based on the `splitOn` property. |
 | `Runtime.Backend.ForeachDefaultDegreeOfParallelism` | `20` iterations | Sets the default number of concurrent iterations, or degree of parallelism, in a `For each` loop. To run sequentially, set the value to `1`. |
 | `Runtime.Backend.Stateless.FlowDefaultForeachItemsLimit` | `100` items | For a *stateless workflow*, sets the maximum number of array items to process in a `For each` loop. |
 

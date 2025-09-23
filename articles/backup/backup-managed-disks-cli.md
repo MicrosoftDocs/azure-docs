@@ -3,9 +3,9 @@ title: Back up Azure Managed Disks using Azure CLI
 description: Learn how to back up Azure Managed Disks using Azure CLI.
 ms.topic: how-to
 ms.custom: devx-track-azurecli, engagement-fy24
-ms.date: 06/11/2025
-author: jyothisuri
-ms.author: jsuri
+ms.date: 08/25/2025
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a cloud administrator, I want to back up Azure Managed Disks using CLI commands, so that I can ensure data protection and recovery for my virtual machines efficiently."
 ---
 
@@ -175,7 +175,7 @@ The time required for completing the backup operation depends on various factors
    >[!NOTE]
    >Although the selected vault may have the global-redundancy setting, currently, Azure Disk Backup supports snapshot datastore only. All backups are stored in a resource group in your subscription and aren't copied to the Backup vault storage.
 
-To know more details about policy creation, refer to the [Azure Disk Backup policy](backup-managed-disks.md#create-backup-policy) document.
+To know more details about policy creation, see [how to create Azure Disk Backup policy](backup-managed-disks.md#create-backup-policy-for-azure-disks).
 
 Once the template is downloaded as a JSON file, you can edit it for scheduling and retention as required. Then create a new policy with the resulting JSON. If you want to edit the hourly frequency or the retention period, use the [az dataprotection backup-policy trigger set](/cli/azure/dataprotection/backup-policy/trigger#az-dataprotection-backup-policy-trigger-set) and/or [az dataprotection backup-policy retention-rule set](/cli/azure/dataprotection/backup-policy/retention-rule#az-dataprotection-backup-policy-retention-rule-set) commands. Once the policy JSON has all the required values, proceed to create a new policy from the policy object using the [az dataprotection backup-policy create](/cli/azure/dataprotection/backup-policy#az-dataprotection-backup-policy-create) command.
 

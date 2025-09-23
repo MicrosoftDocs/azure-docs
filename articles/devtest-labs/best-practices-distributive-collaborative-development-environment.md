@@ -19,7 +19,7 @@ This document describes some best practices that allow collaboration and distrib
 ## Lab-based resources
 
 ### Custom virtual machine images
-You can have a common source of custom images that are deployed to labs on a nightly basis. For detailed information, see [Image factory](image-factory-create.md).    
+You can have a common source of custom images that are deployed to labs on a nightly basis. For detailed information, see [Azure VM Image Builder](/azure/virtual-machines/image-builder-overview?tabs=azure-powershell).
 
 ### Formulas
 [Formulas](devtest-lab-manage-formulas.md) are lab-specific and don't have a distribution mechanism. The lab members do all the development of formulas. 

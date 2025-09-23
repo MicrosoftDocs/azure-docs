@@ -2,10 +2,10 @@
 title: Configure and manage backup for Azure Blobs using Azure Backup
 description: Learn how to configure and manage operational and vaulted backups for Azure Blobs.
 ms.topic: how-to
-ms.date: 07/11/2025
+ms.date: 08/19/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a cloud administrator, I want to configure and manage backup for Azure Blobs across multiple storage accounts, so that I can ensure data protection and recovery options are available in case of accidental deletion or data loss."
 ---
 
@@ -173,7 +173,7 @@ You can stop operational backup for your storage account according to your requi
 
 To stop backup for a storage account, follow these steps:
 
-1.Go to the backup instance for the storage account being backed up.
+1. Go to the backup instance for the storage account being backed up.
 
    You can go to the backup instance from the storage account via **Storage account** > **Data protection** > **Manage backup settings**, or directly from the Business Continuity Center  via **Business Continuity Center** > **Protected Items** , and then select **Azure Backup** as a **Solution** in the filter. 
 

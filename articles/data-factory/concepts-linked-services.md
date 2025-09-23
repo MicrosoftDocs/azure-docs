@@ -6,9 +6,12 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: whhender
 ms.subservice: data-movement
-ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/25/2024
+ms.date: 07/25/2025
+ms.custom:
+  - synapse
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Linked services in Azure Data Factory and Azure Synapse Analytics
@@ -37,21 +40,21 @@ The following diagram shows the relationships among pipeline, activity, dataset,
 
 # [Azure Data Factory](#tab/data-factory)
 
-To create a new linked service in Azure Data Factory Studio, select the **Manage** tab and then **linked services**, where you can see any existing linked services you defined.  Select **+ New** to create a new linked service.
+To create a new linked service in Azure Data Factory Studio, select the **Manage** tab and then **linked services**, where you can see any existing linked services you defined. Select **+ New** to create a new linked service.
 
 :::image type="content" source="media/concepts-linked-services/create-linked-service.png" alt-text="Shows the Azure Data Factory studio Manage tab with linked services and the New button highlighted.":::
 
-After selecting **+ New** to create a new linked service you can choose any of the supported connectors and configure its details accordingly.  Thereafter you can use the linked service in any pipelines you create.
+After selecting **+ New** to create a new linked service, you can choose any of the supported connectors and configure its details accordingly. Thereafter you can use the linked service in any pipelines you create.
 
 :::image type="content" source="media/concepts-linked-services/new-linked-service-window.png" alt-text="Shows the new linked service window.":::
 
 # [Synapse Analytics](#tab/synapse-analytics)
 
-To create a new linked service in Synapse Studio, select the **Manage** tab and then **linked services**, where you can see any existing linked services you defined.  Select **+ New** to create a new linked service.
+To create a new linked service in Synapse Studio, select the **Manage** tab and then **linked services**, where you can see any existing linked services you defined. Select **+ New** to create a new linked service.
 
 :::image type="content" source="media/concepts-linked-services/create-linked-service-synapse.png" alt-text="Shows the Azure Data Factory studio Manage tab with linked services and the New button highlighted.":::
 
-After selecting **+ New** to create a new linked service you are able to choose any of the supported connectors and configure its details accordingly.  Thereafter you can use the linked service in any pipelines you create.
+After selecting **+ New** to create a new linked service, you're able to choose any of the supported connectors and configure its details accordingly. Thereafter you can use the linked service in any pipelines you create.
 
 :::image type="content" source="media/concepts-linked-services/new-linked-service-window.png" alt-text="Shows the new linked service window.":::
 

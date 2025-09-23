@@ -7,6 +7,7 @@ ms.topic: include
 ms.date: 02/17/2023
 author: jyothisuri
 ms.author: jsuri
+ms.custom: sfi-image-nochange
 ---
 
 ## Configure snapshot backup

@@ -5,7 +5,9 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 03/26/2023
-ms.custom: UpdateFrequency2
+ms.custom:
+  - UpdateFrequency2
+  - sfi-image-nochange
 
 #customer intent: As a lab user, I want to connect to Bastion-enabled lab VMs through my browser, so I can connect securely without using public IP addresses or exposing RDP or SSH ports to the internet.
 ---

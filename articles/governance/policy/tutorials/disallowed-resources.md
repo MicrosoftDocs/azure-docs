@@ -145,4 +145,4 @@ To learn more about the structures of policy definitions, assignments, and exemp
 
 To see a full list of built-in policy samples, view this article:
 > [!div class="nextstepaction"]
-> [Azure Policy definition structure](../samples/built-in-policies.md)
+> [Azure Policy definition structure](/azure/governance/policy/samples/built-in-policies)

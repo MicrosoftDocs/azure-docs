@@ -4,6 +4,7 @@
  ms.topic: include
  ms.date: 01/22/2025
  ms.author: cherylmc
+ ms.custom: sfi-image-nochange
 ---
 
 1. In the [Azure portal](https://portal.azure.com), go to the virtual machine that you want to connect to. 

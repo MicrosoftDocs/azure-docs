@@ -7,6 +7,7 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 09/27/2023
 ms.author: kesheth
+ms.custom: sfi-ropc-blocked
 ---
 
 # Register a public client application in Microsoft Entra ID for Azure API for FHIR

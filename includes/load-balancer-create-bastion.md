@@ -7,7 +7,9 @@
  ms.topic: include
  ms.date: 11/29/2023
  ms.author: mbender
- ms.custom: include file
+ ms.custom:
+   - include file
+   - sfi-image-nochange
 ---
 
 ## Create a virtual network and bastion host

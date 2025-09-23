@@ -122,3 +122,4 @@ All fees for registration, including vetting fees, are charged at the time of su
 
 - Familiarize yourself with the [SMS SDK](../sms/sdk-features.md).
 - Review [SMS frequently asked questions](../sms/sms-faq.md).
+- For global messaging, see [Messaging Connect](../sms/messaging-connect.md).

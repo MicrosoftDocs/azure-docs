@@ -7,6 +7,7 @@ ms.reviewer: estfan, azla
 ms.topic: how-to
 ai.usage: ai-assisted
 ms.date: 10/21/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Call Azure Functions from workflows in Azure Logic Apps
@@ -46,7 +47,7 @@ This how-to guide shows how to call an existing Azure function from your Consump
 
   - [Azure portal](../azure-functions/functions-create-function-app-portal.md)
   - [Visual Studio](../azure-functions/functions-create-your-first-function-visual-studio.md)
-  - [Visual Studio Code](../azure-functions/create-first-function-vs-code-csharp.md)
+  - [Visual Studio Code](../azure-functions/how-to-create-function-vs-code.md?pivot=programming-language-csharp)
   - [Azure CLI](/cli/azure/functionapp/app)
   - [Azure PowerShell](/powershell/module/az.functions)
   - [ARM template](/azure/templates/microsoft.web/sites/functions)

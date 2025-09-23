@@ -6,8 +6,12 @@ ms.author: karler
 ms.reviewer: haojianzhong
 ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 08/29/2024
-ms.custom: devx-track-java, devx-track-extended-java
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - sfi-image-nochange
 ---
 
 # Quickstart: Set up autoscale for applications in the Azure Spring Apps Standard consumption and dedicated plan

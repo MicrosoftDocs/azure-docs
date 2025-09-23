@@ -3,8 +3,8 @@ title: Upload a blob with .NET
 titleSuffix: Azure Storage
 description: Learn how to upload a blob to your Azure Storage account using the .NET client library.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.date: 03/25/2025
 ms.service: azure-blob-storage
 ms.topic: how-to
@@ -154,3 +154,4 @@ The Azure SDK for .NET contains libraries that build on top of the Azure REST AP
 - [Use blob index tags to manage and find data on Azure Blob Storage](storage-blob-index-how-to.md)
 
 [!INCLUDE [storage-dev-guide-next-steps-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-dotnet.md)]
+

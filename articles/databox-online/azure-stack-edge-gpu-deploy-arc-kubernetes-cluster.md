@@ -8,6 +8,7 @@ ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 03/14/2025
 ms.author: alkohli
+ms.custom: sfi-image-nochange
 ---
 
 # Enable Azure Arc on Kubernetes cluster on your Azure Stack Edge Pro GPU device

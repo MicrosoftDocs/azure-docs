@@ -3,8 +3,8 @@ title: Script Sample - Create a new or modify the current system state backup po
 description: Learn about how to use a script to create a new or modify the current system state backup policy.
 ms.topic: sample
 ms.date: 03/27/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As an IT administrator, I want to create or modify the system state backup policy using a script, so that I can ensure the server protected by the MARS agent has an up-to-date and efficient backup schedule."
 ---
 

@@ -4,7 +4,10 @@ description: Learn how to connect your function app to Application Insights for 
 ms.service: azure-functions
 ms.topic: how-to
 ms.date: 05/19/2025
-ms.custom: devdivchpfy22
+ms.custom:
+  - devdivchpfy22
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 
 # Customer intent: As a developer, I want to understand how to configure monitoring for my functions correctly, so I can collect the data that I need.
 ---
@@ -290,7 +293,7 @@ For a function app to send data to Application Insights, it needs to connect to 
 | **[`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string)** | This setting is recommended and is required when your Application Insights instance runs in a sovereign cloud. The connection string supports other [new capabilities](/azure/azure-monitor/app/migrate-from-instrumentation-keys-to-connection-strings#new-capabilities).   |
 | **[`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsights_instrumentationkey)** | Legacy setting, which Application Insights has deprecated in favor of the connection string setting. |
 
-When you create your function app in the [Azure portal](./functions-get-started.md) from the command line by using [Azure Functions Core Tools](./how-to-create-function-azure-cli.md?pivots=programming-language-csharp) or [Visual Studio Code](./create-first-function-vs-code-csharp.md), Application Insights integration is enabled by default. The Application Insights resource has the same name as your function app, and is created either in the same region or in the nearest region.
+When you create your function app in the [Azure portal](./functions-get-started.md) from the command line by using [Azure Functions Core Tools](./how-to-create-function-azure-cli.md?pivots=programming-language-csharp) or [Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-csharp), Application Insights integration is enabled by default. The Application Insights resource has the same name as your function app, and is created either in the same region or in the nearest region.
 
 ### Require Microsoft Entra authentication 
 
@@ -497,7 +500,7 @@ Update-AzFunctionAppSetting -Name MyAppName -ResourceGroupName MyResourceGroupNa
 
 ## Monitor function apps using Health check
 
-You can use the Health Check feature to monitor function apps on the Premium (Elastic Premium) and Dedicated (App Service) plans. Health check isn't an option for the Consumption plan. To learn how to configure it, see [Monitor App Service instances using Health check](../app-service/monitor-instances-health-check.md). Your function app should have an HTTP trigger function that responds with an HTTP status code of 200 on the same endpoint as configured on the `Path` parameter of the health check. You can also have that function perform extra checks to ensure that dependent services are reachable and working.
+You can use the Health Check feature to monitor function apps on the Premium (Elastic Premium) and Dedicated (App Service) plans. Health check isn't an option for the Flex Consumption and Consumption plans. To learn how to configure it, see [Monitor App Service instances using Health check](../app-service/monitor-instances-health-check.md). Your function app should have an HTTP trigger function that responds with an HTTP status code of 200 on the same endpoint as configured on the `Path` parameter of the health check. You can also have that function perform extra checks to ensure that dependent services are reachable and working.
 
 ## Related content
 

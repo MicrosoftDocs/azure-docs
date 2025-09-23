@@ -2,7 +2,7 @@
 title: Tag resources, resource groups, and subscriptions with ARM templates
 description: Shows how to use ARM templates to apply tags to Azure resources.
 ms.topic: conceptual
-ms.date: 09/26/2024
+ms.date: 09/15/2025
 ---
 
 # Apply tags with ARM templates

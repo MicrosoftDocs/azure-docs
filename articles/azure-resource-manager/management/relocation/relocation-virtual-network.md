@@ -1,7 +1,7 @@
 ---
 title: Relocate Azure Virtual Network to another region
 description: Learn how to relocate Azure Virtual Network to another region
-ms.date: 03/13/2024
+ms.date: 09/15/2025
 ms.topic: how-to
 ms.custom: subject-relocation, devx-track-azurepowershell
 ---

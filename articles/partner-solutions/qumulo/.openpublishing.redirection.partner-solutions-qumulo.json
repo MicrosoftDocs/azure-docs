@@ -38,7 +38,12 @@
         {
             "source_path_from_root": "/articles/partner-solutions/qumulo/qumulo-troubleshoot.md",
             "redirect_url": "/azure/partner-solutions/qumulo/troubleshoot",
-            "redirect_document_id": true
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/partner-solutions/qumulo/troubleshoot.md",
+            "redirect_url": "/troubleshoot/azure/partner-solutions/index",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/partner-solutions/qumulo/qumulo-vendor-neutral-archive.md",

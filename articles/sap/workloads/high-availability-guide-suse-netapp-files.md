@@ -7,9 +7,14 @@ manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ms.date: 11/19/2024
 ms.author: radeltch
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - linux-related-content
+  - sfi-image-nochange
+# Customer intent: "As an SAP administrator, I want to configure high availability for SAP NetWeaver on SUSE Linux with Azure NetApp Files, so that I can ensure system reliability and performance in a cloud environment."
 ---
 
 # High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server with Azure NetApp Files for SAP applications

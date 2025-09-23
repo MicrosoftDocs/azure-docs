@@ -7,6 +7,9 @@ ms.author: malev
 ms.service: azure-managed-grafana
 ms.topic: how-to
 ms.date: 10/23/2024
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 #customer intent: I want configure SMTP settings in Azure Managed Grafana to generate email notifications, so that I can be alerted when incidents or events happen.
 ---
 

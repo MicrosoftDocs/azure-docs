@@ -1,23 +1,26 @@
 ---
-title: Enable multi-zone redundancy in Azure Container Storage
-description: Enable storage redundancy across multiple availability zones in Azure Container Storage to improve stateful application availability. Use multi-zone storage pools and zone-redundant storage (ZRS) disks.
+title: Enable multi-zone redundancy in Azure Container Storage (version 1.x.x)
+description: Enable storage redundancy across multiple availability zones in Azure Container Storage (version 1.x.x) to improve stateful application availability. Use multi-zone storage pools and zone-redundant storage (ZRS) disks.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 07/25/2024
+ms.date: 09/03/2025
 ms.author: kendownie
-# Customer intent: As a cloud engineer, I want to enable multi-zone storage redundancy in Azure Container Storage, so that I can enhance the availability of my stateful applications running in a multi-zone Kubernetes environment.
+# Customer intent: As a cloud engineer, I want to enable multi-zone storage redundancy in Azure Container Storage (version 1.x.x), so that I can enhance the availability of my stateful applications running in a multi-zone Kubernetes environment.
 ---
 
-# Enable multi-zone storage redundancy in Azure Container Storage
+# Enable multi-zone storage redundancy in Azure Container Storage (version 1.x.x)
 
-You can improve stateful application availability by using multi-zone storage pools and zone-redundant storage (ZRS) disks when using [Azure Container Storage](container-storage-introduction.md) in a multi-zone Azure Kubernetes Service (AKS) cluster. To create an AKS cluster that uses availability zones, see [Use availability zones in Azure Kubernetes Service](/azure/aks/availability-zones).
+You can improve stateful application availability by using multi-zone storage pools and zone-redundant storage (ZRS) disks when using Azure Container Storage (version 1.x.x) in a multi-zone Azure Kubernetes Service (AKS) cluster. To create an AKS cluster that uses availability zones, see [Use availability zones in Azure Kubernetes Service](/azure/aks/availability-zones).
+
+> [!IMPORTANT]
+> This article covers features and capabilities available in Azure Container Storage (version 1.x.x). [Azure Container Storage (version 2.x.x)](container-storage-introduction.md) is now available.
 
 ## Prerequisites
 
-- This article requires the latest version (2.35.0 or later) of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). If you're using Azure Cloud Shell, the latest version is already installed. If you plan to run the commands locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges.
+- This article requires the latest version of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). If you're using Azure Cloud Shell, the latest version is already installed. If you plan to run the commands locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges.
 - You'll need an AKS cluster with a node pool of at least three virtual machines (VMs) for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
-- This article assumes you've already [installed Azure Container Storage](container-storage-aks-quickstart.md) on your AKS cluster.
+- This article assumes you've already [installed Azure Container Storage (version 1.x.x)](container-storage-aks-quickstart-version-1.md) on your AKS cluster.
 - You'll need the Kubernetes command-line client, `kubectl`. It's already installed if you're using Azure Cloud Shell, or you can install it locally by running the `az aks install-cli` command.
 
 ## Create a multi-zone storage pool
@@ -87,4 +90,4 @@ You can specify the disk `skuName` as either `StandardSSD_ZRS` or `Premium_ZRS` 
 
 ## See also
 
-- [What is Azure Container Storage?](container-storage-introduction.md)
+- [What is Azure Container Storage (version 1.x.x)?](container-storage-introduction-version-1.md)

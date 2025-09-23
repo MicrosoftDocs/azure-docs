@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Use managed identity to connect an Azure web app to an Azure SQL database'
+title: 'Securely connect .NET apps to Azure SQL Database using Managed Identity'
 description: Learn how your app can use managed identity for secure access to Azure SQL Database and other Azure services without using passwords or secrets.
 author: cephalin
 ms.author: cephalin
@@ -7,7 +7,15 @@ ms.author: cephalin
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/26/2025
-ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli, devx-track-dotnet, AppServiceConnectivity
+ms.service: azure-app-service
+ms.custom:
+  - devx-track-csharp
+  - mvc
+  - cli-validate
+  - devx-track-azurecli
+  - devx-track-dotnet
+  - AppServiceConnectivity
+  - sfi-ropc-nochange
 ---
 # Tutorial: Use managed identity to connect an Azure web app to an Azure SQL database without secrets
 

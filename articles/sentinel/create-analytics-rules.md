@@ -1,15 +1,14 @@
 ---
 title: Create scheduled analytics rules in Microsoft Sentinel | Microsoft Docs
 description: This article explains how to view and create scheduled analytics rules in Microsoft Sentinel.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.date: 10/16/2024
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
-
 
 #Customer intent: As a security engineer, I want to create custom scheduled analytics rules using Kusto Query Language so that analysts can detect and respond to unusual or suspicious activities in my digital estate.
 
@@ -83,8 +82,8 @@ In the Azure portal, stages are represented visually as tabs. In the Defender po
 
     | Field | Description |
     | ----- | ----------- |
-    | **Name** | A unique name for your rule. This field supports plain text only. |
-    | **Description** | A free-text description for your rule.<br>If Microsoft Sentinel is onboarded to the Defender portal, this field supports plain text only. |
+    | **Name** | A unique name for your rule. This field supports plain text only. Any URLs included in the name should follow the [percent-encoding format](https://en.m.wikipedia.org/wiki/Percent-encoding) for them to display properly. |
+    | **Description** | A free-text description for your rule.<br>If Microsoft Sentinel is onboarded to the Defender portal, this field supports plain text only. Any URLs included in the description should follow the percent-encoding format for them to display properly. |
     | **Severity** | Match the impact the activity triggering the rule might have on the target environment, should the rule be a true positive.<br><br>**Informational**: No impact on your system, but the information might be indicative of future steps planned by a threat actor.<br>**Low**: The immediate impact would be minimal. A threat actor would likely need to conduct multiple steps before achieving an impact on an environment.<br>**Medium**: The threat actor could have some impact on the environment with this activity, but it would be limited in scope or require additional activity.<br> **High**: The activity identified provides the threat actor with wide ranging access to conduct actions on the environment or is triggered by impact on the environment. |
     | **MITRE ATT&CK** | Choose those threat activities which apply to your rule. Select from among the **MITRE ATT&CK** tactics and techniques presented in the drop-down list. You can make multiple selections.<br><br>For more information on maximizing your coverage of the MITRE ATT&CK threat landscape, see [Understand security coverage by the MITRE ATT&CK® framework](mitre-coverage.md). |
     | **Status** | **Enabled**: The rule runs immediately upon creation, or at the [specific date and time you choose to schedule it (currently in PREVIEW)](#schedule-and-scope-the-query).<br>**Disabled**: The rule is created but doesn't run. Enable it later from your **Active rules** tab when you need it. |
