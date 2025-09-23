@@ -3,8 +3,8 @@ title: Restore Azure Files with REST API
 description: Learn how to use REST API to restore Azure Files or specific files from a restore point created by Azure Backup 
 ms.topic: how-to
 ms.date: 05/22/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a cloud administrator, I want to restore backed-up Azure Files using REST API, so that I can efficiently recover entire file shares or specific files from backup points without relying on GUI tools.
 ---
 

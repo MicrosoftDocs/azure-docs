@@ -75,10 +75,14 @@
       href: ../common/security-controls-policy.md?toc=/azure/storage/tables/toc.json
     - name: Security baseline
       href: /security/benchmark/azure/baselines/storage-security-baseline?toc=/azure/storage/tables/toc.json?toc=/azure/storage/tables/TOC.json
-  - name: Data redundancy
-    href: ../common/storage-redundancy.md?toc=/azure/storage/tables/toc.json
-  - name: Disaster recovery and failover
-    href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/tables/toc.json
+  - name: Reliability
+    items:
+    - name: Reliability in Azure Table storage
+      href: ../../reliability/reliability-storage-table.md?toc=/azure/storage/tables/toc.json
+    - name: Data redundancy
+      href: ../common/storage-redundancy.md?toc=/azure/storage/tables/toc.json
+    - name: Disaster recovery and failover
+      href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/tables/toc.json
   - name: Performance, scaling, and cost optimization
     items:
     - name: Performance and scalability checklist

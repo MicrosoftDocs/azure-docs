@@ -5,8 +5,11 @@ author: spelluru
 ms.topic: quickstart
 ms.date: 01/24/2024
 ms.author: spelluru
-ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
+ms.custom:
+  - mode-api
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 ---
 
 # Use the Azure CLI to create a Service Bus namespace and a queue

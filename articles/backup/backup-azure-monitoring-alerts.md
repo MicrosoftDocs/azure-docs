@@ -4,8 +4,8 @@ description: Learn about the new and improved alerting capabilities via Azure Mo
 ms.topic: how-to
 ms.date: 11/30/2024
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
 # Customer intent: As a backup administrator, I want to configure Azure Monitor alerts for Azure Backup so that I can effectively monitor backup operations and receive timely notifications on failures and critical events.
 ---

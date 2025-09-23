@@ -34,6 +34,8 @@ Key features of Azure Communication Services SMS SDKs include:
 - **Analytics** to track your SMS usage patterns. See [SMS insights](../../concepts/analytics/insights/sms-insights.md) for details.
 - **Opt-Out** handling support to automatically detect and respect opt-outs for toll-free numbers and short codes. US carriers mandate and enforce opt-outs for US toll-free numbers. See [opt-out handling FAQ](./sms-faq.md#opt-out-handling) for details.
 
+:::image type="content" source="./media/sms-concept.png" alt-text="Diagram showing sms dekkivery flow concept." lightbox="./media/sms-concept.png":::
+
 ## Sender types supported
 
 To send SMS, you must have a sender ID—this can be a phone number or an alphanumeric sender ID where supported. Choosing the right sender ID is critical to the success of your messaging campaign. When selecting a number or sender ID type, consider the destination country, regulatory requirements, throughput needs, and your desired timeline for launch. Azure Communication Services enables you to send SMS using various sender types: toll-free number (1-8XX), short codes (12345), 10 digit long codes (1-234-123-1234), mobile numbers (+XX XXXXX XXXXX), and alphanumeric sender ID (CONTOSO). The following table walks you through the features of each sender type:
@@ -71,7 +73,7 @@ To send SMS, you must have a sender ID—this can be a phone number or an alphan
 | Puerto Rico      | ✅        | –          | –     | –              | –              | –              |
 | United Kingdom   | –         | ✅         | –     | ✅             | –             | ✅             |
 | Australia        | –         | –          | –     | ✅             | –              | ✅             |
-| Austria          | –         | –          | –     | –              | ✅              | ✅             |
+| Austria          | –         | –          | –     | –              | ✅              |–              |
 | Germany          | –         | –          | –     | –              | ✅             | –              |
 | France           | –         | –          | –     | –              | ✅             | –              |
 | Italy            | –         | –          | –     | –              | –              | ✅             |
@@ -92,6 +94,9 @@ To send SMS, you must have a sender ID—this can be a phone number or an alphan
 | Norway           | –         | –          | –     | –              | –              | ✅             |
 | Slovakia         | –         | –          | –     | –              | –              | ✅             |
 | Slovenia         | –         | –          | –     | –              | –              | ✅             |
+
+> [!TIP]
+> For global SMS delivery and partner-managed options, check out [Messaging Connect](../sms/messaging-connect.md).
 
 ## Next steps
 

@@ -5,8 +5,10 @@ author: xujxu
 ms.author: xujiang1
 ms.service: azure-stream-analytics
 ms.topic: how-to
-ms.custom: mvc
 ms.date: 10/12/2022
+ms.custom:
+  - mvc
+  - sfi-image-nochange
 ---
 
 # Filter and ingest to Azure Data Lake Storage Gen2 using the Stream Analytics no code editor

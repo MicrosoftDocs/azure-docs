@@ -78,8 +78,6 @@ items:
     - name: Deploy VM extensions
       displayName: virtual machine extensions
       href: template-tutorial-deploy-vm-extensions.md
-    - name: Deploy SQL extensions
-      href: template-tutorial-deploy-sql-extensions-bacpac.md
   - name: Learning path for templates
     href: /training/paths/deploy-manage-resource-manager-templates/
 - name: Samples - Azure services
@@ -190,6 +188,8 @@ items:
       href: ../../service-bus-messaging/service-bus-resource-manager-namespace-queue.md?toc=/azure/azure-resource-manager/templates/toc.json
   - name: Internet of Things
     items:
+    - name: Firmware analysis
+      href: ../../firmware-analysis/quickstart-firmware-analysis-arm.md
     - name: IoT Edge
       href: ../../iot-edge/how-to-install-iot-edge-ubuntuvm.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: IoT Hub

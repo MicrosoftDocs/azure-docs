@@ -5,7 +5,7 @@ author: varunbms
 ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.topic: how-to
-ms.date: 03/11/2024
+ms.date: 06/15/2025
 ms.author: buchvarun
 ms.custom: mode-api
 ---

@@ -1,10 +1,10 @@
 ---
-title: Configure access control lists with Azure NetApp Files | Microsoft Docs
+title: Configure access control lists with Azure NetApp Files
 description: Learn how to configure access control lists (ACLs) on NFSv4.1 with Azure NetApp Files.
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 07/10/2025
+ms.date: 07/14/2025
 ms.author: anfdocs
 # Customer intent: "As a system administrator, I want to configure access control lists on NFSv4.1 volumes in Azure NetApp Files, so that I can manage fine-grained file permissions for users and groups to enhance security and control over shared resources."
 ---
@@ -58,10 +58,9 @@ To learn more about ACLs in Azure NetApp Files, see [Understand NFSv4.x ACLs](nf
     ```bash
     nfs4_setfacl -a A::regan@contoso.com:RWX /nfsldap/engineering
     ```
-
     - If you're configuring an ACE for [file access logs](manage-file-access-logs.md), you must use the `U:` prefix to denote the ACE is an audit ACE. The following example configures an audit log for everyone for successful and failed access attempts:
-    `nfs4_setfacl -a U:fdiSF:EVERYONE@:rwaDdxtTnNcCoy /<mount_point>`
-
+    `nfs4_setfacl -a U:fdiSF:EVERYONE@:rwaDdxtTnNcCoy /<mount_point>`.
+    - To apply ACLs recursively on a directory and its contents, use the `-R` option with the `nfs4_setfacl` command. This option ensures the ACL changes are applied to all files and subdirectories within the specified directory.
 
 ## Next steps
 

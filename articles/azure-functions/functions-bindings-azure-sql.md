@@ -76,164 +76,27 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Sql --prerelease
 ::: zone-end
 
 
-::: zone pivot="programming-language-javascript, programming-language-powershell"
+::: zone pivot="programming-language-javascript, programming-language-powershell,programming-language-python,programming-language-java"
+[!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 
-
-## Install bundle
-
-The SQL bindings extension is part of the v4 [extension bundle], which is specified in your host.json project file.
-
-
-# [Bundle v4.x](#tab/extensionv4)
-
-The extension bundle is specified by the following code in your `host.json` file:
-
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[4.*, 5.0.0)"
-  }
-}
-```
-
-# [Preview Bundle v4.x](#tab/extensionv4p)
-
-You can use the preview extension bundle by adding or replacing the following code in your `host.json` file:
-
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[4.*, 5.0.0)"
-  }
-}
-```
+If your app needs to use preview functionality, you should instead reference the latest version of the preview bundle. For more information, see [Work with preview extension bundles](extension-bundles.md#work-with-preview-extension-bundles).
 
 You can view preview functionality on the [Azure Functions SQL Extensions release page](https://github.com/Azure/azure-functions-sql-extension/releases).
 
 > [!NOTE]
 > Breaking changes between preview releases of the Azure SQL bindings for Azure Functions requires that all Functions targeting the same database use the same version of the SQL extension package.
 
----
-
-::: zone-end
-
-
-::: zone pivot="programming-language-python"
-
-## Functions runtime
-
-<!-- > [!NOTE]
-> Python language support for the SQL bindings extension is available starting with v4.5.0 of the [functions runtime](./set-runtime-version.md#view-and-update-the-current-runtime-version).  You might need to update your install of Azure Functions [Core Tools](functions-run-local.md) for local development. -->
-
-
-## Install bundle
-
-The SQL bindings extension is part of the v4 [extension bundle], which is specified in your host.json project file.
-
-
-# [Bundle v4.x](#tab/extensionv4)
-
-The extension bundle is specified by the following code in your `host.json` file:
-
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[4.*, 5.0.0)"
-  }
-}
-```
-
-# [Preview Bundle v4.x](#tab/extensionv4p)
-
-You can use the preview extension bundle by adding or replacing the following code in your `host.json` file:
-
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[4.*, 5.0.0)"
-  }
-}
-```
-
-You can view preview functionality on the [Azure Functions SQL Extensions release page](https://github.com/Azure/azure-functions-sql-extension/releases).
-
-> [!NOTE]
-> Breaking changes between preview releases of the Azure SQL bindings for Azure Functions requires that all Functions targeting the same database use the same version of the SQL extension package.
-
----
-
-::: zone-end
-
-
-::: zone pivot="programming-language-java"
-
-
-## Install bundle
-
-The SQL bindings extension is part of the v4 [extension bundle], which is specified in your host.json project file.
-
-# [Bundle v4.x](#tab/extensionv4)
-
-The extension bundle is specified by the following code in your `host.json` file:
-
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[4.*, 5.0.0)"
-  }
-}
-```
-
-# [Preview Bundle v4.x](#tab/extensionv4p)
-
-You can use the preview extension bundle by adding or replacing the following code in your `host.json` file:
-
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[4.*, 5.0.0)"
-  }
-}
-```
-
-You can view preview functionality on the [Azure Functions SQL Extensions release page](https://github.com/Azure/azure-functions-sql-extension/releases).
-
-> [!NOTE]
-> Breaking changes between preview releases of the Azure SQL bindings for Azure Functions requires that all Functions targeting the same database use the same version of the SQL extension package.
-
----
-
+::: zone-end  
+::: zone pivot="programming-language-java"  
 ## Update packages
 
-Add the Java library for SQL bindings to your functions project with an update to the `pom.xml` file in your Java Azure Functions project as seen in the following snippet:
+Add the [Azure Functions Java SQL Types package](https://mvnrepository.com/artifact/com.microsoft.azure.functions/azure-functions-java-library-sql) to your functions project with an update to the `pom.xml` file in your project, as in this example:
 
 ```xml
 <dependency>
     <groupId>com.microsoft.azure.functions</groupId>
     <artifactId>azure-functions-java-library-sql</artifactId>
     <version>2.1.0</version>
-</dependency>
-```
-
-You can use the preview extension bundle with an update to the `pom.xml` file in your Java Azure Functions project as seen in the following snippet:
-
-```xml
-<dependency>
-    <groupId>com.microsoft.azure.functions</groupId>
-    <artifactId>azure-functions-java-library-sql</artifactId>
-    <version>2.1.0-preview</version>
 </dependency>
 ```
 

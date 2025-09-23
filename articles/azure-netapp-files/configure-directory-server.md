@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 07/01/2025
+ms.date: 09/23/2025
 ms.author: anfdocs
 ---
 # Configure LDAP directory servers for Azure NetApp Files NFS volumes (preview)
@@ -20,7 +20,8 @@ In addition to native Active Directory support, Azure NetApp Files supports usin
 * FreeIPA, OpenLDAP, and Red Hat Directory Server are supported with NFSv3 and NFSv4.1 volumes; they aren't currently supported with dual-protocol volumes. 
 * These directory services aren't currently supported with large volumes. 
 * You must configure the LDAP server before creating the volume. 
-* You can only configure FreeIPA, OpenLDAP, or Red Hat Directory Server on _new_ NFS volumes. You can't convert an existing NFS volume to use an LDAP servers. 
+* You can only configure FreeIPA, OpenLDAP, or Red Hat Directory Server on _new_ NFS volumes. You cannot convert existing volumes to use these directory servers. 
+<!-- Kerberos -->
 
 ## Register the feature
 
@@ -73,7 +74,7 @@ You must first create the LDAP server before you can connect it to Azure NetApp 
 
 1. To validate the connection, navigate to the volume overview for the volume using the LDAP connection.
 1. Select **LDAP connection** then **LDAP Group ID List**.  
-1. In the Username field, enter the username used when configuring the LDAP server. Select **Get Group IDs**. Ensure the group IDs match the client and server.
+1. In the Username field, enter the username provided when you configured the LDAP server. Select **Get Group IDs**. Ensure the group IDs match the client and server.
 
 ## Next steps
 

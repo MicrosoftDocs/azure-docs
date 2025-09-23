@@ -1,0 +1,111 @@
+---
+title: BCP144
+description: Directly referencing a resource or module collection isn't currently supported here. Apply an array indexer to the expression.
+ms.topic: reference
+ms.custom: devx-track-bicep
+ms.date: 07/16/2025
+---
+
+# Bicep diagnostic code - BCP144
+
+This diagnostic occurs when you try to reference a resource or module collection (for example, one defined using a `for`-loop) without specifying an index. Bicep requires that such references explicitly indicate which resource or module in the collection you're referring to using an array index.
+
+## Description
+
+Directly referencing a resource or module collection isn't currently supported here. Apply an array indexer to the expression.
+
+## Level
+
+Error
+
+## Solutions
+  
+To resolve BCP144, use an array index to access each specific resource or module in the collection. Instead of looping over the collection directly, loop over the input array and use the index to reference the corresponding item.
+
+## Examples
+
+The following example raises the diagnostic because it references a resource collection without specifying an index.
+
+```bicep
+param names array = [
+  'one'
+  'two'
+]
+
+resource demo 'Microsoft.Storage/storageAccounts@2022-09-01' = [for name in names: {
+  name: 'demo${name}'
+  location: resourceGroup().location
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'StorageV2'
+  properties: {}
+}]
+
+// ❌ This line triggers BCP144.
+output storageNames array = [for r in demo: r.name]
+```
+
+To resolve BCP144, use an array index to access each specific resource in the collection.
+
+```bicep
+param names array = [
+  'one'
+  'two'
+]
+
+resource demo 'Microsoft.Storage/storageAccounts@2022-09-01' = [for name in names: {
+  name: 'demo${name}'
+  location: resourceGroup().location
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'StorageV2'
+  properties: {}
+}]
+
+// ✅ Correct usage with indexing.
+output storageNames array = [for (name, i) in names: demo[i].name]
+```
+
+The following example shows the error code with a module collection.
+
+```bicep
+param locations array = [
+  'eastus'
+  'westus'
+]
+
+module storageModule 'storage.bicep' = [for loc in locations: {
+  name: 'storage-${loc}'
+  params: {
+    location: loc
+  }
+}]
+
+// ❌ This line triggers BCP144.
+output moduleOutputs array = [for m in storageModule: m.outputs.storageAccountName]
+```
+
+To resolve BCP144, use an array index to access each specific module in the collection.
+
+```bicep
+param locations array = [
+  'eastus'
+  'westus'
+]
+
+module storageModule 'storage.bicep' = [for loc in locations: {
+  name: 'storage-${loc}'
+  params: {
+    location: loc
+  }
+}]
+
+// ✅ Correct usage with indexing.
+output moduleOutputs array = [for (loc, i) in locations: storageModule[i].outputs.storageAccountName]
+```
+
+## Next steps
+
+For more information about Bicep diagnostics, see [Bicep core diagnostics](../bicep-core-diagnostics.md).

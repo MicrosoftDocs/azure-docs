@@ -3,6 +3,7 @@ title: Azure Functions deployment slots
 description: Learn to create and use deployment slots with Azure Functions by using the Azure portal or with Azure CLI.
 ms.topic: conceptual
 ms.date: 05/07/2025
+ms.custom: sfi-image-nochange
 ---
 # Azure Functions deployment slots
 
@@ -176,6 +177,8 @@ az functionapp deployment slot create --name "<APP_NAME>" --resource-group "<RES
 ```
 
 ---
+
+You can also create a slot by using ARM templates or Bicep files. For an example of how to create a function app in a Consumption plan with a deployment slot, see this [Azure Resource Manager quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/function-app-create-dynamic-slot).  
 
 ## Access slot resources
 

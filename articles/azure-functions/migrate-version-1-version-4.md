@@ -4,8 +4,18 @@ description: This article shows you how to migrate your existing function apps r
 ms.service: azure-functions
 ms.topic: how-to
 ms.date: 07/31/2023
-ms.custom: template-how-to-pattern, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-dotnet, devx-track-azurecli, ignite-2023, linux-related-content, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
+ms.custom:
+  - template-how-to-pattern
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - devx-track-dotnet
+  - devx-track-azurecli
+  - ignite-2023
+  - linux-related-content
+  - devx-track-ts
+  - sfi-ropc-nochange
 ---
 
 # <a name="top"></a>Migrate apps from Azure Functions version 1.x to version 4.x 
@@ -86,7 +96,7 @@ On version 1.x of the Functions runtime, your C# function app targets .NET Frame
 >
 > Although you can choose to instead use the in-process model, this is not recommended if it can be avoided. [Support will end for the in-process model on November 10, 2026](https://aka.ms/azure-functions-retirements/in-process-model), so you'll need to move to the isolated worker model before then. Doing so while migrating to version 4.x will decrease the total effort required, and the isolated worker model will give your app [additional benefits](./dotnet-isolated-in-process-differences.md), including the ability to more easily target future versions of .NET. If you are moving to the isolated worker model, the [.NET Upgrade Assistant] can also handle many of the necessary code changes for you.
 
-This guide doesn't present specific examples for .NET 9. If you need to target that version, you can adapt the .NET 8 examples for the isolated worker model.
+This guide doesn't present specific examples for .NET 10 (preview) or .NET 9. If you need to target one of those versions, you can adapt the .NET 8 examples.
 
 ::: zone-end
 

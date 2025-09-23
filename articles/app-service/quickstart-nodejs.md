@@ -8,8 +8,15 @@ ms.topic: quickstart
 ms.date: 12/02/2024
 ms.devlang: javascript
 zone_pivot_groups: app-service-vscode-cli-portal
-ms.custom: mvc, devcenter, devdivchpfy22, devx-track-js, ai-video-demo
 ai-usage: ai-assisted
+ms.service: azure-app-service
+ms.custom:
+  - mvc
+  - devcenter
+  - devdivchpfy22
+  - devx-track-js
+  - ai-video-demo
+  - sfi-image-nochange
 ---
 
 # Deploy a Node.js web app in Azure

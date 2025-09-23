@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.service: azure-backup
 ms.date: 04/15/2025
 ms.custom: engagement-fy24
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a cloud resource manager, I want to purchase reserved capacity for Azure Backup Storage, so that I can optimize storage costs while ensuring sufficient backup capacity for my organization's data."
 ---
 

@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 08/24/2023
+ms.custom: sfi-image-nochange
 # Customer intent: As a security administrator, I want to enable and manage logging for the Web Application Firewall in Azure, so that I can monitor and analyze access, performance, and security events to enhance the protection of my applications.
 ---
 # Resource logs for Azure Web Application Firewall
@@ -214,7 +215,11 @@ The performance log is generated only if you have enabled it on each Application
 
 The firewall log is generated only if you have enabled it for each application gateway, as detailed in the preceding steps. This log also requires that the web application firewall is configured on an application gateway. The data is stored in the destination that you specified when you enabled the logging. The following data is logged:
 
+# [Application Gateway](#tab/AppGW)
 
+## <a name="AppGW"></a> Application Gateway
+
+### <a name="AppGW-Format"></a> Log Format
 |Value  |Description  |
 |---------|---------|
 |instanceId     | Application Gateway instance for which firewall data is being generated. For a multiple-instance application gateway, there is one row per instance.         |
@@ -237,6 +242,7 @@ The firewall log is generated only if you have enabled it for each application g
 |policyScope    | The location of the policy - values can be "Global", "Listener", or "Location".   |
 |policyScopeName   | The name of the object where the policy is applied.    |
 
+### <a name="AppGW-Example"></a> Example
 ```json
 {
   "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
@@ -270,6 +276,68 @@ The firewall log is generated only if you have enabled it for each application g
 }
 
 ```
+
+# [Application Gateway for Containers](#tab/AGC)
+
+## <a name="AGC"></a> Application Gateway for Containers
+| Value            | Description                                                                                                                                                                                                            |
+|------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| TimeGenerated    | Time (UTC) when the log was created.                                                                                                                                                                                   |
+| OperationName    | Name of the operation.                                                                                                                                                                                                 |
+| InstanceId       | Application Gateway instance for which firewall data is being generated. For a multiple-instance application gateway, there is one row per instance.                                                                   |
+| ClientIp         | Originating IP for the request.                                                                                                                                                                                        |
+| ClientPort       | Originating port for the request.                                                                                                                                                                                      |
+| Action           | Action taken on the request. Available values are Blocked and Allowed (for custom rules), Matched (when a rule matches a part of the request), and Detected and Blocked (these are both for mandatory rules).          |
+| Message          | User-friendly message for the triggering event. More details are provided in the details section.                                                                                                                      |
+| DetailedMessage  | Description of the rule for the triggered event.                                                                                                                                                                       |
+| DetailedData     | Specific data found in request that matched the rule for the triggered event.                                                                                                                                          |
+| FileDetails      | Configuration file that contained the rule for the triggered event.                                                                                                                                                    |
+| LineDetails      | Line number in the configuration file that triggered the event.                                                                                                                                                        |
+| Hostname         | Hostname or IP address of the Application Gateway.                                                                                                                                                                     |
+| PolicyId         | Resource ID of the web application firewall policy.                                                                                                                                                                    |
+| PolicyScope      | A named scope consisting of Kubernetes resource references the scope is applied to.                                                                                                                                    |
+| PolicyScopeName  | The name to the type of scope assignment the web application firewall policy is assigned to.                                                                                                                           |
+| RequestUri       | URL of the received request.                                                                                                                                                                                           |
+| RuleSetType      | Rule set type. The available value is Microsoft_DefaultRuleSet or Microsoft_BotManagerRuleSet.                                                                                                                         |
+| RuleSetVersion   | Rule set version used for Microsoft_DefaultRuleSet or Microsoft_BotManagerRuleSet.                                                                                                                                     |
+| RuleId           | Rule ID of the triggering event.                                                                                                                                                                                       |
+| TrackingId       | Generated guid by Application Gateway
+
+### <a name="AGC-Format"></a> Log Format
+```json
+{
+    "timeStamp": "2025-06-17T20:06:05+00:00",
+    "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/YYYYYY/PROVIDERS/MICROSOFT.SERVICENETWORKING/TRAFFICCONTROLLERS/ZZZZZZZ",
+    "operationName": "TrafficControllerFirewall",
+    "category": "TrafficControllerFirewallLog",
+    "properties": {
+        "instanceId": "8a02ae47-8435-4f3d-84a5-6f5ded3763f5",
+        "clientIp": "xxx.xxx.xxx.xxx",
+        "requestUri": "\/?1=1=1",
+        "ruleSetType": "Microsoft_DefaultRuleSet",
+        "ruleSetVersion": "2.1",
+        "ruleId": "949110",
+        "ruleGroup": "BLOCKING-EVALUATION",
+        "message": "Inbound Anomaly Score Exceeded (Total Score: 5)",
+        "action": "Blocked",
+        "details": {
+            "message": "Greater and Equal to Tx:inbound_anomaly_score_threshold at TX:anomaly_score.",
+            "data": "",
+            "file": "BLOCKING-EVALUATION.conf",
+            "line": "36"
+        },
+        "hostName": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.fzXX.alb.azure.com",
+        "trackingId": "0ef125db-7fb7-48a0-b3fe-03fe0ffed873",
+        "policyId": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/YYYYYY/providers/Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/ZZZZZZZ",
+        "policyScope": "HTTPRoute-test-infra-contoso-waf-route-rule-0-match-0-waf.fzXX.alb.azure.com",
+        "policyScopeName": "Route",
+        "engine": "Azwaf"
+    },
+    "location": "northcentralus"
+}
+```
+
+----
 
 ## View and analyze the activity log
 

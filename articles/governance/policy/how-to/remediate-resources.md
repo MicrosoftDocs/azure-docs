@@ -341,7 +341,7 @@ For more remediation commands and examples, see the [az policy remediation](/cli
 
 ## Next steps
 
-- Review examples at [Azure Policy samples](../samples/index.md).
+- Review examples at [Azure Policy samples](/azure/governance/policy/samples/index).
 - Review the [Azure Policy definition structure](../concepts/definition-structure-basics.md).
 - Review [Understanding policy effects](../concepts/effect-basics.md).
 - Understand how to [programmatically create policies](programmatically-create.md).

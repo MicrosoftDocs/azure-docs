@@ -24,7 +24,7 @@ Application volume group for SAP HANA is supported for all regions where Azure N
 * Supporting SAP HANA configurations for both single and multiple host setups, including: 
     * Volumes for a single or primary SAP HANA database
     * Volumes for an SAP HANA System Replication (HSR) secondary system
-    * Volumes for a disaster recovery (DR) scenario using [cross-region replication](cross-region-replication-introduction.md)
+    * Volumes for a disaster recovery (DR) scenario using [cross-region replication](replication.md)
 
 * Creating the following volumes: 
     * SAP HANA data volumes (one for each database host)
@@ -41,7 +41,7 @@ Application volume group for SAP HANA is supported for all regions where Azure N
 
 Application volume group for SAP HANA helps you simplify the deployment process and increase the storage performance for SAP HANA workloads. Some of the new features are as follows:
 
-* [Availability zone volume placement](use-availability-zones.md)
+* [Availability zone volume placement](replication.md#availability-zones)
 
     Designating the same availability zone for the volumes ensures that virtual machines and Azure NetApp Files volumes reside in the same availability zone and meet the latency requirements for SAP HANA. Availability zone volume placement simplifies the deployment process, avoiding the manual AvSet pinning process and eliminating the requirement for availability sets. To learn more about the differences between availability zone volume placement and proximity placement groups, see [Requirements and considerations for application volume group for SAP HANA](application-volume-group-considerations.md#best-practices-about-proximity-placement).
 

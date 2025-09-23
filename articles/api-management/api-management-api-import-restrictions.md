@@ -52,7 +52,7 @@ If you receive errors while importing your OpenAPI document, make sure you've va
 | **Defined URL parameter** | Must be part of the URL template. |
 | **Available source file URL** | Applied to relative server URLs. |
 | **`\$ref` pointers** | Can't reference external files. |
-
+| **Maximum URL Length** | API URL must be less than 128 characters long. |
 
 #### OpenAPI specifications
 
@@ -145,8 +145,8 @@ The following fields are included in either [OpenAPI version 3.0.x](https://swag
 | **Info** | `summary` |
 | **Components** | <ul><li>`responses`</li><li>`parameters`</li><li>`examples`</li><li>`requestBodies`</li><li>`headers`</li><li>`securitySchemes`</li><li>`links`</li><li>`callbacks`</li></ul> |
 | **PathItem** | <ul><li>`trace`</li><li>`servers`</li></ul> |
-| **Operation** | <ul><li>`externalDocs`</li><li>`callbacks`</li><li>`security`</li><li>`servers`</li></ul> |
-| **Parameter** | <ul><li>`allowEmptyValue`</li><li>`style`</li><li>`explode`</li><li>`allowReserved`</li></ul> |
+| **Operation** | <ul><li>`externalDocs`</li><li>`callbacks`</li><li>`security`</li><li>`servers`</li><li>`deprecated`</li></ul> |
+| **Parameter** | <ul><li>`allowEmptyValue`</li><li>`style`</li><li>`explode`</li><li>`allowReserved`</li><li>`deprecated`</li></ul> |
 | **Server templating** | <ul><li>`API Server and Base URL`</li></ul> |
 
 ## OpenAPI import, update, and export mechanisms

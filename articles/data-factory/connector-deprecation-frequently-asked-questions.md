@@ -6,18 +6,21 @@ ms.author: krirukm
 ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
-ms.date: 05/27/2025
+ms.date: 09/17/2025
 ms.custom:
   - build-2025
+  - sfi-image-nochange
 ---
 
 # Connector upgrade FAQ
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article provides answers to frequently asked questions about connector upgrade.
 
 ## Why does Azure Data Factory (ADF) release new connectors and ask users to upgrade their existing connectors?
 
-At Azure Data Factory (ADF), we are committed to continually enhancing our platform by improving performance, security and overall user experience. Upgrading connectors is a key part of our efforts to deliver the latest innovations and ensure your data workflows run smoothly. These upgrades offer several important benefits:
+At Azure Data Factory (ADF), we're committed to continually enhancing our platform by improving performance, security and overall user experience. Upgrading connectors is a key part of our efforts to deliver the latest innovations and ensure your data workflows run smoothly. These upgrades offer several important benefits:
 
  - Improved data ingestion performance for faster processing
  - Seamless native integration with your data sources
@@ -56,10 +59,10 @@ Your upgrade path may vary depending on the connector:
 ## What will happen after the migration deadline?
 
 There are three key deadlines outlined in our documentation:
-1. **End of Support Announcement**: This period serves as a recommended upgrade window. You are encouraged to upgrade your legacy connectors to the new ones during this time and engage with the Microsoft team if you encounter any blockers.
-    - New linked services cannot use legacy connectors, but existing linked services with legacy connectors will continue to work.
+1. **End of Support Announcement**: This period serves as a recommended upgrade window. You're encouraged to upgrade your legacy connectors to the new ones during this time and engage with the Microsoft team if you encounter any blockers.
+    - New linked services can't use legacy connectors, but existing linked services with legacy connectors will continue to work.
 
-1. **End of Support (EOS)**: At this point, the connector is officially deprecated and no longer supported. Your data factories using legacy connectors will continue to operate, we will not intentionally fail any pipelines. However, the deprecation takes effect with the following:
+1. **End of Support (EOS)**: At this point, the connector is officially deprecated and no longer supported. Your data factories using legacy connectors will continue to operate, we won't intentionally fail any pipelines. However, the deprecation takes effect with the following:
     - No bug fixes will be provided.
     - No new features will be added.
     - Microsoft reserves the right to disable the connector if a critical security vulnerability (CVE) is identified.
@@ -73,7 +76,15 @@ If you encounter any feature gaps while migrating from legacy connectors, please
 
 If you encounter any errors or bugs while migrating from legacy connectors, please contact our Microsoft support team and open a support ticket. Be sure to include detailed information about the connector, the error encountered, and your use case.
 
-Our Azure Data Factory team will assist you and ensure a smooth transition to the new connectors. We invite you to fill out this [form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR94fEtK94M9FsNIwB3-nUTtUQTFGMjVFNkNEVkFaTEJQMUVaQlc3TlRDVi4u&route=shorturl) to help us better understand your needs and explore possible solutions.
+Our Azure Data Factory team will assist you and ensure a smooth transition to the new connectors. We invite you to fill out this feedback [form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR94fEtK94M9FsNIwB3-nUTtUQTFGMjVFNkNEVkFaTEJQMUVaQlc3TlRDVi4u&route=shorturl) to help us better understand your needs and explore possible solutions.
+
+## How should I get an extension for legacy version of the connectors? 
+
+In general, we don't recommend customers to request an extension. However, we recognize that, due to various factors, some customers may need more time to complete their upgrades. In such cases, we encourage customers to take full advantage of the service's [automatic upgrade](connector-upgrade-guidance.md#automatic-connector-upgrade) capabilities, which apply at the connector and pipeline activity level. These capabilities effectively grant your workload an extension by automatically upgrading it, thereby preventing failures after the end-of-support date.
+
+It's important to note that the scope of automatic upgrades varies by connector. We strongly recommend reviewing the criteria and supported scenarios for each connector to prioritize workloads that require manual upgrades before the end-of-support date, ensuring uninterrupted operations.
+
+While auto-upgraded workloads aren't immediately affected by the announced removal date of the older version, this approach gives customers additional time to evaluate, validate, and transition to the latest GA version without facing unexpected disruptions.
 
 ## Related content
 

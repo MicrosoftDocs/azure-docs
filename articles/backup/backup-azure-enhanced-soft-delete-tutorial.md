@@ -4,8 +4,8 @@ description: Learn how to enable enhanced soft delete and recover your data and 
 ms.topic: tutorial
 ms.date: 06/18/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a backup administrator, I want to enable enhanced soft delete for my Recovery and Backup vaults, so that I can ensure data recovery options are secure against accidental or malicious deletions.
 ---
 

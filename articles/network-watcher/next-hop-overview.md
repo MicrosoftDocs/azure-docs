@@ -7,6 +7,7 @@ ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
 ms.date: 03/25/2025
+ms.custom: sfi-image-nochange
 
 #CustomerIntent: As an Azure administrator, I want to learn about Next hop feature so I can use it to get the next hop information of any virtual machine (VM) experiencing  routing issues to be able to diagnose and fix the issue.
 # Customer intent: As an Azure administrator, I want to understand the Next hop feature so that I can diagnose and resolve routing issues for virtual machines effectively.

@@ -9,6 +9,7 @@ ms.date: 04/22/2025
 ms.devlang: php
 ms.custom: mode-other, devdivchpfy22, devx-track-azurecli, linux-related-content
 zone_pivot_groups: app-service-platform-windows-linux
+ms.service: azure-app-service
 ---
 
 # Create a PHP web app in Azure App Service

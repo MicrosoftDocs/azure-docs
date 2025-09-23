@@ -1,8 +1,8 @@
 ---
 title: Migrate VMware vSphere VMs with agent-based the Migration and modernization tool
 description: Learn how to run an agent-based migration of VMware vSphere VMs with Azure Migrate.
-author: vijain
-ms.author: vijain
+author: dhananjayanr98
+ms.author: dhananjayanr
 ms.manager: kmadnani
 ms.topic: tutorial
 ms.service: azure-migrate
@@ -13,13 +13,12 @@ ms.custom: vmware-scenario-422, MVC, engagement-fy25
 
 # Migrate VMware vSphere VMs to Azure (agent-based)
 
-This article shows you how to migrate on-premises VMware vSphere VMs to Azure, using the [Migration and modernization](migrate-services-overview.md) tool, with agent-based migration.  You can also migrate VMware vSphere VMs using agentless migration. [Compare](server-migrate-overview.md#compare-migration-methods) the methods.
+This article shows you how to migrate on-premises VMware vSphere VMs to Azure, using the [Migration and modernization](migrate-services-overview.md) tool, with agent-based migration.  You can also migrate VMware vSphere VMs using agentless migration (Recommended). [Compare](server-migrate-overview.md) the methods.
 
  In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Prepare Azure to work with Azure Migrate.
 > * Prepare for agent-based migration. Set up a VMware vCenter Server account so that Azure Migrate can discover machines for migration. Set up an account so that the Mobility service agent can install on machines you want to migrate, and prepare a machine to act as the replication appliance.
-> * Add the Migration and modernization tool
 > * Set up the replication appliance.
 > * Replicate VMs.
 > * Run a test migration to make sure everything's working as expected.
@@ -116,17 +115,11 @@ Prepare the account as follows:
 
 ### Prepare a machine for the replication appliance
 
-The appliance is used to replication machines to Azure. The appliance is single, highly available, on-premises VMware vSphere VM that hosts these components:
+The Azure Site Recovery Replication appliance is used to replicate machines to Azure. [Learn more](../site-recovery/vmware-azure-architecture-modernized.md).
 
-- **Configuration server**: The configuration server coordinates communications between on-premises and Azure, and manages data replication.
-- **Process server**: The process server acts as a replication gateway. It receives replication data; optimizes it with caching, compression, and encryption, and sends it to a cache storage account in Azure. The process server also installs the Mobility Service agent on VMs you want to replicate, and performs automatic discovery of on-premises VMware VMs.
+To set up a new appliance, we recommend using the OVA template as it ensures all prerequisite configurations are handled. The OVA template creates a machine with the required specifications. 
 
-Prepare for the appliance as follows:
-
-- [Review appliance requirements](migrate-replication-appliance.md#appliance-requirements). Generally, you set up the replication appliance a VMware vSphere VM using a downloaded OVA file. The template creates an appliance that complies with all requirements.
-- MySQL must be installed on the appliance. [Review](migrate-replication-appliance.md#mysql-installation) installation methods.
-- Review the [public cloud URLs](migrate-replication-appliance.md#url-access), and [Azure Government URLs](migrate-replication-appliance.md#azure-government-url-access) that the appliance machine needs to access.
-- [Review the ports](migrate-replication-appliance.md#port-access) that the replication appliance machine needs to access.
+If your organization has restrictions, you can manually set up the replication appliance using PowerShell. Ensure you meet all the [hardware](../site-recovery/replication-appliance-support-matrix.md#hardware-requirements) and [software requirements](../site-recovery/replication-appliance-support-matrix.md#software-requirements), and any other prerequisites.
 
 ### Check VMware vSphere requirements
 
@@ -143,6 +136,14 @@ Make sure VMware vSphere VMs comply with requirements for migration to Azure.
 > Agent-based migration with the Migration and modernization tool is based on features of the Azure Site Recovery service. Some requirements might link to Site Recovery documentation.
 
 ## Set up the replication appliance
+
+Now, the selection experience type is both classic and simplified. We recommend using the [simplified experience](tutorial-migrate-physical-virtual-machines.md#simplified-experience-recommended) for initiating replication of any new agent-based VMware or physical servers.
+
+## Classic experience (To be deprecated soon)
+
+> [!NOTE]
+> Starting **October 30, 2025**, replication initialization will no longer be supported in the classic experience.
+> For agent-based migration of VMware servers and migration of physical servers, use the simplified experience for all new replications. The classic experience is scheduled for deprecation in **March 2026**. [Learn more](simplified-experience-for-azure-migrate.md).
 
 This procedure describes how to set up the appliance with a downloaded Open Virtualization Application (OVA) template. If you can't use this method, you can set up the appliance [using a script](tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance).
 
@@ -293,9 +294,9 @@ Select VMs for migration.
 > [!NOTE]
 > You can update replication settings any time before replication starts, **Manage** > **Replicating machines**. Settings can't be changed after replication starts.
 
-## Simplified experience
+## Simplified experience (Recommended)
 
-Now, the selection experience type is both classic and simplified. The new simplified process follows a streamlined flow that begins with discovery, followed by replication, and finally migration. This is an upgraded agent-based migration stack for physical and VMware environments. For more information, see [Simplified experience](tutorial-migrate-physical-virtual-machines.md#simplified-experience).
+The new simplified process follows a streamlined flow that begins with discovery, followed by replication, and finally migration. This is an upgraded agent-based migration stack for physical and VMware environments. [Learn more](tutorial-migrate-physical-virtual-machines.md#simplified-experience-recommended) about simplified experience.
 
 
 ## Track and monitor

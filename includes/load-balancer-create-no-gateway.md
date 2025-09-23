@@ -7,7 +7,9 @@
  ms.topic: include
  ms.date: 10/31/2023
  ms.author: mbender
- ms.custom: include file
+ ms.custom:
+   - include file
+   - sfi-image-nochange
 ---
 
 The following procedure creates a virtual network with a resource subnet, an Azure Bastion subnet, and an Azure Bastion host.

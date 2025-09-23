@@ -11,7 +11,12 @@ ms.date: 09/06/2024
 
 # Enterprise Security Package for Azure HDInsight
 
-Enterprise Security is an optional package that you can add on your HDInsight cluster as part of create cluster workflow. The Enterprise Security Package supports:
+Enterprise Security is an optional package that you can add on your HDInsight cluster as part of create cluster workflow. 
+
+> [!NOTE]
+> Enterprise Security Package for HDInsight is retiring, and will reach end of support by July 31, 2026.
+
+The Enterprise Security Package supports:
 
 * Integration with Active Directory for authentication.
 
