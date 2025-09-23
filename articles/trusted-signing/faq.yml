@@ -188,4 +188,4 @@ sections:
           Please reach out here: https://www.microsoft.com/en-us/wdsi/filesubmission.
        - question: What happens when misuse and abuse of Trusted Signing certificate is confirmed?
          answer: |
-          Trusted Signing may revoke certs and suspend access to TSS if misuse or abuse is confirmed.
+          Trusted Signing may revoke certificate(s) and suspend access to Trusted Signing service if misuse or abuse is confirmed.
