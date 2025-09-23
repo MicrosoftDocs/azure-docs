@@ -10,7 +10,7 @@ ms.date: 08/16/2024
 ms.author: dayshen
 ---
 
-# Secure outbound traffic to Azure Function through shared private endpoints
+# Secure outbound traffic to Azure Functions through shared private endpoints
 
 If you're using an [event handler](concept-service-internals.md#event-handler) in Azure Web PubSub, you might have outbound traffic to upstream endpoints backed by Azure Web Apps or Azure Functions. To secure such outbound traffic, you can create an outbound [private endpoint connection](../private-link/private-endpoint-overview.md) in your Web PubSub services to reach these endpoints in a private way.
 
@@ -66,8 +66,6 @@ The value for **Provisioning state** in the shared private endpoint resource is 
 ### [Azure CLI](#tab/azure-cli)
 
 Use the following API call with the [Azure CLI](/cli/azure/) to create a shared private link resource. Replace the values in the following example with the values from your scenario.
-
-```bash:
 
 ```bash
 az rest --method put --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/webPubSub/contoso-webpubsub/sharedPrivateLinkResources/func-pe?api-version=2021-06-01-preview --body @create-pe.json --debug
