@@ -19,6 +19,14 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 
 ### 2025 quarter 3 (July, August, September)
 
+#### Azure Files vaulted backup is now generally available for SSD file shares
+
+Azure Backup now supports vaulted backup of SSD file shares to protect against ransomware and data loss. You can define backup schedules and retention settings to store data in the Backup vault for up to 10 years. Vaulted backups provide an offsite copy of your data. In case of data loss on the source account, you can restore it to an alternate account. You can manage vaulted backups at scale via Azure Business Continuity Center and monitor them using Azure Backup's alerting and reporting features.
+
+We recommend switching from snapshot backups to vaulted backups for comprehensive protection against data loss.
+
+For more information, read the [blog post](https://techcommunity.microsoft.com/blog/azurestorageblog/general-availability-of-azure-backup-vaulted-support-for-azure-files-premium-ssd/4455307).
+
 #### Azure file share using Microsoft.FileShares is now in public preview
 
 Azure file share using Microsoft.FileShares is now in public preview, bringing a modern, share-centric management experience to Azure Files. This update makes file shares a top-level resource in Azure, eliminating the need for storage accounts and enabling several key enhancements. This new model is ideal for cloud-native applications, CI/CD pipelines, and teams managing large volumes of file shares. In preview, we support NFSv4.1 on SSD with provisioned v2 billing only.
@@ -49,7 +57,7 @@ Metadata caching is an enhancement for SMB Azure SSD file shares aimed to reduce
 
 Azure File Sync support for managed identities is now generally available, enabling customers to be secure by default. Using managed identities eliminates the need for shared keys (storage account key, SAS keys) to authenticate to Azure Files by utilizing a system-assigned managed identity provided by Microsoft Entra ID. [Learn more](../file-sync/file-sync-managed-identities.md).
 
-#### Azure Files vaulted backup is now generally available
+#### Azure Files vaulted backup is now generally available for HDD file shares
 
 Azure Backup now supports vaulted backup of HDD file shares to protect against ransomware and data loss. You can define backup schedules and retention settings to store data in the Backup vault for up to 10 years. Vaulted backups provide an offsite copy of your data. In case of data loss on the source account, you can restore it to an alternate account. You can manage vaulted backups at scale via Azure Business Continuity Center and monitor them using Azure Backup's alerting and reporting features.
 
