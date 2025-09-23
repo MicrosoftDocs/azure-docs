@@ -1,9 +1,11 @@
 ---
 title: Access a private virtual network from a Bicep deployment script
 description: Learn how to run and test Bicep deployment scripts in private networks.
-ms.custom: devx-track-bicep
 ms.topic: how-to
 ms.date: 04/28/2025
+ms.custom:
+  - devx-track-bicep
+  - sfi-image-nochange
 ---
 
 # Access a private virtual network from a Bicep deployment script

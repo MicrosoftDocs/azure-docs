@@ -6,7 +6,9 @@ ms.author: Nandinim
 ms.service: azure-data-manager-energy
 ms.topic: how-to
 ms.date: 10/06/2022
-ms.custom: template-how-to
+ms.custom:
+  - template-how-to
+  - sfi-image-nochange
 
 #Customer intent: As a developer, I want to set up customer-managed keys on Azure Data Manager for Energy.
 ---

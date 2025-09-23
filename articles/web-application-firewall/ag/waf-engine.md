@@ -29,7 +29,7 @@ The new engine, released with CRS 3.2, provides the following benefits:
 
 There are many new features that are only supported in the Azure WAF engine. The features include:
 
-* [CRS 3.2](application-gateway-crs-rulegroups-rules.md#core-rule-set-32)
+* [CRS 3.2](application-gateway-crs-rulegroups-rules.md#core-rule-sets-crs---legacy)
   * Increased request body size limit to 2 MB
   * Increased file upload limit to 4 GB
 * [DRS 2.1](application-gateway-crs-rulegroups-rules.md#default-rule-set-21) and later DRS versions

@@ -7,6 +7,7 @@ ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 07/03/2025
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 
 #Audience and custom App ID values are not sensitive data. Please do not remove. They are required for the configuration.
 

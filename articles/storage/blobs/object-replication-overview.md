@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: concept-article
-ms.date: 03/06/2025
+ms.date: 09/09/2025
 ms.author: normesta
 ms.custom: engagement-fy23
 # Customer intent: As a cloud storage administrator, I want to implement object replication for block blobs, so that I can improve data availability, reduce read latency, and optimize cost-efficiency across multiple regions.
@@ -43,6 +43,8 @@ Object replication is supported for accounts that are encrypted with either micr
 Object replication isn't supported for blobs in the source account that are encrypted with a customer-provided key. For more information about customer-provided keys, see [Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md).
 
 Customer-managed failover isn't supported for either the source or the destination account in an object replication policy.
+
+Object replication is not yet supported in accounts that have a hierarchical namespace enabled.
 
 Object replication is not supported for blobs that are uploaded by using [Data Lake Storage](/rest/api/storageservices/data-lake-storage-gen2) APIs.
 

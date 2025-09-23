@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.author: kesheth
 author: expekesheth
 ms.date: 07/24/2025
+ms.custom: sfi-image-nochange
 ---
 
 # CARIN Implementation Guide for Blue Button&#174; for Azure API for FHIR

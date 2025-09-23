@@ -8,7 +8,11 @@ ms.service: azure-application-gateway
 ms.topic: quickstart
 ms.date: 05/30/2024
 ms.author: mbender
-ms.custom: mvc, devx-track-azurecli, mode-api
+ms.custom:
+  - mvc
+  - devx-track-azurecli
+  - mode-api
+  - sfi-image-nochange
 # Customer intent: "As a cloud engineer, I want to configure an application gateway using the command-line interface, so that I can efficiently direct web traffic to backend servers and verify the setup."
 ---
 

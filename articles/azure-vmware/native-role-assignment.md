@@ -13,12 +13,12 @@ This article describes the steps required to ensure the correct role assignments
 
 ## Summary
 
-- Create a role assignment to give the **“Avs on Fleet Rp”** service principal the **AVS Orchestrator** role on the target resource group for the private cloud.  
+- Create a role assignment to give the **“Avs Fleet Rp”** service principal the **AVS Orchestrator** role on the target resource group for the private cloud.  
 - Create a role assignment to give the **“AzS VIS Prod App”** service principal the **AVS on Fleet VIS Role** on the target resource group for the private cloud.  
 
 ## Detailed steps
 
-### Assign **AVS Orchestrator** role to *Avs on Fleet Rp*
+### Assign **AVS Orchestrator** role to *Avs Fleet Rp*
 
 1. Navigate to the **Resource Group** targeted for private cloud deployment and select **Access Control (IAM)**.  
 2. Select **Add role assignment**.  

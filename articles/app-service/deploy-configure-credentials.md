@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 07/01/2025
 
 ms.service: azure-app-service
+ms.custom: sfi-ropc-nochange
 ---
 
 # Manage deployment credentials for Azure App Service

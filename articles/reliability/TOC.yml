@@ -51,7 +51,7 @@ items:
     - name: Azure Container Apps
       href: reliability-azure-container-apps.md
     - name: Azure Container Instances
-      href: reliability-containers.md
+      href: reliability-container-instances.md
     - name: Azure Data Factory
       href: reliability-data-factory.md
     - name: Azure Functions 
@@ -85,7 +85,7 @@ items:
     - name: Azure Container Apps
       href: reliability-azure-container-apps.md
     - name: Azure Container Instances
-      href: reliability-containers.md
+      href: reliability-container-instances.md
     - name: Azure Container Registry
       href: reliability-container-registry.md
     - name: Azure Kubernetes Service (AKS)
@@ -280,6 +280,8 @@ items:
       href: ../databox/data-box-disk-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-can-i-recover-my-data-if-an-entire-region-fails-
     - name: Azure Elastic SAN
       href: reliability-elastic-san.md
+    - name: Azure Files
+      href: reliability-storage-files.md
     - name: Azure NetApp Files
       href: reliability-netapp-files.md
     - name: Azure Queue Storage
@@ -341,7 +343,7 @@ items:
       - name: Azure Application Gateway
         href: migrate-app-gateway-v2.md
       - name: Azure Blob Storage
-        href: reliability-storage-blob.md
+        href: reliability-storage-blob.md#configure-availability-zone-support
       - name: Azure Functions
         href: migrate-functions.md
       - name: Azure Backup
@@ -353,7 +355,7 @@ items:
       - name: Azure Container Apps
         href: reliability-azure-container-apps.md#availability-zone-migration
       - name: Azure Container Instances
-        href: migrate-container-instances.md
+        href: migrate-container-instances.md#configure-availability-zone-support
       - name: Azure Container Registry
         href: /azure/container-registry/zone-redundancy?toc=/azure/reliability
       - name: Azure Cosmos DB for NoSQL

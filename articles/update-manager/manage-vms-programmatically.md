@@ -62,9 +62,9 @@ The following table describes the elements of the request body:
 | `rebootSetting` | Flag to state if machine should be rebooted and if Guest OS update installation requires it for completion. Acceptable values are: `IfRequired, NeverReboot, AlwaysReboot`. |
 | `windowsParameters` | Parameter options for Guest OS update on Azure VMs running a supported Microsoft Windows Server operating system. |
 | `windowsParameters - classificationsToInclude` | List of categories/classifications to be used for selecting the updates to be installed on the machine. Acceptable values are: `Critical, Security, UpdateRollup, FeaturePack, ServicePack, Definition, Tools, Updates` |
-| `windowsParameters - kbNumbersToInclude` | List of Windows Update KB Ids that should be installed. All updates belonging to the classifications provided in `classificationsToInclude` list will be installed. `kbNumbersToInclude` is an optional list of specific KBs to be installed in addition to the classifications. For example: `1234` |
-| `windowsParameters - kbNumbersToExclude` | List of Windows Update KB Ids that should **not** be installed. This parameter overrides `windowsParameters - classificationsToInclude`, meaning a Windows Update KB ID specified here won't be installed even if it belongs to the classification provided under `classificationsToInclude` parameter. |
-| `maxPatchPublishDate` | This is used to install patches that were published on or before this given max published date.| 
+| `windowsParameters - kbNumbersToInclude` | List of Windows Update KB IDs that should be installed. All updates belonging to the classifications provided in `classificationsToInclude` list will be installed. `kbNumbersToInclude` is an optional list of specific KBs to be installed in addition to the classifications. For example: `1234` |
+| `windowsParameters - kbNumbersToExclude` | List of Windows Update KB IDs that should **not** be installed. This parameter overrides `windowsParameters - classificationsToInclude`, meaning a Windows Update KB ID specified here won't be installed even if it belongs to the classification provided under `classificationsToInclude` parameter. |
+| `maxPatchPublishDate` | This is used to install patches that were published on or before this given max published date.|
 | `linuxParameters` | Parameter options for Guest OS update on Azure VMs running a supported Linux server operating system. |
 | `linuxParameters - classificationsToInclude` | List of categories/classifications to be used for selecting the updates to be installed on the machine. Acceptable values are: `Critical, Security, Other` |
 | `linuxParameters - packageNameMasksToInclude` | List of Linux packages that should be installed. All updates belonging to the classifications provided in `classificationsToInclude` list will be installed. `packageNameMasksToInclude` is an optional list of package names to be installed in addition to the classifications. For example: `mysql, libc=1.0.1.1, kernel*` |
@@ -73,7 +73,7 @@ The following table describes the elements of the request body:
 
 # [Azure REST API](#tab/rest)
 
-To specify the POST request, you can use the following Azure REST API call with valid parameters and values. 
+To specify the POST request, you can use the following Azure REST API call with valid parameters and values.
 
 ```rest
 POST on 'subscriptions/{subscriptionId}/resourceGroups/acmedemo/providers/Microsoft.Compute/virtualMachines/ameacr/installPatches?api-version=2020-12-01
@@ -167,7 +167,7 @@ The following table describes the elements of the request body:
 
 # [Azure REST API](#tab/rest)
 
-To specify the POST request, you can use the following Azure REST API call with valid parameters and values. 
+To specify the POST request, you can use the following Azure REST API call with valid parameters and values.
 
 ```rest
 PUT on '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/atscalepatching/providers/Microsoft.Maintenance/maintenanceConfigurations/TestAzureInGuestAdv2?api-version=2021-09-01-preview
@@ -227,7 +227,7 @@ az maintenance configuration create \
 
 # [Azure PowerShell](#tab/azurepowershell)
 
-You can use the `New-AzMaintenanceConfiguration` cmdlet to create your configuration.
+You can use the `New-AzMaintenanceConfiguration` cmdlet to create your configuration. See [New-AzMaintenanceConfiguration](/powershell/module/az.maintenance/new-azmaintenanceconfiguration) for details
 
 ```azurepowershell-interactive
 New-AzMaintenanceConfiguration
@@ -260,7 +260,7 @@ PUT on `<ARC or Azure VM resourceId>/providers/Microsoft.Maintenance/configurati
 
 # [Azure REST API](#tab/rest)
 
-To specify the PUT request, you can use the following Azure REST API call with valid parameters and values. 
+To specify the PUT request, you can use the following Azure REST API call with valid parameters and values.
 
 ```rest
 PUT on '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/atscalepatching/providers/Microsoft.Compute/virtualMachines/win-atscalepatching-1/providers/Microsoft.Maintenance/configurationAssignments/TestAzureInGuestAdv?api-version=2021-09-01-preview
@@ -310,7 +310,7 @@ maintenanceresources
 | where properties.resourceId =~ "<Machine Resource Id>"
 | project name, id
 ```
-After you obtain the name from above, delete the configuration assignment by following the DELETE request - 
+After you obtain the name from above, delete the configuration assignment by following the DELETE request -
 ```rest
 DELETE on `<ARC or Azure VM resourceId>/providers/Microsoft.Maintenance/configurationAssignments/<configurationAssignment name>?api-version=2021-09-01-preview`
 ```

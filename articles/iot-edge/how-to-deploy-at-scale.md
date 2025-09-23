@@ -7,6 +7,7 @@ ms.date: 05/15/2025
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
+ms.custom: sfi-image-nochange
 ---
 # Deploy IoT Edge modules at scale using the Azure portal
 

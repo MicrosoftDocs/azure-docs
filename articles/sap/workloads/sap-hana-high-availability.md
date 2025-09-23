@@ -6,9 +6,13 @@ manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ms.date: 08/28/2025
 ms.author: radeltch
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - linux-related-content
+  - sfi-image-nochange
 # Customer intent: As a cloud architect, I want to implement high availability for SAP HANA on Azure VMs using SUSE Linux, so that I can ensure data continuity and minimize downtime during system failures.
 ---
 # High availability for SAP HANA on Azure VMs on SUSE Linux Enterprise Server
