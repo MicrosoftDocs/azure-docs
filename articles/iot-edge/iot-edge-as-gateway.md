@@ -7,7 +7,10 @@ ms.date: 07/09/2025
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
-ms.custom:  [amqp, mqtt]
+ms.custom:
+  - amqp
+  - mqtt
+  - sfi-image-nochange
 ---
 
 # How an IoT Edge device can be used as a gateway

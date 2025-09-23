@@ -4,10 +4,14 @@ description: Learn how to run Azure IoT Edge on Ubuntu virtual machines by deplo
 author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-edge
-ms.custom: devx-track-azurecli, devx-track-bicep
 services: iot-edge
 ms.topic: how-to
 ms.date: 07/21/2025
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-bicep
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 # Run Azure IoT Edge on Ubuntu virtual machines by using Bicep
 

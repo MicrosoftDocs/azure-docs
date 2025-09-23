@@ -12,6 +12,7 @@ ms.custom:
   - ai-gen-docs-bap
   - ai-gen-description
   - ai-seo-date:05/09/2025
+  - sfi-image-nochange
 ---
 
 # Configure an IoT Edge device to communicate through a proxy server
