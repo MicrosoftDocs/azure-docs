@@ -7,7 +7,9 @@ ms.date: 06/04/2025
 ms.topic: tutorial
 ms.service: azure-iot-edge
 services: iot-edge
-ms.custom: mvc
+ms.custom:
+  - mvc
+  - sfi-image-nochange
 ---
 
 # Tutorial: Monitor IoT Edge devices

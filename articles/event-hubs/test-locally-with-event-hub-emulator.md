@@ -10,6 +10,7 @@ ms.custom:
   - ai-gen-title
   - ai-seo-date:07/28/2025
   - ai-gen-description
+  - sfi-ropc-nochange
 ---
 
 # Test locally by using the Azure Event Hubs emulator

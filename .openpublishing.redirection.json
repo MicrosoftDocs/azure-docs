@@ -1,6 +1,41 @@
 {
   "redirections": [
     {
+      "source_path": "articles/azure-app-configuration/quickstart-container-apps.md",
+      "redirect_url": "/previous-versions/azure/azure-app-configuration/quickstart-container-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/update-manager/migration-overview.md",
+      "redirect_url": "/azure/update-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/update-manager/migration-using-portal.md",
+      "redirect_url": "/azure/update-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/update-manager/migration-using-runbook-scripts.md",
+      "redirect_url": "/azure/update-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/update-manager/migration-key-points.md",
+      "redirect_url": "/azure/update-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/update-manager/migration-troubleshoot.md",
+      "redirect_url": "/azure/update-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/update-manager/migration-manual.md",
+      "redirect_url": "/azure/update-manager",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/managed-grafana/how-to-api-calls.md",
       "redirect_url": "/azure/managed-grafana/how-to-service-accounts",
       "redirect_document_id": false
@@ -2462,6 +2497,26 @@
     {
       "source_path": "articles/lab-services/how-to-create-lab-accounts.md",
       "redirect_url": "/previous-versions/azure/lab-services/how-to-create-lab-accounts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/devtest-labs/image-factory-create.md",
+      "redirect_url": "/azure/virtual-machines/image-builder-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/devtest-labs/image-factory-save-distribute-custom-images.md",
+      "redirect_url": "/azure/virtual-machines/image-builder-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/devtest-labs/image-factory-set-retention-policy-cleanup.md",
+      "redirect_url": "/azure/virtual-machines/image-builder-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/devtest-labs/image-factory-set-up-devops-lab.md",
+      "redirect_url": "/azure/virtual-machines/image-builder-overview",
       "redirect_document_id": false
     },
     {

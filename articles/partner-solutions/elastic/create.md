@@ -4,6 +4,7 @@ description: This article describes how to use the Azure portal to create an ins
 ms.topic: quickstart
 zone_pivot_groups: elastic-resource-type
 ms.date: 07/15/2025
+ms.custom: sfi-image-nochange
 #customer intent: As an Azure developer, I want to create Elastic resources to use search, log analytics, and security monitoring functions for Azure environments.
 
 ---

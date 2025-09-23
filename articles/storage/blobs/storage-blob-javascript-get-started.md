@@ -9,7 +9,14 @@ ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 10/28/2024
-ms.custom: template-how-to, devx-track-js, devguide-js, passwordless-js, devx-track-ts, devguide-ts
+ms.custom:
+  - template-how-to
+  - devx-track-js
+  - devguide-js
+  - passwordless-js
+  - devx-track-ts
+  - devguide-ts
+  - sfi-ropc-nochange
 # Customer intent: As a JavaScript or TypeScript developer, I want to connect my application to Azure Blob Storage, so that I can efficiently manage and interact with storage resources like containers and blobs.
 ---
 

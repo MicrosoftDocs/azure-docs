@@ -3,6 +3,7 @@ title: Control the OT traffic monitored by Microsoft Defender for IoT
 description: Learn how to control the OT network traffic monitored by Microsoft Defender for IoT.
 ms.date: 10/11/2024
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Control the OT traffic monitored by Microsoft Defender for IoT

@@ -7,6 +7,7 @@ ms.service: azure-dns
 ms.topic: how-to
 ms.date: 07/22/2024
 ms.author: allensu
+ms.custom: sfi-image-nochange
 # Customer intent: As a cloud administrator, I want to configure custom domain settings for various Azure services using Azure DNS, so that I can provide user-friendly access to those services via personalized domain names.
 ---
 

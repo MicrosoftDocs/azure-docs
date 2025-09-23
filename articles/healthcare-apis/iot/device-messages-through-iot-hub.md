@@ -7,8 +7,10 @@ ms.service: azure-health-data-services
 ms.subservice: medtech-service
 ms.topic: tutorial
 ms.date: 08/18/2025
-ms.custom: devx-track-arm-template
 ms.author: chrupa
+ms.custom:
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # Tutorial: Receive device messages through Azure IoT Hub

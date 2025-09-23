@@ -12,6 +12,7 @@ ms.custom:
   - ai-gen-title
   - ai-seo-date:05/09/2025
   - ai-gen-description
+  - sfi-image-nochange
 ---
 
 # How to configure container create options for IoT Edge modules

@@ -8,6 +8,7 @@ ms.custom:
   - devx-track-java
   - devx-track-extended-java
   - ignite-2023
+  - sfi-ropc-nochange
 ---
 
 # Use Java Message Service 1.1 with Azure Service Bus standard and AMQP 1.0

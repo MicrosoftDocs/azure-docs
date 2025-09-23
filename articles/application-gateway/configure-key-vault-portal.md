@@ -7,7 +7,9 @@ ms.author: mbender
 ms.service: azure-application-gateway
 ms.topic: how-to 
 ms.date: 10/01/2021
-ms.custom: template-how-to
+ms.custom:
+  - template-how-to
+  - sfi-image-nochange
 # Customer intent: "As an IT admin, I want to configure TLS termination with Key Vault certificates for my application gateway, so that I can secure my web applications with SSL/TLS encryption."
 ---
 

@@ -8,6 +8,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: how-to
 ms.date: 07/04/2023
+ms.custom: sfi-image-nochange
 ---
 
 # Manage a lab virtual machine pool in Azure Lab Services

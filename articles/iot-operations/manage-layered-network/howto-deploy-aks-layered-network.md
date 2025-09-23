@@ -5,12 +5,13 @@ author: SoniaLopezBravo
 ms.subservice: layered-network-management
 ms.author: sonialopez
 ms.topic: how-to
-ms.custom:
-  - ignite-2023
 ms.date: 12/12/2024
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ms.service: azure-iot-operations
+ms.custom:
+  - ignite-2023
+  - sfi-image-nochange
 ---
 # Quickstart: Configure Azure IoT Layered Network Management (preview) to Arc-enable a cluster in Azure environment
 

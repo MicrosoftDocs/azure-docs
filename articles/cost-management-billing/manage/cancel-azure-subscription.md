@@ -8,6 +8,7 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/13/2025
 ms.author: macyso
+ms.custom: sfi-image-nochange
 ---
 
 # Cancel and delete your Azure subscription

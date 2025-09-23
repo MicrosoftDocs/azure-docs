@@ -7,6 +7,7 @@ ms.service: azure-dns
 ms.topic: concept-article
 ms.date: 02/10/2025
 ms.author: allensu
+ms.custom: sfi-image-nochange
 # Customer intent: As a network administrator, I want to enable the autoregistration feature for Azure DNS private zones, so that DNS records for virtual machines in my virtual network are automatically created and managed for improved efficiency and reduced manual overhead.
 ---
 

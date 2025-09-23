@@ -10,7 +10,9 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/13/2025
 ms.custom:
-- build-2025
+  - sfi-image-nochange
+  - sfi-ga-nochange
+  - build-2025
 ---
 
 # Create a Microsoft Customer Agreement subscription

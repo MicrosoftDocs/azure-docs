@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 03/12/2025
 ms.author: rolyon
 ms.reviewer: bagovind
+ms.custom: sfi-image-nochange
 ---
 
 # Azure classic subscription administrators

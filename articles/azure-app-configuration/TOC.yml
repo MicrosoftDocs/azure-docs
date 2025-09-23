@@ -64,7 +64,7 @@
     - name: Configuration
       href: quickstart-python-provider.md
     - name: Dynamic configuration
-      href: enable-dynamic-configuration-python.md 
+      href: enable-dynamic-configuration-python.md
     - name: Feature management
       href: quickstart-feature-flag-python.md
   - name: Node.js
@@ -111,8 +111,6 @@
     items:
     - name: App Service & Azure Functions
       href: /azure/app-service/app-service-configuration-references
-    - name: Azure Container Apps
-      href: quickstart-container-apps.md
   - name: Deployment
     items:
     - name: Overview
@@ -422,7 +420,6 @@
         href: https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration
       - name: Azure SDK for Go
         href: https://go.microsoft.com/fwlink/?linkid=2270866
-
   - name: Feature management
     items:
     - name: Overview

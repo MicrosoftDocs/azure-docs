@@ -4,6 +4,7 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/20/2024
 ms.author: zityang
+ms.custom: sfi-ropc-nochange
 ---
 
 Here's binding data in the *function.json* file:

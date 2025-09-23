@@ -7,9 +7,12 @@ ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 09/30/2024
 ms.author: mbender
-ms.custom: devx-track-azurecli, template-how-to
 ms.devlang: azurecli
 ROBOTS: NOINDEX
+ms.custom:
+  - devx-track-azurecli
+  - template-how-to
+  - sfi-image-nochange
 # Customer intent: "As a cloud network administrator, I want to add IPv6 support to an existing IPv4 application in Azure, so that I can ensure compatibility with modern networking standards and improve the application's scalability."
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: The Advanced Security Information Model (ASIM) Audit Events normalization schema reference (Public preview) | Microsoft Docs
+title: The Advanced Security Information Model (ASIM) Audit Events normalization schema reference | Microsoft Docs
 description: This article displays the Microsoft Sentinel Audit Events normalization schema.
 author: oshezaf
 ms.topic: reference
@@ -12,19 +12,13 @@ ms.author: ofshezaf
 
 ---
 
-# The Advanced Security Information Model (ASIM) Audit Events normalization schema reference (Public preview)
+# The Advanced Security Information Model (ASIM) Audit Events normalization schema reference
 
 The Microsoft Sentinel Audit events normalization schema represents events associated with the audit trail of information systems. The audit trail logs system configuration activities and policy changes. Such changes are often performed by system administrators, but can also be performed by users when configuring the settings of their own applications.
 
 Every system logs audit events alongside its core activity logs. For example, a Firewall will log events about the network sessions is processes, and audit events about configuration changes applied to the Firewall itself.
 
 For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).
-
-> [!IMPORTANT]
-> The Audit Event normalization schema is currently in *preview*. This feature is provided without a service level agreement. We don't recommend it for production workloads.
->
-> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 ## Schema overview
 

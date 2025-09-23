@@ -7,7 +7,10 @@ ms.service: azure-storage
 ms.topic: include
 ms.date: 02/25/2022
 ms.author: twooley
-ms.custom: include file
+ms.custom:
+  - include file
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 ### Copy your credentials from the Azure portal

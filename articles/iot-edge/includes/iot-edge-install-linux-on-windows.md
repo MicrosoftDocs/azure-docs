@@ -4,8 +4,10 @@ ms.date: 01/16/2025
 author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-edge
-ms.custom: linux-related-content
 services: iot-edge
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
 ---
 
 ## Install IoT Edge

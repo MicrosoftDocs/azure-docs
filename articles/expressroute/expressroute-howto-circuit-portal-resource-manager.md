@@ -7,7 +7,9 @@ ms.author: duau
 ms.date: 08/05/2024
 ms.topic: quickstart
 ms.service: azure-expressroute
-ms.custom: mode-ui
+ms.custom:
+  - mode-ui
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create and modify ExpressRoute circuits

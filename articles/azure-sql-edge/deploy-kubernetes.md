@@ -10,6 +10,7 @@ keywords:
   - SQL Edge
   - container
   - Kubernetes
+ms.custom: sfi-image-nochange
 ---
 # Deploy an Azure SQL Edge container in Kubernetes
 

@@ -9,7 +9,8 @@ ms.topic: conceptual
 ms.date: 08/14/2025
 ms.author: macyso
 ms.custom:
-- build-2025
+  - sfi-image-nochange
+  - build-2025
 ---
 
 # Check usage of free services included with your Azure free account

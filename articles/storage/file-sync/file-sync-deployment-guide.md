@@ -6,8 +6,11 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 08/02/2024
 ms.author: kendownie
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - sfi-image-nochange
 # Customer intent: As a system administrator, I want to deploy Azure File Sync by using the portal, PowerShell, or the CLI, so that I can centralize file shares in Azure while maintaining local access and performance.
 ---
 
