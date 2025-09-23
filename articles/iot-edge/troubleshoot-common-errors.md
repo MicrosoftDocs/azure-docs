@@ -8,8 +8,8 @@ ms.topic: troubleshooting-general
 ms.service: azure-iot-edge
 services: iot-edge
 ms.custom:
-  - [amqp
-  - mqtt]
+  - amqp
+  - mqtt
   - sfi-image-nochange
 ---
 
