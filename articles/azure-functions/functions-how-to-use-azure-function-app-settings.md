@@ -379,7 +379,7 @@ The following table shows the operating systems and languages that support in-po
 Consider these limitations when you develop your functions in the [Azure portal](https://portal.azure.com):
 
 + In-portal editing is supported only for functions that were created or last modified in the Azure portal.
-+ In-portal editing is supported only for JavaScript, PowerShell, Python, and C# Script functions.
++ In-portal editing is supported only for [JavaScript](./functions-reference-node.md), [PowerShell](./functions-reference-powershell.md), [Python](./functions-reference-python.md), and [C# script](./functions-reference-csharp.md) (in-process) functions.
 + In-portal editing isn't currently supported by the [Flex Consumption plan](flex-consumption-plan.md#considerations).
 + The ability to run your apps on Linux in a Consumption plan is planned for retirement. For more information, see [Azure Functions Consumption plan hosting](consumption-plan.md).
 + When you deploy code to a function app from outside the Azure portal, you can no longer edit any of the code for that function app in the portal. In this case, just continue using [local development](functions-develop-local.md).

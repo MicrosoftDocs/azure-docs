@@ -1,5 +1,5 @@
 ---
-title: Microsoft Sentinel user management normalization schema reference (Public Preview) | Microsoft Docs
+title: Microsoft Sentinel user management normalization schema reference | Microsoft Docs
 description: This article describes the Microsoft Sentinel user management normalization schema.
 author: oshezaf
 ms.topic: reference
@@ -11,19 +11,11 @@ ms.author: ofshezaf
 
 ---
 
-# Microsoft Sentinel user management normalization schema reference (preview)
+# Microsoft Sentinel user management normalization schema reference
 
 The Microsoft Sentinel user management normalization schema is used to describe user management activities, such as creating a user or a group, changing user attribute, or adding a user to a group. Such events are reported, for example, by operating systems, directory services, identity management systems, and any other system reporting on its local user management activity.
 
 For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).
-
-> [!IMPORTANT]
-> The user management normalization schema is currently in *preview*. This feature is provided without a service level agreement. We don't recommend it for production workloads.
->
-> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-
-
 
 ## Schema overview
 

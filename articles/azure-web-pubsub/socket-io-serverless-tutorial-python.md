@@ -7,6 +7,7 @@ ms.author: chenyl
 ms.date: 09/01/2024
 ms.service: azure-web-pubsub
 ms.topic: tutorial
+ms.custom: sfi-ropc-nochange
 ---
 
 # Tutorial: Publish data to Socket.IO clients in Serverless Mode in Azure Function with Python (Preview)

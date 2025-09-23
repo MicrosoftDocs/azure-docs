@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.author: kesheth
 author: expekesheth
 ms.date: 09/27/2023
+ms.custom: sfi-image-nochange
 ---
 
 # Da Vinci Plan Net for Azure API for FHIR

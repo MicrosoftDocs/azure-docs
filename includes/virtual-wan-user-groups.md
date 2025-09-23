@@ -4,6 +4,7 @@ ms.author: cherylmc
 ms.date: 10/15/2024
 ms.service: azure-virtual-wan
 ms.topic: include
+ms.custom: sfi-image-nochange
 
 #This article is used for both Virtual WAN and VPN Gateway. Any updates to the article must work for both of these services. Otherwise, update the VWAN or VPNGW article directly.
 ---

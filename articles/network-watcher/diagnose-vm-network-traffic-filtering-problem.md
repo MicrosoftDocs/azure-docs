@@ -6,10 +6,9 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: quickstart
-ms.date: 10/14/2024
+ms.date: 09/23/2025
 ms.custom: sfi-image-nochange
 
-#Customer intent: I want to diagnose a virtual machine (VM) network traffic filter using IP flow verify to know which security rule is denying the traffic and causing the communication problem to the VM.
 # Customer intent: As a network administrator, I want to diagnose network traffic filter issues for a virtual machine using IP flow verification, so that I can identify security rules that are blocking traffic and resolve any communication problems effectively.
 ---
 

@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 02/05/2024
 ms.author: wujia
 ms.custom:
+  - sfi-image-nochange
 ---
 
 # Set up local development for Azure Static Web Apps

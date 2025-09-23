@@ -20,7 +20,7 @@ Service Bus partitions enable queues and topics, or messaging entities, to be pa
 > - It's not possible to [migrate](service-bus-migrate-standard-premium.md) a standard SKU namespace to a Premium SKU partitioned namespace.
 > - JMS is currently not supported on partitioned namespaces.
 > - Batching messages with distinct SessionId or PartitionKey isn't supported on partitioned namespaces.
-> - This feature is currently available in all regions except West India and Austria East.
+> - This feature is currently available in all regions except West India, Qatar Central, and Austria East.
 
 ## Use Azure portal
 When creating a **namespace** in the Azure portal, set the **Partitioning** to **Enabled** and choose the number of partitions, as shown in the following image. 

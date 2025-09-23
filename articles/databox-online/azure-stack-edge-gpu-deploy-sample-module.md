@@ -8,6 +8,9 @@ ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 10/19/2022
 ms.author: alkohli
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Deploy a GPU enabled IoT module on Azure Stack Edge Pro GPU device

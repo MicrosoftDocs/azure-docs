@@ -8,6 +8,7 @@ ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 04/01/2024
 ms.author: alkohli
+ms.custom: sfi-image-nochange
 # Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ---
 

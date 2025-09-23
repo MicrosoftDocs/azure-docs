@@ -3,6 +3,7 @@ title: How to create custom machine configuration policy definitions
 description: Learn how to create a machine configuration policy.
 ms.date: 02/01/2024
 ms.topic: how-to
+ms.custom: sfi-ropc-nochange
 ---
 
 # How to create custom machine configuration policy definitions

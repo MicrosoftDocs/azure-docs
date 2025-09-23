@@ -38,6 +38,8 @@ landingContent:
             url: confidential-computing-deployment-models.md
           - text: Cleanroom solutions on confidential computing
             url: multi-party-data.md
+          - text: Confidential computing sample scripts
+            url: https://github.com/Azure-Samples/confidential-computing  
       - linkListType: concept
         links:
           - text: Microsoft Azure Attestation

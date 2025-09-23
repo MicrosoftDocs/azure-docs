@@ -6,7 +6,9 @@ ms.author: prasivakumar
 ms.service: azure-data-manager-energy
 ms.topic: tutorial
 ms.date: 07/28/2022
-ms.custom: template-tutorial
+ms.custom:
+  - template-tutorial
+  - sfi-image-nochange
 
 #Customer intent: As a developer, I want to learn how to use the Well Delivery DDMS APIs so that I can store and retrieve similar kinds of data records.
 ---

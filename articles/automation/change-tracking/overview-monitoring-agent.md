@@ -8,6 +8,7 @@ ms.topic: overview
 ms.service: azure-automation
 ms.author: v-jasmineme
 author: jasminemehndir
+ms.custom: sfi-image-nochange
 ---
 
 # Overview of change tracking and inventory using Azure Monitoring Agent

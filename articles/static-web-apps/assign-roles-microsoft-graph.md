@@ -8,6 +8,9 @@ ms.topic:  tutorial
 ms.date: 12/13/2024
 ms.author: wujia
 keywords: "static web apps authorization, assign user roles, custom roles"
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Tutorial: Assign custom roles with a function and Microsoft Graph (preview)

@@ -7,7 +7,10 @@ ms.author: baanders
 ms.date: 2/12/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
-ms.custom: subject-rbac-steps, engagement-fy23
+ms.custom:
+  - subject-rbac-steps
+  - engagement-fy23
+  - sfi-image-nochange
 ---
 
 # Set up an Azure Digital Twins instance and authentication (portal)

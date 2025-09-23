@@ -3,7 +3,9 @@ title: Authenticate an application to access Azure Service Bus entities
 description: This article provides information about authenticating an application with Microsoft Entra ID to access Azure Service Bus  entities (queues, topics, etc.)
 ms.topic: conceptual
 ms.date: 04/29/2025
-ms.custom: subject-rbac-steps
+ms.custom:
+  - subject-rbac-steps
+  - sfi-image-nochange
 ---
 
 # Authenticate and authorize an application with Microsoft Entra ID to access Azure Service Bus entities

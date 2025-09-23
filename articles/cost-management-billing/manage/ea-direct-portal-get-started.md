@@ -6,7 +6,7 @@ ms.reviewer: prsaini
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 04/10/2025
+ms.date: 09/23/2025
 ms.author: prsaini
 ---
 

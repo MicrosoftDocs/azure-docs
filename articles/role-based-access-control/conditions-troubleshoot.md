@@ -6,9 +6,12 @@ manager: pmwongera
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: troubleshooting
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 05/29/2025
 ms.author: rolyon
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - sfi-ga-nochange
 ---
 
 # Troubleshoot Azure role assignment conditions
