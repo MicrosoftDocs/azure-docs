@@ -6,7 +6,11 @@ ms.date: 03/06/2025
 author: spelluru
 ms.subservice: kafka
 ms.author: spelluru
-ms.custom: mode-other, passwordless-java
+ms.custom:
+  - mode-other
+  - passwordless-java
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Quickstart: Stream data with Azure Event Hubs and Apache Kafka
