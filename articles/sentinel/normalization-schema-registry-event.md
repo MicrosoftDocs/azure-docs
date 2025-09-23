@@ -1,5 +1,5 @@
 ---
-title: The Advanced Security Information Model (ASIM) Registry Event normalization schema reference (Public preview) | Microsoft Docs
+title: The Advanced Security Information Model (ASIM) Registry Event normalization schema reference | Microsoft Docs
 description: This article describes the Microsoft Sentinel Registry Event normalization schema.
 author: oshezaf
 ms.topic: reference
@@ -11,19 +11,13 @@ ms.author: ofshezaf
 
 ---
 
-# The Advanced Security Information Model (ASIM) Registry Event normalization schema reference (Public preview)
+# The Advanced Security Information Model (ASIM) Registry Event normalization schema reference
 
 The Registry Event schema is used to describe the Windows activity of creating, modifying, or deleting Windows Registry entities.
 
 Registry events are specific to Windows systems, but are reported by different systems that monitor Windows, such as EDR (End Point Detection and Response) systems, Sysmon, or Windows itself.
 
 For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).
-
-> [!IMPORTANT]
-> The Registry Event normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.
->
-> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 ## Parsers
 
@@ -160,7 +154,7 @@ These are the changes in version 0.1.2 of the schema:
 For more information, see:
 
 - [Normalization in Microsoft Sentinel](normalization.md)
-- [Microsoft Sentinel authentication normalization schema reference (Public preview)](normalization-schema-authentication.md)
+- [Microsoft Sentinel authentication normalization schema reference](normalization-schema-authentication.md)
 - [Microsoft Sentinel DNS normalization schema reference](normalization-schema-dns.md)
-- [Microsoft Sentinel file event normalization schema reference (Public preview)](normalization-schema-file-event.md)
+- [Microsoft Sentinel file event normalization schema reference](normalization-schema-file-event.md)
 - [Microsoft Sentinel network normalization schema reference](./normalization-schema-network.md)

@@ -11,7 +11,7 @@ ms.author: ofshezaf
 
 --- 
 
-# Develop Advanced Security Information Model (ASIM) parsers (Public preview)
+# Develop Advanced Security Information Model (ASIM) parsers
 
 Advanced Security Information Model (ASIM) users use *unifying parsers* instead of table names in their queries, to view data in a normalized format and to include all data relevant to the schema in the query. Unifying parsers, in turn, use *source-specific parsers* to handle the specific details of each source. 
 

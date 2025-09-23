@@ -1,5 +1,5 @@
 ---
-title: The Advanced Security Information Model (ASIM) DHCP normalization schema reference (Public preview) | Microsoft Docs
+title: The Advanced Security Information Model (ASIM) DHCP normalization schema reference | Microsoft Docs
 description: This article describes the Microsoft Sentinel DHCP normalization schema.
 author: guywi-ms
 ms.author: guywild
@@ -10,17 +10,11 @@ ms.date: 11/09/2021
 
 ---
 
-# The Advanced Security Information Model (ASIM) DHCP normalization schema reference (Public preview)
+# The Advanced Security Information Model (ASIM) DHCP normalization schema reference
 
 The DHCP information model is used to describe events reported by a DHCP server, and is used by Microsoft Sentinel to enable source-agnostic analytics.
 
 For more information, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).
-
-> [!IMPORTANT]
-> The DHCP normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.
->
-> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 ## Schema overview
 

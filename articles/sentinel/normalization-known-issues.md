@@ -11,7 +11,7 @@ ms.author: ofshezaf
 
 ---
 
-# Advanced Security Information Model (ASIM) known issues (Public preview)
+# Advanced Security Information Model (ASIM) known issues
 
 The following are the Advanced Security Information Model (ASIM) known issues and limitations:
 

@@ -11,7 +11,7 @@ ms.author: vakohl
 
 --- 
 
-# List of Microsoft Sentinel Advanced Security Information Model (ASIM) parsers (Public preview)
+# List of Microsoft Sentinel Advanced Security Information Model (ASIM) parsers
 
 This document provides a list of Advanced Security Information Model (ASIM) parsers. For an overview of ASIM parsers refer to the [parsers overview](normalization-parsers-overview.md). To understand how parsers fit within the ASIM architecture, refer to the [ASIM architecture diagram](normalization.md#asim-components).
 

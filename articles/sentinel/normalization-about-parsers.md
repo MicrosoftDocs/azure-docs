@@ -11,7 +11,7 @@ ms.author: ofshezaf
 
 --- 
 
-# Using the Advanced Security Information Model (ASIM) (Public preview)
+# Using the Advanced Security Information Model (ASIM)
 
 Use Advanced Security Information Model (ASIM) parsers instead of table names in your Microsoft Sentinel queries to view data in a normalized format and to include all data relevant to the schema in your query. Refer to the table below to find the relevant parser for each schema.
 
