@@ -27,7 +27,7 @@ When Azure SRE Agent detects an incident in your environment, the incident manag
 When you enable incident management, by default all incidents are processed using the following plan details:
 
 - Connected to Azure Monitor alerts
-- Processes all P1 incidents from all impacted services
+- Processes all low priority incidents from all impacted services
 - Runs in review mode
 
 While this configuration represents the defaults, you can customize everything from the incident management system to the filters and autonomy level. Supported incident management platforms include PagerDuty and ServiceNow.
@@ -44,7 +44,7 @@ The following filters are available for you to customize incident plan instructi
 |---|---|
 | Incident type | Select the type of incidents you want your plan to process. Options include default, major, and security incidents.  |
 | Impacted service | Select the service you want your plan to process. Options include all impacted services, or you can select a service by name. |
-| Priority | Select the incident priority level you want your plan to process. Options include all priorities or P1 - P5. |
+| Priority | Select the incident priority level you want your plan to process. |
 | Title contains | Provide a text string to match against incident title values. |
 
 ### Set autonomy level
