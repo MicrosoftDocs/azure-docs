@@ -7,12 +7,14 @@ manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 01/21/2025
+ms.date: 09/23/2025
 ms.author: mbaldwin
 
 ---
 
 # Introduction to Azure security
+
+[!INCLUDE [Azure Disk Encryption retirement notice](~/reusable-content/ce-skilling/azure/includes/security/azure-disk-encryption-retirement.md)]
 
 ## Overview
 
