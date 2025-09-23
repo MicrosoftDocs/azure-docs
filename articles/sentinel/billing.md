@@ -252,19 +252,21 @@ The following table lists the data sources in Microsoft Sentinel and Log Analyti
 
 | Microsoft Sentinel data connector     | Free data type                          |
 | ------------------------------------- | --------------------------------------- |
-| **Azure Activity Logs**               | AzureActivity                           |
+| **Azure Activity**               | AzureActivity                           |
 | **Health monitoring for Microsoft Sentinel** <sup>[1](#audithealthnote)</sup>   | SentinelHealth |
 | **Microsoft Entra ID Protection**     | SecurityAlert (IPC)                     |
-| **Office 365**                        | OfficeActivity (SharePoint)             |
+| **Microsoft 365**                        | OfficeActivity (SharePoint)             |
 |                                       | OfficeActivity (Exchange)               |
 |                                       | OfficeActivity (Teams)                  |
-| **Microsoft Defender for Cloud**      | SecurityAlert (Defender for Cloud)      |
-| **Microsoft Defender for IoT**        | SecurityAlert (Defender for IoT)        |
+| **Microsoft Defender for Cloud**      | SecurityAlert (ASC)      |
+| **Microsoft Defender for IoT**        | SecurityAlert (ASC for IoT)        |
 | **Microsoft Defender XDR**            | SecurityIncident                        |
 |                                       | SecurityAlert                           |
 | **Microsoft Defender for Endpoint**   | SecurityAlert (MDATP)                   |
 | **Microsoft Defender for Identity**   | SecurityAlert (AATP)                    |
-| **Microsoft Defender for Cloud Apps** | SecurityAlert (Defender for Cloud Apps) |
+| **Microsoft Defender for Cloud Apps** | SecurityAlert (MCAS) |
+| **Microsoft Defender for Office 365 (Preview)** | SecurityAlert (OATP) |
+
 
 <a id="audithealthnote">*<sup>1</sup>*</a> *For more information, see [Auditing and health monitoring for Microsoft Sentinel](health-audit.md).*
 
