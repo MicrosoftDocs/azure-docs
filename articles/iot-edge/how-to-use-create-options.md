@@ -1,8 +1,8 @@
 ---
 title: Configure Container Create Options for Azure IoT Edge Modules
 description: Configure IoT Edge modules with Docker-compatible create options for tasks like port mapping, memory limits, and GPU optimization.
-author: PatAltimore
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.date: 05/09/2025
 ms.topic: concept-article
 ms.service: azure-iot-edge
@@ -12,6 +12,7 @@ ms.custom:
   - ai-gen-title
   - ai-seo-date:05/09/2025
   - ai-gen-description
+  - sfi-image-nochange
 ---
 
 # How to configure container create options for IoT Edge modules

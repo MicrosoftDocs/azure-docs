@@ -20,7 +20,7 @@ In this article, you learn:
 - How to query resource changes through Resource Graph using either the CLI, PowerShell, or the Azure portal.
 - Query examples and best practices for querying resource changes.
 - Change analysis uses _Change Actor_ functionality:
-  - `changedBy`: Who initiated a change in your resource, like an app ID or authorized person's email address.
+  - `changedBy`: Who initiated a change in your resource, like an application ID or authorized person's email address.
   - `clientType`: Which client made the change, like _Azure portal_.
   - `operation`: Which [operation](../../../role-based-access-control/resource-provider-operations.md) was called, like `Microsoft.Compute/virtualmachines/write`. The `operation` field in the resource changes data represents the [Azure role-based access control permissions](../../../role-based-access-control/resource-provider-operations.md) used to initiate the change.
 
@@ -31,7 +31,7 @@ In this article, you learn:
 
 ## Understand change event properties
 
-When a resource is created, updated, or deleted, a new change resource (`Microsoft.Resources/changes`) is created to extend the modified resource and represent the changed properties. Change records should be available in less than five minutes. The following example JSON payload demonstrates the change resource properties:
+When a resource is created, updated, or deleted, a new change resource (`Microsoft.Resources/changes`) is created to extend the modified resource and represent the changed properties. Change records should be available in less than five minutes. Some change details may show up before others. The following example JSON payload demonstrates the change resource properties:
 
 ```json
 {
@@ -68,6 +68,8 @@ When a resource is created, updated, or deleted, a new change resource (`Microso
 The `operation` field in the resource changes data represents the [Azure role-based access control permissions](../../../role-based-access-control/resource-provider-operations.md) used to initiate the change. This field does not always describe the actual operation performed but rather the permission (authorization action) that was used. For example, `Microsoft.Compute/virtualmachines/write` corresponds to the permission for the operation `PUT/providers/Microsoft.Compute/virtualmachines`.
 
 For understanding the type of change that was captured in the resource (i.e. Create, Delete, Update), we recommend that you use the `changeType` field rather than the `operation` field, which instead represents the [Azure role-based access control permissions](../../../role-based-access-control/resource-provider-operations.md) used to initiate the change.
+
+If the client type is known, the `clientType` field will show the client name, such as "Azure Portal." If the client is supplied but not known, the field will show the client application ID.
 
 > [!NOTE]
 > Snapshots are not currently supported for deleted resources.

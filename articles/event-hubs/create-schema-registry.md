@@ -3,7 +3,10 @@ title: 'Quickstart: Create an Azure Event Hubs Schema Registry'
 description: Azure Schema Registry provides a central repository for schemas for event-driven and messaging-centric apps. Learn how to create a schema registry.
 ms.topic: quickstart
 ms.date: 06/16/2025
-ms.custom: references_regions, mode-other
+ms.custom:
+  - references_regions
+  - mode-other
+  - sfi-image-nochange
 #customer intent: As a developer, I want to learn how to implement Azure Schema Registry as a central repository to support event-driven and messaging-centric applications.
 
 ---

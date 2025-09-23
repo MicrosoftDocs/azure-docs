@@ -3,9 +3,9 @@ title: Upload a blob with Java
 titleSuffix: Azure Storage
 description: Learn how to upload a blob to your Azure Storage account using the Java client library.
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.date: 03/25/2025
 ms.service: azure-blob-storage
 ms.topic: how-to

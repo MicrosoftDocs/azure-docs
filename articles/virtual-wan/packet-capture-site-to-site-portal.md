@@ -9,6 +9,7 @@ ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 11/21/2023
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 
 ---
 # Configure a packet capture for Virtual WAN site-to-site VPN: Azure portal
@@ -16,8 +17,6 @@ ms.author: cherylmc
 This article helps you create a packet capture for an Azure Virtual WAN site-to-site VPN gateway using the Azure portal. Packet capture helps you narrow down the scope of a problem to certain parts of the network. It can help you determine whether the problem is on the on-premises side or the Azure side. By narrowing down the problem, you can more efficiently debug and take remedial action.
 
 While some commonly available packet capture tools do exist, getting relevant packet captures with these tools can be cumbersome, especially in high-volume traffic scenarios. The filtering capabilities provided by the Virtual WAN packet capture are a major differentiator. The Virtual WAN packet capture can be used along with commonly available packet capture tools.
-
-[!INCLUDE [Portal rollout](../../includes/virtual-wan-portal-feature-rollout.md)]
 
 ## Prerequisites
 

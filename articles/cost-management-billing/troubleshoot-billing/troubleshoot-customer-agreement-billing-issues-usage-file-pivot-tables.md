@@ -10,6 +10,7 @@ ms.topic: troubleshooting
 ms.date: 05/01/2025
 ms.custom:
   - build-2025
+  - sfi-image-nochange
 ---
 
 # Troubleshoot MCA billing issues with usage file pivot tables

@@ -5,14 +5,14 @@ author: chachachachami
 ms.service: azure-health-data-services
 ms.subservice: medtech-service
 ms.topic: overview
-ms.date: 08/01/2023
+ms.date: 08/18/2025
 ms.author: chrupa
+ms.custom: sfi-image-nochange
 ---
 
 # Overview of the MedTech service FHIR destination mapping
 
-> [!IMPORTANT]
-> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
+[!INCLUDE [IoT deprecation](../includes/iot-deprecation.md)]
 
 This article provides an overview of the MedTech service FHIR&reg; destination mapping.
 

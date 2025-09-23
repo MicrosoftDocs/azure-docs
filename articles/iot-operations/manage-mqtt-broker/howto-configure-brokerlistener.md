@@ -1,14 +1,15 @@
 ---
 title: Secure MQTT broker communication by using BrokerListener
 description: Understand how to use the BrokerListener resource to secure MQTT broker communications, including authorization, authentication, and TLS.
-author: PatAltimore
-ms.author: patricka
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
+ms.date: 04/09/2025
 ms.custom:
   - ignite-2023
-ms.date: 04/09/2025
+  - sfi-image-nochange
 
 #CustomerIntent: As an operator, I want to understand options to secure MQTT communications for my Azure IoT Operations solution.
 ---

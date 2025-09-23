@@ -12,7 +12,9 @@ ms.topic: how-to
 ms.date: 01/22/2024
 ms.author: kengaderdus
 ms.subservice: b2c
-ms.custom: fasttrack-edit
+ms.custom:
+  - fasttrack-edit
+  - sfi-image-nochange
 
 
 #Customer intent: As an Azure AD B2C administrator, I want to access and view the audit logs for my Azure AD B2C tenant, so that I can monitor activity, track user sign-ins, and troubleshoot any issues related to B2C resources and applications.
@@ -167,7 +169,7 @@ Here's the JSON representation of the example activity event shown earlier in th
 {
     "id": "B2C_DQO3J_4984536",
     "category": "Authentication",
-    "correlationId": "ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0",
+    "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
     "result": "success",
     "resultReason": "N/A",
     "activityDisplayName": "Issue an id_token to the application",

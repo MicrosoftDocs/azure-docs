@@ -5,9 +5,12 @@ services: azure-app-configuration
 author: maud-lv
 ms.service: azure-app-configuration
 ms.topic: tutorial
-ms.custom: devx-track-csharp, devdivchpfy22
 ms.date: 03/20/2025
 ms.author: malev
+ms.custom:
+  - devx-track-csharp
+  - devdivchpfy22
+  - sfi-ropc-nochange
 
 # Customer intent: I want to use Azure App Configuration data in my CI/CD pipeline.
 

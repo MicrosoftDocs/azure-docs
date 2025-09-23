@@ -4,7 +4,10 @@ description: This tutorial shows you how to send messages to and receive message
 ms.date: 06/12/2025
 ms.topic: quickstart
 ms.devlang: java
-ms.custom: passwordless-java, devx-track-extended-java
+ms.custom:
+  - passwordless-java
+  - devx-track-extended-java
+  - sfi-ropc-nochange
 #customer intent: As a developer, I want to learn how to send and receive messages with Azure Service Bus queues by using the Java.
 ---
 

@@ -1,8 +1,8 @@
 ---
 title: Configure devices for network proxies for Azure IoT Edge
 description: Learn how to configure Azure IoT Edge devices to communicate through a proxy server.
-author: PatAltimore
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.date: 05/09/2025
 ms.topic: how-to
 ms.service: azure-iot-edge
@@ -12,6 +12,7 @@ ms.custom:
   - ai-gen-docs-bap
   - ai-gen-description
   - ai-seo-date:05/09/2025
+  - sfi-image-nochange
 ---
 
 # Configure an IoT Edge device to communicate through a proxy server
@@ -213,9 +214,9 @@ This step takes place once on the IoT Edge device during initial device setup.
     image = "mcr.microsoft.com/azureiotedge-agent:1.5"
     
     [agent.env]
-    # "RuntimeLogLevel" = "debug"
-    # "UpstreamProtocol" = "AmqpWs"
-    "https_proxy" = "<proxy URL>"
+    # RuntimeLogLevel = "debug"
+    # UpstreamProtocol = "AmqpWs"
+    https_proxy = "<proxy URL>"
     ```
 
 4. The IoT Edge runtime uses AMQP by default to communicate with IoT Hub. Some proxy servers block AMQP ports. If that's the case, then you also need to configure edgeAgent to use AMQP over WebSocket. Remove the comment from the `UpstreamProtocol` parameter.
@@ -225,9 +226,9 @@ This step takes place once on the IoT Edge device during initial device setup.
     image = "mcr.microsoft.com/azureiotedge-agent:1.5"
     
     [agent.env]
-    # "RuntimeLogLevel" = "debug"
-    "UpstreamProtocol" = "AmqpWs"
-    "https_proxy" = "<proxy URL>"
+    # RuntimeLogLevel = "debug"
+    UpstreamProtocol = "AmqpWs"
+    https_proxy = "<proxy URL>"
     ```
 
 3. Add the **https_proxy** parameter to the environment variables section, and set your proxy URL as its value.
@@ -241,9 +242,9 @@ This step takes place once on the IoT Edge device during initial device setup.
     image = "mcr.microsoft.com/azureiotedge-agent:1.5"
     
     [agent.env]
-    # "RuntimeLogLevel" = "debug"
-    # "UpstreamProtocol" = "AmqpWs"
-    "https_proxy" = "<proxy URL>"
+    # RuntimeLogLevel = "debug"
+    # UpstreamProtocol = "AmqpWs"
+    https_proxy = "<proxy URL>"
     ```
 
 4. The IoT Edge runtime uses AMQP by default to talk to IoT Hub. Some proxy servers block AMQP ports. If that's the case, then you also need to configure edgeAgent to use AMQP over WebSocket. Uncomment the `UpstreamProtocol` parameter.
@@ -253,9 +254,9 @@ This step takes place once on the IoT Edge device during initial device setup.
     image = "mcr.microsoft.com/azureiotedge-agent:1.5"
     
     [agent.env]
-    # "RuntimeLogLevel" = "debug"
-    "UpstreamProtocol" = "AmqpWs"
-    "https_proxy" = "<proxy URL>"
+    # RuntimeLogLevel = "debug"
+    UpstreamProtocol = "AmqpWs"
+    https_proxy = "<proxy URL>"
     ```
 
 5. Save the changes and close the editor. Apply the changes.

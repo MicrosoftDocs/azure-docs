@@ -1,12 +1,13 @@
 ---
 title: How to implement IoT Edge observability using monitoring and troubleshooting
 description: Learn how to build an observability solution for an IoT Edge System
-author: PatAltimore
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.date: 06/06/2025
 ms.topic: how-to
 ms.service: azure-iot-edge
 services: iot-edge
+ms.custom: sfi-image-nochange
 ---
 
 # How to implement IoT Edge observability using monitoring and troubleshooting

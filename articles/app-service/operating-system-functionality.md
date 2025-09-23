@@ -4,14 +4,18 @@ description: Learn what types of file, network, and registry access your Windows
 author: msangapu-msft
 ms.author: msangapu
 ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
-ms.topic: article
-ms.date: 05/05/2025
+ms.topic: concept-article
+ms.date: 07/21/2025
 ms.update-cycle: 1095-days
 ms.custom:
   - UpdateFrequency3
   - build-2025
-
+ms.service: azure-app-service
+ 
+# Customer intent: As a developer, I want to learn what types of file, network, and registry access my Windows app gets when it runs in Azure App Service.
+ 
 ---
+
 # Operating system functionality in Azure App Service
 
 This article describes the baseline operating system functionality that's available to all Windows apps running in [Azure App Service](./overview.md). This functionality includes file, network, and registry access, along with diagnostic logs and events.
@@ -94,9 +98,9 @@ App Service limits the amount of storage in `%SystemDrive%\local` for each app t
 | B2/S2/P2 | 15 GB |
 | B3/S3/P3 | 58 GB |
 | P0v3/P0v4 | 11 GB |
-| P1v2/P1v3/P1mv3/P1mv4/Isolated1/Isolated1v2 | 21 GB |
-| P2v2/P2v3/P2mv3/P2mv4/Isolated2/Isolated2v2 | 61 GB |
-| P3v2/P3v3/P3mv3/P3mv4/Isolated3/Isolated3v2 | 140 GB |
+| P1v2/P1v3/P1mv3/P1v4/P1mv4/Isolated1/Isolated1v2 | 21 GB |
+| P2v2/P2v3/P2mv3/P2v4/P2mv4/Isolated2/Isolated2v2 | 61 GB |
+| P3v2/P3v3/P3mv3/P3v4/P3mv4/Isolated3/Isolated3v2 | 140 GB |
 | Isolated4v2 | 276 GB|
 | P4mv3/P4mv4 | 280 GB |
 | Isolated5v2 | 552 GB|

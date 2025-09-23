@@ -9,6 +9,7 @@ ms.author: angellan
 ms.date: 09/14/2022
 ms.topic: tutorial
 ms.service: azure-communication-services
+ms.custom: sfi-image-nochange
 ---
 
 # Enable push notifications in your chat app

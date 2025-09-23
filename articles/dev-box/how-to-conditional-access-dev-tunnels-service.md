@@ -37,7 +37,7 @@ Therefore, we're using [Microsoft.Graph PowerShell](/powershell/module/microsoft
 1. Run the following commands:
     ```powershell
     # Connect to Microsoft Graph
-    Connect-MgGraph -TenatnId <TenantID> -Scopes "Application.ReadWrite.All"
+    Connect-MgGraph -TenantId <TenantID> -Scopes "Application.ReadWrite.All"
   
     # Register the Dev tunnels service app to the tenant
     $TunnelServiceAppId = "46da2f7e-b5ef-422a-88d4-2a7f9de6a0b2"

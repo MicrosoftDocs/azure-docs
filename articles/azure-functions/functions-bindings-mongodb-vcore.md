@@ -24,9 +24,15 @@ Using the Azure Cosmos DB for MongoDB (vCore) extension, you can build functions
 | Query the database | [Azure Cosmos DB for MongoDB (vCore) input binding](functions-bindings-mongodb-vcore-input.md) |
 
 Considerations for the Azure Cosmos DB for MongoDB (vCore) extension:
-+ Only [C# apps that run in-process with the host](./functions-dotnet-class-library.md) are currently supported in preview.
++ Only [C# apps that use the legacy in-process model](./functions-dotnet-class-library.md) are currently supported in preview.
 + The Azure Cosmos DB for MongoDB (vCore) binding extension doesn't currently support Microsoft Entra authentication and managed identities. 
 + Your app must be using version 4.x of the Azure Functions runtime.
+
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
+
+## Supported APIs
+
+[!INCLUDE [Azure Cosmos DB supported APIs note](../../includes/functions-cosmosdb-sqlapi-note.md)]
 
 ## Install extension 
 
@@ -35,7 +41,7 @@ Add the extension to your .NET project for an in-process app by installing [this
 `Microsoft.Azure.WebJobs.Extensions.AzureCosmosDb.Mongo`
 
 >[!NOTE]  
->Don't try to install this package in a .NET isolated worker process app. There will be errors and the app project won't build. To learn how to create a .NET app that uses the in-process model, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md#develop-c-class-library-functions-using-azure-functions). 
+>Don't try to install this package in a .NET isolated worker process app. There will be errors and the app project won't build. To learn how to create a .NET app that uses the legacy in-process model, see [Develop legacy C# class library functions using Azure Functions](functions-dotnet-class-library.md#develop-legacy-c-class-library-functions-using-azure-functions).
 
 ## Related articles
  

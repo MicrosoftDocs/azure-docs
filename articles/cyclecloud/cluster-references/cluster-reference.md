@@ -3,6 +3,7 @@ title: Cluster Reference Docs
 description: CycleCloud template reference for the Cluster section
 author: adriankjohnson
 ms.date: 06/29/2025
+ms.update-cycle: 3650-days
 ms.author: adjohnso
 ms.custom: compute-evergreen
 ---

@@ -7,6 +7,7 @@ ms.reviewer: dariac
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
 ---
 # Deploy to Azure App Service by using local Git
 

@@ -3,12 +3,12 @@ title: Create a blob container with Java
 titleSuffix: Azure Storage
 description: Learn how to create a blob container in your Azure Storage account using the Java client library.
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/05/2024
-ms.author: pauljewell
+ms.author: shaas
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 # Customer intent: As a Java developer, I want to create a blob container in Azure Storage, so that I can organize and manage my blobs effectively before uploading them.

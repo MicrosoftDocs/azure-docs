@@ -3,6 +3,7 @@ author: cephalin
 ms.author: cephalin
 ms.topic: include
 ms.date: 07/07/2022
+ms.service: azure-app-service
 ---
 
 In Visual Studio Code in the browser, open *config/database.php* in the explorer.

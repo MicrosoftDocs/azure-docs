@@ -2,16 +2,21 @@
 title: Remediate anonymous read access to blob data (Azure Resource Manager deployments)
 titleSuffix: Azure Storage
 description: Learn how to analyze current anonymous requests against a storage account and how to prevent anonymous access for the entire storage account or for an individual container.
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 03/04/2025
 
 ms.reviewer: nachakra
 ms.devlang: powershell
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - engagement-fy23
+  - devx-track-arm-template
+  - sfi-image-nochange
 # ms.devlang: powershell, azurecli
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23, devx-track-arm-template
 # Customer intent: "As a cloud administrator, I want to disable anonymous access for my storage account, so that I can enhance the security of my blob data and prevent unauthorized access."
 ---
 
@@ -491,3 +496,4 @@ The following image shows the error that occurs if you try to create a storage a
 
 - [Overview: Remediating anonymous read access for blob data](anonymous-read-access-overview.md)
 - [Security recommendations for Blob storage](security-recommendations.md)
+

@@ -10,6 +10,7 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a security analyst, I want to conduct end-to-end threat hunting so that I can identify and mitigate undetected threats and malicious behaviors in my environment while managing all components of the hunting process.
@@ -39,8 +40,9 @@ In order to use the hunts feature, you either need to be assigned a built-in Mic
 - Assign the built-in [Microsoft Sentinel Contributor role assignment](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-contributor).<br>
     To learn more about roles in Microsoft Sentinel, see [Roles and permissions in Microsoft Sentinel](roles.md).
 
-- Assign a custom Azure RBAC role with the appropriate permissions under [*Microsoft.SecurityInsights/hunts*](/azure/role-based-access-control/resource-provider-operations#microsoftsecurityinsights).<br>
-    To learn more about custom roles, see [Custom roles and advanced Azure RBAC](roles.md#custom-roles-and-advanced-azure-rbac).
+- Assign a custom Azure RBAC role with the appropriate permissions under [*Microsoft.SecurityInsights/hunts*](/azure/role-based-access-control/resource-provider-operations#microsoftsecurityinsights).
+
+For more information, see [Roles and permissions in the Microsoft Sentinel platform](roles.md).
 
 ## Define your hypothesis
 Defining a hypothesis is an open ended, flexible process and can include any idea you want to validate. Common hypotheses include:

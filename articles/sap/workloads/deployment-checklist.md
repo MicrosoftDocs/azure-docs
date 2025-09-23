@@ -8,6 +8,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.date: 11/19/2024
 ms.author: juergent
+# Customer intent: "As an SAP solutions architect, I want to utilize a detailed checklist for deploying SAP workloads to Azure, so that I can ensure a smooth migration and optimize system performance throughout each project phase."
 ---
 
 # SAP workloads on Azure: planning and deployment checklist

@@ -4,9 +4,14 @@ description: Learn on how to integrate an app in your ILB App Service Environmen
 author: seligj95
 
 ms.assetid: a6a74f17-bb57-40dd-8113-a20b50ba3050
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/07/2025
 ms.author: jordanselig
+ms.service: azure-app-service
+ms.custom: sfi-image-nochange
+
+# Customer intent: As a developer, I want to integrate an app in an ILB App Service Environment with an application gateway so that I can benefit from WAF protection, load balancing, and TLS offloading. 
+
 ---
 # Integrate your ILB App Service Environment with the Azure Application Gateway
 
@@ -83,7 +88,7 @@ The certificate file should have a private key and save in `.pfx` format. The ce
 
 For the basic application gateway creation, refer to [Tutorial: Create an application gateway with a Web Application Firewall using the Azure portal](../../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md).
 
-In this tutorial, we use Azure portal to create an application gateway with ILB App Service Environment.
+In this article, we use Azure portal to create an application gateway with ILB App Service Environment.
 
 In the Azure portal, select **New** > **Network** > **Application Gateway** to create an application gateway.
 
@@ -169,36 +174,36 @@ To access ILB App Service Environment from the application gateway, you need to 
 
 ### Configure virtual network links with a private DNS zone
 
-* To configure virtual network link with private DNS zone, go to the private DNS zone configuration plane. Select the **Virtual network links** > **Add** 
+1. To configure virtual network link with private DNS zone, go to the private DNS zone configuration plane. Select the **Virtual network links** > **Add** 
 
-:::image type="content" source="./media/integrate-with-application-gateway/add-vnet-link.png" alt-text="Add a virtual network link to private DNS zone.":::
+   :::image type="content" source="./media/integrate-with-application-gateway/add-vnet-link.png" alt-text="Add a virtual network link to private DNS zone.":::
 
-* Input the **Link name** and select the respective subscription and virtual network where the application gateway resides in.
+1. Input the **Link name** and select the respective subscription and virtual network where the application gateway resides in.
 
-:::image type="content" source="./media/integrate-with-application-gateway/vnet-link.png" alt-text="Screenshot of input link name details to virtual network links setting in private DNS zone.":::
+   :::image type="content" source="./media/integrate-with-application-gateway/vnet-link.png" alt-text="Screenshot of input link name details to virtual network links setting in private DNS zone.":::
 
-* You can confirm the backend health status from **Backend health** in the application gateway plane.
+1. You can confirm the backend health status from **Backend health** in the application gateway plane.
 
-:::image type="content" source="./media/integrate-with-application-gateway/backend-health.png" alt-text="Screenshot of confirm the backend health status from backend health.":::
+   :::image type="content" source="./media/integrate-with-application-gateway/backend-health.png" alt-text="Screenshot of confirm the backend health status from backend health.":::
 
 ### Add a public DNS record
 
 You need to configure a proper DNS mapping when access to the application gateway from internet.
 
-* The public IP address of the application gateway can be found in **Frontend IP configurations** in the application gateway plane.
+1. The public IP address of the application gateway can be found in **Frontend IP configurations** in the application gateway plane.
 
-:::image type="content" source="./media/integrate-with-application-gateway/frontend-ip.png" alt-text="Application gateway frontend IP address can be found in Frontend IP configuration.":::
+   :::image type="content" source="./media/integrate-with-application-gateway/frontend-ip.png" alt-text="Application gateway frontend IP address can be found in Frontend IP configuration.":::
 
-* Use Azure DNS service as example, you can add a record set to map the app domain name to the public IP address of the application gateway.
+1. Use Azure DNS service as example, you can add a record set to map the app domain name to the public IP address of the application gateway.
 
-:::image type="content" source="./media/integrate-with-application-gateway/dns-service.png" alt-text="Screenshot of adding a record set to map the app domain name to the public IP address of the application gateway.":::
+   :::image type="content" source="./media/integrate-with-application-gateway/dns-service.png" alt-text="Screenshot of adding a record set to map the app domain name to the public IP address of the application gateway.":::
 
 ### Validate connection
 
 * On a machine access from internet, you can verify the name resolution for the app domain name to the application gateway public IP address.
 
-:::image type="content" source="./media/integrate-with-application-gateway/name-resolution.png" alt-text="validate the name resolution from a command prompt.":::
+   :::image type="content" source="./media/integrate-with-application-gateway/name-resolution.png" alt-text="validate the name resolution from a command prompt.":::
 
 * On a machine access from internet, test the web access from a browser.
 
-:::image type="content" source="./media/integrate-with-application-gateway/access-web.png" alt-text="Screenshot of opening a browser, access to the web.":::
+   :::image type="content" source="./media/integrate-with-application-gateway/access-web.png" alt-text="Screenshot of opening a browser, access to the web.":::

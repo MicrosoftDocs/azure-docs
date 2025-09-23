@@ -4,6 +4,7 @@ description: This article explains how to migrate clients from Apache Kafka to A
 ms.topic: article
 ms.subservice: kafka
 ms.date: 03/06/2025
+ms.custom: sfi-ropc-nochange
 ---
 
 # Migrate to Azure Event Hubs for Apache Kafka Ecosystems

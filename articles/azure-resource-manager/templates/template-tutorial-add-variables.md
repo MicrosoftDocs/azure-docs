@@ -14,7 +14,7 @@ In this tutorial, you learn how to add a variable to your Azure Resource Manager
 
 We recommend that you complete the [tutorial about functions](template-tutorial-add-functions.md), but it's not required.
 
-You need to have [Visual Studio Code](https://code.visualstudio.com/) installed and working with the Azure Resource Manager Tools extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
+You need to have [Visual Studio Code](https://code.visualstudio.com/), and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
 
 ## Review template
 

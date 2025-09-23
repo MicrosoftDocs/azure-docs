@@ -11,7 +11,9 @@ ms.topic: reference
 ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.subservice: b2c
-ms.custom: "b2c-support"
+ms.custom:
+  - "b2c-support"
+  - sfi-image-nochange
 
 
 #Customer intent: As a policy administrator or developer, I want to understand the structure and attributes of the ClaimsSchema element, so that I can define and manage claim types in the policy effectively.

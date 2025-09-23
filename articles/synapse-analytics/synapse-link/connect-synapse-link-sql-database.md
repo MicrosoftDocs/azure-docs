@@ -1,12 +1,13 @@
 ---
 title: Get started with Azure Synapse Link for Azure SQL Database
 description: Learn how to connect an Azure SQL database to an Azure Synapse workspace with Azure Synapse Link.
-author: Rodrigossz
-ms.author: rosouz
+author: im-microsoft
+ms.author: imotiwala
 ms.date: 08/06/2024
 ms.service: azure-synapse-analytics
 ms.subservice: synapse-link
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Get started with Azure Synapse Link for Azure SQL Database

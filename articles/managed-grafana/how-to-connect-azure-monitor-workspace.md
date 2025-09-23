@@ -6,6 +6,7 @@ ms.topic: how-to
 author: maud-lv
 ms.author: malev
 ms.date: 12/19/2024
+ms.custom: sfi-image-nochange
 --- 
 
 # Add an Azure Monitor workspace to Azure Managed Grafana to collect Prometheus data

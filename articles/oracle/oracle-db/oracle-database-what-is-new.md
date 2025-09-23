@@ -7,6 +7,7 @@ ms.collection: linux
 ms.topic: whats-new
 ms.date: 08/29/2024
 ms.author: jacobjaygbay
+# Customer intent: As a database administrator, I want to understand the new features of Oracle Database@Azure, so that I can effectively utilize it with multiple Azure subscriptions to enhance my database management capabilities.
 ---
 
 # What's new in Oracle Database@Azure

@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 03/07/2025
+ms.date: 9/5/2025
 ms.author: mbender
 # Customer intent: As a cloud architect, I want to configure the Azure Application Gateway infrastructure, so that I can ensure optimal deployment within my virtual network and manage network security, addressing, and permissions efficiently.
 ---
@@ -138,7 +138,7 @@ Security admin rule configuration in Azure Virtual Network Manager allows you to
 You can use NSGs for your Application Gateway subnet, but be aware of some key points and restrictions.
 
 > [!IMPORTANT]
-> These NSG limitations are relaxed when you use [Private Application Gateway deployment (preview)](application-gateway-private-deployment.md#network-security-group-control).
+> These NSG limitations are relaxed when you use [Private Application Gateway deployment](application-gateway-private-deployment.md#network-security-group-control).
 
 ### Required security rules
 

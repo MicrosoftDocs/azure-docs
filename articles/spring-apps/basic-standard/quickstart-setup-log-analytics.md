@@ -6,9 +6,15 @@ ms.author: karler
 ms.reviewer: felixsong
 ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 04/23/2024
-ms.custom: devx-track-java, fasttrack-edit, mode-other, devx-track-azurecli
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.devlang: azurecli
+ms.custom:
+  - devx-track-java
+  - fasttrack-edit
+  - mode-other
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Quickstart: Set up a Log Analytics workspace

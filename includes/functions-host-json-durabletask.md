@@ -9,6 +9,7 @@ ms.author: glenga
 ms.custom:
   - include file
   - build-2025
+  - sfi-ropc-nochange
 ---
 
 Configuration settings for [Durable Functions](../articles/azure-functions/durable/durable-functions-overview.md).
@@ -40,6 +41,7 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
       "useLegacyPartitionManagement": false,
       "useTablePartitionManagement": true,
       "workItemQueueVisibilityTimeout": "00:05:00",
+      "QueueClientMessageEncoding": "UTF8"
     },
     "tracing": {
       "traceInputsAndOutputs": false,
@@ -139,5 +141,6 @@ Task hub names must start with a letter and consist of only letters and numbers.
 |storeInputsInOrchestrationHistory|false|When set to `true`, tells the Durable Task Framework to save activity inputs in the history table. This enables the displaying of activity function inputs when querying orchestration history.|
 |maxGrpcMessageSizeInBytes|4194304|An integer value that sets the maximum size, in bytes, of messages that the gRPC client for DurableTaskClient can receive. This applies to Durable Functions .NET Isolated and Java.|
 |grpcHttpClientTimeout|100 seconds|Sets the timeout for the HTTP client used by the gRPC client in Durable Functions, which is currently supported for .NET isolated apps (.NET 6 and later versions) and for Java. |
+|QueueClientMessageEncoding|UTF8|Specifies the encoding strategy for Azure Storage queue messages. Valid values are UTF8 and Base64. Applies when using Microsoft.Azure.WebJobs.Extensions.DurableTask 3.4.0 or greater, or Microsoft.Azure.Functions.Worker.Extensions.DurableTask 1.7.0 or greater. |
 
 Many of these settings are for optimizing performance. For more information, see [Performance and scale](../articles/azure-functions/durable/durable-functions-perf-and-scale.md).

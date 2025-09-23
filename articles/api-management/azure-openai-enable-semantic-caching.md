@@ -132,6 +132,11 @@ To enable semantic caching for Azure OpenAI APIs in Azure API Management, apply 
         max-message-count="10">
         <vary-by>@(context.Subscription.Id)</vary-by>
     </azure-openai-semantic-cache-lookup>
+    <rate-limit calls="10" renewal-period="60" />
+    ```
+    
+    > [!NOTE]
+    > [!INCLUDE [api-management-cache-availability](../../includes/api-management-cache-availability.md)]
     
 * In the **Outbound processing** section for the API, add the [azure-openai-semantic-cache-store](azure-openai-semantic-cache-store-policy.md) policy.
 

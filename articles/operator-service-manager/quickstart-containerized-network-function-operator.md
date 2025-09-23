@@ -6,7 +6,9 @@ ms.author: sherryg
 ms.date: 09/07/2023
 ms.topic: quickstart
 ms.service: azure-operator-service-manager
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Quickstart: Prerequisites for Operator and Containerized Network Function (CNF)

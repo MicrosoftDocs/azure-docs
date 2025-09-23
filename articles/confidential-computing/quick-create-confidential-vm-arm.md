@@ -217,14 +217,12 @@ Use this example to create a custom parameter file for a Linux-based confidentia
 
 1. Create a new key using Azure Key Vault. For how to use an Azure Managed HSM instead, see the next step.
 
-    1. Prepare and download the key release policy to your local disk.
-    1. Create a new key.
-
-        ```azurecli-interactive
-        $KeyName = <name of key>
-        $KeySize = 3072
-        az keyvault key create --vault-name $KeyVault --name $KeyName --ops wrapKey unwrapkey --kty RSA-HSM --size $KeySize --exportable true --policy "@.\skr-policy.json"
-        ```
+   1. Create a new key with [az keyvault key create](https://learn.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create)
+      ```
+      $KeyName = <name of key>
+      $KeySize = 3072
+      az keyvault key create --vault-name $KeyVault --name $KeyName --ops wrapKey unwrapkey --kty RSA-HSM --size $KeySize --exportable true --default-cvm-policy
+      ```
 
     1. Get information about the key that you created.
 
@@ -261,15 +259,13 @@ Use this example to create a custom parameter file for a Linux-based confidentia
         ```
 
  1. (Optional) Create a new key from an Azure Managed HSM.
-    1. Prepare and download the key release policy to your local disk.
-    1. Create the new key.
-
-        ```azurecli-interactive
-        $KeyName = <name of key>
-        $KeySize = 3072
-        az keyvault key create --hsm-name $hsm --name $KeyName --ops wrapKey unwrapkey --kty RSA-HSM --size $KeySize --exportable true --policy "@.\skr-policy.json"
-        ```
-
+    
+    1. Create a new key with [az keyvault key create](https://learn.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create)
+          ```
+          $KeyName = <name of key>
+          $KeySize = 3072
+          az keyvault key create --hsm-name $hsm --name $KeyName --ops wrapKey unwrapkey --kty RSA-HSM --size $KeySize --exportable true --default-cvm-policy
+          ```
     1. Get information about the key that you created.
 
           ```azurecli-interactive

@@ -8,8 +8,12 @@ ms.author: msangapu
 ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.topic: how-to
 ms.date: 02/14/2025
+ms.service: azure-app-service
+ms.custom: sfi-image-nochange
 ---
 # Migrate an existing domain to Azure App Service
+
+[!INCLUDE [app-service-managed-certificate](./includes/managed-certs/managed-certs-note.md)]
 
 This article shows you how to migrate an active DNS name to [Azure App Service](../app-service/overview.md) without any downtime.
 

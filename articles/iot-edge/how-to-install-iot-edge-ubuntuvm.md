@@ -1,13 +1,16 @@
 ---
 title: Run Azure IoT Edge on Ubuntu Virtual Machines
 description: How to run Azure IoT Edge on an Ubuntu virtual machine
-author: PatAltimore
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-edge
-ms.custom: devx-track-azurecli
 services: iot-edge
 ms.topic: how-to
 ms.date: 06/09/2025
-ms.author: patricka
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 # Run Azure IoT Edge on Ubuntu Virtual Machines
 

@@ -20,7 +20,10 @@ Move Dev Box pools and individual dev boxes to a different region to optimize pe
 You can move Dev Box pools and individual dev boxes to a different region. This action lets you align dev boxes with the pool's region or change the network connection. Changing the region of the Dev Box pool uses a different network connection. Dev boxes aren't available while the move is in progress.
 
 ## Prerequisites
-- You need the **Project Admin** role to move a dev box to another region. Check that you have the right permissions before using this feature.
+You need the following permissions to move a dev box to another region:
+- **Project Admin** role on the Microsoft Dev Box project.
+- **adminAlign** permission on the subscription that contains the Dev Box pool.
+- **Microsoft.DevBox/project/read** permission on the subscription.
 
 ## Move a pool by using the Azure portal
 

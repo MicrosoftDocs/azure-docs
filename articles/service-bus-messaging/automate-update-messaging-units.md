@@ -3,6 +3,7 @@ title: Azure Service Bus - Automatically update messaging units
 description: This article shows you how you can use automatically update messaging units of a Service Bus namespace.
 ms.topic: how-to
 ms.date: 05/16/2022
+ms.custom: sfi-image-nochange
 ---
 
 # Automatically update messaging units of an Azure Service Bus namespace 

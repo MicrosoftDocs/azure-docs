@@ -4,13 +4,15 @@ description: This article describes how to connect your SAP system to Microsoft 
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.custom: devx-track-azurecli
 ms.date: 05/26/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 zone_pivot_groups: sentinel-sap-connection
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 
 #Customer intent: As a security, infrastructure, or SAP BASIS team member, I want to connect my SAP system to Microsoft Sentinel so that I can ingest SAP data into Microsoft Sentinel for enhanced monitoring and threat detection.
 
@@ -369,6 +371,9 @@ At this stage, the system's **Health** status is **Pending**. If the agent is up
     | **Integration Suite Endpoint** | The *url* value taken from the Process Integration Runtime service key JSON file. For example: `https://your-tenant.it-account-rt.cfapps.region.hana.ondemand.com` |
 
 1. Select **Connect**.
+
+> [!IMPORTANT]
+> There may be some wait time on initial connect. Find more details to verify the connector [here](/azure/sentinel/create-codeless-connector#verify-the-codeless-connector).
 
 ## Customize data connector behavior (optional)
 
