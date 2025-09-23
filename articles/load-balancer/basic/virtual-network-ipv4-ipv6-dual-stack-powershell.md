@@ -8,7 +8,9 @@ ms.topic: how-to
 ms.date: 03/12/2024
 ROBOTS: NOINDEX, NOFOLLOW
 ms.author: mbender
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: "As a cloud administrator, I want to deploy an IPv6 dual stack application using Azure PowerShell, so that I can ensure both IPv4 and IPv6 connectivity for my virtual machines within a Basic Load Balancer setup."
 ---
 

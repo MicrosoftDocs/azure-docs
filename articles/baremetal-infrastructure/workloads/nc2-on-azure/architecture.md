@@ -5,9 +5,11 @@ ms.author: jacobjaygbay
 description: Learn about the architecture of several configurations of BareMetal Infrastructure for NC2 on Azure.
 ms.topic: reference
 ms.subservice: baremetal-nutanix
-ms.custom: engagement-fy23
 ms.date: 04/23/2025
 ms.service: azure-baremetal-infrastructure
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 # Customer intent: "As a cloud architect, I want to understand the architecture of BareMetal Infrastructure for NC2 on Azure, so that I can design scalable and efficient private cloud solutions integrated with existing services."
 ---
 
