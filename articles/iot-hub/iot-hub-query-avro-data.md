@@ -7,6 +7,7 @@ ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 05/15/2019
+ms.custom: sfi-image-nochange
 ---
 # Query Avro data by using Azure Data Lake Analytics
 
