@@ -4,10 +4,12 @@ description: IP groups allow you to group and manage IP addresses for Azure Fire
 services: firewall
 author: duau
 ms.service: azure-firewall
-ms.custom: devx-track-azurepowershell
 ms.topic: concept-article
 ms.date: 02/10/2025
 ms.author: duau
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: "As a network administrator, I want to create and manage IP Groups for Azure Firewall, so that I can efficiently organize and apply IP address rules across multiple firewalls and enhance network security."
 ---
 
