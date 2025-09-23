@@ -39,9 +39,22 @@ To manage a dev box pool, you need the following permissions:
 
 In Microsoft Dev Box, a dev box pool is a collection of dev boxes that you manage together. You must have at least one dev box pool before users can create a dev box. 
 
-The following steps show you how to create a dev box pool associated with a project. 
+### Pool properties
+A dev box pool has the following properties:
+| Property | Description |
+|----------|-------------|
+| **Definition** | Determines the definition used for dev boxes in this pool. You can select an existing dev box definition or image definition when you create a dev box pool.</br>- **Dev Box Definitions** define the base image and size for dev boxes. </br>- **Image definitions** specify the software and configuration for the dev boxes. |
+| **Hibernation** |Hibernation is supported when the source image and compute size are both compatible. |
+| **Region** | The region where the dev boxes in the pool are deployed. Choose a region close to your expected dev box users for the optimal user experience. |
+| **Network connection** | Determines the network that the dev boxes in the pool connect to. </br> - **Microsoft Hosted Network**: You can choose to deploy dev boxes to a Microsoft-hosted network. </br> - **Azure joined network**: You can choose to deploy dev boxes to an Azure joined network that you manage. If you choose to deploy dev boxes to a network that you manage, you must first [configure a network connection](./how-to-configure-network-connections.md). |
+| **Licensing** | You can apply Azure Hybrid Benefit licenses to the dev boxes in the pool. Select the checkbox to confirm that your organization has Azure Hybrid Benefit licenses that you want to apply to the dev boxes in this pool. |
+| **Roles** | You can assign users to be either Local Administrators or Standard Users on the dev boxes they create. |
+| **Access** | Determines how users can access their dev boxes.</br> - **Single Sign-On (SSO)**: Enable single sign-on (SSO) to allow users to sign in to their dev boxes by using their organizational credentials. </br> - **Headless connections**: Enable headless connections to allow developers to open a dev box in Visual Studio Code without a full desktop experience. |
+| **Cost controls** | You can configure cost controls to help manage the costs of running dev boxes in the pool. </br> - **Auto-stop schedule**: Set an auto-stop schedule to automatically stop or hibernate dev boxes at a specified time. </br> - **Hibernate**: Configure dev boxes to hibernate after a specified grace period when no one is connected or when they have never been connected. |
 
-If you don't have an available dev center with an existing definition, follow the steps in [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md) to create them.
+The following steps show you how to create a dev box pool in a project. 
+
+If you don't have an available dev center and project, follow the steps in [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md) to create them.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
