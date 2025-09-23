@@ -6,7 +6,9 @@ ms.author: sethm
 ms.date: 05/01/2025
 ms.topic: tutorial
 ms.service: azure-notification-hubs
-ms.custom: devx-track-csharp
+ms.custom:
+  - devx-track-csharp
+  - sfi-image-nochange
 
 ---
 

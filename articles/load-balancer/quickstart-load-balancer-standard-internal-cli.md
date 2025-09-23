@@ -7,7 +7,13 @@ ms.service: azure-load-balancer
 ms.topic: quickstart
 ms.date: 09/30/2024
 ms.author: mbender
-ms.custom: mvc, devx-track-azurecli, mode-api, template-quickstart, engagement-fy23
+ms.custom:
+  - mvc
+  - devx-track-azurecli
+  - mode-api
+  - template-quickstart
+  - engagement-fy23
+  - sfi-image-nochange
 #Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
 # Customer intent: As a cloud engineer, I want to create an internal load balancer using the command line, so that I can efficiently manage and distribute internal traffic to virtual machines in my network.
 ---

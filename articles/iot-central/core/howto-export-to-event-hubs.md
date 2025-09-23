@@ -7,7 +7,9 @@ ms.author: dobett
 ms.date: 03/05/2024
 ms.topic: how-to
 ms.service: azure-iot-central
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 ---
 
 # Export IoT data to Event Hubs

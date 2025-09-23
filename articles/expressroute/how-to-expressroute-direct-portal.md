@@ -7,6 +7,7 @@ ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 07/10/2025
 ms.author: duau
+ms.custom: sfi-image-nochange
 
 # Customer intent: As a network engineer, I want to configure Azure ExpressRoute Direct, so that I can establish a direct connection to Microsoft's global network for improved performance and reliability in data transfer.
 ---

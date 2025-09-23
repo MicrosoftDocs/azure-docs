@@ -8,7 +8,12 @@ ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: quickstart-arm
 ms.date: 01/04/2024
-ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
+ms.custom:
+  - mvc
+  - subject-armqs
+  - mode-arm
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # Quickstart: Deploy an Azure IoT hub and a storage account using an ARM template

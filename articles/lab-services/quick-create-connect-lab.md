@@ -8,7 +8,9 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: quickstart
 ms.date: 03/13/2024
-ms.custom: mode-portal
+ms.custom:
+  - mode-portal
+  - sfi-image-nochange
 #customer intent: As an  administrator or educator, I want to quickly create a lab virtual machine to test the procedure for making labs in Azure Lab Services.
 ---
 

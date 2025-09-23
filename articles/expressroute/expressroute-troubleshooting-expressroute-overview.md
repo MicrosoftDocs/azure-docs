@@ -7,7 +7,9 @@ ms.service: azure-expressroute
 ms.topic: troubleshooting
 ms.date: 11/18/2024
 ms.author: duau
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 ---
 
 # Verify ExpressRoute connectivity
