@@ -1,13 +1,13 @@
 ---
 title: Azure EA VM reserved instances
 description: This article summaries how Azure reservations for VM reserved instances can help you save your money with your enterprise enrollment.
-author: racheg
-ms.author: racheg
-ms.date: 04/02/2025
+author: SandeepReddyAcc
+ms.author: v-salin@microsoft.com
+ms.date: 09/23/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: racheg
+ms.reviewer: v-salin@microsoft.com
 ---
 
 # Azure EA VM reserved instances
