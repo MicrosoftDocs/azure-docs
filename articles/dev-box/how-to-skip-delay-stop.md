@@ -20,7 +20,10 @@ Dev boxes that support hibernation hibernate on schedule instead of shutting dow
 
 ## Change scheduled shutdown from the dev box
 
-If your dev box is in a pool with an autostop schedule, and the dev box is running, you receive a notification about 30 minutes before the scheduled shutdown. The notification gives you time to save your work or make necessary adjustments.
+If your dev box is in a pool with an autostop schedule, and the dev box is running, you receive a popup notification about 30 minutes before the scheduled shutdown. The notification gives you time to save your work or make necessary adjustments.
+
+> [!NOTE]
+> If you don't see the notification, check your browser or application settings and allow popups for the dev box.
 
 ### Delay the shutdown
 
@@ -58,7 +61,7 @@ Follow these steps to delay the shutdown of a running dev box:
 
    :::image type="content" source="media/how-to-skip-delay-stop/dev-portal-menu.png" alt-text="Screenshot showing the dev box tile and the more options menu with the Delay scheduled shutdown option highlighted.":::
 
-1. In the **Delay shutdown until** dropdown list, select the amount of time you want to delay the shutdown. You can delay the shutdown by up to 8 hours from the scheduled time.
+1. In the **Delay shutdown until** list, use the up/down arrows to select the amount of time you want to delay the shutdown. You can delay the shutdown by up to 8 hours from the scheduled time.
 
    :::image type="content" source="media/how-to-skip-delay-stop/delay-options.png" alt-text="Screenshot showing how to delay the scheduled shutdown until 12 45 am tomorrow.":::
 
@@ -72,7 +75,7 @@ Follow these steps to skip the shutdown of a running dev box:
 
 1. Select **More options** (**...**) > **Delay scheduled shutdown**:
 
-1. In the **Delay shutdown until** dropdown list, select the last available option, which specifies the time 8 hours after the scheduled shutdown time. In this example, the last option is **11:45 pm tomorrow (skip)**: 
+1. In the **Delay shutdown until** list, use the up/down arrows to select the last available option, which specifies the time 8 hours after the scheduled shutdown time. In this example, the last option is **11:45 pm tomorrow (skip)**: 
 
    :::image type="content" source="media/how-to-skip-delay-stop/skip-shutdown.png" alt-text="Screenshot showing the final shutdown option that skips shutdown until the next scheduled time.":::
 
