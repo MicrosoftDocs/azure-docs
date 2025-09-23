@@ -29,7 +29,7 @@ A *binding* is a concept used by Azure Functions. It aims to provide a simple wa
 
 Binding can support inputs, outputs, and triggers. Bindings let you configure the connection to services so that the Functions host can handle the data access for you. For more information, see [Azure Functions triggers and bindings concepts](../azure-functions/functions-triggers-bindings.md).
 
-Function binding supports both secret/connection string and identity based authentication types.
+Azure Functions bindings support both secret (connection string) and identity-based authentication.
 
 ### Service Connector
 
