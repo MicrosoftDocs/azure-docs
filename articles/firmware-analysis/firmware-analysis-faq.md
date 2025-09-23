@@ -77,7 +77,7 @@ gdkpixbuf	|	mbedtls		|	pppd		|	zeptojs
 glibc		|	mcproxy		|	proftpd		|	zlib
 gmp			|   miniupnpd	|   python      |
 gnutls		|	mit_kerberos|	radvd
-gpg			|   mosquitto	|readline
+gpg			|   mosquitto	|   readline
 
 
 
