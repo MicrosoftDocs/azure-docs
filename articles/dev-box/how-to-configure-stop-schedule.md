@@ -114,7 +114,7 @@ Follow these steps to delete an auto-stop schedule associated with a dev box poo
 
 1. Under **Cost controls**, unselect the **Auto-stop on schedule** checkbox:
 
-   :::image type="content" source="./media/how-to-manage-stop-schedule/dev-box-disable-stop.png" alt-text="Screenshot of the edit dev box pool page showing the Auto-stop on schedule option unselected." lightbox="./media/how-to-manage-stop-schedule/dev-box-disable-stop.png"::: 
+   :::image type="content" source="./media/how-to-manage-stop-schedule/dev-box-disable-stop.png" alt-text="Screenshot of the edit dev box pool page showing the Auto-stop on schedule option unselected."::: 
 
 1. Select **Save**. 
 
