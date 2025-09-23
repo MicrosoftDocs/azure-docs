@@ -9,7 +9,7 @@ ms.custom: sfi-ropc-nochange
 # Event replication tasks patterns
 
 The [federation overview](event-hubs-federation-overview.md) and the
-[replicator functions overview](event-hubs-federation-replicator-functions.md) explain the rationale for and the basic elements of replication tasks, and it's recommended that you familiarize yourself with them before continuing with this article.
+[replicator functions overview](event-hubs-federation-replicator-functions.md) explain the rationale for and the basic elements of replication tasks, and we recommend that you familiarize yourself with them before you continue with this article.
 
 In this article, we detail implementation guidance for several of the patterns highlighted in the overview section.
 
@@ -24,7 +24,7 @@ samples and the [Use Apache Kafka MirrorMaker with Event Hubs](event-hubs-kafka-
 
 ### Streams and order preservation
 
-Replication, either through Azure Functions or Azure Stream Analytics, doesn't aim to assure the creation of exact 1:1 clones of a source Event Hub into a target Event Hub, but focuses on preserving the relative order of events where the application requires it. The application communicates this by grouping related events with the same partition key and [Event Hubs arranges messages with the same partition key sequentially in the same partition](event-hubs-features.md#partitions).
+Replication, either through Azure Functions or Azure Stream Analytics, doesn't aim to assure the creation of exact 1:1 clones of a source Event Hub into a target Event Hub. Instead, it focuses on preserving the relative order of events where the application requires it. The application communicates this by grouping related events with the same partition key and [Event Hubs arranges messages with the same partition key sequentially in the same partition](event-hubs-features.md#partitions).
 
 > [!IMPORTANT] 
 > The "offset" information is unique for each Event Hub and offsets
@@ -42,23 +42,23 @@ Replication, either through Azure Functions or Azure Stream Analytics, doesn't a
 > passed through the constructor. 
 
 
-The pre-built replication function helpers [provided as samples](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/src/Azure.Messaging.Replication)
+The prebuilt replication function helpers [provided as samples](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/src/Azure.Messaging.Replication)
 that are used in the Azure Functions based guidance ensure that eventstreams with the same partition key retrieved from a source partition are submitted into the target Event Hub as a batch in the original stream and with the same partition key.
 
-If the partition count of the source and target Event Hub is identical, all streams in the target will map to the same partitions as they did in the source. If the partition count is different, which matters in some of the further patterns described in the following, the mapping will differ, but streams are always kept together and in order.
+If the partition count of the source and target Event Hub is identical, all streams in the target map to the same partitions as they did in the source. If the partition count is different, which matters in some of the further patterns described in the following, the mapping will differ, but streams are always kept together and in order.
 
 The relative order of events belonging to different streams or of independent events without a partition key in a target partition might always differ from the source partition.
 
 ### Service-assigned metadata
 
-The service-assigned metadata of an event obtained from the source Event Hub, the original enqueue time, sequence number, and offset, are replaced by new service-assigned values in the target Event Hub, but with the [helper functions](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/src/Azure.Messaging.Replication), replication tasks that are provided in our samples, the original values are preserved in user properties: `repl-enqueue-time` (ISO8601 string),
+The service-assigned metadata of an event obtained from the source Event Hub, the original enqueue time, sequence number, and offset, are replaced by new service-assigned values in the target Event Hub. However, with the [helper functions](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/src/Azure.Messaging.Replication), replication tasks that are provided in our samples, the original values are preserved in user properties: `repl-enqueue-time` (ISO8601 string),
 `repl-sequence`, `repl-offset`.
 
 Those properties are of type string and contain the stringified value of the respective original properties. If the event is forwarded multiple times, the service-assigned metadata of the immediate source is appended to the already existing properties, with values separated by semicolons.
 
 ### Failover
 
-If you're using replication for disaster recovery purposes, to protect against regional availability events in the Event Hubs service, or against network interruptions, any such failure scenario will require performing a failover from one Event Hub to the next, telling producers and/or consumers to use the secondary endpoint.
+If you're using replication for disaster recovery purposes, to protect against regional availability events in the Event Hubs service, or against network interruptions, any such failure scenario requires performing a failover from one Event Hub to the next, telling producers and/or consumers to use the secondary endpoint.
 
 For all failover scenarios, it's assumed that the required elements of the namespaces are structurally identical, meaning that Event Hubs and Consumer Groups are identically named and that shared access signature rules and/or role-based access control rules are set up in the same way. You can create (and update) a secondary namespace by following the
 [guidance for moving namespaces](move-across-regions.md) and omitting the cleanup step.
@@ -71,12 +71,12 @@ One candidate approach is to hold the information in DNS SRV records in a DNS yo
 
 > [!IMPORTANT] 
 > Mind that Event Hubs doesn't allow for its endpoints to be
-> directly aliased with CNAME records, which means you'll use DNS as a
+> directly aliased with CNAME records, which means you use DNS as a
 > resilient lookup mechanism for endpoint addresses and not to directly resolve
 > IP address information.
 
 Assume you own the domain `example.com` and, for your application, a zone
-`test.example.com`. For two alternate Event Hubs, you'll now create two
+`test.example.com`. For two alternate Event Hubs, you now create two
 further nested zones, and an SRV record in each.
 
 The SRV records are, following common convention, prefixed with
@@ -110,7 +110,7 @@ static string GetEventHubName(string aliasName)
 }
 ```
 
-The function returns the target host name registered for port 5671 of the zone currently aliased with the CNAME as shown above.
+The function returns the target host name registered for port 5671 of the zone currently aliased with the CNAME as shown previously.
 
 Performing a failover requires editing the CNAME record and pointing it to the alternate zone.
 
@@ -141,7 +141,7 @@ To realize either scenario and using the event processor of your respective Azur
 and provide an initial partition position, based on the _timestamp_ that you want to resume processing from.
 
 If you still have access to the checkpoint store of the Event Hub you're switching away from, the [propagated metadata](#service-assigned-metadata)
-discussed above will help you to skip events that were already handled and resume precisely from where you last left off.
+discussed previously will help you to skip events that were already handled and resume precisely from where you last left off.
 
 ## Merge
 
