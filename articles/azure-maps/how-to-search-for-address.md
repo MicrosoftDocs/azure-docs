@@ -7,11 +7,14 @@ ms.date: 8/9/2024
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: routing
+zone_pivot_groups: azure-maps-search
 ---
 
 # Search for a location using Azure Maps Search services
 
 The [Search] service is a set of RESTful APIs designed to help developers search addresses, places, and business listings by name, category, and other geographic information. In addition to supporting traditional geocoding, services can also reverse geocode addresses and cross streets based on latitudes and longitudes. Latitude and longitude values returned by the search can be used as parameters in other Azure Maps services, such as [Route] and [Weather].
+
+:::zone pivot="search-previous"
 
 This article demonstrates how to:
 
@@ -167,6 +170,14 @@ This example demonstrates how to search for a cross street based on the coordina
     ```
 
 1. Select the run button, and review the response body. Notice that the response contains a `crossStreet` value of `South Atlantic Street`.
+
+:::zone-end
+
+:::zone pivot="search-next"
+
+
+
+:::zone-end
 
 ## Next steps
 
