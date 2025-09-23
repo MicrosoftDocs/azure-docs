@@ -7,6 +7,7 @@ ms.author: alzam
 ms.service: azure-private-5g-core
 ms.topic: how-to 
 ms.date: 10/02/2023
+ms.custom: sfi-image-nochange
 ---
 
 # Configure Azure Private 5G Core network for accessing UE IP addresses

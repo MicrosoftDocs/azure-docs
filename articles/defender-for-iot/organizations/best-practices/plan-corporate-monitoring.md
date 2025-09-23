@@ -3,6 +3,7 @@ title: Plan your OT monitoring system with Defender for IoT
 description: Learn how to plan your overall OT network monitoring structure and requirements.
 ms.topic: install-set-up-deploy
 ms.date: 02/16/2023
+ms.custom: sfi-image-nochange
 ---
 
 # Plan your OT monitoring system with Defender for IoT
