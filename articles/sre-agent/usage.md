@@ -47,7 +47,7 @@ To create an agent, you need to grant your agent the correct permissions and acc
 
 Create an agent by associating resource groups that you want to monitor with the agent:
 
-1. Follow the link provided in your onboarding email to access Azure SRE Agent in the Azure portal.
+1. Visit [https://aka.ms/sreagent-portal](https://aka.ms/sreagent-portal) to access Azure SRE Agent in the Azure portal.
 
 1. Select **Create**.
 
