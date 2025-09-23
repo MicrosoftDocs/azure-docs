@@ -19,15 +19,18 @@ The way you migrate your app to the Flex Consumption plan depends on whether you
 
 When you migrate your existing serverless apps, your functions can easily take advantage of these benefits of the Flex Consumption plan:
 
-+ Enhanced performance: your apps benefit from improved scalability and always-ready instances to reduce cold start impacts.
-+ Improved controls: fine-tune your functions with per-function scaling and concurrency settings.
-+ Expanded networking: virtual network integration and private endpoints let you run your functions in both public and private networks.
++ **Enhanced performance**: your apps benefit from improved scalability and always-ready instances to reduce cold start impacts.
++ **Improved controls**: fine-tune your functions with per-function scaling and concurrency settings.
++ **Expanded networking**: virtual network integration and private endpoints let you run your functions in both public and private networks.
++ **Future platform investment**: as the top serverless hosting plan, current and future investments will be made on Flex Consumption first for platform stability, performance, and features. 
 
 The Flex Consumption plan is the recommended serverless hosting option for your functions going forward. For more information, see [Flex Consumption plan benefits](../flex-consumption-plan.md#benefits). For a detailed comparison between hosting plans, see [Azure Functions hosting options](../functions-scale.md).
 
 ## Considerations
 
 Before staring a migration, keep these considerations in mind:
+
++ If you are running Linux Consumption on US Government cloud, review this guidance to prepare for migration. We plan to enable Flex Consumption in US Government in the first half of 2026.
 
 + Due to the significant configuration and behavior differences between the two plans, you aren't able to _shift_ an existing Consumption plan app to the Flex Consumption plan. The migration process instead has you create a new Flex Consumption plan app that is equivalent to your current app. This new app runs in the same resource group and with the same dependencies as your current app.
 
