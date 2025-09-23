@@ -7,8 +7,12 @@ ms.date: 08/23/2024
 ms.topic: how-to
 ms.service: azure-iot-hub
 services: iot-dps
-ms.custom: mvc, devx-track-azurecli
 ms.subservice: azure-iot-hub-dps
+ms.custom:
+  - mvc
+  - devx-track-azurecli
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # How to link and manage IoT hubs

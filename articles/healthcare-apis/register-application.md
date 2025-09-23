@@ -7,6 +7,7 @@ ms.subservice: fhir
 ms.topic: tutorial
 ms.date: 06/09/2025
 ms.author: chrupa
+ms.custom: sfi-image-blocked
 ---
 
 # Register a client application in Microsoft Entra ID

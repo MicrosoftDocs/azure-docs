@@ -5,8 +5,10 @@ author: ahartoon
 ms.author: anboisve
 ms.service: azure-stream-analytics
 ms.topic: overview
-ms.custom: mvc
 ms.date: 04/13/2023
+ms.custom:
+  - mvc
+  - sfi-image-nochange
 ---
 
 # Create and delete managed private endpoints in an Azure Stream Analytics cluster

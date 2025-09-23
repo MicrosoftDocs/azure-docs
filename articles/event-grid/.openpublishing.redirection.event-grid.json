@@ -1,6 +1,11 @@
 {
   "redirections": [    
     {
+      "source_path": "mqtt-automotive-connectivity-and-data-solution.md",
+      "redirect_url": "/industry/mobility/architecture/automotive-messaging-data-analytics-content",
+      "redirect_document_id": false
+    },      
+    {
       "source_path": "subscribe-to-sap-events.md",
       "redirect_url": "/azure/event-grid/partner-events-overview",
       "redirect_document_id": false

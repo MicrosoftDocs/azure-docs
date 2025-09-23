@@ -6,8 +6,10 @@ ms.author: sethm
 ms.date: 06/03/2025
 ms.topic: how-to
 ms.service: azure-iot-edge
-ms.custom: devx-track-azurecli
 services: iot-edge
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 # Retrieve logs from IoT Edge deployments
 

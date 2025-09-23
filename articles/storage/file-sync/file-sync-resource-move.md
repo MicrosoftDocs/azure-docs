@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 06/05/2025
 ms.author: kendownie
+ms.custom: sfi-image-nochange
 # Customer intent: "As a cloud administrator, I want to move Azure File Sync resources across resource groups and subscriptions, so that I can maintain an organized and efficient resource structure while ensuring uninterrupted data synchronization."
 ---
 

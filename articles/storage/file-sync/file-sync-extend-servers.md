@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: tutorial
 ms.date: 08/08/2024
 ms.author: kendownie
+ms.custom: sfi-image-nochange
 # Customer intent: As an IT administrator, I want to learn how to extend the storage capacity of Windows file servers with Azure File Sync, so that I can effectively manage data storage and access across local and cloud environments.
 ---
 

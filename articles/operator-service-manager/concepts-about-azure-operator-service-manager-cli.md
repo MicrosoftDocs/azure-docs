@@ -1,8 +1,8 @@
 ---
 title: About the Azure Operator Service Manager CLI extension
 description: Learn about the Azure Operator Service Manager CLI extension.
-author: pjw711
-ms.author: peterwhiting
+author: JAC0BSMITH
+ms.author: jacobsmith
 ms.service: azure-operator-service-manager
 ms.topic: concept-article
 ms.date: 03/20/2024

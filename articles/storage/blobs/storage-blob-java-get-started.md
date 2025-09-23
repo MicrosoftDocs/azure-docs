@@ -8,7 +8,11 @@ ms.author: shaas
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 10/18/2024
-ms.custom: devx-track-java, devguide-java, devx-track-extended-java
+ms.custom:
+  - devx-track-java
+  - devguide-java
+  - devx-track-extended-java
+  - sfi-ropc-nochange
 # Customer intent: "As a Java developer, I want to integrate my application with Azure Blob Storage, so that I can effectively manage and interact with large amounts of unstructured data."
 ---
 

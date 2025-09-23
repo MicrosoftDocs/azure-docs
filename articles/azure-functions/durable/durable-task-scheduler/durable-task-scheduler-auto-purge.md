@@ -38,6 +38,10 @@ These statuses include:
 
 Retention value can range from 0 (purge as soon as possible) to the maximum integer value, with the unit being **days**. 
 
+> **Default and Maximum Retention**  
+> By default, autopurge retention is set to **30 days**. This value ensures a balanced approach to data cleanup and resource efficiency.  
+> You can extend the retention period up to a **maximum of 90 days**, allowing flexibility for scenarios that require longer orchestration history retention.
+
 The retention period refers to the time period since the orchestration entered terminal state. For example, you set a retention value of 1 day. If the orchestration takes 10 days to finish, autopurge won't delete it until the following day. Autopurge isn't triggered until the orchestration finishes.
 
 Although retention periods have no maximum limit, we recommend you avoid retaining large volumes of stale orchestration data for extended periods. This practice ensures efficient use of storage resources and maintains optimal app performance.

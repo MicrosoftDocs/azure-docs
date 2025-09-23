@@ -12,9 +12,9 @@ ms.date: 08/02/2023
 #### [Azure VMs](#tab/avms)
 
 - Patch Orchestration must be set to Customer Managed Schedules.
-             
+
 #### [Arc-enabled VMs](#tab/arcvms)
 
-There are **no prerequisites** for patch orchestration. However, you must associate a schedule with the VM for Schedule patching. For more information, see [Configure schedule patching on Azure VMs to ensure business continuity](../prerequsite-for-schedule-patching.md).
+There are **no prerequisites** for patch orchestration. However, you must associate a schedule with the VM for Schedule patching.
 
 ---

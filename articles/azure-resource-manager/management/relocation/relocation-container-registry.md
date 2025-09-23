@@ -3,7 +3,7 @@ title: Relocate an Azure Container Registry to another region
 description: This article shows you how to relocate an Azure Container Registry to another region. 
 ms.topic: how-to
 ms.custom: subject-relocation, devx-track-azurecli
-ms.date: 07/29/2024
+ms.date: 09/15/2025
 ---
 
 # Relocate an Azure Container Registry to another region

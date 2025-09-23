@@ -4,8 +4,10 @@ description: Learn how to change the size of a virtual machine (VM) in Azure Dev
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.custom: UpdateFrequency2
 ms.date: 04/02/2025
+ms.custom:
+  - UpdateFrequency2
+  - sfi-image-nochange
 
 #customer intent: As a lab user, I want to be able to resize my lab VMs so that I can respond to changing needs for CPU, network, or disk performance.
 

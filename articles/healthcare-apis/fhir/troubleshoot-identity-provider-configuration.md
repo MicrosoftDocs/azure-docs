@@ -8,6 +8,7 @@ ms.subservice: fhir
 ms.topic: tutorial
 ms.date: 01/15/2024
 ms.author: namalu
+ms.custom: sfi-image-nochange
 ---
 
 # Troubleshoot identity provider configuration for the FHIR service
