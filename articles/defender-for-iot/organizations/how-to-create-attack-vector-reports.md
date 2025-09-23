@@ -3,6 +3,7 @@ title: Create attack vector reports
 description: Attack vector reports provide a graphical representation of a vulnerability chain of exploitable devices.
 ms.date: 02/03/2022
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Create attack vector reports

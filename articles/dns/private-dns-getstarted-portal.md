@@ -7,7 +7,9 @@ ms.author: allensu
 ms.date: 01/09/2025
 ms.topic: quickstart
 ms.service: azure-dns
-ms.custom: mode-ui
+ms.custom:
+  - mode-ui
+  - sfi-image-nochange
 #Customer intent: As an experienced network administrator, I want to create an  Azure private DNS zone, so I can resolve host names on my private virtual networks.
 # Customer intent: "As a network administrator, I want to create a private DNS zone in Azure, so that I can manage hostname resolution for resources within my private virtual networks."
 ---

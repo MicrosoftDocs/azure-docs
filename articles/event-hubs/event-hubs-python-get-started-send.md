@@ -9,6 +9,7 @@ ms.custom:
   - passwordless-python
   - devx-track-python
   - build-2025
+  - sfi-ropc-nochange
 ---
 
 # Quickstart: Send events to or receive events from event hubs by using Python

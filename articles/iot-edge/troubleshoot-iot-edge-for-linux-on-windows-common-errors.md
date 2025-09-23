@@ -7,7 +7,11 @@ ms.date: 06/03/2025
 ms.topic: troubleshooting-general
 ms.service: azure-iot-edge
 services: iot-edge
-ms.custom: amqp, mqtt, linux-related-content
+ms.custom:
+  - amqp
+  - mqtt
+  - linux-related-content
+  - sfi-ropc-nochange
 ---
 # Common issues and resolutions for Azure IoT Edge for Linux on Windows
 

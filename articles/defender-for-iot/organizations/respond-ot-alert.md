@@ -3,6 +3,7 @@ title: Respond to an alert in the Azure portal - Microsoft Defender for IoT
 description: Learn about how to fully respond to OT network alerts in Microsoft Defender for IoT.
 ms.date: 12/05/2022
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Investigate and respond to an OT network alert

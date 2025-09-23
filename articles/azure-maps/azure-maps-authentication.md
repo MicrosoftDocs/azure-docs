@@ -215,9 +215,9 @@ Consider the application topology where the endpoint `https://us.atlas.microsoft
 
 As described in [Azure Maps QPS rate limits](azure-maps-qps-rate-limits.md), the rate limits for individual service offerings are enforced collectively at the account level.
 
-Consider the case of **Search service - Non-Batch Reverse**, with its limit of 250 queries per second (QPS) for the following tables. Each table represents estimated total successful transactions from example usage.
+Consider the case of **Search service - single request reverse**, with its limit of 250 queries per second (QPS) for the following tables. Each table represents estimated total successful transactions from example usage.
 
-The first table shows one token that has a maximum request per second of 500, and actual usage of the application is 500 request per second for a duration of 60 seconds. **Search service - Non-Batch Reverse** has a rate limit of 250, meaning of the total 30,000 requests made in the 60 seconds; 15,000 of those requests are billable transactions. The remaining requests result in status code `429 (TooManyRequests)`.
+The first table shows one token that has a maximum request per second of 500, and actual usage of the application is 500 request per second for a duration of 60 seconds. **Search service - single request reverse** has a rate limit of 250, meaning of the total 30,000 requests made in the 60 seconds; 15,000 of those requests are billable transactions. The remaining requests result in status code `429 (TooManyRequests)`.
 
 | Name  | Approximate Maximum Rate Per Second | Actual Rate Per Second | Duration of sustained rate in seconds | Approximate total successful transactions |
 | :---- | :---------------------------------- | :--------------------- | :------------------------------------ | :---------------------------------------- |

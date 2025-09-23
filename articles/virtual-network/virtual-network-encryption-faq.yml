@@ -23,7 +23,7 @@ sections:
       
       - question: Why are packets dropped in encrypted virtual networks, and how can I prevent it?
         answer: |
-          Fragmented packets are not offloaded to hardware and are therefore dropped. To avoid this, configure your virtual machines with a network MTU of 1400. For encrypted virtual networks, ensure the "Don't Fragment" (DF) flag is set. Packets exceeding the 1400 MTU limit will be dropped rather than fragmented.
+          UDP fragmented packets are not offloaded to hardware and are therefore dropped. To avoid this, ensure the "Don't Fragment" (DF) flag is set and packets are not fragmented leaving the virtual machine. Packets exceeding the MTU limit will be dropped rather than fragmented."
 
       - question: What certificate is used for the DTLS establishment on the Azure Host? 
         answer: |

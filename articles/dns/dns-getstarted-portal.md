@@ -8,7 +8,9 @@ ms.author: allensu
 ms.date: 06/07/2024
 ms.topic: quickstart
 ms.service: azure-dns
-ms.custom: mode-ui
+ms.custom:
+  - mode-ui
+  - sfi-image-nochange
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS using the Azure portal so I can use Azure DNS for my public zone.
 # Customer intent: As a system administrator, I want to create a public DNS zone and associated records using the Azure portal, so that I can efficiently manage domain name resolutions for my web services.
 ---

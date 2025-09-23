@@ -5,6 +5,9 @@ ms.topic: tutorial
 ms.subservice: kafka
 ms.date: 03/06/2025
 ms.devlang: java
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Tutorial: Process Apache Kafka for Event Hubs events using Stream analytics 

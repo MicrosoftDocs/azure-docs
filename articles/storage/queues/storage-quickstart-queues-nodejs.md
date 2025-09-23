@@ -7,7 +7,11 @@ ms.date: 06/29/2023
 ms.topic: quickstart
 ms.service: azure-queue-storage
 ms.devlang: javascript
-ms.custom: devx-track-js, mode-api, passwordless-js
+ms.custom:
+  - devx-track-js
+  - mode-api
+  - passwordless-js
+  - sfi-ropc-nochange
 # Customer intent: "As a JavaScript developer, I want to implement the Azure Queue Storage client library to manage message queues, so that I can efficiently store, retrieve, and process large volumes of messages in my applications."
 ---
 

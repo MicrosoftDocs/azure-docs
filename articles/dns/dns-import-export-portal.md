@@ -8,6 +8,7 @@ ms.service: azure-dns
 ms.date: 02/05/2025
 ms.author: allensu
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 # Customer intent: "As a DNS administrator, I want to import and export DNS zone files using the cloud portal, so that I can efficiently manage DNS records and facilitate transitions between different DNS systems."
 ---
 

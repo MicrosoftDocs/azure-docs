@@ -4,7 +4,9 @@ description: This article provides a list of Azure Event Hubs messaging exceptio
 ms.topic: article
 ms.date: 03/08/2023
 ms.devlang: csharp
-ms.custom: devx-track-dotnet
+ms.custom:
+  - devx-track-dotnet
+  - sfi-ropc-nochange
 ---
 
 # Event Hubs messaging exceptions - .NET (legacy)

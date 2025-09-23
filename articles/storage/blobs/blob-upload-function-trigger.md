@@ -7,7 +7,11 @@ ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.date: 7/28/2025
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devx-track-azurecli
+ms.custom:
+  - devx-track-csharp
+  - devx-track-azurecli
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 # Customer intent: As a developer, I want to upload images to cloud storage and analyze their content using serverless functions, so that I can extract and store text data for further processing.
 ---
 

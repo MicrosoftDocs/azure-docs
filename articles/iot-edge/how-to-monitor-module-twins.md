@@ -7,6 +7,7 @@ ms.date: 06/09/2025
 ms.topic: how-to
 ms.service: azure-iot-edge
 services: iot-edge
+ms.custom: sfi-image-nochange
 ---
 # Monitor module twins
 

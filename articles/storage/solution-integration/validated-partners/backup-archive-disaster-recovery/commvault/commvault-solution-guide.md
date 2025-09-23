@@ -9,6 +9,7 @@ ms.date: 08/11/2025
 ms.topic: concept-article
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
+ms.custom: sfi-image-nochange
 # Customer intent: "As an IT administrator, I want to integrate Commvault with Azure Blob storage for backups, so that I can ensure reliable offsite data protection and facilitate quick recovery in case of a disaster."
 ---
 

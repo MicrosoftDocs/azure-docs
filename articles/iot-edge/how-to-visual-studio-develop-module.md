@@ -8,6 +8,7 @@ ms.date: 06/04/2025
 ms.topic: concept-article
 ms.service: azure-iot-edge
 zone_pivot_groups: iotedge-dev
+ms.custom: sfi-image-nochange
 ---
 # Use Visual Studio 2022 to develop and debug modules for Azure IoT Edge
 

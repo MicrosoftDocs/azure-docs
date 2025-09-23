@@ -3,7 +3,9 @@ title: Manage EIoT monitoring support | Microsoft Defender for IoT
 description: Learn how to manage your EIoT monitoring support with Microsoft Defender for IoT.
 ms.date: 09/13/2023
 ms.topic: how-to
-ms.custom: enterprise-iot
+ms.custom:
+  - enterprise-iot
+  - sfi-image-nochange
 #CustomerIntent: As a Defender for IoT customer, I want to understand how to manage my EIoT monitoring support with Microsoft Defender for IoT so that I can best plan my deployment.
 ---
 

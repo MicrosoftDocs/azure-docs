@@ -10,8 +10,10 @@ ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.date: 04/16/2024
 ms.reviewer: nachakra
-ms.custom: engagement-fy23
 ms.devlang: azurecli
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 # Customer intent: As a cloud administrator, I want to disable Shared Key authorization for Azure Storage accounts, so that I can enhance security by enforcing the use of Microsoft Entra ID for client request authorization.
 ---
 

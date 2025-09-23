@@ -5,8 +5,11 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 04/08/2025
-ms.custom: devx-track-java, devx-track-extended-java
 ms.author: kendownie
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - sfi-ropc-nochange
 # Customer intent: "As a Java developer, I want to implement file storage solutions using Azure Files, so that I can securely create, delete, and manage file shares and data through industry-standard protocols and APIs."
 ---
 

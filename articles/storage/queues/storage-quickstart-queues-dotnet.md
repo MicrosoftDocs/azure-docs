@@ -7,7 +7,12 @@ ms.date: 06/29/2023
 ms.topic: quickstart
 ms.service: azure-queue-storage
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-api, passwordless-dotnet, devx-track-dotnet
+ms.custom:
+  - devx-track-csharp
+  - mode-api
+  - passwordless-dotnet
+  - devx-track-dotnet
+  - sfi-ropc-nochange
 # Customer intent: "As a .NET developer, I want to use the Azure Queue Storage client library to create, manage, and delete message queues, so that I can efficiently handle asynchronous processing of large volumes of messages in my application."
 ---
 

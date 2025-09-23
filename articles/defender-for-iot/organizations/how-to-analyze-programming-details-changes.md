@@ -3,6 +3,7 @@ title: Analyze programming details and changes on an OT sensor - Microsoft Defen
 description: Discover suspicious programming activity by investigating programming events occurring on your network devices.
 ms.date: 02/28/2023
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Analyze programming details and changes

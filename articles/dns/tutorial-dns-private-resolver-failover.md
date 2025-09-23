@@ -7,6 +7,7 @@ ms.service: azure-dns
 ms.topic: tutorial
 ms.date: 11/30/2023
 ms.author: allensu
+ms.custom: sfi-image-nochange
 #Customer intent: As an administrator, I want to avoid having a single point of failure for DNS resolution.
 # Customer intent: As a network administrator, I want to configure DNS failover using Azure DNS private resolvers, so that I can ensure continuous DNS resolution and eliminate single points of failure in our network.
 ---

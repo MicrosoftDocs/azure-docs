@@ -6,11 +6,13 @@ ms.author: sethm
 ms.date: 07/11/2025
 ms.topic: tutorial
 ms.service: azure-iot-edge
-ms.custom: devx-track-azurecli
 services: iot-edge
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Tutorial: Create a hierarchy of IoT Edge devices

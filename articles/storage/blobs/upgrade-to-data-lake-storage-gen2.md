@@ -6,6 +6,7 @@ ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.date: 11/26/2024
 ms.author: normesta
+ms.custom: sfi-image-nochange
 
 # Customer intent: As a cloud storage administrator, I want to upgrade Azure Blob Storage to Data Lake Storage capabilities, so that I can enhance performance, improve data organization, and utilize advanced analytics features for better data management and efficiency.
 ---

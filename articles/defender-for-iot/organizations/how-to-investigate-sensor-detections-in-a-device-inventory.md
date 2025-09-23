@@ -3,6 +3,7 @@ title: Manage your OT device inventory from a sensor console
 description: Learn how to view and manage OT devices (assets) from the Device inventory page on a sensor console.
 ms.date: 12/19/2023
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Manage your OT device inventory from a sensor console

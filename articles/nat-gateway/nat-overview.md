@@ -8,6 +8,7 @@ ms.service: azure-nat-gateway
 ms.topic: overview
 ms.date: 08/12/2024
 ms.author: allensu
+ms.custom: sfi-image-nochange
 #Customer intent: I want to understand what Azure NAT Gateway is and how to use it.
 # Customer intent: As a cloud architect, I want to implement Azure NAT Gateway for outbound connectivity, so that I can ensure secure and scalable internet access for private resources without exposing them to unsolicited inbound connections.
 ---

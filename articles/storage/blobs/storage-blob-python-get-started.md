@@ -8,8 +8,11 @@ ms.author: shaas
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 10/02/2024
-ms.custom: devx-track-python, devguide-python
 ai-usage: ai-assisted
+ms.custom:
+  - devx-track-python
+  - devguide-python
+  - sfi-ropc-nochange
 # Customer intent: As a Python developer, I want to integrate my application with Azure Blob Storage, so that I can efficiently manage and interact with data resources using the client library.
 ---
 

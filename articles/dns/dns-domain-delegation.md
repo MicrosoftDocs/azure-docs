@@ -7,6 +7,7 @@ ms.service: azure-dns
 ms.date: 06/07/2024
 ms.author: allensu
 ms.topic: concept-article
+ms.custom: sfi-image-nochange
 
 # Customer intent: "As a domain owner, I want to delegate my domain to Azure DNS, so that I can host my DNS zone and manage DNS records effectively."
 ---

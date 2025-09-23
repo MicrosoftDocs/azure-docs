@@ -7,6 +7,7 @@ ms.service: azure-ddos-protection
 ms.topic: tutorial
 ms.date: 03/17/2025
 ms.author: abell
+ms.custom: sfi-image-nochange
 # Customer intent: As a network administrator, I want to view DDoS protection diagnostic logs in a Log Analytics workspace, so that I can monitor attack notifications, mitigation reports, and flow logs to ensure effective security and response during DDoS attacks.
 ---
 

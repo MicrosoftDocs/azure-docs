@@ -4,7 +4,11 @@ description: This quickstart shows you how to write Python code to capture data 
 ms.topic: quickstart
 ms.date: 02/07/2024
 ms.devlang: python
-ms.custom: mode-api, devx-track-python
+ms.custom:
+  - mode-api
+  - devx-track-python
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Quickstart: Capture Event Hubs data in Azure Storage and read it by using Python (azure-eventhub)

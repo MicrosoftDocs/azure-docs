@@ -9,7 +9,10 @@ ms.date: 08/30/2023
 ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: cpp
-ms.custom: mode-api
+ms.custom:
+  - mode-api
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 # Customer intent: As a C++ developer, I want to utilize the Azure Blob Storage client library so that I can efficiently manage unstructured data by creating containers, uploading and downloading blobs, and performing related operations in my applications.
 ---
 

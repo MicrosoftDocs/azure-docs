@@ -4,7 +4,10 @@ description: 'Quickstart: This article provides a walkthrough for creating a Go 
 ms.topic: quickstart
 ms.date: 11/16/2022
 ms.devlang: golang
-ms.custom: mode-api, devx-track-go
+ms.custom:
+  - mode-api
+  - devx-track-go
+  - sfi-ropc-nochange
 ---
 
 # Quickstart: Send events to or receive events from Event Hubs using Go

@@ -52,6 +52,7 @@ Prerelease version of an Azure Maps service. Preview releases contain new functi
 | API | API version | Description |
 |-----|-------------|-------------|
 | [Route][Route-2024-07-01-preview] | 2024-07-01-preview | The Route Range API supports high definition isochrone polygons. |
+| [Search][Search-2025-06-01-preview]  |  2025-06-01  | The new Autocomplete (preview) API enhances user experience by providing real-time suggestions as users type queries for addresses or places. |
 
 <!--- Links to latest versions of each service ---------------------------------->
 [Data Registry]: /rest/api/maps/data-registry
@@ -76,3 +77,4 @@ Prerelease version of an Azure Maps service. Preview releases contain new functi
 <!--- 2024-07-01-preview is the latest preview release of the Route service,
       currently the only Azure Maps service in Preview -------------------------->
 [Route-2024-07-01-preview]: /rest/api/maps/route?view=rest-maps-2024-07-01-preview
+[Search-2025-06-01-preview]: /rest/api/maps/search?view=rest-maps-2025-06-01-preview

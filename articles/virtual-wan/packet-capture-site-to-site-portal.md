@@ -18,8 +18,6 @@ This article helps you create a packet capture for an Azure Virtual WAN site-to-
 
 While some commonly available packet capture tools do exist, getting relevant packet captures with these tools can be cumbersome, especially in high-volume traffic scenarios. The filtering capabilities provided by the Virtual WAN packet capture are a major differentiator. The Virtual WAN packet capture can be used along with commonly available packet capture tools.
 
-[!INCLUDE [Portal rollout](../../includes/virtual-wan-portal-feature-rollout.md)]
-
 ## Prerequisites
 
 Verify that you have the following configuration already set up in your environment:

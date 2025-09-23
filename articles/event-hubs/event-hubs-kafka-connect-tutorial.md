@@ -4,6 +4,7 @@ description: This article provides a walkthrough that shows you how to use Kafka
 ms.topic: how-to
 ms.subservice: kafka
 ms.date: 03/06/2025
+ms.custom: sfi-ropc-nochange
 # customer intent: As a developer, I want to know how to use Apache Kafka Connect with Azure Event Hubs for Kafka. 
 ---
 

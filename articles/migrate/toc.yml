@@ -33,6 +33,12 @@ items:
     href: migrate-support-matrix.md
   - name: Assessment rules for PostgreSQL
     href: assessment-rules-for-postgresql.md
+  - name: Agentless migration architecture
+    href: concepts-vmware-agentless-migration.md
+  - name: Hyper-V migration architecture
+    href: hyper-v-migration-architecture.md
+  - name: VMware to Azure disaster recovery hyper-v-migration-architecture.md
+    href: ../site-recovery/vmware-azure-architecture-modernized.md?toc=/azure/migrate/toc.json
 - name: Discover inventory
   items:
   - name: Discovery methods

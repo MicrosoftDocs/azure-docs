@@ -4,6 +4,7 @@ description: This article provides information on how to use Kafka MirrorMaker t
 ms.topic: how-to
 ms.subservice: kafka
 ms.date: 03/06/2025
+ms.custom: sfi-ropc-nochange
 ---
 
 # Replicate data from a Kafka cluster to Event Hubs using Apache Kafka Mirror Maker 1

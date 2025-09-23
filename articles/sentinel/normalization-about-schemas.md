@@ -21,21 +21,16 @@ Schema references outline the fields that comprise each schema. ASIM currently d
 
 | Schema | Version | Status |
 | ------ | ------- | ------ |
-| [Audit Event](normalization-schema-audit.md) | 0.1 | Preview |
-| [Authentication Event](normalization-schema-authentication.md) | 0.1.3 | Preview |
-| [DNS Activity](normalization-schema-dns.md) | 0.1.7 | Preview |
-| [DHCP Activity](normalization-schema-dhcp.md) | 0.1 | Preview |
-| [File Activity](normalization-schema-file-event.md) | 0.2.1 | Preview |
-| [Network Session](normalization-schema.md) | 0.2.6 | Preview |
-| [Process Event](normalization-schema-process-event.md) | 0.1.4 | Preview |
-| [Registry Event](normalization-schema-registry-event.md) | 0.1.2 | Preview |
-| [User Management](normalization-schema-user-management.md) | 0.1 | Preview |
-| [Web Session](normalization-schema-web.md) | 0.2.6 | Preview |
-
-
-> [!IMPORTANT]
-> ASIM schemas and parsers are currently in *preview*. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
+| [Audit Event](normalization-schema-audit.md) | 0.1 | GA |
+| [Authentication Event](normalization-schema-authentication.md) | 0.1.3 | GA |
+| [DNS Activity](normalization-schema-dns.md) | 0.1.7 | GA |
+| [DHCP Activity](normalization-schema-dhcp.md) | 0.1 | GA |
+| [File Activity](normalization-schema-file-event.md) | 0.2.1 | GA |
+| [Network Session](normalization-schema.md) | 0.2.6 | GA |
+| [Process Event](normalization-schema-process-event.md) | 0.1.4 | GA |
+| [Registry Event](normalization-schema-registry-event.md) | 0.1.2 | GA |
+| [User Management](normalization-schema-user-management.md) | 0.1 | GA |
+| [Web Session](normalization-schema-web.md) | 0.2.6 | GA |
 
 ## Schema concepts
 

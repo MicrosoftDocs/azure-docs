@@ -4,7 +4,12 @@ description: A quickstart that shows you how to create a .NET Core application t
 ms.topic: quickstart
 ms.date: 03/24/2025
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-api, passwordless-dotnet, devx-track-dotnet
+ms.custom:
+  - devx-track-csharp
+  - mode-api
+  - passwordless-dotnet
+  - devx-track-dotnet
+  - sfi-ropc-nochange
 #customer intent: As a .NET developer, I want to learn how to send events to an event hub and receive events from the event hub using C#. 
 ---
 

@@ -7,8 +7,11 @@ author: asudbring
 ms.author: allensu
 ms.topic: how-to
 ms.date: 11/30/2023
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - sfi-image-nochange
 # Customer intent: As a DNS administrator, I want to implement protection measures for private DNS zones and records using role-based access control and resource locks, so that I can prevent unauthorized changes and accidental deletions that could impact service availability.
 ---
 

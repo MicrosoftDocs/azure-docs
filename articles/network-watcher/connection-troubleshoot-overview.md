@@ -6,9 +6,8 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 01/27/2025
+ms.date: 09/23/2025
 
-#CustomerIntent: As an Azure administrator, I want to learn what connectivity problems I can use Connection troubleshoot to diagnose so that I can use it to resolve those problems.
 # Customer intent: As an Azure administrator, I want to understand the capabilities of the Connection troubleshoot tool so that I can effectively diagnose and resolve network connectivity issues in my cloud infrastructure.
 ---
 
@@ -22,8 +21,6 @@ Connection troubleshoot reduces the Mean Time To Resolution (MTTR) by providing 
 
 - Connectivity test with different destination types (VM, URI, FQDN, or IP Address)
 - Configuration issues that impact reachability
-- All possible hop by hop paths from the source to destination
-- Hop by hop latency
 - Latency (minimum, maximum, and average between source and destination)
 - Graphical topology view from source to destination
 - Number of probes failed during the connection troubleshoot check

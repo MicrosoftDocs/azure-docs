@@ -6,7 +6,10 @@ ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
 ms.date: 10/12/2023
-ms.custom: template-how-to, devx-track-azurepowershell
+ms.custom:
+  - template-how-to
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 ---
 
 <!-- 

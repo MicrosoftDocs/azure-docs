@@ -7,6 +7,7 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
+ms.custom: sfi-ropc-nochange
 # Customer intent: As a cloud developer or architect, I want to understand Azure's cloud service model and packaging requirements, so that I can configure, package, and deploy a cloud service in a scalable and manageable way.
 ---
 

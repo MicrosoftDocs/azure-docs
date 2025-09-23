@@ -3,7 +3,7 @@ title: Create and Use an agent in Azure SRE Agent Preview
 description: Learn how to use an automated agent to resolve problems and keep your apps running in Azure.
 author: craigshoemaker
 ms.topic: how-to
-ms.date: 07/17/2025
+ms.date: 07/23/2025
 ms.author: cshoe
 ms.service: azure-sre-agent
 ---
@@ -47,7 +47,7 @@ To create an agent, you need to grant your agent the correct permissions and acc
 
 Create an agent by associating resource groups that you want to monitor with the agent:
 
-1. Follow the link provided in your onboarding email to access Azure SRE Agent in the Azure portal.
+1. Open the [Azure portal](https://aka.ms/sreagent-portal).
 
 1. Select **Create**.
 

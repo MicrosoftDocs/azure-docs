@@ -6,6 +6,7 @@ ms.author: v-jasmineme
 ms.date: 07/31/2025
 ms.service: azure-resource-mover
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 # Customer intent: As an Azure administrator, I want to move Azure virtual machines and associated resources to a different region using Resource Mover, so that I can enhance the resiliency of my deployment across availability zones.
 ---
 # Move Azure VMs to an availability zone in another region with Azure Resource Mover
