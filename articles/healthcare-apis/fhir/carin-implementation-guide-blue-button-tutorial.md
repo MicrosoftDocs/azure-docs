@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.author: kesheth
 author: expekesheth
 ms.date: 08/12/2025
+ms.custom: sfi-image-nochange
 ---
 
 # CARIN Implementation Guide for Blue Button&#174;

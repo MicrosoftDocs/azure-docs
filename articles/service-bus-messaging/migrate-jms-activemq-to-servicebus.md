@@ -8,7 +8,10 @@ ms.devlang: java
 ms.topic: article
 ms.date: 09/27/2021
 ms.author: spelluru
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - sfi-ropc-nochange
 ---
 
 # Migrate existing Java Message Service (JMS) 2.0 applications from Apache ActiveMQ to Azure Service Bus

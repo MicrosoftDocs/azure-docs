@@ -8,7 +8,10 @@ ms.service: role-based-access-control
 ms.topic: overview
 ms.date: 03/12/2025
 ms.author: rolyon
-ms.custom: it-pro;
+ms.custom:
+  - it-pro;
+  - sfi-image-nochange
+  - sfi-ga-nochange
 ---
 
 # Azure roles, Microsoft Entra roles, and classic subscription administrator roles

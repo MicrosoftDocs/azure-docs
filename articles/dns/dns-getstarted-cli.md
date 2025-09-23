@@ -8,7 +8,10 @@ ms.service: azure-dns
 ms.topic: quickstart
 ms.date: 11/30/2023
 ms.author: allensu
-ms.custom: devx-track-azurecli, mode-api
+ms.custom:
+  - devx-track-azurecli
+  - mode-api
+  - sfi-image-nochange
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS using the Azure CLI so I can use Azure DNS for my name resolution.
 # Customer intent: As an administrator or developer, I want to create and manage a DNS zone and record using a command-line interface, so that I can efficiently host and resolve domain names in a cloud environment.
 ---

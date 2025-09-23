@@ -8,7 +8,9 @@ ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 06/25/2025
-ms.custom: ['Role: Cloud Development']
+ms.custom:
+  - 'Role: Cloud Development'
+  - sfi-ropc-nochange
 ---
 
 # Create and manage Azure IoT hubs

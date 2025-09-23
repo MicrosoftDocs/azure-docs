@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: jojoh
+ms.custom: sfi-image-nochange
 ---
 
 # Use cost alerts to monitor usage and spending

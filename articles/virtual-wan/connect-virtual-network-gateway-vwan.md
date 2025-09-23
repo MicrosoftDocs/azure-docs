@@ -6,6 +6,7 @@ ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 03/26/2025
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: The Advanced Security Information Model (ASIM) Alert Events normalization schema reference (Public preview) | Microsoft Docs
+title: The Advanced Security Information Model (ASIM) Alert Events normalization schema reference | Microsoft Docs
 description: This article displays the Microsoft Sentinel Alert Events normalization schema.
 author: vakohl
 ms.topic: reference
@@ -19,12 +19,6 @@ The Microsoft Sentinel Alert Schema is designed to normalize security-related al
 The Alert Schema represents various types of security alerts, such as threats, suspicious activities, user behavior anomalies and compliance violations. These alerts are reported by different security products and systems, including but not limited to EDRs, antivirus software, intrusion detection systems, data loss prevention tools etc.
 
 For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).
-
-> [!IMPORTANT]
-> The Alert normalization schema is currently in *preview*. This feature is provided without a service level agreement. We don't recommend it for production workloads.
->
-> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 ## Parsers
 

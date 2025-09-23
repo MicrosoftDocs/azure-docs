@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.service: azure-iot-central
 services: iot-central
 ms.custom:
-  - [iot-central-frontdoor]
+  - iot-central-frontdoor
   - sfi-image-nochange
 
 # This article applies to operators, builders, and administrators.

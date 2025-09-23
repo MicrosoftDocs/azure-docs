@@ -7,7 +7,9 @@ ms.author: alzam
 ms.service: azure-private-5g-core
 ms.topic: conceptual
 ms.date: 12/23/2021
-ms.custom: template-concept
+ms.custom:
+  - template-concept
+  - sfi-image-nochange
 ---
 
 # Distributed tracing

@@ -8,6 +8,7 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 06/02/2025
 ms.author: kesheth
+ms.custom: sfi-image-nochange
 ---
 
 # Configure Private Link for Azure Health Data Services

@@ -6,7 +6,9 @@ ms.author: alzam
 ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 10/26/2023
-ms.custom: template-how-to
+ms.custom:
+  - template-how-to
+  - sfi-image-nochange
 ---
 
 # Manage existing SIMs for Azure Private 5G Core - Azure portal

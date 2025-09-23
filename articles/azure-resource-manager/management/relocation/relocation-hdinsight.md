@@ -1,7 +1,7 @@
 ---
 title: Relocate Azure HDInsight clusters to another region
 description: Learn how to relocate Azure HDInsight clusters to another region
-ms.date: 05/08/2025
+ms.date: 09/15/2025
 ms.topic: how-to
 ms.custom: subject-relocation, devx-track-azurepowershell
 ---

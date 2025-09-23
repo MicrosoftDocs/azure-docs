@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 08/21/2025
+ms.custom: sfi-image-nochange
 #Customer intent: As an integration solution developer working with Azure Logic Apps, I want to use my own SQL server as the storage provider, rather than Azure Storage.
 ---
 

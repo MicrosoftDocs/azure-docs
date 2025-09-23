@@ -1,10 +1,10 @@
 ---
 title: Surface custom details in Microsoft Sentinel alerts | Microsoft Docs
 description: Extract and surface custom event details in alerts in Microsoft Sentinel analytics rules, for better and more complete incident information
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.date: 04/26/2022
-ms.author: yelevin
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal

@@ -4,6 +4,7 @@ ms.author: sethm
 ms.service: azure-iot-edge
 ms.topic: include
 ms.date: 06/10/2024
+ms.custom: sfi-image-nochange
 ---
 
 ## Create a release pipeline for continuous deployment

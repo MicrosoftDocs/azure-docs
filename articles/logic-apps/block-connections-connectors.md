@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: deli, estfan, azla
 ms.topic: how-to
 ms.date: 01/10/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Block connector usage in Azure Logic Apps

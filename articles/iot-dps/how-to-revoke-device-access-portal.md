@@ -8,6 +8,7 @@ ms.date: 01/24/2022
 ms.topic: how-to
 ms.service: azure-iot-hub
 ms.subservice: azure-iot-hub-dps
+ms.custom: sfi-image-nochange
 ---
 
 # How to disenroll or revoke a device from Azure IoT Hub Device Provisioning Service

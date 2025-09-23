@@ -4,8 +4,9 @@ description: Deploy your business process and tracking profile to Standard logic
 ms.service: azure-business-process-tracking
 ms.topic: how-to
 ms.reviewer: estfan, azla
-ms.date: 06/09/2025
-# CustomerIntent: As an integration developer, I want to deploy previously created business processes and tracking profiles to deployed Standard logic app resources so I can capture and track key business data moving through my deployed resources.
+ms.date: 09/11/2025
+ms.update-cycle: 365-days
+# Customer intent: As an integration developer, I want to deploy previously created business processes and tracking profiles to deployed Standard logic app resources so I can capture and track key business data moving through my deployed resources.
 ---
 
 # Deploy a business process and tracking profile to Azure

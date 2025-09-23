@@ -8,6 +8,7 @@ ms.service: azure-expressroute
 ms.topic: concept-article
 ms.date: 10/18/2024
 ms.author: duau
+ms.custom: sfi-image-nochange
 ---
 # ExpressRoute for Cloud Solution Providers (CSP)
 

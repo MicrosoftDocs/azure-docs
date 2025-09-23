@@ -169,7 +169,7 @@ Here's the JSON representation of the example activity event shown earlier in th
 {
     "id": "B2C_DQO3J_4984536",
     "category": "Authentication",
-    "correlationId": "ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0",
+    "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
     "result": "success",
     "resultReason": "N/A",
     "activityDisplayName": "Issue an id_token to the application",

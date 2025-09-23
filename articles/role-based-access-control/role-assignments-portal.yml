@@ -12,8 +12,9 @@ metadata:
   ms.service: role-based-access-control
   ms.topic: how-to
   ms.custom:
-    - subject-rbac-steps
+    - sfi-image-nochange
     - ge-structured-content-pilot
+    - subject-rbac-steps
 title: |
   Assign Azure roles using the Azure portal
 introduction: |
