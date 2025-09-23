@@ -148,7 +148,7 @@ Manage devices and namespace assets through the operations experience or Azure A
 
 *Akri services (preview)* in Azure IoT Operations:
 
-- Provide an extensible framework for building and deploying connectors that enable connectivity protocols like ONVIF and REST/HTTP.
+- Provide an extensible framework for building and deploying connectors that enable connectivity protocols like ONVIF and HTTP/REST.
 - Enable automatic discovery, onboarding, and monitoring of physical devices and assets at the edge.
 
 ### Connectivity
@@ -158,7 +158,8 @@ Akri services let you deploy and set up connectivity protocols at the edge. Akri
 - The **connector for OPC UA** is a data ingress and protocol translation service that lets Azure IoT Operations ingest data from OPC UA servers. A key requirement in industrial environments is a common standard or protocol for machine-to-machine and machine-to-cloud data exchange. [OPC UA](https://opcfoundation.org/about/opc-technologies/opc-ua/) is a specification for a platform-independent, service-oriented architecture that enables data exchange in industrial environments. The connector receives messages and events from your assets and publishes the data to topics in the MQTT broker.
 - The **media connector (preview)** is a service that makes media from sources like edge-attached cameras available to other Azure IoT Operations components.
 - The **connector for ONVIF (preview)** is a service that discovers and registers ONVIF assets like cameras. The connector lets you manage and control ONVIF assets like cameras connected to your cluster.
-- The **connector for REST/HTTP (preview)** is a service that lets you connect to REST/HTTP endpoints and publish data to the MQTT broker.
+- The **connector for HTTP/REST (preview)** is a service that lets you connect to HTTP/REST endpoints and publish data to the MQTT broker.
+- The **connector for SSE (preview)** is a service that lets you connect to SSE endpoints and publish event data to the MQTT broker.
 - **Custom connectors** are services that you create to connect to other data sources and publish data to the MQTT broker. Use the Azure IoT Operations SDKs to create custom connectors that meet your specific requirements.
 
 ### Discovery

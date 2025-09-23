@@ -41,7 +41,8 @@ Akri services enable the connectors that let you connect to different devices an
 - **Connector for OPC UA**: Connects to OPC UA servers, ingests telemetry data, and lets you use command-and-control scenarios.
 - **Media connector**: Connects to media devices and ingests stream data like video and image snapshots.
 - **Connector for ONVIF**: Connects to ONVIF-compliant cameras, ingests event data like motion detection alerts, and lets you use command and control scenarios like pan-tilt-zoom control.
-- **Connector for REST/HTTP**: Connects to REST/HTTP endpoints and ingests telemetry data.
+- **Connector for HTTP/REST**: Connects to HTTP/REST endpoints and ingests telemetry data.
+- **Connector for SSE**: Connects to SSE endpoints and ingests event data.
 
 ## Akri operator
 
@@ -88,4 +89,4 @@ Akri services build on the capabilities of the open-source Akri project and prov
 - [Configure the connector for ONVIF (preview)](howto-use-onvif-connector.md)
 - [Configure the media connector (preview)](howto-use-media-connector.md)
 - [Configure the connector for OPC UA](howto-configure-opc-ua.md)
-- [Configure the connector for REST/HTTP (preview)](howto-use-http-connector.md)
+- [Configure the connector for HTTP/REST (preview)](howto-use-http-connector.md)

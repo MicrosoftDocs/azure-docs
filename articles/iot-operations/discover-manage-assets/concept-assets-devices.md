@@ -115,7 +115,7 @@ Actions are grouped into management groups. A *management group* is a collection
 
 ### Data points
 
-A *data point* is a single piece of information that's fetched from a REST/HTTP endpoint. For example, a temperature reading from a sensor is a data point.
+A *data point* is a single piece of information that's fetched from an HTTP/REST endpoint. For example, a temperature reading from a sensor is a data point.
 
 Data points are grouped into datasets. A *dataset* is a collection of data points that are logically related. The dataset specifies the MQTT topic where the asset publishes tag values.
 
