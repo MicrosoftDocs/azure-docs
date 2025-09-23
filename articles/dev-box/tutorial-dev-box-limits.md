@@ -58,11 +58,11 @@ In the developer portal, dev box limits are visible when you try to create a new
 
 1. In the developer portal, select **Add a dev box**.
 
-1. In the **Add a dev box** pane, select a project. You see the number of existing dev boxes under your ownership, and the total number of dev boxes you can create in that project:
+1. In the **Add a dev box** pane, select a project. You see your number of allocated dev boxes and the total number of dev boxes you can create in that project:
 
    :::image type="content" source="media/tutorial-dev-box-limits/dev-boxes-used.png" alt-text="Screenshot showing the developer portal Add new dev box pane with a project selected, the number of dev boxes used, and the total number of dev boxes.":::
 
-1. If all of your available dev boxes in a project are in use, you see an error message, and you can't create a new dev box:
+1. If all of your available dev boxes in a project are allocated, you see an error message, and you can't create a new dev box:
 
    *Your project administrator has set a limit of \<number> dev boxes per user in \<project name>. Please delete a dev box in this project, or contact your administrator to increase your limit.* 
 
