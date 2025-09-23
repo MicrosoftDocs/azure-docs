@@ -4,6 +4,7 @@ description: This article provides guidance on how to use Azure Government Marke
 ms.service: azure-government
 ms.topic: article
 ms.date: 11/02/2021 
+ms.custom: sfi-image-nochange
 ---
 
 # Azure Government Marketplace

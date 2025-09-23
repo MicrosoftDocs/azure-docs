@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 10/01/2024
 ms.author: wujia
 zone_pivot_groups: static-web-apps-afd-methods
+ms.custom: sfi-image-nochange
 ---
 
 # Tutorial: Configure a CDN for Azure Static Web Apps
