@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure NetApp Files
-description: Learn about reliability in Azure NetApp Files, including availability zones and multi-region deployments.
+description: Learn about Azure NetApp Files reliability with availability zones, cross-zone replication, disaster recovery, and enterprise-grade file storage solutions.
 author: b-ahibbard
 ms.author: anfdocs
 ms.topic: reliability-article

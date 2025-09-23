@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Notification Hubs
-description: Find out about reliability in Azure Notification Hubs. 
+description: Learn about Azure Notification Hubs reliability with zone redundancy, cross-region disaster recovery, push notifications, and device registration backup.
 author: sethmanheim
 ms.author: sethm
 ms.service: azure-notification-hubs

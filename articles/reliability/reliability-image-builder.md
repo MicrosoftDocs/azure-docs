@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Image Builder
-description: Find out about reliability in Azure Image Builder
+description: Learn to maintain VM image template resilience with Azure Image Builder through multi-region replication and Resource Graph recovery strategies.
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article

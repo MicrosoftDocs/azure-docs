@@ -1,7 +1,7 @@
 ---
 title: Reliability in Azure AI Health Insights
 titleSuffix: Azure AI Health Insights
-description: This article describes Reliability in Azure AI Health Insights service.
+description: Learn to deploy resilient AI-powered healthcare analytics with Azure AI Health Insights by using zonal configurations and multi-region failover strategies.
 services: azure-health-insights
 author: adishachar
 manager: urieinav

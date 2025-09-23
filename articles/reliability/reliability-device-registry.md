@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Device Registry
-description: Find out about reliability in Azure Device Registry, including availability zones and multi-region deployments.
+description: Learn how to ensure reliable IoT device management with Azure Device Registry by using availability zones, multi-region support, and automatic failover.
 author: isabellaecr
 ms.author: anaharris
 ms.topic: reliability-article

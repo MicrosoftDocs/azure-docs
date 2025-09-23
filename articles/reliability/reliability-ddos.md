@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure DDoS Network Protection
-description: Learn about reliability in Azure DDoS Network Protection
+description: Learn how to protect your applications with Azure DDoS Network Protection by using zone-redundant security, cross-region disaster recovery, and business continuity.
 author: AbdullahBell
 ms.author: abell
 ms.topic: reliability-article

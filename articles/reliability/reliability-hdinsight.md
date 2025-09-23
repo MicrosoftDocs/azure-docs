@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure HDInsight
-description: Find out about reliability in Azure HDInsight.
+description: Learn to build resilient Hadoop and Spark clusters with Azure HDInsight through zonal deployments, ARM templates, and business continuity planning.
 author: apurbasroy
 ms.service: azure
 ms.topic: reliability-article

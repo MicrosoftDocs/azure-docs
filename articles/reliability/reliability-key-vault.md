@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Key Vault
-description: Find out about reliability in Azure Key Vault, including availability zones and multi-region deployments.
+description: Learn to secure secrets and keys with Azure Key Vault through automatic zone redundancy, paired region replication, and soft delete protection features.
 author: msmbaldwin
 ms.author: mbaldwin
 ms.topic: reliability-article
