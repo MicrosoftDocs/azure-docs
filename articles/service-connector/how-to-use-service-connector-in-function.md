@@ -1,6 +1,6 @@
 ---
 title: How Service Connector Helps Azure Functions Connect to Services
-description: Learn about the relationship between Service Connector and Functions bindings and how to connect functions to other Azure services.
+description: Learn about the relationship between Service Connector and Azure Functions bindings, and how to connect functions to other Azure services.
 author: houk-ms
 ms.service: service-connector
 ms.topic: concept-article
@@ -12,7 +12,7 @@ ms.author: honc
 
 Azure Functions is one of the compute services supported by Service Connector. We recommend using bindings to connect Azure Functions with other services. You can also use client SDKs. This article aims to help you understand:
 
-- The relationship between Service Connector and Functions bindings.
+- The relationship between Service Connector and Azure Functions bindings.
 - The process used by Service Connector to connect Functions to other Azure services using bindings or the SDK.
 - The responsibilities carried by Service Connector and the users respectively in each scenario.
 
@@ -41,7 +41,7 @@ Service Connector also supports both secret/connection string and identity based
 
 ### Connection in an Azure Functions binding
 
-In Functions bindings, `connection` is a property defined in a binding file in your function folder. This file is usually the `function.json` file. It defines the app settings name or prefix that the binding runtime uses to authenticate to target services.
+In Azure Functions bindings, the `connection` property is defined in a binding file in your function folder. This file is usually the `function.json` file. It defines the app settings name or prefix that the binding runtime uses to authenticate to target services.
 
 ### Connection in Service Connector
 
