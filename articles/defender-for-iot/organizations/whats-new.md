@@ -6,6 +6,7 @@ ms.date: 09/21/2025
 ms.custom:
   - enterprise-iot
   - sfi-image-nochange
+---
 
 # What's new in Microsoft Defender for IoT?
 
