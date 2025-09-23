@@ -7,6 +7,7 @@ ms.date: 03/10/2025
 ms.topic: tutorial
 ms.service: azure-iot-edge
 services: iot-edge
+ms.custom: sfi-image-nochange
 ---
 
 # Tutorial: Configure Enrollment over Secure Transport Server for Azure IoT Edge

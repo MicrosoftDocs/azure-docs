@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 03/06/2025
 ms.subservice: kafka
 ms.devlang: java
+ms.custom: sfi-ropc-nochange
 ---
 
 # Use Apache Flink with Azure Event Hubs for Apache Kafka

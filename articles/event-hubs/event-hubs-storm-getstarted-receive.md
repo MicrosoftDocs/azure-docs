@@ -4,7 +4,9 @@ description: 'Quickstart: This article provides information on how to receive ev
 ms.topic: quickstart
 ms.date: 09/28/2021
 ms.devlang: java
-ms.custom: mode-other
+ms.custom:
+  - mode-other
+  - sfi-ropc-nochange
 ---
 
 # Quickstart: Receive events from Event Hubs using Apache Storm

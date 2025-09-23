@@ -2,8 +2,10 @@
 title: Connect to an Azure event hub - .NET
 description: This article shows different ways of connecting to an event hub in Azure Event Hubs. 
 ms.topic: how-to
-ms.custom: devx-track-dotnet
 ms.date: 10/10/2022 
+ms.custom:
+  - devx-track-dotnet
+  - sfi-ropc-nochange
 ---
 
 # Connect to an event hub (.NET)
