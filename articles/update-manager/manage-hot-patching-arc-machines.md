@@ -1,11 +1,13 @@
 ---
-title: Hotpatching (preview) on Azure Arc-enabled machines
+title: Hotpatching (preview) on Azure Arc-enabled Machines
 description: This article details how to manage hotpatching (preview) on Azure Arc-enabled machines.
 ms.service: azure-update-manager
-ms.date: 11/01/2024
+ms.date: 08/21/2025
 ms.topic: how-to
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
+ms.custom: sfi-image-nochange
+# Customer intent: As an IT administrator managing Arc-enabled machines, I want to implement hotpatching so that I can ensure timely, non-intrusive updates that maintain system reliability and minimize downtime across my environment.
 ---
 
 # Manage hotpatches (preview) on Arc-enabled machines
@@ -24,7 +26,7 @@ This article explains how to install hotpatches (preview) on compatible Arc-enab
 
 ## Prerequisites
 
-- Verify that the machine has a supported OS SKU. [Learn more](#supported-operating-systems).
+- Verify that the machine has a supported OS SKU. [Learn more](/windows-server/get-started/hotpatch#supported-platforms).
 - Ensure that Virtualization Based Security (VBS) is enabled. [Learn more](https://techcommunity.microsoft.com/t5/windows-server-news-and-best/how-to-preview-azure-arc-connected-hotpatching-for-windows/ba-p/4246895).
 - Ensure the machine is Arc-enabled. 
 

@@ -59,7 +59,7 @@ This section lists the Azure Maps features that are demonstrated in the Contoso 
 * A store logo on the header
 * A map that supports panning and zooming
 * A **My Location** button to search over the user's current location.
-* A Page layout that adjusts based on the width of the devices screen
+* A Page layout that adjusts based on the width of the device's screen
 * A search box and a search button
 
 ### Functionality features

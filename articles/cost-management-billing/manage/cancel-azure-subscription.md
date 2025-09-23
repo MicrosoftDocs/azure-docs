@@ -2,12 +2,13 @@
 title: Cancel and delete your Azure subscription
 description: Describes how to cancel or deleted your Azure subscription, like the Free Trial subscription.
 author: macyso
-ms.reviewer: PreetiSGit
+ms.reviewer: nicholak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/08/2025
+ms.date: 08/13/2025
 ms.author: macyso
+ms.custom: sfi-image-nochange
 ---
 
 # Cancel and delete your Azure subscription
@@ -135,7 +136,7 @@ After you cancel a subscription, your billing stops immediately. You can delete 
 
 ## Delete subscriptions
 
-The **Delete subscription** option isn't available until **3 days** (shown in screenshot on the banner) after you cancel your subscription. Depending on your subscription type, you might not be able to delete a subscription immediately.
+The **Delete subscription** option isn't available until **3 days** after you cancel your subscription for customer led subscriptions or 6 days for field and partner channel subscriptions. Depending on your subscription type, you might not be able to delete a subscription immediately.
 
 1. Select your subscription on the [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) page in the Azure portal.
 1. Select the subscription that you want to delete.

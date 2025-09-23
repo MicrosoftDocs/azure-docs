@@ -2,12 +2,13 @@
 title: 'Quickstart: Deploy Azure Bastion automatically'
 titleSuffix: Azure Bastion
 description: Learn how to deploy Azure Bastion with default settings from the Azure portal.
-author: cherylmc
+author: abell
 ms.service: azure-bastion
 ms.topic: quickstart
 ms.date: 03/12/2025
-ms.author: cherylmc
+ms.author: abell
 
+# Customer intent: "As a cloud administrator, I want to deploy Azure Bastion automatically with default settings, so that I can securely access virtual machines without requiring public IP addresses or additional configuration."
 ---
 
 # Quickstart: Deploy Azure Bastion automatically

@@ -12,30 +12,19 @@ ms.custom: references_regions
 
 # About ExpressRoute virtual network gateways
 
-To connect your Azure virtual network (VNet) and your on-premises network by using Azure ExpressRoute, you must first create a virtual network gateway. A virtual network gateway serves two purposes: to exchange IP routes between networks, and to route network traffic.
+To connect your Azure virtual network (virtual network) and your on-premises network by using Azure ExpressRoute, you must first create a virtual network gateway. A virtual network gateway serves two purposes: to exchange IP routes between networks, and to route network traffic.
 
 This article explains different gateway types, gateway SKUs, and estimated performance by SKU. This article also explains ExpressRoute [FastPath](#fastpath), a feature that enables the network traffic from your on-premises network to bypass the virtual network gateway to improve performance.
-
-## Gateway types
-
-When you create a virtual network gateway, you need to specify several settings. One of the required settings, `-GatewayType`, specifies whether the gateway is used for ExpressRoute or VPN traffic. The two gateway types are:
-
-* `Vpn`: To send encrypted traffic across the public internet, use `Vpn` for `-GatewayType` (also called a VPN gateway). Site-to-site, point-to-site, and VNet-to-VNet connections all use a VPN gateway.
-
-* `ExpressRoute`: To send network traffic on a private connection, use `ExpressRoute` for `-GatewayType` (also called an ExpressRoute gateway). This type of gateway is used when you're configuring ExpressRoute.
-
-Each virtual network can have only one virtual network gateway per gateway type. For example, you can have one virtual network gateway that uses `Vpn` for `-GatewayType`, and one that uses `ExpressRoute` for `-GatewayType`.
 
 ## <a name="gwsku"></a>Gateway SKUs
 
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-If you want to upgrade your gateway to a higher-capacity gateway SKU, you can use the [Gateway Migration tool](expressroute-about-virtual-network-gateways.md) in either the Azure portal or PowerShell. The following upgrades are supported:
+You can upgrade your gateway to a higher-capacity SKU within the same SKU family that is Non-Az-enabled or Az-enabled gateway. 
 
-* Non-Az-enabled SKU on Basic IP to Non-Az-enabled SKU on Standard IP
-* Non-Az-enabled SKU on Basic IP to Az-enabled SKU on Standard IP
-
-For more information, see [Migrate to an availability zone-enabled gateway](expressroute-howto-gateway-migration-powershell.md).
+For example, you can upgrade:
+* From one Non-Az-enabled SKU to another Non-Az-enabled SKU
+* From one Az-enabled SKU to another Az-enabled SKU
 
 For all other downgrade scenarios, you need to delete and re-create the gateway, which incurs downtime.
 
@@ -82,75 +71,33 @@ The following table shows the features that each gateway type supports and the m
 
 ### <a name="aggthroughput"></a>Estimated performances by gateway SKU
 
-[!INCLUDE [expressroute-gateway-preformance-include](../../includes/expressroute-gateway-performance-include.md)]
+[!INCLUDE [expressroute-gateway-performance-include](../../includes/expressroute-gateway-performance-include.md)]
 
-### <a name="zrgw"></a>Zone-redundant gateway SKUs
 
-You can also deploy ExpressRoute gateways in Azure availability zones. Physically and logically separating the gateways into availability zones helps protect your on-premises network connectivity to Azure from zone-level failures.
+## Auto-Assigned Public IP
 
-![Diagram that shows deployment of ExpressRoute gateways in Azure availability zones.](./media/expressroute-about-virtual-network-gateways/zone-redundant.png)
+The Auto-Assigned Public IP feature simplifies ExpressRoute gateway deployment by allowing Microsoft to manage the required public IP address on your behalf. For PowerShell/CLI, you are no longer required to create or maintain a separate public IP resource for your gateway. 
 
-Zone-redundant gateways use specific new gateway SKUs for ExpressRoute gateways:
+:::image type="content" source="media/expressroute-about-virtual-network-gateways/hobo-ip.png" alt-text="Screenshot of the create for virtual network gateway for ExpressRoute.":::
 
-* ErGw1AZ
-* ErGw2AZ
-* ErGw3AZ
-* ErGwScale (preview)
+When Auto-Assigned Public IP is enabled, the ExpressRoute gateway's Overview page no longer shows a Public IP address field — this means the gateway’s public IP is automatically provisioned and managed by Microsoft.
 
-## ExpressRoute scalable gateway (preview)
+:::image type="content" source="media/expressroute-about-virtual-network-gateways/hobo-overview.png" alt-text="Screenshot of the overview for virtual network gateway for ExpressRoute.":::
 
-The ErGwScale virtual network gateway SKU enables you to achieve 40-Gbps connectivity to VMs and private endpoints in the virtual network.This SKU allows you to set a minimum and maximum scale unit for the virtual network gateway infrastructure, which autoscales based on the active bandwidth or flow count. You can also set a fixed scale unit to maintain a constant connectivity at a desired bandwidth value. ErGwScale will be zone-redundant by default in Azure Regions that support availability zones. 
+**Key benefits:**
 
-ErGwScale is available in preview in the following regions:
+- **Improved security:** The public IP is managed internally by Microsoft and isn't exposed to you, reducing risks associated with open management ports.
+- **Reduced complexity:** You aren't required to provision or manage a public IP resource.
+- **Streamlined deployment:** The Azure PowerShell and CLI no longer prompt for a public IP during gateway creation.
 
-* Australia East
-* Brazil South
-* Canada Central
-* East US
-* East Asia
-* France Central
-* Germany West Central
-* India Central
-* Italy North
-* North Europe
-* Norway East
-* Sweden Central
-* UAE North
-* UK South
-* West US 2
-* West US 3
+**How it works:**  
 
-### Autoscaling vs. fixed scale unit
+When you create an ExpressRoute gateway, Microsoft automatically provisions and manages the public IP address in a secure, backend subscription. This IP is encapsulated within the gateway resource, enabling Microsoft to enforce policies such as data rate limits and enhance auditability.
 
-The virtual network gateway infrastructure autoscales between the minimum and maximum scale unit that you configure, based on the bandwidth or flow count utilization. Scale operations might take up to 30 minutes to complete. If you want to achieve a fixed connectivity at a specific bandwidth value, you can configure a fixed scale unit by setting the minimum scale unit and the maximum scale unit to the same value.
+**Availability:**  
 
-### Limitations
-
-* **Basic IP**: ErGwScale doesn't support the Basic IP SKU. You need to use a Standard IP SKU to configure ErGwScale.
-* **Minimum and maximum scale units**: You can configure the scale unit for ErGwScale between 1 and 40. The *minimum scale unit* can't be lower than 1 and the *maximum scale unit* can't be higher than 40.
-* **Migration scenarios**: You can't migrate from Standard/ErGw1Az or HighPerf/ErGw2Az/UltraPerf/ErGw3Az to ErGwScale in the preview.
-
-### Pricing
-
-ErGwScale is free of charge during the preview. For information about ExpressRoute pricing, see [Azure ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/#pricing).
-
-### Supported performance per scale unit
-
-| Scale unit | Bandwidth (Gbps) | Packets per second | Connections per second | Maximum VM connections <sup>1</sup> | Maximum number of flows |
-|--|--|--|--|--|--|
-| 1-10 | 1 | 100,000 | 7,000 | 2,000 | 100,000 |
-| 11-40 | 1 | 100,000 | 7,000 | 1,000 | 100,000 |
-
-### Sample performance with scale unit
-
-| Scale unit | Bandwidth (Gbps) | Packets per second | Connections per second | Maximum VM connections <sup>1</sup> | Maximum number of flows |
-|--|--|--|--|--|--|
-| 10 | 10 | 1,000,000 | 70,000 | 20,000 | 1,000,000 |
-| 20 | 20 | 2,000,000 | 140,000 | 30,000 | 2,000,000 |
-| 40 | 40 | 4,000,000 | 280,000 | 50,000 | 4,000,000 |
-
-<sup>1</sup> Maximum VM connections scale differently beyond 10 scale units. The first 10 scale units provide capacity for 2,000 VMs per scale unit. Scale units 11 and above provide 1,000 more VM capacity per scale unit.
-
+Auto-Assigned Public IP is not available for Virtual WAN (vWAN) or Extended Zone deployments.
+ 
 ## Connectivity from VNet to VNet and from VNet to virtual WAN
 
 By default, VNet-to-VNet and VNet-to-virtual-WAN connectivity is disabled through an ExpressRoute circuit for all gateway SKUs. To enable this connectivity, you must configure the ExpressRoute virtual network gateway to allow this traffic. For more information, see guidance about [virtual network connectivity over ExpressRoute](virtual-network-connectivity-guidance.md). To enable this traffic, see [Enable VNet-to-VNet or VNet-to-virtual-WAN connectivity through ExpressRoute](expressroute-howto-add-gateway-portal-resource-manager.md#enable-or-disable-vnet-to-vnet-or-vnet-to-virtual-wan-traffic-through-expressroute).
@@ -169,6 +116,7 @@ The ExpressRoute virtual network gateway facilitates connectivity to private end
 > * The throughput and control plane capacity for connectivity to private endpoint resources might be reduced by half compared to connectivity to non-private endpoint resources.
 > * During a maintenance period, you might experience intermittent connectivity problems to private endpoint resources.
 > * You need to ensure that on-premises configuration, including router and firewall settings, are correctly set up to ensure that packets for the IP 5-tuple transits use a single next hop (Microsoft Enterprise Edge router) unless there's a maintenance event. If your on-premises firewall or router configuration is causing the same IP 5-tuple to frequently switch next hops, you'll experience connectivity problems.
+> * Ensure that [network policies](../private-link/disable-private-endpoint-network-policy.md) (at a minimum, for UDR support) are enabled on the subnet(s) where private endpoints are deployed
 
 ### Private endpoint connectivity and planned maintenance events
 
@@ -204,3 +152,4 @@ A virtual network with an ExpressRoute gateway can have virtual network peering 
 * For more information about configuring zone-redundant gateways, see [Create a zone-redundant virtual network gateway](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md).
 
 * For more information about FastPath, see [About FastPath](about-fastpath.md).
+

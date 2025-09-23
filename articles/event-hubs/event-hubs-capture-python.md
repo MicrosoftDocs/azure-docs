@@ -4,7 +4,11 @@ description: This quickstart shows you how to write Python code to capture data 
 ms.topic: quickstart
 ms.date: 02/07/2024
 ms.devlang: python
-ms.custom: mode-api, devx-track-python
+ms.custom:
+  - mode-api
+  - devx-track-python
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Quickstart: Capture Event Hubs data in Azure Storage and read it by using Python (azure-eventhub)
@@ -62,7 +66,7 @@ In this section, you create a Python script that sends 200 events (10 devices * 
         devices.append(str(uuid.uuid4()))
     
     # Create a producer client to produce and publish events to the event hub.
-    producer = EventHubProducerClient.from_connection_string(conn_str="EVENT HUBS NAMESAPCE CONNECTION STRING", eventhub_name="EVENT HUB NAME")
+    producer = EventHubProducerClient.from_connection_string(conn_str="EVENT HUBS NAMESPACE CONNECTION STRING", eventhub_name="EVENT HUB NAME")
     
     for y in range(0,20):    # For each device, produce 20 events. 
         event_data_batch = producer.create_batch() # Create a batch. You will add events to the batch later. 

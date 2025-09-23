@@ -1,16 +1,18 @@
 ---
-title: Workflows in Azure Container Apps
+title: Workflow in Azure Container Apps
 description: Learn about your workflow options for Azure Container Apps.
 services: container-apps, azure-functions
 author: lilyjma
 ms.service: azure-container-apps
 ms.topic: overview
-ms.date: 04/29/2025
+ms.date: 05/19/2025
 ms.author: jiayma
 ms.reviewer: cshoe, hannahhunter
+ms.custom:
+  - build-2025
 ---
 
-# Workflows in Azure Container Apps
+# Workflow in Azure Container Apps
 
 > [!NOTE]
 > The term "workflow" often has multiple meanings. In the context of Durable Functions, you might see workflows referred to as orchestrations. To avoid any confusion with container orchestrations, this article uses the term workflows instead. 

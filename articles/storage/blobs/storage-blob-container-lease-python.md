@@ -3,14 +3,15 @@ title: Create and manage container leases with Python
 titleSuffix: Azure Storage
 description: Learn how to manage a lock on a container in your Azure Storage account using the Python client library.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/05/2024
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
+# Customer intent: As a Python developer, I want to manage container leases in Azure Blob Storage, so that I can ensure secure access control and handle concurrent operations effectively.
 ---
 
 # Create and manage container leases with Python
@@ -145,3 +146,4 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 - [Managing Concurrency in Blob storage](concurrency-manage.md)
 
 [!INCLUDE [storage-dev-guide-next-steps-python](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-python.md)]
+

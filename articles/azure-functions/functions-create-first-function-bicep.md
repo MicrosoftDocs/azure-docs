@@ -28,7 +28,7 @@ Before you begin, you must have an Azure account with an active subscription. [C
 
 ## Review the Bicep file
 
-The Bicep file used in this quickstart is from an [Azure Quickstart Template](https://azure.microsoft.com/resources/templates/function-app-create-dynamic/).
+The Bicep file used in this quickstart is from an [Azure Quickstart Template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/function-app-flex-managed-identities/main.bicep).
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.web/function-app-flex-managed-identities/main.bicep":::
 

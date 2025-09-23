@@ -9,6 +9,7 @@ ms.custom: devx-track-python, linux-related-content
 ms.topic: troubleshooting
 ms.date: 03/06/2025
 ms.author: shaas
+# Customer intent: "As a data engineer, I want to troubleshoot issues encountered while using Azure Data Box via the REST interface, so that I can ensure successful data transfers without interruptions."
 ---
 
 # Troubleshoot issues related to Azure Data Box Blob storage

@@ -2,8 +2,10 @@
 title: Parameters in Bicep files
 description: Learn how to define and use parameters in a Bicep file.
 ms.topic: conceptual
-ms.custom: devx-track-bicep
-ms.date: 05/09/2025
+ms.custom:
+  - devx-track-bicep
+  - build-2025
+ms.date: 07/25/2025
 ---
 
 # Parameters in Bicep
@@ -20,7 +22,7 @@ For parameter best practices, see [Parameters](./best-practices.md#parameters).
 
 ### Training resources
 
-See the [Build reusable Bicep templates by using parameters](/training/modules/build-reusable-bicep-templates-parameters) Learn module for step-by-step guidance about parameters.
+See the [Build reusable Bicep files by using parameters](/training/modules/build-reusable-bicep-templates-parameters) Learn module for step-by-step guidance about parameters.
 
 ## Define parameters
 
@@ -226,7 +228,7 @@ To reference the value for a parameter, use the parameter name. The following ex
 ```bicep
 param vaultName string = 'keyVault${uniqueString(resourceGroup().id)}'
 
-resource keyvault 'Microsoft.KeyVault/vaults@2019-09-01' = {
+resource keyvault 'Microsoft.KeyVault/vaults@2024-11-01' = {
   name: vaultName
   ...
 }
@@ -262,7 +264,7 @@ param vNetSettings object = {
   ]
 }
 
-resource vnet 'Microsoft.Network/virtualNetworks@2023-11-01' = {
+resource vnet 'Microsoft.Network/virtualNetworks@2024-07-01' = {
   name: vNetSettings.name
   location: vNetSettings.location
   properties: {

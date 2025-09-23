@@ -4,9 +4,8 @@ description: Schema reference guide for Workflow Definition Language trigger and
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 03/27/2025
-ms.custom:
+ms.topic: reference
+ms.date: 07/17/2025
 ---
 
 # Schema reference guide for trigger and action types in Azure Logic Apps
@@ -548,10 +547,15 @@ For more information plus examples for this trigger, see [Create and schedule re
 
 This trigger makes your logic app callable by creating an endpoint that can accept incoming requests. For this trigger, provide a JSON schema that describes and validates the payload or inputs that the trigger receives from the incoming request. The schema also makes trigger properties easier to reference from later actions in the workflow.
 
+> [!NOTE]
+>
+> The original name for the **Request** trigger was **manual**, which might still appear in some places. This 
+> name changed to create more consistency around the kind of workflow pattern that you use the trigger to build.
+
 To call this trigger, you must use the `listCallbackUrl` API, which is described in the [Workflow Service REST API](/rest/api/logic/workflows). To learn how to use this trigger as an HTTP endpoint, see [Call, trigger, or nest workflows with HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md).
 
 ```json
-"manual": {
+"Request": {
    "type": "Request",
    "kind": "Http",
    "inputs": {
@@ -600,7 +604,7 @@ To call this trigger, you must use the `listCallbackUrl` API, which is described
 This trigger specifies that an incoming request must use the HTTP POST method to call the trigger and includes a schema that validates input from the incoming request:
 
 ```json
-"manual": {
+"Request": {
    "type": "Request",
    "kind": "Http",
    "inputs": {
@@ -656,24 +660,43 @@ this expression as your condition:
 
 <a name="split-on-debatch"></a>
 
-## Trigger multiple runs on an array
+## Trigger multiple workflow runs on an array
 
-If your trigger receives an array for your workflow to process, sometimes a "for each" loop might take too long to process each array item. Instead, you can use the **SplitOn** property in your trigger to *debatch* the array. Debatching splits up the array items and starts a new workflow instance that runs for each array item. This approach is useful, for example, when you want to poll an endpoint that might return multiple new items between polling intervals.
+In scenarios where your workflow uses a trigger that receives arrays for processing, sometimes using a **For each** loop might take too long. To speed up processing, one option is to [create parallel branches](logic-apps-control-flow-branches.md). Or, if the trigger supports *debatching*, you can have the trigger split up array items and run a separate workflow instance for each array item. This option is useful, for example, when you want to poll an endpoint that might return multiple new items between polling intervals.
 
-If your trigger's Swagger file describes a payload that's an array, the **SplitOn** property is automatically added to your trigger. Otherwise, add this property inside the response payload that has 
-the array you want to debatch.
+Only triggers that can accept arrays and return arrays support this capability like the **Request**, **HTTP**, Azure Service Bus, or Office Outlook 365. For these triggers, in the workflow designer, you can turn on the **Split on** setting, which adds the `splitOn` property to the trigger definition. 
 
-Before you use the SplitOn capability, review the following considerations:
+> [!NOTE]
+>
+> If the trigger's Swagger file describes a payload that is an array, the `splitOn` property is automatically added to your trigger definition. If not, and the trigger can accept arrays, you can add the property to the response payload that contains the array that you want to debatch.
 
-- If trigger concurrency is enabled, the [SplitOn limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) is significantly reduced. If the number of items exceeds this limit, the SplitOn capability is disabled.
+Before you use the debatching capability, review the following considerations:
 
-- You can't use the SplitOn capability with a synchronous response pattern. Any workflow that uses the **SplitOn** property and includes a response action runs asynchronously and immediately sends a `202 ACCEPTED` response.
+- If trigger concurrency is also turned on, the [Split on limit](logic-apps-limits-and-config.md#looping-debatching-limits) is significantly reduced. If the number of items exceeds this limit, the **Split on** capability is unavailable.
 
-- For the maximum number of array items that **SplitOn** can process in a single workflow run, see [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+- The **Split on** capability doesn't work with the synchronous response pattern. If a workflow uses the **Response** action and turns on the **Split on** setting runs asynchronously and immediately sends a `202 ACCEPTED` response.
 
-*Example*
+- A limit exists on number of array items that **Split on** can process in a single workflow run. For more information, see [Looping and batching limits](logic-apps-limits-and-config.md#looping-debatching-limits).
 
-Suppose you have an HTTP trigger that calls an API and receives this response: 
+- If you set up debatching through the trigger definition by using the `splitOn` property, you can't directly reference or access properties that exist outside the array. To avoid failures, precede the reference with the `?` operator. For examples, see [Turn on debatching in the trigger definition](#turn-on-debatching-in-the-trigger-definition).
+
+### Turn on debatching through the designer
+
+Follow these steps in the workflow designer to set up debatching on a trigger where supported:
+
+1. In the [Azure portal], open your logic app resource.
+
+1. Open your workflow in the designer.
+
+1. In the designer, select the trigger that supports debatching to open the trigger information pane.
+
+1. On the **Settings** tab, under **General**, find the **Split on** setting, and change the setting to **On** if not turned on.
+
+### Turn on debatching in the trigger definition
+
+Some triggers handle arrays, but the **Split on** setting isn't available through the designer. For such triggers, follow these steps to add the `splitOn` property in the trigger definition:
+
+For example, suppose your workflow uses the **HTTP** trigger to call an API and gets the following response:
   
 ```json
 {
@@ -691,10 +714,10 @@ Suppose you have an HTTP trigger that calls an API and receives this response:
 }
 ```
 
-Your workflow needs only the content from the array in `Rows`, so you can create a trigger like this example:
+If your workflow only needs the content from the `Rows` array, you can add and set up the `splitOn` property in the trigger definition as shown in the following example:
 
 ``` json
-"HTTP_Debatch": {
+"HTTP_trigger_debatch": {
    "type": "Http",
     "inputs": {
         "uri": "https://mydomain.com/myAPI",
@@ -709,12 +732,10 @@ Your workflow needs only the content from the array in `Rows`, so you can create
 ```
 
 > [!NOTE]
-> If you use the `SplitOn` command, you can't get the properties that are outside the array. 
-> So for this example, you can't get the `status` property in the response returned from the API.
-> 
-> To avoid a failure if the `Rows` property doesn't exist, this example uses the `?` operator.
+>
+> Remember, if you use the `splitOn` property, you can't directly access or reference properties that exist outside the array. To avoid failures, use the `?` operator as shown in the examples.
 
-Your workflow definition can now use `@triggerBody().name` to get the `name` values, which are `"customer-name-one"` from the first run and `"customer-name-two"` from the second run. So, your trigger outputs look like these examples:
+Your workflow definition can also use `splitOn` and `@triggerBody().name` to get values from the `name` property. These values are `"customer-name-one"` from the first workflow run and `"customer-name-two"` from the second workflow run. For this example, the trigger outputs look like the following values:
 
 ```json
 {
@@ -2340,7 +2361,7 @@ You can change the default runtime behavior for triggers and actions by adding t
 | `runtimeConfiguration.concurrency.repetitions` | Integer | Change the [*default limit*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) on the number of "for each" loop iterations that can run at the same time (concurrently or in parallel). <br><br>Setting the `repetitions` property to `1` works the same way as setting the `operationOptions` property to `SingleInstance`. You can set either property, but not both. <br><br>To change the default limit, see [Change "for each" concurrency](#change-for-each-concurrency) or [Run "for each" loops sequentially](#sequential-for-each). | Action: <br><br>[Foreach](#foreach-action) |
 | `runtimeConfiguration.paginationPolicy.minimumItemCount` | Integer | For specific actions that support and have pagination turned on, this value specifies the *minimum* number of results to retrieve. <br><br>To turn on pagination, see [Get bulk data, items, or results by using pagination](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) | Action: Varied |
 | `runtimeConfiguration.secureData.properties` | Array | On many triggers and actions, these settings hide inputs, outputs, or both from the logic app's run history. <br><br>To learn more about safeguarding this data, see [Hide inputs and outputs from run history](../logic-apps/logic-apps-securing-a-logic-app.md#secure-data-code-view). | Most triggers and actions |
-| `runtimeConfiguration.staticResult` | JSON Object | For actions that support and have the [static result](../logic-apps/test-logic-apps-mock-data-static-results.md) setting turned on, the `staticResult` object has these attributes: <br><br>- `name`, which references the current action's static result definition name, which appears inside the `staticResults` attribute in your logic app workflow's `definition` attribute. For more information, see [Static results - Schema reference for Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md#static-results). <br><br> - `staticResultOptions`, which specifies whether static results are `Enabled` or not for the current action. <br><br>To turn on static results, see [Test logic apps with mock data by setting up static results](../logic-apps/test-logic-apps-mock-data-static-results.md) | Action: Varied |
+| `runtimeConfiguration.staticResult` | JSON Object | For actions that support and have the [static result](../logic-apps/testing-framework/test-logic-apps-mock-data-static-results.md) setting turned on, the `staticResult` object has these attributes: <br><br>- `name`, which references the current action's static result definition name, which appears inside the `staticResults` attribute in your logic app workflow's `definition` attribute. For more information, see [Static results - Schema reference for Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md#static-results). <br><br> - `staticResultOptions`, which specifies whether static results are `Enabled` or not for the current action. <br><br>To turn on static results, see [Test logic apps with mock data by setting up static results](../logic-apps/testing-framework/test-logic-apps-mock-data-static-results.md) | Action: Varied |
 
 <a name="operation-options"></a>
 
@@ -2372,7 +2393,7 @@ Before you enable concurrency on a trigger, review the following considerations:
 
 * If the maximum number of concurrent trigger runs reaches the maximum degree of parallelism, subsequent trigger runs might experience throttling or "429 - Too many requests" errors. If you set up a [retry policy that handles 429 errors](handle-throttling-problems-429-errors.md), the trigger might experience a cycle of retry and throttling behavior that causes long delays in processing new trigger requests.
 
-* When concurrency is enabled, the [SplitOn limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) is significantly reduced for [debatching arrays](#split-on-debatch). If the number of items exceeds this limit, the SplitOn capability is disabled.
+* When concurrency is enabled, the [Split on limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) is significantly reduced for [debatching arrays](#split-on-debatch). If the number of items exceeds this limit, the **Split on** capability is disabled.
 
 * When concurrency is enabled, a long-running logic app instance might cause new logic app instances to enter a waiting state. This state prevents Azure Logic Apps from creating new instances and happens even when the number of concurrent runs is less than the specified maximum number of concurrent runs.
 

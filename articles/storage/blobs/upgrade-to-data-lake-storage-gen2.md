@@ -6,7 +6,9 @@ ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.date: 11/26/2024
 ms.author: normesta
+ms.custom: sfi-image-nochange
 
+# Customer intent: As a cloud storage administrator, I want to upgrade Azure Blob Storage to Data Lake Storage capabilities, so that I can enhance performance, improve data organization, and utilize advanced analytics features for better data management and efficiency.
 ---
 
 # Upgrading Azure Blob Storage with Azure Data Lake Storage capabilities
@@ -38,7 +40,7 @@ Blob APIs work with accounts that have a hierarchical namespace, so most applica
 
 For a complete list of issues and workarounds, see [Known issues with Blob Storage APIs](data-lake-storage-known-issues.md#blob-storage-apis).
 
-Any Hadoop workloads that use the [Windows Azure Storage Blob driver (WASB)](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) driver, must be modified to use the [Azure Blob File System (ABFS)](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html) driver. Unlike the WASB driver that makes requests to the **Blob service** endpoint, the ABFS driver will make requests to the **Data Lake Storage** endpoint of your account.
+Any Hadoop workloads that use the [Windows Azure Storage Blob driver (WASB)](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) driver, must be modified to use the [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) driver. Unlike the WASB driver that makes requests to the **Blob service** endpoint, the ABFS driver will make requests to the **Data Lake Storage** endpoint of your account.
 
 ### Data Lake Storage endpoint
 

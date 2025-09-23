@@ -7,8 +7,10 @@ ms.topic: concept-article
 author: lrtoyou1223
 ms.author: lle
 ms.date: 03/31/2025
-ms.custom: synapse
 ai-usage: ai-assisted
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Create and configure a self-hosted integration runtime
@@ -60,6 +62,7 @@ Here's a high-level summary of the data-flow steps for copying with a self-hoste
   - Windows Server 2016
   - Windows Server 2019
   - Windows Server 2022
+  - Windows Server 2025
 
 Installation of the self-hosted integration runtime on a domain controller isn't supported.
 
@@ -595,6 +598,7 @@ You can install the self-hosted integration runtime by downloading a Managed Ide
 - Configure a power plan on the host machine for the self-hosted integration runtime so that the machine doesn't hibernate. If the host machine hibernates, the self-hosted integration runtime goes offline.
 - Regularly back up the credentials associated with the self-hosted integration runtime.
 - To automate self-hosted IR setup operations, refer to [Set up an existing self hosted IR via PowerShell](#setting-up-a-self-hosted-integration-runtime).
+- Install the self-hosted integration runtime on dedicated machine(s) for better resource isolation and performance.
 
 ## Important considerations
 

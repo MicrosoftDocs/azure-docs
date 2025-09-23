@@ -2,12 +2,13 @@
 title: Transfer Azure product billing ownership to a Microsoft Customer Agreement
 description: Learn how to transfer billing ownership of Azure subscriptions, reservations, and savings plans.
 ms.topic: how-to
-ms.date: 01/22/2025
-author: kendayMS
-ms.author: macyso
-ms.reviewer: macyso
+ms.date: 09/15/2025
+author: Nicholak-MS
+ms.author: nicholak
+ms.reviewer: nicholak
 ms.service: cost-management-billing
 ms.subservice: billing
+ms.custom: sfi-image-nochange
 ---
 
 # Transfer Azure product billing ownership to a Microsoft Customer Agreement
@@ -44,7 +45,12 @@ Before you transfer billing products, read [Supplemental information about trans
 ## Prerequisites
 
 >[!IMPORTANT]
-> - When you have a savings plan purchased under an Enterprise Agreement enrollment that was bought in a non-USD currency, you can't transfer it. Instead you must use it in the original enrollment. However, you change the scope of the savings plan so that is used by other subscriptions. For more information, see [Change the savings plan scope](../savings-plan/manage-savings-plan.md#change-the-savings-plan-scope). You can view your billing currency in the Azure portal on the enrollment properties page. For more information, see [To view enrollment properties](direct-ea-administration.md#to-view-enrollment-properties).
+> - If your enrollment transfer (e.g. EA to MCA, EA to EA, etc.) involves a change in pricing currency (e.g. EUR to USD), Savings Plans from the source enrollment will not be transferred to the destination enrollment. The Savings Plans will be cancelled in the source enrollment and automatically repurchased in the destination enrollment. Note the following:
+>    - Each newly purchase Savings Plan will be billed Monthly, regardless of the billing frequency of the Savings Plan it is replacing.
+>    - Each newly purchased Savings Plan will be priced as the USD equivalent of the original Savings Plan. For example, assuming a €1: $1.17 rate, a €5/hour Savings Plan would be replaced with a $5.85/hour Savings Plan. 
+>    - Each newly purchased Savings Plans will have a 1-year term, regardless of the term of the Savings Plan it is replacing. As a result, each new Savings Plan will have a different term end date when compared to the Savings Plan being replaced.
+>    - If the original Savings Plan has a 1-year term, the new 1-year Savings Plan will provide identical savings benefits. If you are going from 3-year to 1-year Savings Plans, expect reduced savings benefits due to the discount differences between the terms. To maintain your previous savings level, you should buy an additional 1- year Savings Plan. Hourly commitment recommendations for the additional savings plan may take up to 2 days to appear in the Azure portal.
+> - Customers with 3-year savings plans, who want to retain their discount levels should immediately contact Azure support for assistance purchasing the new 3-year Savings Plans in the destination enrollment.
 > - When you transfer subscriptions, cost and usage data for your Azure products aren't accessible after the transfer. We recommend that you [download your cost and usage data](../understand/download-azure-daily-usage.md) and invoices before you transfer subscriptions.
 > - When there's a currency change during or after transfer, reservations paid for monthly are canceled. Cancellation happens at the time of the next monthly payment for an individual reservation. The cancellation is intentional and only affects monthly, not up front, reservation purchases. For more information, see [Transfer Azure Enterprise enrollment accounts and subscriptions](ea-transfers.md#prerequisites-1).
 
@@ -57,9 +63,9 @@ You can also go along with the following video that outlines each step of the pr
 
 >[!VIDEO https://www.youtube.com/embed/gfiUI2YLsgc]
 
-### Required permission for the transfer requestor
+### Required permission for the transfer requester
 
-The product transfer requestor must have one of the following permissions:
+The product transfer requester must have one of the following permissions:
 
 For a Microsoft Customer Agreement, the person must have an owner or contributor role for the billing account or for the relevant billing profile or invoice section. For more information, see [Billing roles and tasks](understand-mca-roles.md#invoice-section-roles-and-tasks).
 

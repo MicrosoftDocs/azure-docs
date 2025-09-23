@@ -7,7 +7,9 @@ ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 11/27/2023
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 
+# Customer intent: "As an IT administrator, I want to manage Point-to-Site VPN sessions, so that I can view active connections and disconnect clients as needed to ensure network security and performance."
 ---
 
 # Point-to-site VPN session management

@@ -9,6 +9,8 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: concept-article
 ms.date: 04/29/2025
+ms.custom: sfi-image-nochange
+# Customer intent: As a SAP workload administrator, I want to develop a comprehensive disaster recovery strategy on Azure so that I can ensure business continuity and minimize downtime in the event of a disaster affecting my SAP applications.
 ---
 
 # Disaster recovery overview and infrastructure guidelines for SAP workload
@@ -64,7 +66,7 @@ Organizations should plan and design a DR strategy for their entire IT landscape
 
 ## Infrastructure components of DR solution for SAP workload
 
-An SAP workload running on Azure uses different infrastructure components to run a business solution. To plan DR for such solution, it's essential that all infrastructure components configured in the primary region are available, and can be configured in the DR region as well. Following infrastructure components should be factored in when designing DR solution for SAP workload on Azure.
+An SAP workload running on Azure uses different infrastructure components to run a business solution. To plan DR for such solution, it's essential that all infrastructure components configured in the primary region are available and can be configured in the DR region as well. Following infrastructure components should be factored in when designing DR solution for SAP workload on Azure.
 
 - Network
 - Compute

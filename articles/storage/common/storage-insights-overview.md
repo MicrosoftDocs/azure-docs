@@ -8,7 +8,9 @@ ms.author: normesta
 ms.date: 07/11/2021
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
+ms.custom: sfi-image-nochange
 
+# Customer intent: As a storage admin, I want to utilize storage insights from Azure Monitor to quickly assess performance and capacity issues across multiple storage accounts, so that I can ensure optimal availability and diagnose any latency or throttling problems effectively.
 ---
 
 # Monitoring your storage service with Azure Monitor Storage insights
@@ -82,7 +84,7 @@ When you select a value under any one of the columns in the workbook, you drill 
 
 ## View from a storage account
 
-To access VM insights directly from a storage account:
+To access storage insights directly from a storage account:
 
 1. In the Azure portal, select Storage accounts.
 

@@ -3,6 +3,7 @@ title: Task runtime environment variables
 description: Task runtime environment variable guidance and reference for Azure Batch Analytics.
 ms.topic: concept-article
 ms.date: 06/13/2024
+# Customer intent: As a cloud engineer, I want to understand the Azure Batch runtime environment variables so that I can effectively reference them in my task command lines for successful execution within the Batch computing environment.
 ---
 
 # Azure Batch runtime environment variables

@@ -7,6 +7,7 @@ ms.date: 01/01/2025
 ms.topic: concept-article
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+# Customer intent: "As an HPC administrator, I want to learn about performance metrics and benchmarking methodologies, so that I can optimize system performance and ensure my applications meet required operational standards."
 ---
 
 # High-Performance Computing (HPC) Performance and Benchmarking Overview

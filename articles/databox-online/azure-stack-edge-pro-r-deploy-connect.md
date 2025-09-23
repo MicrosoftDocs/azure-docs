@@ -8,6 +8,7 @@ ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 03/28/2022
 ms.author: alkohli
+ms.custom: sfi-image-nochange
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro R so I can use it to transfer data to Azure. 
 ---
 # Tutorial: Connect to Azure Stack Edge Pro R

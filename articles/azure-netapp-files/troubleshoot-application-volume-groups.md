@@ -1,14 +1,15 @@
 ---
-title: Troubleshoot application volume group errors for Azure NetApp Files | Microsoft Docs
+title: Troubleshoot application volume group errors for Azure NetApp Files
 description: Describes error or warning conditions and their resolutions for application volume groups for Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: troubleshooting
-ms.date: 10/20/2023
+ms.date: 02/20/2025
 ms.author: anfdocs
+# Customer intent: As a cloud administrator, I want to troubleshoot application volume group errors for Azure NetApp Files, so that I can ensure successful deployment and operation of my storage solutions for SAP HANA and Oracle applications.
 ---
-# Troubleshoot application volume group errors
+# Troubleshoot application volume group errors for Azure NetApp Files
 
 This article describes errors or warnings you might experience when using application volume groups and suggests possible remedies.
 

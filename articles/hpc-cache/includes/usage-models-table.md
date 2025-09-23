@@ -4,6 +4,7 @@ ms.topic: include
 ms.date: 02/16/2024
 author: ronhogue
 ms.author: rohogue
+# Customer intent: "As a cloud architect, I want to understand the caching modes and their configurations in an HPC environment, so that I can optimize data access and performance for high-performance computing applications."
 ---
 
 | Usage model | Caching mode | Verification timer | Write-back timer |

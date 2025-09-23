@@ -6,7 +6,7 @@ ms.topic: how-to
 author: abhishjain002
 ms.author: abhishjain
 ms.reviewer: sairamyeturi
-ms.date: 03/31/2025
+ms.date: 06/10/2025
 ---
 
 # Basic Load balancer deprecation: Guidelines for Azure HDInsight
@@ -26,11 +26,11 @@ As part of the migration from the basic load balancer to the standard load balan
 
    * **Scenario 1:**  Existing HDInsight clusters without custom virtual network (No virtual network used during cluster creation).
 
-     * No immediate disruption until Mar 31, 2025. However, we strongly recommend re-creating the cluster before Mar 31, 2025 to avoid potential disruption.
+     * No immediate disruption until Mar 31, 2025. However, we strongly recommend re-creating the cluster before Mar 31, 2025 to avoid potential issues like failure in scale-up operation or non-operational nodes.
 
    * **Scenario 2:** Existing HDInsight clusters with custom virtual network (Used your own VNet for cluster creation).
 
-     * No immediate disruption until Mar 31, 2025. However, we strongly recommend re-creating the cluster before Mar 31, 2025 to avoid potential disruption.
+     * No immediate disruption until Mar 31, 2025. However, we strongly recommend re-creating the cluster before Mar 31, 2025 to avoid potential issues like failure in scale-up operation or non-operational nodes.
 
 ### New cluster creation
 

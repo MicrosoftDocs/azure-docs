@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 04/21/2025
 ms.author: allensu
 ms.custom: devx-track-azurecli
+# Customer intent: As a network administrator, I want to create, modify, or delete a virtual network TAP using the command-line interface, so that I can efficiently stream and analyze virtual machine network traffic to my chosen analytics tools.
 ---
 
 # Work with a virtual network TAP using the Azure CLI

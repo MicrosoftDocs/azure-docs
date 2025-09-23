@@ -1,10 +1,11 @@
 ---
-title: Assessment best practices in Azure Migrate Discovery and assessment tool
+title: Assessment Best Practices in Azure Migrate Discovery and Assessment Tool
 description: Tips for creating assessments with Azure Migrate Discovery and assessment tool.
 ms.service: azure-migrate
 ms.topic: concept-article
-ms.date: 08/11/2021
+ms.date: 09/19/2025
 ms.custom: engagement-fy23
+# Customer intent: "As an IT administrator, I want to create and recalculate assessments using the Azure Migrate Discovery and assessment tool, so that I can effectively evaluate my on-premises workloads for migration to Azure and optimize resource utilization."
 ---
 
 # Best practices for creating assessments

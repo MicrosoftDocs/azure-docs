@@ -1,11 +1,10 @@
 ---
 title: Troubleshoot AWS S3 connector issues - Microsoft Sentinel
 description: Troubleshoot AWS S3 connector issues in Microsoft Sentinel.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: troubleshooting
 ms.date: 09/08/2022
-
 
 #Customer intent: As a security engineer, I want to troubleshoot AWS S3 connector issues so that I can ensure seamless log ingestion into Microsoft Sentinel.
 
@@ -52,7 +51,7 @@ The relevant logs don't exist in the S3 bucket.
 ### Solution: Search for logs and export logs if needed
 
 1. In AWS, open the S3 bucket, search for the relevant folder according to the required logs, and check if there are any log files inside the folder.
-1. If the data doesn't exist, there’s an issue with the AWS configuration. In this case, you need to [configure an AWS service to export logs to an S3 bucket](connect-aws.md?tabs=s3#configure-an-aws-service-to-export-logs-to-an-s3-bucket).
+1. If the data doesn't exist, there’s an issue with the AWS configuration. In this case, you need to [configure an AWS service to export logs to an S3 bucket](connect-aws-configure-environment.md#configure-aws-services-to-export-logs-to-an-s3-bucket).
 
 ### Cause 3: The S3 data didn't arrive at the SQS 
 

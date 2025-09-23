@@ -11,6 +11,7 @@ ms.date: 05/06/2025
 appliesto:
   - Microsoft Sentinel in the Microsoft Defender portal
   - Microsoft Sentinel in the Azure portal
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a SOC analyst, I want to optimize security controls and data ingestion so that I can enhance threat detection and reduce costs without compromising coverage.
@@ -39,7 +40,7 @@ Watch the following video for an overview and demo of SOC optimization in the Mi
 
 ## Access the SOC optimization page
 
-Use one of the following tabs, depending on whether you're working in the Azure portal or Defender portal. When your workspace is onboarded for unified security operations, SOC optimizations include coverage from across Microsoft security services.
+Use one of the following tabs, depending on whether you're working in the Azure portal or Defender portal. When your workspace is onboarded to the Defender portal, SOC optimizations include coverage from across Microsoft security services.
 
 ### [Defender portal](#tab/defender-portal)
 

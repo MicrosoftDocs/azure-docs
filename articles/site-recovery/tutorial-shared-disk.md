@@ -3,9 +3,12 @@ title: Shared disks in Azure Site Recovery
 description: This article describes how to enable replication, failover, and failback Azure virtual machines for shared disks.
 ms.topic: concept-article
 ms.service: azure-site-recovery
-ms.date: 04/02/2025
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.date: 05/15/2025
+ms.author: jsuri
+author: jyothisuri
+ms.custom:
+  - build-2025
+# Customer intent: As a system administrator, I want to configure disaster recovery for Azure virtual machines using shared disks, so that I can ensure cluster consistency and enable efficient failover and failback processes during outages.
 ---
 
 # Set up disaster recovery for Azure virtual machines using shared disk
@@ -24,6 +27,9 @@ Using Azure Site Recovery for shared disks, you can:
 - Fail over the cluster with a single click. 
 - Change recovery point and reprotect the cluster after failover with a single click. 
 - Fail back the cluster to the primary region with minimal data loss and downtime.
+
+>[!Note]
+>Disaster recovery for Azure virtual machines using shared disk is currently applicable only to Standard and Premium SSD v1 disks.
 
 Follow these steps to protect shared disks with Azure Site Recovery:
 

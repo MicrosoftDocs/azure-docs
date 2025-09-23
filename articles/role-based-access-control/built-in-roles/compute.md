@@ -5,9 +5,9 @@ ms.service: role-based-access-control
 ms.topic: generated-reference
 ms.workload: identity
 author: rolyon
-manager: femila
+manager: pmwongera
 ms.author: rolyon
-ms.date: 04/25/2025
+ms.date: 09/03/2025
 ms.custom: generated
 ---
 
@@ -38,7 +38,7 @@ Arc VMware VM Contributor has permissions to perform all VM actions.
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/write | Creates or updates an deployment. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/delete | Deletes a deployment. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/cancel/action | Cancels a deployment. |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates an deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates a deployment. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/whatIf/action | Predicts template deployment changes. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/exportTemplate/action | Export template for a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
@@ -162,6 +162,219 @@ Arc VMware VM Contributor has permissions to perform all VM actions.
     }
   ],
   "roleName": "Azure Arc VMware VM Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+## Azure Batch Account Contributor
+
+Grants full access to manage all Batch resources, including Batch accounts, pools and jobs.
+
+[Learn more](/azure/batch/batch-role-based-access-control)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/* | Manage all Batch resources. |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/* | Manage all Batch resources. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants full access to manage all Batch resources, including Batch accounts, pools and jobs.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/29fe4964-1e60-436b-bd3a-77fd4c178b3c",
+  "name": "29fe4964-1e60-436b-bd3a-77fd4c178b3c",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Batch/*",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Batch/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Batch Account Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Batch Account Reader
+
+Lets you view all resources including pools and jobs in the Batch account.
+
+[Learn more](/azure/batch/batch-role-based-access-control)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/*/read | View all resources in Batch account. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/*/read | View all resources in Batch account. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you view all resources including pools and jobs in the Batch account.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/11076f67-66f6-4be0-8f6b-f0609fd05cc9",
+  "name": "11076f67-66f6-4be0-8f6b-f0609fd05cc9",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Batch/*/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Batch/*/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Batch Account Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Batch Data Contributor
+
+Grants permissions to manage Batch pools and jobs but not to modify accounts.
+
+[Learn more](/azure/batch/batch-role-based-access-control)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/read | Lists Batch accounts or gets the properties of a Batch account |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/applications/* | Create and manage applications and application packages on a Batch account. |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/certificates/* | Create and manage certificates on a Batch account. (Warning: Certificate feature was retired) |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/certificateOperationResults/* | Gets the results of a long running certificate operation on a Batch account. (Warning: Certificate feature was retired) |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/pools/* | Create and manage pools on a Batch account. |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/poolOperationResults/* | Gets the results of a long running pool operation on a Batch account. |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/locations/*/read | Get Batch account operation result/Batch quota/supported VM size at the given location. |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/jobSchedules/* | Create and manage job schedules on a Batch account. |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/jobs/* | Create and manage jobs on a Batch account. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants permissions to manage Batch pools and jobs but not to modify accounts.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/6aaa78f1-f7de-44ca-8722-c64a23943cae",
+  "name": "6aaa78f1-f7de-44ca-8722-c64a23943cae",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Batch/batchAccounts/read",
+        "Microsoft.Batch/batchAccounts/applications/*",
+        "Microsoft.Batch/batchAccounts/certificates/*",
+        "Microsoft.Batch/batchAccounts/certificateOperationResults/*",
+        "Microsoft.Batch/batchAccounts/pools/*",
+        "Microsoft.Batch/batchAccounts/poolOperationResults/*",
+        "Microsoft.Batch/locations/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Batch/batchAccounts/jobSchedules/*",
+        "Microsoft.Batch/batchAccounts/jobs/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Batch Data Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Batch Job Submitter
+
+Lets you submit and manage jobs in the Batch account.
+
+[Learn more](/azure/batch/batch-role-based-access-control)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/applications/read | Lists applications or gets the properties of an application |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/applications/versions/read | Gets the properties of an application package |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/pools/read | Lists pools on a Batch account or gets the properties of a pool |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/jobSchedules/* | Create and manage job schedules on a Batch account. |
+> | [Microsoft.Batch](../permissions/compute.md#microsoftbatch)/batchAccounts/jobs/* | Create and manage jobs on a Batch account. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you submit and manage jobs in the Batch account.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/48e5e92e-a480-4e71-aa9c-2778f4c13781",
+  "name": "48e5e92e-a480-4e71-aa9c-2778f4c13781",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Batch/batchAccounts/applications/read",
+        "Microsoft.Batch/batchAccounts/applications/versions/read",
+        "Microsoft.Batch/batchAccounts/pools/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Batch/batchAccounts/jobSchedules/*",
+        "Microsoft.Batch/batchAccounts/jobs/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Batch Job Submitter",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

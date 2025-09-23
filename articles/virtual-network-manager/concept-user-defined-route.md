@@ -6,7 +6,9 @@ ms.author: mbender
 ms.topic: overview 
 ms.date: 01/16/2025
 ms.service: azure-virtual-network-manager
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - sfi-image-nochange
 # Customer Intent: As a network engineer, I want learn how I can automate and simplify routing within my Azure Network using User-defined routes.
 ---
 #  Automate management of user-defined routes (UDRs) with Azure Virtual Network Manager

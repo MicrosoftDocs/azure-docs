@@ -8,6 +8,8 @@ ms.date: 09/09/2024
 ms.topic: overview
 #Customer intent: As a developer, I want to understand Azure context so that I can avoid error when running multiple runbooks.
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Context switching in Azure Automation

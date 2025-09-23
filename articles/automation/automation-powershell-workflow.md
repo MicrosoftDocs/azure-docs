@@ -7,6 +7,8 @@ ms.date: 09/09/2024
 ms.topic: overview 
 ms.custom: devx-track-azurepowershell
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 # Learn PowerShell Workflow for Azure Automation
 

@@ -2,10 +2,11 @@
 title: Configure managed identities in Batch pools
 description: Learn how to enable user-assigned managed identities on Batch pools and how to use managed identities within the nodes.
 ms.topic: concept-article
-ms.date: 04/02/2025
+ms.date: 07/08/2025
 ms.devlang: csharp
 ai-usage: ai-assisted
 ms.custom:
+# Customer intent: As a cloud administrator, I want to configure user-assigned managed identities in Batch pools, so that I can securely manage access to Azure resources without handling credentials manually.
 ---
 # Configure managed identities in Batch pools
 
@@ -61,6 +62,8 @@ To create a Batch pool with a user-assigned managed identity through the Azure p
 1. For **Identity**, change the setting to **User assigned**.
 1. Under **User assigned managed identity**, select **Add**.
 1. Select the user assigned managed identity or identities you want to use. Then, select **Add**.
+> [!NOTE]
+> You can assign only one managed identity at a time for both the autostorage account level and the batch account level. However, at the pool level, you have the flexibility to use multiple user-assigned managed identities. 
 1. Under **Operating System**, select the publisher, offer, and SKU to use.
 1. Optionally, enable the managed identity in the container registry:
     1. For **Container configuration**, change the setting to **Custom**. Then, select your custom configuration.

@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 12/9/2024
 ms.author: duau
 
+# Customer intent: "As an IT administrator, I want to configure roles and permissions for Azure Firewall, so that I can ensure the right access controls and functionalities are in place for users managing network resources."
 ---
 # About roles and permissions for Azure Firewall
 

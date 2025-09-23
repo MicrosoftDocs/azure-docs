@@ -9,15 +9,15 @@ ms.service: azure-app-configuration
 ms.devlang: javascript
 ms.custom: devx-track-javascript
 ms.topic: tutorial
-ms.date: 02/02/2025
+ms.date: 05/22/2025
 #Customer intent: I want to learn how to use Azure App Configuration JavaScript client library.
 ---
 
-# JavaScript Configuration Provider
+# JavaScript configuration provider
 
 [![configuration-provider-npm-package](https://img.shields.io/npm/v/@azure/app-configuration-provider?label=@azure/app-configuration-provider)](https://www.npmjs.com/package/@azure/app-configuration-provider)
 
-Azure App Configuration is a managed service that helps developers centralize their application configurations simply and securely. The JavaScript configuration provider library enables loading configuration from an Azure App Configuration store in a managed way. This client library adds additional functionality above the Azure SDK for JavaScript.
+Azure App Configuration is a managed service that helps developers centralize their application configurations simply and securely. The JavaScript configuration provider library enables loading configuration from an Azure App Configuration store in a managed way. This client library adds additional [functionality](./configuration-provider-overview.md#feature-development-status) above the Azure SDK for JavaScript.
 
 ## Load configuration
 
@@ -118,7 +118,7 @@ The `AzureAppConfiguration` type extends the following interfaces:
     const fontSize2 = settingsObj.app.font.size; // object-style configuration representation
     ```
 
-### JSON Content Type Handling
+### JSON content type handling
 
 You can [create JSON key-values](./howto-leverage-json-content-type.md#create-json-key-values-in-app-configuration) in App Configuration. When loading key-values from Azure App Configuration, the configuration provider will automatically convert the key-values of valid JSON content type (e.g. application/json) into object.
 
@@ -138,9 +138,12 @@ const appConfig = await load(endpoint, credential);
 const { size, color } = appConfig.get("font");
 ```
 
+> [!NOTE]
+> Starting with version *2.2.0* of `@azure/app-configuration-provider`, the configuration provider allows comments, as defined in ([JSONC](https://jsonc.org/)), in key-values with an `application/json` content type.
+
 ### Load specific key-values using selectors
 
-By default, the `load` method will load all configurations with no label from the configuration store. You can configure the behavior of the `load` method through the optional parameter of [`AzureAppConfigurationOptions`](https://github.com/Azure/AppConfiguration-JavaScriptProvider/blob/main/src/AzureAppConfigurationOptions.ts) type.
+By default, the `load` method will load all configurations with no label from the configuration store. You can configure the behavior of the `load` method through the optional parameter of [`AzureAppConfigurationOptions`](https://github.com/Azure/AppConfiguration-JavaScriptProvider/blob/main/src/appConfigurationOptions.ts) type.
 
 To refine or expand the configurations loaded from the App Configuration store, you can specify the key or label selectors under the `AzureAppConfigurationOptions.selectors` property.
 
@@ -151,8 +154,9 @@ const appConfig = await load(endpoint, credential, {
             keyFilter: "app1.*",
             labelFilter: "test"
         },
-        { // load the subset of keys starting with "dev" label"
-            labelFilter: "dev*"
+        { // load the subset of keys with "dev" label"
+            keyFilter: "*",
+            labelFilter: "dev"
         }
     ]
 });
@@ -160,6 +164,29 @@ const appConfig = await load(endpoint, credential, {
 
 > [!NOTE]
 > Key-values are loaded in the order in which the selectors are listed. If multiple selectors retrieve key-values with the same key, the value from the last one will override any previously loaded value.
+
+#### Tag filters
+
+The tag filters parameter selects key-values with specific tags. A key-value is only loaded if it has all of the tags and corresponding values specified in the filters.
+
+```typescript
+const appConfig = await load(endpoint, credential, {
+    selectors: [
+        { // load the subset of keys with "test" label" and three tags
+            keyFilter: "*",
+            labelFilter: "test",
+            tagFilters: [
+                "emptyTag=",
+                "nullTag=\0",
+                "tag1=value1"
+            ]
+        }
+    ]
+});
+```
+
+> [!NOTE]
+> The characters asterisk (`*`), comma (`,`), and backslash (`\`) are reserved and must be escaped with a backslash when used in a tag filter.
 
 ### Trim prefix from keys
 
@@ -228,7 +255,7 @@ appConfig.refresh();
 disposer.dispose();
 ```
 
-### Refresh on sentinel key (Legacy)
+### Refresh on sentinel key
 
 A sentinel key is a key that you update after you complete the change of all other keys. The configuration provider will monitor the sentinel key instead of all selected key-values. When a change is detected, your app refreshes all configuration values.
 
@@ -256,7 +283,7 @@ const appConfig = await load(endpoint, credential, {
         selectors: [ { keyFilter: "*", labelFilter: "Prod" } ],
         refresh: {
             enabled: true, // enable refreshing feature flags
-            refreshIntervalInMs: 10_000
+            refreshIntervalInMs: 60_000
         }
     }
 });
@@ -351,6 +378,99 @@ const resolveSecret = (url) => "From Secret Resolver";
 const appConfig = await load(endpoint, credential, {
     keyVaultOptions: {
         secretResolver: resolveSecret
+    }
+});
+```
+
+You can also set `clientOptions` property to configure `SecretClientOptions` used to connect to Azure Key Vault that has no registered `SecretClient`.
+
+```typescript
+const credential = new DefaultAzureCredential();
+const appConfig = await load(endpoint, credential, {
+    keyVaultOptions: {
+        credential: credential,
+        clientOptions: { // configure a custom SecretClientOptions
+            retryOptions: { 
+                maxRetries: 3, 
+                maxRetryDelayInMs: 1000 
+            }
+        }
+    }
+});
+```
+
+### Parallel secret resolution
+
+Azure Key Vault doesn't provide a batch API for retrieving multiple secrets in a single request. When your application needs to load numerous Key Vault references, you can improve performance by enabling parallel secret resolution using the `parallelSecretResolutionEnabled` property in `KeyVaultOptions`. This allows the provider to fetch multiple secrets in parallel rather than sequentially:
+
+
+```typescript
+const credential = new DefaultAzureCredential();
+const appConfig = await load(endpoint, credential, {
+    keyVaultOptions: {
+        credential: credential,
+        parallelSecretResolutionEnabled: true
+    }
+});
+```
+
+> [!NOTE]
+> When resolving secret in parallel, you may encounter the [service limit](/azure/key-vault/general/service-limits#secrets-managed-storage-account-keys-and-vault-transactions) of Azure Key Vault.
+> To handle throttling effectively, implement the [client-side throttling best practices](/azure/key-vault/general/overview-throttling#how-to-throttle-your-app-in-response-to-service-limits) by configuring appropriate retry options for the `SecretClient`. You can either register custom `SecretClient` instances or configure `clientOptions` via the `AzureAppConfigurationOptions.keyVaultOptions`.
+
+### Key Vault secret refresh
+
+Azure App Configuration enables you to configure secret refresh intervals independently of your configuration refresh cycle. This is crucial for security because while the Key Vault reference URI in App Configuration remains unchanged, the underlying secret in Key Vault might be rotated as part of your security practices.
+
+To ensure your application always uses the most current secret values, configure the `secretRefreshIntervalInMs` property in `KeyVaultOptions`. This forces the provider to retrieve fresh secret values from Key Vault when:
+
+- Your application calls `AzureAppConfiguration.refresh`
+- The configured refresh interval for the secret has elapsed
+
+This mechanism works even when no changes are detected in your App Configuration store, ensuring your application stays in sync with rotated secrets.
+
+```typescript
+const credential = new DefaultAzureCredential();
+const appConfig = await load(endpoint, credential, {
+    keyVaultOptions: {
+        credential: credential,
+        secretRefreshIntervalInMs: 7200_000 // 2 hours
+    }
+});
+```
+
+## Snapshot
+
+[Snapshot](./concept-snapshots.md) is a named, immutable subset of an App Configuration store's key-values. The key-values that make up a snapshot are chosen during creation time through the usage of key and label filters. Once a snapshot is created, the key-values within are guaranteed to remain unchanged.
+
+You can use snapshot selector to load key-values or feature flags from a snapshot:
+
+```typescript
+const appConfig = await load(endpoint, credential, {
+    selectors: [
+        { snapshotName: "MySnapshot" }, // load key-values from snapshot
+        { keyFilter: "test*", labelFilter: "test" }
+    ],
+    featureFlagOptions: {
+        enabled: true,
+        selectors: [
+            { snapshotName: "MySnapshot" }, // load feature flags from snapshot
+            { keyFilter: "*", labelFilter: "test" }
+        ]
+    }
+});
+```
+
+## Startup retry
+
+Configuration loading is a critical path operation during application startup. To ensure reliability, the Azure App Configuration provider implements a robust retry mechanism during the initial configuration load. This helps protect your application from transient network issues that might otherwise prevent successful startup.
+
+You can customize this behavior via the `AzureAppConfigurationOptions.startupOptions`:
+
+```typescript
+const appConfig = await load(endpoint, credential, { 
+    startupOptions: { 
+        timeoutInMs: 300_000
     }
 });
 ```

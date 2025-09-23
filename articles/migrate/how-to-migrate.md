@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.service: azure-migrate
 ms.date: 08/21/2024
 ms.custom: engagement-fy25
+# Customer intent: "As a cloud architect, I want to add migration tools in Azure Migrate, so that I can efficiently manage the migration of servers, databases, and web apps to Azure."
 ---
 
 

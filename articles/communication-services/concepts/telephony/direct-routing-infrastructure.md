@@ -55,7 +55,7 @@ Learn more:
 
 [Program Requirements — Microsoft Trusted Root Program](/security/trusted-root/program-requirements)
  
-[Included CA Certificate List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT)
+[Included CA Certificate List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT)
 
 >[!IMPORTANT]
 >Azure Communication Services direct routing supports only TLS 1.2. To avoid any service impact, ensure that your SBCs are configured to support TLS1.2 and can connect using one of the following cipher suites for SIP signaling: 
@@ -87,7 +87,7 @@ These three FQDNs in order are required to:
 The FQDNs — sip.pstnhub.microsoft.com, sip2.pstnhub.microsoft.com, and sip3.pstnhub.microsoft.com — resolve to one of the following IP addresses:
 
 - `52.112.0.0/14 (IP addresses from 52.112.0.0 to 52.115.255.255)`
-- `52.120.0.0/14 (IP addresses from 52.120.0.0 to 52.123.255.255)`
+- `52.122.0.0/15 (IP addresses from 52.122.0.0 to 52.123.255.255)`
 
 Open firewall ports for all these IP address ranges to allow incoming and outgoing traffic to and from the addresses for signaling.
 

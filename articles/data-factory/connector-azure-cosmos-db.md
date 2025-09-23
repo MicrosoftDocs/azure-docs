@@ -5,9 +5,12 @@ description: Learn how to copy data to and from Azure Cosmos DB for NoSQL, and t
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
-ms.custom: synapse
-ms.date: 09/04/2024
+ms.topic: concept-article
+ms.date: 07/25/2025
+ms.custom:
+  - synapse
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Copy and transform data in Azure Cosmos DB for NoSQL by using Azure Data Factory
@@ -17,7 +20,7 @@ ms.date: 09/04/2024
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure Cosmos DB for NoSQL, and use Data Flow to transform data in Azure Cosmos DB for NoSQL. To learn more, read the introductory articles for [Azure Data Factory](introduction.md) and [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 >[!NOTE]
->This connector only support Azure Cosmos DB for NoSQL. For Azure Cosmos DB for MongoDB, refer to [connector for Azure Cosmos DB for MongoDB](connector-azure-cosmos-db-mongodb-api.md). Other API types are not supported now.
+>This connector only supports Azure Cosmos DB for NoSQL. For Azure Cosmos DB for MongoDB, refer to [connector for Azure Cosmos DB for MongoDB](connector-azure-cosmos-db-mongodb-api.md). Other API types aren't supported now.
 
 ## Supported capabilities
 
@@ -49,7 +52,7 @@ Data Factory and Synapse pipelines integrate with the [Azure Cosmos DB bulk exec
 
 Use the following steps to create a linked service to Azure Cosmos DB in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -136,7 +139,7 @@ The Azure Cosmos DB for NoSQL connector supports the following authentication ty
 ### <a name="service-principal-authentication"></a> Service principal authentication
 
 >[!NOTE]
->Currently, the service principal authentication is not supported in data flow.
+>Currently, the service principal authentication isn't supported in data flow.
 
 To use service principal authentication, follow these steps.
 
@@ -222,7 +225,7 @@ You can also store service principal key in Azure Key Vault.
 ### <a name="managed-identity"></a> System-assigned managed identity authentication
 
 >[!NOTE]
->Currently, the system-assigned managed identity authentication is supported in data flows through the use of advanced properties in JSON format.
+>Currently, the system-assigned managed identity authentication is supported in data flows by using advanced properties in JSON format.
 
 A data factory or Synapse pipeline can be associated with a [system-assigned managed identity for Azure resources](data-factory-service-identity.md#system-assigned-managed-identity), which represents this specific service instance. You can directly use this managed identity for Azure Cosmos DB authentication, similar to using your own service principal. It allows this designated resource to access and copy data to or from your Azure Cosmos DB instance.
 
@@ -240,8 +243,8 @@ These properties are supported for the linked service:
 | accountEndpoint | Specify the account endpoint URL for the Azure Cosmos DB instance. | Yes |
 | database | Specify the name of the database. | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is in a private network. If not specified, the default Azure integration runtime is used. |No |
-| subscriptionId | Specify the subscription id for the Azure Cosmos DB instance | No for Copy Activity, Yes for Mapping Data Flow |
-| tenantId | Specify the tenant id for the Azure Cosmos DB instance | No for Copy Activity, Yes for Mapping Data Flow |
+| subscriptionId | Specify the subscription ID for the Azure Cosmos DB instance | No for Copy Activity, Yes for Mapping Data Flow |
+| tenantId | Specify the tenant ID for the Azure Cosmos DB instance | No for Copy Activity, Yes for Mapping Data Flow |
 | resourceGroup | Specify the resource group name for the Azure Cosmos DB instance | No for Copy Activity, Yes for Mapping Data Flow |
 
 **Example:**
@@ -268,7 +271,7 @@ These properties are supported for the linked service:
 ### User-assigned managed identity authentication
 
 >[!NOTE]
->Currently, user-assigned managed identity authentication is supported in data flows through the use of advanced properties in JSON format.
+>Currently, user-assigned managed identity authentication is supported in data flows by using advanced properties in JSON format.
 
 A data factory or Synapse pipeline can be associated with a [user-assigned managed identities](data-factory-service-identity.md#user-assigned-managed-identity), which represents this specific service instance. You can directly use this managed identity for Azure Cosmos DB authentication, similar to using your own service principal. It allows this designated resource to access and copy data to or from your Azure Cosmos DB instance.
 
@@ -287,8 +290,8 @@ These properties are supported for the linked service:
 | database | Specify the name of the database. | Yes |
 | credentials | Specify the user-assigned managed identity as the credential object. | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is in a private network. If not specified, the default Azure integration runtime is used. |No |
-| subscriptionId | Specify the subscription id for the Azure Cosmos DB instance | No for Copy Activity, Yes for Mapping Data Flow |
-| tenantId | Specify the tenant id for the Azure Cosmos DB instance | No for Copy Activity, Yes for Mapping Data Flow |
+| subscriptionId | Specify the subscription ID for the Azure Cosmos DB instance | No for Copy Activity, Yes for Mapping Data Flow |
+| tenantId | Specify the tenant ID for the Azure Cosmos DB instance | No for Copy Activity, Yes for Mapping Data Flow |
 | resourceGroup | Specify the resource group name for the Azure Cosmos DB instance | No for Copy Activity, Yes for Mapping Data Flow |
 
 **Example:**
@@ -328,7 +331,7 @@ The following properties are supported for Azure Cosmos DB for NoSQL dataset:
 | type | The **type** property of the dataset must be set to **CosmosDbSqlApiCollection**. |Yes |
 | collectionName |The name of the Azure Cosmos DB document collection. |Yes |
 
-If you use "DocumentDbCollection" type dataset, it is still supported as-is for backward compatibility for Copy and Lookup activity, it's not supported for Data Flow. You are suggested to use the new model going forward.
+If you use "DocumentDbCollection" type dataset, it's still supported as-is for backward compatibility for Copy and Lookup activity, it's not supported for Data Flow. You're suggested to use the new model going forward.
 
 **Example**
 
@@ -367,7 +370,7 @@ The following properties are supported in the Copy Activity **source** section:
 | pageSize | The number of documents per page of the query result. Default is "-1" which means uses the service side dynamic page size up to 1000. | No |
 | detectDatetime | Whether to detect datetime from the string values in the documents. Allowed values are: **true** (default), **false**. | No |
 
-If you use "DocumentDbCollectionSource" type source, it is still supported as-is for backward compatibility. You are suggested to use the new model going forward which provide richer capabilities to copy data from Azure Cosmos DB.
+If you use "DocumentDbCollectionSource" type source, it's still supported as-is for backward compatibility. You're suggested to use the new model going forward, which provides richer capabilities to copy data from Azure Cosmos DB.
 
 **Example**
 
@@ -417,7 +420,7 @@ The following properties are supported in the Copy Activity **sink** section:
 | type | The **type** property of the Copy Activity sink must be set to **CosmosDbSqlApiSink**. |Yes |
 | writeBehavior |Describes how to write data to Azure Cosmos DB. Allowed values: **insert** and **upsert**.<br/><br/>The behavior of **upsert** is to replace the document if a document with the same ID already exists; otherwise, insert the document.<br /><br />**Note**: The service automatically generates an ID for a document if an ID isn't specified either in the original document or by column mapping. This means that you must ensure that, for **upsert** to work as expected, your document has an ID. |No<br />(the default is **insert**) |
 | writeBatchSize | The service uses the [Azure Cosmos DB bulk executor library](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) to write data to Azure Cosmos DB. The **writeBatchSize** property controls the size of documents the service provides to the library. You can try increasing the value for **writeBatchSize** to improve performance and decreasing the value if your document size being large - see below tips. |No<br />(the default is **10,000**) |
-| disableMetricsCollection | The service collects metrics such as Azure Cosmos DB RUs for copy performance optimization and recommendations. If you are concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
+| disableMetricsCollection | The service collects metrics such as Azure Cosmos DB RUs for copy performance optimization and recommendations. If you're concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
 | maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
 
@@ -427,7 +430,7 @@ The following properties are supported in the Copy Activity **sink** section:
 >[!TIP]
 >Azure Cosmos DB limits single request's size to 2MB. The formula is Request Size = Single Document Size * Write Batch Size. If you hit error saying **"Request size is too large."**, **reduce the `writeBatchSize` value** in copy sink configuration.
 
-If you use "DocumentDbCollectionSink" type source, it is still supported as-is for backward compatibility. You are suggested to use the new model going forward which provide richer capabilities to copy data from Azure Cosmos DB.
+If you use "DocumentDbCollectionSink" type source, it's still supported as-is for backward compatibility. You're suggested to use the new model going forward, which provides richer capabilities to copy data from Azure Cosmos DB.
 
 **Example**
 
@@ -476,7 +479,7 @@ When transforming data in mapping data flow, you can read and write to collectio
 
 Settings specific to Azure Cosmos DB are available in the **Source Options** tab of the source transformation. 
 
-**Include system columns:** If true, ```id```, ```_ts```, and other system columns will be included in your data flow metadata from Azure Cosmos DB. When updating collections, it is important to include this so that you can grab the existing row ID.
+**Include system columns:** If true, ```id```, ```_ts```, and other system columns are included in your data flow metadata from Azure Cosmos DB. When updating collections, it's important to include this so that you can grab the existing row ID.
 
 **Page size:** The number of documents per page of the query result. Default is "-1" which uses the service dynamic page up to 1000.
 
@@ -484,9 +487,9 @@ Settings specific to Azure Cosmos DB are available in the **Source Options** tab
 
 **Preferred regions:** Choose the preferred read regions for this process.
 
-**Change feed:** If true, you will get data from [Azure Cosmos DB change feed](/azure/cosmos-db/change-feed) which is a persistent record of changes to a container in the order they occur from last run automatically. When you set it true, do not set both **Infer drifted column types** and **Allow schema drift** as true at the same time. For more details, see [Azure Cosmos DB change feed)](#azure-cosmos-db-change-feed).
+**Change feed:** If true, you'll get data from [Azure Cosmos DB change feed](/azure/cosmos-db/change-feed) which is a persistent record of changes to a container in the order they occur from last run automatically. When you set it true, don't set both **Infer drifted column types**, and **Allow schema drift** as true at the same time. For more details, see [Azure Cosmos DB change feed)](#azure-cosmos-db-change-feed).
 
-**Start from beginning:** If true, you will get initial load of full snapshot data in the first run, followed by capturing changed data in next runs. If false, the initial load will be skipped in the first run, followed by capturing changed data in next runs. The setting is aligned with the same setting name in [Azure Cosmos DB reference](https://github.com/Azure/azure-cosmosdb-spark/wiki/Configuration-references#reading-cosmosdb-collection-change-feed). For more details, see [Azure Cosmos DB change feed](#azure-cosmos-db-change-feed).
+**Start from beginning:** If true, you'll get initial load of full snapshot data in the first run, followed by capturing changed data in next runs. If false, the initial load will be skipped in the first run, followed by capturing changed data in next runs. The setting is aligned with the same setting name in [Azure Cosmos DB reference](https://github.com/Azure/azure-cosmosdb-spark/wiki/Configuration-references#reading-cosmosdb-collection-change-feed). For more information, see [Azure Cosmos DB change feed](#azure-cosmos-db-change-feed).
 
 ### Sink transformation
 
@@ -494,7 +497,7 @@ Settings specific to Azure Cosmos DB are available in the **Settings** tab of th
 
 **Update method:** Determines what operations are allowed on your database destination. The default is to only allow inserts. To update, upsert, or delete rows, an alter-row transformation is required to tag rows for those actions. For updates, upserts and deletes, a key column or columns must be set to determine which row to alter.
 
-**Collection action:** Determines whether to recreate the destination collection prior to writing.
+**Collection action:** Determines whether to recreate the destination collection before writing.
 * None: No action will be done to the collection.
 * Recreate: The collection will get dropped and recreated
 
@@ -531,17 +534,17 @@ To achieve schema-agnostic copy:
 
 ## Migrate from relational database to Azure Cosmos DB
 
-When migrating from a relational database e.g. SQL Server to Azure Cosmos DB, copy activity can easily map tabular data from source to flatten JSON documents in Azure Cosmos DB. In some cases, you may want to redesign the data model to optimize it for the NoSQL use-cases according to [Data modeling in Azure Cosmos DB](/azure/cosmos-db/modeling-data), for example, to de-normalize the data by embedding all of the related sub-items within one JSON document. For such case, refer to [this article](/azure/cosmos-db/migrate-relational-to-cosmos-db-sql-api) with a walk-through on how to achieve it using the copy activity.
+When migrating from a relational database, for example: SQL Server to Azure Cosmos DB, copy activity can easily map tabular data from source to flatten JSON documents in Azure Cosmos DB. In some cases, you might want to redesign the data model to optimize it for the NoSQL use-cases according to [Data modeling in Azure Cosmos DB](/azure/cosmos-db/modeling-data), for example, to de-normalize the data by embedding all of the related sub-items within one JSON document. For such case, refer to [this article](/azure/cosmos-db/migrate-relational-to-cosmos-db-sql-api) with a walk-through on how to achieve it using the copy activity.
 
 ## Azure Cosmos DB change feed 
 
-Azure Data Factory can get data from [Azure Cosmos DB change feed](/azure/cosmos-db/change-feed) by enabling it in the mapping data flow source transformation. With this connector option, you can read change feeds and apply transformations before loading transformed data into destination datasets of your choice. You do not have to use Azure functions to read the change feed and then write custom transformations. You can use this option to move data from one container to another, prepare change feed driven material views for fit purpose or automate container backup or recovery based on change feed, and enable many more such use cases using visual drag and drop capability of Azure Data Factory.
+Azure Data Factory can get data from [Azure Cosmos DB change feed](/azure/cosmos-db/change-feed) by enabling it in the mapping data flow source transformation. With this connector option, you can read change feeds and apply transformations before loading transformed data into destination datasets of your choice. You don't have to use Azure functions to read the change feed and then write custom transformations. You can use this option to move data from one container to another, prepare change feed driven material views for fit purpose or automate container backup or recovery based on change feed, and enable many more such use cases using visual drag and drop capability of Azure Data Factory.
 
 Make sure you keep the pipeline and activity name unchanged, so that the checkpoint can be recorded by ADF for you to get changed data from the last run automatically. If you change your pipeline name or activity name, the checkpoint will be reset, which leads you to start from beginning or get changes from now in the next run.
 
-When you debug the pipeline, this feature works the same. Be aware that the checkpoint will be reset when you refresh your browser during the debug run. After you are satisfied with the pipeline result from debug run, you can go ahead to publish and trigger the pipeline. At the moment when you first time trigger your published pipeline, it automatically restarts from the beginning or gets changes from now on.
+When you debug the pipeline, this feature works the same. Be aware that the checkpoint will be reset when you refresh your browser during the debug run. After you're satisfied with the pipeline result from debug run, you can go ahead to publish and trigger the pipeline. At the moment when you trigger your published pipeline for the first time, it automatically restarts from the beginning or gets changes from now on.
 
-In the monitoring section, you always have the chance to rerun a pipeline. When you are doing so, the changed data is always captured from the previous checkpoint of your selected pipeline run.
+In the monitoring section, you always have the chance to rerun a pipeline. When you're doing so, the changed data is always captured from the previous checkpoint of your selected pipeline run.
 
 In addition, Azure Cosmos DB analytical store now supports Change Data Capture (CDC) for Azure Cosmos DB API for NoSQL and Azure Cosmos DB API for Mongo DB (public preview). Azure Cosmos DB analytical store allows you to efficiently consume a continuous and incremental feed of changed (inserted, updated, and deleted) data from analytical store.
 

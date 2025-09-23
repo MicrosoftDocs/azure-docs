@@ -14,7 +14,7 @@ adobe-target: true
 
 # What is Microsoft Dev Box?
 
-[!INCLUDE [note-build-2025](includes/note-build-2025.md)]
+[!INCLUDE [note-windows-365-announcement](includes/note-windows-365-announcement.md)]
 
 Microsoft Dev Box gives developers self-service access to ready-to-code cloud workstations called *dev boxes*. You can configure dev boxes with tools, source code, and prebuilt binaries that are specific to a project, so developers can immediately start work. You can create cloud development environments for your developer teams by using a customized image, or a preconfigured image from Azure Marketplace, complete with Visual Studio already installed. 
 

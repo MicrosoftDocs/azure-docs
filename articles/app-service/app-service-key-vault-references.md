@@ -6,15 +6,16 @@ author: cephalin
 ms.topic: how-to
 ms.date: 03/20/2025
 ms.author: cephalin
-ms.custom: AppServiceConnectivity
 #customer intent: As an app developer, I want to implement Azure Key Vault as part of my approach to apps in Azure App Service.
+ms.service: azure-app-service
+ms.custom:
+  - AppServiceConnectivity
+  - sfi-ropc-nochange
 ---
 
-# Use Key Vault references as app settings in Azure App Service and Azure Functions
+# Use Key Vault references as app settings in Azure App Service, Azure Functions, and Azure Logic Apps (Standard)
 
-This article shows you how to use secrets from Azure Key Vault as values of [app settings](configure-common.md#configure-app-settings) or [connection strings](configure-common.md#configure-connection-strings) in your Azure App Service or Azure Functions apps.
-
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+This article shows how to use secrets from Azure Key Vault as values in [app settings](configure-common.md#configure-app-settings) or [connection strings](configure-common.md#configure-connection-strings) for apps created with Azure App Service, Azure Functions, or Azure Logic Apps (Standard).
 
 [Key Vault](/azure/key-vault/general/overview) is a service that provides centralized secrets management, with full control over access policies and audit history. When an app setting or connection string is a Key Vault reference, your application code can use it like any other app setting or connection string. This way, you can maintain secrets apart from your app's configuration. App settings are securely encrypted at rest, but if you need capabilities for managing secrets, they should go into a key vault.
 
@@ -39,7 +40,7 @@ If your vault is configured with [network restrictions](/azure/key-vault/general
 
 1. Make sure that the application has outbound networking capabilities configured, as described in [App Service networking features](./networking-features.md) and [Azure Functions networking options](../azure-functions/functions-networking-options.md).
 
-   Currently, Linux applications that connect to private endpoints must be explicitly configured to route all traffic through the virtual network. To configure this setting, run the following command:
+   With the exception of function apps running in the Flex Consumption plan, Linux applications that connect to private endpoints must be explicitly configured to route all traffic through the virtual network. When running in a Flex Consumption plan, this routing is done automatically, and additional configuration isn't required. Run the following command to configure virtual network routing by setting [vnetRouteAllEnabled](../azure-functions/functions-app-settings.md#vnetrouteallenabled) to `true`:
 
    # [Azure CLI](#tab/azure-cli)
 
@@ -94,6 +95,8 @@ This setting applies to all Key Vault references for the app.
 If the secret version isn't specified in the reference, the app uses the latest version that exists in the key vault. When newer versions become available, such as with rotation, the app is automatically updated and begins using the latest version within 24 hours.
 
 The delay is because App Service caches the values of the Key Vault references and refetches them every 24 hours. Any configuration change to the app causes an app restart and an immediate refetch of all referenced secrets.
+
+To force resolution of your app's Key Vault references, make an authenticated POST request to the API endpoint `https://management.azure.com/[Resource ID]/config/configreferences/appsettings/refresh?api-version=2022-03-01`.
 
 ## <a name = "source-app-settings-from-key-vault"></a> Understand source app settings from Key Vault
 

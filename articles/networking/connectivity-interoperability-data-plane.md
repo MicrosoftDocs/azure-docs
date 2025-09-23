@@ -6,6 +6,7 @@ ms.service: azure-virtual-network
 ms.topic: concept-article
 ms.date: 03/24/2023
 ms.author: allensu
+# Customer intent: "As a network engineer, I want to analyze packet forwarding paths across Azure network configurations, so that I can ensure seamless connectivity and troubleshoot interoperability between on-premises and virtual networks."
 ---
 
 # Interoperability in Azure - Data plane analysis

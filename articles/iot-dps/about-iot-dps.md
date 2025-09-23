@@ -14,7 +14,7 @@ ms.subservice: azure-iot-hub-dps
 
 # What is Azure IoT Hub Device Provisioning Service?
 
-The IoT Hub Device Provisioning Service (DPS) is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning to the right IoT hub without requiring human intervention. DPS enables the provisioning of millions of devices in a secure and scalable manner. Many of the manual steps traditionally involved in provisioning are automated with DPS to reduce the time to deploy IoT devices and lower the risk of manual error.
+The IoT Hub Device Provisioning Service (DPS) is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning to the right IoT hub without requiring human intervention. In a cloud-based solution, DPS enables the provisioning of millions of devices in a secure and scalable manner. Many of the manual steps traditionally involved in provisioning are automated with DPS to reduce the time to deploy IoT devices and lower the risk of manual error.
 
 ## How Device Provisioning Service works
 

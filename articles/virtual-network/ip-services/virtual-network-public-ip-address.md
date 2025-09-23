@@ -9,6 +9,7 @@ author: mbender-ms
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: concept-article
+# Customer intent: "As a cloud network administrator, I want to create, modify, or delete public IP addresses in Azure, so that I can manage network connectivity for my resources efficiently and ensure compliance before the upcoming SKU retirement deadline."
 ---
 
 # Create, change, or delete an Azure public IP address
@@ -118,6 +119,17 @@ Learn how to assign a public IP address to the following resources:
 ## Region availability
 
 Azure Public IP is available in all regions for both Public and US Gov clouds. Azure Public IP doesn't move or store customer data out of the region it's deployed in.
+
+## Moving Public IP Addresses
+
+You can move Standard Public IP addresses under certain conditions:
+
+| Scenario                     | Allowed | Notes                                                              |
+|------------------------------|---------|--------------------------------------------------------------------|
+| Move across resource groups  | Yes     | While attached to all resources except a virtual network gateway  |
+| Move across subscriptions    | Yes     | Only when detached from all resources                             |
+| Move across regions          | No      | IP addresses are tied to regional ranges and cannot be moved      |
+
 
 ## Permissions
 

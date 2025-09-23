@@ -7,6 +7,7 @@ ms.service: azure-load-balancer
 ms.topic: concept-article
 ms.date: 06/26/2024
 ms.author: mbender
+# Customer intent: As a cloud architect, I want to implement Virtual Machine Scale Sets with Azure Load Balancer, so that I can efficiently manage application scalability and traffic distribution.
 ---
 
 # Guidance for Virtual Machine Scale Sets with Azure Load Balancer

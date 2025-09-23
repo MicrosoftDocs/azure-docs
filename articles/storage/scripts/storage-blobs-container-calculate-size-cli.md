@@ -9,6 +9,7 @@ ms.topic: sample
 ms.date: 03/01/2022
 ms.author: shaas 
 ms.custom: devx-track-azurecli
+# Customer intent: "As a cloud administrator, I want to calculate the size of a Blob storage container using a script, so that I can efficiently manage storage usage and monitor my resource consumption."
 ---
 
 # Calculate the size of a Blob storage container

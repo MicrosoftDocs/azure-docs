@@ -9,7 +9,11 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 02/27/2025
 ms.author: normesta
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-image-nochange
+# Customer intent: As a cloud storage administrator, I want to configure object replication policies for block blobs between storage accounts, so that I can ensure data redundancy and availability across different locations.
 ---
 
 # Configure object replication for block blobs

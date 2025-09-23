@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 05/12/2025
+# Customer intent: "As a security administrator, I want to implement geo-filtering custom rules for my web applications, so that I can restrict access based on user location and enhance the overall security of my applications."
 ---
 
 # Geomatch custom rules
@@ -23,7 +24,7 @@ To create a geo-filtering custom rule in the Azure portal, select *Geo location*
 ## Country/region codes
 
 > [!NOTE]
-> Geo-filtering custom rules are supported only in the Azure public cloud, Azure China, and Azure Government.
+> Geo-filtering custom rules are supported only in the Azure public cloud, Azure China, and Azure Government. Geo-filtering custom rules are not supported in air-gapped clouds.
 
 If you're using the *geomatch* operator, the selectors can be any of the following two-digit country/region codes. 
 

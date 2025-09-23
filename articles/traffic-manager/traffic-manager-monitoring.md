@@ -2,11 +2,12 @@
 title: Azure Traffic Manager endpoint monitoring
 description: Learn how Traffic Manager uses endpoint monitoring and automatic endpoint failover to help Azure customers deploy high-availability applications.
 services: traffic-manager
-author: greg-lindsay
+author: asudbring
 ms.service: azure-traffic-manager
 ms.topic: concept-article
 ms.date: 08/08/2024
-ms.author: greglin
+ms.author: allensu
+# Customer intent: "As a cloud architect, I want to configure endpoint monitoring in Traffic Manager, so that I can ensure high availability and automatic failover for my applications in the event of endpoint failures."
 ---
 
 # Traffic Manager endpoint monitoring
@@ -18,6 +19,8 @@ Azure Traffic Manager includes built-in endpoint monitoring and automatic endpoi
 To configure endpoint monitoring, you must specify the following settings on your Traffic Manager profile:
 
 * **Protocol**. Choose HTTP, HTTPS, or TCP as the protocol that Traffic Manager uses when probing your endpoint to check its health. HTTPS monitoring doesn't verify whether your TLS/SSL certificate is valid, it only checks that the certificate is present.
+> [!NOTE]
+> Traffic Manager support for TLS 1.0 and 1.1 ended on Feb 28, 2025. For more information, see [Traffic Manager TLS FAQ](traffic-manager-faqs.md#what-version-of-tls-is-required-by-traffic-manager).
 * **Port**. Choose the port used for the request.
 * **Path**. This configuration setting is valid only for the HTTP and HTTPS protocols, for which specifying the path setting is required. Providing this setting for the TCP monitoring protocol results in an error. For  HTTP and HTTPS protocol, give the relative path and the name of the webpage or the file that the monitoring accesses. A forward slash `/` is a valid entry for the relative path. This value implies that the file is in the root directory (default).
 * **Custom header settings**. This configuration setting helps you add specific HTTP headers to the health checks that Traffic Manager sends to endpoints under a profile. The custom headers can be specified at a profile level to be applicable for all endpoints in that profile and/or at an endpoint level applicable only to that endpoint. You can use custom headers for health checks of endpoints in a multi-tenant environment. That way, it can be routed correctly to their destination by specifying a host header. You can also use this setting by adding unique headers that can be used to identify Traffic Manager originated HTTP(S) requests and processes them differently. You can specify up to eight `header:value` pairs separated by a comma. For example, `header1:value1, header2:value2`. 

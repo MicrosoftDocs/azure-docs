@@ -5,11 +5,14 @@ description: Learn how to add Conditional Access to Azure AD B2C user flows. Con
 ms.service: azure-active-directory
 ms.subservice: b2c
 ms.topic: overview
-ms.date: 02/18/2025
+ms.date: 06/12/2025
 ms.author: kengaderdus
 author: kengaderdus
 manager: CelesteDG
 zone_pivot_groups: b2c-policy-type
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ga-nochange
 
 
 #Customer intent: As an Azure AD B2C administrator, I want to add Conditional Access to user flows, so that I can manage risky sign-ins to my applications and enforce organizational policies based on risk assessment.
@@ -86,7 +89,7 @@ When using the Microsoft Entra Conditional Access, consider the following:
 
 ## Pricing tier
 
-Azure AD B2C **Premium P2** is required to create risky sign-in policies. **Premium P1** tenants can create a policy that is based on location, application, user-based, or group-based policies. For more information, see [Change your Azure AD B2C pricing tier](billing.md#change-your-azure-ad-pricing-tier)
+Azure AD B2C **Premium P2** is required to create risky sign-in policies but it has now been deprecated as of May 1, 2025. **Premium P1** tenants can create a policy that is based on location, application, user-based, or group-based policies.
 
 ## Prepare your Azure AD B2C tenant
 

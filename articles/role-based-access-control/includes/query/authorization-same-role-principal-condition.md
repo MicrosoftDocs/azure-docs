@@ -4,6 +4,8 @@ ms.service: resource-graph
 ms.topic: include
 ms.date: 01/12/2024
 ms.author: rolyon
+ms.custom:
+  - build-2025
 ---
 
 ```kusto
@@ -21,7 +23,7 @@ authorizationresources
   | extend rdId = tolower(id)
   | project RoleDefinitionName, rdId
 ) on $left.RoleDefinitionId == $right.rdId
-| summarize count_ = count(), Scopes = make_set(tolower(properties.scope)) by RoleDefinitionId_PrincipalId,RoleDefinitionName
+| summarize count_ = count(), Scopes = make_set(tolower(properties.scope)) by RoleDefinitionId_PrincipalId,RoleDefinitionName, condition
 | project RoleDefinitionId = split(RoleDefinitionId_PrincipalId, "_", 0)[0], RoleDefinitionName, PrincipalId = split(RoleDefinitionId_PrincipalId, "_", 1)[0], count_, Scopes, condition
 | where count_ > 1
 | order by count_ desc

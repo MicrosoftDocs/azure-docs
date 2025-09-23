@@ -3,10 +3,11 @@ title: Prerequisites for Azure Update Manager
 description: This article explains the prerequisites for Azure Update Manager, VM extensions and network planning.
 ms.service: azure-update-manager
 ms.custom: linux-related-content
-author: SnehaSudhirG
-ms.author: sudhirsneha
-ms.date: 09/24/2024
+author: habibaum
+ms.author: v-uhabiba
+ms.date: 08/21/2025
 ms.topic: overview
+# Customer intent: "As a system administrator, I want to understand the prerequisites for Azure Update Manager, so that I can effectively prepare my Linux and Arc-enabled servers for update management."
 ---
 
 # Prerequisites for Azure Update Manager
@@ -31,7 +32,7 @@ To manage machines from Azure Update Manager, see [roles and permissions](roles-
 
 ### VM extensions
 
-Azure VM extensions and Azure Arc-enabled VM extensions are required to run on the Azure and Arc-enabled machine respectively for Azure Update Manager to work. But separate installation is not required as the extensions are automatically pushed on the VM the first time you trigger any Update Manager operation on the VM. For more information, see the [VM extensions](workflow-update-manager.md#update-manager-vm-extensions) that are pushed on the machines
+Azure VM extensions and Azure Arc-enabled VM extensions are required to run on the Azure and Arc-enabled machine respectively for Azure Update Manager to work. But separate installation isn't required as the extensions are automatically pushed on the VM the first time you trigger any Update Manager operation on the VM. For more information, see the [VM extensions](workflow-update-manager.md#update-manager-vm-extensions) that are pushed on the machines
 
 ### Network planning
 
@@ -39,7 +40,7 @@ To prepare your network to support Update Manager, you might need to configure s
 
 For Windows machines, you must allow traffic to any endpoints required by the Windows Update agent. You can find an updated list of required endpoints in [issues related to HTTP Proxy](/troubleshoot/windows-client/installing-updates-features-roles/windows-update-issues-troubleshooting?toc=%2Fwindows%2Fdeployment%2Ftoc.json&bc=%2Fwindows%2Fdeployment%2Fbreadcrumb%2Ftoc.json#issues-related-to-httpproxy). If you have a local [WSUS](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment) deployment, you must allow traffic to the server specified in your [WSUS key](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
-For Red Hat Linux machines, see [IPs for the RHUI content delivery servers](/azure/virtual-machines/workloads/redhat/redhat-rhui#the-ips-for-the-rhui-content-delivery-servers)for required endpoints. For other Linux distributions, see your provider documentation.
+For Red Hat Linux machines, see [IPs for the RHUI content delivery servers](/azure/virtual-machines/workloads/redhat/redhat-rhui#the-ips-for-the-rhui-content-delivery-servers) for required endpoints. For other Linux distributions, see your provider documentation.
 
 ### Configure Windows Update client
 

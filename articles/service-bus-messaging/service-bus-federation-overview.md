@@ -3,6 +3,7 @@ title: Message replication and cross-region federation - Azure Service Bus | Mic
 description: This article provides an overview of event replication and cross-region federation with Azure Service Bus. 
 ms.topic: article
 ms.date: 09/28/2021
+ms.custom: sfi-image-nochange
 ---
 
 # Message replication and cross-region federation
@@ -164,7 +165,7 @@ In contrast to all of this, most common replication engines for messaging and ev
 
 ### Replication tasks with Azure Logic Apps
 
-A non-coding alternative to doing replication using Functions would be to use [Logic Apps](../logic-apps/logic-apps-overview.md) instead. Logic Apps have [predefined replication tasks](../logic-apps/create-replication-tasks-azure-resources.md) for Service Bus. These can help with setting up replication between different instances, and can be adjusted for further customization.
+A non-coding alternative to doing replication using Functions would be to use [Logic Apps](../logic-apps/logic-apps-overview.md) instead. Logic Apps have [predefined replication tasks](../logic-apps/create-replication-tasks-azure-resources.md) for Service Bus. These can help with setting up replication between different instances and can be adjusted for further customization.
 
 ## Next Steps
 

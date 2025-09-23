@@ -9,8 +9,10 @@ ms.date: 09/21/2024
 ms.service: sql
 ms.subservice: machine-learning
 ms.topic: quickstart
-ms.custom: mode-other
 keywords: deploy SQL Edge
+ms.custom:
+  - mode-other
+  - sfi-ropc-nochange
 ---
 # Deploy and make predictions with an ONNX model and SQL machine learning
 
@@ -185,7 +187,7 @@ onnxmltools.utils.save_model(onnx_model, onnx_model_path)
 ```
 
 > [!NOTE]  
-> You may need to set the `target_opset` parameter for the skl2onnx.convert_sklearn function if there's a mismatch between ONNX runtime version in SQL Edge and skl2onnx packge. For more information, see the [SQL Edge Release notes](release-notes.md) to get the ONNX runtime version corresponding for the release, and pick the `target_opset` for the ONNX runtime based on the [ONNX backward compatibility matrix](https://github.com/microsoft/onnxruntime/blob/master/docs/Versioning.md#version-matrix).
+> You may need to set the `target_opset` parameter for the skl2onnx.convert_sklearn function if there's a mismatch between ONNX runtime version in SQL Edge and skl2onnx package. For more information, see the [SQL Edge Release notes](release-notes.md) to get the ONNX runtime version corresponding for the release, and pick the `target_opset` for the ONNX runtime based on the [ONNX backward compatibility matrix](https://github.com/microsoft/onnxruntime/blob/master/docs/Versioning.md#version-matrix).
 
 ## Test the ONNX model
 

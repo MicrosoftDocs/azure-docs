@@ -7,7 +7,8 @@ ms.reviewer: estfan, azla
 ms.topic: tutorial
 ms.collection: ce-skilling-ai-copilot
 ms.custom: mvc
-ms.date: 02/27/2025
+ms.update-cycle: 180-days
+ms.date: 09/11/2025
 ---
 
 # Tutorial: Create schedule-based automated workflows using Azure Logic Apps

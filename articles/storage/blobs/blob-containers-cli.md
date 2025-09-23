@@ -11,6 +11,7 @@ ms.date: 02/05/2022
 ms.author: shaas
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
+# Customer intent: "As a cloud administrator, I want to manage blob storage containers using command-line tools, so that I can automate storage operations and streamline resource management efficiently."
 ---
 
 # Manage blob containers using Azure CLI

@@ -141,4 +141,4 @@ When this error occurs, instead create your function app and hosting plan in a n
 [Flex Consumption plan]: flex-consumption-plan.md
 [Premium plan]: functions-premium-plan.md
 [Dedicated plan]: dedicated-plan.md
-[Container Apps]: functions-container-apps-hosting.md
+[Container Apps]: ../container-apps/functions-overview.md

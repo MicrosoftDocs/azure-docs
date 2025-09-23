@@ -1,11 +1,12 @@
 ---
 title: Working with VMs and NSGs in Azure Bastion
 description: Learn about using network security groups with Azure Bastion.
-author: cherylmc
+author: abell
 ms.service: azure-bastion
 ms.topic: concept-article
 ms.date: 03/31/2025
-ms.author: cherylmc
+ms.author: abell
+# Customer intent: "As a network administrator, I want to configure network security groups for Azure Bastion, so that I can manage secure ingress and egress traffic to virtual machines while maintaining compliance and security practices."
 ---
 # Working with NSG access and Azure Bastion
 
@@ -52,6 +53,121 @@ Azure Bastion is deployed specifically to ***AzureBastionSubnet***.
 
 
    :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Screenshot shows outbound security rules for Azure Bastion connectivity." lightbox="./media/bastion-nsg/outbound.png":::
+
+### Powershell Script to create the above mentioned Ingress and Egress traffic rules ###
+```
+# Connect to Azure Account
+Connect-AzAccount
+# Get the Network Security Group details
+$resourceGroupName = Read-Host ("Enter the name of the Resource Group")
+$nsgName = Read-Host ("Enter the name of the Network Security Group")
+# Ingress and Egress rules
+$rules = @(
+    @{
+        Name = "AllowHttpsInbound"
+        Priority = 120
+        Direction = "Inbound"
+        Access = "Allow"
+        SourceAddressPrefix = "Internet"
+        SourcePortRange = "*"
+        DestinationAddressPrefix = "*"
+        DestinationPortRange = "443"
+        Protocol = "TCP"
+    },
+    @{
+        Name = "AllowGatewayManagerInbound"
+        Priority = 130
+        Direction = "Inbound"
+        Access = "Allow"
+        SourceAddressPrefix = "GatewayManager"
+        SourcePortRange = "*"
+        DestinationAddressPrefix = "*"
+        DestinationPortRange = "443"
+        Protocol = "TCP"
+    },
+    @{
+        Name = "AllowAzureLoadBalancerInbound"
+        Priority = 140
+        Direction = "Inbound"
+        Access = "Allow"
+        SourceAddressPrefix = "AzureLoadBalancer"
+        SourcePortRange = "*"
+        DestinationAddressPrefix = "*"
+        DestinationPortRange = "443"
+        Protocol = "TCP"
+    },
+    @{
+        Name = "AllowBastionHostCommunication"
+        Priority = 150
+        Direction = "Inbound"
+        Access = "Allow"
+        SourceAddressPrefix = "VirtualNetwork"
+        SourcePortRange = "*"
+        DestinationAddressPrefix = "VirtualNetwork"
+        DestinationPortRange = 8080,5701
+        Protocol = "Ah"
+    }
+    @{
+        Name = "AllowSshRdpOutbound"
+        Priority = 100
+        Direction = "Outbound"
+        Access = "Allow"
+        SourceAddressPrefix = "*"
+        SourcePortRange = "*"
+        DestinationAddressPrefix = "VirtualNetwork"
+        DestinationPortRange = 22,3389
+        Protocol = "Ah"
+    },
+    @{
+        Name = "AllowAzureCloudOutbound"
+        Priority = 110
+        Direction = "Outbound"
+        Access = "Allow"
+        SourceAddressPrefix = "*"
+        SourcePortRange = "*"
+        DestinationAddressPrefix = "AzureCloud"
+        DestinationPortRange = "443"
+        Protocol = "TCP"
+    },
+    @{
+        Name = "AllowBastionCommunication"
+        Priority = 120
+        Direction = "Outbound"
+        Access = "Allow"
+        SourceAddressPrefix = "VirtualNetwork"
+        SourcePortRange = "*"
+        DestinationAddressPrefix = "VirtualNetwork"
+        DestinationPortRange = 8080,5701
+        Protocol = "Ah"
+    },
+    @{
+        Name = "AllowHttpOutbound"
+        Priority = 130
+        Direction = "Outbound"
+        Access = "Allow"
+        SourceAddressPrefix = "*"
+        SourcePortRange = "*"
+        DestinationAddressPrefix = "Internet"
+        DestinationPortRange = "80"
+        Protocol = "Ah"
+    }
+ )
+foreach ($rule in $rules) {
+    $nsgRule = New-AzNetworkSecurityRuleConfig -Name $rule.Name `
+        -Priority $rule.Priority `
+        -Direction $rule.Direction `
+        -Access $rule.Access `
+        -SourceAddressPrefix $rule.SourceAddressPrefix `
+        -SourcePortRange $rule.SourcePortRange `
+        -DestinationAddressPrefix $rule.DestinationAddressPrefix `
+        -DestinationPortRange $rule.DestinationPortRange `
+        -Protocol $rule.Protocol
+ # Get the details of the Network Security Group and Add rules to the group
+    $nsg = Get-AzNetworkSecurityGroup -ResourceGroupName $resourceGroupName -Name $nsgName
+    $nsg.SecurityRules.Add($nsgRule)
+    Set-AzNetworkSecurityGroup -NetworkSecurityGroup $nsg
+}
+```
 
 ### Target VM Subnet
 This is the subnet that contains the target virtual machine that you want to RDP/SSH to.

@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 04/28/2025
+# Customer intent: As a web application administrator, I want to configure and manage the Default Rule Set (DRS) for the Web Application Firewall, so that I can effectively protect my applications from various vulnerabilities and security threats.
 ---
 
 # Web Application Firewall DRS rule groups and rules
@@ -66,7 +67,7 @@ A single *Critical* rule match is enough for the WAF to block a request when in 
 
 When your WAF uses an older version of the Default Rule Set (before DRS 2.0), your WAF runs in the traditional mode. Traffic that matches any rule is considered independently of any other rule matches. In traditional mode, you don't have visibility into the complete set of rules that a specific request matched.
 
-The version of the DRS that you use also determines which content types are supported for request body inspection. For more information, see [What content types does WAF support](waf-faq.yml#what-content-types-does-waf-support-) in the FAQ.
+The version of the DRS that you use also determines which content types are supported for request body inspection. For more information, see [What content types does WAF support](waf-faq.yml#what-content-types-does-the-waf-support-) in the FAQ.
 
 ## Paranoia level
 

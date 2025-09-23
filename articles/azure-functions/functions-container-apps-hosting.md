@@ -3,11 +3,16 @@ title: Azure Container Apps hosting of Azure Functions
 description: Learn about how you can use Azure Functions on Azure Container Apps to host and manage containerized function apps in Azure.
 ms.date: 04/22/2025
 ms.topic: conceptual
-ms.custom: build-2024, linux-related-content
+ms.custom:
+  - build-2024
+  - linux-related-content
+  - sfi-ropc-nochange
 # Customer intent: As a cloud developer, I want to learn more about hosting my function apps in Linux containers managed by Azure Container Apps.
 ---
 
 # Azure Container Apps hosting of Azure Functions 
+
+[!INCLUDE [functions-aca-v2-note](../../includes/functions-aca-v2-note.md)]
 
 Azure Functions provides integrated support for developing, deploying, and managing containerized function apps on [Azure Container Apps](../container-apps/overview.md). Use Azure Container Apps to host your function app containers when you need to run your event-driven functions in Azure in the same environment as other microservices, APIs, websites, workflows, or any container hosted programs. Container Apps hosting lets you run your functions in a fully managed, Kubernetes-based environment with built-in support for open-source monitoring, mTLS, Dapr, and Kubernetes Event-driven Autoscaling (KEDA).
 
@@ -19,7 +24,7 @@ For a general overview of container hosting options for Azure Functions, see [Li
 
 ## Hosting and workload profiles
 
-There are two primary hosting plans for Container Apps, a serverless [Consumption plan](../container-apps/plans.md#consumption) and a [Dedicated plan](../container-apps/plans.md#dedicated), which uses workload profiles to better control your deployment resources. A workload profile determines the amount of compute and memory resources available to container apps deployed in an environment. These profiles are configured to fit the different needs of your applications. 
+There are two primary plans for Container Apps: a serverless [Consumption plan](../container-apps/plans.md#consumption) and a [Dedicated plan](../container-apps/plans.md#dedicated). Both can be used in Workload profiles environment types, with workload profiles determining the compute and memory resources available to your apps. A workload profile determines the amount of compute and memory resources available to container apps deployed in an environment. These profiles are configured to fit the different needs of your applications. 
 
 The Consumption workload profile is the default profile added to every Workload profiles environment type. You can add Dedicated workload profiles to your environment as you create an environment or after it's created. To learn more about workload profiles, see [Workload profiles in Azure Container Apps](../container-apps/workload-profiles-overview.md).
 
@@ -140,3 +145,5 @@ Keep in mind the following considerations when deploying your function app conta
 
 + [Hosting and scale](./functions-scale.md)
 + [Create your first containerized functions on Container Apps](./functions-deploy-container-apps.md)
++ [Native Azure Functions Support in Azure Container Apps](../../articles/container-apps/functions-overview.md)
++ [Create your Native Azure Functions on Azure Container Apps](../../articles/container-apps/functions-usage.md)

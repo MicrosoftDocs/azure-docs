@@ -8,6 +8,7 @@ ms.service: azure-data-lake-storage
 ms.topic: how-to
 ms.date: 11/18/2024
 ms.author: normesta
+# Customer intent: As a data engineer, I want to use Azure Storage Explorer to manage directories and files in Azure Data Lake Storage, so that I can efficiently organize and control access to my data in a hierarchical storage structure.
 ---
 
 # Use Azure Storage Explorer to manage directories and files in Azure Data Lake Storage

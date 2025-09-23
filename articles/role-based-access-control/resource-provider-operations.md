@@ -5,9 +5,9 @@ ms.service: role-based-access-control
 ms.topic: generated-reference
 ms.workload: identity
 author: rolyon
-manager: femila
+manager: pmwongera
 ms.author: rolyon
-ms.date: 04/25/2025
+ms.date: 07/07/2025
 ms.custom: generated
 ---
 
@@ -232,6 +232,7 @@ Click the resource provider name in the following list to see the list of permis
 > | --- | --- | --- |
 > | [Microsoft.Chaos](./permissions/devops.md#microsoftchaos) |  | [Azure Chaos Studio](/azure/chaos-studio/) |
 > | [Microsoft.DevCenter](./permissions/devops.md#microsoftdevcenter) |  | [Azure Deployment Environments](/azure/deployment-environments/overview-what-is-azure-deployment-environments) |
+> | [Microsoft.DevOpsInfrastructure](./permissions/devops.md#microsoftdevopsinfrastructure) |  | [Managed DevOps Pools](/azure/devops/managed-devops-pools/overview) |
 > | [Microsoft.DevTestLab](./permissions/devops.md#microsoftdevtestlab) | Quickly create environments using reusable templates and artifacts. | [Azure Lab Services](/azure/lab-services/) |
 > | [Microsoft.LabServices](./permissions/devops.md#microsoftlabservices) | Set up labs for classrooms, trials, development and testing, and other scenarios. | [Azure Lab Services](/azure/lab-services/) |
 > | [Microsoft.LoadTestService](./permissions/devops.md#microsoftloadtestservice) |  | [Azure Load Testing](/azure/load-testing/) |
@@ -314,6 +315,7 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.Kubernetes](./permissions/hybrid-multicloud.md#microsoftkubernetes) |  | [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview) |
 > | [Microsoft.KubernetesConfiguration](./permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration) |  | [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview) |
 > | [Microsoft.ResourceConnector](./permissions/hybrid-multicloud.md#microsoftresourceconnector) |  |  |
+> | [Microsoft.SCVMM](./permissions/hybrid-multicloud.md#microsoftscvmm) |  | [Azure Arc-enabled System Center Virtual Machine Manager (SCVMM)](/azure/azure-arc/system-center-virtual-machine-manager/overview) |
 
 ## Next steps
 

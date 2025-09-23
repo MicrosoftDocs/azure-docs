@@ -7,6 +7,7 @@ ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 12/06/2024
 ms.author: cherylmc
+# Customer intent: As a network administrator, I want to configure RADIUS authentication for point-to-site VPN connections, so that remote users can securely connect to the virtual network using their organizational credentials.
 ---
 
 # Configure server settings for P2S VPN Gateway RADIUS authentication

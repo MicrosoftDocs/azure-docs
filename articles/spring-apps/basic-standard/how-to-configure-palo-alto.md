@@ -5,8 +5,12 @@ author: KarlErickson
 ms.author: karler
 ms.topic: how-to
 ms.service: azure-spring-apps
-ms.date: 06/27/2024
-ms.custom: devx-track-java, devx-track-azurecli
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
+ms.custom:
+  - devx-track-java
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 ---
 
 # How to configure Palo Alto for Azure Spring Apps
@@ -168,7 +172,7 @@ function New-PaloAltoService {
             }
         }
 
-        # Some rules in the CSV may need to conain source ports or descriptions. If these are present, populate them in the request
+        # Some rules in the CSV may need to contain source ports or descriptions. If these are present, populate them in the request
         if ($ServiceObject.description) {
             $requestBody.entry.description = $ServiceObject.description
         }

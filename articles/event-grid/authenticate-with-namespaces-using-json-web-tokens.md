@@ -28,7 +28,8 @@ To use OAuth 2.0 JWT authentication for namespaces, follow these steps:
 1. Enable managed identity on your Event Grid namespace. 
 1. Configure OAuth 2.0 authentication settings on your Event Grid namespace by following these steps: 
     1. Create an Azure Key Vault account that hosts the CA certificate that includes your public keys and  add role assignment in Key Vault for the namespace’s managed identity. 
-    1. Upload the PEM file of your public key certificates to namespace. 
+   1. Or upload the PEM file of your public key certificates to namespace. 
+      
   1. Your clients can connect to the Event Grid namespace using the tokens provided by your identity provider. 
 
 ## Create a namespace and configure its subresources 
@@ -45,7 +46,7 @@ For information configuring system and user-assigned identities using the Azure 
 
 
 ## Configure OAuth 2.0 JWT authentication settings on your Event Grid namespace -Key Vault 
-First, create an Azure Key Vault account, upload your server certificate, and assign the namespace's managed identity an appropriate role on the key vault. Then, you configure custom authentication settings on your Event Grid namespace using Azure portal and Azure CLI. You need to create the namespace first then update it using the following steps.
+First, create an Azure Key Vault account, upload your server certificate, and assign the namespace's managed identity an appropriate role on the key vault. Then, you configure custom authentication settings on your Event Grid namespace using either Azure portal or Azure CLI. You need to create the namespace first then update it using the following steps.
 
 ### Create an Azure Key Vault account and upload your server certificate 
 
@@ -132,8 +133,8 @@ az resource update \
  
 ```
 ### JSON Web Token format
-JSON Web Tokens are divided into the JWT Header and JWT payload sections.
- 
+JSON Web Tokens needs to have JWT Header, JWT payload and JWT signature sections.
+
 ### JWT Header 
 
 The header must contain at least `typ` and `alg` fields. `typ` must always be `JWS` and `alg` must always be `RS256`. The token header must be as follows: 
@@ -154,7 +155,7 @@ Event Grid requires the following claims: `iss`, `sub`, `aud`, `exp`, 
 | ---  | ----------- | 
 | `iss` | Issuer. Value in JWT must match issuer in the Event Grid namespace configuration for custom JWT authentication. |
 | `sub` | Subject. Value is used as authentication identity name. |
-| `aud` | Audience. Value can be a string or an array of strings. Value must contain standard Event Grid namespace hostname and/or custom domain for that Event Grid namespace (if configured). Audience can contain other strings, but we require at least one of these strings to be a standard Event Grid namespace hostname or custom domain for this namespace. |
+| `aud` | Audience. Value is an array of strings. Value must contain standard Event Grid namespace hostname and/or custom domain for that Event Grid namespace (if configured). Audience can contain other strings, but we require at least one of these strings to be a standard Event Grid namespace hostname or custom domain for this namespace. |
 | `exp` | Expiration. Unix time when JWT expires. |
 | `nbf` | Not before. Unit time when JWT becomes valid. |
 
@@ -227,13 +228,13 @@ az eventgrid namespace update \
 ```
 
 - Replace `<resource-group-name>`, `<namespace-name>`, `<location>`, `<key-vault-name>`, `<certificate-name>`, and `<certificate-in-PEM-format>` with your actual values. 
-- The encodedCertificate value must include the full certificate in PEM format, including headers ( `"-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE----`). 
+- The encodedCertificate value must include the full certificate and public key in PEM format, including headers ( `"-----BEGIN CERTIFICATE-----", "-----END CERTIFICATE----, ``-----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY-----`). 
 - Ensure the public key certificate provided is valid and trusted by your identity provider. 
 - Regularly update the encodedIssuerCertificates if certificates are rotated or expired. 
 
 ### JSON Web Token format
 
-JWT payload 
+JSON Web Tokens needs to have JWT Header, JWT payload and JWT signature sections.
 
 Event Grid requires the following claims: `iss`, `sub`, `aud`, `exp`, `nbf`. 
 

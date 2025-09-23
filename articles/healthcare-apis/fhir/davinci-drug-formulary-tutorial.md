@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.author: kesheth
 author: expekesheth
 ms.date: 06/06/2022
+ms.custom: sfi-image-nochange
 ---
 
 # Tutorial for Da Vinci Drug Formulary

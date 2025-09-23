@@ -4,8 +4,10 @@ ms.service: azure-app-service
 ms.topic: include
 ms.date: 04/25/2025
 ms.author: msangapu
+ms.custom:
+  - build-2025
 ---
-| Resource | Free | Shared | Basic | Standard | Premium (v1-v3) | Isolated </th> |
+| Resource | Free | Shared | Basic | Standard | Premium (v1-v4) | Isolated </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Apps](https://azure.microsoft.com/services/app-service/) per [Azure App Service plan](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Unlimited<sup>2</sup> |Unlimited<sup>2</sup> |Unlimited<sup>2</sup> |Unlimited<sup>2</sup>|
 | App Service environments | | | | | | X |
@@ -15,7 +17,7 @@ ms.author: msangapu
 | Compute instance type |Shared |Shared |Dedicated<sup>3</sup> |Dedicated<sup>3</sup> |Dedicated<sup>3</sup></p> |Dedicated<sup>3</sup>|
 | [App Service plan](../articles/app-service/overview-hosting-plans.md) |10 per region |10 per resource group |100 per resource group |100 per resource group |100 per resource group |100 per resource group|
 | Compute instance type |Shared |Shared |Dedicated<sup>3</sup> |Dedicated<sup>3</sup> |Dedicated<sup>3</sup></p> |Dedicated<sup>3</sup>|
-| [Scale out](../articles/app-service/manage-scale-up.md) (maximum instances) |1 shared |1 shared |3 dedicated<sup>3</sup> |10 dedicated<sup>3</sup> | 20 dedicated for v1; 30 dedicated for v2 and v3.<sup>3</sup>|100 dedicated<sup>4</sup>|
+| [Scale out](../articles/app-service/manage-scale-up.md) (maximum instances) |1 shared |1 shared |3 dedicated<sup>3</sup> |10 dedicated<sup>3</sup> | 20 dedicated for v1; 30 dedicated for v2, v3, and v4.<sup>3</sup>|100 dedicated<sup>4</sup>|
 | Storage<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |250 GB<sup>5</sup> |1 TB<sup>12</sup> <br/><br/> The available storage quota is 999 GB. |
 | CPU time (5 minutes)<sup>6</sup> |3 minutes |3 minutes |Unlimited, pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/)</a> |Unlimited, pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/)</a> |Unlimited, pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/)</a> |Unlimited, pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/)</a>|
 | CPU time (day)<sup>6</sup> |60 minutes |240 minutes |Unlimited, pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/)</a> |Unlimited, pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/)</a> |Unlimited, pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/)</a> |Unlimited, pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/)</a> |
@@ -35,7 +37,7 @@ ms.author: msangapu
 | Integrated load balancer | |X |X |X |X |X<sup>9</sup> |
 | [Access restrictions](../articles/app-service/networking-features.md#access-restrictions) | 512 rules per app | 512 rules per app | 512 rules per app | 512 rules per app | 512 rules per app | 512 rules per app |
 | [Always On](../articles/app-service/configure-common.md) | | |X |X |X |X |
-| [Scheduled backups](../articles/app-service/manage-backup.md) | | | Scheduled backups every 2 hours, a maximum of 12 backups per day (manual + scheduled | Scheduled backups every 2 hours, a maximum of 12 backups per day (manual + scheduled) | Scheduled backups every hour, a maximum of 50 backups per day (manual + scheduled) | Scheduled backups every hour, a maximum of 50 backups per day (manual + scheduled) |
+| [Custom scheduled backups](../articles/app-service/manage-backup.md) | | | Scheduled backups every 2 hours, a maximum of 12 backups per day (manual + scheduled | Scheduled backups every 2 hours, a maximum of 12 backups per day (manual + scheduled) | Scheduled backups every hour, a maximum of 50 backups per day (manual + scheduled) | Scheduled backups every hour, a maximum of 50 backups per day (manual + scheduled) |
 | [Autoscale](../articles/app-service/manage-scale-up.md) | | | |X |X |X |
 | [WebJobs](../articles/app-service/webjobs-create.md)<sup>10</sup> |X |X |X |X |X |X |
 | [Endpoint monitoring](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
@@ -61,7 +63,7 @@ ms.author: msangapu
 
 <sup>7</sup>If you scale a Windows app in the Basic tier to two instances, you have 350 concurrent connections for each of the two instances. For Windows apps on Standard tier and above, there are no theoretical limits to WebSockets, but other factors can limit the number of WebSockets. For example, maximum concurrent requests allowed (defined by `maxConcurrentRequestsPerCpu`) are: 7,500 per small VM, 15,000 per medium VM (7,500 x 2 cores), and 75,000 per large VM (18,750 x 4 cores). Linux apps are limited 5 concurrent WebSocket connections on Free SKU and ~50k concurrent WebSocket connections per instance on all other SKUs.
 
-<sup>8</sup> The maximum IP connections are per instance and depend on the instance size: 1,920 per B1/S1/P0V3/P1V3 instance, 3,968 per B2/S2/P2V3 instance, 8,064 per B3/S3/P3V3 instance.
+<sup>8</sup> The maximum IP connections are per instance and depend on the instance size: 1,920 per B1/S1/P0V3/P1V3/P0V4/P1V4 instance, 3,968 per B2/S2/P2V3/P2V4 instance, 8,064 per B3/S3/P3V3/P4V4 instance.
 
 <sup>9</sup> App Service Isolated SKUs can be internally load balanced (ILB) with Azure Load Balancer, so there's no public connectivity from the internet. As a result, some features of an ILB Isolated App Service must be used from machines that have direct access to the ILB network endpoint.
 

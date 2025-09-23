@@ -1,12 +1,13 @@
 ---
 title: 'About Azure Bastion configuration settings'
 description: Learn about the available configuration settings for Azure Bastion.
-author: cherylmc
-ms.author: cherylmc
+author: abell
+ms.author: abell
 ms.service: azure-bastion
 ms.topic: concept-article
 ms.date: 03/14/2025
 ms.custom: references_regions, ignite-2024
+# Customer intent: "As a cloud administrator, I want to configure Azure Bastion settings, including SKU selection and network requirements, so that I can ensure secure and efficient access to virtual machines within my infrastructure."
 ---
 
 # About Bastion configuration settings
@@ -87,6 +88,18 @@ You can configure this setting using the following methods:
 | Azure portal | Public IP address |[Azure portal](https://portal.azure.com)|
 | Azure PowerShell | -PublicIpAddress| [cmdlet](/powershell/module/az.network/new-azbastion#parameters)  |
 | Azure CLI | --public-ip create |[command](/cli/azure/network/public-ip) |
+
+### Configure Public IP addresses with availability zones configured
+Refer to the table below for creating/using public IP addresses for zonal Bastion deployments:
+
+| Scenario| Bastion availability zones  | Public IP availability zones  |
+|:-------|:------|:-------|
+| Creating a new public IP | 1, 2, 3 | 1, 2, 3 |
+| | 1 | 1, 2, 3|
+|Using an existing public IP | 1, 2, 3 | 1, 2, 3|
+| | 1 | 1, 2, 3|
+| | 0 | all public IPs, zonal or not|
+
 
 ## <a name="instance"></a>Instances and host scaling
 

@@ -4,27 +4,23 @@ titleSuffix: Microsoft Dev Box
 description: Learn how to hibernate a dev box in Microsoft Dev Box. Use hibernation to shut down your VM, while preserving your active work.
 services: dev-box
 ms.service: dev-box
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 01/31/2025
+ms.date: 03/20/2025
 ms.topic: how-to
 #Customer intent: As a developer, I want to be able to hibernate my dev boxes so that I can resume work where I left off.
 ---
 
 # Hibernate a dev box in Microsoft Dev Box
 
-[!INCLUDE [note-build-2025](includes/note-build-2025.md)]
-
 In this article, you learn how to hibernate and resume a dev box in Microsoft Dev Box. 
 
 Hibernation is a power-saving state that saves your running applications to your hard disk and then shuts down the virtual machine (VM). When you resume the VM, all your previous work is restored. 
 
 You can hibernate your dev box through the Microsoft Dev Box developer portal or the CLI. You can't hibernate your dev box from within the virtual machine.
-
-> [!IMPORTANT]
-> Dev Box Hibernation is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Hibernate your dev box using the developer portal 
 
@@ -73,10 +69,6 @@ To shut down your dev box, either
 - Developer portal - Go to the [developer portal](https://aka.ms/devbox-portal), select your DevBox, and on the actions menu, select **Shut down**. 
 - CLI - `az devcenter dev dev-box stop --name <YourDevBoxName> --dev-center-name <YourDevCenterName> --project-name <YourProjectName> --user-id "me" --hibernate false`
 
-**When my dev box resumes from a hibernated state, all my open windows were gone.** 
-
-Dev Box Hibernation is a preview feature, and you might run into reliability issues. Enable AutoSave on your applications to minimize the effects of session loss. 
-
 **I changed some settings on one of my dev boxes and it no longer hibernates. My other dev boxes hibernate without issues. What could be the problem?**
 
 Some settings aren't compatible with hibernation and prevent your dev box from hibernating. To learn about these settings, see: [Settings not compatible with hibernation](how-to-configure-dev-box-hibernation.md#settings-not-compatible-with-hibernation). 
@@ -84,4 +76,4 @@ Some settings aren't compatible with hibernation and prevent your dev box from h
  ## Related content
 
 - [Manage a dev box by using the developer portal](how-to-create-dev-boxes-developer-portal.md)
-- [How to configure Dev Box Hibernation (preview)](how-to-configure-dev-box-hibernation.md)
+- [How to configure Dev Box Hibernation](how-to-configure-dev-box-hibernation.md)

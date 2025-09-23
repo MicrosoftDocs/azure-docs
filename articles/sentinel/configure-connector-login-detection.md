@@ -1,11 +1,10 @@
 ---
 title: Configure the Security Events connector for anomalous RDP login detection
 description: Learn how to configure the Security Events or Windows Security Events connector for anomalous RDP login detection.
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.date: 02/24/2023
-ms.author: yelevin
-
 
 #Customer intent: As a security engineer, I want to enable the detection of anomalous RDP logins, so that analysts can identify and respond to the resulting potential security threats in my network.
 
@@ -37,4 +36,4 @@ As the machine learning algorithm requires 30 days' worth of data to build a bas
 ## Next steps
 
 - [Windows security event sets that can be sent to Microsoft Sentinel](windows-security-event-id-reference.md)
-- [Windows Security Events via AMA connector for Microsoft Sentinel](data-connectors/windows-security-events-via-ama.md)
+- [Windows Security Events via AMA connector for Microsoft Sentinel](data-connectors-reference.md#windows-security-events-via-ama)

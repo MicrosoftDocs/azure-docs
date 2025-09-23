@@ -7,6 +7,7 @@ ms.service: azure-firewall
 ms.topic: how-to
 ms.date: 03/04/2025
 ms.author: duau
+# Customer intent: As a network engineer, I want to integrate Azure Firewall with an Azure Standard Load Balancer, so that I can optimize traffic routing and enhance security in my virtual network setup.
 ---
 
 # Integrate Azure Firewall with Azure Standard Load Balancer

@@ -1,35 +1,44 @@
 ---
-title: MongoDB Atlas (preview)
+title: MongoDB Atlas 
 description: Learn about using MongoDB Atlas in Azure Marketplace.
 ms.topic: overview
 ms.date: 04/03/2025
+ai-usage: ai-assisted
 ---
 
-# What is MongoDB Atlas (preview)?
+# What is MongoDB Atlas?
 
-[!INCLUDE [what-is](../includes/what-is.md)]
+MongoDB Atlas allows users to provision and manage Atlas organizations from Azure. It is jointly developed and managed by Microsoft and MongoDB as an Azure Native Integration. [!INCLUDE [what-is](../includes/what-is.md)]
 
-Microsoft and [MongoDB](https://www.mongodb.com/) developed this service and manage it together.
+## What is it used for?
 
-You can find MongoDB Atlas in the [Azure portal](https://portal.azure.com) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/).
+MongoDB Atlas  is used to store, manage, and process operational data for cloud applications. It supports scenarios such as real-time analytics, full-text and vector search, and stream processing for event-driven applications.
 
-Use MongoDB Atlas to build modern AI-enabled apps faster with built-in security, rich querying, and data distribution across the globe. MongoDB Atlas provides native support for full-text search, vector search, and stream processing, empowering developers to adapt data models quickly. Ensure performance and low latency with MongoDB Atlas database through intuitive scaling, automated resource adjustments, and global data distribution. Information is protected at every stage with built-in access controls, encryption, and automatic updates.
+Typical use cases include:
 
-## Capabilities
+- Storing and managing application data for web and mobile apps
+- Enabling real-time analytics and reporting
+- Implementing full-text and vector search capabilities
+- Supporting event-driven architectures with stream processing
+- Managing globally distributed data for low-latency access
 
-Azure Native MongoDB Atlas provides the following capabilities:
+## Key Features
 
-- **Seamless onboarding** on MongoDB Atlas as an integrated service on Azure.
-- **Unified billing** of MongoDB Atlas via monthly billing through Azure Marketplace.
-- **Resource management** and tracking from the Azure portal.
+The following features distinguish MongoDB Atlas  from traditional managed database services and support modern application development and operations:
 
-## Subscribe to MongoDB Atlas (preview)
+- **Native Full-Text and Vector Search**: Enable advanced search capabilities, including full-text and vector-based search, for building intelligent applications.
+- **Stream Processing**: Support event-driven architectures with built-in stream processing features.
+- **Automated Scaling**: Automatically adjust resources to match workload demands, ensuring performance and efficiency.
+- **Global Data Distribution**: Deploy and manage data across multiple regions for low-latency access and high availability.
+- **Comprehensive Security**: Protect data with built-in access controls, encryption, and automated security updates.
 
-[!INCLUDE [subscribe](../includes/subscribe.md)] MongoDB Atlas.
+## Subscribe to MongoDB Atlas 
+
+[!INCLUDE [subscribe](../includes/subscribe.md)] **MongoDB Atlas**.
 
 [!INCLUDE [subscribe](../includes/subscribe-from-azure-portal.md)]
 
 ## Next step
 
-> [!div class"nextstepaction"]
+> [!div class="nextstepaction"]
 > [Create a resource](create.md)

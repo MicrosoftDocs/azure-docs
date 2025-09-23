@@ -4,10 +4,16 @@ description: This article provides information on how to migrate an existing age
 services: automation
 ms.subservice: process-automation
 ms.date: 04/07/2025
-ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-bicep
+  - devx-track-azurepowershell
+  - build-2025
 ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently migrate agent based hybrid workers to extension based workers.
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Migrate the existing agent-based hybrid workers to extension-based hybrid workers
@@ -121,9 +127,9 @@ For at-scale migration of multiple Agent based Hybrid Workers, you can also use 
 
 ## Manage Hybrid Worker extension using Bicep & ARM templates, REST API, Azure CLI, and PowerShell
 
-#### [Bicep template](#tab/bicep-template)
+#### [Bicep file](#tab/bicep-file)
 
-You can use the Bicep template to create a new Hybrid Worker group, create a new Azure Windows VM and add it to an existing Hybrid Worker Group. Learn more about [Bicep](../azure-resource-manager/bicep/overview.md).
+You can use the Bicep file to create a new Hybrid Worker group, create a new Azure Windows VM and add it to an existing Hybrid Worker Group. Learn more about [Bicep](../azure-resource-manager/bicep/overview.md).
 
 Follow the steps mentioned below as an example:
 

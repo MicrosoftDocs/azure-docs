@@ -5,9 +5,14 @@ author: KarlErickson
 ms.author: karler
 ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 06/27/2024
-ms.custom: devx-track-java, devx-track-extended-java, mode-other
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 zone_pivot_groups: programming-languages-spring-apps
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - mode-other
+  - sfi-image-nochange
 ---
 
 # Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing
@@ -241,7 +246,7 @@ Navigate to the **Performance** page:
 
 Navigate to the **Dependencies** tab, where you can see the performance number for dependencies, particularly SQL calls:
 
-:::image type="content" source="media/quickstart-logs-metrics-tracing/petclinic-microservices-insights-on-dependencies.jpg" alt-text="Screenshot of the Azure portal that shows the Application Insights Performance page with the Depencies table highlighted." lightbox="media/quickstart-logs-metrics-tracing/petclinic-microservices-insights-on-dependencies.jpg":::
+:::image type="content" source="media/quickstart-logs-metrics-tracing/petclinic-microservices-insights-on-dependencies.jpg" alt-text="Screenshot of the Azure portal that shows the Application Insights Performance page with the Dependencies table highlighted." lightbox="media/quickstart-logs-metrics-tracing/petclinic-microservices-insights-on-dependencies.jpg":::
 
 Select a SQL call to see the end-to-end transaction in context:
 

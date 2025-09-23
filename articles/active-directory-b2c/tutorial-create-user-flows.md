@@ -9,6 +9,9 @@ ms.date: 01/10/2025
 ms.author: godonnell
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 
 #Customer intent: As a developer, I want to learn how to create user flows and custom policies in the Azure portal to enable sign up, sign in, and user profile editing for my applications in Azure Active Directory B2C.
 
@@ -211,8 +214,8 @@ Next, specify that the application should be treated as a public client:
 1. In the left menu, under **Manage**, select **Authentication**.
 1. Under **Advanced settings**, in the **Allow public client flows** section, set **Enable the following mobile and desktop flows** to **Yes**. 
 1. Select **Save**.
-1. Ensure that **"isFallbackPublicClient": true** is set in the application manifest:
-    1. In the left menu, under **Manage**, select **Manifest** to open application manifest.
+1. Ensure that **"isFallbackPublicClient": true** is set in the Microsoft Graph App Manifest(New):
+    1. In the left menu, under **Manage**, select **Manifest** to open Microsoft Graph App Manifest(New)
     1. Switch from the **Microsoft Graph App Manifest (New)** tab to the **AAD Graph App Manifest (Deprecating Soon)** tab.
     1. Find **isFallbackPublicClient** key and ensure its value is set to **true**.
 

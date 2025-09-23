@@ -2,14 +2,15 @@
 title: Encrypt and decrypt blobs using Azure Key Vault
 titleSuffix: Azure Storage
 description: Learn how to encrypt and decrypt a blob using client-side encryption with Azure Key Vault.
-author: pauljewellmsft
+author: stevenmatthew
 ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.date: 11/2/2022
-ms.author: pauljewell
+ms.author: shaas
 ms.reviewer: ozgun
 ms.devlang: csharp
 ms.custom: devx-track-csharp
+# Customer intent: As a developer, I want to implement client-side encryption for blobs using a key stored in Azure Key Vault, so that I can securely manage and protect sensitive data in Azure Blob Storage.
 ---
 
 # Tutorial: Encrypt and decrypt blobs using Azure Key Vault
@@ -294,3 +295,4 @@ In this tutorial, you learned how to use .NET client libraries to perform client
 For a broad overview of client-side encryption for blobs, including instructions for migrating encrypted data to version 2, see [Client-side encryption for blobs](client-side-encryption.md).
 
 For more information about Azure Key Vault, see the [Azure Key Vault overview page](/azure/key-vault/general/overview)
+

@@ -10,6 +10,7 @@ ms.date: 01/05/2025
 ms.author: godonnell
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 #Customer Intent: As an Azure AD B2C administrator, I want to set up a password reset flow for local accounts, so that users can reset their passwords if they forget them.
 ---
@@ -157,7 +158,7 @@ A claims transformation technical profile accesses the `isForgotPassword` claim.
 
 The **SelfAsserted-LocalAccountSignin-Email** technical profile **setting.forgotPasswordLinkOverride** defines the password reset claims exchange that executes in your user journey.
 
-The **LocalAccountWritePasswordUsingObjectId** technical profile **UseTechnicalProfileForSessionManagement** `SM-AAD` session manager is required for the user to preform subsequent logins successfully under [SSO](./custom-policy-reference-sso.md) conditions.
+The **LocalAccountWritePasswordUsingObjectId** technical profile **UseTechnicalProfileForSessionManagement** `SM-AAD` session manager is required for the user to perform subsequent logins successfully under [SSO](./custom-policy-reference-sso.md) conditions.
 
 ### Add the password reset sub journey
 

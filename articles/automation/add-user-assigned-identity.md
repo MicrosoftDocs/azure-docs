@@ -7,6 +7,8 @@ ms.custom: devx-track-azurepowershell
 ms.date: 08/16/2024
 ms.topic: how-to 
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Using a user-assigned managed identity for an Azure Automation account

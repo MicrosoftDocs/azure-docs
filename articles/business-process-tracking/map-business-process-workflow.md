@@ -1,19 +1,17 @@
 ---
-title: Map business processes to Standard workflows
+title: Map Business Processes to Standard Workflows
 description: Map your business process stages to operations and outputs in Standard logic app workflows from Azure Logic Apps.
 ms.service: azure-business-process-tracking
 ms.topic: how-to
 ms.reviewer: estfan, azla
-ms.date: 06/07/2024
-# CustomerIntent: As an integration developer, I want a way to map previously business process stages to actual resources that implement these business use cases and scenarios.
+ms.date: 09/11/2025
+ms.update-cycle: 365-days
+# Customer intent: As an integration developer, I want a way to map previously business process stages to actual resources that implement these business use cases and scenarios.
 ---
 
-# Map a business process to a Standard logic app workflow (Preview)
+# Map a business process to a Standard logic app workflow
 
-> [!NOTE]
->
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [logic-apps-sku-standard](includes/logic-apps-sku-standard.md)]
 
 After you finish creating your business process, you can map each stage, transaction ID, and business properties to actual operations and outputs in a Standard logic app workflow that you created using Azure Logic Apps.
 

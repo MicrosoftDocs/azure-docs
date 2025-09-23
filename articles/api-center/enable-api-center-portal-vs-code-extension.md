@@ -4,7 +4,7 @@ description: Enable enterprise developers to view the enterprise's API Center po
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 03/20/2025
+ms.date: 05/27/2025
 ms.author: danlep 
 ms.custom: 
 # Customer intent: As an API program manager, I want to enable an API catalog so that app developers in my organization can discover and consume the APIs in my organization's API center without needing to manage the API inventory itself.
@@ -19,6 +19,8 @@ This article shows how to provide enterprise developers access to the Azure API 
 
 ## Prerequisites
 
+### For API center administrators
+
 * An API center in your Azure subscription. If you haven't created one already, see [Quickstart: Create your API center](set-up-api-center.md).
 
 * Permissions to create an app registration in a Microsoft Entra tenant associated with your Azure subscription, and permissions to grant access to data in your API center. 
@@ -26,11 +28,11 @@ This article shows how to provide enterprise developers access to the Azure API 
 ### For app developers
 
 * [Azure API Center extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=apidev.azure-api-center)
-
     
-The following Visual Studio Code extension is optional:
+The following Visual Studio Code extensions are optional:
 
 * [Microsoft Kiota extension](https://marketplace.visualstudio.com/items?itemName=ms-graph.kiota) - to generate API clients
+* GitHub Copilot and GitHub Copilot Chat, provided with [access to GitHub Copilot](https://code.visualstudio.com/docs/copilot/setup) - to use language model tools in agent mode for discovering APIs 
 
 ## Steps for API center administrators to enable access to API Center portal view
 
@@ -48,11 +50,9 @@ Enterprise developers must sign in with a Microsoft account to see the API Cente
 
 ## Steps for enterprise developers to access the API Center portal view
 
-Developers can follow these steps to connect and sign in to view an API Center portal view using the Visual Studio Code extension. Settings to connect to the API center need to be provided by the API center administrator.
+Developers can follow these steps to connect and sign in to an API Center portal view using the Visual Studio Code extension. Settings to connect to the API center need to be provided by the API center administrator. After connecting, developers can discover and consume the APIs in the API center.
 
 ### Connect to an API center
-
-1. Install the pre-release version of the [Azure API Center extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=apidev.azure-api-center) for Visual Studio Code. 
 
 1. In Visual Studio Code, in the Activity Bar on the left, select API Center.
 
@@ -66,7 +66,7 @@ Developers can follow these steps to connect and sign in to view an API Center p
     1. The directory (tenant) ID from the app registration configured by the administrator in the previous section.
 
     > [!TIP]
-    > An API center administrator needs to provide these connection details to developers, or provide a direct link in the following format:  
+    > An API center administrator needs to provide the preceding connection details to developers, or provide a direct link in the following format:  
     > `vscode://apidev.azure-api-center?clientId=<Client ID>&tenantId=<tenant ID>&runtimeUrl=<service-name>.data.<region>.azure-apicenter.ms`
 
     After you connect to the API center, the name of the API center appears in the API Center portal view. 
@@ -89,6 +89,33 @@ The API Center portal view helps enterprise developers discover API details and 
 * **Generate API client** - Use the Microsoft Kiota extension to generate an API client for their favorite language
 * **Generate Markdown** - Generate API documentation in Markdown format
 * **OpenAPI documentation** - View the documentation for an API definition and try operations in a Swagger UI (only available for OpenAPI definitions)
+
+## Use language model tools 
+
+Developers with access to the API Center portal view can add API Center language model tools to use in GitHub Copilot's agent mode. [Learn more about using tools in agent mode](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode#_agent-mode-tools). 
+
+The API Center tools can be used in agent mode to help search for APIs and API versions, API definitions and specifications, deployments, and more using natural language prompts.
+
+To add and use API Center language mode tools in GitHub Copilot's agent mode:
+
+1. [Connect to an API center](#create-microsoft-entra-app-registration) as described in a previous section.
+1. Open GitHub Copilot Chat in Visual Studio Code. 
+1. Set the mode of GitHub Copilot Chat to **Agent**.
+1. Select the **Tools** icon in the chat window.
+
+    :::image type="content" source="media/enable-api-center-portal-vs-code-extension/language-model-tools.png" alt-text="Screenshot of GitHub Copilot chat window in Visual Studio Code.":::
+
+1. Select one or more API Center tools to be available in the chat.
+
+    :::image type="content" source="media/enable-api-center-portal-vs-code-extension/api-center-tools.png" alt-text="Screenshot of selecting API Center tools in Visual Studio Code.":::
+
+1. Enter a prompt in the chat window to use the available tools. For example:
+
+    ```copilot-prompt
+    Find potential MCP servers for a project I'm working on. I need the deployment URLs from my API center of any MCP servers that can run code snippets.
+    ```
+
+1. Review the responses from GitHub Copilot Chat. Continue with the conversation to refine the results or ask follow-up questions.
 
 
 ## Troubleshooting

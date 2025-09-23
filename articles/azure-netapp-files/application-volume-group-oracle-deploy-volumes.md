@@ -2,20 +2,19 @@
 title: Deploy application volume group for Oracle using Azure NetApp Files 
 description: Describes how to deploy all required volumes for your Oracle database using Azure NetApp Files application volume group for Oracle. 
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 04/22/2025
+ms.date: 07/11/2025
 ms.author: anfdocs
+ms.custom:
+  - build-2025
+  - sfi-image-nochange
+# Customer intent: As a database administrator, I want to deploy an application volume group for Oracle using Azure NetApp Files, so that I can efficiently manage and optimize storage resources for my Oracle database workloads.
 ---
-# Deploy application volume group for Oracle
+# Deploy application volume group for Oracle in Azure NetApp Files
 
 This article describes how to deploy all required volumes for your Oracle database using Azure NetApp Files application volume group for Oracle.
 

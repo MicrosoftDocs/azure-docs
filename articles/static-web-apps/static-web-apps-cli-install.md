@@ -47,7 +47,7 @@ swa
 
 The `swa` command generates a configuration file, builds your project, and gives you the option to deploy to Azure.
 
-For details on all the SWA CLI commands, see the [CLI reference](static-web-apps-cli.yml).
+For details on all the SWA CLI commands, see the [CLI reference](static-web-apps-cli.md).
 
 ## Using npx
 

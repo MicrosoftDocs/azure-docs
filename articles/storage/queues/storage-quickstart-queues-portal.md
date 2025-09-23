@@ -7,7 +7,10 @@ ms.reviewer: dineshm
 ms.date: 08/13/2020
 ms.topic: quickstart
 ms.service: azure-queue-storage
-ms.custom: mode-ui
+ms.custom:
+  - mode-ui
+  - sfi-image-nochange
+# Customer intent: "As a cloud user, I want to create a storage queue and manage messages using the web interface, so that I can efficiently store and retrieve data as needed for my applications."
 ---
 
 # Quickstart: Create a queue and add a message with the Azure portal

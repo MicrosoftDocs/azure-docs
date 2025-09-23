@@ -10,7 +10,9 @@ ms.topic: reference
 ms.date: 02/17/2025
 ms.author: kengaderdus
 ms.subservice: b2c
-ms.custom: "b2c-support"
+ms.custom:
+  - "b2c-support"
+  - sfi-image-nochange
 
 
 #Customer intent: As a developer building an Azure Static Web App, I want to configure authentication using Azure AD B2C, so that users can sign up, sign in, and reset their passwords securely.

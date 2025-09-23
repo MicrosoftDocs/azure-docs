@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 05/02/2024
 ms.author: midesa
+ms.custom: sfi-ropc-nochange
 ---
 
 # Load data with Petastorm (deprecated)
@@ -22,12 +23,6 @@ For more information about Petastorm, you can visit the [Petastorm GitHub page](
 
 > [!NOTE]
 > The Preview for Azure Synapse GPU-enabled pools has now been deprecated.
-
-> [!CAUTION]
-> Deprecation and disablement notification for GPUs on the Azure Synapse Runtime for Apache Spark 3.1 and 3.2
-> - The GPU accelerated preview is now deprecated on the [Apache Spark 3.2 (deprecated) runtime](../spark/apache-spark-32-runtime.md). Deprecated runtimes will not have bug and feature fixes. This runtime and the corresponding GPU accelerated preview on Spark 3.2 has been retired and disabled as of July 8, 2024.
-> - The GPU accelerated preview is now deprecated on the [Azure Synapse 3.1 (deprecated) runtime](../spark/apache-spark-3-runtime.md). Azure Synapse Runtime for Apache Spark 3.1 has reached its end of support as of January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date.
-
 
 ## Configure the Apache Spark session
 

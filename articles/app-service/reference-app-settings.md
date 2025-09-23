@@ -5,11 +5,13 @@ ms.topic: conceptual
 ms.date: 03/28/2025
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
+ms.custom:
+  - build-2025
+  - sfi-ropc-nochange
 ---
 
 # Environment variables and app settings in Azure App Service
-
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 In [Azure App Service](overview.md), certain settings are available to the deployment or runtime environment as environment variables. You can customize some of these settings when you set them manually as [app settings](configure-common.md#configure-app-settings). This reference shows the variables that you can use or customize.
 
@@ -174,10 +176,11 @@ This section shows the configurable runtime settings for each supported language
 | `JAVA_WEBSERVER_PORT_ENVIRONMENT_VARIABLES` | Environment variables used by popular Java web frameworks for server ports. Frameworks include Spring, Micronaut, Grails, Helidon, Ratpack, and Quarkus. |
 | `JAVA_TMP_DIR` | Added to Java arguments as `-Dsite.tempdir`. Defaults to `TEMP`. |
 | `WEBSITE_SKIP_LOCAL_COPY` | By default, the deployed `app.jar` file is copied from `/home/site/wwwroot` to a local location. To disable this behavior and load `app.jar` directly from `/home/site/wwwroot`, set this variable to `1` or `true`. This setting has no effect if local cache is enabled. |
+| `JAVA_COPY_ALL` | For native Windows apps, if your Java application depends on read-only access to additional files on `/home/site/wwwroot`, set JAVA_COPY_ALL to true so that those files are also copied. `JAVA_COPY_ALL` is not compatible with the legacy convention of deploying to `/home/site/wwwroot/webapps`. |
 | `TOMCAT_USE_STARTUP_BAT` | Native Windows apps only. By default, the Tomcat server is started with its `startup.bat` file. To set the Tomcat server to start by using its `catalina.bat` file instead, set the value to `0` or `False`.<br/><br/>Example: `%LOCAL_EXPANDED%\tomcat` |
 | `CATALINA_OPTS` | For Tomcat apps, environment variables to pass into the `java` command. Can contain system variables. |
 | `CATALINA_BASE` | To use a custom Tomcat installation, set to the installation's location. |
-| `WEBSITE_JAVA_MAX_HEAP_MB` | Java maximum heap, in megabytes. This setting is effective only when you use an experimental Tomcat version. |
+| `WEBSITE_JAVA_MAX_HEAP_MB` | Maximum size of the Java heap, in megabytes. Note: if `JAVA_OPTS` is defined and already contains one of the `-Xms` or `-Xmx` options, then `WEBSITE_JAVA_MAX_HEAP_MB` is not used. |
 | `WEBSITE_DISABLE_JAVA_HEAP_CONFIGURATION` | Manually disable `WEBSITE_JAVA_MAX_HEAP_MB` by setting this variable to `true` or `1`. |
 | `WEBSITE_AUTH_SKIP_PRINCIPAL` | By default, the following Tomcat [HttpServletRequest interfaces](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) are hydrated when you enable the built-in [authentication](overview-authentication-authorization.md): `isSecure`, `getRemoteAddr`, `getRemoteHost`, `getScheme`, `getServerPort`, `getLocalPort`, `getRequestURL`. To disable it, set the value to `1`. |
 | `WEBSITE_AUTH_EXPIRED_SESSION_LOGOFF` | If a webapp uses EasyAuth, set this to `true` or `1` to force a redirect to the EasyAuth logout page if the session associated to a request has expired (e.g. for webapps running on Tomcat, this is defined by the element `session-timeout` in the file `web.xml`). |
@@ -202,6 +205,18 @@ This section shows the configurable runtime settings for each supported language
 | `AZURE_SITE_HOME` | Value added to the Java arguments as `-Dsite.home`. The default is the value of `HOME`. |
 | `HTTP_PLATFORM_PORT` | Added to Java arguments as `-Dport.http`. The following environment variables used by different Java web frameworks are also set to this value: `SERVER_PORT`, `MICRONAUT_SERVER_PORT`, `RATPACK_PORT`, `QUARKUS_HTTP_PORT`, `PAYARAMICRO_PORT`. |
 | `AZURE_LOGGING_DIR` | For Windows Apps, added to Java arguments as `-Dsite.logdir`. The default is `%HOME%\LogFiles\`. Default value in Linux is `AZURE_LOGGING_DIR=/home/LogFiles`. |
+| `WEBSITE_AUTH_ROLE_CLAIM_TYPE` | For Java web apps using built-in [authentication](overview-authentication-authorization.md), claims defined in Entra are available in the `HttpServletRequest.isUserInRole` API in the following format: <code>&lt;claimType&gt;&vert;&lt;claimValue&gt;</code> (e.g. <code>team&vert;contoso</code>). To add the values of claims with the type `roles` directly as role names in the `HttpServletRequest` implementation, set `WEBSITE_AUTH_ROLE_CLAIM_TYPE` to the value `roles`. |
+| `WEBSITE_JAVA_GC_LOGGING` | For webapps using Java 11 or later in Linux, set this to `true` or `1` to capture Java Garbage Collector logs in `/home/LogFiles/Application` which can be used to troubleshoot performance issues. |
+| `WEBSITE_SKIP_DUMP_ON_OUT_OF_MEMORY` | On Linux, set this to `true` or `1` to disable the following error-handling options that, by default, are passed as parameters to the JVM: `-XX:ErrorFile=/home/LogFiles/java_error_XXX.log`, `-XX:+CrashOnOutOfMemoryError`, `-XX:+HeapDumpOnOutOfMemoryError` and `-XX:HeapDumpPath=/home/LogFiles/java_memdump_XXX.log` |
+| `WEBSITE_WORKING_DIR` | On Linux, set this to a path where the bootstrapping process should change before launching Java/Tomcat/JBoss. This is useful for webapps using Java 8, where Java error logs are saved to the same directory where Java was launched. |
+| `WEBSITE_CATALINA_MAXCONNECTIONS` | Applies to Tomcat on Linux. The value is used to configure the `maxConnections` property of the Connector component in Tomcat's configuration. If not set, the value defaults to `10000`. |
+| `WEBSITE_CATALINA_MAXTHREADS` | Applies to Tomcat on Linux. The value is used to configure the `maxThreads` property of the Connector component in Tomcat's configuration. If not set, the value defaults to `200`. |
+| `WEBSITE_JAVA_JAR_FILE_NAME` | If set and the web application is a standalone Java (Java web server) application, this can be used to designate the name of a JAR file if there are multiple JAR files deployed, or the location of the file is not standard (e.g. in the `wwwroot` directory). Defaults to `app.jar`. |
+| `WEBSITE_JAVA_WAR_FILE_NAME` | If set and the web application is a Tomcat application, this can be used to designate the name of a single WAR file if there are multiple WAR files deployed, or the location of the file is not standard (e.g. in the `wwwroot` directory). Defaults to `app.war`. |
+| `WEBSITE_JAVA_KEYSTORE_PASSWORD` | The value of the keystore password used to store certificates with the `keytool` tool. |
+| `WEBSITE_TOMCAT_APPSERVICE_ERROR_PAGE` | On Tomcat webapps, when set to `1` or `true`, the default Tomcat error page is replaced with a custom App Service error page. Defaults to `true`. |
+| `WEBSITE_TOMCAT_ERROR_DETAILS` | Defaults to `false`. On Tomcat webapps, when set to `1` or `true`, the properties `showReport` and `showServerInfo` of the Error Report Valve are set to `true`, causing to show the stack trace of failed requests and the Tomcat version in the error page. |
+| `WEBSITE_SKIP_TROUBLESHOOT_ARCHIVE` | By default, JAR and WAR archives are scanned for common problems during application startup. This includes looking for duplicate/conflicting Java classes inside the archive, which is a common problem that causes Java apps to crash. Setting this value to `true` or `1` will skip the scanning process. Defaults to `false`. |
 
 <!-- 
 WEBSITE_JAVA_COPY_ALL
@@ -215,7 +230,7 @@ AZURE_SITE_APP_BASE
 | `PORT` | Read-only. For Linux apps, the port that the Node.js app listens to in the container. |
 | `WEBSITE_ROLE_INSTANCE_ID` | Read-only. ID of the current instance. |
 | `PM2HOME` | |
-| `WEBSITE_NODE_DEFAULT_VERSION` | For native Windows apps, the default node version that the app is using. You can use any of the [supported Node.js versions](configure-language-nodejs.md#show-nodejs-version) here. |
+| `WEBSITE_NODE_DEFAULT_VERSION` | For native Windows apps, the default node version that the app is using. You can use any of the [supported Node.js versions](configure-language-nodejs.md#show-the-nodejs-version) here. |
 
 <!-- APPSVC_REMOTE_DEBUGGING
 APPSVC_REMOTE_DEBUGGING_BREAK

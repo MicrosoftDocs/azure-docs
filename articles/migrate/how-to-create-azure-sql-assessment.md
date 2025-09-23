@@ -6,7 +6,10 @@ ms.author: v-uhabiba
 ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 03/26/2025
-ms.custom: engagement-fy25
+ms.custom:
+  - engagement-fy25
+  - sfi-image-nochange
+# Customer intent: As a database administrator, I want to assess my on-premises SQL instances for migration to Azure SQL, so that I can understand cloud readiness, optimize configurations, and estimate costs for a smooth transition to the cloud.
 ---
 
 # Create an Azure SQL assessment

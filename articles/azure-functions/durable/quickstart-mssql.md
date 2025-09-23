@@ -3,9 +3,12 @@ title: "Quickstart: Create a Durable Functions app that uses the MSSQL storage p
 description: Create a Durable Functions app to use the Microsoft SQL Server (MSSQL) storage provider in Azure Functions.
 author: lilyjma
 ms.topic: quickstart
-ms.custom: devx-track-dotnet
 ms.date: 05/06/2025
 ms.reviewer: azfuncdf
+ms.custom:
+  - devx-track-dotnet
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Quickstart: Create a Durable Functions app that uses the MSSQL storage provider
@@ -176,7 +179,7 @@ In _local.settings.json_, assign the connection string of the Docker-based SQL s
 
 ### Test locally
 
-Open a termimal window in your app's root folder and run `azurite start`. Azurite is the Azure Storage emulator, which is needed for running any Function app. 
+Open a terminal window in your app's root folder and run `azurite start`. Azurite is the Azure Storage emulator, which is needed for running any Function app. 
 
 Open another terminal window in your app's root folder and start the Function app by running `func host start`.
 

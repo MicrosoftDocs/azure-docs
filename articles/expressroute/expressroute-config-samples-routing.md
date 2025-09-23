@@ -256,7 +256,7 @@ Configure BFD under the protocol BGP section only.
                                 peer-as 12076;
                                 neighbor <IP#2_used_by_Azure>;
                                 bfd-liveness-detection {
-                                        minimum-interval 3000;
+                                        minimum-interval 300;
                                         multiplier 3;
                                 }
                         }

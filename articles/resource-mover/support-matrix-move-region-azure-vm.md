@@ -1,12 +1,14 @@
 ---
 title: Support matrix for moving Azure VMs to another region with Azure Resource Mover
 description: Review support for moving Azure VMs between regions with Azure Resource Mover.
-author: ankitaduttaMSFT
+author: jasminemehndir
+ms.author: v-jasmineme
+ms.date: 07/31/2025
 ms.service: azure-resource-mover
 ms.topic: how-to
-ms.date: 04/22/2025
-ms.author: ankitadutta
+ms.update-cycle: 180-days
 ms.custom: engagement-fy23, UpdateFrequency.5, linux-related-content
+# Customer intent: As a cloud administrator, I want to understand the prerequisites and supported configurations for moving Azure VMs between regions using Resource Mover, so that I can ensure a successful migration process without service interruptions.
 ---
 
 # Support for moving Azure VMs between Azure regions

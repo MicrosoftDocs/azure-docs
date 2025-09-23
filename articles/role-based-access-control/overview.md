@@ -2,12 +2,14 @@
 title: What is Azure role-based access control (Azure RBAC)?
 description: Get an overview of Azure role-based access control (Azure RBAC). Use role assignments to control access to Azure resources.
 author: rolyon
-manager: femila
+manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: overview
 ms.date: 03/12/2024
 ms.author: rolyon
-ms.custom: azuread-video-2020
+ms.custom:
+  - azuread-video-2020
+  - sfi-image-nochange
 #Customer intent: As a dev, devops, or it admin, I want to learn how permissions and roles work in Azure, so that I can better understand how to grant access to resources.
 ---
 

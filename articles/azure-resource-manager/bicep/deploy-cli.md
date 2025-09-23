@@ -2,7 +2,12 @@
 title: Deploy Bicep files with the Azure CLI  
 description: Learn how to use Azure Resource Manager and the Azure CLI to deploy resources to Azure. The resources are defined in a Bicep file.
 ms.topic: how-to
-ms.custom: devx-track-azurecli, seo-azure-cli, devx-track-arm-template, devx-track-bicep
+ms.custom:
+  - devx-track-azurecli
+  - seo-azure-cli
+  - devx-track-arm-template
+  - devx-track-bicep
+  - build-2025
 ms.date: 03/25/2025
 ---
 
@@ -172,7 +177,7 @@ The evaluation of parameters follows a sequential order, meaning that if a value
 
 Rather than passing parameters as inline values in your script, you might find it easier to use a [Bicep parameters file](#bicep-parameters-files) or a [JSON parameters file](#json-parameters-files) that contains the parameter values. The parameters file must be a local file since the Azure CLI doesn't support external parameters files. For more information about parameters files, see [Create a parameters file for Bicep deployment](./parameter-files.md).
 
-You can use a Bicep parameters file to deploy a Bicep file with [Azure CLI](./install.md#azure-cli) version 2.53.0 or later and [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.22.X or later. With the `using` statement within the Bicep parameters file, there's no need to provide the `--template-file` switch when specifying a Bicep parameters file for the `--parameters` switch. Including the `--template-file` switch will prompt an, "Only a .bicep template is allowed with a .bicepparam file," error.
+You can use a Bicep parameters file to deploy a Bicep file with [Azure CLI](./install.md#azure-cli) version 2.53.0 or later and [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.22.X or later. With the `using` statement within the Bicep parameters file, there's no need to provide the `--template-file` switch when specifying a Bicep parameters file for the `--parameters` switch. Including the `--template-file` switch will prompt an, "Only a .bicep file is allowed with a .bicepparam file," error.
 
 The following example shows a parameters file named _storage.bicepparam_. The file is in the same directory where the command runs:
 

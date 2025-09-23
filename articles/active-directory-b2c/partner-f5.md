@@ -453,4 +453,4 @@ The same access log provides detail.
   9. In the top-left corner, select **Apply Access Policy**. 
   10. Select **Apply**.
 
-For more information, go to techdocs.f5.com for [OAuth client and resource server troubleshooting tips](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-sso-13-0-0/37.html#GUID-774384BC-CF63-469D-A589-1595D0DDFBA2)
+For more information, go to techdocs.f5.com for [OAuth client and resource server troubleshooting tips](https://techdocs.f5.com/en-us/bigip-17-0-0/big-ip-access-policy-manager-oauth-configuration/apm-oauth-client-and-resource-server.html)

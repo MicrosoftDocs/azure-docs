@@ -4,6 +4,8 @@ description: List of default Python packages in Automation service.
 ms.date: 03/15/2023
 ms.topic: reference
 ms.custom: subject-python-package-reference, devx-track-python
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 # Default Python packages
 

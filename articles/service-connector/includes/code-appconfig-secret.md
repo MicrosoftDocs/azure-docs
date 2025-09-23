@@ -2,16 +2,18 @@
 author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/24/2023
+ms.date: 07/24/2025
 ms.author: wchi
 ---
 
 ### [.NET](#tab/dotnet)
 
 1. Install dependencies.
+
     ```bash
     dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
     ```
+
 1. Get the App Configuration connection string from the environment variables added by Service Connector.
     
     ```csharp
@@ -28,6 +30,7 @@ ms.author: wchi
 ### [Java](#tab/java)
 
 1. Add the following dependencies in your *pom.xml* file:
+
     ```xml
     <dependency>
         <groupId>com.azure</groupId>
@@ -35,7 +38,9 @@ ms.author: wchi
         <version>1.4.9</version>
     </dependency>
     ```
+
 1. Get the App Configuration connection string from the environment variables added by Service Connector.
+
     ```java
     String connectionString = System.getenv("AZURE_APPCONFIGURATION_CONNECTIONSTRING");
     ConfigurationClient configurationClient = new ConfigurationClientBuilder()
@@ -46,10 +51,13 @@ ms.author: wchi
 ### [Python](#tab/python)
 
 1. Install dependencies.
+
     ```bash
     pip install azure-appconfiguration
     ```
+
 1. Get the App Configuration connection string from the environment variables added by Service Connector.
+
     ```python
     import os
     from azure.appconfiguration import AzureAppConfigurationClient
@@ -61,9 +69,11 @@ ms.author: wchi
 ### [NodeJS](#tab/nodejs)
 
 1. Install dependencies.
+
     ```bash
     npm install @azure/app-configuration
     ```
+
 1. Get the App Configuration connection string from the environment variables added by Service Connector.
     
     ```javascript

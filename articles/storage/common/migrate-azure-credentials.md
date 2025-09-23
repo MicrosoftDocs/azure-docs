@@ -2,14 +2,24 @@
 title: Migrate applications to use passwordless authentication with Azure Blob Storage
 titleSuffix: Azure Storage
 description: Learn to migrate existing applications away from Shared Key authorization with the account key to instead use Microsoft Entra ID and Azure RBAC for enhanced security.
-author: alexwolfmsft
-ms.author: alexwolf
+author: stevenmatthew
+ms.author: shaas
 ms.reviewer: randolphwest
-ms.date: 05/09/2023
+ms.date: 07/28/2025
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
-ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, passwordless-go, devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
+  - devx-track-csharp
+  - passwordless-java
+  - passwordless-js
+  - passwordless-python
+  - passwordless-dotnet
+  - passwordless-go
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-image-nochange
+# Customer intent: "As a developer, I want to migrate my application to use passwordless authentication with Azure Blob Storage, so that I can enhance security and eliminate the need to manage application secrets."
 ---
 
 # Migrate an application to use passwordless connections with Azure Blob Storage

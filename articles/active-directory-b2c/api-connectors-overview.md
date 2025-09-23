@@ -10,8 +10,10 @@ ms.date: 01/11/2024
 ms.author: kengaderdus
 author: kengaderdus
 manager: CelesteDG
-ms.custom: "it-pro"
 zone_pivot_groups: b2c-policy-type
+ms.custom:
+  - "it-pro"
+  - sfi-image-nochange
 
 #Customer intent: As a developer or IT administrator, I want to use API connectors to integrate sign-up user flows with REST APIs.
 
@@ -87,7 +89,7 @@ Using Azure AD B2C, you can add your own business logic to a user journey by cal
 ![Diagram of a RESTful service claims exchange](media/api-connectors-overview/restful-service-claims-exchange.png)
 
 > [!NOTE]
-> HTTP requests may be cancelled if there is a slow or no response from the RESTful service to Azure AD B2C. The default timeout is 10 seconds and the default retry count is one (meaning there are 2 tries in total).
+> HTTP requests may be cancelled if there is a slow or no response from the RESTful service to Azure AD B2C. The default timeout is 10 seconds for custom policies and 5 seconds for user flows. The default retry count is one (meaning there are 2 tries in total).
 
 ## Calling a RESTful service
 

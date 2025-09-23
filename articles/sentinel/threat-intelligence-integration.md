@@ -1,10 +1,10 @@
 ---
 title: Threat intelligence integration in Microsoft Sentinel
 description: Learn about the different ways threat intelligence feeds are integrated with and used by Microsoft Sentinel.
-author: austinmccollum
+author: guywi-ms
 ms.topic: concept-article
 ms.date: 03/14/2024
-ms.author: austinmc
+ms.author: guywild
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -68,7 +68,7 @@ One component of Cyware's TIP, CTIX, is to make intel actionable with a TAXII fe
 
 ### IntSights
 
-- Learn more about the [IntSights integration with Microsoft Sentinel @IntSights](https://intsights.com/resources/intsights-microsoft-azure-sentinel).
+- Learn more about the [IntSights integration with Microsoft Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/intsights.41547b1e-f1e4-44b5-85de-55becff4cd64?tab=overview).
 - Connect Microsoft Sentinel to the IntSights TAXII server. Obtain the API root, collection ID, username, and password from the IntSights portal after you configure a policy of the data that you want to send to Microsoft Sentinel.
 
 ### Kaspersky
@@ -138,7 +138,7 @@ To connect to TIP feeds, see [Connect threat intelligence platforms to Microsoft
 
 ### Recorded Future security intelligence platform
 
-- Learn how [Recorded Future](https://www.recordedfuture.com/integrations/microsoft-azure/) makes use of Logic Apps (playbooks) to connect to Microsoft Sentinel. See the [specialized instructions](https://www.recordedfuture.com/integrations/microsoft) necessary to take full advantage of the complete offering.
+- Learn how [Recorded Future](https://www.recordedfuture.com/blog/microsoft-azure-sentinel-integration) makes use of Logic Apps (playbooks) to connect to Microsoft Sentinel. See the [specialized instructions](https://www.recordedfuture.com/integrations/microsoft) necessary to take full advantage of the complete offering.
 
 ### ThreatConnect Platform
 
@@ -166,12 +166,12 @@ For more information about how to find and manage the solutions, see [Discover a
 
 ### Recorded Future Security Intelligence Platform
 
-- Find and enable incident enrichment playbooks for [Recorded Future](https://www.recordedfuture.com/integrations/microsoft-azure/) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks). Search for subfolders beginning with `RecordedFuture_`.
+- Find and enable incident enrichment playbooks for [Recorded Future](https://www.recordedfuture.com/blog/microsoft-azure-sentinel-integration) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks). Search for subfolders beginning with `RecordedFuture_`.
 - See the Recorded Future Logic Apps [connector documentation](/connectors/recordedfuturev2/).
 
 ### ReversingLabs TitaniumCloud
 
-- Find and enable incident enrichment playbooks for [ReversingLabs](https://www.reversinglabs.com/products/file-reputation-service) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/ReversingLabs/Playbooks/).
+- Find and enable incident enrichment playbooks for [ReversingLabs](https://www.reversinglabs.com/products/spectra-intelligence) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/ReversingLabs/Playbooks/).
 - See the ReversingLabs TitaniumCloud Logic Apps [connector documentation](/connectors/reversinglabstitaniu/).
 
 ### RiskIQ PassiveTotal

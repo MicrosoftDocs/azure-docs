@@ -7,10 +7,12 @@ ms.custom:
   - build-2024
 ms.topic: how-to
 ms.date: 05/06/2024
-ms.author: vanshsingh
+ms.author: johnsta
 ---
 
 # Use Microsoft Playwright Testing Reporting preview with Playwright sharding
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 In this article, you learn how to use the Microsoft Playwright Testing service's reporting feature with test runs that use [Playwright's sharding features](https://playwright.dev/docs/test-sharding). 
 
@@ -79,7 +81,7 @@ Here's an example of how you can set it in your pipeline via GitHub Actions.
       runs-on: ubuntu-latest
       steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
         # This step is to sign-in to Azure to run tests from GitHub Action workflow.

@@ -1,8 +1,11 @@
 ---
 title: Monitoring data reference for Azure Functions
 description: This article contains important reference material you need when you monitor Azure Functions.
-ms.date: 03/08/2024
-ms.custom: horz-monitor, build-2024
+ms.date: 04/22/2025
+ms.custom:
+  - horz-monitor
+  - build-2024
+  - build-2025
 ms.topic: reference
 ms.service: azure-functions
 ---
@@ -20,15 +23,6 @@ See [Monitor executions in Azure Functions](functions-monitoring.md) for details
 
 Hosting plans that allow your apps to scale dynamically support extra Functions-specific metrics: 
 
-#### [Consumption plan](#tab/consumption-plan)
-
-These metrics are used specifically when [estimating Consumption plan costs](functions-consumption-costs.md). 
-
-| Metric | Description |
-| ---- | ---- |
-| **FunctionExecutionCount** | Function execution count indicates the number of times your function app executed. This value correlates to the number of times a function runs in your app. This metric isn't currently supported for Premium and Dedicated (App Service) plans running on Linux.|
-| **FunctionExecutionUnits** | Function execution units are a combination of execution time and your memory usage. Memory data isn't a metric currently available through Azure Monitor. However, if you want to optimize the memory usage of your app, can use the performance counter data collected by Application Insights. This metric isn't currently supported for Premium and Dedicated (App Service) plans running on Linux.|
-
 #### [Flex Consumption plan](#tab/flex-consumption-plan)
 
 These metrics are used to estimate the costs associated with _on demand_ and _always ready_ meters used for billing in a [Flex Consumption plan]:
@@ -41,7 +35,16 @@ These metrics are used to estimate the costs associated with _on demand_ and _al
 | **AlwaysReadyFunctionExecutionUnits** | Total MB-milliseconds from always ready instances while actively executing functions. | `AlwaysReadyFunctionExecutionUnits / 1,024,000` is the Always Ready Execution Time meter, in GB-seconds. |
 | **AlwaysReadyUnits** | The total MB-milliseconds of always ready instances assigned to the app, whether or not functions are actively executing. | `AlwaysReadyUnits / 1,024,000` is the Always Ready Baseline meter, in GB-seconds. |
 
-In this table, all execution units are calculated by multiplying the fixed instance memory size, such as 2,048 MB or 4,096 MB, by total execution times, in milliseconds.
+In this table, all execution units are calculated by multipling the fixed instance memory size, such as 512 MB or 2,048 MB, by total execution times, in milliseconds.
+
+#### [Consumption plan](#tab/consumption-plan)
+
+These metrics are used specifically when [estimating Consumption plan costs](functions-consumption-costs.md). 
+
+| Metric | Description |
+| ---- | ---- |
+| **FunctionExecutionCount** | Function execution count indicates the number of times your function app executed. This value correlates to the number of times a function runs in your app. This metric isn't currently supported for Premium and Dedicated (App Service) plans running on Linux.|
+| **FunctionExecutionUnits** | Function execution units are a combination of execution time and your memory usage. Memory data isn't a metric currently available through Azure Monitor. However, if you want to optimize the memory usage of your app, can use the performance counter data collected by Application Insights. This metric isn't currently supported for Premium and Dedicated (App Service) plans running on Linux.|
 
 ---
 
@@ -69,6 +72,7 @@ The log specific to Azure Functions is **FunctionAppLogs**.
 For more information, see the [App Service monitoring data reference](/azure/app-service/monitor-app-service-reference#metrics).
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
+
 ### App Services
 Microsoft.Web/sites
 - [FunctionAppLogs](/azure/azure-monitor/reference/tables/functionapplogs)

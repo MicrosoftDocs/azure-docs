@@ -7,6 +7,7 @@ ms.topic: reference
 author: asudbring
 ms.author: allensu
 ms.service: azure-nat-gateway
+# Customer intent: "As a cloud administrator, I want to access and understand the monitoring metrics for Azure NAT Gateway, so that I can effectively track network performance and troubleshoot connectivity issues."
 ---
 # Azure NAT Gateway monitoring data reference
 

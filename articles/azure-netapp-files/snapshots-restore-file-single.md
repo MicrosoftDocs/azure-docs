@@ -1,12 +1,14 @@
 ---
-title: Restore individual files in Azure NetApp Files using single-file snapshot restore | Microsoft Docs
+title: Restore individual files in Azure NetApp Files using single-file snapshot restore
 description: Describes how to recover individual files directly within a volume from a snapshot.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 01/28/2025
+ms.date: 06/23/2025
 ms.author: anfdocs
+ms.custom: sfi-image-nochange
+# Customer intent: "As an IT administrator, I want to restore individual files from a snapshot in Azure NetApp Files, so that I can quickly recover specific data without the need for entire volume restoration."
 ---
 
 # Restore individual files using single-file snapshot restore 
@@ -30,7 +32,7 @@ The restore operation doesn't create directories in the process. If the specifie
 
 ## Steps
 
-1. Navigate to the volume that has the snapshot to use for restoring files.    
+1. Navigate to the volume that contains the snapshot to use for restoring files.    
 
 2. Select **Snapshots** to display the list of volume snapshots.
 
@@ -44,13 +46,13 @@ The restore operation doesn't create directories in the process. If the specifie
         * The maximum length of the File paths field must not exceed 1,024 characters and 10 files.
         * Regardless of the volume's protocol type (NFS, SMB, or dual protocol), directories in the path must be specified using forward slashes (`/`), not backslashes (`\`).  
 
-    2. In the **Destination Path** field, provide the location in the volume where the specified files are to be restored to.
-        * If you don't specify a destination path, the files are restored to their original location. If files with the same names already exist in the original location, they're overwritten by the files restored from the snapshot.  
+    2. In the **Destination Path** field, provide the location in the volume to where the specified files are to be restored.
+        * If you don’t specify a destination path, the files are restored to their original location. If files with the same names already exist in the original location, they're overwritten by the files restored from the snapshot.  
         * If you specify a destination path: 
-            * Ensure all directories in the path are present in the active file system. If directories in the path are absent, the restore operation fails.   
+            * Ensure that all directories in the path are present in the active file system. Otherwise, the restore operation will fail.   
                 For example, if you specify `/CurrentCopy/contoso` as the destination path, the `/CurrentCopy/contoso` path must already exist.  
-            * Regardless of the volume’s protocol type (NFS, SMB, or dual protocol), directories in the path must be specified using forward slashes (`/`), not backslashes (`\`).   
-
+            * By specifying a destination path, all files specified in the **File Paths** field will be restored to the destination path (folder).
+            * Regardless of the volume’s protocol type (NFS, SMB, or dual protocol), directories in the path must be specified using forward slashes (`/`) and not backslashes (`\`).   
     3. Select **Restore** to initiate the restore operation.
 
     ![Snapshot the Restore Files window.](./media/snapshots-restore-file-single/snapshot-restore-files-window.png)

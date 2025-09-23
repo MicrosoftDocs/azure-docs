@@ -15,7 +15,7 @@ For more information about containerized applications in a serverless environmen
 ## Prerequisites
 
 - An [Azure account](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
-- An [Azure container registry](/azure/container-registry/container-registry-get-started-portal)
+- An [Azure Container Registry](/azure/container-registry/container-registry-get-started-portal)
 - [Azure CLI](/cli/azure/install-azure-cli)
 - [Docker](https://www.docker.com/community-edition)
 
@@ -91,7 +91,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. At the top of the page, select the **Container** tab.
 
-1. In the **Container** tab, for **Image Source**, select **Azure Container Registry**. Under **Azure container registry options**, set the following values:
+1. In the **Container** tab, for **Image Source**, select **Azure Container Registry**. Under **Azure Container Registry options**, set the following values:
 
    - **Registry**: Select your Azure Container Registry.
    - **Image**: Select **dotnetcore-docs-hello-world-linux**.

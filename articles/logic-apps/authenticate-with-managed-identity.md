@@ -6,7 +6,10 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 01/27/2025
-ms.custom: subject-rbac-steps, devx-track-arm-template
+ms.custom:
+  - subject-rbac-steps
+  - devx-track-arm-template
+  - sfi-image-nochange
 
 ##customerIntent: As a logic app developer, I want to authenticate connections for my logic app workflow using a managed identity so I don't have to use credentials or secrets.
 ---
@@ -56,13 +59,9 @@ Based on your logic app resource type, you can enable either the system-assigned
 | Logic app | Environment | Managed identity support |
 |-----------|-------------|--------------------------|
 | Consumption | - Multitenant Azure Logic Apps | - You can enable *either* the system-assigned identity or the user-assigned identity, but not both on your logic app. <br><br>- You can use the managed identity at the logic app resource level and at the connection level. <br><br>- If you create and enable the user-assigned identity, your logic app can have *only one* user-assigned identity at a time. |
-| Standard | - Single-tenant Azure Logic Apps <br><br>- App Service Environment v3 (ASEv3) <br><br>- Azure Arc enabled Logic Apps | - You can enable *both* the system-assigned identity, which is enabled by default, and the user-assigned identity at the same time. You can also add multiple user-assigned identities to your logic app. However, your logic app can use only one managed identity at a time. <br><br>- You can use the managed identity at the logic app resource level and at the connection level. |
+| Standard | - Single-tenant Azure Logic Apps <br><br>- App Service Environment v3 (ASEv3) | - You can enable *both* the system-assigned identity, which is enabled by default, and the user-assigned identity at the same time. You can also add multiple user-assigned identities to your logic app. However, your logic app can use only one managed identity at a time. <br><br>- You can use the managed identity at the logic app resource level and at the connection level. <br><br>**Note**: For hybrid deployment, managed identity authentication is currently unsupported. Instead, you must create and use an app registration. For more information, see [Create Standard logic app workflows for hybrid deployment on your own infrastructure](create-standard-workflows-hybrid-deployment.md). |
 
-For information about managed identity limits in Azure Logic Apps, see [Limits on managed identities for logic apps](logic-apps-limits-and-config.md#managed-identity). For more information about the Consumption and Standard logic app resource types and environments, see the following documentation:
-
-- [Resource environment differences](logic-apps-overview.md#resource-environment-differences)
-
-- [Azure Arc enabled Logic Apps](azure-arc-enabled-logic-apps-overview.md)
+For information about managed identity limits in Azure Logic Apps, see [Limits on managed identities for logic apps](logic-apps-limits-and-config.md#managed-identity). For more information about the Consumption and Standard logic app resource types and environments, see [Resource environment differences](logic-apps-overview.md#resource-environment-differences).
 
 <a name="triggers-actions-managed-identity"></a>
 <a name="managed-connectors-managed-identity"></a>
@@ -1160,7 +1159,7 @@ This example shows the underlying connection resource definition for a connector
     "properties": {
         "alternativeParameterValues": {},
         "api": {
-            "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), 'azureautomation')]"
+            "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), '<connector-name>')]"
         },
         "authenticatedUser": {},
         "connectionState": "Enabled",
@@ -1188,19 +1187,18 @@ This example shows the underlying connection resource definition for a connector
     "location": "[parameters('location')]",
     "kind": "V1",
     "properties": {
-        "alternativeParameterValues":{},
+        "alternativeParameterValues": {},
         "api": {
-            "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), 'azureblob')]"
+            "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), '<connector-name>')]"
         },
         "authenticatedUser": {},
         "connectionState": "Enabled",
         "customParameterValues": {},
         "displayName": "[variables('connections_<connector-name>_name')]",
-        "parameterValueSet":{
+        "parameterValueSet": {
             "name": "managedIdentityAuth",
             "values": {}
-        },
-        "parameterValueType": "Alternative"
+        }
     }
 }
 ```
@@ -1220,8 +1218,8 @@ This example shows the underlying connection resource definition for a connector
 ```json
 {
     "type": "Microsoft.Web/connections",
-    "name": "[variables('connections_<connector-name>_name')]",
     "apiVersion": "[providers('Microsoft.Web','connections').apiVersions[0]]",
+    "name": "[variables('connections_<connector-name>_name')]",
     "location": "[parameters('location')]",
     "kind": "V2",
     "properties": {
@@ -1255,7 +1253,7 @@ This example shows the underlying connection resource definition for a connector
     "location": "[parameters('location')]",
     "kind": "V2",
     "properties": {
-        "alternativeParameterValues":{},
+        "alternativeParameterValues": {},
         "api": {
             "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), '<connector-name>')]"
         },
@@ -1263,11 +1261,10 @@ This example shows the underlying connection resource definition for a connector
         "connectionState": "Enabled",
         "customParameterValues": {},
         "displayName": "[variables('connections_<connector-name>_name')]",
-        "parameterValueSet":{
+        "parameterValueSet": {
             "name": "managedIdentityAuth",
             "values": {}
-        },
-        "parameterValueType": "Alternative"
+        }
     }
 }
 ```

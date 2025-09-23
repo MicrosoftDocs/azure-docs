@@ -3,14 +3,15 @@ title: Create and manage blob leases with Python
 titleSuffix: Azure Storage
 description: Learn how to manage a lock on a blob in your Azure Storage account using the Python client library.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/05/2024
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
+# Customer intent: "As a developer, I want to manage blob leases using the Python client library so that I can have control over blob access and ensure data consistency in my storage solutions."
 ---
 
 # Create and manage blob leases with Python

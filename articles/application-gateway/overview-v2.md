@@ -2,12 +2,13 @@
 title: What is Azure Application Gateway v2?
 description: Learn about Azure application Gateway v2 features.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: overview
 ms.date: 10/02/2024
-ms.author: greglin
+ms.author: mbender
 ms.custom: references_regions, devx-track-azurepowershell
+# Customer intent: As a cloud architect, I want to understand the features and enhancements of Azure Application Gateway v2, so that I can effectively plan migration from v1 and utilize its capabilities for improved application performance and reliability.
 ---
 
 # What is Azure Application Gateway v2?
@@ -23,7 +24,7 @@ The v2 SKU includes the following enhancements:
 
 - **TCP/TLS proxy (Preview)**: Azure Application Gateway now also supports Layer 4 (TCP protocol) and TLS (Transport Layer Security) proxying. This feature is currently in public preview. For more information, see [Application Gateway TCP/TLS proxy overview](tcp-tls-proxy-overview.md).
 - **Autoscaling**: Application Gateway or WAF deployments under the autoscaling SKU can scale out or in based on changing traffic load patterns. Autoscaling also removes the requirement to choose a deployment size or instance count during provisioning. This SKU offers true elasticity. In the Standard_v2 and WAF_v2 SKU, Application Gateway can operate both in fixed capacity (autoscaling disabled) and in autoscaling enabled mode. Fixed capacity mode is useful for scenarios with consistent and predictable workloads. Autoscaling mode is beneficial in applications that see variance in application traffic.
-- **Zone redundancy**: An Application Gateway or WAF deployment can span multiple Availability Zones, removing the need to provision separate Application Gateway instances in each zone with a Traffic Manager. You can choose a single zone or multiple zones where Application Gateway instances are deployed, which makes it more resilient to zone failure. The backend pool for applications can be similarly distributed across availability zones.
+- **Zone redundancy**: Application Gateway or WAF deployments span multiple Availability Zones by default, removing the need to provision separate Application Gateway instances in each zone with a Traffic Manager. Application Gateway instances are deployed (by default) in a minimum of two availability zones, which makes it more resilient to zone failure. The backend pool for applications can be similarly distributed across availability zones.
 
   Zone redundancy is available only where Azure availability zones are available. In other regions, all other features are supported. For more information, see [Azure regions with availability zone support](../reliability/availability-zones-region-support.md).
 - **Static VIP**: Application Gateway v2 SKU supports the static VIP type exclusively. Static VIP ensures that the VIP associated with the application gateway doesn't change for the lifecycle of the deployment, even after a restart. You must use the application gateway URL for domain name routing to App Services via the application gateway, as v1 doesn't have a static VIP.
@@ -103,7 +104,7 @@ The following table compares the features available with each SKU.
 | WebSocket support                                 | &#x2713; | &#x2713; |
 | HTTP/2 support                                    | &#x2713; | &#x2713; |
 | Connection draining                               | &#x2713; | &#x2713; |
-| Proxy NTLM authentication                         | &#x2713; |          |
+| Proxy NTLM authentication                         | &#x2713; | &#x2713; |
 | Path based rule encoding                          | &#x2713; |          |
 | DHE Ciphers                                       | &#x2713; |          |
 > [!NOTE]
@@ -117,10 +118,9 @@ This section describes features and limitations of the v2 SKU that differ from t
 |--|--|
 |Mixing Standard_v2 and Standard Application Gateway on the same subnet|Not supported|
 |User-Defined Route (UDR) on Application Gateway subnet|For information about supported scenarios, see [Application Gateway configuration overview](configuration-infrastructure.md#supported-user-defined-routes).|
-|NSG for Inbound port range| - 65200 to 65535 for Standard_v2 SKU<br>- 65503 to 65534 for Standard SKU.<br>Not required for v2 SKUs in public preview [Learn more](application-gateway-private-deployment.md).<br>For more information, see the [FAQ](application-gateway-faq.yml#are-network-security-groups-supported-on-the-application-gateway-subnet).|
+|NSG for Inbound port range| - 65200 to 65535 for Standard_v2 SKU<br>- 65503 to 65534 for Standard SKU.<br>Not required for v2 SKUs in private deployment [Learn more](application-gateway-private-deployment.md).<br>For more information, see the [FAQ](application-gateway-faq.yml#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Performance logs in Azure diagnostics|Not supported.<br>Azure metrics should be used.|
 |FIPS mode|Currently not supported.|
-|Private frontend configuration only mode|Currently in public preview [Learn more](application-gateway-private-deployment.md).|
 |Path based rule encoding |Not supported.<br> V2 decodes paths before routing. For example, V2 treats `/abc%2Fdef` the same as `/abc/def`. |
 |Chunked file transfer |In the Standard_V2 configuration, turn off request buffering to support chunked file transfer. <br> In WAF_V2, turning off request buffering isn't possible because it has to look at the entire request to detect and block any threats. Therefore, the suggested alternative is to create a path rule for the affected URL and attach a disabled WAF policy to that path rule.|
 |Cookie Affinity |Current V2 doesn't support appending the domain in session affinity Set-Cookie, which means that the cookie can't be used by client for the subdomains.|

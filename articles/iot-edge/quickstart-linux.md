@@ -1,14 +1,22 @@
 ---
 title: "Quickstart: Create an Azure IoT Edge Device on Linux"
-description: Learn to configure an Azure IoT Edge device on Linux. This guide walks you through creating an IoT Hub, registering a device, and deploying a simulated sensor module.
-#customer intent: As a developer, I want to create an IoT Edge device on Linux so that I can deploy and test containerized modules.
-author: PatAltimore
-ms.author: patricka
-ms.date: 03/27/2025
+description: Learn how to configure an Azure IoT Edge device on Linux. This guide walks you through creating an IoT Hub, registering a device, and deploying a simulated sensor module.
+author: sethmanheim
+ms.author: sethm
+ms.date: 09/04/2025
 ms.topic: quickstart
 ms.service: azure-iot-edge
 services: iot-edge
-ms.custom: mvc, devx-track-azurecli, mode-other, linux-related-content
+ms.custom:
+  - mvc
+  - devx-track-azurecli
+  - mode-other
+  - linux-related-content
+  - sfi-image-nochange
+  - sfi-ropc-nochange
+
+#customer intent: As a developer, I want to create an IoT Edge device on Linux so that I can deploy and test containerized modules.
+
 ---
 
 # Quickstart: Deploy your first IoT Edge module to a virtual Linux device
@@ -39,7 +47,7 @@ Set up your environment for the Azure CLI.
 A resource group to manage all the resources you use in this quickstart. This quickstart and the following tutorials use the example resource group name **IoTEdgeResources**.
 
    ```azurecli-interactive
-   `az group create --name IoTEdgeResources --location westus2`
+   az group create --name IoTEdgeResources --location westus2
    ```
 
 ## Create an IoT Hub

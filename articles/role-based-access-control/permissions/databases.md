@@ -4,9 +4,9 @@ description: Lists the permissions for the Azure resource providers in the Datab
 ms.service: role-based-access-control
 ms.topic: generated-reference
 author: rolyon
-manager: femila
+manager: pmwongera
 ms.author: rolyon
-ms.date: 04/25/2025
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 

@@ -8,6 +8,7 @@ ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 03/26/2025
 ms.author: cherylmc
+# Customer intent: As a network engineer, I want to connect multiple virtual networks using a VNet-to-VNet VPN gateway connection, so that I can establish secure and efficient communication between networks across different regions and subscriptions.
 ---
 # Configure a VNet-to-VNet VPN gateway connection using PowerShell
 

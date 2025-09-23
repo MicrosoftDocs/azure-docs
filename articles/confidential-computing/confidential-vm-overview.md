@@ -9,6 +9,7 @@ ms.custom:
   - ignite-2023
 ms.topic: overview
 ms.date: 11/14/2023
+# Customer intent: "As a cloud architect, I want to deploy Azure confidential VMs, so that I can ensure strong security and confidentiality for sensitive applications during cloud migrations without modifying existing code."
 ---
 
 # About Azure confidential VMs 
@@ -100,12 +101,14 @@ Confidential VMs support the following OS options:
 | 22.04 LTS | 22H2, 22H2 Pro, 22H2 Enterprise, 22H2 Enterprise N, 22H2 Enterprise Multi-session  | 2019 Datacenter  |
 | 24.04 LTS | 23H2, 23H2 Pro, 23H2 Enterprise, 23H2 Enterprise N, 23H2 Enterprise Multi-session | 2022 Server Core |
 | **RHEL**  | **Windows 10**  | 2022 Azure Edition|
-| 9.4 | 22H2, 22H2 Pro, 22H2 Enterprise, 22H2 Enterprise N, 22H2 Enterprise Multi-session | 2022 Azure Edition Core|
+| 9.4 (or later) | 22H2, 22H2 Pro, 22H2 Enterprise, 22H2 Enterprise N, 22H2 Enterprise Multi-session | 2022 Azure Edition Core|
 | | | 2022 Datacenter  |
 | **SUSE (Tech Preview)** | | 2025 Server Core |
 | [15 SP5 <span class="pill purple">(Intel TDX, AMD SEV-SNP)](https://aka.ms/cvm-sles-preview)</span>|  | 2025 Datacenter |
 | [15 SP5 for SAP <span class="pill purple">(Intel TDX, AMD SEV-SNP)](https://aka.ms/cvm-sles-preview)</span>    | | 2025 Azure Edition |
 ||| 2025 Azure Edition Core |
+| **Rocky** |||
+| [9.4](https://portal.azure.com/#create/ciq.rocky-ltsciqrl94lts-cvm) |||
 
 ### Regions
 
@@ -119,14 +122,15 @@ Pricing depends on your confidential VM size. For more information, see the [Pri
 
 Confidential VMs *don't support*:
 
-- Azure Backup
-- Azure Site Recovery
-- Limited Azure Compute Gallery support
-- Shared disks
-- Accelerated Networking
-- Live migration
-- Screenshots under boot diagnostics
-
+- [Azure Backup](/azure/backup/backup-overview)
+- [Azure Site Recovery](https://azure.microsoft.com/products/site-recovery/)
+- Limited [Azure Compute Gallery](/azure/virtual-machines/azure-compute-gallery) support
+- [Accelerated Networking](/azure/virtual-network/accelerated-networking-overview)
+- [Live migration](/windows-server/virtualization/hyper-v/manage/live-migration-overview)
+- [Screenshots under boot diagnostics](/azure/virtual-machines/boot-diagnostics#boot-diagnostics-view)
+- [Dynamic memory](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831766(v=ws.11))
+- Confidential disk encryption is only supported for disks that are smaller than 128 GB. For larger disks, it is recommended to opt for premium SSDs, particularly for disks exceeding 32 GB.
+- Auto keyrotation is not supported, only [offline key rotation](/azure/confidential-computing/key-rotation-offline#change-customer-managed-key) is supported. 
 
 ## Next steps
 

@@ -1,10 +1,11 @@
 ---
 title: Ingest Google Cloud Platform log data into Microsoft Sentinel 
 description: This article describes how to ingest service log data from the Google Cloud Platform (GCP) into Microsoft Sentinel.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.date: 01/17/2024
+ms.custom: sfi-image-nochange
 
 #Customer intent: As a security engineer, I want to ingest Google Cloud Platform log data into Microsoft Sentinel so that analysts can monitor and detect potential threats across my multicloud environment.
 
@@ -16,7 +17,7 @@ Organizations are increasingly moving to multicloud architectures, whether by de
 
 This article describes how to ingest GCP data into Microsoft Sentinel to get full security coverage and analyze and detect attacks in your multicloud environment.
 
-With the **GCP Pub/Sub** connectors, based on our [Codeless Connector Platform (CCP)](create-codeless-connector.md?tabs=deploy-via-arm-template%2Cconnect-via-the-azure-portal), you can ingest logs from your GCP environment using the GCP [Pub/Sub capability](https://cloud.google.com/pubsub/docs/overview):
+With the **GCP Pub/Sub** connectors, based on our [Codeless Connector Framework (CCF)](create-codeless-connector.md?tabs=deploy-via-arm-template%2Cconnect-via-the-azure-portal), you can ingest logs from your GCP environment using the GCP [Pub/Sub capability](https://cloud.google.com/pubsub/docs/overview):
 
 - The **Google Cloud Platform (GCP) Pub/Sub Audit Logs connector** collects audit trails of access to GCP resources. Analysts can monitor these logs to track resource access attempts and detect potential threats across the GCP environment.
 

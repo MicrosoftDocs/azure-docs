@@ -1,10 +1,10 @@
 ---
 title: Monitor the health of your Microsoft Sentinel data connectors
 description: Use the SentinelHealth data table and the Health Monitoring workbook to keep track of your data connectors' connectivity and performance.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
-ms.date: 10/17/2024
+ms.date: 08/20/2025
 ms.service: microsoft-sentinel
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -16,17 +16,13 @@ appliesto:
 
 # Monitor the health of your data connectors
 
-To ensure complete and uninterrupted data ingestion in your Microsoft Sentinel service, keep track of your data connectors' health, connectivity, and performance. 
+To ensure complete and uninterrupted data ingestion in your Microsoft Sentinel service, keep track of your data connectors' health, connectivity, and performance.
 
 The following features allow you to perform this monitoring from within Microsoft Sentinel:
 
 - **Data collection health monitoring workbook**: This workbook provides additional monitors, detects anomalies, and gives insight regarding the workspace’s data ingestion status. You can use the workbook’s logic to monitor the general health of the ingested data, and to build custom views and rule-based alerts.
 
-- ***SentinelHealth* data table (Preview)**: Querying this table provides insights on health drifts, such as latest failure events per connector, or connectors with changes from success to failure states, which you can use to create alerts and other automated actions. The *SentinelHealth* data table is currently supported only for [selected data connectors](#supported-data-connectors).
-
-    > [!IMPORTANT]
-    >
-    > The *SentinelHealth* data table is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+- ***SentinelHealth* data table**: Querying this table provides insights on health drifts, such as latest failure events per connector, or connectors with changes from success to failure states, which you can use to create alerts and other automated actions. The *SentinelHealth* data table is currently supported only for [selected data connectors](#supported-data-connectors).
 
 - [**View the health and status of your connected SAP systems**](monitor-sap-system-health.md): Review health information for your SAP systems under the SAP data connector, and use an alert rule template to get information about the health of the SAP agent's data collection.
 
@@ -69,7 +65,7 @@ There are three tabbed sections in this workbook:
 
     :::image type="content" source="media/monitor-data-connector-health/data-health-workbook-3.png" alt-text="data connector health monitoring workbook agent info page" lightbox="media/monitor-data-connector-health/data-health-workbook-3.png":::
 
-## Use the SentinelHealth data table (Public preview)
+## Use the SentinelHealth data table
 
 To get data connector health data from the *SentinelHealth* data table, you must first turn on the Microsoft Sentinel health feature for your workspace. For more information, see [Turn on health monitoring for Microsoft Sentinel](enable-monitoring.md).
 
@@ -85,7 +81,7 @@ The *SentinelHealth* data table is currently supported only for the following da
 - [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md)
 - [Threat Intelligence - TAXII](connect-threat-intelligence-taxii.md)
 - [Threat Intelligence Platforms](connect-threat-intelligence-tip.md)
-- Any connector based on [Codeless Connector Platform](create-codeless-connector.md)
+- Any connector based on [Codeless Connector Framework](create-codeless-connector.md)
 
 ### Understanding SentinelHealth table events
 

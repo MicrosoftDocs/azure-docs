@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  how-to
-ms.date: 04/07/2025
+ms.date: 08/28/2025
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -26,7 +26,7 @@ This article shows you how to create an [Azure Functions app in Azure Container 
 
 ## Create a Functions app
 
-The following steps show you how to use a sample container image to create your container app. If you want to use this procedure with a custom container image, see [Create your first Azure Function on Azure Container Apps](https://github.com/Azure/azure-functions-on-container-apps/blob/main/README.md#create-your-first-azure-function-on-azure-container-apps) and [Functions in containers](/azure/azure-functions/functions-container-apps-hosting).
+The following steps show you how to use a sample container image to create your container app. If you want to use this procedure with a custom container image, see [Create your first function app in Azure Container Apps](https://github.com/Azure/azure-functions-on-container-apps/blob/main/README.md#create-your-first-azure-function-on-azure-container-apps).
 
 1. Go to the Azure portal and search for **Container Apps** in the search bar.
 
@@ -46,9 +46,11 @@ The following steps show you how to use a sample container image to create your 
     | Resource group | Select **Create new resource group**, name it **my-aca-functions-group**, and select **OK**.  |
     | Container app name | Enter **my-aca-functions-app**. |
 
-1. Next to *Optimize for Azure Functions* check the checkbox.
+1. Next to *Optimize for Azure Functions*, check the checkbox.
 
-1. Under *Container Apps environment* enter:
+    :::image type="content" source="media/functions-overview/functions-create-container-app.png" alt-text="Screenshot of the Azure portal when you create a container app pre-configured for Azure Functions.":::
+
+1. Under *Container Apps environment*, enter:
 
     | Property | Value |
     |---|---|
@@ -79,7 +81,7 @@ The following steps show you how to use a sample container image to create your 
     | Registry login server  | Enter **mcr.microsoft.com** |
     | Image and tag | Enter **azure-functions/dotnet8-quickstart-demo:1.0** |
 
-1. Under *Environment variables* enter values for the following variables:
+1. Under *Environment variables*, enter values for the following variables:
 
     - `AzureWebJobsStorage`
     - `APPINSIGHTS_INSTRUMENTATIONKEY` or `APPLICATIONINSIGHTS_CONNECTION_STRING`
@@ -89,9 +91,6 @@ The following steps show you how to use a sample container image to create your 
     The `AzureWebJobsStorage` variable is a required Azure Storage account connection string for Azure Functions. This storage account stores function execution logs, manage triggers and bindings, and maintains state for durable functions.
 
     Application Insights is a monitoring and diagnostic service that provides insights into the performance and usage of your Azure Functions. This monitoring helps you track request rates, response times, failure rates, and other metrics.
-
-    > [!TIP]
-    > By default, a containerized function app monitors port `80` for incoming requests. If your app uses a different port, use the `WEBSITES_PORT` application setting to change the default port.
 
 1. Select **Next > Ingress** to switch to the Ingress section and enter the following values.
 
@@ -210,4 +209,4 @@ To sign in to Azure from the CLI, run the following command and follow the promp
 
 ## Related content
 
-- [Create your first containerized functions](/azure/azure-functions/functions-deploy-container-apps)
+- [Azure Functions on Azure Container Apps overview](../../articles/container-apps/functions-overview.md)

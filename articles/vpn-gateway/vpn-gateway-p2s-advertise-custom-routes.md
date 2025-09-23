@@ -4,15 +4,18 @@ titleSuffix: Azure VPN Gateway
 description: Learn how to advertise custom routes to your VPN Gateway point-to-site clients. This article includes steps for VPN client forced tunneling.
 author: cherylmc
 ms.service: azure-vpn-gateway
-ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 10/15/2024
 ms.author: cherylmc
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
+# Customer intent: As a network administrator, I want to advertise custom routes to point-to-site VPN clients, so that I can ensure efficient traffic routing through the VPN tunnel for secure access to resources like storage accounts.
 ---
 
 # Advertise custom routes for P2S VPN clients
 
-You may want to advertise custom routes to all of your point-to-site VPN clients. For example, when you have enabled storage endpoints in your VNet and want the remote users to be able to access these storage accounts over the VPN connection. You can advertise the IP address of the storage end point to all your remote users so that the traffic to the storage account goes over the VPN tunnel, and not the public Internet. You can also use custom routes in order to configure [forced tunneling](#forced-tunneling) for VPN clients.
+You may want to advertise custom routes to all of your point-to-site VPN clients. For example, when you have enabled storage endpoints in your VNet and want the remote users to be able to access these storage accounts over the VPN connection. You can advertise the IP address of the storage endpoint to all your remote users so that the traffic to the storage account goes over the VPN tunnel, and not the public internet. You can also use custom routes in order to configure [forced tunneling](#forced-tunneling) for VPN clients.
 
 :::image type="content" source="./media/vpn-gateway-p2s-advertise-custom-routes/custom-routes.png" alt-text="Diagram of advertising custom routes." lightbox="./media/vpn-gateway-p2s-advertise-custom-routes/custom-routes.png":::
 
@@ -72,7 +75,7 @@ Use the following example to delete custom routes:
 You can direct all traffic to the VPN tunnel by advertising 0.0.0.0/1 and 128.0.0.0/1 as custom routes to the clients. The reason for breaking 0.0.0.0/0 into two smaller subnets is that these smaller prefixes are more specific than the default route that may already be configured on the local network adapter and, as such, will be preferred when routing traffic.
 
 > [!NOTE]
-> Internet connectivity is not provided through the VPN gateway. As a result, all traffic bound for the Internet is dropped.
+> Internet connectivity is not provided through the VPN gateway. As a result, all traffic bound for the internet is dropped.
 >
 
 To enable forced tunneling, use the following commands:

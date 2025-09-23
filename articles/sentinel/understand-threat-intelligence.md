@@ -4,13 +4,14 @@ titleSuffix: Microsoft Sentinel
 description: Understand threat intelligence and how it integrates with features in Microsoft Sentinel to analyze data, detect threats, and enrich alerts.
 author: guywi-ms
 ms.topic: concept-article
-ms.date: 02/27/2025
+ms.date: 08/18/2025
 ms.author: guywild
 ms.reviewer: alsheheb
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+ms.custom: sfi-image-nochange
 
 #Customer intent: As a security analyst, I want to integrate threat intelligence into Microsoft Sentinel so that I can detect, investigate, and respond to potential security threats effectively.
 ---
@@ -126,7 +127,7 @@ For more information, see [Connect Microsoft Sentinel to STIX/TAXII threat intel
 
 ## Create and manage threat intelligence
 
-Threat intelligence powered by Microsoft Sentinel is managed next to Microsoft Defender Threat Intelligence (MDTI) and Threat Analytics in Microsoft's unified SecOps platform.
+Threat intelligence powered by Microsoft Sentinel is managed next to Microsoft Defender Threat Intelligence (MDTI) and Threat Analytics in the Microsoft Defender portal.
 
 :::image type="content" source="media/understand-threat-intelligence/intel-management-defender-portal.png" alt-text="Screenshot showing intel management page in the Defender portal." lightbox="media/understand-threat-intelligence/intel-management-defender-portal.png":::
 
@@ -222,7 +223,7 @@ View your threat intelligence from the management interface or using queries:
 
 ### Threat intelligence lifecycle
 
-Microsoft Sentinel stores threat intelligence data in your threat intelligence tables and automatically reingests all data every seven days to optimize query efficiency.
+Microsoft Sentinel stores threat intelligence data in your threat intelligence tables and automatically reingests all data every seven to 10 days to optimize query efficiency.
 
 When an indicator is created, updated, or deleted, Microsoft Sentinel creates a new entry in the tables. Only the most current indicator appears on the management interface. Microsoft Sentinel deduplicates indicators based on the `Id` property (the `IndicatorId` property in the legacy `ThreatIntelligenceIndicator`) and chooses the indicator with the newest `TimeGenerated[UTC]`.
 
@@ -265,5 +266,5 @@ For more information on using and customizing the **Threat Intelligence** workbo
 In this article, you learned about threat intelligence capabilities powered by Microsoft Sentinel. For more information, see the following articles:
 
 - [New STIX objects in Microsoft Sentinel](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/announcing-public-preview-new-stix-objects-in-microsoft-sentinel/4369164)
-- [Uncover adversaries with threat intelligence in Microsoft's unified SecOps platform](/unified-secops-platform/threat-intelligence-overview)
-- [Hunting in Microsoft's unified SecOps platform](/unified-secops-platform/hunting-overview)
+- [Uncover adversaries with threat intelligence in the Defender portal](/unified-secops-platform/threat-intelligence-overview)
+- [Hunting in the Defender portal](/unified-secops-platform/hunting-overview)

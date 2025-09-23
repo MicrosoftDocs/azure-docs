@@ -2,10 +2,19 @@
 title: Migrate apps from Azure Functions version 3.x to 4.x
 description: Learn how to migrate your existing function apps running on version 3.x of the Azure Functions runtime to be able to run on version 4.x of the runtime.
 ms.service: azure-functions
-ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-azurecli, ignite-2023, linux-related-content, devx-track-ts
 ms.topic: how-to
 ms.date: 05/08/2025
 zone_pivot_groups: programming-languages-set-functions
+ms.custom:
+  - devx-track-dotnet
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - devx-track-azurecli
+  - ignite-2023
+  - linux-related-content
+  - devx-track-ts
+  - sfi-ropc-nochange
 ---
 
 # Migrate apps from Azure Functions version 3.x to version 4.x 
@@ -36,7 +45,7 @@ On version 3.x of the Functions runtime, your C# function app targets .NET Core 
 >
 > Although you can choose to instead use the in-process model, we don't recommend this approach if you can avoid it. [Support will end for the in-process model on November 10, 2026](https://aka.ms/azure-functions-retirements/in-process-model), so you'll need to move to the isolated worker model before then. Doing so while migrating to version 4.x will decrease the total effort required, and the isolated worker model will give your app [additional benefits](./dotnet-isolated-in-process-differences.md), including the ability to more easily target future versions of .NET. If you're moving to the isolated worker model, the [.NET Upgrade Assistant] can also handle many of the necessary code changes for you.
 
-This guide doesn't present specific examples for .NET 9. If you need to target that version, you can adapt the .NET 8 examples for the isolated worker model.
+This guide doesn't present specific examples for .NET 10 (preview) or .NET 9. If you need to target one of those versions, you can adapt the .NET 8 examples.
 
 ::: zone-end
 
@@ -400,7 +409,7 @@ To update your project to Azure Functions 4.x:
 
 1. Update your local installation of [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) to version 4.x. 
 
-1. Update your app's [Azure Functions extensions bundle](functions-bindings-register.md#extension-bundles) to 2.x or above. For more information, see [breaking changes](#breaking-changes-between-3x-and-4x).
+1. Update your app's [Azure Functions extensions bundle](extension-bundles.md) to 2.x or above. For more information, see [breaking changes](#breaking-changes-between-3x-and-4x).
 
 ::: zone-end  
 
@@ -474,7 +483,7 @@ If you don't see your programming language, go select it from the [top of the pa
 
 - Logging to Azure Storage using *AzureWebJobsDashboard* is no longer supported in 4.x. You should instead use [Application Insights](./functions-monitoring.md). ([#1923](https://github.com/Azure/Azure-Functions/issues/1923))
 
-- Azure Functions 4.x now enforces [minimum version requirements for extensions](functions-versions.md#minimum-extension-versions). Update to the latest version of affected extensions. For non-.NET languages, [update](./functions-bindings-register.md#extension-bundles) to extension bundle version 2.x or later. ([#1987](https://github.com/Azure/Azure-Functions/issues/1987))
+- Azure Functions 4.x now enforces [minimum version requirements for extensions](functions-versions.md#minimum-extension-versions). Update to the latest version of affected extensions. For non-.NET languages, [update](./extension-bundles.md) to extension bundle version 2.x or later. ([#1987](https://github.com/Azure/Azure-Functions/issues/1987))
 
 - Default and maximum timeouts are now enforced in 4.x for function apps running on Linux in a Consumption plan. ([#1915](https://github.com/Azure/Azure-Functions/issues/1915))
 

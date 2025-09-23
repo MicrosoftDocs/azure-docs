@@ -2,38 +2,39 @@
 title: Redirect overview for Azure Application Gateway
 description: Learn about the redirect capability in Azure Application Gateway to redirect traffic received on one listener to another listener or to an external site.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 04/19/2022
-ms.author: greglin
+ms.author: mbender
+# Customer intent: As a cloud architect, I want to implement traffic redirection in the application gateway, so that I can optimize resource usage while ensuring secure and efficient user communication through automatic HTTP to HTTPS redirection and other advanced scenarios.
 ---
 
 # Application Gateway redirect overview
 
-You can use application gateway to redirect traffic.  It has a generic redirection mechanism which allows for redirecting traffic received at one listener to another listener or to an external site. This simplifies application configuration, optimizes the resource usage, and supports new redirection scenarios including global and path-based redirection.
+You can use application gateway to redirect traffic. It has a generic redirection mechanism, which allows for redirecting traffic received at one listener to another listener or to an external site. This simplifies application configuration, optimizes the resource usage, and supports new redirection scenarios including global and path-based redirection.
 
-A common redirection scenario for many web applications is to support automatic HTTP to HTTPS redirection to ensure all communication between application and its users occurs over an encrypted path. In the past, customers have used techniques such as creating a dedicated backend pool whose sole purpose is to redirect requests it receives on HTTP to HTTPS. With redirection support in Application Gateway, you can accomplish this simply by adding a new redirect configuration to a routing rule, and specifying another listener with HTTPS protocol as the target listener.
+A common redirection scenario for many web applications is to support automatic HTTP to HTTPS redirection to ensure all communication between an application and its users occurs over an encrypted path. In the past, customers have used techniques such as creating a dedicated backend pool whose sole purpose is to redirect requests it receives on HTTP to HTTPS. With redirection support in Application Gateway, you can accomplish this simply by adding a new redirect configuration to a routing rule, and specifying another listener with HTTPS protocol as the target listener. For more information on HTTP to HTTPS redirection, see [Create an Application Gateway with HTTP to HTTPS redirection using the Azure portal](redirect-http-to-https-portal.md).
 
 ## Redirection types
 A redirect type sets the response status code for the clients to understand the purpose of the redirect. The following types of redirection are supported:
 
-- 301 (Moved permanently): Indicates that the target resource has been assigned a new permanent URI. Any future references to this resource will use one of the enclosed URIs. Use 301 status code for HTTP to HTTPS redirection.
-- 302 (Found): Indicates that the target resource is temporarily under a different URI. Since the redirection can change on occasion, the client should continue to use the effective request URI for future requests.
-- 303 (See Other): Indicates that the target resource is redirecting the user agent to a different resource, as indicated by a URI in the Location header field.
-- 307 (Temporary redirect): Indicates that the target resource is temporarily under a different URI. The user agent MUST NOT change the request method if it does an automatic redirection to that URI. Since the redirection can change over time, the client ought to continue using the original effective request URI for future requests.
+- **301 (Moved permanently)**: Indicates that the target resource has been assigned a new permanent URI. Any future references to this resource will use one of the enclosed URIs. Use 301 status code for HTTP to HTTPS redirection.
+- **302 (Found)**: Indicates that the target resource is temporarily under a different URI. Since the redirection can change on occasion, the client should continue to use the effective request URI for future requests.
+- **303 (See Other)**: Indicates that the target resource is redirecting the user agent to a different resource, as indicated by a URI in the Location header field.
+- **307 (Temporary redirect)**: Indicates that the target resource is temporarily under a different URI. The user agent MUST NOT change the request method if it does an automatic redirection to that URI. Since the redirection can change over time, the client ought to continue using the original effective request URI for future requests.
 
 ## Redirection capabilities
 
--  **Listener redirection**
+- **Listener redirection**
    
    Redirects from one listener to another listener. Listener redirection is commonly used to enable HTTP to HTTPS redirection.
    
-   When configuring redirects with a multi-site target listener, it is required that all the host names (with or without wildcard characters) are defined as part of the source listener are also part of the destination listener. This ensures that no traffic is dropped due to missing host names on the destination listener while configuring HTTP to HTTPS redirection.
+   When configuring redirects with a multi-site target listener, it's required that all the host names (with or without wildcard characters) that are defined as part of the source listener are also part of the destination listener. This ensures that no traffic is dropped due to missing host names on the destination listener while configuring HTTP to HTTPS redirection.
    
 - **Path-based redirection**
 
-   This type of redirection enables redirection only on a specific site area, for example, redirecting HTTP to HTTPS requests for a shopping cart area denoted by /cart/\*.
+   This type of redirection enables redirection only on a specific site area, for example, redirecting HTTP to HTTPS requests for a shopping cart area denoted by `/cart/*`.
    
 - **Redirect to external site**
 

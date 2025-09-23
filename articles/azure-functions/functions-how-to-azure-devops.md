@@ -34,19 +34,19 @@ Choose your task version at the top of the article. YAML pipelines aren't availa
 * An existing function app in Azure that has its source code in a supported repository. If you don't yet have an Azure Functions code project, you can create one by completing the following language-specific article:
     ### [C\#](#tab/csharp)
 
-    [Quickstart: Create a C# function in Azure using Visual Studio Code](create-first-function-vs-code-csharp.md)
+    [Quickstart: Create a C# function in Azure using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-csharp)
 
     ### [JavaScript](#tab/javascript)
 
-    [Quickstart: Create a JavaScript function in Azure using Visual Studio Code](create-first-function-vs-code-node.md)
+    [Quickstart: Create a JavaScript function in Azure using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-javascript)
 
     ### [Python](#tab/python)
 
-    [Quickstart: Create a function in Azure with Python using Visual Studio Code](create-first-function-vs-code-python.md)
+    [Quickstart: Create a function in Azure with Python using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-python)
 
     ### [PowerShell](#tab/powershell)
 
-    [Quickstart: Create a PowerShell function in Azure using Visual Studio Code](create-first-function-vs-code-powershell.md)
+    [Quickstart: Create a PowerShell function in Azure using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-powershell)
 
     ---
     
@@ -118,7 +118,7 @@ steps:
     fi
     npm install 
     npm run build --if-present
-    npm prune --production
+    npm prune --omit=dev
 - task: ArchiveFiles@2
   displayName: "Archive files"
   inputs:
@@ -240,7 +240,7 @@ variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: <Docker registry service connection>
   imageRepository: <Name of your image repository>
-  containerRegistry: <Name of the Azure container registry>
+  containerRegistry: <Name of the Azure Container Registry>
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
   
@@ -370,7 +370,7 @@ steps:
     fi
     npm install 
     npm run build --if-present
-    npm prune --production
+    npm prune --omit=dev
 - task: ArchiveFiles@2
   displayName: "Archive files"
   inputs:
@@ -445,7 +445,7 @@ You'll deploy with the [Azure Function App Deploy v2](/azure/devops/pipelines/ta
 
 The v2 version of the task includes support for newer applications stacks for .NET, Python, and Node. The task includes networking predeployment checks. When there are predeployment issues, deployment stops. 
 
-To deploy to Azure Functions, add the following snippet at the end of your `azure-pipelines.yml` file. The default `appType` is Windows. You can specify Linux by setting the `appType` to `functionAppLinux`. Deploying to a Flex Consumption app requires you to set both `appType: functionAppLinux` and `isFlexConsumption: true`.
+To deploy to Azure Functions, add the following snippet at the end of your `azure-pipelines.yml` file. The default `appType` is Windows. You can specify Linux by setting the `appType` to `functionAppLinux`. Deploying to a Flex Consumption app requires you to set both `appType: functionAppLinux` and `isFlexConsumption: true`. The reason must be set to `functionAppLinux` when you use Flex Consumption because [Flex Consumption](/azure/azure-functions/flex-consumption-plan) is a Linux-based Azure Function.
 
 ### [Windows App](#tab/windows)
 ```yaml

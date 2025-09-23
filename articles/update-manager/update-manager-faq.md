@@ -6,9 +6,9 @@ ms.custom:
   - ignite-2024
 ms.topic: faq
 ms.date: 04/16/2025
-author: snehasudhirG
-ms.author: sudhirsneha
-#Customer intent: As an implementer, I want answers to various questions.
+author: habibaum
+ms.author: v-uhabiba
+# Customer intent: As an IT administrator managing updates across various environments, I want to find answers to frequently asked questions about Azure Update Manager, so that I can effectively use its features for patch management and ensure compliance across my systems.
 ---
 
 # Azure Update Manager frequently asked questions
@@ -63,46 +63,6 @@ For more information, see [Azure Update Manager OS support](support-matrix.md).
 Automation Update Management didn't provide support for patching Windows 10 and 11. The same is true for Azure Update Manager. We recommend that you use Microsoft Intune as the solution for keeping Windows 10 and 11 devices up to date. 
 
 
-## Impact of Log Analytics Agent retirement
-
-### How do I move from Automation Update Management to Azure Update Manager?
-
-Follow the [guidance](guidance-migration-automation-update-management-azure-update-manager.md) to move from Automation Update Management to Azure Update Manager.
-
-
-### LA agent (also known as MMA) is retiring and will be replaced with AMA. Is it necessary to move to Update Manager or can I continue to use Automation Update Management with AMA?
-
-The Azure Log Analytics agent, also known as the Microsoft Monitoring Agent (MMA) has [retired in August 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). Azure Automation Update management solution relies on this agent and might encounter issues once the agent is retired. It doesn't work with Azure Monitoring Agent (AMA) either.
-
-Therefore, if you're using Azure Automation Update management solution, you're encouraged to move to Azure Update Manager for their software update needs. All capabilities of Azure Automation Update Management Solution will be available on Azure Update Manager before the retirement date. Follow the [guidance](guidance-migration-automation-update-management-azure-update-manager.md) to move update management for your machines to Azure Update Manager.
- 
-
-### If I move to AMA while I'm still using Automation Update Management, will my solution break? 
-
-Yes. Automation Update Management isn't compatible with AMA. We recommend that you move the machine to Azure Update Manager before removing MMA from the machine. Update Manager doesn't rely either on MMA or AMA. 
-
-
-### Will I lose my Automation Update Management update related data if I move to Azure Update Manager? 
-
-Automation Update Management uses Log Analytics workspace for storing updates data. Azure Update Manager uses Azure Resource Graph for data storage. You can continue using the historical data in Log Analytics workspace for old data and use Azure Resource Graph for new data. 
-
-### I have some reports/dashboards built for Automation Update Management. How do I move them? 
-
-You can rebuild custom dashboards/reports on updates data from Azure Resource Graph (ARG). For more information, see [how to query ARG data](query-logs.md) and [sample queries](sample-query-logs.md). These are a few built-in workbooks that you can modify as per your needs to get started. For more information, see [how to create reports using workbooks](manage-workbooks.md).
-
-### I have been using saved searches in Automation Update Management for schedules. How do I migrate to Azure Update Manager? 
-
-Arc-enabling of machines is a prerequisite for management with Update Manager. To move the saved searches. You can Arc-enable them and then use dynamic scoping feature to define the same scope of machines. [Learn more](manage-dynamic-scoping.md).
-
-
-### If I have been using pre and post-script or alerting capability in Automation Update management, how can I move to Azure Update Manager? 
-
-These capabilities are added to Azure Update Manager. For more information, see [guidance for moving from Automation Update management to Azure Update Manager](guidance-migration-automation-update-management-azure-update-manager.md).
-
-### I'm using Automation Update Management on sovereign clouds; will I get region support in the new Azure Update Manager? 
-
-Yes, you can, as Azure Update Manager is available in sovereign clouds. 
-
 ## Pricing
 
 ### What is the pricing for Azure Update Manager? 
@@ -135,6 +95,7 @@ Customers won't be charged for already existing Arc-enabled servers which were u
 If you have purchased a Defender for Servers Plan 2, then you won't have to pay to remediate the unhealthy resources for the above two recommendations. But if you're using any other Defender for server plan for your Arc machines, then you would be charged for those machines at the daily prorated $0.16/server by Azure Update Manager.
 
 ### Is Azure Update Manager chargeable on Azure Local?
+
 Azure Update Manager isn't charged for:
  - Management of Azure Local instances  via **Azure Local**  and [Azure Update Manager on Azure Local](/azure/azure-local/update/azure-update-manager-23h2)
  - [Arc-enabled Azure Local VMs](/azure/azure-local/manage/azure-arc-vm-management-overview) created via the Arc Resource Bridge. For example *Machine-Azure Arc (Azure Local)* resource.
@@ -142,7 +103,10 @@ Azure Update Manager isn't charged for:
 All other resources including, but not limited to the following will be charged.
  - Management of individual Azure Local machines. For example, *Machine - Azure Arc* resource or *Azure Update Manager - Machines*.
  - All VMs on Azure Local that is not created by Arc resource bridge - VMs projected as Arc-enabled servers and/or VMs on Azure Local managed by Azure Arc-enabled SCVMM.
- 
+
+### Is there any additional cost associated with Azure Update Manager for any data transfers?
+
+No, there is no extra cost for data transfer when using Azure Update Manager for patch management operations.
 
 ## Update Manager support and integration
 

@@ -6,6 +6,7 @@ ms.service: azure-migrate
 ms.date: 02/06/2025
 ms.custom: engagement-fy24
 
+# Customer intent: As a cloud solutions architect, I want to review business case reports using a migration assessment tool, so that I can effectively plan and evaluate the cost savings and operational benefits of migrating on-premises workloads to the cloud.
 ---
 
 # View a business case (preview)
@@ -25,6 +26,7 @@ There are four major reports that you need to review:
     - Potential savings (TCO).
     - Estimated year on year cashflow savings based on the estimated migration completed that year.
     - Savings from unique Azure benefits like Azure Hybrid Benefit.
+    - Carbon emissions reductions by moving to Azure.
     - Savings from Security and Management capabilities.
     - Discovery insights covering the scope of the business case.
     - Support status of the operating system and database licenses.
@@ -42,12 +44,15 @@ There are four major reports that you need to review:
 ## Overview report
 
 ### Potential savings
+
 This card covers your potential total cost of ownership savings based on the chosen migration strategy. It includes one year savings from compute, storage, network, labor, and facilities cost (based on assumptions) to help you envision how Azure benefits can turn into cost savings. You can see the insights of different cost categories in the **On-premises vs Azure** report.
 
 ### Estimated on-premises cost
+
 It covers the cost of running all the servers scoped in the business case using some of the industry benchmarks. It includes one time cost for some of the capital expenditures like hardware acquisition etc., and annual cost for other components that you might pay as operating expenses like maintenance etc.
 
 ### Estimated Azure cost
+
 It covers the cost of all servers and workloads that have been identified as ready for migration/modernization as per the recommendation. Refer to the respective [Azure IaaS](how-to-view-a-business-case.md#azure-iaas-report) and [Azure PaaS](how-to-view-a-business-case.md#azure-paas-report) report for details. The Azure cost is calculated based on the right sized Azure configuration, ideal migration target, and most suitable pricing offers for your workloads. You can override the migration strategy, target location, or other settings in the 'Azure cost' assumptions to see how your savings could change by migrating to Azure.
 
 ### YoY estimated current vs future state cost
@@ -65,7 +70,17 @@ It shows the potential savings with respect to extended security update license.
 
 It shows the potential savings with respect to securing your migration with Microsoft Defender for Cloud and Azure Management services including Azure Monitor, Azure Backup, and Azure Update Manager for streamlining your operations.
 
+## Sustainability insights: Lower emissions with Azure
+
+The **Sustainability Benefits** capability is now embedded in Azure Migrate’s Business Case. It empowers IT, finance, and sustainability teams to:
+
+- **Estimate on-premises emissions** (in MtCO₂e), using a standardized methodology considering compute, storage, power usage, and geographic carbon intensity. 
+- **Compare against Azure emissions**, calculated using Microsoft’s internally validated **carbon rate cards** for each SKU and region. 
+- Visualize year-on-year reductions as workloads migrate from on-premises to Azure. 
+- **Align cross-functional stakeholders** by presenting both **economic** and environmental benefits in one unified view. 
+
 ### Discovery insights
+
 It covers the total servers scoped in the business case computation, virtualization distribution, utilization insights, support status of the licenses, and distribution of servers based on workloads running on them.
 
 #### Utilization insights
@@ -156,7 +171,7 @@ This section contains the cost estimate by recommended target (Annual cost inclu
 - The number and SKU of AVS hosts used in a business case aligns to the SKUs available in the given region and optimized to use the least number of nodes required to host all VMs ready to be migrated.
 - Azure NetApp File (ANF) is used when it can be used to optimize the number of AVS hosts required. ANF Standard tier is used when the VMs have been imported using RVTools. For an Azure Migrate appliance-based business case, the tier of ANF used in the business case depends on the IOPS & throughput data for VMs. 
     - CPU over-subscription of 4:1
-    - Memory overcommit of 100% 
+    - Memory overcommits of 100% 
     - Compression and deduplication factor of 1.5. You can learn more about this [here](concepts-azure-vmware-solution-assessment-calculation.md#whats-in-an-azure-vmware-solution-assessment). 
 
 **Compute and license cost**: This card shows the comparison of compute and license cost when using Azure hybrid benefit and without Azure hybrid benefit. 

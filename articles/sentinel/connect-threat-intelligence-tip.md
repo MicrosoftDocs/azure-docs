@@ -2,10 +2,10 @@
 title: Connect your threat intelligence platform
 titleSuffix: Microsoft Sentinel
 description: Learn how to connect your threat intelligence platform (TIP) or custom feed to Microsoft Sentinel and send threat indicators.
-author: austinmccollum
+author: poliveria  
 ms.topic: how-to
 ms.date: 3/14/2024
-ms.author: austinmc
+ms.author: pauloliveria 
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -19,7 +19,7 @@ ms.collection: usx-security
 # Connect your threat intelligence platform to Microsoft Sentinel
 
 > [!NOTE]
-> This data connector is on a path for deprecation. More information will be published on the precise timeline. Use the new Threat Intelligence Upload Indicators API data connector for new solutions going forward.
+> This data connector will be deprecated and will stop collecting data in **April 2026**. We recommend transitioning to the new Threat Intelligence Upload Indicators API data connector as soon as possible to ensure uninterrupted data collection.
 > For more information, see [Connect your threat intelligence platform to Microsoft Sentinel with the upload API](connect-threat-intelligence-upload-api.md).
 
 Many organizations use threat intelligence platform (TIP) solutions to aggregate threat indicator feeds from various sources. From the aggregated feed, the data is curated to apply to security solutions such as network devices, EDR/XDR solutions, or security information and event management (SIEM) solutions such as Microsoft Sentinel. By using the TIP data connector, you can use these solutions to import threat indicators into Microsoft Sentinel. 

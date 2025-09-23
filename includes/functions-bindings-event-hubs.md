@@ -4,6 +4,8 @@ ms.topic: include
 ms.date: 02/21/2020
 author: v1212
 ms.author: wujia
+ms.custom:
+  - build-2025
 ---
 
 ::: zone pivot="programming-language-csharp"
@@ -90,41 +92,7 @@ Version 1.x of the Functions runtime doesn't support running in an isolated work
 ::: zone-end  
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
-
-## Install bundle
-
-The Event Hubs extension is part of an [extension bundle], which is specified in your host.json project file. You may need to modify this bundle to change the version of the binding, or if bundles aren't already installed. To learn more, see [extension bundle].
-
-# [Bundle v4.x](#tab/extensionv6)
-
-[!INCLUDE [functions-bindings-supports-identity-connections-note](functions-bindings-supports-identity-connections-note.md)]
-
-You can add this version of the extension from the extension bundle v4 by adding or replacing the following code in your `host.json` file:
-
-[!INCLUDE [functions-extension-bundles-json-v4](./functions-extension-bundles-json-v4.md)]
-
-To learn more, see [Update your extensions].
-
-# [Bundle v3.x](#tab/extensionv5)
-
-[!INCLUDE [functions-bindings-supports-identity-connections-note](functions-bindings-supports-identity-connections-note.md)]
-
-You can add this version of the extension from the extension bundle v3 by adding or replacing the following code in your `host.json` file:
-
-[!INCLUDE [functions-extension-bundles-json-v3](./functions-extension-bundles-json-v3.md)]
-
-To learn more, see [Update your extensions].
-
-# [Bundle v2.x](#tab/extensionv3)
-
-You can install this version of the extension in your function app by registering the [extension bundle], version 2.x.
-
-# [Functions v1.x](#tab/functionsv1)
-
-Version 1.x of the Functions runtime doesn't require extension bundles. 
-
----
-
+[!INCLUDE [functions-install-extension-bundle](functions-install-extension-bundle.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
@@ -138,7 +106,7 @@ The binding types supported for .NET depend on both the extension version and C#
 An isolated worker process class library compiled C# function runs in a process isolated from the runtime.  
 
 
-# [In-process model](#tab/in-process)
+### [In-process model](#tab/in-process)
 
 An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
  
@@ -174,7 +142,7 @@ Earlier versions of the extension exposed types from the now deprecated [Microso
 
 This version of the extension supports parameter types according to the table below.
 
- Binding scenario | Parameter types |
+|Binding scenario | Parameter types |
 |-|-|
 | Event Hubs trigger (single event) | [Microsoft.Azure.EventHubs.EventData]<br/>JSON serializable types<sup>1</sup><br/>`string`<br/>`byte[]` |
 | Event Hubs trigger (batch of events) | `EventData[]`<br/>`string[]` |
@@ -206,6 +174,26 @@ Functions version 1.x doesn't support the isolated worker process. To use the is
 [upgrade your application to Functions 4.x]: ../articles/azure-functions/migrate-version-1-version-4.md
 
 ::: zone-end
+
+::: zone pivot="programming-language-python"
+
+## SDK Binding Types
+
+SDK Types for Azure EventHub are in Preview. Follow the [Python SDK Bindings for EventHub Sample](https://github.com/Azure-Samples/azure-functions-eventhub-sdk-bindings-python) to get started with SDK Types for Event Hubs in Python. 
+> [!IMPORTANT]  
+> Using SDK type bindings requires the [Python v2 programming model](../articles/azure-functions/functions-reference-python.md#sdk-type-bindings).
+
+---
+| Binding          | Parameter types | Samples                                                                                                                                                                           |
+|------------------|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| EventHub trigger | [EventData]     | [`EventData`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-eventhub/samples/eventhub_samples_eventdata/function_app.py) |
+
+---
+
+[EventData]: /python/api/azure-eventhub/azure.eventhub.eventdata
+
+
+:::zone-end
 
 ## host.json settings
 <a name="host-json"></a>
@@ -328,7 +316,7 @@ For a reference of host.json in Azure Functions 1.x, see [host.json reference fo
 
 
 [NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs
-[extension bundle]: ../articles/azure-functions/functions-bindings-register.md#extension-bundles
+[extension bundle]: ../articles/azure-functions/extension-bundles.md
 [Update your extensions]: ../articles/azure-functions/functions-bindings-register.md
 
 [Microsoft.Azure.EventHubs]: /dotnet/api/microsoft.azure.eventhubs

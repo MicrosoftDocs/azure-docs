@@ -3,8 +3,9 @@ title: Back up SQL Server always on availability groups
 description: In this article, learn how to back up SQL Server on availability groups.
 ms.topic: how-to
 ms.date: 04/24/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a database administrator, I want to configure SQL Server always on availability group backups across multiple regions and subscriptions, so that I can ensure data protection and recovery in case of failovers or emergencies."
 ---
 # Back up SQL Server always on availability groups
 
@@ -201,5 +202,4 @@ Learn how to:
 
 - [Back up SQL server databases in Azure VMs using Azure Backup via REST API](backup-azure-sql-vm-rest-api.md).
 - [Restore SQL Server databases in Azure VMs with REST API](restore-azure-sql-vm-rest-api.md).
-- [Manage SQL server databases in Azure VMs with REST API](manage-azure-sql-vm-rest-api.md).
-
+- Manage SQL server databases in Azure VMs with [Azure portal](manage-monitor-sql-database-backup.md), [Azure CLI](backup-azure-sql-manage-cli.md), [REST API](manage-azure-sql-vm-rest-api.md).

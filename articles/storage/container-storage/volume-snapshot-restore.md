@@ -1,22 +1,26 @@
 ---
-title: Use volume snapshots with Azure Container Storage
+title: Use Volume Snapshots with Azure Container Storage (version 1.x.x)
 description: Take a point-in-time snapshot of a persistent volume and restore it. You'll create a volume snapshot class, take a snapshot, create a restored persistent volume claim, and deploy a new pod.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 07/23/2024
+ms.date: 09/03/2025
 ms.author: kendownie
+# Customer intent: As a Kubernetes operator, I want to create and restore volume snapshots in Azure Container Storage (version 1.x.x), so that I can recover from potential data loss.
 ---
 
-# Use volume snapshots with Azure Container Storage
+# Use volume snapshots with Azure Container Storage (version 1.x.x)
 
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to take a point-in-time snapshot of a persistent volume and restore it with a new persistent volume claim.
+Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to take a point-in-time snapshot of a persistent volume and restore it with a new persistent volume claim.
+
+> [!IMPORTANT]
+> This article covers features and capabilities available in Azure Container Storage (version 1.x.x). [Azure Container Storage (version 2.x.x)](container-storage-introduction.md) is now available, but it doesn't currently support volume snapshots.
 
 ## Prerequisites
 
-- This article requires the latest version (2.35.0 or later) of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). If you're using Azure Cloud Shell, the latest version is already installed. If you plan to run the commands locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges.
+- This article requires the latest version of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). If you're using Azure Cloud Shell, the latest version is already installed. If you plan to run the commands locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges.
 - You'll need an Azure Kubernetes Service (AKS) cluster with a node pool of at least three virtual machines (VMs) for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
-- This article assumes you've already installed Azure Container Storage on your AKS cluster, and that you've created a storage pool and persistent volume claim (PVC) using either [Azure Disks](use-container-storage-with-managed-disks.md) or [ephemeral disk (local storage)](use-container-storage-with-local-disk.md). Volume snapshots aren't currently supported when you use Elastic SAN as backing storage.
+- This article assumes you've already installed Azure Container Storage on your AKS cluster, and that you've created a storage pool and persistent volume claim (PVC) using either [Azure Disks](use-container-storage-with-managed-disks.md) or [ephemeral disk (local storage)](use-container-storage-with-local-disk-version-1.md). Volume snapshots aren't currently supported when you use Elastic SAN as backing storage.
 
 ## Create a volume snapshot class
 
@@ -199,4 +203,4 @@ You've now deployed a new pod from the restored persistent volume claim, and you
 
 ## See also
 
-- [What is Azure Container Storage?](container-storage-introduction.md)
+- [What is Azure Container Storage (version 1.x.x)?](container-storage-introduction-version-1.md)

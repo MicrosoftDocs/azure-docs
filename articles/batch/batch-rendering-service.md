@@ -1,8 +1,9 @@
 ---
 title: Rendering overview
 description: Introduction of using Azure for rendering and an overview of Azure Batch rendering capabilities
-ms.date: 02/29/2024
+ms.date: 07/01/2025
 ms.topic: how-to
+# Customer intent: "As a media production manager, I want to utilize Azure's rendering capabilities, so that I can efficiently scale my rendering workflows and reduce project turnaround times while managing costs."
 ---
 
 # Rendering using Azure

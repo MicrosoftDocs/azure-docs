@@ -1,7 +1,7 @@
 ---
 ms.author: cherylmc
 author: cherylmc
-ms.date: 03/06/2024
+ms.date: 06/23/2025
 ms.service: azure-vpn-gateway
 ms.topic: include
 ---
@@ -13,6 +13,10 @@ No. As of December 1, 2023, you can't create gateways that use Standard or High 
 ### How long will my existing gateways be supported on the Standard and High Performance SKUs?
 
 All existing gateways that use the Standard or High Performance SKU will be supported until September 30, 2025.
+
+### Will my IP address change when my Legacy VPN gateway SKU (Standard or HighPerformance) is migrated to a Non-AZ SKU (VpnGw1 or VpnGw2)?
+
+No, the IP address will not change when the Legacy SKU is migrated to a Non-AZ SKU. After SKU migration, you can choose to migrate the Basic SKU IP address to Standard SKU IP address through a customer controlled portal experience. For more information about Basic SKU IP migration, see [About migrating a Basic SKU public IP address to Standard SKU for VPN Gateway](../articles/vpn-gateway/basic-public-ip-migrate-about.md) article.
 
 ### Do I need to migrate my gateways from the Standard or High Performance SKU right now?
   

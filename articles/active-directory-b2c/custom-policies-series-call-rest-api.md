@@ -9,11 +9,14 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: how-to
-ms.custom: b2c-docs-improvements, devx-track-js
 ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: b2c
+ms.custom:
+  - b2c-docs-improvements
+  - devx-track-js
+  - sfi-image-nochange
 
 
 #Customer intent: As a developer integrating customer-facing apps with Azure Active Directory B2C custom policy, I want to learn how to call a REST API from my custom policy, so that I can send and receive data from external services.
@@ -216,7 +219,7 @@ to:
 ```xml
     <ValidationTechnicalProfile ReferenceId="ValidateAccessCodeViaHttp"/>
 ```
-At this point, the Technical Profile with `Id` *CheckAccessCodeViaClaimsTransformationChecker* isn't needed, and can be removed. 
+At this point, the Technical Profile with `Id` *CheckAccessCodeViaClaimsTransformationChecker* isn't needed and can be removed.
 
 
 ## Step 3 - Upload custom policy file

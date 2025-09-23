@@ -5,18 +5,23 @@ keywords: azure app service, web app, app settings, environment variables
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: how-to
 ms.date: 03/27/2025
-ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, AppServiceConnectivity
 ms.devlang: azurecli
 author: cephalin
 ms.author: cephalin
 #customer intent: As an app developer, I want to understand how to configure settings in Azure App Service, including command line options.
+ms.service: azure-app-service
+ms.custom:
+  - devx-track-csharp
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - AppServiceConnectivity
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Configure an App Service app
 
 This article explains how to configure common settings for web apps, a mobile back end, or an API app. For Azure Functions, see [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md).
-
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 ## Configure app settings
 
@@ -55,7 +60,7 @@ App settings are always encrypted when they're stored (encrypted at rest).
    By default, values for app settings are hidden in the portal for security. To see a hidden value of an app setting, under **Value**, select **Show value**. To see the hidden values of all app settings, select **Show values**.
 
    > [!NOTE]
-   > Read/Write user permimssions are required to view this section in the Azure portal. RBAC built-in roles with sufficient permissions are Owner, Contributor, and Website Contributor. The Reader role alone would not be allowed to access this page. 
+   > Read/Write user permissions are required to view this section in the Azure portal. RBAC built-in roles with sufficient permissions are Owner, Contributor, and Website Contributor. The Reader role alone would not be allowed to access this page. 
 
 1. To add a new app setting, select **Add**. To edit a setting, select the setting.
 1. In the dialog, you can [stick the setting to the current slot](deploy-staging-slots.md#which-settings-are-swapped).

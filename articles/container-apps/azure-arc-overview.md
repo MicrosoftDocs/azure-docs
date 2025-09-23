@@ -5,11 +5,13 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 03/06/2025
+ms.date: 05/12/2025
 ms.author: cshoe
+ms.custom:
+  - build-2025
 ---
 
-# Azure Container Apps on Azure Arc (Preview)
+# Azure Container Apps on Azure Arc
 
 You can run Container Apps on an Azure Arc-enabled AKS or AKS on Azure Local cluster.
 
@@ -30,21 +32,36 @@ As you configure your cluster, you carry out these actions:
 
 - **A Container Apps connected environment**, which enables configuration common across apps but not related to cluster operations. Conceptually, it's deployed into the custom location resource, and app developers create apps into this environment.
 
-## Public preview limitations
+## Limitations
 
-The following public preview limitations apply to Azure Container Apps on Azure Arc enabled Kubernetes.
+The following limitations apply to Azure Container Apps on Azure Arc enabled Kubernetes.
 
 | Limitation | Details |
 |---|---|
-| Supported Azure regions | East US, West Europe, East Asia |
+| Supported Azure regions | Australia East，Central US, East Asia, East US, North Central US, Southeast Asia, Sweden Central, UK South, West Europe, West US|
 | Cluster networking requirement | Must support [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer) service type |
 | Node OS requirement | **Linux** only. | 
 | Feature: Managed identities | [Not available](#are-managed-identities-supported) |
 | Feature: Pull images from ACR with managed identity | Not available (depends on managed identities) |
+| Feature: Azure File Storage | [SMB driver (>= v1.18.0)](https://github.com/kubernetes-csi/csi-driver-smb) should be installed before using Azure file SMB storage |
 | Logs | Log Analytics must be configured with cluster extension; not per-application |
 
+The following features are supported:
+
+- Labels
+- Metrics
+- Easy auth
+- Log stream
+- Resilience
+- Custom domains
+- Container Apps jobs
+- Revision Management
+- App container console
+
 > [!IMPORTANT]
-> If deploying onto **AKS on Azure Local** ensure that you have [setup HAProxy as your load balancer](/azure/aks/hybrid/configure-load-balancer)  before attempting to install the extension.
+> If deploying onto **AKS on Azure Local** ensure that you have [setup HAProxy as your load balancer](/azure/aks/hybrid/configure-load-balancer)  before attempting to install the extension. Additionally, make sure that custom CoreDNS is enabled. 
+> 
+> For information on enabling AKS custom CoreDNS, see the [`az containerapp arc`](/cli/azure/containerapp/arc) CLI documentation.
 
 ## Resources created by the Container Apps extension
 
@@ -57,7 +74,7 @@ The following table describes the role of each revision created for you:
 | Pod | Description | Number of Instances | CPU | Memory | Type |
 |----|----|----|----|----|----|
 | `<extensionName>-k8se-activator` | Used as part of the scaling pipeline | 2 | 100 millicpu | 500 MB | ReplicaSet |
-| `<extensionName>-k8se-billing` | Billing record generation - Azure Container Apps on Azure Arc enabled Kubernetes is Free of Charge during preview | 3 | 100 millicpu | 100 MB | ReplicaSet | 
+| `<extensionName>-k8se-billing` | Billing record generation | 3 | 100 millicpu | 100 MB | ReplicaSet |
 | `<extensionName>-k8se-containerapp-controller` | The core operator pod that creates resources on the cluster and maintains the state of components. | 2 | 100 millicpu | 1 GB | ReplicaSet |
 | `<extensionName>-k8se-envoy` | A front-end proxy layer for all data-plane http requests. It routes the inbound traffic to the correct apps. | 3 | 1 Core | 1,536 MB | ReplicaSet |
 | `<extensionName>-k8se-envoy-controller` | Operator, which generates Envoy configuration | 2 | 200 millicpu | 500 MB | ReplicaSet |
@@ -73,24 +90,25 @@ The following table describes the role of each revision created for you:
 | dapr-placement-server | Used for Actors only - creates mapping tables that map actor instances to pods | 1 | 100 millicpu | 500 MB | StatefulSet |
 | dapr-sentry | Manages mTLS between services and acts as a CA | 2 | 800 millicpu | 200 MB | ReplicaSet |
 
-## FAQ for Azure Container Apps on Azure Arc (Preview)
+## FAQ for Azure Container Apps on Azure Arc
 
-- [How much does it cost?](#how-much-does-it-cost)
-- [Which Container Apps features are supported?](#which-container-apps-features-are-supported)
-- [Are managed identities supported?](#are-managed-identities-supported)
-- [Are there any scaling limits?](#are-there-any-scaling-limits)
-- [What logs are collected?](#what-logs-are-collected)
-- [What do I do if I see a provider registration error?](#what-do-i-do-if-i-see-a-provider-registration-error)
-- [Can the extension be installed on Windows nodes?](#can-the-extension-be-installed-on-windows-nodes)
-- [Can I deploy the Container Apps extension on an Arm64 based cluster?](#can-i-deploy-the-container-apps-extension-on-an-arm64-based-cluster)
-
-### How much does it cost?
-
-Azure Container Apps on Azure Arc-enabled Kubernetes is free during the public preview.
+- [Azure Container Apps on Azure Arc](#azure-container-apps-on-azure-arc)
+  - [Limitations](#limitations)
+  - [Resources created by the Container Apps extension](#resources-created-by-the-container-apps-extension)
+  - [FAQ for Azure Container Apps on Azure Arc](#faq-for-azure-container-apps-on-azure-arc)
+    - [Which Container Apps features are supported?](#which-container-apps-features-are-supported)
+    - [Are managed identities supported?](#are-managed-identities-supported)
+    - [Are there any scaling limits?](#are-there-any-scaling-limits)
+    - [What logs are collected?](#what-logs-are-collected)
+    - [What do I do if I see a provider registration error?](#what-do-i-do-if-i-see-a-provider-registration-error)
+    - [How can I install SMB Driver?](#how-can-i-install-smb-driver)
+  - [Can the extension be installed on Windows nodes?](#can-the-extension-be-installed-on-windows-nodes)
+    - [Can I deploy the Container Apps extension on an Arm64 based cluster?](#can-i-deploy-the-container-apps-extension-on-an-arm64-based-cluster)
+  - [Related content](#related-content)
 
 ### Which Container Apps features are supported?
 
-During the preview period, certain Azure Container App features are being validated. When they're supported, their left navigation options in the Azure portal will be activated. Features that aren't yet supported remain grayed out.
+Check the portal for the most up to date list. Features not supported are grayed out in the portal.
 
 ### Are managed identities supported?
 
@@ -112,6 +130,15 @@ By default, logs from system components are sent to the Azure team. Application 
 
 As you create an Azure Container Apps connected environment resource, some subscriptions might see the "No registered resource provider found" error. The error details might include a set of locations and API versions that are considered valid. If this error message is returned, the subscription must be re-registered with the `Microsoft.App` provider. Re-registering the provider has no effect on existing applications or APIs. To re-register, use the Azure CLI to run `az provider register --namespace Microsoft.App --wait`. Then reattempt the connected environment command.
 
+### How can I install SMB Driver?
+
+You can install the SMB driver using the following Helm command. For additional installation methods, see [Install driver on a Kubernetes cluster](https://github.com/kubernetes-csi/csi-driver-smb/tree/master/charts).
+
+```
+helm repo add csi-driver-smb https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
+helm install csi-driver-smb csi-driver-smb/csi-driver-smb --namespace kube-system --version v1.18.0
+```
+
 ## Can the extension be installed on Windows nodes?
 
 No, the extension cannot be installed on Windows nodes. The extension supports installation on **Linux** nodes **only**.
@@ -119,6 +146,7 @@ No, the extension cannot be installed on Windows nodes. The extension supports i
 ### Can I deploy the Container Apps extension on an Arm64 based cluster?
 
 No. Arm64 based clusters aren't supported.
+
 
 ## Related content
 

@@ -9,6 +9,7 @@ ms.topic: article
 ms.date: 09/16/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
+# Customer intent: As an IT administrator managing SAP HANA systems on cloud infrastructure, I want to configure Azure resources and networking for optimal SAP HANA deployment, so that I can ensure reliable operations and scalability for both production and non-production environments.
 ---
 
 # SAP HANA infrastructure configurations and operations on Azure

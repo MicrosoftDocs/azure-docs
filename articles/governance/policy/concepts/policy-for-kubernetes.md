@@ -3,7 +3,9 @@ title: Learn Azure Policy for Kubernetes
 description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters running Kubernetes in Azure or on-premises.
 ms.date: 03/04/2025
 ms.topic: conceptual
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 ---
 
 # Understand Azure Policy for Kubernetes clusters
@@ -301,7 +303,7 @@ az k8s-extension delete --cluster-type connectedClusters --cluster-name <CLUSTER
 ## Create a policy definition
 
 The Azure Policy language structure for managing Kubernetes follows that of existing policy
-definitions. There are sample definition files available to assign in [Azure Policy's built-in policy library](../samples/built-in-policies.md#kubernetes) that can be used to govern your cluster components.
+definitions. There are sample definition files available to assign in [Azure Policy's built-in policy library](/azure/governance/policy/samples/built-in-policies#kubernetes) that can be used to govern your cluster components.
 
 Azure Policy for Kubernetes also support custom definition creation at the component-level for both Azure Kubernetes Service clusters and Azure Arc-enabled Kubernetes clusters. Constraint template and mutation template samples are available in the [Gatekeeper community library](https://github.com/open-policy-agent/gatekeeper-library/tree/master). [Azure Policy's Visual Studio Code Extension](../how-to/extension-for-vscode.md#create-policy-definition-from-a-constraint-template-or-mutation-template) can be used to help translate an existing constraint template or mutation template to a custom Azure Policy policy definition.
 
@@ -376,7 +378,7 @@ vms_.
 > [!IMPORTANT]
 > Built-in policy definitions are available for Kubernetes clusters in category **Kubernetes**. For
 > a list of built-in policy definitions, see
-> [Kubernetes samples](../samples/built-in-policies.md#kubernetes).
+> [Kubernetes samples](/azure/governance/policy/samples/built-in-policies#kubernetes).
 
 ## Policy evaluation
 
@@ -607,6 +609,50 @@ To identify the Gatekeeper version that your Azure Policy Add-on is using, you c
 Finally, to identify the AKS cluster version that you're using, follow the linked AKS guidance.
 
 ### Add-on versions available per each AKS cluster version
+
+#### 1.13.1
+Patch [CVE-2025-47907](https://nvd.nist.gov/vuln/detail/CVE-2025-47907).
+
+- Released August 2025
+- Kubernetes 1.27+
+- Gatekeeper 3.20.0-1
+
+#### 1.13.0
+EU Data Boundary now supported by Azure Policy for Kubernetes on AKS. To learn more generally about the EU Data Boundary visit: [Overview of EU Data Boundary](/privacy/eudb/eu-data-boundary-learn).
+
+Patch [CVE-2025-22874](https://nvd.nist.gov/vuln/detail/CVE-2025-22874).
+
+Security improvements.
+- Released July 2025
+- Kubernetes 1.27+
+- Gatekeeper 3.20.0
+##### Gatekeeper 3.20.0-1
+Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.20.0
+Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.19.1...v3.20.0
+
+#### 1.12.3
+Patch CVEs CVE-2025-22874 and GHSA-vrw8-fxc6-2r93.
+- Released July 2025
+- Kubernetes 1.27+
+- Gatekeeper 3.19.1
+
+#### 1.12.2
+Security improvements.
+
+- Released June 2025
+- Kubernetes 1.27+
+- Gatekeeper 3.19.1
+
+#### 1.11.1
+Security improvements.
+
+- Released May 2025
+- Kubernetes 1.27+
+- Gatekeeper 3.19.1
+##### Gatekeeper 3.19.1-1
+Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.19.1
+Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.18.2...v3.19.1
+Patch [CVE-2025-22872](https://nvd.nist.gov/vuln/detail/CVE-2025-22872).
 
 #### 1.10.1
 Update the `policy-kubernetes-addon-prod` and `policy-kubernetes-webhook` images to patch [CVE-2025-30204](https://nvd.nist.gov/vuln/detail/CVE-2025-30204) and [CVE-2025-22870](https://nvd.nist.gov/vuln/detail/CVE-2025-22870).
@@ -861,7 +907,7 @@ collected:
 
 ## Next steps
 
-- Review examples at [Azure Policy samples](../samples/index.md).
+- Review examples at [Azure Policy samples](/azure/governance/policy/samples/index).
 - Review the [Policy definition structure](definition-structure-basics.md).
 - Review [Understanding policy effects](effect-basics.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).

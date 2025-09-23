@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Set up dynamic configuration refresh for your Azure Functions app.
-> * Enable automatic configuration refresh using App Configuraion middleware.
+> * Enable automatic configuration refresh using App Configuration middleware.
 > * Use the latest configuration in Function calls when changes occur in your App Configuration store.
 
 ## Prerequisites

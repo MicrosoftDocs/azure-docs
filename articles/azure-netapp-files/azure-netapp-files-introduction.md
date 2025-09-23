@@ -1,12 +1,13 @@
 ---
-title: What is Azure NetApp Files | Microsoft Docs
+title: What is Azure NetApp Files
 description: Learn about Azure NetApp Files, an Azure native, first-party, enterprise-class, high-performance file storage service.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: overview
-ms.date: 03/24/2025
+ms.date: 08/22/2025
 ms.author: anfdocs
+# Customer intent: As a cloud architect, I want to evaluate Azure NetApp Files for high-performance file storage, so that I can efficiently manage enterprise workloads while ensuring data availability, scalability, and security in the cloud.
 ---
 
 # What is Azure NetApp Files?
@@ -36,7 +37,7 @@ Azure NetApp Files is designed to provide high-performance file storage for ente
 | - | - | - | 
 | In-Azure bare-metal flash performance | Fast and reliable all-flash performance with submillisecond latency. | Run performance-intensive workloads in the cloud with on-premises infrastructure-level performance.
 | Multi-protocol support | Supports multiple protocols, including NFSv3, NFSv4.1, SMB 3.0, SMB 3.1.1, and simultaneous dual-protocol. | Seamlessly integrate with existing infrastructure and workflows without compatibility issues or complex configurations. |
-| Four adaptable performance tiers (Standard, Premium, Ultra, Flexible) | Four performance tiers with dynamic service-level change capability based on workload needs, including cool access for cold data. | Choose the right performance level for workloads and dynamically adjust performance without overspending on resources.
+| Four adaptable performance tiers (Flexible, Standard, Premium, Ultra) | Four performance tiers with dynamic service-level change capability based on workload needs, including cool access for cold data. | Choose the right performance level for workloads and dynamically adjust performance without overspending on resources.
 | Small-to-large volumes | Easily resize file volumes from 100 GiB up to 100 TiB without downtime. | Scale storage as business needs grow without over-provisioning, avoiding upfront cost.
 | Small-to-large volumes | Easily resize file volumes from 50 GiB up to 100 TiB without downtime. | Scale storage as business needs grow without over-provisioning, avoiding upfront cost.
 | 1-TiB minimum capacity pool size | 1-TiB capacity pool is a reduced-size storage pool compared to the initial 4-TiB minimum. | Save money by starting with a smaller storage footprint and lower entry point, without sacrificing performance or availability. Scale storage based on growth without high upfront costs.

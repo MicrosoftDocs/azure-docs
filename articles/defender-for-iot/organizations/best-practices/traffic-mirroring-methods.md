@@ -1,7 +1,7 @@
 ---
 title: Choose a traffic mirroring methods - Microsoft Defender for IoT
 description: This article describes traffic mirroring methods for OT monitoring with Microsoft Defender for IoT.
-ms.date: 07/04/2023
+ms.date: 07/23/2025
 ms.topic: install-set-up-deploy
 ---
 
@@ -13,7 +13,7 @@ This article is one in a series of articles describing the [deployment path](../
 
 The decision as to which traffic mirroring method to use depends on your network configuration and the needs of your organization.
 
-To ensure that Defender for IoT only analyzes the traffic that you want to monitor, we recommend that you configure traffic mirroring on a switch or a terminal access point (TAP) that includes only industrial ICS and SCADA traffic.
+To make sure Defender for IoT only analyzes the traffic that you want to monitor, we recommend that you configure traffic mirroring on a switch or a terminal access point (TAP) that includes only industrial ICS and SCADA traffic.
 
 > [!NOTE]
 > SPAN and RSPAN are Cisco terminology. Other brands of switches have similar functionality but might use different terminology.
@@ -23,7 +23,7 @@ To ensure that Defender for IoT only analyzes the traffic that you want to monit
 
 We recommend configuring your traffic mirroring from all of your switch's ports, even if no data is connected to them. If you don't, rogue devices can later be connected to an unmonitored port, and those devices won't be detected by the Defender for IoT network sensors.
 
-For OT networks that use broadcast or multicast messaging, configure traffic mirroring only for RX (*Receive*) transmissions. Multicast messages will be repeated for any relevant active ports, and you'll be using more bandwidth unnecessarily.
+For OT networks that use broadcast or multicast messaging, configure traffic mirroring only for RX (*Receive*) transmissions. Multicast messages are repeated for any relevant active ports, and you'll be using more bandwidth unnecessarily.
 
 ## Compare supported traffic mirroring methods
 
@@ -66,13 +66,13 @@ Some TAPs aggregate both *Receive* and *Transmit*, depending on the switch confi
 
 We recommend TAPs especially when traffic mirroring for forensic purposes. Advantages of mirroring traffic with TAPs include:
 
-- TAPs are hardware-based and can't be compromised
+- TAPs are hardware-based and can't be compromised.
 
-- TAPs pass all traffic, even damaged messages that are often dropped by the switches
+- TAPs pass all traffic, even damaged messages that are often dropped by the switches.
 
 - TAPs aren't processor-sensitive, which means that packet timing is exact. In contrast, switches handle mirroring functionality as a low-priority task, which can affect the timing of the mirrored packets.
 
-You can also use a TAP aggregator to monitor your traffic ports. However, TAP aggregators aren't processor-based, and aren't as intrinsically secure as hardware TAPs. TAP aggregators may not reflect exact packet timing.
+You can also use a TAP aggregator to monitor your traffic ports. However, TAP aggregators aren't processor-based, and aren't as intrinsically secure as hardware TAPs. TAP aggregators might not reflect exact packet timing.
 
 ### Common TAP models
 
@@ -99,12 +99,12 @@ The sensor's monitoring interface is a promiscuous interface and doesn't have a 
 Use ERSPAN encapsulation when there's a need to extend monitored traffic across Layer 3 domains. ERSPAN is a Cisco proprietary feature and is available only on specific routers and switches. For more information, see the [Cisco documentation](https://learningnetwork.cisco.com/s/article/span-rspan-erspan).
 
 > [!NOTE]
-> This article provides high-level guidance for configuring traffic mirroring with ERSPAN. Specific implementation details will vary depending on your equipment vendor.
+> This article provides high-level guidance for configuring traffic mirroring with ERSPAN. Specific implementation details vary depending on your equipment vendor.
 >
 
 ### ERSPAN architecture
 
-ERSPAN sessions include a source session and a destination session configured on different switches. Between the source and destination switches, traffic is encapsulated in GRE, and can be routed over layer 3 networks.
+ERSPAN sessions include a source session and a destination session configured on different switches. Between the source and destination switches, traffic is encapsulated in GRE and can be routed over layer 3 networks.
 
 For example:
 
@@ -123,6 +123,17 @@ ERSPAN source options include elements such as:
 - Satellite ports and host interface port channels
 
 For more information, see [Update a sensor's monitoring interfaces (configure ERSPAN)](../how-to-manage-individual-sensors.md#update-a-sensors-monitoring-interfaces-configure-erspan).
+
+### VLAN ID considerations for ERSPAN
+
+When you set up ERSPAN, consider how VLAN IDs are handled based on the type of mirrored port:
+
+- **Tagged VLANs** exist in packets from trunk mirrored ports and remain intact within the packet's payload during encapsulation. The Defender for IoT sensor supports tagged VLANs.
+- **Untagged VLANs** originate from access mirrored ports. Untagged VLANs are stripped from the payload during decapsulation, and as a result the VLANs are lost. The Microsoft Defender for IoT sensor doesn't support untagged VLANs.
+
+To ensure accurate VLAN detection, configure your network and ERSPAN router so that all mirrored ports use tagged VLANs, where mirror ports are configured as trunk ports. With this setup, VLAN information remains in the packet payload throughout the ERSPAN process and provides full visibility for the Defender for IoT sensor monitoring.
+
+
 
 ## Traffic mirroring with virtual switches
 

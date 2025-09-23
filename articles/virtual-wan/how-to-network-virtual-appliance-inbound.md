@@ -6,6 +6,7 @@ ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 12/11/2024
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 # Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub and leverage destination NAT.
 ---
 # How to configure Destination NAT (DNAT) for Network Virtual Appliance in an Azure Virtual WAN hub
@@ -141,7 +142,7 @@ The following section describes some common troubleshooting scenarios.
 
 ### <a name="healthprobeconfigs"></a> Load balancer health probes
 
-NVA with internet inbound/DNAT capabilities relies on the NVA responding to three different Azure Load Balancer health probes to ensure the NVA is functioning as expected and route traffic. Health probe requests are always made from the nonpublically routable Azure IP Address [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md). You should see a three-way TCP handshake performed with 168.63.129.16 in your NVA logs.
+NVA with internet inbound/DNAT capabilities relies on the NVA responding to three different Azure Load Balancer health probes to ensure the NVA is functioning as expected and route traffic. Health probe requests are always made from the nonpublicly routable Azure IP Address [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md). You should see a three-way TCP handshake performed with 168.63.129.16 in your NVA logs.
 
 For more information on Azure Load Balancer health probes, see [health probe documentation](../load-balancer/load-balancer-custom-probe-overview.md).
 

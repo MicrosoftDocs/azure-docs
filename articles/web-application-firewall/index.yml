@@ -115,16 +115,18 @@ landingContent:
 # Card
   - title: Learn about Azure network security
     linkLists:
+      - linkListType: get-started
+        links:
+         - text: What is Azure network security?
+           url: /azure/networking/security/network-security
+         - text: Learm more about Azure network security
+           url: /azure/networking/security/
       - linkListType: overview
         links:
-         - text: Azure network security
-           url: ../networking/security/index.yml
-      - linkListType: concept
-        links:
           - text: Azure DDoS Protection
-            url: ../ddos-protection/index.yml
+            url: /azure/ddos-protection/ddos-protection-overview
           - text: Azure Firewall
-            url: ../firewall/index.yml
+            url: /azure/firewall/overview
 
 # Card
   - title: Reference

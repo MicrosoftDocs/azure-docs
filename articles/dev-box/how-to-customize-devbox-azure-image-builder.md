@@ -170,7 +170,7 @@ To use VM Image Builder with Azure Compute Gallery, make sure you have an existi
 
 1. Create a file to store your template definition, such as c:/temp/mytemplate.txt.
 
-1. Copy the following Azure Resource Manger template for VM Image Builder into your new template file.
+1. Copy the following Azure Resource Manager template for VM Image Builder into your new template file.
 
    This template indicates the source image and the customizations applied. It installs Choco and VS Code, and also indicates the image distribution location.
 
@@ -318,4 +318,4 @@ When the gallery images are available in the dev center, you can use the custom 
 
 ## Related content
 
-- [Create a dev box definition](quickstart-configure-dev-box-service.md#create-a-dev-box-definition)
+- [Manage a dev box definition](how-to-manage-dev-box-definitions.md)

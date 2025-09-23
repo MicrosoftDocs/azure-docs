@@ -6,6 +6,7 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
+ms.update-cycle: 180-days
 ms.date: 02/28/2025
 ms.topic: how-to
 
@@ -13,9 +14,6 @@ ms.topic: how-to
 ---
 
 # Manage a dev box by using the Microsoft Dev Box developer portal
-
-[!INCLUDE [note-build-2025](includes/note-build-2025.md)]
-
 
 In this article, you learn how to manage a dev box by using the Microsoft Dev Box developer portal. Developers can access their dev boxes directly in the developer portal, instead of having to use the Azure portal.
 
