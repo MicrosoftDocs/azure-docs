@@ -6,9 +6,8 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 05/07/2024
+ms.date: 09/23/2025
 
-#CustomerIntent: As an Azure administrator, I want to use Azure Policy to audit and deploy virtual network flow logs.
 # Customer intent: As an Azure administrator, I want to use built-in Azure Policy to audit and deploy virtual network flow logs, so that I can ensure compliance and enhance visibility into network traffic within my virtual networks.
 ---
 
