@@ -6,9 +6,8 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 09/12/2024
+ms.date: 09/23/2025
 
-#CustomerIntent: As an Azure administrator, I want to learn about VPN troubleshoot so I can use it to troubleshoot my VPN virtual network gateways and their connections whenever resources in a virtual network can't communicate with on-premises machines over a VPN connection.
 # Customer intent: As an Azure administrator, I want to utilize the VPN troubleshoot feature, so that I can effectively diagnose and resolve connectivity issues between my on-premises resources and Azure Virtual Networks.
 ---
 
