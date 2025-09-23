@@ -39,7 +39,15 @@ This quickstart assumes a basic understanding of firmware analysis. For more inf
 
 ## Upload a firmware image to the workspace
 
-1. Create a firmware image to be uploaded. Insert your resource group name, subscription ID, and workspace name into the respective parameters.
+1. Generate a GUID to use as a unique firmware ID. For example:
+
+    ```python
+    python -c "import uuid; print(uuid.uuid4())"
+    ```
+
+Use the command's output as the firmware ID in the subsequent examples
+
+2. Create a firmware image to be uploaded. Insert your resource group name, subscription ID, and workspace name into the respective parameters.
 
     ```azurecli
     az firmwareanalysis firmware create --resource-group myResourceGroup --subscription 123e4567-e89b-12d3-a456-426614174000 --workspace-name default
@@ -47,7 +55,7 @@ This quickstart assumes a basic understanding of firmware analysis. For more inf
 
 The output of this command includes a `name` property, which is your firmware ID. **Save this ID for the next command.**
 
-2. Generate a SAS URL, which you'll use in the next step to send your firmware image to Azure Storage. Replace `sampleFirmwareID` with the firmware ID that you saved from the previous step. You can store the SAS URL in a variable for easier access for future commands:
+3. Generate a SAS URL, which you'll use in the next step to send your firmware image to Azure Storage. Replace `sampleFirmwareID` with the firmware ID that you saved from the previous step. You can store the SAS URL in a variable for easier access for future commands:
 
     ```azurecli
     set resourceGroup=myResourceGroup
@@ -58,7 +66,7 @@ The output of this command includes a `name` property, which is your firmware ID
     for /f "tokens=*" %i in ('az firmwareanalysis workspace generate-upload-url --resource-group %resourceGroup% --subscription %subscription% --workspace-name %workspace% --firmware-id %firmwareID% --query "url"') do set sasURL=%i
     ```
 
-3. Upload your firmware image to Azure Storage. Replace `pathToFile` with the path to your firmware image on your local machine.
+4. Upload your firmware image to Azure Storage. Replace `pathToFile` with the path to your firmware image on your local machine.
 
     ```azurecli
     az storage blob upload -f "pathToFile" --blob-url %sasURL%
