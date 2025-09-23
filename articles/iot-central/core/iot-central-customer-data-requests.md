@@ -3,8 +3,8 @@ title: Customer data request features​ in Azure IoT Central
 description: This article describes identifying, deleting, and exporting customer data in Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/12/2023
-ms.topic: conceptual
+ms.date: 08/13/2025
+ms.topic: concept-article
 ms.service: azure-iot-central
 services: iot-central
 ---
@@ -13,17 +13,17 @@ services: iot-central
 
 Azure IoT Central is a fully managed Internet of Things (IoT) software-as-a-service solution that makes it easy to connect, monitor, and manage your IoT assets at scale, create deep insights from your IoT data, and take informed action.
 
-[!INCLUDE [gdpr-intro-sentence](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](~/reusable-content/ce-skilling/azure/includes/gdpr-general-data-subject-requests.md)]
 
 ## Identifying customer data
 
-Microsoft Entra Object-IDs are used to identify users and assign roles. The Azure IoT Central portal displays user email addresses for role assignments but only the Microsoft Entra Object-ID is stored, the email address is dynamically queried from Microsoft Entra ID. Azure IoT Central administrators can view, export, and delete application users in the user administration section of an Azure IoT Central application.
+Microsoft Entra Object-IDs are used to identify users and assign roles. The Azure IoT Central portal displays user email addresses for role assignments but only the Microsoft Entra Object-ID is stored. The email address is dynamically queried from Microsoft Entra ID. Azure IoT Central administrators can view, export, and delete application users in the user administration section of an Azure IoT Central application.
 
 Within the application, email addresses can be configured to receive alerts. In this case, email addresses are stored within IoT Central and must be managed from the in-app account administration page.
 
-Regarding devices, Microsoft maintains no information and has no access to data that enables  device to user correlation. Many of the devices managed in Azure IoT Central are not personal devices, for example a vending machine or coffee maker. Customers may, however, consider some devices to be personally identifiable and at their discretion may maintain their own asset or inventory tracking systems that tie devices to individuals. Azure IoT Central manages and stores all data associated with devices as if it were personal data.
+Regarding devices, Microsoft maintains no information and has no access to data that enables  device to user correlation. Many of the devices managed in Azure IoT Central aren't personal devices, for example a vending machine or coffee maker. Customers might, however, consider some devices to be personally identifiable and at their discretion might maintain their own asset or inventory tracking systems that tie devices to individuals. Azure IoT Central manages and stores all data associated with devices as if it were personal data.
 
-When you use Microsoft enterprise services, Microsoft generates some information, known as system-generated logs. These logs constitute factual actions conducted within the service and diagnostic data related to individual devices, and are not related to user activity. Azure IoT Central system-generated logs are not accessible or exportable by application administrators.
+When you use Microsoft enterprise services, Microsoft generates some information, known as system-generated logs. These logs constitute factual actions conducted within the service and diagnostic data related to individual devices, and aren't related to user activity. Azure IoT Central system-generated logs aren't accessible or exportable by application administrators.
 
 ## Deleting customer data
 
@@ -33,8 +33,8 @@ After a user is deleted, no further alerts are emailed to them. However, their e
 
 ## Exporting customer data
 
-The ability to export data is only provided through the IoT Central administration page. Customer data, including assigned roles, can be selected, copied, and pasted by an application administrator.
+The ability to export data is only provided through the IoT Central administration page. An application administrator can select, copy, and paste customer data, including assigned roles.
 
-## Links to additional documentation
+## Next steps
 
-For more information about account administration, including role definitions, see [How to administer your application](howto-administer.md).
+For more information about account administration, including role definitions, see [Change IoT Central application settings](howto-administer.md).
