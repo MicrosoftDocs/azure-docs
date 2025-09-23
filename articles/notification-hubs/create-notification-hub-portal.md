@@ -9,7 +9,9 @@ ms.reviewer: rebpen
 ms.date: 05/01/2025
 ms.topic: quickstart
 ms.service: azure-notification-hubs
-ms.custom: mode-ui
+ms.custom:
+  - mode-ui
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create an Azure notification hub in the Azure portal
