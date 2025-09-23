@@ -1329,7 +1329,7 @@ Azure Functions currently can be used with the following "Preview" or "Go-live" 
 
 <sup>2</sup> For the latest information about support for .NET 10 in public Azure, please see the [tracking thread on GitHub](https://github.com/Azure/azure-functions-dotnet-worker/issues/3152).
 
-<sup>3</sup> Linux Consumption apps do not yet support .NET 10.
+<sup>3</sup> You can't run .NET 10 apps on Linux in the Consumption plan. To run on Linux, you should instead use the [Flex Consumption plan](./flex-consumption-plan.md).
 
 See [Supported versions][supported-versions] for a list of generally available releases that you can use.
 
