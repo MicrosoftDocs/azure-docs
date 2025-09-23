@@ -82,7 +82,7 @@ To set up ServiceNow:
 
 1. Select the **Incident platform** tab and enter the following settings:
 
-1. From the Incident platform drop down, select **ServiceNow**.
+1. From the Incident platform drop-down, select **ServiceNow**.
 
 1. Enter the ServiceNow specific settings:
 
