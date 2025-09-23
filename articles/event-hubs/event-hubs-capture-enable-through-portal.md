@@ -3,7 +3,9 @@ title: Event Hubs - Capture streaming events using Azure portal
 description: This article describes how to enable capturing of events streaming through Azure Event Hubs by using the Azure portal.
 ms.topic: quickstart
 ms.date: 12/12/2024
-ms.custom: mode-ui
+ms.custom:
+  - mode-ui
+  - sfi-image-nochange
 # Customer intent: I want to enable capturing of events for an Azure event hub. 
 ---
 
