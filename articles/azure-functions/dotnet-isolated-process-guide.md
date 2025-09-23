@@ -3,14 +3,15 @@ title: Guide for running C# Azure Functions in an isolated worker process
 description: Learn how to use the .NET isolated worker model to run your C# functions in Azure, which lets you run your functions on currently supported versions of .NET and .NET Framework.
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 05/19/2025
+ms.date: 09/05/2025
+recommendations: false
 ms.custom:
   - template-concept
   - devx-track-dotnet
   - devx-track-azurecli
   - ignite-2023
   - build-2025
-recommendations: false
+  - sfi-ropc-nochange
 #Customer intent: As a developer, I need to know how to create functions that run in an isolated worker process so that I can run my function code on current (not LTS) releases of .NET.
 ---
 
@@ -22,7 +23,7 @@ Use the following links to get started right away building .NET isolated worker 
 
 | Getting started | Concepts| Samples |
 |--|--|--| 
-| <ul><li>[Using Visual Studio Code](create-first-function-vs-code-csharp.md?tabs=isolated-process)</li><li>[Using command line tools](how-to-create-function-azure-cli.md?pivots=programming-language-csharp)</li><li>[Using Visual Studio](functions-create-your-first-function-visual-studio.md?tabs=isolated-process)</li></ul> | <ul><li>[Hosting options](functions-scale.md)</li><li>[Monitoring](functions-monitoring.md)</li> | <ul><li>[Reference samples](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples)</li></ul> |
+| <ul><li>[Using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-csharp?tabs=isolated-process)</li><li>[Using command line tools](how-to-create-function-azure-cli.md?pivots=programming-language-csharp)</li><li>[Using Visual Studio](functions-create-your-first-function-visual-studio.md?tabs=isolated-process)</li></ul> | <ul><li>[Hosting options](functions-scale.md)</li><li>[Monitoring](functions-monitoring.md)</li> | <ul><li>[Reference samples](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples)</li></ul> |
 
 To learn just about deploying an isolated worker model project to Azure, see [Deploy to Azure Functions](#deploy-to-azure-functions). 
 
@@ -498,17 +499,17 @@ Here are some of the parameters that you can include as part of a function metho
 
 - [Bindings](#bindings), which are marked as such by decorating the parameters as attributes. The function must contain exactly one trigger parameter.
 - An [execution context object](#execution-context), which provides information about the current invocation.
-- A [cancelation token](#cancelation-tokens), used for graceful shutdown.
+- A [cancellation token](#cancellation-tokens), used for graceful shutdown.
 
 ### Execution context
 
 .NET isolated passes a [FunctionContext] object to your function methods. This object lets you get an [`ILogger`][ILogger] instance to write to the logs by calling the [GetLogger] method and supplying a `categoryName` string. You can use this context to obtain an [`ILogger`][ILogger] without having to use dependency injection. To learn more, see [Logging](#logging). 
 
-### Cancelation tokens
+### Cancellation tokens
 
-A function can accept a [cancelationToken](/dotnet/api/system.threading.cancellationtoken) parameter, which enables the operating system to notify your code when the function is about to be terminated. You can use this notification to make sure the function doesn't terminate unexpectedly in a way that leaves data in an inconsistent state.
+A function can accept a [cancellationToken](/dotnet/api/system.threading.cancellationtoken) parameter, which enables the operating system to notify your code when the function is about to be terminated. You can use this notification to make sure the function doesn't terminate unexpectedly in a way that leaves data in an inconsistent state.
 
-Cancelation tokens are supported in .NET functions when running in an isolated worker process. The following example raises an exception when a cancelation request is received:
+Cancellation tokens are supported in .NET functions when running in an isolated worker process. The following example raises an exception when a cancellation request is received:
 
 ```csharp
 [Function(nameof(ThrowOnCancellation))]
@@ -528,7 +529,7 @@ public async Task ThrowOnCancellation(
 }
 ```
  
-The following example performs clean-up actions when a cancelation request is received:
+The following example performs clean-up actions when a cancellation request is received:
 
 ```csharp
 [Function(nameof(HandleCancellationCleanup))]
@@ -555,9 +556,9 @@ public async Task HandleCancellationCleanup(
 }
 ```
 
-#### Scenarios that lead to cancelation
+#### Scenarios that lead to cancellation
 
-The cancelation token is signaled when the function invocation is canceled. Several reasons could lead to a cancelation,
+The cancellation token is signaled when the function invocation is canceled. Several reasons could lead to a cancellation,
 and those could vary depending on the trigger type being used. Some common reasons are:
 
 1. Client disconnect: the client that is invoking your function disconnected. This is most likely for HttpTrigger functions.
@@ -565,7 +566,7 @@ and those could vary depending on the trigger type being used. Some common reaso
    A restart can occur due to worker instance movements, worker instance updates, or scaling.
     - Invocations in-flight during a restart event may be retried depending on how they were triggered. Please refer to the [retry documentation](./functions-bindings-error-pages.md#retries) for further information.
 
-For the isolated worker model, the host we will send the invocation through to the worker _even_ if the cancelation token was canceled _before_ the host is able to send the invocation request to the worker.
+For the isolated worker model, the host we will send the invocation through to the worker _even_ if the cancellation token was canceled _before_ the host is able to send the invocation request to the worker.
 
 If you do not want pre-canceled invocations to be sent to the worker, you can add the `SendCanceledInvocationsToWorker` property to your `host.json` file to disable this behavior. The following example shows a `host.json` file that uses this property:
 
@@ -581,7 +582,7 @@ If you do not want pre-canceled invocations to be sent to the worker, you can ad
 > 
 > `Cancellation has been requested. The invocation request with id '{invocationId}' is canceled and will not be sent to the worker`
 > 
-> This occurs when the cancelation token is canceled (as a result of one of the events described above) _before_ the host has sent
+> This occurs when the cancellation token is canceled (as a result of one of the events described above) _before_ the host has sent
 > an incoming invocation request to the worker. This exception can be safely ignored and would be expected when `SendCanceledInvocationsToWorker`
 > is `false`.
 
@@ -1315,7 +1316,20 @@ Before a generally available release, a .NET version might be released in a _Pre
 
 While it might be possible to target a given release from a local Functions project, function apps hosted in Azure might not have that release available. Azure Functions can only be used with Preview or Go-live releases noted in this section.
 
-Azure Functions doesn't currently work with any "Preview" or "Go-live" .NET releases. See [Supported versions][supported-versions] for a list of generally available releases that you can use.
+<!-- Azure Functions doesn't currently work with any "Preview" or "Go-live" .NET releases. See [Supported versions][supported-versions] for a list of generally available releases that you can use. -->
+
+Azure Functions currently can be used with the following "Preview" or "Go-live" .NET releases:
+
+| Operating system | .NET preview version          |
+|------------------|-------------------------------|
+| Linux            | .NET 10 Preview 5<sup>1,2,3</sup> |
+| Windows          | .NET 10 Preview 5<sup>1,2</sup> |
+
+1. Apps targeting .NET 10 must use [version 2.0.5 or later of `Microsoft.Azure.Functions.Worker.Sdk`][Microsoft.Azure.Functions.Worker.Sdk]. You should also update to [version 2.50.0-preview1 or later of `Microsoft.Azure.Functions.Worker`][Microsoft.Azure.Functions.Worker], which updates dependencies to align with .NET 10. When using Visual Studio, you also need to use [Visual Studio 2026 Insiders][vs-insiders] and [update the Functions tools and templates](#considerations-for-using-net-preview-versions) to version 4.114.0 or later.
+2. For the latest information about support for .NET 10 in public Azure, please see the [tracking thread on GitHub](https://github.com/Azure/azure-functions-dotnet-worker/issues/3152).
+3. Linux Consumption apps do not yet support .NET 10.
+
+See [Supported versions][supported-versions] for a list of generally available releases that you can use.
 
 ### Using a preview .NET SDK
 
@@ -1348,7 +1362,7 @@ az functionapp config set -g <groupName> -n <appName> --linux-fx-version "dotnet
 
 Keep these considerations in mind when using Functions with preview versions of .NET: 
 
-+ When you author your functions in Visual Studio, you must use [Visual Studio Preview](https://visualstudio.microsoft.com/vs/preview/), which supports building Azure Functions projects with .NET preview SDKs. 
++ When you author your functions in Visual Studio, you must use [Visual Studio Insiders][vs-insiders], which supports building Azure Functions projects with .NET preview SDKs. 
 
 + Make sure you have the latest Functions tools and templates. To update your tools:
 
@@ -1358,7 +1372,7 @@ Keep these considerations in mind when using Functions with preview versions of 
 + During a preview period, your development environment might have a more recent version of the .NET preview than the hosted service. This can cause your function app to fail when deployed. To address this, you can specify the version of the SDK to use in [`global.json`](/dotnet/core/tools/global-json). 
 
     1. Run the `dotnet --list-sdks` command and note the preview version you're currently using during local development. 
-    1. Run the `dotnet new globaljson --sdk-version <SDK_VERSION> --force` command, where `<SDK_VERSION>` is the version you're using locally. For example, `dotnet new globaljson --sdk-version dotnet-sdk-8.0.100-preview.7.23376.3 --force` causes the system to use the .NET 8 Preview 7 SDK when building your project.
+    1. Run the `dotnet new globaljson --sdk-version <SDK_VERSION> --force` command, where `<SDK_VERSION>` is the version you're using locally. For example, `dotnet new globaljson --sdk-version dotnet-sdk-10.0.100-preview.5.25277.114 --force` causes the system to use the .NET 10 Preview 5 SDK when building your project.
 
 > [!NOTE] 
 > Because of the just-in-time loading of preview frameworks, function apps running on Windows can experience increased cold start times when compared against earlier GA versions.
@@ -1400,3 +1414,5 @@ Keep these considerations in mind when using Functions with preview versions of 
 [HttpResponse]: /dotnet/api/microsoft.aspnetcore.http.httpresponse
 [IActionResult]: /dotnet/api/microsoft.aspnetcore.mvc.iactionresult
 [JsonSerializerOptions]: /dotnet/api/system.text.json.jsonserializeroptions
+
+[vs-insiders]: https://visualstudio.microsoft.com/insiders/

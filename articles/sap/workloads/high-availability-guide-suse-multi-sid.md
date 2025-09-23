@@ -5,10 +5,12 @@ author: rdeltcheva
 manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
-ms.custom: linux-related-content
 ms.topic: article
 ms.date: 11/19/2024
 ms.author: radeltch
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
 # Customer intent: As an SAP administrator, I want to implement a multi-SID high availability configuration for SAP NetWeaver on SUSE Linux within Azure VMs, so that I can ensure continuous service availability and efficient resource management across multiple SAP instances.
 ---
 

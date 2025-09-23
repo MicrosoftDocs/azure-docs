@@ -6,6 +6,7 @@ ms.author: noelleli
 ms.topic: conceptual
 ms.date: 10/03/2024
 ms.subservice: data-flows
+ms.custom: sfi-image-nochange
 ---
 
 # Capture changed data from Azure Data Lake Storage Gen2 to Azure SQL Database by using a change data capture resource

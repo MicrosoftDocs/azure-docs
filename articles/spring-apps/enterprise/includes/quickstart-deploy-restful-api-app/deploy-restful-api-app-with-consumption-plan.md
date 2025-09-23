@@ -3,7 +3,9 @@ author: KarlErickson
 ms.author: v-shilichen
 ms.service: azure-spring-apps
 ms.topic: include
-ms.date: 10/02/2023
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
+ms.custom: sfi-image-nochange
 ---
 
 <!-- 

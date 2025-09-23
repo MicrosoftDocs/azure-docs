@@ -9,6 +9,8 @@ ms.date: 02/14/2025
 ms.reviewer: yutlin
 ms.author: msangapu
 author: msangapu-msft
+ms.service: azure-app-service
+ms.custom: sfi-image-nochange
 ---
 
 # Add and manage TLS/SSL certificates in Azure App Service

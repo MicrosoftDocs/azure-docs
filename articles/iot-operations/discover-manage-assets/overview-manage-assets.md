@@ -6,6 +6,7 @@ ms.author: dobett
 ms.topic: overview
 ms.date: 07/28/2025
 ai-usage: ai-assisted
+ms.custom: sfi-image-nochange
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to understand the key components in the Azure IoT Operations for managing devices and assets, so that I can effectively manage the devices and assets in my solution. 
 ---
@@ -23,7 +24,7 @@ In Azure IoT Operations, a key task is to manage the assets and devices that are
 
 The following diagram shows the high-level architecture of Azure IoT Operations. The services that you use to manage assets are highlighted in red:
 
-<!-- Art Library Source# ConceptArt-0-000-077 -->
+<!-- Art Library Source# ConceptArt-0-000-92 -->
 
 :::image type="content" source="media/overview-manage-assets/azure-iot-operations-architecture.svg" alt-text="Diagram that highlights the services used to manage assets." lightbox="media/overview-manage-assets/azure-iot-operations-architecture.png" border="false":::
 

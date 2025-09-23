@@ -9,6 +9,7 @@ ms.custom: UpdateFrequency3
 author: cephalin
 ms.author: cephalin
 
+ms.service: azure-app-service
 ---
 # Security in Azure App Service
 

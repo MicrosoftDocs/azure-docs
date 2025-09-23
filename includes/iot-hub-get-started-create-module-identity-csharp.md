@@ -7,7 +7,9 @@ ms.service: azure-iot-hub
 ms.topic: include
 ms.date: 08/07/2019
 ms.author: menchi
-ms.custom: include file
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 ## Create a module identity

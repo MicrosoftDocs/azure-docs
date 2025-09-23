@@ -8,6 +8,9 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: prsaini
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ga-nochange
 ---
 
 # EA Billing administration on the Azure portal

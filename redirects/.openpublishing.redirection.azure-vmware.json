@@ -239,6 +239,11 @@
             "source_path_from_root": "/articles/azure-vmware/concepts-vulnerability-management.md",
             "redirect_url": "/azure/azure-vmware/vulnerability-management",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/azure-vmware-solution-host-remediation.md",
+            "redirect_url": "/azure/azure-vmware/azure-vmware-solution-private-cloud-maintenance-best-practices",
+            "redirect_document_id": false
         }
     ]
 }

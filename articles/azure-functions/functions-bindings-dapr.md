@@ -2,9 +2,14 @@
 title: Dapr Extension for Azure Functions
 description: Learn to use the Dapr triggers and bindings in Azure Functions.
 ms.topic: reference
-ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, build-2024
 ms.date: 05/10/2024
 zone_pivot_groups: programming-languages-set-functions-lang-workers
+ms.custom:
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - build-2024
+  - sfi-image-nochange
 ---
 
 # Dapr Extension for Azure Functions
@@ -58,23 +63,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Dapr
 
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
 
-## Install bundle
-
-# [Bundle v4.x](#tab/bundle-v4x)
-
-You can add the extension by adding or replacing the following code in your `host.json` file:
-
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[4.*, 5.0.0)"
-  }
-}
-``` 
-
----
+[!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 
 ::: zone-end
 

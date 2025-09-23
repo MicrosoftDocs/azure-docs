@@ -8,6 +8,9 @@ ms.service: azure-synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 01/22/2021
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Monitor Apache Spark Applications metrics with Prometheus and Grafana

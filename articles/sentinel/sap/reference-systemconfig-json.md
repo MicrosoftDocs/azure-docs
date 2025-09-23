@@ -4,12 +4,14 @@ description: Learn about the settings available in Microsoft Sentinel for SAP ap
 author: batamig
 ms.author: bagol
 ms.topic: reference
-ms.custom: devx-track-extended-java
 ms.date: 09/15/2024
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+ms.custom:
+  - devx-track-extended-java
+  - sfi-ropc-nochange
 #Customer intent: As an SAP BASIS team member, I want to understand the configuration options in the systemconfig.json file so that I can properly set up and manage the data collector for SAP applications.
 
 ---

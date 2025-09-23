@@ -64,7 +64,7 @@
     - name: Configuration
       href: quickstart-python-provider.md
     - name: Dynamic configuration
-      href: enable-dynamic-configuration-python.md 
+      href: enable-dynamic-configuration-python.md
     - name: Feature management
       href: quickstart-feature-flag-python.md
   - name: Node.js
@@ -111,8 +111,6 @@
     items:
     - name: App Service & Azure Functions
       href: /azure/app-service/app-service-configuration-references
-    - name: Azure Container Apps
-      href: quickstart-container-apps.md
   - name: Deployment
     items:
     - name: Overview
@@ -234,6 +232,8 @@
       href: howto-variant-feature-flags-python.md
     - name: JavaScript
       href: howto-variant-feature-flags-javascript.md
+    - name: Go Gin
+      href: howto-variant-feature-flags-go.md
   - name: Enable telemetry for feature flags
     items:
     - name: Overview
@@ -268,6 +268,8 @@
   items:
   - name: Move a resource between Azure regions
     href: howto-move-resource-between-regions.md
+  - name: Move a resource between subscriptions or resource groups
+    href: howto-move-resource-between-subscriptions-resource-groups.md
   - name: Preview API life cycle
     href: concept-preview-api-life-cycle.md
 - name: Security
@@ -413,10 +415,11 @@
     - name: Go
       items:
       - name: Feature reference
+        href: ./reference-go-provider.md
+      - name: API reference
         href: https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration
       - name: Azure SDK for Go
         href: https://go.microsoft.com/fwlink/?linkid=2270866
-
   - name: Feature management
     items:
     - name: Overview
@@ -451,6 +454,10 @@
       items:
       - name: Feature flag telemetry reference
         href: feature-flag-telemetry-reference.md
+  - name: Local emulator
+    items:
+    - name: Overview
+      href: emulator-overview.md
   - name: Deployment
     items:
     - name: ARM template

@@ -12,6 +12,7 @@ ms.date: 02/19/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As an Azure AD B2C administrator, I want to understand how to manage policy keys, so that I can establish trust with external identity providers, REST API services, and configure encryption and signing for token validation.

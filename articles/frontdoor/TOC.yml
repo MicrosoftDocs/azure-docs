@@ -91,6 +91,8 @@
       href: front-door-url-rewrite.md?pivots=front-door-standard-premium
     - name: URL redirect
       href: front-door-url-redirect.md?pivots=front-door-standard-premium
+    - name: Configure signed URLs
+      href: front-door-signed-request.md
     - name: Cross-Origin Resource Sharing (CORS)
       href: standard-premium/troubleshoot-cross-origin-resources.md
   - name: Origins
@@ -177,6 +179,10 @@
         href: ../cdn/cdn-change-provider.md?toc=/azure/frontdoor/toc.json
       - name: Custom domain
         href: migrate-cdn-to-front-door.md
+    - name: AFD/CDN Classic migration FAQ
+      href: migration-faq.md
+    - name: Post migration Dev-Ops experience
+      href: post-migration-dev-ops-experience.md
   - name: Upgrades
     items:
     - name: Upgrade from Standard to Premium tier - Portal
@@ -320,7 +326,7 @@
       - name: Configure HTTPS on a custom domain
         href: front-door-custom-domain-https.md
       - name: Add a root or apex domain
-        href: standard-premium/how-to-add-security-headers.md
+        href: front-door-how-to-onboard-apex-domain.md?pivots=front-door-classic
       - name: Set up a Rules Engine (classic)
         href: front-door-tutorial-rules-engine.md
     - name: CDN (classic) from Microsoft

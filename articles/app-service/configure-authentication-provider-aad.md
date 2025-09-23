@@ -4,10 +4,14 @@ description: Learn how to configure Microsoft Entra authentication as an identit
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: how-to
 ms.date: 03/28/2025
-ms.custom: fasttrack-edit, AppServiceIdentity
 author: cephalin
 ms.author: cephalin
 #customer intent: As an app deployment engineer, I want configure Microsoft Entra authentication for my apps in App Service and understand how to migrate older apps to Microsoft Graph.
+ms.service: azure-app-service
+ms.custom:
+  - fasttrack-edit
+  - AppServiceIdentity
+  - sfi-ropc-nochange
 ---
 
 # Configure your App Service or Azure Functions app to use Microsoft Entra sign-in
@@ -22,7 +26,7 @@ This article shows you how to configure authentication for Azure App Service or 
 
 Before your application can sign in users, you need to register it in a workforce tenant or an external tenant. If you're making your app available to employee or business guests, register your app in a workforce tenant. If your app is for consumers and business customers, register it in an external tenant.
 
-1. Sign in to the [Azure portal] and go to your app.
+1. Sign in to the [Azure portal] and go to your App Service app or Functions app.
 
 1. On your app's left menu, select **Settings** > **Authentication**, and then select **Add identity provider**.
 

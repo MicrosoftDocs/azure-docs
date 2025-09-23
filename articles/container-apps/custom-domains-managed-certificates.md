@@ -13,7 +13,7 @@ zone_pivot_groups: azure-cli-or-portal
 
 # Custom domain names and free managed certificates in Azure Container Apps
 
-Azure Container Apps allows you to bind one or more custom domains to a container app. You can automatically configure a free managed certificate for your custom domain when your container app is publicly accessible.
+Azure Container Apps allows you to bind one or more custom domains to a container app. You can automatically configure a free managed certificate for your custom domain when your container app is publicly accessible from the [digicert IP addresses](https://knowledge.digicert.com/alerts/ip-address-domain-validation).
 
 If you want to set up a custom domain using your own certificate, see [Custom domain names and certificates in Azure Container Apps](custom-domains-certificates.md).
 
@@ -26,7 +26,7 @@ Azure Container Apps provides a free managed certificate for your custom domain.
 
 The requirements are:
 
-- Enable HTTP ingress and ensure your container app is publicly accessible.
+- Enable HTTP ingress and ensure your container app is publicly accessible from the [digicert IP addresses](https://knowledge.digicert.com/alerts/ip-address-domain-validation).
 
 - Must have an A record for apex domains that points to your Container Apps environment's IP address.
 

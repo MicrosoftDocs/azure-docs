@@ -19,7 +19,7 @@ items:
   - name: Get support
     href: https://neon.tech/docs/introduction/support
   - name: Troubleshoot 
-    href: /troubleshoot/azure/partner-solutions/welcome-native-integrations
+    href: /troubleshoot/azure/partner-solutions/marketplace-purchases-errors
   - name: Connect to compute services
     href: create-service-connection.md
 - name: SDKs and tools

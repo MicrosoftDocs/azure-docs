@@ -1,27 +1,35 @@
 ---
-title: Azure App Configuration support for configuration files
-description: Tooling support for using configuration files with Azure App Configuration
+title: Azure App Configuration Support for Configuration Files
+description: Become familiar with configuration file use in Azure App Configuration. Find out about import tooling and the KVSet and default file content profiles.
 author: zhenlan
 ms.author: zhenlwa
 ms.service: azure-app-configuration
 ms.topic: concept-article
-ms.date: 05/30/2024
+ms.date: 08/05/2025
+ms.custom: sfi-ropc-nochange
+# customer intent: As a developer, I want to become familiar with import tooling for Azure App Configuration and with the KVSet and default file content profiles so that I can work with configuration data in bulk and exchange data between my App Configuration store and code projects.
 ---
 
 # Azure App Configuration support for configuration files
 
-Files are one of the most common ways to store configuration data. To help you start quickly, App Configuration has tools to assist you in [importing your configuration files](./howto-import-export-data.md), so you don't have to type in your data manually. This operation is a one-time data migration if you plan to manage your data in App Configuration after importing them. In some other cases, for example, where you adopt [configuration as code](./howto-best-practices.md#configuration-as-code), you may continue managing your configuration data in files and importing them as part of your CI/CD process recurrently. You may find one of these two scenarios applies to you:
+A common way to store configuration data is to use files. If you want to use Azure App Configuration to manage your configuration data but you currently use files, you don't have to enter your data manually. You can use tools to [import your configuration files](./howto-import-export-data.md).
 
-- You keep the configuration file in the format you had before. This format is helpful if you want to use the file as the fallback configuration for your application or the local configuration during development. When you import the configuration file, specify how you want the data transformed to App Configuration key-values and feature flags. This option is the [**default file content profile**](#file-content-profile-default) in App Configuration importing tools such as portal, Azure CLI, Azure Pipeline Import task, GitHub Actions, etc.
-- You keep the configuration file in the format that contains all App Configuration key-value properties. When you import the file, you don't need to specify any transformation rules because all properties of a key-value are already in the file. This option is called [**KVSet file content profile**](#file-content-profile-kvset) in App Configuration importing tools. It's helpful if you want to manage all your App Configuration data, including regular key-values, Key Vault references, and feature flags, in one file and import them in one shot.
+If you plan to manage your data in App Configuration, the import operation is a one-time data migration. Another option is to continue managing your configuration data in files and to import the files recurrently as part of your continuous integration and continuous delivery (CI/CD) process. This case comes up when you adopt [configuration as code](./howto-best-practices.md#configuration-as-code).
 
-The rest of this document discusses both file content profiles in detail and use Azure CLI as an example. The same concept applies to other App Configuration importing tools too.
+Two file content profiles are available when you use configuration files:
+
+- The **default file content profile**: The conventional configuration file schema
+- The **KVSet file content profile**: A schema that contains all App Configuration key-value properties
+
+This article discusses both file content profiles. It also provides examples of importing and exporting configuration files. The examples use the Azure CLI, but the concepts in this article also apply to other App Configuration import methods.
 
 ## File content profile: default
 
-The default file content profile in App Configuration tools refers to the conventional configuration file schema widely adopted by existing programming frameworks or systems. App Configuration supports JSON, YAML, or Properties file formats.
+In App Configuration tools, the default file content profile is the conventional configuration file schema that's widely adopted by existing programming frameworks and systems. This profile is used in App Configuration importing tools such as the Azure portal, the Azure CLI, the Azure App Configuration Import task in Azure Pipelines, and GitHub Actions. App Configuration supports JSON, YAML, and Properties file formats.
 
-The following example is a configuration file named `appsettings.json` containing one configuration setting and one feature flag.
+This profile is helpful if you want to use a file as the fallback configuration for your application or the local configuration during development. When you import the configuration file, you specify how you want the data transformed to App Configuration key-values and feature flags.
+
+The following configuration file, *appsettings.json*, provides an example of the default file content profile. This file contains one configuration setting and one feature flag.
 
 ```json
 {
@@ -30,47 +38,58 @@ The following example is a configuration file named `appsettings.json` containin
             "Default": "Warning"
         }
     },
-    "FeatureManagement": {
-        "Beta": false
+    "feature_management": {
+        "feature_flags": [
+            {
+                "id": "Beta",
+                "enabled": false
+            }
+        ]
     }
 }
 ```
 
-Run the following CLI command to import it to App Configuration with the `dev` label and use the colon (`:`) as the separator to flatten the key name. You can optionally add parameter "**--profile appconfig/default**". It's skipped in the example as it's the default value.
+To import this file into App Configuration, run the following Azure CLI command. It applies a `dev` label to the setting and the feature flag, and it uses a colon (`:`) as the separator to flatten the key name.
 
 ```azurecli-interactive
-az appconfig kv import --label dev --separator : --name <your store name> --source file --path appsettings.json --format json
+az appconfig kv import --label dev --separator : --name <App-Configuration-store-name> --source file --path appsettings.json --format json
 ```
 
-Key Vault references require a particular content type during importing, so you keep them in a separate file. The following example is a file named `keyvault-refs.json`.
+You can optionally add the following parameter to the preceding command: `--profile appconfig/default`. The parameter is optional, because the default profile is `appconfig/default`.
+
+Azure Key Vault references require a particular content type during importing. As a result, you keep them in a separate file, as shown in the following file, *keyvault-refs.json*:
 
 ```json
 {
     "Database:ConnectionString": {
-        "uri": "https://<your-vault-name>.vault.azure.net/secrets/db-secret"
+        "uri": "https://<Key-Vault-name>.vault.azure.net/secrets/db-secret"
     }  
 }
 ```
 
-Run the following CLI command to import it with the `test` label and the Key Vault reference content type.
+To import this file, run the following Azure CLI command. It applies a `test` label to the Key Vault reference, and it uses the Key Vault reference content type.
 
 ```azurecli-interactive
-az appconfig kv import --label test --content-type "application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8" --name <your store name> --source file --path keyvault-refs.json --format json
+az appconfig kv import --label test --content-type "application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8" --name <App-Configuration-store-name> --source file --path keyvault-refs.json --format json
 ```
 
-The following table shows all the imported data in your App Configuration store.
+The following table shows all the imported data in your App Configuration store:
 
 | Key | Value | Label | Content type |
 |---------|---------|---------|---------|
 | .appconfig.featureflag/Beta | {"id":"Beta","description":"","enabled": false,"conditions":{"client_filters":[]}} | dev | application/vnd.microsoft.appconfig.ff+json;charset=utf-8 |
 | Logging:LogLevel:Default | Warning | dev |  |
-| Database:ConnectionString | {\"uri\":\"https://\<your-vault-name\>.vault.azure.net/secrets/db-secret\"} | test | application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8 |
+| Database:ConnectionString | {\"uri\":\"https://\<Key-Vault-name\>.vault.azure.net/secrets/db-secret\"} | test | application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8 |
 
 ## File content profile: KVSet
 
-The KVSet file content profile in App Configuration tools refers to a file schema that contains all properties of an App Configuration key-value, including key, value, label, content type, and tags. The file is in JSON format. See [KVSet file schema](https://aka.ms/latest-kvset-schema) for the schema specification.
+In App Configuration tools, the KVSet file content profile is a file schema that contains all properties of an App Configuration key-value. Included are the key name, its value, its label, its content type, and its tags. Because all properties of a key-value are in the file, you don't need to specify transformation rules when you import the file. 
 
-The following example is a file based upon the KVSet file content profile, named `appconfigdata.json`, containing a feature flag, a Key Vault reference, and a regular key-value.
+When you use the KVSet profile, you can define regular key-values, Key Vault references, and feature flags in one file. As a result, this profile is helpful if you want to manage all your App Configuration data in one file and import it in one step.
+
+Files that use this profile are in JSON format. For the schema specification, see the [KVSet file schema](https://aka.ms/latest-kvset-schema).
+
+The following file, *appconfigdata.json*, is based on the KVSet file content profile. This file contains a feature flag, a Key Vault reference, and a standard key-value.
 
 ```json
 {
@@ -84,7 +103,7 @@ The following example is a file based upon the KVSet file content profile, named
     },
     {
       "key": "Database:ConnectionString",
-      "value": "{\"uri\":\"https://<your-vault-name>.vault.azure.net/secrets/db-secret\"}",
+      "value": "{\"uri\":\"https://<Key-Vault-name>.vault.azure.net/secrets/db-secret\"}",
       "label": "test",
       "content_type": "application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8",
       "tags": {}
@@ -100,34 +119,37 @@ The following example is a file based upon the KVSet file content profile, named
 }
 ```
 
-> [!TIP]
-> If you followed the example in the previous section and have the data in your App Configuration store, you can export it to a file using the CLI command:
-
-> ```azurecli-interactive
-> az appconfig kv export --profile appconfig/kvset --label * --name <your store name> --destination file --path appconfigdata.json --format json 
-> ```
-
-> After the file is exported, update the `Beta` feature flag `enabled` property to `true` and change the `Logging:LogLevel:Default` to `Debug`.
-
-Run the following CLI command with the parameter "**--profile appconfig/kvset**" to import the file to your App Configuration store. You don't need to specify any data transformation rules such as separator, label, or content type like you did in the default file content profile section because all information is already in the file.
+In the previous section, an example shows how to import data into your App Configuration store. You can export that data to a file by using the following Azure CLI command:
 
 ```azurecli-interactive
-az appconfig kv import --profile appconfig/kvset --name <your store name> --source file --path appconfigdata.json --format json
+az appconfig kv export --profile appconfig/kvset --label * --name <App-Configuration-store-name> --destination file --path appconfigdata.json --format json 
+```
+
+After you export the file, open it in a text editor and make the following changes:
+
+- Set the `Beta` feature flag `enabled` property to `true`.
+- Set the `Logging:LogLevel:Default` property to `Debug`.
+
+To import the updated file into your App Configuration store, run the following CLI command, which includes the `--profile appconfig/kvset` parameter. You don't need to specify data transformation rules such as a separator, label, or content type like you did for the default file content profile. All needed information is already in the file.
+
+```azurecli-interactive
+az appconfig kv import --profile appconfig/kvset --name <App-Configuration-store-name> --source file --path appconfigdata.json --format json
 ```
 
 > [!NOTE]
-> The KVSet file content profile is currently supported in
-> - Azure CLI version 2.30.0 or later
-> - [Azure App Configuration Import Task](./azure-pipeline-import-task.md) version 10.0.0 or later
-> - Azure portal
+> The KVSet file content profile is currently supported in:
+> 
+> - The Azure CLI version 2.30.0 and later.
+> - The [Azure App Configuration Import task](./azure-pipeline-import-task.md) version 10.0.0 and later.
+> - The Azure portal.
 
-The following table shows all the imported data in your App Configuration store.
+The following table shows all the imported data in your App Configuration store:
 
 | Key | Value | Label | Content type |
 |---------|---------|---------|---------|
 | .appconfig.featureflag/Beta | {"id":"Beta","description":"Beta feature","enabled":**true**,"conditions":{"client_filters":[]}} | dev | application/vnd.microsoft.appconfig.ff+json;charset=utf-8 |
 | Logging:LogLevel:Default | **Debug** | dev |  |
-| Database:ConnectionString | {\"uri\":\"https://\<your-vault-name\>.vault.azure.net/secrets/db-secret\"} | test | application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8 |
+| Database:ConnectionString | {\"uri\":\"https://\<Key-Vault-name\>.vault.azure.net/secrets/db-secret\"} | test | application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8 |
 
 ## Next steps
 

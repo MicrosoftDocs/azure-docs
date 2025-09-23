@@ -7,6 +7,7 @@ ms.topic: troubleshooting
 ms.date: 02/13/2025
 ms.author: susabat
 ms.reviewer: susabat
+ms.custom: sfi-image-nochange
 ---
 
 # Troubleshoot Azure Data Factory Studio Issues

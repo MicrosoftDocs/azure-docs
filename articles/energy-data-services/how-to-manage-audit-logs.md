@@ -6,7 +6,9 @@ ms.author: sancha
 ms.service: azure-data-manager-energy
 ms.topic: how-to
 ms.date: 04/11/2023
-ms.custom: template-how-to
+ms.custom:
+  - template-how-to
+  - sfi-image-nochange
 #Customer intent: As a developer, I want to use audit logs to check audit trail for data plane APIs for Azure Data Manager for Energy.
 ---
 

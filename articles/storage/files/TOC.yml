@@ -19,10 +19,12 @@
     href: /azure/well-architected/service-guides/azure-files?toc=/azure/storage/files/toc.json&bc=/azure/storage/files/breadcrumb/toc.json
 - name: Create file shares
   items:
-  - name: Create an SMB file share
-    href: storage-how-to-create-file-share.md
-  - name: Create an NFS file share
-    href: storage-files-quick-create-use-linux.md
+    - name: Create a classic file share
+      href: create-classic-file-share.md
+    - name: Create a file share (Microsoft.FileShares)
+      href: create-file-share.md
+    - name: Modify a file share
+      href: modify-file-share.md
 - name: Authentication and authorization
   items:
   - name: Overview of identity-based authentication
@@ -247,6 +249,8 @@
     href: storage-files-scale-targets.md
   - name: Understanding billing
     href: understanding-billing.md
+  - name: Cost estimation examples
+    href: file-estimate-cost.md
   - name: Optimize costs with storage reservations
     href: files-reserve-capacity.md
 - name: Monitor metrics and logs

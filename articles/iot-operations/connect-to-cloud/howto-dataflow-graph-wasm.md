@@ -1,12 +1,12 @@
 ---
 title: Use WebAssembly With Data Flow Graphs (Preview)
 description: Learn how to deploy and use WebAssembly modules with data flow graphs in Azure IoT Operations to process data at the edge.
-author: PatAltimore
-ms.author: patricka
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 07/22/2025
+ms.date: 08/14/2025
 ai-usage: ai-assisted
 
 ---
@@ -19,6 +19,12 @@ ai-usage: ai-assisted
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or not yet released into general availability.
 
 Azure IoT Operations data flow graphs support WebAssembly (WASM) modules for custom data processing at the edge. You can deploy custom business logic and data transformations as part of your data flow pipelines.
+
+> [!TIP]
+> Want to run AI in-band? See [Run ONNX inference in WebAssembly data flow graphs](howto-wasm-onnx-inference.md) to package and execute small ONNX models inside your WASM operators.
+
+> [!IMPORTANT]
+> Data flow graphs currently only support MQTT, Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage are not supported. For more information, see [Known issues](../troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).
 
 ## Prerequisites
 
@@ -207,7 +213,7 @@ For detailed instructions, see [Assign Azure roles using the Azure portal](/azur
 
 ## Example 1: Basic deployment with one WASM module
 
-This example converts temperature data from Fahrenheit to Celsius by using a WASM module. The [temperature module source code](https://github.com/Azure-Samples/explore-iot-operations/tree/wasm/samples/wasm/operators/temperature) is available on GitHub. Use the precompiled version `graph-simple:1.0.0` that you pushed to your container registry.
+This example converts temperature data from Fahrenheit to Celsius by using a WASM module. The [temperature module source code](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples/temperature) is available on GitHub. Use the precompiled version `graph-simple:1.0.0` that you pushed to your container registry.
 
 ### How it works
 
@@ -273,7 +279,7 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
   }
   properties: {
     mode: 'Enabled'
-    requestDiskPersistence: 'Enabled'
+    requestDiskPersistence: 'Disabled'
     nodes: [
       {
         nodeType: 'Source'
@@ -293,8 +299,8 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
           artifact: 'graph-simple:1.0.0'
           configuration: [
             {
-              key: 'conversion'
-              value: 'fahrenheit-to-celsius'
+              key: 'key1'
+              value: 'example-value'
             }
           ]
         }
@@ -341,7 +347,7 @@ metadata:
   name: <GRAPH_NAME>
   namespace: azure-iot-operations
 spec:
-  requestDiskPersistence: Enabled
+  requestDiskPersistence: Disabled
   profileRef: default
 
   nodes:
@@ -358,8 +364,8 @@ spec:
         registryEndpointRef: <REGISTRY_ENDPOINT_NAME>
         artifact: graph-simple:1.0.0
         configuration:
-          - key: conversion
-            value: fahrenheit-to-celsius
+          - key: key1
+            value: example-value
 
     - nodeType: Destination
       name: temperature-destination
@@ -389,13 +395,10 @@ kubectl apply -f dataflow-graph.yaml
 
 ### Test the data flow
 
-To test the data flow, send MQTT messages from within the cluster. First, deploy the MQTT client pod by following the instructions in [Test connectivity to MQTT broker with MQTT clients](../manage-mqtt-broker/howto-test-connection.md). The MQTT client provides the authentication tokens and certificates to connect to the broker.
-
-After you deploy the MQTT client pod, open two terminal sessions, and connect to the pod:
+To test the data flow, send MQTT messages from within the cluster. First, deploy the MQTT client pod by following the instructions in [Test connectivity to MQTT broker with MQTT clients](../manage-mqtt-broker/howto-test-connection.md). The MQTT client provides the authentication tokens and certificates to connect to the broker. To deploy the MQTT client, run the following command:
 
 ```bash
-# Connect to the MQTT client pod
-kubectl exec -it mqtt-client -n azure-iot-operations -- bash
+kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/mqtt-client.yaml
 ```
 
 #### Send temperature messages
@@ -403,6 +406,8 @@ kubectl exec -it mqtt-client -n azure-iot-operations -- bash
 In the first terminal session, create and run a script to send temperature data in Fahrenheit:
 
 ```bash
+# Connect to the MQTT client pod
+kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh -c '
 # Create and run temperature.sh from within the MQTT client pod
 while true; do
   # Generate a random temperature value between 0 and 6000 Fahrenheit
@@ -417,42 +422,43 @@ while true; do
     -t "sensor/temperature/raw" \
     -d \
     --cafile /var/run/certs/ca.crt \
+    -D PUBLISH user-property __ts $(date +%s)000:0:df \
     -D CONNECT authentication-method 'K8S-SAT' \
     -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat)
 
   sleep 1
-done
+done'
 ```
+
+> [!NOTE]
+> The MQTT user property `__ts` is used to add a timestamp to the messages to ensure the timely processing of messages using the Hybrid Logical Clock (HLC). Having the timestamp helps the data flow to decide whether to accept or drop the message. The format of the property is `<timestamp>:<counter>:<nodeid>`. It makes the data flow processing more accurate, but isn't mandatory.
+
+The script publishes random temperature data to the `sensor/temperature/raw` topic every second. It should look like this:
+
+```output
+Publishing temperature: {"temperature":{"value":1234,"unit":"F"}}
+Publishing temperature: {"temperature":{"value":5678,"unit":"F"}}
+```
+
+Leave the script running to continue publishing temperature data.
 
 #### Subscribe to processed messages
 
 In the second terminal session (also connected to the MQTT client pod), subscribe to the output topic to see the converted temperature values:
 
 ```bash
-# Run from within the MQTT client pod
-mosquitto_sub -h aio-broker -p 18883 \
-  -t "sensor/temperature/processed" \
-  -d \
-  --cafile /var/run/certs/ca.crt \
-  -D CONNECT authentication-method 'K8S-SAT' \
-  -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat)
+# Connect to the MQTT client pod
+kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh -c '
+mosquitto_sub -h aio-broker -p 18883 -t "sensor/temperature/processed" --cafile /var/run/certs/ca.crt \
+-D CONNECT authentication-method "K8S-SAT" \
+-D CONNECT authentication-data "$(cat /var/run/secrets/tokens/broker-sat)"'
 ```
 
 You see the temperature data converted from Fahrenheit to Celsius by the WASM module.
 
-#### Adding timestamps
-
-Messages can include a timestamp property `__ts` for ordering. The format is `<timestamp>:<counter>:<nodeid>`.
-
-```bash
-mosquitto_pub -h aio-broker -p 18883 \
-  -m "$payload" \
-  -t "sensor/temperature/raw" \
-  -d \
-  --cafile /var/run/certs/ca.crt \
-  -D CONNECT authentication-method 'K8S-SAT' \
-  -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat) \
-  -D PUBLISH user-property __ts $(date +%s)000:0:df
+```output
+{"temperature":{"value":1292.2222222222222,"count":0,"max":0.0,"min":0.0,"average":0.0,"last":0.0,"unit":"C","overtemp":false}}
+{"temperature":{"value":203.33333333333334,"count":0,"max":0.0,"min":0.0,"average":0.0,"last":0.0,"unit":"C","overtemp":false}}
 ```
 
 ## Example 2: Deploy a complex graph
@@ -507,7 +513,7 @@ resource complexDataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfile
   }
   properties: {
     mode: 'Enabled'
-    requestDiskPersistence: 'Enabled'
+    requestDiskPersistence: 'Disabled'
     nodes: [
       {
         nodeType: 'Source'
@@ -531,6 +537,10 @@ resource complexDataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfile
             {
               key: 'snapshot_topic'
               value: 'sensor/images/raw'
+            }
+            {
+              key: 'key1'
+              value: 'example-value'
             }
           ]
         }
@@ -575,7 +585,7 @@ metadata:
   name: <COMPLEX_GRAPH_NAME>
   namespace: azure-iot-operations
 spec:
-  requestDiskPersistence: Enabled
+  requestDiskPersistence: Disabled
   profileRef: default
 
   nodes:
@@ -596,6 +606,8 @@ spec:
         configuration:
           - key: snapshot_topic
             value: sensor/images/raw
+          - key: key1
+            value: example-value
 
     - nodeType: Destination
       name: analytics-destination
@@ -619,68 +631,113 @@ spec:
 
 ### Test the complex data flow
 
-Use the same MQTT client pod setup from the previous example. Connect to the pod and run the following commands from within it.
+Before we can see the output, we need to get the source data setup.
 
-#### Send humidity messages
+#### Upload RAW image files to the mqtt-client pod
 
-In addition to temperature data, send humidity messages from within the MQTT client pod:
+The image files are for the `snapshot` module to detect objects in the images. They're located in the [images](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/images) folder on GitHub.
+
+First, clone the repository to get access to the image files:
 
 ```bash
-# Run from within the MQTT client pod
-while true; do
+git clone https://github.com/Azure-Samples/explore-iot-operations.git
+cd explore-iot-operations
+```
+
+To upload RAW image files from the `./samples/wasm/images` folder to the `mqtt-client` pod, you can use the following command:
+
+```bash
+kubectl cp ./samples/wasm/images azure-iot-operations/mqtt-client:/tmp
+```
+
+Check the files are uploaded:
+
+```bash
+kubectl exec -it mqtt-client -n azure-iot-operations -- ls /tmp/images
+```
+
+You should see the list of files in the `/tmp/images` folder.
+
+```output
+beaker.raw          laptop.raw          sunny2.raw
+binoculars.raw      lawnmower.raw       sunny4.raw
+broom.raw           milkcan.raw         thimble.raw
+camera.raw          photocopier.raw     tripod.raw
+computer_mouse.raw  radiator.raw        typewriter.raw
+daisy3.raw          screwdriver.raw     vacuum_cleaner.raw
+digital_clock.raw   sewing_machine.raw
+hammer.raw          sliding_door.raw
+```
+
+### Publish simulated temperature, humidity data, and send images
+
+You can combine the commands for publishing temperature, humidity data, and sending images into a single script. Use the following command:
+
+```bash
+# Connect to the MQTT client pod and run the script
+kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh -c '
+while true; do 
+  # Generate a random temperature value between 0 and 6000
+  temp_value=$(shuf -i 0-6000 -n 1)
+  temp_payload="{\"temperature\":{\"value\":$temp_value,\"unit\":\"F\"}}"
+  echo "Publishing temperature: $temp_payload"
+  mosquitto_pub -h aio-broker -p 18883 \
+    -m "$temp_payload" \
+    -t "sensor/temperature/raw" \
+    --cafile /var/run/certs/ca.crt \
+    -D CONNECT authentication-method "K8S-SAT" \
+    -D CONNECT authentication-data "$(cat /var/run/secrets/tokens/broker-sat)" \
+    -D PUBLISH user-property __ts $(date +%s)000:0:df
+
   # Generate a random humidity value between 30 and 90
-  random_value=$(shuf -i 30-90 -n 1)
-  payload="{\"humidity\":{\"value\":$random_value}}"
-
-  echo "Publishing humidity: $payload"
-
+  humidity_value=$(shuf -i 30-90 -n 1)
+  humidity_payload="{\"humidity\":{\"value\":$humidity_value}}"
+  echo "Publishing humidity: $humidity_payload"
   mosquitto_pub -h aio-broker -p 18883 \
-    -m "$payload" \
+    -m "$humidity_payload" \
     -t "sensor/humidity/raw" \
-    -d \
     --cafile /var/run/certs/ca.crt \
-    -D CONNECT authentication-method 'K8S-SAT' \
-    -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat)
+    -D CONNECT authentication-method "K8S-SAT" \
+    -D CONNECT authentication-data "$(cat /var/run/secrets/tokens/broker-sat)" \
+    -D PUBLISH user-property __ts $(date +%s)000:0:df
 
+  # Send an image every 2 seconds
+  if [ $(( $(date +%s) % 2 )) -eq 0 ]; then
+    file=$(ls /tmp/images/*.raw | shuf -n 1)
+    echo "Sending file: $file"
+    mosquitto_pub -h aio-broker -p 18883 \
+      -f $file \
+      -t "sensor/images/raw" \
+      --cafile /var/run/certs/ca.crt \
+      -D CONNECT authentication-method "K8S-SAT" \
+      -D CONNECT authentication-data "$(cat /var/run/secrets/tokens/broker-sat)" \
+      -D PUBLISH user-property __ts $(date +%s)000:0:df
+  fi
+
+  # Wait for 1 second before the next iteration
   sleep 1
-done
+done'
 ```
 
-#### Simulate image data
+### Check the output
 
-<!-- TODO: Link to test images -->
-
-For scenarios involving image processing, first copy test images to the MQTT client pod from your local machine:
+In a new terminal, subscribe to the output topic:
 
 ```bash
-# Copy images to the client pod (replace with your image files)
-kubectl cp ./images azure-iot-operations/mqtt-client:/tmp
+kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh -c '
+mosquitto_sub -h aio-broker -p 18883 -t "analytics/sensor/processed" --cafile /var/run/certs/ca.crt \
+-D CONNECT authentication-method "K8S-SAT" \
+-D CONNECT authentication-data "$(cat /var/run/secrets/tokens/broker-sat)"'
 ```
 
-Then connect to the pod and send image data:
+The output should look like this
 
-```bash
-# Connect to the MQTT client pod and run from within it
-kubectl exec -it mqtt-client -n azure-iot-operations -- bash
-
-# Send image data from within the pod
-while true; do
-  # Select a random image file
-  file=$(ls /tmp/images/*.raw | shuf -n 1)
-
-  echo "Sending file: $file"
-
-  mosquitto_pub -h aio-broker -p 18883 \
-    -f "$file" \
-    -t "sensor/images/raw" \
-    -d \
-    --cafile /var/run/certs/ca.crt \
-    -D CONNECT authentication-method 'K8S-SAT' \
-    -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat)
-
-  sleep 2
-done
+```output
+{"temperature":[{"count":9,"max":2984.4444444444443,"min":248.33333333333337,"average":1849.6296296296296,"last":2612.222222222222,"unit":"C","overtemp":true}],"humidity":[{"count":10,"max":76.0,"min":30.0,"average":49.7,"last":38.0}],"object":[{"result":"milk can; broom; screwdriver; binoculars, field glasses, opera glasses; toy terrier"}]}
+{"temperature":[{"count":10,"max":2490.5555555555557,"min":430.55555555555554,"average":1442.6666666666667,"last":1270.5555555555557,"unit":"C","overtemp":true}],"humidity":[{"count":9,"max":87.0,"min":34.0,"average":57.666666666666664,"last":42.0}],"object":[{"result":"broom; Saint Bernard, St Bernard; radiator"}]}
 ```
+
+Here, the output contains the temperature and humidity data, as well as the detected objects in the images.
 
 ## Develop custom WASM modules
 

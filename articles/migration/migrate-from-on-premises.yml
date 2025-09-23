@@ -1,0 +1,73 @@
+### YamlMime:Landing
+
+title: Migrate on-premises to Microsoft Azure
+summary: Replatforming an entire workload from on-premises to Azure involves migrating various components, including compute, databases, storage, and applications. This section offers service comparisons between both platforms and example scenarios to help integrate components for transition to Azure.
+metadata:
+  title: Migrate on-premises to Microsoft Azure
+  description: Learn about resources that can help you transition your workload components from Amazon Web Services (AWS) to Azure.
+  ms.topic: landing-page
+  ms.service: azure-migrate
+  author: robbyatmicrosoft
+  ms.author: robbymillsap
+  ms.reviewr: robbymillsap, chkittel, prwilk
+  ms.date: 07/31/2025
+  ms.collection:
+   - migration
+   - onprem-to-azure
+
+landingContent:
+  - title: Migration strategy
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Plan your migration
+            url:  /azure/cloud-adoption-framework/migrate/plan-migration
+          - text: Select your migration strategy
+            url:  /azure/cloud-adoption-framework/plan/select-cloud-migration-strategy?utm_source=chatgpt.com
+
+  - title: Data
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Migrate SQL Server from on-premises using Database Migration Service
+            url:  /data-migration/sql-server/database/database-migration-service
+          - text: Migrate MySQL from on-premises to Azure Database for MySQL
+            url:  /azure/mysql/migrate/mysql-on-premises-azure-db/05-migration-methods
+          - text: Migrate PostgreSQL databases online from on-premises to Azure
+            url:  /azure/dms/tutorial-postgresql-azure-postgresql-online
+          - text: Migrate Oracle to Azure SQL Database
+            url:  /azure/azure-sql/migration-guides/database/oracle-to-sql-database-guide?view=azuresql
+  - title: Infrastructure
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Prepare on-premises machines for Azure migration
+            url:  /azure/migrate/prepare-for-migration?view=migrate-classic
+          - text: Migrate on-premises workloads using Azure Migrate
+            url:  /azure/migrate/migrate-services-overview?view=migrate-classic
+          - text: Migrate VMware, Hyper-V, and physical servers to Azure
+            url:  /azure/site-recovery/migrate-tutorial-on-premises-azure
+          - text: Migrate Hyper-V VMs from on-premises to Azure
+            url:  /azure/migrate/tutorial-migrate-hyper-v?view=migrate-classic
+          - text: Migrate Azure high-performance computing (HPC)
+            url:  /azure/cloud-adoption-framework/scenarios/azure-hpc/migrate
+  - title: Training modules
+    linkLists:
+      - linkListType: training
+        links:
+          - text: Migrate Azure Database for PostgreSQL
+            url:  /training/paths/microsoft-learn-azure-database-for-postgresql/
+          - text: Migrate Linux-hosted PostgreSQL to Azure
+            url:  /training/paths/migrate-linux-postgres-azure/
+          - text: Migrate on-premises MySQL databases to Azure
+            url:  /training/modules/migrate-on-premises-mysql-databases/
+  - title: Explore related resources
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Migration architecture design
+            url:  /azure/architecture/guide/migration/migration-start-here
+          - text: Choose an Azure compute service
+            url:  /azure/architecture/guide/technology-choices/compute-decision-tree
+          - text: Azure Migrate application and code assessment
+            url:  /azure/migrate/appcat/overview?view=migrate

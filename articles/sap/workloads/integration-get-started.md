@@ -140,7 +140,7 @@ For more information about integrations with Microsoft Entra ID and Microsoft En
 - [SAP Scenarios Hub](https://aka.ms/EntraSAPHub)
 - [Provision users from SAP SuccessFactors to Active Directory](/entra/identity/saas-apps/sap-successfactors-inbound-provisioning-tutorial)
 - [Manage access to your SAP applications](/entra/id-governance/sap)
-- [Secure access with SAP Cloud Identity Services and Microsoft Entra ID](/entra/fundamentals/scenario-azure-first-sap-identity-integration)
+- [Secure access with SAP Cloud Identity Services and Microsoft Entra ID](scenario-azure-first-sap-identity-integration.md)
 - [SAP workload security - Microsoft Azure Well-Architected Framework](/azure/architecture/framework/sap/security)
 
 For how to configure single sign-on, see the following Microsoft Entra documentation and tutorials:
@@ -320,7 +320,7 @@ For more information about Azure integration with SAP Business Technology Platfo
 - [Monitor multiple SAP Cloud Integration tenants with Azure Monitor](https://blogs.sap.com/2020/11/11/broadcast-cpi-errors-to-azure-monitor-via-scp-alert-notifications/)
 - [Route Multi-Region Traffic to SAP BTP Services Intelligently with Azure Traffic Manager](https://discovery-center.cloud.sap/missiondetail/3603/)
 - [Distributed Resiliency of SAP CAP applications using SAP HANA Cloud with Azure Traffic Manager](https://blogs.sap.com/2022/11/12/distributed-resiliency-of-sap-cap-applications-using-sap-hana-cloud-multi-zone-replication-with-azure-traffic-manager/)
-- [Federate your data from Azure Data Explorer to SAP Datasphere](https://discovery-center.cloud.sap/missiondetail/3433/3473/)
+- [Integration with Azure data sources](https://architecture.learning.sap.com/docs/ref-arch/a07a316077/2)
 - [Integrate globally available SAP BTP apps with Azure Cosmos DB via OData](https://blogs.sap.com/2021/06/11/sap-where-can-i-get-toilet-paper-an-implementation-of-the-geodes-pattern-with-s4-btp-and-azure-cosmosdb/)
 - [Building Applications on SAP BTP with Microsoft Services | OpenSAP course](https://open.sap.com/courses/btpma1)
 

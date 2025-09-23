@@ -4,6 +4,7 @@ ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 12/19/2024
 ms.author: jgao
+ms.custom: sfi-ga-nochange
 ---
 
 Private links enable you to access Azure services over a private endpoint in your virtual network. When you combine private links with Azure Resource Manager's operations, you allow users to use a specific endpoint from managing resources.

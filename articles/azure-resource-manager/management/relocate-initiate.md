@@ -3,7 +3,7 @@ title: How to initiate a cloud relocation project
 description: Learn how to initiate a cloud relocation project so you can relocate workloads and applications to another region.
 author: SomilGanguly
 ms.author: ssumner
-ms.date: 12/18/2023
+ms.date: 09/15/2025
 ms.reviewer: ssumner
 ms.topic: conceptual
 ms.custom: internal

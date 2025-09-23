@@ -9,7 +9,10 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 01/06/2025
 ms.author: danlep
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # How to authorize test console of developer portal by configuring OAuth 2.0 user authorization

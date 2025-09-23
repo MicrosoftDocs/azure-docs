@@ -1,11 +1,11 @@
 ---
-title: Develop for Azure NetApp Files with REST API | Microsoft Docs
+title: Develop for Azure NetApp Files with REST API 
 description: The REST API for the Azure NetApp Files service defines HTTP operations for resources such as the NetApp account, the capacity pool, the volumes, and snapshots.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 09/30/2024
+ms.date: 07/30/2025
 ms.author: anfdocs
 # Customer intent: As a developer, I want to use the REST API for Azure NetApp Files so that I can manage resources such as accounts, capacity pools, volumes, and snapshots efficiently through automated HTTP operations.
 ---

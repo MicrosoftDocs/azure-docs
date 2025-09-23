@@ -5,11 +5,14 @@ author: seligj95
 ms.author: jordanselig
 ms.topic: overview
 ms.date: 04/23/2025
-ms.custom: msangapu
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 
 #customer intent: As an app developer, I want to understand options that allow clients on our private networks to access apps in Azure App Service.
 
+ms.service: azure-app-service
+ms.custom:
+  - msangapu
+  - sfi-image-nochange
 ---
 
 # Use private endpoints for Azure App Service apps
