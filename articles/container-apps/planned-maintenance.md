@@ -129,7 +129,7 @@ In the *Diagnose and solve problems* window, you can view the configured mainten
 
 ## Billing for Planned Maintenance
 
-Planned Maintenance is a paid feature. When you enable a planned maintenance configuration, usage is billed through the [Dedicated plan's](/articles/container-apps/billing.md#dedicated-plan) **Management (hour) meter**.
+Planned Maintenance is a paid feature. When you enable a planned maintenance configuration, usage is billed through the [Dedicated plan's](./billing.md#dedicated-plan) **Management (hour) meter**.
 
 This meter also applies to other premium features like private endpoint. If multiple features are enabled in the same environment, charges are **additive**, each feature is billed separately.
 
