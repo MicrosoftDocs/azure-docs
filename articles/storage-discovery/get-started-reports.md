@@ -14,11 +14,11 @@ ms.author: fauhse
 Azure Storage Discovery reports organize insights into distinct categories that help you understand and manage your Azure Blob Storage estate:
 
 - **Capacity**: Includes insights for size and count (blobs, containers, subscriptions, regions, and resource groups count) for each scope.
-- <b>Activity</b>: Includes metrics for transactions, ingress, and egress to understand how your storage is accessed and utilized.
-- <b>Errors</b>: Highlights failed operations and error codes to help identify patterns of issues.
-- <b>Configurations</b>: Surfaces configuration patterns across your storage accounts.
-- <b>Security</b>: Provides visibility into access controls and encryption settings.
-- <b>Consumption</b>: Shows storage resources capacity and activity insights that help you understand how your usage corresponds to the cost incurred.
+- **Activity** Includes metrics for transactions, ingress, and egress to understand how your storage is accessed and utilized.
+- **Errors**: Highlights failed operations and error codes to help identify patterns of issues.
+- **Configurations**: Surfaces configuration patterns across your storage accounts.
+- **Security**: Provides visibility into access controls and encryption settings.
+- **Consumption**</b>**: Shows storage resources capacity and activity insights that help you understand how your usage corresponds to the cost incurred.
 
 :::image source="media/insights/workspace-reports.png" alt-text="Screenshot of Reports."  lightbox="media/insights/workspace-reports.png":::
 
