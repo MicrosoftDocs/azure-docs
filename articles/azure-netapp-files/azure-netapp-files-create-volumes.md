@@ -26,6 +26,9 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 * Plan your lightweight directory access protocol (LDAP) server.
     If you're using FreeIPA, OpenLDAP, or Red Hat Directory Server, you must create the server before creating the NFS volumes. For other considerations, see [Configure LDAP directory servers](configure-directory-server.md).
 
+    >[!NOTE]
+    >[!INCLUDE [Note about Kerberos non-support for other LDAP services](includes/kerberos-other-servers.md)]
+
 ## Considerations 
 
 * Deciding which NFS version to use  

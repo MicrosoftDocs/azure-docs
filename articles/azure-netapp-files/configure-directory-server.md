@@ -20,8 +20,8 @@ In addition to native Active Directory support, Azure NetApp Files supports usin
 * FreeIPA, OpenLDAP, and Red Hat Directory Server are supported with NFSv3 and NFSv4.1 volumes; they aren't currently supported with dual-protocol volumes. 
 * These directory services aren't currently supported with large volumes. 
 * You must configure the LDAP server before creating the volume. 
-* You can only configure FreeIPA, OpenLDAP, or Red Hat Directory Server on _new_ NFS volumes. You cannot convert existing volumes to use these directory servers. 
-<!-- Kerberos -->
+* You can only configure FreeIPA, OpenLDAP, or Red Hat Directory Server on _new_ NFS volumes. You can't convert existing volumes to use these directory servers. 
+* [!INCLUDE [Kerberos support limitation](includes/kerberos-other-servers.md)]
 
 ## Register the feature
 
