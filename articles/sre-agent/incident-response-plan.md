@@ -3,7 +3,7 @@ title: Incident response plans in Azure SRE Agent Preview
 description: Learn customize incident response plans with specialized instructions for mitigating incidents.
 author: craigshoemaker
 ms.topic: how-to
-ms.date: 09/17/2025
+ms.date: 09/23/2025
 ms.author: cshoe
 ms.service: azure
 ---
