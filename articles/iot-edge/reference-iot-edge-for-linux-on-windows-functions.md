@@ -6,8 +6,10 @@ ms.author: sethm
 ms.date: 01/16/2025
 ms.topic: reference
 ms.service: azure-iot-edge
-ms.custom: linux-related-content
 services: iot-edge
+ms.custom:
+  - linux-related-content
+  - sfi-ropc-nochange
 ---
 
 # PowerShell functions for IoT Edge for Linux on Windows

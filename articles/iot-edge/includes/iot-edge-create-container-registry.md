@@ -4,6 +4,7 @@ ms.author: sethm
 ms.service: azure-iot-edge
 ms.topic: include
 ms.date: 12/30/2019
+ms.custom: sfi-image-nochange
 ---
 
 ## Create a container registry

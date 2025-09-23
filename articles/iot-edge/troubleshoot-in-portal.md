@@ -7,6 +7,7 @@ ms.date: 05/09/2025
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
+ms.custom: sfi-image-nochange
 ---
 
 # Troubleshoot IoT Edge devices from the Azure portal
