@@ -1,5 +1,6 @@
 ---
-title: Front Door (classic) and CDN Standard from Microsoft (classic) Migration FAQ
+title: Migration FAQ
+titleSuffix: Azure Front Door
 description: Frequently asked questions about migrating from Front Door (classic) and CDN Standard from Microsoft (classic) to Front Door Standard or Premium.
 author: jainsabal
 ms.author: jainsabal
@@ -17,7 +18,7 @@ This article provides answers to frequently asked questions about the migration 
 
 No, there's no downtime during the migration. This is a control plane-only migration, meaning traffic delivery is unaffected.
 
-During migration, the Azure Front Door (classic) endpoint mydomain.azurefd.net is created as a dummy custom domain on Front Door standard/premium. Both classic endpoint and standard/premium endpoints point to the same Front Door IP so the final resolution remains the same before and after DNS propagation. It continues to receive traffic until you update the DNS record of the Front Door custom domain (www.mydomain.com) to mydomain.randomstring.z01.azurefd.net directly. It's recommended to change the CNAME from classic endpoint to Front Door standard/premium endpoint after verification.
+During migration, the Azure Front Door (classic) endpoint `mydomain.azurefd.net` is created as a dummy custom domain on Front Door standard/premium. Both classic endpoint and standard/premium endpoints point to the same Front Door IP so the final resolution remains the same before and after DNS propagation. It continues to receive traffic until you update the DNS record of the Front Door custom domain `www.mydomain.com` to `mydomain.randomstring.z01.azurefd.net` directly. It's recommended to change the CNAME from classic endpoint to Front Door standard/premium endpoint after verification.
 
 Even in rare cases where the migration fails, traffic delivery continues to work as expected.
 
