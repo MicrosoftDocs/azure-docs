@@ -14,10 +14,11 @@ Depending on the issue that you're trying to troubleshoot, there are different l
 | ------------ | -------------------------------------------------------| -------------------------------------------------------- |
 | CycleCloud   | CycleCloud server application logs                     | `/opt/cycle_server/logs/cycle_server.log`                  |
 | CycleCloud   | Log of all API requests to Azure from CycleCloud       | `/opt/cycle_server/logs/azure-*.log`                       |
-| Cluster Node | Chef logs/troubleshooting software installation issues | `/opt/cycle/jetpack/logs/chef-client.log`                  |
-| Cluster Node | Detailed chef stacktrace output                        | `/opt/cycle/jetpack/system/chef/cache/chef-stacktrace.out` |
+| Cluster Node | Converge log output/troubleshooting software installation issues | `/opt/cycle/jetpack/logs/jetpack.log`      |
 | Cluster Node | Detailed cluster-init log output                       | `/opt/cycle/jetpack/logs/cluster-init/{PROJECT_NAME}`      |
-| Cluster Node | Waagent logs (used to install Jetpack)                 | /var/log/waagent.log                                     |
+| Cluster Node | Chef logs for troubleshooting cookbooks | `/opt/cycle/jetpack/logs/chef-client.log`                  |
+| Cluster Node | Detailed Chef stacktrace output                        | `/opt/cycle/jetpack/system/chef/cache/chef-stacktrace.out` |
+| Cluster Node | Waagent logs (used to install Jetpack)                 | `/var/log/waagent.log`                                     |
 
 ## CycleCloud Workspace for Slurm logs
 

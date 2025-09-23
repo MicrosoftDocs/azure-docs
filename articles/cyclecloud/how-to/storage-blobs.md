@@ -31,7 +31,7 @@ Separate multiple blobs with a comma. You can also specify the relative path to 
 
 User blobs are binary files that the project author can't legally redistribute, such as UGE binaries. The project doesn't package these files. You must manually stage them to the locker. You can find these files at _/blobs//my-blob.tgz_. You don't need to define user blobs in the _project.ini_.
 
-To download any blob, use the `jetpack download` command from the CLI, or the `jetpack_download` Chef resource. CycleCloud looks for the user blob first. If it doesn't find that file, it uses the project level blob.
+To download any blob, use the `jetpack download` command. CycleCloud looks for the user blob first. If it doesn't find that file, it uses the project level blob.
 
 > [!NOTE]
 > You can override a project blob with a user blob of the same name.
