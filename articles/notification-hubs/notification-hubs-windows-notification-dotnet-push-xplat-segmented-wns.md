@@ -14,8 +14,8 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/22/2019
 ms.custom:
-  - "mvc
-  - devx-track-csharp"
+  - mvc
+  - devx-track-csharp
   - sfi-ropc-nochange
 ---
 
