@@ -84,7 +84,6 @@ The cause of this problem can be one of three things:
       :::image type="content" source="./media/troubleshoot-issues/validation-checkbox.png" alt-text="Screenshot of the certificate subject name validation checkbox.":::
 
 <br>
-<br>
 
 * The backend server returns a certificate that doesn't match the FQDN of the Azure Front Door backend. To resolve this issue, you have two options:
 
