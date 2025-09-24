@@ -181,7 +181,7 @@ You can create an OpenTelemetry dataflow endpoint using the operations experienc
         - **Disabled**: Disables TLS.
     - **Trusted CA certificate config map name**: The name of a Kubernetes ConfigMap containing your trusted CA certificate.
 
-    :::image type="content" source="media/howto-connect-opentelemetry/create-open-telemetry-advanced.png" alt-text="Screenshot of the operations experience interface showing the advanced tab in create a new OpenTelemetry endpoint.":::
+    :::image type="content" source="media/howto-connect-opentelemetry/create-open-telemetry-advance.png" alt-text="Screenshot of the operations experience interface showing the advanced tab in create a new OpenTelemetry endpoint.":::
 
 1. Select **Apply** to create the OpenTelemetry endpoint.
 
@@ -344,7 +344,7 @@ X.509 certificate authentication uses client certificates for mutual TLS authent
     - **X509 client key**: The private key for the client certificate.
     - **X509 intermediate certificates**: The intermediate certificates for the client certificate chain.
 
-    :::image type="content" source="media/howto-connect-opentelemetry/x509-certificate.png" alt-text="Screenshot of the operations experience interface showing the X509 authentication method selection in create a new OpenTelemetry endpoint.":::
+    :::image type="content" source="media/howto-connect-opentelemetry/x-509-certificate.png" alt-text="Screenshot of the operations experience interface showing the X509 authentication method selection in create a new OpenTelemetry endpoint.":::
 
 # [Bicep](#tab/bicep)
 
