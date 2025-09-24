@@ -200,7 +200,7 @@ The recommended approach is to use the **AzureTrafficManager** Service Tag in NS
 * [Use Service Tags with NSGs](https://learn.microsoft.com/azure/virtual-network/service-tags-overview#use-service-tags-in-network-security-groups)
 * [Use Service Tags with Azure Firewall](https://learn.microsoft.com/azure/firewall/service-tags)
 
-**Option2: Manually update firewall rules**
+**Option 2: Manually update firewall rules**
 If Service Tags cannot be used (for example, with custom firewall appliances or in non-Azure environments), update ACLs or firewall rules to allow the latest Azure Traffic Manager IPs.
 * The full list of IP addresses is published in the [Azure IP Ranges and Service Tags – Public Cloud JSON file](https://www.microsoft.com/download/details.aspx?id=56519).
 * Periodically refresh rules to ensure the most up-to-date IP addresses are included.
