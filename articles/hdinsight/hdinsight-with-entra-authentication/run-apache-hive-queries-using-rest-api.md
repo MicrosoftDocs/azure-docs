@@ -19,11 +19,11 @@ With the REST API, you can integrate Hive query execution into applications, scr
 
 - An Entra Enabled Apache Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
 - A REST client. This document uses [Curl](https://curl.haxx.se/).
-- If you use Bash, you'll also need jq, a command-line JSON processor. See [Download jq](https://jqlang.org/download/)
+- If you use Bash, use jq, a command-line JSON processor. See [Download jq](https://jqlang.org/download/)
 
 **Base URI for REST API**
 
-The base Uniform Resource Identifier (URI) for the REST API on HDInsight is `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, where `CLUSTERNAME` is the name of your cluster. Cluster names in URIs are **case-sensitive**. While the cluster name in the fully qualified domain name (FQDN) part of the URI (`CLUSTERNAME.azurehdinsight.net`) is case-insensitive, other occurrences in the URI are case-sensitive.
+The base Uniform Resource Identifier(URI) for the REST API on HDInsight is `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, where `CLUSTERNAME` is the name of your cluster. Cluster names in URIs are **case-sensitive**. While the cluster name in the fully qualified domain name (FQDN) part of the URI (`CLUSTERNAME.azurehdinsight.net`) is case-insensitive, other occurrences in the URI are case-sensitive.
 
 **Authentication**
 
@@ -31,7 +31,7 @@ When using cURL or any other REST communication with WebHCat, you must authentic
 
 **Setup (Secure Bearer Access Token)**
 
-Bearer Token is needed to send the cURL or any REST communication. You can follow the below mentioned step to get the token:
+Bearer Token is needed to send the cURL or any REST communication. Follow the mentioned steps to get the token:
 
 Execute an HTTP GET request to the OAuth 2.0 token endpoint with the following specifications:
 
@@ -117,18 +117,18 @@ A successful request returns a JSON object containing:
     ```
     This request uses the POST method, which sends data as part of the request to the REST API. The following data values are sent with the request:
 
-      - `user.name` - The user that is running the command.
+      - `user.name` - The user that's running the command.
       - `execute` - The HiveQL statements to execute.
       - `statusdir` - The directory that the status for this job is written to.
 
     These statements perform the following actions:
 
-     - `DROP TABLE` - If the table already exists, it's deleted.
+     - `DROP TABLE` - If the table already exists, it is deleted.
      - `CREATE EXTERNAL TABLE` - Creates a new 'external' table in Hive. External tables store only the table definition in Hive. The data is left in the original location.
 
 
   > [!NOTE]  
-  > External tables should be used when you expect the underlying data to be updated by an external source. For example, an automated data upload process or another MapReduce operation.
+  > Use external tables when an external source updates the underlying data. For example, an automated data upload process or another MapReduce operation.
 
 
 Dropping an external table does **not** delete the data, only the table definition.
@@ -137,12 +137,12 @@ Dropping an external table does **not** delete the data, only the table defini
       
 
 -`ROW FORMAT` - How the data is formatted. The fields in each log are separated by a space.
--`STORED AS TEXTFILE LOCATION` - Where the data is stored (the example/data directory) and that it's stored as text.
+-`STORED AS TEXTFILE LOCATION` - Where the data is stored (the example/data directory) and that it is stored as text.
 -`SELECT` - Selects a count of all rows where column **t4** contains the value **[ERROR]**. This statement returns a value of **3** as there are three rows that contain this value.
 
 
   > [!NOTE]  
-  > Notice that the spaces between HiveQL statements are replaced by the + character when used with Curl. Quoted values that contain a space, such as the delimiter, should not be replaced by '+'.
+  > Curl replaces the spaces between HiveQL statements with the + character,'+' should not replace quoted values that contain a space, such as the delimiter.
     
     
  This command returns a job ID that can be used to check the status of the job.
@@ -157,8 +157,8 @@ Dropping an external table does **not** delete the data, only the table defini
  ```
             curl -H "Authorization: Bearer $TOKEN" -d user.name=admin -G https://$CLUSTER_NAME.azurehdinsight.net/templeton/v1/jobs/$jobid | jq .status.state
  ```
-If the job has finished, the state is **SUCCEEDED**.
+If the job finishes, the state is **SUCCEEDED**.
 
- Once the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter passed with the query contains the location of the output file; in this case, `/example/rest`. This address stores the output in the `example/curl` directory in the clusters default storage.
+ Once the state of the job changes to **SUCCEEDED**, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter passed with the query contains the location of the output file; in this case, `/example/rest`. This address stores the output in the `example/curl` directory in the clusters default storage.
 
 ## Next Steps
