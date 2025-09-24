@@ -6,17 +6,19 @@ ms.author: sethm
 ms.date: 05/16/2025
 ms.topic: tutorial
 ms.service: azure-iot-edge
+services: iot-edge
+zone_pivot_groups: iotedge-dev
+content_well_notification:
+  - AI-contribution
+ai-usage: ai-assisted
 ms.custom:
   - linux-related-content
   - ai-gen-docs-bap
   - ai-gen-description
   - ai-seo-date:05/16/2025
   - build-2025
-services: iot-edge
-zone_pivot_groups: iotedge-dev
-content_well_notification:
-  - AI-contribution
-ai-usage: ai-assisted
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Tutorial: Develop IoT Edge modules using Visual Studio Code

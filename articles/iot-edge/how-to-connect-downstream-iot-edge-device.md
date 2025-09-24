@@ -7,7 +7,11 @@ ms.date: 08/18/2025
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
-ms.custom:  [amqp, mqtt]
+ms.custom:
+  - amqp
+  - mqtt
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Connect Azure IoT Edge devices to create a hierarchy

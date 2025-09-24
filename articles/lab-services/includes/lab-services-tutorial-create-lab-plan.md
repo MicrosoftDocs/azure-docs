@@ -3,6 +3,7 @@ ms.service: azure-lab-services
 ms.date: 01/25/2023
 ms.topic: include
 ms.service: lab-services
+ms.custom: sfi-image-nochange
 ---
 
 1. Sign in to the [Azure portal](https://portal.azure.com) by using the credentials for your Azure subscription.

@@ -8,6 +8,7 @@ ms.date: 06/15/2021
 ms.topic: concept-article
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
+ms.custom: sfi-image-nochange
 # Customer intent: As a data administrator, I want to implement Data Dynamics StorageX in Azure, so that I can efficiently analyze and migrate file data to Azure storage solutions while minimizing disruption to production environments.
 ---
 

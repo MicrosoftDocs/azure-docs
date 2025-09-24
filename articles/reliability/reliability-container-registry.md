@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Container Registry
-description: Find out about reliability in Azure Container Registry, including availability zones and multi-region deployments.
+description: Learn how to improve reliability in Azure Container Registry by using availability zones and geo-replication. Plan disaster recovery for resilient container storage.
 ms.author: doveychase
 author: chasedmicrosoft
 ms.topic: reliability-article
@@ -12,7 +12,7 @@ ms.date: 08/22/2025
 
 # Reliability in Azure Container Registry
 
-This article describes reliability support in Azure Container Registry, covering intra-regional resiliency via [availability zones](#availability-zone-support) and cross-region resiliency via [geo-replication](#multi-region-support).
+This article describes reliability support in Azure Container Registry. It covers how to plan resilient deployments by using [availability zones](#availability-zone-support). It also describes how to improve cross-region resiliency by using [geo-replication](#multi-region-support).
 
 Container Registry is a managed container registry service used to store and manage your private Docker container images and related artifacts for your container deployments. For more information, see [Introduction to Container Registry](/azure/container-registry/container-registry-intro).
 
@@ -144,7 +144,7 @@ When a zone becomes unavailable, Container Registry automatically handles the fa
 
 When the affected availability zone recovers, Container Registry automatically distributes operations across all available zones, including the recovered zone. The service rebalances traffic and data distribution without requiring manual intervention or causing service disruption.
 
-### Testing for zone failures
+### Test for zone failures
 
 The Container Registry platform manages traffic routing, failover, and failback for zone-redundant registries. Because this feature is fully managed, you don't need to initiate or validate availability zone failure processes.
 
@@ -234,7 +234,7 @@ When a region becomes unavailable, container operations can continue to use alte
 
 When a region recovers, data plane operations automatically resume for that regional endpoint through Traffic Manager routing. The service synchronizes any changes that occur during the outage by using asynchronous replication with eventual consistency.
 
-### Testing for region failures
+### Test for region failures
 
 You can't simulate the failure of one of the regions associated with your registry, but you can test your application's ability to fail over between regions. You can simulate regional failover by temporarily disabling geo-replicas, which removes them from Traffic Manager routing. Then you can verify that container operations successfully fail over to alternative regions without actually experiencing a regional outage. For more information, see [Temporarily disable routing to replication](/azure/container-registry/container-registry-geo-replication#temporarily-disable-routing-to-replication).
 

@@ -7,7 +7,9 @@ ms.service: azure-traffic-manager
 ms.topic: tutorial
 ms.date: 08/08/2024
 ms.author: allensu
-ms.custom: template-tutorial
+ms.custom:
+  - template-tutorial
+  - sfi-image-nochange
 # Customer intent: As an IT Admin, I want to route traffic so I can improve website response by choosing the endpoint with lowest latency.
 ---
 

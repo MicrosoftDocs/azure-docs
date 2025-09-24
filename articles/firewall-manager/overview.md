@@ -7,6 +7,7 @@ services: firewall-manager
 ms.topic: overview
 ms.date: 02/26/2024
 ms.author: duau
+ms.custom: sfi-image-nochange
 ---
 
 # What is Azure Firewall Manager?

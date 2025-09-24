@@ -4,9 +4,11 @@ description: In this quickstart, you create a .NET Core application that sends/r
 ms.topic: quickstart
 ms.date: 06/17/2025
 ms.devlang: csharp
-ms.custom: devx-track-dotnet
 author: spelluru
 ms.author: spelluru
+ms.custom:
+  - devx-track-dotnet
+  - sfi-ropc-nochange
 #customer intent: As a developer, I want to learn how to send events to and receive events from an event hub with schema validation.
 ---
 

@@ -4,9 +4,11 @@ description: Use Azure Resource Manager templates to automate the creation of Se
 author: spelluru
 ms.topic: article
 ms.tgt_pltfrm: dotnet
-ms.custom: devx-track-arm-template
 ms.date: 09/20/2021
 ms.author: spelluru 
+ms.custom:
+  - devx-track-arm-template
+  - sfi-ropc-nochange
 ---
 
 # Create Service Bus resources using Azure Resource Manager templates

@@ -45,7 +45,7 @@ The following example scenario uses two Azure Resource Manager (ARM) template de
 1. Retrieve the SAS token secret from the key vault.
 1. Create an Azure Maps REST API request that uses the SAS token.
 
-When you finish, you should see Azure Maps `Search Address (Non-Batch)` REST API results on PowerShell with Azure CLI. The Azure resources deploy with permissions to connect to the Azure Maps account. There are controls for maximum rate limit, allowed regions, `localhost` configured CORS policy, and Azure RBAC.
+When you finish, you should see Azure Maps `Search Address (single request)` REST API results on PowerShell with Azure CLI. The Azure resources deploy with permissions to connect to the Azure Maps account. There are controls for maximum rate limit, allowed regions, `localhost` configured CORS policy, and Azure RBAC.
 
 ## Azure resource deployment with Azure CLI
 

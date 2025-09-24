@@ -7,7 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 02/07/2025
 ms.service: azure-migrate
-ms.custom: mvc, subject-rbac-steps, engagement-fy24, linux-related-content
+ms.custom:
+  - mvc
+  - subject-rbac-steps
+  - engagement-fy24
+  - linux-related-content
+  - sfi-ropc-nochange
 #Customer intent: As a server admin I want to discover my on-premises server inventory.
 # Customer intent: As a server administrator, I want to discover and assess my on-premises physical servers using a migration tool, so that I can efficiently plan for migration to the cloud.
 ---

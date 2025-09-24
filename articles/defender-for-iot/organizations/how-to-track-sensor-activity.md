@@ -3,6 +3,7 @@ title: Track network and sensor activity with the event timeline in Microsoft De
 description: Track network and sensor activity in the event timeline.
 ms.date: 02/27/2023
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Track network and sensor activity with the event timeline

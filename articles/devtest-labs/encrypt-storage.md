@@ -6,7 +6,9 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 05/30/2024
-ms.custom: UpdateFrequency2
+ms.custom:
+  - UpdateFrequency2
+  - sfi-image-nochange
 
 #customer intent: As a developer, I want to manage the Azure storage account for my DevTest Labs resource so that I can perform tasks like setting the expiration for artifact results.
 ---

@@ -9,7 +9,9 @@ ms.topic: article
 ms.service: azure-notification-hubs
 ms.reviewer: jowargo
 ms.lastreviewed: 10/16/2019
-ms.custom: devx-track-csharp
+ms.custom:
+  - devx-track-csharp
+  - sfi-ropc-nochange
 
 ---
 
