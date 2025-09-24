@@ -12,7 +12,7 @@ metadata:
 title: Azure Cache for Redis Retirement FAQ
 summary: |
   This article covers some basic questions about Azure Managed Redis and Azure Cache for Redis, and how the latest open-source Redis licensing changes affect Azure Redis. The details for Basic, Standard, and Premium tiers are different from those for the Enterprise tier, so we have separate sections for each. Make sure to read the section that applies to your Redis instances.
-  - [Basic, Standared, and Premium tiers](#questions-on-basic--standard--and-premium-tiers-of-azure-cache-for-redis-retirement)
+  - [Basic, Standard, and Premium tiers](#questions-on-basic--standard--and-premium-tiers-of-azure-cache-for-redis-retirement)
   - [Enterprise and Enterprise Flash tiers](#questions-on-the-enterprise-tier-of-azure-cache-for-redis-retirement)
 
   For more information on moving your caches to Azure Managed Redis, see [Move from Azure Cache for Redis to Azure Managed Redis](/azure/redis/migrate/migrate-overview.md).
