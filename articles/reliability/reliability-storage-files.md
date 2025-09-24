@@ -78,7 +78,7 @@ detailed pricing information, see [Azure Files pricing](https://azure.microsoft.
 
 ### Configure availability zone support
 
-- **Create a file share with zone redundancy.** To create a new file share with ZRS, see [Create an Azure file share](/azure/storage/files/storage-how-to-create-file-share) and select **ZRS** or **GZRS** as the redundancy option during account creation.
+- **Create a file share with zone redundancy.** To create a new file share with ZRS, see [Create an Azure file share](/azure/storage/files/create-classic-file-share) and select **ZRS** or **GZRS** as the redundancy option during account creation.
 
 - **Change replication type.** To convert an existing storage account to ZRS and learn about migration options and requirements, see [Change redundancy configuration for Azure Files](/azure/storage/files/files-change-redundancy-configuration?tabs=portal).
 
