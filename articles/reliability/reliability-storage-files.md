@@ -74,7 +74,7 @@ ZRS is supported by all file share types.
 
 [!INCLUDE [Storage - Availability zone cost](includes/storage/reliability-storage-availability-zone-cost-include.md)]
 
-detailed pricing information, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/).
+For detailed pricing information, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ### Configure availability zone support
 
