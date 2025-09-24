@@ -7,6 +7,7 @@ ms.author: duau
 ms.service: azure-route-server
 ms.topic: concept-article
 ms.date: 02/10/2025
+ms.custom: sfi-image-nochange
 
 #CustomerIntent: As an Azure administrator, I want to use Azure Route Server so it dynamically injects routes in spoke virtual networks (VNets).
 ---

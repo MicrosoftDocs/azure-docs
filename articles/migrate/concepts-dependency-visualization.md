@@ -6,6 +6,7 @@ author: habibaum
 ms.author: v-uhabiba 
 ms.service: azure-migrate
 ms.date: 09/09/2024
+ms.reviewer: v-uhabiba
 ms.custom: engagement-fy25
 # Customer intent: As a cloud migration planner, I want to utilize dependency analysis for my on-premises servers, so that I can accurately group and assess them for migration to ensure smooth application functionality and avoid potential outages post-migration.
 ---

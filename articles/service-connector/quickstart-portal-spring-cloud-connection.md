@@ -7,10 +7,11 @@ ms.service: service-connector
 ms.topic: quickstart
 zone_pivot_groups: interaction-type
 ms.date: 8/19/2025
+keywords: azure spring apps, service connector, database connection, managed identity, azure storage, authentication
 ms.custom:
   - kr2b-contr-experiment
   - build-2024
-keywords: azure spring apps, service connector, database connection, managed identity, azure storage, authentication
+  - sfi-image-nochange
 #Customer intent: As an app developer, I want to connect my Azure Spring Apps application to databases, storage accounts, and other Azure services using managed identities and connection strings.
 ---
 
