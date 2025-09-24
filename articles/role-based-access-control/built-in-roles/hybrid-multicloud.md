@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2025
+ms.date: 09/24/2025
 ms.custom: generated
 ---
 
@@ -15,6 +15,63 @@ ms.custom: generated
 
 This article lists the Azure built-in roles in the Hybrid + multicloud category (Azure Stack HCI).
 
+
+## Arc Gateway Manager
+
+Manage Arc Gateway Resources
+
+[Learn more](/azure/azure-arc/servers/arc-gateway)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/settings/write | Writes an Azure Arc settings |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/settings/read | Reads any Azure Arc settings |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/gateways/read | Reads any Azure Arc gateways |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/gateways/write | Writes an Azure Arc gateways |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/gateways/delete | Deletes an Azure Arc gateways |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Manage Arc Gateway Resources",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/f6e92014-8af2-414d-9948-9b1abf559285",
+  "name": "f6e92014-8af2-414d-9948-9b1abf559285",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.HybridCompute/settings/write",
+        "Microsoft.HybridCompute/settings/read",
+        "Microsoft.HybridCompute/gateways/read",
+        "Microsoft.HybridCompute/gateways/write",
+        "Microsoft.HybridCompute/gateways/delete",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Arc Gateway Manager",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
 
 ## Azure Arc ScVmm Administrator role
 
