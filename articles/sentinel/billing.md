@@ -72,11 +72,11 @@ Microsoft Sentinel data lake tier is a cost-effective option for ingesting high 
 For more information, see [Microsoft Sentinel data lake](datalake/sentinel-lake-overview.md)  
 
 The data lake tier incurs charges based on usage of various data lake capabilities. 
-- **Data lake ingestion** charges are applied per GB of data ingested into data lake tier tables. No data lake ingestion charges apply when retention settings include both the analytic and data lake tiers.
-- **Data processing** charges are applied per GB for all data in the data lake tier tables. Data processing enables a broad array of transformations including redaction, splitting, filtering, and normalizing data. No data lake processing charges apply when retention settings include both the analytic and data lake tiers.
+- **Data lake ingestion** is charged per GB for all data ingested into the data lake tier. However, if data is ingested into tables with retention settings that include both the analytic and data lake tiers, no ingestion charges apply.
+- **Data processing** is charged per GB for data ingested into the data lake tier. It supports transformations like redaction, splitting, filtering, and normalization. If data is ingested into tables with retention settings that include both analytic and data lake tiers, data processing charges don't apply.
 - **Data lake storage** charges are applied per GB per month for any data that remains in the data lake tier after the analytic tier retention period ends. Charges are based on data compressed at a 6X rate. For example, if you retain 600 GB of raw data, it's billed as 100 GB of compressed data.
-- **Data lake query** charges are incurred per GB of uncompressed data analyzed using data lake exploration Kusto Query Language (KQL) queries, KQL jobs, or search.
-- **Advanced data insights** charges are incurred per compute hour used when using data lake exploration notebook sessions or running data lake exploration notebook jobs. Compute hours are calculated by multiplying the number of cores in the pool selected for the notebook with the amount of time a session was active or a job was running. Data lake notebook sessions and jobs are available in pools of four, eight, and 16 cores.
+- **Data lake query** charges apply per GB of uncompressed data analyzed using Kusto Query Language (KQL) queries or KQL jobs.
+- **Advanced data insights** charges apply per compute hour used when using data lake exploration notebook sessions or running data lake exploration notebook jobs. Compute hours are calculated by multiplying the number of cores in the pool selected for the notebook with the amount of time a session was active or a job was running. Data lake notebook sessions and jobs are available in pools of four, eight, and 16 cores.
 
 Once onboarded, usage from Microsoft Sentinel workspaces begins to be billed through the previously described meters rather than existing long-term retention (formerly known as Archive), search, or auxiliary logs ingestion meters.
 
