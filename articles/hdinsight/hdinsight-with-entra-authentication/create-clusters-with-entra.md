@@ -121,7 +121,7 @@ If Entra ID is selected:
  - The cluster creator provides an ID for the default cluster administrator user in Ambari. 
 
  - The default admin can add more Ambari users as needed, with either 'Cluster Administrator' or 'Cluster User' permissions after cluster creation via Ambari UI or  REST API.
-   The cluster admin also has to add Object ID, and the display name and click on "Save".
+   The cluster admin also has to add Object ID, and the display name and click on "**Save**".
 
  	 :::image type="content" source="/media/create-hdinsight-clusters-with-entra/add-users.png" alt-text="Screenshot of Ambari page showing the users in the Ambari portal.":::
 
@@ -159,7 +159,7 @@ If Basic Authentication is selected:
 
       :::image type="content" source="/media/create-hdinsight-clusters-with-entra/add-users.png" alt-text="Screenshot of Ambari page showing the users in the Ambari portal.":::
       
-   1. Input Object ID,  display name, and select the user access (Cluster Administrator or Cluster User). Click on "Save"
+   1. Input Object ID,  display name, and select the user access (Cluster Administrator or Cluster User). Click on "**Save**"
 
 		:::image type="content" source="/media/create-hdinsight-clusters-with-entra/add-object-id.png" alt-text="Screenshot of Ambari page showing thee add users tab where cluster admin has to input new user information.":::
 
