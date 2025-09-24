@@ -7,6 +7,7 @@ ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 03/31/2025
 ms.author: duau
+ms.custom: sfi-image-nochange
 ---
 
 # Connect a virtual network to ExpressRoute circuits using the Azure portal

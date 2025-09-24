@@ -7,8 +7,10 @@ ms.author: alzam
 ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 01/27/2022
-ms.custom: template-how-to 
 zone_pivot_groups: ase-pro-version
+ms.custom:
+  - template-how-to
+  - sfi-image-nochange
 ---
 
 # Create a site using the Azure portal

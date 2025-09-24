@@ -8,6 +8,7 @@ ms.subservice: common
 ms.topic: conceptual
 ms.date: 05/21/2025
 ms.author: maminn
+ms.custom: sfi-image-nochange
 ---
 
 # Plan to manage Azure costs

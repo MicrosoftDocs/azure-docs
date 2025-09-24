@@ -3,7 +3,9 @@ title: Authenticate an Application with Microsoft Entra ID to Access Event Hubs 
 description: Learn how to authenticate an application with Microsoft Entra ID to securely access Azure Event Hubs resources. Improve security and simplify access.
 ms.topic: concept-article
 ms.date: 07/28/2025
-ms.custom: subject-rbac-steps
+ms.custom:
+  - subject-rbac-steps
+  - sfi-image-nochange
 #customer intent: As a developer, I want to know how to authenticate an application with Azure Event Hubs using Microsoft Entra ID. 
 ---
 

@@ -8,6 +8,7 @@ ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 06/24/2022
 ms.author: alkohli
+ms.custom: sfi-image-nochange
 #Customer intent: As an IT admin, I want the flexibility to deploy a single GPU virtual machine (VM) quickly in the portal or use templates to deploy and manage multiple GPU VMs efficiently on my Azure Stack Edge Pro GPU device.
 ---
 

@@ -9,6 +9,7 @@ ms.author: kendownie
 ms.custom:
   - devx-track-azurepowershell
   - build-2025
+  - sfi-ropc-nochange
 # Customer intent: As a cloud administrator, I want to configure OAuth authentication for accessing Azure file shares, so that I can streamline access management and enhance security by eliminating the need for storage account keys while leveraging role-based permissions.
 ---
 

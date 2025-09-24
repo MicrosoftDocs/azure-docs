@@ -441,6 +441,8 @@ Write accelerator enabled disks | Not supported
 Tags  | Supported | User-generated tags are replicated every 24 hours.
 Soft delete | Not supported | Soft delete isn't supported because once it's enabled on a storage account, it increases cost. Azure Site Recovery performs very frequent creates/deletes of log files while replicating causing costs to increase.
 iSCSI disks | Not supported | Azure Site Recovery may be used to migrate or failover iSCSI disks into Azure. However, iSCSI disks aren't supported for Azure to Azure replication and failover/failback.
+Storage Replica | Not supported
+
 
 >[!IMPORTANT]
 > To avoid performance issues, make sure that you follow VM disk scalability and performance targets for [managed disks](/azure/virtual-machines/disks-scalability-targets). If you use default settings, Site Recovery creates the required disks and storage accounts, based on the source configuration. If you customize and select your own settings, follow the disk scalability and performance targets for your source VMs.

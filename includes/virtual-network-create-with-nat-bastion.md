@@ -7,7 +7,9 @@
  ms.topic: include
  ms.date: 07/29/2024
  ms.author: allensu
- ms.custom: include file
+ ms.custom:
+   - include file
+   - sfi-image-nochange
 ---
 
 ## Create a NAT gateway

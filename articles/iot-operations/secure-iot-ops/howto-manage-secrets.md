@@ -5,6 +5,7 @@ author: asergaz
 ms.author: sergaz
 ms.topic: how-to
 ms.date: 05/20/2025
+ms.custom: sfi-image-nochange
 
 #CustomerIntent: As an IT professional, I want to manage secrets in Azure IoT Operations, by leveraging Key Vault and Azure Secrete Store to sync the secrets down from the cloud and store them on the edge as Kubernetes secrets.
 ---

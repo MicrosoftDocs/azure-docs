@@ -6,7 +6,9 @@ ms.author: lakshmishaks
 ms.service: azure-data-manager-energy
 ms.topic: how-to
 ms.date: 09/29/2022
-ms.custom: template-how-to
+ms.custom:
+  - template-how-to
+  - sfi-image-nochange
 #Customer intent: As a developer, I want to set up private endpoints for Azure Data Manager for Energy.
 ---
 

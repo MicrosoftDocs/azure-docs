@@ -7,7 +7,12 @@ ms.date: 06/29/2023
 ms.topic: quickstart
 ms.service: azure-queue-storage
 ms.devlang: java
-ms.custom: devx-track-java, mode-api, passwordless-java, devx-track-extended-java
+ms.custom:
+  - devx-track-java
+  - mode-api
+  - passwordless-java
+  - devx-track-extended-java
+  - sfi-ropc-nochange
 # Customer intent: "As a Java developer, I want to utilize the Queue Storage client library to create and manage queues, so that I can efficiently store and process large numbers of messages in my applications."
 ---
 

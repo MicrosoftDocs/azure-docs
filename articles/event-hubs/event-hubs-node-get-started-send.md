@@ -4,7 +4,11 @@ description: This article provides a walkthrough for creating JavaScript applica
 ms.topic: quickstart
 ms.date: 06/16/2025
 ms.devlang: javascript
-ms.custom: devx-track-js, mode-api, passwordless-js
+ms.custom:
+  - devx-track-js
+  - mode-api
+  - passwordless-js
+  - sfi-ropc-nochange
 #customer intent: As a JavaScript developer, I want to learn how to send events to an event hub and receive events from the event hub using C#. 
 ---
 

@@ -7,7 +7,9 @@ ms.date: 03/04/2024
 ms.topic: how-to
 ms.service: azure-iot-central
 services: iot-central
-ms.custom: [iot-central-frontdoor]
+ms.custom:
+  - iot-central-frontdoor
+  - sfi-image-nochange
 
 # This article applies to operators, builders, and administrators.
 ---

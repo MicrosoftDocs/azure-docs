@@ -1,12 +1,13 @@
 ---
 author: ggailey777
 ms.service: azure-functions
-ms.custom:
-  - build-2024
-  - build-2025
 ms.topic: include
 ms.date: 03/06/2025
 ms.author: glenga
+ms.custom:
+  - build-2024
+  - build-2025
+  - sfi-ropc-nochange
 ---
 | Resource |[Flex Consumption plan](../articles/azure-functions/flex-consumption-plan.md)|[Premium plan](../articles/azure-functions/functions-premium-plan.md)|[Dedicated plan](../articles/azure-functions/dedicated-plan.md)/[ASE](../articles/app-service/environment/overview.md)| [Container Apps](../articles/container-apps/functions-overview.md)|[Consumption plan](../articles/azure-functions/consumption-plan.md)|
 | --- | --- | --- | --- | --- | --- | 
