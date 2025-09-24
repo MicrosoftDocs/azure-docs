@@ -228,7 +228,7 @@ If you have to reuse an existing app registration that's shared with another API
 
    For more information, see [Add permissions to access Microsoft Graph](/entra/identity-platform/quickstart-configure-app-access-web-apis#add-permissions-to-access-microsoft-graph).
 
-1. Optionally, under **Manage**, select **Expose an API** to define and expose permission scopes.
+1. Optionally, under **Manage**, select **Expose an API**, so you can define and expose permission scopes.
 
    For the **Application ID URI** setting, the prepopulated URI is a unique identifier that represents your logic app resource as the audience in access tokens and uses the following format:
 
@@ -311,17 +311,13 @@ To confirm that enforcement works as expected, follow these steps:
 
 ### Troubleshoot authentication test errors
 
-- **401** with **invalid_token** + **error_description** that references the audience
+The following table describes common problems you might encounter when you set up Easy Auth, possible causes, and actions you can take:
 
-  A mismatch exists between the token audience and the specified allowed audiences.
-
-- **403 Forbidden**
-
-  Might indicate a problem with authorization for a downstream workflow action, not with Easy Auth.
-
-- Missing claim
-
-  Make sure that the claim exists in the access token, not just in the ID token, and that you requested the appropriate scope or role.
+| Problem or error | Likely cause | Action |
+|------------------|--------------|--------|
+| **401** with **`invalid_token`** + **`error_description`** that references the audience | A mismatch exists between the access token audience and the specified allowed token audiences. | Make sure that the access token audience and the allowed token audience match. |
+| **403 Forbidden** | Possibly a problem with authorization for a workflow action, not with Easy Auth. | Check the actions in your workflow for an authorization problem. |
+| Missing claim | The claim is missing from the accss token. Or, the scope or role that you set up isn't correct. | Make sure that the claim exists in the access token, not just in the ID token, and that you requested the appropriate scope or role. |
 
 ## Parse identity claims in workflows
 
@@ -381,6 +377,8 @@ For nonproduction scenarios only, such as design, development, and quick testing
 1. Enforce authentication required access patterns.
 
 ### Troubleshoot authentication migration
+
+The following table describes common problems you might encounter when you try to migrate from a developer key to Easy Auth, their possible causes, and actions you can take:
 
 | Symptom | Likely cause | Action |
 |---------|--------------|--------|
