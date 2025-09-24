@@ -114,7 +114,7 @@ All users can create *personal dashboards*, visible only to themselves. Users ca
 > [!NOTE]
 > Creating personal dashboards using API is currently not supported.
 
-To learn how to manage dashboards by using the IoT Central UI, see [How to manage dashboards.](../core/howto-manage-dashboards.md)
+To learn how to manage dashboards by using the IoT Central UI, see [Create and manage dashboards](../core/howto-manage-dashboards.md).
 
 ### Dashboards REST API
 

@@ -28,7 +28,7 @@ To learn about the IoT Pug and Play command conventions, see [IoT Plug and Play 
 
 To learn more about the command data that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md).
 
-To learn how to manage commands by using the IoT Central REST API, see [How to use the IoT Central REST API to control devices.](../core/howto-control-devices-with-rest-api.md).
+To learn how to manage commands by using the IoT Central REST API, see [How to use the IoT Central REST API to control devices](../core/howto-control-devices-with-rest-api.md).
 
 To learn how to implement commands in a device without using the device SDKs, see [Communicate with an IoT hub using the MQTT protocol](../../iot/iot-mqtt-connect-to-iot-hub.md).
 
@@ -61,7 +61,7 @@ Optional fields, such as display name and description, let you add more details 
 
 To handle a standard command, a device sends a response value as soon as it receives the command from IoT Central. You can use the Azure IoT device SDK to handle standard commands invoked by your IoT Central application.
 
-For example implementations in multiple languages, see [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
+For example implementations in multiple languages, see [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
 
 The following screenshot shows how the successful command response displays in the IoT Central UI:
 

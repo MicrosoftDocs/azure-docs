@@ -23,7 +23,7 @@ To learn about the IoT Pug and Play property conventions, see [IoT Plug and Play
 
 To learn more about the property data that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md).
 
-To learn how to manage properties by using the IoT Central REST API, see [How to use the IoT Central REST API to control devices.](../core/howto-control-devices-with-rest-api.md).
+To learn how to manage properties by using the IoT Central REST API, see [How to use the IoT Central REST API to control devices](../core/howto-control-devices-with-rest-api.md).
 
 To learn how to implement properties in a device without using the device SDKs, see [Communicate with an IoT hub using the MQTT protocol](../../iot/iot-mqtt-connect-to-iot-hub.md).
 
@@ -68,13 +68,13 @@ When you select the complex **Schema**, such as **Object**, you need to define t
 
 By default, properties are read-only. Read-only properties let a device report property value updates to your Azure IoT Central application. Your Azure IoT Central application can't set the value of a read-only property.
 
-Azure IoT Central uses device twins to synchronize property values between the device and the Azure IoT Central application. Device property values use device twin reported properties. For more information, see [device twins](../../iot-hub/tutorial-device-twins.md).
+Azure IoT Central uses device twins to synchronize property values between the device and the Azure IoT Central application. Device property values use device twin reported properties. For more information, see [Tutorial: Configure your devices from a back-end service](../../iot-hub/tutorial-device-twins.md).
 
 A device sends property updates as a JSON payload. For more information, see [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md).
 
 You can use the Azure IoT device SDK to send a property update to your Azure IoT Central application.
 
-For example implementations in multiple languages, see [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
+For example implementations in multiple languages, see [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
 
 The following view in Azure IoT Central application shows the device read-only properties:
 
@@ -110,4 +110,4 @@ Now that you know how to use properties in your Azure IoT Central application, s
 
 * [IoT Plug and Play conventions](../../iot/concepts-convention.md)
 * [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md)
-* [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md)
+* [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md)

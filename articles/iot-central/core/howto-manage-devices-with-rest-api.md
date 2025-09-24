@@ -440,7 +440,7 @@ The request body has some required fields:
 * `@etag`: ETag used to prevent conflict in device updates.
 * `description`: Short summary of device group.
 
-The organizations field is only used when an application has an organization hierarchy defined. To learn more about organizations, see [Manage IoT Central organizations](howto-edit-device-template.md).
+The organizations field is only used when an application has an organization hierarchy defined. To learn more about organizations, see [Edit a device template](howto-edit-device-template.md).
 
 The response to this request looks like the following example:
 

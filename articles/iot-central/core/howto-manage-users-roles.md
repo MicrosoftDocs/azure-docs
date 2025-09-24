@@ -21,7 +21,7 @@ To learn how to manage users and roles by using the IoT Central REST API, see [H
 
 ## Add users
 
-Every user must have a user account before they can sign in and access an application. IoT Central supports Microsoft user accounts, Microsoft Entra accounts, Microsoft Entra groups, and Microsoft Entra service principals. To learn more, see [Microsoft account help](https://support.microsoft.com/products/microsoft-account?category=manage-account) and  [Quickstart: Add new users to Microsoft Entra ID](../../active-directory/fundamentals/add-users-azure-active-directory.md).
+Every user must have a user account before they can sign in and access an application. IoT Central supports Microsoft user accounts, Microsoft Entra accounts, Microsoft Entra groups, and Microsoft Entra service principals. To learn more, see [Microsoft account help](https://support.microsoft.com/products/microsoft-account?category=manage-account) and  [How to create, invite, and delete users](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
 1. To add a user to an IoT Central application, go to the **Users** page in the **Permissions** section:
 

@@ -25,7 +25,7 @@ In this quickstart, you:
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- Complete the first quickstart [Create an Azure IoT Central application](./quick-deploy-iot-central.md).
+- Complete [Quickstart - Use your smartphone as a device to send telemetry to an IoT Central application](./quick-deploy-iot-central.md).
 
 ## Create a telemetry-based rule
 
@@ -130,4 +130,4 @@ In this quickstart, you learned how to create a telemetry-based rule and add an 
 To learn more about integrating your IoT Central application with other services, see:
 
 > [!div class="nextstepaction"]
-> [Export and process data from your IoT Central application](quick-export-data.md).
+> [Quickstart: Export data from an IoT Central application](quick-export-data.md).
