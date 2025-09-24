@@ -121,7 +121,7 @@ A container app resource object includes a top-level `kind` property, which is a
 
 | Property | Description | Data type | Read only |
 |---|---|---|---|
-| `kind` | Defines the type of app to create. Currently supports `functionapp`. Additional values may be supported in the future. Default: empty means regular container app| string | No |
+| `kind` | The kind of app to create. Currently supports `functionapp` and `workflowapp`. Additional values may be supported in the future. If omitted, a standard container app is created by default. | string | No |
 
 A container app resource's `properties` object includes the following properties:
 
