@@ -74,19 +74,31 @@ Keep in mind the following items as you use serverless GPUs:
 
 Access to this feature is only available after you have serverless GPU quota. You can submit your GPU quota request via a [customer support case](./quota-requests.md). When opening a support case for a GPU quota request, please select the following:
 
-1. In the **Problem description** tab, select the following values:
+1. Open [New support request](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV4Blade/callerName/Quota/summary/Quota%20request) form in the Azure portal.
 
-    | Field | Value |
-    |--|--|
-    | Issue type | Service and subscription limits (quota) |
-    | Subscription | Your subscription |
-    | Quota type | Container Apps |
+1. Enter the following values into the form:
 
-1. In the **Additional details** tab, select **Request details**.
+    | Property | Value |
+    |---|---|
+    | Issue type | Select **Service and subscription limits (quotas)** |
+    | Subscription | Select your subscription.  |
+    | Quota type | Select **Container Apps**. |
 
-1. For **Quota type**, select either **Managed Environment Consumption NCA100 Gpus** or **Managed Environment Consumption T4 Gpus**.
+1. Select **Next**.
 
-1. Complete the remaining required fields to submit your request.
+1. In the *Additional details* window, select **Enter details** to open the request details window.
+
+    :::image type="content" source="media/quotas/azure-container-apps-qms-support-details.png" alt-text="Screenshot of Azure Quota Management System details window.":::
+
+1. For **Quota type**, select either **Managed Environment Consumption NCA100 Gpus** or **Managed Environment Consumption T4 Gpus**. Enter your additional values.
+
+1. Select **Save and continue**.
+
+1. Fill out the rest the relevant details in the *Additional details* window.
+
+1. Select **Next**.
+
+1. Select **Create**.
 
 ## Supported regions
 
