@@ -3,7 +3,7 @@ title: Connect an IoT Edge transparent gateway to an application
 description: How to connect devices through an IoT Edge transparent gateway to an IoT Central application. The article shows how to use the IoT Edge 1.4 runtime.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/04/2024
+ms.date: 08/06/2025
 ms.topic: how-to
 ms.service: azure-iot-central
 services: iot-central
@@ -140,7 +140,7 @@ When the two virtual machines are deployed and running, verify the IoT Edge gate
     :::image type="content" source="media/how-to-connect-iot-edge-transparent-gateway/iot-edge-runtime-1-4.png" alt-text="Screenshot showing the $edgeAgent and $edgeHub version 1.4 modules running on the IoT Edge gateway." lightbox="media/how-to-connect-iot-edge-transparent-gateway/iot-edge-runtime-1-4.png":::
 
     > [!TIP]
-    > You may have to wait for several minutes while the virtual machine starts up and the device is provisioned in your IoT Central application.
+    > You might have to wait for several minutes while the virtual machine starts up and the device is provisioned in your IoT Central application.
 
 ## Configure the gateway
 
@@ -234,7 +234,7 @@ In your IoT Central application, verify that the **Device status** for the `ther
 ## Configure a downstream device
 
 > [!NOTE]
-> IoT Central does not support X.509 certificate authentication for downstream devices connected to an IoT Edge transparent gateway.
+> IoT Central doesn't support X.509 certificate authentication for downstream devices connected to an IoT Edge transparent gateway.
 
 In the previous section, you configured the `edgegateway` virtual machine with the demo certificates to enable it to run as gateway. The `leafdevice` virtual machine is ready for you to install a thermostat simulator that uses the gateway to connect to IoT Central.
 
@@ -295,7 +295,7 @@ To run the thermostat simulator on the `leafdevice` virtual machine:
     ```
 
     > [!TIP]
-    > If you see an error when the downstream device tries to connect. Try re-running the device provisioning steps.
+    > If you see an error when the downstream device tries to connect. Try rerunning the device provisioning steps.
 
 1. To see the telemetry in IoT Central, navigate to the **Overview** page for the **thermostat1** device:
 
