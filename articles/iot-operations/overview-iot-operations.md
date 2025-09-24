@@ -7,7 +7,7 @@ ms.topic: overview
 ms.custom:
   - ignite-2023
   - references_regions
-ms.date: 08/12/2025
+ms.date: 09/24/2025
 ---
 
 # What is Azure IoT Operations?
