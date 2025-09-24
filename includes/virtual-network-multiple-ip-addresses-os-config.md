@@ -294,7 +294,7 @@ Starting on 18.04, **`netplan`** is used in Ubuntu for network management. We re
     :wq
     ```
 
-6. Test the changes with [netplan try](https://manpages.ubuntu.com/manpages/kinetic/en/man8/netplan-try.8.html) to confirm syntax:
+6. Test the changes with [netplan try](https://manpages.ubuntu.com/manpages/questing/en/man8/netplan-try.8.html) to confirm syntax:
 
     ```bash
     netplan try
