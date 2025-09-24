@@ -4,6 +4,7 @@ description: Provides guidance on building a migration plan with Azure Migrate.
 ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 09/26/2024
+ms.reviewer: v-uhabiba
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange

@@ -5,6 +5,7 @@ author: ankitsurkar06
 ms.author: ankitsurkar
 ms.topic: tutorial
 ms.date: 02/24/2025
+ms.reviewer: v-uhabiba
 ms.custom: mvc, subject-rbac-steps, engagement-fy25, references_regions
 monikerRange: migrate-classic
 # Customer intent: As a database administrator, I want to assess my on-premises MySQL instances for migration to a cloud-based database service, so that I can identify readiness, costs, and potential risks associated with the migration process.

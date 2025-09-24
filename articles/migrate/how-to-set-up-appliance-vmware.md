@@ -6,6 +6,7 @@ ms.author: molir
 ms.manager: runai
 ms.topic: how-to
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 05/09/2025
 ms.custom: vmware-scenario-422, engagement-fy23
 # Customer intent: As a cloud administrator, I want to set up an appliance for Azure Migrate in my VMware environment, so that I can effectively assess and migrate my servers to Azure.

@@ -7,6 +7,7 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 01/27/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Troubleshoot Azure Digital Twins failed service request: Error 403 (Forbidden)

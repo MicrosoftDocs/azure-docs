@@ -5,8 +5,11 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: how-to
-ms.custom: kr2b-contr-experiment, devx-track-python
 ms.date: 05/23/2022
+ms.custom:
+  - kr2b-contr-experiment
+  - devx-track-python
+  - sfi-ropc-nochange
 ---
 
 # Azure Web PubSub service client library for Python
