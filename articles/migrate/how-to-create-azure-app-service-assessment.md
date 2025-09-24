@@ -4,6 +4,7 @@ description: Learn how to assess web apps for migration to Azure App Service
 ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 04/01/2024
+ms.reviewer: v-uhabiba
 ms.custom: engagement-fy23
 # Customer intent: "As a cloud architect, I want to assess my ASP.NET/Java web apps for migration to Azure App Service, so that I can determine their cloud readiness, estimate costs, and identify potential migration risks."
 ---

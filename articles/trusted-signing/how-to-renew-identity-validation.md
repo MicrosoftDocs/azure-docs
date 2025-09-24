@@ -6,6 +6,7 @@ ms.author: mesharm
 ms.service: trusted-signing 
 ms.topic: how-to 
 ms.date: 04/12/2024 
+ms.custom: sfi-image-nochange
 ---
 
 # Renew or delete Trusted Signing Identity Validations

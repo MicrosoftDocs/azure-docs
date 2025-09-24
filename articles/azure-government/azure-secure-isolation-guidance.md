@@ -7,6 +7,7 @@ ms.service: azure-government
 ms.topic: article
 recommendations: false
 ms.date: 07/14/2023
+ms.custom: sfi-image-nochange
 ---
 
 # Azure guidance for secure isolation

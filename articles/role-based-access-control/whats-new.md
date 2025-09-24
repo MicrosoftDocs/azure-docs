@@ -5,7 +5,7 @@ author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: whats-new
-ms.date: 09/19/2025
+ms.date: 09/24/2025
 ms.author: rolyon
 
 ---
@@ -18,6 +18,7 @@ This article provides information about new features and documentation improveme
 
 | Date | Area | Description |
 | --- | --- | --- |
+| September 2025 | Roles | Added [Arc Gateway Manager](./built-in-roles/hybrid-multicloud.md#arc-gateway-manager) role. |
 | September 2025 | Roles | Added Azure Kubernetes Service Namespace roles.<br/>[Azure Kubernetes Service Namespace Contributor](./built-in-roles/containers.md#azure-kubernetes-service-namespace-contributor)<br/>[Azure Kubernetes Service Namespace User](./built-in-roles/containers.md#azure-kubernetes-service-namespace-user)<br>Added Azure Container Instances Contributor role.<br/>[Azure Container Instances Contributor Role](./built-in-roles/containers.md#azure-container-instances-contributor-role) |
 | August 2025 | Roles | Added Azure Batch roles.<br/>[Azure Batch Account Contributor](./built-in-roles/compute.md#azure-batch-account-contributor)<br/>[Azure Batch Account Reader](./built-in-roles/compute.md#azure-batch-account-reader)<br/>[Azure Batch Data Contributor](./built-in-roles/compute.md#azure-batch-data-contributor)<br/>[Azure Batch Job Submitter](./built-in-roles/compute.md#azure-batch-job-submitter) |
 | July 2025 | Roles | Added DevOps Infrastructure Contributor role.<br/>[DevOps Infrastructure Contributor Role](./built-in-roles/devops.md#devops-infrastructure-contributor) |

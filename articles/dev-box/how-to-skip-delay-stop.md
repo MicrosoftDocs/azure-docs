@@ -1,14 +1,15 @@
 ---
-title: Skip or delay an autostop scheduled shutdown
+title: Skip Or Delay Auto-Stop Scheduled Shutdown
 titleSuffix: Microsoft Dev Box
-description: Learn how to delay the scheduled shutdown of your dev box, or skip the shutdown entirely, to manage your work and resources more effectively.
-#customer intent: As a developer, I want to skip or delay a scheduled shutdown of my dev box so that my projects keep running when needed.
+description: Learn how to delay the scheduled automatic shutdown of your dev box, or skip the shutdown entirely, to manage your work and resources more effectively.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 07/30/2025
+ms.date: 09/23/2025
 ms.topic: how-to
+
+#Customer intent: As a developer, I want to skip or delay a scheduled shutdown of my dev box so that my projects keep running when needed.
 ---
 
 # Skip or delay an autostop scheduled shutdown
@@ -19,55 +20,66 @@ Dev boxes that support hibernation hibernate on schedule instead of shutting dow
 
 ## Change scheduled shutdown from the dev box
 
-If your dev box is in a pool with a stop schedule, you receive a notification about 30 minutes before the scheduled shutdown giving you time to save your work or make necessary adjustments.
+If your dev box is in a pool with an autostop schedule, and the dev box is running, you receive a popup notification about 30 minutes before the scheduled shutdown. The notification gives you time to save your work or make necessary adjustments.
+
+> [!NOTE]
+> If you don't see the notification, check your browser or application settings and allow popups for the dev box.
 
 ### Delay the shutdown
 
-1. In the pop-up notification, select a time to delay the shutdown, like **Delay 1 Hour**.
+Follow these steps to delay the shutdown of a dev box that's currently running:
 
-   :::image type="content" source="media/how-to-skip-delay-stop/dev-box-toast-time.png" alt-text="Screenshot showing the shutdown notification and delay options in the dropdown list." lightbox="media/how-to-skip-delay-stop/dev-box-toast-time.png" :::
+1. In the popup for the running dev box, select a time to delay the shutdown, such as **Delay 1 Hour**:
 
-1. Select **Delay**.
+   :::image type="content" source="media/how-to-skip-delay-stop/dev-box-toast-time.png" alt-text="Screenshot showing the shutdown notification and delay options in the dropdown list.":::
 
-   :::image type="content" source="media/how-to-skip-delay-stop/dev-box-toast-delay.png" alt-text="Screenshot showing the shutdown notification and the Delay button highlighted." lightbox="media/how-to-skip-delay-stop/dev-box-toast-delay.png" :::
+1. Select **Delay**:
+
+   :::image type="content" source="media/how-to-skip-delay-stop/dev-box-toast-delay.png" alt-text="Screenshot showing the shutdown notification and the Delay button highlighted.":::
 
 ### Skip the shutdown
 
-You can also choose to skip the next scheduled shutdown altogether. In the pop-up notification, select **Skip**.
+You can also choose to skip the next scheduled shutdown altogether. In the popup for the running dev box, select **Skip**:
 
-:::image type="content" source="media/how-to-skip-delay-stop/dev-box-toast-skip.png" alt-text="Screenshot showing the shutdown notification with the Skip button highlighted." lightbox="media/how-to-skip-delay-stop/dev-box-toast-skip.png":::
+:::image type="content" source="media/how-to-skip-delay-stop/dev-box-toast-skip.png" alt-text="Screenshot showing the shutdown notification with the Skip button highlighted.":::
 
-The dev box stays on until the next scheduled shutdown time.
+The dev box continues to run until the next scheduled shutdown time.
 
 ## Change scheduled shutdown from the developer portal
 
-In the developer portal, you see the scheduled shutdown time on the dev box tile. Delay or skip the shutdown from the more options (**...**) menu.
+In the developer portal, you see the scheduled shutdown time on the dev box tile. To **Delay** or **Skip** the shutdown, select **More options** (**...**) and the desired action:
 
-:::image type="content" source="media/how-to-skip-delay-stop/dev-portal-stop-time.png" alt-text="Screenshot showing the dev box tile, with the shutdown time highlighted. In this example, the shutdown time is 6 30 p m." lightbox="media/how-to-skip-delay-stop/dev-portal-stop-time.png":::
+:::image type="content" source="media/how-to-skip-delay-stop/dev-portal-stop-time.png" alt-text="Screenshot showing the dev box tile, with the shutdown time highlighted. In this example, the shutdown time is 11 45 pm.":::
 
 ### Delay the shutdown
 
-1. Locate your dev box.
+Follow these steps to delay the shutdown of a running dev box:
 
-1. On the more options (**...**) menu, select **Delay scheduled shutdown**. 
+1. In the developer portal, locate your running dev box.
 
-   :::image type="content" source="media/how-to-skip-delay-stop/dev-portal-menu.png" alt-text="Screenshot showing the dev box tile and the more options menu with the Delay scheduled shutdown option highlighted." lightbox="media/how-to-skip-delay-stop/dev-portal-menu.png":::
+1. Select **More options** (**...**) > **Delay scheduled shutdown**:
 
-1. In the **Delay shutdown until** dropdown list, select the time that you want to delay the shutdown until. You can delay the shutdown by up to 8 hours from the scheduled time.
+   :::image type="content" source="media/how-to-skip-delay-stop/dev-portal-menu.png" alt-text="Screenshot showing the dev box tile and the more options menu with the Delay scheduled shutdown option highlighted.":::
 
-   :::image type="content" source="media/how-to-skip-delay-stop/delay-options.png" alt-text="Screenshot showing how to delay the scheduled shutdown until 7 30 p m." lightbox="media/how-to-skip-delay-stop/delay-options.png":::
+1. In the **Delay shutdown until** list, use the up/down arrows to select the amount of time you want to delay the shutdown. You can delay the shutdown by up to 8 hours from the scheduled time.
+
+   :::image type="content" source="media/how-to-skip-delay-stop/delay-options.png" alt-text="Screenshot showing how to delay the scheduled shutdown until 12 45 am tomorrow.":::
 
 1. Select **Delay**.
 
 ### Skip the shutdown
 
-1. Locate your dev box.
+Follow these steps to skip the shutdown of a running dev box:
 
-1. On the more options (**...**) menu, select **Delay scheduled shutdown**.
+1. In the developer portal, locate your running dev box.
 
-1. In the **Delay shutdown until** dropdown list, select the last available option, which specifies the time 8 hours after the scheduled shutdown time. In this example, the last option is **6:30 pm tomorrow (skip)**. 
+1. Select **More options** (**...**) > **Delay scheduled shutdown**:
 
-   :::image type="content" source="media/how-to-skip-delay-stop/skip-shutdown.png" alt-text="Screenshot showing the final shutdown option that skips shutdown until the next scheduled time." lightbox="media/how-to-skip-delay-stop/skip-shutdown.png":::
+1. In the **Delay shutdown until** list, use the up/down arrows to select the last available option, which specifies the time 8 hours after the scheduled shutdown time. In this example, the last option is **11:45 pm tomorrow (skip)**: 
+
+   :::image type="content" source="media/how-to-skip-delay-stop/skip-shutdown.png" alt-text="Screenshot showing the final shutdown option that skips shutdown until the next scheduled time.":::
+
+   The popup indicates that shutdown will be skipped until the next scheduled time tomorrow.
 
 1. Select **Delay**.
 

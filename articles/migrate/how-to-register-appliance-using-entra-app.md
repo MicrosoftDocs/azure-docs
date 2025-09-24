@@ -6,6 +6,7 @@ ms.author: molir
 ms.manager: ronai
 ms.topic: how-to
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 09/01/2025
 ms.custom: engagement-fy25
 # Customer intent: "As an IT administrator, I would like ot set up Migarte appliance using an existing Microsoft Entra ID application and not in the user context to avoid challenges such as missing tenant permissions for the user and DCF being disabled at Microsoft Entra ID level."

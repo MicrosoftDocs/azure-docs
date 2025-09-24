@@ -6,6 +6,7 @@ ms.author: mesharm
 ms.service: trusted-signing
 ms.topic: tutorial
 ms.date: 03/21/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Tutorial: Assign roles in Trusted Signing
