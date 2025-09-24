@@ -281,7 +281,7 @@ There is a known issue impacting session startup time when python libraries (req
 
 **Workaround**: The mitigation has been applied to following regions. With this mitigation, the session startup has been improved significantly, but might still be 1.5x slower than original baseline.
 
-|Impacted Synapse Regions|
+|Mitigated Synapse Regions|
 |------------------------|
 |PolandCentral|
 |EastUS|   
