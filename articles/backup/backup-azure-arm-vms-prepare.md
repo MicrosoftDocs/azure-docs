@@ -96,7 +96,7 @@ To apply a backup policy to your Azure VMs, follow these steps:
 
 After you enable backup:
 
-* Azure Backup installs the backup extension extension irrespective of the VM's running state.
+* Azure Backup installs the backup extension irrespective of the VM's running state.
 * An initial backup runs in accordance with your backup schedule.
 * When backups run:
   * A VM that's running has the greatest chance for capturing an application-consistent recovery point.
