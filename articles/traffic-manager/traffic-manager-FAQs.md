@@ -551,7 +551,7 @@ One of the metrics provided by Traffic Manager is the health status of endpoints
 Azure Traffic Manager relies on health probes to monitor endpoint availability and performance. For probes to succeed, endpoints must be reachable, and any firewalls or access control lists (ACLs) in the path must allow traffic from all Traffic Manager IP addresses. If probe IP addresses are not allowed, health checks may fail. Endpoints marked as unhealthy can cause unexpected traffic rerouting or downtime.
 
 **Option 1: Use Service Tags (recommended)**
-The recommended approach is to use the **AzureTrafficManager** Service Tag in NSGs, or Azure Firewall, . Service Tags automatically include the latest IP ranges and don’t require manual updates.
+The recommended approach is to use the **AzureTrafficManager** Service Tag in NSGs, or Azure Firewall. Service Tags automatically include the latest IP ranges and don’t require manual updates.
 * [Use Service Tags with NSGs](/azure/virtual-network/service-tags-overview#use-service-tags-in-network-security-groups)
 * [Use Service Tags with Azure Firewall](/azure/firewall/service-tags)
 
@@ -559,7 +559,6 @@ The recommended approach is to use the **AzureTrafficManager** Service Tag in NS
 If Service Tags cannot be used (for example, with custom firewall appliances or in non-Azure environments), update ACLs or firewall rules to allow the latest Azure Traffic Manager IPs.
 * The full list of IP addresses is published in the [Azure IP Ranges and Service Tags – Public Cloud JSON file](https://www.microsoft.com/download/details.aspx?id=56519).
 * Periodically refresh rules to ensure the most up-to-date IP addresses are included.
-
 
 ## Traffic Manager nested profiles
 
