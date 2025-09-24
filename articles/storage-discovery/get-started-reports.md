@@ -32,7 +32,7 @@ Each chart also offers other options to drill down or pivot into detailed views 
 - Storage accounts
 - Region
 - Performance type
-- Encrypion type
+- Encryption type
 - Redundancy type
 - Tags
 
