@@ -8,6 +8,7 @@ ms.date: 3/17/2023
 ms.topic: quickstart
 ms.service: azure-maps
 ms.subservice: general
+ms.custom: sfi-image-nochange
 ---
 
 # Create elevation data & services

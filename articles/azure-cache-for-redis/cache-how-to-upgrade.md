@@ -9,7 +9,10 @@ ms.topic: how-to
 ms.date: 05/21/2024
 appliesto:
   - ✅ Azure Cache for Redis
-ms.custom: template-how-to, devx-track-azurecli
+ms.custom:
+  - template-how-to
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # How to upgrade the version of your Redis instance

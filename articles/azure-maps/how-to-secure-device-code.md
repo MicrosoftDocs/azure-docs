@@ -8,6 +8,7 @@ ms.date: 06/12/2020
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: authentication
+ms.custom: sfi-image-nochange
 ---
 
 # Secure an input constrained device by using Microsoft Entra ID and Azure Maps REST APIs

@@ -2,7 +2,7 @@
 title: Back Up Azure VMs in a Recovery Services Vault
 description: This article describes how to back up Azure VMs in a Recovery Services vault by using Azure Backup.
 ms.topic: how-to
-ms.date: 11/22/2024
+ms.date: 09/24/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -90,11 +90,8 @@ To apply a backup policy to your Azure VMs, follow these steps:
      ![Screenshot that shows the Select virtual machines pane.](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
     >[!NOTE]
-    >All the VMs in the same region and subscription as that of the vault are available to configure backup. When you configure backup, browse to the VM name and its resource group, even though you don't have the required permission on those VMs. If your VM is in a soft-deleted state, it doesn't appear in this list.
-    >
-    >If you need to reprotect the VM, wait for the soft-deleted period to expire. You can also restore the VM from the soft-deleted list. For more information, see [Soft delete for VMs by using the Azure portal](soft-delete-virtual-machines.md#soft-delete-for-vms-using-azure-portal).
-    >
-    >To change the Recovery Services vault of a VM, stop the backup. Then assign a new vault to the VM.
+    >- All the VMs in the same region and subscription as that of the vault are available to configure backup. When you configure backup, you can browse to the VM name and its resource group, even though you don't have the required permission on those VMs. If your VM is in a soft-deleted state, it doesn't appear in this list. If you need to reprotect the VM, wait for the soft-deleted period to expire. You can also restore the VM from the soft-deleted list. For more information, see [Soft delete for VMs by using the Azure portal](soft-delete-virtual-machines.md#soft-delete-azure-vm-backups).
+    >- To change the Recovery Services vault of a VM, stop the backup and then assign a new vault to the VM.
 
 1. In **Backup**, select **Enable backup**. This action deploys the policy to the vault and the VMs and installs the backup extension on the VM agent that runs on the Azure VM.
 
