@@ -147,7 +147,7 @@ If Basic Authentication is selected:
    
   		:::image type="content" source="/media/create-clusters-with-entra/login-page.png" alt-text="Screenshot of Ambari landing page.":::
 
-   1. Navigate to "Manage Ambari" option
+   1. Navigate to "**Manage Ambari**" option
 
 		:::image type="content" source="/media/create-clusters-with-entra/click-manage.png" alt-text="Screenshot of Ambari landing page where cluster admin has to click on manage Ambari button.":::
    
