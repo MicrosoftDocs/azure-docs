@@ -166,7 +166,7 @@ This section describes what to expect when a storage account is configured for g
 
 - **Traffic routing between regions:** Azure Files uses an active-passive approach where all read and write operations are directed to the primary region.
 
-- **Data replication between regions:** Write operations are first committed to the primary region using the configured redundancy type (LRS for GRS, or ZRS for GZRS). After successful completion in the primary region, data is asynchronously replicated to the secondary region where it's stored by using LRS.
+- **Data replication between regions:** Write operations are first committed to the primary region by using the configured redundancy type (LRS for GRS, or ZRS for GZRS). After successful completion in the primary region, data is asynchronously replicated to the secondary region, where it's stored by using LRS.
 
   [!INCLUDE [Storage - Multi Region Normal operations - lag](includes/storage/reliability-storage-multi-region-normal-operations-lag-include.md)]
 
