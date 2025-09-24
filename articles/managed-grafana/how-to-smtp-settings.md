@@ -115,6 +115,9 @@ Follow these steps to activate SMTP settings, enable email notifications and con
 >         --body $body
 >     ```
 
+> [!TIP] 
+> To connect to your SMTP server over a private network, you can [set up a managed private endpoint](how-to-connect-to-data-source-privately.md) to your own Private Link service for the SMTP server.
+
 ## Configure Grafana contact points and send a test email
 
 Configuring Grafana contact points is done in the Grafana portal:
