@@ -4,7 +4,7 @@ description: Learn how to migrate an existing function app in Azure running in a
 ms.service: azure-functions
 ms.collection: 
  - migration
-ms.date: 08/28/2025
+ms.date: 09/23/2025
 ms.topic: concept-article
 zone_pivot_groups: app-service-platform-windows-linux
 
@@ -17,6 +17,9 @@ This article provides step-by-step instructions for migrating your existing func
 
 The way you migrate your app to the Flex Consumption plan depends on whether your app runs on Linux or on Windows. Make sure to select your operating system at the top of the article.
 
+> [!TIP]
+> **Linux users**: Azure Functions now provides simplified Azure CLI commands (`az functionapp flex-migration`) that automate most of the migration process for Linux Consumption apps. These commands can significantly reduce the manual steps required for migration. The migration steps are therefore simplified and use the AZ CLI for the Linux Consumption migration instructions.
+
 When you migrate your existing serverless apps, your functions can easily take advantage of these benefits of the Flex Consumption plan:
 
 + **Enhanced performance**: your apps benefit from improved scalability and always-ready instances to reduce cold start impacts.
@@ -28,17 +31,15 @@ The Flex Consumption plan is the recommended serverless hosting option for your 
 
 ## Considerations
 
-Before staring a migration, keep these considerations in mind:
+Before starting a migration, keep these considerations in mind:
 
-+ If you are running Linux Consumption on US Government cloud, review this guidance to prepare for migration. We plan to enable Flex Consumption in US Government in the first half of 2026.
++ If you are running Consumption plan function apps on Azure Government regions, review this guidance now to prepare for migration. We plan to enable Flex Consumption in Azure Government in the first half of 2026.
 
 + Due to the significant configuration and behavior differences between the two plans, you aren't able to _shift_ an existing Consumption plan app to the Flex Consumption plan. The migration process instead has you create a new Flex Consumption plan app that is equivalent to your current app. This new app runs in the same resource group and with the same dependencies as your current app.
 
 + You should prioritize the migration of your apps that run in a Consumption plan on Linux.  
 
 + This article assumes that you have a general understanding of Functions concepts and architectures and are familiar with features of your apps being migrated. Such concepts include triggers and bindings, authentication, and networking customization.
-
-+ Where possible, this article is targeted to a specific language runtime stack. Make sure to choose your app's language at the top of the article.
 
 + This article shows you how to both evaluate the current app and deploy your new Flex Consumption plan app using either the [Azure portal] or the [Azure CLI](/cli/azure). If your current app deployment is defined by using infrastructure-as-code (IaC), you can generally follow the same steps. You can perform the same actions directly in your ARM templates or Bicep files, with these resource-specific considerations:
 
@@ -60,7 +61,7 @@ Before staring a migration, keep these considerations in mind:
 
     Being assigned to the **Owner** or **Contributor** roles in your resource group generally provides sufficient permissions.
 
-+ [Azure CLI](/cli/azure), version v2.74.0, or a later version. Scripts are tested using Azure CLI in [Azure Cloud Shell](/azure/cloud-shell/overview).
++ [Azure CLI](/cli/azure), version v2.77.0, or a later version. Scripts are tested using Azure CLI in [Azure Cloud Shell](/azure/cloud-shell/overview).
 
 + The [resource-graph](../../governance/resource-graph/first-query-azurecli.md) extension, which you can install by using the [`az extension add`](/cli/azure/extension#az-extension-add) command:
 
@@ -110,19 +111,17 @@ The way that function app information is maintained depends on whether your app 
 ::: zone pivot="platform-linux" 
 #### [Azure CLI](#tab/azure-cli)
 
-Use this [`az graph query`](/cli/azure/graph#az-graph-query) command to list all function apps in your subscription that are running in a Consumption plan:
+For Linux Consumption apps, use the new [`az functionapp flex-migration list`](/cli/azure/functionapp/flex-migration#az-functionapp-flex-migration-list) command to identify apps that are eligible for migration:
 
 ```azurecli
-az graph query -q "resources | where subscriptionId == '$(az account show --query id -o tsv)' \
-   | where type == 'microsoft.web/sites' | where ['kind'] == 'functionapp,linux' | where properties.sku == 'Dynamic' \
-   | extend siteProperties=todynamic(properties.siteProperties.properties) | mv-expand siteProperties \
-   | where siteProperties.name=='LinuxFxVersion' | project name, location, resourceGroup, stack=siteProperties.value" \
-   --query data --output table
+az functionapp flex-migration list
 ```
 
-This command generates a table with the app name, location, resource group, and runtime stack for all Consumption apps running on Linux in the current subscription.
+This command automatically scans your subscription and returns two arrays:
+- **eligible_apps**: Linux Consumption apps that can be migrated to Flex Consumption
+- **ineligible_apps**: Apps that cannot be migrated, along with the specific reasons why
 
-You're promoted to install the [resource-graph extension](/cli/azure/graph), if it isn't already installed.
+The output includes the app name, resource group, location, and runtime stack for each app, along with eligibility status and migration readiness information.
 
 #### [Azure portal](#tab/azure-portal)
 
@@ -159,7 +158,7 @@ az graph query -q "resources | where subscriptionId == '$(az account show --quer
 
 This command generates a table with the app name, location, and resource group for all Consumption apps running on Windows in the current subscription.
 
-You're promoted to install the [resource-graph extension](/cli/azure/graph), if it isn't already installed.
+You're prompted to install the [resource-graph extension](/cli/azure/graph), if it isn't already installed.
 
 #### [Azure portal](#tab/azure-portal)
 
@@ -652,6 +651,11 @@ When running in the Flex Consumption plan, you can recreate these inbound IP-bas
 
 To be able to redeploy your app, you must have either your project's source files or the deployment package. Ideally, your project files are maintained in source control so that you can easily redeploy function code to your new app. If you have your source code files, you can skip this section.
 
+::: zone pivot="platform-linux"
+> [!TIP]
+> If you're using the [simplified migration approach](#simplified-migration-for-linux-recommended) with `az functionapp flex-migration start`, this command only migrates the app configuration, not the code. You'll still need your source code or deployment package to deploy to the new Flex Consumption app after the configuration migration is complete.
+::: zone-end
+
 If you no longer have access to your project source files, you can download the current deployment package from the existing Consumption plan app in Azure. The location of the deployment package depends on whether you run on Linux or Windows.
 
 ::: zone pivot="platform-linux"  
@@ -827,6 +831,66 @@ requests
 | render timechart
 ```
 
+::: zone pivot="platform-linux"
+## Simplified Migration for Linux (Recommended)
+
+For Linux Consumption apps, Azure Functions provides new Azure CLI commands that significantly simplify the migration process. The `az functionapp flex-migration start` command can automatically handle most of the configuration migration steps for you.
+
+### Quick Migration Steps for Linux
+
+1. **Assess your app for compatibility:**
+   ```azurecli
+   az functionapp flex-migration list
+   ```
+   This command shows which of your Linux Consumption apps are eligible for migration.
+
+2. **Start the automated migration:**
+   ```azurecli
+   az functionapp flex-migration start \
+       --source-name <SOURCE_APP_NAME> \
+       --source-resource-group <SOURCE_RESOURCE_GROUP> \
+       --name <NEW_APP_NAME> \
+       --resource-group <RESOURCE_GROUP>
+   ```
+   
+   This command:
+   - Assesses your source app for Flex Consumption compatibility
+   - Creates a new Flex Consumption function app 
+   - Migrates most configurations including app settings, identity assignments, storage mounts, CORS settings, custom domains, and access restrictions
+
+3. **Deploy your code to the new app** using your preferred deployment method (see [Step 12](#step-12-deploy-your-app-code-to-the-new-flex-consumption-app))
+
+4. **Test and validate** your new app functionality
+
+5. **Complete post-migration tasks** such as performance validation and cleanup
+
+### Command Options
+
+The migration command supports several options to customize the migration:
+
+| Option | Description |
+|--------|-------------|
+| `--storage-account` | Specify a different storage account for the new app |
+| `--maximum-instance-count` | Set the maximum number of instances for scaling |
+| `--skip-access-restrictions` | Skip migrating IP access restrictions |
+| `--skip-cors` | Skip migrating CORS settings |
+| `--skip-hostnames` | Skip migrating custom domains |
+| `--skip-managed-identities` | Skip migrating managed identity configurations |
+| `--skip-storage-mount` | Skip migrating storage mount configurations |
+
+For complete command options, use `az functionapp flex-migration start --help`.
+
+### When to Use Manual Migration
+
+While the automated approach handles most scenarios, you may need to use the [detailed manual migration steps](#step-1-final-review-of-the-plan) below if:
+
+- Your app has complex networking configurations requiring manual review
+- You need to modify configurations during migration (e.g., changing connection strings to use managed identities)
+- You want to validate each step individually for critical production applications
+- The automated migration command reports compatibility issues that need manual resolution
+
+::: zone-end
+
 ## Migration Steps
 
 The actual migration of your functions from a Consumption plan app to a Flex Consumption plan app follows these main steps:
@@ -865,6 +929,11 @@ A careful final review helps ensure a smoother migration process and minimizes t
 
 ### Step 2: Create an app in the Flex Consumption plan
 
+::: zone pivot="platform-linux"
+> [!TIP]
+> For Linux Consumption apps, you can skip to Step 12 if you're using the [simplified migration approach](#simplified-migration-for-linux-recommended) with `az functionapp flex-migration start`. This command automatically creates the Flex Consumption app and migrates most configurations for you.
+::: zone-end
+
 There are various ways to create a function app in the Flex Consumption plan along with other required Azure resources:
 
 | Create option | Reference articles |
@@ -879,6 +948,11 @@ There are various ways to create a function app in the Flex Consumption plan alo
 >When possible, you should use Microsoft Entra ID for authentication instead of connection strings, which contain shared keys. Using managed identities is a best practice that improves security by eliminating the need to store shared secrets directly in application settings. If your original app used connection strings, the Flex Consumption plan is designed to support managed identities. Most of these links show you how to enable managed identities in your function app. 
 
 ### Step 3: Apply migrated app settings in the new app
+
+::: zone pivot="platform-linux"
+> [!NOTE]
+> **Linux users**: If you used `az functionapp flex-migration start`, this step is automatically completed during the migration. You can skip to [Step 12](#step-12-deploy-your-app-code-to-the-new-flex-consumption-app) unless you need to make additional configuration changes.
+::: zone-end
 
 Before deploying your code, you must configure the new app with the relevant Flex Consumption plan app settings from your original function app.
 
@@ -963,6 +1037,11 @@ To transfer settings:
 
 ### Step 4: Apply other app configurations
 
+::: zone pivot="platform-linux"
+> [!NOTE]
+> **Linux users**: If you used `az functionapp flex-migration start`, most configurations are automatically migrated. You may skip this step unless you need to make additional configuration changes.
+::: zone-end
+
 Find the list of other app configurations from your old app that you [collected during premigration](#collect-application-configurations) and also set them in the new app.
 
 #### [Azure CLI](#tab/azure-cli)
@@ -1021,6 +1100,11 @@ In this example, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with your resource 
 
 ### Step 5: Configure scale and concurrency settings
 
+::: zone pivot="platform-linux"
+> [!NOTE]
+> **Linux users**: If you used `az functionapp flex-migration start` with the `--maximum-instance-count` parameter, this step may already be configured. Review your settings and adjust if needed.
+::: zone-end
+
 The Flex Consumption plan implements per-function scaling, where each function within your app can scale independently based on its workload. Scaling is also more strictly related to concurrency settings, which are used to make scaling decisions based on the current concurrent executions. For more information, see both [Per-function scaling](../flex-consumption-plan.md#per-function-scaling) and [Concurrency](../flex-consumption-plan.md#concurrency) in the Flex Consumption plan article.
 
 Consider concurrency settings first if you want your new app to scale similarly to your original app. Setting higher concurrency values can result in fewer instances being created to handle the same load.
@@ -1053,6 +1137,11 @@ To configure scale and concurrency in your new app:
 ---
 
 ### Step 6: Configure storage mounts
+
+::: zone pivot="platform-linux"
+> [!NOTE]
+> **Linux users**: If you used `az functionapp flex-migration start` without the `--skip-storage-mount` flag, storage mounts are automatically migrated. You can skip this step unless you need to make additional changes.
+::: zone-end
 
 If your original app ran on Linux and had one or more explicitly connected storage shares, you might want to reconnect the same storage shares in your new app.
 
@@ -1105,6 +1194,11 @@ To reconnect file shares in your new app:
 
 ### Step 7: Configure any custom domains and CORS access
 
+::: zone pivot="platform-linux"
+> [!NOTE]
+> **Linux users**: If you used `az functionapp flex-migration start` without the `--skip-hostnames` or `--skip-cors` flags, these configurations are automatically migrated. You can skip this step unless you need to make additional changes.
+::: zone-end
+
 If your original app had any bound custom domains or any CORS settings defined, recreate them in your new app. For more information about custom domains, see [Set up an existing custom domain in Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md).
 
 #### [Azure CLI](#tab/azure-cli)
@@ -1140,6 +1234,11 @@ If your original app had any bound custom domains or any CORS settings defined, 
 ---
 
 ### Step 8: Configure managed identities and assign roles
+
+::: zone pivot="platform-linux"
+> [!NOTE]
+> **Linux users**: If you used `az functionapp flex-migration start` without the `--skip-managed-identities` flag, managed identities are automatically migrated. You can skip this step unless you need to make additional changes.
+::: zone-end
 
 The way that you configure managed identities in your new app depends on the kind of managed identity:
 
@@ -1237,6 +1336,11 @@ Repeat this script for each role required by the new app.
 
 ### Step 9: Configure built-in authentication
 
+::: zone pivot="platform-linux"
+> [!NOTE]
+> **Linux users**: Authentication configurations are not automatically migrated by `az functionapp flex-migration start`. You need to manually configure authentication if your app requires it.
+::: zone-end
+
 If your original app used built-in client authentication, you should recreate it in your new app. If you're planning to reuse the same client registration, make sure to set the new app's authenticated endpoints in the authentication provider.
 
 #### [Azure CLI](#tab/azure-cli)
@@ -1262,6 +1366,11 @@ For more information, see these provider-specific articles:
 ---
 
 ### Step 10: Configure Network Access Restrictions
+
+::: zone pivot="platform-linux"
+> [!NOTE]
+> **Linux users**: If you used `az functionapp flex-migration start` without the `--skip-access-restrictions` flag, access restrictions are automatically migrated. You can skip this step unless you need to make additional changes.
+::: zone-end
 
 If your original app had any IP-based inbound access restrictions, you can recreate any of the same inbound access rules you want to keep in your new app.
 
@@ -1315,6 +1424,11 @@ To add IP-based networking restrictions:
 
 ### Step 11: Enable monitoring
 
+::: zone pivot="platform-linux"
+> [!NOTE]
+> **Linux users**: If you used `az functionapp flex-migration start`, Application Insights is automatically configured if it was enabled in the source app. You may skip this step unless you need to make additional monitoring changes.
+::: zone-end
+
 Before you start your new app in the Flex Consumption plan, make sure that Application Insights is enabled. Having Application Insights configured helps you to troubleshoot any issues that might occur during code deployment and start-up.
 
 Implement a comprehensive monitoring strategy that covers app metrics, logs, and costs. By using such a strategy, you can validate the success of your migration, identify any issues promptly, and optimize the performance and cost of your new app.
@@ -1322,6 +1436,11 @@ Implement a comprehensive monitoring strategy that covers app metrics, logs, and
 If you plan to compare this new app with your current app, make sure your scheme also collects the required benchmarks for comparison. For more information, see [Configure monitoring](../flex-consumption-how-to.md#monitor-your-app-in-azure).
 
 ### Step 12: Deploy Your App Code to the New Flex Consumption App
+
+::: zone pivot="platform-linux"
+> [!NOTE]
+> **Linux users**: This is the primary step needed after using `az functionapp flex-migration start`. The migration command only migrates configurations—you still need to deploy your application code to the new Flex Consumption app.
+::: zone-end
 
 With your new Flex Consumption plan app fully configured based on the settings from the original app, it's time to deploy your code to the new app resources in Azure.
 
@@ -1550,6 +1669,7 @@ If you encounter issues with your migration using this article or want to provid
 
 + [Flex Consumption plan overview](../flex-consumption-plan.md)
 + [How to use the Flex Consumption plan](../flex-consumption-how-to.md)
++ [Azure CLI flex-migration commands](/cli/azure/functionapp/flex-migration) (Linux only)
 + [Flex Consumption plan general availability announcement](https://techcommunity.microsoft.com/blog/appsonazureblog/azure-functions-flex-consumption-is-now-generally-available/4298778)
 + [Flex Consumption plan-specific samples](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples)
 
