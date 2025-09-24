@@ -188,9 +188,9 @@ Confirm that the Flex Consumption plan is currently supported in the same region
 
 :::zone pivot="platform-linux"
 
-When the `az functionapp flex-migration list` command output has your app in the `eligible_apps` list, the Flex Consumption plan is supported in the same region used by your current Linux Consumption app. In this case, you can continue to [Verify language stack compatibility](#verify-language-stack-compatibility).
+>**Confirmed:** When the `az functionapp flex-migration list` command output has your app in the `eligible_apps` list, the Flex Consumption plan is supported in the same region used by your current Linux Consumption app. In this case, you can continue to [Verify language stack compatibility](#verify-language-stack-compatibility).
 
-When the `az functionapp flex-migration list` command output has your app in the `ineligible_apps` list, you see an error message stating `The site '<name>' is not in a region supported in Flex Consumption. Please see the list regions supported in Flex Consumption by running az functionapp list-flexconsumption-locations`. In this case, the Flex Consumption plan isn't yet supported in the region used by your current Linux Consumption app.
+>**Action required:** When the `az functionapp flex-migration list` command output has your app in the `ineligible_apps` list, you see an error message stating `The site '<name>' is not in a region supported in Flex Consumption. Please see the list regions supported in Flex Consumption by running az functionapp list-flexconsumption-locations`. In this case, the Flex Consumption plan isn't yet supported in the region used by your current Linux Consumption app.
 
 :::zone-end
 
@@ -240,9 +240,9 @@ Flex Consumption plans don't yet support all [Functions language stacks](../supp
 
 :::zone pivot="platform-linux"
 
-If the `az functionapp flex-migration list` command included your app in the `eligible_apps` list, your Linux Consumption app is already using a supported language stack by Flex Consumption and you can continue to [Verify stack version compatibility](#verify-stack-version-compatibility).
+>**Confirmed:** If the `az functionapp flex-migration list` command included your app in the `eligible_apps` list, your Linux Consumption app is already using a supported language stack by Flex Consumption and you can continue to [Verify stack version compatibility](#verify-stack-version-compatibility).
 
-If the `az functionapp flex-migration list` command included your app in the `ineligible_apps` list with an error message stating `Runtime '<name>' not supported for function apps on the Flex Consumption plan.`, your Linux Consumption app isn't running a supported runtime by Flex Consumption yet.
+>**Action required:** If the `az functionapp flex-migration list` command included your app in the `ineligible_apps` list with an error message stating `Runtime '<name>' not supported for function apps on the Flex Consumption plan.`, your Linux Consumption app isn't running a supported runtime by Flex Consumption yet.
 
 :::zone-end
 
@@ -258,9 +258,9 @@ Before migrating, you must make sure that your app's runtime stack version is su
 
 :::zone pivot="platform-linux"
 
-If the `az functionapp flex-migration list` command included your app in the `eligible_apps` list, your Linux Consumption app is already using a supported language stack version by Flex Consumption and you can continue to [Verify deployment slots usage](#verify-deployment-slots-usage).
+>**Confirmed:** If the `az functionapp flex-migration list` command included your app in the `eligible_apps` list, your Linux Consumption app is already using a supported language stack version by Flex Consumption and you can continue to [Verify deployment slots usage](#verify-deployment-slots-usage).
 
-If the `az functionapp flex-migration list` command included your app in the `ineligible_apps` list with an error message stating `Invalid version {0} for runtime {1} for function apps on the Flex Consumption  plan. Supported versions for runtime {1} are {2}.`, your Linux Consumption app isn't running a supported runtime by Flex Consumption yet.
+>**Action required:** If the `az functionapp flex-migration list` command included your app in the `ineligible_apps` list with an error message stating `Invalid version {0} for runtime {1} for function apps on the Flex Consumption  plan. Supported versions for runtime {1} are {2}.`, your Linux Consumption app isn't running a supported runtime by Flex Consumption yet.
 
 :::zone-end
 
@@ -309,7 +309,9 @@ Consumption plan apps can have a deployment slot defined. For more information, 
 
 :::zone pivot="platform-linux"
 
-When your current app has deployment slots enabled, the `az functionapp flex-migration list` command shows your function app in the `eligible_apps` list, but adds a warning that states: `The site '<name>' has slots configured. This will not block migration, but please note that slots are not supported in Flex Consumption.` If you don't see this warning for your app is in the eligible apps list, continue to [Verify the use of certificates](#verify-the-use-of-certificates).
+>**Confirmed:** When your current app has deployment slots enabled, the `az functionapp flex-migration list` command shows your function app in the `eligible_apps` list without a warning, continue to [Verify the use of certificates](#verify-the-use-of-certificates).
+
+>**Action required:** Your current app has deployment slots enabled, the `az functionapp flex-migration list` command shows your function app in the `eligible_apps` list but adds a warning that states: `The site '<name>' has slots configured. This will not block migration, but please note that slots are not supported in Flex Consumption.` 
 
 :::zone-end
 
@@ -350,9 +352,9 @@ Transport Layer Security (TLS) certificates, previously known as Secure Sockets 
 
 :::zone pivot="platform-linux"
 
-If the `az functionapp flex-migration list` command included your app in the `eligible_apps` list, your Linux Consumption app is already not using certificates, and you can continue to [Verify your Blob storage triggers](#verify-your-blob-storage-triggers).
+>**Confirmed:** If the `az functionapp flex-migration list` command included your app in the `eligible_apps` list, your Linux Consumption app is already not using certificates, and you can continue to [Verify your Blob storage triggers](#verify-your-blob-storage-triggers).
 
-If the `az functionapp flex-migration list` command included your app in the `ineligible_apps` list with an error message stating `The site '<name>' is using TSL/SSL certificates. TSL/SSL certificates are not supported in Flex Consumption.` or `The site '<name>' has the WEBSITE_LOAD_CERTIFICATES app setting configured. Certificate loading is not supported in Flex Consumption.`, your Linux Consumption app isn't yet compatible with Flex Consumption.
+>**Action required:** If the `az functionapp flex-migration list` command included your app in the `ineligible_apps` list with an error message stating `The site '<name>' is using TSL/SSL certificates. TSL/SSL certificates are not supported in Flex Consumption.` or `The site '<name>' has the WEBSITE_LOAD_CERTIFICATES app setting configured. Certificate loading is not supported in Flex Consumption.`, your Linux Consumption app isn't yet compatible with Flex Consumption.
 
 :::zone-end
 
@@ -390,12 +392,11 @@ Currently, the Flex Consumption plan only supports event-based triggers for Azur
 
 :::zone pivot="platform-linux"
 
-If the `az functionapp flex-migration list` command included your app in the `eligible_apps` list, your Linux Consumption app is already not using a blob storage triggers with `EventGrid` as the source. You can continue to [Consider dependent services](#consider-dependent-services).
+>**Confirmed:** If the `az functionapp flex-migration list` command included your app in the `eligible_apps` list, your Linux Consumption app is already not using a blob storage triggers with `EventGrid` as the source. You can continue to [Consider dependent services](#consider-dependent-services).
 
-If the `az functionapp flex-migration list` command included your app in the `ineligible_apps` list with an error message stating `The site '<name>' has blob storage trigger(s) that don't use Event Grid as the source: <list> Flex Consumption only supports Event Grid-based blob triggers. Please convert these triggers to use Event Grid or replace them with Event Grid triggers before migration.`, your Linux Consumption app isn't yet compatible with Flex Consumption.
+>**Action required:** If the `az functionapp flex-migration list` command included your app in the `ineligible_apps` list with an error message stating `The site '<name>' has blob storage trigger(s) that don't use Event Grid as the source: <list> Flex Consumption only supports Event Grid-based blob triggers. Please convert these triggers to use Event Grid or replace them with Event Grid triggers before migration.`, your Linux Consumption app isn't yet compatible with Flex Consumption.
 
 :::zone-end
-
 :::zone pivot="platform-windows"
 
 #### [Azure CLI](#tab/azure-cli)
@@ -513,7 +514,7 @@ Once you have completed running `az functionapp flex-migration start` successful
 
 ## Premigration tasks
 
-Before proceeding with the migration, you must collect key information about and resources used by your Consumption plan app to help make a smooth transition to running in the Flex Consumption plan.
+Before proceed>**Action required:** ing with the migration, you must collect key information about and resources used by your Consumption plan app to help make a smooth transition to running in the Flex Consumption plan.
 
 You should complete these tasks before you migrate your app to run in a Flex Consumption plan:
 
