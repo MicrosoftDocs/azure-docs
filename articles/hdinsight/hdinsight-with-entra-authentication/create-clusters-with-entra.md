@@ -161,7 +161,7 @@ If Basic Authentication is selected:
       
    1. Input Object ID,  display name, and select the user access (Cluster Administrator or Cluster User). Click on "**Save**"
 
-		:::image type="content" source="./media/create-clusters-with-entra/add-object-id.png" alt-text="Screenshot of Ambari page showing thee add users tab where cluster admin has to input new user information."  border="true" lightbox="./media/create-clusters-with-entra/add-object-id.png:::
+		:::image type="content" source="./media/create-clusters-with-entra/add-object-id.png" alt-text="Screenshot of Ambari page showing thee add users tab where cluster admin has to input new user information."  border="true" lightbox="./media/create-clusters-with-entra/add-object-id.png":::
 
 
 ## Next Steps
