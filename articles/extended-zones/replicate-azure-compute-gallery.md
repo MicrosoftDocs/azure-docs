@@ -29,7 +29,7 @@ Azure Compute Gallery (previously Shared Image Gallery) is available in Extended
 - A user assigned managed identity is required to be set to the gallery, so that features available on that subscription can be queried. One of the features is set by EdgeZone Resource Provider, when the subscription is given access to use the Extended Zone. Azure Compute Gallery will query Azure Resource Manager with the assigned managed identity to get the list of features.
  
 ## Create a user-assigned managed identity
-To create a user-assigned managed identity, your account needs the [Managed Identity Reader](azure/role-based-access-control/built-in-roles#general) role assignment.
+To create a user-assigned managed identity, your account needs the [Managed Identity Reader](/azure/role-based-access-control/built-in-roles#general) role assignment.
 
 # [**Portal**](#tab/portal)
 

@@ -4,7 +4,7 @@ description: Learn how to deploy a virtual machine in an Azure Extended Zone usi
 author: svaldes
 ms.author: svaldes
 ms.service: azure-extended-zones
-ms.topic: quickstart-cli
+ms.topic: quickstart
 ms.date: 09/25/2025
 ms.custom: sfi-image-nochange
 
