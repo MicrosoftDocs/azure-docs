@@ -107,6 +107,10 @@ A registry endpoint defines the connection to your container registry. Data flow
 
 For quick setup with Azure Container Registry, create a registry endpoint with system-assigned managed identity authentication:
 
+# [Operations experience](#tab/portal)
+
+Currently, you can't create registry endpoints in the operations experience.
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -254,7 +258,7 @@ This separation lets you deploy the same graph definition with different endpoin
 1. To create a data flow graph in [operations experience](https://iotoperations.azure.com/), go to **Data flow** tab.
 1. Select the drop-down menu next to **+ Create** and select **Create a data flow graph**
 
-    :::image type="content" source="media/howto-dataflow-graph/create-dataflow-graph.png" alt-text="Screenshot of the operations experience interface showing how to create a data flow graph.":::
+    :::image type="content" source="media/howto-dataflow-graph/create-data-flow-graph.png" alt-text="Screenshot of the operations experience interface showing how to create a data flow graph.":::
 
 1. Select the placeholder name **new-data-flow** to set the data flow properties.Enter the name of the data flow graph and choose the data flow profile to use.
 1. In the data flow diagram, select **Source** to configure the source node. Under **Source details**, select **Asset** or **Data flow Endpoint**.
@@ -267,8 +271,8 @@ This separation lets you deploy the same graph definition with different endpoin
         | Setting              | Description                                                                                       |
         | -------------------- | ------------------------------------------------------------------------------------------------- |
         | Data flow endpoint    | Select *default* to use the default MQTT message broker endpoint. |
-        | Topic                | The topic filter to subscribe to for incoming messages. Use **Topic(s)** > **Add row** to add multiple topics. For more information on topics, see [Configure MQTT or Kafka topics](#configure-data-sources-mqtt-or-kafka-topics). |
-        | Message schema       | The schema to use to deserialize the incoming messages. See [Specify schema to deserialize data](#specify-source-schema). |
+        | Topic                | The topic filter to subscribe to for incoming messages. Use **Topic(s)** > **Add row** to add multiple topics. |
+        | Message schema       | The schema to use to deserialize the incoming messages. |
 
 1. In the data flow diagram, select **Add graph transform (optional)** to add a graph processing node. In the **Graph selection** pane, select **graph-simple:1** and click **Apply**.
 
@@ -533,8 +537,8 @@ This similarity occurs because the data flow graph resource acts as a host envir
         | Setting              | Description                                                                                       |
         | -------------------- | ------------------------------------------------------------------------------------------------- |
         | Data flow endpoint    | Select *default* to use the default MQTT message broker endpoint. |
-        | Topic                | The topic filter to subscribe to for incoming messages. Use **Topic(s)** > **Add row** to add multiple topics. For more information on topics, see [Configure MQTT or Kafka topics](#configure-data-sources-mqtt-or-kafka-topics). |
-        | Message schema       | The schema to use to deserialize the incoming messages. See [Specify schema to deserialize data](#specify-source-schema). |
+        | Topic                | The topic filter to subscribe to for incoming messages. Use **Topic(s)** > **Add row** to add multiple topics.|
+        | Message schema       | The schema to use to deserialize the incoming messages. |
 
 1. In the data flow diagram, select **Add graph transform (optional)** to add a graph processing node. In the **Graph selection** pane, select **graph-complex:1** and click **Apply**.
 
