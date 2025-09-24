@@ -43,7 +43,7 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 |Azure Synapse Workspace|[Known issue incorporating square brackets [] in the value of Tags](#known-issue-incorporating-square-brackets--in-the-value-of-tags)|Has workaround|
 |Azure Synapse Workspace|[Deployment Failures in Synapse Workspace using Synapse-workspace-deployment v1.8.0 in GitHub actions with ARM templates](#deployment-failures-in-synapse-workspace-using-synapse-workspace-deployment-v180-in-github-actions-with-arm-templates)|Has workaround|
 |Azure Synapse Workspace|[No `GET` API operation dedicated to the `Microsoft.Synapse/workspaces/trustedServiceBypassEnabled` setting](#no-get-api-operation-dedicated-to-the-microsoftsynapseworkspacestrustedservicebypassenabled-setting)|Has workaround|
-|Azure Synapse Apache Spark pool|[Starting a Spark session is taking longer in certain regions (this is impacting session with libraries)](#starting-a-spark-session-is-taking-longer-in-certain-regions-this-is-impacting-session-with-libraries)|Has mitigation|
+|Azure Synapse Apache Spark pool|[Starting a Spark session (with custom python libraries) is taking longer than usual](#starting-a-spark-session-with-custom-python-libraries-is-taking-longer-than-usual)|Has mitigation|
 
 
 ## Azure Synapse Analytics dedicated SQL pool active known issues summary
@@ -275,7 +275,7 @@ Suggested workarounds are:
 
 ## Azure Synapse Apache Spark pool active known issues summary
 
-### Starting a Spark session is taking longer in certain regions (this is impacting session with libraries)
+### Starting a Spark session (with custom python libraries) is taking longer than usual
 
 There is a known issue impacting session startup time when python libraries (requirements.txt or .whl) are attached to the spark pool. Customers will experience slow session startup times intermittently. This is impacting both Fabric and Synapse. 
 
