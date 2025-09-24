@@ -12,6 +12,8 @@ metadata:
 title: Azure Cache for Redis Retirement FAQ
 summary: |
   This article covers some basic questions about Azure Managed Redis and Azure Cache for Redis, and how the latest open-source Redis licensing changes affect Azure Redis. The details for Basic, Standard, and Premium tiers are different from those for the Enterprise tier, so we have separate sections for each. Make sure to read the section that applies to your Redis instances.
+  - [Basic, Standared, and Premium tiers](/azure/azure-cache-for-redis/retirement-faq#questions-on-basic--standard--and-premium-tiers-of-azure-cache-for-redis-retirement)
+  - [Enterprise and Enterprise Flash tiers](/azure/azure-cache-for-redis/retirement-faq#questions-on-the-enterprise-tier-of-azure-cache-for-redis-retirement)
 
 sections:
   - name: Questions on Basic, Standard, and Premium tiers of Azure Cache for Redis retirement
@@ -55,18 +57,17 @@ sections:
 
         answer: | 
           Azure Managed Redis is compatible with all Redis client libraries, redis-cli, and Redis cache-insights-overview.md
-
-              - [Nodejs](https://redis.io/docs/latest/develop/clients/nodejs/connect/#connect-to-a-redis-cluster) 
-              -  [Jedis](https://redis.io/docs/latest/develop/clients/jedis/connect/#connect-to-a-redis-cluster)
-              -  [Lettuce](https://redis.io/docs/latest/develop/clients/lettuce/connect/#connect-to-a-redis-cluster)
-              -  [Redis-py](https://redis.io/docs/latest/develop/clients/redis-py/connect/#connect-to-a-redis-cluster)
-              -  [Go-redis](https://redis.io/docs/latest/develop/clients/go/connect/#connect-to-a-redis-cluster)
+            - [Nodejs](https://redis.io/docs/latest/develop/clients/nodejs/connect/#connect-to-a-redis-cluster) 
+            - [Jedis](https://redis.io/docs/latest/develop/clients/jedis/connect/#connect-to-a-redis-cluster)
+            - [Lettuce](https://redis.io/docs/latest/develop/clients/lettuce/connect/#connect-to-a-redis-cluster)
+            - [Redis-py](https://redis.io/docs/latest/develop/clients/redis-py/connect/#connect-to-a-redis-cluster)
+            - [Go-redis](https://redis.io/docs/latest/develop/clients/go/connect/#connect-to-a-redis-cluster)
               
-           - All client applications need to update the Redis hostname and access key from existing Azure Cache for Redis instance to the corresponding Azure Managed Redis instance. 
+          All client applications need to update the Redis hostname and access key from existing Azure Cache for Redis instance to the corresponding Azure Managed Redis instance. 
 
-           - Azure Managed Redis instances are clustered by default, so your application must configure your client library to work with a clustered Redis instance. Some client libraries like `StackExchange.Redis` don't need any special configuration to connect to clustered Redis. Azure Managed Redis also supports a nonclustered option up to 25GB, but we recommend configuring your instance with clustering for better performance and room for increasing memory size.
+          Azure Managed Redis instances are clustered by default, so your application must configure your client library to work with a clustered Redis instance. Some client libraries like `StackExchange.Redis` don't need any special configuration to connect to clustered Redis. Azure Managed Redis also supports a nonclustered option up to 25GB, but we recommend configuring your instance with clustering for better performance and room for increasing memory size.
 
-           - Most client applications don't need any other changes, unless you're using some [cross-slot commands](https://redis.io/blog/redis-clustering-best-practices-with-keys/). See [Azure Managed Redis Client libraries](/azure/redis/best-practices-client-libraries) for more info.
+          Most client applications don't need any other changes, unless you're using some [cross-slot commands](https://redis.io/blog/redis-clustering-best-practices-with-keys/). See [Azure Managed Redis Client libraries](/azure/redis/best-practices-client-libraries) for more info.
 
       - question: How do I choose the right Azure Managed Redis tier?
 
