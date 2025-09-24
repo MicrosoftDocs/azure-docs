@@ -41,6 +41,8 @@ This article shows you how to configure Azure Front Door Premium tier to connect
 
 - A Private Link. For more information, see [Create a Private Link service](../private-link/create-private-link-service-cli.md).
 
+- Storage static website is enabled on your storage account. Learn how to [enable static website](../storage/blobs/storage-blob-static-website-how-to.md?tabs=azure-cli).
+
 - Azure Cloud Shell or Azure CLI.
 
     The steps in this article run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
@@ -48,6 +50,8 @@ This article shows you how to configure Azure Front Door Premium tier to connect
     You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
 
 ::: zone-end
+
+::: zone pivot="front-door-portal"
 
 ## Enable Private Link to a storage static website
 

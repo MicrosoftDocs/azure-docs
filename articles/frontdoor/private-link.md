@@ -162,10 +162,10 @@ If AFD-Profile-1 gets deleted, then the PE1 private endpoint across all the orig
 
 ## Related content
 
-* [connect Azure Front Door Premium to a Web App origin with Private Link](standard-premium/how-to-enable-private-link-web-app.md)
-* [connect Azure Front Door Premium to a storage account origin with Private Link](standard-premium/how-to-enable-private-link-storage-account.md)
-* [connect Azure Front Door Premium to an internal load balancer origin with Private Link](standard-premium/how-to-enable-private-link-internal-load-balancer.md)
-* [connect Azure Front Door Premium to a storage static website origin with Private Link](how-to-enable-private-link-storage-static-website.md)
-* [connect Azure Front Door Premium to an application gateway origin with Private Link](how-to-enable-private-link-application-gateway.md)
-* [connect Azure Front Door Premium to an API Management origin with Private Link](standard-premium/how-to-enable-private-link-apim.md)
-* [connect Azure Front Door Premium to an Azure Container Apps origin with Private Link](../container-apps/how-to-integrate-with-azure-front-door.md)
+* [Connect Azure Front Door Premium to a Web App origin with Private Link](standard-premium/how-to-enable-private-link-web-app.md)
+* [Connect Azure Front Door Premium to a storage account origin with Private Link](standard-premium/how-to-enable-private-link-storage-account.md)
+* [Connect Azure Front Door Premium to an internal load balancer origin with Private Link](standard-premium/how-to-enable-private-link-internal-load-balancer.md)
+* [Connect Azure Front Door Premium to a storage static website origin with Private Link](how-to-enable-private-link-storage-static-website.md)
+* [Connect Azure Front Door Premium to an application gateway origin with Private Link](how-to-enable-private-link-application-gateway.md)
+* [Connect Azure Front Door Premium to an API Management origin with Private Link](standard-premium/how-to-enable-private-link-apim.md)
+* [Connect Azure Front Door Premium to an Azure Container Apps origin with Private Link](../container-apps/how-to-integrate-with-azure-front-door.md)
