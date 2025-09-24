@@ -160,6 +160,12 @@ An OPC UA server connection fails with a `BadSecurityModeRejected` error if the 
 
 - To establish the connection, add a secure endpoint to the OPC UA server and set up the certificate mutual trust.
 
+### Data spike every 2.5 hours with some OPC UA simulators
+
+Data values spike every 2.5 hours when using some non-Microsoft OPC UA simulators causing CPU and memory spikes. This issue isn't seen with OPC PLC simulator used in the quickstarts.
+
+No data is lost, but you can see an increase in the volume of data published from the server to the MQTT broker.
+
 ## Troubleshoot OPC PLC simulator
 
 ### The OPC PLC simulator doesn't send data to the MQTT broker after you create a device for it
