@@ -5,7 +5,7 @@ ms.topic: troubleshooting
 ms.custom: devx-track-bicep, devx-track-arm-template
 ms.date: 04/28/2025
 author: genlin
-ms.author: genli
+ms.author: allensu
 ---
 
 # Resolve errors for request disallowed by policy

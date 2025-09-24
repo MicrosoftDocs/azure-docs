@@ -7,7 +7,9 @@ ms.date: 03/12/2023
 ms.service: azure-signalr-service
 ms.topic: how-to
 ms.devlang: csharp
-ms.custom: subject-rbac-steps
+ms.custom:
+  - subject-rbac-steps
+  - sfi-ropc-nochange
 ---
 
 # Authorize requests to Azure SignalR Service resources with Microsoft Entra applications

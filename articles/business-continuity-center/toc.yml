@@ -12,6 +12,8 @@
     href: tutorial-view-protectable-resources.md
   - name: Configure protection for datasources
     href: tutorial-configure-protection-datasource.md
+  - name: Reconfigure Backup in an alternate vault
+    href: tutorial-reconfigure-backup-alternate-vault.md  
   - name: Recover item
     href: tutorial-recover-deleted-item.md
   - name: View protected items and perform actions

@@ -6,6 +6,7 @@ ms.author: bagol
 ms.reviewer: Ankur Kushwaha
 ms.topic: conceptual
 ms.date: 7/7/2025
+ms.custom: sfi-ga-nochange
 
 
 #Customer intent: As a security analyst, I want to understand Microsoft Sentinel's built-in analytics rules and parsers for Microsoft Power Platform and Microsoft Dynamics 365 Customer Engagement so that I can detect and respond to potential security threats effectively.

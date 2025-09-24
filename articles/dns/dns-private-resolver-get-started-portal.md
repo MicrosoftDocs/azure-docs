@@ -7,7 +7,10 @@ ms.author: allensu
 ms.date: 08/21/2024
 ms.topic: quickstart
 ms.service: azure-dns
-ms.custom: mode-ui, ignite-2022
+ms.custom:
+  - mode-ui
+  - ignite-2022
+  - sfi-image-nochange
 #Customer intent: As an experienced network administrator, I want to create an  Azure private DNS resolver, so I can resolve host names on my private virtual networks.
 # Customer intent: As a network administrator, I want to create a private DNS resolver in Azure, so that I can efficiently resolve DNS queries between my Azure virtual networks and on-premises environments without relying on traditional DNS servers.
 ---

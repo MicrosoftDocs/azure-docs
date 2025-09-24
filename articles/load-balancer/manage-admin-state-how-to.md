@@ -6,7 +6,11 @@ ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 10/25/2024
-ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
+  - references_regions
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: "As a network administrator, I want to manage the admin state for backend pool instances in a load balancer, so that I can control the health probe behavior and availability of my backend services."
 ---
 

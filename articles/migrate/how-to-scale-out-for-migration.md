@@ -7,7 +7,11 @@ ms.manager: roopesh.nair
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 10/03/2024
-ms.custom: engagement-fy24
+ms.reviewer: v-uhabiba
+ms.custom:
+  - engagement-fy24
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 # Customer intent: As an IT administrator managing VMware environments, I want to set up a scale-out appliance for agentless migration to Azure, so that I can efficiently replicate and migrate a large number of virtual machines concurrently.
 ---
 

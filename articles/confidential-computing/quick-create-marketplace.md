@@ -7,7 +7,10 @@ ms.subservice: azure-confidential-computing
 ms.topic: quickstart
 ms.date: 11/01/2021
 ms.author: jushiman
-ms.custom: mode-other, linux-related-content
+ms.custom:
+  - mode-other
+  - linux-related-content
+  - sfi-image-nochange
 # Customer intent: "As a cloud engineer, I want to deploy an Intel SGX VM from the Azure Marketplace, so that I can utilize secure computing capabilities for my applications."
 ---
 

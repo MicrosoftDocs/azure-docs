@@ -56,6 +56,19 @@ If you see an error that you have incomplete SAP user master data or no data in 
 1. Confirm that the **SIAG_ROLE_GET_AUTH** SAP function module exists in the SAP source system.
 1. Follow the guidance in SAP note 3088309 for the relevant solution.  
 
+## Status code 500 on SAP system connect on Sentinel
+
+If you see an error with status code 500 during the connect process from Sentinel to SAP Cloud Integration, contact your SAP colleague monitoring the integration flow "Data Collector" on SAP Cloud Integration. By nature the error message details are only available on SAP's [Message Processing Log](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/message-processing-log).
+
+## Long message processing times or message volume anonmalies on SAP Cloud Integration
+
+If you see sudden spikes in message volumes and processing times on SAP Cloud Integration, consider filtering responsible sources on the NetWeaver side. There are two options available.
+
+1. Use transaction [SM19 and SAP's best practices](https://community.sap.com/t5/application-development-and-automation-blog-posts/analysis-and-recommended-settings-of-the-security-audit-log-sm19-rsau/ba-p/13297094) to apply filter settings on Users and message classes causing the spike
+1. Use the [filter capabilities](deploy-data-connector-agent-container.md?tabs=managed-identity&pivots=connection-agentless#customize-data-connector-behavior-optional) of the Sentinel package on SAP Cloud Integration to apply filtering on log read. The parameter max-rows is pre-populated to protect the integration flow from message flooding by design.
+
+Note that log filters on NetWeaver impact what is written to the audit log on the source while a filter on SAP Cloud Integration only chooses not to read the problematic entries.
+
 :::zone-end
 
 :::zone pivot="connection-agent"

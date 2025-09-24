@@ -8,6 +8,7 @@ ms.topic: quickstart
 author: maud-lv
 ms.author: malev
 ms.date: 04/16/2025
+ms.custom: sfi-image-nochange
 --- 
 
 # Quickstart: Create an Azure Managed Grafana workspace using the Azure portal

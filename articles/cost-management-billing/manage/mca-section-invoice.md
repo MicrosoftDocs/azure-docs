@@ -8,6 +8,7 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 07/29/2025
 ms.author: jkinma
+ms.custom: sfi-image-nochange
 ---
 
 # Organize costs by customizing your billing account
@@ -153,7 +154,7 @@ Once you customized your billing account based on your needs, you can link subsc
 
 ### Link existing subscriptions and products
 
-If you have existing Azure subscriptions or other products such as Azure Marketplace and App source resources, you can move them from their existing invoice section to another invoice section to reorganize your costs. However, you can't change the invoice section for a reservation, savings plan, or seat-based subscriptions.
+If you have existing Azure subscriptions or other products such as Azure Marketplace and App source resources, you can move them from their existing invoice section to another invoice section to reorganize your costs. However, you can't change the invoice section for a reservation, savings plan, or seat-based subscriptions. Alternatively, you can initiate a Transfer Request to manage other Azure products including Reservations and Savings Plans. See [Transfer Azure product billing ownership to a Microsoft Customer Agreement - Microsoft Cost Management](/azure/cost-management-billing/manage/mca-request-billing-ownership?source=recommendations)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

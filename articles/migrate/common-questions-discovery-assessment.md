@@ -4,6 +4,7 @@ description: Get answers to common questions about assessments in Azure Migrate.
 ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 05/08/2025
+ms.reviewer: v-uhabiba
 ms.custom: engagement-fy25
 # Customer intent: As a cloud migration planner, I want to find detailed answers to common questions regarding assessments in Azure Migrate, so that I can effectively evaluate and prepare my on-premises servers for migration to Azure environments.
 ---

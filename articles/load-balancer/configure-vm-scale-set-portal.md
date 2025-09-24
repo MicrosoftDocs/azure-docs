@@ -1,20 +1,23 @@
 ---
 title: Configure Virtual Machine Scale Set with an existing Azure Load Balancer - Azure portal/CLI/PowerShell
-description: Learn to configure a Virtual Machine Scale Set with an existing Azure standard Load Balancer using the Azure portal, Azure CLI or Azure PowerShell.
+description: Learn to configure a Virtual Machine Scale Set with an existing Azure standard Load Balancer using the Azure portal, Azure CLI, or Azure PowerShell.
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 09/11/2024
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: As an IT administrator, I want to configure a Virtual Machine Scale Set with an existing load balancer using the Azure portal, CLI, or PowerShell, so that I can efficiently manage and scale my virtual machine instances.
 ---
 
 # Configure a Virtual Machine Scale Set with an existing Azure Standard Load Balancer
 
-In this article, you'll learn how to configure a Virtual Machine Scale Set with an existing Azure Load Balancer. With an existing virtual network and standard sku load balancer, you can deploy a Virtual Machine Scale Set with a few clicks in the Azure portal, or with a few lines of code in the Azure CLI or Azure PowerShell using the tabs below.
+In this article, you'll learn how to configure a Virtual Machine Scale Set with an existing Azure Load Balancer. With an existing virtual network and standard sku load balancer, you can deploy a Virtual Machine Scale Set with a few clicks in the Azure portal, or with a few lines of code in the Azure CLI, or Azure PowerShell using the following tabs.
 
-# [Azure Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 ## Prerequisites
 
@@ -144,7 +147,7 @@ az vmss create \
     --backend-pool-name myBackendPool
 ```
 > [!NOTE]
-> After the scale set has been created, the backend port cannot be modified for a load balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again.
+> After the scale set has been created, the backend port can't be modified for a load-balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again.
 
 
 # [Azure PowerShell](#tab/powershell)
@@ -217,7 +220,7 @@ New-AzVmss -ResourceGroupName $rsg -Location $loc -VMScaleSetName $vms -VirtualN
 
 ```
 > [!NOTE]
-> After the scale set has been created, the backend port cannot be modified for a load balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again.
+> After the scale set has been created, the backend port can't be modified for a load balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again.
 
 ## Next steps
 

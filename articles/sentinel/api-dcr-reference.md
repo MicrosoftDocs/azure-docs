@@ -1,8 +1,8 @@
 ---
 title: Microsoft Sentinel API request examples for creating Data Collection Rules (DCRs)
 description: See samples of API requests for creating Data Collection Rules and their associations, for use with the Azure Monitor Agent.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: reference
 ms.date: 03/01/2024
 ms.service: microsoft-sentinel

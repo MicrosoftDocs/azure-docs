@@ -2,8 +2,11 @@
 title: Get Connection String for Azure Event Hubs
 description: Learn how to get a connection string for Azure Event Hubs using the portal, PowerShell, or CLI to enable secure communication with your event hub.
 ms.topic: how-to
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 08/11/2025
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - sfi-image-nochange
 # Customer intent: As a developer, I want to know how to get a connection string to an Event Hubs namespace or an event hub. 
 ---
 

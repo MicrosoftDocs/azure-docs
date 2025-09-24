@@ -6,6 +6,7 @@ ms.service: azure-event-hubs
 ms.topic: include
 ms.date: 06/25/2025
 ms.author: spelluru
+ms.custom: sfi-image-nochange
 ---
 
 ## Create an Event Hubs namespace

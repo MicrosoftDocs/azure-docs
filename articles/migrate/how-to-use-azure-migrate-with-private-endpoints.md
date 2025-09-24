@@ -3,10 +3,14 @@ title: Use Private Endpoints
 description: Use Azure Migrate to discover, assess, and migrate servers by using Azure Private Link.
 author: vijain
 ms.author: vijain
-ms.custom: subject-rbac-steps, engagement-fy23
 ms.topic: concept-article
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 02/06/2024
+ms.custom:
+  - subject-rbac-steps
+  - engagement-fy23
+  - sfi-image-nochange
 # Customer intent: As a cloud architect, I want to use Azure Migrate with private endpoints so that I can securely discover, assess, and migrate servers without relying on public networks.
 ---
 

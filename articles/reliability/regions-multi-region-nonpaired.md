@@ -65,6 +65,10 @@ To learn about how to create multi-region solutions by using Azure Data Factory,
 
 For geo-replication of Azure Event Grid topics in nonpaired regions, you can implement [client-side failover](/azure/event-grid/custom-disaster-recovery-client-side).
 
+## Azure Files
+
+To learn about how to create multi-region solutions using Azure Files, see [Reliability in Azure Files](./reliability-storage-files.md).
+
 ## Azure IoT Hub 
 
 To learn about how to create multi-region solutions by using Azure IoT Hub, see [Reliability in IoT Hub](./reliability-iot-hub.md).
@@ -97,9 +101,7 @@ For geo-replication in nonpaired regions with Azure SQL Database, you can use th
 
 ## Azure SQL Managed Instance 
 
-For geo-replication in nonpaired regions with Azure SQL Managed Instance, you can use the following feature:
-
-- The [failover group feature](/azure/azure-sql/managed-instance/failover-group-sql-mi?view=azuresql&preserve-view=true), which replicates across any combination of Azure regions without any dependency on underlying geo-redundant storage.
+To learn about how to create multi-region solutions using Azure SQL Managed Instance, see [Reliability in Azure SQL Managed Instance](./reliability-sql-managed-instance.md).
 
 ## Azure Storage
 
@@ -113,20 +115,7 @@ To achieve geo-replication in nonpaired regions:
    
    - You can replicate to a set of nonstandard pairs besides Azure region pairs. For more information, see [Reliability in Azure NetApp Files](reliability-netapp-files.md).
 
-- **For Azure Files:**
-
-    - To copy your files to another storage account in a different region, use the following tools.
-
-        -  [AzCopy](../storage/common/storage-use-azcopy-blobs-copy.md)
-        -  [Azure PowerShell](/powershell/module/az.storage/?view=azps-12.0.0&preserve-view=true) 
-        -  [Data Factory](/azure/data-factory/connector-azure-blob-storage?tabs=data-factory) 
-         
-        For a sample script, see [Sync between two Azure file shares for backup and disaster recovery](https://github.com/Azure-Samples/azure-files-samples/tree/master/SyncBetweenTwoAzureFileSharesForDR).
-
-    - To sync between your Azure file share (cloud endpoint), an on-premises Windows file server, and a mounted file share that runs on a virtual machine (VM) in another Azure region (your server endpoint for disaster recovery purposes), use [Azure File Sync](/azure/storage/file-sync/file-sync-introduction).
-
-   > [!IMPORTANT]
-   > You must disable cloud tiering to ensure that all data is present locally. You must also provision enough storage on the Azure VM to hold the entire dataset. To ensure that changes replicate quickly to the secondary region, files should only be accessed and modified on the server endpoint rather than in Azure.
+- **For Azure Files:** To learn about how to create multi-region solutions using Azure Files, see [Reliability in Azure Files](./reliability-storage-files.md).
 
 - **For Queue Storage:**
 

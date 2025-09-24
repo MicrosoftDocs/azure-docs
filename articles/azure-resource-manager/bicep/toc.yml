@@ -152,6 +152,8 @@ items:
             href: ../../service-bus-messaging/service-bus-resource-manager-namespace-queue-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
       - name: Internet of Things
         items:
+          - name: Firmware analysis
+            href: ../../firmware-analysis/quickstart-firmware-analysis-bicep.md
           - name: IoT Edge
             href: ../../iot-edge/how-to-install-iot-edge-ubuntuvm-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
           - name: IoT Hub
@@ -351,7 +353,7 @@ items:
             displayName: contains,empty,intersection,items,json,length,objectKeys,shallowMerge,union
           - name: Parameters file functions
             href: bicep-functions-parameters-file.md
-            displayName: getSecret,readEnvironmentVariable
+            displayName: externalInput,getSecret,readEnvironmentVariable
           - name: Resource functions
             href: bicep-functions-resource.md
             displayName: extensionResourceId,getSecret,listAccountSas,ListKeys,listSecrets,list,managementGroupResourceId,pickZones,providers,reference,resourceId,subscriptionResourceId,tenantResourceId,toLogicalZone,toLogicalZones,toPhysicalZone,toPhysicalZones
@@ -634,6 +636,8 @@ items:
             href: diagnostics/bcp009.md
           - name: BCP018
             href: diagnostics/bcp018.md
+          - name: BCP029
+            href: diagnostics/bcp029.md
           - name: BCP033
             href: diagnostics/bcp033.md
           - name: BCP035
@@ -672,6 +676,8 @@ items:
             href: diagnostics/bcp077.md
           - name: BCP078
             href: diagnostics/bcp078.md
+          - name: BCP081
+            href: diagnostics/bcp081.md
           - name: BCP082
             href: diagnostics/bcp082.md
           - name: BCP083
@@ -730,6 +736,8 @@ items:
             href: diagnostics/bcp302.md
           - name: BCP311
             href: diagnostics/bcp311.md
+          - name: BCP318
+            href: diagnostics/bcp318.md
           - name: BCP327
             href: diagnostics/bcp327.md
           - name: BCP328
@@ -738,11 +746,17 @@ items:
             href: diagnostics/bcp332.md
           - name: BCP333
             href: diagnostics/bcp333.md
+          - name: BCP335
+            href: diagnostics/bcp335.md
           - name: BCP338
             href: diagnostics/bcp338.md
           - name: BCP401
             href: diagnostics/bcp401.md
           - name: BCP414
             href: diagnostics/bcp414.md
+          - name: BCP416
+            href: diagnostics/bcp416.md
           - name: BCP420
             href: diagnostics/bcp420.md
+          - name: BCP422
+            href: diagnostics/bcp422.md

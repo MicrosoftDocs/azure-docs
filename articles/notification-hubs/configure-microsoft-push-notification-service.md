@@ -11,6 +11,7 @@ ms.date: 08/23/2021
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/25/2019
+ms.custom: sfi-image-nochange
 ---
 
 # Configure Microsoft Push Notification Service (MPNS) settings in the Azure portal

@@ -4,13 +4,15 @@ description: This article describes how to connect your SAP system to Microsoft 
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.custom: devx-track-azurecli
 ms.date: 05/26/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 zone_pivot_groups: sentinel-sap-connection
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 
 #Customer intent: As a security, infrastructure, or SAP BASIS team member, I want to connect my SAP system to Microsoft Sentinel so that I can ingest SAP data into Microsoft Sentinel for enhanced monitoring and threat detection.
 

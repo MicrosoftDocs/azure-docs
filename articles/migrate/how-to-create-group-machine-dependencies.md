@@ -4,7 +4,10 @@ description: This article describes how to set up agent-based dependency analysi
 ms.topic: how-to
 ms.service: azure-migrate
 ms.date: 09/09/2024
-ms.custom: engagement-fy25
+ms.reviewer: v-uhabiba
+ms.custom:
+  - engagement-fy25
+  - sfi-image-nochange
 # Customer intent: "As a cloud migration specialist, I want to set up agent-based dependency analysis in Azure Migrate, so that I can effectively identify and visualize server dependencies for successful assessment and migration to Azure."
 ---
 

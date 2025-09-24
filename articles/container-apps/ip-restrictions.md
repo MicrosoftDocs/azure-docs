@@ -4,11 +4,13 @@ description: Enable IP restrictions to limit access to your app with Azure Conta
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 12/02/2024
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Set up IP ingress restrictions in Azure Container Apps

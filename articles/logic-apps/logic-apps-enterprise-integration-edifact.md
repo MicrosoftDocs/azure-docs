@@ -8,6 +8,7 @@ ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 02/10/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Exchange EDIFACT messages using workflows in Azure Logic Apps

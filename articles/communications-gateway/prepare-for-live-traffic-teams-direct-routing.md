@@ -4,6 +4,7 @@ description: After deploying Azure Communications Gateway, you and your onboardi
 ms.service: azure-communications-gateway
 ms.topic: how-to
 ms.date: 04/24/2024
+ms.custom: sfi-ga-nochange
 ---
 
 # Prepare for live traffic with Microsoft Teams Direct Routing and Azure Communications Gateway

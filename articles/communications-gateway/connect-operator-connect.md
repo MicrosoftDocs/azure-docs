@@ -7,6 +7,7 @@ ms.date: 03/22/2024
 ms.custom:
     - template-how-to-pattern
     - no-azure-ad-ps-ref
+    - sfi-ga-nochange
 ---
 
 # Connect Azure Communications Gateway to Operator Connect or Teams Phone Mobile

@@ -6,6 +6,7 @@ ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 06/26/2025
+ms.custom: sfi-image-nochange
 ---
 
 # IoT Hub support for virtual networks with Azure Private Link

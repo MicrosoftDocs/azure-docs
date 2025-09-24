@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 06/30/2025
 ms.author: gasinh
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 # Customer intent: I'm a developer configuring Azure AD B2C with Cloudflare WAF. I need to enable and configure the Web Application Firewall, so I can protect my application from malicious attacks such as SQL Injection and cross-site scripting (XSS).
 ---

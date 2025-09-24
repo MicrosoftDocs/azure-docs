@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 08/12/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Troubleshoot Azure Front Door common issues
@@ -159,7 +160,7 @@ The origin is configured as an IP address. The origin is healthy, but rejecting 
 
 ### Cause
 
-Azure Front Door users the origin host name as the SNI header during SSL handshake. Since the origin is configured as an IP address, the failure can be one of the following reasons:
+Azure Front Door uses the origin host name as the SNI header during SSL handshake. Since the origin is configured as an IP address, the failure can be one of the following reasons:
 
 * If the certificate name check is disabled, it's possible that the cause of the issue lies in the origin certificate logic. This logic might be rejecting any requests that don't have a valid host header matching the certificate.
 

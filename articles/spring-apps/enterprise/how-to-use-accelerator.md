@@ -8,7 +8,11 @@ ms.date: 08/19/2025
 ms.update-cycle: 1095-days
 ms.author: karler
 ms.reviewer: caiqing
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Use VMware Tanzu Application Accelerator with the Azure Spring Apps Enterprise plan

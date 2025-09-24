@@ -2,12 +2,12 @@
 title: Supported payment methods
 description: Learn about the payment methods that are supported for Azure subscriptions, based on your country or region.
 author: KennyDay
-ms.reviewer: lishepar, jobailey
+ms.reviewer: drjones
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: reference
-ms.date: 08/13/2025
-ms.author: lishepar
+ms.date: 09/17/2025
+ms.author: drjones
 ms.custom:
 - references_regions
 - build-2025

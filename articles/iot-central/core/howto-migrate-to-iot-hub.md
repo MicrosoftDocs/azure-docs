@@ -6,6 +6,7 @@ ms.author: dobett
 ms.date: 08/06/2025
 ms.topic: how-to
 ms.service: azure-iot-central
+ms.custom: sfi-image-nochange
 ---
 
 # Migrate devices to Azure IoT Hub
