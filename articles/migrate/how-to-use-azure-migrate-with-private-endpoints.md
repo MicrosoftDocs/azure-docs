@@ -5,6 +5,7 @@ author: vijain
 ms.author: vijain
 ms.topic: concept-article
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 02/06/2024
 ms.custom:
   - subject-rbac-steps

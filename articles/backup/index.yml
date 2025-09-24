@@ -161,7 +161,7 @@ landingContent:
           - text: Manage MARS Agent backups by using the Azure Backup service
             url: backup-azure-manage-mars.md
           - text: Cross Region Restore support for MARS agent (preview)
-            url: about-restore-microsoft-azure-recovery-services.md#cross-region-restore
+            url: about-restore-microsoft-azure-recovery-services.md#cross-region-restore-for-mars
           - text: MARS agent support matrix
             url: backup-support-matrix-mars-agent.md
           - text: FAQ - MARS agent
