@@ -1,9 +1,9 @@
 ---
 title: Projects
 description: Learn about projects in Azure CycleCloud. A project is a collection of resources that define node configurations. Projects contain specs.
-author: KimliW
-ms.date: 07/01/2025
-ms.author: adjohnso
+author: dougclayton
+ms.author: doclayto
+ms.date: 09/23/2025
 ---
 
 # Projects
@@ -76,7 +76,7 @@ The **cluster-init** directory contains directories with special meanings, inclu
 
 ## project.ini
 
-`_project.ini_` is the file that contains all the metadata for your project. It can contain:
+_project.ini_ is the file that contains all the metadata for your project. It can contain:
 
 | Parameter | Description                                                                                                   |
 | --------- | ------------------------------------------------------------------------------------------------------------- |
@@ -94,7 +94,7 @@ If you add more than one locker, you can set your default locker with `cycleclou
 > [!NOTE]
 > Default lockers are stored in the CycleCloud config file, usually located in _~/.cycle/config.ini_ and not the _project.ini_ file. This setup allows version control for _project.ini_.
 
-When you upload your project contents, CycleCloud syncs the cluster-init contents to your target locker, at `(locker)/projects/(project)/(version)/(spec_name)/cluster-init`.
+When you upload your project contents, CycleCloud syncs the cluster-init contents to your target locker, at `projects/(project)/(version)/(spec_name)/cluster-init`.
 
 ## Blob Download
 

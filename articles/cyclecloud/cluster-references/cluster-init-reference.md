@@ -1,10 +1,10 @@
 ---
 title: Azure CycleCloud Cluster-Init Parameter Reference
 description: See a reference for cluster-init objects to be used with Azure CycleCloud. A cluster-init object defines the CycleCloud project specifications to run on a node.
-author: adriankjohnson
-ms.date: 06/29/2025
+author: dougclayton
+ms.author: doclayto
+ms.date: 09/23/2025
 ms.update-cycle: 3650-days
-ms.author: adjohnso
 ms.custom: compute-evergreen
 ---
 
@@ -18,14 +18,13 @@ The section uses a shorthand notation to reference the fully qualified spec:
 [[[cluster-init PROJECT:SPEC:VERSION]]]
 ```
 
-By default, projects are stored in the [locker](../how-to/projects.md#lockers) defined on the node. To specify a different locker, you can include a locker reference in the `[[[cluster-init]]]` section:
+By default, projects are assumed to stored in the [locker](../how-to/projects.md#lockers) already. However, if you are using a project defined in GitHub, you can indicate that with the `cyclecloud/` prefix:
 
 ```ini
-[[[cluster-init LOCKER/PROJECT:SPEC:VERSION]]]
+[[[cluster-init cyclecloud/PROJECT:SPEC:VERSION]]]
 ```
 
-[!NOTE]
-> For built-in projects that are downloaded from GitHub, use `cyclecloud` as the locker. This will tell CycleCloud to download the project from GitHub and upload them to your locker in a special cache area. Without `cyclecloud/` in the cluster-init reference, CycleCloud will expect the project to be uploaded by you.
+This tells CycleCloud to download the project files from GitHub and upload them to your locker in a special cache area. Without `cyclecloud/` in the cluster-init reference, CycleCloud will expect the project to be uploaded by you.
 
 As an example, this cluster template defines one node that uses three specs:
 
@@ -50,14 +49,18 @@ Attribute values that start with `$` reference parameters.
 
 The CycleCloud project specs run in the order you list them in the Cluster Template File. In this example, `my-proj:default` runs first because it comes from the node defaults. Next, `myproject:my-spec` runs, which comes from the locker named `test-locker`. Finally, `my-proj:my-spec` runs.
 
-The `[[[cluster-init LOCKER/PROJECT:SPEC:VERSION]]]` form is a shorthand for the following:
+The `[[[cluster-init PROJECT:SPEC:VERSION]]]` form is a shorthand for the following:
 ```ini
     [[[cluster-init]]]
       Project = PROJECT
       Version = VERSION
       Spec = SPEC
-      Locker = LOCKER
 ```
+
+You can also use `[[[cluster-init SOURCE_LOCKER/PROJECT:SPEC:VERSION]]]` to specify a `SourceLocker` for the cluster-init spec. The source locker is optional. Without it, CycleCloud assumes the locker already has the files staged. If set to the special name `cyclecloud`, it uses a built-in project defined in CycleCloud whose contents are stored in GitHub. Otherwise, if set to a different locker, it stages the files from that locker to the target locker before starting the node. This is useful for custom cluster-init projects and multi-region deployments, because you only have to manually stage the files to a single locker, which you can use as a source locker for nodes in a different region.
+
+[!NOTE]
+> Projects that are staged automatically are put in a special cache directory of the target locker so that they don't conflict with projects you stage manually.
 
 ## Attribute reference
 
@@ -67,5 +70,6 @@ Project | String | Name of the CycleCloud project.
 Version | String | Version of the CycleCloud project specification.
 Spec | String | Name of the CycleCloud project specification.
 Locker | String | Name of the locker to download the project specification from.
+SourceLocker | String | Optional. Name of another locker that should be used to stage files from. If set to the special name _cyclecloud_, it uses a built-in project defined in CycleCloud whose contents are stored in GitHub.
 Order | Integer | Optional integer that you can use to override the order of the specs. The default starts at 1000 and goes up by one for each spec.
 

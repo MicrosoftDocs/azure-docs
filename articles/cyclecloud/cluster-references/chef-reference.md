@@ -1,9 +1,10 @@
 ---
 title: Chef Orchestration in Azure CycleCloud
 description: Learn about Chef orchestration in Azure CycleCloud. Chef is a configuration management tool that automates the deployment and management of applications and infrastructure.
-author: doclayto
+author: dougclayton
+ms.author: doclayto
 ms.date: 09/23/2025
-ms.author: dougclayton
+ms.custom: compute-evergreen
 ---
 
 # Chef Orchestration
