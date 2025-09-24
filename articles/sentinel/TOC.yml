@@ -51,12 +51,16 @@
       href: quickstart-onboard.md
     - name: Connect Microsoft Sentinel to the Defender portal
       href: /unified-secops-platform/microsoft-sentinel-onboard?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-    - name: Onboard to Microsoft Sentinel data lake
+    - name: Onboard to Microsoft Sentinel data lake and graph
       items:
         - name: Overview
           href: datalake/sentinel-lake-onboarding.md
-        - name: Onboard to data lake from Defender portal
+        - name: Onboard to data lake and graph from Defender portal
           href: datalake/sentinel-lake-onboard-defender.md
+        - name: Onboard to data lake and graph from Microsoft Purview Insider Risk Management
+          href: /purview/insider-risk-management-data-risk-graph?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+        - name: Onboard to data lake and graph from Microsoft Purview Data Security Investigations
+          href: /purview/data-security-investigations-data-risk-graph?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: Set up connectors for the Microsoft Sentinel data lake
       href: datalake/sentinel-lake-connectors.md
     - name: Enable asset data (Preview)
