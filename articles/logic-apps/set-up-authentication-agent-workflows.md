@@ -46,7 +46,7 @@ This guide shows how to create an app registration and then set up Easy Auth for
 
 For more information, see the following articles:
 
-- [Built-in authentication and authorization with Easy Auth for agent workflows](agent-workflows-concepts.md#easy-auth)
+- [Built-in authentication and authorization with Easy Auth for agent workflows](agent-workflows-concepts.md#easy-auth-built-in-authentication-and-authorization)
 - [Register an application in Microsoft Entra ID](/entra/identity-platform/quickstart-register-app)
 
 ## Prerequisites
@@ -160,17 +160,23 @@ If you have to reuse an existing app registration that's shared with another API
 
    1. Under **Platform configurations**, make sure that the **Web** entry exists.
 
-   1. In the **Web** entry, under **Redirect URIs**, confirm that Azure prepopulates this setting with the Easy Auth (App Service Authentication) callback URI, following this syntax:
+   1. In the **Web** entry, under **Redirect URIs**, find the prepopulated Easy Auth (App Service Authentication) callback URI, which follows this syntax:
 
       `https://<logic-app-name>.azurewebsites.net/.auth/login/aad/callback`
 
-   1. If Azure didn't prepopulate the redirect URI setting, manually enter the URI with your logic app name.
+      Keep this default value unless your scenario needs you to expose custom API application IDs. This callback URI is the default [access token *audience*](/entra/identity-platform/access-tokens#token-ownership) and specifies which resources can accept access tokens from clients that want access to these resources.
+      
+      The purpose behind an allowed token audience is to honor only the requests that present valid tokens for these resources. An access token request involves two parties: the client that requests the token and the resource that accepts the token. The recipient is called the token "audience", which is your logic app in this case.
+
+      For more information, see [What is a redirect URI?](/entra/identity-platform/reply-url#what-is-a-redirect-uri)
+
+   1. If Azure doesn't prepopulate the **Redirect URIs** setting, manually enter the URI with your logic app name, for example:
+
+      `https://my-chatbox-logic-app.azurewebsites.net/.auth/login/aad/callback`
 
       > [!IMPORTANT]
       >
       > Don't use custom redirect URIs unless you're hosting an interactive front end.
-
-      For more information, see [What is a redirect URI](/entra/identity-platform/reply-url#what-is-a-redirect-uri)?
 
    1. Disregard the **Front-channel logout URL** setting.
 
