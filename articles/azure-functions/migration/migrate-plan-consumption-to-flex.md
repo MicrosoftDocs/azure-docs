@@ -510,7 +510,7 @@ Once you have completed running `az functionapp flex-migration start` successful
 
 ::: zone-end
 
-:::zone pivot=="platform-windows"
+:::zone pivot="platform-windows"
 
 ## Premigration tasks
 
@@ -766,8 +766,6 @@ If you no longer have access to your project source files, you can download the 
 
 ::: zone pivot="platform-linux"
 
-If you're using the [simplified migration approach](#simplified-migration-for-linux-recommended) with `az functionapp flex-migration start`, this command only migrates the app configuration, not the code. You'll still need your source code or deployment package to deploy to the new Flex Consumption app after the configuration migration is complete.
-
 Consumption plan apps on Linux maintain the deployment zip package file in one of these locations:
 
 + An Azure Blob storage container named `scm-releases` in the default host storage account (`AzureWebJobsStorage`). This container is the default deployment source for a Consumption plan app on Linux.
@@ -942,7 +940,7 @@ requests
 
 The migration of your functions from a Consumption plan app to a Flex Consumption plan app follows these main steps:
 
-:::zone pivot=="platform-linux"
+:::zone pivot="platform-linux"
 
 > + [Verify Flex Consumption app created and configured](#verify-flex-consumption-app-created-and-configured)
 > + [Configure built-in authentication](#configure-built-in-authentication)
@@ -1011,7 +1009,7 @@ If any critical settings are missing or incorrect, you can manually configure th
 
 :::zone-end
 
-:::zone pivot=="platform-windows"
+:::zone pivot="platform-windows"
 
 > [!div class="checklist"]
 >
