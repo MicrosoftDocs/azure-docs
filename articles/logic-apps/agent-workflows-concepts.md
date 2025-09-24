@@ -290,13 +290,12 @@ For more information, see the following articles:
 
 ### Easy Auth versus developer key
 
-| Aspect | Developer key | Easy Auth |
-| ------ | ------------- | --------- |
-| Per-request identity | Portal user context only (implicit) | Validated token claims (user / service principal / managed identity) |
-| Conditional Access enforcement | Indirect (portal sign‑in only) | Direct (token issuance + policy) |
-| Revocation | Revoke portal session / user; no granular key rotation | Standard token revocation, role/scope removal |
-| Audit richness | Limited to workflow run + portal user | Full identity claim surface |
-
+| Capability | Easy Auth | Developer key |
+|------------|-----------|---------------|
+| Per-request identity | Validated token claims (explicit) <br>(user, service principal, managed identity) | Portal user context only (implicit) |
+| Conditional Access policies enforcement | Direct (token issuance + policy) | Indirect (portal sign‑in only) |
+| Token revocation | Standard token revocation with role and scope removal | Revoke portal session or user. No granular key rotation. |
+| Audit richness | Full identity claim surface | Limited to workflow run and portal user |
 
 ## Billing
 
