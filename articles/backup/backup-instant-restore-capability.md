@@ -143,7 +143,7 @@ Instant Restore is enabled for everyone and can't be disabled. You can reduce th
 
 ### Is it safe to restart the VM during the transfer process (which can take many hours)? Will restarting the VM interrupt or slow down the transfer?
 
-Yes it's safe, and the data transfer speed isn't affected.
+Yes, it's safe. The data transfer speed isn't affected.
 
 ### Why does a 12-month backup retention policy retain data for 372 days instead of 365?
 
