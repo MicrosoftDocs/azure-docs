@@ -6,7 +6,7 @@ ms.author: sonialopez
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 08/14/2025
+ms.date: 09/24/2025
 ai-usage: ai-assisted
 
 ---
@@ -249,6 +249,38 @@ The data flow graph resource "wraps" the graph definition artifact and connects 
 
 This separation lets you deploy the same graph definition with different endpoints across environments while keeping the processing logic unchanged.
 
+# [Operations experience](#tab/portal)
+
+1. To create a data flow graph in [operations experience](https://iotoperations.azure.com/), go to **Data flow** tab.
+1. Select the drop-down menu next to **+ Create** and select **Create a data flow graph**
+
+    :::image type="content" source="media/howto-dataflow-graph/create-dataflow-graph.png" alt-text="Screenshot of the operations experience interface showing how to create a data flow graph.":::
+
+1. Select the placeholder name **new-data-flow** to set the data flow properties.Enter the name of the data flow graph and choose the data flow profile to use.
+1. In the data flow diagram, select **Source** to configure the source node. Under **Source details**, select **Asset** or **Data flow Endpoint**.
+
+    :::image type="content" source="media/howto-dataflow-graph/select-source-simple.png" alt-text="Screenshot of the operations experience interface showing how to select a source for the data flow graph.":::
+
+    1. If you select **Asset**, choose the asset to pull data from and click **Apply**.
+    1. If you select **Data flow Endpoint**, enter the following details and click **Apply**.
+
+        | Setting              | Description                                                                                       |
+        | -------------------- | ------------------------------------------------------------------------------------------------- |
+        | Data flow endpoint    | Select *default* to use the default MQTT message broker endpoint. |
+        | Topic                | The topic filter to subscribe to for incoming messages. Use **Topic(s)** > **Add row** to add multiple topics. For more information on topics, see [Configure MQTT or Kafka topics](#configure-data-sources-mqtt-or-kafka-topics). |
+        | Message schema       | The schema to use to deserialize the incoming messages. See [Specify schema to deserialize data](#specify-source-schema). |
+
+1. In the data flow diagram, select **Add graph transform (optional)** to add a graph processing node. In the **Graph selection** pane, select **graph-simple:1** and click **Apply**.
+
+    :::image type="content" source="media/howto-dataflow-graph/create-simple-graph.png" alt-text="Screenshot of the operations experience interface showing how to create a simple data flow graph.":::
+
+1. You can configure some graph operator settings by selecting the graph node in the diagram. For example, you can select **module-temperature/map** operator and enter in `key2` the value `example-value-2`. Click **Apply** to save the changes.
+
+    :::image type="content" source="media/howto-dataflow-graph/configure-simple-graph.png" alt-text="Screenshot of the operations experience interface showing how to configure a simple data flow graph.":::
+
+1. In the data flow diagram, select **Destination** to configure the destination node.
+1. Select **Save** under the data flow graph name to save the data flow graph.
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -482,6 +514,44 @@ The graph uses specialized modules from the [Rust examples](https://github.com/A
 This configuration implements the multi-sensor processing workflow using the `graph-complex:1.0.0` artifact. Notice how the data flow graph deployment is similar to Example 1 - both use the same three-node pattern (source, graph processor, destination) even though the processing logic is different.
 
 This similarity occurs because the data flow graph resource acts as a host environment that loads and executes graph definitions. The actual processing logic resides in the graph definition artifact (`graph-simple:1.0.0` vs `graph-complex:1.0.0`), which contains the YAML specification of operations and connections between WASM modules. The data flow graph resource provides the runtime infrastructure to pull the artifact, instantiate the modules, and route data through the defined workflow.
+
+# [Operations experience](#tab/portal)
+
+1. To create a data flow graph in [operations experience](https://iotoperations.azure.com/), go to **Data flow** tab.
+1. Select the drop-down menu next to **+ Create** and select **Create a data flow graph**
+
+    :::image type="content" source="media/howto-dataflow-graph/create-dataflow-graph.png" alt-text="Screenshot of the operations experience interface showing how to create a data flow graph.":::
+
+1. Select the placeholder name **new-data-flow** to set the data flow properties. Enter the name of the data flow graph and choose the data flow profile to use. 
+1. In the data flow diagram, select **Source** to configure the source node. Under **Source details**, select **Asset** or **Data flow Endpoint**.
+
+    :::image type="content" source="media/howto-dataflow-graph/select-source-simple.png" alt-text="Screenshot of the operations experience interface showing how to select a source for the data flow graph.":::
+
+    1. If you select **Asset**, choose the asset to pull data from and click **Apply**.
+    1. If you select **Data flow Endpoint**, enter the following details and click **Apply**.
+
+        | Setting              | Description                                                                                       |
+        | -------------------- | ------------------------------------------------------------------------------------------------- |
+        | Data flow endpoint    | Select *default* to use the default MQTT message broker endpoint. |
+        | Topic                | The topic filter to subscribe to for incoming messages. Use **Topic(s)** > **Add row** to add multiple topics. For more information on topics, see [Configure MQTT or Kafka topics](#configure-data-sources-mqtt-or-kafka-topics). |
+        | Message schema       | The schema to use to deserialize the incoming messages. See [Specify schema to deserialize data](#specify-source-schema). |
+
+1. In the data flow diagram, select **Add graph transform (optional)** to add a graph processing node. In the **Graph selection** pane, select **graph-complex:1** and click **Apply**.
+
+    :::image type="content" source="media/howto-dataflow-graph/create-complex-graph.png" alt-text="Screenshot of the operations experience interface showing how to create a complex data flow graph.":::
+
+1. You can configure some graph operator settings by selecting the graph node in the diagram. 
+
+    :::image type="content" source="media/howto-dataflow-graph/configure-complex-graph.png" alt-text="Screenshot of the operations experience interface showing how to configure a complex data flow graph.":::
+
+      |Operator|Description|
+      |--------|-----------|
+      |module-snapshot/branch|Configures the `snapshot` module to perform object detection on images. You can set the `snapshot_topic` configuration key to specify the input topic for image data.|
+      |module-temperature/map|Transforms `key2` temperature values to a different scale.|
+
+1. Click **Apply** to save the changes.
+1. In the data flow diagram, select **Destination** to configure the destination node.
+1. Select **Save** under the data flow graph name to save the data flow graph.
 
 # [Bicep](#tab/bicep)
 
@@ -771,6 +841,12 @@ A data flow graph defines how data flows through WebAssembly modules for process
 
 The mode property determines whether the data flow graph is actively processing data. You can set the mode to `Enabled` or `Disabled` (case-insensitive). When disabled, the graph stops processing data but retains its configuration.
 
+# [Operations experience](#tab/portal)
+
+When creating or editing a data flow graph, in the **Data flow properties** pane, you can check **Enable data flow** to **Yes** to set the mode to `Enabled`. If you leave it unchecked, the mode is set to `Disabled`.
+
+:::image type="content" source="media/howto-dataflow-graph/select-mode.png" alt-text="Screenshot of the operations experience interface showing how to enable or disable mode configuration.":::
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -801,6 +877,14 @@ spec:
 ### Profile reference
 
 The profile reference connects your data flow graph to a data flow profile, which defines scaling settings, instance counts, and resource limits. If you don't specify a profile reference, you must use a Kubernetes owner reference instead. Most scenarios use the default profile provided by Azure IoT Operations.
+
+# [Operations experience](#tab/portal)
+
+When creating or editing a data flow graph, in the **Data flow properties** pane, select the data flow profile. The default data flow profile is selected by default. For more information on data flow profiles, see [Configure data flow profile](howto-configure-dataflow-profile.md).
+
+> [!IMPORTANT] 
+> You can only choose the data flow profile when creating a data flow graph. You can't change the data flow profile after the data flow graph is created.
+> If you want to change the data flow profile of an existing data flow graph, delete the original data flow graph and create a new one with the new data flow profile.
 
 # [Bicep](#tab/bicep)
 
@@ -849,6 +933,10 @@ This configuration allows MQTT clients like data flow graphs to request disk per
 
 The setting accepts `Enabled` or `Disabled`, with `Disabled` as the default.
 
+# [Operations experience](#tab/portal)
+
+When creating or editing a data flow graph, in the **Data flow properties** pane, you can check **Request data persistence** to **Yes** to set the request disk persistence to `Enabled`. If you leave it unchecked, the setting is `Disabled`.
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -889,6 +977,10 @@ Source nodes define where data enters the graph. They connect to data flow endpo
 - Asset reference (optional) that links to an Azure Device Registry asset for schema inference
 
 The data sources array allows you to subscribe to multiple topics without modifying the endpoint configuration. This flexibility enables endpoint reuse across different data flows.
+
+# [Operations experience](#tab/portal)
+
+In the data flow diagram, select **Source** to configure the source node. Under **Source details**, select **Data flow Endpoint**, then use the **Topic(s)** field to specify the MQTT topic filters to subscribe to for incoming messages. You can add multiple MQTT topics by selecting **Add row** and entering a new topic.
 
 # [Bicep](#tab/bicep)
 
@@ -1001,6 +1093,12 @@ Destination nodes define where processed data is sent. They connect to data flow
 
 For storage destinations like Azure Data Lake or Fabric OneLake, you can specify output schema settings to control how data is serialized and validated.
 
+# [Operations experience](#tab/portal)
+
+1. In the data flow diagram, select **Destination** to configure the destination node. 
+1. Select **Proceed** to configure the destination.
+1. Enter the required settings for the destination, including the topic or table to send the data to. The data destination field is automatically interpreted based on the endpoint type. For example, if the data flow endpoint is a storage endpoint, the destination details page prompts you to enter the container name. If the data flow endpoint is an MQTT endpoint, the destination details page prompts you to enter the topic, and so on.
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -1038,6 +1136,10 @@ For storage destinations like Azure Data Lake or Fabric OneLake, you can specify
 Node connections define the data flow path between nodes. Each connection specifies a source node and destination node, creating the processing pipeline. Connections can optionally include schema validation to ensure data integrity between processing stages.
 
 When you specify schema validation, the system validates data format and structure as it flows between nodes. The validation helps catch data inconsistencies early and ensures WASM modules receive data in the expected format.
+
+# [Operations experience](#tab/portal)
+
+The operations experience automatically creates node connections when you create a simple graph or complex graph.
 
 # [Bicep](#tab/bicep)
 
