@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.author: kesheth
 author: expekesheth
 ms.date: 09/27/2023
+ms.custom: sfi-image-nochange
 ---
 
 # Tutorial for Da Vinci Drug Formulary for Azure API for FHIR

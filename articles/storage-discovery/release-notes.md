@@ -22,6 +22,7 @@ Features included:
 - 30 days of backfill for any newly created discovery scope in Standard SKU
 - 15 days of backfill for any newly created discovery scope in Free SKU
 - SKU upgrade and downgrade options
+- Starting October 1, 2025, Storage Discovery will begin incurring charges. Until that date, customers may observe usage costs for the following meters in the Cost Management / Cost Analysis portal: Storage Accounts monitored and Objects analyzed. These usage details are visible for transparency but will not be included in your September 2025 invoice. Billing for Storage Discovery will officially begin on October 1, 2025.
 
 ### Known Limitations
 

@@ -4,10 +4,12 @@ titleSuffix: Azure Storage Actions
 description: Learn how to create a storage task. A storage task can perform on blobs in one or more Azure Storage accounts. 
 author: normesta
 ms.service: azure-storage-actions
-ms.custom: build-2023-metadata-update
 ms.topic: how-to
 ms.author: normesta
 ms.date: 05/05/2025
+ms.custom:
+  - build-2023-metadata-update
+  - sfi-image-nochange
 ---
 
 # Create a storage task

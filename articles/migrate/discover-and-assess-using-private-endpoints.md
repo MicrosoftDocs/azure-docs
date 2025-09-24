@@ -5,8 +5,11 @@ author: vijain
 ms.author: vijain
 ms.topic: how-to
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 09/26/2024
-ms.custom: engagement-fy25
+ms.custom:
+  - engagement-fy25
+  - sfi-ropc-nochange
 # Customer intent: As a cloud administrator, I want to set up an Azure Migrate project with private endpoint connectivity, so that I can securely discover and assess servers for migration without exposing sensitive data to public networks.
 ---
  

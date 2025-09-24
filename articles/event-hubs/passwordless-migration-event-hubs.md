@@ -4,7 +4,16 @@ titleSuffix: Azure Event Hubs
 description: Learn to migrate existing applications away from Shared Key authorization with the account key to instead use Microsoft Entra ID and Azure role-based access control (RBAC) for enhanced security with Azure Event Hubs.
 ms.date: 06/12/2023
 ms.topic: how-to
-ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, passwordless-go, devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
+  - devx-track-csharp
+  - passwordless-java
+  - passwordless-js
+  - passwordless-python
+  - passwordless-dotnet
+  - passwordless-go
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 ---
 
 # Migrate an application to use passwordless connections with Azure Event Hubs

@@ -7,6 +7,9 @@ ms.author: kevinguo
 ms.service: azure-web-pubsub
 ms.topic: tutorial
 ms.date: 05/06/2024
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 # Use Web PubSub service with Azure Application Gateway
 Azure Application Gateway is a web traffic load balancer that works at the application level. It can be used as the single point of contact for your web clients and can be configured to route web traffic to your various backends based on HTTP attributes, like the URI path among others. Application Gateway has native support for WebSocket - users don't need to configure anything special to have WebSocket enabled. 

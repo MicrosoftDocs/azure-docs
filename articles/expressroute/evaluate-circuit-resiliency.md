@@ -7,7 +7,9 @@ ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 06/24/2024
 ms.author: duau
-ms.custom: ai-usage
+ms.custom:
+  - ai-usage
+  - sfi-image-nochange
 ---
 
 # Evaluate the resiliency of multi-site redundant ExpressRoute circuits

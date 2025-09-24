@@ -6,6 +6,7 @@ ms.author: rifox
 ms.date: 05/10/2025
 ms.topic: include
 ms.service: azure-communication-services
+ms.custom: sfi-ropc-nochange
 ---
 
 This article describes how to start a call using the Azure Communication Services Calling SDK for Android.

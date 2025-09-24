@@ -6,6 +6,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 03/21/2025
 ms.custom: engagement-fy24
 # Customer intent: "As a cloud administrator, I want to deploy an Azure Migrate appliance using a PowerShell script, so that I can facilitate discovery, assessment, and replication of servers in my VMware or Hyper-V environment efficiently."

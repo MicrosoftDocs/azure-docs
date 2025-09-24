@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: sadoulta
+ms.custom: sfi-image-nochange
 ---
 
 # Tutorial: Optimize costs from recommendations

@@ -6,7 +6,9 @@ ms.service: azure-health-data-services
 ms.topic: how-to
 ms.date: 06/30/2025
 ms.author: buchvarun
-ms.custom: mode-api
+ms.custom:
+  - mode-api
+  - sfi-image-nochange
 ---
 
 # Deploy the DICOM service with Blob storage by using the Azure portal

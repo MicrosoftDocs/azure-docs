@@ -4,7 +4,9 @@ description: Configure Azure Application Gateway to securely expose your web app
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 3/21/2024
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 # Customer intent: "As a cloud architect, I want to configure Azure Application Gateway for web apps on Azure VMware Solution, so that I can ensure secure and efficient traffic management."
 ---
 

@@ -3,7 +3,7 @@ title: Reservation discounts for Azure Backup storage
 description: This article explains about how reservation discounts are applied to Azure Backup storage.
 ms.topic: overview
 ms.service: azure-backup
-ms.date: 09/11/2024
+ms.date: 09/24/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: As a cloud administrator, I want to understand how reservation discounts for backup storage are applied, so that I can optimize my storage costs and ensure efficient use of my reserved capacity.
@@ -46,6 +46,7 @@ As an example, in each hour within the reservation period, if you've used 101 Ti
 
 ## Next steps
 
-- [Optimize costs for Azure Backup storage with reserved capacity](backup-azure-reserved-pricing-optimize-cost.md).
+- [Optimize costs for Azure Backup storage with reserved capacity](backup-azure-reserved-pricing-optimize-cost.md)
 - [What are Azure Reservations?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Estimate and understand Azure Backup pricing](azure-backup-pricing.md)
 

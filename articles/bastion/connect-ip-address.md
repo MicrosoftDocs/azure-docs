@@ -7,6 +7,7 @@ ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 03/03/2025
 ms.author: abell
+ms.custom: sfi-image-nochange
 
 # Customer intent: As a network administrator, I want to configure and connect to virtual machines using a specified private IP address via Bastion, so that I can securely manage resources in my network environment.
 ---

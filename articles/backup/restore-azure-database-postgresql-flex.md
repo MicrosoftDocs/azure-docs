@@ -2,7 +2,7 @@
 title: Restore Azure PostgreSQL-Flexible server as Files using Azure portal
 description: Learn about how to restore Azure PostgreSQL-Flexible server as Files.
 ms.topic: how-to
-ms.date: 05/12/2025
+ms.date: 09/11/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
@@ -73,10 +73,16 @@ To restore the backup files from storage container to a new or existing PostgreS
    >To create the database, use the `CREATE DATABASE Database_name` command.
 
 1. Restore the database using the `database.sql file` as the target admin user.
-1.After the target database is created, restore the data in this database (from the dump file) from an Azure storage account by running the following command:
+1. After the target database is created, download the dump file from an Azure Storage account by running the following command:
 
    ```azurecli-interactive
-   az storage blob download --container-name <container-name> --name <blob-name> --account-name <storage-account-name> --account-key <storage-account-key> --file - | pg_restore -h <postgres-server-url> -p <port> -U <username> -d <database-name> --no-owner -v – 
+   az storage blob download --container-name <container-name> --name <blob-name> --account-name <storage-account-name> --account-key <storage-account-key> --file <file-name>
+   ```
+
+1. Then, restore the data in this database from the dump file by running the following command:
+
+   ```azurecli-interactive
+   pg_restore -h <postgres-server-url> -p <port> -U <username> -d <database-name> --no-owner -v – 
    ```
    
    - `--account-name`: Name of the Target Storage Account. 

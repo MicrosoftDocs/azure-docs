@@ -8,6 +8,7 @@ ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 03/26/2025
 ms.author: jomore
+ms.custom: sfi-image-nochange
 ---
 
 # Virtual WAN routing deep dive

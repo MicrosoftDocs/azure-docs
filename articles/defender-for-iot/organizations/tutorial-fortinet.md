@@ -3,7 +3,9 @@ title: Integrate Fortinet with Microsoft Defender for IoT
 description: In this article, you learn how to integrate Microsoft Defender for IoT with Fortinet.
 ms.topic: tutorial
 ms.date: 10/14/2024
-ms.custom: how-to
+ms.custom:
+  - how-to
+  - sfi-image-nochange
 ---
 
 # Integrate Fortinet with Microsoft Defender for IoT

@@ -6,6 +6,7 @@ ms.topic: article
 author: yujhongmicrosoft
 ms.author: eliotgra
 ms.date: 10/16/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Develop with Storage API on Azure Government

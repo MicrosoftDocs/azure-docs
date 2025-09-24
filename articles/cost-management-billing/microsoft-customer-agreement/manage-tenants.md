@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.date: 08/28/2025
 ms.author: baolcsva
 ms.reviewer: baolcsva
+ms.custom: sfi-image-nochange
 ---
 
 # Manage tenants in your Microsoft Customer Agreement billing account

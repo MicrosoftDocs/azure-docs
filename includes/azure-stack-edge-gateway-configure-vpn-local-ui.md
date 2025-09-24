@@ -4,6 +4,7 @@ ms.service: azure-databox
 ms.topic: include
 ms.date: 10/27/2020
 ms.author: alkohli
+ms.custom: sfi-image-nochange
 ---
 
 Do the following steps in the local web UI of your device. This step takes about 15 minutes including the upload of the VPN configuration file (or the service tag file). 

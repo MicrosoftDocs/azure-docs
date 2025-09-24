@@ -3,6 +3,7 @@ title: Dell PowerEdge R340 XL for OT monitoring (legacy) - Microsoft Defender fo
 description: Learn about the Dell PowerEdge R340 XL appliance's legacy configuration when used for OT monitoring with Microsoft Defender for IoT in enterprise deployments.
 ms.date: 03/02/2023
 ms.topic: reference
+ms.custom: sfi-image-nochange
 ---
 
 # Dell PowerEdge R340 XL

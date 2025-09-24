@@ -6,6 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: concept-article
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 06/30/2023
 ms.custom: engagement-fy25
 # Customer intent: As a cloud administrator, I want to understand the Hyper-V migration process using agentless replication, so that I can efficiently migrate on-premises workloads to Azure without installing agents on individual VMs.
