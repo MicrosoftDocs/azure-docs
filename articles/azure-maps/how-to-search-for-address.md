@@ -175,7 +175,122 @@ This example demonstrates how to search for a cross street based on the coordina
 
 :::zone pivot="search-next"
 
+This article demonstrates how to:
 
+* Request latitude and longitude coordinates for an address (geocode address location) by using [Get Geocoding].
+* Search for a partial address using [Autocomplete].
+* Use [Get Reverse Geocoding] to translate coordinate location to street address.
+<!--* Translate coordinate location into a human understandable cross street using [Search Address Reverse Cross Street], most often needed in tracking applications that receive a GPS feed from a device or asset, and wish to know where the coordinate is located.-->
+
+## Prerequisites
+
+* An [Azure Maps account]
+* A [subscription key]
+
+>[!IMPORTANT]
+>
+> In the URL examples in this article you will need to replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
+
+This article uses the [bruno] application, but you can choose a different API development environment.
+
+## Request latitude and longitude for an address (Get Geocoding)
+
+The example in this section uses [Get Geocoding] to convert an address into latitude and longitude coordinates. This process is also called *geocoding*. In addition to returning the coordinates, the response also returns detailed address properties such as street, postal code, municipality, and country/region information.
+
+> [!TIP]
+> If you have a set of addresses to geocode, you can use [Get Geocoding Batch] to send a batch of queries in a single request.
+
+1. Open the bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
+
+1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
+
+    ```http
+    GET https://atlas.microsoft.com/geocode?api-version=2025-06-01-preview&subscription-key={Your-Azure-Maps-Subscription-key}&query=400 Broad St, Seattle, WA 98109
+    ```
+
+1. Select the **Create** button.
+
+1. Select the run button.
+
+    This request searches for a specific address: `400 Broad St, Seattle, WA 98109`. Next, search an address that has more than one possible location.
+
+1. In the **Params** section, change the `query` key to `400 Broad, Seattle`, then select the run button.
+
+1. Next, try setting the `query` key to `400 Broa`, then select the run button.
+
+   The response includes results from multiple countries/regions. To [geobias] results to the relevant area for your users, always add as many location details as possible to the request.
+
+## Search autocomplete
+
+[Autocomplete] supports standard single line and free-form searches. We recommend that you use the Azure Maps Search Autocomplete API when you don't know your user input type for a search request. The query input can be a full or partial address. To improve the relevance of your search results, constrain the query results using a coordinate location and radius, or by defining a bounding box.
+
+### Search for an address using search autocomplete
+
+This example demonstrates how to use the autocomplete API to search the entire north American continent for partial input like "university of w". It then shows how to narrow the search scope to a specific country or region using the `countryRegion` parameter. Finally, it demonstrates how to use a `coordinate` parameter to focus the search to a specific area to limit the number of results.
+
+> [!IMPORTANT]
+> To geobias results to the relevant area for your users, always add as many location details as possible. For more information, see [Best Practices for Search].
+
+1. Open the bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
+
+1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
+
+    ```http
+    https://atlas.microsoft.com/geocode:autocomplete?api-version=2025-06-01-preview&query=university of w&bbox=-168,-52,5,84&subscription-key={Your-Azure-Maps-Subscription-key}
+    ```
+
+1. Select the run button, then review the response body.
+
+   > [!NOTE]
+    > The `bbox` parameter in the URL defines a bounding box that encompasses **Canada**, the **United States**, **Mexico**, **Greenland**, and parts of the **Caribbean**. It returns several universities located within this area, including:
+    >
+    > - **University of Washington** in King County, Washington State, USA  
+    > - **University of Waterloo** in Waterloo, Ontario, Canada  
+    > - **University of Wyoming** in Laramie, Wyoming, USA  
+    > - **University of Windsor** in Windsor, Ontario, Canada  
+    > - **University of West Florida** in Escambia County, Florida, USA
+
+Next, narrow down the area included in your search to the United States, using the `countryRegion` parameter.
+
+1. In the bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
+
+1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
+
+    ```http
+    https://atlas.microsoft.com/geocode:autocomplete?api-version=2025-06-01-preview&query=university of w&bbox=-168,-52,5,84&countryRegion=us&subscription-key={Your-Azure-Maps-Subscription-key}
+    ```
+
+1. Select the run button, then review the response body.
+
+   > [!NOTE]
+    > The `bbox` parameter in the URL defines the same bounding box as in the previous example, however the `countryRegion=us` parameter limits results to the United States. It returns several universities located within this area, including:
+    >
+    > - **University of Washington** in King County, Washington State, USA
+    > - **University of Wyoming** in Laramie, Wyoming, USA
+    > - **University of West Florida** in Escambia County, Florida, USA
+    > - **University of Wisconsin-Superior** in Douglas County, Wisconsin, USA
+    > - **University of Wisconsin-Stout** in Menomonie, Dunn County, Wisconsin, USA
+
+Next, focus your search to include more results in a specific area within the defined `countryRegion`, using the `coordinates` parameter. This will result in more items returned near the specified area that would otherwise not make the list.
+
+1. In the bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
+
+1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
+
+    ```http
+    https://atlas.microsoft.com/geocode:autocomplete?api-version=2025-06-01-preview&query=university of w&bbox=-168,-52,5,84&countryRegion=us&coordinates=-122.136791,47.642232&subscription-key={Your-Azure-Maps-Subscription-key}
+    ```
+
+1. Select the run button, then review the response body.
+
+   > [!NOTE]
+    > The `bbox` and `countryRegion` parameters in this URL define the same boundries as in the previous example, however the `coordinates=-122.136791,47.642232` parameter focuses the search results to the specified area. It returns a local university that would otherwise not be returned.
+    >
+    > - **University of Washington** in King County, Washington State, USA
+    > - **University of Washington, Tacoma** in Tacoma, Pierce County, Washington State, USA
+    > - **University of Wyoming** in Laramie, Wyoming, USA
+    > - **University of West Florida** in Escambia County, Florida, USA
+    > - **University of Wisconsin-Stout** in Menomonie, Dunn County, Wisconsin, USA
 
 :::zone-end
 
@@ -187,6 +302,7 @@ This example demonstrates how to search for a cross street based on the coordina
 > [!div class="nextstepaction"]
 > [Best practices for Azure Maps Search service]
 
+[Autocomplete]: /rest/api/maps/search/get-geocode-autocomplete
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Maps Search service]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
 [Best practices for Azure Maps Search service]: how-to-use-best-practices-for-search.md
@@ -195,6 +311,9 @@ This example demonstrates how to search for a cross street based on the coordina
 [Fuzzy Search URI Parameters]: /rest/api/maps/search/getsearchfuzzy?view=rest-maps-1.0&preserve-view=true#uri-parameters
 [Fuzzy Search]: /rest/api/maps/search/getsearchfuzzy?view=rest-maps-1.0&preserve-view=true
 [geobias]: glossary.md#geobias
+[Get Geocoding]: /rest/api/maps/search/get-geocoding
+[Get Geocoding Batch]: /rest/api/maps/search/get-geocoding-batch
+[Get Reverse Geocoding]: /rest/api/maps/search/get-reverse-geocoding
 [Get Search Address Reverse]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0&preserve-view=true
 [Get Search Address]: /rest/api/maps/search/getsearchaddress?view=rest-maps-1.0&preserve-view=true
 [point of interest]: /rest/api/maps/search/getsearchpoi?view=rest-maps-1.0&preserve-view=true#searchpoiresponse
