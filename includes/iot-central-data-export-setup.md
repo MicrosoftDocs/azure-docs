@@ -5,7 +5,7 @@
  author: dominicbetts
  ms.service: azure-iot-central
  ms.topic: include
- ms.date: 04/25/2025
+ ms.date: 09/02/2025
  ms.author: dobett
  ms.custom: include file
 ---
@@ -41,7 +41,7 @@ Now that you have a destination to export your data to, set up data export in yo
 
     | Type of data | Available filters|
     |--------------|------------------|
-    |Telemetry|<ul><li>Filter by device name, device ID, device template, and if the device is simulated</li><li>Filter stream to only contain telemetry that meets the filter conditions</li><li>Filter stream to only contain telemetry from devices with properties matching the filter conditions</li><li>Filter stream to only contain telemetry that has *message properties* meeting the filter condition. *Message properties* (also known as *application properties*) are sent in a bag of key-value pairs on each telemetry message. To create a message property filter, enter the message property key you're looking for, and specify a condition. Only telemetry messages with properties that match the specified filter condition are exported. [Learn more about application properties from IoT Hub docs](../articles/iot-hub/iot-hub-devguide-messages-construct.md) </li></ul>|
+    |Telemetry|<ul><li>Filter by device name, device ID, device template, and if the device is simulated</li><li>Filter stream to only contain telemetry that meets the filter conditions</li><li>Filter stream to only contain telemetry from devices with properties matching the filter conditions</li><li>Filter stream to only contain telemetry that has *message properties* meeting the filter condition. *Message properties* (also known as *application properties*) are sent in a bag of key-value pairs on each telemetry message. To create a message property filter, enter the message property key you're looking for, and specify a condition. Only telemetry messages with properties that match the specified filter condition are exported. To learn more about application properties, see [IoT Hub documentation](../articles/iot-hub/iot-hub-devguide-messages-construct.md). </li></ul>|
     |Property changes|<ul><li>Filter by device name, device ID, device template, and if the device is simulated</li><li>Filter stream to only contain property changes that meet the filter conditions</li></ul>|
     |Device connectivity|<ul><li>Filter by device name, device ID, device template, organizations, and if the device is simulated</li><li>Filter stream to only contain changes from devices with properties matching the filter conditions</li></ul>|
     |Device lifecycle|<ul><li>Filter by device name, device ID, device template, and if the device is provisioned, enabled, or simulated</li><li>Filter stream to only contain changes from devices with properties matching the filter conditions</li></ul>|
@@ -93,4 +93,4 @@ Each exported message contains a normalized form of the full message the device 
 - `enrichments`: Any enrichments set up on the export.
 - `module`: The IoT Edge module that sent this message. This field only appears if the message came from an IoT Edge module.
 - `component`: The component that sent this message. This field only appears if the capabilities sent in the message were modeled as a component in the device template
-- `messageProperties`: Other properties that the device sent with the message. These properties are sometimes referred to as *application properties*. [Learn more from IoT Hub docs](../articles/iot-hub/iot-hub-devguide-messages-construct.md).
+- `messageProperties`: Other properties that the device sent with the message. These properties are sometimes referred to as *application properties*. To learn more, see [IoT Hub documentation](../articles/iot-hub/iot-hub-devguide-messages-construct.md).
