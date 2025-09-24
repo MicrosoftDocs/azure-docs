@@ -524,7 +524,7 @@ This similarity occurs because the data flow graph resource acts as a host envir
 1. To create a data flow graph in [operations experience](https://iotoperations.azure.com/), go to **Data flow** tab.
 1. Select the drop-down menu next to **+ Create** and select **Create a data flow graph**
 
-    :::image type="content" source="media/howto-dataflow-graph/create-dataflow-graph.png" alt-text="Screenshot of the operations experience interface showing how to create a data flow graph.":::
+    :::image type="content" source="media/howto-dataflow-graph/create-data-flow-graph.png" alt-text="Screenshot of the operations experience interface showing how to create a data flow graph.":::
 
 1. Select the placeholder name **new-data-flow** to set the data flow properties. Enter the name of the data flow graph and choose the data flow profile to use. 
 1. In the data flow diagram, select **Source** to configure the source node. Under **Source details**, select **Asset** or **Data flow Endpoint**.
