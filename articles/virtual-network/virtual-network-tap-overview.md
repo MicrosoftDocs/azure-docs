@@ -95,7 +95,7 @@ Please note, limitations tagged with **[Temporary]** will be resolved at GA.
 |**Bitdefender**|[GravityZone Extended Detection and Response for Network](https://www.bitdefender.com/en-us/business/products/gravityzone-xdr)|
 |**eSentire**|[eSentire MDR](https://www.esentire.com/how-we-do-it/signals/mdr-for-network)|
 |**LinkShadow**|[LinkShadow NDR](https://www.linkshadow.com/products/network-detection-and-response)|
-|**AttackFence**|[AttackFence NDR](https://www.attackfence.com/products/ndr)|
+|**AttackFence**|[AttackFence NDR](https://www.attackfence.com/ndr)|
 |**Arista Networks**|[Arista NDR](https://www.arista.com/en/products/network-detection-and-response)|
 
 ## Next Steps
