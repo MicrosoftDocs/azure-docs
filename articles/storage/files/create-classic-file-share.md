@@ -314,7 +314,7 @@ After you create a storage account, you can create a classic file share. This pr
 When you create a classic file share using the provisioned v2 billing model, you specify how much storage, IOPS, and throughput your file share needs. The amount of each quantity that you provision determines your total bill. By default, when you create a new file share using the provisioned v2 model, we provide a recommendation for how many IOPS and how much throughput you need based on the amount of provisioned storage you specify. Depending on your individual file share requirements, you might find that you require more or less IOPS or throughput than our recommendations, and can optionally override these recommendations with your own values as desired. To learn more, see [Understanding the provisioned v2 billing model](./understanding-billing.md#provisioned-v2-model).
 
 > [!NOTE]
-> Before you start create a provisioned v2 classic file share, please make sure the storage account you intend to use is "FileStorage" storage account kind. Go to overview tab essentials section of the storage account to check its account kind.  
+> Before you create a provisioned v2 classic file share, make sure the storage account you intend to use is of the *FileStorage* storage account kind. Go to the Overview tab essentials section of the storage account to check its account kind.  
 
 # [Portal](#tab/azure-portal)
 
