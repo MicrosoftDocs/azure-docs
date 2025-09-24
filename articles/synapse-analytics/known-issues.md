@@ -273,7 +273,7 @@ Suggested workarounds are:
 - Use the `sys.dm_exec_requests_history` view in your Synapse Serverless SQL pool to access historical query execution details.
 - Refactor the query to reduce its length below 7,500 characters, if feasible.
 
-## Azure Synapse Analytics dedicated SQL pool active known issues summary
+## Azure Synapse Apache Spark pool active known issues summary
 
 ### Starting a Spark session is taking longer in certain regions (this is impacting session with libraries)
 
