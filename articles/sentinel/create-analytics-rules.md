@@ -38,6 +38,11 @@ This article describes the process of creating an analytics rule from scratch, i
 
 Before you do anything else, you should design and build a query in Kusto Query Language (KQL) that your rule will use to query one or more tables in your Log Analytics workspace.
 
+> [!IMPORTANT]
+> **Scheduled analytics rules in Microsoft Sentinel use the `TimeGenerated` field as the reference for the lookback period.**  
+> This means that the rule will only evaluate records where the `TimeGenerated` value falls within the specified lookback window. Other timestamp fields in your data are not used for this purpose.  
+> Ensure your queries and expectations for rule matching are based on the `TimeGenerated` field.
+
 1. Determine a data source, or a set of data sources, that you want to search to detect unusual or suspicious activity. Find the name of the Log Analytics table into which data from those sources is ingested. You can find the table name on the page of the data connector for that source. Use this table name (or a function based on it) as the basis for your query.
 
 1. Decide what kind of analysis you want this query to perform on the table. This decision will determine which commands and functions you should use in the query.
