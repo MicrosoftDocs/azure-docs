@@ -1,5 +1,5 @@
 ---
-title: Reliability in Azure Event Grid and Event Grid namespace
+title: Reliability in Azure Event Grid and Event Grid Namespace
 description: Learn how to ensure event-driven reliability with Azure Event Grid by using automatic failover, availability zones, and geo disaster recovery strategies.
 author: anaharris-ms
 ms.author: anaharris
