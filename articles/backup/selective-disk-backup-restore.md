@@ -58,12 +58,12 @@ Only the `resourcegroup` name (not the object) corresponding to the vault is nee
 
 ### Configure backup with the CLI
 
-During the configure-protection operation, you need to specify the disk list setting with an inclusion or exclusion parameter. Give the LUN numbers of the disks to be included or excluded in the backup.
+During the configure-protection operation, you need to specify the disk list setting with an inclusion or exclusion parameter. Give the LUNs of the disks to be included or excluded in the backup.
 
 The configure-protection operation overrides the previous settings, so they're not cumulative.
 
 ```azurecli
-az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name {vaultname} --vm {vmname} --policy-name {policyname} --disk-list-setting include --diskslist {LUN number(s) separated by space}
+az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name {vaultname} --vm {vmname} --policy-name {policyname} --disk-list-setting include --diskslist {LUNs separated by space}
 ```
 
 ```azurecli
@@ -73,13 +73,13 @@ az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name
 If the VM isn't in the same resource group as the vault, `ResourceGroup` refers to the resource group where the vault was created. Instead of the VM name, provide the VM ID as indicated:
 
 ```azurecli
-az backup protection enable-for-vm  --resource-group {ResourceGroup} --vault-name {vaultname} --vm $(az vm show -g VMResourceGroup -n MyVm --query id --output tsv) --policy-name {policyname} --disk-list-setting include --diskslist {LUN number(s) separated by space}
+az backup protection enable-for-vm  --resource-group {ResourceGroup} --vault-name {vaultname} --vm $(az vm show -g VMResourceGroup -n MyVm --query id --output tsv) --policy-name {policyname} --disk-list-setting include --diskslist {LUNs separated by space}
 ```
 
 ### Modify protection for already backed up VMs with the CLI
 
 ```azurecli
-az backup protection update-for-vm --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} --disk-list-setting exclude --diskslist {LUN number(s) separated by space}
+az backup protection update-for-vm --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} --disk-list-setting exclude --diskslist {LUNs separated by space}
 ```
 
 ### Back up only the OS disk during the configure-backup operation with the CLI
@@ -97,7 +97,7 @@ az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name
 ### Restore disks with the CLI
 
 ```azurecli
-az backup restore restore-disks --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} -r {restorepoint} --target-resource-group {targetresourcegroup} --storage-account {storageaccountname} --diskslist {LUN number of the disk(s) to be restored}
+az backup restore restore-disks --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} -r {restorepoint} --target-resource-group {targetresourcegroup} --storage-account {storageaccountname} --diskslist {LUN of the disk(s) to be restored}
 ```
 
 ### Restore only the OS disk with the CLI
@@ -209,7 +209,7 @@ When you run these commands, you see `"diskExclusionProperties": null`.
 
 Ensure that you're using Azure PowerShell version 3.7.0 or later.
 
-During the configure-protection operation, you need to specify the disk list setting with an inclusion or exclusion parameter. Give the LUN numbers of the disks to be included or excluded in the backup.
+During the configure-protection operation, you need to specify the disk list setting with an inclusion or exclusion parameter. Give the LUNs of the disks to be included or excluded in the backup.
 
 The configure-protection operation overrides the previous settings, so they're not cumulative.
 
@@ -361,7 +361,7 @@ If you use the Enhanced policy, PI costs, snapshot costs, and vault tier storage
 
 | OS type | Limitation |
 | --- | --- |
-| Windows | **Spanned volumes**: For spanned volumes (volumes spread across more than one physical disk), ensure that all disks are included in the backup. If not, Azure Backup might not be able to reliably restore the data and exclude it in billing. <br><br> **Storage pool**: If you use disks carved out of a storage pool and if a *LUN number* included for backup is common across virtual disks and data disks, the size of the virtual disk is also included in the backup size in addition to the data disks. |
+| Windows | **Spanned volumes**: For spanned volumes (volumes spread across more than one physical disk), ensure that all disks are included in the backup. If not, Azure Backup might not be able to reliably restore the data and exclude it in billing. <br><br> **Storage pool**: If you use disks carved out of a storage pool and if a *LUN* included for backup is common across virtual disks and data disks, the size of the virtual disk is also included in the backup size in addition to the data disks. |
 |	Linux | **Logical volumes**: For logical volumes spread across more than one disk, ensure that all disks are included in the backup. If not, Azure Backup might not be able to reliably restore the data and exclude it in billing. <br><br> **Distro support**: Azure Backup uses `lsscsi` and `lsblk` to determine the disks being excluded for backup and to estimate the size of the data backed up for the [PI fee](selective-disk-backup-restore.md#how-is-pi-cost-calculated-for-only-os-disk-backup-in-windows-and-linux) calculation. If your distro (Debian 8.11, 10.13, and so on) doesn't support `lsscsi`, install it by using `sudo apt install lsscsi` to ensure that selective disk backup works. If not, the PI fee is calculated based on the backup data transferred instead of using `lsscsi` and `lsblk`. |
 
 If you select the CRR feature, the [CRR pricing](https://azure.microsoft.com/pricing/details/backup/) applies on the backup storage cost after excluding the disk.
