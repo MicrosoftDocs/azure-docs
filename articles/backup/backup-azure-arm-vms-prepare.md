@@ -54,8 +54,7 @@ To modify the storage replication type, follow these steps:
 
     ![Screenshot that shows setting the storage configuration for a new vault.](./media/backup-azure-arm-vms-prepare/full-blade.png)
 
-> [!NOTE]
-> You can't modify the storage replication type after the vault is set up and contains backup items. If you want to modify the type, you need to re-create the vault.
+You can't modify the storage replication type after the vault is set up and contains backup items. If you want to modify the type, you need to re-create the vault.
 
 ## Apply a backup policy
 
@@ -120,8 +119,7 @@ To create a new backup policy, fill in the following policy settings and then se
 
     ![Screenshot that shows the new backup policy.](./media/backup-azure-arm-vms-prepare/new-policy.png)
 
-> [!NOTE]
-> Azure Backup doesn't support automatic clock adjustment for daylight-saving time changes for Azure VM backups. As time changes occur, modify backup policies manually as required.
+Azure Backup doesn't support automatic clock adjustment for daylight-saving time changes for Azure VM backups. As time changes occur, modify backup policies manually as required.
 
 If you want hourly backups, configure the Enhanced backup policy. For more information, see [Back up an Azure VM by using the Enhanced policy](backup-azure-vms-enhanced-policy.md#create-an-enhanced-policy-and-configure-the-vm-backup).
 
