@@ -286,7 +286,7 @@ To confirm that enforcement works as expected, follow these steps:
 
 1. From your chosen REST client, send an unauthenticated HTTPS GET or POST request to call your workflow. Expect to get the **302** or **401** response based on your app registration setup.
 
-1. For your app registration's application (client) ID, get an access token that has the `api://<app-ID>` resource audience or the default App Service resource and send the token by following one of these authentication flows:
+1. For your app registration's application (client) ID, get an access token that has the `api://<application-ID>` resource audience or the default App Service resource and send the token by following one of these authentication flows:
 
    - [OAuth 2.0 authorization code flow with Proof Key for Code Exchange (PKCE)](/entra/identity-platform/v2-oauth2-auth-code-flow)
    - [OAuth 2.0 client credentials grant flow](/entra/identity-platform/v2-oauth2-client-creds-grant-flow)
@@ -321,7 +321,9 @@ The following table describes common problems you might encounter when you set u
 
 ## Parse identity claims in workflows
 
-When Easy Auth validates a request, Easy Auth injects identity data into the request headers and an encoded principal object. This object represents the authenticated entity, such as a client, user, managed identity, or service that interacts with your logic app. When this entity authenticates through Easy Auth, Microsoft Entra ID creates a principal object that contains information about the entity's identity, such as claims (name, email, roles). Microsoft Entra ID makes this object available to the application code so developers can access and present the user identity information for authorization and personalization.
+When Easy Auth validates a request, Easy Auth injects identity data into the request headers and an encoded principal object. This object represents the authenticated entity, such as a client, user, managed identity, or service that interacts with your logic app.
+
+When the entity authenticates through Easy Auth, Microsoft Entra ID creates a principal object that contains information about the entity's identity, such as claims (name, email, roles). Microsoft Entra ID makes this object available to the application code so developers can access and present the user identity information for authorization and personalization.
 
 A principal object has the following properties:
 
