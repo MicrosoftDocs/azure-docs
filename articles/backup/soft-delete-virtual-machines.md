@@ -20,7 +20,11 @@ This article describes how soft delete for virtual machines (VMs) in Azure Backu
 
 Soft delete is available in all Azure Public and National regions.
 
-## Soft delete Azure VM backups using the Azure portal
+## Soft delete Azure VM backups
+
+**Choose a client**:
+
+# [Azure portal](#tab/azure-portal)
 
 1. To delete the backup data of a Virtual Machine (VM), the backup must be stopped. In the Azure portal, go to your Recovery Services vault, right-click on the backup item and choose **Stop backup**.
 
@@ -56,7 +60,7 @@ Soft delete is available in all Azure Public and National regions.
 
    ![Screenshot of Azure portal, Resume backup option](./media/backup-azure-security-feature-cloud/resume-backup.png)
 
-## Soft delete for VMs using Azure PowerShell
+# [PowerShell](#tab/powershell)
 
 > [!IMPORTANT]
 > The Az.RecoveryServices version required to use soft-delete using Azure PowerShell is minimum 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` to get the latest version.
@@ -104,10 +108,12 @@ AppVM1           Undelete             Completed            12/5/2019 12:47:28 PM
 
 The **DeleteState** of the backup item will revert to `NotDeleted`. But the protection is still stopped. [Resume the backup](./backup-azure-vms-automation.md#change-policy-for-backup-items) to re-enable the protection.
 
-## Soft delete for VMs using REST API
+# [REST API](#tab/rest-api)
 
 - Delete the backups using REST API as mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
 - If you wish to undo these delete operations, refer to steps mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion).
+
+---
 
 ## How to disable soft delete
 
