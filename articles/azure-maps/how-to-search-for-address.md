@@ -21,7 +21,7 @@ This article demonstrates how to:
 * Request latitude and longitude coordinates for an address (geocode address location) by using [Search Address].
 * Search for an address or Point of Interest (POI) using [Fuzzy Search].
 * Use [Reverse Address Search] to translate coordinate location to street address.
-* Translate coordinate location into a human understandable cross street using [Search Address Reverse Cross Street], most often needed in tracking applications that receive a GPS feed from a device or asset, and wish to know where the coordinate is located.
+* Use the [Search Address Reverse Cross Street] API to convert a coordinate location into a human-readable cross street. This is especially useful in tracking applications that receive GPS data from devices or assets and need to determine the nearest street-level location for those coordinates.
 
 ## Prerequisites
 
@@ -30,9 +30,9 @@ This article demonstrates how to:
 
 >[!IMPORTANT]
 >
-> In the URL examples in this article you will need to replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
+> In the URL examples in this article, you need to replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 
-This article uses the [bruno] application, but you can choose a different API development environment.
+This article uses the [Bruno] application, but you can choose a different API development environment.
 
 ## Request latitude and longitude for an address (geocoding)
 
@@ -41,7 +41,9 @@ The example in this section uses [Get Search Address] to convert an address into
 > [!TIP]
 > If you have a set of addresses to geocode, you can use [Post Search Address Batch] to send a batch of queries in a single request.
 
-1. Open the bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
+1. Open the [Bruno] application.
+
+1. Select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
 
 1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
 
@@ -77,7 +79,9 @@ The example in this section uses `Fuzzy Search` to search the entire world for *
 > [!IMPORTANT]
 > To geobias results to the relevant area for your users, always add as many location details as possible. For more information, see [Best Practices for Search].
 
-1. Open the bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
+1. Open the [Bruno] application.
+
+1. Select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
 
 1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
 
@@ -125,7 +129,9 @@ The example in this section uses `Fuzzy Search` to search the entire world for *
 
 This example demonstrates making reverse searches using a few of the optional parameters that are available. For the full list of optional parameters, see [Reverse Search Parameters].
 
-1. Open the bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
+1. Open the [Bruno] application.
+
+1. Select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
 
 1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
 
@@ -148,20 +154,22 @@ This example demonstrates making reverse searches using a few of the optional pa
 
 1. Select the run button, and review the response body.
 
-1. Next, add the `entityType` key, and set its value to `Municipality`. The `entityType` key overrides the `returnMatchType` key in the previous step. `returnSpeedLimit` and `returnRoadUse` also need removed since you're requesting information about the municipality.  For all possible entity types, see [Entity Types].
+1. Next, add the `entityType` key, and set its value to `Municipality`. The `entityType` key overrides the `returnMatchType` key in the previous step. `returnSpeedLimit` and `returnRoadUse` also need removed since you're requesting information about the municipality. For all possible entity types, see [Entity Types].
 
     :::image type="content" source="./media/how-to-search-for-address/search-reverse-entity-type.png" alt-text="Search reverse entityType.":::
 
-1. Select the run button. Compare the results to the results returned in step 5.  Because the requested entity type is now `municipality`, the response doesn't include street address information. Also, the returned `geometryId` can be used to request boundary polygon through Azure Maps Get [Search Polygon API].
+1. Select the run button. Compare the results to the results returned in step 5. Because the requested entity type is now `municipality`, the response doesn't include street address information. Also, the returned `geometryId` can be used to request boundary polygon through Azure Maps Get [Search Polygon API].
 
 > [!TIP]
-> For more information on these as well as other parameters, see [Reverse Search Parameters].
+> For more information, see [Reverse Search Parameters].
 
 ## Search for cross street using Reverse Address Cross Street Search
 
 This example demonstrates how to search for a cross street based on the coordinates of an address.
 
-1. Open the bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
+1. Open the [Bruno] application.
+
+1. Select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
 
 1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
   
@@ -189,9 +197,9 @@ This article demonstrates how to:
 
 >[!IMPORTANT]
 >
-> In the URL examples in this article you will need to replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
+> In the URL examples in this article you need to replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 
-This article uses the [bruno] application, but you can choose a different API development environment.
+This article uses the [Bruno] application, but you can choose a different API development environment.
 
 ## Request latitude and longitude for an address (Get Geocoding)
 
@@ -200,7 +208,9 @@ The example in this section uses [Get Geocoding] to convert an address into lati
 > [!TIP]
 > If you have a set of addresses to geocode, you can use [Get Geocoding Batch] to send a batch of queries in a single request.
 
-1. Open the bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
+1. Open the [Bruno] application.
+
+1. Select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
 
 1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
 
@@ -231,7 +241,9 @@ This example demonstrates how to use the autocomplete API to search the entire n
 > [!IMPORTANT]
 > To geobias results to the relevant area for your users, always add as many location details as possible. For more information, see [Best Practices for Search].
 
-1. Open the bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
+1. Open the [Bruno] application.
+
+1. Select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
 
 1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
 
@@ -252,7 +264,9 @@ This example demonstrates how to use the autocomplete API to search the entire n
 
 Next, narrow down the area included in your search to the United States, using the `countryRegion` parameter.
 
-1. In the bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
+1. Open the [Bruno] application.
+
+1. Select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
 
 1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
 
@@ -271,9 +285,11 @@ Next, narrow down the area included in your search to the United States, using t
     > - **University of Wisconsin-Superior** in Douglas County, Wisconsin, USA
     > - **University of Wisconsin-Stout** in Menomonie, Dunn County, Wisconsin, USA
 
-Next, focus your search to include more results in a specific area within the defined `countryRegion`, using the `coordinates` parameter. This will result in more items returned near the specified area that would otherwise not make the list.
+Next, focus your search to include more results in a specific area within the defined `countryRegion`, using the `coordinates` parameter. This results in more items returned near the specified area that would otherwise not make the list.
 
-1. In the bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
+1. Open the [Bruno] application.
+
+1. Select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
 
 1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
 
@@ -284,7 +300,7 @@ Next, focus your search to include more results in a specific area within the de
 1. Select the run button, then review the response body.
 
    > [!NOTE]
-    > The `bbox` and `countryRegion` parameters in this URL define the same boundries as in the previous example, however the `coordinates=-122.136791,47.642232` parameter focuses the search results to the specified area. It returns a local university that would otherwise not be returned.
+    > The `bbox` and `countryRegion` parameters in this URL define the same boundaries as in the previous example, however the `coordinates=-122.136791,47.642232` parameter focuses the search results to the specified area. It returns a local university that would otherwise not be returned.
     >
     > - **University of Washington** in King County, Washington State, USA
     > - **University of Washington, Tacoma** in Tacoma, Pierce County, Washington State, USA
