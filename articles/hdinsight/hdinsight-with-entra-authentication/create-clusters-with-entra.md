@@ -50,7 +50,7 @@ Users have to perform the following for setting up Entra ID authentication when 
 
   - Add one (or more) admin Entra ID user during cluster creation(adding atleast one admin is mandatory).
 
-    :::image type="content" source="/media/create-hdinsight-clusters-with-entra-auth/creation-cluster.png" alt-text="Screenshot of hdinsight cluster creation landing page.":::
+    :::image type="content" source="/media/create-hdinsight-clusters-with-entra/creation-cluster.png" alt-text="Screenshot of hdinsight cluster creation landing page.":::
 
   
 
@@ -76,9 +76,9 @@ Entra ID enabled users are assigned one of two profiles:
     > **User can use only one mode on authentication for a particular cluster.**
 
 
-  :::image type="content" source="/media/create-hdinsight-clusters-with-entra-auth/select-entra-authentication-button.png" alt-text="Screenshot of hdinsight landing page showing the selection of entra id option in hdinsight landing page.":::
+  :::image type="content" source="/media/create-hdinsight-clusters-with-entra/select-entra-button.png" alt-text="Screenshot of hdinsight landing page showing the selection of entra id option in hdinsight landing page.":::
 
-  :::image type="content" source="/media/create-hdinsight-clusters-with-entra-auth/select-entra-user.png" alt-text="Screenshot of user selecting the users entra id when selecting a cluster admin.":::
+  :::image type="content" source="/media/create-hdinsight-clusters-with-entra/select-entra-user.png" alt-text="Screenshot of user selecting the users entra id when selecting a cluster admin.":::
 
 ## Login Options 
 
@@ -123,9 +123,9 @@ If Entra ID is selected:
  - The default admin can add more Ambari users as needed, with either 'Cluster Administrator' or 'Cluster User' permissions after cluster creation via Ambari UI or  REST API.
    The cluster admin also has to add Object ID, and the display name and click on "Save".
 
- 	 :::image type="content" source="/media/create-hdinsight-clusters-with-entra-auth/add-users.png" alt-text="Screenshot of Ambari page showing the users in the Ambari portal.":::
+ 	 :::image type="content" source="/media/create-hdinsight-clusters-with-entra/add-users.png" alt-text="Screenshot of Ambari page showing the users in the Ambari portal.":::
 
-     :::image type="content" source="/media/create-hdinsight-clusters-with-entra-auth/Ambari-user-roles.png" alt-text="Screenshot of Ambari add users page where cluster admin selects roles of newly added users.":::
+     :::image type="content" source="/media/create-hdinsight-clusters-with-entra/user-roles.png" alt-text="Screenshot of Ambari add users page where cluster admin selects roles of newly added users.":::
 
  - A multi-factor authentication prompt appears when the user logs in with their Entra ID.
 
@@ -145,23 +145,23 @@ If Basic Authentication is selected:
 
    1. Log in to the Ambari portal
    
-  		:::image type="content" source="/media/create-hdinsight-clusters-with-entra-auth/Ambari-login.png" alt-text="Screenshot of Ambari landing page.":::
+  		:::image type="content" source="/media/create-hdinsight-clusters-with-entra/login-page.png" alt-text="Screenshot of Ambari landing page.":::
 
    1. Navigate to "Manage Ambari" option
 
-		:::image type="content" source="/media/create-hdinsight-clusters-with-entra-auth/click-manage-Ambari.png" alt-text="Screenshot of Ambari landing page where cluster admin has to click on manage Ambari button.":::
+		:::image type="content" source="/media/create-hdinsight-clusters-with-entra/click-manage.png" alt-text="Screenshot of Ambari landing page where cluster admin has to click on manage Ambari button.":::
    
    1. Click on user tab to see all present users
 
-  		:::image type="content" source="/media/create-hdinsight-clusters-with-entra-auth/open-user-tab.png" alt-text="Screenshot of Ambari page where cluster admin clicks on User tab.":::
+  		:::image type="content" source="/media/create-hdinsight-clusters-with-entra/open-user-tab.png" alt-text="Screenshot of Ambari page where cluster admin clicks on User tab.":::
     
    1. Click on "Add User" tab to add more users
 
-      :::image type="content" source="/media/create-hdinsight-clusters-with-entra-auth/add-users.png" alt-text="Screenshot of Ambari page showing the users in the Ambari portal.":::
+      :::image type="content" source="/media/create-hdinsight-clusters-with-entra/add-users.png" alt-text="Screenshot of Ambari page showing the users in the Ambari portal.":::
       
    1. Input Object ID,  display name, and select the user access (Cluster Administrator or Cluster User). Click on "Save"
 
-		:::image type="content" source="/media/create-hdinsight-clusters-with-entra-auth/add-object-id.png" alt-text="Screenshot of Ambari page showing thee add users tab where cluster admin has to input new user information.":::
+		:::image type="content" source="/media/create-hdinsight-clusters-with-entra/add-object-id.png" alt-text="Screenshot of Ambari page showing thee add users tab where cluster admin has to input new user information.":::
 
 
 ## Next Steps
