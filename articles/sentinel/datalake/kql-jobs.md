@@ -74,7 +74,7 @@ You can create jobs to run on a schedule or one-time. When you create a job, you
         :::image type="content" source="media/kql-jobs/kql-queries-create-job.png" alt-text="A screenshot showing the create job button in the KQL query editor." lightbox="media/kql-jobs/kql-queries-create-job.png":::
     1. To create a job from the jobs management page, select **Microsoft Sentinel** > **Data lake exploration** > **Jobs**   then select the **Create a new KQL job** button.
         
-1. Enter a **Job name**. The job name must be unique for the tenant. Job names can contain up to 256 characters. You can't use a `#` in a job name.      
+1. Enter a **Job name**. The job name must be unique for the tenant. Job names can contain up to 256 characters. You can't use a `#` or a `-` in a job name.      
 
 1. Enter a **Job Description** providing the context and purpose of the job. 
 
@@ -142,7 +142,7 @@ When creating jobs in the Microsoft Sentinel data lake, consider the following l
 ## Jobs
 + Job names must be unique for the tenant.
 + Job names can be up to 256 characters. 
-+ Job names can't contain a `#`.
++ Job names can't contain a `#` or a `-`.
 + Job start time must be at least 30 minutes after job creation or editing.
 
 
