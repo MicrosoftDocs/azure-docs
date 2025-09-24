@@ -230,5 +230,5 @@ You can create your snapshots and store them in two different ways:
 
 - [Azure Files documentation](../storage/files/storage-files-introduction.md)
 - [Azure Files redundancy](../storage/files/files-redundancy.md)
-- [Planning for an Azure Files deployment](../storage/files/storage-files-planning.md)
+- [Plan for an Azure Files deployment](../storage/files/storage-files-planning.md)
 - [Azure reliability](overview.md)
