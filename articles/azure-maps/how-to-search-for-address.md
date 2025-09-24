@@ -1,12 +1,12 @@
 ---
 title: Search for a location using Azure Maps Search services
 description: Learn about the Azure Maps Search service. See how to use this set of APIs for geocoding, reverse geocoding, fuzzy searches, and reverse cross street searches.
-author: farazgis
-ms.author: fsiddiqui
-ms.date: 8/9/2024
+author: sinnypan
+ms.author: sipa
+ms.date: 9/24/2025
 ms.topic: how-to
 ms.service: azure-maps
-ms.subservice: routing
+ms.subservice: search
 zone_pivot_groups: azure-maps-search
 ---
 
@@ -181,7 +181,7 @@ This example demonstrates how to search for a cross street based on the coordina
 
 :::zone-end
 
-:::zone pivot="search-next"
+:::zone pivot="search-latest"
 
 This article demonstrates how to:
 
@@ -197,7 +197,7 @@ This article demonstrates how to:
 
 >[!IMPORTANT]
 >
-> In the URL examples in this article you need to replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
+> In the URL examples in this article, you need to replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 
 This article uses the [Bruno] application, but you can choose a different API development environment.
 
@@ -234,9 +234,9 @@ The example in this section uses [Get Geocoding] to convert an address into lati
 
 [Autocomplete] supports standard single line and free-form searches. We recommend that you use the Azure Maps Search Autocomplete API when you don't know your user input type for a search request. The query input can be a full or partial address. To improve the relevance of your search results, constrain the query results using a coordinate location and radius, or by defining a bounding box.
 
-### Search for an address using search autocomplete
+### Search for an address using autocomplete
 
-This example demonstrates how to use the autocomplete API to search the entire north American continent for partial input like "university of w". It then shows how to narrow the search scope to a specific country or region using the `countryRegion` parameter. Finally, it demonstrates how to use a `coordinate` parameter to focus the search to a specific area to limit the number of results.
+This example demonstrates how to use the autocomplete API to search the entire north American continent for partial input like "university of w." It then shows how to narrow the search scope to a specific country or region using the `countryRegion` parameter. Finally, it demonstrates how to use a `coordinate` parameter to focus the search to a specific area to limit the number of results.
 
 > [!IMPORTANT]
 > To geobias results to the relevant area for your users, always add as many location details as possible. For more information, see [Best Practices for Search].
