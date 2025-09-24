@@ -108,8 +108,8 @@ Premium V4 is available in the following regions:
 - Indonesia Central
 - Italy North
 - Japan East
-- Mexico Central
 - Korea Central
+- Mexico Central
 - North Central US
 - North Europe
 - Norway East
