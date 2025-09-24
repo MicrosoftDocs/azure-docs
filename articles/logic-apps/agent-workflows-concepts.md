@@ -260,10 +260,6 @@ Formerly named App Service Authentication, Easy Auth provides a built‑in enfor
 
 - Produces consistent authentication and authorization logs for debugging, anomaly detection, diagnostic activities, auditing, and governance.
 
-The following diagram shows where Easy Auth fits into Azure Logic Apps:
-
-:::image type="content" source="{source}" alt-text="{alt-text}":::
-
 The following process describes how Easy Auth authenticates and authorizes a client to access your logic app:
 
 1. When a client tries to authenticate its identity to access your Easy Auth-protected logic app, Azure redirects the request to Microsoft Entra ID.
