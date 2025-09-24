@@ -26,7 +26,7 @@ Azure provides the most extensive global footprint of any cloud provider and is 
  
  ## Azure regions list
  
-| Region | Availability zone support | Paired region | Physical location | Geography | Short Name |
+| Region | Availability zone support | Paired region | Physical location | Geography | Programmatic Name |
 |--------|----------------------------|---------------|-------------------|-----------|------------|
 | Australia Central | | :::image type="content" source="media/icon-region-restricted.svg" alt-text="Icon that shows that this region is access restricted to support specific customer scenarios, such as in-country/region disaster recovery" border="false"::: Australia Central 2 | Canberra | Australia | australiacentral |
 | :::image type="content" source="media/icon-region-restricted.svg" alt-text="Icon that shows that this region is access restricted to support specific customer scenarios, such as in-country/region disaster recovery" border="false"::: Australia Central 2 | | Australia Central | Canberra | Australia | australiacentral2 |
