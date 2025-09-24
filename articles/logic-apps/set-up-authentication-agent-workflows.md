@@ -282,7 +282,7 @@ To confirm that enforcement works as expected, follow these steps:
    - Conversational agent workflow: On the designer toolbar, select **Chat**.
    - Autonomous agent workflow: On the designer toolbar, select **Run** > **Run**.
 
-### Run authentication tests
+### Send authentication requests
 
 1. From your chosen REST client, send an unauthenticated HTTPS GET or POST request to call your workflow. Expect to get the **302** or **401** response based on your app registration setup.
 
