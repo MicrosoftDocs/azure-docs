@@ -59,6 +59,8 @@ This article guides you through the steps to configure an Azure Front Door Premi
 
 ::: zone-end
 
+::: zone pivot="front-door-portal"
+
 ## Enable private connectivity to Azure Application Gateway
 
 1. Follow the instructions in [Configure Azure Application Gateway Private Link](../application-gateway/private-link-configure.md), but don't complete the final step of creating a private endpoint.

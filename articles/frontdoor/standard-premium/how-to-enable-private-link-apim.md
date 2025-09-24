@@ -56,6 +56,8 @@ This article guides you through the steps to configure an Azure Front Door Premi
 
 ::: zone-end
 
+::: zone pivot="front-door-portal"
+
 ## Create an origin group and add the API Management instance as an origin
 
 1. Under **Settings** of your Azure Front Door Premium profile, select **Origin groups**.
@@ -105,7 +107,6 @@ This article guides you through the steps to configure an Azure Front Door Premi
 ::: zone-end
 
 ::: zone pivot="front-door-ps"
-
 
 ## Create an origin group and add the API Management instance as an origin
 

@@ -25,9 +25,9 @@ This article shows you how to configure Azure Front Door Premium tier to connect
 
 ::: zone pivot="front-door-portal"
 
-- An Azure Front Door Premium profile with an origin group. For more information, see [Create an Azure Front Door](../create-front-door-portal.md).
+- An Azure Front Door Premium profile with an origin group. For more information, see [Create an Azure Front Door](create-front-door-portal.md).
 
-- A Private Link. For more information, see [Create a Private Link service](../../private-link/create-private-link-service-portal.md).
+- A Private Link. For more information, see [Create a Private Link service](../private-link/create-private-link-service-portal.md).
 
 - Storage static website is enabled on your storage account. Learn how to [enable static website](../storage/blobs/storage-blob-static-website-how-to.md?tabs=azure-portal).
 
@@ -37,9 +37,9 @@ This article shows you how to configure Azure Front Door Premium tier to connect
 
 ::: zone pivot="front-door-cli"
 
-- An Azure Front Door Premium profile with an origin group. For more information, see [Create an Azure Front Door](../create-front-door-cli.md).
+- An Azure Front Door Premium profile with an origin group. For more information, see [Create an Azure Front Door](create-front-door-cli.md).
 
-- A Private Link. For more information, see [Create a Private Link service](../../private-link/create-private-link-service-cli.md).
+- A Private Link. For more information, see [Create a Private Link service](../private-link/create-private-link-service-cli.md).
 
 - Azure Cloud Shell or Azure CLI.
 

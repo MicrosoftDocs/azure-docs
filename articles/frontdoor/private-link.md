@@ -140,7 +140,7 @@ If AFD-Profile-1 gets deleted, then the PE1 private endpoint across all the orig
 
 * To route Private Link traffic, requests are routed from Azure Front Door POPs to the Front Door managed virtual network hosted in Front Door regional clusters. To have redundancy in case the regional cluster isn't reachable, it's recommended to configure multiple origins (each with a different Private Link region) under the same Azure Front Door origin group. This way even if one regional cluster is unavailable, then other origins can still receive traffic via a different regional cluster. Below is how an origin group with both origin level and region level redundancy would look like.
 
-        :::image type="content" source="./media/private-link/redundant-origin-group.png" alt-text="Diagram showing an origin group with both origin level and region level redundancy.":::
+    :::image type="content" source="./media/private-link/redundant-origin-group.png" alt-text="Diagram showing an origin group with both origin level and region level redundancy.":::
 
 3. Can I mix public and private origins in the same origin group?
 
