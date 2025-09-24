@@ -9,7 +9,7 @@ ms.date: 08/13/2025
 ms.author: fauhse
 ---
 
-# Overview
+# Understand the common structure of Azure Storage Discovery reports
 
 Azure Storage Discovery reports organize insights into distinct categories that help you understand and manage your Azure Blob Storage estate:
 
@@ -18,7 +18,7 @@ Azure Storage Discovery reports organize insights into distinct categories that 
 - **Errors**: Highlights failed operations and error codes to help identify patterns of issues.
 - **Configurations**: Surfaces configuration patterns across your storage accounts.
 - **Security**: Provides visibility into access controls and encryption settings.
-- **Consumption**</b>**: Shows storage resources capacity and activity insights that help you understand how your usage corresponds to the cost incurred.
+- **Consumption**: Shows storage resources capacity and activity insights that help you understand how your usage corresponds to the cost incurred.
 
 :::image source="media/insights/workspace-reports.png" alt-text="Screenshot of Reports."  lightbox="media/insights/workspace-reports.png":::
 
@@ -58,6 +58,7 @@ Trends charts are available in the Capacity, Activity, Errors, and Consumption r
 - Storage account count
 - Container count
 - Blob count
+
 These metrics can be grouped by dimensions like region, performance type, and redundancy type.
 
 ## Top items
@@ -67,13 +68,13 @@ Each report includes multiple pivot options that allow you to slice and analyze 
 
 These flexible pivots support deeper analysis and help you uncover opportunities for optimization, performance tuning, or configuration adjustments to improve security and compliance.
 
-:::image source="media/insights/transactions-top-items-chart.png" alt-text="Top items on Activity report."  lightbox="media/insights/transactions-top-items-chart.png":::
+:::image source="media/insights/transactions-top-items-chart.png" alt-text="Screenshot that shows Top items on Activity report."  lightbox="media/insights/transactions-top-items-chart.png":::
 
 ## Regional distribution
 The Regional distribution chart visualizes how your storage resources are geographically distributed across Azure regions. For example, in the Capacity report, this chart plots key metrics - such as size, container count, and blob count - on a world map.
 This visualization provides a quick, intuitive view of regional concentration, helping you identify imbalances and understand how storage usage varies by location. It’s especially useful for evaluating data residency, optimizing performance, and ensuring alignment with compliance requirements.
 
-:::image source="media/insights/regional-distribution-chart.png" alt-text="Regional distribution chart."  lightbox="media/insights/regional-distribution-chart.png":::
+:::image source="media/insights/regional-distribution-chart.png" alt-text="Screenshot that shows Regional distribution chart."  lightbox="media/insights/regional-distribution-chart.png":::
 
 ## Next steps
 
