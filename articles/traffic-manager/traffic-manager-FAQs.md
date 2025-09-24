@@ -553,7 +553,7 @@ Azure Traffic Manager relies on health probes to monitor endpoint availability a
 **Option 1: Use Service Tags (recommended)**
 The recommended approach is to use the **AzureTrafficManager** Service Tag in NSGs, or Azure Firewall, . Service Tags automatically include the latest IP ranges and don’t require manual updates.
 * [Use Service Tags with NSGs](/azure/virtual-network/service-tags-overview#use-service-tags-in-network-security-groups)
-* [Use Service Tags with Azure Firewall](https://learn.microsoft.com/azure/firewall/service-tags)
+* [Use Service Tags with Azure Firewall](/azure/firewall/service-tags)
 
 **Option 2: Manually update firewall rules**
 If Service Tags cannot be used (for example, with custom firewall appliances or in non-Azure environments), update ACLs or firewall rules to allow the latest Azure Traffic Manager IPs.
