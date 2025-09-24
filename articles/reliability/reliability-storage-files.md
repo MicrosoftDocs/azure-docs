@@ -156,7 +156,7 @@ For detailed pricing information, see [Azure Files pricing](https://azure.micros
   > [!WARNING]
   > After your account is reconfigured for geo-redundancy, it might take a significant amount of time before existing data in the new primary region is fully copied to the new secondary region.
   >
-  > **To avoid a major data loss**, check the value of the [Last Sync Time property](/azure/storage/common/last-sync-time-get) before you initiate an unplanned failover. To evaluate potential data loss, compare the last sync time to the last time at which data was written to the new primary.
+  > **To avoid a major data loss**, check the value of the [Last Sync Time property](/azure/storage/common/last-sync-time-get) before you initiate an unplanned failover. To evaluate potential data loss, compare the last sync time to the last time at which data was written to the new primary region.
 
 - **Disable geo-redundancy.** Convert GRS accounts back to single-region configurations (LRS or ZRS) through the same redundancy configuration change process.
 
