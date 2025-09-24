@@ -18,10 +18,7 @@ This article includes examples of the ARM and YAML configurations for frequently
 
 ## API versions
 
-The latest management API versions for Azure Container Apps are:
-
-- [`2024-03-01`](/rest/api/resource-manager/containerapps/operation-groups?view=rest-resource-manager-containerapps-2024-03-01&preserve-view=true) (stable)
-- [`2024-10-02-preview`](/rest/api/resource-manager/containerapps/operation-groups?view=rest-resource-manager-containerapps-2024-10-02-preview&preserve-view=true) (preview)
+Check the latest stable and preview API versions [here](/rest/api/resource-manager/containerapps/operation-groups) to ensure you're using the most up-to-date versions.
 
 To learn more about the differences between API versions, see [Microsoft.App change log](/azure/templates/microsoft.app/change-log/summary).
 
@@ -120,6 +117,11 @@ The following example ARM template snippet deploys a Container Apps environment.
 The following tables describe the commonly used properties in the container app resource. For a complete list of properties, see [Azure Container Apps REST API reference](/rest/api/resource-manager/containerapps/container-apps/get?view=rest-resource-manager-containerapps-2024-03-01&tabs=HTTP&preserve-view=true).
 
 ### Resource 
+A container app resource object has `kind` as option string property at first-level which provision specialized container app resource.
+
+| Property | Description | Data type | Read only |
+|---|---|---|---|
+| `kind` | Defines the type of app to create. Currently supports `functionapp`. Additional values may be supported in the future. Default: empty means regular container app| string | No |
 
 A container app resource's `properties` object includes the following properties:
 
@@ -174,6 +176,7 @@ The following example ARM template snippet deploys a container app.
 
 ```json
 {
+  "kind": "functionapp",
   "identity": {
     "userAssignedIdentities": {
       "/subscriptions/<subscription_id>/resourcegroups/my-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-user": {
@@ -399,6 +402,7 @@ The following example YAML configuration deploys a container app when used with 
 - [`az containerapp revision copy`](/cli/azure/containerapp?view=azure-cli-latest&preserve-view=true#az-containerapp-revision-copy)
 
 ```yaml
+kind: functionapp
 identity:
   userAssignedIdentities:
     "/subscriptions/<subscription_id>/resourcegroups/my-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-user": {}
