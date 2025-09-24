@@ -61,9 +61,9 @@ sections:
               -  [Redis-py](https://redis.io/docs/latest/develop/clients/redis-py/connect/#connect-to-a-redis-cluster)
               -  [Go-redis](https://redis.io/docs/latest/develop/clients/go/connect/#connect-to-a-redis-cluster)
               
-           - All client applications need to update the Redis hostname and access key[PN3.1][SP3.2] from existing Azure Cache for Redis instance to the corresponding Azure Managed Redis instance. 
+           - All client applications need to update the Redis hostname and access key from existing Azure Cache for Redis instance to the corresponding Azure Managed Redis instance. 
 
-           - Azure Managed Redis instances are clustered by default, so your application must configure your client library to work with a clustered Redis instance [SP4.1]. Some client libraries like `StackExchange.Redis` don't need any special configuration to connect to clustered Redis. [YM5.1][SP5.2] Azure Managed Redis also supports a nonclustered option up to 25GB, but we recommend configuring your instance with clustering for better performance and room for increasing memory size.
+           - Azure Managed Redis instances are clustered by default, so your application must configure your client library to work with a clustered Redis instance. Some client libraries like `StackExchange.Redis` don't need any special configuration to connect to clustered Redis. Azure Managed Redis also supports a nonclustered option up to 25GB, but we recommend configuring your instance with clustering for better performance and room for increasing memory size.
 
            - Most client applications don't need any other changes, unless you're using some [cross-slot commands](https://redis.io/blog/redis-clustering-best-practices-with-keys/). See [Azure Managed Redis Client libraries](best-practices-client-libraries.md) for more info.
 
@@ -75,12 +75,9 @@ sections:
       - question: How do users select the appropriate clustering policy?
 
         answer: |
-          The default configuration for Azure Managed Redis instances uses the OSS clustering policy. For detailed guidance on available cluster policies and recommendations, refer to [Cluster policies](/azure/redis/architecture).
+          The default configuration for Azure Managed Redis instances uses the OSS clustering policy by default. For detailed guidance on available cluster policies and recommendations, refer to [Cluster policies](/azure/redis/architecture).
 
-        answer: | 
-          Azure Managed Redis instance is configured with OSS clustering policy by default. For more information, see [Cluster policies](/azure/redis/architecture).
-
-      - question: Does Azure Managed Redis support every feature that is currently in use [SP6.1][YM6.2]?
+      - question: Does Azure Managed Redis support every feature that is currently in use?
 
         answer: | 
           Azure Managed Redis supports all Redis functionality offered in existing Azure Cache for Redis SKUs. Some management operations, regions, and SKU sizes aren't currently available but are coming soon. 
@@ -116,7 +113,7 @@ sections:
         answer: | 
           To retain data during migration, users should follow the guidance in [Migrate from Basic, Standard, Premium, and Enterprise tiers to Azure Managed Redis](/azure/redis/migrate/migrate-overview). This documentation provides instructions on migrating cache endpoints and preserving data throughout the process.
 
-      - question: Is there any tooling to help with the migration to Azure Managed Redis[SP7.1][KC7.2]?
+      - question: Is there any tooling to help with the migration to Azure Managed Redis?
 
         answer: | 
             A command-line migration tool releases in phases starting October 2025. It helps you connect your new Azure Managed Redis instance using the same cache hostname and access key as your existing Azure Cache for Redis instance.
@@ -182,7 +179,7 @@ sections:
       - question: How do users select the right Azure Managed Redis tier? 
 
         answer: |   
-          For more information, see the [Migration overview](/azure/redis/migrate/migrate-overview) on how to choose the right Azure Managed Redis tier and SKU.
+          For more information, see the [migration overview](/azure/redis/migrate/migrate-overview) on how to choose the right Azure Managed Redis tier and SKU.
 
       - question: Does Azure Managed Redis support every feature that is currently in use
 
@@ -207,7 +204,7 @@ sections:
       - question: How can data be retained during migration?
 
         answer: |
-                To retain data during migration, users should follow the guidance in [Migrate from Basic, Standard, Premium, and Enterprise tiers to Azure Managed Redis](/azure/redis/migrate/migrate-overview). This documentation provides instructions on migrating cache endpoints and preserving data throughout the process.
+          To retain data during migration, users should follow the guidance in [Migrate from Basic, Standard, Premium, and Enterprise tiers to Azure Managed Redis](/azure/redis/migrate/migrate-overview). This documentation provides instructions on migrating cache endpoints and preserving data throughout the process.
 
       - question: Is there any tooling to help with the migration to Azure Managed Redis?
         
@@ -221,5 +218,5 @@ sections:
       
       - question: Are reservations or reserved pricing transferable from Azure Cache for Redis to Azure Managed Redis? 
 
-        answer: |           
+        answer: |
             You can cancel or exchange your existing reservation. For more information, see [Cancel, exchange, and refund policies](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
