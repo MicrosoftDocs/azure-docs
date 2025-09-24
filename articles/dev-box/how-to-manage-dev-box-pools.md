@@ -41,6 +41,7 @@ In Microsoft Dev Box, a dev box pool is a collection of dev boxes that you manag
 
 ### Pool properties
 A dev box pool has the following properties:
+
 | Property | Description |
 |----------|-------------|
 | **Definition** | Determines the definition used for dev boxes in this pool. You can select an existing dev box definition or image definition when you create a dev box pool.</br>- **Dev Box Definitions** define the base image and size for dev boxes. </br>- **Image definitions** specify the software and configuration for the dev boxes. |
