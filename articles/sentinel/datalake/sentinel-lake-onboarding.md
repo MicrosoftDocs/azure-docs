@@ -21,28 +21,25 @@ Microsoft Sentinel data lake and graph are available in the following solutions:
 +	[Microsoft Purview Data Security Investigations](/purview/insider-risk-management)
 +	[Microsoft Purview Insider Risk Management](/purview/data-security-investigations)
 
-## Subscription and workspace changes when onboarding to Sentinel data lake and graph
+## Changes that occur when onboarding to Sentinel data lake and graph
 When you onboard to data lake and graph, the process makes the following changes:
 
 + It provisions your data lake for your selected subscription and resource group.
 
 + It provisions your data lake in the same region as your primary Sentinel workspace.
 
-+ It attaches all workspaces connected to Defender that are located in the same region as your primary Sentinel workspace region to your Microsoft Sentinel data lake. Workspaces that aren't connected to Defender won't be attached to the data lake.
++ It attaches all workspaces connected to Defender that are located in the same region as your primary Sentinel workspace region to your Microsoft Sentinel data lake. Workspaces that aren't connected to Defender aren't attached to the data lake.
 
 + Once Microsoft Sentinel data lake is enabled, data in the Microsoft Sentinel analytics tier is also available in the Microsoft Sentinel data lake tier from that point forward without extra charge. You can use existing Microsoft Sentinel workspace connectors to ingest new data to both the analytics and the data lake tiers, or just the data lake tier.
 
 + When you enable ingestion of data for the first time or switch ingestion between tiers, it takes 90 to 120 minutes for data to appear in the tables. Once ingestion is enabled for the data lake tier, the data appears simultaneously in the data lake and in your analytics tier tables.
 
-+ The following Microsoft services automatically create system tables to ingest data related to Microsoft resources in your environment:
++ Asset data for the following Microsoft services are ingested automatically into Sentinel data lake System tables.
   - Microsoft Entra
   - Microsoft 365
   - Azure Resource Graph
 
-  These system tables appear in the workspace selection user interface (UI) within the Lake exploration experience.
-  
-  >[!NOTE]
-  >System tables include all tables that Microsoft services create directly in the data lake for Microsoft resources.
+  System tables appear in the workspace selection user interface (UI) inside the Lake exploration experiences.
 
 + If your Microsoft 365 data isn't in the same region as the data lake, by onboarding to the data lake, you consent to ingest your Microsoft 365 data into the region where your data lake resides.
 
@@ -64,7 +61,7 @@ Once you're onboarded to the Microsoft Sentinel data lake, you can use the follo
 + [Data lake exploration KQL queries](kql-overview.md)
 + [Microsoft Sentinel data lake jobs](kql-jobs.md)
 + [Management of data tiers and retention](../manage-data-overview.md)
-+ Microsoft Sentinel cost management
++ [Microsoft Sentinel cost management](../billing-monitor-costs.md#manage-and-monitor-costs-for-the-data-lake-tier)
 + Blast radius analysis in incident investigations
 + Hunting graph in advanced hunting
 
