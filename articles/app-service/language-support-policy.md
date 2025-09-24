@@ -71,7 +71,7 @@ To learn more about how to update language versions for your App Service applica
 
 ### JDK versions and maintenance
 
-Microsoft and Adoptium builds of OpenJDK are provided and supported on App Service for Java 21, 17, 11, and 8. These binaries are provided as a no-cost, multiplatform, production-ready distribution of OpenJDK for Azure. The binaries contain all the components for building and running Java SE applications. For local development or testing, you can [download the Microsoft build of OpenJDK](/java/openjdk/download).
+Microsoft and Adoptium builds of OpenJDK are provided and supported on App Service for Java 8, 11, 17 and 21. These binaries are provided as a no-cost, multiplatform, production-ready distribution of OpenJDK for Azure. The binaries contain all the components for building and running Java SE applications. For local development or testing, you can [download the Microsoft build of OpenJDK](/java/openjdk/download).
 
 # [Linux](#tab/linux)
 
@@ -94,11 +94,16 @@ Microsoft and Adoptium builds of OpenJDK are provided and supported on App Servi
 | Tomcat 10.1 Java 11     | Ubuntu        | MSFT OpenJDK 11           |
 | Tomcat 10.1 Java 17     | Ubuntu        | MSFT OpenJDK 17           |
 | Tomcat 10.1 Java 21     | Ubuntu        | MSFT OpenJDK 21           |
+| Tomcat 11.0 Java 17     | Ubuntu        | MSFT OpenJDK 17           |
+| Tomcat 11.0 Java 21     | Ubuntu        | MSFT OpenJDK 21           |
 | JBoss 7.3 Java 8        | Ubuntu        | Adoptium Temurin 8        |
 | JBoss 7.3 Java 11       | Ubuntu        | MSFT OpenJDK 11           |
 | JBoss 7.4 Java 8        | Ubuntu        | Adoptium Temurin 8        |
 | JBoss 7.4 Java 11       | Ubuntu        | MSFT OpenJDK 11           |
 | JBoss 7.4 Java 17       | Ubuntu        | MSFT OpenJDK 17           |
+| JBoss 8.0 Java 11       | Ubuntu        | MSFT OpenJDK 11           |
+| JBoss 8.0 Java 17       | Ubuntu        | MSFT OpenJDK 17           |
+| JBoss 8.0 Java 21       | Ubuntu        | MSFT OpenJDK 21           |
 
 \* Alpine 3.16 is the last supported Alpine distribution in App Service. You should pin to a version to avoid switching over to Ubuntu automatically. Make sure that you test and switch to a Java offering that is supported by Ubuntu-based distributions when possible.
 
@@ -123,6 +128,8 @@ Microsoft and Adoptium builds of OpenJDK are provided and supported on App Servi
 | Tomcat 10.1, Java 11 | Windows Server 2022 | MSFT OpenJDK 11       |
 | Tomcat 10.1, Java 17 | Windows Server 2022 | MSFT OpenJDK 17       |
 | Tomcat 10.1, Java 21 | Windows Server 2022 | MSFT OpenJDK 21       |
+| Tomcat 11.0, Java 17 | Windows Server 2022 | MSFT OpenJDK 17       |
+| Tomcat 11.0, Java 21 | Windows Server 2022 | MSFT OpenJDK 21       |
 
 -----
 
