@@ -1,6 +1,6 @@
 ---
 title: Reliability in Microsoft Purview for governance experiences
-description: Learn about Microsoft Purview reliability with zone redundancy, data governance experiences, disaster recovery, and business continuity for resilient data management.
+description: Learn how Microsoft Purview ensures reliability with zone redundancy, disaster recovery, and business continuity for resilient data governance.
 author: chvukosw
 ms.author: chvukosw
 ms.topic: reliability-article

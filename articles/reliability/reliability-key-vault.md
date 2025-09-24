@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Key Vault
-description: Learn to secure secrets and keys with Azure Key Vault through automatic zone redundancy, paired region replication, and soft delete protection features.
+description: Learn how to secure secrets and keys in Azure Key Vault by using zone redundancy, paired region replication, and soft delete protection.
 author: msmbaldwin
 ms.author: mbaldwin
 ms.topic: reliability-article
