@@ -144,7 +144,7 @@ The connector for ONVIF is part of Azure IoT Operations. The connector deploys t
 
 - [Assets and devices](./concept-assets-devices.md)
 - [The MQTT broker](../connect-to-cloud/overview-dataflow.md)
-- [Azure Device Registry](./overview-manage-assets.md#store-assets-as-azure-resources-in-a-centralized-registry)
+- [Azure Device Registry](./overview-manage-assets.md#azure-device-registry)
 
 ## Next step
 
