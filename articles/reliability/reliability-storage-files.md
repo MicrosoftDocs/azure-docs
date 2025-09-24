@@ -218,7 +218,7 @@ You can create your snapshots and store them in two different ways:
 
 - **Share-level storage:** For operational and short-term recovery scenarios, you can create share-level snapshots and store them within the same storage account. Share-level snapshots enable rapid recovery of individual files or entire file shares to either the original or an alternate location.
 
-- **Vaulted backup storage:** With vaulted backup, you can copy your daily snapshots to an Azure Recovery Services vault. To enhance security, this vault is isolated and air-gapped from the primary storage account.
+- **Vaulted backup storage:** By using vaulted backup, you can copy your daily snapshots to an Azure Recovery Services vault. To enhance security, this vault is isolated and air-gapped from the primary storage account.
   
   When you use a paired Azure region and configure the vault to use GRS, the vault replicates data to the paired region. This replication supports cross-region recovery and DR workflows.
 
