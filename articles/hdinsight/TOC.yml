@@ -350,7 +350,7 @@ items:
   - name: Cluster operations with Entra ID authentication
     items:
     - name: Create and manage Entra ID enabled Azure HDInsight clusters
-      href: ./hdinsight-with-entra-authentication/create-clusters-with-entra-auth.md
+      href: ./hdinsight-with-entra-authentication/create-clusters-with-entra.md
     - name: Manage Entra ID enabled clusters with ARM templates
       href: ./hdinsight-with-entra-authentication/manage-entra-id-enabled-azure-hdinsight-clusters-with-arm-templates.md
     - name: Manage Entra ID enabled clusters using REST API
