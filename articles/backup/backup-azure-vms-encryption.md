@@ -113,11 +113,11 @@ To configure a backup policy, follow these steps:
 
 To enable backups for ADE-encrypted VMs by using key vaults that are enabled by Azure role-based access control (RBAC), assign the Key Vault Administrator role to the Backup Management Service Microsoft Entra app by adding a role assignment on **Access control** for the key vault.
 
-VM backup operations use the Backup Management Service app instead of Recovery Services vault managed identity to access the key vault. You must grant the necessary key vault permissions to this app for backups to function properly.
+VM backup operations use the Backup Management Service app instead of the Recovery Services vault's managed identity to access the key vault. You must grant the necessary key vault permissions to this app for backups to function properly.
 
 :::image type="content" source="./media/backup-azure-vms-encryption/enable-key-vault-encryption-inline.png" alt-text="Screenshot that shows the checkbox to enable an ADE-encrypted key vault." lightbox="./media/backup-azure-vms-encryption/enable-key-vault-encryption-expanded.png":::
 
-Learn about the [different available roles](/azure/key-vault/general/rbac-guide?tabs=azure-cli#azure-built-in-roles-for-key-vault-data-plane-operations). The Key Vault Administrator role allows permission to *get*, *list*, and *back up* both the secret and the key.
+Learn about the [available roles](/azure/key-vault/general/rbac-guide?tabs=azure-cli#azure-built-in-roles-for-key-vault-data-plane-operations). The Key Vault Administrator role allows permission to *get*, *list*, and *back up* both the secret and the key.
 
 For Azure RBAC-enabled key vaults, you can create a custom role with the following set of permissions. Learn how to [create a custom role](../active-directory/roles/custom-create.md).
 
