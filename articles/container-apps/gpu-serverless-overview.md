@@ -72,7 +72,7 @@ Keep in mind the following items as you use serverless GPUs:
 > [!NOTE]
 > Customers with enterprise agreements and pay-as-you-go customers have A100 and T4 quota enabled by default.
 
-Access to this feature is only available after you have serverless GPU quota. You can submit your GPU quota request via a [customer support case](/azure/azure-portal/supportability/how-to-create-azure-support-request). When opening a support case for a GPU quota request, please select the following:
+Access to this feature is only available after you have serverless GPU quota. You can submit your GPU quota request via a [customer support case](./quota-requests.md). When opening a support case for a GPU quota request, please select the following:
 
 1. In the **Problem description** tab, select the following values:
 
