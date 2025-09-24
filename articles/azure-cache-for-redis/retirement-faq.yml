@@ -15,6 +15,8 @@ summary: |
   - [Basic, Standared, and Premium tiers](#questions-on-basic--standard--and-premium-tiers-of-azure-cache-for-redis-retirement)
   - [Enterprise and Enterprise Flash tiers](#questions-on-the-enterprise-tier-of-azure-cache-for-redis-retirement)
 
+  For more information on moving your caches to Azure Managed Redis, see [Move from Azure Cache for Redis to Azure Managed Redis](/azure/redis/migrate/migrate-overview.md).
+
 sections:
   - name: Questions on Basic, Standard, and Premium tiers of Azure Cache for Redis retirement
     questions:
