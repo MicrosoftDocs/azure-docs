@@ -22,6 +22,10 @@ Get started with [Azure App Service](overview.md) by deploying an app to the clo
 
 To complete this quickstart, you need an Azure account with an active subscription. If you don't have an Azure account, you can [create one for free](https://azure.microsoft.com/free/).
 
+> [!NOTE]
+> Starting with ARM API version 2024-11-01, sites are created with basic authentication _disabled_ by default. Users can [manually enable it](/azure/templates/microsoft.web/sites/basicpublishingcredentialspolicies?pivots=deployment-language-arm-template) if required.
+
+
 ## Skip to the end
 
 If you're familiar with using ARM templates, you can skip to the end by selecting this :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-windows%2Fazuredeploy.json"::: button. This button opens the ARM template in the Azure portal. 
@@ -34,6 +38,9 @@ Get started with [Azure App Service](overview.md) by deploying an app to the clo
 
 To complete this quickstart, you need an Azure account with an active subscription. If you don't have an Azure account, you can [create one for free](https://azure.microsoft.com/free/).
 
+> [!NOTE]
+> Starting with ARM API version 2024-11-01, sites are created with basic authentication _disabled_ by default. Users can [manually enable it](/azure/templates/microsoft.web/sites/basicpublishingcredentialspolicies?pivots=deployment-language-arm-template) if required.
+
 ## Skip to the end
 
 If you're familiar with using ARM templates, you can skip to the end by selecting this :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-linux%2Fazuredeploy.json"::: button. This button opens the ARM template in the Azure portal. 
@@ -42,6 +49,9 @@ In the Azure portal, select **Create new** to create a new Resource Group and th
 ::: zone-end
 ::: zone pivot="platform-windows-container"
 Get started with [Azure App Service](overview.md) by deploying an app to the cloud using an Azure Resource Manager template (ARM template) and [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell. A Resource Manager template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. A premium plan is needed to deploy a Windows container app. See the [App Service pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/#pricing) for pricing details.
+
+> [!NOTE]
+> Starting with ARM API version 2024-11-01, sites are created with basic authentication _disabled_ by default. Users can [manually enable it](/azure/templates/microsoft.web/sites/basicpublishingcredentialspolicies?pivots=deployment-language-arm-template) if required.
 
 ## Skip to the end
 

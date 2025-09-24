@@ -4,6 +4,7 @@ description: Learn about connecting Azure Communications Gateway to your network
 ms.service: azure-communications-gateway
 ms.topic: concept-article
 ms.date: 04/26/2024
+ms.custom: sfi-image-nochange
 
 #CustomerIntent: As someone planning a deployment, I want to learn about my options for connectivity, so that I can start deploying
 ---

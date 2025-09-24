@@ -4,6 +4,7 @@ description: Learn how to use Azure Service Health to check for upgrades and mai
 ms.service: azure-communications-gateway
 ms.topic: concept-article
 ms.date: 04/10/2024
+ms.custom: sfi-image-nochange
 
 #CustomerIntent: As a customer managing Azure Communications Gateway, I want to learn about upcoming changes so that I can plan for service impact.
 ---

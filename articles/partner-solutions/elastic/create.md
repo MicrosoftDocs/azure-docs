@@ -49,8 +49,6 @@ Select **Elastic Search**.
     | Billing term        | Select a value.                                           | 
     | Price + Payment options | Review this information.                              |
 
-    > [!NOTE]
-    > Currently, the **Serverless** hosting type is available only in the East US region.
 
 1. At the bottom of the page, select **Next: Logs & metrics**.
 
@@ -104,9 +102,6 @@ Select **Elastic Observability**.
     | Billing term        | Select a value.                                           | 
     | Price + Payment options | Review this information.                              |
 
-    > [!NOTE]
-    > Currently, the **Serverless** hosting type is available only in the East US region.
-
 1. At the bottom of the page, select **Next: Logs & metrics**.
 
 ### Logs & metrics tab (optional)
@@ -158,9 +153,6 @@ Select **Elastic Security**.
     | Plan                | To choose a different plan, select **Change plan**.       |
     | Billing term        | Select a value.                                           | 
     | Price + Payment options | Review this information.                              |
-
-    > [!NOTE]
-    > Currently, the **Serverless** hosting type is available only in the East US region.
 
 1. At the bottom of the page, select **Next: Logs & metrics**.
 

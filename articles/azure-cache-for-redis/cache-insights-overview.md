@@ -8,7 +8,9 @@ ms.topic: conceptual
 ms.date: 03/25/2024
 appliesto:
   - ✅ Azure Cache for Redis
-ms.custom: subject-monitoring
+ms.custom:
+  - subject-monitoring
+  - sfi-image-nochange
 ---
 
 # Azure Monitor insights for Azure Cache for Redis

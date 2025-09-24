@@ -75,6 +75,9 @@ Create a resource group to organize the services related to your container app d
 
 1. Select **Use quickstart image**.
 
+    > [!NOTE]
+    > The quickstart image enables ingress automatically. If you do not use the quickstart image, please ensure that you **enable ingress**. This will allow the container app to accept traffic from Azure Front Door through the private endpoint.
+
 <!-- Deploy the container app -->
 [!INCLUDE [container-apps-create-portal-deploy.md](../../includes/container-apps-create-portal-deploy.md)]
 

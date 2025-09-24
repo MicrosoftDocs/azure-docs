@@ -6,7 +6,11 @@ ms.date: 07/01/2024
 appliesto:
   - ✅ Azure Cache for Redis
 ms.devlang: csharp
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2024
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - ignite-2024
+  - sfi-image-nochange
 ---
 
 # Scale an Azure Cache for Redis instance

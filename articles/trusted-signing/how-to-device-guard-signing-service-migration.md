@@ -6,7 +6,10 @@ ms.author: mesharm
 ms.service: trusted-signing
 ms.topic: how-to 
 ms.date: 08/19/2024
-ms.custom: template-how-to-pattern, devx-track-azurepowershell
+ms.custom:
+  - template-how-to-pattern
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 ---
 
 

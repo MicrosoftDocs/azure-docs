@@ -2,8 +2,11 @@
 title: WCF Relay hybrid on-premises/cloud application (.NET)
 description: Learn how to expose an on-premises WCF service to a web application in the cloud by using Azure Relay 
 ms.topic: tutorial
-ms.custom: devx-track-csharp, devx-track-dotnet
 ms.date: 12/11/2024
+ms.custom:
+  - devx-track-csharp
+  - devx-track-dotnet
+  - sfi-ropc-nochange
 # Customer intent: I want to know how to expose an on-premises WCF service to a web application in the cloud by using Azure Relay.
 ---
 

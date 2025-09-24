@@ -4,6 +4,7 @@ description: Learn how to configure Azure Communications Gateway and Microsoft 3
 ms.service: azure-communications-gateway
 ms.topic: how-to
 ms.date: 03/31/2024
+ms.custom: sfi-ga-nochange
 
 #CustomerIntent: As someone provisioning Azure Communications Gateway for Microsoft Teams Direct Routing, I want to add or remove customers and accounts so that I can provide service.
 ---

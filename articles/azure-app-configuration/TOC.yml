@@ -449,6 +449,8 @@
     - name: Go
       items:
       - name: Feature reference
+        href: ./feature-management-go-reference.md
+      - name: API reference
         href: https://pkg.go.dev/github.com/microsoft/Featuremanagement-Go/featuremanagement
     - name: Telemetry
       items:

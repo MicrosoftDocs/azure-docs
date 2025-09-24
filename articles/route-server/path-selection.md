@@ -6,6 +6,7 @@ ms.author: duau
 ms.service: azure-route-server
 ms.topic: concept-article
 ms.date: 09/17/2025
+ms.custom: sfi-image-nochange
 
 #CustomerIntent: As a network administrator, I want to understand path selection options with Azure Route Server so I can optimize traffic routing between Azure and on-premises networks for either performance or cost.
 ---

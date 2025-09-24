@@ -7,6 +7,8 @@ ms.author: duau
 ms.service: azure-route-server
 ms.topic: concept-article
 ms.date: 09/17/2025
+ms.custom: sfi-image-nochange
+
 
 #CustomerIntent: As an Azure administrator, I want to understand how Azure Route Server integrates with ExpressRoute and Azure VPN so that I can enable route exchange between on-premises networks and network virtual appliances.
 ---

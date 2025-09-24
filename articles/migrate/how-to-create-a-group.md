@@ -3,6 +3,7 @@ title: Group servers for assessment with Azure Migrate | Microsoft Docs
 description: Describes how to group servers before you run an assessment with the Azure Migrate service.
 ms.service: azure-migrate
 ms.topic: how-to
+ms.reviewer: v-uhabiba
 ms.date: 08/21/2024
 ms.custom: engagement-fy25
 # Customer intent: As a cloud migration planner, I want to group servers for assessment in Azure Migrate, so that I can evaluate their suitability and obtain accurate sizing and cost estimates for a successful migration to the cloud.

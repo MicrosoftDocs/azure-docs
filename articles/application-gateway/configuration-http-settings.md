@@ -177,6 +177,9 @@ To support security functions in customer data paths that necessitate unique bac
 
 This capability establishes direct, one-to-one mapping between frontend and backend connections, ensuring persistent connectivity for each individual client.
 
+>[!NOTE]
+>To enable NTLM or Kerberos passthrough authentication, ensure that the Dedicated Backend Connection setting is turned on. This configuration maintains a one-to-one mapping between frontend and backend connections, which is essential for preserving session integrity required by these authentication protocols.
+
 >[!IMPORTANT]
 >Dedicated backend connection leads to an increase in the number of backend connections and hence could require more resources to support the increased concurrent connections on Application Gateway and the backend servers. On Application Gateway, you must consider increasing the number of instances or enabling auto scale.
 >
