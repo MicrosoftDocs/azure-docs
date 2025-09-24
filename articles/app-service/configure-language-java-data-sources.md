@@ -109,16 +109,23 @@ To configure an application-level data source:
 
 # [Linux](#tab/linux)
 
-Adding a shared, server-level data source requires you to edit Tomcat's server.xml. The most reliable way to do this is as follows:
+> [!TIP]
+> Linux Tomcat containers can automatically apply XSLT files using the following convention for files copied to `/home/site/wwwroot`: If `server.xml.xsl` or `server.xml.xslt` are present, they will be applied to Tomcat's `server.xml`. If `context.xml.xsl` or `context.xml.xslt` are present, they will be applied to Tomcat's `context.xml`.
+
+Adding a shared, server-level data source requires you to edit Tomcat's `server.xml`. Because file changes outside of the `/home` directory are ephemeral, changes to Tomcat's configuration files need to be applied programatically, as follows:
 
 1. Upload a [startup script](./faq-app-service-linux.yml) and set the path to the script in **Configuration** > **Startup Command**. You can upload the startup script using [FTP](deploy-ftp.md).
 
-Your startup script makes an [xsl transform](https://www.w3schools.com/xml/xsl_intro.asp) to the server.xml file and output the resulting xml file to `/usr/local/tomcat/conf/server.xml`. The startup script should install libxslt via apk. Your xsl file and startup script can be uploaded via FTP. Below is an example startup script.
+Your startup script makes an [XSL transform](https://www.w3schools.com/xml/xsl_intro.asp) to the `server.xml` file and output the resulting XML file to `/usr/local/tomcat/conf/server.xml`. The startup script should install `libxslt` or `xlstproc` depending on the [distribution of the version of Tomcat](/azure/app-service/language-support-policy?tabs=linux#java-specific-runtime-statement-of-support) of your web app. Your XSL file and startup script can be uploaded via FTP. Below is an example startup script.
 
 ```sh
-# Install libxslt. Also copy the transform file to /home/tomcat/conf/
+# Install the libxslt package on Alpine-based images:
 apk add --update libxslt
 
+# Install the xsltproc package on Debian or Ubuntu-based images:
+apt install xsltproc
+
+# Also copy the transform file to /home/tomcat/conf/
 # Usage: xsltproc --output output.xml style.xsl input.xml
 xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /usr/local/tomcat/conf/server.xml
 ```
