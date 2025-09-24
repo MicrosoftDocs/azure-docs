@@ -36,7 +36,7 @@ This solution is particularly useful in the following scenarios:
 - If you have other backup solutions for part of your VM or data. For example, you want to back up your databases or data by using a different workload backup solution. You want to use Azure VM-level backup for the rest of the data or disks to build an efficient and robust system by using the best capabilities that are available.
 - If you use the [Enhanced policy](backup-azure-vms-enhanced-policy.md), you can use this solution to exclude unsupported disk types and configure a VM for backup. For shared disks in a VM, you can exclude the disk from VM backup and use [Azure disk backup](disk-backup-overview.md) to take a crash-consistent backup of the shared disk.
 
-When you use the Azure CLI, PowerShell, or the Azure portal, you can configure selective disk backup of the Azure VM. With a script, you can include or exclude data disks by using their logical unit numbers (LUNs). The ability to configure selective disk backup via the Azure portal is limited to the *backup OS disk* only for the Standard policy, but you can configure it for all the data disks for the Enhanced policy.
+When you use the Azure CLI, PowerShell, or the Azure portal, you can configure selective disk backup of the Azure VM. With a script, you can include or exclude data disks by using their logical unit numbers (LUNs). The ability to configure selective disk backup via the Azure portal is limited to the *backup OS disk* only for the Standard policy. You can configure it for all the data disks for the Enhanced policy.
 
 The OS disk is added to the VM backup by default and can't be excluded.
 
@@ -138,7 +138,7 @@ The following command helps get the details of the backed-up disks and excluded 
    "Excluded disk(s)": "diskextest_DataDisk_2",
 ```
 
-`BackupJobID` is the backup job name. To fetch the job name, run the following command:
+The backup job name is `BackupJobID`. To fetch the job name, run the following command:
 
 ```azurecli
 az backup job list --resource-group {resourcegroup} --vault-name {vaultname}
