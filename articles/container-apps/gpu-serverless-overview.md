@@ -67,6 +67,34 @@ Keep in mind the following items as you use serverless GPUs:
 
 - **IP addresses**: Consumption GPUs use one IP address per replica when you set up integration with your own virtual network.
 
+## Supported regions
+
+Serverless GPUs are available in the following regions:
+
+| Region | A100 | T4 |
+|--|--|--|
+| West US 3 | Yes | Yes |
+| West US | Yes | No |
+| Australia East | Yes | Yes |
+| Sweden Central | Yes | Yes |
+| West Europe<sup>1</sup> | No | Yes |
+
+<sup>1</sup> To add a T4 serverless GPU workload profile in West Europe, you must create a new workload profile environment in the region.
+
+## Use serverless GPUs
+
+When you create a container app through the Azure portal, you can set up your container to use GPU resources.
+
+In the *Container* tab of the create process, set the following settings:
+
+1. Under the *Container resource allocation* section, check the **GPU** checkbox.
+
+1. For the **GPU Type**, select either the NVIDIA A100 or NVIDIA T4 option.
+
+## Manage serverless GPU workload profile
+
+Serverless GPUs are run on consumption GPU workload profiles. You manage a consumption GPU workload profile in the same manner as any other workload profile. You can manage your workload profile using the [CLI](workload-profiles-manage-cli.md) or the [Azure portal](workload-profiles-manage-portal.md).
+
 ## Request serverless GPU quota
 
 > [!NOTE]
@@ -99,34 +127,6 @@ Access to this feature is only available after you have serverless GPU quota. Yo
 1. Select **Next**.
 
 1. Select **Create**.
-
-## Supported regions
-
-Serverless GPUs are available in the following regions:
-
-| Region | A100 | T4 |
-|--|--|--|
-| West US 3 | Yes | Yes |
-| West US | Yes | No |
-| Australia East | Yes | Yes |
-| Sweden Central | Yes | Yes |
-| West Europe<sup>1</sup> | No | Yes |
-
-<sup>1</sup> To add a T4 serverless GPU workload profile in West Europe, you must create a new workload profile environment in the region.
-
-## Use serverless GPUs
-
-When you create a container app through the Azure portal, you can set up your container to use GPU resources.
-
-In the *Container* tab of the create process, set the following settings:
-
-1. Under the *Container resource allocation* section, check the **GPU** checkbox.
-
-1. For the **GPU Type**, select either the NVIDIA A100 or NVIDIA T4 option.
-
-## Manage serverless GPU workload profile
-
-Serverless GPUs are run on consumption GPU workload profiles. You manage a consumption GPU workload profile in the same manner as any other workload profile. You can manage your workload profile using the [CLI](workload-profiles-manage-cli.md) or the [Azure portal](workload-profiles-manage-portal.md).
 
 ## Improve GPU cold start
 
