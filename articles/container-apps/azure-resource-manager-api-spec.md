@@ -117,7 +117,7 @@ The following example ARM template snippet deploys a Container Apps environment.
 The following tables describe the commonly used properties in the container app resource. For a complete list of properties, see [Azure Container Apps REST API reference](/rest/api/resource-manager/containerapps/container-apps/get?view=rest-resource-manager-containerapps-2024-03-01&tabs=HTTP&preserve-view=true).
 
 ### Resource 
-A container app resource object has `kind` as option string property at first-level which provision specialized container app resource.
+A container app resource object includes a top-level `kind` property, which is an optional string used to provision a specialized container app resource.
 
 | Property | Description | Data type | Read only |
 |---|---|---|---|
