@@ -89,9 +89,7 @@ Follow these steps to activate SMTP settings, enable email notifications and con
 ---
 
 > [!TIP]
-> Here are some tips for properly configuring SMTP:
->- When using a business email account, you may need to contact your email administrator to enable SMTP AUTH (for example, [enable-smtp-auth-for-specific-mailboxes](/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission#enable-smtp-auth-for-specific-mailboxes)). You should be able to create an app password afterwards and use it as the SMTP *password* setting.
->- When using a personal email account such as Outlook or Gmail, you should create an app password and use it as the SMTP *password* setting. Note that your account won't work for email notification if it's configured with multi-factor authentication.
+> When using a personal email account, you should create an app password and use it as the SMTP *password* setting. Note that your account won't work for email notification if it's configured with multi-factor authentication.
 >- It's recommended that you verify the SMTP configurations to be working as expected before applying them to your Azure Managed Grafana workspace. For example, you can use an open source tool such as [swaks (Swiss Army Knife for SMTP)](https://github.com/jetmore/swaks) to send a test email using the SMTP configurations by running the following command in a terminal window:
 >     ```bash
 >     # fill in all placeholders with your own values for the following parameters
