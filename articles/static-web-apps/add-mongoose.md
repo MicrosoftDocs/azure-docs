@@ -6,6 +6,7 @@ ms.author: wujia
 ms.service: azure-static-web-apps
 ms.topic: tutorial
 ms.date: 10/10/2022
+ms.custom: sfi-ropc-nochange
 ---
 
 # Access data in Azure Cosmos DB using Mongoose with Azure Static Web Apps

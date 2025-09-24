@@ -9,6 +9,7 @@ ms.date: 08/03/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2019
+ms.custom: sfi-image-nochange
 ---
 
 # Change pricing tier of an Azure notification hubs namespace

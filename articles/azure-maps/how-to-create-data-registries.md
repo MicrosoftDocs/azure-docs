@@ -8,6 +8,7 @@ ms.date: 09/16/2024
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: data-registry
+ms.custom: sfi-image-nochange
 ---
 
 # How to create data registry

@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: shasulin
+ms.custom: sfi-image-nochange
 ---
 
 # Get started with Cost Management reporting

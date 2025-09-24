@@ -5,6 +5,7 @@ ms.topic: article
 ms.service: azure-government
 recommendations: false
 ms.date: 10/03/2022
+ms.custom: sfi-image-nochange
 ---
 
 # Secure Azure Computing Architecture (SACA)

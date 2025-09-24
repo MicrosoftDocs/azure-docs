@@ -3,6 +3,7 @@ title: Create SSL/TLS certificates for OT appliances - Microsoft Defender for Io
 description: Learn how to create SSL/TLS certificates for use with Microsoft Defender for IOT OT sensors.
 ms.date: 01/17/2023
 ms.topic: install-set-up-deploy
+ms.custom: sfi-image-nochange
 ---
 
 # Create SSL/TLS certificates for OT appliances

@@ -6,7 +6,10 @@ ms.service: azure-vmware
 author: ju-shim
 ms.author: jushiman
 ms.date: 6/18/2024
-ms.custom: references_regions, engagement-fy23
+ms.custom:
+  - references_regions
+  - engagement-fy23
+  - sfi-image-nochange
 # Customer intent: "As a cloud administrator, I want to integrate Azure Elastic SAN with Azure VMware Solution, so that I can optimize storage performance and enhance resource management for my virtual machines."
 ---
 

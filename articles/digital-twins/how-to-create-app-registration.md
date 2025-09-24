@@ -7,6 +7,7 @@ ms.author: baanders
 ms.date: 03/10/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
+ms.custom: sfi-image-nochange
 ---
 
 # Create an app registration to use with Azure Digital Twins

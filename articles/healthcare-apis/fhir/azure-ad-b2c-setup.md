@@ -8,6 +8,9 @@ ms.subservice: fhir
 ms.topic: tutorial
 ms.date: 05/21/2025
 ms.author: namalu
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ga-nochange
 ---
 
 # Use Azure Active Directory B2C to grant access to the FHIR service

@@ -4,10 +4,12 @@ description: Create and provision a single IoT Edge for Linux on Windows device 
 author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-edge
-ms.custom: linux-related-content
 services: iot-edge
 ms.topic: how-to
 ms.date: 05/16/2025
+ms.custom:
+  - linux-related-content
+  - sfi-ropc-nochange
 ---
 
 # Create and provision an IoT Edge for Linux on Windows device using symmetric keys

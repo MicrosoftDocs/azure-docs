@@ -7,6 +7,7 @@ ms.date: 05/14/2025
 ms.topic: how-to
 ms.service: azure-iot-edge
 services: iot-edge
+ms.custom: sfi-ropc-nochange
 ---
 
 # Configure IoT Edge device settings

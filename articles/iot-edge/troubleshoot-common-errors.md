@@ -7,7 +7,10 @@ ms.date: 12/10/2024
 ms.topic: troubleshooting-general
 ms.service: azure-iot-edge
 services: iot-edge
-ms.custom:  [amqp, mqtt]
+ms.custom:
+  - amqp
+  - mqtt
+  - sfi-image-nochange
 ---
 
 # Solutions to common issues for Azure IoT Edge

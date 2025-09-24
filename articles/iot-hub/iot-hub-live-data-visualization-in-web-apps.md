@@ -8,7 +8,11 @@ ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: tutorial
 ms.date: 03/26/2025
-ms.custom: ['Role: Cloud Development', 'Role: Data Analytics', devx-track-azurecli]
+ms.custom:
+  - 'Role: Cloud Development'
+  - 'Role: Data Analytics'
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Tutorial: Visualize real-time sensor data from your Azure IoT hub in a web application

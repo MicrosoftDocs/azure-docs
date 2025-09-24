@@ -6,7 +6,9 @@ ms.author: jduffney
 ms.date: 04/19/2022
 ms.topic: quickstart
 ms.devlang: golang
-ms.custom: devx-track-go
+ms.custom:
+  - devx-track-go
+  - sfi-ropc-nochange
 ---
 
 # Send messages to and receive messages from Azure Service Bus queues (Go)

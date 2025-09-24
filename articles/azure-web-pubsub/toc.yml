@@ -92,8 +92,10 @@
           href: howto-secure-private-endpoints.md
         - name: Manage network access control
           href: howto-secure-network-access-control.md
-        - name: Secure outbound traffic through shared private endpoints
+        - name: Secure outbound traffic to Functions through shared private endpoints
           href: howto-secure-shared-private-endpoints.md
+        - name: Secure outbound traffic to Private Link service through shared private endpoints
+          href: howto-secure-shared-private-endpoints-private-link-service.md
         - name: Access a key vault through shared private endpoints
           href: howto-secure-shared-private-endpoints-key-vault.md
         - name: Use a managed identity

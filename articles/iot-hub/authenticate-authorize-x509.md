@@ -8,7 +8,11 @@ services: iot-hub
 ms.author: sonialopez
 ms.topic: conceptual
 ms.date: 01/31/2025
-ms.custom: ['Role: Cloud Development', 'Role: IoT Device', 'Role: System Architecture']
+ms.custom:
+  - 'Role: Cloud Development'
+  - 'Role: IoT Device'
+  - 'Role: System Architecture'
+  - sfi-image-nochange
 ---
 
 # Authenticate identities with X.509 certificates

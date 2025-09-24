@@ -7,6 +7,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 05/23/2025
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Create an IoT Central application

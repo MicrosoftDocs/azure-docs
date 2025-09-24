@@ -2,11 +2,11 @@
 title: Rooms API for structured meetings
 titleSuffix: An Azure Communication Services article
 description: This article describes Azure Communication Services Rooms API for structured meetings.
-author: farrukhghaffar
+author: kirmadi
 manager: cassidyfein
 services: azure-communication-services
 
-ms.author: FAGHAFFA
+ms.author: jorgegarc
 ms.date: 05/15/2025
 ms.topic: conceptual
 ms.service: azure-communication-services
