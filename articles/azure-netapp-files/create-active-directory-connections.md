@@ -36,6 +36,9 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
 * To enable AES encryption, you should first enable AES-128, AES-256, RC4, and DES encryption types on Active Directory (AD) then enable AES on the control plane. You must enable encryption in Active Directory first. 
 
+> [!IMPORTANT]
+> AES-256 encryption is required if you plan to use Windows Server 2025 domain controllers in your Active Directory environment.
+
 * To enable AES encryption support for the admin account in the AD connection, run the following Active Directory PowerShell commands:
 
     ```powershell

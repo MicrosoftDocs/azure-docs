@@ -4,6 +4,7 @@ description: Learn how to configure the user roles required to deploy, manage, a
 ms.service: azure-communications-gateway
 ms.topic: how-to
 ms.date: 02/16/2024
+ms.custom: sfi-ga-nochange
 ---
 
 # Set up user roles for Azure Communications Gateway

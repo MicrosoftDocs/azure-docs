@@ -5,6 +5,7 @@ author: vijain
 ms.author: vijain
 ms.topic: how-to
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 09/26/2024
 ms.custom:
   - engagement-fy25
