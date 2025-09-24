@@ -21,6 +21,8 @@ items:
   items:
     - name: Incident management
       href: incident-management.md
+    - name: Connect source code repositories
+      href: code-repository-connect.md
     - name: FAQ
       href: faq.md
     - name: Billing

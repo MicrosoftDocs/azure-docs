@@ -1085,6 +1085,15 @@ groups:
   - id: alphanumeric-senderid
     title: Alphanumeric Sender ID
 # Owner: cshoe
+- id: sre-agent-code-repo
+  title: Code repository
+  prompt: Select a code repository hosting platform
+  pivots:
+  - id: azure-devops
+    title: Azure DevOps
+  - id: github
+    title: GitHub
+# Owner: cshoe
 - id: container-apps
   title: Template language
   prompt: Select a template language
