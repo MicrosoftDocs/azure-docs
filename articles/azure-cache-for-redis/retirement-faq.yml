@@ -100,7 +100,7 @@ sections:
               - Flash Optimized up to 1000 GB - ETA March 2026
             - Management Operations:
               - Keyspace notifications -  ETA March 2026
-              - Entra Id RBAC-  ETA June 2026
+              - Microsoft Entra ID RBAC -  ETA June 2026
 
           If you want to migrate to Azure Managed Redis immediately, but you can't because of any missing feature, reach out to support or send an email to AzureManagedRedis@microsoft.com.
 
@@ -162,11 +162,11 @@ sections:
 
           Azure Managed Redis is an Azure first party offering, meaning there's no Azure Marketplace component. You don't have to transact with Marketplace separately. You provision, manage and pay for   Azure Managed Redis like any other native Azure service/product. 
 
-          Azure Managed Redis has a simplified architecture that eliminates the _quorum node_, which reduces overhead and costs. Removing _quorum node_ improve resource utilization, and enables availability in regions/clouds that Azure Cache for Redis Enterprise could not reach. Azure Managed Redis is now available in most Azure regions, with concrete plans to be supported in other sovereign clouds soon. 
+          Azure Managed Redis has a simplified architecture that eliminates the _quorum node_, which reduces overhead and costs. Removing _quorum node_ improve resource utilization, and enables availability in regions/clouds that Azure Cache for Redis Enterprise couldn't reach. Azure Managed Redis is now available in most Azure regions, with concrete plans to be supported in other sovereign clouds soon. 
           
           Azure Managed Redis offers other advantages over Azure Cache for Redis Enterprise such as:
           - Zone redundant by default 
-          - Offers non-HA options for dev/test and nonproduction environments that halves the cost of your instance. 
+          - Offers non-HA options for dev/test and nonproduction environments that halve the cost of your instance. 
           - Simple SKU structure based directly on memory and performance requirements. Unlike Azure Cache for Redis Enterprise, which required direct management of scale factor and capacity. For more information on the three simplified performance tiers, see [Choosing the right tier](/azure/redis/overview.md#choosing-the-right-tier)
           - Built to use Microsoft Entra ID for authentication to improve the security posture of your workload
 
