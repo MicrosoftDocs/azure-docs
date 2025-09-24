@@ -106,7 +106,7 @@ For the best way to begin Easy Auth setup, create a new app registration in Micr
 
    For more information, see the following articles:
 
-   - [Azure governance overview](azure/cloud-adoption-framework/ready/landing-zone/design-area/governance)
+   - [Azure governance overview](/azure/cloud-adoption-framework/ready/landing-zone/design-area/governance)
    - [Set up governance in Azure](/azure/cloud-adoption-framework/ready/azure-setup-guide/govern-org-compliance)
    - [What is Conditional Access](/entra/identity/conditional-access/overview)?
 
