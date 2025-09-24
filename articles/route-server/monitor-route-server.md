@@ -6,6 +6,7 @@ ms.author: duau
 ms.service: azure-route-server
 ms.topic: how-to
 ms.date: 09/17/2025
+ms.custom: sfi-image-nochange
 
 #CustomerIntent: As an Azure administrator, I want to monitor Azure Route Server metrics and BGP peer status to ensure optimal performance and troubleshoot connectivity issues.
 ---

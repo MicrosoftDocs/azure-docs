@@ -4,6 +4,7 @@ ms.service: azure-relay
 ms.topic: include
 ms.date: 12/04/2024
 ms.author: spelluru
+ms.custom: sfi-image-nochange
 ---
 1. Sign in to the [Azure portal].
 1. Select **All services** on the left menu. Select **Integration**, search for **Relays**, move the mouse over **Relays**, and then select **Create**. 

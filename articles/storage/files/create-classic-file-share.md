@@ -5,7 +5,7 @@ description: How to create and delete an Azure classic file share by using the A
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 09/16/2025
+ms.date: 09/24/2025
 ms.author: kendownie
 ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
 # Customer intent: "As a cloud administrator, I want to create and manage Azure classic file shares using the Azure portal, PowerShell, or CLI, so that I can efficiently store and access data with configurable performance and redundancy options."
@@ -313,6 +313,9 @@ After you create a storage account, you can create a classic file share. This pr
 
 When you create a classic file share using the provisioned v2 billing model, you specify how much storage, IOPS, and throughput your file share needs. The amount of each quantity that you provision determines your total bill. By default, when you create a new file share using the provisioned v2 model, we provide a recommendation for how many IOPS and how much throughput you need based on the amount of provisioned storage you specify. Depending on your individual file share requirements, you might find that you require more or less IOPS or throughput than our recommendations, and can optionally override these recommendations with your own values as desired. To learn more, see [Understanding the provisioned v2 billing model](./understanding-billing.md#provisioned-v2-model).
 
+> [!NOTE]
+> Before you create a provisioned v2 classic file share, make sure the storage account you intend to use is of the *FileStorage* storage account kind. Go to the Overview tab essentials section of the storage account to check its account kind.  
+
 # [Portal](#tab/azure-portal)
 
 Follow these instructions to create a new Azure file share using the Azure portal.
@@ -389,6 +392,9 @@ az storage share-rm create --resource-group $resourceGroupName --name $shareName
 ### Create an SSD provisioned v1 classic file share
 
 When you create a classic file share using the provisioned v1 billing model, you specify how much storage your share needs, and IOPS and throughput capacity are computed for you based on how much storage provisioned. Depending on your individual file share requirements, you might find that you require more IOPS or throughput than our recommendations. In this case, you need to provision more storage to get the required IOPS or throughput. To learn more, see [Understanding the provisioned v1 billing model](./understanding-billing.md#provisioned-v1-model).
+
+> [!NOTE]
+> Before you start create a provisioned v1 classic file share, please make sure the storage account you intend to use is "FileStorage" storage account kind. Go to overview tab essentials section of the storage account to check its account kind.  
 
 # [Portal](#tab/azure-portal)
 
@@ -469,6 +475,9 @@ az storage share-rm create \
 ### Create an HDD pay-as-you-go classic file share
 
 HDD pay-as-you-go file shares have a property called access tier. All three access tiers are stored on the exact same storage hardware. The main difference for these three access tiers is their data at-rest storage prices, which are lower in cooler tiers, and the transaction prices, which are higher in the cooler tiers. To learn more about the differences between tiers, see [differences in access tiers](./understanding-billing.md#differences-in-access-tiers).
+
+> [!NOTE]
+> Before you start create a pay-as-you-go classic file share, please make sure the storage account you intend to use is "StorageV2 (general purpose v2)" storage account kind. Go to overview tab essentials section of the storage account to check its account kind.  
 
 # [Portal](#tab/azure-portal)
 
