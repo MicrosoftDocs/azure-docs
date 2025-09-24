@@ -20,7 +20,7 @@ ms.update-cycle: 180-days
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Agent workflows expand integration options because they can exchange messages with more diverse callers, such as people, agents, Model Context Protocol (MCP) servers and clients, tool brokers, and external services. While non-agent workflows interact with a small, known, and fixed set of callers, agent callers can come from dynamic, unknown, and untrusted networks. As a result, you must authenticate and enforce permissions for each caller.
+Agent workflows expand integration options because they can exchange messages with more diverse callers, such as people, agents, Model Context Protocol (MCP) servers and clients, tool brokers, and external services. While nonagent workflows interact with a small, known, and fixed set of callers, agent callers can come from dynamic, unknown, and untrusted networks. As a result, you must authenticate and enforce permissions for each caller.
 
 To strengthen security for agent workflows, set up App Service Authentication, also called "Easy Auth", so you can use the following capabilities:
 
@@ -34,13 +34,13 @@ These measures let you authenticate and authorize each caller at a fine-grained 
 
 Easy Auth works with Microsoft Entra ID, or optionally Open ID Connect, as a separate security layer to provide built-in authentication and authorization capabilities that meet your needs. With security enforcement operating outside your workflow, you can focus more on developing the business logic instead. This separation of concerns makes agent workflows simpler and easier to build, debug, operate, monitor, maintain, govern, and audit.
 
-Non-agent workflow security involves static SAS, rotating secrets, and network boundary controls like access restrictions, IP allow lists, service tags, virtual network integration, and private endpoints. With agent workflows, you design authorization around end users, managed identities, service principals, and their scopes and roles. This approach enables safer global reach but still allows downstream actions to respect fine-grained permissions.
+Nonagent workflow security involves static SAS, rotating secrets, and network boundary controls like access restrictions, IP allow lists, service tags, virtual network integration, and private endpoints. With agent workflows, you design authorization around end users, managed identities, service principals, and their scopes and roles. This approach enables safer global reach but still allows downstream actions to respect fine-grained permissions.
 
-This guide shows how to create an app registration and then set up Easy Auth for your Standard logic app resource, which can contain agent and non-agent workflows.
+This guide shows how to create an app registration and then set up Easy Auth for your Standard logic app resource, which can contain agent and nonagent workflows.
 
 > [!IMPORTANT]
 >
-> Easy Auth stores setup information in your logic app resource's underlying app settings, for example, 
+> Easy Auth stores configuration information in your logic app resource's underlying app settings, for example, 
 > **WEBSITE_AUTH_ENABLED**, **WEBSITE_AUTH_DEFAULT_PROVIDER**, and **MICROSOFT_PROVIDER_AUTHENTICATION_SECRET**. 
 > Don't manually edit these settings unless you want to set up automation using ARM templates, Bicep templates, or Terraform templates.
 
@@ -238,7 +238,7 @@ If you have to reuse an existing app registration that's shared with another API
       | **Who can consent** | Yes | **Admins and users** |
       | **Admin consent display name** | Yes | Label or name for permission scope that the consent message shows when tenant administrators provide consent for the scope. <br><br>For example: <br>**Access \<logic-app-name\>** |
       | **Admin consent definition** | Yes | Detailed description for the permission scope that the consent screen shows when tenant administrators expand the scope on the consent screen. <br><br>For example: <br>**Allow the application to access \<logic-app-name\> on behalf of the signed-in user.** |
-      | **User consent display name** | No | Optional name for the permisison scope that the consent screen shows when end users provide consent for this scope. <br><br>For example: <br>**Access <logic-app-name\>** |
+      | **User consent display name** | No | Optional name for the Permission scope that the consent screen shows when end users provide consent for this scope. <br><br>For example: <br>**Access <logic-app-name\>** |
       | **User consent definition** | No | Optional detailed description for the permission scope that the consent screen shows when end users expand the scope on the consent screen. <br><br>For example: <br>**Allow the application to access \<logic-app-name\> on your behalf.** |
       | **State** | Yes | **Enabled** |
 
@@ -295,7 +295,7 @@ To confirm that enforcement works as expected, follow these steps:
 
    1. In the Azure portal, on your workflow sidebar, under **Tools**, select **Run history**, and then select the latest workflow run.
 
-   1. In the monitoring view, confirm that the run history with operation statuses appear as expected.
+   1. In the monitoring view, confirm that the run history and operation statuses appear as expected.
 
 1. Try running the following tests:
 
@@ -352,7 +352,7 @@ The following list describes parse claim tasks to perform for common authorizati
 
 ## Authenticate and authorize with a developer key
 
-For non-production scenarios only, such as design, development, and quick testing, the Azure portal provides, manages, and uses a *developer key* to run your workflow and execute actions on your behalf. For more information, see [Developer key authentication and authorization](agent-workflows-concepts.md#developer-key-authentication-and-authorization).
+For nonproduction scenarios only, such as design, development, and quick testing, the Azure portal provides, manages, and uses a *developer key* to run your workflow and execute actions on your behalf. For more information, see [Developer key authentication and authorization](agent-workflows-concepts.md#developer-key-authentication-and-authorization).
 
 ### Best practices
 

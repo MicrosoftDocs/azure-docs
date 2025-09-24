@@ -48,7 +48,7 @@ The following table provides basic introductions to key concepts:
 | **Agent** | A prebuilt action that uses a structured iterative process to solve complex, multi-step problems. The agent accomplishes this goal by iteratively following these steps: <br><br>1. **Think**: Collect, process, and analyze available information and inputs, such as text, images, audio, sensor data, and so on, from specific data sources. Apply reason, logic, or learning models to understand requests, create plans or solutions, and choose the best action to answer or fulfill requests with help from generative AI models. <br><br>2. **Act**: Based on the choices made and available tools, complete tasks in the digital or real world. <br><br>3. **Learn** (Optional): Adapt its own behavior over time by using feedback or other information. <br><br>An agent can accept instructions, work with services, systems, apps, and data by invoking tools that you create with prebuilt actions in Azure Logic Apps, and respond with the results. An agent can process information, make choices, and complete tasks by using a deployed model, for example, in Azure OpenAI Service. <br><br>**Note**: An agent workflow can include multiple agents in a sequence. You can't add an agent inline as a tool in another agent. <br><br>For more information, see [What is an AI agent](/azure/ai-services/agents/overview#what-is-an-ai-agent)? |
 | **Large language model (LLM)** | A program trained to recognize patterns and perform jobs without human intervention. <br><br>For more information, see [What are large language models](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-are-large-language-models-llms)? |
 | **Tool** | A tool contains one or more actions that perform a task for an agent. For example, a tool can send email, work with data sources, perform calculations or conversions, interact with APIs, and so on. For example, see [Create tool to get the weather](create-autonomous-agent-workflows.md#create-tool-weather). |
-| **Agent parameter** | A parameter that you create on a tool or in an action parameter, based on the use case for the agent parameter. You create agent parameters so the agent can pass model-only outputs as parameter inputs for an action in a tool. You don't need agent parameters for values from non-model sources. <br><br>Agent parameters differ from traditional parameters in the following ways: <br><br>- Agent parameters apply only to the tool where you define them. This restriction means you can't share agent parameters with other tools. In comparison, you can share traditional parameters globally with operations and control flow structures in a workflow. <br><br>- Agent parameters don't have resolved values when the workflow starts to run. An agent parameter receives a value only if the agent invokes the tool by using specific arguments. These arguments become the agent parameters for invoking the tool. <br><br>- An agent can invoke the same tool multiple times with different agent parameter values, even when that tool exists in the same loop iteration. For example, a tool can check the weather in both Seattle and London. <br><br>For more information, see [Create agent parameters for 'Get forecast' action](create-autonomous-agent-workflows.md#create-agent-parameters-get-weather). |
+| **Agent parameter** | A parameter that you create on a tool or in an action parameter, based on the use case for the agent parameter. You create agent parameters so the agent can pass model-only outputs as parameter inputs for an action in a tool. You don't need agent parameters for values from nonmodel sources. <br><br>Agent parameters differ from traditional parameters in the following ways: <br><br>- Agent parameters apply only to the tool where you define them. This restriction means you can't share agent parameters with other tools. In comparison, you can share traditional parameters globally with operations and control flow structures in a workflow. <br><br>- Agent parameters don't use resolved values when the workflow starts to run. An agent parameter receives a value only if the agent invokes the tool by using specific arguments. These arguments become the agent parameters for invoking the tool. <br><br>- An agent can invoke the same tool multiple times with different agent parameter values, even when that tool exists in the same loop iteration. For example, a tool can check the weather in both Seattle and London. <br><br>For more information, see [Create agent parameters for 'Get forecast' action](create-autonomous-agent-workflows.md#create-agent-parameters-get-weather). |
 | **Context** | An agent maintains a log history by keeping a maximum number of tokens or messages as context and passing that context into the model for the next interaction. Each model has different *context length* limits. |
 
 ## Autonomous versus conversational agent workflows
@@ -196,13 +196,13 @@ To support an internal facilities team, a work order agent performs the followin
 
 ## Authentication and authorization
 
-Non-agent workflows usually interact with a small, known, and predictable set of callers. However, agent workflows communicate with broader range of callers, such as people, agents, Model Context Protocol (MCP) servers, tool brokers, and external services. This wider reach increases integration options but introduces different security challenges because callers can originate from dynamic, unknown, or untrusted networks. When callers come from networks you don't control, or when identities are external or unbounded identities, you must authenticate and authorize each caller so you can protect your workflows.
+Nonagent workflows usually interact with a small, known, and predictable set of callers. However, agent workflows communicate with broader range of callers, such as people, agents, Model Context Protocol (MCP) servers, tool brokers, and external services. This wider reach increases integration options but introduces different security challenges because callers can originate from dynamic, unknown, or untrusted networks. When callers come from networks you don't control, or when identities are external or unbounded identities, you must authenticate and authorize each caller so you can protect your workflows.
 
 The following sections describe and compare options for authenticating callers and authorizing their access to agent workflows:
 
 ### Developer key authentication and authorization
 
-For non-production scenarios only, such as design, development, and quick testing, the Azure portal provides, manages, and uses a *developer key* to run your workflow and execute actions on your behalf.
+For nonproduction scenarios only, such as design, development, and quick testing, the Azure portal provides, manages, and uses a *developer key* to run your workflow and execute actions on your behalf.
 
 #### What is a developer key?
 
@@ -232,7 +232,7 @@ The following table describes appropriate and inappropriate scenarios for using 
 | Check workflow structure, bindings, or basic trigger and action behavior. | - Your workflow callers include external agents, MCP servers, or conversational clients. <br><br>- You plan to publish your workflow endpoint outside your tenant. |
 | Temporary sandbox or spike prototypes that later adopt Easy Auth or SAS URL hardening. | Your workflow requires auditable per-user identities, token revocation, Conditional Access policies, or least‑privilege enforcement. |
 
-For more information, see [Set up Easy Auth]
+For more information, see [Secure agent workflows with Easy Auth](set-up-authentication-agent-workflows.md#authenticate-and-authorize-with-a-developer-key).
 
 <a name="easy-auth"></a>
 
@@ -242,7 +242,7 @@ For production scenarios, including chat and agent clients outside the Azure por
 
 This approach isolates tokens, enforces least privilege, and avoids reusing broad multi-application registrations.
 
-Formerly known as App Service Authentication, Easy Auth provides a built‑in enforcement layer that offers the following benefits and lets you focus more on building your workflow's business logic:
+Formerly named App Service Authentication, Easy Auth provides a built‑in enforcement layer that offers the following benefits and lets you focus more on building your workflow's business logic:
 
 - Handles sign-in, authentication, and authorization for Microsoft Entra and OpenID Connect providers without custom code.
 
@@ -281,7 +281,7 @@ The following process describes how Easy Auth authenticates and authorizes a cli
    - Compare the `aud` claim with the allowed token audience.
    - Compare the `aud` claim with the expected application ID URI.
 
-1. If the values match, authorization proceeds. If not, Easy Auth denies the request with an **HTTP 401 Unauthorized** error.
+1. If the values match, authorization continues. If not, Easy Auth denies the request with an **HTTP 401 Unauthorized** error.
 
 For more information, see the following articles:
 
