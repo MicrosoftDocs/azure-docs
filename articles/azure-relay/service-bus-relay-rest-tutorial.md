@@ -2,8 +2,10 @@
 title: 'Tutorial: REST tutorial using Azure Relay'
 description: 'Tutorial: Build an Azure Relay host application that exposes a REST-based interface.'
 ms.topic: tutorial
-ms.custom: devx-track-csharp
 ms.date: 12/11/2024
+ms.custom:
+  - devx-track-csharp
+  - sfi-ropc-nochange
 # Customer intent: I want to learn how to build an Azure Relay host application that exposes a REST-based interface.
 ---
 

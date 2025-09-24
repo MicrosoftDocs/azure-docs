@@ -6,6 +6,7 @@ ms.author: duau
 ms.service: azure-route-server
 ms.topic: tutorial
 ms.date: 02/10/2025
+ms.custom: sfi-image-nochange
 
 #CustomerIntent: As an Azure administrator, I want to deploy Azure Route Server in my environment with DDoS protection so that the Route Server dynamically updates virtual machines (VMs) routing tables with any changes in the topology while it's protected by Azure DDoS protection.
 ---
