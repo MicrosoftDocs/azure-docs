@@ -85,6 +85,7 @@ The cause of this problem can be one of three things:
 
 <br>
 <br>
+
 * The backend server returns a certificate that doesn't match the FQDN of the Azure Front Door backend. To resolve this issue, you have two options:
 
     - The returned certificate must match the FQDN.
