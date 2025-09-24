@@ -210,7 +210,7 @@ Consider the following common high-level approaches:
 
 ## Backups
 
-[Azure Files Backup](/azure/backup/azure-file-share-backup-overview) is a native integration between Azure Files and Azure Backup that's designed to safeguard data against accidental deletion, corruption, and ransomware attacks.
+[Azure Files backup](/azure/backup/azure-file-share-backup-overview) is a native integration between Azure Files and Azure Backup that's designed to safeguard data against accidental deletion, corruption, and ransomware attacks.
 
 Azure Files backup creates share-level snapshots stored within the same storage account. This capability enables the rapid recovery of both individual files and entire file shares. You can also use *backup policies* to provide long retention periods with customizable backup frequency.
 
