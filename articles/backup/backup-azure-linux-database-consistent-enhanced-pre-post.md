@@ -105,7 +105,7 @@ The enhanced prescript and postscript framework is built on Azure VM backup that
 After the database-consistent snapshots are taken and the log backups are streamed to an NFS volume, the recovery strategy of the database could use the recovery functionality of Azure VM backups. The ability of log backups is also applied to it by using the database client. The following options for recovery strategy are:
 
 - Create new VMs from a database-consistent recovery point. The VM should already have the log mount-point connected. Use database clients to run recovery commands for point-in-time recovery.
-- Create disks from a database-consistent recovery point and attach them to another target VM. Then mount the log destination and use database clients to run recovery commands for point-in-time recovery
+- Create disks from a database-consistent recovery point and attach them to another target VM. Then mount the log destination and use database clients to run recovery commands for point-in-time recovery.
 - Use a file-recovery option and generate a script. Run the script on the target VM and attach the recovery point as iSCSI disks. Then use database clients to run the database-specific validation functions on the attached disks and validate the backup data. Also, use database clients to export or recover a few tables or files instead of recovering the entire database.
 - Use the Cross Region Restore functionality to perform the preceding actions from secondary paired regions during a regional disaster.
 
