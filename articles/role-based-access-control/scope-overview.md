@@ -7,6 +7,7 @@ ms.service: role-based-access-control
 ms.topic: how-to
 ms.date: 03/30/2025
 ms.author: rolyon
+ms.custom: sfi-image-nochange
 ---
 
 # Understand scope for Azure RBAC

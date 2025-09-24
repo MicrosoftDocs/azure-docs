@@ -3,6 +3,7 @@ title: Investigate CIS benchmark recommendation
 description: Perform basic and advanced investigations based on OS baseline recommendations.
 ms.date: 05/03/2022
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Investigate OS baseline (based on CIS benchmark) recommendation

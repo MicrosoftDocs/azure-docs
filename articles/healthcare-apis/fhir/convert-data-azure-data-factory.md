@@ -7,6 +7,7 @@ ms.subservice: fhir
 ms.topic: how-to
 ms.date: 08/12/2025
 ms.author: kesheth
+ms.custom: sfi-image-nochange
 ---
 
 # Transform HL7v2 data to FHIR R4 with $convert-data and Azure Data Factory

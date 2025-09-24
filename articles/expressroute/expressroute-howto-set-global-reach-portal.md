@@ -7,6 +7,7 @@ ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 01/31/2025
 ms.author: duau
+ms.custom: sfi-image-nochange
 ---
 
 # Configure ExpressRoute Global Reach using the Azure portal

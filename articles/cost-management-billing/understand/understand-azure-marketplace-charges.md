@@ -10,6 +10,7 @@ ms.topic: conceptual
 ms.date: 05/01/2025
 ms.custom:
   - build-2025
+  - sfi-image-nochange
 ---
 
 # Understand your Azure external services charges

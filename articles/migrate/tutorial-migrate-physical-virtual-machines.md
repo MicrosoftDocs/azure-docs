@@ -113,16 +113,13 @@ To set up a new appliance, you can use PowerShell installer script. Ensure you m
 
 ## Set up the replication appliance
 
-> [!NOTE]
-> We recommend that you perform discovery and assessment prior to the migration by using the Azure Migrate: Discovery and assessment tool, a separate lightweight Azure Migrate appliance. You can deploy the appliance as a physical server to continuously discover servers and performance metadata. [Learn more](tutorial-discover-physical.md).
-
 The first step of migration is to set up the replication appliance. To set up the appliance for physical server migration, download the installer file for the appliance. Then run it on the machine you prepared. After you install the appliance, register it with your migrate project using the key copied from the portal.
 
-## Classic experience (To be deprecated soon)
+## Classic experience (Deprecated)
 
 > [!NOTE]
 > Starting **October 30, 2025**, replication initialization will no longer be supported in the classic experience.
-> For agent-based migration of VMware servers and migration of physical servers, use the simplified experience for all new replications. The classic experience is scheduled for deprecation in **March 2026** [Learn more](../site-recovery/vmware-physical-azure-classic-deprecation.md)
+> For agent-based migration of VMware servers and migration of physical servers, use the simplified experience for all new replications. The classic experience is scheduled for deprecation in **September 2026** [Learn more](../site-recovery/vmware-physical-azure-classic-deprecation.md)
 
 ### Download the replication appliance installer
 

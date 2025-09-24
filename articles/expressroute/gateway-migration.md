@@ -85,7 +85,7 @@ Migration may cause a few minutes of downtime. Plan to perform the migration dur
 
 ### How long can I wait before committing to the new gateway?
 
-You have up to 15 days to commit after migration preparation. Use this time to validate connectivity and ensure all requirements are met before finalizing the migration.
+There is no mandatory waiting period to do commit. However, if you need time to validate connectivity and ensure all requirements are met before finalizing the migration, then you have up to 15 days to commit after migration.
 
 ### How do I check if my gateway SKU is eligible for migration?
 
@@ -113,7 +113,7 @@ No changes at this stage; nothing to roll back​
 The process can be aborted after step 2 and the new gateway will be deleted.​
 
 3. Migrate – Transfer the configuration from the existing gateway to the new one.​
-If needed, the configuration can be reverted to the existing gateway after step 3.​
+If needed, the configuration can be reverted to the existing gateway after step 3.​ Do not navigate away from the migration page while traffic is being moved. Leaving the page may interrupt the process.
 
 4. Commit – Finalize the migration by decommissioning the old gateway and its connections. ​
 Once the change has been committed, it can no longer be rolled back.

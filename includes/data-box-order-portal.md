@@ -6,6 +6,7 @@ ms.topic: include
 ms.date: 04/22/2024
 ms.author: shaas
 zone_pivot_groups: data-box-sku
+ms.custom: sfi-image-nochange
 ---
 
 To order and device, perform the following steps in the Azure portal:

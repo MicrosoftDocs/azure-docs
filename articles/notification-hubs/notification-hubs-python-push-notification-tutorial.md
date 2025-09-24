@@ -14,7 +14,9 @@ ms.date: 08/23/2021
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
-ms.custom: devx-track-python
+ms.custom:
+  - devx-track-python
+  - sfi-ropc-nochange
 ---
 
 # How to use Notification Hubs from Python

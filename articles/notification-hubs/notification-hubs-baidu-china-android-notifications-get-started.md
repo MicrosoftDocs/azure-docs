@@ -10,7 +10,11 @@ ms.topic: conceptual
 ms.tgt_pltfrm: mobile-baidu
 ms.date: 07/17/2023
 ms.author: sethm
-ms.custom: devx-track-java, devx-track-csharp, devx-track-dotnet
+ms.custom:
+  - devx-track-java
+  - devx-track-csharp
+  - devx-track-dotnet
+  - sfi-ropc-nochange
 ---
 
 # Get started with Notification Hubs using Baidu

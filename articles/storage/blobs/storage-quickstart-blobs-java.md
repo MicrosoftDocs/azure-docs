@@ -3,12 +3,19 @@ title: "Quickstart: Azure Blob Storage library - Java"
 description: In this quickstart, you learn how to use the Azure Blob Storage client library for Java to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: stevenmatthew
 ms.author: shaas
-ms.custom: devx-track-java, mode-api, passwordless-java, devx-track-extended-java, devx-track-extended-azdevcli
 ms.date: 09/13/2024
 ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: java
 zone_pivot_groups: azure-blob-storage-quickstart-options
+ms.custom:
+  - devx-track-java
+  - mode-api
+  - passwordless-java
+  - devx-track-extended-java
+  - devx-track-extended-azdevcli
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 # Customer intent: As a Java developer, I want to implement a Blob Storage application using the Azure Blob Storage client library, so that I can manage blobs and containers effectively for my projects.
 ---
 

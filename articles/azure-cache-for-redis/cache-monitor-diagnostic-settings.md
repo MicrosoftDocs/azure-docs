@@ -9,8 +9,12 @@ ms.date: 05/01/2025
 appliesto:
   - ✅ Azure Cache for Redis
 
-ms.custom: template-how-to, devx-track-azurecli, ignite-2024
 ms.devlang: azurecli
+ms.custom:
+  - template-how-to
+  - devx-track-azurecli
+  - ignite-2024
+  - sfi-image-nochange
 ---
 
 # Monitor Azure Cache for Redis using diagnostic settings

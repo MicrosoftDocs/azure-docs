@@ -34,10 +34,10 @@ The following list shows the QPS usage limits for each Azure Maps service by Pri
 | Render service - Traffic tiles | 50 | 50 | 50 |
 | Render service - Weather tiles | 100 | 100 | 50 |
 | Route service - Batch | 10 | 10 | Not Available |
-| Route service - Non-Batch | 50 | 50 | 50 |
+| Route service - single request | 50 | 50 | 50 |
 | Search service - Batch | 10 | 10 | Not Available |
-| Search service - Non-Batch | 500 | 500 | 50 |
-| Search service - Non-Batch Reverse | 250 | 250 | 50 |
+| Search service - single request | 500 | 500 | 50 |
+| Search service - single request reverse | 250 | 250 | 50 |
 | Spatial service (Deprecated<sup>1</sup>) | 50 | 50 |  Not Available  |
 | Timezone service | 50 | 50 | 50 |
 | Traffic service | 50 | 50 | 50 |

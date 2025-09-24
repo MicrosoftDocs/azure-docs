@@ -7,6 +7,7 @@ ms.service: azure-notification-hubs
 ms.topic: article
 ms.date: 05/01/2025
 ms.author: sethm
+ms.custom: sfi-ropc-nochange
 
 ---
 

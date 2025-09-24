@@ -6,6 +6,7 @@ ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
 ms.date: 03/20/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Quickstart: Connect Azure services and store configuration in an App Configuration store

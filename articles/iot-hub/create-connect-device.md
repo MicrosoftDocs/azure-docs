@@ -8,6 +8,7 @@ ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 05/20/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Create and manage device identities

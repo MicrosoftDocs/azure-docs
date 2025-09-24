@@ -9,6 +9,9 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 07/24/2025
 ms.author: jkinma
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ga-nochange
 ---
 
 # Elevate access to manage billing accounts

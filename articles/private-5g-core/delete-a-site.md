@@ -7,7 +7,9 @@ ms.author: jagre
 ms.service: azure-private-5g-core
 ms.topic: how-to 
 ms.date: 11/02/2022
-ms.custom: template-how-to
+ms.custom:
+  - template-how-to
+  - sfi-image-nochange
 ---
 # Delete sites using the Azure portal
 

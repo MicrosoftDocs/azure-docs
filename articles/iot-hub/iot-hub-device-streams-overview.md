@@ -7,7 +7,11 @@ ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 05/23/2025
 ms.author: sonialopez
-ms.custom: ['Role: Cloud Development','Role: IoT Device','Role: Technical Support']
+ms.custom:
+  - 'Role: Cloud Development'
+  - 'Role: IoT Device'
+  - 'Role: Technical Support'
+  - sfi-image-nochange
 ---
 
 # IoT Hub Device Streams (preview)

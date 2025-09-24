@@ -7,6 +7,7 @@ ms.date: 04/26/2021
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: manage-account
+ms.custom: sfi-image-nochange
 ---
 
 # Manage your Azure Maps account
