@@ -15,14 +15,12 @@ ms.custom:
 
 # Configure lab secrets in Azure DevTest Labs
 
-Store and use sensitive values centrally at the lab level in Azure DevTest Labs.
-
-Lab secrets let platform engineers keep passwords, keys, and tokens in a single, secure location so automation and virtual machines can retrieve values without embedding them in scripts.
+Lab secrets let platform engineers keep passwords, keys, and tokens in a single, secure location so automation and virtual machines can retrieve values without embedding them in scripts. By using Lab Secrets, you can store and use sensitive values centrally at the lab level in Azure DevTest Labs.
 
 ## Prerequisites
 
 - An existing lab. For information about creating labs, see [Create a lab in the Azure portal](devtest-lab-create-lab.md).
-- At least [Lab Contributor](concept-lab-services-role-based-access-control.md#lab-contributor) access to the lab.
+- At least [Contributor](devtest-lab-add-devtest-user.md) access to the lab.
  
 ## Why use lab secrets
 
