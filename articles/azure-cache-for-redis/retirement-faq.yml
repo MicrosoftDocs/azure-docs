@@ -4,6 +4,7 @@ metadata:
   description: "Learn the answers to common questions about the retirement of Azure Cache for Redis tiers: Basic, Standard, Premium, Enterprise, and Enterprise Flash."
   ms.date: 09/28/2025
   ms.topic: faq
+  ai-usage: ai-assisted
   ms.custom:
   appliesto:
     - ✅ Azure Managed Redis
