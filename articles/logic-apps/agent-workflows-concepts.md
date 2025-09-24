@@ -7,7 +7,7 @@ ms.suite: integration
 ms.reviewer: estfan, divswa, karansin, krmitta, azla
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
-ms.date: 09/14/2025
+ms.date: 09/25/2025
 ms.update-cycle: 180-days
 # Customer intent: As an AI developer, I want to learn about the benefits and support that Azure Logic Apps provides to build flexible, adaptable, and responsive workflows that complete tasks using AI agents, models, and other AI capabilities for my integration and automation scenarios.
 ---
@@ -194,13 +194,55 @@ To support an internal facilities team, a work order agent performs the followin
 - Close work orders when jobs are complete.
 - Notify the appropriate parties about completed jobs.
 
-<name="easy-auth"></a>
+## Authentication and authorization
 
-## Built-in authentication and authorization with Easy Auth
+Non-agent workflows usually interact with a small, known, and predictable set of callers. However, agent workflows communicate with broader range of callers, such as people, agents, Model Context Protocol (MCP) servers, tool brokers, and external services. This wider reach increases integration options but introduces different security challenges because callers can originate from dynamic, unknown, or untrusted networks. When callers come from networks you don't control, or when identities are external or unbounded identities, you must authenticate and authorize each caller so you can protect your workflows.
 
-Non-agent workflows usually interact with a small, known, and predictable set of callers. Agent workflows communicate with broader range of callers, such as people, agents, Model Context Protocol (MCP) servers, tool brokers, and external services. This wider reach increases integration options but introduces different security challenges because callers can originate from dynamic, unknown, or untrusted networks. When callers come from networks you don't control, or when identities are external or unbounded identities, you must authenticate and authorize each caller so you can protect your workflows.
+The following sections describe and compare options for authenticating callers and authorizing their access to agent workflows:
 
-Formerly known as App Service Authentication, Easy Auth provides a built‑in enforcement layer that offers the following benefits and lets you focus more on workflow business logic:
+### Developer key authentication and authorization
+
+For non-production scenarios only, such as design, development, and quick testing, the Azure portal provides, manages, and uses a *developer key* to run your workflow and execute actions on your behalf.
+
+#### What is a developer key?
+
+A developer key is a convenience authentication mechanism used only by the Azure portal to call your logic app workflow when you're in the design, build, and quick test stages. During these stages, the developer key lets you skip the need to manually set up Easy Auth or copy trigger callback URLs with shared access signatures (SAS).
+
+The portal automatically injects the developer key when you use built‑in test experiences in the workflow designer like running a workflow or calling the **Request** trigger. The key is implicitly bound to a tenant session and a signed-in portal user, so you can't distribute the key externally due to this binding, which is based only on the Azure Resource Manager bearer token. 
+
+#### Developer key limitations
+
+The following list describes the developer key's usage and design limitations:
+
+- The key isn't a substitute for Easy Auth, managed identity, federated credentials, or signed callback URLs in production scenarios.
+- The key isn't designed for large or untrusted caller populations, agent tools, or automation clients.
+- The key isn't a per-user authorization mechanism due to lack of granular scopes and roles.
+- The key isn't governed by Conditional Access policies at the request execution layer, only at the portal sign‑in layer.
+- The key isn't intended for programmatic or CI/CD usage.
+
+For a comparison between developer key and Easy Auth, see [Easy Auth versus developer key](#easy-auth-versus-developer-key).
+
+#### Developer key use cases
+
+The following table describes appropriate and inappropriate scenarios for using the developer key:
+
+| Appropriate scenarios | Inappropriate scenarios |
+|-----------------------|-------------------------|
+| Quick testing in the designer before you formalize authentication. | Your workflow needs deterministic automation that uses a service principal and Easy Auth or signed SAS instead. |
+| Check workflow structure, bindings, or basic trigger and action behavior. | - Your workflow callers include external agents, MCP servers, or conversational clients. <br><br>- You plan to publish your workflow endpoint outside your tenant. |
+| Temporary sandbox or spike prototypes that later adopt Easy Auth or SAS URL hardening. | Your workflow requires auditable per-user identities, token revocation, Conditional Access policies, or least‑privilege enforcement. |
+
+For more information, see [Set up Easy Auth]
+
+<a name="easy-auth"></a>
+
+### Easy Auth built-in authentication and authorization
+
+For production scenarios, including chat and agent clients outside the Azure portal, set up Easy Auth on your logic app resource along with a dedicated Microsoft Entra app registration. 
+
+This approach isolates tokens, enforces least privilege, and avoids reusing broad multi-application registrations.
+
+Formerly known as App Service Authentication, Easy Auth provides a built‑in enforcement layer that offers the following benefits and lets you focus more on building your workflow's business logic:
 
 - Handles sign-in, authentication, and authorization for Microsoft Entra and OpenID Connect providers without custom code.
 
@@ -222,10 +264,39 @@ The following diagram shows where Easy Auth fits into Azure Logic Apps:
 
 :::image type="content" source="{source}" alt-text="{alt-text}":::
 
+The following process describes how Easy Auth authenticates and authorizes a client to access your logic app:
+
+1. When a client tries to authenticate its identity to access your Easy Auth-protected logic app, Azure redirects the request to Microsoft Entra ID.
+
+1. If the client successfully authenticates, Microsoft Entra ID issues an access token to the client.
+
+   These tokens are signed by Microsoft Entra ID and include details like the [audience (`aud`) claim](/entra/identity-platform/developer-glossary#claim), subject (`sub`), and expiration (`exp`). The `aud` claim specifies the intended token recipient and is later used to automatically populate the *application ID URI* for the recipient logic app. This URI is a unique identifier that represents your logic app as the audience in access tokens and uses the following format:
+   
+   `api://<application-client-ID>`
+
+1. The client sends a request with the token to your logic app.
+
+1. Easy Auth intercepts the request, extracts the token, and runs the following checks:
+
+   - Compare the `aud` claim with the allowed token audience.
+   - Compare the `aud` claim with the expected application ID URI.
+
+1. If the values match, authorization proceeds. If not, Easy Auth denies the request with an **HTTP 401 Unauthorized** error.
+
 For more information, see the following articles:
 
-- [Secure agent workflows with Easy Auth in Azure Logic Apps](set-up-easy-auth.md)
+- [Secure agent workflows with Easy Auth in Azure Logic Apps](set-up-authentication-agent-workflows.md)
 - [Authentication and authorization in Azure App Service and Azure Functions](../app-service/overview-authentication-authorization.md)
+
+### Easy Auth versus developer key
+
+| Aspect | Developer key | Easy Auth |
+| ------ | ------------- | --------- |
+| Per-request identity | Portal user context only (implicit) | Validated token claims (user / service principal / managed identity) |
+| Conditional Access enforcement | Indirect (portal sign‑in only) | Direct (token issuance + policy) |
+| Revocation | Revoke portal session / user; no granular key rotation | Standard token revocation, role/scope removal |
+| Audit richness | Limited to workflow run + portal user | Full identity claim surface |
+
 
 ## Billing
 

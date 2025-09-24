@@ -1,0 +1,387 @@
+---
+title: Protect Agent Workflows with Easy Auth
+description: Learn to set up agent workflows with App Service Authentication (Easy Auth) in Azure Logic Apps.
+author: ecfan
+services: logic-apps
+ms.suite: integration
+ms.reviewers: estfan, divswa, edwardyhe, azla
+ms.topic: how-to
+ms.collection: ce-skilling-ai-copilot
+ms.date: 09/25/2025
+ms.update-cycle: 180-days
+---
+
+# Secure agent workflows with App Service Authentication (Easy Auth) in Azure Logic Apps (Preview)
+
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
+
+> [!IMPORTANT]
+>
+> This capability is in preview and is subject to the 
+> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Agent workflows expand integration options because they can exchange messages with more diverse callers, such as people, agents, Model Context Protocol (MCP) servers and clients, tool brokers, and external services. While non-agent workflows interact with a small, known, and fixed set of callers, agent callers can come from dynamic, unknown, and untrusted networks. As a result, you must authenticate and enforce permissions for each caller.
+
+To strengthen security for agent workflows, set up App Service Authentication, also called "Easy Auth", so you can use the following capabilities:
+
+- Provide a validated identity for each caller request.
+- Assign connections to each user.
+- Enforce Conditional Access policies.
+- Issue revocable credentials.
+- Grant permissions based on least-privilege principles, [roles](/entra/identity-platform/developer-glossary#roles), and [scopes](/entra/identity-platform/developer-glossary#scopes).
+
+These measures let you authenticate and authorize each caller at a fine-grained level and revoke access quickly when needed. Without these controls, you risk uncontrolled access, leaked secrets such as shared access signature (SAS) URLs and access keys, weak audit trails, and other security hazards.
+
+Easy Auth works with Microsoft Entra ID, or optionally Open ID Connect, as a separate security layer to provide built-in authentication and authorization capabilities that meet your needs. With security enforcement operating outside your workflow, you can focus more on developing the business logic instead. This separation of concerns makes agent workflows simpler and easier to build, debug, operate, monitor, maintain, govern, and audit.
+
+Non-agent workflow security involves static SAS, rotating secrets, and network boundary controls like access restrictions, IP allow lists, service tags, virtual network integration, and private endpoints. With agent workflows, you design authorization around end users, managed identities, service principals, and their scopes and roles. This approach enables safer global reach but still allows downstream actions to respect fine-grained permissions.
+
+This guide shows how to create an app registration and then set up Easy Auth for your Standard logic app resource, which can contain agent and non-agent workflows.
+
+> [!IMPORTANT]
+>
+> Easy Auth stores setup information in your logic app resource's underlying app settings, for example, 
+> **WEBSITE_AUTH_ENABLED**, **WEBSITE_AUTH_DEFAULT_PROVIDER**, and **MICROSOFT_PROVIDER_AUTHENTICATION_SECRET**. 
+> Don't manually edit these settings unless you want to set up automation using ARM templates, Bicep templates, or Terraform templates.
+
+For more information, see the following articles:
+
+- [Built-in authentication and authorization with Easy Auth for agent workflows](agent-workflows-concepts.md#easy-auth)
+- [Register an application in Microsoft Entra ID](/entra/identity-platform/quickstart-register-app)
+
+## Prerequisites
+
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- Microsoft Entra [**Application Developer** built-in role](/entra/identity/role-based-access-control/permissions-reference#application-developer) on your Azure account to create an app registration.
+
+- A Standard logic app resource that's deployed or ready to deploy.
+
+- Azure [**Contributor** role](/azure/role-based-access-control/built-in-roles#contributor) or higher on the logic app resource with permission to create app registrations for the target tenant using Microsoft Entra.
+
+  > [!IMPORTANT]
+  >
+  > To set up Easy Auth, make sure you have the higher-level Azure **Contributor** role, which differs from the **Logic Apps Standard Contributor** role.
+
+- A REST client to test authentication enforcement, for example, Azure CLI, Visual Studio Code REST, or curl.
+
+  [!INCLUDE [api-test-http-request-tools-caution](../../includes/api-test-http-request-tools-caution.md)]
+
+- (Optional) Choose whether to support only user flows with interactive sign in or also callers that use a managed identity or service principal.
+
+  For more information, see [Authentication and authorization in Azure App Service and Azure Functions](../app-service/overview-authentication-authorization.md).
+
+- (Optional) A custom domain if you want to enforce specific [redirect URIs](/entra/identity-platform/reply-url#what-is-a-redirect-uri) for that domain.
+
+## Create an app registration
+
+For the best way to begin Easy Auth setup, create a new app registration in Microsoft Entra ID directly from your logic app resource. If you have to reuse an existing app registration instead, you must [update the app registration](#update-an-existing-app-registration) to cleanly work with Easy Auth and Azure clients.
+
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
+
+1. On the resource sidebar menu, under **Settings**, select **Authentication**.
+
+1. On the **Authentication** page, select **Add identity provider**.
+
+   The **Authentication** page now shows the **Basics** tab for setting up the identity provider.
+
+1. On the **Basics** tab, for **Identity provider**, select **Microsoft** for Microsoft Entra ID.
+
+1. In the **App registration** section, for **App registration type**, select **(Recommended for Conversational agents) Create new app registration**, which shows the corresponding options for this selection.
+
+1. Provide a unique display name for your app registration, for example: `logic-app-agent-app-reg-prod`
+
+1. For **User-assigned managed identity**, select **Create new user-assigned managed identity**.
+
+   Rather than use an existing identity, which you must reconfigure to work Easy Auth, create a new identity that's cleanly set up for this scenario.
+
+1. For **Supported account types**, select **Current tenant - Single tenant** unless you want to intentionally accept other tenants.
+
+   The single-tenant setting refers to accounts only in the current organizational directory. So, all user and guest accounts in this directory can use your application or API. For example, if your target audience is internal to your organization, use this setting.
+
+   > [!IMPORTANT]
+   >
+   > Unless you have explicit governance and Conditional Access policies 
+   > set up, don't choose **Any Microsoft Entra directory - Multitenant**.
+
+   For more information, see the following articles:
+
+   - [Azure governance overview](azure/cloud-adoption-framework/ready/landing-zone/design-area/governance)
+   - [Set up governance in Azure](/azure/cloud-adoption-framework/ready/azure-setup-guide/govern-org-compliance)
+   - [What is Conditional Access](/entra/identity/conditional-access/overview)?
+
+1. Under **Additional checks**, select the following values if not already selected:
+
+   | Setting | Value |
+   |---------|-------|
+   | **Client application requirement** | **Allow requests only from this application itself** |
+   | **Identity requirement** | **Allow requests from specific identities**, and keep the prepopulated value. |
+   | **Tenant requirement** | **Allow requests only from the issuer tenant** |
+
+1. Optionally, under **App Service authentication settings**, review the following settings and take the appropriate actions:
+
+   | Setting | Action |
+   |---------|--------|
+   | **Restrict access** | Unless you plan to allow some authenticated endpoints, select **Require authentication** to block all anonymous requests. |
+   | **Unauthenticated requests** | Based on whether callers are agent or agent-based, select **HTTP 302 Found redirect: recommended for agents** or **HTTP 401 Unauthorized: recommended for APIs**. |
+
+1. When you're done, select **Add** to finish adding the identity provider.
+
+   Azure creates the app registration, updates your app settings, and enables the Easy Auth runtime. When Azure finishes, the logic app **Authentication** page lists **Microsoft** as an identity provider. Clients and callers must now authenticate their identities. Your logic app rejects unauthenticated clients and callers as intended and issues a **302 Found redirect** response or a **401 Unauthorized** response when requests don't include valid tokens.
+
+   After you finish creating the app registration, keep your logic app setup as minimal as possible until after you can confirm that authentication works as expected. You can later add any permission scopes or app roles that you want to enforce by going to the following pages on your app registration resource:
+
+   - On your app registration sidebar, under **Manage**, select **Expose an API** to add a permission scope. For more information, see [Add a scope](/entra/identity-platform/quickstart-configure-app-expose-web-apis#add-a-scope).
+
+   - On your app registration sidebar, under **Manage**, select **App roles** to assign an app role. For more information, see [Assign app role](/entra/identity-platform/quickstart-configure-app-expose-web-apis#assign-app-role).
+
+   Or, you can review the corresponding steps in the next section, [Update an existing app registration](#update-an-existing-app-registration).
+
+1. To check that your app registration is correctly set up, see [Test and validate authentication](#test-and-validate-authentication).
+
+## Update an existing app registration
+
+If you have to reuse an existing app registration that's shared with another API or an earlier prototype, follow these steps to review and adjust the specified settings so the app registration can cleanly work with Easy Auth and agent clients.
+
+1. In the Azure portal search box, find and select **Microsoft Entra ID**.
+
+1. On the sidebar menu, under **Manage**, select **App registrations**, and then find and select your app registration.
+
+1. On the app registration sidebar menu, expand **Manage**.
+
+1. Under **Manage**, select **Branding & properties**, and confirm that the **Home page URL** setting specifies your logic app's website URL.
+
+   > [!NOTE]
+   >
+   > **Home page URL** is optional for backend-only or agent APIs. Set this value only if 
+   > end users need a landing or documentation page. Token redirects don't use this value.
+
+1. Under **Manage**, select **Authentication**.
+
+   1. Under **Platform configurations**, make sure that the **Web** entry exists.
+
+   1. In the **Web** entry, under **Redirect URIs**, confirm that Azure prepopulates this setting with the Easy Auth (App Service Authentication) callback URI, following this syntax:
+
+      `https://<logic-app-name>.azurewebsites.net/.auth/login/aad/callback`
+
+   1. If Azure didn't prepopulate the redirect URI setting, manually enter the URI with your logic app name.
+
+      > [!IMPORTANT]
+      >
+      > Don't use custom redirect URIs unless you're hosting an interactive front end.
+
+      For more information, see [What is a redirect URI](/entra/identity-platform/reply-url#what-is-a-redirect-uri)?
+
+   1. Disregard the **Front-channel logout URL** setting.
+
+   1. For **Implicit grant and hybrid flows**, select both of the following options:
+
+      - **Access tokens (used for implicit flows)**
+      - **ID tokens (used for implicit and hybrid flows)**
+
+      For more information, see the following documentation:
+
+      - [Microsoft identity platform and OAuth 2.0 implicit grant flow](/entra/identity-platform/v2-oauth2-implicit-grant-flow)
+      - [Request an ID token (hybrid flow)](/entra/identity-platform/v2-oauth2-auth-code-flow#request-an-id-token-as-well-or-hybrid-flow)
+
+   1. Under **Supported account types**, select the option that matches your business need.
+
+      In most cases, choose **Accounts in this organizational directory only (Microsoft only - Single tenant)**. For the multitenant option, make sure you have explicit Azure governance and Conditional Access policies set up. For more information about these options, see [Validation differences by supported account types](/entra/identity-platform/supported-accounts-validation).
+
+   1. Under **Advanced settings**, for **Allow public client flows**, keep the **No** setting for enabling the specified mobile and desktop flows.
+
+      The exception exists when native, public clients must avoid the [Resource Owner Password Credentials (ROPC) flow](/entra/identity-platform/v2-oauth-ropc) using device or authentication code.
+
+   1. When you finish, select **Save**.
+
+1. Under **Manage**, select **Certificates & secrets**. On the **Federated credentials** tab, set up a new user-assigned managed identity that has logic app access so you can [use the managed identity as a federated identity credential on your app registration](/entra/workload-id/workload-identity-federation-config-app-trust-managed-identity).
+
+   If you don't have a user-assigned managed identity with logic app access, follow these steps:
+
+   1. [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal).
+   1. [Add the user-assigned identity to your logic app](authenticate-with-managed-identity.md?tabs=standard#add-user-assigned-identity-to-logic-app-in-the-azure-portal).
+   1. [Set up the user-assigned identity as a federated identity credential on your app registration](/entra/workload-id/workload-identity-federation-config-app-trust-managed-identity).
+
+1. Optionally, if you need to set up [claims](/entra/identity-platform/developer-glossary#claim) such as roles, scopes, user groups, or [`XMS_CC`](/entra/identity-platform/claims-challenge?tabs=dotnet#receiving-xms_cc-claim-in-an-access-token), follow these steps:
+
+   1. Under **Manage**, select **Token configuration**.
+
+   1. In the **Optional claims** section, add your claims.
+
+      > [!NOTE]
+      >
+      > To avoid token bloat, set up role or scope checks, rather than large group claims.
+
+1. Under **Manage**, select **API permissions**, and follow these steps:
+
+   1. Under **Configured permissions**, select **Add a permission**.
+   1. On the **Request API permissions** pane, on the **Microsoft APIs** tab, find and select **Microsoft Graph**.
+   1. For the permissions type, select **Delegated permissions**.
+   1. In the **Select permissions** box, enter **`User.Read`**.
+   1. In the **Permission** column, expand **User**, and select the **User.Read** permission.
+
+   For more information, see [Add permissions to access Microsoft Graph](/entra/identity-platform/quickstart-configure-app-access-web-apis#add-permissions-to-access-microsoft-graph).
+
+1. Optionally, under **Manage**, select **Expose an API** to define and expose permission scopes.
+
+   For the **Application ID URI** setting, the prepopulated URI is a unique identifier that represents your logic app resource as the audience in access tokens and uses the following format:
+
+   `api://<application-client-ID>`
+
+   In the **Scopes defined by this API** section, if you want to rely only on validating roles and audience, you don't have to define or expose any permission scopes. However, if you want Azure clients to request delegated permissions, define these scopes by following these steps:
+
+   1. Select **Add a scope** and provide the following information:
+
+      | Setting | Required | Value |
+      |---------|----------|-------|
+      | **Scope name** | Yes | `user_impersonation` |
+      | **Who can consent** | Yes | **Admins and users** |
+      | **Admin consent display name** | Yes | Label or name for permission scope that the consent message shows when tenant administrators provide consent for the scope. <br><br>For example: <br>**Access \<logic-app-name\>** |
+      | **Admin consent definition** | Yes | Detailed description for the permission scope that the consent screen shows when tenant administrators expand the scope on the consent screen. <br><br>For example: <br>**Allow the application to access \<logic-app-name\> on behalf of the signed-in user.** |
+      | **User consent display name** | No | Optional name for the permisison scope that the consent screen shows when end users provide consent for this scope. <br><br>For example: <br>**Access <logic-app-name\>** |
+      | **User consent definition** | No | Optional detailed description for the permission scope that the consent screen shows when end users expand the scope on the consent screen. <br><br>For example: <br>**Allow the application to access \<logic-app-name\> on your behalf.** |
+      | **State** | Yes | **Enabled** |
+
+   1. When you finish, select **Add scope**.
+
+   1. In the **Scopes** list, review the updated scope settings to confirm that they appear as expected.
+
+1. When you finish updating your app registration, go to your Standard logic app resource.
+
+1. On the logic app sidebar, under **Settings**, select **Authentication**.
+
+1. On the **Authentication** page, next to **Authentication settings**, select **Edit** to review the settings. On the **Edit authentication settings** pane, confirm the following values:
+
+  | Setting | Value | Description |
+  |---------|-------|-------------|
+  | **App Service authentication** | **Enabled** | Your logic app is set up and enabled with Easy Auth. |
+  | **Restrict access** | **Require authentication** | Clients and callers must authenticate their identities. |
+  | **Unauthenticated requests** | Yes | Your logic app rejects unauthenticated clients and callers as intended and issues a **302 Found redirect** response or a **401 Unauthorized** response when requests don't include valid tokens. |
+
+## Test and validate authentication
+
+To confirm that enforcement works as expected, follow these steps:
+
+1. In the designer, open your agent workflow. From the workflow trigger, get the following trigger endpoint URL:
+
+   - Conversational agent workflow: **Agent URL** value
+   - Autonomous agent workflow: **HTTP URL** value without the SAS query string
+
+   For example, if your workflow uses the **Request** trigger, and you plan to depend only on Easy Auth, get the **HTTP URL** value, known as the *callback URL*, without the SAS query string, for example:
+
+   `https://<logic-app-name>.azurewebsites.net:443/api/<workflow-name>/triggers/When_an_HTTP_request_is_received/invoke`
+
+1. Run your workflow based on your agent workflow type:
+
+   - Conversational agent workflow: On the designer toolbar, select **Chat**.
+   - Autonomous agent workflow: On the designer toolbar, select **Run** > **Run**.
+
+### Run authentication tests
+
+1. From your chosen REST client, send an unauthenticated HTTPS GET or POST request to call your workflow. Expect to get the **302** or **401** response based on your app registration setup.
+
+1. For your app registration's application (client) ID, get an access token that has the `api://<app-ID>` resource audience or the default App Service resource and send the token by following one of these authentication flows:
+
+   - [OAuth 2.0 authorization code flow with Proof Key for Code Exchange (PKCE)](/entra/identity-platform/v2-oauth2-auth-code-flow)
+   - [OAuth 2.0 client credentials grant flow](/entra/identity-platform/v2-oauth2-client-creds-grant-flow)
+
+1. Send the same request, but with the following header instead, and confirm that you get the **200 OK** response:
+
+   `Authorization: Bearer <access-token>`
+
+   In this test, the authenticated call with a valid access token returns the **200 OK** response, and the workflow executes.
+
+   To review your workflow's run history, follow these steps:
+
+   1. In the Azure portal, on your workflow sidebar, under **Tools**, select **Run history**, and then select the latest workflow run.
+
+   1. In the monitoring view, confirm that the run history with operation statuses appear as expected.
+
+1. Try running the following tests:
+
+   - Edit the token, for example, change a character in the `aud` value, and resend the request. Expect to get the **401** response.
+
+   - Wait for the token to expire, or in a test container, change the system clock, and resend the request. Expect to get the **401** response.
+
+### Troubleshoot authentication test errors
+
+- **401** with **invalid_token** + **error_description** that references the audience
+
+  A mismatch exists between the token audience and the specified allowed audiences.
+
+- **403 Forbidden**
+
+  Might indicate a problem with authorization for a downstream workflow action, not with Easy Auth.
+
+- Missing claim
+
+  Make sure that the claim exists in the access token, not just in the ID token, and that you requested the appropriate scope or role.
+
+## Parse identity claims in workflows
+
+When Easy Auth validates a request, Easy Auth injects identity data into the request headers and an encoded principal object. This object represents the authenticated entity, such as a client, user, managed identity, or service that interacts with your logic app. When this entity authenticates through Easy Auth, Microsoft Entra ID creates a principal object that contains information about the entity's identity, such as claims (name, email, roles). Microsoft Entra ID makes this object available to the application code so developers can access and present the user identity information for authorization and personalization.
+
+A principal object has the following properties:
+
+| Property | Description |
+|----------|-------------|
+| `X-MS-CLIENT-PRINCIPAL-ID` | The object ID for the user or service principal. |
+| `X-MS-CLIENT-PRINCIPAL-NAME` | The user principal name (UPN) or service principal name. |
+| `X-MS-CLIENT-PRINCIPAL` | A base64-encoded JSON array with claim objects like `typ` and `val`. |
+| `X-MS-TOKEN-AAD-ACCESS-TOKEN` | Optional: A raw access token if the token store is enabled and allowed. <br><br>**Important**: Don't store or log entire tokens. Make sure you use only claims, and redact sensitive values in diagnostic logs. |
+
+To parse a claim in a workflow, follow these steps:
+
+1. In the Azure portal, open your workflow in the designer.
+
+1. Follow the general [steps to add the **Compose** action to your workflow](add-trigger-action-workflow.md?tabs=standard#add-action).
+
+1. On the designer, select the **Compose** action. In the **Inputs** box, enter the following expression: 
+
+   `@base64ToString(triggerOutputs()['headers']['x-ms-client-principal'])`
+
+1. Save the workflow. Trigger the workflow by sending an authenticated request.
+
+   The **Compose** action returns JSON output. To extract roles or scopes from this output, you can further parse the output with the **Parse JSON** action.
+
+The following list describes parse claim tasks to perform for common authorization patterns:
+
+- Check role: Add a **Condition** action that checks `@contains(string(body('Compose')), 'LogicApp.Execute')`.
+- Check scope: From the decoded JSON output, parse the `scp` claim.
+- Enforce tenant: Validate that the `tid` claim matches expected tenant GUID.
+
+## Authenticate and authorize with a developer key
+
+For non-production scenarios only, such as design, development, and quick testing, the Azure portal provides, manages, and uses a *developer key* to run your workflow and execute actions on your behalf. For more information, see [Developer key authentication and authorization](agent-workflows-concepts.md#developer-key-authentication-and-authorization).
+
+### Best practices
+
+- Treat the developer key strictly and only as a design-time convenience for authentication and authorization.
+
+- Before you expose your workflow to agents, automation, or wider user populations, migrate to Easy Auth or signed SAS with network restrictions.
+
+  Basically, if anyone or anything outside your Azure portal session needs to call your logic app workflow, the developer key is no longer appropriate. Make sure that you enable Easy Auth or use managed identity–based flows instead.
+
+### Migrate to production authentication
+
+1. On your logic app, [set up Easy Auth](#create-an-app-registration) with Microsoft as the identity provider.
+
+1. Get real access tokens to [run authentication tests](#run-authentication-tests).
+
+1. Remove dependency on the developer key by testing requests sent to workflow trigger endpoints from external tools with valid tokens or with signed SAS callback URLs.
+
+1. Optionally, lock down trigger endpoint URLs by disabling or regenerating any unused SAS URLs.
+
+1. Enforce authentication required access patterns.
+
+### Troubleshoot authentication migration
+
+| Symptom | Likely cause | Action |
+|---------|--------------|--------|
+| Portal tests work, but external calls get **401** response. | External calls don't have a valid Easy Auth access token or signed SAS tokens. | Set up Easy Auth or use a workflow trigger URL with a signed SAS. |
+| Designer tests work, but Azure API Management calls fail. | API Management calls are missing expected header information. | Add OAuth 2.0 token acquisition in API Management policy or use managed identity. |
+| Access is inconsistent after a role changes. | Cached session in the Azure portal | - Sign out and sign back in. <br><br>Get a fresh token. |
+
+## Related content
+
+- [Authentication and authorization in AI agent workflows](agent-workflows-concepts.md#authentication-and-authorization)
