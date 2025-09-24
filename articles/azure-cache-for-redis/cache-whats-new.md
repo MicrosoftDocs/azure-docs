@@ -270,8 +270,6 @@ On June 30, 2023, we'll retire version 4 for Azure Cache for Redis instances. Be
 
 We recommend that you [upgrade](cache-how-to-upgrade.md) your caches on your own to accommodate your schedule and the needs of your users to make the upgrade as convenient as possible.
 
-For more information, see [Retirements](cache-retired-features.md).
-
 ### Support for managed identity in Azure Cache for Redis
 
 Authenticating storage account connections using managed identity reached General Availability (GA).
