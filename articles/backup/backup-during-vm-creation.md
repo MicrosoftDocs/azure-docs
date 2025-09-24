@@ -66,7 +66,7 @@ Points to note:
 
 - Use the default name of the resource group or customize the name according to organizational requirements.
 
-  When Azure Backup creates an resource group, a numeric is appended to the name of the resource group and used for restore point collection.
+  When Azure Backup creates a resource group, a numeric is appended to the name of the resource group and used for restore point collection.
 
 - Provide the resource group name pattern as input during VM backup policy creation. Use the following format for the resource group name:
 
