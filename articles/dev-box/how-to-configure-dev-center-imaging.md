@@ -7,7 +7,7 @@ ms.service: dev-box
 ms.custom:
   - ignite-2024
 ms.topic: how-to
-ms.date: 02/05/2025
+ms.date: 09/24/2025
 
 #customer intent: As a Dev Center Admin or Project Admin, I want to configure dev box pools to use image definition files so that my development teams can create customized dev boxes.
 ---
@@ -82,7 +82,7 @@ The following steps show you how to create a dev box pool and specify an image d
    | Setting | Value |
    |---|---|
    | **Name** |Enter a name for the pool. The pool name is visible to developers to select when they're creating dev boxes. It must be unique within a project. |
-   | **Definition** | This box lists image definitions from accessible catalogs and dev box definitions. Select an image definition file. |
+   | **Definition** | This box lists image definitions from accessible catalogs, and dev box definitions. Select an image definition file. |
    | **Network connection** | Select **Deploy to a Microsoft hosted network**, or use an existing network connection. |
    |**Enable single sign-on** | Select **Yes** to enable single sign-on for the dev boxes in this pool. Single sign-on must be configured for the organization. For more information, see [Enable single sign-on for dev boxes](https://aka.ms/dev-box/single-sign-on). |
    | **Dev box Creator Privileges** | Select **Local Administrator** or **Standard User**. |
@@ -95,6 +95,16 @@ The following steps show you how to create a dev box pool and specify an image d
 
 1. Select **Create**.
 1. Verify that the new dev box pool appears in the list. You might need to refresh the screen.
+
+### Hibernation support for dev boxes
+
+Dev Box supports hibernation when both these conditions are met:
+- The source image supports hibernation.
+- The compute resources of the dev box pool support hibernation.
+
+If either the image or the pool does not support hibernation, the feature won't be available for dev boxes in that pool. If hibernation isn't supported, verify that the image was created with hibernation support and that the pool is using that image.
+
+For more information about Dev Box support for hibernation, see [Configure hibernation in Microsoft Dev Box](how-to-configure-dev-box-hibernation.md).
 
 ### Create a dev box by using the developer portal
 
