@@ -13,7 +13,7 @@ ms.date: 08/20/2025
 
 Azure HDInsight now supports integration with Microsoft Entra ID, enabling secure, role-based access control and simplified identity management for your big data workloads. 
 By using Azure Resource Manager (ARM) templates, you can deploy and manage Entra ID-enabled HDInsight clusters in a repeatable, automated, and consistent way. 
-This guide explains how to define the necessary ARM template resources, configure Entra ID settings, and manage your clusters at scale—all while ensuring compliance with organizational security and governance requirements.
+This guide explains how to define the necessary ARM template resources, configure Entra ID settings, and manage your clusters at scale, all while ensuring compliance with organizational security and governance requirements.
 
 ## Prerequisites
 
@@ -338,6 +338,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 
 
 **EncryptionInTransitProperties**
+
 | Name | Description | Value |
 | --- | --- | --- |
 |isEncryptionInTransitEnabled |	Indicates whether or not inter cluster node communication is encrypted in transit.	| bool |
@@ -349,6 +350,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 | Name | Description | Value |
 | --- | --- | --- |
 | vmSize	| The size of the Virtual Machine	| string |
+
 
 **IPConfiguration**
 
@@ -378,6 +380,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 
 
 **KafkaRestProperties**
+
 | Name | Description | Value |
 | --- | --- | --- |
 | clientGroupInfo       | The information of AAD security group.              | ClientGroupInfo                          |
@@ -385,6 +388,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 
 
 **LinuxOperatingSystemProfile**
+
 | Name | Description | Value |
 | --- | --- | --- |
 | password   | The password.   | string     |
@@ -393,6 +397,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 
 
 **Microsoft.HDInsight/clusters**
+
 | Name | Description | Value |
 | --- | --- | --- |
 | apiVersion | The API version.                              | '2025-01-15-preview'                         |
@@ -406,6 +411,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 
 
 **NetworkProperties**
+
 | Name | Description | Value |
 | --- | --- | --- |
 | outboundDependenciesManagedType | A value to describe how the outbound dependencies of a HDInsight cluster are managed. 'Managed' means the HDInsight service manages the outbound dependencies. 'External' means a customer-specific solution manages the outbound dependencies. | 'External' 'Managed' |
@@ -416,6 +422,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 
 
 **OsProfile**
+
 | Name | Description | Value |
 | --- | --- | --- |
 | linuxOperatingSystemProfile |	The Linux OS profile.	| LinuxOperatingSystemProfile |
@@ -423,6 +430,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 
 
 **PrivateLinkConfiguration**
+
 | Name | Description | Value |
 | --- | --- | --- |
 | name       | The name of private link configuration.      | string (required)                     |
@@ -430,6 +438,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 
 
 **PrivateLinkConfigurationProperties**
+
 | Name | Description | Value |
 | --- | --- | --- |
 | groupId          | The HDInsight private linkable subresource name to apply the private link configuration to. For example, 'headnode'/ 'gateway'/ 'edgenode'. | string (required)   |
@@ -437,11 +446,13 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 
 
 **ResourceId**
+
 | Name | Description | Value |
 | --- | --- | --- |
 | id	| The Azure resource id.	| string |
 
 **Role**
+
 | Name | Description | Value |
 | --- | --- | --- |
 | autoscale             | The autoscale configurations.              | {Autoscale}(/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#autoscale-1)            |
@@ -458,6 +469,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 
 
 **ScriptAction**
+
 | Name | Description | Value |
 | --- | --- | --- |
 | name       | The name of the script action.          | string (required) |
@@ -466,6 +478,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 
 
 **SecurityProfile**
+
 | Name | Description | Value |
 | --- | --- | --- |
 | aaddsResourceId       | The resource ID of the user's Azure Active Directory Domain Service. | string   |
@@ -480,18 +493,21 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 
 
 **SshProfile**
+
 | Name | Description | Value |
 | --- | --- | --- |
 | publicKeys	| The list of SSH public keys. |	[SshPublicKey](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#sshpublickey-1)[] |
 
 
 **SshPublicKey**
+
 | Name | Description | Value |
 | --- | --- | --- |
 | certificateData	| The certificate for SSH.	| string |
 
 
 **StorageAccount**
+
 | Name | Description | Value |
 | --- | --- | --- |
 | container      | The container in the storage account, only to be specified for `WASB` storage accounts. | string |
@@ -507,12 +523,14 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 
 
 **StorageProfile**
+
 | Name | Description | Value |
 | --- | --- | --- |
 | storageaccounts |	The list of storage accounts in the cluster.	| [StorageAccount](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#storageaccount-1)[]
 
 
 **UserAssignedIdentity**
+
 | Name | Description | Value |
 | --- | --- | --- |
 | tenantId	| The tenant id of user assigned identity.	| string |
@@ -520,6 +538,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 
 
 **VirtualNetworkProfile**
+
 | Name | Description | Value |
 | --- | --- | --- |
 | id	| The ID of the virtual network.	| string |
