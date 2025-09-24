@@ -22,7 +22,8 @@ Azure Migrate is a service that helps you decide on, plan, and execute your migr
 
 Azure Migrate provides a simplified migration, modernization, and optimization service for customers who want to migrate their on-premises workloads to Azure. It gives you a one-stop solution for migrating your infrastructure, data, and web application workloads.
 
-Watch this video to learn about key phases of a typical migration: Decide, Plan, and Execute—and how Azure Migrate supports each step.
+Watch the following video to learn about key phases of a typical migration: Decide, Plan, and Execute—and how Azure Migrate supports each step.
+
 
 > [!VIDEO https://learn-video.azurefd.net/vod/player?id=edd9a562-f4c1-49cb-8312-952f214a1cd6]
 
