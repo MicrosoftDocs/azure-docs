@@ -510,7 +510,7 @@ Once you have completed running `az functionapp flex-migration start` successful
 
 ::: zone-end
 
-:::zone pivot="platform-windows"
+::: zone pivot="platform-windows"
 
 ## Premigration tasks
 
@@ -940,7 +940,7 @@ requests
 
 The migration of your functions from a Consumption plan app to a Flex Consumption plan app follows these main steps:
 
-:::zone pivot="platform-linux"
+::: zone pivot="platform-linux"
 
 > + [Verify Flex Consumption app created and configured](#verify-flex-consumption-app-created-and-configured)
 > + [Configure built-in authentication](#configure-built-in-authentication)
@@ -1009,7 +1009,7 @@ If any critical settings are missing or incorrect, you can manually configure th
 
 :::zone-end
 
-:::zone pivot="platform-windows"
+::: zone pivot="platform-windows"
 
 > [!div class="checklist"]
 >
