@@ -62,21 +62,31 @@ This article guides you through the steps to configure an Azure Front Door Premi
 ## Enable private connectivity to Azure Application Gateway
 
 1. Follow the instructions in [Configure Azure Application Gateway Private Link](../application-gateway/private-link-configure.md), but don't complete the final step of creating a private endpoint.
+
 1. Go to your Application Gateway's **Overview** tab, note down the Resource group name and Subscription ID
+
 1. From the **Overview** tab, navigate to the Application Gateway's virtual network
-:::image type="content" source="media/private-link/application-gateway-overview-vnet.png" alt-text="Screenshot of the overview tab of application gateway.":::
-1. Under Settings, select 'Connected devices'
-1. Note down the name of the device with type as 'Private link service'. 
-:::image type="content" source="media/private-link/connected-devices.png" alt-text="Screenshot of the Connected Devices tab within the Application gateway virtual network.":::
-1. Construct the resource ID of the private link service using the values from previous steps. The format is "subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/privateLinkServices/{Private-link-service-name}. This resource ID is used while configuring the Front Door origin.
+
+    :::image type="content" source="media/private-link/application-gateway-overview-vnet.png" alt-text="Screenshot of the overview tab of application gateway.":::
+
+1. Under **Settings**, select **Connected devices**
+
+1. Note down the name of the device with the **Private link service** type. 
+
+    :::image type="content" source="media/private-link/connected-devices.png" alt-text="Screenshot of the Connected Devices tab within the Application gateway virtual network.":::
+
+1. Construct the resource ID of the private link service using the values from previous steps. The format is `subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/privateLinkServices/{Private-link-service-name}`. This resource ID is used while configuring the Front Door origin.
 
 ## Create an origin group and add the application gateway as an origin
 
 1. In your Azure Front Door Premium profile, go to *Settings* and select **Origin groups**.
 
 1. Select on **Add**
+
 1. Enter a name for the origin group
+
 1. Select **+ Add an origin** 
+
 1. Use the following table to configure the settings for the origin:
 
     | Setting | Value |
@@ -98,6 +108,7 @@ This article guides you through the steps to configure an Azure Front Door Premi
    :::image type="content" source="media/private-link/application-gateway-private-link.png" alt-text="Screenshot of origin settings for configuring Application Gateway as a private origin.":::    
 
 1. Select **Add** to save your origin settings
+
 1. Select **Add** to save the origin group settings.
 
 ## Approve the private endpoint
