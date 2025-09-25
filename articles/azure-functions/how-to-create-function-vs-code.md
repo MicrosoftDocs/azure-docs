@@ -2,7 +2,7 @@
 title: Create and deploy function code to Azure using Visual Studio Code
 description: Learn how to create a function, then publish the local code project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
-ms.date: 08/01/2025
+ms.date: 09/25/2025
 ms.custom: 
   - mode-api
   - vscode-azure-extension-update-complete
@@ -169,7 +169,9 @@ You can customize your prompt to add specifics as needed, then run the app again
 ```
 
 > [!TIP]  
-> GitHub Copilot is powered by AI, so surprises and mistakes are possible. If you encounter any errors during execution, paste the error message in the chat window, select **Agent** mode, and ask Copilot to help resolve the error. For more information, see [Copilot FAQs](https://aka.ms/copilot-general-use-faqs). 
+> GitHub Copilot is powered by AI, so surprises and mistakes are possible. Should you encounter any errors during execution, paste the error message in the chat window, select **Agent** mode, and ask Copilot to help resolve the error. For more information, see [Copilot FAQs](https://aka.ms/copilot-general-use-faqs).
+>
+> When running in **Agent** mode, the results of this customization depend on the specific tools available to your agent.
  
 When you are satistfied with your app, you can use Visual Studio Code to publish the project directly to Azure.
 
