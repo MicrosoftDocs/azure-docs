@@ -982,13 +982,16 @@ Nodes are the building blocks of a data flow graph. Each node has a unique name 
 
 #### Source nodes
 
-Source nodes define where data enters the graph. They connect to data flow endpoints that receive data from MQTT brokers, Kafka topics, or other messaging systems. Each source node must specify:
+Source nodes define where data enters the graph. They connect to data flow endpoints that receive data from MQTT brokers or Kafka topics. Each source node must specify:
 
 - Endpoint reference that points to a configured data flow endpoint
 - Data sources as a list of MQTT topics or Kafka topics to subscribe to
 - Asset reference (optional) that links to an Azure Device Registry asset for schema inference
 
 The data sources array allows you to subscribe to multiple topics without modifying the endpoint configuration. This flexibility enables endpoint reuse across different data flows.
+
+> [!NOTE]
+> Currently, only MQTT and Kafka endpoints are supported as data sources for data flow graphs. For more information, see [Configure data flow endpoints](howto-configure-dataflow-endpoint.md).
 
 # [Operations experience](#tab/portal)
 
@@ -1109,12 +1112,15 @@ Destination nodes define where processed data is sent. They connect to data flow
 
 For storage destinations like Azure Data Lake or Fabric OneLake, you can specify output schema settings to control how data is serialized and validated.
 
+> [!NOTE]
+> Currently, only MQTT, Kafka, and OpenTelemetry endpoints are supported as data destinations for data flow graphs. For more information, see [Configure data flow endpoints](howto-configure-dataflow-endpoint.md).
+
 # [Operations experience](#tab/portal)
 
 1. In the data flow diagram, select the **Destination** node.
 1. Select the desired data flow endpoint from the **Data flow endpoint details** dropdown. 
 1. Select **Proceed** to configure the destination.
-1. Enter the **required settings** for the destination, including the topic or table to send the data to. The data destination field is automatically interpreted based on the endpoint type. For example, if the data flow endpoint is an MQTT endpoint, the destination details page prompts you to enter the topic. For more information, see [Configure data destination (topic, container, or table)](howto-create-dataflow.md#configure-data-destination-topic-container-or-table).
+1. Enter the **required settings** for the destination, including the topic or table to send the data to. The data destination field is automatically interpreted based on the endpoint type. For example, if the data flow endpoint is an MQTT endpoint, the destination details page prompts you to enter the topic.
 
 # [Bicep](#tab/bicep)
 
