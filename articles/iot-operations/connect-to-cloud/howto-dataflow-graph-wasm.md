@@ -84,6 +84,8 @@ oras pull ghcr.io/azure-samples/explore-iot-operations/filter:1.0.0
 
 ### Push modules to your registry
 
+Once you have the sample modules and graphs, push them to your container registry. Replace `<YOUR_ACR_NAME>` with the name of your Azure Container Registry.
+
 ```bash
 # Log in to your ACR
 az acr login --name <YOUR_ACR_NAME>
@@ -109,7 +111,7 @@ For quick setup with Azure Container Registry, create a registry endpoint with s
 
 # [Operations experience](#tab/portal)
 
-Currently, you can't create registry endpoints in the operations experience.
+Currently, you can't create registry endpoints in the operations experience. You must use Bicep or Kubernetes manifests. After you create a registry endpoint, the graphs you [pushed to your container registry](#push-modules-to-your-registry) are ready to be used in operations experience in data flow graphs.
 
 # [Bicep](#tab/bicep)
 
@@ -277,6 +279,9 @@ This separation lets you deploy the same graph definition with different endpoin
 1. In the data flow diagram, select **Add graph transform (optional)** to add a graph processing node. In the **Graph selection** pane, select **graph-simple:1** and click **Apply**.
 
     :::image type="content" source="media/howto-dataflow-graph/create-simple-graph.png" alt-text="Screenshot of the operations experience interface showing how to create a simple data flow graph.":::
+
+    > [!IMPORTANT]
+    > This example uses the `graph-simple:1.0.0` artifact that you [pushed to your container registry](#push-modules-to-your-registry). You can create your custom graphs by [developing your own WASM modules](#develop-custom-wasm-modules) and pushing them to your container registry. The graphs you push to your container registry are available in the **Graph selection** pane.
 
 1. You can configure some graph operator settings by selecting the graph node in the diagram. For example, you can select **module-temperature/map** operator and enter in `key2` the value `example-value-2`. Click **Apply** to save the changes.
 
@@ -543,6 +548,9 @@ This similarity occurs because the data flow graph resource acts as a host envir
 1. In the data flow diagram, select **Add graph transform (optional)** to add a graph processing node. In the **Graph selection** pane, select **graph-complex:1** and click **Apply**.
 
     :::image type="content" source="media/howto-dataflow-graph/create-complex-graph.png" alt-text="Screenshot of the operations experience interface showing how to create a complex data flow graph.":::
+
+    > [!IMPORTANT]
+    > This example uses the `graph-complex:1.0.0` artifact that you [pushed to your container registry](#push-modules-to-your-registry). You can create your custom graphs by [developing your own WASM modules](#develop-custom-wasm-modules) and pushing them to your container registry. The graphs you push to your container registry are available in the **Graph selection** pane.
 
 1. You can configure some graph operator settings by selecting the graph node in the diagram. 
 
@@ -827,7 +835,7 @@ See [Develop WebAssembly modules for data flow graphs](howto-develop-wasm-module
 
 For detailed information about creating and configuring the YAML graph definitions that define your data processing workflows, see [Configure WebAssembly graph definitions](howto-configure-wasm-graph-definitions.md).
 
-## Configuration reference
+## Customize data flow graph configuration
 
 This section provides detailed information about configuring data flow graphs with WASM modules. It covers all configuration options, data flow endpoints, and advanced settings.
 
@@ -1103,9 +1111,10 @@ For storage destinations like Azure Data Lake or Fabric OneLake, you can specify
 
 # [Operations experience](#tab/portal)
 
-1. In the data flow diagram, select **Destination** to configure the destination node. 
+1. In the data flow diagram, select the **Destination** node.
+1. Select the desired data flow endpoint from the **Data flow endpoint details** dropdown. 
 1. Select **Proceed** to configure the destination.
-1. Enter the required settings for the destination, including the topic or table to send the data to. The data destination field is automatically interpreted based on the endpoint type. For example, if the data flow endpoint is a storage endpoint, the destination details page prompts you to enter the container name. If the data flow endpoint is an MQTT endpoint, the destination details page prompts you to enter the topic, and so on.
+1. Enter the **required settings** for the destination, including the topic or table to send the data to. The data destination field is automatically interpreted based on the endpoint type. For example, if the data flow endpoint is an MQTT endpoint, the destination details page prompts you to enter the topic. For more information, see [Configure data destination (topic, container, or table)](howto-create-dataflow.md#configure-data-destination-topic-container-or-table).
 
 # [Bicep](#tab/bicep)
 
@@ -1147,7 +1156,7 @@ When you specify schema validation, the system validates data format and structu
 
 # [Operations experience](#tab/portal)
 
-The operations experience automatically creates node connections when you create a simple graph or complex graph.
+The operations experience automatically creates node connections when you select the graph processing node. You can't modify the connections after the graph is created.
 
 # [Bicep](#tab/bicep)
 
