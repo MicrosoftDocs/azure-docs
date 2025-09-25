@@ -188,15 +188,22 @@ There are three runtime pools available to run your Jupyter notebooks in the Mic
 > When first accessed, kernel options may take about 30 seconds to load.  
 > After selecting a runtime pool, it can take 3–5 minutes for the session to start.  
  
-## View Logs 
+## View messages, logs, and errors
  
-Logs can be viewed in the **Output** pane of Visual Studio Code.  
+Messages logs and error messages are displayed in three areas in Visual Studio Code.  
 
-1. In the **Output** pane, select **Microsoft Sentinel** from the drop-down.  
-1. Select **Debug** to include detailed log entries.  
+1. The **Output** pane.  
 
-:::image type="content" source="media/notebooks/output-pane.png" lightbox="media/notebooks/output-pane.png" alt-text="A screenshot showing the output pane.":::
+   1. In the **Output** pane, select **Microsoft Sentinel** from the drop-down.  
+   1. Select **Debug** to include detailed log entries.  
 
+    :::image type="content" source="media/notebooks/output-pane.png" lightbox="media/notebooks/output-pane.png" alt-text="A screenshot showing the output pane.":::
+
+1. In-line messages in the notebook provide feedback and information about the execution of code cells. These messages include execution status updates, progress indicators, and error notifications related to the code in the preceding cell
+
+1. A notification pop-up in the bottom right corner of Visual Studio Code, also know as a toast message, provides real-time alerts and updates about the status of operations within the notebook and the spark session. These notifications include messages, warnings, and error alerts such as successful connection to a spark session, and timeout warnings. 
+
+    :::image type="content" source="media/notebooks/inline-toast-messages.png" lightbox="media/notebooks/inline-toast-messages.png" alt-text="A screenshot showing a toast message and an in-line error message.":::
    
 ## Jobs and scheduling
 
@@ -220,8 +227,8 @@ TableError|ProvisioningIncomplete|2101|Table {TableName} is not ready. Wait a fe
 TableError|DeltaTableMissing|2102|Table {TableName} is empty. New tables can take up to a few hours to be ready.|It can take a few hours to fully synchronize an analytics table into the data lake. For tables that are only in the data lake, check if the data needs to be loaded or restored.|
 TableError|TableDoesNotExistForDelete|2103|Can't delete table. Table {TableName} not found.|Verify that the table exists in the database. If the table or database is new, wait a few minutes and try again.|
 AuthorizationFailure|MissingSASToken|2201|Can't access table. Restart the session and try again.|Authorization failed while trying to fetch the access token for the table. Restart the session and try again.|
-AuthorizationFailure|InvalidSASToken|2202|{Same as 2201}|{Same as 2201}|
-AuthorizationFailure|TokenExpired|2203|{Same as 2201}|{Same as 2201}|
+AuthorizationFailure|InvalidSASToken|2202|Can't access table. Restart the session and try again.|Authorization failed while trying to fetch the access token for the table. Restart the session and try again.|
+AuthorizationFailure|TokenExpired|2203|Can't access table. Restart the session and try again.|Authorization failed while trying to fetch the access token for the table. Restart the session and try again.|
 AuthorizationFailure|TableInsufficientPermissions|2204|Access needed for the table {TableName} in the database {DatabaseName}.|Contact an administrator to request access to the table or the database (workspace).|
 AuthorizationFailure|InternalTableAccessDenied|2205|Access to the table {TableName} is restricted.|Only system or user-defined tables can be accessed from a notebook.|
 AuthorizationFailure|TableAuthFailure|2206|Can't save data to the table. Restart the session and try again.|Authorization failed while trying to save data to the table. Restart the session and try again.|
@@ -233,7 +240,7 @@ TableSchemaError|ColumnTypeChangeNotAllowed|2403|Can't change the data type of t
 TableSchemaError|ColumnNullabilityChangeNotAllowed|2404|Can't change nullability of the column {ColumnName}.|Can't update nullability settings of the column. Check the destination table and align the settings with the DataFrame.|
 IngestionError|FolderCreationFailure|2501|Can't create storage for the table {TableName}.|This problem is transient and can be resolved by restarting the session and trying again. If this problem persists, contact support.|
 IngestionError|SubJobRequestFailure|2502|Can't create ingestion job for the table {TableName}.|This problem is transient and can be resolved by restarting the session and trying again. If this problem persists, contact support.|
-IngestionError|SubJobCreationFailure|2503|{same as 2502}|{same as 2502}|
+IngestionError|SubJobCreationFailure|2503|Can't create ingestion job for the table {TableName}.|This problem is transient and can be resolved by restarting the session and trying again. If this problem persists, contact support.|
 InputError|InvalidWriteMode|2601|Invalid write mode. Use append or overwrite.|Specify a valid write mode (append or overwrite) before saving the DataFrame.|
 InputError|PartitioningNotAllowed|2602|Can't partition analytics tables.|Remove any partitioning for all columns in analytics tables.|
 InputError|MissingTableSuffixLake|2603|Invalid custom table name. All names of custom tables in the data lake must end with _SPRK.|Add _SPRK as a suffix to the table name before writing it to the data lake.|
