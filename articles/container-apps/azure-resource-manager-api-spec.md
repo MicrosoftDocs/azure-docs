@@ -18,7 +18,7 @@ This article includes examples of the ARM and YAML configurations for frequently
 
 ## API versions
 
-Check the latest stable and preview API versions [here](/rest/api/resource-manager/containerapps/operation-groups) to ensure you're using the most up-to-date versions.
+Check the latest stable and preview API versions in the [Resource Manager API documentation](/rest/api/resource-manager/containerapps/operation-groups) to ensure you're using the most up-to-date versions.
 
 To learn more about the differences between API versions, see [Microsoft.App change log](/azure/templates/microsoft.app/change-log/summary).
 
