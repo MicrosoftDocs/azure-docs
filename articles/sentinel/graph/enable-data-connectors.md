@@ -94,9 +94,9 @@ For example, when investigating risky sign-ins in the `SigninLogs` table, you ca
 SigninLogs
 | where IsRisky == true
 | join kind=leftouter (
-     EntraUsers
-     | summarize topRecord = arg_max(TimeGenerated, *) by userPrincipalName
-) on $left.UserPrincipalName = $right.userPrincipalName
+    EntraUsers
+    | summarize arg_max(TimeGenerated, userPrincipalName, department, employeeHireDate) by userPrincipalName
+) on $left.UserPrincipalName == $right.userPrincipalName
 | project Identity, UserPrincipalName, IsRisky, IPAddress, department, employeeHireDate
 ```
 

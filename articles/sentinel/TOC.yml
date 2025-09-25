@@ -356,6 +356,8 @@
               href: /defender-xdr/advanced-hunting-query-results?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
             - name: Explore results containing Microsoft Sentinel data
               href: /defender-xdr/advanced-hunting-defender-results?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+            - name: Hunt using hunting graph
+              href: /defender-xdr/advanced-hunting-graph?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
         - name: Kusto Query Language
           items:
             - name: Overview
