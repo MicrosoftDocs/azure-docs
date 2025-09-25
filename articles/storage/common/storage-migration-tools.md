@@ -14,7 +14,7 @@ ms.subservice: storage-common-concepts
   Current score: 95 (2667/10 false positives)
 -->
 
-# Select migration Tools 
+# Select migration tools 
 
 In this article, you learn about the various types of solutions that migrate data both online and offline. Some solutions also provide for repeatable sync, merge, and hybrid deployment capabilities. Often, these tools bring overlapping technical capabilities and are suitable for similar use cases. This article provides guidance on selecting the appropriate migration tool for your needs, and identifies both native Azure tools as well as partner and independent software vendor (ISV) solutions.
 

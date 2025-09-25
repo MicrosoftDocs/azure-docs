@@ -20,7 +20,7 @@ During the assessment phase, data assets, dependencies, and the volume and usage
 
 The following list contains commonly inventoried and cataloged items in order to discover and assess your source data.
 
-## Inventory Data Assets
+## Inventory data assets
 
 1. Catalog all *data sources* being migrated. These sources include user data, departmental shares, file shares, application data, content management systems, and databases. They also include back-up-archive data, virtual machine disks, or data stored on any SAN, NAS, DFS, or tape archives.
 2. Estimate the *data size* in GB/TB/PB for each data source within your catalog. Include the approximate *number of files and objects*.
@@ -28,7 +28,7 @@ The following list contains commonly inventoried and cataloged items in order to
 4. Line down any special properties such as *reserved file names*, *directory or file length*, *long paths*, or *alternate data streams* involved.
 5. Record the *Authentication methods* involved for the current and future data services.
 
-## Identify Data type & Access Patterns
+## Identify data type & access patterns
 
 1. Record the *data type* and *access method* for each source, and the *frequency of access*.
 2. Identify *access methods and protocols* at the file-level, object-level, or block-level. For example, file-level protocols might include SMB or NFS. Object-level protocols might include S3 or REST APIs, and block-level protocols might include iSCSI, or raw disks or LUNs attached to servers.
@@ -37,7 +37,7 @@ The following list contains commonly inventoried and cataloged items in order to
 5. Also note the *access patterns*- sequential vs random; read/write ratio
 6. Mention if you're considering *consolidation or reorganization* of the data, as you migrate to Azure storage.
 
-## Understand Performance Needs
+## Understand performance needs
 
 1. Assess network *bandwidth and latency* between the source and Azure
 2. Record source read/write performance or *IOPS limits, throughput requirements*
@@ -54,7 +54,7 @@ The following list contains commonly inventoried and cataloged items in order to
 
 At this point, consider whether the data changes are excessively frequent, and whether the current network bandwidth can support the delta changes after initial offline seeding. Are there other parameters to consider for such systems and the data?
 
-## Factor in Security and Compliance Requirements
+## Factor in security and compliance requirements
 
 1. Document any *permissions* and *ACLs* on the data. Ensure the migration method can preserve them, or create a plan to *reapply* them in Azure.
 2. Plan to use *ExpressRoute* or *Private Link* for any in-flight data that must not transit the public internet.
