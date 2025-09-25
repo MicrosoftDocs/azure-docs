@@ -287,7 +287,7 @@ display(df.limit(10))
 
 #### Use MSAL to acquire tokens (using custom app credentials)
 
-When the ABFS storage driver is [configured](https://hadoop.apache.org/docs/current/hadoop-azure/abfs.html) to use MSAL directly for authentications, the provider doesn't cache tokens. This can result in reliability issues. We recommend using the `ClientCredsTokenProvider` is part of the Synapse Spark.
+When the ABFS storage driver is [configured](https://hadoop.apache.org/docs/current/hadoop-azure/index.html#Configuring_ABFS) to use MSAL directly for authentications, the provider doesn't cache tokens. This can result in reliability issues. We recommend using the `ClientCredsTokenProvider` is part of the Synapse Spark.
 
 ::: zone pivot = "programming-language-scala"
 
