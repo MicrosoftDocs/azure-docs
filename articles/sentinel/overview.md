@@ -14,7 +14,7 @@ ms.custom: sfi-image-nochange
 
 # What is Microsoft Sentinel security information and event management (SIEM)? 
 
-Microsoft Sentinel is a cloud-native SIEM solution that delivers scalable, cost-efficient security across multicloud and multiplatform environments. It combines AI, automation, and threat intelligence with a modern data lake architecture to support threat detection, investigation, response, and proactive hunting.
+Microsoft Sentinel is a cloud-native SIEM solution that delivers scalable, cost-efficient security across multicloud and multiplatform environments. It combines AI, automation, and threat intelligence to support threat detection, investigation, response, and proactive hunting.
 
 Microsoft Sentinel SIEM empowers analysts to anticipate and stop attacks across clouds and platforms, faster and with greater precision. 
 
