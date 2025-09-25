@@ -34,13 +34,13 @@ This feature enables exposing APIs with or without a subscription key, using OAu
 
 Using OAuth connections managed in API Management, customers can easily connect to SaaS providers or backend services that are using OAuth 2.0. Here are some examples:
 
-* Easily connect to an SaaS backend by attaching the stored authorization token and proxying requests.
+* Easily connect to a SaaS backend by attaching the stored authorization token and proxying requests.
 
-* Proxy requests to an Azure App Service web app or Azure Functions backend by attaching the authorization token, which can later send requests to an SaaS backend applying transformation logic.
+* Proxy requests to an Azure App Service web app or Azure Functions backend by attaching the authorization token, which can later send requests to a SaaS backend applying transformation logic.
 
 * Proxy requests to GraphQL federation backends by attaching multiple access tokens to easily perform federation.
 
-* Expose a retrieve token endpoint, acquire a cached token, and call an SaaS backend on behalf of user from any compute; for example, a console app or Kubernetes daemon. Combine your favorite SaaS SDK in a supported language.
+* Expose a retrieve token endpoint, acquire a cached token, and call a SaaS backend on behalf of user from any compute; for example, a console app or Kubernetes daemon. Combine your favorite SaaS SDK in a supported language.
 
 * Azure Functions unattended scenarios when connecting to multiple SaaS backends.
 
