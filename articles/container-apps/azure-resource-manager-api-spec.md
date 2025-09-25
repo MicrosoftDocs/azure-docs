@@ -178,7 +178,7 @@ The following example ARM template snippet deploys a container app.
 {
   "identity": {
     "userAssignedIdentities": {
-      "/subscriptions/<subscription_id>/resourcegroups/my-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-user": {}
+      "/subscriptions/<SUBSCRIPTION_ID>/resourcegroups/<RESOURCE_GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER_NAME>": {}
     },
     "type": "UserAssigned"
   },
