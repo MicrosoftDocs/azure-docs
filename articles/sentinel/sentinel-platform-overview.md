@@ -42,7 +42,7 @@ For more information, see [What is Microsoft Sentinel SIEM?](./overview.md).
 
 Collect data across your entire digital estate wherever the data resides, including all users, devices, applications, and infrastructure, both on-premises and in multiple clouds:
 
--  350+ out-of-the-box data connectors with support for first and third-party security solutions and cloud platforms
+- 350+ out-of-the-box data connectors with support for first and third-party security solutions and cloud platforms
 
 - A built-in table management experience that simplifies selecting data storage, supporting tiered placement across analytic and data lake tiers.
 
@@ -85,7 +85,7 @@ Microsoft Sentinel graph's key capabilities include:
 - Unified graph-based analytics that power built-in experiences across security, compliance, identity, and the Microsoft Security ecosystem.
 - Real-world relationship modeling that uses nodes and edges to represent users, devices, cloud resources, data flows, and attacker actions.
 - Enhanced threat reasoning to help defenders answer complex questions, such as which vulnerable paths an attacker could take from a compromised entity to a critical asset.
-- End-to-end defense with support for both prebreach and post-breach scenarios, using interconnected graphs across Microsoft Defender and Purview.
+- End-to-end defense with support for both pre-breach and post-breach scenarios, using interconnected graphs across Microsoft Defender and Purview.
 
 For more information, see [What is Microsoft Sentinel graph?](../sentinel/datalake/sentinel-graph-overview.md).
 
