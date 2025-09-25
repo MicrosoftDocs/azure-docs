@@ -58,7 +58,7 @@ The following table describes the various asset data sources and their data conn
 <sup>1</sup> Microsoft 365 Activity log connector must be already enabled in the same workspace.
 
 > [!NOTE]
-> Certain data connectors, including but not limited to asset connectors, contribute to the construction of data risk graphs in Purview. If these graphs are active, disabling the associated connectors interrupts their generation. Connector descriptions indicate if they are involved in building data risk graphs.
+> Certain data connectors, including but not limited to asset connectors, contribute to the construction of data risk graphs in Purview. If these graphs are active, disabling the associated connectors interrupts their generation. Connector descriptions indicate if they're involved in building data risk graphs.
 
 ## Prerequisites
 
@@ -87,8 +87,8 @@ When asset data connector shows a *Connected* status, the toggle button text sho
 
 ## Use asset data to enrich activity data
 
-Asset data adds valuable context and insights that may not be evident from activity logs alone.
-For example, when investigating risky sign-ins in the `SigninLogs` table, you can enhance the analysis by joining it with the `EntraUsers` table to include user-specific attributes such as department and hire date. This additional context helps security teams better understand user behavior and assess potential threats more accurately.
+Asset data adds valuable context and insights that might not be evident from activity logs alone.
+For example, when investigating risky sign-ins in the `SigninLogs` table, you can enhance the analysis by joining it with the `EntraUsers` table to include user-specific attributes such as department and hire date. This extra context helps security teams better understand user behavior and assess potential threats more accurately.
 
 ```kql
 SigninLogs
