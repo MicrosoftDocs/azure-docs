@@ -10,7 +10,7 @@ ms.topic: concept-article
 ms.date: 09/25/2025
 ms.author: danlep
 ---
-# Managing Azure API Management using Azure Automation
+# Manage Azure API Management using Azure Automation
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
