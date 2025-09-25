@@ -559,7 +559,7 @@ The following example YAML deploys a native Azure functions on container app
 kind: functionapp
 identity:
   userAssignedIdentities:
-    "/subscriptions/<subscription_id>/resourcegroups/my-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-user": {}
+    "/subscriptions/<SUBSCRIPTION_ID>/resourcegroups/<RESOURCE_GROUOP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER_NAME>": {}
   type: UserAssigned
 properties:
   # same as regular container app properties 
