@@ -1,13 +1,12 @@
 ---
-title: Routing architecture
+title: Routing Architecture
 titleSuffix: Azure Front Door
 description: This article helps you understand the global view aspect of Front Door's architecture.
-services: front-door
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 08/12/2024
+ms.date: 09/25/2025
 zone_pivot_groups: front-door-tiers
 ---
 
@@ -31,7 +30,7 @@ The following diagram illustrates the routing architecture:
 
 ::: zone-end
 
-The rest of this article describes these steps in detail.
+The following sections describe these steps in detail.
 
 ## Select and connect to the Front Door edge location
 
@@ -159,16 +158,18 @@ Finally, the request is forwarded to the backend.
 
 ::: zone-end
 
-## Next steps
+## Next step
 
 ::: zone pivot="front-door-standard-premium"
 
-- Learn how to [create an Azure Front Door profile](standard-premium/create-front-door-portal.md).
+> [!div class="nextstepaction"]
+> [Create an Azure Front Door profile](standard-premium/create-front-door-portal.md)
 
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
 
-- Learn how to [create an Azure Front Door (classic) profile](quickstart-create-front-door.md).
+> [!div class="nextstepaction"]
+> [Create an Azure Front Door (classic) profile](quickstart-create-front-door.md)
 
 ::: zone-end

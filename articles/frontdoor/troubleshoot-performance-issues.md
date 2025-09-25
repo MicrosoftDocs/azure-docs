@@ -1,13 +1,13 @@
 ---
-title: Troubleshoot general performance problems with Azure Front Door
+title: Troubleshoot general performance problems
+titleSuffix: Azure Front Door
 description: In this article, investigate, diagnose, and resolve potential latency or bandwidth problems associated with Azure Front Door and site performance.
 author: sbdoroff
 ms.author: stdoroff
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 08/30/2023
+ms.date: 09/25/2025
 
-#Customer intent: As a <type of user>, I want <some goal> so that <some reason>.
 ---
 
 # Troubleshoot general performance problems with Azure Front Door
@@ -79,7 +79,7 @@ If one of the origin servers is slow, then the first request for an object via A
 
 1. Continue to request against the endpoint until the `x-cache` header has a `TCP_HIT` value.
 
-   If you initially saw `CONFIG_NOCACHE`, then caching is not enabled in the route configuration.  In this case, you will not see `TCP_HIT`.
+   If you initially saw `CONFIG_NOCACHE`, then caching isn't enabled in the route configuration. In this case, you won't see `TCP_HIT`.
 
 1. If the performance problem is resolved, the problem was based on the origin's speed and not the performance of Azure Front Door. The owner needs to address the Azure Front Door cache settings or the origin to improve performance.
 
@@ -136,7 +136,7 @@ Consider the following example:
 - Azure Front Door custom domain: `contoso.com`
 - Page that you're trying to load: `https://contoso.com`
 
-When the page loads, the initial file at the "/" directory calls other files, which build the page. These files are images, JavaScript, text files, and more. If those files aren't called via the Azure Front Door host name (`contoso.com`), the page is not using Azure Front Door. So, if one of the files that the website requests is `http://www.images.fabrikam.com/businessimage.jpg`, the file is not benefiting from the use of Azure Front Door. Instead, the browser on the requesting client is requesting the file directly from the `images.fabrikam.com` server.
+When the page loads, the initial file at the "/" directory calls other files, which build the page. These files are images, JavaScript, text files, and more. If those files aren't called via the Azure Front Door host name (`contoso.com`), the page isn't using Azure Front Door. So, if one of the files that the website requests is `http://www.images.fabrikam.com/businessimage.jpg`, the file isn't benefiting from the use of Azure Front Door. Instead, the browser on the requesting client is requesting the file directly from the `images.fabrikam.com` server.
 
 :::image type="content" source="media/troubleshoot-performance-issues/azure-front-door-performance.jpg" alt-text="Diagram of multiple, differently sourced files for a singular website and how that configuration affects Azure Front Door performance.":::
 
@@ -184,3 +184,9 @@ When the page loads, the initial file at the "/" directory calls other files, wh
    - If the collected data shows that the files' loading performance is better at Azure Front Door compared to the origin or test site, Azure Front Door is working as expected. The source of the problem might be individual client requests. In that case, see [Scenario 1](troubleshoot-performance-issues.md#scenario-1-investigate-the-origin) earlier in this article.
 
    - If the collected data shows that performance is *not* better at Azure Front Door, you likely need to file a support request for further investigation. Include a reference to this troubleshooting article and the steps that you took.
+
+## Related content
+
+- [Troubleshoot Azure Front Door common issues](/azure/frontdoor/troubleshoot-issues)
+- [Troubleshoot 4xx and 5xx errors using Reference String](/azure/frontdoor/refstring)
+- [Troubleshoot Azure Front Door file compression](/azure/frontdoor/standard-premium/troubleshoot-compression)

@@ -1945,24 +1945,6 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | digitalTwinsInstances / ingressEndpoints | No | No |
 > | digitalTwinsInstances / timeSeriesDatabaseConnections | No | No |
 
-## Microsoft.Discovery
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | agents | Yes | Yes |
-> | bookshelves | Yes | Yes |
-> | datacontainers | Yes | Yes |
-> | datacontainers / dataassets | Yes | Yes |
-> | models | Yes | Yes |
-> | storages | Yes | Yes |
-> | supercomputers | Yes | Yes |
-> | supercomputers / nodepools | Yes | Yes |
-> | tools | Yes | Yes |
-> | workflows | Yes | Yes |
-> | workspaces | Yes | Yes |
-> | workspaces / projects | Yes | Yes |
-
 ## Microsoft.DocumentDB
 
 > [!div class="mx-tableFixed"]
