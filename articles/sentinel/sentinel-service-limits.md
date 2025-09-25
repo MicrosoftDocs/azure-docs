@@ -73,7 +73,6 @@ The following limits apply to case management in Microsoft Sentinel.
 | Cases per tenant   | 100,000 cases                 | None       |
 | Attachments per tenant    | 500 GB         | None       |
 | Linked incidents per case  | 100 incidents       | None       |
-| Case retention period | 180 days | None       |
 
 ## Machine learning-based limits
 

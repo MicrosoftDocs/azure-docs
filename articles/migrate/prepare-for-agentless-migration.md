@@ -4,6 +4,7 @@ description: Learn how to prepare on-premises machines for agentless migration w
 author: vijain
 ms.author: vijain
 ms.topic: concept-article
+ms.reviewer: v-uhabiba
 ms.service: azure-migrate
 ms.date: 05/09/2025
 ms.custom: vmware-scenario-422, engagement-fy23, linux-related-content

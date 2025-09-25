@@ -4,6 +4,7 @@ description: Learn how to assess Hyper-V VMs for migration to Azure VMs with Azu
 ms.topic: tutorial
 ms.date: 02/06/2025
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.custom: MVC, engagement-fy25
 # Customer intent: As a Hyper-V administrator, I want to assess my Hyper-V VMs for migration to Azure, so that I can determine their cloud readiness, identify potential risks, and estimate migration costs.
 ---

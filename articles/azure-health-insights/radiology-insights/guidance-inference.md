@@ -223,7 +223,7 @@ https://www.acr.org/Clinical-Resources/Clinical-Tools-and-Reference/Reporting-an
 
 **Trauma and Injury Grading (American Association for the Surgery of Trauma (AAST))**  
 These guidelines provide standardized grading systems for assessing the severity of injuries:
-https://www.aast.org/resources-detail/injury-scoring-scale
+https://www.aast.org/trauma-acs-resources/trauma-tools/injury-scoring-scale.html
 
 | Guidance | SNOMED/RADLEX | Code | White paper reference |
 |---|---|---|---|

@@ -339,8 +339,6 @@
       displayName: migrate, migration, v3, v4, update, upgrade
     - name: Hosting and scale
       items:
-        - name: Consumption plan
-          href: consumption-plan.md
         - name: Flex Consumption plan
           href: flex-consumption-plan.md
         - name: Premium plan
@@ -353,6 +351,8 @@
               href: container-concepts.md
             - name: Azure Container Apps hosting
               href: functions-container-apps-hosting.md
+        - name: Consumption plan
+          href: consumption-plan.md
     - name: Deployment options
       href: functions-deployment-technologies.md
     - name: Events and messaging

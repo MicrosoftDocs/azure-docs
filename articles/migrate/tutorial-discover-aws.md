@@ -4,6 +4,7 @@ description: Learn how to discover AWS instances with Azure Migrate Discovery an
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
+ms.reviewer: v-uhabiba
 ms.topic: tutorial
 ms.date: 02/07/2025
 ms.service: azure-migrate

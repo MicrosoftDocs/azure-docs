@@ -4,6 +4,7 @@ description: Describes how to discover on-premises servers for migration to Azur
 ms.topic: tutorial
 ms.date: 02/07/2025
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.custom: engagement-fy25
 
 # Customer intent: As a cloud migration planner, I want to import server data from a CSV file into my migration assessment tool, so that I can efficiently evaluate and build a business case for migrating on-premises servers to Azure without requiring direct access or setup of additional components.

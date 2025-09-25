@@ -8,7 +8,7 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.topic: overview
-ms.date: 09/16/2025
+ms.date: 09/25/2025
 ms.author: anfdocs
 # Customer intent: As a cloud administrator, I want to learn about the latest enhancements in Azure NetApp Files, so that I can effectively utilize new features for improved data security, resilience, and operational efficiency in my organization's cloud storage solutions.
 ---
@@ -19,7 +19,15 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## September 2025
 
-*   [Azure NetApp Files support with Windows Server 2025 domain controllers](faq-smb.md)
+* [Short-term clones](create-short-term-clone.md) are now generally available (GA)
+
+    Azure NetApp Files short-term clones enable space-efficient, instant read/write access to data by creating temporary thin clones from existing volume snapshots, eliminating the need for full data copies and enabling capacity savings. Ideal for software development, analytics, disaster recovery and testing, short-term clones support large datasets and allow quick refreshes from the latest snapshots. Short-term clones remain temporary and space-efficient for up to one month, consuming capacity only for incremental changes. This capability accelerates development and analytics workflows, improves quality and resilience, and reduces costs by avoiding full copy storage and minimizing operational overhead. This capability is generally available in all Azure NetApp Files supported regions. You are still required to register for the feature before using it for the first time. 
+
+* [Configure NFSv4.1 ID domain for non-LDAP volumes](azure-netapp-files-configure-nfsv41-domain.md#configure-nfsv41-id-domain-for-non-ldap-volumes) is now generally available (GA)
+
+    To harmonize the authentication ID Domain settings in your NFSv4.1 environment, you can now configure a custom NFSv4.1 ID Domain in Azure NetApp Files for non-LDAP volumes. The ID Domain is set for all non-LDAP volumes in the same region and subscription, and can co-exist in environments with LDAP-enabled volumes. Once the ID Domain on Azure NetApp Files matches your NFSv4.1 clients, ‘root’ and non-root users will no longer be squashed to ‘nobody’. This setting helps either prepare for a future implementation of LDAP with Active Directory in the future by enabling the use of the same authentication ID Domain across all NFSv4.1 clients, or just ensures scripts and software installation routines that use ‘root’ can modify files on NFSv4.1 volumes correctly.
+    
+*   [Azure NetApp Files support with Windows Server 2025 domain controllers](faq-smb.md#can-i-use-windows-server-2025)
 
     Azure NetApp Files is now fully supported by Windows Server 2025 domain controllers, making it easier for organizations to modernize their Active Directory environments without disruption. With this update, customers can seamlessly integrate Windows Server 2025 domain controllers with Azure NetApp Files SMB and dual-protocol volumes, ensuring smooth and secure Active Directory workflows.
 

@@ -5,6 +5,7 @@ author: sunishvohra-ms
 ms.author: sunishvohra
 ms.manager: vijain
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.topic: how-to
 ms.date: 04/17/2025
 ms.custom: engagement-fy25

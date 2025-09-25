@@ -315,7 +315,16 @@ Optional parameters for all function app plans:
 
 Keep the following considerations in mind when using the Azure Functions action: 
 
-+ When using GitHub Actions, the code is deployed using [one deploy](./functions-deployment-technologies.md#one-deploy) to apps on the [Flex Consumption](./flex-consumption-plan.md) plan and [zip deploy](deployment-zip-push.md) to apps on the [Consumption](./consumption-plan.md), [Elastic Premium](./functions-premium-plan.md), and [Dedicated (App Service)](./dedicated-plan.md) plans. The exception is Linux Consumption, where [external package URL](./functions-deployment-technologies.md#external-package-url) is used.
++ When using GitHub Actions, the way that your code is deployed depends on your hosting plan, as shown in this table:
+
+    | Hosting plan | Deployment method |
+    | ---- | ----- |
+    | [Flex Consumption](./flex-consumption-plan.md) | [One deploy](./functions-deployment-technologies.md#one-deploy) |
+    | [Elastic Premium](./functions-premium-plan.md) | [Zip deploy](deployment-zip-push.md) to apps on the [Consumption](./consumption-plan.md) |
+    | [Dedicated (App Service)](./dedicated-plan.md) | [Zip deploy](deployment-zip-push.md) to apps on the [Consumption](./consumption-plan.md) |
+    | [Consumption](./consumption-plan.md)  | Windows: [Zip deploy](deployment-zip-push.md)<br/>Linux: [external package URL](./functions-deployment-technologies.md#external-package-url)<sup>*</sup> |
+
+    \* The ability to run your apps on Linux in a Consumption plan is planned for retirement. For more information, see [Azure Functions Consumption plan hosting](consumption-plan.md). 
 
 + The credentials required by GitHub to connection to Azure for deployment are stored as Secrets in your GitHub repository and accessed in the deployment as `secrets.<SECRET_NAME>`.
 

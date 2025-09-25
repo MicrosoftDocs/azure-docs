@@ -6,6 +6,7 @@ ms.author: ankitsurkar
 ms.topic: how-to
 ms.date: 05/08/2025
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.custom: engagement-fy24
 monikerRange: migrate
 # Customer intent: "As a cloud architect, I want to assess web apps for migration to Azure, so that I can determine their readiness, optimal targets, and estimated costs to facilitate a successful modernization strategy."

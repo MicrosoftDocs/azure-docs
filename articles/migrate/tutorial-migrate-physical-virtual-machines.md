@@ -6,6 +6,7 @@ ms.author: dhananjayanr
 ms.manager: kmadnani
 ms.topic: tutorial
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 08/26/2025
 ms.custom: MVC, engagement-fy25
 

@@ -6,6 +6,7 @@ ms.author: molir
 ms.manager: ronai
 ms.topic: concept-article
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 04/04/2025
 ms.custom: engagement-fy23, linux-related-content
 # Customer intent: As an IT administrator, I want to assess physical servers for migration to Azure using a discovery and assessment tool, so that I can plan and execute a successful migration of our on-premises infrastructure.

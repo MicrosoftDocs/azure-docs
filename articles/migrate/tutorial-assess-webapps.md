@@ -4,6 +4,7 @@ description: Learn how to create assessment for Azure App Service in Azure Migra
 ms.topic: tutorial
 ms.date: 02/07/2025
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 zone_pivot_groups: web-apps-assessment-app-service
 ms.custom:
   - engagement-fy24
