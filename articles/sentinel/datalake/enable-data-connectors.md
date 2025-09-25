@@ -22,24 +22,24 @@ Asset data in cybersecurity refers to an organization’s physical and digital e
 
 ## Considerations for enabling asset data in Sentinel data lake
 
-* When you onboard to Sentinel lake, asset data is automatically ingested if you have appropriate permissions (see[ Required permissions for asset sources](#required-permissions-for-asset-sources)).
+* When you onboard to Sentinel lake, asset data is automatically ingested if you have appropriate permissions (see[Required permissions for asset sources](#required-permissions-for-asset-sources)).
 
-* If you have insufficient permissions, asset tables will be created but they will be empty. To ingest data, you will need to enable connectors. To manually enable asset data ingestion:
+* If you have insufficient permissions, asset tables are created but they will be empty. To ingest data, you need to enable connectors. To manually enable asset data ingestion:
 
   1. Go to the Microsoft Sentinel workspace in the Azure portal.
   1. Navigate to the "Data connectors" page.
   1. Find the relevant asset data source connector.
-  1. Click on the connector and follow the prompts to enable ingestion.
+  1. Select the connector and follow the prompts to enable ingestion.
 
-* Asset data is ingested into the Microsoft Sentinel data lake tier only. After onboarding, asset dataIt can take up to 24 hours to arrive  in the lake.
+* Asset data is ingested into the Microsoft Sentinel data lake tier only. After onboarding, asset dataIt can take up to 24 hours to arrive in the lake.
 
 * Asset data is retained for 30 days by default. Retention can be expanded for up to 12 years.
 
 ## Billing considerations
 
-* Customers will incur charges for asset data ingestion.
+* Customers incur charges for asset data ingestion.
 
-* Customers will incur charges for asset data retention.
+* Customers incur charges for asset data retention.
 
 Asset data snapshots are taken once every 24 hours.
 
@@ -58,7 +58,7 @@ The following table describes the various asset data sources and their data conn
 <sup>1</sup> Microsoft 365 Activity log connector must be already enabled in the same workspace.
 
 > [!NOTE]
-> Certain data connectors, including but not limited to asset connectors, contribute to the construction of data risk graphs in Purview. If these graphs are active, disabling the associated connectors interrupts their generation. Connector descriptions indicate if they are involved in building data risk graphs.
+> Certain data connectors, including but not limited to asset connectors, contribute to the construction of data risk graphs in Purview. If these graphs are active, disabling the associated connectors interrupts their generation. Connector descriptions indicate if they're involved in building data risk graphs.
 
 ## Prerequisites
 
@@ -87,8 +87,8 @@ When asset data connector shows a *Connected* status, the toggle button text sho
 
 ## Use asset data to enrich activity data
 
-Asset data adds valuable context and insights that may not be evident from activity logs alone.
-For example, when investigating risky sign-ins in the `SigninLogs` table, you can enhance the analysis by joining it with the `EntraUsers` table to include user-specific attributes such as department and hire date. This additional context helps security teams better understand user behavior and assess potential threats more accurately.
+Asset data adds valuable context and insights that might not be evident from activity logs alone.
+For example, when investigating risky sign-ins in the `SigninLogs` table, you can enhance the analysis by joining it with the `EntraUsers` table to include user-specific attributes such as department and hire date. This extra context helps security teams better understand user behavior and assess potential threats more accurately.
 
 ```kql
 SigninLogs
