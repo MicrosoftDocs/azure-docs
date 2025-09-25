@@ -42,10 +42,9 @@ Once the solution is built, you need to test it to ensure that it meets the qual
 
 |Step| Description|
 |--|--|
-|**Package your platform content and deploy to test**|For Copilot agents and notebook jobs, you package the solution and publish to the Security Store as a private offer that you can deploy to your test environment.|
+|**Package your platform content and deploy to test**|For Copilot agents and notebook jobs, you package the solution and publish to the Security Store as a private offer that you can deploy to your test environment. For more information, see [Package and deploy your solution](package-platform-solution.md)|
 |**Microsoft merges PR & generates package**|Upon the successful completion of all technical feedback, Microsoft Sentinel engineering staff merges the pull request into the main branch, and generates the final package you need to submit with your offer.|
-|**Submit a pull request for SIEM content to get feedback and receive a package**|For SIEM content, raise a pull request (PR) in the Microsoft Sentinel solutions repository so the Microsoft Sentinel engineering staff can review it and provide feedback. Once the technical feedback is provided and any outstanding issues are resolved, the Microsoft Sentinel engineering staff merges the pull request into the main branch, and generates the final package you need to submit with your offer.
-
+|**Submit a pull request for SIEM content to get feedback and receive a package**|For SIEM content, raise a pull request (PR) in the Microsoft Sentinel solutions repository so the Microsoft Sentinel engineering staff can review it and provide feedback. Once the technical feedback is provided and any outstanding issues are resolved, the Microsoft Sentinel engineering staff merges the pull request into the main branch, and generates the final package you need to submit with your offer. For more information, see [Microsoft Sentinel and Microsoft 365 Defender- Pull request](https://github.com/Azure/Azure-Sentinel?tab=readme-ov-file#pull-request)|
 
 ## Publish to Azure Commercial Marketplace
 Once your solution is built, tested, and certified, you can publish it to the Azure Commercial Marketplace. This section provides guidance on how to publish your solution.
