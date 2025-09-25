@@ -47,23 +47,23 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 | France Central       |France central (Paris) | ✓   | ✓ | ✓ | ✓ | |  Dual |
 | Germany North |Germany Central (Frankfurt) | ✓  | | | |  |   Single    |
 | Germany West Central |Germany Central (Frankfurt) |  ✓  | ✓ | ✓ | ✓ | ✓  | Dual |
-| Italy North          | Italy North (Milan)   | ✓   | ✓   | ✓| | ✓| | ✓  | Dual |
-| North Europe | Ireland East (Dublin) | ✓  | ✓|  | | |  |   Single   |
+| Italy North          | Italy North (Milan)   | ✓   | ✓   | ✓ |  ✓ | ✓  | Dual |
+| North Europe | Ireland East (Dublin) | ✓  | ✓ |   | |  |   Single   |
 | Spain Central | 	Spain Central (Madrid) | ✓  | | | |  |   Dual    |
-| Sweden Central | 	Sweden Central (Stockholm) | ✓  | ✓| | | |  |   Dual    |
+| Sweden Central | 	Sweden Central (Stockholm) | ✓  | ✓ | | |  |   Dual    |
 | UAE Central | UAE Central (Abu Dhabi) | ✓  | | | |  |   Single    |
 | UAE North | UAE North (Dubai) | ✓  | | | |  |   Single    |
 | UK South| UK South (London)   | ✓   | ✓   | ✓ | ✓ | ✓  | Dual|
-| UK West | UK West (Newport)	   | ✓   | ✓  | | ✓ | ✓| |  Single |
+| UK West | UK West (Newport)	   | ✓   | ✓  | | ✓ | ✓ |  Single |
 
 
 ## North America (NA)
 
 | Azure region     | OCI region                 | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure | Oracle Database Autonomous Recovery Service@Azure | Exadata Database Service on Exascale Infrastructure@Azure | BaseDB            | Regional Availability |
 | ---------------- | -------------------------- | ----------------------------- | -------------------------------- | ------------------------------------------------- | --------------------------------------------------------- | ----------------- | --------------------- |
-| Canada Central   | Canada Southeast (Toronto) | ✓      | ✓   |  ✓  | ✓   | ✓|    | Dual |
+| Canada Central   | Canada Southeast (Toronto) | ✓      | ✓   |  ✓  | ✓   | ✓ |  Dual |
 | Central US       | US Midwest (Chicago)       | ✓       | ✓      | ✓    |        |          | Dual    |
-| East US          | US East (Ashburn)          | ✓     | ✓      | ✓      | ✓     | ✓|  | Dual|
+| East US          | US East (Ashburn)          | ✓     | ✓      | ✓      | ✓     | ✓ | Dual|
 | East US 2        | US East (Ashburn)          | ✓    | ✓         | ✓       |          |     | Dual     |
 | South Central US | US South (Dallas)   | ✓     |  ✓        |           |    |      | Dual |
 | West US          | US West (San Jose)    | ✓    | ✓      | ✓     |     | ✓  | Single   |
