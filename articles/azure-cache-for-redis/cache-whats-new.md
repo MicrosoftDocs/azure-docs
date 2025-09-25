@@ -30,7 +30,7 @@ If you have existing caches in the Basic, Standard, or Premium tiers, you can co
 | Enterprise, Enterprise Flash | March 31, 2027     |
 | Basic, Standard, Premium     | September 29, 2028 |
 
-For more information on moving your caches to Azure Managed Redis, see 
+For more information on moving your caches to Azure Managed Redis, see [Migrate from Basic, Standard, Premium, and Enterprise tiers to Azure Managed Redis](/articles/redis/migrate/migration-overview).
 
 ## May 2025
 
