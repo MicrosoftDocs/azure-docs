@@ -448,7 +448,7 @@ When you're getting ready to deploy Radiology Insights, the following activities
 1.	American College of Radiology. "ACR Appropriateness Criteria." American College of Radiology, n.d. Web. 29 January 2025. https://www.acr.org/Clinical-Resources/Clinical-Tools-and-Reference/Appropriateness-Criteria
 2.	American College of Radiology. "Incidental Findings." American College of Radiology, n.d. Web. 29 January 2025. https://www.acr.org/Clinical-Resources/Clinical-Tools-and-Reference/Incidental-Findings
 3.	American College of Radiology. "Reporting and Data Systems (RADS)." American College of Radiology, n.d. Web. 29 January 2025. https://www.acr.org/Clinical-Resources/Clinical-Tools-and-Reference/Reporting-and-Data-Systems
-4.	American Association for the Surgery of Trauma. "Injury Scoring Scale." American Association for the Surgery of Trauma, n.d. Web. 29 January 2025. https://www.aast.org/resources-detail/injury-scoring-scale
+4.	American Association for the Surgery of Trauma. "Injury Scoring Scale." American Association for the Surgery of Trauma, n.d. Web. 29 January 2025. https://www.aast.org/trauma-acs-resources/trauma-tools/injury-scoring-scale.html
 5.	MacMahon H, Naidich D, Goo J, and others. Guidelines for Management of Incidental Pulmonary Nodules Detected on CT Images: From the Fleischner Society 2017. Radiology. 2017;284(1):228-43. [doi:10.1148/radiol.2017161659](https://doi.org/10.1148/radiol.2017161659) - [Pubmed](https://www.ncbi.nlm.nih.gov/pubmed/28240562)
 6.	Tessler, Franklin N., and others. "ACR Thyroid Imaging, Reporting, and Data System (TI-RADS): White Paper of the ACR TI-RADS Committee." Journal of the American College of Radiology, 2017. 
 7.	MIPS Qualified Clinical Data Registry | American College of Radiology
