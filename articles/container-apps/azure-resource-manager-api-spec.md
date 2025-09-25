@@ -554,7 +554,7 @@ properties:
       name: redisService
 ```
 
-The following example YAML deploys a native Azure functions on container app
+The following example YAML show how to deploy an Azure Functions app on Container Apps.
 ```yaml
 kind: functionapp
 identity:
