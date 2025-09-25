@@ -8,6 +8,8 @@
   items:
   - name: Deploy a VM in an Extended Zone - Portal
     href: deploy-vm-portal.md
+  - name: Deploy a VM in an Extended Zone - Azure CLI
+    href: deploy-vm-cli.md
   - name: Deploy a VM in an Extended Zone - ARM template
     href: deploy-vm-arm-template.md
   expanded: true
