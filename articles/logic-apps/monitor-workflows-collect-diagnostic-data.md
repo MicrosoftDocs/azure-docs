@@ -29,7 +29,7 @@ To get richer data for debugging and diagnosing your workflows in Azure Logic Ap
 >
 > The store and forward architecture also implies that data transmission doesn't 
 > strictly happen in real time. Sometimes, you might get delays up to tens of minutes. 
-> For more information, see [Resource logs](../azure-monitor/platform/resource-logs.md).
+> For more information, see [Resource logs](/azure/azure-monitor/platform/resource-logs).
 
 This how-to guide shows how to complete the following tasks, based on whether you have a Consumption or Standard logic app resource.
 
