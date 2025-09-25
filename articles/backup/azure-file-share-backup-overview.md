@@ -2,7 +2,7 @@
 title: About Azure Files backup
 description: Learn how to back up Azure Files in the Recovery Services vault
 ms.topic: overview
-ms.date: 09/17/2025
+ms.date: 09/22/2025
 ms.service: azure-backup
 ms.custom:
   - engagement-fy23
@@ -87,9 +87,6 @@ For snapshot tier, you incur the following costs:
 - **Protected Instance fee**: Starting from September 1, 2020, you're charged a protected instance fee as per the [pricing details](https://azure.microsoft.com/pricing/details/backup/). The protected instance fee depends on the total size of protected File Shares in a storage account.
 
 To get detailed estimates for backing up Azure Files, you can download the detailed [Azure Backup pricing estimator](https://aka.ms/AzureBackupCostEstimates).  
-
->[!IMPORTANT]
->For vaulted backup, you will incur a protected instance fee and charges for backup storage for your standard and premium shares from April 1,2025.
 
 ## How lease snapshot works?
 

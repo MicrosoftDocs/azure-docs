@@ -8,6 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
 ms.date: 07/25/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Change your Azure subscription to a different offer

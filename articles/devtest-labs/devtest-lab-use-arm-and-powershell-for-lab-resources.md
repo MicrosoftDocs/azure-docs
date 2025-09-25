@@ -71,7 +71,7 @@ In Azure PowerShell, use [New-AzResource](/powershell/module/az.resources/new-az
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-Lab administrators can deploy ARM templates to create claimable lab VMs or image factory golden images. Provisioning VMs with PowerShell requires administrator permissions. Lab users can then use the custom images to create VM instances. For more information and instructions, see [Create a DevTest Labs VM with Azure PowerShell](devtest-lab-vm-powershell.md).
+Lab administrators can deploy ARM templates to create claimable lab VMs or golden images. Provisioning VMs with PowerShell requires administrator permissions. Lab users can then use the custom images to create VM instances. For more information and instructions, see [Create a DevTest Labs VM with Azure PowerShell](devtest-lab-vm-powershell.md).
 
 You can automate several other common DevTest Labs tasks by using ARM templates with PowerShell:
 

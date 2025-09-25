@@ -7,8 +7,13 @@ ms.subservice: azure-confidential-computing
 ms.topic: quickstart
 ms.date: 12/01/2023
 ms.author: RunCai
-ms.custom: mode-arm, devx-track-azurecli, devx-track-arm-template, has-azure-ad-ps-ref
 ms.devlang: azurecli
+ms.custom:
+  - mode-arm
+  - devx-track-azurecli
+  - devx-track-arm-template
+  - has-azure-ad-ps-ref
+  - sfi-ga-nochange
 # Customer intent: As an IT administrator, I want to deploy a confidential virtual machine using an ARM template, so that I can ensure secure memory encryption and isolation for my sensitive workloads.
 ---
 

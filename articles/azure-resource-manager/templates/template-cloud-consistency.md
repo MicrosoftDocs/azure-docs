@@ -5,7 +5,10 @@ author: marcvaneijk
 ms.topic: conceptual
 ms.date: 04/28/2025
 ms.author: mavane
-ms.custom: devx-track-arm-template, devx-track-azurecli
+ms.custom:
+  - devx-track-arm-template
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 ---
 
 # Develop ARM templates for cloud consistency

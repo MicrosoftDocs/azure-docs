@@ -6,6 +6,7 @@ ms.author: duau
 ms.service: azure-route-server
 ms.topic: concept-article
 ms.date: 09/17/2025
+ms.custom: sfi-image-nochange
 
 #CustomerIntent: As an Azure administrator, I want to understand how next hop IP support works so I can deploy network virtual appliances behind load balancers for high availability and improved performance.
 ---

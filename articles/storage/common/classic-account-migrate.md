@@ -10,7 +10,9 @@ ms.topic: how-to
 ms.date: 05/02/2023
 ms.author: akashdubey
 ms.subservice: storage-common-concepts
-ms.custom: devx-track-arm-template
+ms.custom:
+  - devx-track-arm-template
+  - sfi-image-nochange
 # Customer intent: As a cloud administrator, I want to migrate my classic storage accounts to the Azure Resource Manager deployment model so that I can access the latest features and ensure compliance before the retirement deadline of August 31, 2024.
 ---
 

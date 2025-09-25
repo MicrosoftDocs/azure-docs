@@ -7,6 +7,7 @@ ms.service: azure-expressroute
 ms.topic: troubleshooting
 ms.date: 01/31/2025
 ms.author: duau
+ms.custom: sfi-image-nochange
 ---
 # Troubleshooting network performance
 

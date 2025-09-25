@@ -43,6 +43,7 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 |Azure Synapse Workspace|[Known issue incorporating square brackets [] in the value of Tags](#known-issue-incorporating-square-brackets--in-the-value-of-tags)|Has workaround|
 |Azure Synapse Workspace|[Deployment Failures in Synapse Workspace using Synapse-workspace-deployment v1.8.0 in GitHub actions with ARM templates](#deployment-failures-in-synapse-workspace-using-synapse-workspace-deployment-v180-in-github-actions-with-arm-templates)|Has workaround|
 |Azure Synapse Workspace|[No `GET` API operation dedicated to the `Microsoft.Synapse/workspaces/trustedServiceBypassEnabled` setting](#no-get-api-operation-dedicated-to-the-microsoftsynapseworkspacestrustedservicebypassenabled-setting)|Has workaround|
+|Azure Synapse Apache Spark pool|[Starting a Spark session (with custom python libraries) is taking longer than usual](#starting-a-spark-session-with-custom-python-libraries-is-taking-longer-than-usual)|Has mitigation|
 
 
 ## Azure Synapse Analytics dedicated SQL pool active known issues summary
@@ -271,6 +272,34 @@ Suggested workarounds are:
 
 - Use the `sys.dm_exec_requests_history` view in your Synapse Serverless SQL pool to access historical query execution details.
 - Refactor the query to reduce its length below 7,500 characters, if feasible.
+
+## Azure Synapse Apache Spark pool active known issues summary
+
+### Starting a Spark session (with custom python libraries) is taking longer than usual
+
+There is a known issue impacting session startup time when python libraries (requirements.txt or .whl) are attached to the spark pool. Customers will experience slow session startup times intermittently. This is impacting both Fabric and Synapse. 
+
+**Workaround**: The mitigation has been applied to following regions. With this mitigation, the session startup has been improved significantly, but might still be 1.5x slower than original baseline.
+
+|Mitigated Synapse Regions|
+|------------------------|
+|PolandCentral|
+|EastUS|   
+|EastUS2EUAP|
+|SouthEastAsia|
+|AustraliaEast|
+|WestUS2|
+|NorthEurope|
+|SwedenCentral|
+|WestUS3|
+|QatarCentral|
+|JioIndiaWest|
+|SouthIndia|
+|IsraelCentral|
+|ItalyNorth|
+|SwitzerlandWest|
+|WestEurope|
+
 
 
 ## Recently closed known issues
