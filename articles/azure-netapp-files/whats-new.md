@@ -27,7 +27,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     To harmonize the authentication ID Domain settings in your NFSv4.1 environment, you can now configure a custom NFSv4.1 ID Domain in Azure NetApp Files for non-LDAP volumes. The ID Domain is set for all non-LDAP volumes in the same region and subscription, and can co-exist in environments with LDAP-enabled volumes. Once the ID Domain on Azure NetApp Files matches your NFSv4.1 clients, ‘root’ and non-root users will no longer be squashed to ‘nobody’. This setting helps either prepare for a future implementation of LDAP with Active Directory in the future by enabling the use of the same authentication ID Domain across all NFSv4.1 clients, or just ensures scripts and software installation routines that use ‘root’ can modify files on NFSv4.1 volumes correctly.
     
-*   [Azure NetApp Files support with Windows Server 2025 domain controllers](faq-smb.md)
+*   [Azure NetApp Files support with Windows Server 2025 domain controllers](faq-smb.md#can-i-use-windows-server-2025)
 
     Azure NetApp Files is now fully supported by Windows Server 2025 domain controllers, making it easier for organizations to modernize their Active Directory environments without disruption. With this update, customers can seamlessly integrate Windows Server 2025 domain controllers with Azure NetApp Files SMB and dual-protocol volumes, ensuring smooth and secure Active Directory workflows.
 
