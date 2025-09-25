@@ -174,7 +174,6 @@ This command generates a table with the app name, location, and resource group f
 Before migrating to the Flex Consumption plan, you should perform these checks to make sure that your function app can be migrated successfully:
 
 > [!div class="checklist"]
->
 > + [Confirm region compatibility](#confirm-region-compatibility)
 > + [Verify language stack compatibility](#verify-language-stack-compatibility)
 > + [Verify stack version compatibility](#verify-stack-version-compatibility)
@@ -952,7 +951,6 @@ The migration of your functions from a Consumption plan app to a Flex Consumptio
 ::: zone pivot="platform-linux"
 
 > [!div class="checklist"]
->
 > + [Verify Flex Consumption app created and configured](#verify-flex-consumption-app-created-and-configured)
 > + [Configure built-in authentication](#configure-built-in-authentication)
 > + [Deploy Your App Code to the New Flex Consumption App](#deploy-your-app-code-to-the-new-flex-consumption-app)
@@ -1023,7 +1021,6 @@ If any critical settings are missing or incorrect, you can manually configure th
 ::: zone pivot="platform-windows"
 
 > [!div class="checklist"]
->
 > + [Final review of the plan](#final-review-of-the-plan)
 > + [Create an app in the Flex Consumption plan](#create-an-app-in-the-flex-consumption-plan)
 > + [Apply migrated app settings in the new app](#apply-migrated-app-settings-in-the-new-app)
@@ -1508,7 +1505,6 @@ In this example, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with your resource 
 After a successful migration, you should perform these follow-up tasks:
 
 > [!div class="checklist"]
->
 > + [Verify basic functionality](#verify-basic-functionality)
 > + [Capture performance benchmarks](#capture-performance-benchmarks)
 > + [Create custom dashboards](#create-custom-dashboards)
