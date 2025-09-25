@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Virtual Machines
-description: Learn about Azure Virtual Machines reliability, availability zones, multi-region deployments, and high availability for enterprise workloads.
+description: Learn how to ensure reliability in Azure Virtual Machines by using availability zones, multi-region deployments, and high availability for enterprise workloads.
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article

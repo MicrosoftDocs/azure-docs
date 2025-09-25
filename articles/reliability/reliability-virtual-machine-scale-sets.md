@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Virtual Machine Scale Sets
-description: Learn about Virtual Machine Scale Set availability zones, Azure fault domains, zone-redundant deployment, and high availability.
+description: Learn how to ensure reliability in Azure Virtual Machine Scale Sets by using availability zones, fault domains, zone-redundant deployment, and high availability.
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article

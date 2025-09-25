@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Data Factory
-description: Learn how to ensure high availability for Azure Data Factory with availability zones, multi-region deployments, and resilient pipeline practices for maximum uptime.
+description: Learn how to ensure high availability for Azure Data Factory by using availability zones, multi-region deployments, and resilient pipeline practices for maximum uptime.
 author: jonburchel
 ms.author: jburchel
 ms.topic: reliability-article
