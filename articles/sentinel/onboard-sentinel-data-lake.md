@@ -44,11 +44,11 @@ Before onboarding Microsoft Sentinel Data Lake, ensure the following:
 
 ## Microsoft Sentinel Data Lake permissions
 
-| Role Type            | Role Name          | Purpose                                                                 |
-|----------------------|-------------------|-------------------------------------------------------------------------|
-| Microsoft Entra ID   | Security Reader   | Read access to all Data Lake workspaces and run KQL queries              |
-| Microsoft Entra ID   | Security Operator | Write access to Data Lake workspaces and manage jobs                     |
-| Azure built-in roles | Sentinel Contributor, Lighthouse, etc. | Access to specific Sentinel workspaces |
+| Role Type            | Role Name                                | Purpose                                                                 |
+|----------------------|------------------------------------------|-------------------------------------------------------------------------|
+| Microsoft Entra ID   | Security Reader                          | Read access to all Data Lake workspaces and run KQL queries              |
+| Microsoft Entra ID   | Security Operator                        | Write access to Data Lake workspaces and manage jobs                     |
+| Azure built-in roles | Microsoft Sentinel Contributor, Microsoft Sentinel Reader | Access to specific Sentinel workspaces |
 
 ---
 
