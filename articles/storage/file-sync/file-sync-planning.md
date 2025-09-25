@@ -83,12 +83,12 @@ To enable the sync capability on Windows Server, you must install the Azure File
 
 Azure File Sync is supported with the following versions of Windows Server:
 
-| Version | Supported editions | Supported deployment options |
-|---------|----------------|------------------------------|
-| Windows Server 2025 | Azure, Datacenter, Essentials, Standard, and IoT | Full and Core |
-| Windows Server 2022 | Azure, Datacenter, Essentials, Standard, and IoT | Full and Core |
-| Windows Server 2019 | Datacenter, Essentials, Standard, and IoT | Full and Core |
-| Windows Server 2016 | Datacenter, Essentials, Standard, and Storage Server | Full and Core |
+| Version | RTM Version | Supported editions | Supported deployment options |
+|---------|-------------|--------------------|------------------------------|
+| Windows Server 2025 | 26100 | Azure, Datacenter, Essentials, Standard, and IoT | Full and Core |
+| Windows Server 2022 | 20348 | Azure, Datacenter, Essentials, Standard, and IoT | Full and Core |
+| Windows Server 2019 | 17763 | Datacenter, Essentials, Standard, and IoT | Full and Core |
+| Windows Server 2016 | 14393 | Datacenter, Essentials, Standard, and Storage Server | Full and Core |
 
 We recommend keeping all servers that you use with Azure File Sync up to date with the latest updates from Windows Update.
 
