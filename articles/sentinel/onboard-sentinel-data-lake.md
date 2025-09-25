@@ -31,7 +31,8 @@ Before onboarding Microsoft Sentinel Data Lake, ensure the following:
 
 **Considerations:**
 
-- Once enabled, data in the Microsoft Sentinel analytics tier is also available in the Data Lake tier without extra charge.  
+- Once enabled, data in the Microsoft Sentinel analytics tier is also available in the Data Lake tier without extra charge.
+  
  ![Enablement confirmation](./datalake/media/sentinel-lake-onboarding/onboarding-complete.png)
 
 - Data ingestion takes **90–120 minutes** after enabling or switching ingestion tiers.  
@@ -58,37 +59,49 @@ To enable Microsoft Sentinel Data Lake in the Defender portal:
 
 1. Sign in to the [Microsoft Defender portal](https://security.microsoft.com).  
 2. Go to **System > Settings > Microsoft Sentinel > Data Lake**.  
-3. Select **Start setup**.  
-   ![Start setup option](./datalake/media/sentinel-lake-onboarding/setup-started.png)
+3. Select **Start setup**.
 
-4. Choose the subscription and resource group for Data Lake billing.  
-5. Select **Set up data lake**.  
-   ![Subscription and resource group selection](./datalake/media/sentinel-lake-onboarding/set-up-data-lake.png)
-
-6. Wait 30–40 minutes for setup to complete.  
-7. A confirmation banner appears on the Defender portal homepage once the Data Lake is created.  
    ![Confirmation banner](./datalake/media/sentinel-lake-onboarding/onboarding-banner.png)
 
-8. The Defender XDR homepage also shows a banner confirming Data Lake creation.  
+4. Choose the subscription and resource group for Data Lake billing.  
+5. Select **Set up data lake**.
+   
+   ![Subscription and resource group selection](./datalake/media/sentinel-lake-onboarding/set-up-data-lake.png)
+
+6. Wait 30–40 minutes for setup to complete.
+
+   ![Start setup option](./datalake/media/sentinel-lake-onboarding/setup-started.png)
+   
+7. A confirmation banner appears on the Defender portal homepage once the Data Lake is created.
+      
    ![Defender XDR homepage banner](./datalake/media/sentinel-lake-onboarding/onboarding-in-progress.png)
+
+8. The Defender XDR homepage also shows a banner confirming Data Lake creation.
+   
+   ![Confirmation banner](./datalake/media/sentinel-lake-onboarding/onboarding-banner.png)
+  
 
 ---
 
 ## Auto-created resources
 
 When onboarding completes, a hidden resource is provisioned with the prefix `msg-resources-<GUID>`.  
+
 ![Auto-created msg-resources identity](./datalake/media/sentinel-lake-onboarding/permissions-required.png)
 
-- This resource is a managed identity.  
+- This resource is a managed identity.
+- 
   ![Managed identity properties](./datalake/media/sentinel-lake-overview/sentinel-lake-overview.png)
 
-- It is granted the **Azure Reader** role for all subscriptions onboarded into the Data Lake.  
+- It is granted the **Azure Reader** role for all subscriptions onboarded into the Data Lake.
+- 
   ![Azure Reader role assignment](./datalake/media/setting-up-sentinel-data-lake/data-tiers.png)
 ---
 
 ## Explore Data Lake with KQL queries
 
-1. Navigate to **Microsoft Sentinel > Configuration > Data Lake exploration > KQL queries**.  
+1. Navigate to **Microsoft Sentinel > Configuration > Data Lake exploration > KQL queries**.
+   
    ![Data Lake exploration KQL queries](./datalake/media/sentinel-lake-overview/data-lake-exploration.png)
 
 2. In the workspace scope, switch from the default workspace to the connected Sentinel workspace.  
