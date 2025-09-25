@@ -1,5 +1,5 @@
 ---
-title: Routing architecture
+title: Routing Architecture
 titleSuffix: Azure Front Door
 description: This article helps you understand the global view aspect of Front Door's architecture.
 author: halkazwini

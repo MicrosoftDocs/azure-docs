@@ -1,5 +1,5 @@
 ---
-title: Add a custom domain to Azure Front Door
+title: Add a Custom Domain to Azure Front Door
 description: In this article, you learn how to onboard a custom domain to Azure Front Door.
 author: halkazwini
 ms.author: halkazwini
