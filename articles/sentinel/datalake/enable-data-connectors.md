@@ -22,7 +22,7 @@ Asset data in cybersecurity refers to an organization’s physical and digital e
 
 ## Considerations for enabling asset data in Sentinel data lake
 
-* When you onboard to Sentinel lake, asset data is automatically ingested if you have appropriate permissions (see[ Required permissions for asset sources](#required-permissions-for-asset-sources)).
+* When you onboard to Sentinel lake, asset data is automatically ingested if you have appropriate permissions (see[Required permissions for asset sources](#required-permissions-for-asset-sources)).
 
 * If you have insufficient permissions, asset tables will be created but they will be empty. To ingest data, you will need to enable connectors. To manually enable asset data ingestion:
 
@@ -31,7 +31,7 @@ Asset data in cybersecurity refers to an organization’s physical and digital e
   1. Find the relevant asset data source connector.
   1. Click on the connector and follow the prompts to enable ingestion.
 
-* Asset data is ingested into the Microsoft Sentinel data lake tier only. After onboarding, asset dataIt can take up to 24 hours to arrive  in the lake.
+* Asset data is ingested into the Microsoft Sentinel data lake tier only. After onboarding, asset dataIt can take up to 24 hours to arrive in the lake.
 
 * Asset data is retained for 30 days by default. Retention can be expanded for up to 12 years.
 
