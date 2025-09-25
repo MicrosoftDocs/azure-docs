@@ -102,7 +102,7 @@ items:
       - name: Phase 2 - Target selection
         href: ../common/storage-migration-target-selection.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Phase 3 - Planning migration strategy
-        href: ../common/storage-migration-planning-strategy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        href: ../common/storage-migration-plan-strategy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Phase 4 - Selecting migration tools
         href: ../common/storage-migration-tools.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Phase 5 - Migration execution
