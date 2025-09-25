@@ -30,7 +30,7 @@ This diagram illustrates the high-level architecture of the Microsoft Sentinel p
 
 ## Microsoft Sentinel SIEM
 
-The cloud-native Microsoft Sentinel SIEM solution delivers AI-powered security across multicloud and multiplatform environments. It provides comprehensive capabilities for threat detection, investigation, response, and proactive hunting—giving security teams a unified view of their enterprise.
+The cloud-native Microsoft Sentinel SIEM solution delivers AI-powered security across multicloud and multiplatform environments. It provides comprehensive capabilities for threat detection, investigation, response, and proactive hunting, giving security teams a unified view of their enterprise.
 
 Microsoft Sentinel SIEM is available in the Microsoft Defender portal - for customers with or without Defender XDR or an E5 license - offering a unified security operations experience. This integration streamlines workflows, enhances visibility, and helps analysts respond faster and more precisely to increasingly complex threats.
 
@@ -59,15 +59,15 @@ For more information, see [Microsoft Sentinel data connectors](./connect-data-so
 
 ### Microsoft Sentinel data lake
 
-Microsoft Sentinel data lake is a fully managed, cloud-native data lake purpose-built for security operations. It unifies, retains, and analyzes security data at scale—providing the foundation for advanced analytics, AI-driven insights, and agentic defense.
+Microsoft Sentinel data lake is a fully managed, cloud-native data lake purpose-built for security operations. It unifies, retains, and analyzes security data at scale - providing the foundation for advanced analytics, AI-driven insights, and agentic defense.
 
 Designed for flexibility and depth, the data lake supports multi-modal analytics - including Kusto queries, graph-based relationship analysis, Microsoft Modeling Language (MML), Security Copilot agents, and AI-powered notebooks in Visual Studio Code - all on a single copy of open-format data.
 
-With cost-efficient storage and long-term retention, security teams can investigate persistent threats, enrich alerts with historical context, and build behavioral baselines using months of data—without the overhead of traditional infrastructure.
+With cost-efficient storage and long-term retention, security teams can investigate persistent threats, enrich alerts with historical context, and build behavioral baselines using months of data, without the overhead of traditional infrastructure.
 
 Microsoft Sentinel data lake's key capabilities include:
 
-- Centralizes logs from Microsoft 365, Defender, Azure, Microsoft Entra, Purview, Intune, and over 350 data connectors—including Amazon Web Services (AWS) and Google Cloud Platform (GCP)—to eliminate data silos.
+- Centralizes logs from Microsoft 365, Defender, Azure, Microsoft Entra, Purview, Intune, and over 350 data connectors - including Amazon Web Services (AWS) and Google Cloud Platform (GCP) - to eliminate data silos.
 
 - Optimizes costs by decoupling data ingestion from analytics, so you can store massive volumes of security data and apply the most effective analytic engines for tasks like threat hunting, anomaly detection, and deep forensic investigations.
 
