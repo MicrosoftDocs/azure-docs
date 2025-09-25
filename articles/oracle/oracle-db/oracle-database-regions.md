@@ -29,7 +29,7 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 | Australia Southeast | Australia Southeast (Melbourne) | ✓        | ✓ | | |  |   Single   |
 | Central India | India West (Mumbai) | ✓  | ✓ | | |  |   Single   |
 | Japan East | Japan East (Tokyo) | ✓         | ✓  | ✓ | ✓ |Preview available |   Dual   |
-| Japan West | Japan Central (Osaka) | ✓  | ✓| | |  |   Single   |
+| Japan West | Japan Central (Osaka) | ✓  | ✓ | | |  |   Single   |
 | Southeast Asia |Singapore (Singapore) | ✓         | ✓      | ✓ | | |  Dual   |
 
 
@@ -44,17 +44,17 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 
 |Azure region |OCI region  | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure | Oracle Database Autonomous Recovery Service@Azure| Exadata Database Service on Exascale Infrastructure@Azure | BaseDB | Regional Availability |
 |------------|--|--------------------------|------------------------------| ------| ---- | ---- |----|
-| France Central       |France central (Paris) | ✓   | ✓ | ✓ | ✓| |  Dual |
+| France Central       |France central (Paris) | ✓   | ✓ | ✓ | ✓ | |  Dual |
 | Germany North |Germany Central (Frankfurt) | ✓  | | | |  |   Single    |
-| Germany West Central |Germany Central (Frankfurt) |  ✓  | ✓ | ✓| ✓| ✓  | Dual |
+| Germany West Central |Germany Central (Frankfurt) |  ✓  | ✓ | ✓ | ✓ | ✓  | Dual |
 | Italy North          | Italy North (Milan)   | ✓   | ✓   |✓ |✓ | ✓  | Dual |
 | North Europe | Ireland East (Dublin) | ✓  |✓  | | |  |   Single   |
 | Spain Central | 	Spain Central (Madrid) | ✓  | | | |  |   Dual    |
 | Sweden Central | 	Sweden Central (Stockholm) | ✓  |✓ | | |  |   Dual    |
 | UAE Central | UAE Central (Abu Dhabi) | ✓  | | | |  |   Single    |
 | UAE North | UAE North (Dubai) | ✓  | | | |  |   Single    |
-| UK South| UK South (London)   | ✓   | ✓   | ✓ | ✓| ✓  | Dual|
-| UK West | UK West (Newport)	   | ✓   | ✓  | | ✓|✓ |  Single |
+| UK South| UK South (London)   | ✓   | ✓   | ✓ | ✓ | ✓  | Dual|
+| UK West | UK West (Newport)	   | ✓   | ✓  | | ✓ |✓ |  Single |
 
 
 ## North America (NA)
