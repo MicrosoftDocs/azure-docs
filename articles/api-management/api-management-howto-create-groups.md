@@ -43,8 +43,8 @@ Complete the tasks in this article: [Create an Azure API Management instance](ge
 
 This section shows how to add a new group to your API Management account.
 
-1. Select the **Groups** tab to the left of the screen.
-1. Select **+Add**.
+1. In the menu on the left under **Developer portal**, select **Groups**.
+1. Select **+ Add**.
 1. Enter a unique name for the group and an optional description.
 1. Press **Create**.
 
@@ -59,7 +59,7 @@ Now that the group is created, it can be associated with products and developers
 
 ## <a name="associate-group-product"> </a>Associate a group with a product
 
-1. Select the **Products** tab on the left menu.
+1. In the menu on the left under **APIs**, select **Products**.
 1. Select the name of the desired product.
 1. Press **Access control** > **+ Add group**.
 1. Select the group you want to add.
@@ -79,7 +79,8 @@ To remove a group from the product, select **Delete**.
 
 This section shows how to associate groups with members.
 
-1. Select the **Groups** tab to the left of the screen, and then select a group.
+1. In the menu on the left under **Developer portal**, select **Groups**.
+1. On the **Groups** tab, select a group.
 1. Select **Members** > **+ Add**.
 
 
