@@ -1326,8 +1326,8 @@ Azure Functions currently can be used with the following "Preview" or "Go-live" 
 | Windows          | .NET 10 Preview 5<sup>1,2</sup> |
 
 1. Apps targeting .NET 10 must use [version 2.0.5 or later of `Microsoft.Azure.Functions.Worker.Sdk`][Microsoft.Azure.Functions.Worker.Sdk]. You should also update to [version 2.50.0-preview1 or later of `Microsoft.Azure.Functions.Worker`][Microsoft.Azure.Functions.Worker], which updates dependencies to align with .NET 10. When using Visual Studio, you also need to use [Visual Studio 2026 Insiders][vs-insiders] and [update the Functions tools and templates](#considerations-for-using-net-preview-versions) to version 4.114.0 or later.
-2. For the latest information about support for .NET 10 in public Azure, please see the [tracking thread on GitHub](https://github.com/Azure/azure-functions-dotnet-worker/issues/3152).
-3. Linux Consumption apps do not yet support .NET 10.
+2. For the latest information about support for .NET 10 in public Azure, see this [tracking thread on GitHub](https://github.com/Azure/azure-functions-dotnet-worker/issues/3152).
+3. You can't run .NET 10 apps on Linux in the Consumption plan. To run on Linux, you should instead use the [Flex Consumption plan](./flex-consumption-plan.md).
 
 See [Supported versions][supported-versions] for a list of generally available releases that you can use.
 
