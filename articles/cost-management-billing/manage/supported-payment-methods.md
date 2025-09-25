@@ -6,7 +6,7 @@ ms.reviewer: drjones
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: reference
-ms.date: 08/13/2025
+ms.date: 09/17/2025
 ms.author: drjones
 ms.custom:
 - references_regions

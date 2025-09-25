@@ -6,6 +6,7 @@ ms.author: ankitsurkar
 ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 04/17/2025
+ms.reviewer: v-uhabiba
 monikerRange: migrate
 # Customer intent: As a cloud architect, I want to understand the factors influencing confidence ratings in performance-based assessments, so that I can ensure reliable size recommendations for virtual machines during migration planning.
 ---

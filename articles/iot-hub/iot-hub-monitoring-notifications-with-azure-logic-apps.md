@@ -8,6 +8,7 @@ ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: tutorial
 ms.date: 02/07/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Tutorial: Monitor IoT devices and send notifications with Azure Logic Apps

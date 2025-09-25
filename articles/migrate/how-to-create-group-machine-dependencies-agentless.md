@@ -7,6 +7,7 @@ ms.manager: ronai
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 08/28/2025
+ms.reviewer: v-uhabiba
 ms.custom:
   - engagement-fy25
   - sfi-image-nochange

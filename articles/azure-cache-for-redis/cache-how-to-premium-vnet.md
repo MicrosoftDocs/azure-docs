@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.date: 09/11/2025
 appliesto:
   - ✅ Azure Cache for Redis
+ms.custom: sfi-image-nochange
 
 ---
 
