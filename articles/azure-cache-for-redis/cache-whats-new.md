@@ -7,7 +7,7 @@ ms.custom:
   - build-2025
 
 ms.topic: conceptual
-ms.date: 11/15/2024
+ms.date: 09/24/2025
 appliesto:
   - ✅ Azure Cache for Redis
 
