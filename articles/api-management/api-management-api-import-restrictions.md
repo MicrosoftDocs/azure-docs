@@ -123,7 +123,7 @@ OpenAPI version 2 support is limited to JSON format only.
 
 API Management supports the following specification versions:
 
-- [OpenAPI 3.0.x](https://swagger.io/specification/v3/)
+- [OpenAPI 3.0.3](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md)
 - [OpenAPI 3.1.0](https://spec.openapis.org/oas/v3.1.0) (import only)
 
 #### HTTPS URLs
