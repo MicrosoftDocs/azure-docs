@@ -18,7 +18,7 @@ This article provides step-by-step instructions for migrating your existing func
 The way you migrate your app to the Flex Consumption plan depends on whether your app runs on Linux or on Windows. Make sure to select your operating system at the top of the article.
 ::: zone pivot="platform-linux"  
 > [!TIP]
-> Azure Functions provides simplified Azure CLI commands (`az functionapp flex-migration`) that automate most of the steps to move your Linux app from the Consumption to the Flex Consumption plan. This article features these new Azure CLI commands, which are currently only supported for Linux app.
+> Azure Functions provides Azure CLI commands in [`az functionapp flex-migration`](/cli/azure/functionapp/flex-migration) that automate most of the steps required to move your Linux app from the Consumption to the Flex Consumption plan. This article features these commands, which are currently only supported for apps running on Linux.
 ::: zone-end
 When you migrate your existing serverless apps, your functions can take advantage of these benefits of the Flex Consumption plan:
 
@@ -474,21 +474,30 @@ You should plan mitigation strategies to protect data for the specific function 
 
 ## Start the migration for Linux
 
-For Linux Consumption apps, Azure Functions provides new Azure CLI commands that significantly simplify the migration process. The `az functionapp flex-migration start` command can automatically handle collecting application configurations and creating a new Flex Consumption app with the same configurations for you.
+The [az functionapp flex-migration start](/cli/azure/functionapp/flex-migration#az-functionapp-flex-migration-start) command automatically collects application configuration information and creates a new Flex Consumption app with the same configurations as the source app. Use the command as shown in this example:
 
-1. **Start the automated migration:**
-   ```azurecli
-   az functionapp flex-migration start \
-       --source-name <SOURCE_APP_NAME> \
-       --source-resource-group <SOURCE_RESOURCE_GROUP> \
-       --name <NEW_APP_NAME> \
-       --resource-group <RESOURCE_GROUP>
-   ```
-   
-   This command:
-   - Assesses your source app for Flex Consumption compatibility
-   - Creates a new Flex Consumption function app 
-   - Migrates most configurations including app settings, identity assignments, storage mounts, CORS settings, custom domains, and access restrictions
+```azurecli
+az functionapp flex-migration start \
+    --source-name <SOURCE_APP_NAME> \
+    --source-resource-group <SOURCE_RESOURCE_GROUP> \
+    --name <NEW_APP_NAME> \
+    --resource-group <RESOURCE_GROUP>
+```
+
+In this example, replace these placeholders with the indicated values:
+
+| Placeholder | Value |
+| ---- | ----- |
+| `<SOURCE_APP_NAME>` | The name of your original app. |
+| `<SOURCE_RESOURCE_GROUP>` | The resource group of the original app. |
+| `<NEW_APP_NAME>` | The name of the new app. |
+| `<RESOURCE_GROUP>` | The resource group of the new app. |
+
+The `az functionapp flex-migration start` command performs these basic tasks:
+
+- Assesses your source app for compatibility with the Flex Consumption hosting plan.
+- Creates a function app in the Flex Consumption plan. 
+- Migrates most configurations including app settings, identity assignments, storage mounts, CORS settings, custom domains, and access restrictions.
 
 ### Command Options
 
@@ -506,7 +515,7 @@ The migration command supports several options to customize the migration:
 
 For complete command options, use `az functionapp flex-migration start --help`.
 
-Once you have completed running `az functionapp flex-migration start` successfully, continue to [Get the code deployment package](#get-the-code-deployment-package).
+After you've completed running `az functionapp flex-migration start` successfully, continue to [Get the code deployment package](#get-the-code-deployment-package).
 
 ::: zone-end
 
@@ -514,7 +523,7 @@ Once you have completed running `az functionapp flex-migration start` successful
 
 ## Premigration tasks
 
-Before proceed>**Action required:** ing with the migration, you must collect key information about and resources used by your Consumption plan app to help make a smooth transition to running in the Flex Consumption plan.
+Before proceeding with the migration, you must collect key information about and resources used by your Consumption plan app to help make a smooth transition to running in the Flex Consumption plan.
 
 You should complete these tasks before you migrate your app to run in a Flex Consumption plan:
 
@@ -942,13 +951,15 @@ The migration of your functions from a Consumption plan app to a Flex Consumptio
 
 ::: zone pivot="platform-linux"
 
+> [!div class="checklist"]
+>
 > + [Verify Flex Consumption app created and configured](#verify-flex-consumption-app-created-and-configured)
 > + [Configure built-in authentication](#configure-built-in-authentication)
 > + [Deploy Your App Code to the New Flex Consumption App](#deploy-your-app-code-to-the-new-flex-consumption-app)
 
 ### Verify Flex Consumption app created and configured 
 
-After running the `az functionapp flex-migration start` command, you should verify that your new Flex Consumption app was created successfully and properly configured. Here are some steps to validate the migration results:
+After running the [az functionapp flex-migration start] command, you should verify that your new Flex Consumption app was created successfully and properly configured. Here are some steps to validate the migration results:
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -1685,3 +1696,4 @@ If you encounter issues with your migration using this article or want to provid
 + [Flex Consumption plan-specific samples](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples)
 
 [Azure portal]: https://portal.azure.com
+[az functionapp flex-migration start]: /cli/azure/functionapp/flex-migration#az-functionapp-flex-migration-start
