@@ -115,6 +115,4 @@ You can manage table retention and tiers in a unified panel:
 
 ## Next steps
 
-- [Run KQL jobs to move data from the Data Lake tier to the Analytics tier](#)  
-- [Explore Data Lake analytics in the Microsoft Defender portal](#)  
-- [Manage Microsoft Sentinel costs](#)  
+- [Manage Microsoft Sentinel costs](/azure/sentinel/sentinel-costs)  
