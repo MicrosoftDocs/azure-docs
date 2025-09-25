@@ -72,7 +72,7 @@ For the Standard and Premium tiers, you can now use availability zones (Preview)
 
 ### Redis 7.2 (preview) on the Enterprise tier
 
-Azure cache for Redis now offers you the ability to use Redis 7.2 (preview) with your Enterprise and Enterprise Flash tiers.
+Azure Cache for Redis now offers you the ability to use Redis 7.2 (preview) with your Enterprise and Enterprise Flash tiers.
 
 You can upgrade your caches automatically or manually. For more information, see [How to upgrade an existing cache](cache-how-to-upgrade.md).
 
@@ -343,7 +343,7 @@ We expect that most Azure Cache for Redis customers aren't affected. However, yo
 
 For more information, read this blog that contains instructions on [how to check whether your client application is affected](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/azure-cache-for-redis-tls-upcoming-migration-to-digicert-global/ba-p/3171086). We recommend taking the actions recommended in the blog to avoid cache connectivity loss.
 
-### Active geo-replication for Azure Cache For Redis Enterprise GA
+### Active geo-replication for Azure Cache for Redis Enterprise GA
 
 Active geo-replication for Azure Cache for Redis Enterprise is now generally available (GA).
 
