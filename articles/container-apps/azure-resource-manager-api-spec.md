@@ -176,11 +176,9 @@ The following example ARM template snippet deploys a container app.
 
 ```json
 {
-  "kind": "functionapp",
   "identity": {
     "userAssignedIdentities": {
-      "/subscriptions/<subscription_id>/resourcegroups/my-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-user": {
-      }
+      "/subscriptions/<subscription_id>/resourcegroups/my-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-user": {}
     },
     "type": "UserAssigned"
   },
@@ -262,7 +260,7 @@ The following example ARM template snippet deploys a container app.
           "path": "/health",
           "probeIntervalSeconds": 3,
           "probeTimeoutMilliseconds": 1000,
-          "threshold": 3,
+          "threshold": 3
         },
         "maxConcurrency": 10
       },
@@ -393,6 +391,23 @@ The following example ARM template snippet deploys a container app.
 }
 ```
 
+The following example ARM template snippet deploys a native Azure functions on container app
+```json
+{
+  "kind": "functionapp",
+  "identity": {
+    "userAssignedIdentities": {
+      "/subscriptions/<subscription_id>/resourcegroups/my-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-user": {}
+    },
+    "type": "UserAssigned"
+  },
+  "properties": {
+    // same as regular container app properties 
+  }
+}
+```
+
+
 # [YAML](#tab/yaml)
 
 The following example YAML configuration deploys a container app when used with the `--yaml` parameter in the following Azure CLI commands:
@@ -401,8 +416,9 @@ The following example YAML configuration deploys a container app when used with 
 - [`az containerapp update`](/cli/azure/containerapp?view=azure-cli-latest&preserve-view=true#az-containerapp-update)
 - [`az containerapp revision copy`](/cli/azure/containerapp?view=azure-cli-latest&preserve-view=true#az-containerapp-revision-copy)
 
+The following example YAML deploys a container app
+
 ```yaml
-kind: functionapp
 identity:
   userAssignedIdentities:
     "/subscriptions/<subscription_id>/resourcegroups/my-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-user": {}
@@ -535,6 +551,17 @@ properties:
     serviceBinds:
     - serviceId: "/subscriptions/<subscription_id>/resourceGroups/rg/providers/Microsoft.App/containerApps/redisService"
       name: redisService
+```
+
+The following example YAML deploys a native Azure functions on container app
+```yaml
+kind: functionapp
+identity:
+  userAssignedIdentities:
+    "/subscriptions/<subscription_id>/resourcegroups/my-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-user": {}
+  type: UserAssigned
+properties:
+  # same as regular container app properties 
 ```
 
 ---
