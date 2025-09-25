@@ -232,19 +232,17 @@ The following table describes appropriate and inappropriate scenarios for using 
 | Check workflow structure, bindings, or basic trigger and action behavior. | - Your workflow callers include external agents, MCP servers, or conversational clients. <br><br>- You plan to publish your workflow endpoint outside your tenant. |
 | Temporary sandbox or spike prototypes that later adopt Easy Auth or SAS URL hardening. | Your workflow requires auditable per-user identities, token revocation, Conditional Access policies, or least‑privilege enforcement. |
 
-For more information, see [Secure agent workflows with Easy Auth](set-up-authentication-agent-workflows.md#authenticate-and-authorize-with-a-developer-key).
+For more information, see [Authenticate and atuhorize with a developer key](set-up-authentication-agent-workflows.md#authenticate-and-authorize-with-a-developer-key).
 
 <a name="easy-auth"></a>
 
 ### Easy Auth built-in authentication and authorization
 
-For production scenarios, including chat and agent clients outside the Azure portal, set up Easy Auth on your logic app resource along with a dedicated Microsoft Entra app registration. 
+For production scenarios, including chat and agent clients outside the Azure portal, [set up Easy Auth on your logic app resource](set-up-authentication-agent-workflows.md) along with a dedicated Microsoft Entra app registration. This approach isolates tokens, enforces least privilege, and avoids reusing broad multi-application registrations.
 
-This approach isolates tokens, enforces least privilege, and avoids reusing broad multi-application registrations.
+Formerly named App Service Authentication, Easy Auth provides a built‑in enforcement layer that lets you focus more on building your workflow's business logic and offers the following benefits:
 
-Formerly named App Service Authentication, Easy Auth provides a built‑in enforcement layer that offers the following benefits and lets you focus more on building your workflow's business logic:
-
-- Handles sign-in, authentication, and authorization for Microsoft Entra and OpenID Connect providers without custom code.
+- Handles sign-in, authentication, and authorization for Microsoft Entra without custom code.
 
 - Keeps secrets, long-lived Shared Access Signature (SAS) URLs, and access keys out of workflows, reducing secrets sprawl, rotation overhead, and exposure risk.
 

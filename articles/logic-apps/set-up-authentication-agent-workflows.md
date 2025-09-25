@@ -32,9 +32,9 @@ To strengthen security for agent workflows, set up App Service Authentication, a
 
 These measures let you authenticate and authorize each caller at a fine-grained level and revoke access quickly when needed. Without these controls, you risk uncontrolled access, leaked secrets such as shared access signature (SAS) URLs and access keys, weak audit trails, and other security hazards.
 
-Easy Auth works with Microsoft Entra ID, or optionally Open ID Connect, as a separate security layer to provide built-in authentication and authorization capabilities that meet your needs. With security enforcement operating outside your workflow, you can focus more on developing the business logic instead. This separation of concerns makes agent workflows simpler and easier to build, debug, operate, monitor, maintain, govern, and audit.
+Easy Auth works with Microsoft Entra ID as a separate security layer to provide built-in authentication and authorization capabilities that meet your needs. With security enforcement operating outside your workflow, you can focus more on developing the business logic instead. This separation of concerns makes agent workflows simpler and easier to build, debug, operate, monitor, maintain, govern, and audit.
 
-Nonagent workflow security involves static SAS, rotating secrets, and network boundary controls like access restrictions, IP allow lists, service tags, virtual network integration, and private endpoints. With agent workflows, you design authorization around end users, managed identities, service principals, and their scopes and roles. This approach enables safer global reach but still allows downstream workflow actions to respect fine-grained permissions.
+Nonagent workflow security usually involves static SAS, rotating secrets, and network boundary controls like access restrictions, IP allow lists, service tags, virtual network integration, and private endpoints. With agent workflows, you design authorization around end users, managed identities, service principals, and their scopes and roles. This approach enables safer global reach but still allows downstream workflow actions to respect fine-grained permissions.
 
 This guide shows how to create an app registration and then set up Easy Auth for your Standard logic app resource, which can contain agent and nonagent workflows.
 
@@ -93,7 +93,7 @@ For the best way to begin Easy Auth setup, create a new app registration in Micr
 
 1. For **User-assigned managed identity**, select **Create new user-assigned managed identity**.
 
-   Rather than use an existing identity, which you must reconfigure to work Easy Auth, create a new identity that's cleanly set up for this scenario.
+   You can create a new identity or select an existing one.
 
 1. For **Supported account types**, select **Current tenant - Single tenant** unless you want to intentionally accept other tenants.
 
@@ -115,7 +115,8 @@ For the best way to begin Easy Auth setup, create a new app registration in Micr
    | Setting | Value |
    |---------|-------|
    | **Client application requirement** | **Allow requests only from this application itself** |
-   | **Identity requirement** | **Allow requests from specific identities**, and keep the prepopulated value. |
+   | **Identity requirement** | **Allow requests from specific identities** |
+   | **Allowed identities** | Appears only with **Allow requests from specific identities** selected. <br><br>The default prepopulated value is the object ID that represents the current user, namely yourself. You can update this value in the following ways: <br><br>- Include object IDs for other developers or users. <br>- Use group claims to include a specific group, rather than individual object IDs. <br>- Select an existing app registration for your logic app resource. If you do, make sure to [update the app registration](#update-an-existing-app-registration) to work cleanly with Easy Auth. <br><br>For more information, see [Use a built-in authorization policy](../app-service/configure-authentication-provider-aad?tabs=workforce-configuration.md#use-a-built-in-authorization-policy). |
    | **Tenant requirement** | **Allow requests only from the issuer tenant** |
 
 1. Skip the **Excluded paths** section.
