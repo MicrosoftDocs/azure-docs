@@ -2,11 +2,11 @@
 title: Identity model
 titleSuffix: An Azure Communication Services article
 description: This article describes identities and access tokens.
-author: FarrukhGhaffar
+author: kirmadi
 manager: cassidyfein
 services: azure-communication-services
 
-ms.author: faghaffa
+ms.author: jorgegarc
 ms.date: 01/02/2024
 ms.topic: conceptual
 ms.service: azure-communication-services

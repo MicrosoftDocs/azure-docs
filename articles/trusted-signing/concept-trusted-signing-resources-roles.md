@@ -6,7 +6,9 @@ ms.author: ianmcm
 ms.service: trusted-signing
 ms.topic: concept-article
 ms.date: 04/03/2024
-ms.custom: template-concept
+ms.custom:
+  - template-concept
+  - sfi-image-nochange
 ---
 
 # Trusted Signing resources and roles

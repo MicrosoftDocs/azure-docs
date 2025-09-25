@@ -7,6 +7,7 @@ ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 03/20/2025
 ms.author: alkohli
+ms.custom: sfi-image-nochange
 ---
 
 # Open a support ticket for Azure Stack Edge and Azure Data Box Gateway
