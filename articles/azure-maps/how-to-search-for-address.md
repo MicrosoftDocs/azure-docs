@@ -186,7 +186,7 @@ This example demonstrates how to search for a cross street based on the coordina
 This article demonstrates how to:
 
 * Request latitude and longitude coordinates for an address (geocode address location) by using [Get Geocoding].
-* Search for a partial address using [Autocomplete].
+* Search for a partial address using [Get Geocode Autocomplete].
 * Use [Get Reverse Geocoding] to translate coordinate location to street address.
 * Translate coordinate location into a human understandable cross street using [Get Reverse Geocoding], most often needed in tracking applications that receive a GPS feed from a device or asset, and wish to know where the coordinate is located.
 
@@ -230,13 +230,11 @@ The example in this section uses [Get Geocoding] to convert an address into lati
 
    The response includes results from multiple countries/regions. To [geobias] results to the relevant area for your users, always add as many location details as possible to the request.
 
-## Search autocomplete
+## Use Get Geocode Autocomplete for partial address search
 
-[Autocomplete] supports standard single line and free-form searches. We recommend that you use the Azure Maps Search Autocomplete API when you don't know your user input type for a search request. The query input can be a full or partial address. To improve the relevance of your search results, constrain the query results using a coordinate location and radius, or by defining a bounding box.
+The [Get Geocode Autocomplete] API supports both single-line and free-form address inputs, making it ideal for scenarios where a complete address is unavailable. You can submit either a full or partial address as the query. To enhance the accuracy and relevance of the results, it's recommended to constrain the search by specifying coordinates or a bounding box.
 
-### Search for an address using autocomplete
-
-This example demonstrates how to use the autocomplete API to search the entire north American continent for partial input like "university of w." It then shows how to narrow the search scope to a specific country or region using the `countryRegion` parameter. Finally, it demonstrates how to use a `coordinate` parameter to focus the search to a specific area to limit the number of results.
+This example demonstrates how to use the Get Geocode Autocomplete API to search the entire North American continent for partial input like "university of w." It then shows how to narrow the search scope to a specific country or region using the `countryRegion` parameter. Finally, it demonstrates how to use the `coordinates` parameter to focus the search to a specific area.
 
 > [!IMPORTANT]
 > To geobias results to the relevant area for your users, always add as many location details as possible. For more information, see [Best Practices for Search].
@@ -377,7 +375,7 @@ This example demonstrates how to search for a cross street based on the coordina
 > [!div class="nextstepaction"]
 > [Best practices for Azure Maps Search service]
 
-[Autocomplete]: /rest/api/maps/search/get-geocode-autocomplete
+[Get Geocode Autocomplete]: /rest/api/maps/search/get-geocode-autocomplete
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Maps Search service]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
 [Best practices for Azure Maps Search service]: how-to-use-best-practices-for-search.md
