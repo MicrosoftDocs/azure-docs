@@ -123,6 +123,14 @@ echo firmware analysis completed with status: %STATUS%
 
 Once you've confirmed that your analysis status is "Ready", you can run commands to pull the results.
 
+### Firmware summary
+
+The following command retrieves a general summary of your firmware analysis results. Replace each argument with the appropriate value for your resource group, workspace name, and firmware ID.
+
+```azurecli
+az firmwareanalysis firmware summary --resource-group myResourceGroup --workspace-name default --firmware-id 123e4567-e89b-12d3-a456-426614174000 --summary-type Firmware
+```
+
 ### SBOM
 
 The following command retrieves the SBOM in your firmware image. Replace each argument with the appropriate value for your resource group, subscription, workspace name, and firmware ID.
@@ -139,12 +147,24 @@ The following command retrieves CVEs found in your firmware image. Replace each 
 az firmwareanalysis firmware cve --resource-group myResourceGroup --subscription 123e4567-e89b-12d3-a456-426614174000 --workspace-name default --firmware-id sampleFirmwareID
 ```
 
+For a summary of your CVEs, run the following command:
+
+```azurecli
+az firmwareanalysis firmware summary --resource-group myResourceGroup --workspace-name default --firmware-id 123e4567-e89b-12d3-a456-426614174000 --summary-type CommonVulnerabilitiesAndExposures
+```
+
 ### Binary hardening
 
 The following command retrieves analysis results on binary hardening in your firmware image. Replace each argument with the appropriate value for your resource group, subscription, workspace name, and firmware ID.
 
 ```azurecli
 az firmwareanalysis firmware binary-hardening --resource-group myResourceGroup --subscription 123e4567-e89b-12d3-a456-426614174000 --workspace-name default --firmware-id sampleFirmwareID
+```
+
+For a summary of your binary hardening results, run the following command:
+
+```azurecli
+az firmwareanalysis firmware summary --resource-group myResourceGroup --workspace-name default --firmware-id 123e4567-e89b-12d3-a456-426614174000 --summary-type BinaryHardening
 ```
 
 ### Password hashes
@@ -163,10 +183,22 @@ The following command retrieves vulnerable crypto certificates that were found i
 az firmwareanalysis firmware crypto-certificate --resource-group myResourceGroup --subscription 123e4567-e89b-12d3-a456-426614174000 --workspace-name default --firmware-id sampleFirmwareID
 ```
 
+For a summary of your certificates, run the following command:
+
+```azurecli
+az firmwareanalysis firmware summary --resource-group myResourceGroup --workspace-name default --firmware-id 123e4567-e89b-12d3-a456-426614174000 --summary-type CryptoCertificate
+```
+
 ### Keys
 
 The following command retrieves vulnerable crypto keys that were found in your firmware image. Replace each argument with the appropriate value for your resource group, subscription, workspace name, and firmware ID.
 
 ```azurecli
 az firmwareanalysis firmware crypto-key --resource-group myResourceGroup --subscription 123e4567-e89b-12d3-a456-426614174000 --workspace-name default --firmware-id sampleFirmwareID
+```
+
+For a summary of your keys, run the following command:
+
+```azurecli
+az firmwareanalysis firmware summary --resource-group myResourceGroup --workspace-name default --firmware-id 123e4567-e89b-12d3-a456-426614174000 --summary-type CryptoKey
 ```
