@@ -32,7 +32,7 @@ Before onboarding Microsoft Sentinel Data Lake, ensure the following:
 **Considerations:**
 
 - Once enabled, data in the Microsoft Sentinel analytics tier is also available in the Data Lake tier without extra charge.  
-  ![Screenshot showing Microsoft Sentinel Data Lake enablement confirmation](https://github.com/user-attachments/assets/877cfd5d-42c9-45b2-8ce9-f5fa85ef563d)
+ ![Screenshot showing Microsoft Sentinel Data Lake enablement confirmation](../media/sentinel-lake-onboarding/onboarding-complete.png)
 
 - Data ingestion takes **90–120 minutes** after enabling or switching ingestion tiers.  
 - Tables in the Auxiliary tier are migrated to Data Lake and no longer available in Advanced Hunting.  
@@ -59,38 +59,37 @@ To enable Microsoft Sentinel Data Lake in the Defender portal:
 1. Sign in to the [Microsoft Defender portal](https://security.microsoft.com).  
 2. Go to **System > Settings > Microsoft Sentinel > Data Lake**.  
 3. Select **Start setup**.  
-   ![Screenshot showing Start setup option for Sentinel Data Lake](https://github.com/user-attachments/assets/9ae0871e-4025-4153-8070-b086a7d5c787)
+   [Screenshot showing Start setup option for Sentinel Data Lake](../media/sentinel-lake-onboarding/setup-started.png)
 
 4. Choose the subscription and resource group for Data Lake billing.  
 5. Select **Set up data lake**.  
-   ![Screenshot showing subscription and resource group selection for Data Lake](https://github.com/user-attachments/assets/e2ed24d1-9214-44c9-9cd5-4d9a20795118)
+   ![Screenshot showing subscription and resource group selection for Data Lake](../media/sentinel-lake-onboarding/set-up-data-lake.png)
 
 6. Wait 30–40 minutes for setup to complete.  
 7. A confirmation banner appears on the Defender portal homepage once the Data Lake is created.  
-   ![Screenshot showing confirmation banner for Data Lake creation](https://github.com/user-attachments/assets/32d05435-6c22-4f2f-84f6-c980957c1a0c)
+   ![Screenshot showing confirmation banner for Data Lake creation](../media/sentinel-lake-onboarding/onboarding-banner.png)
 
 8. The Defender XDR homepage also shows a banner confirming Data Lake creation.  
-   ![Screenshot showing Defender XDR homepage with Data Lake banner](https://github.com/user-attachments/assets/7ab15fd1-b307-4574-bd1e-e0022708dc0a)
+   ![Screenshot showing Defender XDR homepage with Data Lake banner](../media/sentinel-lake-onboarding/onboarding-in-progress.png)
 
 ---
 
 ## Auto-created resources
 
 When onboarding completes, a hidden resource is provisioned with the prefix `msg-resources-<GUID>`.  
-![Screenshot showing auto-created msg-resources managed identity](https://github.com/user-attachments/assets/72272ebb-964f-4e92-8747-3993c2e6af8c)
+![Screenshot showing auto-created msg-resources managed identity](../media/sentinel-lake-onboarding/permissions-required.png)
 
 - This resource is a managed identity.  
-  ![Screenshot showing managed identity properties for Data Lake](https://github.com/user-attachments/assets/5e0e840f-ec43-42e1-9e83-d2347cc90a7f)
+  ![Screenshot showing managed identity properties for Data Lake](../media/sentinel-lake-overview/sentinel-lake-overview.png)
 
 - It is granted the **Azure Reader** role for all subscriptions onboarded into the Data Lake.  
-  ![Screenshot showing Azure Reader role assigned to Data Lake identity](https://github.com/user-attachments/assets/2959c8b0-b80d-42ad-9517-f4c253a842f0)
-
+  ![Screenshot showing Azure Reader role assigned to Data Lake identity](../media/setting-up-sentinel-data-lake/data-tiers.png)
 ---
 
 ## Explore Data Lake with KQL queries
 
 1. Navigate to **Microsoft Sentinel > Configuration > Data Lake exploration > KQL queries**.  
-   ![Screenshot showing Data Lake exploration KQL queries page](https://github.com/user-attachments/assets/cde76574-79cc-4759-8ed7-eb7ae7e3774b)
+   ![Screenshot showing Data Lake exploration KQL queries page](../media/sentinel-lake-overview/data-lake-exploration.png)
 
 2. In the workspace scope, switch from the default workspace to the connected Sentinel workspace.  
 3. Run a KQL query against the Data Lake tier.  
