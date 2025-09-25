@@ -322,6 +322,9 @@ You can create a custom Container Apps scaling rule based on any [ScaledObject](
 | Polling interval | 30 |
 | Cool down period | 300 |
 
+> [!NOTE]
+> Cool down period only takes effect when scaling down to 0 replicas. It does not impact scaling operations where the number of replicas changes from `n` to a value greater than 0. 
+
 For [event-driven Container Apps jobs](jobs.md#event-driven-jobs), you can create a custom scaling rule based on any [ScaledJob](https://keda.sh/docs/latest/concepts/scaling-jobs/)-based KEDA scalers.
 
 The following example demonstrates how to create a custom scale rule.
