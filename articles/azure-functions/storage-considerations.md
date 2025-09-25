@@ -209,7 +209,11 @@ Azure Files is used to enable dynamic scale-out for Functions. Scaling could be 
 
 _This functionality is current only available when running on Linux._ 
 
-You can mount existing Azure Files shares to your Linux function apps. By mounting a share to your Linux function app, you can use existing machine learning models or other data in your functions. You can use the following command to mount an existing share to your Linux function app. 
+You can mount existing Azure Files shares to your Linux function apps. By mounting a share to your Linux function app, you can use existing machine learning models or other data in your functions. 
+
+[!INCLUDE [functions-linux-consumption-retirement](../../includes/functions-linux-consumption-retirement.md)]
+
+You can use the following command to mount an existing share to your Linux function app. 
 
 # [Azure CLI](#tab/azure-cli)
 
