@@ -7,7 +7,7 @@ author: kewear
 ms.author: kewear
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/05/2025
+ms.date: 09/24/2025
 ms.custom: sfi-image-nochange
 # Customer intent: As a developer, I want to collect and send diagnostics data for my logic app workflows to specific destinations, such as a Log Analytics workspace, storage account, or event hub, for further review.
 ---
@@ -26,6 +26,9 @@ To get richer data for debugging and diagnosing your workflows in Azure Logic Ap
 > Also, transient logging errors must halt the upstream service when unable to confirm log delivery. 
 > Whenever the Azure Monitor team can confirm a persistent source of data loss, the team considers resolution and prevention its highest priority. 
 > However, small data losses might still happen due to temporary, non-repeating service issues distributed across Azure, and not all can be caught.
+>
+> The store and forward architecture also implies the data transmission is not strictly real time. Occasionally there could be delays up to tens 
+> of minutes.
 
 This how-to guide shows how to complete the following tasks, based on whether you have a Consumption or Standard logic app resource.
 
