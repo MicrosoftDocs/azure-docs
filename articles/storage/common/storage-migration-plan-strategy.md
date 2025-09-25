@@ -1,6 +1,6 @@
 ---
-title: Storage migration strategy
-description: Storage migration strategy guide describes basic guidance for storage migration strategies
+title: Microsoft Azure Storage migration strategy
+description: Microsoft Azure Storage migration strategy guide describes basic guidance for storage migration strategies to Azure
 author: bapic
 ms.author: bchakra
 ms.topic: concept-article 
