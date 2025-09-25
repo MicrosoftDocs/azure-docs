@@ -22,7 +22,7 @@ This section helps you determine if your data is reaching IoT Central.
 
 If you haven't already done so, install the `az cli` tool and `azure-iot` extension.
 
-To learn how to install the `az cli`, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+To learn how to install the `az cli`, see [how to install the Azure CLI](/cli/azure/install-azure-cli).
 
 To [install](/cli/azure/azure-cli-reference-for-IoT#extension-reference-installation) the `azure-iot` extension, run the following command:
 
@@ -125,7 +125,7 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 | Unapproved | The device isn't approved. | Device isn't approved to connect to the IoT Central application. Approve the device in IoT Central and retry. To learn more, see [Device status values](howto-manage-devices-individually.md#device-status-values) |
 | Unassigned | The device isn't assigned to a device template. | Assign the device to a device template so that IoT Central knows how to parse the data. |
 
-Learn more about [Device status values in the UI](howto-manage-devices-individually.md#device-status-values) and [Device status values in the REST API](howto-manage-devices-with-rest-api.md#get-a-device).
+For more information about device status values in the UI and the REST API, see [Device status values](howto-manage-devices-individually.md#device-status-values) and [Get a device](howto-manage-devices-with-rest-api.md#get-a-device).
 
 ### Error codes
 
@@ -143,7 +143,7 @@ If you're seeing issues related to your authentication flow:
 | 401 | The authorization token can't be validated. For example, it has expired or doesn't apply to the request's URI. This error code is also returned to devices as part of the TPM attestation flow. | Ensure that your device has the correct credentials. |
 | 404 | The Device Provisioning Service instance, or a resource such as an enrollment doesn't exist. | [File a ticket with customer support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). |
 | 412 | The `ETag` in the request doesn't match the `ETag` of the existing resource, as per RFC7232. | [File a ticket with customer support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). |
-| 429 | The service is throttling operations. For specific service limits, see [IoT Hub Device Provisioning Service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-iot-hub-device-provisioning-service-limits). | Reduce message frequency, split responsibilities among more devices. |
+| 429 | The service is throttling operations. For specific service limits, see [Azure IoT Hub Device Provisioning Service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-iot-hub-device-provisioning-service-limits). | Reduce message frequency, split responsibilities among more devices. |
 | 500 | An internal error occurred. | [File a ticket with customer support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) to see if they can help you further. |
 
 ### Detailed authorization error codes
@@ -226,7 +226,7 @@ If you prefer to use a GUI, use the IoT Central **Raw data** view to see if some
 
 When you detect the issue, you might need to update device firmware, or create a new device template that models previously unmodeled data.
 
-If you chose to create a new template that models the data correctly, migrate devices from your old template to the new template. To learn more, see [Manage devices in your Azure IoT Central application](howto-manage-devices-individually.md).
+If you chose to create a new template that models the data correctly, migrate devices from your old template to the new template. To learn more, see [Manage individual devices in your Azure IoT Central application](howto-manage-devices-individually.md).
 
 ### Invalid JSON
 
@@ -266,7 +266,7 @@ Before you configure or enable the export destination, make sure that you comple
 > [!NOTE]
 > If you're using a managed identity to authorize the connection to an export destination, IoT Central doesn't export data from simulated devices.
 
-To learn more, see [Export data](howto-export-data.md?tabs=managed-identity).
+To learn more, see [Export IoT data to Blob Storage](howto-export-data.md?tabs=managed-identity).
 
 ## Data export destination connection issues
 
@@ -282,4 +282,4 @@ Data export only exports data that arrives in your application after you enable 
 
 If you need more help, you can contact the Azure experts on the [Microsoft Q&A and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an [Azure support ticket](https://portal.azure.com/#create/Microsoft.Support).
 
-For more information, see [Azure IoT support and help options](../../iot/iot-support-help.md).
+For more information, see [What are the Azure IoT support and help options?](../../iot/iot-support-help.md).

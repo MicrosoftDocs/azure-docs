@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Before you begin, complete the [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app.md) tutorial.
+Before you begin, complete the [Create and deploy an in-store analytics application template](./tutorial-in-store-analytics-create-app.md) tutorial.
 
 ## Change the dashboard name
 
@@ -133,7 +133,7 @@ To rearrange the remaining tiles:
 
 After you customize the dashboard layout, you're ready to add tiles to display telemetry. To create a telemetry tile, select a device template and device instance, then select device-specific telemetry to display in the tile. The *In-store analytics - checkout* application template includes several telemetry tiles on the dashboard. The four tiles in the two checkout zones display telemetry from the simulated occupancy sensor. The **People traffic** tile shows counts in the two checkout zones.
 
-In this section, you add two more telemetry tiles to display environmental telemetry from the RuuviTag sensors you added in the [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app.md) tutorial.
+In this section, you add two more telemetry tiles to display environmental telemetry from the RuuviTag sensors you added in the [Create and deploy an in-store analytics application template](./tutorial-in-store-analytics-create-app.md) tutorial.
 
 To add tiles to display environmental data from the RuuviTag sensors:
 
@@ -208,4 +208,4 @@ To add a command tile to reboot the gateway:
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Export data and visualize insights](./tutorial-in-store-analytics-export-data-visualize-insights.md)
+> [Tutorial: Export data from Azure IoT Central and visualize insights in Power BI](./tutorial-in-store-analytics-export-data-visualize-insights.md)

@@ -40,7 +40,7 @@ An active Azure subscription. If you don't have an Azure subscription, create a 
 
 Water management solutions use smart water devices such as flow meters, water quality monitors, smart valves, leak detectors.
 
-Devices in smart water solutions might connect through low-power wide area networks (LPWAN) or through a network operator. For these types of devices, use the [Azure IoT Central Device Bridge](../core/howto-build-iotc-device-bridge.md) to send your device data to your IoT application in Azure IoT Central. You can also use an IP capable device gateway that connects directly to your IoT Central application.
+Devices in smart water solutions might connect through low-power wide area networks (LPWAN) or through a network operator. For these types of devices, use the [Azure IoT Central device bridge](../core/howto-build-iotc-device-bridge.md) to send your device data to your IoT application in Azure IoT Central. You can also use an IP capable device gateway that connects directly to your IoT Central application.
 
 ### IoT Central
 

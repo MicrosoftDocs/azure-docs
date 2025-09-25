@@ -330,4 +330,4 @@ To add an action to the rule:
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Customize the dashboard](./tutorial-in-store-analytics-customize-dashboard.md)
+> [Tutorial: Customize the dashboard and manage devices in Azure IoT Central](./tutorial-in-store-analytics-customize-dashboard.md)

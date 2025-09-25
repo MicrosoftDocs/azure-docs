@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need:
 
-* To complete the previous two tutorials, [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app.md) and [Customize the dashboard and manage devices in Azure IoT Central](./tutorial-in-store-analytics-customize-dashboard.md).
+* To complete the previous two tutorials, [Create and deploy an in-store analytics application template](./tutorial-in-store-analytics-create-app.md) and [Customize the dashboard and manage devices in Azure IoT Central](./tutorial-in-store-analytics-customize-dashboard.md).
 * A Power BI account. If you don't have a Power BI account, sign up for a [free Power BI Pro trial](https://app.powerbi.com/signupredirect?pbi_source=web) before you begin.
 
 ## Create a resource group
@@ -157,7 +157,7 @@ You now have a third streaming dataset that stores values from the simulated occ
 
 In this solution, the logic app reads telemetry from the event hub, parses the data, and then sends it to the Power BI streaming datasets you created.
 
-Before you create the logic app, you need the device IDs of the two RuuviTag sensors you connected to your IoT Central application in the [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app.md) tutorial:
+Before you create the logic app, you need the device IDs of the two RuuviTag sensors you connected to your IoT Central application in the [Create and deploy an in-store analytics application template](./tutorial-in-store-analytics-create-app.md) tutorial:
 
 1. Sign in to your **In-store analytics - checkout** IoT Central application.
 1. Select **Devices** in the left pane. Then select **RuuviTag**.

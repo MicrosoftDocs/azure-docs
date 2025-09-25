@@ -146,7 +146,7 @@ To publish the gateway device template:
 
 After a device template is published, it's visible on the **Devices** page and to the operator. The operator can use the template to create device instances or establish rules and monitoring. Editing a published template could affect behavior across the application.
 
-To learn more about modifying a device template after you publish it, see [Edit an existing device template](howto-edit-device-template.md).
+To learn more about modifying a device template after you publish it, see [Edit a device template](howto-edit-device-template.md).
 
 ## Create the simulated devices
 

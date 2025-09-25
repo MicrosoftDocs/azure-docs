@@ -26,8 +26,8 @@ Completing this quickstart incurs a small cost in your Azure account for the Azu
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- Complete the first quickstart [Create an Azure IoT Central application](./quick-deploy-iot-central.md). The second quickstart, [Configure rules and actions for your device](quick-configure-rules.md), is optional.
-- You need the IoT Central application *URL prefix* that you chose in the first quickstart [Create an Azure IoT Central application](./quick-deploy-iot-central.md).
+- Complete the first quickstart, [Quickstart - Use your smartphone as a device to send telemetry to an IoT Central application](./quick-deploy-iot-central.md). The second quickstart, [Quickstart: Configure rules and actions for your device in Azure IoT Central](quick-configure-rules.md), is optional.
+- You need the IoT Central application *URL prefix* that you chose in the first quickstart, [Quickstart - Use your smartphone as a device to send telemetry to an IoT Central application](./quick-deploy-iot-central.md).
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -192,4 +192,4 @@ In this quickstart, you learned how to continuously export data from IoT Central
 Now that you know now to export your data, the suggested next step is to:
 
 > [!div class="nextstepaction"]
-> [Create and connect a device](tutorial-connect-device.md).
+> [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
