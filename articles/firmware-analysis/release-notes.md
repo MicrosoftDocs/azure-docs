@@ -15,15 +15,17 @@ This article lists new features and feature enhancements in the firmware analysi
 
 ## October 2025
 
+- **Firmware analysis is now GA**: We are happy to announce GA with this release.
+
 - **Free workspace banner**: A new banner in the portal clearly shows when you’re using a free workspace and provides a link to learn more about limits and licensing.
 
-- **Updated SDKs and CLI**: The Azure CLI, PowerShell module, and .NET SDK for firmware analysis have been updated. Quickstarts and samples now reflect the latest commands and parameters.
+- **New built-in roles**: Two new roles - **Firmware Analysis User** and **Firmware Analysis Reader** - make it easier to manage access with Azure RBAC.
+
+- **Updated GA SDKs and CLI**: The Azure CLI, PowerShell module, and SDKs for firmware analysis have been updated and are GA. Quickstarts and samples now reflect the latest commands and parameters.
 
 - **Terraform and Bicep support**: New Quickstarts are available for deploying firmware analysis workspaces using Terraform and Bicep templates.
 
 - **Improved OpenSSL detection**: Enhancements to OpenSSL version identification improve accuracy and reduce false negatives in analysis results.
-
-- **New built-in roles**: Two new roles - **Firmware Analysis User** and **Firmware Analysis Reader** - make it easier to manage access with Azure RBAC.
 
 - **JFFS2 extraction fix**: Resolved issues with JFFS2 filesystem extraction for more reliable analysis results.
 
