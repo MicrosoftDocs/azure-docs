@@ -6,6 +6,8 @@ ms.author: vijain
 ms.topic: how-to
 ms.date: 04/17/2025
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
+ms.reviewer: v-uhabiba
 monikerRange: migrate
 ms.custom:
   - engagement-fy23
