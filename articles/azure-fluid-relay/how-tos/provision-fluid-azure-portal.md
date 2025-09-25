@@ -4,7 +4,9 @@ description: How to provision an Azure Fluid Relay service using the Azure porta
 ms.date: 01/18/2023
 ms.topic: article
 ms.service: azure-fluid
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - sfi-image-nochange
 ---
 
 # How to: Provision an Azure Fluid Relay service

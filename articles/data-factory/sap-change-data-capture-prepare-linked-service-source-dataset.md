@@ -7,6 +7,7 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.date: 05/15/2024
 ms.author: ulrichchrist
+ms.custom: sfi-image-nochange
 ---
 
 # Set up a linked service and source dataset for the SAP CDC connector

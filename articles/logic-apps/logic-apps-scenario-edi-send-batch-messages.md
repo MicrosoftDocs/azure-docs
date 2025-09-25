@@ -7,6 +7,7 @@ ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 01/04/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Exchange EDI messages as batches or groups between trading partners in Azure Logic Apps

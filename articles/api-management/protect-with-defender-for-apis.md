@@ -8,6 +8,7 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 07/11/2024
 ms.author: danlep
+ms.custom: sfi-image-nochange
 ---
 # Enable advanced API security features using Microsoft Defender for Cloud 
 

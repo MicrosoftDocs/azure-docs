@@ -6,8 +6,11 @@ author: jianleishen
 ms.author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: synapse
 ms.date: 06/30/2025
+ms.custom:
+  - synapse
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Copy data from or to MongoDB using Azure Data Factory or Synapse Analytics

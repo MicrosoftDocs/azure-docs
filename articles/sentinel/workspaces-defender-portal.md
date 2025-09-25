@@ -45,7 +45,7 @@ Use one of the following roles or role combinations to manage primary and second
 |Task  |Required roles or role combinations  |
 |---------|---------|
 |**Connect a primary workspace**     | One of the following: <br>- Global Administrator AND subscription Owner <br>- Security Administrator AND subscription Owner <br>- Global Administrator AND User access administrator AND Sentinel contributor <br>- Security Administrator AND User access administrator AND Sentinel contributor|
-|**Change the primary workspace**     | One of the following: <br>- Global Administrator <br>- Security Administrator |
+|**Change the primary workspace**     | One of the following: <br>- Global Administrator <br>- Security Administrator AND subscription Owner|
 |**Onboard or offboard secondary workspaces**     |  One of the following:  <br>- Global Administrator AND subscription Owner <br>- Security Administrator AND subscription Owner <br>- Global Administrator AND User access administrator AND Sentinel contributor <br>- Security Administrator AND User access administrator AND Sentinel contributor <br>- Subscription Owner <br>- User access administrator AND Sentinel contributor|
 
 > [!IMPORTANT]

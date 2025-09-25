@@ -8,6 +8,7 @@ ms.date: 02/14/2025
 ms.author: msangapu
 author: msangapu-msft
 ms.service: azure-app-service
+ms.custom: sfi-image-nochange
 ---
 # Buy and manage an App Service domain
 

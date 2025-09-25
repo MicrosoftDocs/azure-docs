@@ -6,6 +6,7 @@ ms.author: molir
 ms.manager: ronai
 ms.topic: concept-article
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 04/04/2025
 ms.custom: engagement-fy23, linux-related-content
 # Customer intent: As an IT administrator, I want to assess physical servers for migration to Azure using a discovery and assessment tool, so that I can plan and execute a successful migration of our on-premises infrastructure.
@@ -89,7 +90,7 @@ Supported servers | Supported only for servers running SQL Server in your VMware
 Windows servers | Windows Server 2008 and later are supported.
 Linux servers | Currently not supported.
 Authentication mechanism | Both Windows and SQL Server authentication are supported. You can provide credentials of both authentication types in the appliance configuration manager.
-SQL Server access | To discover SQL Server instances and databases, the Windows or SQL Server account must be a member of the sysadmin server role or have [these permissions](#configure-the-custom-login-for-sql-server-discovery) for each SQL Server instance.
+SQL Server access | To discover SQL Server instances and databases, the Windows/ Domain account, or SQL Server account [requires these low privilege read permissions](migrate-support-matrix-vmware.md) for each SQL Server instance. You can use the [low-privilege account provisioning utility](least-privilege-credentials.md) to create custom accounts or use any existing account that is a member of the sysadmin server role for simplicity.
 SQL Server versions | SQL Server 2008 and later are supported.
 SQL Server editions | Enterprise, Standard, Developer, and Express editions are supported.
 Supported SQL configuration | Discovery of standalone, highly available, and disaster-protected SQL deployments is supported. Discovery of high-availability and disaster recovery SQL deployments powered by Always On failover cluster instances and Always On availability groups is also supported.

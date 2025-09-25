@@ -23,11 +23,6 @@ For guidance on upgrading Basic SKU public IP addresses for other networking ser
 > [!IMPORTANT]
 >On September 30, 2025, Basic SKU public IPs will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/). If you're currently using Basic SKU public IPs, make sure to upgrade to Standard SKU public IPs prior to the retirement date. 
 
-## Gateway SKUs
-The **ErGw1Az**, **ErGw2Az**, **ErGw3Az**, and **ErGwScale** (Preview) SKUs are known as Availability Zone (Az)-enabled SKUs. These SKUs allow deployment across multiple availability zones, increasing resiliency and high availability by distributing gateway resources across zones.
-
-By comparison, the **Standard**, **HighPerformance**, and **UltraPerformance** SKUs are non-Az-enabled. They're typically used with Basic public IP addresses and don't support availability zone distribution.
-
 ## Gateway migration experience
 
 The gateway migration experience allows you to deploy a second virtual network gateway in the same GatewaySubnet, with Azure [automatically assigning a new public IP-](expressroute-about-virtual-network-gateways.md#auto-assigned-public-ip) eliminating the need for manual IP creation—while configurations are migrated from the old gateway to the new one; both gateways run simultaneously to minimize disruption, though brief connectivity interruptions may still occur.
@@ -90,7 +85,7 @@ Migration may cause a few minutes of downtime. Plan to perform the migration dur
 
 ### How long can I wait before committing to the new gateway?
 
-You have up to 15 days to commit after migration preparation. Use this time to validate connectivity and ensure all requirements are met before finalizing the migration.
+There is no mandatory waiting period to do commit. However, if you need time to validate connectivity and ensure all requirements are met before finalizing the migration, then you have up to 15 days to commit after migration.
 
 ### How do I check if my gateway SKU is eligible for migration?
 
@@ -118,7 +113,7 @@ No changes at this stage; nothing to roll back​
 The process can be aborted after step 2 and the new gateway will be deleted.​
 
 3. Migrate – Transfer the configuration from the existing gateway to the new one.​
-If needed, the configuration can be reverted to the existing gateway after step 3.​
+If needed, the configuration can be reverted to the existing gateway after step 3.​ Do not navigate away from the migration page while traffic is being moved. Leaving the page may interrupt the process.
 
 4. Commit – Finalize the migration by decommissioning the old gateway and its connections. ​
 Once the change has been committed, it can no longer be rolled back.

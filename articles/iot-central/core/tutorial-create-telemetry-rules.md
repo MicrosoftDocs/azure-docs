@@ -7,6 +7,7 @@ ms.date: 08/07/2025
 ms.topic: tutorial
 ms.service: azure-iot-central
 services: iot-central
+ms.custom: sfi-image-nochange
 
 #customer intent: As a solution builder, I want add a rule and action so that I can be notified when a telemetry value reaches a threshold.
 ---

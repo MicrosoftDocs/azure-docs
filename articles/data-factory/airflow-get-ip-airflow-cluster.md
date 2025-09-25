@@ -6,6 +6,7 @@ ms.author: abnarain
 ms.reviewer: whhender
 ms.topic: how-to
 ms.date: 02/13/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Retrieve the IP address of a Workflow Orchestration Manager cluster

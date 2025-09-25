@@ -5,6 +5,7 @@ ms.service: azure-devtest-labs
 ms.topic: concept-article
 author: tanmayeekamath
 ms.author: takamath
+ms.update-cycle: 30-days
 ms.date: 06/24/2025
 
 #customer intent: As a customer, I want to understand upcoming features and enhancements in Azure DevTest Labs so that I can plan and optimize development and deployment strategies.

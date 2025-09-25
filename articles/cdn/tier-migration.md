@@ -39,9 +39,6 @@ The migration tool checks to see if your Azure CDN from Microsoft (classic) prof
 
 * Web Application Firewall (WAF) for Azure CDN from Microsoft is only in preview. If you have a WAF policy associated with your Azure CDN from Microsoft (classic) profile, you need to remove the association before you can validate again. You can create a new WAF policy in Azure Front Door Standard or Premium after migration.
 
-> [!NOTE]
-> Managed certificate is currently **not supported** for Azure Front Door Standard or Premium tier in Azure Government Cloud. You'll need to use Bring Your Own Certificate (BYOC) for Azure Front Door Standard or Premium tier in Azure Government Cloud or wait until managed certificate is supported.
-
 #### Prepare for migration
 
 You can select Standard or Premium based on your business requirements. It's recommended to select Premium tier to take advantage of the advanced security features and capabilities. These include managed WAF rules, enhanced rules engine, bot protection, and private link integration.

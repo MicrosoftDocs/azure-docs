@@ -4,6 +4,7 @@ description: This article provides information on how to use the portal-based Az
 ms.topic: how-to
 ms.date: 12/11/2024
 ms.author: egrootenboer
+ms.custom: sfi-image-nochange
 ---
 
 # Use Service Bus Explorer to run data operations on Service Bus

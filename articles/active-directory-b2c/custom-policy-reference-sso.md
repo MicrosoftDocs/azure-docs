@@ -12,6 +12,7 @@ ms.topic: reference
 ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a developer configuring session behavior in Azure Active Directory B2C, I want to understand how to use session providers to manage single sign-on (SSO) sessions for different technical profiles, so that I can customize the SSO behavior and control the flow of my custom policy.

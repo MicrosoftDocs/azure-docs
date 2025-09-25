@@ -6,6 +6,7 @@ ms.author: wanl
 ms.service: azure-web-pubsub
 ms.topic: how-to 
 ms.date: 05/15/2023
+ms.custom: sfi-image-nochange
 ---
 
 # Monitor Azure Web PubSub

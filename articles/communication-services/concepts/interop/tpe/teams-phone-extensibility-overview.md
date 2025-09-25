@@ -8,7 +8,7 @@ ms.subservice: teams-interop
 ms.date: 05/20/2025
 ms.topic: conceptual
 ms.author: henikaraa
-ms.custom: public_preview
+ms.custom: general_availability
 services: azure-communication-services
 ---
 
@@ -16,27 +16,25 @@ services: azure-communication-services
 
 This article describes features of Teams Phone extensibility (TPE).
 
-[!INCLUDE [public-preview-notice.md](../../../includes/public-preview-include-document.md)]
-
 Artificial intelligence (AI) technologies increase the complexity of customer engagements, requiring businesses to adopt more sophisticated strategies to manage and improve customer interaction.
 
 Azure Communication Services is enhancing Call Automation and Calling SDKs, empowering software developers to extend Microsoft Teams Phone into their line of business applications. Software developers can now provide their end users with access to Teams Phone features such as phone numbers, emergency calling, direct routing, and many others.
 
-Contact center as a Service (CCaaS) independent software vendors (ISVs) can enable their end customers to connect with their existing Teams Phone deployment and let them use Teams Phone capabilities within the application provided by the ISV. At the same time, customers can now extend their Teams Phone with advanced call queuing, agent handling, and routing capabilities provided by third-party CCaaS ISVs applications.
+Contact center as a Service (CCaaS) independent software vendors (ISVs) can connect customer tenants to their existing Teams Phone deployment so agents can use Teams Phone capabilities inside the ISV application. Customers can extend Teams Phone with advanced queuing, agent handling, and routing provided by third‑party CCaaS ISV applications.
 
 ## Overview
 
-Teams Phone extensibility for Azure Communication Services offers a unified communication experience that integrates Teams Phone capabilities into CCaaS applications. This Teams Phone extensibility enables customers to use their existing Teams infrastructure, providing operational efficiency and a seamless agent calling experience.  
+Teams Phone extensibility for Azure Communication Services integrates Teams Phone with CCaaS applications, using customers' existing Teams infrastructure to provide a consistent agent calling experience.  
 
 For CCaaS ISVs, Teams Phone extensibility presents a growth opportunity by tapping into the Teams ecosystem and Azure Communication Services. ISVs can access a suite of APIs tailored for contact center use cases, providing consistency and an integrated experience with Teams. ISVs also benefit from Azure with a simplified service deployment and support lifecycles, easy access to the wide range of Azure services, and faster time to market.
 
-The following diagram shows the basic components and call flow between an agent, CCaaS application, Teams Phone System, and customer.
+The following diagram shows the basic components and call flow between an agent, CCaaS application, Teams Phone, and customer.
 
-:::image type="content" source="./media/teams-phone-extensibility-overview.png" alt-text="Diagram showing basic components and call flow between an agent, CCaaS application, Teams Phone System, and customer."  lightbox="./media/teams-phone-extensibility-overview.png":::
+:::image type="content" source="./media/teams-phone-extensibility-overview.png" alt-text="Diagram showing basic components and call flow between an agent, CCaaS application, Teams Phone, and customer."  lightbox="./media/teams-phone-extensibility-overview.png":::
 
 There are four aspects to consider:
 
-- Teams provisioning: A Teams IT Admin sets up a Teams Resource Account (RA), assigns phone numbers and adds the CCaaS application to the resource account to receive and make calls.
+- Teams provisioning: A Teams IT Admin sets up a Teams resource account, assigns phone numbers and adds the CCaaS application to the resource account to receive and make calls.
 - CCaaS provisioning: A CCaaS Admin creates queues and links to the Teams Phone account and configures agent skills and routing groups.
 - Teams Phone integration: CCaaS providers integrate with Azure Communication Services Call Automation APIs to receive and make calls and perform mid-call controls such as create custom IVRs and Call Queues. The current release supports only [Teams Phone service numbers](/microsoftteams/getting-service-phone-numbers).
 - Agent calling experience: CCaaS provider embeds call handling in the Agent application using Azure Communication Services Calling SDKs or uses the Teams application, initialized with Microsoft 365 identity.
@@ -55,8 +53,6 @@ For Contact Centers and Agents:
 
 ## Prerequisites
 
-Your ISV must have Azure subscription allowlisted by Microsoft Teams.
-
 To provision the Teams environment for these extensions, you must enable the following licenses:
 - Teams Phone license for the agent, see [Assign Teams add-on licenses to users > Product names and SKU identifiers for licensing](/microsoftteams/teams-add-on-licensing/assign-teams-add-on-licenses#product-names-and-sku-identifiers-for-licensing).
 - Enterprise voice enabled as described in [Teams Phone features](../../../concepts/pricing/teams-interop-pricing.md).
@@ -73,7 +69,7 @@ Some conversational AI features include:
 - Automated responses: Provides instant responses to common queries, reducing the need for human intervention.
 - Contextual awareness: Maintains context across interactions, ensuring coherent and relevant responses.
 
-CCaaS developers can use Call Automation to implement simple AI powered tools to:
+CCaaS developers can use Call Automation to implement simple AI-powered tools to:
 
 - Play personalized greeting messages.
 - Recognize conversational voice inputs to gather information on contextual questions to drive a more self-service model with customers.
@@ -95,7 +91,7 @@ Teams Phone extensibility supports both outbound calling and emergency calling.
 
 ### Inbound PSTN call to the resource account
 
-Inbound public switched telephone network (PSTN) calls to the phone number assigned to the Teams Resource Account (RA) trigger an Incoming Call Event Grid notification. The Incoming Call notification goes to the configured endpoint in the Azure Communication Services Resource you linked to the RA during provisioning. The CCaaS server-side application uses the Call Automation SDK to answer the call.
+Inbound public switched telephone network (PSTN) calls to the phone number assigned to the Teams resource account trigger an Incoming Call Event Grid notification. The Incoming Call notification goes to the configured endpoint in the Azure Communication Services Resource you linked to the resource account during provisioning. The CCaaS server-side application uses the Call Automation SDK to answer the call.
 
 The following diagram shows the Inbound PSTN Call flow.
 
@@ -105,11 +101,11 @@ Call flow description:
 
 1. Contoso uses Azure Communication Services Call Automation receives an inbound PSTN call to the provisioned Teams Phone number.
 2. Contoso receives webhook notification of the inbound call.
-3. An AI powered agent (IVR) answers the PSTN call and triages the customer request before hand-off to an agent.
+3. An AI-powered agent (IVR) answers the PSTN call and triages the customer request before hand-off to an agent.
 4. Contoso routes the call to the correct destination.
 5. An agent picks up the call on the Azure Communication Services Calling SDK client.
 
-### Outbound PSTN calls from the CCaaS application on-behalf-of RA
+### Outbound PSTN calls from the CCaaS application on behalf of (OBO) RA
 
 You can use the `onBehalfOf` optional parameter of the Calling SDK for Web to specify a Teams resource account when placing an outbound PSTN call for calling line ID purposes. Using a resource account for outbound calls ensures that the customer sees the company’s caller ID and potentially a name, maintaining a professional image and consistent company contact details.
 
@@ -127,7 +123,7 @@ Call flow description:
 4. Call is routed to PSTN user with Caller ID of Teams resource account.
 
 > [!NOTE]
-> Teams user personal phone numbers can't be used for outbound PSTN calling, only for emergency calling use cases.
+> Teams user personal phone numbers aren’t supported for outbound PSTN calling and can be used only for emergency calling use cases.
 
 ## Emergency calling
 
@@ -135,7 +131,7 @@ Microsoft Teams customers can use enhanced emergency calling support to take adv
 
 Emergency calling is enabled using Teams user phone numbers or shared calling phone numbers. Teams admins configure users with emergency calling policies and assign the policy to the user in the TAC portal and/or with PowerShell cmdlets. The user connected to the CCaaS client (using the Calling WebJS SDK and WebUI) can dial emergency services from their assigned Teams Phone number. The user can also provide a location, alert a security desk when they dial emergency services, and receive callbacks from a PSAP.
 
-The shared calling policies assigned to the user and the Resource Account, and the emergency calling policies assigned to the user by the teams Admin are used for the emergency call.
+The shared calling policies assigned to the user and the resource account, and the emergency calling policies assigned to the user by the teams Admin are used for the emergency call.
 
 The following diagram shows the emergency outbound call flow.
 
@@ -151,7 +147,7 @@ Agents often use multiple applications on their desktops. The applications can i
 
 With multi persona support, Microsoft Teams enables customers to separate their work and calls between different applications. For example, a user might use Teams for internal collaboration and the Azure Communication Services web application for customer care. This separation ensures that communication channels are distinct and tailored to the user needs, while still using a common phone system.
 
-Teams administrators can manage policies and settings based on the use cases. For instance, calls made with a Teams Resource Account can follow the policies assigned to that account, while emergency calls can follow the user policies.
+Teams administrators can manage policies and settings based on the use cases. For instance, calls made with a Teams resource account can follow the policies assigned to that account, while emergency calls can follow the user policies.
 
 When adding or transferring calls to an agent or supervisor, the system determines which application to use based on the endpoint. If the endpoint is a Teams user, the call alerts the Teams application. If the endpoint is an Azure Communication Services web application user, the call alerts the web application.
 
@@ -243,7 +239,7 @@ The following diagram shows an example call recording flow. In this example, the
 
 ## Next steps
 
-- [Teams Phone System extensibility quickstart](../../../quickstarts/tpe/teams-phone-extensibility-quickstart.md)
+- [Teams Phone extensibility quickstart](../../../quickstarts/tpe/teams-phone-extensibility-quickstart.md)
 - [Cost and connectivity options](teams-phone-extensibility-connectivity-cost.md)
 
 ## Related articles

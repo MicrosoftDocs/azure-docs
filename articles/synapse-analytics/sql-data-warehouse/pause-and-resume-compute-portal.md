@@ -10,6 +10,7 @@ ms.topic: quickstart
 ms.custom:
   - azure-synapse
   - mode-ui
+  - sfi-image-nochange
 ---
 # Quickstart: Pause and resume compute in dedicated SQL pool via the Azure portal
 

@@ -5,9 +5,12 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.topic: troubleshooting
 ms.date: 09/09/2024
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 # Customer intent: As a cloud administrator, I want to troubleshoot issues with agentless and agent-based dependency analysis, so that I can ensure accurate dependency visualization and optimize migration processes for my VMware servers.
 ---
 

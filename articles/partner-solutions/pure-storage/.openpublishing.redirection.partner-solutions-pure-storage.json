@@ -1,0 +1,9 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/partner-solutions/pure-storage/tools.md",
+            "redirect_url": "/azure/partner-solutions/pure-storage/faq",
+            "redirect_document_id": false
+        }
+    ]
+}

@@ -5,8 +5,12 @@ author: xujxu
 ms.author: xujiang1
 ms.service: azure-stream-analytics
 ms.topic: overview
-ms.custom: mvc, devx-track-azurepowershell, devx-track-arm-template
 ms.date: 02/20/2022
+ms.custom:
+  - mvc
+  - devx-track-azurepowershell
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # Move Azure Stream Analytics cluster using Azure PowerShell

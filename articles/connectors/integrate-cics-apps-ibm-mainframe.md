@@ -8,6 +8,7 @@ ms.author: hcampos
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 04/08/2025
+ms.custom: sfi-image-nochange
 
 #customer intent: As a developer, I want to use the IBM CICS connector so I can integrate CICS programs with Standard workflows in Azure Logic Apps.
 ---

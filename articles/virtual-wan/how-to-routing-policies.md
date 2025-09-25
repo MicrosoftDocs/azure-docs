@@ -4,12 +4,13 @@ titleSuffix: Azure Virtual WAN
 description: Learn how to configure Virtual WAN routing policies.
 author: wtnlee
 ms.service: azure-virtual-wan
-ms.custom:
-  - devx-track-bicep
-  - build-2025
 ms.topic: how-to
 ms.date: 03/26/2025
 ms.author: wellee
+ms.custom:
+  - devx-track-bicep
+  - build-2025
+  - sfi-image-nochange
 ---
 # How to configure Virtual WAN Hub routing intent and routing policies
 

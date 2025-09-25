@@ -6,7 +6,9 @@ ms.author: mbender
 ms.topic: how-to
 ms.service: azure-virtual-network-manager
 ms.date: 03/13/2025
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - sfi-image-nochange
 ---
 
 # Verify resource reachability with network verifier - Azure portal

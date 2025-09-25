@@ -7,6 +7,9 @@ ms.author: cephalin
 author: cephalin
 keywords: azure app service, web app, linux, windows, docker, sidecar
 ms.service: azure-app-service
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Tutorial: Configure a sidecar container for a Linux app in Azure App Service

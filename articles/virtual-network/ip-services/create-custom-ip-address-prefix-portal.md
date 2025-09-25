@@ -8,7 +8,9 @@ ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 08/08/2024
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - sfi-image-nochange
 # Customer intent: "As a network administrator, I want to create a custom IPv4 address prefix in Azure, so that I can control IP address allocation and advertising while maintaining ownership of my IP range."
 ---
 

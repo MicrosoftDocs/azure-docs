@@ -7,6 +7,7 @@ ms.service: azure-static-web-apps
 ms.topic: how-to
 ms.date: 03/13/2022
 ms.author: wujia
+ms.custom: sfi-image-nochange
 ---
 
 # Configure password protection (preview)

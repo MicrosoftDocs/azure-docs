@@ -7,6 +7,7 @@ ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 11/13/2024
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 
 # Customer intent: As a network administrator, I want to integrate RADIUS authentication with Azure VPN for multifactor authentication, so that I can enhance security for point-to-site VPN connections.
 ---

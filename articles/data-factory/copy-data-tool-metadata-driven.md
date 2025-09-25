@@ -6,6 +6,7 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.date: 02/13/2025
 ms.author: yexu
+ms.custom: sfi-image-nochange
 ---
 # Build large-scale data copy pipelines with metadata-driven approach in copy data tool
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

@@ -9,6 +9,7 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+ms.custom: sfi-ropc-nochange
 #Customer intent: As an SAP BASIS team member, I want to understand the options in the kickstart script used to deploy and configure a container hosting the SAP data connector, so that I can streamline the setup process and manage secrets storage and network configurations efficiently.
 
 ---

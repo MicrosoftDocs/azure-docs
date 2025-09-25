@@ -56,6 +56,7 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- September 10, 2025: Added a new document on [Azure Files NFS Encryption in Transit for SAP on Azure Systems](./sap-azure-files-nfs-encryption-in-transit-guide.md) and updated the Azure Files NFS related sections in the existing documents on how to configure and deploy the Encryption in Transit. 
 - August 4, 2025: Updated colocation constraint command for SAPHanaSR configuration in [High availability for SAP HANA on Azure VMs on SUSE Linux Enterprise Server](./sap-hana-high-availability.md)
 - August 4, 2025: Updated order constraints between SAPHana, SAPHanaTopology resources and Filesystem resources in [High availability of SAP HANA scale-up with Azure NetApp Files on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md).
 - August 4, 2025: Updated SBD_DELAY_START, TimeoutSec value of SBD systemd service, and stonith-timeout value in [Set up Pacemaker on SUSE Linux Enterprise Server in Azure](./high-availability-guide-suse-pacemaker.md), [Set up Pacemaker on Red Hat Enterprise Linux in Azure](./high-availability-guide-rhel-pacemaker.md).

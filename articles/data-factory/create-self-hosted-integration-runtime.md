@@ -7,8 +7,10 @@ ms.topic: concept-article
 author: lrtoyou1223
 ms.author: lle
 ms.date: 03/31/2025
-ms.custom: synapse
 ai-usage: ai-assisted
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Create and configure a self-hosted integration runtime

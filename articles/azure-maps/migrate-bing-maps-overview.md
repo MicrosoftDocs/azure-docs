@@ -41,7 +41,7 @@ The following table provides a high-level summary of Bing Maps for Enterprise fe
 
 | Bing Maps for Enterprise                         | Azure Maps                         |
 |--------------------------------------------------|------------------------------------|
-| [Autosuggest]                                    | [Search: Fuzzy (typehead)]         |
+| [Autosuggest]                                    | [Search: Autocomplete]              |
 | [Imagery: Static Maps]                           | [Render: Map Static Image]         |
 | [Imagery: Map Tiles & Metadata]                  | [Render: Map Tile]                 |
 | [Locations: Forward Geocoding (unstructured)]    | [Search: Forward Geocoding]        |
@@ -73,7 +73,7 @@ When migrating to Azure Maps from Bing Maps for Enterprise, the following aspect
 
 - Azure Maps is a transactions-based usage offering for all use case types and doesn't require special licensing, such as known users or tracked assets-based licensing for certain use cases.
 - Unlike Bing Maps for Enterprise, Azure Maps is a pay-as-you-go offering – you only pay for the services that you use.
-- With Azure Maps, billing (invoicing) happens monthly and doesn’t require an annual commitment.
+- With Azure Maps, billing (invoicing) happens monthly and doesn't require an annual commitment.
 - Azure Maps has a free monthly allotment of transactions. For more information, see the [Azure Maps pricing].
 - Azure Maps charges for the usage of web control (SDK) based on the number of map tiles loaded, with one Azure Maps transaction being generated for every 15 map tiles loaded.
 - The Azure Maps web control (SDK) uses 512 x 512 pixels map tiles, and typically generates one or less transactions per map load.
@@ -220,9 +220,9 @@ Developers can get migration support through the [Azure Maps Q&A] or through one
 [SDS: Geocode Dataflow]: /bingmaps/spatial-data-services/geocode-dataflow-api
 [SDS: Geodata]: /bingmaps/spatial-data-services/geodata-api
 [SDS: Points of Interest Search]: /bingmaps/spatial-data-services/public-data-sources/pointsofinterest
+[Search: Autocomplete]: /rest/api/maps/search/get-geocode-autocomplete
 [Search: Forward Geocoding Batch]: /rest/api/maps/search/get-geocoding-batch
 [Search: Forward Geocoding]: /rest/api/maps/search/get-geocoding
-[Search: Fuzzy (typehead)]: /rest/api/maps/search/get-search-fuzzy
 [Search: Fuzzy Search (typeahead)]: /rest/api/maps/search/get-search-fuzzy
 [Search: Fuzzy]: /rest/api/maps/search/get-search-fuzzy
 [Search: POI]: /rest/api/maps/search/get-search-poi

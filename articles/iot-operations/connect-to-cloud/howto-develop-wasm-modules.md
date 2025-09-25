@@ -584,6 +584,10 @@ except Exception as e:
 
 ---
 
+### ONNX inference with WASM (preview)
+
+To embed and run small ONNX models inside your modules for in-band inference, see [Run ONNX inference in WebAssembly data flow graphs](howto-wasm-onnx-inference.md). That article covers packaging models with modules, enabling the wasi-nn feature in graph definitions, and preview limitations.
+
 ### WebAssembly Interface Types (WIT)
 
 All operators implement standardized interfaces defined using [WebAssembly Interface Types (WIT)](https://github.com/WebAssembly/component-model/blob/main/design/mvp/WIT.md). WIT provides language-agnostic interface definitions that ensure compatibility between WASM modules and the host runtime.

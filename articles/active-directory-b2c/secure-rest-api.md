@@ -10,6 +10,7 @@ ms.date: 10/14/2024
 ms.author: kengaderdus
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a developer integrating a REST API within an Azure AD B2C user flow, I want to learn how to secure my REST API endpoint with authentication, so that only authorized services like Azure AD B2C can make calls to the endpoint.

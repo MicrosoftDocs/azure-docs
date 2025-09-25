@@ -1,6 +1,6 @@
 ---
 title: Overview
-description: Create automated workflows that integrate cloud services, on-premises systems, apps, and data with little or no code. Run workflows in multitenant or single-tenant Azure Logic Apps, App Service Environment (ASE), or a partially connected environment.
+description: Create automated workflows that integrate cloud services, on-premises systems, apps, data, and AI with little or no code. Run workflows in multitenant or single-tenant Azure Logic Apps, App Service Environment (ASE), or a partially connected environment.
 services: azure-logic-apps
 ms.suite: integration
 author: ecfan
@@ -8,14 +8,14 @@ ms.reviewer: azla
 ms.topic: overview
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
-ms.date: 01/29/2025
+ms.date: 09/11/2025
 ---
 
 # What is Azure Logic Apps?
 
 Azure Logic Apps is a cloud platform where you can create and run automated workflows in, across, and outside the software ecosystems in your enterprise or organization. This platform greatly reduces or removes the need to write code when your workflows must connect and work with resources from different components, such as services, systems, apps, and data sources.
 
-Azure Logic Apps includes low-code-no-code tools for you to work with legacy, modern, and cutting-edge systems that exist in the cloud, on premises, or in hybrid environments. For example, you use a visual designer along with prebuilt operations to make building workflows as easy as possible. These prebuilt operations act as the building blocks in your workflows by giving you access to various resources and completing common tasks, such as getting data, sending data, and managing data. With Azure Logic Apps, you can build integration solutions that scale and support the business scenarios for your enterprise or organization's needs.
+Azure Logic Apps includes low-code-no-code tools for you to work with legacy, modern, and cutting-edge systems that exist in the cloud, on premises, or in hybrid environments. For example, you use a visual designer along with prebuilt operations to make building workflows as easy as possible. These prebuilt operations act as the building blocks in your workflows by giving you access to various resources and completing common tasks, such as getting data, sending data, and managing data. With Azure Logic Apps, you can build integration solutions that scale and support the business scenarios for your enterprise or organization's needs. You can also build intelligent autonomous and conversational workflows that incorporate AI capabilities by including AI agents and large language models (LLMs).
 
 The following examples describe only a sample of tasks, business processes, and workloads that you can automate with Azure Logic Apps:
 

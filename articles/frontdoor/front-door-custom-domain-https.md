@@ -6,7 +6,9 @@ ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 08/07/2025
-ms.custom: build-2025
+ms.custom:
+  - build-2025
+  - sfi-image-nochange
 
 #Customer intent: As a website owner, I want to enable HTTPS on the custom domain in my Front Door (classic) so that my users can use my custom domain to access their content securely.
 ---
