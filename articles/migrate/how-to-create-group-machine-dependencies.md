@@ -4,6 +4,7 @@ description: This article describes how to set up agent-based dependency analysi
 ms.topic: how-to
 ms.service: azure-migrate
 ms.date: 09/09/2024
+ms.reviewer: v-uhabiba
 ms.custom:
   - engagement-fy25
   - sfi-image-nochange

@@ -8,7 +8,9 @@ ms.date: 03/15/2024
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: general
-ms.custom: mvc
+ms.custom:
+  - mvc
+  - sfi-image-nochange
 ---
 
 # Provide data feedback to Azure Maps
