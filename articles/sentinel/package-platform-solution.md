@@ -7,7 +7,7 @@ ms.author: guywild
 ms.date: 09/19/2025
 ---
 
-# Package and publish a Microsoft Sentinel platform solution
+# Sentinel SIEM solution lifecycle post publish
 
 A Microsoft Sentinel platform solution is a deployable package for the Microsoft Sentinel data lake. It includes code and configuration that help you analyze and respond to security data.
 

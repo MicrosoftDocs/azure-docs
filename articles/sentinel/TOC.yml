@@ -848,7 +848,7 @@
     - name: Troubleshoot solutions in Microsoft Sentinel
       href: troubleshoot-sentinel-solutions.md
       items:
-      - name: Packaging and publishing a Sentinel platform solution
+      - name: Sentinel SIEM solution lifecycle post publish
         href: package-platform-solution.md
       - name: Publishing a Sentinel SIEM solution
         href: publish-sentinel-solutions.md
