@@ -109,7 +109,7 @@ This targeted exemption allows Sentinel data lake's components to deploy correct
 
 ## How data is added and stored during onboarding
 
-During onboarding, your data lake is provisioned in the same region as your primary Sentinel workspace. We might also automatically enable Microsoft Entra, Microsoft 365, and Azure Resource Graph asset data. If this data isn't in the same region as the data lake, by onboarding to the data lake, you consent to ingest and store this data in the region where your data lake resides so you can use it with Microsoft Sentinel data lake and graph experiences. Your asset data are available through System tables, which you can select in the workspace selection UI in the Lake exploration experiences. 
+During onboarding, your data lake is provisioned in the same [region](/azure/sentinel/geographical-availability-data-residency) as your primary Sentinel workspace. We might also automatically enable Microsoft Entra, Microsoft 365, and Azure Resource Graph asset data. If this data isn't in the same region as the data lake, by onboarding to the data lake, you consent to ingest and store this data in the region where your data lake resides so you can use it with Microsoft Sentinel data lake and graph experiences. Your asset data are available through System tables, which you can select in the workspace selection UI in the Lake exploration experiences. For more information, see [Geographical availability and data residency in Microsoft Sentinel](/azure/sentinel/geographical-availability-data-residency).
 
 
 ## Existing Microsoft Sentinel workspaces
