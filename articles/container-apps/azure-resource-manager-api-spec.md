@@ -391,7 +391,8 @@ The following example ARM template snippet deploys a container app.
 }
 ```
 
-The following example ARM template snippet deploys a native Azure functions on container app
+The following example ARM template example shows how to deploy an Azure Functions app on Container Apps.
+
 ```json
 {
   "kind": "functionapp",
