@@ -38,8 +38,6 @@ items:
         href: dotnet-how-to-use-azure-redis-cache.md
       - name: Java app
         href: java-get-started.md
-      - name: Java app with JCache
-        href: java-redisson-get-started.md
       - name: Node.js app
         href: nodejs-get-started.md
       - name: Python app
@@ -177,7 +175,7 @@ items:
   - name: Move from Azure Cache for Redis to Azure Managed Redis 
     href: migrate/migrate-overview.md
   - name: Migrate to Azure Redis from other caches
-    href: /azure/azure-cache-for-redis/cache-migration-guide
+    href: migrate/migration-guide.md
 
 - name: Azure Cache for Redis 
   href: /azure/azure-cache-for-redis/index

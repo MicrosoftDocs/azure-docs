@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 09/08/2025
+ms.date: 09/15/2025
 ms.update-cycle: 180-days
 #Customer intent: As an AI developer, I want to create and register an MCP server that provides tools that I build from connector actions in Azure Logic Apps through API Center. AI agents and models can use these tools to complete tasks.
 ---
@@ -129,7 +129,7 @@ For example, suppose you want to create an MCP server with tools that manage con
         | Section | Description |
         |---------|-------------|
         | **Description** | Describes the purpose for the action-backed tool to help an agent or LLM determine when to use the tool. A default description exists, but you can customize the text for your needs. <br><br>The default text comes from the [connector's API Swagger description](/connectors/connector-reference/connector-reference-logicapps-connectors), for example, [Actions - Office 365 Outlook](/connectors/office365/). |
-        | **Default parameters** | Lists any parameters required to run the tool. For each parameter, the input source options are **Model** and **User**. By default, the model (LLM) provides the inputs. If you select **User**, the appropriate UX appears for you to provide the input source. |
+        | **Default parameters** | Lists any parameters required to run the tool. For each parameter, the input source options are **Model** and **User**. By default, the model (LLM) provides the inputs. If you select **User**, the appropriate UX appears for you to provide the input source. For more information, see [Learn how parameter values resolve at runtime](#runtime-value-resolution). |
         | **Optional parameters** | Select any other parameters that you want to include for the tool. |
 
         The following example shows the description and parameters for the **Send email (V2)** tool:
@@ -143,6 +143,20 @@ For example, suppose you want to create an MCP server with tools that manage con
 1. Wait for the notifications that Azure successfully registered your MCP server.
 
    By default, your MCP server uses the name for the connector that you selected.
+
+<a name="runtime-value-resolution"></a>
+
+### Learn how parameter values resolve at runtime
+
+This section describes the options for how your MCP server sources input parameter values for action-backed tools. You can either keep the model as the default source, or you can provide hardcoded static values for all interactions.
+
+- Model-provided inputs
+
+  By default, the model passes in parameter values at runtime based on the conversation between the agent and the end user. These values are dynamic and unknown until runtime.
+
+- User-provided inputs
+
+  You specify the parameter values during development. These values are typically hardcoded and stay the same across all interactions between the agent and the end user.
 
 ## Find and view your MCP server
 

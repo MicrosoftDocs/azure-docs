@@ -2,7 +2,7 @@
 title: About Azure Files backup
 description: Learn how to back up Azure Files in the Recovery Services vault
 ms.topic: overview
-ms.date: 05/06/2025
+ms.date: 09/17/2025
 ms.service: azure-backup
 ms.custom:
   - engagement-fy23
@@ -15,6 +15,8 @@ ms.author: v-mallicka
 # About Azure Files backup
 
 Azure Files backup is a native cloud solution that protects your data and eliminates on-premises maintenance overheads. Azure Backup integrates with Azure File Sync, centralizing your File Share data and backups. The secure, managed backup solution supports **snapshot** and **vaulted** backups to protect your enterprise File Shares, ensuring data recovery from accidental or malicious deletion.
+
+Azure Backup now offers general availability of Vaulted Backup for Azure Files (Standard tier), enabling secure, long-term protection with ransomware defense, cross-region recovery, and compliance-ready retention—all managed through a unified backup policy. For more insights, see the [Microsoft Community Hub blog](https://techcommunity.microsoft.com/blog/azurestorageblog/general-availability-vaulted-backup-for-azure-files---boost-your-data-security-a/4395344).
 
 ## Key benefits of Azure Files backup
 

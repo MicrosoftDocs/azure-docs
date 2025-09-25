@@ -1,5 +1,5 @@
 ---  
-title: Microsoft Sentinel data lake Microsoft Sentinel Provider class reference (preview)
+title: Microsoft Sentinel data lake Microsoft Sentinel Provider class reference
 description: Reference documentation for the Microsoft Sentinel Provider class, which allows you to connect to the Microsoft Sentinel data lake and perform various operations.
 author: EdB-MSFT
 ms.service: microsoft-sentinel
@@ -12,7 +12,7 @@ ms.date: 07/13/2025
 ---
  
 
-# Microsoft Sentinel Provider class (preview)
+# Microsoft Sentinel Provider class
 
 The `MicrosoftSentinelProvider` class provides a way to interact with the Microsoft Sentinel data lake, allowing you to perform operations such as listing databases, reading tables, and saving data. This class is designed to work with the Spark sessions in Jupyter notebooks and provides methods to access and manipulate data stored in the Microsoft Sentinel data lake. 
 
@@ -55,7 +55,7 @@ data_provider.list_tables([database],[id])
 ```
 
 Parameters:
-- `database` (str, optional): The name of the database (workspace) to list tables from. Default value: `default`.
+- `database` (str, optional): The name of the database (workspace) to list tables from. IF not specified the system tables database is used.
 - `id` (str, optional): The unique identifier of the database if workspace names aren't unique.
 
 Returns:
@@ -63,7 +63,7 @@ Returns:
 
 Examples:
 
-List all tables in the `default` database:
+List all tables in the system tables database:
 
 
 ```python
@@ -88,7 +88,7 @@ data_provider.read_table({table}, [database], [id])
 
 Parameters:
 - `table_name` (str): The name of the table to read.
-- `database` (str, optional): The name of the database (workspace) containing the table. Default value: `default`.
+- `database` (str, optional): The name of the database (workspace) containing the table. Defaults to `System tables`.
 - `id` (str, optional): The unique identifier of the database if workspace names aren't unique.
 
 Returns:
@@ -96,7 +96,7 @@ Returns:
 
 Example:
 ```python
-df = data_provider.read_table("EntraGroups", "default")
+df = data_provider.read_table("EntraGroups", "Workspace001")
 ```
 
 ### save_as_table
@@ -110,7 +110,7 @@ data_provider.save_as_table({DataFrame}, {table_name}, [database], [id], [write_
 Parameters:
 - `DataFrame` (DataFrame): The DataFrame to write as a table.
 - `table_name` (str): The name of the table to create or overwrite.
-- `database` (str, optional): The name of the database (workspace) to save the table in. Default value: `default`.
+- `database` (str, optional): The name of the database (workspace) to save the table in. Defaults to `System tables`.
 - `id` (str, optional): The unique identifier of the database if workspace names aren't unique.
 - `write_options` (dict, optional): Options for writing the table. Supported options:
                 - mode: `append` or `overwrite` (default: `append`)
@@ -122,7 +122,7 @@ Returns:
 - `str`: The run ID of the write operation.
 
 > [!NOTE]
-> The partitioning option only applies to custom tables in default database (workspace) in the data lake tier. It isn't supported for tables in the analytics tier or for tables in databases other than the default database in the data lake tier. 
+> The partitioning option only applies to custom tables in system tables database (workspace) in the data lake tier. It isn't supported for tables in the analytics tier or for tables in databases other than the system tables database in the data lake tier.
 
 
 Examples:
@@ -133,7 +133,7 @@ Create new custom table in the data lake tier in the `lakeworkspace` workspace.
 data_provider.save_as_table(dataframe, "CustomTable1_SPRK", "lakeworkspace")
 ```
 
-Append to a table in the default workspace in the data lake tier.
+Append to a table in the system tables database (workspace) in the data lake tier.
 ```python
 write_options = {
     'mode': 'append'
@@ -155,7 +155,7 @@ write_options = {
 data_provider.save_as_table(dataframe, "CustomTable1_SPRK_CL", "analyticstierworkspace", write_options)
 ```
 
-Append to the default database with partitioning on the `TimeGenerated` column.
+Append to the system tables database with partitioning on the `TimeGenerated` column.
 ```python
 data_loader.save_as_table(dataframe, "table1", write_options: {'mode': 'append', 'partitionBy': ['TimeGenerated']})
 ```
@@ -170,7 +170,7 @@ data_provider.delete_table({table_name}, [database], [id])
 ```
 Parameters:
 - `table_name` (str): The name of the table to delete.
-- `database` (str, optional): The name of the database (workspace) containing the table. Default value: `default`.
+- `database` (str, optional): The name of the database (workspace) containing the table. Defaults to `System tables`.
 - `id` (str, optional): The unique identifier of the database if workspace names aren't unique.
 
 Returns:

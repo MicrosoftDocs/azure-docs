@@ -9,6 +9,7 @@ ms.date: 11/20/2024
 ms.topic: conceptual
 ms.service: defender-easm
 ms.localizationpriority: high
+ms.custom: sfi-image-nochange
 
 ---
 

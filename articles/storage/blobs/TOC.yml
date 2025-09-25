@@ -452,6 +452,8 @@ items:
     items:
     - name: Data protection
       href: data-protection-overview.md
+    - name: Soft delete versus versioning
+      href: soft-delete-vs-versioning-options.md
     - name: Soft delete
       items:
       - name: Soft delete for containers
@@ -504,6 +506,8 @@ items:
       items:
       - name: Change redundancy configuration
         href: ../common/redundancy-migration.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Change redundancy configuration - FAQs
+        href: ../common/storage-redundancy-change-faq.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Disaster recovery
       items:
       - name: Disaster recovery planning and failover

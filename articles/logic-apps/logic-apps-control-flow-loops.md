@@ -23,7 +23,7 @@ Based on your use case, you can choose from the following types of loop actions:
 
 - To repeat one or more actions on items in an array or collection, add the [**For each** action](#foreach-loop) to your workflow.
 
-  Alternatively, if you have a trigger that receives an array and want to run an iteration for each array item, you can *debatch* that array with the [**SplitOn** trigger property](logic-apps-workflow-actions-triggers.md#split-on-debatch).
+  Alternatively, if you have a trigger that can handle arrays and want to run a workflow instance for each array item, you can *debatch* the array by setting the [**Split on** trigger property](logic-apps-workflow-actions-triggers.md#split-on-debatch).
 
 - To repeat one or more actions until a condition is met or a specific state changes, add the [**Until** action](#until-loop) to your workflow.
 

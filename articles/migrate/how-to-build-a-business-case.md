@@ -4,7 +4,9 @@ description: Describes how to build a Business case with Azure Migrate
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 03/20/2025
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 
 # Customer intent: "As a cloud architect, I want to build a business case using Azure Migrate, so that I can assess the cost and benefits of migrating on-premises workloads to Azure for effective decision-making."
 ---
