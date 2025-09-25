@@ -6,12 +6,17 @@ keywords: app service, azure app service, domain mapping, domain name, existing 
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.topic: how-to
 ms.date: 02/14/2025
-ms.custom: mvc
 ms.author: msangapu
 author: msangapu-msft
+ms.service: azure-app-service
+ms.custom:
+  - mvc
+  - sfi-image-nochange
 ---
 
 # Set up an existing custom domain in Azure App Service
+
+[!INCLUDE [app-service-managed-certificate](./includes/managed-certs/managed-certs-note.md)]
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This guide shows you how to map an existing custom Domain Name System (DNS) name to App Service. To migrate a live site and its DNS domain name to App Service with no downtime, see [Migrate an active DNS name to Azure App Service](manage-custom-dns-migrate-domain.md).
 

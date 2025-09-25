@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 08/21/2024
 ms.author: phjensen
+# Customer intent: As a database administrator, I want to install and configure the Application Consistent Snapshot tool for Azure NetApp Files, so that I can ensure consistent backup and recovery of my databases.
 ---
 
 # Get started with Azure Application Consistent Snapshot tool

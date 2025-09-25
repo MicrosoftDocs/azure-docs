@@ -5,7 +5,7 @@ services: application gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
-ms.date: 10/28/2024
+ms.date: 7/22/2025
 ms.author: mbender
 # Customer intent: As a Kubernetes administrator, I want to migrate services from Application Gateway Ingress Controller to Application Gateway for Containers, so that I can leverage improved performance, seamless scaling, and modern API compatibility without experiencing downtime during the transition.
 ---
@@ -43,7 +43,6 @@ Prior to migration, it is important to identify any dependencies on Application 
 
 Such dependencies include:
 
-- Web Application Firewall (WAF)
 - Private IP
 - Ports other than 80 and 443
 - Configurable request timeout values
@@ -65,7 +64,7 @@ Here's a summarized list of AGIC annotations and whether Application Gateway for
 | [Request timeout](migrate-from-agic-to-agc.md#request-timeout) | appgw.ingress.kubernetes.io/request-timeout | Non-configurable | Non-configurable |
 | [Frontend port other than 80 and 443](migrate-from-agic-to-agc.md#frontend-port-override) | appgw.ingress.kubernetes.io/override-frontend-port | Not supported | Not supported |
 | [Private frontend](migrate-from-agic-to-agc.md#private-frontend) | appgw.ingress.kubernetes.io/use-private-ip | Not supported | Not supported |
-| [WAF](migrate-from-agic-to-agc.md#waf) | appgw.ingress.kubernetes.io/waf-policy-for-path | Not supported | Not supported |
+| [Web Application Firewall (WAF)](migrate-from-agic-to-agc.md#waf) | appgw.ingress.kubernetes.io/waf-policy-for-path | [Web Application Firewall (WAF) (Preview)](web-application-firewall.md) | Not supported |
 | [Custom health probe](migrate-from-agic-to-agc.md#custom-health-probes) | appgw.ingress.kubernetes.io/health-probe-hostname | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) |
 | [Custom health probe](migrate-from-agic-to-agc.md#custom-health-probes) | appgw.ingress.kubernetes.io/health-probe-port |  [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) |
 | [Custom health probe](migrate-from-agic-to-agc.md#custom-health-probes) | appgw.ingress.kubernetes.io/health-probe-path | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) |
@@ -298,7 +297,9 @@ AGIC annotation
 
 Application Gateway for Containers implementation
 
-WAF isn't supported by Application Gateway for Containers.
+#### Web Application Firewall Policy
+
+The equivalent is a new WebApplicationFirewallPolicy resource with a reference to a defined resource or resource section. More details can be found in the [Web Application Firewall](web-application-firewall.md) document.
 
 ### Custom Health probes
 

@@ -171,7 +171,7 @@ sections:
       
       - question: Can a NAT gateway be attached to a gateway subnet? 
         answer: |
-          No, a NAT gateway can't be associated with a [gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub) subnet.
+          No, a NAT gateway can't be associated with a [gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub) subnet. Gateway subnets are reserved for VPN gateway resources and aren't compatible with NAT gateway deployments. To use a NAT gateway, attach it to any other subnet within the same virtual network.
           
       - question: Can multiple NAT gateways be attached to a single subnet?
         answer: |
@@ -211,6 +211,10 @@ sections:
       - question: Is there any downtime expected when I add NAT gateway to my subnet where I have default outbound access?
         answer: |
           No, there is no downtime when adding NAT gateway to a subnet where default outbound access is being used. After NAT gateway is added to the subnet, all new connections will start using NAT gateway instead of default outbound access. Any existing connections with default outbound access will persist until the connections are closed.
+
+      - question: How can I ensure that my virtual machines have internet access to run operations such as Windows activation and updates after enabling the private subnet feature and disabling default outbound access?
+        answer: |
+          You can set up an explicit method of outbound connectivity for your virtual machines to use before enabling the private subnet feature, such as NAT Gateway, to ensure they continue to have outbound connectivity to the internet.
       
   - name: Connection timeouts and timers
     questions:

@@ -4,19 +4,39 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 5/23/2025
+ms.date: 09/12/2025
+# Customer intent: "As an Azure VMware Solution user, I want to stay informed about platform updates and maintenance schedules, so that I can ensure my workloads remain optimized and secure during transitions."
 ---
 
 # What's new in Azure VMware Solution
 
-Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](azure-vmware-solution-host-remediation.md#host-maintenance-and-lifecycle-management).
+Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](azure-vmware-solution-private-cloud-maintenance-best-practices.md#host-maintenance-and-lifecycle-management).
+
+## September 2025
+
+**Azure VMware Solution Generation 2 Private Clouds**
+
+Azure VMware Solution Generation 2 Private Clouds is now generally available on the AV64 SKU. With this capability, we've achieved infrastructure innovation, powered by Azure Boost, simplifying networking, delivering 100 Gbps throughput, lowering latency, and boosting performance for VMware vSphere workloads. Private clouds are deployed inside a virtual network, enabling your private cloud with standard Azure Networking. Azure ExpressRoute is no longer required. Gen 2 is available in the following Azure regions, East US, Canada Central, Canada East, North Europe, and UK West. SLAs are region specific. Contact your Microsoft account team or Microsoft Support to confirm coverage. [Learn more](native-introduction.md)
+
+**Security enhancement: new required permissions for Azure NetApp Files datastore with Azure VMware Solution**
+
+To enhance security, appropriate permissions are needed across Azure VMware Solution and Azure NetApp Files resources when working with datastores. Pre-defined roles, such as the [Contributor role](../role-based-access-control/built-in-roles.md#privileged), have the correct permissions, however custom roles might not. Ensure you meet the [new requirements](attach-azure-netapp-files-to-azure-vmware-solution-hosts.md#prerequisites) for your Azure NetApp Files datastores. 
+
+## July 2025
+
+**Self-Service Maintenance Orchestrator (preview)**
+
+Public preview of Self-Service Capabilities for Planned Maintenance. [Learn more](https://techcommunity.microsoft.com/blog/azuremigrationblog/take-control-of-your-azure-vmware-solution-maintenance-schedule/4434496) 
+
+**VCF 5.2.1 and VMSA-2025-0013 remediation**
+
+To address the vulnerabilities (CVE-2025-41236, CVE-2025-41237, CVE-2025-41238, CVE-2025-41239) reported in Broadcom security advisory [VMSA-2025-0013](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/35877), ESXi hosts are being patched in all Azure VMware Solution private clouds to [ESXi 8.0_U3f](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/esxi-update-and-patch-release-notes/vsphere-esxi-80u3f-release-notes.html). All new Azure VMware Solution private clouds are deployed with the same version. [Learn more](https://techcommunity.microsoft.com/blog/azuremigrationblog/azure-vmware-solution-broadcom-vmsa-2025-0013-remediation/4433430) 
 
 ## May 2025
 
-
 **vSAN ESA (Express Storage Architecture) support**
 
-Azure VMware Solution will now support vSAN ESA (Express Storage Architecture) as the default vSAN architecture for AV48 (including Stretched Clusters) and AV64 (Gen 2) host types.
+Azure VMware Solution supports vSAN ESA (Express Storage Architecture) as the default vSAN architecture for AV48 (including Stretched Clusters) and AV64 (Gen 2) host types.
 
 **HCX Upgrade and Hybridity Depot Decommissioning**
 

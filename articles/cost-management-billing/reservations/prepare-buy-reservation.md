@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 03/26/2025
+ms.date: 07/08/2025
 ms.author: primittal
 ---
 
@@ -24,7 +24,7 @@ You can't buy a reservation if you have a custom role that mimics owner role or 
 
 Enterprise Agreement (EA) customers can limit purchases to EA admins by disabling the **Reserved Instances** policy option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). To change settings, navigate to the **Policies** menu.
 
-Microsoft Customer Agreement (MCA), Billing Profile Owners can restrict the reservation purchase by disabling the **Reserved Instances** policy option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Beginning in June 2025, Microsoft Customer Agreement (MCA), Billing Profile, and Billing Account Owners will have the ability to purchase Reservations even if the Reserved Instances policy option is disabled in the Azure portal. To change settings, navigate to the **Policies** menu under **Billing Profile**.
+Microsoft Customer Agreement (MCA), Billing Profile Owners can restrict the reservation purchase by disabling the **Reserved Instances** policy option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Billing Profile, and Billing Account Owners will have the ability to purchase Reservations even if the Reserved Instances policy option is disabled in the Azure portal. You can change the settings in **Policies** menu under **Billing Profile** to control ability to purchase for RBAC users.
 
 EA admins or Billing Profile Owners must have owner or reservation purchaser access on at least one EA or MCA subscription to purchase a reservation. The option is useful for enterprises that want a centralized team to purchase reservations.
 
@@ -147,13 +147,13 @@ Depending on how you pay for your Azure subscription, email reservation notifica
 Notifications are sent to the following users:
 
 - Customers with EA subscriptions
-    - Notifications are sent to the EA notification contacts, EA admin, reservation owners, and the reservation administrator.
+    - Notifications are sent to the EA notification contacts, EA admin, reservation owners, and the reservation contributors and administrators.
 - Customers with Microsoft Customer Agreement (Azure Plan)
-    - Notifications are sent to the reservation owners and the reservation administrator.
+    - Notifications are sent to the reservation owners, the reservation contributors and administrators.
 - Cloud Solution Provider and new commerce partners
     - Notifications are sent to the primary contact partner identified by the partner legal information account settings. For more information about how to update the primary contact email address for partner account settings, see [Verify or update your company profile information](/partner-center/update-your-partner-profile#update-your-legal-business-profile).
 - Individual subscription customers with pay-as-you-go rates
-    - Emails are sent to users who are set up as account administrators, reservation owners, and the reservation administrator.
+    - Emails are sent to users who are set up as account administrators, reservation owners, the reservation contributors and administrators.
 
 
 ## Next steps

@@ -4,7 +4,7 @@ description: Learn how to deploy Tomcat, JBoss EAP, or Java SE apps to run on Az
 keywords: azure app service, web app, windows, oss, java, tomcat, jboss, spring boot, quarkus
 ms.devlang: java
 ms.topic: how-to
-ms.date: 03/27/2025
+ms.date: 08/12/2025
 ms.custom:
   - devx-track-java
   - devx-track-azurecli
@@ -15,6 +15,7 @@ zone_pivot_groups: app-service-java-hosting
 adobe-target: true
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
 ---
 
 # Deploy and configure a Java SE, Tomcat, or JBoss EAP app in Azure App Service
@@ -58,7 +59,7 @@ java -version
 To view the Tomcat server version in the SSH session:
 
 ```bash
-sh /usr/local/tomcat/version.sh
+sh /usr/local/tomcat/bin/version.sh
 ```
 
 Or, if your Tomcat server is in a custom location, find `version.sh` with:
@@ -371,7 +372,7 @@ Azure App Service supports out-of-the-box tuning and customization through the A
 
 ### Copy app content locally
 
-Set the app setting `JAVA_COPY_ALL` to `true` to copy your app contents to the local worker from the shared file system. This setting helps address file-locking issues.
+Set the app setting `JAVA_COPY_ALL` to `true` to copy your app contents to the local worker from the shared file system. This setting helps address file-locking issues. `JAVA_COPY_ALL` is not compatible with the legacy convention of deploying to `/home/site/wwwroot/webapps`.
 
 ### Set Java runtime options
 

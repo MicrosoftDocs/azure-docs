@@ -6,6 +6,7 @@ ms.author: jacobjaygbay
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024
+# Customer intent: As a cloud architect, I want to provision Oracle Exadata Infrastructure, so that I can set up the necessary environment for deploying Oracle Exadata VM Clusters and databases in a streamlined and efficient manner.
 ---
 
 # Provision Exadata infrastructure

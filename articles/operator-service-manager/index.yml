@@ -28,12 +28,10 @@ landingContent:
             url: release-notes.md
       - linkListType: concept
         links:
-          - text: Helm requirements
-            url: helm-requirements.md
-          - text: Roles and interfaces
+          - text: Role-Based Persona Model
             url: roles-interfaces.md
-          - text: Publisher Tenants, subscriptions, regions and preview management
-            url: publisher-resource-preview-management.md
+          - text: Publisher Tenants, Subscriptions and Regions
+            url: publisher-resource-preview-management.md      
 
   # Card
   - title: Get started with Azure Operator Service Manager
@@ -114,8 +112,12 @@ landingContent:
     linkLists:
       - linkListType: architecture
         links:
+          - text: Helm Package Requirements
+            url: helm-requirements.md 
           - text: Best Practices Onboard and Deploy
             url: best-practices-onboard-deploy.md
+          - text: Publisher Resource Cleanup Management
+            url: resource-cleanup-management.md
           - text: Workload Configuration Management
             url: configuration-guide.md
       - linkListType: reference

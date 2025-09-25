@@ -3,6 +3,7 @@ author: DavidCBerry13
 ms.author: daberry
 ms.topic: include
 ms.date: 01/29/2022
+ms.service: azure-app-service
 ---
 Get the \<URL> from your Kudu Environment: 
 

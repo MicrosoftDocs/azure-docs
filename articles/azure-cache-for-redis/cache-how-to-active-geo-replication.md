@@ -17,6 +17,8 @@ Active geo-replication groups up to five instances of Enterprise Azure Cache for
 > [!NOTE]
 > Data transfer between Azure regions is charged at standard [bandwidth rates](https://azure.microsoft.com/pricing/details/bandwidth/).
 >
+> Data sync among replicas follows eventual consistency. The service does not provide SLA on sync time. Please design your system without relying on the  timeliness of data sync.
+>
 
 ## Scope of availability
 

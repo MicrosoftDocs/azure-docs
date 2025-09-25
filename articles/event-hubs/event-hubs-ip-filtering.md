@@ -1,9 +1,16 @@
 ---
-title: Azure Event Hubs Firewall Rules | Microsoft Docs
-description: Use Firewall Rules to allow connections from specific IP addresses to Azure Event Hubs. 
-ms.topic: article
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.date: 02/02/2024
+title: Configure IP Firewall Rules for Azure Event Hubs Namespaces
+description: Learn how to configure IP firewall rules for Azure Event Hubs namespaces to restrict access from specific IP addresses and CIDR ranges using Azure portal, CLI, or PowerShell.
+#customer intent: As a network administrator, I want to configure IP firewall rules for my Azure Event Hubs namespace so that I can restrict access to only specific IP addresses and improve security
+ms.topic: how-to
+ms.date: 07/25/2025
+ms.custom:
+  - devx-track-azurepowershell, devx-track-azurecli
+  - ai-gen-docs-bap
+  - ai-gen-title
+  - ai-seo-date:07/25/2025
+  - ai-gen-description
+  - sfi-image-nochange
 ---
 
 # Allow access to Azure Event Hubs namespaces from specific IP addresses or ranges
@@ -21,7 +28,7 @@ You specify IP firewall rules at the Event Hubs namespace level. So, the rules a
 - Specify **at least one IP firewall rule or virtual network rule** for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network. If there are no IP and virtual network rules, the namespace can be accessed over the public internet (using the access key).  
 
 
-## Use Azure portal
+## Configure firewall rules using Azure portal
 
 When creating a namespace, you can either allow public only (from all networks) or private only (only via private endpoints) access to the namespace. Once the namespace is created, you can allow access from specific IP addresses or from specific virtual networks (using network service endpoints). 
 
@@ -51,7 +58,7 @@ This section shows you how to use the Azure portal to create IP firewall rules f
     3. For **address range**, enter specific IPv4 or IPv6 addresses or address ranges in CIDR notation.
     
         > [!IMPORTANT]
-        > When the service starts supporting IPv6 connections in the future and clients automatically switch to using IPv6, your clients will break if you have only IPv4 addresses, not IPv6 addresses. Therefore, we recommend that you add IPv6 addresses to the list of allowed IP addresses now so that your clients don't break when the service eventually switches to supporting IPv6. 
+        > When the service starts supporting IPv6 connections in the future and clients automatically switch to using IPv6, your clients break if you have only IPv4 addresses, not IPv6 addresses. Therefore, we recommend that you add IPv6 addresses to the list of allowed IP addresses now so that your clients don't break when the service eventually switches to supporting IPv6. 
     1. Specify whether you want to **allow trusted Microsoft services to bypass this firewall**. See [Trusted Microsoft services](#trusted-microsoft-services) for details. 
 
         :::image type="content" source="./media/event-hubs-firewall/firewall-selected-networks-trusted-access-disabled.png" lightbox="./media/event-hubs-firewall/firewall-selected-networks-trusted-access-disabled.png" alt-text="Firewall section highlighted in the Public access tab of the Networking page.":::
@@ -63,7 +70,7 @@ This section shows you how to use the Azure portal to create IP firewall rules f
 [!INCLUDE [event-hubs-trusted-services](./includes/event-hubs-trusted-services.md)]
 
 
-## Use Resource Manager template
+## Configure firewall rules using Resource Manager templates
 
 > [!IMPORTANT]
 > The Firewall feature isn't supported in the basic tier.
@@ -158,12 +165,12 @@ The following Resource Manager template enables adding an IP filter rule to an e
 To deploy the template, follow the instructions for [Azure Resource Manager][lnk-deploy].
 
 > [!IMPORTANT]
-> If there are no IP and virtual network rules, all the traffic flows into the namespace even if you set the `defaultAction` to `deny`.  The namespace can be accessed over the public internet (using the access key). Specify at least one IP rule or virtual network rule for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network.  
+> If there are no IP and virtual network rules, all the traffic flows into the namespace even if you set the `defaultAction` to `deny`. The namespace can be accessed over the public internet (using the access key). Specify at least one IP rule or virtual network rule for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network.  
 
-## Use Azure CLI
+## Configure firewall rules using Azure CLI
 Use [`az eventhubs namespace network-rule-set`](/cli/azure/eventhubs/namespace/network-rule-set) add, list, update, and remove commands to manage IP firewall rules for an Event Hubs namespace.
 
-## Use Azure PowerShell
+## Configure firewall rules using Azure PowerShell
 Use the [`Set-AzEventHubNetworkRuleSet`](/powershell/module/az.eventhub/set-azeventhubnetworkruleset) cmdlet to add one or more IP firewall rules. An example from the article:
 
 ```azurepowershell-interactive

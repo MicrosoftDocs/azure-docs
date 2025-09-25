@@ -6,7 +6,10 @@ ms.service: azure-vmware
 ms.date: 6/12/2024
 author: suzizuber
 ms.author: v-szuber
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
+# Customer intent: "As a network administrator, I want to add a new network segment in NSX Manager, so that I can configure connectivity for virtual machines within my Azure VMware Solution environment."
 ---
 
 <!-- Used in configure-dhcp-azure-vmware-solution.md and tutorial-nsx-t-network-segment.md -->

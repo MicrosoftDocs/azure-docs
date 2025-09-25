@@ -1,12 +1,16 @@
 ---
-title: Deploy content using FTP/S
+title: Deploy Content Using FTP/S
 description: Learn how to deploy your app to Azure App Service using FTP or FTPS, and improve website security by disabling unencrypted FTP.
 
 ms.assetid: ae78b410-1bc0-4d72-8fc4-ac69801247ae
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/16/2025
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service 
+
+# customer intent: As a developer, I want to deploy an app to App Service by using FTP or FTPS and improve website security by disabling unencrypted FTP.
+ 
 ---
 
 # Deploy your app to Azure App Service using FTP/S
@@ -96,7 +100,7 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 
 # [Azure PowerShell](#tab/powershell)
 
-Run the following [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) command, replacing the `<app-name>` and `<resource-group-name>` with your values. Use the `-FtpsState` parameter set to `FtpsOnly` to enforce FTPS, or `Disabled` to disable both FTP and FTPS..
+Run the following [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) command, replacing the `<app-name>` and `<resource-group-name>` with your values. Use the `-FtpsState` parameter set to `FtpsOnly` to enforce FTPS, or `Disabled` to disable both FTP and FTPS.
 
 ```azurepowershell-interactive
 Set-AzWebApp -Name <app-name> -ResourceGroupName <resource-group-name> -FtpsState FtpsOnly

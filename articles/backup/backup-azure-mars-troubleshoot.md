@@ -7,8 +7,9 @@ ms.service: azure-backup
 ms.custom:
   - engagement-fy24
   - build-2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As an IT administrator, I want to troubleshoot the Azure Backup agent installation and registration issues, so that I can ensure successful backup operations and maintain data integrity."
 ---
 
 # Troubleshoot the Microsoft Azure Recovery Services (MARS) agent

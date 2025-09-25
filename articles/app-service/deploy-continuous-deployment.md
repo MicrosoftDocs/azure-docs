@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 06/11/2025
 ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000
 
+ms.service: azure-app-service
 ---
 
 # Configure continuous deployment to Azure App Service

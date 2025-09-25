@@ -57,7 +57,7 @@ Create a VuePress app from the Command Line Interface (CLI):
    npm install --save-dev vuepress
    ```
 
-1. Open the _package.json_ file in a text editor and add a build command to the [`scripts`](https://docs.npmjs.com/cli-commands/run-script.html) section.
+1. Open the _package.json_ file in a text editor and add a build command to the [`scripts`](https://docs.npmjs.com/cli/v11/commands/npm-run) section.
 
    ```json
    ...

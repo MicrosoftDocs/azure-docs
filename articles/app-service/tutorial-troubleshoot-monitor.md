@@ -4,8 +4,11 @@ description: Learn how Azure Monitor and Log Analytics help you monitor your App
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
-ms.custom: devx-track-azurecli
 ms.date: 06/29/2023
+ms.service: azure-app-service
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 # Tutorial: Troubleshoot an App Service app with Azure Monitor
 
@@ -268,4 +271,4 @@ What you learned:
 * [Query logs with Azure Monitor](/azure/azure-monitor/logs/log-query-overview)
 * [Troubleshooting Azure App Service in Visual Studio](troubleshoot-dotnet-visual-studio.md)
 * [Analyze app Logs in HDInsight](/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial)
-* [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)
+* [Tutorial: Run a load test to identify performance bottlenecks in a web app](../app-testing/load-testing/tutorial-identify-bottlenecks-azure-portal.md)

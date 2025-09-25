@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot volume errors for Azure NetApp Files | Microsoft Docs
+title: Troubleshoot volume errors for Azure NetApp Files 
 description: Describes error messages and resolutions that can help you troubleshoot Azure NetApp Files volumes.
 services: azure-netapp-files
 author: b-hchen
@@ -8,6 +8,7 @@ ms.custom:
 ms.topic: troubleshooting
 ms.date: 01/28/2025
 ms.author: anfdocs
+# Customer intent: "As a system administrator, I want to troubleshoot volume errors for Azure NetApp Files, so that I can ensure reliable performance and resolve issues effectively."
 ---
 # Troubleshoot volume errors for Azure NetApp Files
 

@@ -10,6 +10,7 @@ ms.custom:
   - build-2024
 ms.topic: reference
 ms.date: 04/29/2025
+ms.update-cycle: 180-days
 ms.author: danlep
 ---
 
@@ -62,13 +63,15 @@ Use the `azure-openai-semantic-cache-lookup` policy to perform cache lookup of r
 
 - [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ### Usage notes
 
 - This policy can only be used once in a policy section.
 - Fine-tune the value of `score-threshold` based on your application to ensure that the right sensitivity is used when determining which queries to cache. Start with a low value such as 0.05 and adjust to optimize the ratio of cache hits to misses.
 - The embeddings model should have enough capacity and sufficient context size to accommodate the prompt volume and prompts.
+- [!INCLUDE [api-management-cache-rate-limit](../../includes/api-management-cache-rate-limit.md)]
+
 
 ## Examples
 

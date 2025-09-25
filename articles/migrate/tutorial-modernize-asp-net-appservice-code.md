@@ -4,9 +4,13 @@ description: At-scale migration of ASP.NET web apps to Azure App Service using A
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.topic: tutorial
 ms.date: 02/07/2025
-ms.custom: template-tutorial
+ms.custom:
+  - template-tutorial
+  - sfi-image-nochange
+# Customer intent: As a web application developer, I want to migrate my ASP.NET web apps to a cloud-based platform, so that I can leverage managed services for better scalability and maintenance.
 ---
 
 # Modernize ASP.NET web apps to Azure App Service code

@@ -2,15 +2,17 @@
 title: "Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal - Azure ABAC"
 titleSuffix: Azure Storage
 description: Add a role assignment condition to restrict access to blobs using the Azure portal and Azure attribute-based access control (Azure ABAC).
-author: pauljewellmsft
-ms.author: pauljewell
+author: normesta
+ms.author: normesta
 ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.reviewer: nachakra
 ms.date: 03/15/2023
+ms.custom: sfi-image-nochange
 
 #Customer intent:
 
+# Customer intent: As a cloud administrator, I want to implement role assignment conditions for blob storage access, so that I can enforce granular access control based on attributes like tags, ensuring users only access the data they need.
 ---
 
 # Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal

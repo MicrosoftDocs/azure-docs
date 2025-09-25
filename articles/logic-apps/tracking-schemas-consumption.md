@@ -4,8 +4,8 @@ description: Learn about schemas for tracking B2B messages in Consumption workfl
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 03/27/2025
+ms.topic: concept-article
+ms.date: 07/18/2025
 # As a B2B integration solutions developer, I want to know about tracking schemas to monitor B2b messages for Consumption workflows in Azure Logic Apps.
 ---
 

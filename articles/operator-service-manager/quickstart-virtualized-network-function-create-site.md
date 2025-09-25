@@ -6,6 +6,7 @@ ms.author: Hollycl
 ms.date: 09/14/2023
 ms.topic: quickstart
 ms.service: azure-operator-service-manager
+ms.custom: sfi-image-nochange
 ---
 
 # Quickstart: Create a virtualized network functions (VNF) site for an Ubuntu virtual machine

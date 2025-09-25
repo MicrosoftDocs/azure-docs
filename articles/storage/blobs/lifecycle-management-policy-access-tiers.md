@@ -9,6 +9,7 @@ ms.date: 06/13/2025
 ms.service: azure-blob-storage
 ms.topic: conceptual 
 
+# Customer intent: "As a cloud storage administrator, I want to implement lifecycle management policies for blob transitions, so that I can optimize storage costs by automatically moving data to the appropriate access tiers based on usage patterns."
 ---
 
 # Lifecycle management policies that transition blobs between tiers

@@ -7,6 +7,8 @@ ms.service: azure-site-recovery
 ms.topic: how-to
 ms.author: jsuri
 ms.date: 05/27/2021
+ms.custom: sfi-image-nochange
+# Customer intent: As a cloud administrator, I want to manage VMware vCenter servers in Azure Site Recovery, so that I can ensure disaster recovery for on-premises VMware VMs and maintain seamless operations during failover and failback scenarios.
 ---
 
 # Manage VMware vCenter Server

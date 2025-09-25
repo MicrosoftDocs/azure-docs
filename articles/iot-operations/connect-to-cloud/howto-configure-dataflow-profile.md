@@ -1,8 +1,8 @@
 ---
 title: Configure data flow profile in Azure IoT Operations
 description: How to configure a data flow profile in Azure IoT Operations to change a data flow behavior.
-author: PatAltimore
-ms.author: patricka
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
@@ -18,6 +18,8 @@ ms.date: 06/18/2025
 Data flow profiles can be used to group data flows together so that they share the same configuration. You can create multiple data flow profiles to manage sets of different data flow configurations. 
 
 The most important setting is the instance count. For a given data flow, the instance count determines the number of copies that run on your cluster. For example, you might have a data flow profile with a single instance for development and testing, and another profile with multiple instances for production. Or, you might use a data flow profile with low instance count for low-throughput data flows and a profile with high instance count for high-throughput data flows. Similarly, you can create a data flow profile with different diagnostic settings for debugging purposes.
+
+You should avoid associating too many data flows with a single data flow profile. If you have a large number of data flows, create multiple data flow profiles to reduce the risk of exceeding the data flow profile configuration size limit of 70.
 
 ## Default data flow profile
 

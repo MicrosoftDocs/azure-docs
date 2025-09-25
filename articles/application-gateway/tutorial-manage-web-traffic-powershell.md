@@ -7,7 +7,10 @@ ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 07/19/2019
 ms.author: mbender
-ms.custom: mvc, devx-track-azurepowershell
+ms.custom:
+  - mvc
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: As a cloud administrator, I want to create an application gateway with a virtual machine scale set using PowerShell so that I can efficiently manage and secure web traffic to my backend servers.
 ---
 # Manage web traffic with an application gateway using Azure PowerShell

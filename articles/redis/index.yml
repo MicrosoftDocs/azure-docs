@@ -53,10 +53,6 @@ landingContent:
             url: python-get-started.md
       - linkListType: tutorial
         links:
-          - text: Use session state provider
-            url: aspnet-session-state-provider.md
-          - text: Use output cache provider
-            url: aspnet-output-cache-provider.md
           - text: Use Redis as a semantic cache
             url: tutorial-semantic-cache.md
           - text: Use Spring Boot Initializer
@@ -108,7 +104,7 @@ landingContent:
           - text: REST API
             url: /rest/api/redis/redisenterprisecache/operation-groups
           - text: Redis Clients
-            url: https://redis.io/docs/connect/clients/
+            url: https://redis.io/docs/latest/operate/rs/databases/connect/supported-clients-browsers/
           - text: Redis commands
             url: https://redis.io/commands
       - linkListType: reference

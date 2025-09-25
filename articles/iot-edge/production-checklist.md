@@ -1,9 +1,8 @@
 ---
 title: Prepare your Azure IoT Edge solution for production
 description: Ready your Azure IoT Edge solution for production. Learn how to set up your devices with certificates and make a deployment plan for future updates.
-author: PatAltimore
-
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.date: 06/03/2025
 ms.topic: concept-article
 ms.service: azure-iot-edge
@@ -294,7 +293,7 @@ The following table describes image garbage collection parameters. All parameter
 | `enabled` | Enables the image garbage collection. You may choose to disable the feature by changing this setting to `false`. | Optional | true |
 | `cleanup_recurrence` | Controls the recurrence frequency of the cleanup task. Must be specified as a multiple of days and can't be less than one day. <br><br> For example: 1d, 2d, 6d, etc. | Optional | 1d |
 | `image_age_cleanup_threshold` | Defines the minimum age threshold of unused images before considering for cleanup and must be specified in days. You can specify as *0d* to clean up the images as soon as they're removed from the deployment. <br><br>  Images are considered unused *after* they've been removed from the deployment. | Optional | 7d |
-| `cleanup_time` | Time of day, *in device local time*, when the cleanup task runs. Must be in 24-hour HH:MM format. | Optional | 00:00 |
+| `cleanup_time` | Time of day, *in device local time*, when the cleanup task runs. Must be in 24-hour HH:MM format. If the device is not online, the cleanup task will not be run. The task will be run at the next scheduled cleanup_time if the device is online at that time. | Optional | 00:00 |
 
 
 ## Networking

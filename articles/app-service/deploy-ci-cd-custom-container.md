@@ -9,6 +9,7 @@ ms.date: 05/02/2025
 ms.author: msangapu
 ms.custom: devx-track-azurecli, linux-related-content
 zone_pivot_groups: app-service-containers-windows-linux
+ms.service: azure-app-service
 ---
 
 # Continuous deployment with custom containers in Azure App Service

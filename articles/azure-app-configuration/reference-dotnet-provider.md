@@ -159,6 +159,9 @@ For more information about options pattern in .NET, go to the [documentation](/d
 
 You can create JSON key-values in App Configuration. When a key-value with the content type `"application/json"` is read, the configuration provider will flatten it into individual settings inside of `IConfiguration`. For more information, go to [Use content type to store JSON key-values in App Configuration](./howto-leverage-json-content-type.md).
 
+> [!NOTE]
+> Starting with version *8.4.0* of `Microsoft.Extensions.Configuration.AzureAppConfiguration`, the configuration provider allows comments, as defined in ([JSONC](https://jsonc.org/)), in key-values with an `application/json` content type.
+
 ### Load specific key-values using selectors
 
 By default, the configuration provider loads all key-values with no label from App Configuration. You can selectively load key-values from your App Configuration store by calling the `Select` method on `AzureAppConfigurationOptions`.
@@ -634,6 +637,13 @@ builder.Configuration.AddAzureAppConfiguration(options =>
 
 For information about using snapshots, go to [Create and use snapshots](./howto-create-snapshots.md).
 
+### Snapshot reference
+
+A snapshot reference is a configuration setting that references a snapshot in the same App Configuration store. When loaded, the provider resolves it and adds all key-values from that snapshot. Using snapshot references enables switching between snapshots at runtime, unlike `SelectSnapshot("...")`, which requires code changes and/or restarts to switch to a new snapshot.
+
+> [!NOTE] 
+> To use snapshot references, use the version *8.4.0* or later of `Microsoft.Extensions.Configuration.AzureAppConfiguration`.
+
 ## Startup retry
 
 Configuration loading is a critical path operation during application startup. To ensure reliability, the Azure App Configuration provider implements a robust retry mechanism during the initial configuration load. This helps protect your application from transient network issues that might otherwise prevent successful startup.
@@ -672,6 +682,22 @@ builder.Services.AddOpenTelemetry()
 ```
 
 For more information about OpenTelemetry in .NET, see the [OpenTelemetry .NET documentation](https://github.com/open-telemetry/opentelemetry-dotnet).
+
+## Health check
+
+The Azure App Configuration .NET provider supports [.NET app health checks](/dotnet/core/diagnostics/diagnostic-health-checks). To enable health checks, you can call `AddAzureAppConfiguration()` method on `IHealthChecksBuilder`, which will add an `IHealthCheck` with a default registration name of `"Microsoft.Extensions.Configuration.AzureAppConfiguration"`.
+
+```C#
+builder.Configuration.AddAzureAppConfiguration(options => 
+    options.Connect(new Uri(appConfigEndpoint), new DefaultAzureCredential()));
+
+builder.Services.AddHealthChecks()
+    .AddAzureAppConfiguration();
+```
+
+The .NET provider will be considered as unhealthy when the last load or refresh attempt failed.
+
+For more information about health checks in .NET, see the [.NET health monitoring documentation](/dotnet/architecture/microservices/implement-resilient-applications/monitor-app-health).
 
 ## Next steps
 

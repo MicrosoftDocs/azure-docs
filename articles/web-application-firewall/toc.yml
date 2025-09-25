@@ -10,6 +10,8 @@ items:
     items:
     - name: Web Application Firewall on Application Gateway
       href: ./ag/ag-overview.md
+    - name: Web Application Firewall on Application Gateway for Containers
+      href: ./ag/waf-application-gateway-for-containers-overview.md
     - name: FAQ
       href: ./ag/application-gateway-waf-faq.yml
   - name: Front Door
@@ -22,6 +24,8 @@ items:
     items:
     - name: Web Application Firewall on Azure CDN
       href: ./cdn/cdn-overview.md
+  - name: What is Azure network security?
+    href: /azure/networking/security/network-security?toc=%2fazure%2fweb-application-firewall%2ftoc.json
 - name: Deploy
   items:
   - name: Application Gateway
@@ -72,6 +76,8 @@ items:
         href: ./ag/application-gateway-crs-rulegroups-rules.md
       - name: Exclusion lists
         href: ./ag/application-gateway-waf-configuration.md
+      - name: Upgrade ruleset version
+        href: ./ag/upgrade-ruleset-version.md
       - name: Customize managed rules
         items:
         - name: Azure portal
@@ -104,6 +110,8 @@ items:
         href: geomatch-custom-rules-examples.md
     - name: Request size limits
       href: ./ag/application-gateway-waf-request-size-limits.md
+    - name: Configure custom response code and body
+      href: ./ag/configure-custom-response-code.md
     - name: WAF engine
       href: ./ag/waf-engine.md
   - name: Front Door
@@ -148,8 +156,10 @@ items:
     href: ./afds/protect-api-hosted-apim-by-waf.md
   - name: Protect Azure OpenAI
     href: ./afds/protect-azure-open-ai.md
-- name: Security
+- name: Secure
   items:
+  - name: Secure your Azure Web Application Firewall
+    href: secure-web-application-firewall.md
   - name: Security baseline
     href: /security/benchmark/azure/baselines/web-application-firewall-security-baseline?toc=/azure/web-application-firewall/toc.json
   - name: Azure Network Security Blog
@@ -212,6 +222,8 @@ items:
       href: /powershell/module/az.frontdoor/
     - name: Application Gateway
       href: /powershell/module/az.network/#application_gateway
+    - name: Application Gateway for Containers
+      href: /powershell/module/az.alb/get-azalbsecuritypolicy
     - name: CDN
       href: https://www.powershellgallery.com/packages/Az.Cdn/1.5.0-preview
   - name: Azure CLI
@@ -220,6 +232,8 @@ items:
       href: /cli/azure/network/front-door/waf-policy
     - name: Application Gateway
       href: /cli/azure/network/application-gateway
+    - name: Application Gateway for Containers
+      href: /cli/azure/network/alb/security-policy
     - name: CDN
       href: /azure/web-application-firewall/afds/waf-front-door-create-portal
   - name: REST API
@@ -228,6 +242,8 @@ items:
       href: /rest/api/frontdoorservice/webapplicationfirewall/policies
     - name: Application Gateway
       href: /rest/api/application-gateway
+    - name: Application Gateway for Containers
+      href: /rest/api/applicationgatewaycontainers/security-policies-interface
   - name: .NET
     href: /dotnet/api
   - name: Java

@@ -128,6 +128,9 @@ The backend circuit breaker is an implementation of the [circuit breaker pattern
 > * Because of the distributed nature of the API Management architecture, circuit breaker tripping rules are approximate. Different instances of the gateway do not synchronize and will apply circuit breaker rules based on the information on the same instance.
 > * Currently, only one rule can be configured for a backend circuit breaker.
 
+> [!CAUTION]
+> If you configure an Azure OpenAI service as a backend and the service receives too many requests, it returns a `429 Too Many Requests` response status code and  a `Retry-After` header with a value that can be large (for example, 1 day). With Azure OpenAI backends we recommend implementing circuit breaker rules to handle the `429` responses and accept the `Retry-After` duration.
+
 ### Example
 
 Use the Azure portal, API Management [REST API](/rest/api/apimanagement/backend), or a Bicep or ARM template to configure a circuit breaker in a backend. In the following example, the circuit breaker in *myBackend* in the API Management instance *myAPIM* trips when there are three or more `5xx` status codes indicating server errors in 1 hour. 

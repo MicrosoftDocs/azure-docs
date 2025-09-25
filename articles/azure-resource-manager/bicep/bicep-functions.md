@@ -2,7 +2,7 @@
 title: Bicep functions overview
 description: Learn about the functions that can be used in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: reference
-ms.date: 02/12/2025
+ms.date: 09/11/2025
 ms.custom:
   - devx-track-bicep
   - build-2025
@@ -139,6 +139,7 @@ The following functions are available for working with objects. All of these fun
 
 The following functions are available to be used in Bicep parameters files. All of these functions are in the `sys` namespace:
 
+* [externalInput](./bicep-functions-parameters-file.md#externalinput)
 * [getSecret](./bicep-functions-parameters-file.md)
 * [readEnvironmentVariable](./bicep-functions-parameters-file.md)
 
@@ -180,6 +181,7 @@ Bicep provides the following functions for working with strings. All of these fu
 * [base64](./bicep-functions-string.md#base64)
 * [base64ToJson](./bicep-functions-string.md#base64tojson)
 * [base64ToString](./bicep-functions-string.md#base64tostring)
+* [buildUri](./bicep-functions-string.md#builduri)
 * [concat](./bicep-functions-string.md#concat)
 * [contains](./bicep-functions-string.md#contains)
 * [dataUri](./bicep-functions-string.md#datauri)
@@ -196,6 +198,7 @@ Bicep provides the following functions for working with strings. All of these fu
 * [length](./bicep-functions-string.md#length)
 * [newGuid](./bicep-functions-string.md#newguid)
 * [padLeft](./bicep-functions-string.md#padleft)
+* [parseUri](./bicep-functions-string.md#parseuri)
 * [replace](./bicep-functions-string.md#replace)
 * [skip](./bicep-functions-string.md#skip)
 * [split](./bicep-functions-string.md#split)

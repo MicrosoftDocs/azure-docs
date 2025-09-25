@@ -344,6 +344,11 @@
             "source_path_from_root": "/articles/application-gateway/scripts/waf-custom-rules-powershell.md",
             "redirect_url": "/previous-versions/azure/application-gateway/scripts/waf-custom-rules-powershell",
             "redirect_document_id": false
+        },
+        {
+           "source_path_from_root": "/articles/application-gateway/classic-to-resource-manager.md",
+           "redirect_url": "/azure/virtual-machines/migration/migration-classic-resource-manager-faq",
+           "redirect_document_id": false
         }
     ]
 }

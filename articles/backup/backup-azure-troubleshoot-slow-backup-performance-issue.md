@@ -2,25 +2,29 @@
 title: Troubleshoot slow backup of files and folders
 description: Provides troubleshooting guidance to help you diagnose the cause of Azure Backup performance issues
 ms.topic: troubleshooting
-ms.date: 12/28/2022
+ms.date: 07/11/2025
 ms.service: azure-backup
 ms.custom: engagement-fy23
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As an IT administrator troubleshooting slow backup performance, I want to identify potential bottlenecks and resolve them effectively, so that I can ensure efficient and timely data backups using the Azure Backup service.
 ---
 # Troubleshoot slow backup of files and folders in Azure Backup
 
-This article provides troubleshooting guidance to help you diagnose the cause of slow backup performance for files and folders when you're using Azure Backup. When you use the Azure Backup agent to back up files, the backup process might take longer than expected. This delay might be caused by one or more of the following:
+This article provides troubleshooting guidance to help you diagnose the cause of slow backup performance for files and folders when you use Azure Backup. If the Azure Backup agent takes longer than expected to back up files, investigate the following possible causes:
 
-* [There are performance bottlenecks on the computer that's being backed up.](#cause1)
-* [Another process or antivirus software is interfering with the Azure Backup process.](#cause2)
-* [The Backup agent is running on an Azure virtual machine (VM).](#cause3)  
-* [You're backing up a large number (millions) of files.](#cause4)
+- The computer you back up experiences performance bottlenecks.
+- Another process or antivirus software interferes with the Azure Backup process.
+- You run the Backup agent on an Azure virtual machine (VM).
+- You attempt to back up a very large number of files (millions).
 
-Before you start troubleshooting issues, we recommend that you download and install the [latest Azure Backup agent](https://aka.ms/azurebackup_agent). We make frequent
-updates to the Backup agent to fix various issues, add features, and improve performance.
+## Prerequisites
 
-We also strongly recommend that you review the [Azure Backup service FAQ](backup-azure-backup-faq.yml) to make sure you're not experiencing any of the common configuration issues.
+Before you start troubleshooting backup performance issues, review the following prerequisites:
+
+- Download and install the [latest Azure Backup agent](https://aka.ms/azurebackup_agent). Frequent updates to the agent fix known issues, introduce new features, and improve performance.
+- Review the [Azure Backup service FAQ](backup-azure-backup-faq.yml), which helps you avoid common configuration issues that might affect backup efficiency.
+
 
 [!INCLUDE [support-disclaimer](~/reusable-content/ce-skilling/azure/includes/support-disclaimer.md)]
 

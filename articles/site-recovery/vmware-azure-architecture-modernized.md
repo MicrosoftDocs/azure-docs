@@ -6,6 +6,7 @@ ms.topic: concept-article
 ms.date: 03/13/2025
 ms.author: jsuri
 author: jyothisuri
+# Customer intent: "As a VMware administrator, I want to configure disaster recovery for on-premises VMs to Azure, so that I can ensure business continuity and minimize downtime in the event of system failures."
 ---
 
 # VMware to Azure disaster recovery architecture - Modernized

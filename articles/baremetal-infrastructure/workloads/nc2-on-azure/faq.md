@@ -15,16 +15,6 @@ ms.service: azure-baremetal-infrastructure
 
 This article addresses questions most frequently asked about NC2 on Azure.
 
-## How can I join the 30-day NC2 trial on Azure?
-
-**Cost coverage**: The trial covers BareMetal nodes and NC2 software. Additional services like VMs for Flow Gateway Networking are not included.
-
-**Trial duration**: The trial begins with the initial hardware node deployment and lasts for 30 consecutive days. It cannot be paused, and the start date is fixed regardless of cluster activity.
-
-**One-time opportunity**: The trial is a one-time offer. If you deploy a cluster after the trial period, billing will be based on the initial deployment date.
-
-**Tracking**: NC2 software tracks trial periods, but this may not align with the BareMetal start date. Track your deployment date as there is no visible trial date tracker for BareMetal.
-
 ## What is Hyperconverged Infrastructure (HCI)?
 
 Hyper-converged infrastructure (HCI) uses locally attached storage resources to combine common data center hardware with intelligent software to create flexible building blocks that replace legacy infrastructure consisting of separate servers, storage networks, and storage arrays. [Video explanation](https://www.youtube.com/watch?v=OPYA5-V0yRo)
@@ -48,9 +38,9 @@ For more information about Production Support tiers and SLAs, see Product Suppor
 
 ## Does this solution integrate with the rest of the Azure cloud?
 
-Yes. You can use the products and services in Azure that you already have and love.
+Yes. You can use the products and services in Azure that you already have.
 
-## Can I use my existing VPN or ExpressRoute gateway for the DR scenario?
+## Can I use my existing VPN or ExpressRoute gateway for a disaster recovery scenario?
 
 Yes.
 
@@ -58,10 +48,10 @@ Yes.
 
 No.
 
-## How can I create a VM on a node?
+## How can I create a virtual machine (VM) on a node?
 
-After a customer provisions a cluster, they can spin up a VM through the Nutanix Prism Portal.
-This operation should be exactly the same as on-premises in the prism portal.
+After a customer provisions a cluster, they can spin up a user VM through the Nutanix Prism Portal.
+This operation should be exactly the same as on-premises in the Prism Portal.
 
 ## Next steps
 

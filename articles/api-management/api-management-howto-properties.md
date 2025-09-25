@@ -8,7 +8,10 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 07/11/2024
 ms.author: danlep
-ms.custom: engagement-fy23, devx-track-azurecli
+ms.custom:
+  - engagement-fy23
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Use named values in Azure API Management policies

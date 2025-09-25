@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 03/05/2025
 ms.author: vaidehikher
 #Customer intent: As an SAP Basis or cloud infrastructure team member, I want to deploy Azure Monitor for SAP solutions with private endpoints for storage account and key vault.
+# Customer intent: As an SAP Basis or cloud infrastructure team member, I want to enable trusted access for Azure Monitor resources, so that I can secure key vault and storage account access while maintaining functionality within the AMS environment.
 ---
 
 # Enabling private endpoints for AMS resources

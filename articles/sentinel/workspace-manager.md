@@ -1,8 +1,8 @@
 ---
 title: Manage multiple Microsoft Sentinel workspaces with workspace manager
 description: Learn how to centrally manage multiple Microsoft Sentinel workspaces within one or more Azure tenants with workspace manager. This article takes you through provisioning and usage of Workspace Manager to help you gain operational efficiency and operate at scale.
-author: austinmccollum
-ms.author: austinmc
+author: batamig
+ms.author: bagol
 ms.topic: how-to
 ms.date: 10/17/2024
 ms.custom: template-how-to

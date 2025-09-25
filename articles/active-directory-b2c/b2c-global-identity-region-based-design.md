@@ -9,6 +9,9 @@ ms.topic: concept-article
 ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: b2c
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 
 # Customer intent: I'm a developer implementing a global identity solution. I need to understand the different scenarios and workflows for region-based design approach in Azure AD B2C. My goal is to design and implement the authentication and sign-up processes effectively for users from different regions.
 ---

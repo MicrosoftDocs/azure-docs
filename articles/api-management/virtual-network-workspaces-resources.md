@@ -5,7 +5,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 06/18/2025
+ms.date: 07/08/2025
 ms.author: danlep
 ---
 
@@ -30,6 +30,8 @@ The virtual network must be in the same region and Azure subscription as the API
 
 * The subnet used for virtual network integration or injection can only be used by a single workspace gateway. It can't be shared with another Azure resource.
 
+[!INCLUDE [api-management-virtual-network-address-prefix](../../includes/api-management-virtual-network-address-prefix.md)]
+
 ## Subnet size 
 
 * Minimum: /27 (32 addresses)
@@ -42,7 +44,6 @@ The subnet must be delegated as follows to enable the desired inbound and outbou
 For information about configuring subnet delegation, see [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md).
 
 #### [Virtual network integration](#tab/external)
-
 
 For virtual network integration, the subnet needs to be delegated to the **Microsoft.Web/serverFarms** service.
 
@@ -63,21 +64,20 @@ For virtual network injection, the subnet needs to be delegated to the **Microso
 
 ---
 
-
-## Network security group (NSG) rules
-
-A network security group (NSG) must be attached to the subnet to explicitly allow certain inbound or outbound connectivity. Configure the following rules in the NSG. Set the priority of these rules higher than that of the default rules.
-
-Configure other NSG rules to meet your organization's network access requirements.
+## Network security group
 
 #### [Virtual network integration](#tab/external)
 
-| Direction | Source  | Source port ranges | Destination | Destination port ranges | Protocol |  Action | Purpose | 
-|-------|--------------|----------|---------|------------|-----------|-----|--------|
-| Inbound | AzureLoadBalancer | * | Workspace gateway subnet range  | 80 | TCP | Allow | Allow internal health ping traffic |
-| Inbound | Internet | * | Workspace gateway subnet range  | 80,443 | TCP | Allow | Allow inbound traffic |
+[!INCLUDE [api-management-virtual-network-v2-nsg-rules](../../includes/api-management-virtual-network-v2-nsg-rules.md)]
+
 
 #### [Virtual network injection](#tab/internal)
+
+A network security group (NSG) must be associated with the subnet. To set up a network security group, see [Create a network security group](../virtual-network/manage-network-security-group.md). 
+
+* Configure the following rules in the NSG. Set the priority of these rules higher than that of the default rules.
+* Configure other outbound rules you need for the gateway to reach your API backends. 
+* Configure other NSG rules to meet your organization’s network access requirements. For example, NSG rules can also be used to block outbound traffic to the internet and allow access only to resources in your virtual network. 
 
 | Direction | Source  | Source port ranges | Destination | Destination port ranges | Protocol |  Action | Purpose | 
 |-------|--------------|----------|---------|------------|-----------|-----|--------|
@@ -86,6 +86,10 @@ Configure other NSG rules to meet your organization's network access requirement
 | Outbound | VirtualNetwork | * | Storage | 443 | TCP | Allow | Dependency on Azure Storage |
 
 ---
+
+> [!IMPORTANT]
+> * Inbound NSG rules do not apply when you integrate a workspace gateway in a virtual network for private outbound access. To enforce inbound NSG rules, use virtual network injection instead of integration.
+> * This differs from networking in the classic Premium tier, where inbound NSG rules are enforced in both external and internal virtual network injection modes. [Learn more](virtual-network-injection-resources.md)
 
 ## DNS settings for virtual network injection
 

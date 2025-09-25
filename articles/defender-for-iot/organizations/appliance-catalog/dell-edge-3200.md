@@ -9,6 +9,9 @@ ms.topic: reference
 
 This article describes the Dell Edge Gateway 3200 appliance for operational technology (OT) sensors monitoring production lines.
 
+> [!NOTE]
+> Legacy appliances are certified but aren't currently offered as pre-configured appliances.
+
 |Appliance characteristic  | Description|
 |---------|---------|
 |**Hardware profile** | L100|

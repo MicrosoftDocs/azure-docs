@@ -8,6 +8,7 @@ ms.author: kewear
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 06/19/2025
+ms.custom: sfi-image-nochange
 
 # Customer intent: As a developer, I want to turn on and view enhanced telemetry in Application Insights for Standard logic app workflows.
 ---

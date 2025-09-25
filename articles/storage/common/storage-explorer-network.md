@@ -9,6 +9,7 @@ ms.topic: article
 ms.date: 04/01/2021
 ms.author: jinglou
 ms.reviewer: cralvord,richardgao
+# Customer intent: "As a cloud administrator, I want to configure network connections in Storage Explorer, so that I can efficiently manage access to Azure storage resources and troubleshoot proxy-related issues."
 ---
 
 # Network connections in Storage Explorer
@@ -117,11 +118,11 @@ You should first try using [**system proxy**](#use-system-proxy). After that, [*
 
 ## AzCopy proxy usage
 
-Storage Explorer uses AzCopy for most data transfers operations. AzCopy is written using a different set of technologies than Storage Explorer and therefore has a slightly different set of proxy capabilities.
+Storage Explorer uses AzCopy for most data transfers. AzCopy is written using a different set of technologies than Storage Explorer and therefore has a slightly different set of proxy capabilities. The following describe AzCopy's proxy behavior based on how Storage Explorer is configured:
 
-If Storage Explorer is configured to **do not use proxy** or to use **system proxy**, then AzCopy uses its own autodetect proxy features to determine if and how it should make requests to a proxy. If you configured Storage Explorer to source proxy settings from **environment variables** or **app proxy settings** though, then Storage Explorer tells AzCopy to use the same proxy settings.
-
-If you don't want AzCopy to use proxy at all, then you can disable proxy usage by toggling **Settings** (gear icon in the vertical toolbar) > **Transfers** > **AzCopy** > **Disable AzCopy Proxy Usage**.
+- If Storage Explorer is configured with `system proxy`, AzCopy uses its own autodetect proxy features.
+- If Storage Explorer is configured with `environment variables` or `app proxy settings`, Storage Explorer tells AzCopy to use the same proxy setting.
+- If Storage Explorer is configured with `do not use proxy`, AzCopy proxy usage is disabled.
 
 Currently, AzCopy only supports proxy servers that use **basic authentication**.
 

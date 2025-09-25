@@ -415,6 +415,13 @@ remoteParticipant.on('displayNameChanged', () => {
 });
 ```
 
+```javascript
+remoteParticipant.on('displayNameChanged', (args: {newValue?: string, oldValue?: string, reason?: DisplayNameChangedReason}) => {
+    remoteParticipant.nameLabel.innerText = remoteParticipant.displayName;
+    console.log(`Display name changed from ${oldValue} to ${newValue} due to ${reason}`);
+});
+```
+
 ### Event: `isSpeakingChanged`
 
 The `isSpeakingChanged` when the dominant speaker in a call changes.

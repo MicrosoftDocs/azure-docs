@@ -7,6 +7,7 @@ ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
 ms.date: 12/22/2022
+ms.custom: sfi-image-nochange
 ---
 
 # Troubleshoot: Azure Synapse Link creation for Azure SQL Database 

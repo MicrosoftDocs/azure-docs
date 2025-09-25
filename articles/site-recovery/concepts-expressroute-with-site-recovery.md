@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.date: 09/18/2024
 ms.author: jsuri
 
+# Customer intent: As a cloud architect, I want to implement Azure ExpressRoute with Azure Site Recovery, so that I can ensure secure and efficient disaster recovery and migration of on-premises and Azure virtual machines to the cloud.
 ---
 # Azure ExpressRoute with Azure Site Recovery
 

@@ -2,9 +2,9 @@
 title: Monitor logic app workflows
 description: Start here to learn about monitoring workflows in Azure Logic Apps.
 ms.service: azure-logic-apps
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: horz-monitor
-ms.date: 03/07/2025
+ms.date: 07/18/2025
 ---
 
 # Monitor workflows in Azure Logic Apps

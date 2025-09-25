@@ -1,18 +1,21 @@
 ---
-title: Hybrid connections in Azure App Service
+title: Hybrid Connections in Azure App Service
 description: Learn how to create and use hybrid connections in Azure App Service to access resources in disparate networks. 
 author: seligj95
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
-ms.topic: article
-ms.date: 06/04/2025
+ms.topic: how-to
+ms.date: 07/07/2025
+ms.update-cycle: 1095-days
 ms.author: jordanselig
+#customer intent: As an app developer, I want to understand the usage of Hybrid Connections to provide access to apps in Azure App Service.
+ms.service: azure-app-service
 ms.custom:
   - "UpdateFrequency3, fasttrack-edit"
   - build-2025
-#customer intent: As an app developer, I want to understand the usage of Hybrid Connections to provide access to apps in Azure App Service.
+  - sfi-image-nochange
 ---
 
-# Azure App Service Hybrid Connections
+# Create and use hybrid connections in Azure App Service
 
 Hybrid Connections is both a service in Azure and a feature in Azure App Service. As a service, it has uses and capabilities beyond the ones that are used in App Service. To learn more about Hybrid Connections and their usage outside App Service, see [Azure Relay Hybrid Connections][HCService].
 
@@ -88,7 +91,7 @@ When a Hybrid Connection is added to your app, you can see details on it simply 
 
 To create a Hybrid Connection using an ARM/Bicep template, add the following resource to your existing template. You must include the `userMetadata` to have a valid Hybrid Connection. If you don't include the `userMetadata`, the Hybrid Connection doesn't work. If you create the Hybrid Connection in the Azure portal, this property is automatically filled in for you.
 
-The `userMetadata` property should be a string representation of a JSON array in the format `[{"key": "endpoint", "value : "host:port"}]`. The following Bicep template has a sample for this property. For more information, see [Microsoft.Relay namespaces/hybridConnections](/azure/templates/microsoft.relay/namespaces/hybridconnections).
+The `userMetadata` property should be a string representation of a JSON array in the format `[{/"key/": /"endpoint/", /"value/" : /"<HOST>:<PORT>/"}]`. For more information, see [Microsoft.Relay namespaces/hybridConnections](/azure/templates/microsoft.relay/namespaces/hybridconnections).
 
 ```bicep
 resource hybridConnection 'Microsoft.Relay/namespaces/hybridConnections@2024-01-01' = {
@@ -96,7 +99,7 @@ resource hybridConnection 'Microsoft.Relay/namespaces/hybridConnections@2024-01-
   name: hybridConnectionName
   properties: {
     requiresClientAuthorization: true
-    userMetadata: '[{"key": "endpoint", "value : "<HOST>:<PORT>"}]'
+    userMetadata: '[{/"key/": /"endpoint/", /"value/" : /"<HOST>:<PORT>/"}]'
   }
 }
 ```
@@ -156,8 +159,8 @@ To install the Hybrid Connection Manager on Linux, from your terminal running as
 ```bash
 sudo apt update
 sudo apt install tar gzip build-essential
-wget "https://download.microsoft.com/download/HybridConnectionManager-Linux.tar.gz"
-tar -xf HybridConnectionManager-Linux.tar.gz
+sudo wget "https://download.microsoft.com/download/HybridConnectionManager-Linux.tar.gz"
+sudo tar -xf HybridConnectionManager-Linux.tar.gz
 cd HybridConnectionManager/
 sudo chmod 755 setup.sh
 sudo ./setup.sh
@@ -169,6 +172,8 @@ To support the Hybrid Connections it's configured with, the Hybrid Connection Ma
 
 - TCP access to Azure over port 443.
 - TCP access to the Hybrid Connection endpoint.
+- Windows clients must have ports 4999-5001 available.
+- Linux clients must have port 5001 available.
 - The ability to do DNS look-ups on the endpoint host and the Service Bus namespace. In other words, the hostname in the Azure relay connection should be resolvable from the machine that hosts the Hybrid Connection Manager.
 
 ### Getting started with the Hybrid Connection Manager GUI
@@ -267,7 +272,7 @@ There are periodic updates to the Hybrid Connection Manager to fix issues or pro
 
 -----
 
-## Adding a Hybrid Connection to your app programmatically
+## Add a Hybrid Connection to your app programmatically
 
 There's Azure CLI support for Hybrid Connections. The commands provided operate at both the app and the App Service plan level. The app level commands are:
 

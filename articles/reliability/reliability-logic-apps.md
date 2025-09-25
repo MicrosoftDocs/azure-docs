@@ -1,8 +1,8 @@
 ---
 title: Reliability in Azure Logic Apps
 description: Learn about reliability in Azure Logic Apps, including availability zones and multi-region deployments.
-author: anaharris-ms 
-ms.author: anaharris
+author: ecfan
+ms.author: estfan
 ms.topic: reliability-article
 ms.custom: subject-reliability
 services: logic-apps
@@ -82,7 +82,7 @@ For Standard workflows with the Workflow Service Plan hosting option in single-t
 
 ::: zone pivot="standard-app-service-environment"
 
-For Standard workflows with the App Service Environment v3 hosting option, you can optionally enable zone redundancy. For more information on how App Service Environments v3 supports availability zones, see [Reliability in App Service](./reliability-app-service.md?pivots=isolated).
+For Standard workflows with the App Service Environment v3 hosting option, you can optionally enable zone redundancy. For more information on how App Service Environments v3 supports availability zones, see [Reliability in App Service Environment](./reliability-app-service-environment.md).
 
 ::: zone-end
 
@@ -98,7 +98,6 @@ Consumption logic apps that are deployed in [any region that supports availabili
 
 You can deploy zone-redundant Standard logic apps with Workflow Service Plans in any region that supports availability zones for Azure App Service. Japan West is the exception, which currently doesn't support zone-redundant logic apps. For more information, see [Reliability in Azure App Service](./reliability-app-service.md).
 
-
 ::: zone-end
 
 ::: zone pivot="standard-app-service-environment"
@@ -111,7 +110,7 @@ To see which regions support availability zones for App Service Environment v3, 
 
 ### Requirements
 
-You must deploy at least three instances of your Workflow Service Plan. Each instance roughly corresponds to one VM. To distribute these instances (VMs) across availability zones, you must have a minimum of three instances.
+You must deploy at least two instances of your Workflow Service Plan. Each instance roughly corresponds to one VM. To distribute these instances (VMs) across availability zones, you must have a minimum of two instances.
 
 ::: zone-end
 
@@ -137,7 +136,7 @@ No additional cost applies to use zone redundancy, which is automatically enable
 
 ::: zone pivot="standard-workflow-service-plan"
 
-When you have Standard workflows with the Workflow Service Plan in single-tenant Azure Logic Apps, no additional cost applies to enabling availability zones as long as you have three or more instances of the plan. You are charged based on your plan SKU, the specified capacity, and any instances that you scale up or down, based on your autoscale criteria. If you enable availability zones but specify a capacity of fewer than three instances, the platform enforces the minimum three instances and charges you for these three instances.
+When you have Standard workflows with the Workflow Service Plan in single-tenant Azure Logic Apps, no additional cost applies to enabling availability zones as long as you have two or more instances of the plan. You are charged based on your plan SKU, the specified capacity, and any instances that you scale up or down, based on your autoscale criteria. If you enable availability zones but specify a capacity of fewer than two instances, the platform enforces the minimum two instances and charges you for these two instances.
 
 ::: zone-end
 
@@ -199,7 +198,7 @@ This section describes what to expect when Azure Logic Apps resources are config
 
 - **Active requests:** If an availability zone becomes unavailable, any in-progress workflow executions that run on a VM in the faulty availability zone are terminated. The Azure Logic Apps platform automatically resumes the workflow on another VM in a different availability zone. Due to this behavior, active workflows might experience some [transient faults](#transient-faults) or higher latency as new VMs are added to the remaining availability zones.
 
-### Failback
+### Zone recovery
 
 When the availability zone recovers, Azure Logic Apps automatically restores instances in the availability zone, removes any temporary instances created in the other availability zones, and reroutes traffic between your instances as normal.
 

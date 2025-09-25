@@ -279,16 +279,15 @@ Remote participants have a set of associated properties and collections:
 ### Mute other participants
 
 > [!NOTE]
-> Use Azure Communication Services Calling Web SDK version 1.26.1 or higher. 
-
-To mute all other participants or mute a specific participant who is connected to a call, you can use the asynchronous APIs `muteAllRemoteParticipants` on the call and `mute` on the remote participant. The `mutedByOthers` event from Call is raised when the local participant is muted by others.
-
-[!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
-
-Muting a PSTN endpoint using the calling WebJS SDK is currently in public preview and is available in build 1.34.1 [1.34.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1341-beta2-2025-03-20) and later versions.
+> To mute other VoIP participants, you must use Azure Communication Services Calling Web SDK version 1.26.1 GA version or higher. To mute PSTN endpoints, you must use GA 1.33.1 of the WebJS (or higher).
 
 > [!NOTE]
 > Muting others on a 1:1 call isn't supported.
+
+To mute all other participants or mute a specific participant who is connected to a call, you can use the asynchronous APIs `muteAllRemoteParticipants` on the call and `mute` on the remote participant. The `mutedByOthers` event from Call is raised when the local participant is muted by others.
+
+Muting a PSTN endpoint using the calling WebJS SDK is currently in GA and is available in build 1.34.1 [1.34.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1341-beta2-2025-03-20) and later versions.
+
 
 ```js
 //mute all participants except yourself

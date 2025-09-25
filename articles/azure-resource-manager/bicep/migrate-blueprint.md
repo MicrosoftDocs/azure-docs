@@ -3,7 +3,7 @@ title: Migrate blueprints to deployment stacks
 description: Learn how to migrate blueprints to deployment stacks.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 11/11/2024
+ms.date: 07/25/2025
 ---
 
 # Migrate blueprints to deployment stacks

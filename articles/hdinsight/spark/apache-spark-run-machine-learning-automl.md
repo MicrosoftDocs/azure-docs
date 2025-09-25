@@ -7,6 +7,7 @@ author: abhishjain002
 ms.author: abhishjain
 ms.reviewer: sairamyeturi
 ms.date: 10/17/2024
+ms.custom: sfi-ropc-nochange
 ---
 
 # Run Azure Machine Learning workloads with automated machine learning on Apache Spark in HDInsight

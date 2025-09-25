@@ -236,7 +236,7 @@ To test instant global failover, use the following steps:
 4. Refresh your browser. You should see the same information page.
 
    >[!TIP]
-   >There's some delay for these actions. You might need to refresh again.
+   >Some delay is expected for this action. You might need to refresh again.
 
 5. Find the other web app, and stop it as well.
 

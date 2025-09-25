@@ -93,6 +93,10 @@ ms.topic: faq
 * <a id="afs-lastwritetime"></a>
   **Does Azure File Sync sync the LastWriteTime for directories? Why isn't the *date modified* timestamp on a directory updated when files within it are changed?**  
     No, Azure File Sync doesn't sync the LastWriteTime for directories. Furthermore, Azure Files doesn't update the **date modified** timestamp (LastWriteTime) for directories when files within the directory are changed. This is expected behavior.
+
+* <a id="afs-dedup"></a>
+ **How does volume space work for Cloud Tiering as a part of interop with Dedup?**  
+    In some cases where Dedup is installed, the available volume space can increase more than expected after dedup garbage collection is triggered. For example, let's say that the free space policy for cloud tiering is set to 20%. Azure File Sync is notified when there is low free space (let's say when free space is 19%). Tiering determines that 1% more space needs to be freed, but as a buffer we'll have 5% extra, so we'll tier up to 25% (for example, 30 GiB). The files get tiered until it reaches 30 GiB. As part of interop with Dedup, Azure File Sync initiates Garbage collection at the end of the tiering session.
     
 * <a id="afs-avrecalls"></a>
   **Why is the anti virus software on the AFS server recalling tiered files?**  

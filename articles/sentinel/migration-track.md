@@ -1,14 +1,15 @@
 ---
 title: Track your Microsoft Sentinel migration with a workbook | Microsoft Docs
 description: Learn how to track your migration with a workbook, how to customize and manage the workbook, and how to use the workbook tabs for useful Microsoft Sentinel actions.
-author: cwatson
-ms.author: cwatson
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: how-to
 ms.date: 06/14/2024
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a security operations center (SOC) manager, I want to manage the migration to Microsoft Sentinel so that I can ensure a smooth transition and maintain security monitoring effectiveness.

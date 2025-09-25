@@ -7,6 +7,7 @@ ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 05/08/2025
 ms.custom: devx-track-azurepowershell
+# Customer intent: "As a web application administrator, I want to configure custom response codes and messages for my WAF policy, so that I can provide specific feedback to users when their requests are blocked."
 ---
 
 # Configure a custom response for Azure Web Application Firewall

@@ -1,5 +1,6 @@
 ---
 ms.custom: linux-related-content
+ms.service: azure-app-service
 ---
 [!INCLUDE [php-eol-notice](../php-windows-eol-notice.md)]
 

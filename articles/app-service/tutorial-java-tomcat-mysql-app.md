@@ -6,9 +6,18 @@ ms.author: cephalin
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 04/17/2025
-ms.custom: mvc, devx-track-extended-java, AppServiceConnectivity, devx-track-extended-azdevcli, linux-related-content
+ms.update-cycle: 180-days
 zone_pivot_groups: app-service-portal-azd
 ms.collection: ce-skilling-ai-copilot
+ms.service: azure-app-service
+ms.custom:
+  - mvc
+  - devx-track-extended-java
+  - AppServiceConnectivity
+  - devx-track-extended-azdevcli
+  - linux-related-content
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Tutorial: Build a Tomcat web app with Azure App Service on Linux and MySQL

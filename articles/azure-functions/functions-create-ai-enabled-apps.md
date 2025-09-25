@@ -3,6 +3,7 @@ title: Use AI tools and models in Azure Functions
 description: Describes the ways in which Azure Functions supports the use of AI in your function code executions, including LLMs, RAG, agentic workflows, and other AI-related frameworks. 
 ms.topic: conceptual
 ms.date: 04/29/2025
+ms.update-cycle: 180-days
 ai-usage: ai-assisted
 ms.custom:
   - build-2025

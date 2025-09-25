@@ -6,16 +6,14 @@ author: henikaraa
 manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: teams-interop
-ms.date: 05/19/2025
+ms.date: 09/01/2025
 ms.topic: conceptual
 ms.author: henikaraa
-ms.custom: public_preview
+ms.custom: general_availability
 services: azure-communication-services
 ---
 
 # Teams Phone extensibility troubleshooting
-
-[!INCLUDE [public-preview-notice.md](../../../includes/public-preview-include-document.md)]
 
 This article describes how to identify and resolve Teams Phone extensibility issues. Errors can stem from the application, Azure Communication Services SDKs, the user environment, or Microsoft Teams configuration settings.
 
@@ -38,18 +36,6 @@ For troubleshooting issues related to the Calling SDK, see:
 - [VoIP Call Quality](../../voice-video-calling/troubleshoot-web-voip-quality.md): provides guidance on troubleshooting and improving VoIP call quality.
 
 ## Common Teams Phone extensibility issues
-
-### Unable to update CallAutomation SDK to Alpha
-
-1. Download `Azure.Communication.CallAutomation.1.4.0-alpha.20250129.2.nupkg` from [Call Automation Alpha SDKs](https://github.com/Azure/communication-preview/blob/master/Teams%20Phone%20Extensibility/teams-phone-extensibility-quickstart.md#alpha-sdks) in your preferred programming language.
-2. Open your solution in Visual Studio and go to the **Tools** menu, select **NuGet Package Manager**, and then select **Package Manager Console**. For reference, see [Manage NuGet packages with the Visual Studio Package Manager Console](/nuget/consume-packages/install-use-packages-powershell#console-controls).
-3. Go to the Package Manager Console and execute the following (be sure to update the path):
-
-   ```dotnetcli
-   Install-Package C:\path\to\Azure.Communication.CallAutomation.1.4.0-alpha.20250129.2.nupkg
-   ```
-
-4. Go back to the **Tools** menu, select **NuGet Package Manager**, and select **Manage NuGet Packages for Solution**. When the NuGet package loads, go to the **Installed** tab and make sure `Azure.Communication.CallAutomation` says that 1.4.0-alpha.20250129.2 is the installed version.
 
 ### Consent blocked due to Microsoft Entra App permission
 
@@ -129,23 +115,23 @@ The issue appears when agent attempts to sign in to the agent application.
    {"error":{"code":"UserLicenseNotPresentForbidden","message":"User Login. Teams is disabled in user licenses"}}
 ```
 
-This issue appears if the agent doesn't have a Teams license assigned or is disabled in Teams. Add the appropriate license and validate if user isn't disabled for Teams access and has all the required [Prerequisites](https://github.com/Azure/communication-preview/blob/master/Teams%20Phone%20Extensibility/teams-phone-extensibility-access-teams-phone.md#prerequisites).
+This issue appears if the agent doesn't have a Teams license assigned or is disabled in Teams. Add the appropriate license and validate if user isn't disabled for Teams access and has all the required [Prerequisites](../../../quickstarts/tpe/teams-phone-extensibility-access-teams-phone.md#prerequisites).
 
 ### Error 403 subcode 10105 Connecting Call end reason=NoPermission
 
-The most common root cause of this error is a misconfiguration of the 3P Azure Bot. Follow the steps as defined in this [Teams Phone extensibility](https://github.com/Azure/communication-preview/blob/master/Teams%20Phone%20Extensibility/teams-phone-extensibility-quickstart.md#ccaas-developer-provision-the-appid-application-id), specifically enable the Teams channel.
+The most common root cause of this error is a misconfiguration of the 3P Azure Bot. Follow the steps as defined in this [Teams Phone extensibility](../../../quickstarts/tpe/teams-phone-extensibility-quickstart.md#ccaas-developer-provision-the-appid-application-id), specifically enable the Teams channel.
 
 ### Error 400 Bad Requests when adding a Teams Channel in Azure Bot
 
-This issue generally arises if the bot was created with a reserved Microsoft Entra App ID. Delete your bot and recreate it with your Microsoft Entra App ID created or used in [Create Bot](https://github.com/Azure/communication-preview/blob/master/Teams%20Phone%20Extensibility/teams-phone-extensibility-quickstart.md#ccaas-developer-create-the-bot).
+This issue generally arises if the bot was created with a reserved Microsoft Entra App ID. Delete your bot and recreate it with your Microsoft Entra App ID created or used in [Create Bot](../../../quickstarts/tpe/teams-phone-extensibility-quickstart.md#ccaas-developer-create-the-bot).
 
 ### No Incoming Call notification in Call Automation application and a busy signal is heard instead of custom greeting when calling a Teams Service Number
 
-This issue arises when the provisioning of the Resource Account is incomplete or incorrect. Check your [Provisioning Resource Account](https://github.com/Azure/communication-preview/blob/master/Teams%20Phone%20Extensibility/teams-phone-extensibility-quickstart.md#teams-admin-provision-resource-account) and change as needed.
+This issue arises when the provisioning of the Resource Account is incomplete or incorrect. Check your [Provisioning Resource Account](../../../quickstarts/tpe/teams-phone-extensibility-quickstart.md#teams-admin-provision-resource-account) and change as needed.
 
 ### No Incoming Call notification in Call Automation application and no audio is heard and call disconnects when calling a Teams Service Number
 
-This issue arises when the provisioning of the Resource Account is incomplete or incorrect or failure to grant consent. Check [Provisioning Resource Account](https://github.com/Azure/communication-preview/blob/master/Teams%20Phone%20Extensibility/teams-phone-extensibility-quickstart.md#teams-admin-provision-resource-account) and [Server Consent](https://github.com/Azure/communication-preview/blob/master/Teams%20Phone%20Extensibility/teams-phone-extensibility-access-teams-phone.md#provide-server-consent), making changes as needed.
+This issue arises when the provisioning of the Resource Account is incomplete or incorrect or failure to grant consent. Check [Provisioning Resource Account](../../../quickstarts/tpe/teams-phone-extensibility-quickstart.md#teams-admin-provision-resource-account) and [Server Consent](../../../quickstarts/tpe/teams-phone-extensibility-access-teams-phone.md#provide-server-consent), making changes as needed.
 
 ## Related articles
 

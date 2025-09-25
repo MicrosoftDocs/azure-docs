@@ -4,10 +4,12 @@ description: Use the Azure CLI or Azure portal to manage your Azure IoT Operatio
 author: SoniaLopezBravo
 ms.author: sonialopez
 ms.topic: how-to
-ms.custom: devx-track-azurecli
 ms.date: 05/20/2025
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 
-#CustomerIntent: As an OT professional, I want to manage Azure IoT Operations instances.
+#CustomerIntent: As an IT professional, I want to manage Azure IoT Operations instances.
 ---
 
 # Manage the lifecycle of an Azure IoT Operations instance
@@ -107,7 +109,43 @@ You can run `az iot ops check` on your cluster to assess health and configuratio
 
 ---
 
-### (Preview) Clone instance
+### View Azure Device Registry
+
+In the Azure portal, you can view the Azure Device Registry, which is a collection of all the devices and assets that are connected to your Azure IoT Operations instance.
+
+The Azure Device Registry uses _namespaces (preview)_ to organize assets and devices. Each Azure IoT Operations instance uses a single namespace for its assets and devices. Multiple instances can share a single namespace.
+
+To view items in the Azure Device Registry in the Azure portal:
+
+1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Device Registry**. The **Overview** page summarizes the number of assets, schema registries and namespaces in your subscription:
+
+    :::image type="content" source="media/howto-manage-update-uninstall/azure-device-registry-overview.png" alt-text="Screenshot of Azure Device Registry overview page in the Azure portal." lightbox="media/howto-manage-update-uninstall/azure-device-registry-overview.png":::
+
+1. Use the **Assets** page to view the assets in Azure Device Registry. By default, the **Assets** page shows the assets in all namespaces in your subscription. Use the filters to view a subset of the assets, such as the assets in a specific namespace or resource group:
+
+    :::image type="content" source="media/howto-manage-update-uninstall/azure-device-registry-assets.png" alt-text="Screenshot of Azure Device Registry assets page in the Azure portal." lightbox="media/howto-manage-update-uninstall/azure-device-registry-assets.png":::
+
+1. Use the **Schema registries** page to view the schema registries in Azure Device Registry. By default, the **Schema registries** page shows the schema registries in all namespaces in your subscription. Use the filters to view a subset of the schema registries, such as the schema registries in a specific namespace or resource group:
+
+    :::image type="content" source="media/howto-manage-update-uninstall/azure-device-registry-schema-registries.png" alt-text="Screenshot of Azure Device Registry schema registries page in the Azure portal." lightbox="media/howto-manage-update-uninstall/azure-device-registry-schema-registries.png":::
+
+1. Use the **Namespaces** page to view the namespaces in Azure Device Registry. By default, the **Namespaces** page shows the namespaces in your subscription. Use the filters to view a subset of the namespaces, such as the namespaces in a specific resource group. From this page, you can create new namespaces, or view the details of existing namespaces:
+
+    :::image type="content" source="media/howto-manage-update-uninstall/azure-device-registry-namespaces.png" alt-text="Screenshot of Azure Device Registry namespaces page in the Azure portal." lightbox="media/howto-manage-update-uninstall/azure-device-registry-namespaces.png":::
+
+You can also view the details of an existing namespace in the resource group that includes your Azure IoT Operations instance. For example, the following screenshot shows the **adr-namespace** resource associated with the **aio-131235032** Azure IoT Operations instance:
+
+:::image type="content" source="media/howto-manage-update-uninstall/portal-resources.png" alt-text="Screenshot of Azure portal showing resources in the resource group." lightbox="media/howto-manage-update-uninstall/portal-resources.png":::
+
+The previous screenshot also shows the other resources in Azure Device Registry such as the **IoT Schema Registry**, **IoT Namespace Assets**, and **Devices** in the context of the resource group that contains your Azure IoT Operations instance.
+
+### Configure connector templates
+
+In the Azure portal, you can configure *connector templates* for your Azure IoT Operations instance. Connector templates define the configuration of connectors, such as the connector for OPC UA, that are deployed to your cluster. When you create a connector template, it enables an OT user to create a device that uses the connector type in the operations experience web UI.
+
+To learn more about connector templates, see [Deploy the connector for ONVIF](../discover-manage-assets/howto-use-onvif-connector.md#deploy-the-connector-for-onvif).
+
+### Clone instance (preview)
 
 > [!NOTE]
 > The clone feature is in preview and under development.
@@ -195,7 +233,7 @@ az iot ops update --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --fea
 
 Each Azure IoT Operations instance includes several components, like the MQTT broker, connector for OPC UA, and data flows. To learn more about managing these components, see their respective articles. For example, to manage the MQTT broker, start with [Broker overview](../manage-mqtt-broker/overview-broker.md).
 
-### (Preview) Manage components using Kubernetes deployment manifests
+### Manage components using Kubernetes deployment manifests (preview)
 
 In general, Azure IoT Operations uses the Azure Arc platform to provide a hybrid cloud experience where you can manage the configuration through Azure Resource Manager (ARM) and front-end tools like the Azure portal, Bicep, and the Azure CLI.
 

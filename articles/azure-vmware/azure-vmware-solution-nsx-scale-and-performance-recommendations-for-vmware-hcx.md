@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 12/19/2024
 ms.custom: engagement-fy25
+# Customer intent: As an IT administrator managing HCX migrations on Azure VMware Solution, I want to optimize NSX Edge performance and mitigate bottlenecks, so that I can ensure efficient data transfer and reliable application performance during migration tasks.
 ---
 
 # NSX Scale and performance recommendations for VMware HCX

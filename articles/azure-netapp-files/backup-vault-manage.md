@@ -5,8 +5,9 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 04/24/2024
+ms.date: 06/24/2025
 ms.author: anfdocs
+# Customer intent: As a cloud administrator, I want to manage backup vaults for Azure NetApp Files, so that I can efficiently store, migrate, and restore backups while ensuring data availability and compliance within my organization.
 ---
 # Manage backup vaults for Azure NetApp Files
 

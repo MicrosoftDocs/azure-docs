@@ -7,11 +7,12 @@ metadata:
   title: Azure Integration Environments documentation
   description: Centrally organize Azure resources for integration solutions.
   ms.service: azure
+  ms.subservice: azure-integration-environments
   ms.topic: landing-page
   author: ecfan
   ms.author: estfan
-  ms.date: 06/07/2024
-  ms.subservice: azure-integration-environments
+  ms.date: 09/11/2025
+  ms.update-cycle: 1095-days
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -28,6 +29,8 @@ landingContent:
             url: create-integration-environment.md
           - text: Create an application group
             url: create-application-group.md
+          - text: Monitor health and performance
+            url: monitor-resources-create-alerts.md
       - linkListType: reference
         links:
           - text: REST API

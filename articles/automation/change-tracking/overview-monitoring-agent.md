@@ -8,6 +8,7 @@ ms.topic: overview
 ms.service: azure-automation
 ms.author: v-jasmineme
 author: jasminemehndir
+ms.custom: sfi-image-nochange
 ---
 
 # Overview of change tracking and inventory using Azure Monitoring Agent
@@ -212,7 +213,8 @@ Change Tracking and Inventory using Azure Monitoring Agent doesn't support or ha
 - If you modify a configuration while a machine or server is shut down, it might post changes belonging to the previous configuration.
 - Collecting Hotfix updates on Windows Server 2016 Core RS3 machines.
 - Linux daemons might show a changed state even though no change has occurred. This issue arises because of how the `SvcRunLevels` data in the Azure Monitor [ConfigurationChange](/azure/azure-monitor/reference/tables/configurationchange) table is written. 
-- Change Tracking extension doesn't support any hardening standards for any Linux Operating systems or Distros. 
+- Change Tracking extension doesn't support any hardening standards for any Linux operating systems or Distros.
+- Change Tracking extension doesn't support inventory for Microsoft store applications for any Windows operating systems or Distros.
 
 
 ## Support for alerts on configuration state

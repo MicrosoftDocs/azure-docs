@@ -17,6 +17,76 @@ ms.custom:
 
 This article describes features, enhancements, and bug fixes released in 2025 for the FHIR&reg; service, Azure API for FHIR, DICOM&reg; service, and MedTech service in Azure Health Data Services.
 
+## September 2025
+### FHIR service
+
+#### Bulk Update capability is in GA
+The $bulk-update operation allows you to update multiple FHIR resources in bulk using asynchronous processing. Follow this link to learn more [`$bulk-update`](./fhir/fhir-bulk-update.md).
+
+#### Bug fixes:
+
+**Bug fix for $status requests with empty parameters**: Previously, there were issues when using selectable search parameters SearchParameter/$status request with an unexpected request body returning misleading error messages. When the request body was omitted, 500 (Internal Server Error) was returned due to mishandling of the missing body. This issue is now fixed, and a 400 (Bad Request) will be returned. When the request body was an empty array of parameters, a 200 response was returned, which is misleading, as no search parameter status is actually updated. This issue is now fixed, and a 400 (Bad Request) response will be returned now, as the request requires search parameter URLs whose status need to be updated.
+
+**Bug fix for uploading new search parameters that have no resources impacted**: Previously, search parameters that were added that have no current resources impacted (thus resulting in no need to reindex) were marked as not supported. Now, these search parameters that have no records to process will still be correctly enabled, so that they can be properly used as soon as relevant records are loaded.
+
+**Bug fix for _revinclude wildcard search**: Previously, a wildcard search using _revinclude (for example,  GET [base]/Patient?_id=123&_revinclude=* ) would result in a 500 InternalServerError. After this fix, the service processes the request successfully with 200 code, aligning with the same behavior as _include.
+
+**Bug fix for duplicate code value custom search parameters**: Previously, the FHIR server would block the creation of a new custom search parameter if it had the same resource type and code as a search parameter already existing on the FHIR server. This could be an issue when trying to upload certain search parameters for implementation guides (such as US Core). This issue has now been fixed, and new custom search parameters that have the same resource type and code as an existing search parameter can be successfully added to the server now, as long as it has a unique URL and expression that is a subset/superset of an existing search parameter on the server. 
+
+## August 2025
+### FHIR service
+
+**Bulk Delete remove references feature**: The $bulk-delete operation now supports the option to remove references to resources that are being deleted. This means that if you delete a resource that is referenced by another resource, the reference is removed from the referencing resource. More information [here](/azure/healthcare-apis/fhir/fhir-bulk-delete#preview-capabilities-for-the-bulk-delete-operation). 
+
+**Patient export improvement**: Improved performance of Patient/$export functionality by splitting patients into smaller groups and processing them in parallel.
+
+#### Bug fixes:
+
+**Bulk delete and custom search parameter fix**: Previously, there was a bug where after using $bulk-delete to hard delete a custom search parameter, it was not possible to then create the same custom search parameter with the same url or code. This issue has been fixed, and you can now create a custom search parameter after using $bulk-delete to hard delete a custom search parameter with the same url or code. 
+
+**Custom search parameter creation and update issues**: Previously, there was a bug where duplicate custom search parameters could be created, and existing custom search parameters couldn't be updated. This fixes search parameter creation and update issues in some scenarios, with more fixes to follow soon.
+
+**Headers for bundles for FHIR servers behind proxy**: Previously, X-Forwarded-Host and X-Forwarded-Prefix headers weren't being returned properly for requests within bundles when the FHIR server is behind a proxy. This issue has been fixed, and X-Forwarded-Host and X-Forwarded-Prefix will now be correctly used to return URLs for requests within bundles for FHIR servers behind a proxy.
+
+**CHECK Constraint Conflict Error Status Code Fix**: For the issue identified with CHECK constraint conflict error, will be resolved with status code 400.
+
+**Import Data Resource Versioning Conflict Fix**: When importing data with identical last updated times, multiple versions of the same resource can be created, leading to a key conflict during merging. This happens because a conflict wasn’t detected if allowNegativeVersions flag is enabled, allowing duplicate resources into the merge list.
+
+**Enhanced error message for conditional references**: Previously, a conditional reference that returns multiple results would result in the error message "Given conditional reference doesn't resolve to a resource." This error message has been updated to be more descriptive, and is now changed to "Given conditional reference resolved to multiple resources."
+
+**Returning correct count**: Not referenced search was counting soft deleted resources when using _summary=count and was not returning correct results when soft deleted resources are present in the database. The fix is implemented to filter correctly.
+
+**Synchronization issue during search parameter update addressed**: Resolved an issue due to nodes not in synchronization causing sporadic failures when updating custom SearchParameter resources across multiple FHIR services and environments. PUT requests with unchanged JSON bodies were incorrectly returning HTTP 400 or 404 errors.
+
+**Token search is case sensitive**: Fixed an issue with token search fields where only the first value was indexed if multiple values differed only by case. Now, all values—regardless of casing—are stored and searchable. Incase you were impacted by this issue, we suggest to run reindex on token search parameters.
+
+**Handling of bulk job cancellation**: Cancellation requests for export, bulk update, or bulk delete jobs that are already completed no longer return HTTP 500.Instead, the server now returns HTTP 405 (Method Not Allowed) to correctly reflect the invalid operation.
+
+**Reindex infrastructure**: Reindex infrastructure is updated to a new orchestrator that splits the reindex job into chunks and executes the task to complete in a parallel and distributed manner. As part of this change, certain reindex parameters, including maximumConcurrency and queryDelayIntervalInMilliseconds parameters are no longer supported as part of the reindex request. Unrecognized parameters will be ignored. Please see the updated list of reindex parameters [here](/azure/healthcare-apis/fhir/how-to-run-a-reindex).
+
+**Fix multi parallel reference issue**: There was an issue identified where transaction bundles that have dynamic references to each other in the same bundle that did not use conditional operations could lead to references becoming invalidated. This issue has been fixed by changing how dynamically generated resource IDs are propagated—avoiding the use of the non-thread-safe ResourceIdProvider and instead passing IDs through inner requests—resolving issues where multiple generated identifiers could conflict or override each other during concurrent execution.
+
+## July 2025
+### FHIR service
+
+#### Bug fixes:
+**Conditional Create/Update Response Headers and Content Handling Fix**: Previously, there was a bug where conditional create or update may fail to return the content and appropriate headers (ETag, LastModified, and Location) when the condition provided matches that of a resource that already exists in the system. This issue has been fixed, and now, Content-Location, Etag, and LastModified headers are returned on conditional create and update requests. Additionally, added handling for the Prefer header to return content in the requested form (representation, minimal, and OperationOutcome). 
+
+**$import Search Parameter Table Constraints Fix**: Previously, $import may surface 500 "InternalServerError" errors due to improperly defined constraints on Code and Code Overflow columns in Search Parameter tables. This issue has been fixed. 
+
+## June 2025
+### FHIR service
+**Added configuration for eventual consistency option in $import**: Allows users to enable eventual consistency for the $import operation.
+
+**Bulk delete enhancement**: Added a parameter to bulk delete that can receive a list of resources to exclude from the bulk delete operation.
+
+#### Bug fixes:
+**Support Added for Standalone Extensions on Primitive Type "code"**: Previously, extensions for primitive type "code" could not be uploaded individually, and would lead to a HTTP 400 Bad Request response. This bug has been fixed, and users can now upload extensions without their corresponding "origin" attributes.
+
+**_summary Search Parameter Now Included in CapabilityStatement**: Previously, the CapabilityStatement was missing the _summary search parameter. We have fixed this and added the _summary search parameter to the CapabilityStatement.
+
+**Intermittent HTTP 400 Errors Resolved for Custom Search Parameter Queries**: Previously, there were intermittent HTTP 400 error responses back when searching using custom search parameters that were created and reindexed successfully. This issue has been fixed. 
+
 ## May 2025
 ### FHIR service
 **Enhanced error handling for $export**: Previously, 412 errors from Azure Storage weren't retried, and would be surfaced as 500 InternalServerError. The issue is fixed, and these requests are now retried. 
@@ -31,13 +101,12 @@ This article describes features, enhancements, and bug fixes released in 2025 fo
 
 **Added ID in CapabilityStatement**: Previously, when retrieving the server's CapabilityStatement from the /metadata endpoint, the returned resource did not contain an ID. We have now added a dynamic ID to the CapabilityStatement 
 
-Added validation on resource ID for import. Previously, the import process was not validating IDs, allowing unsupported characters, for example, "#", to cause errors. Now, we have added validation on resource ID for import, and have included the error message "Invalid resource ID".
+**Added validation on resource ID for import**: Previously, the import process was not validating IDs, allowing unsupported characters, for example, "#", to cause errors. Now, we have added validation on resource ID for import, and have included the error message "Invalid resource ID".
 
 #### Bug fixes:
 **Creation after deletion of search parameters fix**: Previously, creating the same search parameter that was deleted in the past could fail due to an issue in updating the cache for Search Parameter definition manager. The issue is fixed, and now, the cache is synced before validating a search parameter in an incoming request.
 
 **Patient-everything with SMART patient user fix**: An issue was discovered where the patient-everything operation with a SMART patient user was failing. The issue is fixed, and now, the patient-everything operation works as expected with a SMART patient user.
-
 
 ## April 2025
 ### FHIR service

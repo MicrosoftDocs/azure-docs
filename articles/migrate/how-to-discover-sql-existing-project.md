@@ -1,12 +1,16 @@
 ---
 title: Discover SQL Server instances in an existing Azure Migrate project
 description: Learn how to discover SQL Server instances in an existing Azure Migrate project. 
-author: Vikram1988
-ms.author: vibansa
+author: ankitsurkar06
+ms.author: ankitsurkar
 ms.topic: how-to
 ms.service: azure-migrate
 ms.date: 03/21/2025
-ms.custom: engagement-fy23
+ms.reviewer: v-uhabiba
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
+# Customer intent: As a database administrator, I want to discover SQL Server instances in my existing Azure Migrate project so that I can tailor an effective migration path to Azure.
 ---
 
 # Discover web apps and SQL Server instances in an existing project
@@ -52,7 +56,7 @@ This discovery process is agentless that is, nothing is installed on the target 
 
          :::image type="content" source="./media/how-to-discover-sql-existing-project/appliance-services-version.png" alt-text="Screenshot of the appliance version.":::
          
-    - In the manage credentials and discovery sources panel of the Appliance configuration manager, add Domain or SQL Server Authentication credentials that have Sysadmin access on the SQL Server instance and databases to be discovered or have [these permissions](migrate-support-matrix-vmware.md#configure-the-custom-login-for-sql-server-discovery) for each SQL Server instance.
+    - To discover SQL Server instances and databases, the Windows/ Domain account, or SQL Server account [requires these low privilege read permissions](migrate-support-matrix-vmware.md) for each SQL Server instance. You can use the [low-privilege account provisioning utility](least-privilege-credentials.md) to create custom accounts or use any existing account that is a member of the sysadmin server role for simplicity.
     - Web apps discovery works with both domain and non-domain Windows OS credentials as long as the account used has local admin privileges on servers.
     You can leverage the automatic credential-mapping feature of the appliance, as highlighted [here](./tutorial-discover-vmware.md#start-continuous-discovery).    
 

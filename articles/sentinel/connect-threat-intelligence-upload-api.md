@@ -3,14 +3,15 @@ title: Connect your TIP with the upload API (Preview)
 titleSuffix: Microsoft Sentinel
 
 description: Learn how to connect your threat intelligence platform (TIP) or custom feed using the upload API to Microsoft Sentinel.
-author: austinmccollum
+author: poliveria  
 ms.topic: how-to
 ms.date: 3/14/2024
-ms.author: austinmc
+ms.author: pauloliveria 
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+ms.custom: sfi-image-nochange
 #Customer intent: As a security admin, I want to connect my threat intelligence platform with Microsoft Sentinel using the appropriate API so that I can centralize and enhance threat detection and response capabilities.
 ---
 

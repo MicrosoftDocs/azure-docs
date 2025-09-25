@@ -1,34 +1,37 @@
 ### YamlMime:Hub
 title: Azure load balancing and content delivery documentation
-summary: Learn about the various Azure load balancing and content delivery services available that provide security for your resources in Azure. Services include Azure Load Balancer, Azure Gateway Load Balancer, Azure Application Gateway, and Azure Front Door.
+summary: Discover how to secure and optimize your application with Azure load balancing and content delivery services. Learn how Azure Load Balancer, Application Gateway, and Front Door improve performance.
 brand: azure ## Used for color theming of icons and hero area 
 
 metadata: 
   title: Azure load balancing and content delivery
-  summary: Learn about the various Azure load balancing and content delivery services available that provide security for your resources in Azure. Services include Azure Load Balancer, Azure Gateway Load Balancer, Azure Application Gateway, and Azure Front Door.
+  summary: Discover how to secure and optimize your application with Azure load balancing and content delivery services. Learn how Azure Load Balancer, Application Gateway, and Front Door improve performance.
   ms.service: azure-load-balancer
   ms.topic: hub-page
   author: mbender-ms
   ms.author: mbender
   manager: kumudD
-  ms.date: 07/15/2024
+  ms.date: 05/27/2025
   ms.custom: portfolio-consolidation-2025
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
   items: 
-    - title: Choose a load balancing solution 
-      itemType: concept
-      url: /azure/architecture/guide/technology-choices/load-balancing-overview
-    - title: Hub-spoke network topology in Azure
-      itemType: architecture
-      url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
-    - title: Azure Networking blogs
+    - title: Load balancing and content delivery
+      itemType: overview
+      url: /azure/networking/load-balancer-content-delivery/load-balancing-content-delivery-overview
+    - title: Azure Networking services
+      itemType: overview 
+      url: /azure/networking/
+    - title: Azure networking blogs
       itemType: concept
       url: https://azure.microsoft.com/blog/category/networking/
-    - title: Azure Networking services overview
-      itemType: concept 
-      url: /azure/networking/
+    - title: What's new in Azure Load Balancer
+      itemType: whats-new
+      url: /azure/load-balancer/whats-new
+    - title: Choose a load balancing solution in Azure
+      itemType: concept
+      url: /azure/architecture/guide/technology-choices/load-balancing-overview
 
 productDirectory:
   title: Get started
@@ -39,7 +42,7 @@ productDirectory:
       url: /azure/application-gateway
     - title: Azure Load Balancer
       imageSrc: ./media/load-balancer.svg
-      summary: "Manage distribution of load-balanced traffic for public and internal traffic with Azure Load Balancer."
+      summary: "Manage distribution of load-balanced public and internal traffic with Azure Load Balancer."
       url: /azure/load-balancer
     - title: Azure Front Door
       imageSrc: ./media/front-door-cdn.svg
@@ -98,7 +101,7 @@ conceptualContent:
               url: /azure/frontdoor/web-application-firewall
 
     - title: Learn more about Azure load balancing and content delivery
-      summary: Explore additional resources to help you design and deploy a load balancing solution
+      summary: Explore other resources to help you design and deploy a load balancing solution
       items:
         # Card
         - title: "Training modules"
@@ -118,13 +121,13 @@ conceptualContent:
               
         - title: "Azure Well-Architected Framework"
           links:
-          - text: "Operational excellence and Azure Load Balancer"
+          - text: Architecture best practices for Azure Load Balancer - Azure Well-Architected Framework
             itemType: architecture
-            url: /azure/well-architected/service-guides/azure-load-balancer/operational-excellence
-          - text: "Azure Well-Architected Framework review - Azure Application Gateway v2"
+            url: /azure/well-architected/service-guides/azure-load-balancer
+          - text: Architecture best practices for Azure Application Gateway v2 - Azure Well-Architected Framework
             itemType: architecture
             url: /azure/well-architected/service-guides/azure-application-gateway
-          - text: "Azure Well-Architected Framework perspective on Azure Front Door"
+          - text: Architecture best practices for Azure Front Door - Azure Well-Architected Framework
             itemType: architecture
             url: /azure/well-architected/service-guides/azure-front-door
         - title: "Azure Architecture Center"

@@ -9,6 +9,7 @@ ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: jinglou
 ms.reviewer: cralvord,richardgao
+# Customer intent: As a cloud administrator, I want to implement security best practices for Azure Storage Explorer, so that I can protect sensitive data and ensure safe access to storage resources.
 ---
 
 # Azure Storage Explorer security guide

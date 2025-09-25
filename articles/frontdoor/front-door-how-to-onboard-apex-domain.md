@@ -7,6 +7,7 @@ ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 04/30/2025
 zone_pivot_groups: front-door-tiers
+ms.custom: sfi-image-nochange
 ---
 
 # Onboard a root or apex domain to Azure Front Door

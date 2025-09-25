@@ -3,14 +3,15 @@ title: Use blob index tags to manage and find data with Go
 titleSuffix: Azure Storage
 description: Learn how to categorize, manage, and query for blob objects by using the Go client module.  
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.date: 08/05/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
+# Customer intent: As a Go developer, I want to utilize blob index tags in Azure Storage, so that I can efficiently categorize, manage, and query blob objects to streamline data management processes.
 ---
 
 # Use blob index tags to manage and find data with Go

@@ -10,6 +10,7 @@ ms.custom:
   - build-2024
 ms.topic: reference
 ms.date: 04/29/2025
+ms.update-cycle: 180-days
 ms.author: danlep
 ---
 
@@ -61,7 +62,7 @@ Use the `llm-semantic-cache-lookup` policy to perform cache lookup of responses 
 
 - [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ### Usage notes
 
@@ -71,6 +72,7 @@ Use the `llm-semantic-cache-lookup` policy to perform cache lookup of responses 
 - Score threshold above 0.2 may lead to cache mismatch. Consider using lower value for sensitive use cases.
 - Control cross-user access to cache entries by specifying `vary-by`with specific user or user-group identifiers.
 - Consider adding [llm-content-safety](./llm-content-safety-policy.md) policy with prompt shield to protect from prompt attacks.
+- [!INCLUDE [api-management-cache-rate-limit](../../includes/api-management-cache-rate-limit.md)]
 
 
 ## Examples

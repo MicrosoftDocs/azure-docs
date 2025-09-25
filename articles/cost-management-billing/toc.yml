@@ -95,10 +95,14 @@
         href: manage/spending-limit.md
       - name: Track credits for Microsoft Customer Agreement
         href: manage/mca-check-azure-credits-balance.md
+      - name: Manage a Microsoft Azure credit resource
+        href: manage/manage-azure-credits.md
       - name: Manage a Microsoft Azure Consumption Commitment
         href: manage/manage-consumption-commitment.md
       - name: Track your Microsoft Azure Consumption Commitment
         href: manage/track-consumption-commitment.md
+      - name: Manage a Microsoft Azure discount resource
+        href: manage/manage-azure-discount.md
       - name: Markup - China
         href: manage/markup-china.md
     - name: Administer subscriptions
@@ -140,6 +144,8 @@
         href: manage/manage-azure-subscription-policy.md
       - name: Filter and view subscriptions
         href: manage/filter-view-subscriptions.md
+      - name: Data transfer fees
+        href: manage/data-transfer-fees.md
     - name: Transfer billing products
       items:
       - name: Azure billing product transfers

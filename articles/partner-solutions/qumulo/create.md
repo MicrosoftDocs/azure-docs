@@ -25,6 +25,12 @@ When you create the service instance, the following entities are also created an
 - A [virtual network](/azure/virtual-network/manage-subnet-delegation?tabs=manage-subnet-delegation-portal) with a [delegated subnet](/azure/virtual-network/manage-subnet-delegation?tabs=manage-subnet-delegation-portal) with at least 256 IP Addresses delegated to `Qumulo.Storage/fileSystems`.
 - For custom roles, you also need *write* access to the resource groups for your delegated subnet and Qumulo file system namespace.
 
+> [!IMPORTANT]
+> For successful creation of a Qumulo service, custom role-based access control (RBAC) roles need to have the following permissions in the subnet and Qumulo service resource groups:
+>
+> - Qumulo.Storage/\*
+> - Microsoft.Network/virtualNetworks/subnets/join/action
+
 ## Create a Qumulo resource
 
 [!INCLUDE [create-resource](../includes/create-resource.md)]

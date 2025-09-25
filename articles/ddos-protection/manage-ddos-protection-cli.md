@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.custom: devx-track-azurecli
 ms.date: 03/17/2025
 ms.author: abell
+# Customer intent: As a network administrator, I want to create and configure a DDoS protection plan using Azure CLI, so that I can enhance the security of my virtual networks against DDoS attacks.
 ---
 # QuickStart: Create and configure Azure DDoS Network Protection using Azure CLI
 

@@ -5,8 +5,9 @@ ms.topic: how-to
 ms.date: 04/24/2025
 ms.service: azure-backup
 ms.custom: devx-track-azurecli, engagement-fy24
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a database administrator, I want to manage SQL server databases in Azure VMs using command line tools, so that I can automate backup and recovery processes efficiently."
 ---
 
 # Manage SQL databases in an Azure VM using Azure CLI

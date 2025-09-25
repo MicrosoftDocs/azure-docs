@@ -1,6 +1,6 @@
 ---
-title: include file
-description: include file
+title: Include file
+description: Include file
 author: jonburchel
 ms.service: azure-synapse-analytics
 ms.topic: include
@@ -49,12 +49,12 @@ For additional limits for Spark pools, see [Concurrency and API rate limits for 
 | Total number of entities, such as pipelines, data sets, triggers, linked services, Private Endpoints, and integration runtimes, within a workspace | 5,000 | 5,000 |
 | Total CPU cores for Azure-SSIS Integration Runtimes under one workspace | 256 | [Find out how to request a quota increase from support](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/). |
 | Concurrent pipeline runs per workspace that's shared among all pipelines in the workspace | 10,000  | 10,000 |
-| Concurrent External activity runs per workspace per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)<br>External activities are managed on integration runtime but execute on linked services, including Databricks, stored procedure, HDInsight, Web, and others. This limit does not apply to Self-hosted IR. | 3,000 | 3,000 |
-| Concurrent Pipeline activity runs per workspace per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location) <br>Pipeline activities execute on integration runtime, including Lookup, GetMetadata, and Delete. This limit does not apply to Self-hosted IR. | 1,000 | 1,000                                                        |
-| Concurrent authoring operations per workspace per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)<br>Including test connection, browse folder list and table list, preview data. This limit does not apply to Self-hosted IR. | 200 | 200                                                          |
-| Concurrent Data Integration Units<sup>1</sup> consumption per workspace per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)| Region group 1<sup>2</sup>: 6,000<br>Region group 2<sup>2</sup>: 3,000<br>Region group 3<sup>2</sup>: 1,500<br>Managed virtual network<sup>2</sup>: 2,400 | Region group 1<sup>2</sup>: 6,000<br/>Region group 2<sup>2</sup>: 3,000<br/>Region group 3<sup>2</sup>: 1,500 |
-| Concurrent Data Integration Units<sup>1</sup> consumption per subscription per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location) in managed virtual network| 2,400 | 2,400 |
-| Maximum activities per pipeline, which includes inner activities for containers | 40 | 40 |
+| Concurrent External activity runs per workspace per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)<br>External activities are managed on integration runtime but execute on linked services, including Databricks, stored procedure, HDInsight, Web, and others. This limit doesn't apply to Self-hosted IR. | 3,000 | 3,000 |
+| Concurrent Pipeline activity runs per workspace per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location) <br>Pipeline activities execute on integration runtime, including Lookup, GetMetadata, and Delete. This limit doesn't apply to Self-hosted IR. | 1,000 | 1,000                                                        |
+| Concurrent authoring operations per workspace per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)<br>Including test connection, browse folder list and table list, preview data. This limit doesn't apply to Self-hosted IR. | 200 | 200                                                          |
+| Concurrent Data Integration Units<sup>1</sup> consumption per workspace per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)| Region group 1<sup>2</sup>: 6,000<br>Region group 2<sup>2</sup>: 3,000<br>Region group 3<sup>2</sup>: 1,500<br>Managed virtual network<sup>2</sup>: 2,0 | Region group 1<sup>2</sup>: 6,000<br/>Region group 2<sup>2</sup>: 3,000<br/>Region group 3<sup>2</sup>: 1,500 |
+| Concurrent Data Integration Units<sup>1</sup> consumption per subscription per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location) in managed virtual network| 2,0 | 2,0 |
+| Maximum activities per pipeline, which includes inner activities for containers | 120 | 120 |
 | Maximum number of linked integration runtimes that can be created against a single self-hosted integration runtime | 100 | 100 |
 | Maximum parameters per pipeline | 50 | 50 |
 | ForEach items | 100,000 | 100,000 |
@@ -91,7 +91,7 @@ If managed virtual network is enabled, the data integration unit (DIU) in all re
 
 <sup>3</sup> Pipeline, data set, and linked service objects represent a logical grouping of your workload. Limits for these objects don't relate to the amount of data you can move and process with Azure Synapse Analytics. Synapse Analytics is designed to scale to handle petabytes of data.
 
-<sup>4</sup> The payload for each activity run includes the activity configuration, the associated dataset(s) and linked service(s) configurations if any, and a small portion of system properties generated per activity type. Limit for this payload size doesn't relate to the amount of data you can move and process with Azure Synapse Analytics. Learn about the [symptoms and recommendation](../articles/data-factory/data-factory-troubleshoot-guide.md#payload-is-too-large) if you hit this limit.
+<sup>4</sup> The payload for each activity run includes the activity configuration, the associated dataset(s), and linked service(s) configurations if any, and a small portion of system properties generated per activity type. Limit for this payload size doesn't relate to the amount of data you can move and process with Azure Synapse Analytics. Learn about the [symptoms and recommendation](../articles/data-factory/data-factory-troubleshoot-guide.md#payload-is-too-large) if you hit this limit.
 
 ### Azure Synapse limits for dedicated SQL pools
 For details of capacity limits for dedicated SQL pools in Azure Synapse Analytics, see [dedicated SQL pool resource limits](../articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).

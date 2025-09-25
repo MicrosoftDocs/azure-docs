@@ -8,6 +8,7 @@ ms.topic: sample
 ms.date: 08/26/2020
 ms.author: tomfitz
 ms.custom: mvc, fasttrack-edit, devx-track-arm-template
+ms.service: azure-app-service
 ---
 # Azure Resource Manager templates for App Service
 

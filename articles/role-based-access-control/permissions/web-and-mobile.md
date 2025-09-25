@@ -4,7 +4,7 @@ description: Lists the permissions for the Azure resource providers in the Web a
 ms.service: role-based-access-control
 ms.topic: generated-reference
 author: rolyon
-manager: femila
+manager: pmwongera
 ms.author: rolyon
 ms.date: 05/25/2025
 ms.custom: generated

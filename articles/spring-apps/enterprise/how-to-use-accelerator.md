@@ -4,10 +4,15 @@ description: Learn how to use VMware Tanzu App Accelerator with the Azure Spring
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 01/23/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.author: karler
 ms.reviewer: caiqing
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Use VMware Tanzu Application Accelerator with the Azure Spring Apps Enterprise plan
@@ -518,7 +523,7 @@ Use the following steps to view the list of App Accelerators in an Azure Spring 
 
 ### Troubleshoot App Accelerator issues
 
-If you try to open App Accelerator for a service instance that hasn't enabled App Accelerator or exposed a public endpoint, you see the following error message: `Application Accelerator of Spring Apps <instance-name> is not enabled or publically accessible`.
+If you try to open App Accelerator for a service instance that hasn't enabled App Accelerator or exposed a public endpoint, you see the following error message: `Application Accelerator of Spring Apps <instance-name> is not enabled or publicly accessible`.
 
 To enable App Accelerator and expose public endpoints, use the following steps. For more information, see the [Manage App Accelerator in an existing Enterprise plan instance](#manage-app-accelerator-in-an-existing-enterprise-plan-instance) section.
 

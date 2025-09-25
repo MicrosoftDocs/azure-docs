@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 04/18/2025
 ms.author: kengaderdus
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a developer, I want to programmatically manage resources in my Azure AD B2C directory using Microsoft Graph API, so that I can automate user management tasks, such as creating, updating, and deleting users, identity providers, user flows, custom policies, and policy keys.

@@ -101,6 +101,9 @@ az appconfig kv set --name <name> --key TestApp:Settings:TextAlign --value cente
 
 ---
 
+> [!TIP]
+> Consider using the [Azure MCP Server tools for App Configuration](/azure/developer/azure-mcp-server/tools/app-configuration) for a quick way to manage  your App Configuration store using natural language prompts. These tools allow you to list configuration stores, list, create, search, lock, unlock, and update key-values settings through conversational AI interactions.
+
 ## Clean up resources
 
 When no longer needed, delete the resource group. Deleting a resource group also deletes the resources in it.

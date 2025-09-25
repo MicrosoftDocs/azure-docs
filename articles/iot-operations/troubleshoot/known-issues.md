@@ -4,7 +4,8 @@ description: Known issues for the MQTT broker, Layered Network Management (previ
 author: dominicbetts
 ms.author: dobett
 ms.topic: troubleshooting-known-issue
-ms.date: 05/22/2025
+ms.date: 08/14/2025
+ms.custom: sfi-ropc-nochange
 ---
 
 # Known issues: Azure IoT Operations
@@ -65,7 +66,7 @@ Log signature: N/A
 
 ---
 
-MQTT broker resources created in your cluster using Kubernetes aren't visible in the Azure portal. This result is expected because [managing Azure IoT Operations components using Kubernetes is in preview](../deploy-iot-ops/howto-manage-update-uninstall.md#preview-manage-components-using-kubernetes-deployment-manifests), and synchronizing resources from the edge to the cloud isn't currently supported.
+MQTT broker resources created in your cluster using Kubernetes aren't visible in the Azure portal. This result is expected because [managing Azure IoT Operations components using Kubernetes is in preview](../deploy-iot-ops/howto-manage-update-uninstall.md#manage-components-using-kubernetes-deployment-manifests-preview), and synchronizing resources from the edge to the cloud isn't currently supported.
 
 There's currently no workaround for this issue.
 
@@ -129,6 +130,28 @@ Log signature: N/A
 
 When you add a new asset with a new asset endpoint profile to the OPC UA broker and trigger a reconfiguration, the deployment of the `opc.tcp` pods changes to accommodate the new secret mounts for username and password. If the new mount fails for some reason, the pod doesn't restart and therefore the old flow for the correctly configured assets stops as well.
 
+### An OPC UA server modeled as a device can only have one inbound endpoint of type "Microsoft.OpcUa"
+
+---
+
+Issue ID: 2411
+
+---
+
+`2025-07-24T13:29:30.280Z aio-opc-supervisor-85b8c78df5-26tn5 - Maintaining the new asset test-opcua-asset | - | 1 is skipped because the endpoint profile test-opcua.opcplc-e2e-anon-000000 is not present`
+
+---
+
+When you create an OPC UA device, you can only have one inbound endpoint of type `Microsoft.OpcUa`. Currently, any other endpoints aren't used.
+
+Workaround: Create multiple devices with a single endpoint each if you want to use namespace assets.
+
+An OPC UA namespaced asset can only have a single dataset. Currently, any other datasets aren't used.
+
+Workaround: Create multiple namespace assets each with a single dataset.
+
+
+
 ### Data spike every 2.5 hours with some OPC UA simulators
 
 ---
@@ -142,39 +165,6 @@ Log signature: Increased message volume every 2.5 hours
 ---
 
 Data values spike every 2.5 hours when using particular OPC UA simulators causing CPU and memory spikes. This issue isn't seen with OPC PLC simulator used in the quickstarts. No data is lost, but you can see an increase in the volume of data published from the server to the MQTT broker.
-
-### No message schema generated if selected nodes in a dataset reference the same complex data type definition
-
----
-
-Issue ID: 7369
-
----
-
-Log signature: `An item with the same key has already been added. Key: <element name of the data type>`
-
----
-
-No message schema is generated if selected nodes in a dataset reference the same complex data type definition (a UDT of type struct or enum).
-
-If you select data points (node IDs) for a dataset that share non-OPC UA namespace complex type definitions (struct or enum), then the JSON schema isn't generated. The default open schema is shown when you create a data flow instead. For example, if the data set contains three values of a data type, then whether it works or not is shown in the following table. You can substitute `int` for any OPC UA built in type or primitive type such as `string`, `double`, `float`, or `long`:
-
-| Type of Value 1 | Type of Value 2 | Type of Value 3 | Successfully generates schema |
-|-----------------|-----------------|-----------------|-----------------|
-| `int` | `int` | `int` | Yes |
-| `int` | `int` | `int` | Yes |
-| `int` | `int` | `struct A` | Yes |
-| `int` | `enum A` | `struct A` | Yes |
-| `enum A` | `enum B` | `enum C` | Yes |
-| `struct A` | `struct B` | `struct C` | Yes |
-| `int` | `struct A` | `struct A` | No |
-| `int` | `enum A` | `enum A` | No |
-
-To work around this issue, you can either:
-
-- Split the dataset across two or more assets.
-- Manually upload a schema.
-- Use the default nonschema experience in the data flow designer.
 
 ## Connector for media and connector for ONVIF issues
 
@@ -192,7 +182,7 @@ Log signature: `"Error HelmUninstallUnknown: Helm encountered an error while att
 
 ---
 
-Sometimes, when you attempt to uninstall Azure IoT Operations from the cluster, the system can get to a state where CRD removal job is stuck in pending state and that blocks the cleanup of Azure IoT Operations.
+Sometimes, when you attempt to uninstall Azure IoT Operations from the cluster, the system reaches a state where CRD removal job is stuck in pending state, which blocks the cleanup of Azure IoT Operations.
 
 To work around this issue, complete the following steps to manually delete the CRD and finish the uninstall:
 
@@ -204,15 +194,11 @@ To work around this issue, complete the following steps to manually delete the C
 
 1. Uninstall Helm release without running the hook: `helm uninstall aio-<id>-connectors -n azure-iot-operations --no-hooks`
 
-## Asset discovery with Akri services issues
-
-This section lists current known issues for asset discovery with Akri services.
-
-### Asset discovery doesn't work for one hour after upgrade
+### Media and ONVIF devices with an underscore character in the endpoint name are ignored
 
 ---
 
-Issue ID: 0407
+Issue ID: 5712
 
 ---
 
@@ -220,9 +206,67 @@ Log signature: N/A
 
 ---
 
-When you upgrade the Akri services, you might experience some loss of messages and assets for an hour after the upgrade.
+If you create a media or ONVIF device with an endpoint name that contains an underscore ("_") character, the connector for media ignores the device.
 
-To workaround this issue, wait for an hour after the upgrade and run the asset detection scenario again.
+To work around this issue, use a hyphen ("-") instead of an underscore in the endpoint name.
+
+### Media connector doesn't use the path in destination configuration
+
+---
+
+Issue ID: 6797
+
+---
+
+Log signature: N/A
+
+---
+
+Media assets with a task type of "snapshot-to-fs" or "clip-to-fs" don't honor the path in the destination configuration. Instead, they use the "Additional configuration" path field.
+
+### Media connector ignores MQTT topic setting in asset
+
+---
+
+Issue ID: 6780
+
+---
+
+Log signature: N/A
+
+---
+
+The media connector ignores the MQTT destination topic setting in the asset. Instead, it uses the default topic: `/azure-iot-operations/data/<asset-name>/snapshot-to-mqtt`.
+
+### Media connector inbound endpoint addresses aren't fully validated
+
+---
+
+Issue ID: 2679
+
+---
+
+Log signature: N/A
+
+---
+
+In the public preview release, the media connector accepts device inbound endpoint addresses with the following schemes: `async`, `cache`, `concat`, `concatf`, `crypto`, `data`, `fd`, `ffrtmpcrypt`, `ffrtmphttp`, `file`, `ftp`, `gopher`, `gophers`, `hls`, `http`, `httpproxy`, `https`, `mmsh`, `mmst`, `pipe`, `rtmp`, `rtmpe`, `rtmps`, `rtmpt`, `rtmpte`, `rtmpts`, `rtp`, `srtp`, `subfile`, `tcp`, `tls`, `udp`, `udplite`, `unix`, `ipfx`, `ipns`.
+
+This enables input data from multiple source types. However, because the output configuration is based on the `streamConfiguration`, the possibilities for using data from these sources are limited.
+
+### Secret sync conflict
+
+---
+
+Issue ID: 0606
+
+---
+
+Log signature: N/A
+
+---
+
+When using secret sync, ensure that secret names are globally unique. If a local secret with the same name exists, connectors might fail to retrieve the intended secret.
 
 ## Data flows issues
 
@@ -240,88 +284,33 @@ Log signature: N/A
 
 ---
 
-Data flow custom resources created in your cluster using Kubernetes aren't visible in the operations experience web UI. This result is expected because [managing Azure IoT Operations components using Kubernetes is in preview](../deploy-iot-ops/howto-manage-update-uninstall.md#preview-manage-components-using-kubernetes-deployment-manifests), and synchronizing resources from the edge to the cloud isn't currently supported.
+Data flow custom resources created in your cluster using Kubernetes aren't visible in the operations experience web UI. This result is expected because [managing Azure IoT Operations components using Kubernetes is in preview](../deploy-iot-ops/howto-manage-update-uninstall.md#manage-components-using-kubernetes-deployment-manifests-preview), and synchronizing resources from the edge to the cloud isn't currently supported.
 
 There's currently no workaround for this issue.
 
-### Unable to configure X.509 authentication for custom Kafka endpoints
+### A data flow profile can't exceed 70 data flows
 
 ---
 
-Issue ID: 8750
-
----
-
-Log signature: N/A
-
----
-
-X.509 authentication for custom Kafka endpoints isn't currently supported.
-
-### Connection failures with Azure Event Grid
-
----
-
-Issue ID: 8891
-
----
-
-Log signature: N/A
-
----
-
-When you connect multiple IoT Operations instances to the same Event Grid MQTT namespace, connection failures might occur due to client ID conflicts. Client IDs are currently derived from data flow resource names, and when using infrastructure as code patterns for deployment, the generated client IDs might be identical.
-
-To work around this issue, add randomness to the data flow names in your deployment templates.
-
-### Data flow deployment doesn't complete
-
----
-
-Issue ID: 9411
+Issue ID: 0313
 
 ---
 
 Log signature:
 
-`"Dataflow pod had error: Bad pod condition: Pod 'aio-dataflow-operator-0' container 'aio-dataflow-operator' stuck in a bad state due to 'CrashLoopBackOff'"`
-
-`"Failed to create webhook cert resources: Failed to update ApiError: Internal error occurred: failed calling webhook "webhook.cert-manager.io" [...]"`
+`exec /bin/main: argument list too long`
 
 ---
 
-When you create a new data flow, it might not finish deployment. The cause is that the `cert-manager` wasn't ready or running.
+If you create more than 70 data flows for a single data flow profile, deployments fail with the error `exec /bin/main: argument list too long`.
 
-To work around this issue, use the following steps to manually delete the data flow operator pod to clear the crash status:
+To work around this issue, create multiple data flow profiles and distribute the data flows across them. Don't exceed 70 data flows per profile.
 
-1. Run `kubectl get pods -n azure-iot-operations`.
-   In the output, Verify _aio-dataflow-operator-0_ is only data flow operator pod running.
-
-1. Run `kubectl logs --namespace azure-iot-operations aio-dataflow-operator-0` to check the logs for the data flow operator pod.
-
-   In the output, check for the final log entry:
-
-   `Dataflow pod had error: Bad pod condition: Pod 'aio-dataflow-operator-0' container 'aio-dataflow-operator' stuck in a bad state due to 'CrashLoopBackOff'`
-
-1. Run the _kubectl logs_ command again with the `--previous` option.
-
-   `kubectl logs --namespace azure-iot-operations --previous aio-dataflow-operator-0`
-
-   In the output, check for the final log entry:
-
-   `Failed to create webhook cert resources: Failed to update ApiError: Internal error occurred: failed calling webhook "webhook.cert-manager.io" [...]`.
-Issue ID:2382
-   If you see both log entries from the two _kubectl log_ commands, the cert-manager wasn't ready or running.
-
-1. Run `kubectl delete pod aio-dataflow-operator-0 -n azure-iot-operations` to delete the data flow operator pod. Deleting the pod clears the crash status and restarts the pod.
-
-1. Wait for the operator pod to restart and deploy the data flow.
-
-### Data flows error metrics
+### The request persistence flag is not set for MQTT sessions created for data flow graphs (WASM)
 
 ---
 
-Issue ID: 2382
+Issue ID: 6415
 
 ---
 
@@ -329,4 +318,111 @@ Log signature: N/A
 
 ---
 
-Data flows marks message retries and reconnects as errors, and as a result data flows might look unhealthy. This behavior is only seen in previous versions of data flows. Review the logs to determine if the data flow is healthy.
+When you create a data flow graph using the WASM, the MQTT session doesn't have the request persistence flag set. 
+
+To work around this issue, set MQTT broker **Retained messages** mode to `All`. For more information, see [Configure MQTT broker persistence](../manage-mqtt-broker/howto-broker-persistence.md).
+
+### Anonymous authentication fails to pull data flow graph definitions with incorrect media type
+
+---
+
+Issue ID: 0623
+
+---
+
+Log signature: N/A
+
+---
+
+When using anonymous authentication for registry endpoints, pulling data flow graph definitions (YAML files) fails unless the uploaded graph YAML media type is set specifically to `application/vnd.wasm.config.v1+json`.
+
+To work around this issue, ensure that when you upload data flow graph definitions to your container registry, you set the correct media type. For more information about graph definitions, see [Configure WebAssembly graph definitions](../connect-to-cloud/howto-configure-wasm-graph-definitions.md). For example, when using the `oras` CLI tool to push the graph YAML file, use the following command:
+
+```bash
+oras push --config config.json:application/vnd.wasm.config.v1+json <registry>/<repository>:<tag> graph.yaml:application/vnd.wasm.content.layer.v1+wasm
+```
+
+And the artifact manifest should look like this:
+
+```json
+{
+  "schemaVersion": 2,
+  "config": {
+    "mediaType": "application/vnd.wasm.config.v1+json",
+    "digest": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "size": 2
+  },
+  "layers": [
+    {
+      "mediaType": "application/vnd.wasm.content.layer.v1+wasm",
+      "digest": "sha256:cfa3ece7317a0c2598165bd67a9241bb6a2f48706023d0983078f0c2a8b5b8c0",
+      "size": 556,
+      "annotations": {
+        "org.opencontainers.image.title": "graph.yaml"
+      }
+    }
+  ]
+}
+```
+
+### Data flow graphs only support specific endpoint types
+
+---
+
+Issue ID: 5693
+
+---
+
+Log signature: N/A
+
+---
+
+Data flow graphs (WASM) currently only support MQTT, Kafka, and OpenTelemetry (OTel) data flow endpoints. OpenTelemetry endpoints can only be used as destinations in data flow graphs. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage are not supported for data flow graphs.
+
+To work around this issue, use one of the supported endpoint types:
+- [MQTT endpoints](../connect-to-cloud/howto-configure-mqtt-endpoint.md) for bi-directional messaging with MQTT brokers
+- [Kafka endpoints](../connect-to-cloud/howto-configure-kafka-endpoint.md) for bi-directional messaging with Kafka brokers, including Azure Event Hubs
+- [OpenTelemetry endpoints](../connect-to-cloud/howto-configure-opentelemetry-endpoint.md) for sending metrics and logs to observability platforms (destination only)
+
+For more information about data flow graphs, see [Use WebAssembly (WASM) with data flow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md).
+
+### Complex data might be flattened when enriching data in a data flow
+
+---
+
+Issue ID: 7385
+
+---
+
+Log signature: N/A
+
+---
+
+When enriching data using complex object DSS reference data, the output might be moved to the root level instead of preserving the original structure.
+
+For example, if you have a complex object with properties like:
+
+```json
+{
+  "complex_property_1": {
+      "field1": 12,
+      "field2": 13 
+  },
+  "complex_property_2": {
+     "field2": 24
+  }
+}
+```
+
+The output might look like:
+
+```json
+{
+  "property_1": 2,
+  "property_2": 3,
+  "field1": 12,
+  "field2": 24,
+}
+```
+
+The complex properties are flattened to the root, and the original structure is lost. If fields with the same name exist in the complex objects or the root, the values might overwrite the root values. In the example, `field2` from `complex_property_2` overwrites the `field2` from `complex_property_1`.

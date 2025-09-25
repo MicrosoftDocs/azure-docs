@@ -6,7 +6,9 @@ ms.service: azure-site-recovery
 ms.topic: concept-article
 ms.author: jsuri
 ms.date: 05/27/2021
+ms.custom: sfi-image-nochange
 
+# Customer intent: "As an IT administrator, I want to analyze the Deployment Planner report for VMware disaster recovery to Azure, so that I can determine the necessary resources and bandwidth required to ensure a successful migration and maintain an effective disaster recovery strategy."
 ---
 # Analyze the Deployment Planner report for VMware disaster recovery to Azure
 

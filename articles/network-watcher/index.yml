@@ -86,8 +86,8 @@ landingContent:
             url: vnet-flow-logs-overview.md
       - linkListType: tutorial  
         links:
-          - text: Log VM network traffic
-            url: nsg-flow-logs-tutorial.md           
+          - text: Log network traffic
+            url: vnet-flow-logs-tutorial.md           
       - linkListType: how-to-guide  
         links:
           - text: Manage network security group flow logs

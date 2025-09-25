@@ -4,10 +4,11 @@ description: How to fail back Hyper-V VMs to an on-premises site from Azure with
 author: jyothisuri
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 12/19/2024
+ms.date: 08/29/2025
 ms.author: jsuri
 ms.custom: engagement-fy23
 
+# Customer intent: "As a system administrator, I want to fail back Hyper-V VMs from Azure to an on-premises site, so that I can ensure minimal downtime and maintain data consistency while transitioning workloads back to local infrastructure."
 ---
 
 # Run a failback for Hyper-V VMs
@@ -28,6 +29,10 @@ This article describes how to fail back Azure VMs that were created after failov
 
 >[!NOTE]
 > Failing back to alternate location is not possible when using recovery plans. 
+
+>[!NOTE]
+> **Failback not supported when VM metadata is not present in VMM database**
+If the VM metadata doesn't exist in VMM database then failback will fail. In other words, for failback from Azure to VMM, we expect the metadata of the VM to be present in the VMM database.
 
 ## Fail back to the original location
 

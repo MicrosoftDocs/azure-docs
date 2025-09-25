@@ -7,6 +7,7 @@ ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.author: jsuri
 author: jyothisuri
 ms.service: azure-site-recovery
+# Customer intent: As a cloud administrator, I want to create a Recovery Services vault using an ARM template, so that I can implement a disaster recovery strategy for my business applications during outages.
 ---
 
 # Quickstart: Create a Recovery Services vault using an ARM template

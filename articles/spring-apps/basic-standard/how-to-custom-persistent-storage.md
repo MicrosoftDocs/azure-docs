@@ -4,7 +4,8 @@ description: Learn how to bring your own storage as persistent storages in Azure
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: conceptual
-ms.date: 06/27/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.author: karler
 ms.reviewer: xuycao
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli

@@ -1,11 +1,11 @@
 ---
 title: Multi-region deployments for disaster recovery in Azure Logic Apps
-description: Design your strategy to protect data, recover quickly from disruptive events, restore resources required by critical business functions, and maintain business continuity for Azure Logic Apps.
+description: Learn how to design your strategy to protect data, recover quickly from disruptive events, restore resources required by critical business functions, and maintain business continuity for Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 01/06/2025
+ms.topic: concept-article
+ms.date: 07/17/2025
 ---
 
 # Multi-region deployments for disaster recovery in Azure Logic Apps

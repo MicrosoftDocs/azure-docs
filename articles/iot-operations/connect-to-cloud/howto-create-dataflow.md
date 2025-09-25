@@ -1,8 +1,8 @@
 ---
 title: Create a data flow using Azure IoT Operations
 description: Create a data flow to connect data sources and destinations using Azure IoT Operations.
-author: PatAltimore
-ms.author: patricka
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
@@ -56,11 +56,13 @@ You can deploy data flows as soon as you have an instance of [Azure IoT Operatio
 
 ### Data flow profile
 
-If you don't need different scaling settings for your data flows, use the [default data flow profile](./howto-configure-dataflow-profile.md#default-data-flow-profile) provided by Azure IoT Operations. To learn how to configure a new data flow profile, see [Configure data flow profiles](howto-configure-dataflow-profile.md).
+If you don't need different scaling settings for your data flows, use the [default data flow profile](./howto-configure-dataflow-profile.md#default-data-flow-profile) provided by Azure IoT Operations. You should avoid associating too many data flows with a single data flow profile. If you have a large number of data flows, distribute them across multiple data flow profiles to reduce the risk of exceeding the data flow profile configuration size limit of 70.
+
+To learn how to configure a new data flow profile, see [Configure data flow profiles](howto-configure-dataflow-profile.md).
 
 ### Data flow endpoints
 
-Data flow endpoints are required to configure the source and destination for the data flow. To get started quickly, you can use the [default data flow endpoint for the local MQTT broker](./howto-configure-mqtt-endpoint.md#default-endpoint). You can also create other types of data flow endpoints like Kafka, Event Hubs, or Azure Data Lake Storage. To learn how to configure each type of data flow endpoint, see [Configure data flow endpoints](howto-configure-dataflow-endpoint.md).
+Data flow endpoints are required to configure the source and destination for the data flow. To get started quickly, you can use the [default data flow endpoint for the local MQTT broker](./howto-configure-mqtt-endpoint.md#default-endpoint). You can also create other types of data flow endpoints like Kafka, Event Hubs, OpenTelemetry, or Azure Data Lake Storage. To learn how to configure each type of data flow endpoint, see [Configure data flow endpoints](howto-configure-dataflow-endpoint.md).
 
 ## Get started
 
@@ -326,7 +328,7 @@ Configuring an asset as a source is only available in the operations experience.
 
 ---
 
-When using an asset as the source, the asset definition is used to infer the schema for the data flow. The asset definition includes the schema for the asset's datapoints. To learn more, see [Manage asset configurations remotely](../discover-manage-assets/howto-manage-assets-remotely.md).
+When using an asset as the source, the asset definition is used to infer the schema for the data flow. The asset definition includes the schema for the asset's datapoints. To learn more, see [Manage asset configurations remotely](../discover-manage-assets/howto-configure-opc-ua.md).
 
 Once configured, the data from the asset reaches the data flow via the local MQTT broker. So, when using an asset as the source, the data flow uses the local MQTT broker default endpoint as the source in actuality.
 
@@ -534,16 +536,16 @@ sourceSettings:
 
 ---
 
-If the instance count in the [data flow profile](howto-configure-dataflow-profile.md) is greater than one, shared subscription is automatically enabled for all data flows that use a message broker source. In this case, the `$shared` prefix is added and the shared subscription group name automatically generated. For example, if you have a data flow profile with an instance count of 3, and your data flow uses a message broker endpoint as source configured with topics `topic1` and `topic2`, they are automatically converted to shared subscriptions as `$shared/<GENERATED_GROUP_NAME>/topic1` and `$shared/<GENERATED_GROUP_NAME>/topic2`. 
+If the instance count in the [data flow profile](howto-configure-dataflow-profile.md) is greater than one, shared subscription is automatically enabled for all data flows that use a message broker source. In this case, the `$shared` prefix is added and the shared subscription group name automatically generated. For example, if you have a data flow profile with an instance count of 3, and your data flow uses a message broker endpoint as source configured with topics `topic1` and `topic2`, they're automatically converted to shared subscriptions as `$shared/<GENERATED_GROUP_NAME>/topic1` and `$shared/<GENERATED_GROUP_NAME>/topic2`. 
 
 You can explicitly create a topic named `$shared/mygroup/topic` in your configuration. However, adding the `$shared` topic explicitly isn't recommended since the `$shared` prefix is automatically added when needed. Data flows can make optimizations with the group name if it isn't set. For example, `$share` isn't set and data flows only has to operate over the topic name.
 
 > [!IMPORTANT]
-> Data flows requiring shared subscription when instance count is greater than one is important when using Event Grid MQTT broker as a source since it [doesn't support shared subscriptions](../../event-grid/mqtt-support.md#mqttv5-current-limitations). To avoid missing messages, set the data flow profile instance count to one when using Event Grid MQTT broker as the source. That is when the data flow is the subscriber and receiving messages from the cloud.
+> Data flows requiring shared subscription when instance count is greater than one is important when using Event Grid MQTT broker as a source since it [doesn't support shared subscriptions](../../event-grid/mqtt-support.md#mqtt-v5-current-limitations). To avoid missing messages, set the data flow profile instance count to one when using Event Grid MQTT broker as the source. That is when the data flow is the subscriber and receiving messages from the cloud.
 
 #### Kafka topics
 
-When the source is a Kafka (Event Hubs included) endpoint, specify the individual Kafka topics to subscribe to for incoming messages. Wildcards are not supported, so you must specify each topic statically.
+When the source is a Kafka (Event Hubs included) endpoint, specify the individual Kafka topics to subscribe to for incoming messages. Wildcards aren't supported, so you must specify each topic statically.
 
 > [!NOTE]
 > When using Event Hubs via the Kafka endpoint, each individual event hub within the namespace is the Kafka topic. For example, if you have an Event Hubs namespace with two event hubs, `thermostats` and `humidifiers`, you can specify each event hub as a Kafka topic.
@@ -629,7 +631,7 @@ In operations experience data flow **Source details**, select **Message broker**
 
 # [Bicep](#tab/bicep)
 
-Once you have used the [schema registry to store the schema](concept-schema-registry.md), you can reference it in the data flow configuration.
+Once you use the [schema registry to store the schema](concept-schema-registry.md), you can reference it in the data flow configuration.
 
 ```bicep
 sourceSettings: {
@@ -640,7 +642,7 @@ sourceSettings: {
 
 # [Kubernetes (preview)](#tab/kubernetes)
 
-Once you have used the [schema registry to store the schema](concept-schema-registry.md), you can reference it in the data flow configuration.
+Once you use the [schema registry to store the schema](concept-schema-registry.md), you can reference it in the data flow configuration.
 
 ```yaml
 sourceSettings:
@@ -651,6 +653,79 @@ sourceSettings:
 ---
 
 To learn more, see [Understand message schemas](concept-schema-registry.md).
+
+## Request disk persistence (preview)
+
+Request disk persistence lets data flows keep state across restarts. When you enable this feature, the graph recovers processing state if the connected broker restarts. This feature is useful for stateful processing scenarios where losing intermediate data is a problem. When you enable request disk persistence, the broker persists the MQTT data, like messages in the subscriber queue, to disk. This approach makes sure your data flow's data source doesn't lose data during power outages or broker restarts. The broker maintains optimal performance because persistence is configured per data flow, so only the data flows that need persistence use this feature.
+
+The data flow graph requests this persistence during subscription by using an MQTTv5 user property. This feature works only when:
+
+- The data flow uses the MQTT broker or asset as the source
+- The MQTT broker has persistence enabled with dynamic persistence mode set to `Enabled` for the data type, like subscriber queues
+
+This configuration lets MQTT clients like data flows request disk persistence for their subscriptions by using MQTTv5 user properties. For details about MQTT broker persistence configuration, see [Configure MQTT broker persistence](../manage-mqtt-broker/howto-broker-persistence.md).
+
+The setting accepts `Enabled` or `Disabled`. `Disabled` is the default.
+
+# [Operations experience](#tab/portal)
+
+When you create or edit a data flow, select **Edit**, and then select **Yes** next to **Request data persistence**.
+
+# [Azure CLI](#tab/cli)
+
+Add the `requestDiskPersistence` property to your data flow configuration file:
+
+```json
+{
+    "mode": "Enabled",
+    "requestDiskPersistence": "Enabled",
+    "operations": [
+        // ... your data flow operations
+    ]
+}
+```
+
+# [Bicep](#tab/bicep)
+
+Add the `requestDiskPersistence` property to your data flow resource. The API version is `2025-07-01-preview` or later:
+
+```bicep
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2025-07-01-preview' = {
+  parent: defaultDataflowProfile
+  name: dataflowName
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    mode: 'Enabled'
+    requestDiskPersistence: 'Enabled'
+    operations: [
+      // ... your data flow operations
+    ]
+  }
+}
+```
+
+# [Kubernetes (preview)](#tab/kubernetes)
+
+Add the `requestDiskPersistence` property to your data flow spec. The API version is `connectivity.iotoperations.azure.com/v1beta1` or later:
+
+```yaml
+apiVersion: connectivity.iotoperations.azure.com/v1beta1
+kind: Dataflow
+metadata:
+  name: <DATAFLOW_NAME>
+  namespace: azure-iot-operations
+spec:
+  profileRef: default 
+  mode: Enabled
+  requestDiskPersistence: Enabled
+  operations:
+    # ... your data flow operations
+```
+
+---
 
 ## Transformation
 
@@ -720,7 +795,7 @@ builtInTransformationSettings:
 
 ### Enrich: Add reference data
 
-To enrich the data, first add reference dataset in the Azure IoT Operations [state store](../create-edge-apps/overview-state-store.md). The dataset is used to add extra data to the source data based on a condition. The condition is specified as a field in the source data that matches a field in the dataset.
+To enrich the data, first add reference dataset in the Azure IoT Operations [state store](../develop-edge-apps/overview-state-store.md). The dataset is used to add extra data to the source data based on a condition. The condition is specified as a field in the source data that matches a field in the dataset.
 
 You can load sample data into the state store by using the [state store CLI](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tools/statestore-cli). Key names in the state store correspond to a dataset in the data flow configuration.
 
@@ -1289,7 +1364,7 @@ Similar to data sources, data destination is a concept that is used to keep the 
 
 | Endpoint type | Data destination meaning | Description |
 | - | - | - |
-| MQTT (or Event Grid) | Topic | The MQTT topic where the data is sent. Only static topics are supported, no wildcards. |
+| MQTT (or Event Grid) | Topic | The MQTT topic where the data is sent. Supports both static topics and dynamic topic translation using variables like `${inputTopic}` and `${inputTopic.index}`. For more information, see [Dynamic destination topics](#dynamic-destination-topics). |
 | Kafka (or Event Hubs) | Topic | The Kafka topic where the data is sent. Only static topics are supported, no wildcards. If the endpoint is an Event Hubs namespace, the data destination is the individual event hub within the namespace. |
 | Azure Data Lake Storage | Container | The container in the storage account. Not the table. |
 | Microsoft Fabric OneLake | Table or Folder | Corresponds to the configured [path type for the endpoint](howto-configure-fabric-endpoint.md#onelake-path-type). |
@@ -1335,6 +1410,18 @@ Or, if you have custom event hub endpoint, the configuration would look like:
   }
 }
 ```
+
+For MQTT endpoints, you can also use dynamic topic variables. For example, to route messages from `factory/1/data` to `processed/factory/1`:
+
+```json
+{
+  "destinationSettings": {
+    "endpointRef": "default",
+    "dataDestination": "processed/factory/${inputTopic.2}"
+  }
+}
+```
+
 # [Bicep](#tab/bicep)
 
 The syntax is the same for all data flow endpoints:
@@ -1373,6 +1460,15 @@ destinationSettings: {
 }
 ```
 
+For MQTT endpoints, you can also use dynamic topic variables:
+
+```bicep
+destinationSettings: {
+  endpointRef: 'default'
+  dataDestination: 'processed/factory/${inputTopic.2}'
+}
+```
+
 # [Kubernetes (preview)](#tab/kubernetes)
 
 The syntax is the same for all data flow endpoints:
@@ -1407,7 +1503,29 @@ destinationSettings:
   dataDestination: my-container
 ```
 
+For MQTT endpoints, you can also use dynamic topic variables:
+
+```yaml
+destinationSettings:
+  endpointRef: default
+  dataDestination: processed/factory/${inputTopic.2}
+```
+
 ---
+
+### Dynamic destination topics
+
+For MQTT endpoints, you can use dynamic topic variables in the `dataDestination` field to route messages based on the source topic structure. The following variables are available:
+
+- `${inputTopic}` - The full original input topic
+- `${inputTopic.index}` - A segment of the input topic (index starts at 1)
+
+For example, `processed/factory/${inputTopic.2}` routes messages from `factory/1/data` to `processed/factory/1`. Topic segments are 1-indexed, and leading/trailing slashes are ignored.
+
+If a topic variable cannot be resolved (for example, `${inputTopic.5}` when the input topic only has three segments), the message is dropped and a warning is logged. Wildcard characters (`#` and `+`) aren't allowed in destination topics.
+
+> [!NOTE]
+> The characters `$`, `{`, and `}` are valid in MQTT topic names, so a topic like `factory/$inputTopic.2` is acceptable but incorrect if you intended to use the dynamic topic variable.
 
 ## Example
 
@@ -1501,6 +1619,35 @@ Here's an example command to create or update a data flow using the default data
 ```azurecli
 az iot ops dataflow apply --resource-group myResourceGroup --instance myAioInstance --profile default --name data-flow --config-file ~/data-flow.json
 ```
+
+Here's another example using dynamic topic translation to route messages from different thermostats to device-specific topics:
+
+```json
+{
+    "mode": "Enabled",
+    "operations": [
+      {
+        "operationType": "Source",
+        "sourceSettings": {
+          "dataSources": [
+            "thermostats/+/sensor/temperature"
+          ],
+          "endpointRef": "default",
+          "serializationFormat": "Json"
+        }
+      },
+      {
+        "destinationSettings": {
+          "dataDestination": "processed/device/${inputTopic.2}/temperature",
+          "endpointRef": "default"
+        },
+        "operationType": "Destination"
+      }
+    ]
+}
+```
+
+This configuration processes messages from `thermostats/device1/sensor/temperature` and sends them to `processed/device/device1/temperature`.
 
 # [Bicep](#tab/bicep)
 
@@ -1712,6 +1859,7 @@ To ensure the data flow is working as expected, verify the following:
 - When using Event Hubs as the source, each event hub in the namespace is a separate Kafka topic and must be specified as the data source.
 - Transformation, if used, is configured with proper syntax, including proper [escaping of special characters](./concept-dataflow-mapping.md#escaping).
 - When using storage type endpoints as destination, a [schema is specified](#serialize-data-according-to-a-schema).
+- When using dynamic destination topics for MQTT endpoints, ensure that topic variables reference valid segments.
 
 ## Next steps
 

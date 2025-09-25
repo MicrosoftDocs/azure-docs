@@ -10,6 +10,7 @@ ms.topic: overview
 ms.date: 03/28/2023
 ms.author: akashdubey
 ms.custom: engagement-fy23
+# Customer intent: As a data engineer, I want to understand how to effectively utilize Blob Storage, so that I can store and manage large volumes of unstructured data efficiently while ensuring high availability and scalability.
 ---
 
 # Introduction to Azure Blob Storage

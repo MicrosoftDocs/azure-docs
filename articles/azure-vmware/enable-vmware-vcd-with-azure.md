@@ -5,6 +5,7 @@ ms.topic: how-to
 author: rdutt
 ms.service: azure-vmware
 ms.date: 4/07/2025
+# Customer intent: "As an enterprise IT administrator, I want to install and configure VMware Cloud Director on Azure VMware Solution so that I can effectively manage resources for secure, multi-tenant virtual datacenters."
 ---
 
 # Install VMware Cloud Director with Azure VMware Solution

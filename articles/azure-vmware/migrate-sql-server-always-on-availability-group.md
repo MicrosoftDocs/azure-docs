@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 01/08/2025
 ms.custom: engagement-fy23
+# Customer intent: As a database administrator, I want to migrate an SQL Server Always On Availability Group to Azure VMware Solution, so that I can leverage the cloud for better scalability and reliability while minimizing downtime during the transition.
 ---
 # Migrate a SQL Server Always On Availability Group to Azure VMware Solution
 

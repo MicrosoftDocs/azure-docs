@@ -3,8 +3,9 @@ title: Introduction
 description: Learn the features and benefits of Azure VMware Solution to deploy and manage VMware-based workloads in Azure.
 ms.topic: overview
 ms.service: azure-vmware
-ms.date: 4/24/2025
+ms.date: 8/14/2025
 ms.custom: engagement-fy23
+# Customer intent: As a cloud architect, I want to deploy and manage VMware-based workloads in Azure using a dedicated private cloud solution, so that I can leverage Azure's infrastructure while maintaining VMware compatibility and maximizing operational efficiency.
 ---
 
 # What is Azure VMware Solution?
@@ -33,7 +34,7 @@ You can deploy new or scale existing private clouds through the Azure portal or 
 
 ## Azure VMware Solution private cloud extension with AV64 node size
 
-The AV64 is an Azure VMware Solution host SKU, which is available to expand the Azure VMware Solution private cloud built with the existing AV36, AV36P, or AV52 SKU. If you want to deploy AV64 directly, refer to [Azure VMWare Solution in an Azure Virtual Network](native-introduction.md). Use the [Microsoft documentation](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware) to check for availability of the AV64 SKU in the region. 
+The AV64 is an Azure VMware Solution host SKU, which is available to expand the Azure VMware Solution private cloud built with the existing AV36, AV36P, or AV52 SKU. If you want to deploy AV64 directly, refer to [Azure VMware Solution Generation 2](native-introduction.md). Use the [Microsoft documentation](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware) to check for availability of the AV64 SKU in the region. 
 
 :::image type="content" source="media/introduction/av64-mixed-sku-topology.png" alt-text="Diagram showing Azure VMware Solution private cloud with AV64 SKU in mixed SKU configuration." border="false" lightbox="media/introduction/av64-mixed-sku-topology.png":::
 
@@ -137,7 +138,7 @@ Azure VMware Solution doesn't store customer data.
 
 ## Host and software lifecycle maintenance
 
-Regular upgrades of the Azure VMware Solution private cloud and VMware software ensure the latest security, stability, and feature sets are running in your private clouds. For more information, see [Host maintenance and lifecycle management](azure-vmware-solution-host-remediation.md#host-maintenance-and-lifecycle-management).
+Regular upgrades of the Azure VMware Solution private cloud and VMware software ensure the latest security, stability, and feature sets are running in your private clouds. For more information, see [Host maintenance and lifecycle management](azure-vmware-solution-private-cloud-maintenance-best-practices.md#host-maintenance-and-lifecycle-management).
 
 ## Monitoring your private cloud
 

@@ -4,11 +4,13 @@ description: Learn about the built-in authentication and authorization support i
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: conceptual
 ms.date: 03/28/2025
+ms.update-cycle: 1095-days
 ms.reviewer: mahender
 ms.custom: UpdateFrequency3, fasttrack-edit, AppServiceIdentity
 author: cephalin
 ms.author: cephalin
 #customer intent: As an app developer, I want to user Easy Auth to simplify authentication and authorization for my apps in Azure App Service.
+ms.service: azure-app-service
 ---
 # Authentication and authorization in Azure App Service and Azure Functions
 
@@ -128,9 +130,6 @@ In the [Azure portal](https://portal.azure.com), you can configure App Service w
 
   > [!NOTE]
   > When using the Microsoft identity provider for users in your organization, the default behavior is that any user in your Microsoft Entra tenant can request a token for your application. You can [configure the application in Microsoft Entra](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) if you want to restrict access to your app to a defined set of users. App Service also offers some [basic built-in authorization checks](.\configure-authentication-provider-aad.md#authorize-requests) which can help with some validations. To learn more about authorization in Microsoft Entra, see [Microsoft Entra authorization basics](../active-directory/develop/authorization-basics.md).
-
-
-When you're using the Microsoft identity provider for users in your organization, the default behavior is that any user in your Microsoft Entra tenant can request a token for your application. You can [configure the application in Microsoft Entra](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) if you want to restrict access to your app to a defined set of users. App Service also offers some [basic built-in authorization checks](.\configure-authentication-provider-aad.md#authorize-requests) that can help with some validations. To learn more about authorization in Microsoft Entra, see [Microsoft Entra authorization basics](../active-directory/develop/authorization-basics.md).
 
 #### Unauthenticated requests
 

@@ -6,6 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.date: 05/15/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Load data into Azure Data Lake Storage Gen1 by using Azure Data Factory

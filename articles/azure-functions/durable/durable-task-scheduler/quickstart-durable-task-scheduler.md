@@ -50,7 +50,7 @@ If you don't meet these prerequisites, we recommend that you begin with one of t
 
 You also need:
 - [Docker](https://docs.docker.com/engine/install/) installed to run the Durable Task Scheduler emulator. 
-- [Azurite](../../../storage/common/storage-use-azurite.md#run-azurite) installed.
+- [Azurite](../../../storage/common/storage-install-azurite.md#install-azurite) installed.
 - An [HTTP test tool](../../functions-develop-local.md#http-test-tools) that keeps your data secure.
 
 ## Add the Durable Task Scheduler package

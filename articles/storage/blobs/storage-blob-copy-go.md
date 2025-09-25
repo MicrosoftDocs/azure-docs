@@ -3,14 +3,15 @@ title: Copy a blob with Go
 titleSuffix: Azure Storage
 description: Learn how to copy a blob in Azure Storage by using the Go client library.
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.date: 08/05/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
+# Customer intent: "As a developer using the Go client library, I want to learn how to copy blobs within Azure Storage, so that I can efficiently manage and migrate data in my applications."
 ---
 
 # Copy a blob with Go
@@ -42,3 +43,4 @@ For page blobs, you can use the [Put Page From URL](/rest/api/storageservices/pu
 - [Client module reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#section-readme)
 - [Client module source code](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob)
 - [Package (pkg.go.dev)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob)
+

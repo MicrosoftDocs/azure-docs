@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 12/18/2023
 ms.custom: references_regions, engagement-fy23
+# Customer intent: As a system administrator, I want to remove Arc-enabled Azure VMware Solution vSphere resources from Azure, so that I can discontinue management and eliminate unnecessary costs associated with Azure services.
 ---
 
 # Remove Arc-enabled Azure VMware Solution vSphere resources from Azure

@@ -12,6 +12,7 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 12/16/2022
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
+# Customer intent: "As an SAP system administrator, I want to implement Azure VM restart for my SAP applications, so that I can enhance the infrastructure availability and indirectly support higher availability of critical components during planned or unplanned downtimes."
 ---
 
 # Utilize Azure infrastructure VM restart to achieve “higher availability” of an SAP system

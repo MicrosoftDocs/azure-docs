@@ -1,12 +1,15 @@
 ---
-title: Configure Azure App Service & Functions for Microsoft account login
+title: Configure Azure App Service & Functions for Microsoft Account Login
 description: Learn how to configure Microsoft Account authentication as an identity provider for your App Service or Azure Functions app.
 ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/29/2021
 ms.custom: fasttrack-edit, AppServiceIdentity
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
+# customer intent: As a developer, I want to configure Microsoft Account authentication so that I can use it as an identity provider for App Service and Azure Functions apps. 
+  
 ---
 
 # Configure your App Service or Azure Functions app to use Microsoft Account login
@@ -19,6 +22,8 @@ This topic shows you how to configure Azure App Service or Azure Functions to us
 > While the Microsoft Account provider is still supported, it is recommended that apps instead use the [Microsoft identity platform provider (Microsoft Entra ID)](./configure-authentication-provider-aad.md). The Microsoft identity platform offers support for both organizational accounts and personal Microsoft accounts.
 
 ## <a name="register-microsoft-account"> </a>Register your app with Microsoft Account
+
+To register your app with Microsoft Account: 
 
 1. Go to [**App registrations**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) in the Azure portal. If needed, sign in with your Microsoft account.
 1. Select **New registration**, then enter an application name.
@@ -34,6 +39,8 @@ This topic shows you how to configure Azure App Service or Azure Functions to us
     > The client secret value (password) is an important security credential. Do not share the password with anyone or distribute it within a client application.
 
 ## <a name="secrets"> </a>Add Microsoft Account information to your App Service application
+
+To add Microsoft Account information to your App Service application: 
 
 1. Go to your application in the [Azure portal].
 1. Select **Settings** > **Authentication / Authorization**, and make sure that **App Service Authentication** is **On**.
@@ -51,7 +58,7 @@ This topic shows you how to configure Azure App Service or Azure Functions to us
 
 You are now ready to use Microsoft Account for authentication in your app.
 
-## <a name="related-content"> </a>Next steps
+## <a name="related-content"> </a>Related content
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 

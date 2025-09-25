@@ -28,7 +28,7 @@ For more information about Azure Cache for Redis triggers and bindings, [Redis E
 >
 
 > [!IMPORTANT]
-> Redis triggers aren't currently supported for functions running in the [Consumption plan](consumption-plan.md).
+> Redis triggers aren't currently supported for functions running on a [Consumption plan](consumption-plan.md) or a [Flex Consumption plan](flex-consumption-plan.md).
 >
 
 ::: zone pivot="programming-language-javascript"  
@@ -329,4 +329,4 @@ The `RedisListTrigger` pops new elements from a list and surfaces those entries 
 - [Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis](/azure/redis/tutorial-functions-getting-started)
 - [Tutorial: Create a write-behind cache by using Azure Functions and Azure Cache for Redis](/azure/redis/tutorial-write-behind)
 - [Redis connection string](functions-bindings-cache.md#redis-connection-string)
-- [Redis lists](https://redis.io/docs/data-types/lists/)
+- [Redis lists](https://redis.io/docs/latest/operate/rs/databases/active-active/develop/data-types/lists/)

@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: haroldcampos, azla
 ms.topic: how-to
 ms.date: 01/04/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Access and manage IBM DB2 resources by using Azure Logic Apps

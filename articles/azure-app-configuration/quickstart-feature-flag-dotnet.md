@@ -22,7 +22,7 @@ The .NET Feature Management libraries extend the framework with feature flag sup
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - [Visual Studio](https://visualstudio.microsoft.com/downloads)
 - [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download) for .NET console app.
 - [.NET Framework 4.7.2 or later](https://dotnet.microsoft.com/download/dotnet-framework) for .NET Framework console app.

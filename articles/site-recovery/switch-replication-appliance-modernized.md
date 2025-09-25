@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.date: 07/08/2024
 ms.author: jsuri
 author: jyothisuri
+# Customer intent: "As a cloud administrator managing VMware VMs, I want to switch replication appliances in Azure Site Recovery, so that I can enhance resiliency and load balance my replication processes seamlessly."
 ---
 
 # Switch Azure Site Recovery replication appliance

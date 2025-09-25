@@ -4,7 +4,7 @@ description: Learn about how to use Azure Role-Based Access Control for firmware
 author: karengu0
 ms.author: karenguo
 ms.topic: conceptual
-ms.date: 02/07/2025
+ms.date: 09/12/2025
 ms.service: azure
 ---
 
@@ -17,7 +17,7 @@ Roles are a collection of permissions packaged together. There are two types of 
 * **Job function roles** give users permission to perform specific job functions or tasks, such as **Key Vault Contributor** or **Azure Kubernetes Service Cluster Monitoring User**. 
 * **Privileged administrator roles** give elevated access privileges, such as **Owner**, **Contributor**, or **User Access Administrator**. To learn more about roles, visit [Azure built-in roles](./../role-based-access-control/built-in-roles.md).
 
-In firmware analysis, the most common roles are Owner, Contributor, Security Admin, and Firmware Analysis Admin. Learn more about [which roles you need for different permissions](./firmware-analysis-rbac.md#firmware-analysis-roles-scopes-and-capabilities), such as uploading firmware images or sharing firmware analysis results.
+In firmware analysis, the most common roles are Owner, Contributor, Security Admin, Firmware Analysis Admin, Firmware Analysis User, and Firmware Analysis Reader. Learn more about [which roles you need for different permissions](./firmware-analysis-rbac.md#firmware-analysis-roles-scopes-and-capabilities), such as uploading firmware images or sharing firmware analysis results.
 
 ## Understanding the Representation of Firmware Images in the Azure Resource Hierarchy
 Azure organizes resources into resource hierarchies, which are in a top-down structure, and you can assign roles at each level of the hierarchy. The level at which you assign a role is the "scope," and lower scopes may inherit roles assigned at higher scopes. Learn more about the [levels of hierarchy and how to organize your resources in the hierarchy](/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources).
@@ -55,7 +55,9 @@ This table categorizes each role and provides a brief description of their permi
 **Owner** | Privileged administrator role | Grants full access to manage all resources, including the ability to assign roles in Azure RBAC.
 **Contributor** | Privileged administrator role | Grants full access to manage all resources, but doesn't allow you to assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries.
 **Security Admin** | Job function role | Allows the user to upload and analyze firmware images, add/assign security initiatives, and edit the security policy. [Learn more](/azure/defender-for-cloud/permissions).
-**Firmware Analysis Admin** | Job function role | Allows the user to upload and analyze firmware images. The user has no access beyond firmware analysis (can't access other resources in the subscription, create or delete resources, or invite other users).
+**Firmware Analysis Admin** | Job function role | Allows the user to upload and analyze firmware images. The user can perform workspace configuration, such as creating and deleting workspaces. The user has no access beyond firmware analysis (can't access other resource groups in the subscription, create or delete resource groups, or invite other users).
+**Firmware Analysis User** | Job function role | Allows the user to upload and analyze firmware images, and view analysis results. The user cannot perform workspace configuration. The user also has no access beyond firmware analysis (can't access other resource groups in the subscription, create or delete resource groups, or invite other users).
+**Firmware Analysis Reader** | Job function role | Allows the user to view and download firmware image results but not upload firmware images or perform any workspace configurations. The user also has no access beyond firmware analysis (can't access other resource groups in the subscription, create or delete resource groups, or invite other users).
 
 ## Firmware analysis roles, scopes, and capabilities
 
@@ -63,9 +65,10 @@ The following table summarizes what roles you need to perform certain actions. T
 
 **Action** | **Role required**
 :---|:---
-Analyze firmware | Owner, Contributor, Security Admin, or Firmware Analysis Admin
+Upload and analyze firmware | Owner, Contributor, Security Admin, Firmware Analysis Admin, Firmware Analysis User 
 Invite third party users to see firmware analysis results | Owner
 Invite users to the Subscription | Owner at the **Subscription** level (Owner at the Resource Group level **cannot** invite users to the Subscription)
+View firmware analysis results | Owner, Contributor, Security Admin, Firmware Analysis Admin, Firmware Analysis User, Firmware Analysis Reader
 
 ## Uploading Firmware images
 To upload firmware images:
@@ -74,12 +77,12 @@ To upload firmware images:
 * [Upload a firmware image for analysis](./tutorial-analyze-firmware.md#upload-a-firmware-image-for-analysis).
 
 ## Invite third parties to interact with your firmware analysis results
-You might want to invite someone to interact solely with your firmware analysis results, without allowing access to other parts of your organization (like other resource groups within your subscription). To allow this type of access, invite the user as a Firmware Analysis Admin at the Resource Group or Workspace level.
+You might want to invite someone to interact solely with your firmware analysis results, without allowing access to other parts of your organization (like other resource groups within your subscription). To allow this type of access, invite the user as a Firmware Analysis Reader at the Resource Group or Workspace level.
 
 To invite a third party, you must first invite them to your directory. To do this, follow the [Assign Azure roles to external guest users using the Azure portal](./../role-based-access-control/role-assignments-external-users.md#invite-an-external-user-to-your-directory) tutorial.
 
 * In step 3, navigate to your resource group.
-* In step 7, select the **Firmware Analysis Admin** role.
+* In step 7, select the **Firmware Analysis Reader** role.
 
 > [!Note]
 > If you received an email to join an organization, be sure to check your Junk folder for the invitation email if you don't see it in your inbox. 

@@ -8,6 +8,7 @@ ms.date: 01/20/2022
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: creator
+ms.custom: sfi-image-nochange
 ---
 
 # Manage Azure Maps Creator

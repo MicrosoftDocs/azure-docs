@@ -6,7 +6,11 @@ ms.topic: how-to
 ms.date: 07/08/2024
 ms.author: jsuri
 author: jyothisuri
-ms.custom: engagement-fy23, linux-related-content
+ms.custom:
+  - engagement-fy23
+  - linux-related-content
+  - sfi-image-nochange
+# Customer intent: "As an IT administrator, I want to set up disaster recovery for on-premises physical servers to Azure, so that I can ensure business continuity and protect critical applications during unforeseen outages."
 ---
 # Set up disaster recovery to Azure for on-premises physical servers
 

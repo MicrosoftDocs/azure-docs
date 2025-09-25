@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Container Apps
-description: Learn how to ensure application reliability in Azure Container Apps
+description: Learn how to improve reliability in Azure Container Apps by using availability zones and zone redundancy. Follow configuration steps for high availability and SLA.
 services: container-apps
 author: craigshoemaker
 ms.author: cshoe
@@ -12,7 +12,7 @@ ms.date: 10/23/2023
 
 # Reliability in Azure Container Apps
 
-This article describes reliability support in [Azure Container Apps](/azure/container-apps/overview), and covers both regional resiliency with availability zones and cross-region resiliency with disaster recovery. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/well-architected/resiliency/).
+This article describes reliability support in [Azure Container Apps](/azure/container-apps/overview), including Container Apps environment configuration with replicas and load balancing. It covers how to use availability zones and zone redundancy to improve application uptime and meet SLA requirements. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/well-architected/resiliency/).
 
 ## Availability zone support
 
@@ -69,7 +69,7 @@ Create a virtual network and infrastructure subnet to include with the Container
 When using these commands, replace the `<PLACEHOLDERS>` with your values.
 
 >[!NOTE]
-> The Consumption only environment requires a dedicated subnet with a CIDR range of `/23` or larger. The workload profiles environment requires a dedicated subnet with a CIDR range of `/27` or larger. To learn more about subnet sizing, see the [networking architecture overview](../container-apps/networking.md#subnet).
+> The Consumption only environment requires a dedicated subnet with a CIDR range of `/23` or larger. The workload profiles environment requires a dedicated subnet with a CIDR range of `/27` or larger. To learn more about subnet sizing, see the [networking architecture overview](../container-apps/custom-virtual-networks.md#subnet).
 
 # [Azure CLI](#tab/azure-cli)
 

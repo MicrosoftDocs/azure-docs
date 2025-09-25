@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 04/21/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Navigate around the designer for Standard workflows in single-tenant Azure Logic Apps

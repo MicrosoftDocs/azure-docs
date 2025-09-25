@@ -9,8 +9,9 @@ ms.custom:
   - devx-track-arm-template
   - build-2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a cloud administrator, I want to utilize Azure Resource Manager and Bicep templates for Azure Backup configurations, so that I can efficiently manage and automate backup operations for various Azure resources.
 ---
 # Azure Resource Manager and Bicep files for Azure Backup
 

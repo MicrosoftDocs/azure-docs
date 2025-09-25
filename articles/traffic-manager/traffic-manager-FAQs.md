@@ -5,7 +5,7 @@ services: traffic-manager
 author: asudbring
 ms.service: azure-traffic-manager
 ms.topic: concept-article
-ms.date: 01/28/2025
+ms.date: 06/25/2025
 ms.author: allensu
 # Customer intent: As a Cloud Architect, I want to understand Azure Traffic Manager functionalities and limitations, so that I can effectively implement it for DNS-based traffic routing and ensure optimal performance of my distributed applications.
 ---
@@ -103,6 +103,36 @@ To avoid service disruptions, resources that interact with Traffic Manager must 
 - If resources still have a dependency on TLS 1.0 or 1.1, transition them to TLS 1.2 or later by February 28, 2025. 
 
 For information about migrating from TLS 1.0 and 1.1 to TLS 1.2, see [Solving the TLS 1.0 Problem](/security/engineering/solving-tls1-problem).
+
+### What TLS cipher suites are supported by Azure Traffic Manager?
+
+Azure Traffic Manager supports modern TLS cipher suites for TLS 1.2 and TLS 1.3 to ensure secure communications. The following cipher suites are supported:
+
+**TLS 1.3 Cipher Suites**
+
+These are associated with **Protocol 772** (which corresponds to TLS 1.3):
+
+| Cipher Suite | Protocol |
+|--------------|----------|
+| TLS_AES_256_GCM_SHA384 | 772 |
+| TLS_AES_128_GCM_SHA256 | 772 |
+
+**TLS 1.2 Cipher Suites**
+
+These are associated with **Protocol 771** (TLS 1.2) and/or 65277 (used by some systems as an internal/custom code for TLS 1.2):
+
+| Cipher Suite | Protocols |
+|--------------|-----------|
+| TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 | 771, 65277 |
+| TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 | 771, 65277 |
+| TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 | 771, 65277 |
+| TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 | 771, 65277 |
+| TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 | 771, 65277 |
+| TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 | 771, 65277 |
+| TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 | 771, 65277 |
+| TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 | 771, 65277 |
+
+These cipher suites provide strong encryption and are compliant with modern security standards. Traffic Manager automatically negotiates the best available cipher suite during the TLS handshake process.
 
 ## Traffic Manager Geographic traffic routing method
 
@@ -515,6 +545,20 @@ The number of Traffic Manager health checks reaching your endpoint depends on th
 ### How can I get notified if one of my endpoints goes down?
 
 One of the metrics provided by Traffic Manager is the health status of endpoints in a profile. You can see this as an aggregate of all endpoints inside a profile (for example, 75% of your endpoints are healthy), or, at a per endpoint level. Traffic Manager metrics are exposed through Azure Monitor and you can use its [alerting capabilities](/azure/azure-monitor/alerts/alerts-metric) to get notifications when there's a change in the health status of your endpoint. For more information, see [Traffic Manager metrics and alerts](traffic-manager-metrics-alerts.md). 
+
+### How do I setup Firewall rules to allow Health Checks
+
+Azure Traffic Manager relies on health probes to monitor endpoint availability and performance. For probes to succeed, endpoints must be reachable, and any firewalls or access control lists (ACLs) in the path must allow traffic from all Traffic Manager IP addresses. If probe IP addresses are not allowed, health checks may fail. Endpoints marked as unhealthy can cause unexpected traffic rerouting or downtime.
+
+**Option 1: Use Service Tags (recommended)**
+The recommended approach is to use the **AzureTrafficManager** Service Tag in NSGs, or Azure Firewall. Service Tags automatically include the latest IP ranges and don’t require manual updates.
+* [Use Service Tags with NSGs](/azure/virtual-network/service-tags-overview#use-service-tags-in-network-security-groups)
+* [Use Service Tags with Azure Firewall](/azure/firewall/service-tags)
+
+**Option 2: Manually update firewall rules**
+If Service Tags cannot be used (for example, with custom firewall appliances or in non-Azure environments), update ACLs or firewall rules to allow the latest Azure Traffic Manager IPs.
+* The full list of IP addresses is published in the [Azure IP Ranges and Service Tags – Public Cloud JSON file](https://www.microsoft.com/download/details.aspx?id=56519).
+* Periodically refresh rules to ensure the most up-to-date IP addresses are included.
 
 ## Traffic Manager nested profiles
 

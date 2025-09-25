@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 12/4/2024
 ms.custom: references_regions, engagement-fy23 
+# Customer intent: As a cloud administrator, I want to deploy a vSAN stretched cluster on Azure VMware Solution, so that I can ensure high availability and disaster recovery across multiple availability zones.
 ---
 
 # Deploy vSAN stretched clusters

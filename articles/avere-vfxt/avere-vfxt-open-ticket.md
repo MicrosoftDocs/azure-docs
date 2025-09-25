@@ -6,6 +6,7 @@ ms.service: azure-avere-vfxt
 ms.topic: concept-article
 ms.date: 01/13/2020
 ms.author: rohogue
+# Customer intent: "As a system administrator using Avere vFXT for Azure, I want to submit a support ticket through the Azure portal, so that I can resolve deployment and operational issues efficiently."
 ---
 
 # Get help with your system

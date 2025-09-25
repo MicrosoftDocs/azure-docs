@@ -7,6 +7,7 @@ ms.date: 09/13/2022
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
+ms.custom: sfi-image-nochange
 ---
 
 # Monitor workload - Azure portal

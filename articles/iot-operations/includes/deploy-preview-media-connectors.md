@@ -1,44 +1,42 @@
 ---
-title: include file
-description: include file
+title: Include file
+description: Include file
 author: dominicbetts
 ms.topic: include
-ms.date: 04/03/2025
+ms.date: 07/25/2025
 ms.author: dobett
 ---
 
-To deploy the preview version of the connectors, you can either enable them when you deploy your Azure IoT Operations instance or enable them after you deploy your instance.
+When you deploy the preview version of Azure IoT Operations, the deployment includes the three preview connectors. You can verify that you have a preview instance of Azure IoT Operations by checking in the Azure portal that preview features are enabled for your instance:
 
-To enable the preview connectors when you deploy your Azure IoT Operations instance:
+:::image type="content" source="media/deploy-preview-media-connectors/portal-enable-preview-connectors.png" alt-text="Screenshot of Azure portal that shows that preview features are enabled." lightbox="media/deploy-preview-media-connectors/portal-enable-preview-connectors.png":::
 
-# [Azure portal](#tab/portal)
+Before you can use the preview connectors (ONVIF, media, and REST/HTTP) in the operations experience web UI, an administrator must add connector template instances to your Azure IoT Operations instance.
 
-Select **ONVIF Connector and Media Connector (Preview)** in the **Connectors** section of the **Install Azure IoT Operations > Basics** page:
+All three preview connectors can publish captured data to the MQTT broker. The media connector can also save captured data to storage. Azure IoT Operations uses [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview) to transfer the captured data to cloud storage destinations such as Azure Blob Storage. When you configure a connector template instance, you specify a _persistent volume claim_ and _mount path_ for the connector to use to save captured data. To learn how to create a suitable persistent volume claim, see [Cloud Ingest Edge Volumes configuration](/azure/azure-arc/container-storage/cloud-ingest-edge-volume-configuration).
 
-:::image type="content" source="media/deploy-preview-media-connectors/portal-deploy-preview-connectors.png" alt-text="Screenshot of Azure portal that shows how to select the preview connectors.":::
+To add a connector template instance to your Azure IoT Operations instance:
 
-# [Azure CLI](#tab/cli)
+1. In the Azure portal, go to your Azure IoT Operations instance, select **Connector templates**, and then select **Add connector template instances**:
 
-Include the `--feature connectors.settings.preview=Enabled` parameter when you run the `az iot ops create` command.
+    :::image type="content" source="media/deploy-preview-media-connectors/portal-add-connector-template.png" alt-text="Screenshot of Azure portal that shows how to add a connector template instance." lightbox="media/deploy-preview-media-connectors/portal-add-connector-template.png":::
 
----
+1. On the first page of the **Add an Akri connector template** wizard, select the type of connector template you want to add, such as **ONVIF**, **Media**, or **HTTP REST**. Then select **Metadata**.
 
-To enable the preview connectors after you deploy your Azure IoT Operations instance:
+    :::image type="content" source="media/deploy-preview-media-connectors/select-connector-template-type.png" alt-text="Screenshot of Azure portal that shows how to select the connector template instance type." lightbox="media/deploy-preview-media-connectors/select-connector-template-type.png":::
 
-# [Azure portal](#tab/portal)
+1. On the **Metadata** page, accept the defaults, and then select **Device inbound endpoint type**.
 
-1. Go to your Azure IoT Operations instance in the Azure portal.
+1. On the **Device inbound endpoint type** page, accept the defaults, and then select **Diagnostics configurations**.
 
-1. Enable the preview connectors:
+1. On the **Diagnostics configurations** page, accept the defaults, and then select **Runtime configuration**.
 
-  :::image type="content" source="media/deploy-preview-media-connectors/portal-enable-preview-connectors.png" alt-text="Screenshot of Azure portal that shows how to enable the preview connectors.":::
+1. On the **Runtime configuration** page, select **Add a volume claim** and enter the details of the persistent volume claim you created previously. Then select **Review**:
 
-# [Azure CLI](#tab/cli)
+    :::image type="content" source="media/deploy-preview-media-connectors/add-volume-claim.png" alt-text="Screenshot of Azure portal that shows how to configure the runtime settings for the connector template instance." lightbox="media/deploy-preview-media-connectors/add-volume-claim.png":::
 
-Run the following command to enable the preview connectors:
+1. On the **Review** page, review the details of the connector template instance, and then select **Create** to create the connector template instance.
 
-```azcli
-az iot ops update -n <your-instance> -g <your-resource-group> --feature connectors.settings.preview=Enabled
-```
+An OT user can now use the operations experience web UI to create a device with a preview connector endpoint.
 
 ---

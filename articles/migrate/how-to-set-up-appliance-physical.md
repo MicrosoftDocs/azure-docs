@@ -7,7 +7,12 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.service: azure-migrate
 ms.date: 03/21/2025
-ms.custom: engagement-fy23
+ms.reviewer: v-uhabiba
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
+  - sfi-ropc-nochange
+# Customer intent: "As an IT administrator, I want to set up an Azure Migrate appliance for physical server discovery and assessment, so that I can efficiently assess my on-premises servers for migration to the cloud."
 ---
 
 

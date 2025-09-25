@@ -2,13 +2,13 @@
 title: Tutorial - Configure protection for data sources
 description: Learn how to configure protection for your data sources which are currently not protected by any solution using Azure Business Continuity Center.
 ms.topic: tutorial
-ms.date: 11/19/2024
+ms.date: 08/20/2025
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
   - ignite-2024
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ---
 
 # Tutorial: Configure protection for data sources 
@@ -16,6 +16,8 @@ ms.author: jsuri
 This tutorial guides you to configure protection for your data sources that are currently not protected by any solution using Azure Business Continuity Center. 
 
 The key principle of data protection is to safeguard and make data or application available under all circumstances.
+
+For more context and examples on ABCC’s inventory capabilities for unprotected resources and available protection solutions, see this [Microsoft Community Hub blog](https://techcommunity.microsoft.com/blog/azurestorageblog/business-continuity-with-abcc-part-2-understand-your-protectable-resources-inven/4009914).
 
 ## Prerequisites
 
