@@ -27,7 +27,9 @@ To get richer data for debugging and diagnosing your workflows in Azure Logic Ap
 > Whenever the Azure Monitor team can confirm a persistent source of data loss, the team considers resolution and prevention its highest priority. 
 > However, small data losses might still happen due to temporary, non-repeating service issues distributed across Azure, and not all can be caught.
 >
-> The store and forward architecture also implies the data transmission is not strictly real time. Occasionally there could be delays up to tens 
+> The store and forward architecture also implies that data transmission doesn't 
+> strictly happen in real time. Sometimes, you might get delays up to tens of minutes. 
+> For more information, see [Resource logs](../azure-monitor/platform/resource-logs.md).
 
 This how-to guide shows how to complete the following tasks, based on whether you have a Consumption or Standard logic app resource.
 
