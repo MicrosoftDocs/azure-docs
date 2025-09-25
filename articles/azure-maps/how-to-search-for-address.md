@@ -139,7 +139,7 @@ This example demonstrates making reverse searches using a few of the optional pa
     https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscription-key={Your-Azure-Maps-Subscription-key}&language=en-US&query=47.591180,-122.332700
     ```
 
-1. Select the run button, and review the response body. You should see one query result. The response includes key address information about Safeco Field.
+1. Select the run button, and review the response body. You should see one query result. The response includes key address information about T-Mobile Park.
   
 1. Next, add the following key/value pairs to the **Params** section:
 
@@ -188,7 +188,7 @@ This article demonstrates how to:
 * Request latitude and longitude coordinates for an address (geocode address location) by using [Get Geocoding].
 * Search for a partial address using [Autocomplete].
 * Use [Get Reverse Geocoding] to translate coordinate location to street address.
-<!--* Translate coordinate location into a human understandable cross street using [Search Address Reverse Cross Street], most often needed in tracking applications that receive a GPS feed from a device or asset, and wish to know where the coordinate is located.-->
+* Translate coordinate location into a human understandable cross street using [Get Reverse Geocoding], most often needed in tracking applications that receive a GPS feed from a device or asset, and wish to know where the coordinate is located.
 
 ## Prerequisites
 
@@ -201,7 +201,7 @@ This article demonstrates how to:
 
 This article uses the [Bruno] application, but you can choose a different API development environment.
 
-## Request latitude and longitude for an address (Get Geocoding)
+## Request coordinates for an address using Get Geocoding
 
 The example in this section uses [Get Geocoding] to convert an address into latitude and longitude coordinates. This process is also called *geocoding*. In addition to returning the coordinates, the response also returns detailed address properties such as street, postal code, municipality, and country/region information.
 
@@ -215,7 +215,7 @@ The example in this section uses [Get Geocoding] to convert an address into lati
 1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
 
     ```http
-    GET https://atlas.microsoft.com/geocode?api-version=2025-06-01-preview&subscription-key={Your-Azure-Maps-Subscription-key}&query=400 Broad St, Seattle, WA 98109
+    GET https://atlas.microsoft.com/geocode?api-version=2025-01-01&subscription-key={Your-Azure-Maps-Subscription-key}&query=400 Broad St, Seattle, WA 98109
     ```
 
 1. Select the **Create** button.
@@ -308,6 +308,65 @@ Next, focus your search to include more results in a specific area within the de
     > - **University of West Florida** in Escambia County, Florida, USA
     > - **University of Wisconsin-Stout** in Menomonie, Dunn County, Wisconsin, USA
 
+## Search for a street address using Get Reverse Geocoding
+
+[Get Reverse Geocoding] translates coordinates into human readable street addresses. This API is often used for applications that consume GPS feeds and want to discover addresses at specific coordinate points.
+
+> [!IMPORTANT]
+> To [geobias] results to the relevant area for your users, always add as many location details as possible. For more information, see [Best Practices for Search].
+
+> [!TIP]
+> If you have a set of coordinate locations to reverse geocode, you can use [Get Reverse Geocoding Batch] to send a batch of queries in a single request.
+
+This example demonstrates making reverse searches using a few of the optional parameters that are available. For the full list of optional parameters, see [Get Reverse Geocoding Parameters].
+
+1. Open the [Bruno] application.
+
+1. Select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
+
+1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
+
+    ```http
+    https://atlas.microsoft.com/reverseGeocode?api-version=2025-01-01&subscription-key={Your-Azure-Maps-Subscription-key}&coordinates=-122.332700,47.591180
+    ```
+
+1. Select the run button, and review the response body. You should see one query result. The response includes key address information about T-Mobile Park.
+  
+1. Next, add the following parameter to the request: `resultTypes=Postcode1`
+
+    ```http
+    https://atlas.microsoft.com/reverseGeocode?api-version=2025-01-01&subscription-key={Your-Azure-Maps-Subscription-key}&coordinates=-122.332700,47.591180&resultTypes=Postcode1
+    ```
+
+1. Select the run button, and compare the results to the results returned previously. Because the requested result type is now `Postcode1`, the response doesn't include street address information, just the zip code.
+
+## Search for cross street using Get Reverse Geocoding
+
+This example demonstrates how to search for a cross street based on the coordinates of an address.
+
+1. Open the [Bruno] application.
+
+1. Select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
+
+1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
+  
+    ```http
+    https://atlas.microsoft.com/reverseGeocode?api-version=2025-01-01&coordinates=-122.12429011774091,47.61697905124655&subscription-key={Your-Azure-Maps-Subscription-key}
+    ```
+
+1. Select the run button, and review the response body.
+
+   The response includes an `intersection` section that identifies the street portion of the returned address: *NE 8th St*. It also specifies the intersecting street: *164th Ave NE*, and provides the full cross street as: *NE 8th St and 164th Ave NE*.
+
+   ```json
+    "intersection": {
+    "baseStreet": "NE 8th St",
+    "displayName": "NE 8th St and 164th Ave NE",
+    "intersectionType": "Near",
+    "secondaryStreet1": "164th Ave NE"
+    }
+   ```
+
 :::zone-end
 
 ## Next steps
@@ -330,6 +389,8 @@ Next, focus your search to include more results in a specific area within the de
 [Get Geocoding]: /rest/api/maps/search/get-geocoding
 [Get Geocoding Batch]: /rest/api/maps/search/get-geocoding-batch
 [Get Reverse Geocoding]: /rest/api/maps/search/get-reverse-geocoding
+[Get Reverse Geocoding Parameters]: /rest/api/maps/search/get-reverse-geocoding#uri-parameters
+[Get Reverse Geocoding Batch]: /rest/api/maps/search/get-reverse-geocoding-batch
 [Get Search Address Reverse]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0&preserve-view=true
 [Get Search Address]: /rest/api/maps/search/getsearchaddress?view=rest-maps-1.0&preserve-view=true
 [point of interest]: /rest/api/maps/search/getsearchpoi?view=rest-maps-1.0&preserve-view=true#searchpoiresponse
