@@ -19,7 +19,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## September 2025
 
-*   [Azure NetApp Files support with Windows Server 2025 domain controllers](faq-smb#can-i-use-windows-server-2025)
+*   [Azure NetApp Files support with Windows Server 2025 domain controllers](faq-smb.md#can-i-use-windows-server-2025)
 
     Azure NetApp Files is now fully supported by Windows Server 2025 domain controllers, making it easier for organizations to modernize their Active Directory environments without disruption. With this update, customers can seamlessly integrate Windows Server 2025 domain controllers with Azure NetApp Files SMB and dual-protocol volumes, ensuring smooth and secure Active Directory workflows.
 
