@@ -3,6 +3,7 @@ title: Set the scope for discovery of servers on VMware vSphere with Azure Migra
 description: Describes how to set the discovery scope for servers hosted on VMware vSphere assessment and migration with Azure Migrate.
 ms.topic: how-to
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 05/12/2025
 ms.custom: vmware-scenario-422, engagement-fy23
 # Customer intent: As a cloud architect, I want to configure the discovery scope for servers in a VMware vSphere environment using Azure Migrate, so that I can streamline the assessment and migration processes while ensuring appropriate access controls are in place.
