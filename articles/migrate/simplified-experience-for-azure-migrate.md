@@ -5,6 +5,7 @@ author: dhananjayanr98
 ms.author: dhananjayanr
 ms.manager: dhananjayanr
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.topic: how-to
 ms.date: 09/22/2025
 # Customer intent: As a system administrator managing physical and VMware environments, I want to utilize an upgraded agent-based migration stack so that I can efficiently migrate newer Linux distributions and ensure a seamless migration process to Azure.
