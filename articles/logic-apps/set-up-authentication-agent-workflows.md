@@ -34,7 +34,7 @@ These measures let you authenticate and authorize each caller at a fine-grained 
 
 Easy Auth works with Microsoft Entra ID, or optionally Open ID Connect, as a separate security layer to provide built-in authentication and authorization capabilities that meet your needs. With security enforcement operating outside your workflow, you can focus more on developing the business logic instead. This separation of concerns makes agent workflows simpler and easier to build, debug, operate, monitor, maintain, govern, and audit.
 
-Nonagent workflow security involves static SAS, rotating secrets, and network boundary controls like access restrictions, IP allow lists, service tags, virtual network integration, and private endpoints. With agent workflows, you design authorization around end users, managed identities, service principals, and their scopes and roles. This approach enables safer global reach but still allows downstream actions to respect fine-grained permissions.
+Nonagent workflow security involves static SAS, rotating secrets, and network boundary controls like access restrictions, IP allow lists, service tags, virtual network integration, and private endpoints. With agent workflows, you design authorization around end users, managed identities, service principals, and their scopes and roles. This approach enables safer global reach but still allows downstream workflow actions to respect fine-grained permissions.
 
 This guide shows how to create an app registration and then set up Easy Auth for your Standard logic app resource, which can contain agent and nonagent workflows.
 
@@ -118,12 +118,14 @@ For the best way to begin Easy Auth setup, create a new app registration in Micr
    | **Identity requirement** | **Allow requests from specific identities**, and keep the prepopulated value. |
    | **Tenant requirement** | **Allow requests only from the issuer tenant** |
 
+1. Skip the **Excluded paths** section.
+
 1. Optionally, under **App Service authentication settings**, review the following settings and take the appropriate actions:
 
    | Setting | Action |
    |---------|--------|
    | **Restrict access** | Unless you plan to allow some authenticated endpoints, select **Require authentication** to block all anonymous requests. |
-   | **Unauthenticated requests** | Based on whether callers are agent or agent-based, select **HTTP 302 Found redirect: recommended for agents** or **HTTP 401 Unauthorized: recommended for APIs**. |
+   | **Unauthenticated requests** | Based on whether callers are agent or agent-based, select **HTTP 302 Found redirect: recommended for agents**. |
 
 1. When you're done, select **Add** to finish adding the identity provider.
 
@@ -286,10 +288,9 @@ To confirm that enforcement works as expected, follow these steps:
 
 1. From your chosen REST client, send an unauthenticated HTTPS GET or POST request to call your workflow. Expect to get the **302** or **401** response based on your app registration setup.
 
-1. For your app registration's application (client) ID, get an access token that has the `api://<application-ID>` resource audience or the default App Service resource and send the token by following one of these authentication flows:
+1. Get an Azure Resource Manager bearer token for your logic app resource.
 
-   - [OAuth 2.0 authorization code flow with Proof Key for Code Exchange (PKCE)](/entra/identity-platform/v2-oauth2-auth-code-flow)
-   - [OAuth 2.0 client credentials grant flow](/entra/identity-platform/v2-oauth2-client-creds-grant-flow)
+   For more information, see [Get access on behalf of user](../graph/auth-v2-user.md?tabs=http).
 
 1. Send the same request, but with the following header instead, and confirm that you get the **200 OK** response:
 
@@ -309,50 +310,23 @@ To confirm that enforcement works as expected, follow these steps:
 
    - Wait for the token to expire, or in a test container, change the system clock, and resend the request. Expect to get the **401** response.
 
-### Troubleshoot authentication test errors
+### Troubleshoot errors during authentication testing
 
 The following table describes common problems you might encounter when you set up Easy Auth, possible causes, and actions you can take:
 
 | Problem or error | Likely cause | Action |
 |------------------|--------------|--------|
 | **401** with **`invalid_token`** + **`error_description`** that references the audience | A mismatch exists between the access token audience and the specified allowed token audiences. | Make sure that the access token audience and the allowed token audience match. |
-| **403 Forbidden** | Possibly a problem with authorization for a workflow action, not with Easy Auth. | Check the actions in your workflow for an authorization problem. |
-| Missing claim | The claim is missing from the accss token. Or, the scope or role that you set up isn't correct. | Make sure that the claim exists in the access token, not just in the ID token, and that you requested the appropriate scope or role. |
+| **403 Forbidden** | - Might indicate that the workflow or agent for the request wasn't found. | Check the actions in your workflow for an authorization problem. |
 
-## Parse identity claims in workflows
+## Use an identity in workflow
 
-When Easy Auth validates a request, Easy Auth injects identity data into the request headers and an encoded principal object. This object represents the authenticated entity, such as a client, user, managed identity, or service that interacts with your logic app.
+When Easy Auth validates a request, Easy Auth injects identity data into request headers based on the identity provider. Your logic app uses these headers to authenticate the caller.
 
-When the entity authenticates through Easy Auth, Microsoft Entra ID creates a principal object that contains information about the entity's identity, such as claims (name, email, roles). Microsoft Entra ID makes this object available to the application code so developers can access and present the user identity information for authorization and personalization.
+For more information, see the following articles:
 
-A principal object has the following properties:
-
-| Property | Description |
-|----------|-------------|
-| `X-MS-CLIENT-PRINCIPAL-ID` | The object ID for the user or service principal. |
-| `X-MS-CLIENT-PRINCIPAL-NAME` | The user principal name (UPN) or service principal name. |
-| `X-MS-CLIENT-PRINCIPAL` | A base64-encoded JSON array with claim objects like `typ` and `val`. |
-| `X-MS-TOKEN-AAD-ACCESS-TOKEN` | Optional: A raw access token if the token store is enabled and allowed. <br><br>**Important**: Don't store or log entire tokens. Make sure you use only claims, and redact sensitive values in diagnostic logs. |
-
-To parse a claim in a workflow, follow these steps:
-
-1. In the Azure portal, open your workflow in the designer.
-
-1. Follow the general [steps to add the **Compose** action to your workflow](add-trigger-action-workflow.md?tabs=standard#add-action).
-
-1. On the designer, select the **Compose** action. In the **Inputs** box, enter the following expression: 
-
-   `@base64ToString(triggerOutputs()['headers']['x-ms-client-principal'])`
-
-1. Save the workflow. Trigger the workflow by sending an authenticated request.
-
-   The **Compose** action returns JSON output. To extract roles or scopes from this output, you can further parse the output with the **Parse JSON** action.
-
-The following list describes parse claim tasks to perform for common authorization patterns:
-
-- Check role: Add a **Condition** action that checks `@contains(string(body('Compose')), 'LogicApp.Execute')`.
-- Check scope: From the decoded JSON output, parse the `scp` claim.
-- Enforce tenant: Validate that the `tid` claim matches expected tenant GUID.
+- [OAuth tokens for App Service](../app-service/configure-authentication-oauth-tokens.md)
+- [Tutorial: Authenticate and authorize users end-to-end in Azure App Service](../app-service/tutorial-auth-aad.md)
 
 ## Authenticate and authorize with a developer key
 
