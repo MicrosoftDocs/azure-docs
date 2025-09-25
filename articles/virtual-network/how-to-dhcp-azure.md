@@ -10,6 +10,7 @@ ms.date: 02/28/2024
 
 #customer intent: As a Network Administrator, I want to deploy a highly available DHCP server in Azure so that I can provide DHCP services to my on-premises network.
 
+# Customer intent: As a Network Administrator, I want to deploy a highly available DHCP server in Azure on virtual machines, so that I can provide reliable DHCP services to my on-premises network through a DHCP relay agent.
 ---
 
 # Deploy a DHCP server in Azure on a virtual machine

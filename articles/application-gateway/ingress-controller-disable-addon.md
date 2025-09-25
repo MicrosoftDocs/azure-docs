@@ -2,11 +2,12 @@
 title: Disable and re-enable Application Gateway Ingress Controller add-on for Azure Kubernetes Service cluster
 description: This article provides information on how to disable and re-enable the AGIC add-on for your AKS cluster.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 2/28/2025
-ms.author: greglin
+ms.author: mbender
+# Customer intent: As a Kubernetes administrator, I want to enable and disable the Application Gateway Ingress Controller add-on for my AKS cluster, so that I can manage the integration between my applications and the Application Gateway deployment effectively.
 ---
 
 # Disable and re-enable the AGIC add-on for your AKS cluster

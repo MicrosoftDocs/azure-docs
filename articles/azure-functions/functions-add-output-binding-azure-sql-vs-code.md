@@ -8,8 +8,12 @@ ms.author: drskwier
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-temp
 ms.devlang: csharp
+ms.custom:
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - sfi-image-nochange
 # ms.devlang: csharp, javascript
-ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ---
 
 # Connect Azure Functions to Azure SQL Database using Visual Studio Code
@@ -19,13 +23,13 @@ ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 This article shows you how to use Visual Studio Code to connect [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) to the function you created in the previous quickstart article. The output binding that you add to this function writes data from the HTTP request to a table in Azure SQL Database. 
 
 ::: zone pivot="programming-language-csharp"
-Before you begin, you must complete the [quickstart: Create a C# function in Azure using Visual Studio Code](create-first-function-vs-code-csharp.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.
+Before you begin, you must complete the [quickstart: Create a C# function in Azure using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-csharp). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.
 ::: zone-end
 ::: zone pivot="programming-language-javascript"  
-Before you begin, you must complete the [quickstart: Create a JavaScript function in Azure using Visual Studio Code](create-first-function-vs-code-node.md?pivot=nodejs-model-v3). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
+Before you begin, you must complete the [quickstart: Create a JavaScript function in Azure using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-javascript?pivot=nodejs-model-v3). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
 ::: zone-end
 ::: zone pivot="programming-language-python"  
-Before you begin, you must complete the [quickstart: Create a Python function in Azure using Visual Studio Code](create-first-function-vs-code-python.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
+Before you begin, you must complete the [quickstart: Create a Python function in Azure using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-python). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
 ::: zone-end
 
 More details on the settings for [Azure SQL bindings and trigger for Azure Functions](functions-bindings-azure-sql.md) are available in the Azure Functions documentation.
@@ -38,7 +42,7 @@ More details on the settings for [Azure SQL bindings and trigger for Azure Funct
 
     |Prompt| Selection|
     |--|--|
-    |**Resource group**|Choose the resource group where you created your function app in the [previous article](./create-first-function-vs-code-csharp.md). |
+    |**Resource group**|Choose the resource group where you created your function app in the [previous article](./how-to-create-function-vs-code.md?pivot=programming-language-csharp). |
     |**Database name**|Enter `mySampleDatabase`.|
     |**Server name**|Enter a unique name for your server. We can't provide an exact server name to use because server names must be globally unique for all servers in Azure, not just unique within a subscription. |
     |**Authentication method**|Select **SQL Server authentication**.|
@@ -63,7 +67,7 @@ More details on the settings for [Azure SQL bindings and trigger for Azure Funct
 
 ## Update your function app settings
 
-In the [previous quickstart article](./create-first-function-vs-code-csharp.md), you created a function app in Azure. In this article, you update your app to write data to the Azure SQL Database you've just created. To connect to your Azure SQL Database, you must add its connection string to your app settings. You then download the new setting to your local.settings.json file so you can connect to your Azure SQL Database when running locally.
+In the [previous quickstart article](./how-to-create-function-vs-code.md?pivot=programming-language-csharp), you created a function app in Azure. In this article, you update your app to write data to the Azure SQL Database you've just created. To connect to your Azure SQL Database, you must add its connection string to your app settings. You then download the new setting to your local.settings.json file so you can connect to your Azure SQL Database when running locally.
 
 1. Edit the connection string in the temporary document you created earlier. Replace the value of `Password` with the password you used when creating the Azure SQL Database. Copy the updated connection string.
 
@@ -99,7 +103,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Sql
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-python"  
 
-Your project has been configured to use [extension bundles](functions-bindings-register.md#extension-bundles), which automatically installs a predefined set of extension packages. 
+Your project has been configured to use [extension bundles](extension-bundles.md), which automatically installs a predefined set of extension packages. 
 
 Extension bundles usage is enabled in the host.json file at the root of the project, which appears as follows:
 

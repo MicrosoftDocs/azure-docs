@@ -9,6 +9,8 @@ ms.date: 01/30/2025
 ms.service: azure-synapse-analytics
 ms.subservice: overview
 ms.topic: troubleshooting-known-issue
+ms.custom:
+  - build-2025
 ---
 
 # Azure Synapse Analytics known issues
@@ -27,25 +29,28 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 |Azure Synapse dedicated SQL pool|[Query failure when ingesting a parquet file into a table with AUTO_CREATE_TABLE='ON'](#query-failure-when-ingesting-a-parquet-file-into-a-table-with-auto_create_tableon)|Has workaround|
 |Azure Synapse dedicated SQL pool|[Queries failing with Data Exfiltration Error](#queries-failing-with-data-exfiltration-error)|Has workaround|
 |Azure Synapse dedicated SQL pool|[UPDATE STATISTICS statement fails with error: "The provided statistics stream is corrupt."](#update-statistics-failure)|Has workaround|
-|Azure Synapse dedicated SQL pool|[Enable TDE gateway time-outs in ARM deployment](#enable-tde-gateway-time-outs-in-arm-deployment)|Has workaround|
+|Azure Synapse dedicated SQL pool|[Enable TDE gateway timeouts in ARM deployment](#enable-tde-gateway-timeouts-in-arm-deployment)|Has workaround|
 |Azure Synapse serverless SQL pool|[Query failures from serverless SQL pool to Azure Cosmos DB analytical store](#query-failures-from-serverless-sql-pool-to-azure-cosmos-db-analytical-store)|Has workaround|
 |Azure Synapse serverless SQL pool|[Azure Cosmos DB analytical store view propagates wrong attributes in the column](#azure-cosmos-db-analytical-store-view-propagates-wrong-attributes-in-the-column)|Has workaround|
 |Azure Synapse serverless SQL pool|[Query failures in serverless SQL pools](#query-failures-in-serverless-sql-pools)|Has workaround|
 |Azure Synapse serverless SQL pool|[Storage access issues due to authorization header being too long](#storage-access-issues-due-to-authorization-header-being-too-long)|Has workaround|
 |Azure Synapse serverless SQL pool|[Querying a view shows unexpected results](#querying-a-view-shows-unexpected-results)|Has workaround|
-|Azure Synapse Workspace|[Blob storage linked service with User Assigned Managed Identity (UAMI) is not getting listed](#blob-storage-linked-service-with-user-assigned-managed-identity-uami-is-not-getting-listed)|Has workaround|
+|Azure Synapse serverless SQL pool|[Queries longer than 7,500 characters may not appear in Log Analytics](#queries-longer-than-7500-characters-may-not-appear-in-log-analytics)|Has workaround|
+|Azure Synapse serverless SQL pool|[Proxied connections can be affected by Gateway, resulting in connection failures](#proxied-connections-may-result-in-failure-due-to-gateway)|No workaround|
+|Azure Synapse Workspace|[Blob storage linked service with User Assigned Managed Identity (UAMI) isn't getting listed](#blob-storage-linked-service-with-user-assigned-managed-identity-uami-is-not-getting-listed)|Has workaround|
 |Azure Synapse Workspace|[Failed to delete Synapse workspace & Unable to delete virtual network](#failed-to-delete-synapse-workspace--unable-to-delete-virtual-network)|Has workaround|
 |Azure Synapse Workspace|[REST API PUT operations or ARM/Bicep templates to update network settings fail](#rest-api-put-operations-or-armbicep-templates-to-update-network-settings-fail)|Has workaround|
 |Azure Synapse Workspace|[Known issue incorporating square brackets [] in the value of Tags](#known-issue-incorporating-square-brackets--in-the-value-of-tags)|Has workaround|
 |Azure Synapse Workspace|[Deployment Failures in Synapse Workspace using Synapse-workspace-deployment v1.8.0 in GitHub actions with ARM templates](#deployment-failures-in-synapse-workspace-using-synapse-workspace-deployment-v180-in-github-actions-with-arm-templates)|Has workaround|
 |Azure Synapse Workspace|[No `GET` API operation dedicated to the `Microsoft.Synapse/workspaces/trustedServiceBypassEnabled` setting](#no-get-api-operation-dedicated-to-the-microsoftsynapseworkspacestrustedservicebypassenabled-setting)|Has workaround|
+|Azure Synapse Apache Spark pool|[Starting a Spark session (with custom python libraries) is taking longer than usual](#starting-a-spark-session-with-custom-python-libraries-is-taking-longer-than-usual)|Has mitigation|
 
 
 ## Azure Synapse Analytics dedicated SQL pool active known issues summary
 
 ### Data Factory copy command fails with error "The request could not be performed because of an I/O device error"
 
-Azure Data Factory pipelines use the `COPY INTO` Transact-SQL statement to ingest data at scale into dedicated SQL pool tables. In some rare cases, the `COPY INTO` statement can fail when loading CSV files into dedicated SQL pool table when file split is used in an Azure Data Factory pipeline. File splitting is a mechanism that improves load performance when a small number of larger (1 GB+) files are loaded in a single copy task. When file splitting is enabled, a single file can be loaded by multiple parallel threads, where every thread is assigned a part of the file.
+Azure Data Factory pipelines use the `COPY INTO` Transact-SQL statement to ingest data at scale into dedicated SQL pool tables. In some rare cases, the `COPY INTO` statement can fail when loading CSV files into dedicated SQL pool table when file split is used in an Azure Data Factory pipeline. File splitting is a mechanism that improves load performance when a few larger (1 GB+) files are loaded in a single copy task. When file splitting is enabled, multiple parallel threads can load a single file, where each thread processes a part of the file.
 
 **Workaround**: Impacted customers should disable file split in Azure Data Factory.
 
@@ -59,7 +64,7 @@ When using `COPY INTO` command with a managed identity, the statement can fail a
 
 An internal upgrade of our telemetry emission logic, which was meant to enhance the performance and reliability of our telemetry data, caused an unexpected issue that affected some customers' ability to monitor their dedicated SQL pool, `tempdb`, and Data Warehouse Data IO metrics.
 
-**Workaround**: Upon identifying the issue, our team took action to identify the root cause and update the configuration in our system. Customers can fix the issue by pausing and resuming their instance, which will restore the normal state of the instance and the telemetry data flow.
+**Workaround**: Upon identifying the issue, our team took action to identify the root cause and update the configuration in our system. Customers can fix the issue by pausing and resuming their instance, which restores the normal state of the instance and the telemetry data flow.
 
 ### Query failure when ingesting a parquet file into a table with AUTO_CREATE_TABLE='ON'
 
@@ -67,7 +72,7 @@ Customers who try to ingest a parquet file into a hash distributed table with `A
 
 `COPY statement using Parquet and auto create table enabled currently cannot load into hash-distributed tables`
 
-[Ingestion into an auto-created hash-distributed table using AUTO_CREATE_TABLE is unsupported](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#auto_create_table---on--off-). Customers that have previously loaded using this unsupported scenario should CTAS their data into a new table and use it in place of the old table.
+[Ingestion into an auto-created hash-distributed table using AUTO_CREATE_TABLE is unsupported](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#auto_create_table---on--off-). Customers who previously loaded data using this unsupported scenario should use CREATE TABLE AS SELECT (CTAS) to copy the data into a new table and replace the old table.
 
 ### Queries failing with Data Exfiltration Error
 
@@ -83,20 +88,26 @@ Some dedicated SQL Pools can encounter an exception when executing an `UPDATE ST
  
 When a new constraint is added to a table, a related statistic is created in the distributions. If a clustered index is also created on the table, it must include the same columns (in the same order) as the constraint, otherwise `UPDATE STATISTICS` commands on those columns might fail.
 
-**Workaround**: Identify if a constraint and clustered index exist on the table. If so, DROP both the constraint and clustered index. After that, recreate the clustered index and then the constraint *ensuring that both include the same columns in the same order.* If the table does not have a constraint and clustered index, or if the above step results in the same error, contact the Microsoft Support Team for assistance.
+**Workaround**: Identify if a constraint and clustered index exist on the table. If so, DROP both the constraint and clustered index. After that, recreate the clustered index and then the constraint *ensuring that both include the same columns in the same order.* If the table doesn't have a constraint and clustered index, or if the step results in the same error, contact the Microsoft Support Team for assistance.
 
-### Enable TDE gateway time-outs in ARM deployment 
+### Enable TDE gateway timeouts in ARM deployment 
 
-Updating TDE (Transparent data encryption) is internally implemented as a synchronous operation, subject to a time-out which can be exceeded. Although the time-out was exceeded, behind the scenes the TDE operation in most cases succeeds, but causes successor operations in the ARM template to be rejected.
+Updating TDE (Transparent data encryption) is internally implemented as a synchronous operation, subject to a timeout, which can be exceeded. Although the timeout was exceeded, behind the scenes the TDE operation in most cases succeeds, but causes successor operations in the ARM template to be rejected.
 
 **Workaround**: There are two ways to mitigate this issue. The preferred option is to split the ARM template into multiple templates, so that one of the templates contains TDE update. That action reduces the chance of a time-out. 
-Other option is to retry the deployment after several minutes. During the wait time, the TDE update operation most likely will succeed and re-deploying the template the second time could execute previously rejected operations.
+Other option is to retry the deployment after several minutes. During the wait time, the TDE update operation most likely succeeds and re-deploying the template the second time could execute previously rejected operations.
 
 ### Tag updates appear to fail
 
 When making a change to the [tags](../azure-resource-manager/management/tag-resources-portal.md) of a dedicated SQL pool through Azure portal or other methods, an error message can appear even though the change is made successfully.
 
 **Workaround**: You can confirm that the change to the tags was successful and ignore/suppress the error message as needed.
+
+### Proxied connections may result in failure due to gateway
+
+When establishing a connection from outside of the Azure network boundary, all connections are proxied through the gateway as per the Default [Connection policy](security/connectivity-settings.md) for Synapse Workspaces. The same is applied when utilizing Private Endpoints in Synapse workspaces. Due to this policy, this can lead to increased latency and reduced throughput when communicating with the dedicated pool and be affected by gateway outages.
+
+**Workaround**: Currently there is no workaround for scenario. 
 
 ## Azure Synapse workspace active known issues summary
 
@@ -118,13 +129,13 @@ Deleting a Synapse workspace fails with the error message:
 
 ### REST API PUT operations or ARM/Bicep templates to update network settings fail
 
-When using an ARM template, Bicep template, or direct REST API PUT operation to change the public network access settings and/or firewall rules for a Synapse workspace, the operation can fail.
+When using an ARM template, Bicep file, or direct REST API PUT operation to change the public network access settings and/or firewall rules for a Synapse workspace, the operation can fail.
 
 **Workaround**: The problem can be mitigated by using a REST API PATCH operation or the Azure portal UI to reverse and retry the desired configuration changes. The engineering team is aware of this behavior and working on a fix.
 
 ### Known issue incorporating square brackets [] in the value of Tags
 
-In the context of updating tag values within an Azure Synapse workspace, the inclusion of square brackets (`[]`) will result in an unsuccessful update operation.
+In the context of updating tag values within an Azure Synapse workspace, the inclusion of square brackets (`[]`) results in an unsuccessful update operation.
 
 **Workaround**: The current workaround is to abstain from using the square brackets (`[]`) in Azure Synapse workspace tag values.
 
@@ -137,28 +148,28 @@ The error message displayed is `Action failed - Error: Orchestrate failed - Synt
 **Workaround**: Following actions can be taken as quick mitigation:
 
 - **Remove escape characters:** Manually remove any escape characters (`\`) from the parameters file before deployment. This means editing the file to eliminate these characters that could be causing issues during the parsing or processing stage of the deployment.
-- **Replace escape characters with Forward Slashes:** Replace the escape characters (`\`) with forward slashes (`/`). This can be particularly useful in file paths, where many systems accept forward slashes as valid path separators. This replacement might help in bypassing the problem with escape characters, allowing the deployment process to succeed.
+- **Replace escape characters with Forward Slashes:** Replace the escape characters (`\`) with forward slashes (`/`). This replacement can be useful in file paths, where many systems accept forward slashes as valid path separators. This replacement might help in bypassing the problem with escape characters, allowing the deployment process to succeed.
 
-After applying either of these workarounds and successfully deploying, manually update the necessary configurations within the workspace to ensure everything is set up correctly. This might involve editing configuration files, adjusting settings, or performing other tasks relevant to the specific environment or application being deployed.
+After applying either of these workarounds and successfully deploying, manually update the necessary configurations within the workspace to ensure everything is set up correctly. This step might involve editing configuration files, adjusting settings, or performing other tasks relevant to the specific environment or application being deployed.
 
 ### No 'GET' API operation dedicated to the "Microsoft.Synapse/workspaces/trustedServiceBypassEnabled" setting
 
-**Issue Summary:** In Azure Synapse Analytics, there is no dedicated 'GET' API operation for retrieving the state of the "trustedServiceBypassEnabled" setting at the resource scope "Microsoft.Synapse/workspaces/trustedServiceBypassEnabled". While users can set this configuration, they cannot directly retrieve its state via this specific resource scope.
+**Issue Summary:** In Azure Synapse Analytics, there's no dedicated 'GET' API operation for retrieving the state of the "trustedServiceBypassEnabled" setting at the resource scope "Microsoft.Synapse/workspaces/trustedServiceBypassEnabled". While users can set this configuration, they can't directly retrieve its state via this specific resource scope.
 
-**Impact:** This limitation impacts Azure Policy definitions, as they cannot enforce a specific state for the "trustedServiceBypassEnabled" setting. Customers are unable to use Azure Policy to deny or manage this configuration.
+**Impact:** This limitation impacts Azure Policy definitions, as they can't enforce a specific state for the "trustedServiceBypassEnabled" setting. Customers are unable to use Azure Policy to deny or manage this configuration.
 
-**Workaround:** There is no workaround available in Azure Policy to enforce the desired configuration state for this property. However, users can use the 'GET' workspace operation to audit the configuration state for reporting purposes.\
+**Workaround:** There's no workaround available in Azure Policy to enforce the desired configuration state for this property. However, users can use the 'GET' workspace operation to audit the configuration state for reporting purposes.\
 This 'GET' workspace operation maps to the 'Microsoft.Synapse/workspaces/trustedServiceBypassEnabled' Azure Policy Alias.
 
 The Azure Policy Alias can be used for managing this property with a Deny Azure Policy Effect if the operation is a PUT request against the Microsoft.Synapse/workspace resource, but it will only function for Audit purposes if the PUT request is being sent directly to the Microsoft.Synapse/workspaces/trustedServiceByPassConfiguration child resource. The parent resource has a property [properties.trustedServiceBypassEnabled] that maps the configuration from the child resource and this is why it can still be audited through the parent resource’s Azure Policy Alias.
 
-Since the Microsoft.Synapse/workspaces/trustedServiceByPassConfiguration child resource has no GET operation available, Azure Policy cannot manage these requests, and Azure Policy cannot generate an Azure Policy Alias for it.
+Since the Microsoft.Synapse/workspaces/trustedServiceByPassConfiguration child resource has no GET operation available, Azure Policy can't manage these requests, and Azure Policy can't generate an Azure Policy Alias for it.
 
 **Parent Resource:** Microsoft.Synapse/workspaces
 
 **Child Resource:** Microsoft.Synapse/workspaces/trustedServiceByPassConfiguration
 
-The Azure portal makes the PUT request directly to the PUT API for the child resource and therefore the Azure portal, along with any other API requests made outside of the parent Microsoft.Synapse/workspaces APIs, cannot be managed by Azure Policy through a Deny or other actionable Azure Policy Effect.
+The Azure portal makes the PUT request directly to the PUT API for the child resource and therefore the Azure portal, along with any other API requests made outside of the parent Microsoft.Synapse/workspaces APIs, can't be managed by Azure Policy through a Deny or other actionable Azure Policy Effect.
 
 ## Azure Synapse Analytics serverless SQL pool active known issues summary
 
@@ -251,6 +262,45 @@ When you query the view for which the underlying schema has changed after the vi
 
 **Workaround**: Manually adjust the view definition. 
 
+### Queries longer than 7,500 characters may not appear in Log Analytics
+
+Queries that exceed 7,500 characters in length might not be captured in the `SynapseBuiltinSqlPoolRequestsEnded` table in Log Analytics.
+
+**Workaround**: 
+
+Suggested workarounds are:
+
+- Use the `sys.dm_exec_requests_history` view in your Synapse Serverless SQL pool to access historical query execution details.
+- Refactor the query to reduce its length below 7,500 characters, if feasible.
+
+## Azure Synapse Apache Spark pool active known issues summary
+
+### Starting a Spark session (with custom python libraries) is taking longer than usual
+
+There is a known issue impacting session startup time when python libraries (requirements.txt or .whl) are attached to the spark pool. Customers will experience slow session startup times intermittently. This is impacting both Fabric and Synapse. 
+
+**Workaround**: The mitigation has been applied to following regions. With this mitigation, the session startup has been improved significantly, but might still be 1.5x slower than original baseline.
+
+|Mitigated Synapse Regions|
+|------------------------|
+|PolandCentral|
+|EastUS|   
+|EastUS2EUAP|
+|SouthEastAsia|
+|AustraliaEast|
+|WestUS2|
+|NorthEurope|
+|SwedenCentral|
+|WestUS3|
+|QatarCentral|
+|JioIndiaWest|
+|SouthIndia|
+|IsraelCentral|
+|ItalyNorth|
+|SwitzerlandWest|
+|WestEurope|
+
+
 
 ## Recently closed known issues
 
@@ -268,7 +318,7 @@ When you query the view for which the underlying schema has changed after the vi
 
 ### Queries using Microsoft Entra authentication fails after 1 hour
 
-SQL connections using Microsoft Entra authentication that remain active for more than 1 hour starts to fail. This includes querying storage using Microsoft Entra pass-through authentication and statements that interact with Microsoft Entra ID, like CREATE EXTERNAL PROVIDER. This affects every tool that keeps connections active, like query editor in SSMS and ADS. Tools that open new connection to execute queries aren't affected, like Synapse Studio.
+SQL connections using Microsoft Entra authentication that remain active for more than 1 hour starts to fail. This includes querying storage using Microsoft Entra pass-through authentication and statements that interact with Microsoft Entra ID, like CREATE EXTERNAL PROVIDER. This affects every tool that keeps connections active, like query editor in SSMS (SQL Server Management Studio) and ADS (Azure Data Studio). Tools that open new connection to execute queries aren't affected, like Synapse Studio.
 
 **Status**: Resolved
 

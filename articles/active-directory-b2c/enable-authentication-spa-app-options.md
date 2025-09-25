@@ -18,6 +18,7 @@ ms.custom: "b2c-support"
 ---
 
 # Configure authentication options in a single-page application by using Azure AD B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article describes how to customize and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your single-page application (SPA). 
 

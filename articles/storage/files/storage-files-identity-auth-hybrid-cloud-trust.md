@@ -7,6 +7,8 @@ ms.topic: how-to
 ms.date: 01/24/2025
 ms.author: kendownie
 recommendations: false
+ms.custom: sfi-ga-nochange
+# Customer intent: As an IT administrator, I want to configure a cloud trust between on-premises Active Directory and Microsoft Entra ID, so that users can access Azure file shares using their existing credentials in a hybrid environment.
 ---
 
 # Configure a cloud trust between on premises AD DS and Microsoft Entra ID for accessing Azure Files
@@ -335,7 +337,7 @@ Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber
 
 Identify your [Microsoft Entra tenant ID](/azure/active-directory/fundamentals/how-to-find-tenant) and use Group Policy to configure the client machine(s) you want to mount/use Azure File shares from. You must do this on every client on which Azure Files will be used.
 
-Configure this group policy on the client(s) to "Enabled": `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
+Configure this group policy on the client(s) to "Enabled": `Administrative Templates\System\Kerberos\Specify KDC proxy servers for Kerberos clients`
 
 1. Deploy the following Group Policy setting to client machines using the incoming trust-based flow:
 

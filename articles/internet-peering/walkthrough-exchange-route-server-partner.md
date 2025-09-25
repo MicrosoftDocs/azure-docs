@@ -7,6 +7,8 @@ ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
 ms.date: 03/03/2025
+ms.custom: sfi-image-nochange
+# Customer intent: As a network engineer, I want to establish an interconnect for peering with an exchange route server, so that I can ensure reliable and high-performance connectivity for my organization's internet exchange needs.
 ---
 
 # Set up an interconnect for peering with exchange route server

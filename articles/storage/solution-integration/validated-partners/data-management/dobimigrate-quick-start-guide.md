@@ -5,9 +5,11 @@ description: Provides getting started guide to implement Datadobi DobiMigrate, a
 author: dukicn
 ms.author: nikoduki
 ms.date: 04/27/2021
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
+ms.custom: sfi-image-nochange
+# Customer intent: "As a data administrator, I want to migrate my on-premises file data to Azure using DobiMigrate, so that I can ensure efficient storage management and leverage cloud-based recovery solutions."
 ---
 
 # Migrate data to Azure with Datadobi DobiMigrate

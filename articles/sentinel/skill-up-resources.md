@@ -506,7 +506,7 @@ Another relevant solution area is *protecting remote work*. View our [Ignite ses
 
 - [Monitoring Zoom with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/monitoring-zoom-with-azure-sentinel/ba-p/1341516): custom connectors, analytic rules, and hunting queries.
 
-- [Monitoring Azure Virtual Desktop with Microsoft Sentinel](../virtual-desktop/diagnostics-log-analytics.md): use Windows Security Events, Microsoft Entra sign-in logs, Microsoft Defender XDR for Endpoints, and Azure Virtual Desktop diagnostics logs to detect and hunt for Azure Virtual Desktop threats.
+- [Monitoring Azure Virtual Desktop with Microsoft Sentinel](/azure/virtual-desktop/diagnostics-log-analytics): use Windows Security Events, Microsoft Entra sign-in logs, Microsoft Defender XDR for Endpoints, and Azure Virtual Desktop diagnostics logs to detect and hunt for Azure Virtual Desktop threats.
 
 - [Monitor Microsoft Intune](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/secure-working-from-home-deep-insights-at-enrolled-mem-assets/ba-p/1424255) using queries and workbooks.
 
@@ -588,7 +588,7 @@ To start with bringing your own machine learning to Microsoft Sentinel, view the
 ## Next steps
 
 - [Deployment guide for Microsoft Sentinel](deploy-overview.md)
-- [Quickstart: Onboard Microsoft Sentinel](quickstart-onboard.md)
+- [Onboard Microsoft Sentinel](quickstart-onboard.md)
 - [What's new in Microsoft Sentinel](whats-new.md)
 
 ## Recommended content

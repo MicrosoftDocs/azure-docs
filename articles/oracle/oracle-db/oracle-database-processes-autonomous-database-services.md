@@ -6,6 +6,7 @@ ms.author: jacobjaygbay
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024
+# Customer intent: "As a database administrator managing Oracle databases in Azure, I want to implement the Autonomous Recovery Service, so that I can ensure seamless backup and recovery while meeting compliance requirements and minimizing operational costs."
 ---
 
 # Database operations processes for Oracle Database@Azure

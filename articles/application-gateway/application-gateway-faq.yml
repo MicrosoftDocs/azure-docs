@@ -3,11 +3,11 @@ metadata:
   title: Frequently asked questions about Application Gateway
   description: Find answers to frequently asked questions about Azure Application Gateway.
   services: application-gateway
-  author: greg-lindsay
+  author: mbender-ms
   ms.service: azure-application-gateway
   ms.topic: faq
-  ms.date: 07/15/2024
-  ms.author: greglin
+  ms.date: 4/30/2025
+  ms.author: mbender
   ms.custom: references_regions, devx-track-azurepowershell
 title: Frequently asked questions about Application Gateway
 summary: |
@@ -121,12 +121,6 @@ sections:
           
           Most deployments that use the v2 SKU take around 6 minutes to provision. However, the process can take longer depending on the type of deployment. For example, deployments across multiple availability zones with many instances can take more than 6 minutes. 
           
-      - question: How does Application Gateway handle routine maintenance?
-        answer: |
-          Updates initiated to Application Gateway are applied one [update domain](/azure/virtual-machines/availability-set-overview#how-do-availability-sets-work) at a time. As each update domain's instances are being updated, the remaining instances in other update domains continue to serve traffic<sup>1</sup>. Active connections are gracefully drained from the instances being updated for up to 5 minutes to help establish connectivity to instances in a different update domain before the update begins. During update, Application Gateway temporarily runs at reduced maximum capacity, which is determined by the number of instances configured. The update process proceeds to the next set of instances only if the current set of instances were upgraded successfully.
-          
-          <sup>1</sup> We recommend a minimum instance count of 2 to be configured for Application Gateway v1 SKU deployments to ensure at least one instance can serve traffic while updates are applied.
-          
       - question: Can I use Exchange Server as a backend with Application Gateway?
         answer: |
           Application Gateway supports [TLS/TCP protocol proxy](tcp-tls-proxy-overview.md) through its Layer 4 proxy in **Preview**.
@@ -143,7 +137,7 @@ sections:
           Yes. The Application Gateway v1 SKU continues to be supported. We strongly recommend moving to v2 to take advantage of the feature updates in that SKU. For more information on the differences between v1 and v2 features, see [Autoscaling and zone-redundant Application Gateway v2](application-gateway-autoscaling-zone-redundant.md). You can manually migrate Application Gateway v1 SKU deployments to v2 by following our [v1-v2 migration document](migrate-v1-v2.md).
           
       - question: Does Application Gateway v2 support proxying requests with NTLM or Kerberos authentication?
-        answer: No. Application Gateway v2 doesn't support proxying requests with NTLM or Kerberos authentication.
+        answer: Yes. Application Gateway v2 now supports proxying requests with NTLM or Kerberos authentication.For more information, see [Dedicated backend connection](configuration-http-settings.md#dedicated-backend-connection).
         
       - question: Why are some header values not present when requests are forwarded to my application?
         answer: Request header names can contain alphanumeric characters and hyphens. Request header names that contain other characters are discarded when a request is sent to the backend target. Response header names can contain any alphanumeric characters and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27).
@@ -186,6 +180,16 @@ sections:
       - question: Can I change instance size from medium to large without disruption?
         answer: Yes.
         
+  - name: Maintenance
+    questions:
+      - question: How does Application Gateway handle routine maintenance?
+        answer: |
+          Updates initiated to Application Gateway are applied one [update domain](/azure/virtual-machines/availability-set-overview#how-do-availability-sets-work) at a time. As each update domain's instances are being updated, the remaining instances in other update domains continue to serve traffic. Active connections are gracefully drained from the instances being updated for up to 5 minutes to help establish connectivity to instances in a different update domain before the update begins. The update process proceeds to the next set of instances only if the current set of instances were upgraded successfully. 
+          
+          Azure Application Gateway also supports MaxSurge, a capability that enables new instances to be provisioned during rolling upgrades without taking existing ones offline. It allows customers to transition to newer gateway versions without any capacity degradation. MaxSurge is automatically enabled on Application Gateway and requires no configuration. 
+          
+          **Note:** Additional IP space is required to provision the temporary instances used by MaxSurge. If sufficient IP space is not available during an update, Application Gateway will fall back to the traditional upgrade method, which may result in reduced maximum capacity based on the number of instances. 
+  
   - name: Configuration
     questions:
       - question: Is Application Gateway always deployed in a virtual network?
@@ -317,29 +321,12 @@ sections:
           
       - question: How do I use Application Gateway v2 with only a private frontend IP address?
         answer: |
-          Application Gateway v2 currently supports private IP frontend configuration only (no public IP) via public preview. For more information, see [Private Application Gateway deployment (preview)](application-gateway-private-deployment.md).
+          Application Gateway v2 now supports private IP frontend configuration only. For more information, see [Private Application Gateway deployment](application-gateway-private-deployment.md).
           
-          For current general availability support, Application Gateway v2 supports the following combinations:
+          Application Gateway v2 supports the following combinations:
           * Private IP and public IP
           * Public IP only
-          
-          To restrict traffic only to private IP addresses with current functionality, follow this process:
-          1. Create an application gateway with both public and private frontend IP address.
-          1. Don't create any listeners for the public frontend IP address. Application Gateway won't listen to any traffic on the public IP address if no listeners are created for it.
-          1. Create and attach a [network security group](../virtual-network/network-security-groups-overview.md) for the Application Gateway subnet with the following configuration in the order of priority:
-              
-              1. Allow traffic from **Source** as the service tag **GatewayManager**, **Destination** as **Any**, and the destination **Port** as **65200-65535**. This port range is required for Azure infrastructure communication. These ports are protected (locked down) by certificate authentication. External entities, including the gateway user administrators, can't initiate changes on those endpoints without appropriate certificates in place.
-              
-              1. Allow traffic from **Source** as the service tag **AzureLoadBalancer** and the destination **Port** as **Any**.
-              
-              1. Deny all inbound traffic from **Source** as the service tag **Internet** and the destination **Port** as **Any**. Give this rule the *least priority* in the inbound rules.
-              
-              1. Keep the default rules like **AllowVNetInBound** so that the access on a private IP address isn't blocked.
-              
-              1. Outbound internet connectivity can't be blocked. Otherwise, you face issues with logging and metrics.
-          
-          Sample NSG configuration for private IP-only access:
-          ![Application Gateway v2 NSG configuration for private IP access only](./media/application-gateway-faq/appgw-privip-nsg.png)
+          * Private IP only
           
       - question: How can I stop and start Application Gateway?
         answer: |
@@ -599,6 +586,10 @@ sections:
           
       - question: Can I control which version of AGIC is deployed with the add-on?
         answer: No. The AGIC add-on is a managed service, which means Microsoft automatically updates the add-on to the latest stable version.
+
+      - question: Can I upgrade a cluster running Kubenet or Azure CNI to Azure CNI Overlay with AGIC installed?
+        answer: Yes, upgrade of the AKS cluster from Kubenet or CNI to CNI Overlay is automatically detected by Application Gateway Ingress Controller. It's recommended to schedule the upgrade during a maintenance window as traffic disruption can occur. The controller may take a few minutes post-cluster upgrade to detect and configure support for CNI Overlay.
+
 
   - name: 'Configuration: Mutual authentication'
     questions:

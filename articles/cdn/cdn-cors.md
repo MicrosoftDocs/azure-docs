@@ -10,6 +10,7 @@ ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/31/2025
 ROBOTS: NOINDEX
+# Customer intent: As a web developer, I want to implement CORS with Azure CDN, so that I can securely allow my web applications to access resources across different domains without facing security restrictions.
 ---
 
 # Using Azure CDN with CORS

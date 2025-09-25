@@ -7,6 +7,7 @@ ms.service: azure-bastion
 ms.topic: troubleshooting
 ms.date: 03/31/2025
 ms.author: isamorris
+# Customer intent: "As a network administrator, I want to troubleshoot connectivity issues in Azure Bastion, so that I can ensure seamless access to my virtual machines and efficiently manage network security settings."
 ---
 
 # Troubleshoot Azure Bastion

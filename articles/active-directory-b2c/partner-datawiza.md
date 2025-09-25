@@ -10,11 +10,14 @@ ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 # Customer intent: I'm a developer, and I want to integrate Azure Active Directory B2C with Datawiza Access Proxy (DAP). My goal is to enable single sign-on (SSO) and granular access control for on-premises legacy applications, without rewriting them.
 ---
 
 # Tutorial: Configure Azure Active Directory B2C with Datawiza to provide secure hybrid access
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In this tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2C) with [Datawiza Access Proxy (DAP)](https://www.datawiza.com/), which enables single sign-on (SSO) and granular access control, helping Azure AD B2C protect on-premises legacy applications. With this solution, enterprises can transition from legacy to Azure AD B2C without rewriting applications.
 

@@ -5,8 +5,11 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: quickstart
-ms.custom: mvc, mode-ui
 ms.date: 01/04/2024
+ms.custom:
+  - mvc
+  - mode-ui
+  - sfi-image-nochange
 #Customer intent: As a developer, I want to create my first automated workflow by using Azure Logic Apps while working in Visual Studio Code
 ---
 
@@ -157,7 +160,7 @@ Before you start, make sure that you have these items:
          "When_a_feed_item_is_published": {
             "recurrence": {
                "frequency": "Minute",
-               "interval": 1
+               "interval": 30
             },
             "splitOn": "@triggerBody()?['value']",
             "type": "ApiConnection",
@@ -170,7 +173,8 @@ Before you start, make sure that you have these items:
                "method": "get",
                "path": "/OnNewFeed",
                "queries": {
-                  "feedUrl": "http://feeds.reuters.com/reuters/topNews"
+                  "feedUrl": "@{encodeURIComponent('https://feeds.content.dowjones.io/public/rss/RSSMarketsMain')}",
+                  "sinceProperty": "PublishDate"
                }
             }
          }

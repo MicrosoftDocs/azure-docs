@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 3/22/2024
 ms.custom: references_regions, engagement-fy23
+# Customer intent: "As an IT administrator, I want to implement JetStream DR for my Azure VMware Solution, so that I can ensure minimal downtime and data loss during disaster recovery scenarios."
 ---
 
 # Deploy disaster recovery using JetStream DR software
@@ -108,7 +109,10 @@ For full details, refer to the article: [Disaster Recovery with Azure NetApp Fil
 - [Azure Blob Storage account](../storage/common/storage-account-create.md) created using either Standard or Premium Performance tier. For [access tier, select **Hot**](../storage/blobs/access-tiers-overview.md). 
 
    >[!NOTE]
-   >The **Enable hierarchical namespace** option on the blob isn't supported.   
+   >The **Enable hierarchical namespace** option on the blob isn't supported.
+   
+   >[!NOTE]
+   >Protecting a **shared disk** (eg WFC) is not supported.   
 
 - An NSX-T network segment configured on Azure VMware Solution private cloud with DHCP enabled on the segment for the transient JetStream Virtual appliances is employed during recovery or failover.  
 
@@ -324,7 +328,7 @@ This cmdlet disables JetStream DR only on one of the clusters and doesn't comple
  
 JetStream DR is a solution that [JetStream Software](https://www.jetstreamsoft.com/) supports. For any product or support issues with JetStream, contact support-avs@jetstreamsoft.com.  
  
-Azure VMware Solution uses the Run command to automate both the install and uninstall of JetStream DR. Contact Microsoft support for any issue with the run commands. For issues with JetStream install and uninstall cmdlets, contact JetStream for support. 
+Azure VMware Solution uses the Run command to automate both the install and uninstall of JetStream DR. Contact Microsoft support for any issue with the run commands. For issues with JetStream install and uninstall cmdlets, contact JetStream for [support](https://jetstreamsoft.com/portal/online-docs/contactJS/ContactJetStreamSoftware.html). 
 
 
 

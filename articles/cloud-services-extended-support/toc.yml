@@ -68,8 +68,20 @@ items:
       href: post-migration-changes.md
     - name: Common errors and known issues
       href: in-place-migration-common-errors.md
-  - name: Feature Support for CSES
-    href: feature-support-analysis.md
+    - name: Feature Support for CSES
+      href: feature-support-analysis.md
+  - name: Migrate from Azure Cloud Services (extended support)
+    items:
+    - name: Frequently asked questions (FAQ)
+      href: /azure/service-fabric/service-fabric-cloud-services-migration-faq?toc=/azure/cloud-services-extended-support/toc.json
+    - name: Cloud Services migration decision matrix
+      href: /azure/service-fabric/cloud-services-migration-decision-matrix?toc=/azure/cloud-services-extended-support/toc.json
+    - name: Migration guide
+      href: /azure/service-fabric/cloud-services-to-service-fabric-migration-guide?toc=/azure/cloud-services-extended-support/toc.json
+    - name: Migrate to Service Fabric
+      href: /azure/service-fabric/service-fabric-cloud-services-migration-worker-role-stateless-service?toc=/azure/cloud-services-extended-support/toc.json
+    - name: Compare Cloud Services (extended support) with Service Fabric
+      href: /azure/service-fabric/service-fabric-cloud-services-migration-differences?toc=/azure/cloud-services-extended-support/toc.json
 - name: How To
   items:
   - name: Apply extensions
@@ -92,6 +104,22 @@ items:
     href: swap-cloud-service.md
   - name: Override SKU details
     href: override-sku.md
+  - name: Manage service
+    items:
+    - name: Guest OS
+      items:
+      - name: Guest OS patches
+        href: cloud-services-guestos-microsoft-security-response-center-releases.md
+      - name: Guest OS retirement
+        items:
+        - name: Retirement policy
+          href: cloud-services-guestos-retirement-policy.md
+        - name: Family 1 retirement notice
+          href: cloud-services-guestos-family-1-retirement.md
+        - name: Family 2, 3, 4 retirement notice
+          href: cloud-services-guestos-family-2-3-4-retirement.md
+      - name: Guest OS release news
+        href: cloud-services-guestos-update-matrix.md
 - name: Samples
   items:
   - name: Sample templates
@@ -123,7 +151,7 @@ items:
 - name: Resources
   items:
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=compute
+    href: https://azure.microsoft.com/updates/?filters=%5B%22Cloud+Services%22%5D
   - name: Learning path
     href: /training/paths/az-900-describe-cloud-concepts/
   - name: Microsoft Q&A

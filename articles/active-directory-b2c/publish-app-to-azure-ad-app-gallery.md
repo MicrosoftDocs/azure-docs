@@ -12,6 +12,7 @@ ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a developer of an Azure Active Directory B2C app, I want to publish my app to the Microsoft Entra app gallery, so that customers can easily find and deploy my app, enable single sign-on, and automate user setup within their Microsoft Entra tenant.
@@ -19,6 +20,7 @@ ms.subservice: b2c
 ---
 
 # Publish your Azure Active Directory B2C app to the Microsoft Entra app gallery
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 The Microsoft Entra app gallery is a catalog of thousands of apps. The app gallery makes it easy to deploy and configure single sign-on (SSO) and automate user setup. You can find popular cloud apps in the gallery, such as Workday, ServiceNow, and Zoom.
 

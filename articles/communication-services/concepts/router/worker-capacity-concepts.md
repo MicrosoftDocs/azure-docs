@@ -2,11 +2,10 @@
 title: Worker capacity
 titleSuffix: An Azure Communication Services concept document
 description: Learn about the Azure Communication Services Job Router worker capacity concepts.
-author: williamzhao
-manager: bga
 services: azure-communication-services
-
-ms.author: williamzhao
+manager: chpalm
+ms.author: chpalm
+author: tophpalmer
 ms.date: 06/08/2023
 ms.topic: conceptual
 ms.service: azure-communication-services

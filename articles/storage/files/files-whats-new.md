@@ -1,11 +1,14 @@
 ---
-title: What's new in Azure Files and Azure File Sync
+title: What's New in Azure Files and Azure File Sync
 description: Learn about new features and enhancements in Azure Files and Azure File Sync.
 author: khdownie
 ms.service: azure-file-storage
-ms.topic: conceptual
-ms.date: 04/01/2025
+ms.topic: concept-article
+ms.date: 09/23/2025
 ms.author: kendownie
+ms.custom:
+  - build-2025
+# Customer intent: As a cloud storage administrator, I want to stay informed about the latest features and enhancements in Azure Files and Azure File Sync, so that I can leverage new capabilities for improved security, performance, and data management in my organization.
 ---
 
 # What's new in Azure Files and Azure File Sync
@@ -14,7 +17,35 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 
 ## What's new in 2025
 
+### 2025 quarter 3 (July, August, September)
+
+#### Azure Files vaulted backup is now generally available for SSD file shares
+
+Azure Backup now supports vaulted backup of SSD file shares to protect against ransomware and data loss. You can define backup schedules and retention settings to store data in the Backup vault for up to 10 years. Vaulted backups provide an offsite copy of your data. In case of data loss on the source account, you can restore it to an alternate account. You can manage vaulted backups at scale via Azure Business Continuity Center and monitor them using Azure Backup's alerting and reporting features.
+
+We recommend switching from snapshot backups to vaulted backups for comprehensive protection against data loss.
+
+For more information, read the [blog post](https://techcommunity.microsoft.com/blog/azurestorageblog/general-availability-of-azure-backup-vaulted-support-for-azure-files-premium-ssd/4455307).
+
+#### Azure file share using Microsoft.FileShares is now in public preview
+
+Azure file share using Microsoft.FileShares is now in public preview, bringing a modern, share-centric management experience to Azure Files. This update makes file shares a top-level resource in Azure, eliminating the need for storage accounts and enabling several key enhancements. This new model is ideal for cloud-native applications, CI/CD pipelines, and teams managing large volumes of file shares. In preview, we support NFSv4.1 on SSD with provisioned v2 billing only.
+
+To learn more, read the [blog post](https://techcommunity.microsoft.com/blog/azurestorageblog/simplifying-file-share-management-and-control-for-azure-files/4452634).
+
+#### Provisioned v2 for SSD file shares
+The provisioned v2 model for Azure Files SSD (premium) pairs predictability of total cost of ownership with flexibility, allowing you to create a file share that meets your exact storage and performance requirements. Provisioned v2 SSD shares enable independent provisioning of storage, IOPS, and throughput. In addition to predictable pricing and flexible provisioning, provisioned v2 SSD also enables increased file share size range from 32 GiB up to 256 TiB.
+
+To learn more, see [understanding the provisioned v2 model](./understanding-billing.md#provisioned-v2-model).
+
+#### Azure File Sync Agent now available via Azure Arc extension
+Windows servers connected through Azure Arc can now install the Azure File Sync agent using a new extension called Azure File Sync Agent for Windows. The new extension is published by Microsoft and can be managed using the Azure portal, PowerShell, or Azure CLI. To learn more, see the [Azure File Sync agent extension documentation](../file-sync/file-sync-extension.md).
+
 ### 2025 quarter 2 (April, May, June)
+
+#### Encryption in Transit (EiT) for NFS file shares is now generally available
+
+With the launch of Encryption in Transit for NFSv4.1 shares, Azure Files now delivers enterprise-grade security on par with industry standards, closing a key security gap for enterprise workloads. [Learn more](encryption-in-transit-for-nfs-shares.md).
 
 #### Metadata caching for SSD SMB file shares is now generally available
 
@@ -26,7 +57,7 @@ Metadata caching is an enhancement for SMB Azure SSD file shares aimed to reduce
 
 Azure File Sync support for managed identities is now generally available, enabling customers to be secure by default. Using managed identities eliminates the need for shared keys (storage account key, SAS keys) to authenticate to Azure Files by utilizing a system-assigned managed identity provided by Microsoft Entra ID. [Learn more](../file-sync/file-sync-managed-identities.md).
 
-#### Azure Files vaulted backup is now generally available
+#### Azure Files vaulted backup is now generally available for HDD file shares
 
 Azure Backup now supports vaulted backup of HDD file shares to protect against ransomware and data loss. You can define backup schedules and retention settings to store data in the Backup vault for up to 10 years. Vaulted backups provide an offsite copy of your data. In case of data loss on the source account, you can restore it to an alternate account. You can manage vaulted backups at scale via Azure Business Continuity Center and monitor them using Azure Backup's alerting and reporting features.
 
@@ -40,7 +71,7 @@ Data plane REST API access to NFS Azure file shares will enable further developm
 
 #### Support for customer initiated LRS-ZRS redundancy conversion for SSD file shares
 
-Azure Files now supports customer initiated LRS to ZRS (and vice versa) redundancy conversions for SSD file shares. NFS file shares supported if using private endpoints. You can easily manage the migration of your storage accounts through the Azure Portal, PowerShell, or CLI. To learn more, see [Azure Files data redundancy](files-redundancy.md).
+Azure Files now supports customer initiated LRS to ZRS (and vice versa) redundancy conversions for SSD file shares. NFS file shares supported if using private endpoints. You can easily manage the migration of your storage accounts through the Azure portal, PowerShell, or CLI. To learn more, see [Azure Files data redundancy](files-redundancy.md).
 
 ## What's new in 2024
 
@@ -165,7 +196,7 @@ Azure File Sync is now a zone-redundant service, which means an outage in a zone
 
 ### 2022 quarter 4 (October, November, December)
 #### Azure Active Directory (Azure AD) Kerberos authentication for hybrid identities on Azure Files is generally available
-This [feature](storage-files-identity-auth-hybrid-identities-enable.md) builds on top of [FSLogix profile container support](../../virtual-desktop/create-profile-container-azure-ad.yml) released in December 2022 and expands it to support more use cases (SMB only). Hybrid identities, which are user identities created in Active Directory Domain Services (AD DS) and synced to Azure AD, can mount and access Azure file shares without the need for network connectivity to an Active Directory domain controller. While the initial support is limited to hybrid identities, it's a significant milestone as we simplify identity-based authentication for Azure Files customers. [Read the blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/general-availability-azure-active-directory-kerberos-with-azure/ba-p/3612111).
+This [feature](storage-files-identity-auth-hybrid-identities-enable.md) builds on top of [FSLogix profile container support](/azure/virtual-desktop/create-profile-container-azure-ad) released in December 2022 and expands it to support more use cases (SMB only). Hybrid identities, which are user identities created in Active Directory Domain Services (AD DS) and synced to Azure AD, can mount and access Azure file shares without the need for network connectivity to an Active Directory domain controller. While the initial support is limited to hybrid identities, it's a significant milestone as we simplify identity-based authentication for Azure Files customers. [Read the blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/general-availability-azure-active-directory-kerberos-with-azure/ba-p/3612111).
 
 ### 2022 quarter 2 (April, May, June)
 #### SUSE Linux support for SAP HANA System Replication (HSR) and Pacemaker
@@ -263,7 +294,7 @@ For more information, see:
 
 ### 2021 quarter 1 (January, February, March)
 #### Azure Files management now available through the control plane
-Management APIs for Azure Files resources, the file service and file shares, are now available through control plane (`Microsoft.Storage` resource provider). This enables Azure file shares to be created with an Azure Resource Manager or Bicep template, to be fully manageable when the data plane (i.e. the FileREST API) is inaccessible (like when the storage account's public endpoint is disabled), and to support full role-based access control (RBAC) semantics.
+Management APIs for Azure Files resources, the file service and file shares, are now available through control plane (`Microsoft.Storage` resource provider). This enables Azure file shares to be created with an Azure Resource Manager or Bicep file, to be fully manageable when the data plane (i.e. the FileREST API) is inaccessible (like when the storage account's public endpoint is disabled), and to support full role-based access control (RBAC) semantics.
 
 We recommend you manage Azure Files through the control plane in most cases. To support management of the file service and file shares through the control plane, the Azure portal, Azure storage PowerShell module, and Azure CLI have been updated to support most management actions through the control plane. 
 

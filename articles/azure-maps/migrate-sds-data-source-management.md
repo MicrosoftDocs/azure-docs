@@ -42,7 +42,7 @@ To load and present your data on a map, you need to build a service layer (an AP
 ### More information
 
 - [Create a data source for a map in Microsoft Azure Maps]
-- [How to use the Azure Maps spatial IO module]
+- [How to use the Azure Maps Spatial IO module]
 - [Read and write spatial data with Microsoft Azure Maps]
 
 ## Locator starter project
@@ -93,7 +93,7 @@ The Azure Maps store locator starter project gives you the following general arc
 [Data Source Management]: /bingmaps/spatial-data-services/data-source-management-api
 [Geocode Dataflow]: /bingmaps/spatial-data-services/geocode-dataflow-api
 [Geodata]: /bingmaps/spatial-data-services/geodata-api
-[How to use the Azure Maps spatial IO module]: how-to-use-spatial-io-module.md
+[How to use the Azure Maps Spatial IO module]: how-to-use-spatial-io-module.md
 [Microsoft Entra authentication]: azure-maps-authentication.md#microsoft-entra-authentication
 [Microsoft Q&A Forum]: /answers/tags/209/azure-maps
 [Migrating Bing Maps SDS Geocode Dataflow API]: migrate-geocode-dataflow.md

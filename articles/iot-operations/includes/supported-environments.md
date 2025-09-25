@@ -10,4 +10,4 @@ ms.custom:
 ---
 
 > [!IMPORTANT]
-> Currently, K3s on Ubuntu 24.04 is the only generally available platform for deploying Azure IoT Operations in production. To learn more, see [Supported environments](../deploy-iot-ops/overview-deploy.md#supported-environments).
+> Currently, K3s on Ubuntu 24.04 and Tanzu Kubernetes are the only platforms for deploying Azure IoT Operations in production. To learn more, see [Supported environments](../deploy-iot-ops/overview-deploy.md#supported-environments).

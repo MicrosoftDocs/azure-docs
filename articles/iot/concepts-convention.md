@@ -4,6 +4,7 @@ description: Description of the conventions IoT Plug and Play expects devices to
 author: dominicbetts
 ms.author: dobett
 ms.date: 1/10/2025
+ms.update-cycle: 1095-days
 ms.topic: conceptual
 ms.service: azure-iot
 ---

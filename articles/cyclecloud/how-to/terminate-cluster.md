@@ -2,19 +2,19 @@
 title: Terminate a Cluster
 description: Learn how to terminate a cluster in Azure CycleCloud. Cluster termination stops and removes the VMs and deletes non-persistent volumes.
 author: adriankjohnson
-ms.date: 11/12/2021
+ms.date: 07/01/2025
 ms.author: adjohnso
 ---
 
-# Terminate a Cluster
+# Terminate a cluster
 
-You can terminate a cluster when it has completed all the submitted jobs and the cluster is no longer needed. Terminating the cluster will stop and remove the virtual machines and delete any non­-persistent volumes in the cluster. Nodes that originate from a nodearray are removed, while other nodes remain in the cluster in the `Off` state.
+You can terminate a cluster when it completes all submitted jobs and you no longer need the cluster. Terminating the cluster stops and removes virtual machines and deletes any non-persistent volumes in the cluster. The process removes nodes that come from a node array, but it leaves other nodes in the cluster in the `Off` state.
 
-Terminating is an orchestration process. Cluster nodes will move into the `Terminating` state and then to `Off` if the termination was successful. If there is an error during the process, that node will be marked as `Failed`, and can be retried.
+Termination is an orchestration process where cluster nodes move into the `Terminating` state and then to `Off` if the termination succeeds. If an error occurs during the process, the node is marked as `Failed` and can be retried.
 
 ## Terminate via CycleCloud GUI
 
-Click **Terminate** in the CycleCloud GUI to shut down all of the cluster's infrastructure. All underlying Azure resources will be cleaned up as part of the cluster termination, which may take several minutes.
+Select **Terminate** in the CycleCloud GUI to shut down the cluster's infrastructure. The termination process cleans up all underlying Azure resources and can take several minutes.
 
 ::: moniker range="=cyclecloud-7"
 ![terminate cluster dialog](../images/version-7/terminate-cluster.png)
@@ -26,29 +26,30 @@ Click **Terminate** in the CycleCloud GUI to shut down all of the cluster's infr
 
 ## Terminate via CycleCloud CLI
 
-The CycleCloud CLI can also [terminate clusters](~/articles/cyclecloud/cli.md#cyclecloud-terminate_cluster):
+You can also use the CycleCloud CLI to [terminate clusters](~/articles/cyclecloud/cli.md#cyclecloud-terminate_cluster):
 
 ```bash
 cyclecloud terminate_cluster my_cluster_name
 ```
 
-## Delete a Resource Group
+## Delete a resource group
 
-To remove the resources no longer needed, you can simply delete the resource group. Everything within that group will be cleaned up as part of the process:
+To remove resources you don't need, delete the resource group and everything in it:
 
 ```azurecli-interactive
 az group delete --name "{RESOURCE GROUP}"
 ```
 
 ::: moniker range=">=cyclecloud-8"
-## Force-Delete VMs
 
-CycleCloud 8.2.1 supports the **Force Delete** option for VMs, which can provide faster delete times at the risk of possible data loss on the disks. This can be enabled separately for standalone VMs (such as scheduler head nodes) or scaleset VMs (execute nodes). To enable it, go to the **Settings** page in the upper right corner, and **Configure CycleCloud**.
+## Force-delete virtual machines
+
+CycleCloud 8.2.1 supports the **Force Delete** option for VMs. This option provides faster delete times but comes with the risk of possible data loss on the disks. You can enable this feature separately for standalone VMs (such as scheduler head nodes) or scaleset VMs (execute nodes). To enable it, go to the **Settings** page in the upper right corner, and select **Configure CycleCloud**.
 
 ![Force Delete settings](~/articles/cyclecloud/images/force-delete-settings.png)
 
-This setting affects all VMs managed by CycleCloud, but can be changed at any time.
+This setting affects all VMs that CycleCloud manages. You can change it at any time.
 
 > [!WARNING]
-> This feature is not recommended for VMs whose data disks contain critical data!
+> Don't use this feature for VMs whose data disks contain critical data.
 ::: moniker-end

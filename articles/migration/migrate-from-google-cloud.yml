@@ -11,7 +11,9 @@ metadata:
   ms.author: robbymillsap
   ms.reviewr: robbymillsap, chkittel, prwilk
   ms.date: 03/26/2025
-  ms.custom: migration
+  ms.collection:
+   - migration
+   - gcp-to-azure
 
 landingContent:
   - title: Migration strategy
@@ -56,8 +58,8 @@ landingContent:
             url: /azure/azure-sql/migration-guides/database/mysql-to-sql-database-guide?view=azuresql-db&preserve-view=true
           - text: Migrate your SIEM in Google Cloud to Microsoft Sentinel
             url: /azure/sentinel/migration
-          - text: Google Cloud Platform IAM (using Azure Functions) connector for Microsoft Sentinel
-            url:  /azure/sentinel/data-connectors/google-cloud-platform-iam               
+          - text: Google Cloud Platform IAM connector for Microsoft Sentinel
+            url: /azure/sentinel/connect-google-cloud-platform
 
   - title: Migration training modules
     linkLists:

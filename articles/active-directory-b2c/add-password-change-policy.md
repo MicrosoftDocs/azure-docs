@@ -13,6 +13,7 @@ ms.date: 02/19/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As an Azure AD B2C administrator, I want to set up a password change flow using custom policies, so that users can change their passwords without email verification, improving the user experience and security.
@@ -20,7 +21,9 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Set up password change by using custom policies in Azure Active Directory B2C
- 
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 You can configure Azure Active Directory B2C (Azure AD B2C) so that a user who is signed in with a local account can change their password without using email verification to prove their identity. 

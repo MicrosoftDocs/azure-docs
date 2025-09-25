@@ -1,24 +1,23 @@
 - name: Network Function Manager documentation
   href: index.yml
 - name: Overview
-  expanded: true
   items:
   - name: About Network Function Manager
     href: overview.md
-- name: Quickstarts
   expanded: true
+- name: Quickstarts
   items:
   - name: Create a device resource
     href: create-device.md
-- name: Tutorials
   expanded: true
+- name: Tutorials
   items:
   - name: Deploy network functions
     href: deploy-functions.md
   - name: Delete network functions
     href: Delete-functions.md
-- name: Concepts
   expanded: true
+- name: Concepts
   items:
   - name: Partners
     href: partners.md
@@ -26,11 +25,12 @@
     href: faq.md
   - name: Prerequisites and requirements
     href: requirements.md
-- name: How-to guides
   expanded: true
+- name: How-to guides
   items:
   - name: Configure permissions and register resources
     href: resources-permissions.md
+  expanded: true
 - name: Reference
   items:
   - name: REST
@@ -43,9 +43,7 @@
   items:
   - name: Network Function Manager product page
     href: https://go.microsoft.com/fwlink/?linkid=2166098
-  - name: Azure private MEC documentation
-    href: ../private-multi-access-edge-compute-mec/index.yml
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=networking
+    href: https://azure.microsoft.com/updates/?category=networking
   - name: Blog
     href: https://azure.microsoft.com/blog/topics/networking

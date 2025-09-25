@@ -1,11 +1,10 @@
 ---
 title: Use Azure Functions to connect Microsoft Sentinel to your data source | Microsoft Docs
 description: Learn how to configure data connectors that use Azure Functions to get data from data sources into Microsoft Sentinel.
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.date: 06/05/2023
-ms.author: yelevin
-
 
 #Customer intent: As a security engineer, I want to use Azure Functions to connect Microsoft Sentinel to my data sources so that I can automate the ingestion of logs and enhance threat detection capabilities.
 
@@ -150,7 +149,7 @@ Use the following step-by-step instructions to manually deploy Azure Functions-b
 1. **Deploy a Function App**
 
     > [!NOTE]
-    > You will need to [prepare Visual Studio Code](../azure-functions/create-first-function-vs-code-python.md) (VS Code) for Azure Function development.
+    > You will need to [prepare Visual Studio Code](../azure-functions/how-to-create-function-vs-code.md?pivot=programming-language-python) (VS Code) for Azure Function development.
 
     1. Download the Azure Function App file using the link supplied on the data connector page and in the section for your service in the [Microsoft Sentinel data connectors reference](data-connectors-reference.md) page. Extract the archive to your local development computer.
 

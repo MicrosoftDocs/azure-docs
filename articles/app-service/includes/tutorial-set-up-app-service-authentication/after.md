@@ -10,8 +10,9 @@ ms.topic: include
 ms.date: 11/29/2024
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.custom: azureday1
-ms.subservice: web-apps
+ms.custom:
+  - azureday1
+  - sfi-image-nochange
 #Customer intent: As an application developer, enable authentication and authorization for a web app running on Azure App Service.
 ---
 
@@ -156,7 +157,7 @@ When you enabled the App Service authentication/authorization module in the prev
 1. Select the app registration that was created. 
 1. In the overview, verify that **Supported account types** is set to **My organization only**.
     
-1. To verify that access to your app is limited to users in your organization, go to your web app **Overview** and select the **Default domain** link.  Or, start a browser in incognito or private mode and go to `https://<app-name>.azurewebsites.net` (see [note at top](#dnl-note)).
+1. To verify that access to your app is limited to users in your organization, go to your web app **Overview** and select the **Default domain** link.
 
     :::image type="content" alt-text="Screenshot that shows verifying access." source="../../media/scenario-secure-app-authentication-app-service/verify-access.png":::
 

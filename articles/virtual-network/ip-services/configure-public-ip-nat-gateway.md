@@ -8,7 +8,11 @@ ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
 ms.date: 01/07/2025
-ms.custom: template-how-to, engagement-fy23
+ms.custom:
+  - template-how-to
+  - engagement-fy23
+  - sfi-image-nochange
+# Customer intent: As a network administrator, I want to configure a NAT gateway to manage outbound IP connections from my virtual network, so that I can optimize SNAT connections and ensure efficient Internet access for my deployed resources.
 ---
 
 # Manage a public IP address with a NAT gateway

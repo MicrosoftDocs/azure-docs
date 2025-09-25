@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 06/07/2022
 ms.author: shaas
 ms.custom: references_regions 
+# Customer intent: "As a data administrator using Azure Data Box Disk, I want to manage self-shipping for device pickup and drop-off, so that I can efficiently handle data transfers to and from the Azure datacenter while complying with required protocols."
 ---
 
 # Use self-managed shipping for Azure Data Box Disk in the Azure portal

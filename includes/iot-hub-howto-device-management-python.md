@@ -8,7 +8,11 @@ ms.service: iot-hub
 ms.devlang: csharp
 ms.topic: include
 ms.date: 1/6/2025
-ms.custom: mqtt, devx-track-python, py-fresh-zinc
+ms.custom:
+  - mqtt
+  - devx-track-python
+  - py-fresh-zinc
+  - sfi-ropc-nochange
 ---
 
   * Python SDK - [Python version 3.7 or later](https://www.python.org/downloads/) is recommended. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable.
@@ -123,7 +127,7 @@ The [IoTHubRegistryManager](/python/api/azure-iot-hub/azure.iot.hub.iothubregist
 
 ### Service import statements
 
-Add these import statements to connect to Iot Hub, send cloud-to-device direct methods, and receive device direct method responses.
+Add these import statements to connect to IoT Hub, send cloud-to-device direct methods, and receive device direct method responses.
 
 ```python
 from azure.iot.hub import IoTHubRegistryManager

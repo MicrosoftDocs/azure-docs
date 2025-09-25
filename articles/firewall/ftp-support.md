@@ -8,6 +8,7 @@ ms.custom: devx-track-arm-template, devx-track-azurepowershell, devx-track-azure
 ms.topic: concept-article
 ms.date: 06/02/2023
 ms.author: duau
+# Customer intent: As a network administrator, I want to configure Azure Firewall to support both Active and Passive FTP, so that I can ensure secure and effective FTP communication for my applications.
 ---
 
 # Azure Firewall FTP support

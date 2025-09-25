@@ -5,8 +5,14 @@ ms.topic: reference
 ms.date: 11/11/2022
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
+ms.custom:
+  - devx-track-csharp
+  - devx-track-python
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-ts
+  - sfi-ropc-nochange
 ---
 
 # Azure Tables input bindings for Azure Functions
@@ -514,6 +520,27 @@ The following function uses an HTTP trigger to read a single table row as input 
 
 In this example, binding configuration specifies an explicit value for the table's `partitionKey` and uses an expression to pass to the `rowKey`. The `rowKey` expression, `{id}` indicates that the row key comes from the `{id}` part of the route in the request.
 
+# [v2](#tab/python-v2)
+```python
+import json
+import azure.functions as func
+
+app = func.FunctionApp()
+
+@app.route(route="messages/{id}")
+@app.table_input(arg_name="messageJSON",
+                 connection="AzureWebJobsStorage",
+                 table_name="messages",
+                 row_key='{id}',
+                 partition_key="message")
+def table_in_binding(req: func.HttpRequest, messageJSON):
+    message = json.loads(messageJSON)
+    return func.HttpResponse(f"Table row: {messageJSON}")
+```
+
+With this simple binding, you can't programmatically handle a case in which no row that has a row key ID is found. For more fine-grained data selection, use the [storage SDK](/azure/developer/python/sdk/examples/azure-sdk-example-storage-use?tabs=cmd).
+
+# [v1](#tab/python-v1)
 Binding configuration in the _function.json_ file:
 
 ```json

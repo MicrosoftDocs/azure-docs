@@ -4,9 +4,10 @@ description: In this article, learn how to update vault's configuration using RE
 ms.topic: how-to
 ms.date: 10/20/2024
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: As an cloud administrator, I want to update the soft delete state of a Recovery Services vault using REST API, so that I can ensure immediate deletion of vaults when necessary without being hindered by soft delete settings.
 ---
 # Update Azure Recovery Services vault configurations using REST API
 

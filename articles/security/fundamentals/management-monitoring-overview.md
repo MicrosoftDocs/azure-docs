@@ -9,7 +9,7 @@ ms.assetid: 5cf2827b-6cd3-434d-9100-d7411f7ed424
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 06/20/2024
+ms.date: 04/23/2025
 ms.author: mbaldwin
 
 ---

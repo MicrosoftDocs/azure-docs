@@ -20,6 +20,8 @@ zone_pivot_groups: b2c-policy-type
 
 # Set up sign-up and sign-in with a SwissID account using Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 In this article, you learn how to provide sign-up and sign-in to customers with [SwissID](https://www.swissid.ch/) accounts in your applications using Azure Active Directory B2C (Azure AD B2C). You add the SwissID to your user flows or custom policy using OpenID Connect protocol. For more information, see [SwissID Integration Guidelines – OpenID Connect](https://www.swissid.ch/dam/jcr:471f63c6-606e-4c04-be02-afc99f4d2612).

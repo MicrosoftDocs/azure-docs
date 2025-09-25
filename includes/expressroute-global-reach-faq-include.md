@@ -51,7 +51,7 @@ The number of routes you can advertise to Microsoft on Azure private peering rem
 
 ### Can I send IPv6 traffic over an ExpressRoute Global Reach connection?
 
-IPv6 support for ExpressRoute Global Reach is now in Public Preview. See [Enable Global Reach](../articles/expressroute/expressroute-global-reach.md) to learn more. 
+IPv6 is supported for Global Reach. See [Enable Global Reach](../articles/expressroute/expressroute-global-reach.md) to learn more. 
 
 ### What is the SLA for ExpressRoute Global Reach?
 

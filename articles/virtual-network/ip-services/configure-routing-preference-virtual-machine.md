@@ -8,6 +8,7 @@ ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: tutorial
 ms.custom: template-tutorial
+# Customer intent: "As a cloud architect, I want to configure routing preferences for a virtual machine with a public IP address, so that I can optimize internet-bound traffic through the desired network and improve performance."
 ---
 
 # Tutorial: Configure routing preference for a virtual machine

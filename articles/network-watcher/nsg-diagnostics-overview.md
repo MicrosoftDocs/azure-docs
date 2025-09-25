@@ -7,6 +7,7 @@ ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
 ms.date: 03/04/2025
+# Customer intent: As a network administrator, I want to use the NSG diagnostics tool to simulate network traffic flows, so that I can troubleshoot and verify the proper configuration of network security group rules in my Azure environment.
 ---
 
 # NSG diagnostics overview

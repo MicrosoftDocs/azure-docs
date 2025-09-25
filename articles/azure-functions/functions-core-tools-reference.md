@@ -2,9 +2,10 @@
 title: Azure Functions Core Tools reference
 description: Reference documentation that supports the Azure Functions Core Tools (func.exe).
 ms.topic: reference
+ms.date: 08/20/2023
 ms.custom:
   - ignite-2023
-ms.date: 08/20/2023
+  - sfi-ropc-nochange
 ---
 
 # Azure Functions Core Tools reference
@@ -49,7 +50,7 @@ When you supply `<PROJECT_FOLDER>`, the project is created in a new folder with 
 | **`--model`** | Sets the desired programming model for a target language when more than one model is available. Supported options are `V1` and `V2` for Python and `V3` and `V4` for Node.js. For more information, see the [Python developer guide](functions-reference-python.md#programming-model) and the [Node.js developer guide](functions-reference-node.md), respectively. |
 | **`--source-control`** | Controls whether a git repository is created. By default, a repository isn't created. When `true`, a repository is created. |
 | **`--worker-runtime`** | Sets the language runtime for the project. Supported values are: `csharp`, `dotnet`, `dotnet-isolated`, `javascript`,`node` (JavaScript), `powershell`, `python`, and `typescript`. For Java, use [Maven](functions-reference-java.md#create-java-functions). To generate a language-agnostic project with just the project files, use `custom`. When not set, you're prompted to choose your runtime during initialization. |
-| **`--target-framework`** | Sets the target framework for the function app project. Valid only with `--worker-runtime dotnet-isolated`. Supported values are: `net9.0` (preview), `net8.0` (default), `net6.0`, and `net48` (.NET Framework 4.8). |
+| **`--target-framework`** | Sets the target framework for the function app project. Valid only with `--worker-runtime dotnet-isolated`. Supported values are: `net10.0` (preview), `net9.0`, `net8.0` (default), `net6.0`, and `net48` (.NET Framework 4.8). |
 |
 
 > [!NOTE]
@@ -200,7 +201,7 @@ Connects the local command prompt to streaming logs for the function app in Azur
 func azure functionapp logstream <APP_NAME>
 ```
 
-The default timeout for the connection is 2 hours. You can change the timeout by adding an app setting named [SCM_LOGSTREAM_TIMEOUT](functions-app-settings.md#scm_logstream_timeout), with a timeout value in seconds. Not yet supported for Linux apps in the Consumption plan. For these apps, use the `--browser` option to view logs in the portal.
+The default timeout for the connection is 2 hours. You can change the timeout by adding an app setting named [SCM_LOGSTREAM_TIMEOUT](functions-app-settings.md#scm_logstream_timeout), with a timeout value in seconds. Not yet supported for Linux in a [Flex Consumption](flex-consumption-plan.md) or [Consumption](consumption-plan.md) plan. For these apps, use the `--browser` option to view logs in the portal.
 
 The `deploy` action supports the following options:
 
@@ -509,7 +510,7 @@ The following considerations apply when using `func extensions install`:
 
 + To manually install extensions using Core Tools, you must have the [.NET SDK](https://dotnet.microsoft.com/download) installed.
 
-+ When possible, you should instead use [extension bundles](functions-bindings-register.md#extension-bundles). The following are some reasons why you might need to install extensions manually:
++ When possible, you should instead use [extension bundles](extension-bundles.md). The following are some reasons why you might need to install extensions manually:
 
     + You need to access a specific version of an extension not available in a bundle.
     + You need to access a custom extension not available in a bundle.

@@ -6,6 +6,7 @@ ms.service: azure-hpc-cache
 ms.topic: how-to
 ms.date: 02/16/2024
 ms.author: rohogue
+# Customer intent: As a data engineer, I want to choose the appropriate cache usage model for Azure HPC Cache so that I can optimize file access performance and manage the freshness of data based on my workflow requirements.
 ---
 <!-- filename is referenced from GUI in aka.ms/hpc-cache-usagemodel -->
 

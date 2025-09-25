@@ -2,8 +2,10 @@
 title: Bicep modules
 description: This article describes how to define a module in a Bicep file and how to use module scopes.
 ms.topic: conceptual
-ms.custom: devx-track-bicep
-ms.date: 03/25/2025
+ms.custom:
+  - devx-track-bicep
+  - build-2025
+ms.date: 07/25/2025
 ---
 
 # Bicep modules
@@ -65,15 +67,23 @@ Use the symbolic name to reference the module in another part of the Bicep file.
 
 The path can be either a local file or a file in a registry. The local file can be either a Bicep file or an ARM template for JSON. For more information, see [Path to a module](#path-to-a-module).
 
-The `name` property is required. It becomes the name of the nested deployment resource in the generated template.
+The `name` property is optional. It becomes the name of the nested deployment resource in the generated template. If no name is provided, a GUID will be generated as the name for the nested deployment resource.
 
-If a module with a static name is deployed concurrently to the same scope, there's the potential for one deployment to interfere with the output from the other deployment. For example, if two Bicep files use the same module with the same static name (`examplemodule`) and are targeted to the same resource group, one deployment might show the wrong output. If you're concerned about concurrent deployments to the same scope, give your module a unique name.
+If a module with a static name is deployed concurrently to the same scope, there's the potential for one deployment to interfere with the output from the other deployment. For example, if two Bicep files use the same module with the same static name (`examplemodule`) and are targeted to the same resource group, one deployment might show the wrong output. If you're concerned about concurrent deployments to the same scope, give your module a unique name. Another way to ensure unique module names is to leave out the `name` property, a unique module name will be generated automatically.
 
 The following example concatenates the deployment name to the module name. If you provide a unique name for the deployment, the module name is also unique.
 
 ```bicep
 module stgModule 'storageAccount.bicep' = {
   name: '${deployment().name}-storageDeploy'
+  scope: resourceGroup('demoRG')
+}
+```
+
+Not providing any module name is also valid. A GUID will be generated as the module name.
+
+```bicep
+module stgModule 'storageAccount.bicep' = {
   scope: resourceGroup('demoRG')
 }
 ```
@@ -244,7 +254,7 @@ module storage 'br/public:avm/res/storage/storage-account:0.18.0' = {
 }
 ```
 
-You can override the public alias in the _bicepconfig.json_ file.
+You can override the public alias in the *bicepconfig.json* file.
 
 ### File in template spec
 
@@ -343,7 +353,7 @@ param location string
 
 var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 
-resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2025-01-01' = {
   name: uniqueStorageName
   location: location
   sku: {
@@ -367,7 +377,7 @@ targetScope = 'subscription'
 @maxLength(11)
 param namePrefix string
 
-resource demoRG 'Microsoft.Resources/resourceGroups@2024-03-01' existing = {
+resource demoRG 'Microsoft.Resources/resourceGroups@2025-04-01' existing = {
   name: 'demogroup1'
 }
 
@@ -401,7 +411,7 @@ param location string = deployment().location
 
 var resourceGroupName = '${namePrefix}rg'
 
-resource newRG 'Microsoft.Resources/resourceGroups@2024-03-01' = {
+resource newRG 'Microsoft.Resources/resourceGroups@2025-04-01' = {
   name: resourceGroupName
   location: location
 }
@@ -423,11 +433,11 @@ The next example deploys storage accounts to two different resource groups. Both
 ```bicep
 targetScope = 'subscription'
 
-resource firstRG 'Microsoft.Resources/resourceGroups@2024-03-01' existing = {
+resource firstRG 'Microsoft.Resources/resourceGroups@2025-04-01' existing = {
   name: 'demogroup1'
 }
 
-resource secondRG 'Microsoft.Resources/resourceGroups@2024-03-01' existing = {
+resource secondRG 'Microsoft.Resources/resourceGroups@2025-04-01' existing = {
   name: 'demogroup2'
 }
 
@@ -497,7 +507,7 @@ param location string
 
 var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 
-resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2025-01-01' = {
   name: uniqueStorageName
   location: location
   sku: {
@@ -521,7 +531,7 @@ targetScope = 'subscription'
 @maxLength(11)
 param namePrefix string
 
-resource demoRG 'Microsoft.Resources/resourceGroups@2024-03-01' existing = {
+resource demoRG 'Microsoft.Resources/resourceGroups@2025-04-01' existing = {
   name: 'demogroup1'
 }
 
@@ -537,7 +547,31 @@ module stgModule '../create-storage-account/main.bicep' = {
 output storageEndpoint object = stgModule.outputs.storageEndpoint
 ```
 
+With Bicep version 0.35.1 and later, the `@secure()` decorator can be applied to module outputs to mark them as sensitive, ensuring that their values are not exposed in logs or deployment history. This is useful when a module needs to return sensitive data, such as a generated key or connection string, to the parent Bicep file without risking exposure. For more information, see [Secure outputs](./outputs.md#secure-outputs).
+
+## Module identity
+
+Starting with Bicep version 0.36.1, you can assign a user-assigned managed identity to a module. This makes the identity available within the module—for example, to access a Key Vault. However, this capability is intended for future use and is not yet supported by backend services.
+
+```bicep
+param identityId string
+
+module mod './module.bicep' = {
+  identity: {
+    type: 'UserAssigned'
+    userAssignedIdentities: {
+      '${identityId}': {}
+    }
+  }
+  name: 'mod'
+  params: {
+    keyVaultUri: 'keyVaultUri'
+    identityId: identityId
+  }
+}
+```
+
 ## Related content
 
-- For a tutorial, see [Build your first Bicep template](/training/modules/deploy-azure-resources-by-using-bicep-templates/).
+- For a tutorial, see [Build your first Bicep file](/training/modules/deploy-azure-resources-by-using-bicep-templates/).
 - To pass a sensitive value to a module, use the [`getSecret`](bicep-functions-resource.md#getsecret) function.

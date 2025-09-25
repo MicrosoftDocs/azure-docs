@@ -5,8 +5,9 @@ description: Learn about Azure Digital Twins security best practices.
 author: baanders
 ms.author: baanders
 ms.date: 01/27/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-digital-twins
+ms.custom: sfi-image-nochange
 ---
 
 # Secure Azure Digital Twins

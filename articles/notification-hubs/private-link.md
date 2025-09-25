@@ -5,8 +5,10 @@ author: sethmanheim
 ms.author: sethm
 ms.date: 02/02/2024
 ms.service: azure-notification-hubs
-ms.custom: devx-track-azurecli
 ms.topic: conceptual
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Use Private Link (preview)
@@ -30,7 +32,7 @@ The following procedure creates a private endpoint along with a new notification
 
    :::image type="content" source="media/private-link/create-hub.png" alt-text="Screenshot of notification hub creation page on portal showing private link option." lightbox="media/private-link/create-hub.png":::
 
-1. Fill in the subscription, resource group, location, and a name for the new private endpoint. Choose a virtual network and a subnet. In **Integrate with Private DNS Zone**, select **Yes** and type **privatelink.notificationhubs.windows.net** in the **Private DNS Zone** box.
+1. Fill in the subscription, resource group, location, and a name for the new private endpoint. Choose a virtual network and a subnet. In **Integrate with Private DNS Zone**, select **Yes** and type **privatelink.notificationhub.windows.net** in the **Private DNS Zone** box.
 
    :::image type="content" source="media/private-link/create-private-endpoint.png" alt-text="Screenshot of notification hub private endpoint creation page." lightbox="media/private-link/create-private-endpoint.png":::
 
@@ -121,7 +123,7 @@ The following procedure creates a private endpoint along with a new notification
 
    az network private-dns zone create
         --resource-group <resource_group_name>
-        --name privatelink.notoficationhub.windows.net
+        --name privatelink.notificationhub.windows.net
    
    az network private-dns link vnet create
         --resource-group <resource_group_name>

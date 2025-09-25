@@ -5,9 +5,11 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 01/31/2025
+ms.date: 04/09/2025
 ms.author: duau
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - sfi-image-nochange
 ---
 
 # About ExpressRoute Global Reach
@@ -34,6 +36,7 @@ ExpressRoute Global Reach is available in the following locations:
 > To enable ExpressRoute Global Reach between [different geopolitical regions](expressroute-locations-providers.md#locations), your circuits must be **Premium SKU**.
 
 - Australia
+- Belgium
 - Canada
 - Denmark
 - France
@@ -41,14 +44,16 @@ ExpressRoute Global Reach is available in the following locations:
 - Hong Kong SAR
 - India
 - Ireland
+- Italy
 - Japan
-- Korea
 - Netherlands
 - New Zealand
 - Norway
 - Poland
 - Singapore
 - South Africa (Johannesburg only)
+- South Korea
+- Spain
 - Sweden
 - Switzerland
 - Taiwan

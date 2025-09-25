@@ -5,9 +5,10 @@ description: Deployment guide for hybrid infrastructure using Tiger Bridge and A
 author: dukicn
 ms.author: nikoduki
 ms.date: 12/23/2021
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
+# Customer intent: "As a data manager, I want to deploy a hybrid data infrastructure using Tiger Bridge with Azure Blob Storage, so that I can efficiently manage, replicate, and tier unstructured data across multiple environments while ensuring secure access and collaboration."
 ---
 
 # Deploy hybrid data infrastructure with Tiger Bridge and Azure Blob Storage

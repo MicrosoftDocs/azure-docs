@@ -1,43 +1,42 @@
 ---
-title: include file
-description: include file
+title: Include file
+description: Include file
 author: dominicbetts
 ms.topic: include
-ms.date: 03/20/2025
+ms.date: 07/25/2025
 ms.author: dobett
 ---
 
-To update the version of the media and ONVIF connectors in your Azure IoT Operations deployment, run the following PowerShell commands to enable preview features:
+When you deploy the preview version of Azure IoT Operations, the deployment includes the three preview connectors. You can verify that you have a preview instance of Azure IoT Operations by checking in the Azure portal that preview features are enabled for your instance:
 
-> [!IMPORTANT]
-> If you don't enable preview features, you see the following error message in the `aio-supervisor-...` pod logs when you try to use the media or ONVIF connectors: `No connector configuration present for AssetEndpointProfile: <AssetEndpointProfileName>`.
+:::image type="content" source="media/deploy-preview-media-connectors/portal-enable-preview-connectors.png" alt-text="Screenshot of Azure portal that shows that preview features are enabled." lightbox="media/deploy-preview-media-connectors/portal-enable-preview-connectors.png":::
 
-```powershell
-$clusterName="<YOUR AZURE IOT OPERATIONS CLUSTER NAME>"
-$clusterResourceGroup="<YOUR RESOURCE GROUP NAME>"
+Before you can use the preview connectors (ONVIF, media, and REST/HTTP) in the operations experience web UI, an administrator must add connector template instances to your Azure IoT Operations instance.
 
-$extension = az k8s-extension list `
---cluster-name $clusterName `
---cluster-type connectedClusters `
---resource-group $clusterResourceGroup `
---query "[?extensionType == 'microsoft.iotoperations']" `
-| ConvertFrom-Json
+All three preview connectors can publish captured data to the MQTT broker. The media connector can also save captured data to storage. Azure IoT Operations uses [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview) to transfer the captured data to cloud storage destinations such as Azure Blob Storage. When you configure a connector template instance, you specify a _persistent volume claim_ and _mount path_ for the connector to use to save captured data. To learn how to create a suitable persistent volume claim, see [Cloud Ingest Edge Volumes configuration](/azure/azure-arc/container-storage/cloud-ingest-edge-volume-configuration).
 
+To add a connector template instance to your Azure IoT Operations instance:
 
-az k8s-extension update `
---version $extension.version `
---name $extension.name `
---release-train $extension.releaseTrain `
---cluster-name $clusterName `
---resource-group $clusterResourceGroup `
---cluster-type connectedClusters `
---auto-upgrade-minor-version false `
---config connectors.image.registry=mcr.microsoft.com `
---config connectors.image.repository=aio-connectors/helmchart/microsoft-aio-connectors `
---config connectors.image.tag=1.1.0 `
---config connectors.values.enablePreviewFeatures=true `
---yes
-```
+1. In the Azure portal, go to your Azure IoT Operations instance, select **Connector templates**, and then select **Add connector template instances**:
 
-> [!NOTE]
-> This update process is for preview components only. The media and ONVIF connectors are currently preview components.
+    :::image type="content" source="media/deploy-preview-media-connectors/portal-add-connector-template.png" alt-text="Screenshot of Azure portal that shows how to add a connector template instance." lightbox="media/deploy-preview-media-connectors/portal-add-connector-template.png":::
+
+1. On the first page of the **Add an Akri connector template** wizard, select the type of connector template you want to add, such as **ONVIF**, **Media**, or **HTTP REST**. Then select **Metadata**.
+
+    :::image type="content" source="media/deploy-preview-media-connectors/select-connector-template-type.png" alt-text="Screenshot of Azure portal that shows how to select the connector template instance type." lightbox="media/deploy-preview-media-connectors/select-connector-template-type.png":::
+
+1. On the **Metadata** page, accept the defaults, and then select **Device inbound endpoint type**.
+
+1. On the **Device inbound endpoint type** page, accept the defaults, and then select **Diagnostics configurations**.
+
+1. On the **Diagnostics configurations** page, accept the defaults, and then select **Runtime configuration**.
+
+1. On the **Runtime configuration** page, select **Add a volume claim** and enter the details of the persistent volume claim you created previously. Then select **Review**:
+
+    :::image type="content" source="media/deploy-preview-media-connectors/add-volume-claim.png" alt-text="Screenshot of Azure portal that shows how to configure the runtime settings for the connector template instance." lightbox="media/deploy-preview-media-connectors/add-volume-claim.png":::
+
+1. On the **Review** page, review the details of the connector template instance, and then select **Create** to create the connector template instance.
+
+An OT user can now use the operations experience web UI to create a device with a preview connector endpoint.
+
+---

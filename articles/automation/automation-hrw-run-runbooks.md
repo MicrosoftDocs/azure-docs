@@ -1,18 +1,20 @@
 ---
-title: Run Azure Automation runbooks on a Hybrid Runbook Worker
+title: Run Azure Automation Runbooks on a Hybrid Runbook Worker
 description: This article describes how to run runbooks on machines in your local datacenter or other cloud provider with the Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/01/2025
+ms.date: 07/29/2025
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, linux-related-content
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Run Automation runbooks on a Hybrid Runbook Worker
 
 
-> [!Important]
+> [!IMPORTANT]
 > - Starting 1st April 2025, all jobs running on agent-based Hybrid Worker will be stopped. 
 > - Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) has retired on **31 August 2024** and is no longer supported. Follow the guidelines on how to [migrate from an existing Agent-based User Hybrid Runbook Workers to Extension-based Hybrid Workers](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
 
@@ -39,10 +41,11 @@ Azure Automation handles jobs on Hybrid Runbook Workers differently from jobs ru
 Jobs for Hybrid Runbook Workers run under the local **System** account.
 
 > [!NOTE]
->- PowerShell 5.1, PowerShell 7.1(preview), Python 2.7, and Python 3.8 runbooks are supported on both extension-based and agent-based Windows Hybrid Runbook Workers. For agent based workers, ensure the Windows Hybrid worker version is 7.3.12960 or above.
->- PowerShell 7.2 and Python 3.10 (preview) runbooks are supported on extension-based Windows Hybrid Workers only. Ensure the Windows Hybrid worker extension version is 1.1.11 or above.
+>- PowerShell 7.4 and Python 3.10 runbooks are supported on extension-based Windows Hybrid Workers only. Ensure the Windows Hybrid worker extension version is 1.3.63 or above.
+>- PowerShell 5.1, PowerShell 7.1 (preview), Python 2.7, and Python 3.8 runbooks are supported on both extension-based and agent-based Windows Hybrid Runbook Workers. For agent based workers, ensure the Windows Hybrid worker version is 7.3.12960 or above.
+>- PowerShell 7.2 runbook is supported on extension-based Windows Hybrid Workers only. Ensure the Windows Hybrid worker extension version is 1.1.11 or above.
 
-#### [Extension-based Hybrid Workers](#tab/win-extn-hrw)
+#### Extension-based Hybrid Workers
 
 > [!NOTE]
 > To create environment variable in Windows systems, follow these steps:
@@ -52,73 +55,51 @@ Jobs for Hybrid Runbook Workers run under the local **System** account.
 > 1. Provide **Variable name** and **Variable value**, and then select **OK**.
 > 1. Restart the VM or logout from the current user and login to implement the environment variable changes.
 
+**PowerShell 7.4**
+
+To run PowerShell 7.4 runbooks on a Windows Hybrid Worker, install *PowerShell* on the Hybrid Worker. See [Install PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.5).
+
+After PowerShell 7.4 installation is complete, create an environment variable with Variable name as powershell_7_4_path and Variable value as location of the executable *PowerShell*. Restart the Hybrid Runbook Worker after environment variable is created successfully.
+
 **PowerShell 7.2**
 
-To run PowerShell 7.2 runbooks on a Windows Hybrid Worker, install *PowerShell* on the Hybrid Worker. See [Installing PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows).
+To run PowerShell 7.2 runbooks on a Windows Hybrid Worker, install *PowerShell* on the Hybrid Worker. See [Install PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows).
 
 After PowerShell 7.2 installation is complete, create an environment variable with Variable name as powershell_7_2_path and Variable value as location of the executable *PowerShell*. Restart the Hybrid Runbook Worker after environment variable is created successfully.
 
 **PowerShell 7.1**
 
-To run PowerShell 7.1 runbooks on a Windows Hybrid Worker, install *PowerShell* on the Hybrid Worker. See [Installing PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows).
+To run PowerShell 7.1 runbooks on a Windows Hybrid Worker, install *PowerShell* on the Hybrid Worker. See [Install PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows).
 Ensure to add the *PowerShell* file to the PATH environment variable and restart the Hybrid Runbook Worker after the installation.
 
 **Python 3.10**
 
-To run Python 3.10 runbooks on a Windows Hybrid Worker, install *Python* on the Hybrid Worker. See [Installing Python on Windows](https://docs.python.org/3/using/windows.html).
+To run Python 3.10 runbooks on a Windows Hybrid Worker, install *Python* on the Hybrid Worker. See [Install Python on Windows](https://docs.python.org/3/using/windows.html).
 
 After Python 3.10 installation is complete, create an environment variable with Variable name as python_3_10_path and Variable value as location of the executable *Python*. Restart the Hybrid Runbook Worker after environment variable is created successfully.
 
 **Python 3.8**
 
-To run Python 3.8 runbooks on a Windows Hybrid Worker, install Python on the Hybrid Worker. See [Installing Python on Windows](https://docs.python.org/3/using/windows.html). Create **environment variable** *PYTHON_3_PATH* for Python 3.8 runbooks and ensure to add the location of executable Python as **Variable value**. Restart the Hybrid Runbook Worker after the environment variable is created successfully.
+To run Python 3.8 runbooks on a Windows Hybrid Worker, install Python on the Hybrid Worker. See [Install Python on Windows](https://docs.python.org/3/using/windows.html). Create **environment variable** *PYTHON_3_PATH* for Python 3.8 runbooks and ensure to add the location of executable Python as **Variable value**. Restart the Hybrid Runbook Worker after the environment variable is created successfully.
 
 If the *Python* executable file is at the default location *C:\WPy64-3800\python-3.8.0.amd64\python.exe*, then you do not have to create the environment variable.
 
 
 **Python 2.7**
 
-To run Python 2.7 runbooks on a Windows Hybrid Worker, install Python on the Hybrid Worker. See [Installing Python on Windows](https://docs.python.org/3/using/windows.html). Create **environment variable** *PYTHON_2_PATH* for Python 2.7 runbooks and ensure to add the location of executable Python file as **Variable value**. Restart the Hybrid Runbook Worker after the environment variable is created successfully.
+To run Python 2.7 runbooks on a Windows Hybrid Worker, install Python on the Hybrid Worker. See [Install Python on Windows](https://docs.python.org/3/using/windows.html). Create **environment variable** *PYTHON_2_PATH* for Python 2.7 runbooks and ensure to add the location of executable Python file as **Variable value**. Restart the Hybrid Runbook Worker after the environment variable is created successfully.
 
 If the *Python* executable file is at the default location *C:\Python27\python.exe*, then you do not have to create the environment variable.
 
-#### [Agent-based Hybrid Workers](#tab/win-agt-hrw)
-
-> [!NOTE]
-> To create environment variable in Windows systems, follow these steps:
-> 1. Go to **Control Panel** > **System** > **Advanced System Settings**.
-> 1. In **System Properties** select **Environment variables**.
-> 1. In **System variables**, select **New**.
-> 1. Provide **Variable name** and **Variable value**, and then select **OK**.
-> 1. Restart the VM or logout from the current user and login to implement the environment variable changes.
-
-**PowerShell 7.1**
-
-To run PowerShell 7.1 runbooks on a Windows Hybrid Worker, install *PowerShell* on the Hybrid Worker. See [Installing PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows).
-Ensure to add the *PowerShell* file to the PATH environment variable and restart the Hybrid Runbook Worker after the installation.
-
-**Python 3.8**
-
-To run Python 3.8 runbooks on a Windows Hybrid Worker, install Python on the Hybrid Worker. See [Installing Python on Windows](https://docs.python.org/3/using/windows.html). Create **environment variable** *PYTHON_3_PATH* for Python 3.8 runbooks and ensure to add the location of executable Python as **Variable value**. Restart the Hybrid Runbook Worker after the environment variable is created successfully.
-
-If the *Python* executable file is at the default location *C:\WPy64-3800\python-3.8.0.amd64\python.exe*, then you do not have to create the environment variable.
-
-
-**Python 2.7**
-
-To run Python 2.7 runbooks on a Windows Hybrid Worker, install Python on the Hybrid Worker. See [Installing Python on Windows](https://docs.python.org/3/using/windows.html). Create **environment variable** *PYTHON_2_PATH* for Python 2.7 runbooks and ensure to add the location of executable Python file as **Variable value**. Restart the Hybrid Runbook Worker after the environment variable is created successfully.
-
-If the *Python* executable file is at the default location *C:\Python27\python.exe*, then you do not have to create the environment variable.
-
----
 
 ### Linux Hybrid Worker
 
 > [!NOTE]
->- PowerShell 5.1, PowerShell 7.1(preview), Python 2.7, Python 3.8 runbooks are supported on both extension-based and agent-based Linux Hybrid Runbook Workers. For agent-based workers, ensure the Linux Hybrid Runbook worker version is 1.7.5.0 or above.
->- PowerShell 7.2 and Python 3.10 (preview) runbooks are supported on extension-based Linux Hybrid Workers only. Ensure the Linux Hybrid worker extension version is 1.1.11 or above.
+>- PowerShell 7.4 and Python 3.10 runbooks are supported on extension-based Linux Hybrid Workers only. Ensure the Linux Hybrid worker extension version is 1.1.23 or above.
+>- PowerShell 5.1, PowerShell 7.1 (preview), Python 2.7, Python 3.8 runbooks are supported on both extension-based and agent-based Linux Hybrid Runbook Workers. For agent-based workers, ensure the Linux Hybrid Runbook worker version is 1.7.5.0 or above.
+>- PowerShell 7.2 runbook is supported on extension-based Linux Hybrid Workers only. Ensure the Linux Hybrid worker extension version is 1.1.11 or above.
 
-#### [Extension-based Hybrid Workers](#tab/Lin-extn-hrw)
+#### Extension-based Hybrid Workers
 
 > [!NOTE]
 > To create environment variable in Linux systems, follow these steps:
@@ -126,15 +107,21 @@ If the *Python* executable file is at the default location *C:\Python27\python.e
 > 1. Create a new Environment variable by adding VARIABLE_NAME="variable_value" in a new line in /etc/environment (VARIABLE_NAME is the name of the new Environment variable and variable_value represents the value it is to be assigned).
 > 1. Restart the VM or logout from current user and login after saving the changes to /etc/environment to implement environment variable changes.
 
+**PowerShell 7.4**
+
+To run PowerShell 7.4 runbooks on a Linux Hybrid Worker, install *PowerShell* file on the Hybrid Worker. See [Install PowerShell on Linux](/powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.5).
+
+After PowerShell 7.4 installation is complete, create an environment variable with **Variable name** as powershell_7_4_path and **Variable value** as location of the executable *PowerShell* file. Restart the Hybrid Runbook Worker after an environment variable is created successfully.
+
 **PowerShell 7.2**
 
-To run PowerShell 7.2 runbooks on a Linux Hybrid Worker, install *PowerShell* file on the Hybrid Worker. For more information, see [Installing PowerShell on Linux](/powershell/scripting/install/installing-powershell-on-linux).
+To run PowerShell 7.2 runbooks on a Linux Hybrid Worker, install *PowerShell* file on the Hybrid Worker. For more information, see [Install PowerShell on Linux](/powershell/scripting/install/installing-powershell-on-linux).
 
 After PowerShell 7.2 installation is complete, create an environment variable with **Variable name** as *powershell_7_2_path* and **Variable value** as location of the executable *PowerShell* file. Restart the Hybrid Runbook Worker after an environment variable is created successfully.
 
 **Python 3.10**
 
-To run Python 3.10 runbooks on a Linux Hybrid Worker, install *Python* on the Hybrid Worker. For more information, see [Installing Python 3.10 on Linux](https://docs.python.org/3/using/unix.html).
+To run Python 3.10 runbooks on a Linux Hybrid Worker, install *Python* on the Hybrid Worker. For more information, see [Install Python 3.10 on Linux](https://docs.python.org/3/using/unix.html).
 
 After Python 3.10 installation is complete, create an environment variable with **Variable name** as *python_3_10_path* and **Variable value** as location of the executable *Python* file. Restart the Hybrid Runbook Worker after environment variable is created successfully.
 
@@ -147,21 +134,6 @@ Ensure to add the executable *Python* file to the PATH environment variable and 
 
 To run Python 2.7 runbooks on a Linux Hybrid Worker, install *Python* on the Hybrid Worker.
 Ensure to add the executable *Python* file to the PATH environment variable and restart the Hybrid Runbook Worker after the installation.
-
-#### [Agent-based Hybrid Workers](#tab/Lin-agt-hrw)
-
-Create Service accounts **nxautomation** and **omsagent** for agent-based Hybrid Workers. The creation and permission assignment script can be viewed at [linux data](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/installer/datafiles/linux.data). The accounts, with the corresponding sudo permissions, must be present during [installation of a Linux Hybrid Runbook worker](automation-linux-hrw-install.md).
-
-If you try to install the worker, and the account is not present or doesn't have the appropriate permissions, the installation fails. Do not change the permissions of the `sudoers.d` folder or its ownership. Sudo permission is required for the accounts and the permissions shouldn't be removed. Restricting this to certain folders or commands may result in a breaking change. The **nxautomation** user enabled as part of Update Management executes only signed runbooks.
-
-To ensure the service accounts have access to the stored runbook modules:
-
-- When you use `pip install`, `apt install` or other method for installing packages on Linux, ensure the package is installed for all users. For example `sudo -H pip install <package_name>`.
-- If using [PowerShell on Linux](/powershell/scripting/whats-new/what-s-new-in-powershell-70), when you use the [Install-Module](/powershell/module/powershellget/install-module) cmdlet, be sure to specify `AllUsers` for the `Scope` parameter.
-
-The Automation worker log is located at `/var/opt/microsoft/omsagent/run/automationworker/worker.log`.
-
----
 
 ## Configure runbook permissions
 
@@ -316,7 +288,7 @@ By default, the Hybrid jobs run under the context of System account. However, to
 1. Select **Hybrid Worker Groups**, and then select the specific group.
 1. Select **Settings**.
 1. Change the value of **Hybrid Worker credentials** from **Default** to **Custom**.
-1. Select the credential and click **Save**.
+1. Select the credential and select **Save**.
 1. If the following permissions are not assigned for Custom users, jobs might get suspended.
 
   | **Resource type** | **Folder permissions** |
@@ -432,7 +404,7 @@ You will perform the following steps to complete this configuration:
 > [!NOTE]
 > The Create a GPG keyring and keypair are applicable only for the agent-based hybrid workers.
 
-To create the GPG keyring and keypair, use the Hybrid Runbook Worker [nxautomation account](automation-runbook-execution.md#log-analytics-agent-for-linux).
+To create the GPG keyring and keypair, use the Hybrid Runbook Worker:
 
 1. Use the sudo application to sign in as the **nxautomation** account.
 
@@ -483,11 +455,11 @@ You can now upload the signed runbook to Azure Automation and execute it like a 
 
 ## Logging
 
-To help troubleshoot issues with your runbooks running on a hybrid runbook worker, logs are stored locally in the following location:
+To help troubleshoot issues with your runbooks running on an extension-based hybrid runbook worker, logs are stored locally in the following location:
 
-* On Windows at `C:\ProgramData\Microsoft\System Center\Orchestrator\<version>\SMA\Sandboxes` for detailed job runtime process logging. High-level runbook job status events are written to the **Application and Services Logs\Microsoft-Automation\Operations** event log.
+* On Windows at `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows<version>` for detailed extension and job runtime process logging. High-level runbook job status events are written to the **Applications and Services Logs/Microsoft-SMA/Operational** event log.
 
-* On Linux, the user hybrid worker logs can be found at `/home/nxautomation/run/worker.log`, and system runbook worker logs can be found at `/var/opt/microsoft/omsagent/run/automationworker/worker.log`.
+* On Linux, the extension-based hybrid worker logs can be found at  `/home/hweautomation/run/worker.log`, and `/var/log/azure/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux`.
 
 ## Next steps
 

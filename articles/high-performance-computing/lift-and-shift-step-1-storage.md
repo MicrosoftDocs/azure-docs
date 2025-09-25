@@ -1,17 +1,18 @@
 ---
-title: "Deployment step 1: basic infrastructure - storage component"
-description: Learn about the configuration of basic storage during migration deployment step one.
+title: "Storage options"
+description: Learn what basic storage infrastructure options to consider during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 08/30/2024
+ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+# Customer intent: As a cloud architect, I want to establish a basic storage infrastructure for high-performance computing migration, so that I can ensure effective data management, security, and resource accessibility during the deployment process.
 ---
 
-# Deployment step 1: basic infrastructure - storage component
+# Storage options
 
-In any Azure subscription, setting up basic storage is essential for managing data, applications, and resources effectively. While more advanced and HPC-specific storage configurations are addressed separately, a solid foundation of basic storage is crucial for general resource management and initial deployment needs.
+In any Azure subscription, setting up basic storage is essential for managing data, applications, and resources effectively. While more advanced and HPC-specific storage configurations are addressed separately, a solid foundation of basic storage is crucial for general resource management and initial deployment needs. This part of the guide covers the needs, tools, services, and best practices associated with your basic storage infrastructure.
 
 ## Define basic storage needs
 

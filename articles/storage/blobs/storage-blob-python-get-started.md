@@ -3,13 +3,17 @@ title: Get started with Azure Blob Storage and Python
 titleSuffix: Azure Storage
 description: Get started developing a Python application that works with Azure Blob Storage. This article helps you set up a project and authorize access to an Azure Blob Storage endpoint.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 10/02/2024
-ms.custom: devx-track-python, devguide-python
 ai-usage: ai-assisted
+ms.custom:
+  - devx-track-python
+  - devguide-python
+  - sfi-ropc-nochange
+# Customer intent: As a Python developer, I want to integrate my application with Azure Blob Storage, so that I can efficiently manage and interact with data resources using the client library.
 ---
 
 # Get started with Azure Blob Storage and Python

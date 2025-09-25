@@ -7,6 +7,7 @@ ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 03/26/2025
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 
 ---
 # Scenario: BGP peering with a virtual hub
@@ -61,7 +62,6 @@ The virtual hub router now also exposes the ability to peer with it, thereby exc
 
 * When configuring BGP peering with the hub, you'll see two IP addresses. Peering with both these addresses is required. Not peering with both addresses can cause routing issues. The same routes must be advertised to both of these addresses. Advertising different routes will cause routing issues. 
 
-* The next hop IP address on the routes being advertised from the NVA to the virtual HUB route server has to be the same as the IP address of the NVA, the IP address configured on the BGP peer. Having a different IP address advertised as next hop IS NOT supported for Virtual WAN at the moment.
 ## BGP peering scenarios
 
 This section describes scenarios where BGP peering feature can be utilized to configure routing.

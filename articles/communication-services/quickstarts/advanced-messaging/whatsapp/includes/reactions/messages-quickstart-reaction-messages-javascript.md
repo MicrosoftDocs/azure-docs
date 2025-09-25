@@ -5,17 +5,18 @@ services: azure-communication-services
 author: arifibrahim4
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
-ms.date: 1/24/2025
+ms.date: 05/01/25
 ms.topic: include
 ms.custom: include file
 ms.author: armohamed
 ---
 
 ## Prerequisites
+
 - [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md).
 - Active WhatsApp phone number to receive messages.
-- [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 are recommended)
-    - In a terminal or command window, run `node --version` to check that Node.js is installed
+- [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 are recommended).
+    - In a terminal or command window, run `node --version` to check that Node.js is installed.
 
 ## Setting up
 
@@ -31,7 +32,7 @@ The following classes and interfaces handle some of the major features of the Az
 | `ReactionNotificationContent` | Defines reaction message content. |
 
 > [!NOTE]
-> For more information, see the Azure SDK for JavaScript reference [@azure-rest/communication-messages package](/javascript/api/@azure-rest/communication-messages)
+> For more information, see the Azure SDK for JavaScript reference [@Azure-rest/communication-messages package](/javascript/api/@azure-rest/communication-messages)
 
 ## Common configuration
 
@@ -51,13 +52,14 @@ Follow these steps to add required code snippets to your `send-messages.js` file
 
 [!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting-javascript.md)]
 
-### Send a Reaction messages to a WhatsApp user message
+### Send a reaction messages to a WhatsApp user message
 
 The Messages SDK enables Contoso to send reaction WhatsApp messages, when initiated by WhatsApp users. To send text messages:
+
 - [WhatsApp Channel ID](#set-channel-registration-id).
 - [Recipient Phone Number in E16 format](#set-recipient-list).
 - Emoji.
-- Message Id of message you want to apply the emoji to.
+- Message ID of message you want to apply the emoji to.
 
 > [!IMPORTANT]
 > To send a reaction to user message, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
@@ -110,6 +112,7 @@ main().catch((error) => {
 ```
 
 ## Run the code
+
 Use the node command to run the code you added to the send-messages.js file.
 
 ```console
@@ -118,4 +121,4 @@ node ./send-messages.js
 
 ## Full sample code
 
-Find the finalized code for this sample on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication/communication-messages-rest/samples).
+Find the finalized code for this sample on GitHub at [JavaScript Messages SDK](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication/communication-messages-rest/samples).

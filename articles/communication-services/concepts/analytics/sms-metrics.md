@@ -1,7 +1,7 @@
 ---
-title: SMS metrics definitions for Azure Communication Service
-titleSuffix: An Azure Communication Services concept document
-description: This document covers definitions of SMS metrics available in the Azure portal.
+title: SMS metrics
+titleSuffix: An Azure Communication Services article
+description: This article describes the SMS metrics available in the Azure portal.
 author: mkhribech
 services: azure-communication-services
 ms.author: mkhribech
@@ -10,9 +10,9 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: data
 ---
-# SMS metrics overview
+# SMS metrics
 
-Azure Communication Services currently provides metrics for all Communication Services primitives. You can use [Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics) to:
+Azure Communication Services provides metrics for Azure Communication Services. You can use [Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics) to:
 
 - Plot your own charts.
 - Investigate abnormalities in your metric values.
@@ -20,7 +20,7 @@ Azure Communication Services currently provides metrics for all Communication Se
 
 ## Where to find metrics
 
-Primitives in Communication Services emit metrics for API requests. To find these metrics, see the **Metrics** tab under your Communication Services resource. You can also create permanent dashboards by using the workbooks tab under your Communication Services resource.
+Each service in Azure Communication Services emits metrics for API requests. To view metrics, see the **Metrics** tab under your Communication Services resource. You can also create permanent dashboards by using the workbooks tab under your Communication Services resource.
 
 ## Metric definitions
 
@@ -36,8 +36,8 @@ For more information on supported aggregation types and time series aggregations
 
 The following operations are available on SMS API request metrics.
 
-| Operation/Route    | Description                                                                                    |
-| -------------------- | ---------------------------------------------------------------------------------------------- |
-| SMSMessageSent       | Sends an SMS message. |
-| SMSDeliveryReportsReceived     | Gets SMS Delivery Reports |
-| SMSMessagesReceived      | Gets SMS messages. |
+| Operation/Route | Description |
+| --- | --- |
+| `SMSMessageSent` | Sends an SMS message. |
+| `SMSDeliveryReportsReceived` | Gets SMS Delivery Reports |
+| `SMSMessagesReceived` | Gets SMS messages. |

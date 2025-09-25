@@ -6,7 +6,7 @@ ms.reviewer: prsaini
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 04/01/2025
+ms.date: 09/23/2025
 ms.author: prsaini
 ---
 
@@ -40,6 +40,14 @@ For services introduced after your Azure purchase, you're charged the price that
 ## Price changes
 
 Microsoft might drop the current Enterprise Agreement price for individual Azure services during the term of an enrollment. We extend these reduced rates to existing customers while the lower price is in effect. If these rates increase later, your enrollment's price for a service doesn't increase beyond your price protection ceiling as defined previously. However, the rate might increase relative to the prior lowered price. In either case, we inform Bill-To contact on the EA agreement of upcoming price changes by email.
+
+## Foreign Exchange rate for Enterprise Agreement (EA)
+
+Enterprise Agreement (EA) customers are billed in their designated billing currency as per the terms of their agreement. Therefore, foreign exchange (FX) rates do not apply and are not available for EA customers.
+
+As a result, the *cost in pricing currency* field is not included in EA usage report. For more information see, [Understand cost details field](/azure/cost-management-billing/automate/understand-usage-details-fields#list-of-fields-and-descriptions) 
+
+If Microsoft anticipates any pricing changes due to currency exchange rate fluctuations, customers are notified in advance before those changes take effect.
 
 ## Current effective pricing
 

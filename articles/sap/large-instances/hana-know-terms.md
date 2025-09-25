@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 4/16/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
+# Customer intent: "As an IT architect planning a deployment, I want to understand the terms related to SAP HANA on Azure (Large Instances) so that I can effectively design and implement our SAP workloads in the cloud infrastructure."
 ---
 # Know the terms
 

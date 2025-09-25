@@ -5,9 +5,10 @@ ms.topic: overview
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
-ms.date: 01/30/2025
-author: jyothisuri
-ms.author: jsuri
+ms.date: 08/12/2025
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a cloud administrator, I want to understand the prerequisites for backing up Azure Kubernetes Service clusters, so that I can successfully implement backup and restore operations using Azure Backup and ensure data protection for my containerized workloads.
 ---
 
 # Prerequisites for Azure Kubernetes Service backup using Azure Backup
@@ -35,7 +36,16 @@ Azure Backup now allows you to back up AKS clusters (cluster resources and persi
   >[!Note]
   >Both of these core components are deployed with aggressive hard limits on CPU and memory, with CPU *less than 0.5% of a core* and memory limit ranging from *50-200 MB*. So, the *COGS impact* of these components is very low. Because they are core platform components, there is no workaround available to remove them once installed in the cluster.
 
-- If Storage Account, to be provided as input for Extension installation, is under Virtual Network/Firewall, then BackupVault needs to be added as trusted access in Storage Account Network Settings. [Learn how to grant access to trusted Azure service](../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-to-trusted-azure-services), which helps to store backups in the Vault datastore
+- If the storage account you provide as an input for the extension installation uses any network restrictions (private endpoints or the Azure Storage firewall), then grant the backup vault specific access to the storage account by following these steps:
+
+    1. [Grant access to a resource instance](../storage/common/storage-network-security-resource-instances.md). Use these settings:
+
+          - **Resource type**: `Microsoft.DataProtection/BackupVaults`           
+          - **Instance name**: Instance name of managed identity.
+
+    1. Enable *Allow Azure services on the trusted service list to access this storage account.* 
+
+        For more information about Azure Storage network security, see [Azure Storage firewall rules](../storage/common/storage-network-security.md).
 
 - The blob container provided in input during extension installation should not contain any files unrelated to backup.   
 
@@ -72,11 +82,11 @@ To enable backup for an AKS cluster, see the following prerequisites: .
 
 - The Backup Extension during installation fetches Container Images stored in Microsoft Container Registry (MCR). If you enable a firewall on the AKS cluster, the extension installation process might fail due to access issues on the Registry. Learn [how to allow MCR access from the firewall](/azure/container-registry/container-registry-firewall-access-rules#configure-client-firewall-rules-for-mcr).
 
-- In case you have the cluster in a Private Virtual Network and Firewall, apply the following FQDN/application rules: `*.microsoft.com`, `mcr.microsoft.com`, `data.mcr.microsoft.com`, `crl.microsoft.com`, `mscrl.microsoft.com`, `oneocsp.microsoft.com` , `*.azure.com`, `management.azure.com`, `gcs.prod.monitoring.core.windows.net`, `*.prod.warm.ingest.monitor.core.windows.net`, `*.blob.core.windows.net`, `*.azmk8s.io`, `ocsp.digicert.com`, `cacerts.digicert.com`, `crl3.digicert.com`, `crl4.digicert.com`, `ocsp.digicert.cn`, `cacerts.digicert.cn`, `cacerts.geotrust.com`, `cdp.geotrust.com`, `status.geotrust.com`, `ocsp.msocsp.com`,  `*.azurecr.io`, `docker.io`, `*.dp.kubernetesconfiguration.azure.com`. Learn [how to apply FQDN rules](../firewall/dns-settings.md).
+- During the installation of the backup extension in Azure Kubernetes Service (AKS), communication with several Fully Qualified Domain Names (FQDNs) is required to support essential operations. In addition to Azure Backup and Storage Accounts, AKS must also access external endpoints to download container images for running backup pods and to emit service logs to Microsoft Defender for Endpoint via MDM. Therefore, if your cluster is deployed in a private virtual network with firewall restrictions, ensure the following FQDNs or application rules are allowed:`*.microsoft.com`, `mcr.microsoft.com`, `data.mcr.microsoft.com`, `crl.microsoft.com`, `mscrl.microsoft.com`, `oneocsp.microsoft.com` , `*.azure.com`, `management.azure.com`, `gcs.prod.monitoring.core.windows.net`, `*.prod.warm.ingest.monitor.core.windows.net`, `*.blob.core.windows.net`, `*.azmk8s.io`, `ocsp.digicert.com`, `cacerts.digicert.com`, `crl3.digicert.com`, `crl4.digicert.com`, `ocsp.digicert.cn`, `cacerts.digicert.cn`, `cacerts.geotrust.com`, `cdp.geotrust.com`, `status.geotrust.com`, `ocsp.msocsp.com`,  `*.azurecr.io`, `docker.io`, `*.dp.kubernetesconfiguration.azure.com`. Learn [how to apply FQDN rules](../firewall/dns-settings.md).
 
 - If you have any previous installation of *Velero* in the AKS cluster, you need to delete it before installing Backup Extension.
 
-[!NOTE]
+>[!NOTE]
 >
 >The Velero CRDs installed in the cluster are shared between AKS Backup and the customer’s own Velero installation. However, the versions used by each installation may differ, potentially leading to failures due to contractmismatches.
 >

@@ -1,21 +1,20 @@
 ---
-title: Create an SMB volume for Azure NetApp Files | Microsoft Docs
+title: Create an SMB volume for Azure NetApp Files 
 description: This article shows you how to create an SMB3 volume in Azure NetApp Files. Learn about requirements for Active Directory connections and Domain Services.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 12/11/2024
+ms.date: 06/11/2025
 ms.author: anfdocs
+ms.custom: sfi-image-nochange
+# Customer intent: As a cloud administrator, I want to create an SMB volume in Azure NetApp Files, so that I can leverage scalable storage solutions that meet my organization’s data management and sharing requirements.
 ---
 # Create an SMB volume for Azure NetApp Files
 
 Azure NetApp Files supports creating volumes using NFS (NFSv3 or NFSv4.1), SMB3, or dual protocol (NFSv3 and SMB, or NFSv4.1 and SMB). A volume's capacity consumption counts against its pool's provisioned capacity. 
 
 This article shows you how to create an SMB3 volume. For NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volumes.md). For dual-protocol volumes, see [Create a dual-protocol volume](create-volumes-dual-protocol.md).
-
->[!IMPORTANT]
->Windows Server 2025 currently doesn't work with the Azure NetApp Files SMB protocol. 
 
 ## Before you begin 
 
@@ -73,9 +72,9 @@ Before creating an SMB volume, you need to create an Active Directory connection
         The subnet you specify must be delegated to Azure NetApp Files. 
         
         If you haven't delegated a subnet, you can select **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files. In each VNet, only one subnet can be delegated to Azure NetApp Files.   
+      
+        :::image type="content" source="./media/shared/azure-netapp-files-create-subnet.png" alt-text="Screenshot of create new subnet interface." lightbox="./media/shared/azure-netapp-files-create-subnet.png":::
     
-        ![Create subnet](./media/shared/azure-netapp-files-create-subnet.png)
-
     * **Network features**  
         In supported regions, you can specify whether you want to use **Basic** or **Standard** network features for the volume. See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
 

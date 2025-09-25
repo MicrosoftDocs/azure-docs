@@ -68,6 +68,36 @@ To successfully create a data connection, you must first ensure that you've comp
 
 1. Expand the **Log Analytics agent instructions** section to view your workspace ID and primary key. These values are used to set up your data connection.
 
+> [!NOTE] 
+> The **HTTP Data Collector API**, currently used by the **Defender EASM Log Analytics Data Connector**, will be **deprecated on September 14, 2026**.
+>
+> All new Log Analytics Data Connectors will use the **Logs Ingestion API**, which requires additional permission configurations as outlined below.
+
+
+### Configure Resource Group Role Assignments
+
+1. On the leftmost pane, select **Overview** and navigate to the **Resource group** under **Essentials** on the main pane. 
+1. Open the Resource group that contains the Log Analytics workspace.
+1. On the leftmost pane, select **Access control (IAM)**.
+1. Search and select the **Reader** role.
+1. Search and select the **EASM API** as the member for the role assignment. 
+![Screenshot that shows Members for role assignments, specifically the EASM API app.](media/data-connections/add-role-assignment.png)
+1. Be sure the Assignment type is **Permanent** and then click **Review + assign**.
+1. Repeat this and add the **Monitoring Contributor**, **Log Analytics Contributor**, and the **Monitoring Metrics Publisher** roles for the **EASM API** app.
+
+> [!NOTE] 
+> The role assignments for the **EASM API** may take a few minutes to be assigned after. After configuring the assignments, please wait for a few minutes to create a new data connection.
+
+### Configure Subscription Resource Providers
+
+1. Open the Subscription that contains the Resource Group and Log Analytics workspace.
+1. On the leftmost pane, under **Settings** select **Resource Providers**.
+1. Search for **microsoft.insights** and register the provider.
+    ![Screenshot that shows Resource providers, specifically microsoft.insights.](media/data-connections/register-resource-provider.png)
+
+> [!NOTE] 
+> Using the new Log Analytics API, the Defender EASM resource and Log Analytics workspace that will ingest your Defender EASM data **must be in the same tenant**.
+
 Use of this data connection is subject to the pricing structure of Log Analytics. For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## Configure Azure Data Explorer permissions
@@ -104,11 +134,13 @@ A configuration pane opens on the right side of the **Data Connections** page. T
 
 - **Name**: Enter a name for this data connection.
 - **Workspace ID**: Enter the workspace ID for the Log Analytics instance where you want to export Defender EASM data.
-- **API key**: Enter the API key for the Log Analytics instance.
 - **Content**: Select to integrate asset data, attack surface insights, or both datasets.
 - **Frequency**: Select the frequency that the Defender EASM connection uses to send updated data to the tool of your choice. Available options are daily, weekly, and monthly.
 
    ![Screenshot that shows the Add data connection screen for Log Analytics.](media/data-connections/data-connector-11.png)
+
+> [!NOTE]
+> All new data connections will use the Log Analytics API and **will not** use an API key.
 
 
 ### Azure Data Explorer

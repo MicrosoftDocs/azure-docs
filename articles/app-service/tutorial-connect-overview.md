@@ -1,12 +1,16 @@
 ---
-title: 'Securely connect to Azure resources'
+title: 'Securely Connect to Azure Resources'
 description: Shows you how to connect to other Azure services such as a database, storage, or another app. This overview recommends the more secure method for connecting.
 author: cephalin
 ms.author: cephalin
-ms.topic: article
+ms.topic: overview
 ms.date: 07/06/2024
-ms.custom: AppServiceConnectivity
 #customer intent: As a developer, I want to learn how to securely connect to Azure resources from Azure App Service so that I can protect sensitive data and ensure secure communication.
+ms.service: azure-app-service
+ms.custom:
+  - AppServiceConnectivity
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 # Secure connectivity to Azure services and databases from Azure App Service
 
@@ -90,9 +94,8 @@ Examples of using application secrets to connect to a database:
 - [Tutorial: Build a Tomcat web app with Azure App Service on Linux and MySQL](tutorial-java-tomcat-mysql-app.md)
 - [Tutorial: Build a Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB](tutorial-java-spring-cosmosdb.md)
 
-## Next steps
+## Related content
 
-Learn how to:
 - Securely store secrets in [Azure Key Vault](app-service-key-vault-references.md).
 - Access resources using a [managed identity](overview-managed-identity.md).
 - Store secrets using App Service [app settings](configure-common.md).

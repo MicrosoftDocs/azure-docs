@@ -1,5 +1,5 @@
 ---
-title: The Advanced Security Information Model (ASIM) Network Session normalization schema reference (Public preview) | Microsoft Docs
+title: The Advanced Security Information Model (ASIM) Network Session normalization schema reference | Microsoft Docs
 description: This article displays the Microsoft Sentinel Network Session normalization schema.
 author: oshezaf
 ms.topic: reference
@@ -12,7 +12,7 @@ ms.author: ofshezaf
 
 ---
 
-# The Advanced Security Information Model (ASIM) Network Session normalization schema reference (Public preview)
+# The Advanced Security Information Model (ASIM) Network Session normalization schema reference
 
 The Microsoft Sentinel Network Session normalization schema represents an IP network activity, such as network connections and network sessions. Such events are reported, for example, by operating systems, routers, firewalls, and intrusion prevention systems.
 
@@ -21,12 +21,6 @@ The network normalization schema can represent any type of an IP network session
 For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).
 
 This article describes version 0.2.x of the network normalization schema. [Version 0.1](normalization-schema-v1.md) was released before ASIM was available and doesn't align with ASIM in several places. For more information, see [Differences between network normalization schema versions](normalization-schema-v1.md#changes).
-
-> [!IMPORTANT]
-> The network normalization schema is currently in *preview*. This feature is provided without a service level agreement. We don't recommend it for production workloads.
->
-> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 ## Parsers
 
@@ -164,7 +158,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | **NetworkBytes** | Optional | Long | Number of bytes sent in both directions. If both **BytesReceived** and **BytesSent** exist, **BytesTotal** should equal their sum. If the event is aggregated, **NetworkBytes** should be the sum over all aggregated sessions.<br><br>Example: `78991` |
 | **DstPackets** | Optional | Long | The number of packets sent from the destination to the source for the connection or session. The meaning of a packet is defined by the reporting device. If the event is aggregated, **DstPackets** should be the sum over all aggregated sessions.<br><br>Example: `446` |
 | **SrcPackets** | Optional | Long | The number of packets sent from the source to the destination for the connection or session. The meaning of a packet is defined by the reporting device. If the event is aggregated, **SrcPackets** should be the sum over all aggregated sessions.<br><br>Example: `6478` |
-| **NetworkPackets** | Optional | Long | The number of packets sent in both directions. If both **PacketsReceived** and **PacketsSent** exist, **BytesTotal** should equal their sum. The meaning of a packet is defined by the reporting device. If the event is aggregated, **NetworkPackets** should be the sum over all aggregated sessions.<br><br>Example: `6924` |
+| **NetworkPackets** | Optional | Long | The number of packets sent in both directions. If both **PacketsReceived** and **PacketsSent** exist, **PacketsTotal** should equal their sum. The meaning of a packet is defined by the reporting device. If the event is aggregated, **NetworkPackets** should be the sum over all aggregated sessions.<br><br>Example: `6924` |
 |<a name="networksessionid"></a>**NetworkSessionId** | Optional | string | The session identifier as reported by the reporting device. <br><br>Example: `172\_12\_53\_32\_4322\_\_123\_64\_207\_1\_80` |
 | **SessionId** | Alias | String | Alias to [NetworkSessionId](#networksessionid). |
 | **TcpFlagsAck** | Optional | Boolean | The TCP ACK Flag reported. The acknowledgment flag is used to acknowledge the successful receipt of a packet. As we can see from the diagram above, the receiver sends an ACK and a SYN in the second step of the three way handshake process to tell the sender that it received its initial packet. |

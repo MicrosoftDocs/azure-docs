@@ -5,9 +5,12 @@ description: Learn how you can use Web Activity, one of the control flow activit
 author: nabhishek
 ms.author: abnarain
 ms.subservice: orchestration
-ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/25/2024
+ms.custom:
+  - synapse
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Web activity in Azure Data Factory and Azure Synapse Analytics

@@ -113,4 +113,4 @@ For more information, see [Advisors API](https://docs.spring.io/spring-ai/refere
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Deploy an AI-enabled instance of Spring PetClinic on Azure Container Apps](java-petclinic-ai-overview.md)
+> [Deploy an AI-enabled instance of the Spring PetClinic on Azure Container Apps](java-petclinic-ai-tutorial.md)

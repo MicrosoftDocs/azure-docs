@@ -10,6 +10,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 01/25/2022
 ms.author: juergent
+# Customer intent: As an SAP administrator, I want to access a comprehensive list of supported SAP certifications and configurations on Azure, so that I can ensure compliance and optimize my SAP workloads on the cloud platform.
 ---
 # SAP certifications and configurations running on Microsoft Azure
 

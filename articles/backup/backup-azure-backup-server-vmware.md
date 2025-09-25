@@ -2,10 +2,12 @@
 title: Back up VMware VMs using Azure Backup Server
 description: Learn how to back up VMware VMs running on VMware ESXi hosts/vCenter Server to Azure using Azure Backup Server (MABS).
 ms.topic: how-to
-ms.date: 02/25/2025
-author: jyothisuri
-ms.author: jsuri
+ms.date: 07/15/2025
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.service: azure-backup
+ms.custom: sfi-ropc-nochange
+# Customer intent: As a VMware administrator, I want to configure Azure Backup Server to back up VMware VMs, so that I can ensure data protection and recovery for my virtual machine environment.
 ---
 # Back up VMware VMs using Azure Backup Server
 
@@ -435,7 +437,7 @@ You can modify the number of jobs by using the registry key as shown below (not 
 The value should be the number (decimal) of virtual machines that you select for parallel backup.
 
 > [!NOTE]
-> You can modify the number of jobs to a higher value. If you set the jobs number to 1, replication jobs run serially. To increase the number to a higher value, you must consider the VMware performance. Consider the number of resources in use and additional usage required on VMWare vSphere Server, and determine the number of delta replication jobs to run in parallel. Also, this change will affect only the newly created protection groups. For existing protection groups you must temporarily add another VM to the protection group. This should update the protection group configuration accordingly. You can remove this VM from the protection group after the procedure is completed.
+> You can modify the number of jobs to a higher value. If you set the jobs number to 1, replication jobs run serially. To increase the number to a higher value, you must consider the VMware performance. Consider the number of resources in use and additional usage required on VMware vSphere Server, and determine the number of delta replication jobs to run in parallel. Also, this change will affect only the newly created protection groups. For existing protection groups you must temporarily add another VM to the protection group. This should update the protection group configuration accordingly. You can remove this VM from the protection group after the procedure is completed.
 
 ## VMware vSphere 6.7, 7.0, and 8.0
 
@@ -597,11 +599,16 @@ Application consistent backups for VMware VMs running Windows can fail with the 
 To resolve this quiescing error and retry the failed application consistent backup with a crash consistent backup, use the following registry key on the MABS server running V4 UR1 or above:
 
 ```azurepowershell
-Name - FailbackToCrashConsistentBackup DWORD = 1
-Path- SOFTWARE\\MICROSOFT\\MICROSOFT DATA PROTECTION MANAGER\\VMWare
+Windows Registry Editor Version 5.00
+[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\MICROSOFT DATA PROTECTION MANAGER\VMWare]
+" FailbackToCrashConsistentBackup"=dword:00000001
 
 ```
 
 ## Next steps
 
 [Troubleshoot issues about setting up of backups using Azure Backup Server](./backup-azure-mabs-troubleshoot.md).
+
+## Related content
+
+[Run an unattended installation of MABS](backup-mabs-unattended-install.md).

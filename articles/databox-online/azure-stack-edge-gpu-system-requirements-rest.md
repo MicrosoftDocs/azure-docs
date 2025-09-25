@@ -8,6 +8,7 @@ ms.service: azure-stack-edge
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: alkohli
+ms.custom: sfi-ropc-nochange
 ---
 # Azure Stack Edge Blob storage requirements
 

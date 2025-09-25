@@ -1,6 +1,21 @@
 {
     "redirections": [                
         {
+            "source_path_from_root": "/articles/stream-analytics/custom-deserializer-examples.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/custom-deserializer.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/visual-studio-code-custom-deserializer.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-introduction",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/stream-analytics/stream-analytics-managed-identities-adls.md",
             "redirect_url": "/azure/stream-analytics/blob-output-managed-identity",
             "redirect_document_id": false

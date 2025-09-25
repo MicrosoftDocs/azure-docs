@@ -2,11 +2,12 @@
 title: Application Gateway high traffic volume support
 description: This article provides guidance to configure Azure Application Gateway in support of high network traffic volume scenarios. 
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 05/19/2023
-ms.author: greglin
+ms.author: mbender
+# Customer intent: As a network administrator, I want to configure Application Gateway for high traffic scenarios, so that I can ensure scalable and secure management of my web application traffic during peak loads.
 ---
 
 # Application Gateway high traffic support
@@ -41,6 +42,9 @@ For Application Gateway v2 SKU, setting the maximum instance count to the maximu
 Make sure to check your subnet size and available IP address count in your subnet and set your maximum instance count based on that. If your subnet doesn’t have enough space to accommodate, you must recreate your gateway in the same or different subnet which has enough capacity. 
 
 :::image type="content" source="./media/application-gateway-covid-guidelines/v2-autoscaling-max-instances-inline.png" alt-text="V2 autoscaling configuration" lightbox="./media/application-gateway-covid-guidelines/v2-autoscaling-max-instances-exp.png":::
+
+> [!NOTE]
+> If your traffic requirement needs more than 125 instances, you can use Azure Traffic Manager or Azure Front Door in front of your Application Gateway. For more information, please see [Connect Azure Front Door Premium to an Azure Application Gateway with Private Link](../frontdoor/how-to-enable-private-link-application-gateway.md) and [Use Azure App Gateway with Azure Traffic Manager](../traffic-manager/traffic-manager-use-with-application-gateway.md)
 
 ### Set your minimum instance count based on your average Compute Unit usage
 

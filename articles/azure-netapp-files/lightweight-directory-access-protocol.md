@@ -4,9 +4,11 @@ description: This article helps you understand how Azure NetApp Files uses light
 services: azure-netapp-files
 author: whyistheinternetbroken
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/18/2025
 ms.author: anfdocs
+ms.custom: sfi-image-nochange
+# Customer intent: As a cloud storage administrator, I want to understand how lightweight directory access protocol (LDAP) integrates with Azure NetApp Files, so that I can effectively manage user identities and permissions for optimal security and performance in a dual-protocol environment.
 ---
 
 # Understand lightweight directory access protocol (LDAP) basics in Azure NetApp Files

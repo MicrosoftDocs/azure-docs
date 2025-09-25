@@ -10,7 +10,10 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 05/28/2021
 ms.author: jushiman
-ms.custom: H1Hack27Feb2017
+ms.custom:
+  - H1Hack27Feb2017
+  - sfi-image-nochange
+# Customer intent: As a network engineer, I want to set up connectivity between Azure virtual machines and SAP HANA Large Instances, so that I can ensure effective data communication and leverage the capabilities of SAP HANA in a cloud environment.
 ---
 
 # Connecting Azure VMs to HANA Large Instances

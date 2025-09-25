@@ -7,6 +7,8 @@ ms.date: 09/09/2024
 ms.topic: how-to
 ms.custom: engagement-fy24
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Forward Azure Automation diagnostic logs to Azure Monitor

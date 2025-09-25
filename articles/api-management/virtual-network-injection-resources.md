@@ -5,7 +5,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 06/10/2024
+ms.date: 04/17/2025
 ms.author: danlep
 ---
 
@@ -13,12 +13,11 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
-The following are virtual network resource requirements for injection of an API Management Developer or Premium instance into a virtual network. Some requirements differ depending on the version (`stv2` or `stv1`) of the [compute platform](compute-infrastructure.md) hosting your API Management instance.
+The following are virtual network resource requirements for injection of an API Management Developer or Premium instance into a virtual network. 
 
 > [!NOTE]
 > To inject a Premium v2 instance in a virtual network, the requirements and configuration are different. [Learn more](inject-vnet-v2.md)
 
-#### [stv2](#tab/stv2)
 
 * An Azure Resource Manager virtual network is required.
 * The subnet used to connect to the API Management instance might contain other Azure resource types.
@@ -28,14 +27,6 @@ The following are virtual network resource requirements for injection of an API 
 * The API Management service, virtual network and subnet, and public IP address resource (if provided) must be in the same region and subscription.
 * For multi-region API Management deployments, configure virtual network resources separately for each location.
 
-#### [stv1](#tab/stv1)
-
-* An Azure Resource Manager virtual network is required.
-* The subnet used to connect to the API Management instance must be dedicated to API Management. It can't contain other Azure resource types.
-* The subnet used to connect to the API Management instance shouldn't have any delegations enabled. The "Delegate subnet to a service" setting for the subnet should be set to "None". 
-* The API Management service, virtual network, and subnet resources must be in the same region and subscription.
-* For multi-region API Management deployments, configure virtual network resources separately for each location.
----
 
 ## Subnet size
 
@@ -49,17 +40,29 @@ The minimum size of the subnet in which API Management can be deployed is /29, w
 
 * When deploying into an [internal virtual network](./api-management-using-with-internal-vnet.md), the instance requires an extra IP address for the internal load balancer.
 
+> [!NOTE]
+> When considering a subnet size, it is advisable to err on the side of caution due to the integral role that API Management typically holds. Consider growth and scaling in your sizing.
+
 ### Examples
 
-* **/29 subnet**: 8 possible IP addresses - 5 reserved Azure IP addresses - 2 API Management IP addresses for one instance - 1 IP address for internal load balancer, if used in internal mode = 0 remaining IP addresses left for scale-out units.  
-  
-* **/28 subnet**: 16 possible IP addresses - 5 reserved Azure IP addresses - 2 API Management IP addresses for one instance - 1 IP address for internal load balancer, if used in internal mode = 8 remaining IP addresses left for four scale-out units (2 IP addresses/scale-out unit) for a total of five units.   
-  
-* **/27 subnet**: 32 possible IP addresses - 5 reserved Azure IP addresses - 2 API Management IP addresses for one instance - 1 IP address for internal load balancer, if used in internal mode = 24 remaining IP addresses left for 12 scale-out units (2 IP addresses/scale-out unit) for a total of 13 units. 
-  
-* **/26 subnet**: 64 possible IP addresses - 5 reserved Azure IP addresses - 2 API Management IP addresses for one instance - 1 IP address for internal load balancer, if used in internal mode = 56 remaining IP addresses left for 28 scale-out units (2 IP addresses/scale-out unit) for a total of 29 units. 
-  
-* **/25 subnet**: 128 possible IP addresses - 5 reserved Azure IP addresses - 2 API Management IP addresses for one instance - 1 IP address for internal load balancer, if used in internal mode = 120 remaining IP addresses left for 60 scale-out units (2 IP addresses/scale-out unit) for a total of 61 units. This is a large, theoretical number of scale-out units. 
+The following table shows subnet sizing examples for API Management virtual network injection, illustrating how different CIDR blocks affect the number of scale-out units possible:
+
+| Subnet CIDR | Total IP addresses | Azure reserved IPs | API Management instance IPs | Internal load balancer IP | Remaining IPs for scale-out | Max scale-out units | Total max units |
+|------------:|-------------------:|-------------------:|----------------------------:|--------------------------:|----------------------------:|--------------------:|----------------:|
+|        /29  |                  8 |                  5 |                           2 |                         1 |                           0 |                   0 |               1 |
+|        /28  |                 16 |                  5 |                           2 |                         1 |                           8 |                   4 |               5 |
+|        /27  |                 32 |                  5 |                           2 |                         1 |                          24 |                  12 |              13 |
+|        /26  |                 64 |                  5 |                           2 |                         1 |                          56 |                  28 |              29 |
+|        /25  |                128 |                  5 |                           2 |                         1 |                         120 |                 60* |             61* |
+
+## Key Points
+
+- **Minimum subnet size**: /29 (provides 3 usable IP addresses for API Management)
+- **Azure reserved IPs**: 5 addresses per subnet (first and last for protocol conformance, plus 3 for Azure services)
+- **Scale-out requirement**: Each scale-out unit requires 2 IP addresses
+- **Internal load balancer**: Only required when API Management is deployed in internal virtual network mode
+- **Premium SKU limit**: * Currently supports up to 31 units maximum
+- **Recommended sizing**: For high-scale scenarios approaching the Premium SKU limit, consider /26 or /25 subnets
 
 > [!NOTE]
 > It is currently possible to scale the Premium SKU to 31 units. If you foresee demand approaching this limit, consider the /26 subnet or /25 subnet.
@@ -90,22 +93,10 @@ Related information:
 
 ## Limitations
 
-Some virtual network limitations differ depending on the version (`stv2` or `stv1`) of the [compute platform](compute-infrastructure.md) hosting your API Management instance.
-
-#### [stv2](#tab/stv2)
 
 * A subnet containing API Management instances can't be moved across subscriptions.
 * For multi-region API Management deployments configured in internal virtual network mode, users own the routing and are responsible for managing the load balancing across multiple regions.
 * To import an API to API Management from an [OpenAPI specification](import-and-publish.md), the specification URL must be hosted at a publicly accessible internet address.
-
-#### [stv1](#tab/stv1)
-
-* A subnet containing API Management instances can't be moved across subscriptions.
-* For multi-region API Management deployments configured in internal virtual network mode, users own the routing and are responsible for managing the load balancing across multiple regions.
-* To import an API to API Management from an [OpenAPI specification](import-and-publish.md), the specification URL must be hosted at a publicly accessible internet address.
-* Due to platform limitations, connectivity between a resource in a globally peered virtual network in another region and an API Management service in internal mode doesn't work. For more information, see the [virtual network documentation](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
-
----
 
 
 ## Related content

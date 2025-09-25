@@ -235,7 +235,7 @@ The following section focuses on metrics-based alerts for virtual hubs.
 
 ### Azure Firewall
 
-This section of the article focuses on metric-based alerts. Azure Firewall offers a comprehensive list of [metrics and logs](../firewall/firewall-diagnostics.md) for monitoring purposes. In addition to configuring the alerts described in the following section, explore how [Azure Firewall Workbook](../firewall/firewall-workbook.md) can help monitor your Azure Firewall. Also, explore the benefits of connecting Azure Firewall logs to Microsoft Sentinel using [Azure Firewall connector for Microsoft Sentinel](../sentinel/data-connectors/azure-firewall.md).
+This section of the article focuses on metric-based alerts. Azure Firewall offers a comprehensive list of [metrics and logs](../firewall/firewall-diagnostics.md) for monitoring purposes. In addition to configuring the alerts described in the following section, explore how [Azure Firewall Workbook](../firewall/firewall-workbook.md) can help monitor your Azure Firewall. Also, explore the benefits of connecting Azure Firewall logs to Microsoft Sentinel using [Azure Firewall connector for Microsoft Sentinel](../sentinel/data-connectors-reference.md#azure-firewall).
 
 **Design checklist - metric alerts**
 

@@ -6,6 +6,7 @@ ms.service: azure-signalr-service
 ms.topic: how-to
 ms.date: 12/20/2023
 ms.author: lianwei 
+ms.custom: sfi-image-nochange
 ---
 
 # Use Azure SignalR Local Emulator for serverless development

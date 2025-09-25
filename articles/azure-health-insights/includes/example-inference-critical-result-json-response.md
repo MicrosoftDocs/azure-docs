@@ -1,7 +1,7 @@
 ---
 author: JanSchietse
 ms.author: janschietse
-ms.date: 01/25/2024
+ms.date: 03/17/2025
 ms.topic: include
 ms.service: azure-health-insights
 ---
@@ -20,7 +20,7 @@ ms.service: azure-health-insights
               "description": "NEW FRACTURE",
               "finding": {
                 "resourceType": "Observation",
-                "id": "819",
+                "id": "872",
                 "status": "unknown",
                 "code": {
                   "coding": [
@@ -186,7 +186,30 @@ ms.service: azure-health-insights
                   }
                 ]
               }
-            }
+            },
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "code",
+                    "valueString": "18782-3"
+                  },
+                  {
+                    "url": "codingSystem",
+                    "valueString": "2.16.840.1.113883.6.1"
+                  },
+                  {
+                    "url": "codingSystemName",
+                    "valueString": "http://loinc.org"
+                  },
+                  {
+                    "url": "displayName",
+                    "valueString": "RADIOLOGY STUDY OBSERVATION (NARRATIVE)"
+                  }
+                ],
+                "url": "section"
+              }
+            ]
           },
           {
             "kind": "criticalResult",
@@ -194,7 +217,7 @@ ms.service: azure-health-insights
               "description": "NEW FRACTURE",
               "finding": {
                 "resourceType": "Observation",
-                "id": "820",
+                "id": "874",
                 "status": "unknown",
                 "code": {
                   "coding": [
@@ -360,17 +383,40 @@ ms.service: azure-health-insights
                   }
                 ]
               }
-            }
+            },
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "code",
+                    "valueString": "19005-8"
+                  },
+                  {
+                    "url": "codingSystem",
+                    "valueString": "2.16.840.1.113883.6.1"
+                  },
+                  {
+                    "url": "codingSystemName",
+                    "valueString": "http://loinc.org"
+                  },
+                  {
+                    "url": "displayName",
+                    "valueString": "RADIOLOGY IMAGING STUDY (NARRATIVE)"
+                  }
+                ],
+                "url": "section"
+              }
+            ]
           }
         ]
       }
     ],
-    "modelVersion": "2024-04-16"
+    "modelVersion": "2025-03-17"
   },
-  "id": "CriticalResult",
-  "createdAt": "2024-05-14T15:32:08Z",
-  "expiresAt": "2024-05-15T15:32:08Z",
-  "updatedAt": "2024-05-14T15:32:11Z",
+  "id": "fca106",
+  "createdAt": "2025-04-30T09:37:27Z",
+  "expiresAt": "2025-05-01T09:37:27Z",
+  "updatedAt": "2025-04-30T09:37:31Z",
   "status": "succeeded"
 }
 ```

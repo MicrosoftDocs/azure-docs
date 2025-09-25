@@ -5,9 +5,10 @@ description: A premium performance page blob storage account is optimized for re
 author: akashdubey-ms
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/24/2021
 ms.author: akashdubey
+# Customer intent: As a cloud architect, I want to understand the scalability targets of premium page blob storage accounts, so that I can design efficient Azure virtual machine solutions that meet my application’s performance requirements.
 ---
 
 # Scalability and performance targets for premium page blob storage accounts

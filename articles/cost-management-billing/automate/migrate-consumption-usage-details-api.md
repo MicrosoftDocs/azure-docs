@@ -2,9 +2,9 @@
 title: Migrate from Consumption Usage Details API
 titleSuffix: Microsoft Cost Management
 description: This article has information to help you migrate from the Consumption Usage Details API.
-author: jojopm
+author: jojohpm
 ms.author: jojoh
-ms.date: 01/07/2025
+ms.date: 06/26/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management

@@ -2,12 +2,13 @@
 title: How Azure Traffic Manager works
 description: This article helps you understand how Traffic Manager routes traffic for high performance and availability of your web applications.
 services: traffic-manager
-author: greg-lindsay
+author: asudbring
 manager: kumud
 ms.service: azure-traffic-manager
 ms.topic: concept-article
 ms.date: 08/08/2024
-ms.author: greglin
+ms.author: allensu
+# Customer intent: As a web application developer, I want to implement Traffic Manager for my multi-region application, so that I can improve performance and ensure high availability by distributing client traffic efficiently across multiple endpoints.
 ---
 
 # How Traffic Manager Works

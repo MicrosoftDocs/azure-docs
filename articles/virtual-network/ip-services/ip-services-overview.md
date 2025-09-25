@@ -8,6 +8,7 @@ ms.service: azure-virtual-network
 ms.subService: ip-services
 ms.topic: overview
 ms.custom: template-overview
+# Customer intent: "As a network engineer, I want to understand Azure Virtual Network IP Services so that I can effectively manage communication between resources using public and private IP addresses in a secure and efficient manner."
 ---
 
 # What is Azure Virtual Network IP Services?

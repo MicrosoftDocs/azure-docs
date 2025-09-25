@@ -3,7 +3,7 @@ title: "Tutorial: Grant a user access to Azure resources using the Azure portal 
 description: In this tutorial, learn how to grant a user access to Azure resources using the Azure portal and Azure role-based access control (Azure RBAC).
 services: role-based-access-control
 author: rolyon
-manager: femila
+manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: tutorial
 ms.date: 03/30/2025

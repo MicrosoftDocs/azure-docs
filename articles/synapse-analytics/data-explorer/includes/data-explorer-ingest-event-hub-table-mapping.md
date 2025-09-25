@@ -1,10 +1,11 @@
 ---
 ms.topic: include
-ms.date: 11/02/2021
+ms.date: 03/24/2025
 author: shsagir
 ms.author: shsagir
 ms.service: azure-synapse-analytics
 ms.subservice: data-explorer
+ms.custom: sfi-ropc-nochange
 ---
 ### Create a table on your test cluster
 

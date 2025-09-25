@@ -8,6 +8,7 @@ ms.service: azure-nat-gateway
 ms.topic: troubleshooting
 ms.date: 02/14/2024
 ms.author: allensu
+# Customer intent: "As a network engineer, I want to troubleshoot configuration and connectivity issues with the NAT gateway, so that I can ensure reliable outbound internet access for my virtual network resources."
 ---
 
 # Troubleshoot Azure NAT Gateway
@@ -105,7 +106,7 @@ NAT gateway isn't compatible with basic resources, such as Basic Load Balancer o
 
 ### NAT gateway can't be attached to a gateway subnet
 
-NAT gateway can't be deployed in a gateway subnet. A gateway subnet is used by a VPN gateway for sending encrypted traffic between an Azure virtual network and on-premises location. See [VPN gateway overview](../vpn-gateway/vpn-gateway-about-vpngateways.md) to learn more about how gateway subnets are used by VPN gateway.
+NAT gateway can't be deployed in a gateway subnet. A gateway subnet is used by a VPN gateway for sending encrypted traffic between an Azure virtual network and on-premises location. See [VPN gateway overview](../vpn-gateway/vpn-gateway-about-vpngateways.md) to learn more about how gateway subnets are used by VPN gateway. To use a NAT gateway, attach it to any other subnet within the same virtual network.
 
 ### Can't attach NAT gateway to a subnet that contains a virtual machine network interface in a failed state
 

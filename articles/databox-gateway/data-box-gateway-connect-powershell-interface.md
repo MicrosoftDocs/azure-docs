@@ -8,6 +8,7 @@ ms.service: azure-data-box-gateway
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.author: shaas
+# Customer intent: "As a data administrator, I want to manage my Azure Data Box Gateway device using PowerShell commands, so that I can efficiently configure and monitor its operations without relying solely on the Azure portal."
 ---
 # Manage an Azure Data Box Gateway device via Windows PowerShell
 

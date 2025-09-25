@@ -1,11 +1,12 @@
 ---
-title: Monitor Azure File Sync cloud tiering
+title: Monitor Azure File Sync Cloud Tiering
 description: Use metrics to monitor your cloud tiering policies. You can monitor files synced, server cache size, cache hit rate, and more.
 author: khdownie
 ms.service: azure-file-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/11/2023
 ms.author: kendownie
+# Customer intent: As a system administrator, I want to monitor cloud tiering metrics for Azure File Sync through both the server endpoint and Azure Monitor, so that I can optimize storage efficiency and improve performance.
 ---
 
 # Monitor cloud tiering
@@ -40,14 +41,26 @@ You can drill down further by selecting **Monitoring** > **Cloud tiering status*
 
 Go to the **Storage Sync Service** and select **Metrics** on the side navigation. 
 
-There are three different metrics you can use to monitor your egress specifically from cloud tiering:
+There are nine different metrics you can use to monitor cloud tiering:
 
+- Cache data size by last access time
+    - This is the total size of data, in bytes, categorized by the time it was last accessed.
+- Cloud Tiering Cache Hit Rate
+    - This is the percentage of data (in bytes) served directly from the cache and can be used to reflect the efficiency of caching.
+- Cloud Tiering Low Disk Space Mode
+    - This is a boolean value that indicates whether a server is in low disk space mode (1 = yes and 0 = no).
 - Cloud Tiering Recall Size
     - This is the total size of the data recalled in bytes and can be used to identify how much data is being recalled.
 - Cloud Tiering Recall Size By Application
     - This is the total size of data recalled in bytes by an application and can be used to identify what's recalling the data.
+- Cloud Tiering Recall Success Rate
+    - This is the percentage of successful data recall operations and indicates how reliably data is being retrieved.
 - Cloud Tiering Recall Throughput
-    - This measures how quickly the data is being recalled in bytes and should be used if you have concerns about performance. 
+    - This measures how quickly the data is being recalled in bytes and should be used if you have concerns about performance.
+-  Cloud Tiering Size of Data Tiered
+    - This measures the total size of data tiered to Azure File share, in bytes, and can be used to track tiering activity over time.
+-  Cloud Tiering Size of Data Tiered by last maintenance job
+    - This measures the total size of data tiered to Azure File share, in bytes, during the most recent maintenance job and is useful for diagnosing emergency tiering events.
 
 To be more specific on what you want your graphs to display, consider using **Add Filter** and **Apply Splitting**.
  

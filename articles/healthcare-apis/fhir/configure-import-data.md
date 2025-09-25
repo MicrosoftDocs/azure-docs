@@ -5,8 +5,9 @@ author: Expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 06/06/2022
+ms.date: 08/12/2025
 ms.author: kesheth
+ms.custom: sfi-image-nochange
 ---
 
 # Configure FHIR import settings

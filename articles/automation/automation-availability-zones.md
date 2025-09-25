@@ -8,6 +8,8 @@ ms.date: 10/16/2023
 ms.topic: conceptual
 ms.custom: references_regions 
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Availability zones support for Azure Automation

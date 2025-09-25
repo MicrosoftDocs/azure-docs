@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 02/11/2022
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
+# Customer intent: "As a systems administrator, I want to install and configure SAP HANA on Azure Large Instances, so that I can leverage high-performance, scalable infrastructure for my SAP applications."
 ---
 # Install and configure SAP HANA (Large Instances) on Azure
 

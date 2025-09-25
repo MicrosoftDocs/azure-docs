@@ -10,15 +10,14 @@ ms.topic: how-to
 ms.date: 01/27/2025
 
 #CustomerIntent: As a developer, I want to understand how to optimize rules execution by adding control functions to actions in rules using Microsoft Rules Composer.
+ms.custom:
+  - build-2025
 ---
 
-# Add control functions in actions to optimize rules execution using Microsoft Rules Composer (Preview)
+# Add control functions in actions to optimize rules execution using Microsoft Rules Composer
 
 [!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
 
-> [!IMPORTANT]
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This guide describes how to optimize rules execution by adding control functions to actions in your rules using the Microsoft Rules Composer. Control functions help your application or ruleset control the facts in the rules engine's working memory. These functions include the **Assert**, **Clear**, **Halt**, **Retract**, **RetractByType**, **Reassert**, and **Update** functions for the .NET object and **TypedXmlDocument** entities that you can use as facts. The existence of facts in working memory drives the conditions that the engine evaluates and the actions that execute.
 

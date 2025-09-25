@@ -7,8 +7,10 @@ ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 09/26/2024
+ms.custom: sfi-image-nochange
 
 #CustomerIntent: As an Azure administrator, I want to use Azure Policy to audit and deploy network security group flow logs.
+# Customer intent: As an Azure administrator, I want to use built-in policies to audit and deploy NSG flow logs, so that I can ensure compliance and improve visibility for network security groups within my organization.
 ---
 
 # Manage NSG flow logs using Azure Policy

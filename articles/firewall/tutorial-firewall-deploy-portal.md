@@ -9,6 +9,7 @@ ms.date: 01/24/2025
 ms.author: duau
 ms.custom: mvc
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
+# Customer intent: As a network administrator, I want to deploy and configure a firewall in our Azure environment, so that I can control outbound access from our virtual networks and enhance our overall network security.
 ---
 
 # Deploy and configure Azure Firewall using the Azure portal

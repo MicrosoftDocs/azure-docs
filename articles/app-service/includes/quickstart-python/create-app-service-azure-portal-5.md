@@ -3,6 +3,7 @@ author: DavidCBerry13
 ms.author: daberry
 ms.topic: include
 ms.date: 01/29/2022
+ms.service: azure-app-service
 ---
 On the main **Create Web App** page, select the **Review + create** at the bottom of the screen.<br>
 <br>

@@ -1,7 +1,7 @@
 ---
-title: Links to the Azure Maps Rest API
+title: Links to the Azure Maps REST API
 titleSuffix: Microsoft Azure Maps
-description: Links to the Azure Maps Rest API.
+description: Links to the Azure Maps REST API.
 author: sinnypan
 ms.author: sipa
 ms.date: 02/25/2025
@@ -10,7 +10,7 @@ ms.service: azure-maps
 ms.subservice: rest-api
 ---
 
-# Azure Maps Rest API
+# Azure Maps REST API
 
 Azure Maps is a set of mapping and geospatial services that enable developers and organizations to build intelligent location-based experiences for applications across many different industries and use cases. Use Azure Maps to bring maps, geocoding, location search, routing, real-time traffic, geolocation, time zone information, and weather data into your web, mobile and server-side solutions.
 
@@ -42,7 +42,7 @@ There are previous stable releases of an Azure Maps service that are still in us
 | [Render][render-2022-08-01] |  2022-08-01  | Get road, satellite/aerial, weather, traffic map tiles, and static map images. |
 | [Route][Route v1] |  1.0  | Calculate optimized travel times and distances between locations for multiple modes of transportation and get localized travel instructions. |
 | [Search][Search v1] |  1.0  | Geocode addresses and coordinates, search for business listings and places by name or category and get administrative boundary polygons. This is version 1.0 of the Search service. For the latest version, see [Search]. |
-| [Search] |  2023-06-01  | Geocode addresses and coordinates, search for business listings and places by name or category and get administrative boundary polygons. |
+| Search |  2023-06-01  | Geocode addresses and coordinates, search for business listings and places by name or category and get administrative boundary polygons.  For the latest version, see [Search].|
 | [Traffic][Traffic v1] |  1.0  | Get current traffic information including traffic flow and traffic incident details. |
 
 ## Latest preview
@@ -52,6 +52,7 @@ Prerelease version of an Azure Maps service. Preview releases contain new functi
 | API | API version | Description |
 |-----|-------------|-------------|
 | [Route][Route-2024-07-01-preview] | 2024-07-01-preview | The Route Range API supports high definition isochrone polygons. |
+| [Search][Search-2025-06-01-preview]  |  2025-06-01  | The new Autocomplete (preview) API enhances user experience by providing real-time suggestions as users type queries for addresses or places. |
 
 <!--- Links to latest versions of each service ---------------------------------->
 [Data Registry]: /rest/api/maps/data-registry
@@ -76,3 +77,4 @@ Prerelease version of an Azure Maps service. Preview releases contain new functi
 <!--- 2024-07-01-preview is the latest preview release of the Route service,
       currently the only Azure Maps service in Preview -------------------------->
 [Route-2024-07-01-preview]: /rest/api/maps/route?view=rest-maps-2024-07-01-preview
+[Search-2025-06-01-preview]: /rest/api/maps/search?view=rest-maps-2025-06-01-preview

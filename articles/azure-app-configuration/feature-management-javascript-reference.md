@@ -9,7 +9,7 @@ ms.service: azure-app-configuration
 ms.devlang: javascript
 ms.custom: devx-track-javascript
 ms.topic: tutorial
-ms.date: 01/20/2025
+ms.date: 04/06/2025
 zone_pivot_groups: feature-management
 #Customer intent: I want to control feature availability in my app by using the Feature Management library.
 ---
@@ -125,9 +125,38 @@ import { load } from "@azure/app-configuration-provider";
 import { ConfigurationMapFeatureFlagProvider, FeatureManager } from "@microsoft/feature-management";
 const appConfig = await load("YOUR_APP-CONFIG-ENDPOINT",
                              new DefaultAzureCredential(), // For more information: https://learn.microsoft.com/javascript/api/overview/azure/identity-readme
-                             {featureFlagOptions: { enabled: true }}); // load feature flags from Azure App Configuration service
+                             { featureFlagOptions: { enabled: true } }); // load feature flags from Azure App Configuration service
 const featureProvider = new ConfigurationMapFeatureFlagProvider(appConfig);
 const featureManager = new FeatureManager(featureProvider);
+```
+
+#### Use Azure App Configuration to dynamically control the state of the feature flag
+
+Azure App Configuration is not only a solution to externalize storage and centralized management of your feature flags, but also it allows you to dynamically turn on/off the feature flags.
+
+To enable the dynamic refresh for feature flags, you need to configure the `refresh` property of `featureFlagOptions` when loading feature flags from Azure App Configuration.
+
+``` typescript
+const appConfig = await load("YOUR_APP-CONFIG-ENDPOINT",  new DefaultAzureCredential(),  { 
+    featureFlagOptions: { 
+        enabled: true,
+        refresh: {
+            enabled: true, // enable the dynamic refresh for feature flags
+            refreshIntervalInMs: 30_000
+        }
+    } 
+});
+
+const featureProvider = new ConfigurationMapFeatureFlagProvider(appConfig);
+const featureManager = new FeatureManager(featureProvider);
+```
+
+You need to call the `refresh` method to get the latest feature flag state.
+
+```typescript
+await appConfig.refresh(); // Refresh to get the latest feature flags
+const isBetaEnabled = await featureManager.isEnabled("Beta");
+console.log(`Beta is enabled: ${isBetaEnabled}`);
 ```
 
 > [!NOTE]
@@ -276,10 +305,14 @@ The following snippet demonstrates how to implement a customized feature filter 
     }
 ```
 
-You need to register the custom filter when creating the `FeatureManager`.
+You need to register the custom filter under the `customFilters` property of the `FeatureManagerOptions` object passed to the `FeatureManager` constructor.
 
 ```typescript
-const featureManager = new FeatureManager(ffProvider, {customFilters: [new MyCriteriaFilter()]});
+const featureManager = new FeatureManager(ffProvider, {
+    customFilters: [
+        new MyCriteriaFilter() // add custom feature filters under FeatureManagerOptions.customFilters
+    ]
+});
 ```
 
 ### Parameterized feature filters
@@ -307,7 +340,7 @@ The feature filter can take advantage of the context that is passed in when `isE
 
 ## Built-in feature filters
 
-There are two feature filters that come with the `FeatureManagement` package: `TimeWindowFilter`, and `TargetingFilter`.
+There are two feature filters that come with the `FeatureManagement` package: `TimeWindowFilter` and `TargetingFilter`. All built-in feature filters will be added by default when constructing `FeatureManager`.
 
 Each of the built-in feature filters has its own parameters. Here's the list of feature filters along with examples.
 
@@ -326,6 +359,142 @@ This filter provides the capability to enable a feature based on a time window. 
     }
 ]     
 ```
+
+The time window can be configured to recur periodically. This can be useful for the scenarios where one may need to turn on a feature during a low or high traffic period of a day or certain days of a week. To expand the individual time window to recurring time windows, the recurrence rule should be specified in the `Recurrence` parameter.
+
+> [!NOTE]
+> `Start` and `End` must be both specified to enable `Recurrence`.
+
+``` JavaScript
+"client_filters": [
+    {
+        "name": "Microsoft.TimeWindow",
+        "parameters": {
+            "Start": "Fri, 22 Mar 2024 20:00:00 GMT",
+            "End": "Sat, 23 Mar 2024 02:00:00 GMT",
+            "Recurrence": {
+                "Pattern": {
+                    "Type": "Daily",
+                    "Interval": 1
+                },
+                "Range": {
+                    "Type": "NoEnd"
+                }
+            }
+        }
+    }
+]
+```
+
+The `Recurrence` settings are made up of two parts: `Pattern` (how often the time window repeats) and `Range` (for how long the recurrence pattern repeats). 
+
+#### Recurrence Pattern
+
+There are two possible recurrence pattern types: `Daily` and `Weekly`. For example, a time window could repeat "every day", "every three days", "every Monday" or "every other Friday". 
+
+Depending on the type, certain fields of the `Pattern` are required, optional, or ignored.
+
+- `Daily`
+    
+    The daily recurrence pattern causes the time window to repeat based on a number of days between each occurrence.
+
+    | Property | Relevance | Description |
+    |----------|-----------|-------------|
+    | **Type** | Required | Must be set to `Daily`. |
+    | **Interval** | Optional | Specifies the number of days between each occurrence. Default value is 1. |
+
+- `Weekly`
+
+    The weekly recurrence pattern causes the time window to repeat on the same day or days of the week, based on the number of weeks between each set of occurrences.
+
+    | Property | Relevance | Description |
+    |----------|-----------|-------------|
+    | **Type** | Required | Must be set to `Weekly`. |
+    | **DaysOfWeek** | Required | Specifies on which days of the week the event occurs. |
+    | **Interval** | Optional | Specifies the number of weeks between each set of occurrences. Default value is 1. |
+    | **FirstDayOfWeek** | Optional | Specifies which day is considered the first day of the week. Default value is `Sunday`. |
+
+    The following example repeats the time window every other Monday and Tuesday
+
+    ``` javascript
+    "Pattern": {
+        "Type": "Weekly",
+        "Interval": 2,
+        "DaysOfWeek": ["Monday", "Tuesday"]
+    }
+    ```
+
+> [!NOTE]
+> `Start` must be a valid first occurrence that fits the recurrence pattern. Additionally, the duration of the time window can't be longer than how frequently it occurs. For example, it's invalid to have a 25-hour time window recur every day.
+
+#### Recurrence Range
+
+There are three possible recurrence range types: `NoEnd`, `EndDate` and `Numbered`.
+
+- `NoEnd`
+
+    The `NoEnd` range causes the recurrence to occur indefinitely.
+
+    | Property | Relevance | Description |
+    |----------|-----------|-------------|
+    | **Type** | Required | Must be set to `NoEnd`. |
+
+- `EndDate`
+
+    The `EndDate` range causes the time window to occur on all days that fit the applicable pattern until the end date.
+
+    | Property | Relevance | Description |
+    |----------|-----------|-------------|
+    | **Type** | Required | Must be set to `EndDate`. |
+    | **EndDate** | Required | 	Specifies the date time to stop applying the pattern. As long as the start time of the last occurrence falls before the end date, the end time of that occurrence is allowed to extend beyond it. |
+
+    The following example will repeat the time window every day until the last occurrence happens on April 1, 2024.
+
+    ``` javascript
+    "Start": "Fri, 22 Mar 2024 18:00:00 GMT",
+    "End": "Fri, 22 Mar 2024 20:00:00 GMT",
+    "Recurrence":{
+        "Pattern": {
+            "Type": "Daily",
+            "Interval": 1
+        },
+        "Range": {
+            "Type": "EndDate",
+            "EndDate": "Mon, 1 Apr 2024 20:00:00 GMT"
+        }
+    }
+    ```
+
+- `Numbered`
+
+    The `Numbered` range causes the time window to occur a fixed number of times (based on the pattern).
+
+    | Property | Relevance | Description |
+    |----------|-----------|-------------|
+    | **Type** | Required | Must be set to `Numbered`. |
+    | **NumberOfOccurrences** | Required | 	Specifies the number of occurrences. |
+
+    The following example will repeat the time window on Monday and Tuesday until there are three occurrences, which respectively happen on April 1(Mon), April 2(Tue) and April 8(Mon).
+
+    ``` javascript
+    "Start": "Mon, 1 Apr 2024 18:00:00 GMT",
+    "End": "Mon, 1 Apr 2024 20:00:00 GMT",
+    "Recurrence":{
+        "Pattern": {
+            "Type": "Weekly",
+            "Interval": 1,
+            "DaysOfWeek": ["Monday", "Tuesday"]
+        },
+        "Range": {
+            "Type": "Numbered",
+            "NumberOfOccurrences": 3
+        }
+    }
+    ```
+
+To create a recurrence rule, you must specify both `Pattern` and `Range`. Any pattern type can work with any range type.
+
+**Advanced:** The time zone offset of the `Start` property is applied to the recurrence settings.
 
 ### Microsoft.Targeting
 
@@ -416,6 +585,96 @@ When defining an audience, users and groups can be excluded from the audience. E
 
 In the above example, the feature is enabled for users named `Jeff` and `Alicia`. It's also enabled for users in the group named `Ring0`. However, if the user is named `Mark`, the feature is disabled, regardless of if they are in the group `Ring0` or not. Exclusions take priority over the rest of the targeting filter.
 
+### Targeting in a Web Application
+
+An example web application that uses the targeting feature filter is available in this [example](https://github.com/microsoft/FeatureManagement-JavaScript/tree/preview/examples/express-app) project.
+
+In web applications, especially those with multiple components or layers, passing targeting context (`userId` and `groups`) to every feature flag check can become cumbersome and repetitive. This scenario is referred to as "ambient targeting context," where the user identity information is already available in the application context (such as in session data or authentication context) but needs to be accessible to feature management evaluations throughout the application.
+
+#### ITargetingContextAccessor
+
+The library provides a solution through the `ITargetingContextAccessor` pattern. 
+
+``` typescript
+interface ITargetingContext {
+    userId?: string;
+    groups?: string[];
+}
+
+interface ITargetingContextAccessor {
+    getTargetingContext: () => ITargetingContext | undefined;
+}
+```
+
+Instead of explicitly passing the targeting context with each `isEnabled` or `getVariant` call, you can provide a function that knows how to retrieve the current user's targeting information from your application's context:
+
+```typescript
+import { FeatureManager, ConfigurationObjectFeatureFlagProvider } from "@microsoft/feature-management";
+
+// Create a targeting context accessor that uses your application's auth system
+const targetingContextAccessor = {
+    getTargetingContext: () => {
+        // In a web application, this might access request context or session data
+        // This is just an example - implement based on your application's architecture
+        return {
+            userId: getCurrentUserId(), // Your function to get current user
+            groups: getUserGroups()     // Your function to get user groups
+        };
+    }
+};
+
+// Configure the feature manager with the accessor
+const featureManager = new FeatureManager(featureProvider, {
+    targetingContextAccessor: targetingContextAccessor
+});
+
+// Now you can call isEnabled without explicitly providing targeting context
+// The feature manager will use the accessor to get the current user context
+const isBetaEnabled = await featureManager.isEnabled("Beta");
+```
+
+This pattern is particularly useful in server-side web applications where user context may be available in a request scope or in client applications where user identity is managed centrally.
+
+#### Using AsyncLocalStorage for request context
+
+One common challenge when implementing the targeting context accessor pattern is maintaining request context throughout an asynchronous call chain. In Node.js web applications, user identity information is typically available in the request object, but becomes inaccessible once you enter asynchronous operations.
+
+Node.js provides [`AsyncLocalStorage`](https://nodejs.org/api/async_context.html#class-asynclocalstorage) from the `async_hooks` module to solve this problem. It creates a store that persists across asynchronous operations within the same logical "context" - perfect for maintaining request data throughout the entire request lifecycle.
+
+Here's how to implement a targeting context accessor using AsyncLocalStorage in an express application:
+
+```typescript
+import { AsyncLocalStorage } from "async_hooks";
+import express from "express";
+
+const requestAccessor = new AsyncLocalStorage();
+
+const app = express();
+// Middleware to store request context
+app.use((req, res, next) => {
+    // Store the request in AsyncLocalStorage for this request chain
+    requestAccessor.run(req, () => {
+        next();
+    });
+});
+
+// Create targeting context accessor that retrieves user data from the current request
+const targetingContextAccessor = {
+    getTargetingContext: () => {
+        // Get the current request from AsyncLocalStorage
+        const request = requestAccesor.getStore();
+        if (!request) {
+            return undefined; // Return undefined if there's no current request
+        }
+        // Extract user data from request (from session, auth token, etc.)
+        return {
+            userId: request.user?.id,
+            groups: request.user?.groups || []
+        };
+    }
+};
+```
+
 ## Variants
 
 When new features are added to an application, there may come a time when a feature has multiple different proposed design options. A common solution for deciding on a design is some form of A/B testing, which involves providing a different version of the feature to different segments of the user base and choosing a version based on user interaction. In this library, this functionality is enabled by representing different configurations of a feature with variants.
@@ -424,7 +683,7 @@ Variants enable a feature flag to become more than a simple on/off flag. A varia
 
 ### Getting a variant with targeting context
 
-For each feature, a variant can be retrieved using the `FeatureManager`'s `getVariant` method. The variant assignment is dependent on the user currently being evaluated, and that information is obtained from the targeting context you passed in.
+For each feature, a variant can be retrieved using the `FeatureManager`'s `getVariant` method. The variant assignment is dependent on the user currently being evaluated, and that information is obtained from the targeting context you passed in. If you have registered a targeting context accessor to the `FeatureManager`, the targeting context will be automatically retrieved from it. But you can still override it by manually passing targeting context when calling `getVariant`. 
 
 ```typescript
 const variant = await featureManager.getVariant("MyVariantFeatureFlag", { userId: "Sam" });
@@ -509,8 +768,8 @@ The process of allocating a feature's variants is determined by the `allocation`
 
 ```json
 "allocation": { 
-    "default_when_enabled": "Small", 
     "default_when_disabled": "Small",  
+    "default_when_enabled": "Small", 
     "user": [ 
         { 
             "variant": "Big", 
@@ -717,6 +976,32 @@ trackEvent(appInsights.defaultClient, "<TARGETING_ID>", {name: "TestEvent",  pro
 ---
 
 The telemetry publisher sends `FeatureEvaluation` custom events to the Application Insights when a feature flag enabled with telemetry is evaluated. The custom event follows the [FeatureEvaluationEvent](https://github.com/microsoft/FeatureManagement/tree/main/Schema/FeatureEvaluationEvent) schema.
+
+### Targeting telemetry processor
+
+If you have implemented [`ITargetingContextAccessor`](#itargetingcontextaccessor), you can use the built-in Application Insights telemetry processor to automatically attach targeting ID information to all telemetry by calling the `createTargetingTelemetryProcessor` function.
+
+```typescript
+const appInsights = require("applicationinsights");
+appInsights.setup(process.env.APPINSIGHTS_CONNECTION_STRING).start();
+
+const { createTargetingTelemetryProcessor } = require("@microsoft/feature-management-applicationinsights-node");
+appInsights.defaultClient.addTelemetryProcessor(
+    createTargetingTelemetryProcessor(targetingContextAccessor)
+);
+```
+
+This ensures that every telemetry item sent to Application Insights includes the user's targeting ID information (userId and groups), allowing you to correlate feature flag usage with specific users or groups in your analytics.
+
+If you are using the targeting telemetry processor, instead of calling the `trackEvent` method provided by the feature management package, you can directly call the `trackEvent` method from the Application Insights SDK. The targeting ID information will be automatically attached to the custom event telemetry's `customDimensions`.
+
+```typescript
+// Instead of calling trackEvent and passing the app insights client
+// trackEvent(appInsights.defaultClient, "<TARGETING_ID>", {name: "TestEvent",  properties: {"Tag": "Some Value"}});
+
+// directly call trackEvent method provided by App Insights SDK
+appInsights.defaultClient.trackEvent({ name: "TestEvent" });
+```
 
 ## Next steps
 

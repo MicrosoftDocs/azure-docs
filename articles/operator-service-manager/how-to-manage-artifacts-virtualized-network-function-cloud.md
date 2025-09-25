@@ -1,8 +1,8 @@
 ---
 title: How to push and pull images and other artifacts to/from a Storage Account backed artifact store.
 description: Learn how to push and pull images and other artifacts to/from a Storage Account backed artifact store.
-author: pjw711
-ms.author: peterwhiting
+author: JAC0BSMITH
+ms.author: jacobsmith
 ms.date: 03/18/2024
 ms.topic: how-to
 ms.service: azure-operator-service-manager
@@ -27,7 +27,7 @@ This How-To article describes how to push VHD images to and pull VHD images from
 - [Enable AOSM](quickstart-onboard-subscription-azure-operator-service-manager.md) on your Azure subscription
 - Installed the [Azure CLI](/cli/azure/install-azure-cli)
 - Deploy an Artifact Store resource of type Azure Storage Account
-- Deploy an Artifact manifest resource that contains an entry for the image you want to push. This example shows the artifact manifest BICEP definition for a fictional Contoso VNF virtual machine image
+- Deploy an Artifact manifest resource that contains an entry for the image you want to push. This example shows the artifact manifest Bicep definition for a fictional Contoso VNF virtual machine image.
 
 ```bicep
 resource storageAccountArtifactManifest 'Microsoft.Hybridnetwork/publishers/artifactStores/artifactManifests@2023-09-01' = {

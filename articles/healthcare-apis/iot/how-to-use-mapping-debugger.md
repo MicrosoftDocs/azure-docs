@@ -6,14 +6,14 @@ author: chachachachami
 ms.service: azure-health-data-services
 ms.subservice: medtech-service
 ms.topic: how-to
-ms.date: 08/01/2023
+ms.date: 08/18/2025
 ms.author: chrupa
+ms.custom: sfi-image-nochange
 ---
 
 # How to use the MedTech service Mapping debugger (Preview)
 
-> [!IMPORTANT]
-> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
+[!INCLUDE [IoT deprecation](../includes/iot-deprecation.md)]
 
 > [!IMPORTANT]
 > This capability is currently available for Public Preview and is subject to change. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

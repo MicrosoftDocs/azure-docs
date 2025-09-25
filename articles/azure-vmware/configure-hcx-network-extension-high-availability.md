@@ -4,7 +4,10 @@ description: Learn how to configure HCX network extension high availability
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 02/26/2023
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
+# Customer intent: As a cloud administrator, I want to configure network extension high availability on HCX, so that I can ensure continuous connectivity and protect against appliance failures in my Azure private cloud environment.
 ---
 
 # HCX Network extension high availability (HA)

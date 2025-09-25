@@ -3,11 +3,13 @@ title: Manage authentication in Service Connector
 description: Learn how to select and manage authentication parameters in Service Connector.
 author: maud-lv
 ms.service: service-connector
+ms.topic: how-to
+ms.date: 05/12/2025
+ms.author: malev
 ms.custom:
   - build-2024
-ms.topic: how-to
-ms.date: 10/25/2023
-ms.author: malev
+  - build-2025
+  - sfi-image-nochange
 ---
 # Manage authentication within Service Connector
 
@@ -60,6 +62,7 @@ Service Connector offers the following authentication options:
 | Azure SQL Database                            | Yes                              | No                             | Yes               | No                |
 | Azure Table Storage                           | No                               | No                             | Yes               | No                |
 | Azure Web PubSub                              | Yes                              | Yes                            | Yes               | Yes               |
+| MongoDB Atlas                       | No                               | No                             | Yes               | No                |
 
 ## Review or update authentication configuration
 

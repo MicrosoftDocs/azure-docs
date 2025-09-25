@@ -1,10 +1,11 @@
 ---
 title: Configure virtual network integration with application and configuration routing.
 description: This how-to article walks you through configuring routing on a regional virtual network integration.
-author: madsd
-ms.author: madsd
+author: seligj95
+ms.author: jordanselig
 ms.topic: how-to
-ms.date: 10/20/2021
+ms.date: 09/02/2025
+ms.service: azure-app-service
 ---
 
 # Manage Azure App Service virtual network integration routing
@@ -17,7 +18,7 @@ Your app is already integrated using the regional virtual network integration fe
 
 ## Configure application routing
 
-Application routing defines what traffic is routed from your app and into the virtual network. We recommend that you use the `vnetRouteAllEnabled` site setting to enable routing of all traffic. Using the configuration setting allows you to audit the behavior with [a built-in policy](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff5c0bfb3-acea-47b1-b477-b0edcdf6edc1). The existing `WEBSITE_VNET_ROUTE_ALL` app setting can still be used, and you can enable all traffic routing with either setting.
+Application routing defines what traffic is routed from your app and into the virtual network. We recommend that you use the `vnetRouteAllEnabled` site setting to enable routing of all traffic. Using the configuration setting allows you to audit the behavior with [a built-in policy](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff5c0bfb3-acea-47b1-b477-b0edcdf6edc1). The `WEBSITE_VNET_ROUTE_ALL` app setting can be used, and you can enable all traffic routing with either setting.
 
 ### Configure in the Azure portal
 

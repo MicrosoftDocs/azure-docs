@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 06/04/2024
 ms.author: kendownie
+# Customer intent: "As an IT manager responsible for data integrity, I want to implement best practices for disaster recovery with Azure File Sync, so that I can ensure high availability, data protection, and redundancy for my organization's critical files."
 ---
 
 # Disaster recovery best practices with Azure File Sync

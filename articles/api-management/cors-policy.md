@@ -42,7 +42,7 @@ The `cors` policy adds cross-origin resource sharing (CORS) support to an operat
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
 |allow-credentials|The `Access-Control-Allow-Credentials` header in the preflight response will be set to the value of this attribute and affect the client's ability to submit credentials in cross-domain requests. Policy expressions are allowed.|No|`false`|
-|terminate-unmatched-request|Controls the processing of cross-origin requests that don't match the policy settings. Policy expressions are allowed.<br/><br/>When `OPTIONS` request is processed as a preflight request and `Origin` header doesn't match policy settings:<br/> - If the attribute is set to `true`, immediately terminate the request with an empty `200 OK` response<br/>- If the attribute is set to `false`, check inbound for other in-scope `cors` policies that are direct children of the inbound element and apply them. If no `cors` policies are found, terminate the request with an empty `200 OK` response. <br/><br/>When `GET` or `HEAD` request includes the `Origin` header (and therefore is processed as a simple cross-origin request), and doesn't match policy settings:<br/>- If the attribute is set to `true`, immediately terminate the request with an empty `200 OK` response.<br/> - If the attribute is set to `false`, allow the request to proceed normally and don't add CORS headers to the response.|No|`true`|
+|terminate-unmatched-request|Controls the processing of cross-origin requests that don't match the policy settings. Policy expressions are allowed.<br/><br/>When `OPTIONS` request is processed as a preflight request and `Origin` header doesn't match policy settings:<br/> - If the attribute is set to `true`, immediately terminate the request with an empty `200 OK` response<br/>- If the attribute is set to `false`, check inbound for other in-scope `cors` policies that are direct children of the inbound element and apply them. If no `cors` policies are found, terminate the request with an empty `200 OK` response. <br/><br/>When `GET` or `HEAD` request includes the `Origin` header (and therefore is processed as a simple cross-origin request), and doesn't match policy settings:<br/>- If the attribute is set to `true`, immediately terminate the request with an empty `200 OK` response.<br/> - If the attribute is set to `false`, allow the request to proceed normally and don't add CORS headers to the response.|No|`false`|
 
 ## Elements
 
@@ -90,7 +90,7 @@ The `cors` policy adds cross-origin resource sharing (CORS) support to an operat
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 

@@ -1,10 +1,12 @@
 ---
 title: Azure App Service assessments in Azure Migrate Discovery and assessment tool
 description: Learn about Azure App Service assessments in Azure Migrate Discovery and assessment tool
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 09/26/2024
+ms.reviewer: v-uhabiba
 ms.custom: engagement-fy23, devx-track-extended-java
+# Customer intent: As a cloud architect, I want to assess the readiness and cost of migrating my on-premises ASP.NET and Java web apps to Azure App Service, so that I can determine the best strategy for a seamless transition to the cloud.
 ---
 
 # Assessment overview (migrate to Azure App Service)

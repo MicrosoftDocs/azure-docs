@@ -8,7 +8,7 @@ ms.date: 03/06/2025
 
 # Kafka Streams for Azure Event Hubs
 
-This article provides details on how to us the [Kafka Streams](https://kafka.apache.org/documentation/streams/) client library with Azure Event Hubs.
+This article provides details on how to use the [Kafka Streams](https://kafka.apache.org/documentation/streams/) client library with Azure Event Hubs.
 
 > [!NOTE]
 > Kafka Streams functionality is available in **Public Preview** for Event Hubs Premium and Dedicated tiers only.

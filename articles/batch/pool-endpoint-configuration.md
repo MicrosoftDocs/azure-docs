@@ -3,6 +3,7 @@ title: Configure node endpoints in Azure Batch pool
 description: How to configure node endpoints such as access to SSH or RDP ports on compute nodes in an Azure Batch pool.
 ms.topic: how-to
 ms.date: 12/16/2024
+# Customer intent: As an IT administrator, I want to configure remote access endpoints for compute nodes in an Azure Batch pool, so that I can control external connectivity while ensuring security and compliance in my environment.
 ---
 
 # Configure remote access to compute nodes in an Azure Batch pool

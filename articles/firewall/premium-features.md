@@ -7,7 +7,10 @@ services: firewall
 ms.topic: concept-article
 ms.date: 03/17/2025
 ms.author: duau
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - sfi-image-nochange
+# Customer intent: "As a network security administrator, I want to implement Azure Firewall Premium features like TLS inspection and IDPS, so that I can enhance threat protection for our sensitive data and ensure compliance with industry standards."
 ---
 
 # Azure Firewall Premium features
@@ -77,6 +80,9 @@ The Azure Firewall signatures/rulesets include:
 - Low false positive rate using advanced malware detection techniques such as global sensor network feedback loop.
 
 IDPS detects attacks on all ports and protocols for non-encrypted traffic. For HTTPS traffic inspection, Azure Firewall can use its TLS inspection capability to decrypt the traffic and better detect malicious activities.
+
+> [!NOTE]
+> For guidance on overriding signature modes and important limitations to avoid silent drops, see [Override behavior and limitations](idps-signature-categories.md#override-behavior-and-limitations).
 
 The IDPS Bypass List allows you to exclude specific IP addresses, ranges, and subnets from filtering. Note that the bypass list is not intended to improve throughput performance, as the firewall's performance is still subject to your use case. For more information, see [Azure Firewall performance](firewall-performance.md#performance-data).
 

@@ -9,6 +9,7 @@ ms.topic: article
 ms.date: 02/20/2018
 ms.author: jinglou
 ms.reviewer: cralvord,richardgao
+# Customer intent: As an accessibility user, I want to utilize screen readers, zoom features, and high contrast themes in Azure Storage Explorer, so that I can effectively manage my storage data without visual impairment barriers.
 ---
 
 # Storage Explorer Accessibility

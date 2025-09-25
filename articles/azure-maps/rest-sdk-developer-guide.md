@@ -13,7 +13,7 @@ ms.custom: devx-track-java, devx-track-js, devx-track-python, devx-track-ts
 
 # REST SDK Developer Guide
 
-You can call the Azure Maps [Rest API] directly from any programming language, however that can be error prone work requiring extra effort. To make incorporating Azure Maps in your applications easier and less error prone, the Azure Maps team has encapsulated their REST API in SDKs for C# (.NET), Python, JavaScript/TypeScript, and Java.
+You can call the Azure Maps [REST API] directly from any programming language, however that can be error prone work requiring extra effort. To make incorporating Azure Maps in your applications easier and less error prone, the Azure Maps team has encapsulated their REST API in SDKs for C# (.NET), Python, JavaScript/TypeScript, and Java.
 
 This article lists the libraries currently available for each SDK with links to how-to articles to help you get started.
 
@@ -70,7 +70,7 @@ Azure Maps Java SDK supports [Java 8][Java 8] or above.
 
 For more information, see the [Java SDK Developers Guide].
 
-[Rest API]: /rest/api/maps/
+[REST API]: /rest/api/maps/
 [.NET standard 2.0]: https://dotnet.microsoft.com/platform/dotnet-standard#versions
 
 <!--  C# SDK Developers Guide  --->

@@ -3,10 +3,14 @@ title: Optimize regional latency
 description: Learn how to optimize regional latency for a Microsoft Playwright Testing Preview workspace. Choose to run tests on remote browsers in an Azure region nearest to you, or in a fixed region.
 ms.topic: how-to
 ms.date: 10/04/2023
-ms.custom: playwright-testing-preview
+ms.custom:
+  - playwright-testing-preview
+  - sfi-image-nochange
 ---
 
 # Optimize regional latency for a workspace in Microsoft Playwright Testing Preview
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 Learn how to minimize the network latency between the client machine and the remote browsers for a Microsoft Playwright Testing Preview workspace.
 

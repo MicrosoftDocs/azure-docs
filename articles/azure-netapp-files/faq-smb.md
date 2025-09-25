@@ -1,11 +1,13 @@
 ---
-title: SMB FAQs for Azure NetApp Files | Microsoft Docs
+title: SMB FAQs for Azure NetApp Files 
 description: Answers frequently asked questions (FAQs) about the SMB protocol of Azure NetApp Files.
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
-ms.date: 01/29/2025
+ms.date: 06/13/2025
+ms.custom: sfi-image-nochange
+# Customer intent: As an IT administrator using Azure NetApp Files, I want to understand the SMB protocol and its configurations, so that I can ensure optimal connectivity and performance for my organization's file sharing and storage needs.
 ---
 # SMB FAQs for Azure NetApp Files
 
@@ -17,11 +19,15 @@ Azure NetApp Files supports SMB 2.1 and SMB 3.1 (which includes support for SMB 
 
 ## Can I use Windows Server 2025? 
 
-Windows Server 2025 currently doesn't work with the Azure NetApp Files SMB protocol. 
+Yes, Windows Server 2025 domain controllers are supported as of September 9, 2025. Windows Server 2025 domain controllers must have all cumulative security updates installed, including [KB5065426](https://support.microsoft.com/en-us/topic/september-9-2025-kb5065426-update-for-windows-server-2025-os-build-26100-6584-6a59dc6a-1ff2-48f4-b375-81e93deee5dd), released on September 9, 2025. You must also enable AES encryption (AES-256) on the Active Directory connection if you plan to introduce any Windows Server 2025 domain controllers into your Active Directory environment. For more information, see [Create and Manage Active Directory connections for Azure NetApp Files](create-active-directory-connections.md).
 
 ## Does Azure NetApp Files support access to ‘offline files’ on SMB volumes?
 
 Azure NetApp Files supports 'manual' offline files, allowing users on Windows clients to manually select files to be cached locally.
+
+## Does Azure NetApp Files have an SMB Credits limit?
+
+By default, Windows and Azure NetApp Files have an SMB credit limit of 512. If the limit is reached, limit batch processing or submit a [feature request]( https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR2Qj2eZL0mZPv1iKUrDGvc9UQzBVVFNCUUhEQVVSMDBFTjZFQlpFRjNUUSQlQCN0PWcu&route=shorturl).
 
 ## Is an Active Directory connection required for SMB access? 
 

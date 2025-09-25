@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.author: shaas
 ms.reviewer: dineshm
 ms.date: 02/12/2025
+# Customer intent: "As a web developer, I want to host a static website using cloud storage, so that I can efficiently serve content without the need for a traditional web server while maintaining scalability and performance."
 ---
 
 # Static website hosting in Azure Storage
@@ -16,6 +17,10 @@ Azure Blob Storage is ideal for storing large amounts of unstructured data such 
 [!INCLUDE [static websites vs static web apps](../../../includes/storage-blob-static-website-vs-static-web-app.md)]
 
 If you need a web server to render content, you can use [Azure App Service](https://azure.microsoft.com/services/app-service/).
+
+## Prerequisites
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/).
+- An Azure storage account resource. To learn how to create a storage account, see [Create an Azure storage account](../common/storage-account-create.md). 
 
 ## Setting up a static website
 
@@ -40,6 +45,7 @@ You can use any of these tools to upload content to the **$web** container:
 > - [Azure PowerShell module](storage-blob-static-website-how-to.md?tabs=azure-powershell)
 > - [AzCopy](../common/storage-use-azcopy-v10.md)
 > - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
+> - [Azure portal](storage-blob-static-website-how-to.md?tabs=azure-portal#upload-files)
 > - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
 > - [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) and [Channel 9 video demonstration](/Shows/Docs-Azure/Deploy-static-website-to-Azure-from-Visual-Studio-Code/player)
 
@@ -140,6 +146,10 @@ A 404 error can happen if you refer to a file name by using an incorrect case. F
 ##### Why isn't the root directory of the website not redirecting to the default index page?
 
 In the Azure portal, open the static website configuration page of your account and locate the name and extension that is set in the **Index document name** field. Ensure that this name is exactly the same as the name of the file located in the **$web** container of the storage account. File names and extensions in the url of a static website are case-sensitive even though they're served over HTTP.
+
+##### Why am I unable to access static websites in a storage account when a private endpoint is enabled for the blob in the storage account?
+
+Enabling a private endpoint for blobs in a storage account restricts access to that storage account to only resources within the same virtual network. Consequently, this restriction prevents external access to the static website hosted in the storage account, making the static website content inaccessible. The private endpoint configuration limits access to all storage account resources, including the static website content, to resources within the same virtual network where the private endpoint is enabled. The resolution would be to create a private endpoint specifically for the web. The static website needs a dedicated private end point for the $web domain.
 
 ## Next steps
 

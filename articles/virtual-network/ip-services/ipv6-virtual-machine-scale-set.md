@@ -8,6 +8,7 @@ ms.author: mbender
 ms.date: 01/08/2025
 ms.service: azure-virtual-network
 ms.topic: how-to
+# Customer intent: "As a cloud engineer, I want to deploy a dual stack Virtual Machine Scale Set with IPv6 in an Azure virtual network, so that I can ensure my applications are ready for modern internet standards and efficient load balancing."
 ---
 
 # Deploy virtual machine scale sets with IPv6 in Azure

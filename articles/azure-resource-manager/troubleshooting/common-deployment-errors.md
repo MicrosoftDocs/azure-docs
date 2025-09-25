@@ -4,7 +4,7 @@ description: Troubleshoot common Azure deployment errors for resources that are 
 tags: top-support-issue
 ms.custom: devx-track-arm-template, devx-track-bicep
 ms.topic: troubleshooting
-ms.date: 06/20/2024
+ms.date: 04/28/2025
 ---
 
 # Troubleshoot common Azure deployment errors

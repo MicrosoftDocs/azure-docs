@@ -6,6 +6,7 @@ ms.service: azure-automanage
 ms.topic: how-to
 ms.date: 12/10/2021
 ms.author: jushiman
+# Customer intent: As an IT administrator, I want to enable Automanage for multiple virtual machines through Azure Policy, so that I can streamline management and ensure compliance across my cloud resources efficiently.
 ---
 
 

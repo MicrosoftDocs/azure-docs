@@ -2,11 +2,13 @@
 title: Azure Application Gateway configuration overview
 description: This article describes how to configure the components of Azure Application Gateway
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 09/09/2020
-ms.author: greglin
+ms.author: mbender
+ms.custom: sfi-image-nochange
+# Customer intent: "As a cloud architect, I want to configure the components of an application gateway, so that I can ensure efficient traffic management and optimal security for my backend services."
 ---
 
 # Application Gateway configuration overview
@@ -19,7 +21,7 @@ This image illustrates an application that has three listeners. The first two ar
 
 ## Infrastructure
 
-The Application Gateway infrastructure includes the virtual network, subnets, network security groups, and user defined routes.
+The Application Gateway infrastructure includes the virtual network, subnets, network security groups, and user-defined routes.
 
 For more information, see [Application Gateway infrastructure configuration](configuration-infrastructure.md).
 
@@ -27,27 +29,27 @@ For more information, see [Application Gateway infrastructure configuration](con
 
 ## Frontend IP address
 
-You can configure the application gateway to have a public IP address, a private IP address, or both. A public IP is required when you host a back end that clients must access over the Internet via an Internet-facing virtual IP (VIP).
+You can configure the application gateway to have a public IP address, a private IP address, or both. A public IP is required when you host a backend that clients must access over the Internet via an Internet-facing virtual IP (VIP).
 
 For more information, see [Application Gateway frontend IP address configuration](configuration-frontend-ip.md).
 
 ## Listeners
 
-A listener is a logical entity that checks for incoming connection requests by using the port, protocol, host, and IP address. When you configure the listener, you must enter values for these that match the corresponding values in the incoming request on the gateway.
+A listener is a logical entity that checks for incoming connection requests by using the port, protocol, host, and IP address. When you configure the listener, you must enter values for these entities that match the corresponding values in the incoming request on the gateway.
 
 For more information, see [Application Gateway listener configuration](configuration-listeners.md).
 
 ## Request routing rules
 
-When you create an application gateway by using the Azure portal, you create a default rule (*rule1*). This rule binds the default listener (*appGatewayHttpListener*) with the default backend pool (*appGatewayBackendPool*) and the default backend HTTP settings (*appGatewayBackendHttpSettings*). After you create the  gateway, you can edit the settings of the default rule or create new rules.
+When you create an application gateway by using the Azure portal, you create a default rule (*rule1*). This rule binds the default listener (*appGatewayHttpListener*) with the default backend pool (*appGatewayBackendPool*) and the default backend HTTP settings (*appGatewayBackendHttpSettings*). After you create the gateway, you can edit the settings of the default rule or create new rules.
 
 For more information, see [Application Gateway request routing rules](configuration-request-routing-rules.md).
 
-## HTTP settings
+## Backend settings
 
-The application gateway routes traffic to the backend servers by using the configuration that you specify here. After you create an HTTP setting, you must associate it with one or more request-routing rules.
+The application gateway routes traffic to the backend servers by using the configuration that you specify here. After you create a backend setting, you must associate it with one or more request-routing rules.
 
-For more information, see [Application Gateway HTTP settings configuration](configuration-http-settings.md).
+For more information, see [Application Gateway backend settings configuration](configuration-http-settings.md).
 
 ## Backend pool
 
@@ -57,10 +59,10 @@ After you create a backend pool, you must associate it with one or more request-
 
 ## Health probes
 
-An application gateway monitors the health of all resources in its back end by default. But we strongly recommend that you create a custom probe for each backend HTTP setting to get greater control over health monitoring. To learn how to configure a custom probe, see [Custom health probe settings](application-gateway-probe-overview.md#custom-health-probe-settings).
+An application gateway monitors the health of all resources in its backend by default. But we strongly recommend that you create a custom probe for each backend HTTP setting to get greater control over health monitoring. To learn how to configure a custom probe, see [Custom health probe settings](application-gateway-probe-overview.md#custom-health-probe-settings).
 
 > [!NOTE]
-> After you create a custom health probe, you need to associate it to a backend HTTP setting. A custom probe won't monitor the health of the backend pool unless the corresponding HTTP setting is explicitly associated with a listener using a rule.
+> After you create a custom health probe, you need to associate it to a backend HTTP setting. A custom probe doesn't monitor the health of the backend pool unless the corresponding HTTP setting is explicitly associated with a listener using a rule.
 
 ## Next steps
 

@@ -9,11 +9,13 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: tutorial
-ms.custom: b2c-docs-improvements
 ms.date: 09/11/2024
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: b2c
+ms.custom:
+  - b2c-docs-improvements
+  - sfi-ga-nochange
 
 
 #Customer intent: "As an Azure AD B2C administrator, I want to restrict non-admin users from creating tenants, so that I can ensure security and prevent unauthorized access. Additionally, as a non-admin user, I want to check if I have permission to create a tenant, so that I can proceed with the necessary actions."
@@ -21,6 +23,7 @@ ms.subservice: b2c
 ---
 
 # Review tenant creation permission in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 It's a security risk if a non-admin user in a tenant is allowed to create a tenant. As a [Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator) in an Azure AD B2C tenant, you can restrict non-admin users from creating tenants.
 

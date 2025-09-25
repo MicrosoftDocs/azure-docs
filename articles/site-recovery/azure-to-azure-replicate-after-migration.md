@@ -5,8 +5,9 @@ ms.service: azure-site-recovery
 ms.custom:
 ms.topic: how-to
 ms.date: 05/02/2023
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
+# Customer intent: As a cloud administrator, I want to set up disaster recovery for Azure VMs after migration, so that I can ensure business continuity and data protection in case of an outage.
 ---
 
 # Set up disaster recovery for Azure VMs after migration to Azure

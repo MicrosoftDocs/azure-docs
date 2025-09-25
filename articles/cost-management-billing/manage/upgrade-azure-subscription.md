@@ -7,8 +7,9 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 01/22/2025
+ms.date: 07/28/2025
 ms.author: jkinma
+ms.custom: sfi-image-nochange
 ---
 
 # Upgrade your Azure free account or Azure for Students Starter account
@@ -38,7 +39,7 @@ When you upgrade your Azure free account, you keep your remaining credit for the
 1. You might need to enter a phone number to verify your identity.
 1. Type a name for your subscription.  
      :::image type="content" source="./media/upgrade-azure-subscription/free-upgrade-name.png" alt-text="Screenshot that shows the subscription name." lightbox="./media/upgrade-azure-subscription/free-upgrade-name.png" :::
-1. Choose a support plan for your subscription. To learn more about support plans, see [Azure support plans](https://azure.microsoft.com/us/support/plans/).
+1. Choose a support plan for your subscription. To learn more about support plans, see [Azure support plans](https://azure.microsoft.com/support/plans).
 1. Select **Upgrade**.
 
 <a id="student"></a>

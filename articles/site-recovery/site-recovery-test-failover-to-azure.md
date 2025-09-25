@@ -4,9 +4,10 @@ description: Learn about running a test failover from on-premises to Azure, usin
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 09/25/2024
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 
+# Customer intent: "As a disaster recovery manager, I want to run a test failover from on-premises to the cloud, so that I can validate my disaster recovery plan without impacting the production environment."
 ---
 # Run a test failover (disaster recovery drill) to Azure 
 

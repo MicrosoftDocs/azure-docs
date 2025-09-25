@@ -6,6 +6,8 @@ ms.author: sherryg
 ms.date: 09/07/2023
 ms.topic: quickstart
 ms.service: azure-operator-service-manager
+ms.custom:
+  - build-2025
 ---
 
 # Quickstart: Publish Nginx container as Containerized Network Function (CNF)
@@ -97,16 +99,16 @@ To construct the Network Function Definition (NFD), initiate the build process.
 az aosm nfd build -f input-cnf-nfd.jsonc --definition-type cnf
 ```
 
-The Az CLI AOSM extension generates a directory called `cnf-cli-output`. This directory contains the BICEP files defining the AOSM resources required to publish an NFDV and upload the images required to deploy it to AOSM-managed storage. Examine the generated files to gain a better understanding of the Network Function Definition (NFD) structure.
+The Az CLI AOSM extension generates a directory called `cnf-cli-output`. This directory contains the Bicep files defining the AOSM resources required to publish an NFDV and upload the images required to deploy it to AOSM-managed storage. Examine the generated files to gain a better understanding of the Network Function Definition (NFD) structure.
 
 | Directory/File             | Description                                                                                                                                    |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | nfDefinition/deployParameters.json | Defines the schema for the deployment parameters required to create a Network Function (NF) from this Network Function Definition Version (NFDV). |
 | nfDefinition/nginxdemo-mappings.json   | Maps the deployment parameters for the Network Function Definition Version (NFDV) to the values required for the helm chart.       |
-| nfDefinition/deploy.bicep              | Bicep template for creating the Network Function Definition Version (NFDV) itself.                                                 |
+| nfDefinition/deploy.bicep              | Bicep file for creating the Network Function Definition Version (NFDV) itself.                                                 |
 | artifacts/artifacts.json               | A list of the helm packages and container images required by the NF.                                                               |
-| artifactManifest/deploy.bicep          | Bicep template for creating the artifact manifest.                                                                                 |
-| base/deploy.bicep                      | Bicep template for creating the publisher, network function definition group, and artifact store resources                         |
+| artifactManifest/deploy.bicep          | Bicep file for creating the artifact manifest.                                                                                 |
+| base/deploy.bicep                      | Bicep file for creating the publisher, network function definition group, and artifact store resources                         |
 
 ## Publish the Network Function Definition and upload artifacts
 

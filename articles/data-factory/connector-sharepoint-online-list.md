@@ -4,10 +4,12 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from SharePoint Online List to supported sink data stores by using a copy activity in an Azure Data Factory or Azure Synapse Analytics pipeline.
 author: jianleishen
 ms.subservice: data-movement
-ms.custom: synapse
-ms.topic: conceptual
-ms.date: 09/14/2024
+ms.topic: concept-article
+ms.date: 07/25/2025
 ms.author: jianleishen
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 # Copy data from SharePoint Online List by using Azure Data Factory or Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -41,7 +43,7 @@ Specifically, this SharePoint List Online connector uses service principal authe
 
 Use the following steps to create a linked service to a SharePoint Online List in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -70,7 +72,7 @@ The following properties are supported for a SharePoint Online List linked servi
 | **Property**        | **Description**                                              | **Required** |
 | ------------------- | ------------------------------------------------------------ | ------------ |
 | type                | The type property must be set to: **SharePointOnlineList**.  | Yes          |
-| siteUrl             | The SharePoint Online site url, e.g. `https://contoso.sharepoint.com/sites/siteName`. | Yes          |
+| siteUrl             | The SharePoint Online site url, for example, `https://contoso.sharepoint.com/sites/siteName`. | Yes          |
 | servicePrincipalId  | The Application (client) ID of the application registered in Microsoft Entra ID. | Yes          |
 | servicePrincipalCredentialType | Specify the credential type to use for service principal authentication. Allowed values are `ServicePrincipalCert` and `ServicePrincipalKey`. | No |
 | ***For ServicePrincipalCert*** | | |
@@ -152,7 +154,7 @@ The SharePoint List Online connector uses service principal authentication to co
 2. Grant SharePoint Online site permission to your registered application by following the steps below. To do this, you need a site admin role.
 
     1. Open your SharePoint Online site link. For example, the URL in the format `https://<your-site-url>/_layouts/15/appinv.aspx` where the placeholder `<your-site-url>` is your site.
-    2. Search the application ID you registered, fill the empty fields, and click "Create".
+    2. Search the application ID you registered, fill the empty fields, and select "Create".
 
         - App Domain: `contoso.com`
         - Redirect URL: `https://www.contoso.com`
@@ -169,7 +171,7 @@ The SharePoint List Online connector uses service principal authentication to co
         > [!NOTE]
         > In the context of configuring the SharePoint connector, the "App Domain" and "Redirect URL" refer to the SharePoint app that you have registered in Microsoft Entra ID to allow access to your SharePoint data. The "App Domain" is the domain where your SharePoint site is hosted. For example, if your SharePoint site is located at "https://contoso.sharepoint.com", then the "App Domain" would be "contoso.sharepoint.com". The "Redirect URL" is the URL that the SharePoint app will redirect to after the user has authenticated and granted permissions to the app. This URL should be a page on your SharePoint site that the app has permission to access. For example, you could use the URL of a page that displays a list of files in a library, or a page that displays the contents of a document.
 
-    3. Click "Trust It" for this app.
+    3. Select "Trust It" for this app.
 
 ## Dataset properties
 
@@ -178,7 +180,7 @@ For a full list of sections and properties that are available for defining datas
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property of the dataset must be set to **SharePointOnlineLResource**. | Yes |
-| listName | The name of the SharePoint Online List. Note that the apostrophe (') is not allowed in file names. | Yes |
+| listName | The name of the SharePoint Online List. The apostrophe (') isn't allowed in file names. | Yes |
 
 **Example**
 
@@ -202,7 +204,7 @@ For a full list of sections and properties that are available for defining datas
 
 ## Copy Activity properties
 
-For a full list of sections and properties that are available for defining activities, see [Pipelines](concepts-pipelines-activities.md).  The following section provides a list of the properties supported by the SharePoint Online List source.
+For a full list of sections and properties that are available for defining activities, see [Pipelines](concepts-pipelines-activities.md). The following section provides a list of the properties supported by the SharePoint Online List source.
 
 ### SharePoint Online List as source
 

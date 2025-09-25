@@ -13,6 +13,9 @@ ms.date: 07/24/2024
 
 # Common errors and known issues when migrating to Azure Cloud Services (extended support)
 
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
+
 This article covers known issues and common errors you might encounter when migration from Cloud Services (classic) to Cloud Services (extended support). 
 
 ## Known issues

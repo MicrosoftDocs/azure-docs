@@ -7,7 +7,9 @@ ms.service: azure-expressroute
 ms.topic: concept-article
 ms.date: 01/31/2025
 ms.author: duau
+ms.custom: sfi-image-nochange
 
+# Customer intent: "As a network administrator managing complex hybrid architectures, I want to configure BGP community values on my Azure virtual networks so that I can simplify routing traffic and optimize path selection across multiple ExpressRoute circuits."
 ---
 # Managing complex network architectures with BGP communities
 

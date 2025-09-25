@@ -6,7 +6,9 @@ ms.author: vijain
 ms.topic: how-to
 ms.service: azure-migrate
 ms.date: 12/14/2022
+ms.reviewer: v-uhabiba
 ms.custom: engagement-fy23
+# Customer intent: "As an IT administrator, I want to migrate on-premises Hyper-V VMs to Azure using private endpoints, so that I can ensure secure and private network connectivity during the migration process."
 ---
 
 # Migrate Hyper-V servers to Azure using Private Link

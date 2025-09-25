@@ -13,6 +13,7 @@ ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a developer using Azure Active Directory B2C, I want to set up a sign-in flow with a sign-in policy, so that users can sign in with a local or social account and reset their passwords.
@@ -20,6 +21,8 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Set up a sign-in flow in Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 

@@ -1,23 +1,25 @@
 ---
-title: Use a private endpoint with an Azure Container Apps environment (preview)
+title: Use a private endpoint with an Azure Container Apps environment
 description: Learn how to use a private endpoint with an Azure Container Apps environment.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2024
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - ignite-2024
+  - build-2025
 ms.topic:  how-to
-ms.date: 02/03/2025
+ms.date: 05/02/2025
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
 
-# Use a private endpoint with an Azure Container Apps environment (preview)
+# Use a private endpoint with an Azure Container Apps environment
 
 In this article, you learn how to use a private endpoint to securely access your Azure Container App without exposing it to the public Internet.
 
 A private endpoint uses a private IP address from your virtual network (VNet). This endpoint connects you privately and securely to a service powered by [Azure Private Link](/azure/private-link/private-link-overview).
-
-Private endpoints on Azure Container Apps only support inbound HTTP traffic. TCP traffic isn't supported.
 
 ::: zone pivot="azure-portal"
 
@@ -58,7 +60,7 @@ Begin by signing in to the [Azure portal](https://portal.azure.com).
 1. Set *Public Network Access* to **Disable: Block all incoming traffic from the public internet.** By default, public network access is enabled, which means private endpoints are disabled.
 
 1. Leave **Use your own virtual network** set to **No**.
-    You can use an existing VNet, but private endpoints are only supported in workload profiles environments, which require a subnet with a minimum CIDR range of `/27` or larger. To learn more about subnet sizing, see the [networking architecture overview](./networking.md#subnet).
+    You can use an existing VNet, but private endpoints are only supported by workload profiles environments, which require a subnet with a minimum CIDR range of `/27` or larger. To learn more about subnet sizing, see the [networking architecture overview](./custom-virtual-networks.md#subnet).
 
 1. Set *Enable private endpoints* to **Yes**.
 
@@ -144,7 +146,7 @@ az group create \
 
 ## Create a virtual network
 
-1. Create an Azure virtual network (VNet). You can use an existing VNet, but private endpoints are only supported in workload profiles environments, which require a subnet with a minimum CIDR range of `/27` or larger. To learn more about subnet sizing, see the [networking architecture overview](./networking.md#subnet).
+1. Create an Azure virtual network (VNet). You can use an existing VNet, but private endpoints are only supported by workload profiles environments, which require a subnet with a minimum CIDR range of `/27` or larger. To learn more about subnet sizing, see the [networking architecture overview](./custom-virtual-networks.md#subnet).
 
     ```azurecli
     az network vnet create \

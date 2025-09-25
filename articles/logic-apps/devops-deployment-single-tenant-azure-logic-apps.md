@@ -4,8 +4,8 @@ description: Learn about DevOps deployment for Standard logic apps in single-ten
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 10/23/2024
+ms.topic: concept-article
+ms.date: 5/23/2025
 # Customer intent: As a developer, I want to learn about DevOps deployment support for Standard logic apps in single-tenant Azure Logic Apps.
 ---
 
@@ -41,7 +41,7 @@ Single-tenant Azure Logic Apps inherits many capabilities and benefits from the 
 
 ### Local development and testing
 
-When you use Visual Studio Code with the **Azure Logic Apps (Standard)** extension, you can locally develop, build, and run Standard logic app workflows in your development environment without having to deploy to Azure. If your scenario requires containers, you can create and deploy through [Azure Arc enabled Logic Apps](azure-arc-enabled-logic-apps-overview.md).
+When you use Visual Studio Code with the **Azure Logic Apps (Standard)** extension, you can locally develop, build, and run Standard logic app workflows in your development environment without having to deploy to Azure. If your scenario requires on-premises deployment using infrastructure that you control, see [Create Standard logic app workflows for hybrid deployment on your own infrastructure](create-standard-workflows-hybrid-deployment.md).
 
 This capability is a major improvement and provides a substantial benefit compared to the multi-tenant model, which requires you to develop against an existing and running resource in Azure.
 
@@ -215,6 +215,6 @@ For logic apps that run in your local development environment using Visual Studi
  }
 ```
 
-## Next steps
+## Related content
 
 - [Set up DevOps deployment for single-tenant Azure Logic Apps](set-up-devops-deployment-single-tenant-azure-logic-apps.md)

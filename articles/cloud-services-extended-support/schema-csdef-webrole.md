@@ -1,7 +1,7 @@
 ---
 title: Azure Cloud Services (extended support) Def. WebRole Schema | Microsoft Docs
 description: Information related to the web role for Cloud Services (extended support)
-ms.topic: article
+ms.topic: concept-article
 ms.service: azure-cloud-services-extended-support
 ms.date: 07/24/2024
 author: gachandw
@@ -11,6 +11,9 @@ ms.reviewer: mimckitt
 ---
 
 # Azure Cloud Services (extended support) definition WebRole schema
+
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 The Azure web role is a role that is customized for web application programming as supported by IIS 7, such as ASP.NET, PHP, Windows Communication Foundation, and FastCGI.
 

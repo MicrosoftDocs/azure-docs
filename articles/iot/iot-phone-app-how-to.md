@@ -6,7 +6,9 @@ ms.service: azure-iot
 services: iot
 ms.topic: how-to
 ms.date: 02/14/2025
+ms.update-cycle: 1095-days
 ms.author: dobett
+ms.custom: sfi-image-nochange
 
 ---
 

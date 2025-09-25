@@ -3,9 +3,11 @@ title: Azure Automation overview
 description: This article tells what Azure Automation is and how to use it to automate the lifecycle of infrastructure and applications.
 services: automation
 keywords: azure automation, DSC, powershell, state configuration, change tracking, DSC, inventory, runbooks, python, graphical
-ms.date: 03/21/2025
+ms.date: 04/24/2025
 ms.topic: overview
 ms.custom: linux-related-content
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # What is Azure Automation?
@@ -111,7 +113,7 @@ Depending on your requirements, one or more of the following Azure services inte
 * [Azure Arc-enabled servers](/azure/azure-arc/servers/overview) enables simplified onboarding of hybrid machines to Change Tracking and Inventory using AMA, and the Hybrid Runbook Worker role.
 * [Azure Alerts action groups](/azure/azure-monitor/alerts/action-groups) can initiate an Automation runbook when an alert is raised.
 * [Azure Monitor](/azure/azure-monitor/overview) to collect metrics and log data from your Automation account for further analysis and take action on the telemetry. 
-* [Azure Policy](../governance/policy/samples/built-in-policies.md) includes initiative definitions to help establish and maintain  compliance with different security standards for your Automation account.
+* [Azure Policy](/azure/governance/policy/samples/built-in-policies) includes initiative definitions to help establish and maintain  compliance with different security standards for your Automation account.
 * [Azure Site Recovery](../site-recovery/site-recovery-runbook-automation.md) can use Azure Automation runbooks to automate recovery plans.
 
 These Azure services can work with Automation job and runbook resources using an HTTP webhook or API method:
@@ -134,3 +136,4 @@ You can review the prices associated with Azure Automation on the [pricing](http
 
 > [!div class="nextstepaction"]
 > [Create an Automation account](./quickstarts/create-azure-automation-account-portal.md)
+> [Well-architected recommendations for implementing automation](/azure/well-architected/operational-excellence/automate-tasks#evaluate-tasks-to-automate)

@@ -17,6 +17,8 @@ zone_pivot_groups: b2c-policy-type
 
 # Tutorial: Configure Azure Active Directory B2C with BlokSec for passwordless authentication
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 ## Before you begin
 
 Azure Active Directory B2C has two methods to define user interactions with applications: predefined user flows or configurable custom policies.  

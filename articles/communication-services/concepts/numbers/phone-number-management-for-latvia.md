@@ -20,10 +20,11 @@ Use the below tables to find all the relevant information on number availability
 
 | Number Type | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
 | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
-| Alphanumeric Sender ID\*       | General Availability                  | -                    | - | - |
+| Mobile                    | General Availability\**       | General Availability\**       | -                    | -                      |
+| Alphanumeric Sender ID       | General Availability\**                  | -                    | - | - |
 
 
-\* Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
+\** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
 
 
 ## Subscription eligibility
@@ -34,10 +35,25 @@ More details on eligible subscription types are as follows:
 
 | Number Type                      | Eligible Azure Agreement Type                                                                             |
 | :------------------------------- | :-------------------------------------------------------------------------------------------------------- |
+| Mobile | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement, Pay-As-You-Go |
 | Alphanumeric Sender ID            | Modern Customer Agreement (Field Led and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement*, Pay-As-You-Go                                      |
 
 \* Applications from all other subscription types are reviewed and approved on a case-by-case basis. Reach out to acstns@microsoft.com for assistance with your application.
 
+## Azure subscription billing locations where Latvia mobile numbers are available
+| Country/Region |
+| :---------- |
+| Australia       |
+| Belgium         |
+| Denmark         |
+| Finland         |
+| Ireland         |
+| Latvia          |
+| Netherlands     |
+| Poland          |
+| Sweden          |
+| United Kingdom  |
+| United States  |
 
 ## Azure subscription billing locations where Latvia Alphanumeric Sender ID is available
 | Country/Region |

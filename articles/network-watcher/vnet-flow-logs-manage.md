@@ -6,9 +6,9 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 03/18/2025
+ms.date: 08/20/2025
 
-#CustomerIntent: As an Azure administrator, I want to log my virtual network IP traffic using Network Watcher VNet flow logs so that I can analyze it later.
+# Customer intent: As an Azure administrator, I want to manage virtual network flow logs so that I can log, analyze, and optimize IP traffic in my virtual network.
 ---
 
 # Create, change, enable, disable, or delete virtual network flow logs
@@ -115,9 +115,9 @@ Create a flow log for your virtual network, subnet, or network interface. This f
 
 1. In **Network Watcher | Flow logs**, select **+ Create** or **Create flow log** blue button.
 
-    :::image type="content" source="./media/vnet-flow-logs-manage/flow-logs.png" alt-text="Screenshot of Network Watcher flow logs in the Azure portal." lightbox="./media/vnet-flow-logs-manage/flow-logs.png":::
+    :::image type="content" source="./media/flow-logs.png" alt-text="Screenshot of Network Watcher flow logs in the Azure portal." lightbox="./media/flow-logs.png":::
 
-1. On the **Basics** tab of **Create a flow log**, enter or select the following values:
+1. On the **Basics** tab of **Create a flow log**, enter, or select the following values:
 
     | Setting | Value |
     | ------- | ----- |
@@ -130,10 +130,13 @@ Create a flow log for your virtual network, subnet, or network interface. This f
     | Storage accounts | Select the storage account that you want to save the flow logs to. If you want to create a new storage account, select **Create a new storage account**. |
     | Retention (days) | Enter a retention time for the logs (this option is only available with [Standard general-purpose v2](../storage/common/storage-account-overview.md?toc=/azure/network-watcher/toc.json#types-of-storage-accounts) storage accounts). Enter *0* if you want to retain the flow logs data in the storage account forever (until you manually delete it from the storage account). For information about pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). |
 
+    > [!IMPORTANT]
+    > Currently, a storage account supports 100 rules, and each rule can accommodate 10 blob prefixes. For more information, see [How many retention policy rules can a storage account have?](frequently-asked-questions.yml#how-many-retention-policy-rules-can-a-storage-account-have-)
+
     :::image type="content" source="./media/vnet-flow-logs-manage/create-vnet-flow-log-basics.png" alt-text="Screenshot that shows the Basics tab of creating a virtual network flow log in the Azure portal." lightbox="./media/vnet-flow-logs-manage/create-vnet-flow-log-basics.png":::
 
-    > [!NOTE]
-    > If the storage account is in a different subscription, the resource that you're logging (virtual network, subnet, or network interface) and the storage account must be associated with the same Microsoft Entra tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
+    > [!IMPORTANT]
+    > If you configure virtual network flow logs at the NIC, subnet and virtual network, the preference of enablement will be in this order: NIC > subnet > virtual network.
 
 1. To enable traffic analytics, select **Next: Analytics** button, or select the **Analytics** tab. Enter or select the following values:
 
@@ -222,6 +225,11 @@ Use [az network watcher flow-log create](/cli/azure/network/watcher/flow-log#az-
 
 ---
 
+ > [!IMPORTANT]
+ > If the storage account is in a different subscription, the resource that you're logging (virtual network, subnet, or network interface) and the storage account must be associated with the same Microsoft Entra tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
+
+ [!INCLUDE [Traffic analytics resources](../../includes/network-watcher-traffic-analytics-resources.md)]
+
 ## Enable or disable traffic analytics
 
 Enable traffic analytics for a flow log to analyze the flow log data. Traffic analytics provides insights into the traffic patterns of your virtual network. You can enable or disable traffic analytics for a flow log at any time.
@@ -307,6 +315,8 @@ az network watcher flow-log update --location 'eastus' --name 'myVNetFlowLog' --
 ```
 
 ---
+
+[!INCLUDE [Traffic analytics resources](../../includes/network-watcher-traffic-analytics-resources.md)]
 
 ## List all flow logs
 

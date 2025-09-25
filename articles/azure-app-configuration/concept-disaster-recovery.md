@@ -4,7 +4,7 @@ description: Learn how to implement resiliency and disaster recovery with Azure 
 author: avanigupta
 ms.author: avgupta
 ms.service: azure-app-configuration
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/16/2024
 ---
 

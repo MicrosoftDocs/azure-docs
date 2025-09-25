@@ -10,13 +10,13 @@ ms.date: 11/19/2024
 
 # Create a storage account in an Azure Extended Zone
 
-In this article, you learn how to create an Azure storage account in Los Angeles Extended Zone.
+In this article, you learn how to create an Azure storage account in an Extended Zone.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- Access to Los Angeles Extended Zone. For more information, see [Request access to an Azure Extended Zone](request-access.md).
+- Access to an Extended Zone. For more information, see [Request access to an Azure Extended Zone](request-access.md).
 
 ## Sign in to Azure
 
@@ -41,10 +41,12 @@ In this section, you create a storage account in an Extended Zone.
     | Resource group | Select **Create new**. </br> Enter *myResourceGroup* in **Name**. </br> Select **OK**. |
     | **Instance details** |  |
     | Storage account name | Enter a unique name. |
-    | Region | Select **(US) West US** and then select **Deploy to an Azure Extended Zone**. </br> In  **Azure Extended Zones**, select **Los Angeles**. </br> Select the **Select** button. |
+    | Region* | Select the target Extended Zone's **Parent Region (its *homeLocation*)** and then select **Deploy to an Azure Extended Zone**. </br> Under  **Azure Extended Zones**, select the respective **Extended Zone**. </br> Select the **Select** button. |
     | Performance | **Premium** is the only available option for an Extended Zone. |
     | Premium account type | Select **Page blobs**. Other available options are **Block blobs** and **File shares**. |
-    | Redundancy | **Locally-redundant storage (LRS)** is the only available option for an Extended Zone. |
+    | Redundancy | **Locally Redundant Storage (LRS)** is the only available option for an Extended Zone. |
+
+     *If there's no Extended Zone paired with the selected region, you won’t be able to select an Extended Zone location.
 
     :::image type="content" source="./media/create-storage-account/create-storage-account-basics.png" alt-text="Screenshot that shows the Basics tab of creating a storage account in an Azure Extended Zone." lightbox="./media/create-storage-account/create-storage-account-basics.png":::
 

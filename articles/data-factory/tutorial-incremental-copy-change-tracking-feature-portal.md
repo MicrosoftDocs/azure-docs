@@ -6,6 +6,7 @@ author: dearandyxu
 ms.topic: tutorial
 ms.date: 10/03/2024
 ms.subservice: data-movement
+ms.custom: sfi-image-nochange
 ---
 
 # Incrementally copy data from Azure SQL Database to Blob Storage by using change tracking in the Azure portal
@@ -126,7 +127,7 @@ In this tutorial, you create two pipelines that perform the following operations
 
 1. Open the Microsoft Edge or Google Chrome web browser. Currently, only these browsers support the Data Factory user interface (UI).
 1. In the [Azure portal](https://ms.portal.azure.com/), on the left menu, select **Create a resource**.
-1. Select **Integration** > **Data Factory**.
+1. Select **Analytics** > **Data Factory** :
 
     ![Screenshot that shows selection of a data factory in creating a resource.](media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory-menu.png)
 1. On the **New data factory** page, enter **ADFTutorialDataFactory** for the name.

@@ -7,7 +7,11 @@ ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: tutorial
 ms.date: 02/14/2024
-ms.custom: template-tutorial, engagement-fy23
+ms.custom:
+  - template-tutorial
+  - engagement-fy23
+  - sfi-image-nochange
+# Customer intent: As a cloud architect, I want to create a public load balancer with an IP-based backend pool in a virtual network, so that I can efficiently manage traffic distribution across multiple virtual machines.
 ---
 
 # Tutorial: Create a public load balancer with an IP-based backend using the Azure portal

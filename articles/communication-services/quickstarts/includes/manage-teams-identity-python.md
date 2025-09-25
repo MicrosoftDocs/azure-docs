@@ -9,8 +9,10 @@ ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 10/08/2021
 ms.topic: include
-ms.custom: include file
 ms.author: gistefan
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 ## Set up prerequisites
@@ -74,7 +76,7 @@ scopes = [
 "https://auth.msft.communication.azure.com/Teams.ManageChats"
  ]
 
-# Retrieve the AAD token and object ID of a Teams user
+# Retrieve the Microsoft Entra ID token and object ID of a Teams user
 result = app.acquire_token_interactive(scopes)
 aad_token =  result["access_token"]
 user_object_id = result["id_token_claims"]["oid"] 

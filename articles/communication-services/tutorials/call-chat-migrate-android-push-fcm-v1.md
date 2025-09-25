@@ -2,12 +2,13 @@
 title: Migrate Android SDK push notifications to FCM v1
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to migrate Android SDK push notifications from Google Cloud Messaging (GCM/FCM) to Firebase Cloud Messaging (FCM HTTP v1).
-author: jiminwen
+author: awang119
 services: azure-communication-services
-ms.author: jiminwen
+ms.author: anniewang
 ms.date: 05/31/2024
 ms.topic: tutorial
 ms.service: azure-communication-services
+ms.subservice: chat
 ---
 
 # Migrate Android SDK push notifications to Firebase Cloud Messaging HTTP v1 

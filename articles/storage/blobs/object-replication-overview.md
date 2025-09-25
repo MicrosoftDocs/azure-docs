@@ -5,10 +5,11 @@ description: Object replication asynchronously copies block blobs between a sour
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
-ms.date: 03/06/2025
+ms.topic: concept-article
+ms.date: 09/09/2025
 ms.author: normesta
 ms.custom: engagement-fy23
+# Customer intent: As a cloud storage administrator, I want to implement object replication for block blobs, so that I can improve data availability, reduce read latency, and optimize cost-efficiency across multiple regions.
 ---
 
 # Object replication for block blobs
@@ -42,6 +43,8 @@ Object replication is supported for accounts that are encrypted with either micr
 Object replication isn't supported for blobs in the source account that are encrypted with a customer-provided key. For more information about customer-provided keys, see [Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md).
 
 Customer-managed failover isn't supported for either the source or the destination account in an object replication policy.
+
+Object replication is not yet supported in accounts that have a hierarchical namespace enabled.
 
 Object replication is not supported for blobs that are uploaded by using [Data Lake Storage](/rest/api/storageservices/data-lake-storage-gen2) APIs.
 
@@ -249,7 +252,7 @@ Here's a breakdown of the costs. To find the price of each cost component, see [
 |Transaction cost of a write operation|Transaction cost to read a change feed record|
 |Storage cost of the blob and each blob version<sup>1</sup>|Transaction cost to read the blob and blob versions<sup>2</sup>|
 |Cost to add a change feed record|Transaction cost to write the blob and blob versions<sup>2</sup>|
-||Storage cost of the blob and each blob version<sup>1</sup>|
+|Data retrieval costs on cool and cold tiers|Storage cost of the blob and each blob version<sup>1</sup>|
 ||Cost of network egress<sup>3</sup>|
 
 <sup>1</sup>    On the source account, if you haven't changed a blob or version's tier, then you're billed for unique blocks of data across that blob, its versions. See [Blob versioning pricing and Billing](versioning-overview.md#pricing-and-billing). At the destination account, for a version, you're billed for all of the blocks of a version whether or not those blocks are unique.

@@ -6,8 +6,11 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 06/28/2024
-ms.custom: [amqp, 'Role: Cloud Development']
+ms.date: 05/22/2025
+ms.custom:
+  - amqp
+  - 'Role: Cloud Development'
+  - sfi-image-nochange
 ---
 
 # Read device-to-cloud messages from the built-in endpoint
@@ -93,4 +96,4 @@ The product integrations you can use with the built-in Event Hubs-compatible end
 
 * For more information about IoT Hub endpoints, see [IoT Hub endpoints](iot-hub-devguide-endpoints.md).
 
-* If you want to route your device-to-cloud messages to custom endpoints, see [Use message routes and custom endpoints for device-to-cloud messages](iot-hub-devguide-messages-d2c.md).
+* If you want to route your device-to-cloud messages to custom endpoints, see [Use IoT Hub message routing to send device-to-cloud messages to Azure services](iot-hub-devguide-messages-d2c.md).

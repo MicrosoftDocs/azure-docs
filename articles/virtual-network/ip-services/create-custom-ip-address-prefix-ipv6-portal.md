@@ -8,6 +8,8 @@ ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 08/06/2024
+ms.custom: sfi-image-nochange
+# Customer intent: "As a network administrator, I want to create and manage a custom IPv6 address prefix in the cloud, so that I can use my owned IP range while ensuring it is advertised correctly on the Internet."
 ---
 
 # Create a custom IPv6 address prefix in Azure

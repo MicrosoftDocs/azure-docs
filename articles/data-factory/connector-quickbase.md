@@ -6,8 +6,10 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: synapse
 ms.date: 01/05/2024
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 #  Transform data in Quickbase (Preview) using Azure Data Factory or Synapse Analytics

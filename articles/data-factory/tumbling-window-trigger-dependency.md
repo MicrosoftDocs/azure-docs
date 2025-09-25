@@ -6,8 +6,10 @@ ms.author: makromer
 author: kromerm
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.custom: synapse
 ms.date: 09/26/2024
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Create a tumbling window trigger dependency

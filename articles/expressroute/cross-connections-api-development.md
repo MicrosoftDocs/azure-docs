@@ -6,9 +6,10 @@ author: duongau
 
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 02/06/2020
+ms.date: 07/09/2025
 ms.author: duau
 
+# Customer intent: "As an ExpressRoute partner, I want to utilize the expressRouteCrossConnections API for managing layer-2 and layer-3 configurations, so that I can efficiently handle customer ExpressRoute circuits and enhance connectivity management."
 ---
 
 
@@ -391,6 +392,10 @@ Once you receive the ExpressRoute service key from the target customer, follow t
 ## REST API
 
 See [ExpressRoute CrossConnections REST API](/rest/api/expressroute/expressroutecrossconnections) for REST API documentation.
+
+## Circuit Placement API 
+
+The ExpressRoute partner circuit placement API allows ExpressRoute partners to provision circuit connectivity on a specific port pair. See [circuit placement API](circuit-placement-api.md) for API documentation.
 
 ## Next steps
 

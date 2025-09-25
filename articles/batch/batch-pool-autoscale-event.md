@@ -2,7 +2,8 @@
 title: Azure Batch pool autoscale event
 description: Reference for the Batch pool autoscale event, which is emitted once a pool automatic scaling is executed. The content of the log will expose autoscale formula and evaluation results for the pool.
 ms.topic: reference
-ms.date: 10/08/2020
+ms.date: 07/01/2025
+# Customer intent: "As a cloud operations engineer, I want to monitor the autoscale events for Batch pools so that I can troubleshoot scaling issues and optimize resource allocation effectively."
 ---
 
 # Pool autoscale event

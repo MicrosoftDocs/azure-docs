@@ -1,11 +1,11 @@
 ---
 title: Use dependency injection in .NET Azure Functions
-description: Learn how to use dependency injection for registering and using services in .NET functions
+description: Learn how to use dependency injection for registering and using services in .NET Azure Functions, including setup, configuration, and best practices.
 
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
-ms.date: 03/24/2021
+ms.date: 05/07/2025
 ms.reviewer: jehollan
 ---
 # Use dependency injection in .NET Azure Functions
@@ -16,7 +16,7 @@ Azure Functions supports the dependency injection (DI) software design pattern, 
 
 - Support for dependency injection begins with Azure Functions 2.x.
 
-- Dependency injection patterns differ depending on whether your C# functions run [in-process](functions-dotnet-class-library.md) or [out-of-process](dotnet-isolated-process-guide.md).  
+- Dependency injection patterns differ depending on whether your C# functions run [in-process](functions-dotnet-class-library.md) or [out-of-process](dotnet-isolated-process-guide.md).
 
 > [!IMPORTANT]
 > The guidance in this article applies only to [C# class library functions](functions-dotnet-class-library.md), which run in-process with the runtime. This custom dependency injection model doesn't apply to [.NET isolated functions](dotnet-isolated-process-guide.md), which lets you run .NET functions out-of-process. The .NET isolated worker process model relies on regular ASP.NET Core dependency injection patterns. To learn more, see [Dependency injection](dotnet-isolated-process-guide.md#dependency-injection) in the .NET isolated worker process guide.
@@ -33,7 +33,7 @@ Before you can use dependency injection, you must install the following NuGet pa
 
 ## Register services
 
-To register services, create a method to configure and add components to an `IFunctionsHostBuilder` instance.  The Azure Functions host creates an instance of `IFunctionsHostBuilder` and passes it directly into your method.
+To register services, create a method to configure and add components to an `IFunctionsHostBuilder` instance. The Azure Functions host creates an instance of `IFunctionsHostBuilder` and passes it directly into your method.
 
 > [!WARNING]
 > For function apps running in the Consumption or Premium plans, modifications to configuration values used in triggers can cause scaling errors. Any changes to these properties by the `FunctionsStartup` class results in a function app startup error.
@@ -138,11 +138,11 @@ Application Insights is added by Azure Functions automatically.
 
 > [!WARNING]
 > - Don't add `AddApplicationInsightsTelemetry()` to the services collection, which registers services that conflict with services provided by the environment.
-> - Don't register your own `TelemetryConfiguration` or `TelemetryClient` if you are using the built-in Application Insights functionality. If you need to configure your own `TelemetryClient` instance, create one via the injected `TelemetryConfiguration` as shown in [Log custom telemetry in C# functions](functions-dotnet-class-library.md?tabs=v2%2Ccmd#log-custom-telemetry-in-c-functions).
+> - Don't register your own `TelemetryConfiguration` or `TelemetryClient` if you're using the built-in Application Insights functionality. If you need to configure your own `TelemetryClient` instance, create one via the injected `TelemetryConfiguration` as shown in [Log custom telemetry in C# functions](functions-dotnet-class-library.md?tabs=v2%2Ccmd#log-custom-telemetry-in-c-functions).
 
 ### ILogger\<T\> and ILoggerFactory
 
-The host injects `ILogger<T>` and `ILoggerFactory` services into constructors.  However, by default these new logging filters are filtered out of the function logs.  You need to modify the `host.json` file to opt in to extra filters and categories.
+The host injects `ILogger<T>` and `ILoggerFactory` services into constructors. However, by default these new logging filters are filtered out of the function logs. You need to modify the `host.json` file to opt in to extra filters and categories.
 
 The following example demonstrates how to add an `ILogger<HttpTrigger>` with logs that are exposed to the host.
 
@@ -202,7 +202,7 @@ If there are other services you want to take a dependency on, [create an issue a
 
 ### Overriding host services
 
-Overriding services provided by the host is currently not supported.  If there are services you want to override, [create an issue and propose them on GitHub](https://github.com/azure/azure-functions-host).
+Overriding services provided by the host is currently not supported. If there are services you want to override, [create an issue and propose them on GitHub](https://github.com/azure/azure-functions-host).
 
 ## Working with options and settings
 
@@ -220,6 +220,7 @@ public class MyOptions
 ```
 
 And a `local.settings.json` file that might structure the custom setting as follows:
+
 ```json
 {
   "IsEncrypted": false,

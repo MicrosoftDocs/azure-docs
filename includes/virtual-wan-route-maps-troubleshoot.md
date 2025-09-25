@@ -8,7 +8,7 @@
 
 ### Route map has entered the failed state
 
-Reach out to the preview alias to troubleshoot: 'preview-route-maps@microsoft.com'
+Please open a support case.
 
 ### Summary routes aren't showing up as expected
 

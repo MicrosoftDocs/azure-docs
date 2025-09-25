@@ -2,10 +2,16 @@
 title: Azure Functions HTTP trigger
 description: Learn how to call an Azure Function via HTTP.
 ms.topic: reference
-ms.date: 07/16/2024
+ms.date: 05/02/2025
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-ts
+ms.custom:
+  - devx-track-csharp
+  - devx-track-python
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-ts
+  - build-2025
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -286,7 +292,7 @@ public HttpResponseMessage run(
 
 # [Model v4](#tab/nodejs-v4)
 
-The following example shows an HTTP trigger [TypeScript function](functions-reference-node.md?tabs=typescript). The function looks for a `name` parameter either in the query string or the body of the HTTP request.
+The following example shows an HTTP trigger [TypeScript function](functions-reference-node.md?tabs=typescript). The function looks for a `name` parameter either in the query string or the body of the [HTTP request](functions-reference-node.md?tabs=typescript&pivots=nodejs-model-v4#http-request). 
 
 :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTrigger1.ts" :::
 
@@ -301,13 +307,13 @@ TypeScript samples aren't documented for model v3.
 
 # [Model v4](#tab/nodejs-v4)
 
-The following example shows an HTTP trigger [JavaScript function](functions-reference-node.md). The function looks for a `name` parameter either in the query string or the body of the HTTP request.
+The following example shows an HTTP trigger [JavaScript function](functions-reference-node.md). The function looks for a `name` parameter either in the query string or the body of the [HTTP request](functions-reference-node.md?tabs=javascript&pivots=nodejs-model-v4#http-request). 
 
 :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTrigger1.js" :::
 
 # [Model v3](#tab/nodejs-v3)
 
-The following example shows a trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request.
+The following example shows a trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function looks for a `name` parameter either in the query string or the body of the [HTTP request](functions-reference-node.md?tabs=javascript&pivots=nodejs-model-v3#http-request). 
 
 Here's the *function.json* file:
 
@@ -414,11 +420,11 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 ::: zone pivot="programming-language-python"  
 # [v2](#tab/python-v2)
 
-This example uses [HTTP streams](functions-reference-python.md#http-streams-preview) to return chunked response data.
+This example is an HTTP triggered function that uses [HTTP streams](functions-reference-python.md#http-streams) to return chunked response data. You might use these capabilities to support scenarios like sending event data through a pipeline for real time visualization or detecting anomalies in large sets of data and providing instant notifications.
 
 :::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download/function_app.py" range="5-26" ::: 
 
-To learn more, including how to enable HTTP streams in your project, see [HTTP streams](functions-reference-python.md#http-streams-preview).
+To learn more, including how to enable HTTP streams in your project, see [HTTP streams](functions-bindings-http-webhook-trigger.md?tabs=python-v2&pivots=programming-language-python#http-streams-1).
 
 This example shows a trigger binding and a Python function that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request.
 
@@ -1011,10 +1017,86 @@ You can now stream requests to and responses from your HTTP endpoint in Node.js 
 ::: zone pivot="programming-language-python"  
 ### HTTP streams
 
-HTTP streams support in Python lets you accept and return data from your HTTP endpoints using FastAPI request and response APIs enabled in your functions. These APIs enable the host to process data in HTTP messages as chunks instead of having to read an entire message into memory. For more information, see [HTTP streams in Python](./functions-reference-python.md#http-streams-preview)
+HTTP streams support in Python lets you accept and return data from your HTTP endpoints using FastAPI request and response APIs enabled in your functions. These APIs enable the host to process data in HTTP messages as chunks instead of having to read an entire message into memory.
+
+### Prerequisites
+
+* [Azure Functions runtime](functions-versions.md?pivots=programming-language-python) version 4.34.1, or a later version.
+* [Python](https://www.python.org/downloads/) version 3.8, or a later [supported version](functions-reference-python.md?tabs=get-started&pivots=python-mode-decorators#python-version).
+
+### Enable HTTP streams
+
+HTTP streams are disabled by default. You need to enable this feature in your application settings and also update your code to use the FastAPI package. Note that when enabling HTTP streams, the function app will default to using HTTP streaming, and the original HTTP functionality will not work.
+
+1. Add the `azurefunctions-extensions-http-fastapi` extension package to the `requirements.txt` file in the project, which should include at least these packages:
+
+    :::code language="text" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download/requirements.txt" range="5-6" ::: 
+
+1. Add this code to the `function_app.py` file in the project, which imports the FastAPI extension:
+
+    :::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download/function_app.py" range="8" ::: 
+
+1. When you deploy to Azure, add the following [application setting](./functions-how-to-use-azure-function-app-settings.md#settings) in your function app:
+
+    `"PYTHON_ENABLE_INIT_INDEXING": "1"`
+
+    When running locally, you also need to add these same settings to the `local.settings.json` project file.
+
+### HTTP streams examples
+
+After you enable the HTTP streaming feature, you can create functions that stream data over HTTP. 
+
+This example is an HTTP triggered function that receives and processes streaming data from a client in real time. It demonstrates streaming upload capabilities that can be helpful for scenarios like processing continuous data streams and handling event data from IoT devices.
+
+:::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_upload/function_app.py" range="5-25" ::: 
+
+### Calling HTTP streams
+
+You must use an HTTP client library to make streaming calls to a function's FastAPI endpoints. The client tool or browser you're using might not natively support streaming or could only return the first chunk of data.
+
+You can use a client script like this to send streaming data to an HTTP endpoint:
+
+```python
+import httpx # Be sure to add 'httpx' to 'requirements.txt'
+import asyncio
+
+async def stream_generator(file_path):
+    chunk_size = 2 * 1024  # Define your own chunk size
+    with open(file_path, 'rb') as file:
+        while chunk := file.read(chunk_size):
+            yield chunk
+            print(f"Sent chunk: {len(chunk)} bytes")
+
+async def stream_to_server(url, file_path):
+    timeout = httpx.Timeout(60.0, connect=60.0)
+    async with httpx.AsyncClient(timeout=timeout) as client:
+        response = await client.post(url, content=stream_generator(file_path))
+        return response
+
+async def stream_response(response):
+    if response.status_code == 200:
+        async for chunk in response.aiter_raw():
+            print(f"Received chunk: {len(chunk)} bytes")
+    else:
+        print(f"Error: {response}")
+
+async def main():
+    print('helloworld')
+    # Customize your streaming endpoint served from core tool in variable 'url' if different.
+    url = 'http://localhost:7071/api/streaming_upload'
+    file_path = r'<file path>'
+
+    response = await stream_to_server(url, file_path)
+    print(response)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
 
 >[!IMPORTANT]  
-> HTTP streams support for Python is currently in preview and is only supported for the Python v2 programming model.
+> HTTP streams support for Python is generally available and is only supported for the Python v2 programming model.
+
 ::: zone-end  
 ### Working with client identities
 
@@ -1108,6 +1190,8 @@ Most HTTP trigger templates require an access key in the request. So your HTTP r
 https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
 ```
 
+Function apps that run in containers use the domain of the container host. For an example HTTP endpoint hosted in Azure Container Apps, see the example in [this Container Apps hosting article](functions-deploy-container-apps.md#verify-your-functions-on-azure).
+
 The key can be included in a query string variable named `code`, as mentioned earlier. It can also be included in an `x-functions-key` HTTP header. The value of the key can be any function key defined for the function, or any host key.
 
 You can allow anonymous requests, which don't require keys. You can also require that the master key is used. You change the default authorization level by using the `authLevel` property in the binding JSON. 
@@ -1151,6 +1235,39 @@ Webhook authorization is handled by the webhook receiver component, part of the 
 * **Query string**: The provider passes the key name in the `clientid` query string parameter, such as `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?clientid=<KEY_NAME>`.
 * **Request header**: The provider passes the key name in the `x-functions-clientid` header.
 
+## Invoke HTTP triggers
+
+You can invoke your HTTP-triggered functions using an HTTP client. The examples in this section use [`curl`](https://github.com/curl/curl), but you can use any HTTP client tool that keeps your data secure. For more information, see [HTTP test tools](functions-develop-local.md#http-test-tools).
+
+The request you need to make might be different between a local version of your code and when hosted in Azure. By default, when you run your project using the Azure Functions Core Tools, access key authorization requirements are removed. However, any requirements you've configured will still be enforced when hosted.
+
+### Invoke locally
+
+The [Azure Functions Core Tools](./functions-develop-local.md) registers a `localhost` endpoint for your function app, which you can use to invoke your functions. During application startup, the specific port being used is displayed in the console. The output also lists the available functions, and for each HTTP-triggered function, the output also includes the function's route template.
+
+Use this information to construct the URL to provide to your API client. You also need to specify any headers, parameters, and request body information your function requires. The following example sends an HTTP POST request with a JSON body:
+
+```bash
+curl --request POST http://localhost:7071/api/Function1 --header "Content-Type: application/json" --data '{"message":"test data"}'
+```
+
+### Invoke in Azure
+
+When invoking an HTTP-triggered function hosted in Azure, you need to consider your networking configuration. The HTTP client must have network access to the app, so if you have [inbound networking restrictions](./functions-networking-options.md#inbound-networking-features) enabled, the client might need to be within a virtual network or specific IP ranges. Your domain configuration determines the base URL you need to use for the request.
+
+> [!NOTE]
+> Newly created function apps can generate a unique default host name that uses the naming convention `<app-name>-<random-hash>.<region>.azurewebsites.net`. An example is `myapp-ds27dh7271aah175.westus-01.azurewebsites.net`. Existing app names remain unchanged.
+>
+> For more information, see the [blog post about creating an app with a unique default host name](https://techcommunity.microsoft.com/blog/appsonazureblog/secure-unique-default-hostnames-ga-on-app-service-web-apps-and-public-preview-on/4303571).
+
+Unless you selected the anonymous [authorization level](#http-auth) in your trigger definition, your request may also need to [include an access key](./function-keys-how-to.md#use-access-keys).
+
+The following example sends an HTTP POST request with a function body, including the access key in the query string:
+
+```bash
+curl --request POST "https://<your-function-app-base-url>/api/Function1?code=<your-function-key>" --header "Content-Type: application/json" --data '{"message":"test data"}'
+```
+
 ## Content types
 
 Passing binary and form data to a non-C# function requires that you use the appropriate content-type header. Supported content types include `octet-stream` for binary data and [multipart types](https://www.iana.org/assignments/media-types/media-types.xhtml#multipart).
@@ -1161,7 +1278,7 @@ In non-C# functions, requests sent with the content-type `image/jpeg` results in
 
 ### Limits
 
-The HTTP request length is limited to 100 MB (104,857,600 bytes), and the URL length is limited to 4 KB (4,096 bytes). These limits are specified by the `httpRuntime` element of the runtime's [Web.config file](https://github.com/Azure/azure-functions-host/blob/v3.x/src/WebJobs.Script.WebHost/web.config).
+The HTTP request size and URL lengths are both limited based on [settings defined in the host](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/web.config#L19). For more information, see [Service limits](functions-scale.md#service-limits).
 
 If a function that uses the HTTP trigger doesn't complete within 230 seconds, the [Azure Load Balancer](../app-service/faq-availability-performance-application-issues.yml#why-does-my-request-time-out-after-230-seconds-) will time out and return an HTTP 502 error. The function will continue running but will be unable to return an HTTP response. For long-running functions, we recommend that you follow async patterns and return a location where you can ping the status of the request. For information about how long a function can run, see [Scale and hosting - Consumption plan](functions-scale.md#timeout).
 

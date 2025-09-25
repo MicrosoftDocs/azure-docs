@@ -1,10 +1,13 @@
 ---
 title: Architecture - Network design considerations
 description: Learn about network design considerations for Azure VMware Solution
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-vmware
 ms.date: 3/22/2024
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
+# Customer intent: "As a network architect, I want to understand the network design considerations for Azure VMware Solution, so that I can effectively configure connectivity and routing between on-premises and Azure environments."
 ---
 
 # Azure VMware Solution network design considerations
@@ -46,7 +49,7 @@ The following ASNs are reserved for internal Azure VMware Solution infrastructur
 
 - **Transport ASNs (T0 Gateways):** 64513 (NSX Edges), 64600 – 64940
 
-- **Management ASNs:** 65000 – 65412
+- **Management ASNs:** 65000 – 65412, 398656-398670, 400572-400581
 
 ### Impact of Using Reserved ASNs
 

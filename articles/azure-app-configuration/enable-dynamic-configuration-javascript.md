@@ -8,7 +8,9 @@ ms.service: azure-app-configuration
 ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 01/20/2025
-ms.custom: devx-track-js
+ms.custom:
+  - devx-track-js
+  - build-2025
 ms.author: zhiyuanliang
 #Customer intent: As a JavaScript developer, I want to dynamically update my app to use the latest configuration data in Azure App Configuration.
 ---
@@ -80,8 +82,11 @@ You can connect to App Configuration using either Microsoft Entra ID (recommende
     
     ---
 
-> [!NOTE]
-> If you get the error: "Refresh is enabled but no watched settings are specified.", please update the [`@azure/app-configuration-provider`](https://www.npmjs.com/package/@azure/app-configuration-provider) package to version **2.0.0** or later.
+    > [!NOTE]
+    > If you get the error: "Refresh is enabled but no watched settings are specified.", please update the [`@azure/app-configuration-provider`](https://www.npmjs.com/package/@azure/app-configuration-provider) package to version **2.0.0** or later.
+
+    > [!TIP]
+    > For more information about monitoring configuration changes, see [Best practices for configuration refresh](./howto-best-practices.md#configuration-refresh).
 
 1. Setting up `refreshOptions` alone won't automatically refresh the configuration. You need to call the `refresh` method to trigger a refresh. This design prevents unnecessary requests to App Configuration when your application is idle. You should include the `refresh` call where your application activity occurs. This is known as **activity-driven configuration refresh**. For example, you can call `refresh` when processing an incoming message or an order, or inside an iteration where you perform a complex task. Alternatively, you can use a timer if your application is always active. In this example, `refresh` is called in a loop for demonstration purposes. Even if the `refresh` call fails for any reason, your application will continue to use the cached configuration. Another attempt will be made when the configured refresh interval has passed and the `refresh` call is triggered by your application activity. Calling `refresh` is a no-op before the configured refresh interval elapses, so its performance impact is minimal even if it's called frequently.
 
@@ -212,7 +217,7 @@ You can connect to App Configuration using either Microsoft Entra ID (recommende
 
 The following example shows how to update an existing http server to use refreshable configuration values.
 
-1. Create a new javascript file named `server.js` and add the following code:
+1. Create a new JavaScript file named `server.js` and add the following code:
 
     ```javascript
     const http = require('http');
@@ -292,7 +297,7 @@ The following example shows how to update an existing http server to use refresh
 
 In most cases, the refresh operation of the App Configuration provider can be treated as a no-op. It will only send requests to check the value in App Configuration when the refresh interval time you set has passed.
 
-We recommend implementing request-driven configuration refresh for your web application. The configuration refresh is triggered by the incoming requests to your web app. No refresh will occur if your app is idle, when there is no request incoming. When your app is active, you can use a middleware or similar mechanism to trigger the `appConfig.refresh()` call upon every incoming request to your application.
+We recommend implementing request-driven configuration refresh for your web application. The configuration refresh is triggered by the incoming requests to your web app. No refresh will occur if your app is idle, when there is no request incoming. When your app is active, you can use a middleware or similar mechanism to trigger the `appConfig.refresh()` call upon every incoming request to your application.
 
 - If a request to App Configuration for change detection fails, your app will continue to use the cached configuration. New attempts to check for changes will be made periodically while there are new incoming requests to your app.
 

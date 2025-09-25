@@ -2,16 +2,17 @@
 title: Restore Azure Disks using Azure Data Protection REST API
 description: In this article, learn how to restore Azure Disks using Azure Data protection REST API.
 ms.topic: how-to
-ms.date: 02/09/2025
+ms.date: 08/28/2025
 ms.assetid: 30f4e7ff-2a55-4a85-be44-55feedc24607
 ms.custom: engagement-fy24
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a cloud administrator, I want to restore Azure Disks using a Data Protection API, so that I can efficiently recover managed disks without incurring infrastructure costs or affecting application performance."
 ---
 
 # Restore Azure Disks using Azure Data Protection REST API
 
-This article describes how to restore and create a new [Azure Disks](disk-backup-overview.md) using Azure Backup.
+This article describes how to restore and create a new [Azure Disks](disk-backup-overview.md) by Azure Backup using REST API. You can also restore Managed Disk using [Azure portal](restore-managed-disks.md), [Azure PowerShell](restore-managed-disks-ps.md), [Azure CLI](restore-managed-disks-cli.md).
 
 Azure Disk Backup offers a turnkey solution that provides snapshot lifecycle management for managed disks by automating periodic creation of snapshots and retaining it for configured duration using backup policy. You can manage the disk snapshots with zero infrastructure cost and without the need for custom scripting or any management overhead. This is a crash-consistent backup solution that takes point-in-time backup of a managed disk using incremental snapshots with support for multiple backups per day. It's also an agent-less solution and doesn't impact production application performance. It supports backup and restore of both OS and data disks (including shared disks), whether or not they're currently attached to a running Azure virtual machine.
 
@@ -35,7 +36,7 @@ Backup vault uses managed identity to access other Azure resources. To restore f
 
 Backup vault uses a system-assigned managed identity, which is restricted to one per resource and is tied to the lifecycle of this resource. To grant permissions to the managed identity, use the Azure role-based access control (Azure RBAC). Managed identity is a specific service principal that you may only use with Azure resources. Learn more about [Managed Identities](../active-directory/managed-identities-azure-resources/overview.md).
 
-Assign the relevant permissions for vault's system-assigned managed identity on the target resource group where the disks will be restored/created. [Learn more](restore-managed-disks.md#restore-to-create-a-new-disk).
+Assign the relevant permissions for vault's system-assigned managed identity on the target resource group where the disks will be restored/created. [Learn more](restore-managed-disks.md#restore-a-new-disk-from-a-recovery-point).
 
 ## Fetch the list of recovery points
 

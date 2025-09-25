@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 08/21/2024
 ms.author: akak
 #Customer intent: I am an SAP BASIS or cloud infrastructure team member, I want to enable SAP Insights on my Azure monitor for SAP Instance.
+# Customer intent: As an SAP BASIS team member, I want to enable SAP Insights on Azure Monitor for my SAP instance, so that I can effectively troubleshoot availability and performance issues with my SAP workloads.
 ---
 
 # Enable Insights to troubleshoot SAP workload issues (preview)

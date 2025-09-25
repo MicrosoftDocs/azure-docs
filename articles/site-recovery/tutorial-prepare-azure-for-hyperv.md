@@ -5,8 +5,9 @@ ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 12/22/2022
 ms.custom: MVC, engagement-fy23
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
+# Customer intent: "As a system administrator, I want to configure Azure resources for disaster recovery of on-premises Hyper-V VMs, so that I can ensure business continuity during outages."
 ---
 # Prepare Azure resources for Hyper-V disaster recovery
 

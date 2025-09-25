@@ -1,22 +1,18 @@
 ---
-title: Real Time Text (RTT) Overview
-titleSuffix: An Azure Communication Services concept document
-description: Learn about Real Time Text (RTT) in Azure Communication Services.
+title: Real Time Text (RTT) overview
+titleSuffix: An Azure Communication Services article
+description: This article describes Real Time Text (RTT) in Azure Communication Services.
 author: ahammer
-ms.date: 12/4/2024
+ms.date: 06/24/2025
 ms.author: adamhammer
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
-
-
-
-
-# Real Time Text (RTT) Overview
+# Real Time Text (RTT) overview
 
 >[!NOTE]
->RTT is an accessibility compliance requirement for voice and video platforms in the EU starting June 30, 2025. You can find more information about this here: [Directive 2019/882](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019L0882)
+>RTT is an accessibility compliance requirement for voice and video platforms in the EU starting June 30, 2025. For more information, see [Directive 2019/882](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019L0882).
 
 Real Time Text (RTT) provides developers with the ability to transmit text in near real-time during a call. This feature is designed to empower individuals who have difficulty speaking, ensuring their text messages are displayed prominently to other meeting participants, similar to spoken communication. RTT enhances accessibility by allowing participants to communicate effectively through typed messages that are broadcast instantly character by character, without having to press a "send" key. 
 
@@ -28,12 +24,12 @@ RTT aids in creating inclusive communication platforms by enabling users with sp
 
 ### Enhancing Communication Clarity
 
-In scenarios where speech clarity is compromised due to background noise or technical limitations, RTT serves as a reliable alternative to convey messages clearly. This ensures that critical information is communicated without misunderstandings.
+In scenarios where speech clarity is compromised due to background noise or technical limitations, RTT serves as a reliable alternative to convey messages clearly. This real time display ensures that critical information is communicated without misunderstandings.
 
 ## When to Use Real Time Text (RTT)
 
 - **Accessibility Requirements:** When developing applications that need to comply with accessibility standards, enabling RTT ensures that users with speech difficulties can participate effectively.
-- **High-Noise Environments:** In settings where audio quality may be affected by background noise, RTT provides a clear and reliable means of communication.
+- **High-Noise Environments:** In settings where background noise affects audio quality, RTT provides a clear and reliable means of communication.
 
 ## RealTimeTextInfo/Details Class
 
@@ -47,24 +43,25 @@ The `RealTimeTextInfo` (or `RealTimeTextDetails` on certain platforms) class is 
 - **ResultType/Kind:** Indicates whether the message is partial (`ResultType`) or finalized (`Kind`), determining if it can be edited.
 - **ReceivedTime:** Timestamp marking when the message was received.
 - **UpdatedTime:** Timestamp indicating the last update to the message.
-- **IsLocal:** A boolean flag indicating if the message was sent by the local user.
+- **IsLocal:** A boolean flag indicating if the local user sent a message.
 
 ### Usage
 
 Developers can subscribe to RTT events through a single event subscription, allowing them to manage their own list and ordering of RTT messages. This approach aligns with the Captions API, facilitating easier integration and maintenance. The UI is responsible for binding the data to the screen, managing the display list, and handling text input interactions based on message finalization.
 
 >[!NOTE]
->RTT Teams Interlop is not functional yet.
+>RTT for PSTN scenarios isn't available at this time.
 
 ### Privacy Concerns
+
 Real-Time Text (RTT) is only available during the call or meeting. Azure Communication Services doesn't store these text exchanges anywhere. Many countries/regions and states have laws and regulations that apply to the storing of data. It is your responsibility to use RTT in compliance with the law should you choose to store any of the data generated through RTT. You must obtain consent from the parties involved in a manner that complies with the laws applicable to each participant.
 
-Interoperability between Azure Communication Services and Microsoft Teams enables your applications and users to participate in Teams calls, meetings, and chats. It is your responsibility to ensure that the users of your application are notified when RTT is enabled in a Teams call or meeting and being stored.
+Interoperability between Azure Communication Services and Microsoft Teams enables your applications and users to participate in Teams calls, meetings, and chats. It is your responsibility to ensure that your application users are notified when RTT is enabled in a Teams call or meeting and being stored.
 
-Microsoft indicates to you via the Azure Communication Services API that recording or RTT has commenced, and you must communicate this fact, in real-time, to your users within your application's user interface. You agree to indemnify Microsoft for all costs and damages incurred due to your failure to comply with this obligation.
+Microsoft indicates to you via the Azure Communication Services API that recording or RTT started, and you must communicate this fact, in real-time, to your users within your application's user interface. You agree to indemnify Microsoft for all costs and damages incurred due to your failure to comply with this obligation.
 
-## Next Steps
+## Next steps
 
-- Get started with a [Quickstart Guide](../../quickstarts/voice-video-calling/get-started-with-real-time-text.md)
-- Learn more about [Closed captions](../../concepts/voice-video-calling/closed-captions.md)
-- Explore the [UI Library](../ui-library/ui-library-overview.md)
+- Get started with our [Quickstart Guide](../../quickstarts/voice-video-calling/get-started-with-real-time-text.md).
+- Learn more about [Closed captions](../../concepts/voice-video-calling/closed-captions.md).
+- Get started with RTT in the [UI Library](../ui-library/ui-library-overview.md).

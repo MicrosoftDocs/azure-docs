@@ -1,6 +1,6 @@
 ---
 title: 'PowerShell: Deploy Private Endpoint for Web App with PowerShell'
-description: Learn how to use PowerShell to deploy Private Endpoint for your Web App
+description: Learn how to use PowerShell to deploy Private Endpoint for your Web App.
 author: ericgre
 ms.assetid: e1cc08d5-91cf-49d7-8d0a-c0e7bd2046ac
 ms.topic: sample
@@ -10,14 +10,7 @@ ms.service: azure-app-service
 ms.custom: devx-track-azurepowershell
 ---
 
-# Create an App Service app and deploy Private Endpoint using PowerShell
-
-This sample script creates an app in App Service with its related resources, and then deploys a Private Endpoint.
-
-[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
-
-
-## Sample script
+# Sample script to deploy Private Endpoint using PowerShell
 
 ```azurepowershell-interactive
 # Parameters
@@ -88,36 +81,3 @@ $dnsZoneGroup = New-AzPrivateDnsZoneGroup -Name "myZoneGroup" `
 -PrivateEndpointName $privateEndpoint.Name `
 -PrivateDnsZoneConfig $dnsConfig
 ```
-
-
-## Clean up deployment 
-
-After the script sample has been run, the following command can be used to remove the resource group, web app, and all related resources.
-
-```powershell
-Remove-AzResourceGroup -Name myResourceGroup -Force
-```
-
-
-## Script explanation
-
-This script uses the following commands. Each command in the table links to command specific documentation.
-
-| Command | Notes |
-|---|---|
-| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
-| [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Creates an App Service plan. |
-| [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Creates a web app. |
-| [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Creates a virtual network subnet configuration. |
-| [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Creates a virtual network. |
-| [New-AzPrivateLinkServiceConnection](/powershell/module/az.network/new-azprivatelinkserviceconnection) | Creates a private link service connection configuration. |
-| [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) | Creates a private endpoint. |
-| [New-AzPrivateDnsZone](/powershell/module/az.privatedns/new-azprivatednszone) | Creates a new private DNS zone. |
-| [New-AzPrivateDnsVirtualNetworkLink](/powershell/module/az.privatedns/new-azprivatednsvirtualnetworklink) | Creates a new private DNS virtual network link. |
-| [New-AzPrivateDnsZoneConfig](/powershell/module/az.network/new-azprivatednszoneconfig) | Creates DNS zone configuration of the private dns zone group. |
-| [New-AzPrivateDnsZoneGroup](/powershell/module/az.network/new-azprivatednszonegroup) | Creates a private DNS zone group in the specified private endpoint. |
-
-## Next steps
-
-- For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
-- Additional Azure PowerShell samples for Azure App Service Web Apps can be found in the [Azure PowerShell samples](../samples-powershell.md).

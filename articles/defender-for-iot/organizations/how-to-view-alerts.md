@@ -3,6 +3,7 @@ title: View and manage alerts on your OT sensor - Microsoft Defender for IoT
 description: Learn about viewing and managing alerts on an OT network sensor.
 ms.date: 10/10/2024
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # View and manage alerts on your OT sensor

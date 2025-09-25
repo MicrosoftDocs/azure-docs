@@ -112,7 +112,7 @@ sections:
       - question: |
           Can AFD provide protection from ‘HTTP/2 Rapid Reset’ DDoS attacks?
         answer:  |
-          Yes. For more information, see [Microsoft response to DDoS attacks against HTTP/2](https://msrc.microsoft.com/blog/2023/10/microsoft-response-to-distributed-denial-of-service-ddos-attacks-against-http/2/).
+          Yes. For more information, see [Microsoft response to DDoS attacks against HTTP/2](front-door-ddos.md).
       - question: |
           Does Azure Front Door preserve `x-forwarded-for` headers?
         answer: |
@@ -150,14 +150,14 @@ sections:
           To use Azure Front Door, you must have a public VIP or a DNS name that is publicly accessible. Azure Front Door uses the public IP to route the traffic to your origin. A common scenario is to deploy an Azure Load Balancer behind Front Door. You can also use Private Link with Azure Front Door Premium to connect to an internal load balancer. For more information, see [enable Private Link with internal load balancer](standard-premium/how-to-enable-private-link-internal-load-balancer.md).
 
       - question: |
-          Is it possible to configure Azure CDN behind my Front Door profile or the other way around?
+          Is it possible to configure Azure CDN behind my Front Door profile/endpoint or the other way around?
         answer:  |
           Azure Front Door and Azure CDN are two services that provide fast and reliable web delivery for your applications. However, they aren't compatible with each other, because they share the same network of Azure edge sites to deliver content to your users. This shared network causes conflicts between their routing and caching policies. Therefore, you have to choose either Azure Front Door or Azure CDN for your application, depending on your performance and security requirements.
 
       - question: |
-          Is it possible to configure Azure Front Door behind another Front Door profile or the other way around?
+          Is it possible to configure an Azure Front Door profile/endpoint behind another Front Door profile/endpoint or the other way around?
         answer:  |
-          The fact that both profiles would use the same Azure edge sites to handle incoming requests causes this limitation that prevents you from nesting one Azure Front Door profile behind another. This setup would cause routing conflicts and performance issues. Therefore, you should ensure that your Azure Front Door profiles are independent and not chained together, if you need to use multiple profiles for your applications.
+          The fact that both profiles/endpoints would use the same Azure edge POP to handle incoming requests causes a limitation that prevents you from nesting one Azure Front Door profile/endpoint behind another. This setup would cause routing conflicts and performance issues. Therefore, you should ensure that your Azure Front Door profiles/endpoints are  not chained together, if you need to use multiple profiles/endpoints for your applications.
 
   - name: Front Door IP addresses and service tags
     questions:
@@ -268,13 +268,57 @@ sections:
           Front Door uses TLS 1.2 as the minimum version for all profiles created after September 2019.
 
           You can choose to use TLS 1.2 or 1.3 with Azure Front Door. To learn more, read the [Azure Front Door end-to-end TLS](concept-end-to-end-tls.md) article.
+          
+  - name: Certificate Management and DigiCert DCV Workflow Deprecation
+    questions:
 
+    - question: | 
+        What is happening with DigiCert’s CNAME Delegation DCV workflow? 
+      answer: |
+        On 15 August 2025, DigiCert will deprecate support for the legacy CNAME Delegation DCV workflow. DigiCert is transitioning to a new open-source software (OSS) domain control validation (DCV) platform designed to enhance transparency and accountability in domain validation processes. DigiCert will no longer support the legacy CNAME Delegation DCV workflow for domain control validation in the specified Azure services. [Learn more](https://learn.microsoft.com/en-us/azure/security/fundamentals/managed-tls-changes)
+    
+    - question: | 
+        Which Azure Front Door SKUs are affected by this change? 
+      answer: |
+        The deprecation impacts services that rely on CNAME-based validation for automated certificate issuance and renewal, including:
+
+        - Azure Front Door (classic)
+        - Azure CDN from Microsoft (classic)
+
+    - question: | 
+        What will happen after 15 August 2025?
+      answer: |
+        Azure Front Door (classic) and Azure CDN from Microsoft (classic):
+        - Will no longer support for new domain onboarding and new profile creation.
+        - Will no longer support Azure-managed certificates.
+        - Automation scripts for these actions will begin to fail.
+        - Switching to managed certificates on existing domains will no longer be allowed.
+        - Emergent renewals of managed certificates will not be possible due to the deprecation of CNAME-based validation.
+
+    - question: | 
+        What happens to existing managed certificates?
+      answer: |
+        Existing managed certificates will be automatically renewed before 15 August 2025 and remain valid until 14 April, 2026. However, any renewal required after 15 August 2025 will not be possible.
+
+    - question: | 
+        What actions should I take to avoid service disruption?
+      answer: |
+        Azure Front Door (classic)
+
+        - If you want to create new domains or profiles, or use Azure managed certificates, [migrate to Azure Front Door Standard or Premium](https://learn.microsoft.com/en-us/azure/frontdoor/tier-migration) before 15 August 2025.
+        - If you're already using Azure managed certificates on existing domains, you can either [Move to Bring Your Own Certificate (BYOC)](https://learn.microsoft.com/en-us/azure/frontdoor/front-door-custom-domain-https?tabs=powershell) or [migrate to Azure Front Door Standard or Premium](https://learn.microsoft.com/en-us/azure/frontdoor/tier-migration) before 15 August 2025.
+
+        Azure CDN from Microsoft (classic)
+
+        - If you want to create new domains or profiles, or use Azure managed certificates, [migrate to Azure Front Door Standard or Premium](https://learn.microsoft.com/en-us/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) before 15 August 2025.
+        - If you're already using Azure managed certificates on existing domains, you can either [Move to Bring Your Own Certificate (BYOC)](https://learn.microsoft.com/en-us/azure/cdn/cdn-custom-ssl?toc=%2Fazure%2Ffrontdoor%2Ftoc.json&tabs=option-1-default-enable-https-with-a-cdn-managed-certificate) or [migrate to Azure Front Door Standard or Premium](https://learn.microsoft.com/en-us/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) before 15 August 2025.
+    
   - name: Billing
     questions:
       - question: |
           Do I get billed for the Azure Front Door resources that are disabled?
         answer: |
-          Azure Front Door is a service that provides fast and secure web delivery. It allows you to define how your web traffic is routed and optimized across multiple regions and endpoints. Azure Front Door resources, such as Front Door profiles and routing rules, are only charged when they're enabled. However, web application firewall (WAF) policies and rules are charged regardless of their status. Even if you disable a WAF policy or rule, it still incurs costs for you.
+          Azure Front Door resources cannot be disabled. They can only be deleted. Variable meters like Data Transfer Out, Data Transfer In and Requests are not charged when there is no traffic but base fee is charged even if there is no traffic. Base fee will be charged till the profile is deleted. For AFD Classic, WAF policies and rules are charged regardless of their status. Even if you disable a WAF policy or rule, it still incurs costs for you.
 
   - name: Caching
     questions:

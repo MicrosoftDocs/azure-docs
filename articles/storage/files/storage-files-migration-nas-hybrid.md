@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 01/25/2024
 ms.author: kendownie
+# Customer intent: As a systems administrator, I want to migrate SMB file shares from on-premises NAS to a Windows Server using Azure File Sync, so that I can enable a hybrid cloud deployment while ensuring data integrity and minimizing downtime during the process.
 ---
 
 # Migrate from Network Attached Storage (NAS) to a hybrid cloud deployment with Azure File Sync

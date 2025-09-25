@@ -50,12 +50,12 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create and validate NAT gateway
-            url: quickstart-create-nat-gateway-portal.md    
+            url: quickstart-create-nat-gateway.md    
       - linkListType: tutorial
         links:
           - text: Integrate NAT gateway with a public load balancer
             url: tutorial-nat-gateway-load-balancer-public-portal.md
-          - text: Integrate NAT gateway with a internal load balancer
+          - text: Integrate NAT gateway with an internal load balancer
             url: tutorial-nat-gateway-load-balancer-internal-portal.md
             
   # Card (optional)
@@ -109,7 +109,7 @@ landingContent:
         links:
           - text: Frequently asked questions about NAT gateway
             url: faq.yml
-          - text: Azure Powershell
+          - text: Azure PowerShell
             url: /powershell/module/az.network/#networking
           - text: Azure CLI
             url: /cli/azure/network/nat/gateway

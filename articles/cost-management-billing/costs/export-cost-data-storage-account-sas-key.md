@@ -1,9 +1,9 @@
 ---
 title: Export cost data with an Azure Storage account SAS key
 description: This article helps partners create a SAS key and configure Cost Management exports.
-author: jojopm
+author: jojohpm
 ms.author: jojoh
-ms.date: 01/07/2025
+ms.date: 06/26/2025
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management

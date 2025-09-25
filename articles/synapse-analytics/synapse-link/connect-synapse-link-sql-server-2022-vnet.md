@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.subservice: synapse-link
 ms.date: 03/15/2023
 ms.author: yexu
+ms.custom: sfi-image-nochange
 
 ---
 

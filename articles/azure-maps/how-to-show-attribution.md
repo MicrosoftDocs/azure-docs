@@ -51,7 +51,7 @@ You need the following information to run the `attribution` command:
 Run the following GET request to get the corresponding copyright attribution to display on the map:
 
 ```http
-https://atlas.microsoft.com/map/attribution?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2.1&tilesetId=microsoft.base&zoom=6&bounds=-122.414162,47.579490,-122.247157,47.668372
+https://atlas.microsoft.com/map/attribution?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2024-04-01&tilesetId=microsoft.base&zoom=6&bounds=-122.414162,47.579490,-122.247157,47.668372
 ```
 
 ## Additional information

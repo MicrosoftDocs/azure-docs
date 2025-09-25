@@ -8,6 +8,7 @@ ms.date: 10/25/2023
 ms.author: kanamudu
 author: kalyaninamuduri
 #Customer intent: As a developer, I want to start and stop SAP systems including VMs when they are not needed to be run.
+# Customer intent: As an SAP system administrator, I want to efficiently start and stop SAP systems and their underlying VMs in Azure, so that I can manage system resources and optimize costs based on usage.
 ---
 
 # Start and Stop SAP systems, instances, HANA database and their underlying Virtual machines

@@ -6,6 +6,7 @@ ms.author: xujiang1
 ms.service: azure-stream-analytics
 ms.topic: troubleshooting
 ms.date: 12/8/2022
+ms.custom: sfi-image-nochange
 ---
 # Analyze Stream Analytics job performance by using metrics and dimensions
 

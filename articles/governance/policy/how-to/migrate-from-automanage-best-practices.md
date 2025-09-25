@@ -142,4 +142,4 @@ Now that you have an overview of Azure Policy and some of the key concepts, here
 [19]: /azure/update-manager/overview
 [20]: /azure/automation/policy-reference
 [21]: /azure/automation/overview
-[22]: /azure/automanage/how-to-disable-automanage.md
+[22]: /azure/automanage/how-to-disable-automanage

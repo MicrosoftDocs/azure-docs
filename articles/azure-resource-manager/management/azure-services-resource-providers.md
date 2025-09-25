@@ -68,7 +68,7 @@ The resource providers for compute services are:
 | Microsoft.Batch | [Batch](../../batch/index.yml) |
 | Microsoft.ClassicCompute | Classic deployment model virtual machine |
 | Microsoft.Compute | [Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/) |
-| Microsoft.DesktopVirtualization | [Azure Virtual Desktop](../../virtual-desktop/index.yml) |
+| Microsoft.DesktopVirtualization | [Azure Virtual Desktop](/azure/virtual-desktop/) |
 | Microsoft.DevTestLab | [Azure Lab Services](../../lab-services/index.yml) |
 | Microsoft.HanaOnAzure | [SAP HANA on Azure Large Instances](/azure/virtual-machines/workloads/sap/hana-overview-architecture) |
 | Microsoft.LabServices | [Azure Lab Services](../../lab-services/index.yml) |
@@ -235,14 +235,6 @@ The resource providers for management services are:
 | Microsoft.Scheduler | [Scheduler](../../scheduler/index.yml) |
 | Microsoft.SoftwarePlan | License |
 | Microsoft.Solutions | [Azure Managed Applications](../managed-applications/index.yml) |
-
-## Media resource providers
-
-The resource providers for media services are:
-
-| Resource provider namespace | Azure service |
-| --------------------------- | ------------- |
-| Microsoft.Media | [Media Services](/azure/media-services/) |
 
 ## Migration resource providers
 

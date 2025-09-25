@@ -7,8 +7,12 @@ ms.topic: how-to
 ms.date: 02/14/2025
 ms.author: msangapu
 author: msangapu-msft
+ms.service: azure-app-service
+ms.custom: sfi-image-nochange
 ---
 # Buy and manage an App Service domain
+
+[!INCLUDE [app-service-managed-certificate](./includes/managed-certs/managed-certs-note.md)]
 
 App Service domains are custom domains that are managed directly in Azure. They make it easy to manage custom domains for [Azure App Service](overview.md). This article shows you how to buy an App Service domain and configure an App Service app with it.
 

@@ -5,6 +5,7 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 03/01/2024
 ms.custom: mvc, devx-track-python
+# Customer intent: "As a developer, I want to run a parallel workload using the Python API with Azure Batch, so that I can efficiently process multiple media files in high-performance computing tasks."
 ---
 
 # Tutorial: Run a parallel workload with Azure Batch using the Python API

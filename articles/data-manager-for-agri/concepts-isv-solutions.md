@@ -1,8 +1,8 @@
 ---
 title: ISV solution framework in Azure Data Manager for Agriculture
 description: Learn about solutions that ISVs build on top of Azure Data Manager for Agriculture. 
-author: gourdsay
-ms.author: angour
+author: BlackRider97
+ms.author: ramithar
 ms.service: azure-data-manager-agriculture
 ms.topic: conceptual
 ms.date: 02/14/2023

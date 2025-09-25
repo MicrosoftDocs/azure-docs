@@ -112,9 +112,9 @@
   - name: Azure Government Website
     href: https://azure.microsoft.com/global-infrastructure/government/
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/updates/
   - name: Videos
-    href: https://azure.microsoft.com/resources/videos/index/?tag=azure-government
+    href: /shows/browse?terms=government
   - name: Blog
     href: https://devblogs.microsoft.com/azuregov/
   - name: Pricing

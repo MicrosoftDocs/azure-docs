@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.date: 06/28/2022
 ms.author: duau
+# Customer intent: "As a cloud administrator, I want to deploy an Azure Firewall using Bicep in a virtual network with multiple subnets, so that I can manage network security effectively and ensure high availability across Availability Zones."
 ---
 
 # Quickstart: Deploy Azure Firewall with Availability Zones - Bicep

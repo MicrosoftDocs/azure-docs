@@ -5,8 +5,9 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 11/01/2024
+ms.date: 05/08/2025
 ms.author: kendownie
+# Customer intent: "As a Linux administrator, I want to enable Kerberos authentication for accessing Azure file shares, so that I can securely manage file access using Active Directory and streamline authentication processes for users."
 ---
 
 # Enable Active Directory authentication over SMB for Linux clients accessing Azure Files
@@ -520,11 +521,13 @@ wbinfo -K 'contososmbadmin%SUPERSECRETPASSWORD'
 
 ## Mount the file share
 
-After you enabled AD (or Microsoft Entra ID) Kerberos authentication and domain-joined your Linux VM, you can mount the file share.
+After you enable AD (or Microsoft Entra ID) Kerberos authentication and domain-join your Linux VM, you can mount the file share.
 
-For detailed mounting instructions, see [Mount the Azure file share on-demand with mount](storage-how-to-use-files-linux.md?tabs=smb311#mount-the-azure-file-share-on-demand-with-mount).
+Use the following mount option with all access control models to enable Kerberos security: `sec=krb5`. Username and password must be omitted when sec=krb5 is in use. For example:
 
-Use the following mount option with all access control models to enable Kerberos security: `sec=krb5`. Username and password must be omitted when sec=krb5 is in use. 
+```bash
+sudo mount -t cifs $SMB_PATH $MNT_PATH -o sec=krb5,cruid=$UID,serverino,nosharesock,actimeo=30,mfsymlinks
+```
 
 > [!NOTE]
 > This feature only supports a server-enforced access control model using NT ACLs with no mode bits. Linux tools that update NT ACLs are minimal, so update ACLs through Windows. Client-enforced access control (`modefromsid,idsfromsid`) and client-translated access control (`cifsacl`) models aren't currently supported.

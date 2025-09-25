@@ -5,8 +5,11 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 03/12/2025
+ms.date: 09/17/2025
 ms.author: anfdocs
+ms.custom:
+  - build-2025
+# Customer intent: "As a cloud storage administrator, I want to configure inactive data to transition from hot to cool storage, so that I can optimize costs while managing data efficiently in Azure NetApp Files."
 ---
 
 # Manage Azure NetApp Files storage with cool access
@@ -27,14 +30,29 @@ There are several considerations to be aware of when using cool access.
 * Although cool access is available for the Standard, Premium, and Ultra service levels, how you're billed for using the feature differs from the hot tier service-level charges. For details and examples, see the [Billing section](cool-access-introduction.md#billing).
 * Cool access supports two tiering policies: `Auto` and `SnapshotOnly`. The `SnapshotOnly` policy limits data tiering to data in snapshots, while all data blocks associated with files in the active file system remain in the hot tier. The `Auto` policy encompasses both snapshot copy data and data in the active file system.
     Throughput is based on the [the service level](azure-netapp-files-service-levels.md#supported-service-levels) for both the `Auto` and `SnapshotOnly` tiering policies.
-* You can convert an existing capacity pool into a cool-access capacity pool to create cool access volumes. After the capacity pool is enabled for cool access, you can't convert it back to a non-cool-access capacity pool.  
-    * When you enable cool access, data that satisfies the conditions set by the coolness period moves to the cool tier. For example, if the coolness period is set to 30 days, any data that has been cool for at least 30 days moves to the cool tier _when_ you enable cool access. Once the coolness period is reached, background jobs can take up to 48 hours to initiate the data transfer to the cool tier. 
-* A cool-access capacity pool can contain both volumes with cool access enabled and volumes with cool access disabled.
-* To prevent data retrieval from the cool tier to the hot tier during sequential read operations (for example, antivirus or other file scanning operations), set the cool access retrieval policy to **Default** or **Never**. For more information, see [Enable cool access on a new volume](#enable-cool-access-on-a-new-volume).
-* After the capacity pool is configured with the option to support cool access volumes, the setting can't be disabled at the _capacity pool_ level. You can turn on or turn off the cool access setting at the _volume_ level anytime. Turning off the cool access setting at the volume level stops further tiering of data.  
-* Files moved to the cool tier remains there after you disable cool access on a volume. You must perform an I/O operation on _each_ file to return it to the warm tier. 
+* To prevent data retrieval from the cool tier to the hot tier during sequential read operations (for example, antivirus or other file scanning operations), set the cool access retrieval policy to **Default** or **Never**. For more information about the retrieval policy, see [Enable cool access on a new volume](#enable-cool-access-on-a-new-volume).
+* Files moved to the cool tier remain there after you disable cool access on a volume. You must perform an I/O operation on _each_ file to return it to the warm tier. 
 * For the maximum number of volumes supported for cool access per subscription per region, see [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits).
 * Cool access is supported with large volumes. Confirm that you're [registered to use large volumes](large-volumes-requirements-considerations.md#register-the-feature) before creating a cool-access-enabled large volume. 
+* Flexible service level capacity pools with cool access maintain the user-configured throughput limits. Unlike Premium or Ultra pools, performance isn't reduced when cool access is enabled.
+
+### Considerations for cool access-enabled capacity pools 
+
+* You can convert an existing capacity pool into a cool-access capacity pool to create cool access volumes. After a capacity pool is enabled for cool access, you can't convert it back to a non-cool-access capacity pool.  
+    * When you enable cool access, data that satisfies the conditions set by the coolness period moves to the cool tier. For example, if the coolness period is set to 30 days, any data that has been cool for at least 30 days moves to the cool tier _when_ you enable cool access. Once the coolness period is reached, background jobs can take up to 48 hours to initiate the data transfer to the cool tier. 
+* A cool-access capacity pool can contain both volumes with cool access enabled and volumes with cool access disabled.
+* After the capacity pool is configured with the option to support cool access volumes, the setting can't be disabled at the _capacity pool_ level. You can turn on or turn off the cool access setting at the _volume_ level anytime. Turning off the cool access setting at the volume level stops further data tiering.  
+
+#### Considerations for moving volumes to another capacity pool
+
+* For the **Standard**, **Premium**, and **Ultra** service levels, volumes enabled for cool access can be moved between capacity pools only if those capacity pools are enabled for cool access. When a volume is enabled for cool access, it can only reside in a cool access-enabled capacity pool even if cool access has been disabled on the volume. 
+* If you [move a cool access volume to another capacity pool (service level change)](dynamic-change-volume-service-level.md), you must also enable that pool for cool access.
+* If you disable cool access and turn off tiering on a cool access volume (so the volume no longer uses cool access), you can't move it to a non-cool-access capacity pool. In a cool access capacity pool, you can move all volumes, *whether they're enabled for cool access or not*, only to another cool access capacity pool.  
+* For the **Flexible** service level, moving volumes into or out of cool access-enabled capacity pools is only supported if both capacity pools are enabled for cool access _and_ both capacity pools use the Flexible service level. Consider the following example scenario:
+ 
+    | ❌ Not supported | ✅ Supported |
+    | - | - |
+    | `Vol1` is created in `FlexPool1` with cool access enabled. `Vol2` is created in `StandardPool1`, also with cool access enabled. You can't move `Vol1` to `StandardPool1` or `Vol2` to `FlexPool1`.| `Vol3` is created in `FlexPool2`, which is enabled for cool access. Since both `FlexPool1` and `FlexPool2` use the Flexible service level and enabled for cool access, `Vol1` and `Vol3` can be moved between these pools. |
 
 ### Considerations for throughput in Premium and Ultra service level volumes with cool access
 
@@ -54,17 +72,14 @@ There are several considerations to be aware of when using cool access.
 - **Data rehydration:** Data isn't rehydrated to the hot tier when the volume is deleted, ensuring the deletion process is efficient and mitigating unnecessary data movement. 
     - The only way to rehydrate data from the cool tier to the hot tier is for the client or application to read the data block. 
 
-### Considerations for moving volumes to another capacity pool
-
-* Volumes enabled for cool access can be moved between capacity pools only if those capacity pools are enabled for cool access. When a volume is enabled for cool access, it can only reside in a cool access-enabled capacity pool even if cool access has been disabled on the volume. 
-* If you [move a cool access volume to another capacity pool (service level change)](dynamic-change-volume-service-level.md), you must also enable that pool for cool access.
-* If you disable cool access and turn off tiering on a cool access volume (that is, the volume no longer uses cool access), you can't move it to a non-cool-access capacity pool. In a cool access capacity pool, you can move all volumes, *whether they're enabled for cool access or not*, only to another cool access capacity pool.  
-
 
 ### Considerations for cross-region and cross-zone replication 
 
-* With [cross-region](cross-region-replication-introduction.md) and [cross-zone](cross-zone-replication-introduction.md) replication, the cool access setting on the destination volume is updated automatically to match the source volume. This update occurs whenever the setting is changed on the source volume or during authorization. The setting is also updated automatically when a reverse resync of the replication is performed, but only if the destination volume is in a cool access-enabled capacity pool. Changes to the cool access setting on the destination volume don't affect the setting on the source volume.
-* In a cross-region or cross-zone replication configuration, you can enable cool access exclusively for destination volumes to enhance data protection and create cost savings without affecting latency in source volumes.
+* In a [cross-region and cross-zone replication](replication.md) configuration, you can enable cool access exclusively for destination volumes to enhance data protection and create cost savings without affecting latency in source volumes.
+* When you enable cool access on a source volume with cross-region and cross-zone replication, the cool access settings are automatically propagated to the destination volume. These settings include the enablement of cool access, the retrieval policy, and the coolness period. 
+    * Settings are only propagated between the source and destination volumes at enablement.
+* After you enable cool access, changes are not propagated between source and destination volumes. If you update the retention policy or coolness period or disable cool access on the source volume, those changes are _not_ propagated to the destination. If you apply any of those changes to the destination volume, those settings aren't applied to the source volume. 
+* If you enable cool access on the destination volume, the cool access settings are not propagated to the source volume. 
 
 ### Considerations for snapshot restore
 
@@ -73,30 +88,74 @@ There are several considerations to be aware of when using cool access.
 
 ## Enable cool access 
 
-You must register for cool access with the Premium or Ultra service levels before you can enable it at the capacity pool and volume levels. No registration is required for the Standard service level. 
+You must register for cool access with the Flexible, Premium, or Ultra service levels before you can enable it at the capacity pool and volume levels. No registration is required for the Standard service level. 
 
 ### Register the feature 
 
 # [Ultra](#tab/ultra)
 
-You must submit a waitlist request to access this feature by using the [request form](https://aka.ms/ANFcoolaccesssignup). After you submit the waitlist request, it can take approximately one week to enable the feature. Check the status of feature registration by using the command:
+Before using cool access at the Ultra service level for the first time, you need to register the feature. 
 
-```azurepowershell-interactive
-Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessUltra
-```
+1. Register the feature: 
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessUltra 
+    ```
+
+2. Check the status of the feature registration: 
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessUltra
+    ```
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
+
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 # [Premium](#tab/premium)
 
-You must submit a waitlist request to access this feature by using the [request form](https://aka.ms/ANFcoolaccesssignup). After you submit the waitlist request, it can take approximately one week to enable the feature. Check the status of feature registration by using the command:
+Before using cool access at the Premium service level for the first time, you need to register the feature. 
 
-```azurepowershell-interactive
-Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessPremium
-```
+1. Register the feature: 
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessPremium 
+    ```
+
+2. Check the status of the feature registration: 
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessPremium
+    ```
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
+
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 # [Standard](#tab/standard)
 
 No registration is required to use cool access at the Standard service level.
 
+# [Flexible](#tab/flexible)
+
+You must register cool access with the Flexible service level before using it. 
+
+1. Register the feature: 
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessFlexible
+    ```
+
+2. Check the status of the feature registration: 
+    > [!NOTE]
+    > The **RegistrationState** can remain in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessFlexible
+    ```
+
+    You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+    
 ---
 
 ### Configure the capacity pool for cool access
@@ -130,32 +189,12 @@ You can enable Azure NetApp Files storage with cool access during the creation o
 1. On the **Capacity Pools** menu, select **Volumes**. Select **+ Add volume** to create a new network file system (NFS), server message block (SMB), or dual-protocol volume.
 1. On the **Create a volume** page, on the **Basics** tab, set the following options to enable the volume for cool access:
 
-    * **Enable Cool Access**: This option specifies whether the volume supports cool access.
-    * **Coolness Period**: The coolness period defines the minimum number of days before data is transitioned to the cold tier. Once the coolness period is reached, background jobs can take up to 48 hours to initiate the data transfer to the cool tier. The default value is 31 days. The supported values are between 2 and 183 days.
-
-    * **Cool Access Retrieval Policy**: This option specifies under which conditions data moves back to the hot tier. You can set this option to **Default**, **On-Read**, or **Never**.
-
-        The following list describes the data retrieval behavior with the **Cool Access Retrieval Policy** settings:
-
-        * Cool access is **enabled**:  
-            * If **Cool Access Retrieval Policy** is set to **Default**: Cold data is retrieved only by performing random reads. Sequential reads are served directly from the cool tier.
-            * If no value is set for **Cool Access Retrieval Policy**: The active retrieval policy is **Default**.
-            * If **Cool Access Retrieval Policy** is set to **On-Read**: Cold data is retrieved by performing both sequential and random reads.
-            * If **Cool Access Retrieval Policy** is set to **Never**: Cold data is served directly from the cool tier and isn't retrieved to the hot tier.
-        * Cool access is **disabled**:
-            * You can set a cool access retrieval policy if cool access is disabled only if there's existing data on the cool tier. 
-            * After you disable the cool access setting on the volume, the cool access retrieval policy remains the same.    
-    
-    * **Cool Access Tiering Policy** 
-
-        Select either `SnapshotOnly` or `Auto`. 
-
-        * The `SnapshotOnly` policy limits data tiering to data in snapshots, while all data blocks associated with files in the active file system remain in the hot tier.
-        * The `Auto` policy encompasses both snapshot copy data and data in the active file system. 
+    [!INCLUDE [Cool access configuration settings](includes/cool-access-options.md)]
 
     :::image type="content" source="./media/manage-cool-access/cool-access-new-volume.png" alt-text="Screenshot that shows the Create a volume page. On the Basics tab, the Enable Cool Access checkbox is selected. The options for the cool access retrieval policy are displayed. " lightbox="./media/manage-cool-access/cool-access-new-volume.png"::: 
 
-1. Follow the steps in one of these articles to finish the volume creation:
+1. To finish creating the volume, follow the instructions for the relevant protocol:
+
     * [Create an NFS volume](azure-netapp-files-create-volumes.md)
     * [Create an SMB volume](azure-netapp-files-create-volumes-smb.md)
     * [Create a dual-protocol volume](create-volumes-dual-protocol.md)
@@ -164,30 +203,19 @@ You can enable Azure NetApp Files storage with cool access during the creation o
 
 In a capacity pool enabled for cool access, you can enable an existing volume to support cool access.  
 
+>[!NOTE]
+> If cool access is disabled, you can only set a retrieval policy if there's existing data on the cool tier.
+>
+> If you disable cool access, the cool access setting on the volume, the cool access retrieval policy remains the same.
+
 1. Right-click the volume for which you want to enable the cool access.
 1. On the **Edit** window that appears, set the following options for the volume:
-    * **Enable Cool Access**: The coolness period defines the minimum number of days before data is transitioned to the cold tier. The default value is 31 days. The supported values are between 2 and 183 days.
-    >[!NOTE]
-    > The coolness period is calculated from the time of volume creation. If any existing volumes are enabled with cool access, the coolness period is applied retroactively on those volumes. This means if certain data blocks on the volumes have been infrequently accessed for the number of days specified in the coolness period, those blocks move to the cool tier once the feature is enabled. Once the coolness period is reached, background jobs can take up to 48 hours to initiate the data transfer to the cool tier.
-    * **Cool Access Retrieval Policy**: This option specifies under which conditions data moves back to the hot tier. You can set this option to **Default**, **On-Read**, or **Never**.
 
-        The following list describes the data retrieval behavior with the **Cool Access Retrieval Policy** settings:
-
-        * Cool access is **enabled**:  
-            * If no value is set for **Cool Access Retrieval Policy**:  
-                The retrieval policy is set to **Default**. Cold data is retrieved to the hot tier only when random reads are performed. Sequential reads are served directly from the cool tier.
-            * If **Cool Access Retrieval Policy** is set to **Default**: Cold data is retrieved only by performing random reads.
-            * If **Cool Access Retrieval Policy** is set to **On-Read**: Cold data is retrieved by performing both sequential and random reads.
-            * If **Cool Access Retrieval Policy** is set to **Never**: Cold data is served directly from the cool tier and isn't retrieved to the hot tier.
-        * Cool access is **disabled**: 
-            * You can set a cool access retrieval policy if cool access is disabled only if there's existing data on the cool tier. 
-            * After you disable the cool access setting on the volume, the cool access retrieval policy remains the same.
-    * **Cool Access Tiering policy**     
-
-        Select `Auto`. The `SnapshotOnly` policy is not currently supported. 
-
+    [!INCLUDE [Cool access configuration settings](includes/cool-access-options.md)]
 
     :::image type="content" source="./media/manage-cool-access/cool-access-existing-volume.png" alt-text="Screenshot that shows the Enable Cool Access checkbox selected. " lightbox="./media/manage-cool-access/cool-access-existing-volume.png"::: 
+
+1. Select **OK** to confirm the changes. 
 
 ### <a name="modify_cool"></a>Modify cool access configuration for a volume
 

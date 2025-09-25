@@ -7,11 +7,14 @@ ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 03/26/2025
+ms.custom: sfi-image-nochange
 
 #Customer intent: As a website owner, I want to add a custom domain to my Azure Front Door configuration so that my users can use my custom domain to access my content.
 ---
 
 # Configure a custom domain on Azure Front Door by using the Azure portal
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 When using Azure Front Door for application delivery, a custom domain allows your own domain name to appear in user requests. This visibility can enhance customer convenience and support branding efforts.
 

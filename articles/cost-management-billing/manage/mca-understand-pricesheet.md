@@ -1,13 +1,15 @@
 ---
 title: Terms in your Microsoft Customer Agreement price sheet - Azure
 description: Learn how to read and understand your usage and bill for a Microsoft Customer Agreement.
-author: bandersmsft
+author: jkinma39
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 01/22/2025
-ms.author: banders
-ms.reviewer: paagraw
+ms.date: 07/27/2025
+ms.author: jkinma
+ms.reviewer: jkinma
+ms.custom:
+- build-2025
 ---
 
 # Terms in your Microsoft Customer Agreement price sheet
@@ -29,11 +31,11 @@ The following section describes the important terms shown in your Microsoft Cust
 | billingProfileId  | Unique identifier for the billing profile.   |
 | billingProfileName  | Name of the billing profile that is set up to receive invoices. The prices in the price sheet are associated with this billing profile. |
 | currency | Currency in which all the prices are reflected. |
-| discount | The price discount offered for Graduation Tier, Free Tier, Included Quantity, or Negotiated discounts when applicable. Represented as a percentage. Not available in the updated version of the price sheet. |
+| discount | The price discount offered for Graduation Tier, Free Tier, Included Quantity, or discounts when applicable. Represented as a percentage. Not available in the updated version of the price sheet. |
 | effectiveEndDate  | End date of the price sheet billing period. |
 | effectiveStartDate  | Start date of the price sheet billing period. |
 | includedQuantity | Quantities of a specific service to which a customer is entitled to consume without incremental charges. Not available in the updated version of the price sheet. |
-| marketPrice | The current list price for a given product or service. The price is without any negotiations and is based on your Microsoft Agreement type. For `PriceType` _Consumption_, marketPrice is reflected as the pay-as-you-go price. For `PriceType`  _Savings Plan_, market price reflects the Savings plan benefit on top of pay-as-you-go price for the corresponding commitment term. For `PriceType` _ReservedInstance_, marketPrice reflects the total price of the one or three-year commitment. |
+| marketPrice | The current list price for a given product or service. The price is without any discounts and is based on your Microsoft Agreement type. For `PriceType` _Consumption_, marketPrice is reflected as the pay-as-you-go price. For `PriceType`  _Savings Plan_, market price reflects the Savings plan benefit on top of pay-as-you-go price for the corresponding commitment term. For `PriceType` _ReservedInstance_, marketPrice reflects the total price of the one or three-year commitment. |
 | meterId  | Unique identifier for the meter. |
 | meterCategory  | Name of the classification category for the meter. For example, _Cloud services_, and _Networking_ |
 | meterName  | Name of the meter. The meter represents the deployable resource of an Azure service. |
@@ -49,7 +51,7 @@ The following section describes the important terms shown in your Microsoft Cust
 | Term | Duration associated with `priceType`. For example, SavingsPlan priceType has two commitment options: one year and three years. The Term is *P1Y* for a one-year commitment and *P3Y* for a three-year commitment.  |
 | tierMinimumUnits  | Defines the lower bound of the tier range for which prices are defined. For example, if the range is 0 to 100, tierMinimumUnits would be 0.  |
 | unitOfMeasure  | Identifies the units of measure for billing for the service. For example, compute services are billed per hour. |
-| unitPrice  | The per-unit price at the time of billing for a given product or service. It includes any negotiated discounts on top of the market price. For `PriceType` *ReservedInstance*, `unitPrice` reflects the total cost of the one or three-year commitment including discounts. **Note**: The unit price isn't the same as the effective price in usage details downloads when services have differential prices across tiers. If services have multi-tiered pricing, the effective price is a blended rate across the tiers and doesn't show a tier-specific unit price. The blended price or effective price is the net price for the consumed quantity spanning across the multiple tiers, where each tier has a specific unit price.|
+| unitPrice  | The per-unit price at the time of billing for a given product or service. It includes any discounts on top of the market price. For `PriceType` *ReservedInstance*, `unitPrice` reflects the total cost of the one or three-year commitment including discounts. **Note**: The unit price isn't the same as the effective price in usage details downloads when services have differential prices across tiers. If services have multi-tiered pricing, the effective price is a blended rate across the tiers and doesn't show a tier-specific unit price. The blended price or effective price is the net price for the consumed quantity spanning across the multiple tiers, where each tier has a specific unit price.|
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

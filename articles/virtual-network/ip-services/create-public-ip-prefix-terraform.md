@@ -10,6 +10,7 @@ ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 02/18/2025
 ms.custom: mode-api, devx-track-terraform 
+# Customer intent: As a cloud engineer, I want to create and manage public IP address prefixes using Terraform, so that I can efficiently assign static IP addresses to my Azure resources.
 ---
 
 # Quickstart: Create a public IP address prefix using Terraform

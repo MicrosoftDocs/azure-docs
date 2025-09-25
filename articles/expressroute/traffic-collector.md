@@ -9,6 +9,7 @@ ms.topic: concept-article
 ms.date: 01/31/2025
 ms.author: duau
 ms.custom: references_regions
+# Customer intent: As a network administrator, I want to collect and analyze flow logs from ExpressRoute circuits, so that I can monitor network performance, optimize costs, and conduct forensics on network traffic.
 ---
 
 # Azure ExpressRoute Traffic Collector

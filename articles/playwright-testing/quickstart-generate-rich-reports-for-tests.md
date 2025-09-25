@@ -10,6 +10,8 @@ zone_pivot_groups: microsoft-playwright-testing
 
 # Quickstart: Troubleshoot tests with Microsoft Playwright Testing Preview
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 In this quickstart, you learn how to troubleshoot your Playwright tests easily using reports and artifacts published on Microsoft Playwright Testing Preview. Additionally, this guide demonstrates how to utilize the reporting feature, regardless of whether you're running tests on the cloud-hosted browsers provided by the service.
 
 After you complete this quickstart, you'll have a Microsoft Playwright Testing workspace to view test results and artifacts in the service portal.

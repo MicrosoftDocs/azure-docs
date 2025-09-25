@@ -3,12 +3,17 @@ title: Azure Virtual Machines HA for SAP NW on RHEL | Microsoft Docs
 description: This article describes Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux (RHEL).
 author: rdeltcheva
 manager: juergent
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 11/20/2024
+ms.date: 04/29/2025
 ms.author: radeltch
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - linux-related-content
+  - sfi-image-nochange
+# Customer intent: "As a systems administrator, I want to implement a high-availability setup for SAP NetWeaver on Red Hat Enterprise Linux in Azure, so that I can ensure continuous operation and reliability of the SAP services in our organization."
 ---
 
 # Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux
@@ -481,7 +486,6 @@ The following items are prefixed with:
     sudo pcs resource meta rsc_sap_NW1_ERS02 resource-stickiness=3000
    
     sudo pcs constraint colocation add g-NW1_AERS with g-NW1_ASCS -5000
-    sudo pcs constraint order start g-NW1_ASCS then start g-NW1_AERS kind=Optional symmetrical=false
     sudo pcs constraint order start g-NW1_ASCS then stop g-NW1_AERS kind=Optional symmetrical=false
    
     sudo pcs node unstandby nw1-cl-0

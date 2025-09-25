@@ -8,6 +8,7 @@ ms.service: azure-load-balancer
 ms.topic: tutorial
 ms.date: 03/21/2025
 ms.custom: template-tutorial
+# Customer intent: "As a cloud architect, I want to create a gateway load balancer using the appropriate tools, so that I can ensure high performance and scalability for my network virtual appliances."
 ---
 
 # Tutorial: Create a gateway load balancer
@@ -548,6 +549,8 @@ New-AzLoadBalancer @lb
 ---
 
 ## Add network virtual appliances to the Gateway Load Balancer backend pool
+> [!NOTE]
+> If leveraging your own custom network virtual appliance in the backend pool of a Gateway Load Balancer, please ensure the MTU of all NVA virtual machines are raised to a minimum of 1550 bytes to accomodate for the VXLAN encapsulated headers. This will allow source packets up to the limit of 1500 byte packets in Azure, avoiding fragmentation.
 
 # [Azure portal](#tab/azureportal)
 

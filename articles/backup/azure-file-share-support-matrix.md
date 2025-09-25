@@ -2,11 +2,12 @@
 title: Support Matrix for Azure files backup by using Azure Backup
 description: Provides a summary of support settings and limitations when backing up Azure files.
 ms.topic: reference
-ms.date: 03/24/2025
+ms.date: 09/22/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a cloud architect, I want to understand the supported configurations and limitations for backing up Azure files using Azure Backup, so that I can ensure my backup strategy meets compliance and operational requirements."
 ---
 
 # Support matrix for Azure files backup
@@ -14,6 +15,8 @@ ms.author: jsuri
 This article summarizes the supported settings and limitations when backing up Azure files by using Azure Backup.
 
 You can use the [Azure Backup service](./backup-overview.md) to back up Azure files. This article summarizes support settings when you back up Azure files with Azure Backup.
+
+Azure Backup now offers general availability of Vaulted Backup for Azure Files (Standard tier), enabling secure, long-term protection with ransomware defense, cross-region recovery, and compliance-ready retention—all managed through a unified backup policy. For more insights, see the [Microsoft Community Hub blog](https://techcommunity.microsoft.com/blog/azurestorageblog/general-availability-vaulted-backup-for-azure-files---boost-your-data-security-a/4395344).
 
 > [!NOTE]
 > Azure Backup currently doesn't support Network File Shares(NFS).
@@ -28,11 +31,14 @@ Azure files backup is available in all regions, **except** for Germany Central (
 
 # [Vault-standard tier](#tab/vault-tier)
 
-Vaulted backup for Azure Files is available in the following regions: UK South, UK West, Southeast Asia, East Asia, West Central US, Central US, Central India, North Europe, Australia East, West US, East US, South India, France Central, Canada Central, North Central US, East US 2, Australia Southeast, Germany North, France South, West US 2, Brazil South, Japan West, Germany West Central, Canada East, Korea South, Jio India West, Korea Central, South Africa West, Japan East, Norway East, Switzerland West, Norway West, South Africa North, UAE North, West Europe, Sweden Central, Switzerland North.
+Vaulted backup for Azure Files is available in the following regions: UK South, UK West, Southeast Asia, East Asia, West Central US, Central US, Central India, North Europe, Australia East, West US, East US, South India, France Central, Canada Central, North Central US, East US 2, Australia Southeast, Germany North, France South, West US 2, Brazil South, Japan West, Germany West Central, Canada East, Korea South, Jio India West, Korea Central, South Africa West, Japan East, Norway East, Switzerland West, Norway West, South Africa North, UAE North, West Europe, Sweden Central, Switzerland North, Sweden South, Brazil Southeast, UAE Central, Italy North, Jio India Central, West US 3, Australia Central, Australia Central 2.
 
-Cross Region Restore is currently supported in the following regions: Australia East, West US, North Central US, East US, East US2, West US2, South India, Australia Southeast, Brazil South, Canada East, Korea Central, Norway East, South Africa North, Switzerland North, France Central, Germany North, Japan West, Korea South, South Africa West, Switzerland West, Canada Central, France South, Germany West Central,  Japan East, Norway West, West Europe. This feature isn't supported in Sweden Central, UAE North, Jio India West.
+Cross Region Restore is supported in all preceding regions, except Italy North.
 
-Migration of  File Shares protected with snapshot backup to vaulted backup is supported in the following regions: UK South, UK West, Southeast Asia, East Asia, West Central US, and India Central.
+Migration of  File Shares protected with snapshot backup to vaulted backup is supported in the following regions: UK South, UK West, Southeast Asia, East Asia, West Central US, India Central, Spain Central, Jio India West, Israel Central, Australia Central 2 and Germany North, Brazil South, Switzerland North, South Africa North, Australia Southeast, Sweden Central, Norway East, UAE North, West US 3, Japan West, Korea Central, Canada East, South India, Italy North, Poland Central, Australia Central. 
+
+>[!Note]
+>Cross Subscription Backup and Restore are supported for vaulted backup.
 
 ---
 
@@ -81,7 +87,7 @@ Migration of  File Shares protected with snapshot backup to vaulted backup is su
 | -------------------------------------------------- | ------  |
 | Standard                                           | Supported  |
 | Large                                              | Supported |
-| Premium                                            | Supported (in preview) |
+| Premium                                            | Supported |
 | File Shares connected with Azure File Sync service | Supported |
 
 
@@ -140,7 +146,7 @@ Migration of  File Shares protected with snapshot backup to vaulted backup is su
 | Maximum size of a file (if the destination account is in a Vnet) | 1 TB |
 | Maximum  number of individual files or folders per restore, if ILR (Item level recovery)                         | 99      |
 | Maximum  recommended restore size per restore for large File Shares | 15  TiB |
-| Maximum duration of a restore job                           | 15 days
+| Maximum duration of a restore job                           | 7 days
 
 # [Vault-standard tier](#tab/vault-tier)
 
@@ -216,6 +222,18 @@ The following table lists the behavior of backups due to customer-initiated fail
 | --- | --- | --- | --- |
 | Customer-managed planned failover | Supported | Supported | Not supported |
 | Customer-managed unplanned failover | Not supported | Only cross-region restore from the vault is supported. | Not supported |
+
+## Permitted scope for copy operations(preview)
+
+The following table lists the scope for copy operation:
+
+| Configuration | Support |
+| --- | --- |
+| From any storage account | Supported |
+| From storage accounts in the same Microsoft Entra tenant | Supported |
+| From storage accounts with a private endpoint to the same virtual network | Unsupported |
+
+Azure Trusted Services are allowed, but private endpoints take priority; so, this won't work. 
 
 
 ## Next steps

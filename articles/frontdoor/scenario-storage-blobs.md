@@ -18,7 +18,7 @@ Azure Front Door enhances the delivery of static content from Azure Storage blob
 
 In this reference architecture, a storage account and an Azure Front Door profile with a single origin are deployed.
 
-## Dataflow
+## Data flow
 
 The data flows through the scenario as follows:
 
@@ -40,7 +40,7 @@ The data flows through the scenario as follows:
 
 If you store static files with another cloud storage provider or on your own infrastructure, this scenario still largely applies. However, you need to ensure that incoming traffic to your origin server is verified to come through Front Door. If your storage provider doesn't support Private Link, consider using an alternative approach like [allowlisting the Front Door service tag and inspecting the `X-Azure-FDID` header](origin-security.md).
 
-## Scenario Details
+## Scenario details
 
 Static content delivery is beneficial in many situations, such as:
 - Delivering images, CSS files, and JavaScript files for a web application.
@@ -53,7 +53,7 @@ In complex scenarios, a single Front Door profile can serve both static and dyna
 
 ## Considerations
 
-### Scalability and Performance
+### Scalability and performance
 
 Azure Front Door acts as a content delivery network (CDN), caching content at its globally distributed PoPs. When a cached response is available, Azure Front Door quickly serves it, enhancing performance and reducing the load on the origin. If the PoP lacks a valid cached response, Azure Front Door's traffic acceleration capabilities expedite content delivery from the origin.
 
@@ -63,12 +63,12 @@ Azure Front Door acts as a content delivery network (CDN), caching content at it
 
 Azure Front Door is designed for internet-facing scenarios and is optimized for publicly accessible blobs. To authenticate access to blobs, consider using [shared access signatures (SAS)](../storage/common/storage-sas-overview.md). Ensure you enable the [*Use Query String* behavior](front-door-caching.md#query-string-behavior) to prevent Azure Front Door from serving requests to unauthenticated clients. This approach might limit the effectiveness of caching, as each request with a different SAS must be sent to the origin.
 
-#### Origin Security
+#### Origin security
 
-- If you are using the premium tier, Azure Front Door can connect securely to the Azure Storage account using [Private Link](private-link.md). The storage account can be configured to deny public network access, allowing requests only through the private endpoint used by Azure Front Door. This setup ensures all requests get processed by Azure Front Door, protecting your storage account from direct internet exposure. 
-- If you are using the standard tier, you can secure requests with a [shared access signature (SAS)](../storage/common/storage-sas-overview.md) and either have clients include the SAS in their requests or use the Azure Front Door [rules engine](front-door-rules-engine.md) to attach it. Note that the storage account's network access must be publicly accessible (from all networks or from Front Door IP addresses in AzureFrontDoor.Backend service tag).
+- If you're using the premium tier, Azure Front Door can connect securely to the Azure Storage account using [Private Link](private-link.md). The storage account can be configured to deny public network access, allowing requests only through the private endpoint used by Azure Front Door. This setup ensures all requests get processed by Azure Front Door, protecting your storage account from direct internet exposure. 
+- If you're using the standard tier, you can secure requests with a [shared access signature (SAS)](../storage/common/storage-sas-overview.md) and either have clients include the SAS in their requests or use the Azure Front Door [rules engine](front-door-rules-engine.md) to attach it. The storage account's network access must be publicly accessible (from all networks or from Front Door IP addresses in `AzureFrontDoor.Backend` service tag).
 
-#### Custom Domain Names
+#### Custom domain names
 
 Azure Front Door supports custom domain names and can manage TLS certificates for these domains. Using custom domains ensures clients receive files from a trusted source, with TLS encrypting every connection to Azure Front Door. Azure Front Door's management of TLS certificates helps avoid outages and security issues from invalid or outdated certificates.
 
@@ -86,18 +86,18 @@ Using the Azure Front Door cache reduces the load on your storage account. If yo
 
 To further improve resiliency, consider the redundancy of your storage account. For more information, see [Azure Storage redundancy](../storage/common/storage-redundancy.md). Alternatively, deploy multiple storage accounts and configure multiple origins in your Azure Front Door origin group. Set up fail over between origins by configuring each origin's priority. For more information, see [Origins and origin groups in Azure Front Door](origin.md).
 
-### Cost Optimization
+### Cost optimization
 
 Caching helps reduce the cost of delivering static content. Azure Front Door's PoPs store copies of responses and can deliver these cached responses for subsequent requests, reducing the request load on the origin. In high-scale static content solutions, especially those delivering large files, caching can significantly reduce traffic costs.
 
 To use Private Link in this solution, deploy the premium tier of Azure Front Door. The standard tier can be used if you don't need to block direct traffic to your storage account. For more information, see [Origin security](#origin-security).
 
-## Deploy This Scenario
+## Deploy this scenario
 
 To deploy this scenario using Bicep or JSON ARM templates, [see this quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-premium-storage-blobs-private-link).
 
 To deploy this scenario using Terraform, [see this quickstart](https://github.com/Azure/terraform/tree/master/quickstart/101-front-door-premium-storage-blobs-private-link).
 
-## Next Steps
+## Next step
 
 Learn how to [create an Azure Front Door profile](create-front-door-portal.md).

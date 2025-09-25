@@ -27,8 +27,8 @@ Network security perimeter has other limitations as follows:
 
 | **Limitation/Issue** | **Description** |
 |-----------------|-------------|
-| **Resource group move operation cannot be performed if multiple network security perimeters are present** | If there are multiple network security perimeters present in the same resource group, then the network security perimeter cannot be moved across resource groups/subscriptions. |
-| **Associations must be removed before deleting network security perimeter** | Forced delete option is currently unavailable. Thus all associations must be removed before deleting a network security perimeter. Only remove associations after taking precautions for allowing access previously controlled by network security perimeter. |
+| **Missing field in network security perimeter access logs** | Network security perimeter access logs may have been aggregrated. If the fields 'count' and 'timeGeneratedEndTime' are missing, consider the aggregation count as 1. |
+| **Association creations through SDK fails with permission issue** | Status: 403 (Forbidden) ; ErrorCode: AuthorizationFailed, might be received while performing action 'Microsoft.Network/locations/networkSecurityPerimeterOperationStatuses/read' over scope '/subscriptions/xyz/providers/Microsoft.Network/locations/xyz/networkSecurityPerimeterOperationStatuses/xyz'.  <br> <br> Until the fix, use permission 'Microsoft.Network/locations/*/read' or use WaitUntil.Started in CreateOrUpdateAsync SDK API for association creations. |
 | **Resource names cannot be longer than 44 characters to support network security perimeter** | The network security perimeter resource association created from the Azure portal has the format `{resourceName}-{perimeter-guid}`. To align with the requirement name field can't have more than 80 characters, resources names would have to be limited to 44 characters. |
 | **Service endpoint traffic is not supported.** | It's recommended to use private endpoints for IaaS to PaaS communication. Currently, service endpoint traffic can be denied even when an inbound rule allows 0.0.0.0/0. |
 

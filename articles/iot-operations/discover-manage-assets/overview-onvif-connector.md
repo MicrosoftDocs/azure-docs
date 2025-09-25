@@ -1,5 +1,5 @@
 ---
-title: What is the connector for ONVIF (preview)?
+title: Connect cameras using the connector for ONVIF (preview)
 description: The connector for ONVIF (preview) in Azure IoT Central discovers and registers ONVIF cameras connected to Azure IoT Operations and enables you to manage them.
 author: dominicbetts
 ms.author: dobett
@@ -39,13 +39,9 @@ The connector for ONVIF enables you to:
 
 The connector for ONVIF is part of Azure IoT Operations. The connector deploys to an Arc-enabled Kubernetes cluster on the edge as part of an Azure IoT Operations deployment. The connector interacts with other Azure IoT Operations elements, such as:
 
-- _Asset endpoints_ that are custom resources in your Kubernetes cluster, define connections to assets such as cameras. An asset endpoint configuration includes the URL of the media source, the type of media source, and any credentials needed to access the media source. The media connector uses an asset endpoint to access the media source.
-
-- _Assets_, in Azure IoT Operations are logical entities that you create to represent real assets such as cameras. An Azure IoT Operations ONVIF camera asset identifies the ONVIF network service the camera exposes, such as PTZ.
-
-- The MQTT broker that you can use to publish messages from the connectors to other local or cloud-based components in your solution.
-
-- The Azure Device Registry that stores information about local assets in the cloud.
+- [Assets and devices](./concept-assets-devices.md)
+- [The MQTT broker](../connect-to-cloud/overview-dataflow.md)
+- [Azure Device Registry](./overview-manage-assets.md#store-assets-as-azure-resources-in-a-centralized-registry)
 
 ## ONVIF compliance
 

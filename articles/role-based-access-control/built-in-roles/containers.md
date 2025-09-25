@@ -2,12 +2,12 @@
 title: Azure built-in roles for Containers - Azure RBAC
 description: This article lists the Azure built-in roles for Azure role-based access control (Azure RBAC) in the Containers category. It lists Actions, NotActions, DataActions, and NotDataActions.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 ms.workload: identity
-author: rolyon
-manager: femila
+author: rolyon    
+manager: pmwongera
 ms.author: rolyon
-ms.date: 01/25/2025
+ms.date: 09/19/2025
 ms.custom: generated
 ---
 
@@ -20,7 +20,7 @@ This article lists the Azure built-in roles in the Containers category.
 
 Delete repositories, tags, or manifests from a container registry.
 
-[Learn more](/azure/container-registry/container-registry-roles)
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -61,7 +61,7 @@ Delete repositories, tags, or manifests from a container registry.
 
 Push trusted images to or pull trusted images from a container registry enabled for content trust.
 
-[Learn more](/azure/container-registry/container-registry-roles)
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -104,7 +104,7 @@ Push trusted images to or pull trusted images from a container registry enabled 
 
 Pull artifacts from a container registry.
 
-[Learn more](/azure/container-registry/container-registry-roles)
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -145,7 +145,7 @@ Pull artifacts from a container registry.
 
 Push artifacts to or pull artifacts from a container registry.
 
-[Learn more](/azure/container-registry/container-registry-roles)
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -188,7 +188,7 @@ Push artifacts to or pull artifacts from a container registry.
 
 Pull quarantined images from a container registry.
 
-[Learn more](/azure/container-registry/container-registry-roles)
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -231,7 +231,7 @@ Pull quarantined images from a container registry.
 
 Push quarantined images to or pull quarantined images from a container registry.
 
-[Learn more](/azure/container-registry/container-registry-roles)
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -726,6 +726,52 @@ Lets you update everything in cluster/namespace, except (cluster)roles and (clus
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
+## Azure Container Instances Contributor Role
+
+Grants read/write access to container groups provided by Azure Container Instances
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ContainerInstance](../permissions/containers.md#microsoftcontainerinstance)/containerGroups/* | Create and manage container groups |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants read/write access to container groups provided by Azure Container Instances",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/5d977122-f97e-4b4d-a52f-6b43003ddb4d",
+  "name": "5d977122-f97e-4b4d-a52f-6b43003ddb4d",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerInstance/containerGroups/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Container Instances Contributor Role",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
 
 ## Azure Container Storage Contributor
 
@@ -1004,6 +1050,56 @@ Grants read/write access to Azure resources provided by Azure Kubernetes Fleet M
     }
   ],
   "roleName": "Azure Kubernetes Fleet Manager Contributor Role",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+## Azure Kubernetes Fleet Manager Hub Agent Role
+
+Grants access to Azure resources needed by Azure Kubernetes Fleet Manager hub agents.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/publicIPAddresses/read | Gets a public IP address definition. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/trafficManagerProfiles/read | Get the Traffic Manager profile configuration. This includes DNS settings, traffic routing settings, endpoint monitoring settings, and the list of endpoints routed by this Traffic Manager profile. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/trafficManagerProfiles/write | Create a Traffic Manager profile, or modify the configuration of an existing Traffic Manager profile. This includes enabling or disabling a profile and modifying DNS settings, traffic routing settings, or endpoint monitoring settings. Endpoints routed by the Traffic Manager profile can be added, removed, enabled or disabled. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/trafficManagerProfiles/delete | Delete the Traffic Manager profile. All settings associated with the Traffic Manager profile will be lost, and the profile can no longer be used to route traffic. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/trafficManagerProfiles/azureEndpoints/read | Gets an Azure Endpoint which belongs to a Traffic Manager Profile, including all the properties of that Azure Endpoint. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/trafficManagerProfiles/azureEndpoints/write | Add a new Azure Endpoint in an existing Traffic Manager Profile or update the properties of an existing Azure Endpoint in that Traffic Manager Profile. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/trafficManagerProfiles/azureEndpoints/delete | Deletes an Azure Endpoint from an existing Traffic Manager Profile. Traffic Manager will stop routing traffic to the deleted Azure Endpoint. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants access to Azure resources needed by Azure Kubernetes Fleet Manager hub agents.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/de2b316d-7a2c-4143-b4cd-c148f6a355a1",
+  "name": "de2b316d-7a2c-4143-b4cd-c148f6a355a1",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Network/publicIPAddresses/read",
+        "Microsoft.Network/trafficManagerProfiles/read",
+        "Microsoft.Network/trafficManagerProfiles/write",
+        "Microsoft.Network/trafficManagerProfiles/delete",
+        "Microsoft.Network/trafficManagerProfiles/azureEndpoints/read",
+        "Microsoft.Network/trafficManagerProfiles/azureEndpoints/write",
+        "Microsoft.Network/trafficManagerProfiles/azureEndpoints/delete"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Kubernetes Fleet Manager Hub Agent Role",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -1810,6 +1906,100 @@ Grants access to read and write Azure Kubernetes Service clusters
 }
 ```
 
+## Azure Kubernetes Service Namespace Contributor
+
+Allows users to create and manage Azure Kubernetes Service namespace resources.
+
+[Learn more](/azure/aks/concepts-managed-namespaces)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/managedNamespaces/* | Create and manage namespaces |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows users to create and manage Azure Kubernetes Service namespace resources.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/289d8817-ee69-43f1-a0af-43a45505b488",
+  "name": "289d8817-ee69-43f1-a0af-43a45505b488",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.ContainerService/managedClusters/managedNamespaces/*",
+        "Microsoft.Resources/deployments/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Kubernetes Service Namespace Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+
+## Azure Kubernetes Service Namespace User
+
+Allows users to read Azure Kubernetes Service namespace resources. In-cluster namespace access further requires assignment of Azure Kubernetes Service RBAC roles to the namespace resource for an Entra ID enabled cluster.
+
+[Learn more](/azure/aks/concepts-managed-namespaces)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/managedNamespaces/read | Get a managed namespace of a managed cluster |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/managedNamespaces/listCredential/action | List cluster credentials of a managed namespace |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows users to read Azure Kubernetes Service namespace resources. In-cluster namespace access further requires assignment of Azure Kubernetes Service RBAC roles to the namespace resource for an Entra ID enabled cluster.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/c9f76ca8-b262-4b10-8ed2-09cf0948aa35",
+  "name": "c9f76ca8-b262-4b10-8ed2-09cf0948aa35",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerService/managedClusters/managedNamespaces/read",
+        "Microsoft.ContainerService/managedClusters/managedNamespaces/listCredential/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Kubernetes Service Namespace User",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+
 ## Azure Kubernetes Service RBAC Admin
 
 Lets you manage all resources under cluster/namespace, except update or delete resource quotas and namespaces.
@@ -2286,6 +2476,7 @@ Install Container Storage Interface (CSI) drivers that enable your cluster to us
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/write | Creates a new Disk or updates an existing one |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/read | Get the properties of a Disk |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/delete | Deletes the Disk |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/beginGetAccess/action | Get the SAS URI of the Disk for blob access |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/diskEncryptionSets/read | Get the properties of a disk encryption set |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | **NotActions** |  |
@@ -2319,6 +2510,7 @@ Install Container Storage Interface (CSI) drivers that enable your cluster to us
         "Microsoft.Compute/disks/write",
         "Microsoft.Compute/disks/read",
         "Microsoft.Compute/disks/delete",
+        "Microsoft.Compute/disks/beginGetAccess/action",
         "Microsoft.Compute/diskEncryptionSets/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read"
       ],
@@ -2627,6 +2819,7 @@ Install and upgrade the networking components on an OpenShift cluster.
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/read | Get the virtual network definition |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/join/action | Joins a virtual network. Not Alertable. |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/backendAddressPools/join/action | Joins a load balancer backend address pool. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/backendAddressPools/read | Gets a load balancer backend address pool definition |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/read | Get the properties of a virtual machine |
 > | **NotActions** |  |
 > | *none* |  |
@@ -2651,6 +2844,7 @@ Install and upgrade the networking components on an OpenShift cluster.
         "Microsoft.Network/virtualNetworks/read",
         "Microsoft.Network/virtualNetworks/subnets/join/action",
         "Microsoft.Network/loadBalancers/backendAddressPools/join/action",
+        "Microsoft.Network/loadBalancers/backendAddressPools/read",
         "Microsoft.Compute/virtualMachines/read"
       ],
       "notActions": [],
@@ -2756,9 +2950,714 @@ Built-in role that allows a Connected Cluster managed identity to call the check
 }
 ```
 
+## Container Apps ConnectedEnvironments Contributor
+
+Full management of Container Apps ConnectedEnvironments, including creation, deletion, and updates.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/connectedEnvironments/* |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/connectedEnvironments/*/read |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/connectedEnvironments/*/write |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/connectedEnvironments/*/delete |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/connectedEnvironments/*/action |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/connectedEnvironments/daprComponents/listSecrets/action | List Secrets of a Dapr Component |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Full management of Container Apps ConnectedEnvironments, including creation, deletion, and updates.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/6f4fe6fc-f04f-4d97-8528-8bc18c848dca",
+  "name": "6f4fe6fc-f04f-4d97-8528-8bc18c848dca",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.App/connectedEnvironments/*",
+        "Microsoft.App/connectedEnvironments/*/read",
+        "Microsoft.App/connectedEnvironments/*/write",
+        "Microsoft.App/connectedEnvironments/*/delete",
+        "Microsoft.App/connectedEnvironments/*/action",
+        "Microsoft.App/connectedEnvironments/daprComponents/listSecrets/action",
+        "Microsoft.Resources/deployments/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Apps ConnectedEnvironments Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Apps ConnectedEnvironments Reader
+
+Read access to Container Apps ConnectedEnvironments.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/connectedEnvironments/read | Get a Connected Environment |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/connectedEnvironments/*/read |  |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read access to Container Apps ConnectedEnvironments.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/d5adeb5b-107f-4aca-99ea-4e3f4fc008d5",
+  "name": "d5adeb5b-107f-4aca-99ea-4e3f4fc008d5",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.App/connectedEnvironments/read",
+        "Microsoft.App/connectedEnvironments/*/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Apps ConnectedEnvironments Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Apps Contributor
+
+Full management of Container Apps, including creation, deletion, and updates.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/containerApps/*/read |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/containerApps/*/write |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/containerApps/*/delete |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/containerApps/*/action |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/managedEnvironments/read | Get a Managed Environment |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/managedEnvironments/*/read |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/managedEnvironments/join/action | Allows to create a Container App in a Managed Environment |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/managedEnvironments/checknameavailability/action | Check reource name availability for a Managed Environment |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/connectedEnvironments/read | Get a Connected Environment |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/connectedEnvironments/*/read |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/connectedEnvironments/join/action | Allows to create a Container App or Container Apps Job in a Connected Environment |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/connectedEnvironments/checknameavailability/action | Check reource name availability for a Connected Environment |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Full management of Container Apps, including creation, deletion, and updates.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/358470bc-b998-42bd-ab17-a7e34c199c0f",
+  "name": "358470bc-b998-42bd-ab17-a7e34c199c0f",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.App/containerApps/*/read",
+        "Microsoft.App/containerApps/*/write",
+        "Microsoft.App/containerApps/*/delete",
+        "Microsoft.App/containerApps/*/action",
+        "Microsoft.App/managedEnvironments/read",
+        "Microsoft.App/managedEnvironments/*/read",
+        "Microsoft.App/managedEnvironments/join/action",
+        "Microsoft.App/managedEnvironments/checknameavailability/action",
+        "Microsoft.App/connectedEnvironments/read",
+        "Microsoft.App/connectedEnvironments/*/read",
+        "Microsoft.App/connectedEnvironments/join/action",
+        "Microsoft.App/connectedEnvironments/checknameavailability/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Apps Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Apps Jobs Contributor
+
+Full management of Container Apps jobs, including creation, deletion, and updates.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [microsoft.app](../permissions/compute.md#microsoftapp)/jobs/read | Get a Container Apps Job |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/jobs/*/read |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/jobs/*/action |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/jobs/write | Create or update a Container Apps Job |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/jobs/delete | Delete a Container Apps Job |
+> | [Microsoft.app](../permissions/compute.md#microsoftapp)/managedenvironments/read | Get a Managed Environment |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/managedenvironments/*/read |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/managedenvironments/join/action | Allows to create a Container App in a Managed Environment |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/managedenvironments/checknameavailability/action | Check reource name availability for a Managed Environment |
+> | [Microsoft.app](../permissions/compute.md#microsoftapp)/connectedEnvironments/read | Get a Connected Environment |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/connectedEnvironments/*/read |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/connectedEnvironments/join/action | Allows to create a Container App or Container Apps Job in a Connected Environment |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/connectedEnvironments/checknameavailability/action | Check reource name availability for a Connected Environment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Full management of Container Apps jobs, including creation, deletion, and updates.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/4e3d2b60-56ae-4dc6-a233-09c8e5a82e68",
+  "name": "4e3d2b60-56ae-4dc6-a233-09c8e5a82e68",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "microsoft.app/jobs/read",
+        "Microsoft.App/jobs/*/read",
+        "Microsoft.App/jobs/*/action",
+        "Microsoft.App/jobs/write",
+        "Microsoft.App/jobs/delete",
+        "Microsoft.app/managedenvironments/read",
+        "Microsoft.App/managedenvironments/*/read",
+        "Microsoft.App/managedenvironments/join/action",
+        "Microsoft.App/managedenvironments/checknameavailability/action",
+        "Microsoft.app/connectedEnvironments/read",
+        "Microsoft.App/connectedEnvironments/*/read",
+        "Microsoft.App/connectedEnvironments/join/action",
+        "Microsoft.App/connectedEnvironments/checknameavailability/action",
+        "Microsoft.Resources/deployments/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Apps Jobs Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Apps Jobs Operator
+
+Read, start, and stop Container Apps jobs.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [microsoft.app](../permissions/compute.md#microsoftapp)/jobs/read | Get a Container Apps Job |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/jobs/*/read |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/jobs/*/action |  |
+> | [Microsoft.app](../permissions/compute.md#microsoftapp)/managedenvironments/read | Get a Managed Environment |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/managedenvironments/*/read |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/managedenvironments/join/action | Allows to create a Container App in a Managed Environment |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/managedenvironments/checknameavailability/action | Check reource name availability for a Managed Environment |
+> | [Microsoft.app](../permissions/compute.md#microsoftapp)/connectedEnvironments/read | Get a Connected Environment |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/connectedEnvironments/*/read |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/connectedEnvironments/join/action | Allows to create a Container App or Container Apps Job in a Connected Environment |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/connectedEnvironments/checknameavailability/action | Check reource name availability for a Connected Environment |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/jobs/logstream/action | View log stream of a container app job |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/jobs/exec/action | Connect to console of a container app job |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read, start, and stop Container Apps jobs.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/b9a307c4-5aa3-4b52-ba60-2b17c136cd7b",
+  "name": "b9a307c4-5aa3-4b52-ba60-2b17c136cd7b",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "microsoft.app/jobs/read",
+        "Microsoft.App/jobs/*/read",
+        "Microsoft.App/jobs/*/action",
+        "Microsoft.app/managedenvironments/read",
+        "Microsoft.App/managedenvironments/*/read",
+        "Microsoft.App/managedenvironments/join/action",
+        "Microsoft.App/managedenvironments/checknameavailability/action",
+        "Microsoft.app/connectedEnvironments/read",
+        "Microsoft.App/connectedEnvironments/*/read",
+        "Microsoft.App/connectedEnvironments/join/action",
+        "Microsoft.App/connectedEnvironments/checknameavailability/action"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.App/jobs/logstream/action",
+        "Microsoft.App/jobs/exec/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Apps Jobs Operator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Apps Jobs Reader
+
+Read access to ContainerApps jobs
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [microsoft.app](../permissions/compute.md#microsoftapp)/jobs/read | Get a Container Apps Job |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/jobs/*/read |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/managedenvironments/read | Get a Managed Environment |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read access to ContainerApps jobs",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/edd66693-d32a-450b-997d-0158c03976b0",
+  "name": "edd66693-d32a-450b-997d-0158c03976b0",
+  "permissions": [
+    {
+      "actions": [
+        "microsoft.app/jobs/read",
+        "Microsoft.App/jobs/*/read",
+        "Microsoft.App/managedenvironments/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Apps Jobs Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Apps ManagedEnvironments Contributor
+
+Full management of Container Apps ManagedEnvironments, including creation, deletion, and updates.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/managedEnvironments/*/read |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/managedEnvironments/*/write |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/managedEnvironments/*/delete |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/managedEnvironments/*/action |  |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Full management of Container Apps ManagedEnvironments, including creation, deletion, and updates.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/57cc5028-e6a7-4284-868d-0611c5923f8d",
+  "name": "57cc5028-e6a7-4284-868d-0611c5923f8d",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.App/managedEnvironments/*/read",
+        "Microsoft.App/managedEnvironments/*/write",
+        "Microsoft.App/managedEnvironments/*/delete",
+        "Microsoft.App/managedEnvironments/*/action",
+        "Microsoft.Resources/deployments/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Apps ManagedEnvironments Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Apps ManagedEnvironments Reader
+
+Read access to ContainerApps managedenvironments.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/managedEnvironments/*/read |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read access to ContainerApps managedenvironments.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/1b32c00b-7eff-4c22-93e6-93d11d72d2d8",
+  "name": "1b32c00b-7eff-4c22-93e6-93d11d72d2d8",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.App/managedEnvironments/*/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Apps ManagedEnvironments Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Apps Operator
+
+Read, logstream and exec into Container Apps.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/containerApps/*/read |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/containerApps/*/action |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/managedEnvironments/read | Get a Managed Environment |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/managedEnvironments/*/read |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/managedEnvironments/join/action | Allows to create a Container App in a Managed Environment |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/managedEnvironments/checknameavailability/action | Check reource name availability for a Managed Environment |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/connectedEnvironments/read | Get a Connected Environment |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/connectedEnvironments/*/read |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/connectedEnvironments/join/action | Allows to create a Container App or Container Apps Job in a Connected Environment |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/connectedEnvironments/checknameavailability/action | Check reource name availability for a Connected Environment |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/containerApps/logstream/action | View log stream of a container app |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/containerApps/exec/action | Connect to console of a container app |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/containerApps/debug/action | Connect to debug console of a container app |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read, logstream and exec into Container Apps.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/f3bd1b5c-91fa-40e7-afe7-0c11d331232c",
+  "name": "f3bd1b5c-91fa-40e7-afe7-0c11d331232c",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.App/containerApps/*/read",
+        "Microsoft.App/containerApps/*/action",
+        "Microsoft.App/managedEnvironments/read",
+        "Microsoft.App/managedEnvironments/*/read",
+        "Microsoft.App/managedEnvironments/join/action",
+        "Microsoft.App/managedEnvironments/checknameavailability/action",
+        "Microsoft.App/connectedEnvironments/read",
+        "Microsoft.App/connectedEnvironments/*/read",
+        "Microsoft.App/connectedEnvironments/join/action",
+        "Microsoft.App/connectedEnvironments/checknameavailability/action"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.App/containerApps/logstream/action",
+        "Microsoft.App/containerApps/exec/action",
+        "Microsoft.App/containerApps/debug/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Apps Operator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Apps SessionPools Contributor
+
+Full management of Container Apps SessionPools, including creation, deletion, and updates.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/sessionPools/*/read |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/sessionPools/*/write |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/sessionPools/*/delete |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/sessionPools/*/action |  |
+> | [microsoft.App](../permissions/compute.md#microsoftapp)/managedEnvironments/read | Get a Managed Environment |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/managedEnvironments/*/read |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/managedEnvironments/join/action | Allows to create a Container App in a Managed Environment |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/managedEnvironments/checknameavailability/action | Check reource name availability for a Managed Environment |
+> | [microsoft.App](../permissions/compute.md#microsoftapp)/connectedEnvironments/read | Get a Connected Environment |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/connectedEnvironments/*/read |  |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/connectedEnvironments/join/action | Allows to create a Container App or Container Apps Job in a Connected Environment |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/connectedEnvironments/checknameavailability/action | Check reource name availability for a Connected Environment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Full management of Container Apps SessionPools, including creation, deletion, and updates.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/f7669afb-68b2-44b4-9c5f-6d2a47fddda0",
+  "name": "f7669afb-68b2-44b4-9c5f-6d2a47fddda0",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.App/sessionPools/*/read",
+        "Microsoft.App/sessionPools/*/write",
+        "Microsoft.App/sessionPools/*/delete",
+        "Microsoft.App/sessionPools/*/action",
+        "microsoft.App/managedEnvironments/read",
+        "Microsoft.App/managedEnvironments/*/read",
+        "Microsoft.App/managedEnvironments/join/action",
+        "Microsoft.App/managedEnvironments/checknameavailability/action",
+        "microsoft.App/connectedEnvironments/read",
+        "Microsoft.App/connectedEnvironments/*/read",
+        "Microsoft.App/connectedEnvironments/join/action",
+        "Microsoft.App/connectedEnvironments/checknameavailability/action",
+        "Microsoft.Resources/deployments/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Apps SessionPools Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Apps SessionPools Reader
+
+Read access to ContainerApps sessionpools.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.App](../permissions/compute.md#microsoftapp)/sessionPools/*/read |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read access to ContainerApps sessionpools.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/af61e8fc-2633-4b95-bed3-421ad6826515",
+  "name": "af61e8fc-2633-4b95-bed3-421ad6826515",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.App/sessionPools/*/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Apps SessionPools Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Registry Cache Rule Administrator
+
+Create, Read, Update, and Delete Cache Rules in Container Registry. This role doesn't grant permissions to manage Credential Sets.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/cacheRules/read | Gets the properties of the specified cache rule or lists all the cache rules for the specified container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/cacheRules/write | Creates or updates a cache rule for a container registry with the specified parameters |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/cacheRules/delete | Deletes a cache rule from a container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/cacheRules/operationStatuses/read | Gets a cache rule async operation status |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Create, Read, Update, and Delete Cache Rules in Container Registry. This role doesn't grant permissions to manage Credential Sets.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/df87f177-bb12-4db1-9793-a413691eff94",
+  "name": "df87f177-bb12-4db1-9793-a413691eff94",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerRegistry/registries/cacheRules/read",
+        "Microsoft.ContainerRegistry/registries/cacheRules/write",
+        "Microsoft.ContainerRegistry/registries/cacheRules/delete",
+        "Microsoft.ContainerRegistry/registries/cacheRules/operationStatuses/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Registry Cache Rule Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Registry Cache Rule Reader
+
+Read the configuration of Cache Rules in Container Registry. This permission doesn't grant permission to read Credential Sets.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/cacheRules/read | Gets the properties of the specified cache rule or lists all the cache rules for the specified container registry |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read the configuration of Cache Rules in Container Registry. This permission doesn't grant permission to read Credential Sets.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/c357b964-0002-4b64-a50d-7a28f02edc52",
+  "name": "c357b964-0002-4b64-a50d-7a28f02edc52",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerRegistry/registries/cacheRules/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Registry Cache Rule Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Container Registry Configuration Reader and Data Access Configuration Reader
 
 Provides permissions to list container registries and registry configuration properties. Provides permissions to list data access configuration such as admin user credentials, scope maps, and tokens, which can be used to read, write or delete repositories and images. Does not provide direct permissions to read, list, or write registry contents including repositories and images. Does not provide permissions to modify data plane content such as imports, Artifact Cache or Sync, and Transfer Pipelines. Does not provide permissions for managing Tasks.
+
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2850,6 +3749,8 @@ Provides permissions to list container registries and registry configuration pro
 ## Container Registry Contributor and Data Access Configuration Administrator
 
 Provides permissions to create, list, and update container registries and registry configuration properties. Provides permissions to configure data access such as admin user credentials, scope maps, and tokens, which can be used to read, write or delete repositories and images. Does not provide direct permissions to read, list, or write registry contents including repositories and images. Does not provide permissions to modify data plane content such as imports, Artifact Cache or Sync, and Transfer Pipelines. Does not provide permissions for managing Tasks.
+
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2994,9 +3895,95 @@ Provides permissions to create, list, and update container registries and regist
 }
 ```
 
+## Container Registry Credential Set Administrator
+
+Create, Read, Update, and Delete Credential Sets in Container Registry. This role doesn't affect the needed permissions for storing content inside Azure Key Vault. This role also doesn't grant permissions to manage Cache Rules.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/credentialSets/read | Gets the properties of the specified credential set or lists all the credential sets for the specified container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/credentialSets/write | Creates or updates a credential set for a container registry with the specified parameters |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/credentialSets/delete | Deletes a credential set from a container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/credentialSets/operationStatuses/read | Gets a credential set async operation status |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Create, Read, Update, and Delete Credential Sets in Container Registry. This role doesn't affect the needed permissions for storing content inside Azure Key Vault. This role also doesn't grant permissions to manage Cache Rules.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/f094fb07-0703-4400-ad6a-e16dd8000e14",
+  "name": "f094fb07-0703-4400-ad6a-e16dd8000e14",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerRegistry/registries/credentialSets/read",
+        "Microsoft.ContainerRegistry/registries/credentialSets/write",
+        "Microsoft.ContainerRegistry/registries/credentialSets/delete",
+        "Microsoft.ContainerRegistry/registries/credentialSets/operationStatuses/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Registry Credential Set Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Registry Credential Set Reader
+
+Read the configuration of Credential Sets in Container Registry. This permission doesn't allow permission to see content inside Azure Key vault only the content inside Container Registry. This permission doesn't grant permission to read Cache Rules.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/credentialSets/read | Gets the properties of the specified credential set or lists all the credential sets for the specified container registry |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read the configuration of Credential Sets in Container Registry. This permission doesn't allow permission to see content inside Azure Key vault only the content inside Container Registry. This permission doesn't grant permission to read Cache Rules.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/29093635-9924-4f2c-913b-650a12949526",
+  "name": "29093635-9924-4f2c-913b-650a12949526",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerRegistry/registries/credentialSets/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Registry Credential Set Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Container Registry Data Importer and Data Reader
 
 Provides the ability to import images into a registry through the registry import operation. Provides the ability to list repositories, view images and tags, get manifests, and pull images. Does not provide permissions for importing images through configuring registry transfer pipelines such as import and export pipelines. Does not provide permissions for importing through configuring Artifact Cache or Sync rules.
+
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3007,7 +3994,9 @@ Provides the ability to import images into a registry through the registry impor
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | *none* |  |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/repositories/content/read | Pull or Get images from a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/repositories/metadata/read | Gets the metadata of a specific repository for a container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/catalog/read | List repositories in a container registry. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -3027,7 +4016,11 @@ Provides the ability to import images into a registry through the registry impor
         "Microsoft.ContainerRegistry/registries/pull/read"
       ],
       "notActions": [],
-      "dataActions": [],
+      "dataActions": [
+        "Microsoft.ContainerRegistry/registries/repositories/content/read",
+        "Microsoft.ContainerRegistry/registries/repositories/metadata/read",
+        "Microsoft.ContainerRegistry/registries/catalog/read"
+      ],
       "notDataActions": []
     }
   ],
@@ -3215,6 +4208,8 @@ Allows for read and write access to Azure Container Registry repositories, but e
 
 Provides permissions to configure, read, list, trigger, or cancel Container Registry Tasks, Task Runs, Task Logs, Quick Runs, Quick Builds, and Task Agent Pools. Permissions granted for Tasks management can be used for full registry data plane permissions including reading/writing/deleting container images in registries. Permissions granted for Tasks management can also be used to run customer authored build directives and run scripts to build software artifacts.
 
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
+
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
@@ -3299,6 +4294,8 @@ Provides permissions to configure, read, list, trigger, or cancel Container Regi
 ## Container Registry Transfer Pipeline Contributor
 
 Provides the ability to transfer, import, and export artifacts through configuring registry transfer pipelines that involve intermediary storage accounts and key vaults. Does not provide permissions to push or pull images. Does not provide permissions to create, manage, or list storage accounts or key vaults. Does not provide permissions to perform role assignments.
+
+[Learn more](/azure/container-registry/container-registry-rbac-built-in-roles-directory-reference)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |

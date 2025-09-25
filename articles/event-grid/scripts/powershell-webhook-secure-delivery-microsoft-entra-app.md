@@ -73,7 +73,7 @@ try {
 
     # Creates the Azure app role for the webhook Microsoft Entra application
     $eventGridRoleName = "AzureEventGridSecureWebhookSubscriber" # You don't need to modify this role name
-    $app = Get-MgApplication -ObjectId $webhookAppObjectId
+    $app = Get-MgApplication -ApplicationId $webhookAppObjectId
     $appRoles = $app.AppRoles
 
     Write-Host "Microsoft Entra App roles before addition of the new role..."

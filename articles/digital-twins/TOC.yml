@@ -230,7 +230,7 @@
       - name: Python SDK - PyPi
         href: https://pypi.org/project/azure-mgmt-digitaltwins/
       - name: Python SDK - Source code
-        href: https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins
+        href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/digitaltwins/azure-mgmt-digitaltwins
       - name: Go SDK - GoDoc
         href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt
       - name: Go - Source code

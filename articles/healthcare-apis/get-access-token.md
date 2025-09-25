@@ -5,7 +5,7 @@ services: healthcare-apis
 author: chachachachami
 ms.service: azure-health-data-services
 ms.topic: how-to
-ms.date: 09/06/2023
+ms.date: 06/02/2025
 ms.author: chrupa
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli

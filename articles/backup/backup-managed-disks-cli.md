@@ -3,19 +3,24 @@ title: Back up Azure Managed Disks using Azure CLI
 description: Learn how to back up Azure Managed Disks using Azure CLI.
 ms.topic: how-to
 ms.custom: devx-track-azurecli, engagement-fy24
-ms.date: 08/20/2024
-author: jyothisuri
-ms.author: jsuri
+ms.date: 08/25/2025
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a cloud administrator, I want to back up Azure Managed Disks using CLI commands, so that I can ensure data protection and recovery for my virtual machines efficiently."
 ---
 
 # Back up Azure Managed Disks using Azure CLI
 
-This article describes how to back up [Azure Managed Disk](/azure/virtual-machines/managed-disks-overview) using Azure CLI.
+This article describes how to back up [Azure Managed Disk](/azure/virtual-machines/managed-disks-overview) using Azure CLI. You can also use REST API to [create a Backup policy](backup-azure-dataprotection-use-rest-api-create-update-disk-policy.md) and [configure backup](backup-azure-dataprotection-use-rest-api-backup-disks.md) for Azure Managed Disk.
 
 > [!IMPORTANT]
 > Support for Azure Managed Disks backup and restore via CLI is in preview and available as an extension in Az 2.15.0 version and later. The extension is automatically installed when you run the **az dataprotection** commands. [Learn more](/cli/azure/azure-cli-extensions-overview) about extensions.
 
-For information on the Azure Disk backup region availability, supported scenarios and limitations, see the [support matrix](disk-backup-support-matrix.md).
+Learn about the [Azure Disk backup region availability, supported scenarios and limitations](disk-backup-support-matrix.md).
+
+>[!Note]
+>- If the target disk is attached as a Persistent Volume to an AKS cluster, choose [Azure Backup for AKS](./azure-kubernetes-service-cluster-backup.md) over the standalone Disk Backup solution. It enables backing up the disk as snapshots along with the containerized application in a Kubernetes-aware manner, all as a single unit.  Additionally, you get Cross Region Restore and ransomware protection capabilities with AKS Backup.
+
 
 ## Create a Backup vault
 
@@ -155,6 +160,9 @@ The policy template consists of a trigger (which decides what triggers the backu
       ]
 ```
 
+>[!Important]
+>The backup schedule follows the ISO 8601 duration format. However, the repeating interval prefix `R` is not supported, as backups are configured to run indefinitely. Any value specified with `R` will be ignored.
+
 Azure Disk Backup offers multiple backups per day. If you require more frequent backups, choose the **Hourly** backup frequency with the ability to take backups with intervals of every 4, 6, 8 or 12 hours. The backups are scheduled based on the **Time** interval selected.
 
 For example, if you select **Every 4 hours**, then the backups are taken at approximately in the interval of every 4 hours so the backups are distributed equally across the day. If a once-a-day backup is sufficient, choose the **Daily** backup frequency. In the daily backup frequency, you can specify the time of the day when your backups are taken.
@@ -167,7 +175,7 @@ The time required for completing the backup operation depends on various factors
    >[!NOTE]
    >Although the selected vault may have the global-redundancy setting, currently, Azure Disk Backup supports snapshot datastore only. All backups are stored in a resource group in your subscription and aren't copied to the Backup vault storage.
 
-To know more details about policy creation, refer to the [Azure Disk Backup policy](backup-managed-disks.md#create-backup-policy) document.
+To know more details about policy creation, see [how to create Azure Disk Backup policy](backup-managed-disks.md#create-backup-policy-for-azure-disks).
 
 Once the template is downloaded as a JSON file, you can edit it for scheduling and retention as required. Then create a new policy with the resulting JSON. If you want to edit the hourly frequency or the retention period, use the [az dataprotection backup-policy trigger set](/cli/azure/dataprotection/backup-policy/trigger#az-dataprotection-backup-policy-trigger-set) and/or [az dataprotection backup-policy retention-rule set](/cli/azure/dataprotection/backup-policy/retention-rule#az-dataprotection-backup-policy-retention-rule-set) commands. Once the policy JSON has all the required values, proceed to create a new policy from the policy object using the [az dataprotection backup-policy create](/cli/azure/dataprotection/backup-policy#az-dataprotection-backup-policy-create) command.
 
@@ -487,6 +495,12 @@ You can also use Az.ResourceGraph to track all jobs across all Backup vaults. Us
 az dataprotection job list-from-resourcegraph --datasource-type AzureDisk --status Completed
 ```
 
-## Next step
+## Next steps
 
-[Restore Azure Managed Disks using Azure CLI](restore-managed-disks-cli.md)
+Restore Managed Disk using [Azure portal](restore-managed-disks.md), [Azure PowerShell](restore-managed-disks-ps.md), [Azure CLI](restore-managed-disks-cli.md).
+
+## Related content
+
+- [Create a backup policy to protect Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-create-update-disk-policy.md).
+- [Back up Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-backup-disks.md).
+- [Restore Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-restore-disks.md).

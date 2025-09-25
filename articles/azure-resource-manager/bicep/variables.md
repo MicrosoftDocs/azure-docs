@@ -3,32 +3,32 @@ title: Variables in Bicep
 description: Describes how to define variables in Bicep
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 09/25/2024
+ms.date: 05/30/2025
 ---
 
 # Variables in Bicep
 
 This article describes how to define and use variables in your Bicep file. You use variables to simplify your Bicep file development. Rather than repeating complicated expressions throughout your Bicep file, you define a variable that contains the complicated expression. Then, you use that variable as needed throughout your Bicep file.
 
-Resource Manager resolves variables before starting the deployment operations. Wherever the variable is used in the Bicep file, Resource Manager replaces it with the resolved value.
-
-You're limited to 512 variables in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
+Resource Manager resolves variables before starting the deployment operations. Wherever the variable is used in the Bicep file, Resource Manager replaces it with the resolved value. You're limited to 512 variables in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
 
 ## Define variables
 
-The syntax for defining a variable is:
+A variable can't have the same name as a parameter, module, or resource. You can add one or more decorators for each variable. For more information, see Use [decorators](#use-decorators). 
+
+### Untyped variables
+
+When you define a variable without specifying a data type, the type is inferred from the value. The syntax for defining an untyped variable is:
 
 ```bicep
 @<decorator>(<argument>)
 var <variable-name> = <variable-value>
 ```
 
-A variable can't have the same name as a parameter, module, or resource.
-
-Notice that you don't specify a [data type](data-types.md) for the variable. The type is inferred from the value. The following example sets a variable to a string.
+The following example sets a variable to a string.
 
 ```bicep
-var stringVar = 'example value'
+var stringVar = 'preset variable'
 ```
 
 You can use the value from a parameter or another variable when constructing the variable.
@@ -44,7 +44,7 @@ output addToVar string = concatToVar
 output addToParam string = concatToParam
 ```
 
-The preceding example returns:
+The output from the preceding example returns:
 
 ```json
 {
@@ -68,7 +68,7 @@ var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().i
 output uniqueStorageName string = storageName
 ```
 
-The preceding example returns a value like the following:
+The preceding example returns a value like the following output:
 
 ```json
 "uniqueStorageName": {
@@ -76,6 +76,81 @@ The preceding example returns a value like the following:
   "value": "stghzuunrvapn6sw"
 }
 ```
+
+### Typed variables
+
+Starting with [Bicep CLI version 0.36.X](https://github.com/Azure/bicep/releases/tag/v0.36.1), Bicep supports **typed variables**, where you explicitly declare the data type of a variable to ensure type safety and improve code clarity. The benefits of typed variables:
+
+- **Error detection**: The Bicep compiler validates that assigned values match the declared type, catching errors early.
+- **Code clarity**: Explicit types make it clear what kind of data a variable holds.
+- **Intellisense support**: Tools like Visual Studio Code provide better autocompletion and validation for typed variables.
+- **Refactoring safety**: Ensures that changes to variable assignments don’t inadvertently break type expectations.
+
+To define a typed variable, use the `var` keyword followed by the variable name, the type, and the assigned value:
+
+```bicep
+var <variable-name> <data-type> = <variable-value>
+```
+
+The following examples show how to define typed variables:
+
+```bicep
+var resourceName string = 'myResource'
+var instanceCount int = 3
+var isProduction bool = true
+var tags object = { environment: 'dev' }
+var subnets array = ['subnet1', 'subnet2']
+```
+
+For `object` types, you can define a schema to enforce a specific structure. The compiler ensures the object adheres to the defined schema.
+
+```bicep
+var config {
+  name: string
+  count: int
+  enabled: bool
+} = {
+  name: 'myApp'
+  count: 5
+  enabled: true
+}
+```
+
+The following example uses typed variables with decorators to enforce constraints:
+
+```bicep
+@description('The environment to deploy to')
+@allowed(['dev', 'test', 'prod'])
+param environment string = 'dev'
+
+var instanceCount int = environment == 'prod' ? 5 : 2
+var resourcePrefix string = 'app'
+var tags {
+  environment: string
+  deployedBy: string 
+} = {
+  environment: environment
+  deployedBy: 'Bicep'
+}
+
+resource storage 'Microsoft.Storage/storageAccounts@2023-01-01' = {
+  name: '${resourcePrefix}storage${instanceCount}'
+  location: 'westus'
+  tags: tags
+  kind: 'Storage'
+  sku: {
+    name: 'Standard_LRS'
+  }
+}
+```
+
+In this example:
+
+- `instanceCount` is typed as `int` and uses a conditional expression.
+- `resourcePrefix` is typed as `string`.
+- `tags` is typed as `object` with a specific structure.
+
+## Use iterative loops
 
 You can use iterative loops when defining a variable. The following example creates an array of objects with three properties.
 
@@ -140,30 +215,6 @@ Markdown-formatted text can be used for the description text.
 ### Export
 
 Use `@export()` to share the variable with other Bicep files. For more information, see [Export variables, types, and functions](./bicep-import.md#export-variables-types-and-functions).
-
-## Use variables
-
-The following example shows how to use the variable for a resource property. You reference the value for the variable by providing the variable's name: `storageName`.
-
-```bicep
-param rgLocation string
-param storageNamePrefix string = 'STG'
-
-var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().id)}'
-
-resource demoAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
-  name: storageName
-  location: rgLocation
-  kind: 'Storage'
-  sku: {
-    name: 'Standard_LRS'
-  }
-}
-
-output stgOutput string = storageName
-```
-
-Because storage account names must use lowercase letters, the `storageName` variable uses the `toLower` function to make the `storageNamePrefix` value lowercase. The `uniqueString` function creates a unique value from the resource group ID. The values are concatenated to a string.
 
 ## Configuration variables
 

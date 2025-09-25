@@ -2,8 +2,10 @@
 title: Learn modules for Bicep
 description: Get started with an overview of Microsoft Learn modules for Bicep.
 ms.topic: conceptual
-ms.custom: devx-track-bicep
-ms.date: 03/25/2025
+ms.custom:
+  - devx-track-bicep
+  - build-2025
+ms.date: 04/09/2025
 ---
 
 # Learn modules for Bicep
@@ -17,9 +19,9 @@ Once you're ready to see how Bicep can help simplify and accelerate your deploym
 
 Learn provides free access to resources that can help you apply concepts in Azure. If you're new to Bicep, one way to get started is by reviewing the following Learn modules. You'll learn how Bicep makes it easier to define how your Azure resources should be configured and deployed in a way that's automated and repeatable. You’ll deploy several Azure resources to see how Bicep works.
 
-[<img src="media/learn-bicep/build-first-bicep-template.svg" width="101" height="120" alt="The badge for the Build your first Bicep template module." role="presentation"></img>](/training/modules/build-first-bicep-template/)
+[<img src="media/learn-bicep/build-first-bicep-file.svg" width="101" height="120" alt="The badge for the Build your first Bicep file module." role="presentation"></img>](/training/modules/build-first-bicep-template/)
 
-[Build your first Bicep template](/training/modules/build-first-bicep-template/)
+[Build your first Bicep file](/training/modules/build-first-bicep-template/)
 
 ## Learn more
 

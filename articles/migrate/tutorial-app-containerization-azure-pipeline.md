@@ -1,12 +1,15 @@
 ---
 title: Continuous Deployment for containerized applications with Azure DevOps
 description: Tutorial:Continuous Deployment for containerized applications with Azure DevOps
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: vijain
+ms.author: vijain
+ms.manager: kmadnani
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.topic: tutorial
-ms.date: 08/09/2024
-ms.custom: engagement-fy25
+ms.date: 02/06/2025
+ms.custom: engagement-fy23
+# Customer intent: "As a DevOps engineer, I want to set up a continuous deployment pipeline for my containerized applications, so that I can automate the build and deployment processes and improve efficiency in managing updates and Day 2 operations."
 ---
 
 # Continuous deployment for containerized applications with Azure DevOps

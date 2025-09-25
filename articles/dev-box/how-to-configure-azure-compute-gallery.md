@@ -6,7 +6,7 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 03/23/2025
+ms.date: 04/03/2025
 ms.topic: how-to
 
 #customer intent: As a developer, I want to learn how to configure and attach an Azure compute gallery to a dev center in Microsoft Dev Box so that I can use a compute gallery to manage and share dev box images.
@@ -41,7 +41,7 @@ To learn more about Azure Compute Gallery and how to create galleries, see:
 
 A gallery used to configure dev box definitions must have at least [one image definition and one image version](/azure/virtual-machines/image-version).
 
-When you create a virtual machine (VM) image, select an image from the Azure Marketplace that's compatible with Microsoft Dev Box. The following are examples of compatible images:
+When you create a virtual machine (VM) image, select an image from Azure Marketplace that's compatible with Microsoft Dev Box. The following are examples of compatible images:
 - [Visual Studio 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019plustools?tab=Overview)
 - [Visual Studio 2022](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudioplustools?tab=Overview) 
 
@@ -60,6 +60,7 @@ The image version must meet the following requirements:
     - For information about how to remove a recovery partition, see the [Windows Server command: delete partition](/windows-server/administration/windows-commands/delete-partition).
 - Default 64-GB OS disk size
     - The OS disk size is automatically adjusted to the size specified in the SKU description of the Windows 365 license.
+- Data disks cannot be attached to the VM prior to capturing the image.
 - The image definition must have [trusted launch enabled as the security type](/azure/virtual-machines/trusted-launch). You configure the security type when you create the image definition.
 
    :::image type="content" source="media/how-to-configure-azure-compute-gallery/image-definition.png" alt-text="Screenshot that shows Windows 365 image requirement settings.":::
@@ -81,9 +82,12 @@ When you create a generalized VM to capture to an image, the following issues ca
 1. Enable the Read/Write cache on the OS disk.
     - To verify the cache is enabled, open the Azure portal and navigate to the image. Select **JSON view**, and make sure `properties.storageProfile.osDisk.caching` value is `ReadWrite`.
 
-1.  Enable nested virtualization in your base image:
+1. Enable nested virtualization in your base image:
     - In the UI, open **Turn Windows features on or off** and select **Virtual Machine Platform**.
     - Or run the following PowerShell command: `Enable-WindowsOptionalFeature -FeatureName VirtualMachinePlatform -Online`
+  
+1. Clean up component store to save disk space and avoid lengthy maintenance tasks that run during provisioning by using the following command: `DISM.exe /Online /Cleanup-Image /StartComponentCleanup`
+    - For more information, see [Clean Up the WinSxS folder](/windows-hardware/manufacture/desktop/clean-up-the-winsxs-folder?view=windows-11&preserve-view=true)
  
 1. Disable the reserved storage state feature in the image by using the following command: `DISM.exe /Online /Set-ReservedStorageState /State:Disabled`. 
     - For more information, see [DISM Storage reserve command-line options](/windows-hardware/manufacture/desktop/dism-storage-reserve?view=windows-11#set-reservedstoragestate&preserve-view=true).

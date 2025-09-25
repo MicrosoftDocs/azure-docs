@@ -7,8 +7,9 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/22/2025
+ms.date: 07/27/2025
 ms.author: jkinma
+ms.custom: sfi-image-nochange
 ---
 
 # Locate tenant ID and primary domain

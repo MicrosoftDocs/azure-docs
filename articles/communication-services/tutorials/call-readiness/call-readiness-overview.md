@@ -87,17 +87,10 @@ Your final app prompts the user onto a supported browser and access for the came
 
 ## Set up the Project
 
-To set up the [React](https://reactjs.org/) App, we use the create-react-app template for this quickstart. This `create-react-app` command creates an easy to run TypeScript App powered by React. The command installs the Azure Communication Services npm packages, and the [FluentUI](https://developer.microsoft.com/fluentui/) npm package for creating advanced UI. For more information on create-react-app, see: [Get Started with React](https://reactjs.org/docs/create-a-new-react-app.html).
+To create a react App, we use `vite`. It is a build tool that aims to provide a faster and leaner development experience for modern web projects.
+You can read more about `vite` here [Create a React App from scratch](https://react.dev/learn/build-a-react-app-from-scratch) and [Getting Started with Vite](https://vite.dev/guide/)
 
-```bash
-# Create an Azure Communication Services App powered by React.
-npx create-react-app ui-library-call-readiness-app --template communication-react 
-
-# Change to the directory of the newly created App.
-cd ui-library-call-readiness-app
-```
-
-At the end of this process, you should have a full application inside of the folder `ui-library-call-readiness-app`.
+Note that the Azure Communication Service UI library only supports up to React 18. Verify that you are on the supported version after creating the react app by checking `package.json`.
 For this quickstart, we modify the files inside of the `src` folder.
 
 ### Install Packages
@@ -106,15 +99,15 @@ As this feature is in public preview, you must use the beta versions of the Azur
 
 ```bash
 # Install Public Preview versions of the Azure Communication Services Libraries.
-npm install @azure/communication-react@1.5.1-beta.1 @azure/communication-calling@1.10.0-beta.1
+npm install @azure/communication-react@1.28.0-beta.1 @azure/communication-calling@1.36.3-beta.1
 ```
 
 > [!NOTE]
-> If you are installing the communication packages into an existing App, `@azure/communication-react` currently does not support React v18. To downgrade to React v17 or less follow [these instructions](https://azure.github.io/communication-ui-library/?path=/docs/setup--docs).
+> If you are installing the communication packages into an existing App, `@azure/communication-react` currently does not support React v19. To downgrade to React v18 or less follow [these instructions](https://azure.github.io/communication-ui-library/?path=/docs/setup--docs).
 
 ### Initial App Setup
 
-To get us started, we replace the create-react-app default `App.tsx` content with a basic setup that:
+To get us started, we replace the default `App.tsx` content with a basic setup that:
 
 - Registers the necessary icons we use in this tutorial
 - Sets a theme provider that can be used to set a custom theme
@@ -166,13 +159,13 @@ export const TestComplete = (): JSX.Element => {
 };
 ```
 
-### Run Create React App
+### Run React App
 
 Let's test our setup by running:
 
 ```bash
 # Run the React App
-npm start
+npm run dev
 ```
 
 Once the App is running visit `http://localhost:3000` in your browser to see your running App.

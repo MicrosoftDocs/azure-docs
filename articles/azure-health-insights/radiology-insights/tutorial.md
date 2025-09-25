@@ -103,7 +103,7 @@ The extractEvidenceToken() method loops over the subExtensions and extracts the 
                     
 ## Retrieve the imaging procedures contained in the follow-up recommendation
 
-The imaging procedures are wrapped in an ImagingProcedureRecommendation (which is itself a subclass of ProcedureRecommendation), and can be retrieved as follows:
+The imaging procedures are wrapped in an ImagingProcedureRecommendation (which is itself a subclass of ProcedureRecommendation) and can be retrieved as follows:
 
 ```java
         ProcedureRecommendation recommendedProcedure = followupRecommendationInference.getRecommendedProcedure();
@@ -134,7 +134,7 @@ An imaging procedure can contain both a modality and an anatomy. The supporting 
                         }
 ```
 
-The codes (in this example SNOMED) can be displayed using the displayCodes() method. The codes are wrapped in FHir4Coding objects, and can be displayed in a straightforward manner as in the following code. The indentation parameter is only added for formatting purposes:
+The codes (in this example SNOMED) can be displayed using the displayCodes() method. The codes are wrapped in FHir4Coding objects and can be displayed in a straightforward manner as in the following code. The indentation parameter is only added for formatting purposes:
 
 ```java
     private static void displayCodes(FhirR4CodeableConcept codeableConcept, int indentation) {

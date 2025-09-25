@@ -4,8 +4,8 @@ description: An overview about schedules for recurring workflows in Azure Logic 
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 02/14/2025
+ms.topic: concept-article
+ms.date: 07/14/2025
 # As an Azure Logic Apps developer, I want to understand how recurring schedules work for triggers.
 ---
 

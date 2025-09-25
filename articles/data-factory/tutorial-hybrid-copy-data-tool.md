@@ -6,6 +6,7 @@ author: nabhishek
 ms.topic: tutorial
 ms.date: 10/03/2024
 ms.subservice: data-movement
+ms.custom: sfi-image-nochange
 ---
 
 # Copy data from a SQL Server database to Azure Blob storage by using the Copy Data tool
@@ -81,7 +82,7 @@ You use the name and key of your storage account in this tutorial. To get the na
 
 ## Create a data factory
 
-1. On the menu on the left, select **Create a resource** > **Integration** > **Data Factory**.
+1. On the top menu, select **Create a resource** > **Analytics** > **Data Factory** :
 
    :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="New data factory creation":::
 

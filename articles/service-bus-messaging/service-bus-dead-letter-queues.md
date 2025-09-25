@@ -2,8 +2,10 @@
 title: Service Bus dead-letter queues | Microsoft Docs
 description: Describes dead-letter queues in Azure Service Bus. Service Bus queues and topic subscriptions provide a secondary subqueue, called a dead-letter queue.
 ms.topic: concept-article
-ms.date: 06/28/2024
-ms.custom: "fasttrack-edit, devx-track-csharp"
+ms.date: 05/15/2025
+ms.custom:
+  - "fasttrack-edit, devx-track-csharp"
+  - build-2025
 #customer intent: As an architect or a developer, I want to understand how dead-lettering of messages work in Azure Service Bus.
 ---
 
@@ -38,7 +40,7 @@ SubscriptionClient.FormatDeadLetterPath(topicPath, subscriptionName)
 
 ## DLQ message count
 
-Obtaining count of messages in the dead-letter queue at the topic level isn't applicable because messages don't sit at the topic level. Instead, when a sender sends a message to a topic, the message is forwarded to subscriptions for the topic within milliseconds and thus no longer resides at the topic level. So, you can see messages in the DLQ associated with the subscription for the topic. In the following example, [Service Bus Explorer ](https://github.com/paolosalvatori/ServiceBusExplorer)shows that there are 62 messages currently in the DLQ for the subscription "test1".
+Obtaining count of messages in the dead-letter queue at the topic level isn't applicable because messages don't sit at the topic level. Instead, when a sender sends a message to a topic, the message is forwarded to subscriptions for the topic within milliseconds and thus no longer resides at the topic level. So, you can see messages in the DLQ associated with the subscription for the topic. In the following example, [Service Bus Explorer ](https://github.com/paolosalvatori/ServiceBusExplorer)shows that there are 62 messages currently in the DLQ for the subscription: test1.
 
 :::image type="content" source="./media/service-bus-dead-letter-queues/dead-letter-queue-message-count.png" alt-text="Image showing 62 messages in the dead-letter queue.":::
 
@@ -66,7 +68,7 @@ There's a limit on number of attempts to deliver messages for Service Bus queues
 
 ## Errors while processing subscription rules
 
-If you enable dead-lettering on filter evaluation exceptions, any errors that occur while a subscription's SQL filter rule executes are captured in the DLQ along with the offending message. Don't use this option in a production environment where you have message types that are sent to the topic, which don't have subscribers, as this may result in a large load of DLQ messages. As such, ensure that all messages sent to the topic have at least one matching subscription.
+If you enable dead-lettering on filter evaluation exceptions, any errors that occur while a subscription's SQL filter rule executes are captured in the DLQ along with the offending message. Don't use this option in a production environment where you have message types that are sent to the topic, which don't have subscribers, as it may result in a large load of DLQ messages. As such, ensure that all messages sent to the topic have at least one matching subscription.
 
 ## Application-level dead-lettering
 
@@ -74,7 +76,7 @@ In addition to the system-provided dead-lettering features, applications can use
 
 In .NET, it can be done by calling [ServiceBusReceiver.DeadLetterMessageAsync method](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.deadlettermessageasync).
 
-We recommend that you include the type of the exception in the `DeadLetterReason` and the stack trace of the exception in the `DeadLetterDescription` as it makes it easier to troubleshoot the cause of the problem resulting in messages being dead-lettered. Be aware that it might result in some messages exceeding [the 256 KB quota limit for the Standard Tier of Azure Service Bus](./service-bus-quotas.md). You can [upgrade your Service Bus namespace from the standard tier to the premium tier](service-bus-migrate-standard-premium.md) to have higher [quotas and limits](service-bus-quotas.md).
+We recommend that you include the type of the exception in the `DeadLetterReason` and the stack trace of the exception in the `DeadLetterDescription` as it makes it easier to troubleshoot the cause of the problem resulting in messages being dead-lettered. It might result in some messages exceeding [the 256 KB quota limit for the Standard Tier of Azure Service Bus](./service-bus-quotas.md). You can [upgrade your Service Bus namespace from the standard tier to the premium tier](service-bus-migrate-standard-premium.md) to have higher [quotas and limits](service-bus-quotas.md).
 
 ## Dead-lettering in auto forward scenarios
 
@@ -96,7 +98,7 @@ In some cases, if there are many messages in the dead-letter queue that need to 
 
 ### Available tools
 
-- [Azure Service Bus Explorer](./explorer.md) enables manual moving of messages between queues and topics. It allows you to look through the list of messages and resend them to be re-processed. It's available through the Azure portal, regardless of the SDK you're using to send messages.
+- [Azure Service Bus Explorer](./explorer.md) enables manual moving of messages between queues and topics. It allows you to look through the list of messages and resend them to be reprocessed. It's available through the Azure portal, regardless of the SDK you're using to send messages.
 - [ServicePulse with NServiceBus](https://docs.particular.net/servicepulse/intro-failed-messages) streamlines your error handling with this centralized dashboard. Quickly visualize, group, filter, and search errors, and efficiently retry individual or grouped messages. Available for NServiceBus endpoints.
 - [ServicePulse with MassTransit](https://docs.particular.net/platform/masstransit) provides a centralized dashboard for error management. You can visualize, group, filter, and search errors using various criteria. It also enables editing and retrying individual messages, or batch retrying groups of messages. Available for MassTransit endpoints.
 

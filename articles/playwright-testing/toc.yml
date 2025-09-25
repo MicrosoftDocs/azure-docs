@@ -79,7 +79,7 @@ items:
 - name: Resources
   items: 
     - name: Azure roadmap
-      href: https://azure.microsoft.com/roadmap/
+      href: https://azure.microsoft.com/updates/
     - name: Playwright documentation
       href: https://playwright.dev
     - name: Pricing

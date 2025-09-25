@@ -22,7 +22,7 @@ This library does **not** have a dependency on any Azure libraries. They seamles
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - Python 3.8 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/), otherwise see [python downloads](https://www.python.org/downloads/).
 - [azure-appconfiguration-provider library](https://pypi.org/project/azure-appconfiguration-provider/) 1.2.0 or later.
 

@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024
 ms.custom: engagement-fy24
+# Customer intent: "As a database administrator, I want to understand the features and management options of Oracle Database@Azure, so that I can effectively deploy and maintain my Oracle workloads within Azure while ensuring optimal performance and compliance."
 ---
 
 # FAQ for Oracle Database@Azure
@@ -64,6 +65,11 @@ Various Oracle applications are authorized and supported to run on Azure. For mo
 ### What service-level agreements are available?
 
 For detailed service-level agreements (SLAs), see [Oracle PaaS and IaaS public cloud services pillars](https://www.oracle.com/contracts/docs/paas_iaas_pub_cld_srvs_pillar_4021422.pdf?download=false).
+
+### Is Oracle RAC supported in any way on Azure?
+
+Oracle Database@Azure supports RAC deployments on Exadata.
+
 
 ## Billing and commerce
 
@@ -163,7 +169,7 @@ Data is encrypted at rest. All traffic between sites, including to the Oracle Da
 
 ### Can I use Azure Monitor with Oracle Database@Azure?
 
-Yes. Metrics are published for the Oracle Exadata infrastructure, for VM clusters, and for Oracle databases. The database metrics are listed under VM metrics. You can create custom dashboards for Azure Monitor to use with your application monitoring for a unified view. For more information, see [Exadata metrics](https://docs.oracle.com/en-us/iaas/Content/database-at-azure-exadata/odexa-monitoring-exadata-services.html) and [metrics for autonomous database](https://docs.oracle.com/en-us/iaas/Content/database-at-azure-autonomous/odadb-monitoring-autonomous-database-services.html).
+Yes. Metrics are published for the Oracle Exadata infrastructure, for VM clusters, and for Oracle databases. The database metrics are listed under VM metrics. You can create custom dashboards for Azure Monitor to use with your application monitoring for a unified view. For more information, see [Exadata metrics](https://docs.oracle.com/en-us/iaas/odexa/odexa-monitoring-exadata-services.html#ODEXA-GUID-A508A302-B8EC-4A78-B187-1237C6869A4B) and [metrics for autonomous database](https://docs.oracle.com/en-us/iaas/odadb/odadb-monitoring-autonomous-database-services.html#ODADB-GUID-871C7EA1-5CCC-4EF8-8C4D-396DD4CAEB32).
 
 ### What are the different options for backup on Oracle Database@Azure?
 
@@ -173,13 +179,13 @@ Automated and managed backups to OCI object storage and self-managed backups by 
 
 Oracle Database@Azure provides customers with dedicated Oracle Exadata compute and storage within the Exadata infrastructure. You also can attach Azure NetApp Files volumes to the VMs on VM clusters.
 
-### Can we use a hardware security module (HSM) in Azure or an external HSM to encrypt databases? How do customer-managed database keys work?
+### How do customer-managed database keys work?
 
-You can manage keys by using Oracle Key Vault. Integration with Microsoft offerings like Azure Dedicated HSM and Microsoft Sentinel are on the roadmap.
+Oracle Transparent Data Encryption (TDE) master encryption keys (MEK) can be managed using Azure Key Vault(AKV). Exadata Database Service on Oracle Database@Azure now supports storing and managing Oracle TDE MEK using all three tiers of AKV services, Standard, Premium and Managed HSM. see [Manage Oracle TDE with Azure Key Vault](/azure/oracle/oracle-db/manage-oracle-transparent-data-encryption-azure-key-vault)
 
 ### What type of storage redundancy options are available?
 
-Oracle Automatic Storage Management (Oracle ASM) is the default and only storage management system that's supported on Oracle Exadata systems. Only NORMAL (protection against single disk or an entire storage server failure) and HIGH redundancy (protection against two simultaneous partner disk failures from two distinct storage servers) levels are supported on Oracle Exadata systems. For more information, see [Oracle ASM considerations
+Oracle Automatic Storage Management (Oracle ASM) is the default and only storage management system that's supported on Oracle Exadata systems. Only HIGH redundancy (protection against two simultaneous partner disk failures from two distinct storage servers) levels are supported on Oracle Exadata systems. NORMAL (protection against single disk or an entire storage server failure) levels are not supported. For more information, see [Oracle ASM considerations
 for Oracle Exadata deployments, on-premises and cloud](https://www.oracle.com/docs/tech/database/maa-exadata-asm-cloud.pdf).
 
 ### Is tiering storage available for the database in Oracle Database@Azure?

@@ -6,7 +6,9 @@ ms.author: sherryg
 ms.date: 10/19/2023
 ms.topic: how-to
 ms.service: azure-operator-service-manager
-ms.custom: devx-track-bicep
+ms.custom:
+  - devx-track-bicep
+  - build-2025
 ---
 
 # Create a custom role
@@ -43,7 +45,7 @@ Decide the scope that you want the role to be assignable to:
 
 Create a custom role using Bicep. For more information, see [Create or update Azure custom roles using Bicep](/azure/role-based-access-control/custom-roles-bicep?tabs=CLI)
 
-As an example, you can use the following sample as the main.bicep template. This sample creates the role with subscription-wide assignable scope.
+As an example, you can use the following sample as the main.Bicep file. This sample creates the role with subscription-wide assignable scope.
 
 ```
 targetScope = 'subscription'

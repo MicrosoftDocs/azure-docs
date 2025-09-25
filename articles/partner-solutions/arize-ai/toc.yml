@@ -1,0 +1,20 @@
+items:
+- name: Arize AI documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Arize AI?
+    href: overview.md 
+- name: Quickstart
+  expanded: true
+  items:
+  - name: Create a resource
+    href: create.md
+- name: How to
+  expanded: true
+  items:
+  - name: Manage a resource
+    href: manage.md
+  - name: Get support
+    href: https://arize.com/contact/

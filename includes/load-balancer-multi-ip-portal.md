@@ -85,7 +85,7 @@ In this section, you create two virtual machines to host the IIS websites.
 
 In this section, you change the private IP address of the existing NIC of each virtual machine to **Static**. Next, you add a new NIC resource to each virtual machine with a **Static** private IP address configuration.
 
-For more information on configuring floating IP in the virtual machine configuration, see [Floating IP Guest OS configuration](/azure/load-balancer/load-balancer-floating-ip.md#floating-ip-guest-os-configuration).
+For more information on configuring floating IP in the virtual machine configuration, see [Floating IP Guest OS configuration](/azure/load-balancer/load-balancer-floating-ip#floating-ip-guest-os-configuration).
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -401,9 +401,9 @@ During the creation of the load balancer, you configure:
     > [!NOTE]
     > IPv6 isn't currently supported with Routing Preference or Cross-region load-balancing (Global Tier).
     >
-    > For more information on IP prefixes, see [Azure Public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix.md).
+    > For more information on IP prefixes, see [Azure Public IP address prefix](/azure/virtual-network/ip-services/public-ip-address-prefix).
     >
-    > In regions with [Availability Zones](/azure/reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), you can select no-zone (default option), a specific zone, or zone-redundant. The choice depends on your specific domain failure requirements. In regions without Availability Zones, this field won't appear.</br> For more information on availability zones, see [Availability zones overview](/azure/reliability/availability-zones-overview.md).
+    > In regions with [Availability Zones](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json), you can select no-zone (default option), a specific zone, or zone-redundant. The choice depends on your specific domain failure requirements. In regions without Availability Zones, this field won't appear.</br> For more information on availability zones, see [Availability zones overview](/azure/reliability/availability-zones-overview).
 
 7. Select **Add**.
 
@@ -509,8 +509,8 @@ During the creation of the load balancer, you configure:
 32. Select **Create**.
 
     > [!NOTE]
-    > In this example, we created a NAT gateway to provide outbound Internet access. The outbound rules tab in the configuration is bypassed as it's optional and isn't needed with the NAT gateway. For more information on Azure NAT gateway, see [What is Azure Virtual Network NAT?](/azure/virtual-network/nat-gateway/nat-overview.md)
-    > For more information about outbound connections in Azure, see [Source Network Address Translation (SNAT) for outbound connections](/azure/load-balancer/load-balancer-outbound-connections.md)
+    > In this example, we created a NAT gateway to provide outbound Internet access. The outbound rules tab in the configuration is bypassed as it's optional and isn't needed with the NAT gateway. For more information on Azure NAT gateway, see [What is Azure Virtual Network NAT?](/azure/virtual-network/nat-gateway/nat-overview)
+    > For more information about outbound connections in Azure, see [Source Network Address Translation (SNAT) for outbound connections](/azure/load-balancer/load-balancer-outbound-connections)
 
 ## Test load balancer
 

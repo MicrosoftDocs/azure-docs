@@ -12,6 +12,7 @@ ms.reviewer: fryu
 ms.devlang: powershell
 # ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a cloud storage administrator, I want to convert append and page blobs into block blobs so that I can optimize storage costs and improve access efficiency for my data management needs.
 ---
 
 # Convert append blobs and page blobs into block blobs

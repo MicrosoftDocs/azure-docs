@@ -1,7 +1,7 @@
 ---
 title: Available States for Azure Cloud Services (extended support)
 description: Available Power and Provisioning States for Azure Cloud Services (extended support)
-ms.topic: article
+ms.topic: concept-article
 ms.service: azure-cloud-services-extended-support
 author: surbhijain
 ms.author: surbhijain
@@ -12,6 +12,9 @@ ms.date: 07/24/2024
 # Available Provisioning and Power States for Azure Cloud Services (extended support)
 
 ## Available Provisioning States for Azure Cloud Services (extended support)
+
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 This table lists the different Provisioning states for Cloud Services (extended support) resource. 
 

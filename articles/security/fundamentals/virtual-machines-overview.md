@@ -10,11 +10,12 @@ ms.assetid: 467b2c83-0352-4e9d-9788-c77fb400fe54
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 06/27/2024
+ms.date: 09/23/2025
 ms.author: mbaldwin
 
 ---
 # Azure Virtual Machines security overview
+
 This article provides an overview of the core Azure security features that can be used with virtual machines.
 
 You can use Azure Virtual Machines to deploy a wide range of computing solutions in an agile way. The service supports Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP, and Azure BizTalk Services. So you can deploy any workload and any language on nearly any operating system.
@@ -70,6 +71,8 @@ Learn more:
 * [Azure Key Vault blog](/archive/blogs/kv/)
 
 ## Virtual machine disk encryption
+
+[!INCLUDE [Azure Disk Encryption retirement notice](~/reusable-content/ce-skilling/azure/includes/security/azure-disk-encryption-retirement.md)]
 
 Azure Disk Encryption is a new capability for encrypting your Windows and Linux virtual machine disks. Azure Disk Encryption uses the industry-standard [BitLocker](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)) feature of Windows and the [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to provide volume encryption for the OS and the data disks.
 

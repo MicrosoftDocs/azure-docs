@@ -11,7 +11,10 @@ ms.topic: tutorial
 ms.date: 09/11/2024
 ms.author: kengaderdus
 ms.subservice: b2c
-ms.custom: "b2c-support"
+ms.custom:
+  - "b2c-support"
+  - sfi-image-nochange
+  - sfi-ga-nochange
 
 
 #Customer intent: As a developer, I want to create an Azure Active Directory B2C tenant, link it to my subscription, switch to the directory, and add the Azure AD B2C resource as a favorite in the Azure portal, so that I can manage and configure my applications to interact with Azure AD B2C.
@@ -19,6 +22,8 @@ ms.custom: "b2c-support"
 ---
 
 # Tutorial: Create an Azure Active Directory B2C tenant
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Before your applications can interact with Azure Active Directory B2C (Azure AD B2C), they must be registered in a tenant that you manage. 
 

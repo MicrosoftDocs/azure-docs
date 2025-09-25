@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 05/15/2024
 ms.author: phjensen
+# Customer intent: As a cloud administrator, I want to configure storage for the Application Consistent Snapshot tool with Azure NetApp Files, so that I can ensure reliable and secure snapshot capabilities for my cloud applications.
 ---
 
 # Configure storage for Azure Application Consistent Snapshot tool

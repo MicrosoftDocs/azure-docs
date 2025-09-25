@@ -3,6 +3,7 @@ title: Provision a pool in a virtual network
 description: Learn how to create a Batch pool in an Azure virtual network so that compute nodes can communicate securely with other VMs in the network, such as a file server.
 ms.topic: how-to
 ms.date: 11/19/2024
+# Customer intent: "As a cloud architect, I want to provision an Azure Batch pool in a virtual network, so that I can enable secure communication between compute nodes and other virtual machines within my network."
 ---
 
 # Create an Azure Batch pool in a virtual network

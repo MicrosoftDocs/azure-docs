@@ -5,9 +5,10 @@ services: virtual-machines
 author: ananyagarg
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/29/2023
 ms.author: ananyagarg
+# Customer intent: "As a data scientist, I want to use Decentriq's Data Clean Rooms to analyze sensitive data securely, so that I can gain insights while ensuring compliance with privacy regulations."
 ---
 
 # Decentriq
@@ -27,7 +28,7 @@ In the healthcare ecosystem, Decentriq’s Data Clean Rooms offer a data privacy
 
 In a straightforward SaaS environment designed to plug into existing research processes and data pipelines, organizations can initiate compliant data partnerships twice as fast and uncover novel insights at unprecedented speeds. Data scientists have full analytical flexibility while powerful privacy technologies keep the data encrypted and verifiably confidential, even while in use. 
 
-Decentriq Data Clean Rooms for Healthcare is a solution for life sciences companies, hospitals, researchers, real world evidence teams, insurers, and others - who can't afford to compromise security and privacy for analytical flexibility and ability to easily scale. Get started today with the Azure Marketplace solution — [you can check it out here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/dqtechnologiesag1586942031480.decentriq_healthcare_cleanroom?tab=Overview) and get started today.
+Decentriq Data Clean Rooms for Healthcare is a solution for life sciences companies, hospitals, researchers, real world evidence teams, insurers, and others - who can't afford to compromise security and privacy for analytical flexibility and ability to easily scale. Get started today with the Azure Marketplace solution — [you can check it out here](https://azuremarketplace.microsoft.com/en-us/?tab=Overview) and get started today.
 
 ## Decentriq Data Clean Rooms for media & advertising
 
@@ -37,7 +38,7 @@ With privacy-preserving lookalikes, brands can use their first-party data to ext
 
 Audiences are immediately actionable from within a no-code SaaS environment. Setup takes only five minutes—no support needed from an engineering team.
 
-Get started today with the Azure Marketplace solution, [you can check it out here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/dqtechnologiesag1586942031480.decentriq_media_cleanroom?tab=Overview).
+Get started today with the Azure Marketplace solution, [you can check it out here](https://azuremarketplace.microsoft.com/en-us/?tab=Overview).
 
 
 ## Learn more

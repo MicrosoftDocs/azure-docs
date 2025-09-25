@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 08/15/2024
 ms.author: allensu
 
+# Customer intent: As a network administrator, I want to create an encrypted virtual network, so that I can secure internal communication between Azure resources while maintaining performance and scalability.
 ---
 
 # Create a virtual network with encryption

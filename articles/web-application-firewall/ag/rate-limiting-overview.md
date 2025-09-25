@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: overview
 ms.date: 03/31/2025
+# Customer intent: As a security analyst, I want to configure rate limiting on the Web Application Firewall of the Application Gateway, so that I can mitigate denial-of-service attacks and manage traffic effectively to maintain application availability.
 ---
 
 # What is rate limiting for Web Application Firewall on Application Gateway?
@@ -17,7 +18,7 @@ Rate limiting for Web Application Firewall on Application Gateway allows you to 
 Rate limiting is configured using custom WAF rules in a policy.
 
 > [!NOTE]
-> Rate limit rules are only supported on Web Application Firewalls running the [latest WAF engine](waf-engine.md). In order to ensure you're using the latest engine, select CRS 3.2 for the default rule set.
+> Rate limit rules are only supported on Web Application Firewalls running the [latest WAF engine](waf-engine.md). In order to ensure you're using the latest engine, select CRS 3.2 for the default rule set. Additionally, rate limit rules are not supported in air-gapped clouds.
 
 When you configure a rate limit rule, you must specify the threshold: the number of requests allowed within the specified time period. Rate limiting on Application Gateway WAF v2 uses a sliding window algorithm to determine when traffic has breached the threshold and needs to be dropped. During the first window where the threshold for the rule is breached, any more traffic matching the rate limit rule is dropped. From the second window onwards, traffic up to the threshold within the window configured is allowed, producing a throttling effect.
 

@@ -43,7 +43,7 @@ Use the following steps to run the Service Bus emulator locally on Windows:
    ```powershell
    wsl
 
-3. **Run the setup script** *./LaunchEmulator.sh*.Running the script brings up two containers: the Service Bus emulator and Sql Edge (a dependency for the emulator).
+3. **Run the setup script** *./LaunchEmulator.sh*.Running the script brings up two containers: the Service Bus emulator and SQL Server Linux (a dependency for the emulator).
    ```bash
    ./Launchemulator.sh 
 
@@ -51,7 +51,7 @@ Use the following steps to run the Service Bus emulator locally on Windows:
 
 To run the Service Bus emulator locally on Linux or macOS:
 
-- Run the setup script [LaunchEmulator.sh](https://github.com/Azure/azure-service-bus-emulator-installer/tree/main/ServiceBus-Emulator/Scripts/). Running the script brings up two containers: the Service Bus emulator and Sql Edge (a dependency for the emulator).
+- Run the setup script [LaunchEmulator.sh](https://github.com/Azure/azure-service-bus-emulator-installer/tree/main/ServiceBus-Emulator/Scripts/). Running the script brings up two containers: the Service Bus emulator and SQL Server Linux (a dependency for the emulator).
 
 ### [Docker (Linux container)](#tab/docker-linux-container)
 
@@ -213,23 +213,23 @@ services:
       - "5672:5672"
       - "5300:5300"
     environment:
-      SQL_SERVER: sqledge
-      MSSQL_SA_PASSWORD: "${MSSQL_SA_PASSWORD}"  # Password should be same as what is set for SQL Edge  
+      SQL_SERVER: mssql
+      MSSQL_SA_PASSWORD: "${MSSQL_SA_PASSWORD}"  # Password should be same as what is set for SQL Server Linux 
       ACCEPT_EULA: ${ACCEPT_EULA}
       SQL_WAIT_INTERVAL: ${SQL_WAIT_INTERVAL} # Optional: Time in seconds to wait for SQL to be ready (default is 15 seconds)
     depends_on:
-      - sqledge
+      - mssql
     networks:
       sb-emulator:
         aliases:
           - "sb-emulator"
-  sqledge:
-        container_name: "sqledge"
-        image: "mcr.microsoft.com/azure-sql-edge:latest"
+  mssql:
+        container_name: "mssql"
+        image: "mcr.microsoft.com/mssql/server:2022-latest"
         networks:
           sb-emulator:
             aliases:
-              - "sqledge"
+              - "mssql"
         environment:
           ACCEPT_EULA: ${ACCEPT_EULA}
           MSSQL_SA_PASSWORD: "${MSSQL_SA_PASSWORD}" # To be filled by user as per policy : https://learn.microsoft.com/en-us/sql/relational-databases/security/strong-passwords?view=sql-server-linux-ver16 
@@ -248,9 +248,9 @@ networks:
 # Ex: CONFIG_PATH="C:\\Config\\Config.json"
 CONFIG_PATH="<Replace with path to Config.json file>"
 
-# 2. ACCEPT_EULA: Pass 'Y' to accept license terms for Azure SQL Edge and Azure Service Bus emulator.
+# 2. ACCEPT_EULA: Pass 'Y' to accept license terms for SQL Server Linux and Azure Service Bus emulator.
 # Service Bus emulator EULA : https://github.com/Azure/azure-service-bus-emulator-installer/blob/main/EMULATOR_EULA.txt
-# SQL Edge EULA : https://go.microsoft.com/fwlink/?linkid=2139274
+# SQL Server Linux EULA : https://go.microsoft.com/fwlink/?LinkId=746388
 ACCEPT_EULA="N"
 
 # 3. MSSQL_SA_PASSWORD to be filled by user as per policy
@@ -259,7 +259,7 @@ MSSQL_SA_PASSWORD=""
 
 > [!IMPORTANT]
 > 
-> - By passing the value "Y" to the environment variable "ACCEPT_EULA", you are acknowledging and accepting the terms and conditions of the End User License Agreement (EULA) for both [Azure Service Bus emulator](https://github.com/Azure/azure-service-bus-emulator-installer/blob/main/EMULATOR_EULA.txt) and [Azure SQL Edge](https://go.microsoft.com/fwlink/?linkid=2139274).
+> - By passing the value "Y" to the environment variable "ACCEPT_EULA", you are acknowledging and accepting the terms and conditions of the End User License Agreement (EULA) for both [Azure Service Bus emulator](https://github.com/Azure/azure-service-bus-emulator-installer/blob/main/EMULATOR_EULA.txt) and [SQL Server Linux](/sql/linux/sql-server-linux-docker-container-deployment).
 > 
 >  - Ensure to place .env file in same directory to docker-compose.yaml file.
 >

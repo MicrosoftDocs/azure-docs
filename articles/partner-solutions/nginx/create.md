@@ -1,89 +1,65 @@
 ---
-title: Create an NGINXaaS deployment
-description: This article describes how to use the Azure portal to create an instance of NGINXaaS.
+title: Create an NGINXaaS resource
+description: In this quickstart, learn how to use the Azure portal to create an instance of NGINXaaS from Azure Marketplace.
 ms.topic: quickstart
-ms.date: 01/18/2023
+ms.date: 05/09/2025
 ms.custom: references_regions
-
+#customer intent: As a developer, I want to implement NGINX as a service to simplify NGINX management.
 ---
 
-# QuickStart: Get started with NGINXaaS – An Azure Native ISV Service
+# QuickStart: Create an NGINXaaS resource – An Azure Native ISV Service
 
-In this quickstart, you'll use the Azure Marketplace to find and create an instance of  **NGINXaaS**.
+In this quickstart, use Azure Marketplace to create an instance of NGINXaaS.
 
-## Create a new NGINXaaS resource
+## Prerequisites
 
-### Basics
+[!INCLUDE [Prerequisites](../includes/create-prerequisites.md)]
 
-1. To create an NGINXaaS deployment using the Marketplace, subscribe to **NGINXaaS** in the Azure portal.
+## Create a resource
 
-1. Set the following values in the **Create NGINXaaS** pane.
+1. From the Azure portal menu's global search bar, search for *marketplace*. Select **Marketplace** from the Services results.
 
-    :::image type="content" source="media/nginx-create/nginx-create.png" alt-text="Screenshot of basics pane of the NGINXaaS create experience.":::
+1. In the Marketplace, search for *F5 NGINX as a Service*. In the results, subscribe to NGINX as a Service.
 
-    | Property  | Description |
-    |---------|---------|
-    | **Subscription**  | From the drop-down, select your Azure subscription where you have owner access. |
-    | **Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see Azure Resource Group overview. |
-    | **Name**  | Put the name for the NGINXaaS account you want to create. |
-    | **Region** | Select West Central US. West Central US is the only Azure region supported by NGINXaaS during preview. |
-    | **Pricing Plan**     | Specified based on the selected NGINXaaS plan. |
+1. In **Create NGINXaaS**, in the **Basics** tab, select a Subscription and resource group. You can create a resource group, if necessary.
 
+   :::image type="content" source="media/nginx-create/nginx-create.png" alt-text="Screenshot of basics pane of the NGINXaaS create experience.":::
 
-> [!NOTE]
-> West Central US is the only Azure region supported by NGINXaaS during preview.
-<!-- Is this still true at GA -->
+1. Provide a name for your NGINXaaS instance and select a region. Not all marketplace plans are available for all regions.
 
-### Networking
+1. Use the link to select a pricing plan.
 
-1. After filling in the proper values, select the **Next: Networking** to see the **Networking** screen. Specify the VNet and Subnet that is associated with the NGINXaaS deployment.  
+1. Enter a valid address for **Support Contact**.
 
-    :::image type="content" source="media/nginx-create/nginx-networking.png" alt-text="Screenshot of the networking pane in the NGINXaaS create experience.":::
+1. Select **Next** to view the **Networking** tab.
 
-1. Select the checkbox **I allow NGINXaaS service provider to access the above virtual network for deployment** to indicate that you acknowledge access to your Tenant to ensure VNet and NIC association.
+## Networking
 
-1. Select either Public or Private End points for the IP address selection.
+In the **Networking** tab:
 
-### Tags
+1. Specify a virtual network and subnet or accept the option to create new ones.
 
-You can specify custom tags for the new NGINXaaS resource in Azure by adding custom key-value pairs.
+1. Select **I allow NGINX service provider to access the above virtual network for deployment.**
 
-1. Select Tags.
+1. For **IP address type**, select **Public Only** or **Private Only**.
 
-    :::image type="content" source="media/nginx-create/nginx-custom-tags.png" alt-text="Screenshot showing the tags pane in the NGINXaaS create experience.":::
+1. Select **Review + create**.
 
-    | Property | Description |
-    |----------| -------------|
-    |**Name** | Name of the tag corresponding to the Azure NGINXaaS resource. |
-    | **Value** | Value of the tag corresponding to the Azure NGINXaaS resource. |
+## Review and create
 
-### Review and create
+The **Review + Create** tab runs validations. Review the selections made in the **Basics**, **Networking**, and optionally **Tags** tabs. You can also review the NGINXaaS and Azure Marketplace terms and conditions.  
 
-1. Select the **Next: Review + Create** to navigate to the final step for resource creation. When you get to the **Review + Create** page, all validations are run. At this point, review all the selections made in the Basics, Networking, and optionally Tags panes. You can also review the NGINXaaS and Azure Marketplace terms and conditions.  
+After you review all the information, select **Create**.
 
-    :::image type="content" source="media/nginx-create/nginx-review-and-create.png" alt-text="screenshot of review and create nginx resource":::
-
-1. Once you've reviewed all the information select **Create**. Azure now deploys the NGINXaaSaaS resource.
-
-   :::image type="content" source="media/nginx-create/nginx-deploy.png" alt-text="Screenshot showing NGINXaaS deployment in process.":::
+Deployment can take some time.
 
 ## Deployment completed
 
-1. Once the create process is completed, select **Go to Resource** to navigate to the specific NGINXaaS resource.
+After the Azure portal finishes creating the resource, select **Go to Resource** to view your new NGINXaaS resource.
 
-    :::image type="content" source="media/nginx-create/nginx-overview-pane.png" alt-text="Screenshot of a completed NGINXaaS deployment.":::
+Select **Overview** in the left menu to see information on the deployed resources.
 
-1. Select **Overview** in the Resource menu to see information on the deployed resources.
+## Next step
 
-    :::image type="content" source="media/nginx-create/nginx-overview-pane.png" alt-text="Screenshot of information on the NGINXaaS resource overview.":::
-
-## Next steps
-
-- [Manage the NGINXaaS resource](manage.md)
-- Get started with NGINXaaS on
-
-    > [!div class="nextstepaction"]
-    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/NGINX.NGINXPLUS%2FnginxDeployments)
-
-    > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-nginx-for-azure?tab=Overview)
+> [!div class="nextstepaction"]
+> [Manage the NGINXaaS resource](manage.md)

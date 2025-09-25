@@ -19,7 +19,7 @@ with the specific standard.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
 
-[!INCLUDE [azure-policy-compliancecontrols-signalr](../../includes/policy/standards/byrp/microsoft.signalrservice.md)]
+[!INCLUDE [azure-policy-compliancecontrols-signalr](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.signalrservice.md)]
 
 ## Next steps
 

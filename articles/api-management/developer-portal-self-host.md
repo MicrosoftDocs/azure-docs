@@ -432,7 +432,7 @@ Update the developer portal URL in any template that has a link in the footer:
 
 ## Move from managed to self-hosted developer portal
 
-Over time, your business requirements may change. You can end up in a situation where the managed version of the API Management developer portal no longer satisfies your needs. For example, a new requirement may force you to build a custom widget that integrates with a third-party data provider. Unlike the manged version, the self-hosted version of the portal offers you full flexibility and extensibility.
+Over time, your business requirements may change. You can end up in a situation where the managed version of the API Management developer portal no longer satisfies your needs. For example, a new requirement may force you to build a custom widget that integrates with a third-party data provider. Unlike the managed version, the self-hosted version of the portal offers you full flexibility and extensibility.
 
 ### Transition process
 

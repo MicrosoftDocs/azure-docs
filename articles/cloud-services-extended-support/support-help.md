@@ -12,6 +12,9 @@ ms.custom: support-help-page
 
 # Support and troubleshooting for Azure Cloud Services (extended support)
 
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
+
 Here are suggestions for where you can get help when developing your Azure Cloud Services (extended support) solutions.
 
 ## Self help troubleshooting
@@ -40,7 +43,7 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 
 Learn about important product updates, roadmap, and announcements in [Azure Updates](https://azure.microsoft.com/updates/?category=compute).
 
-News and information about Azure Cloud Services (extended support) is shared at the [Azure blog](https://azure.microsoft.com/blog/topics/virtual-machines/).
+News and information about Azure Cloud Services (extended support) is shared at the [Azure blog](https://azure.microsoft.com/blog/product/virtual-machines/).
 
 
 ## Next steps

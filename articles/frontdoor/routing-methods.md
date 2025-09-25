@@ -11,6 +11,8 @@ ms.date: 11/12/2024
 
 # Traffic routing methods to origin
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium :heavy_check_mark: Front Door (classic)
+
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 Azure Front Door supports four traffic routing methods to manage how your HTTP/HTTPS traffic is distributed among different origins. When user requests reach the Front Door edge locations, the configured routing method ensures requests are forwarded to the best backend resource.
@@ -77,6 +79,9 @@ By default, Azure Front Door routes traffic to the origins with the highest prio
 Each origin in your Azure Front Door origin group has a *Priority* property, which can be set to a value between 1 and 5. Lower values indicate higher priority. Multiple origins can share the same priority value.
 
 ## <a name="weighted"></a>Weighted traffic-routing method
+
+> [!NOTE]
+> For customers with very low RPS (Requests Per Second), due to the nature of how distributed AFD POPs and machines are, we cannot guarantee that the weights configured by the customer will be strictly followed and the load balancing may appear skewed.
 
 The *Weighted* traffic-routing method allows you to distribute traffic based on predefined weights.
 

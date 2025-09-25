@@ -4,10 +4,15 @@ description: Establish high availability of IBM Db2 LUW on Azure virtual machine
 author: msjuergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ms.topic: article
 ms.date: 06/18/2024
 ms.author: juergent
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - linux-related-content
+  - sfi-image-nochange
+# Customer intent: As a database administrator, I want to configure high availability for IBM Db2 LUW on Azure VMs using Pacemaker, so that I can ensure continuous database availability and quick recovery in case of node failures.
 ---
 
 # High availability of IBM Db2 LUW on Azure VMs on SUSE Linux Enterprise Server with Pacemaker

@@ -2,11 +2,12 @@
 title: Configure Bastion for native client connections
 titleSuffix: Azure Bastion
 description: Learn how to configure Bastion for native client connections.
-author: cherylmc
+author: abell
 ms.service: azure-bastion
 ms.topic: how-to
-ms.date: 01/28/2025
-ms.author: cherylmc
+ms.date: 04/07/2025
+ms.author: abell
+# Customer intent: "As a cloud administrator, I want to configure Bastion for native client connections, so that I can securely access VMs using local SSH or RDP clients while managing my network efficiently."
 ---
 
 # Configure Bastion for native client connections
@@ -15,7 +16,7 @@ This article helps you configure your Bastion deployment to accept connections f
 
 :::image type="content" source="./media/native-client/native-client-architecture.png" alt-text="Diagram shows a connection via native client." lightbox="./media/native-client/native-client-architecture.png":::
 
-You can configure this feature by modifying an existing Bastion deployment, or you can deploy Bastion with the feature configuration already specified. Your capabilities on the VM when connecting via native client are dependent on what is enabled on the native client.
+You can configure this feature by modifying an existing Bastion deployment, or you can deploy Bastion with the feature configuration already specified. Your capabilities on the VM when connecting via native client are dependent on what is enabled on the native client. Keep in mind that at this time, [session recording](session-recording.md) isn't available for native client.
 
 > [!NOTE]
 > [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]

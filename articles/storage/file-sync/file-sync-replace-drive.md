@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 01/25/2025
 ms.author: nasindam
+# Customer intent: As a systems administrator, I want to replace a failing drive on an Azure File Sync server, so that I can ensure continued access and optimize storage performance while minimizing downtime for users.
 ---
 
 # Replace a drive on an Azure File Sync server

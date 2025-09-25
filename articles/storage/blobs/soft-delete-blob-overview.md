@@ -5,9 +5,10 @@ description: Soft delete for blobs protects your data so that you can more easil
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/17/2024
 ms.author: normesta
+# Customer intent: "As a data manager, I want to implement blob soft delete for my storage accounts, so that I can recover accidentally deleted or modified blobs during a specified retention period and ensure the safety of my data against accidental loss."
 ---
 
 # Soft delete for blobs

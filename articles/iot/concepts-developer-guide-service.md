@@ -4,6 +4,7 @@ description: A description of IoT Plug and Play conventions for service develope
 author: dominicbetts
 ms.author: dobett
 ms.date: 03/18/2025
+ms.update-cycle: 1095-days
 ms.topic: conceptual
 ms.service: azure-iot
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
@@ -31,7 +32,7 @@ Use the Azure IoT service SDKs in your solution to interact with devices and mod
 
 The service SDKs let you access device information from a solution component such as a desktop or web application. The service SDKs include two namespaces and object models that you can use to retrieve the model ID:
 
-- Iot Hub service client. This service exposes the model ID as a device twin property.
+- IoT Hub service client. This service exposes the model ID as a device twin property.
 
 - Digital Twins client. The new Digital Twins API operates on [Digital Twins Definition Language (DTDL)](concepts-digital-twin.md) model constructs such as components, properties, and commands. The Digital Twin APIs make it easier for solution builders to create IoT Plug and Play solutions.
 

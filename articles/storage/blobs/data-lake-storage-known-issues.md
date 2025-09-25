@@ -5,10 +5,11 @@ description: Learn about limitations and known issues of Azure Data Lake Storage
 author: normesta
 
 ms.service: azure-data-lake-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/15/2024
 ms.author: normesta
 ms.reviewer: jamesbak
+# Customer intent: As a data engineer, I want to understand the limitations and known issues of Azure Data Lake Storage so that I can effectively manage my data workflows and avoid potential pitfalls when using various APIs and integrations.
 ---
 
 # Known issues with Azure Data Lake Storage

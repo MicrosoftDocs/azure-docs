@@ -7,6 +7,7 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 01/27/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Troubleshoot Azure Digital Twins failed service request: Error 403 (Forbidden)
@@ -53,8 +54,6 @@ If you're an Owner on the subscription, you can run this command yourself. If yo
 ```azurecli-interactive
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Data Owner"
 ```
-
-[!INCLUDE [digital-twins-cli-issue](includes/digital-twins-cli-issue.md)]
 
 For more information about this role requirement and the assignment process, see [Set up your user's access permissions](how-to-set-up-instance-CLI.md#set-up-user-access-permissions).
 

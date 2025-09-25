@@ -4,9 +4,10 @@ description: Learn how to configure Azure Monitor alert notifications.
 ms.topic: how-to
 ms.date: 12/30/2024
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: "As an IT administrator managing backup services, I want to configure alert notifications for Azure Monitor, so that I can efficiently monitor backup health and respond promptly to issues."
 ---
 
 # Configure alert notifications for Azure Backup

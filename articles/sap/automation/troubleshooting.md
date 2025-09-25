@@ -5,10 +5,11 @@ author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 12/05/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.custom:
+# Customer intent: As an SAP deployment engineer, I want to troubleshoot issues in the SAP Deployment Automation Framework, so that I can ensure successful deployments and maintain system integrity during the configuration and software download processes.
 ---
 
 # Troubleshooting the SAP Deployment Automation Framework

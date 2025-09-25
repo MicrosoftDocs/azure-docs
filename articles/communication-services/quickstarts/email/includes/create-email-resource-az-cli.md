@@ -10,7 +10,7 @@ ms.author: v-vprasannak
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
-- Install [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli) 
+- Install [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli).
 
 ## Create Email Communication Services resource
 
@@ -20,22 +20,23 @@ To create an Email Communication Services resource, [sign in to Azure CLI](/cli/
 az communication email create --name "<EmailServiceName>" --location "Global" --data-location "United States" --resource-group "<resourceGroup>"
 ```
 
-If you would like to select a specific subscription, you can also specify the ```--subscription``` flag and provide the subscription ID.
+If you want to select a specific subscription, you can also specify the ```--subscription``` flag and provide the subscription ID.
+
 ```azurepowershell-interactive
 az communication email create --name "<EmailServiceName>" --location "Global" --data-location "United States" --resource-group "<resourceGroup>" --subscription "<subscriptionId>"
 ```
 
 You can configure your Email Communication Services resource with the following options:
 
-* The [resource group](../../../../azure-resource-manager/management/manage-resource-groups-cli.md)
-* The name of the Email Communication Services resource
-* The geography the resource will be associated with
+* The [resource group](../../../../azure-resource-manager/management/manage-resource-groups-cli.md).
+* The name of the Email Communication Services resource.
+* The geography to associate with the resource.
 
-In the next step, you can assign tags to the resource. Tags can be used to organize your Azure Email resources. For more information about tags, see the [resource tagging documentation](../../../../azure-resource-manager/management/tag-resources.md).
+In the next step, you can assign tags to the resource. Then you can use tags to organize your Azure Email resources. For more information about tags, see the [resource tagging documentation](../../../../azure-resource-manager/management/tag-resources.md).
 
 ## Manage your Email Communication Services resource
 
-To add tags to your Email Communication Services resource, run the following commands. You can target a specific subscription as well.
+To add tags to your Email Communication Services resource, run the following commands. You can also target a specific subscription.
 
 ```azurepowershell-interactive
 az communication email update --name "<EmailServiceName>" --tags newTag="newVal1" --resource-group "<resourceGroup>"
@@ -49,7 +50,7 @@ To list all of your Email Communication Service Resources in a given Resource gr
 az communication email list --resource-group "<resourceGroup>"
 ```
 
-To show all the information on a given Email Communication Service resource use the following command. You can target a specific subscription as well.
+To show all the information on a given Email Communication Service resource use the following command. You can also target a specific subscription.
 
 ```azurepowershell-interactive
 az communication email show --name "<EmailServiceName>" --resource-group "<resourceGroup>"
@@ -68,6 +69,6 @@ az communication email delete --name "<EmailServiceName>" --resource-group "<res
 [Deleting the resource group](../../../../azure-resource-manager/management/manage-resource-groups-portal.md#delete-resource-groups) also deletes any other resources associated with it.
 
 > [!NOTE]
-> Resource deletion is **permanent** and no data, including event grid filters, phone numbers, or other data tied to your resource, can be recovered if you delete the resource.
+> Resource deletion is **permanent** and no data, including Event Grid filters, phone numbers, or other data tied to your resource, can be recovered if you delete the resource.
 
 For information on other commands, see [Email Communication CLI](/cli/azure/communication/email).

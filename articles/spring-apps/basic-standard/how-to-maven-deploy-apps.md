@@ -7,7 +7,8 @@ ms.reviewer: jialuogan
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: tutorial
-ms.date: 04/23/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 

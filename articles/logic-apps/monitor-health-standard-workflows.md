@@ -1,21 +1,17 @@
 ---
 title: Monitor Standard workflows with Health Check
 description: Set up Health Check to monitor health for Standard workflows in Azure Logic Apps.
-services: azure-logic-apps
+services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/17/2024
+ms.date: 04/15/2025
 # Customer intent: As a developer, I want to monitor the health for my Standard logic app workflows in single-tenant Azure Logic Apps by setting up Health Check, which is an Azure App Service feature.
 ---
 
-# Monitor health for Standard workflows in Azure Logic Apps with Health Check (Preview)
+# Monitor health for Standard workflows in Azure Logic Apps with Health Check
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
-
-> [!NOTE]
-> This capability is in preview and is subject to the
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 To help your Standard logic app workflows run with high availability and performance, set up the Health Check feature on your logic app to monitor workflow health. This feature makes sure that your app stays resilient by providing the following benefits:
 
@@ -59,27 +55,19 @@ After Health Check removes the unhealthy instance, the feature continues to ping
 
 - Changes in the specified path for Health Check cause your logic app to restart. To reduce the impact on production apps, [set up and use deployment slots](set-up-deployment-slots.md).
 
-- Health Check doesn't follow redirects for the **302** status code So, avoid redirects, and make sure to select a valid path that exists in your app.
+- Health Check doesn't follow redirects for the **302** status code. So, avoid redirects and make sure to select a path that exists in your app.
 
 ## Set up Health Check
 
 1. In the [Azure portal](https://portal.azure.com), go to your Standard logic app resource.
 
-1. On the logic app menu, select **Diagnose and solve problems**.
+1. On the logic app menu, under **Monitoring**, select **Health check**. On the **Health check** page, on the **Health check** tab, select **Enable**.
 
-1. On the **Diagnose and solve problems** page, in the search box, find and select **Health Check feature**.
-
-   :::image type="content" source="media/monitor-health-standard-workflows/health-check.png" alt-text="Screenshot shows Azure portal, page for Diagnose and solve problems, search box with health check entered, and selected option for Health Check feature." lightbox="media/monitor-health-standard-workflows/health-check.png":::
-
-1. In the **Health Check feature** section, select **View Solution**.
-
-1. On the pane that opens, select **Configure and enable health check feature**. 
-
-1. On the **Health check** tab, next to **Health check**, select **Enable**.
+   :::image type="content" source="media/monitor-health-standard-workflows/health-check.png" alt-text="Screenshot shows Azure portal, page for Health check, and selected option for Enable." lightbox="media/monitor-health-standard-workflows/health-check.png":::
 
 1. Under **Health probe path**, in the **Path** box, enter a valid URL path for your workflow, for example:
 
-   **`/api/{workflow-name}/triggers/{request-trigger-name}/invoke?api-version=2022-05-01`**
+   **`/api/<workflow-name>/triggers/<request-trigger-name>/invoke?api-version=2022-05-01`**
 
 1. Save your changes. On the toolbar, select **Save**.
 
@@ -97,7 +85,7 @@ After Health Check removes the unhealthy instance, the feature continues to ping
       "extensions": {
           "workflow": {
               "settings": {
-                  "Workflows.HealthCheckWorkflowName" : "{workflow-name}"
+                  "Workflows.HealthCheckWorkflowName" : "<workflow-name>"
               }
           }
       }
@@ -158,8 +146,6 @@ If your Standard logic app uses the hosting option named **Workflow Service Plan
 1. On the logic app menu, under **Settings**, select **Scale out (App Service plan)**.
 
 1. Under **App Scale out**, make sure that the **Always Ready Instances** value *isn't set* to **0**.
-
-
 
 ## Related content
 

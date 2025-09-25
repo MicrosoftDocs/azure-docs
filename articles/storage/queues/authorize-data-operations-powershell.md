@@ -10,6 +10,7 @@ ms.reviewer: ozgun
 ms.date: 02/10/2021
 ms.topic: how-to
 ms.service: azure-queue-storage
+# Customer intent: "As a cloud administrator, I want to use PowerShell with Microsoft Entra credentials to manage Azure Queue Storage data, so that I can perform operations securely without needing to use account keys or SAS tokens."
 ---
 
 # Run PowerShell commands with Microsoft Entra credentials to access queue data

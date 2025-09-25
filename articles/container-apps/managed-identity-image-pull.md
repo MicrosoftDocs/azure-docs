@@ -4,7 +4,11 @@ description: Set up Azure Container Apps to authenticate Azure Container Registr
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - devx-track-bicep
+  - build-2025
 ms.topic: how-to
 ms.date: 02/03/2025
 ms.author: cshoe
@@ -612,7 +616,7 @@ Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ::: zone-end
 ::: zone pivot="bicep"
 
-This article describes how to use a Bicep template to configure your container app to use user-assigned managed identities to pull images from private Azure Container Registry repositories.
+This article describes how to use a Bicep file to configure your container app to use user-assigned managed identities to pull images from private Azure Container Registry repositories.
 
 ## Prerequisites
 
@@ -692,9 +696,9 @@ $AcrPullDefinitionId = '7f951dda-4ed3-4680-a7ca-43fe172d538d'
 
 The [`AcrPull`](/azure/role-based-access-control/built-in-roles#acrpull) role grants your user-assigned managed identity permission to pull the image from the registry.
 
-## Bicep template
+## Bicep file
 
-Copy the following Bicep template and save it as a file with the extension `.bicep`.
+Copy the following Bicep file and save it as a file with the extension `.bicep`.
 
 ```bicep
 param environmentName string 
@@ -866,13 +870,13 @@ This command deploys the following.
 - A container to store the image.
 - A container app based on the image.
 
-If you receive the error `Failed to parse '<YOUR_BICEP_FILE_NAME>', please check whether it is a valid JSON format`, make sure your Bicep template file has the extension `.bicep`.
+If you receive the error `Failed to parse '<YOUR_BICEP_FILE_NAME>', please check whether it is a valid JSON format`, make sure your Bicep file has the extension `.bicep`.
 
 ## Additional resources
 
 For more information, see the following.
 - [Bicep format](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep)
-- [Example Bicep templates](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep#quickstart-templates)
+- [Example Bicep files](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep#quickstart-templates)
 - [Using Managed Identity and Bicep to pull images with Azure Container Apps](https://azureossd.github.io/2023/01/03/Using-Managed-Identity-and-Bicep-to-pull-images-with-Azure-Container-Apps/)
 
 ::: zone-end

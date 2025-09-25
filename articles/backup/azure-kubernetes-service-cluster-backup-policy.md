@@ -1,18 +1,30 @@
 ---
-title: Audit and enforce backup operations for Azure Kubernetes Service clusters using Azure Policy 
-description: 'An article describing how to use Azure Policy to audit and enforce backup operations for all Azure Kubernetes Service clusters created in a given scope'
+title: Audit and enforce backup operations for Azure Kubernetes Service clusters via Azure Backup using Azure Policy 
+description: Learn how to use Azure Policy to audit and enforce backup operations for all Azure Kubernetes Service clusters created in a given scope
 ms.topic: how-to
-ms.date: 08/26/2024
+ms.date: 09/18/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a Backup or Compliance Admin, I want to audit and enforce backup operations for Azure Kubernetes Service clusters using Azure Policy, so that I can ensure all critical clusters are adequately backed up and compliant with organizational standards.
 ---
 
 # Audit and enforce backup operations for Azure Kubernetes Service clusters using Azure Policy 
 
-One of the key responsibilities of a Backup or Compliance Admin in an organization is to ensure that all business-critical machines are backed up with the appropriate retention.
+This article describes how Azure Backup uses built-in [Azure Policy](../governance/policy/overview.md) definitions to automate auditing and enforcement of [backup configurations for Azure Kubernetes Service (AKS) clusters](azure-kubernetes-service-backup-overview.md), ensuring compliance with organizational data protection standards.
 
-Azure Backup provides various built-in policies (using [Azure Policy](../governance/policy/overview.md)) to help you automatically ensure that your Azure Kubernetes Service clusters are ready for backup configuration. Depending on how your backup teams and resources are organized, you can use any one of the below policies:
+As a Backup and Compliance admin, choose the policy that best fits your team's structure and resource organization to manage AKS cluster backups effectively.
+
+## Azure Policy types for AKS cluster backup
+
+The following table lists the various policy types that allows you to manage AKS clusters instances backups automatically:
+
+| Policy type | Description |
+| --- | --- |
+| [Policy 1](#policy-1---azure-backup-extension-should-be-installed-in-aks-clusters) | Identifies AKS clusters that aren't compliant with backup requirements, without making any changes to the clusters. |
+| [Policy 2](#policy-2---azure-backup-should-be-enabled-for-aks-clusters) | Identifies AKS clusters that don't have backups enabled, without making any changes to the clusters. |
+| [Policy 3](#policy-3---install-azure-backup-extension-in-aks-clusters-managed-cluster-with-a-given-tag) | Automatically installs the Azure Backup extension on AKS clusters that meet specific tagging criteria, ensuring they're prepared for backup operations. |
+| [Policy 4](#policy-4---install-azure-backup-extension-in-aks-clusters-managed-cluster-without-a-given-tag) | Automatically installs the Azure Backup extension on AKS clusters that don't meet specific tagging criteria, ensuring they're prepared for backup operations. |
 
 ## Policy 1 - Azure Backup Extension should be installed in AKS clusters
 
@@ -30,25 +42,22 @@ A central backup team in an organization can use this policy to install backup e
 
 A central backup team in an organization can use this policy to install backup extension to any AKS clusters in a region. You can choose to **exclude** clusters that contain a certain tag, from the scope of this policy.
 
-## Supported Scenarios
+## Supported and unsupported Scenarios for AKS clusters backup with Azure Policy
 
-Before you audit and enforce backups for AKS clusters, see the following scenarios supported:
+Before you audit and enforce backups for AKS clusters, review the following supported and unsupported scenarios:
 
-* The built-in policy is currently supported only for Azure Kubernetes Service clusters. 
+| Policy type | Supported | Unsupported |
+| --- | --- | --- |
+| Policy 1, 2, 3, and 4 | Supported for Azure Kubernetes Service clusters only. | Management group scope is currently unsupported.     |
+| Policy 3 and 4 | Can be assigned to a single region and subscription at a time.  <br><b>Ensure that the necessary [prerequisites](azure-kubernetes-service-cluster-backup-concept.md#backup-extension) are enabled before you assign Policies 3 and 4. |       |
 
-* Users must take care to ensure that the necessary [prerequisites](azure-kubernetes-service-cluster-backup-concept.md#backup-extension) are enabled before Policies 3 and 4 are assigned.
-
-* Policies 3 and 4 can be assigned to a single region and subscription at a time. 
-
-* For Policies 1, 2, 3 and 4, management group scope is currently unsupported.
-
-## Using the built-in policies
+## Assign built-in Azure Policy for AKS clusters backup
 
 This section describes the end-to-end process of assigning Policy 3: **Install Azure Backup Extension in AKS clusters (Managed Cluster) with a given tag**. Similar instructions apply for the other policies. Once assigned, any new AKS cluster created under this scope has backup extension installed automatically.
 
 To assign Policy 3, follow these steps:
 
-1. Sign in to the Azure portal and navigate to the **Policy** Dashboard.
+1. Sign in to the Azure portal and go to the **Policy** Dashboard.
    
 2. Select **Definitions** in the left menu to get a list of all built-in policies across Azure Resources.
    
@@ -78,6 +87,6 @@ To assign Policy 3, follow these steps:
 >
 > - Use [remediation](../governance/policy/how-to/remediate-resources.md) to enable these policies on existing AKS clusters.
 
-## Next step
+## Related content
 
 [Learn more about Azure Policy](../governance/policy/overview.md)

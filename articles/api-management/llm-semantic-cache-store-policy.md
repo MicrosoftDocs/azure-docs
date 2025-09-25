@@ -9,6 +9,7 @@ ms.collection: ce-skilling-ai-copilot
 ms.custom:
 ms.topic: reference
 ms.date: 12/13/2024
+ms.update-cycle: 180-days
 ms.author: danlep
 ---
 
@@ -21,7 +22,6 @@ The `llm-semantic-cache-store` policy caches responses to chat completion API re
 > [!NOTE]
 > * This policy must have a corresponding [Get cached responses to large language model API requests](llm-semantic-cache-lookup-policy.md) policy. 
 > * For prerequisites and steps to enable semantic caching, see [Enable semantic caching for Azure OpenAI APIs in Azure API Management](azure-openai-enable-semantic-caching.md). 
-> * Currently, this policy is in preview.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -43,14 +43,15 @@ The `llm-semantic-cache-store` policy caches responses to chat completion API re
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) outbound
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) outbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ### Usage notes
 
 - This policy can only be used once in a policy section.
 - If the cache lookup fails, the API call that uses the cache-related operation doesn't raise an error, and the cache operation completes successfully. 
+- [!INCLUDE [api-management-cache-rate-limit](../../includes/api-management-cache-rate-limit.md)]
 
 ## Examples
 

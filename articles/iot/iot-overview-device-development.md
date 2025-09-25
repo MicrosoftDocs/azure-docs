@@ -1,6 +1,6 @@
 ---
-title: IoT asset and device development
-description: An overview of Azure IoT asset and device development including an introduction to the device SDKs, modeling, IoT Edge modules, and a survey of the available tools.
+title: IoT device development
+description: An overview of Azure IoT device development including an introduction to the device SDKs, modeling, IoT Edge modules, and a survey of the available tools.
 ms.service: azure-iot
 services: iot
 author: dominicbetts
@@ -8,20 +8,22 @@ ms.author: dobett
 ms.topic: overview
 ms.date: 01/20/2025
 ms.custom: template-overview
-# Customer intent: As a solution builder or asset/device developer I want a high-level overview of the issues around asset and device development so that I can easily find relevant content.
+# Customer intent: As a solution builder or device developer I want a high-level overview of the issues around device development so that I can easily find relevant content.
 ---
 
-# IoT asset and device development
+# IoT device development
 
-This overview introduces the key concepts around developing assets and devices that connect to typical Azure IoT solutions. Each section includes links to content that provides further detail and guidance. Typically, devices connect directly to cloud-based services such as IoT Hub, while assets connect to edge-based services in your environment such as Azure IoT Operations. This article includes information about both assets and devices.
+This overview introduces the key concepts around developing devices that connect to typical Azure IoT solutions. Each section includes links to content that provides further detail and guidance.
+
+In a cloud-based solution, devices connect directly to cloud-based services such as IoT Hub, while in an edge-based solution devices connect to edge-based services in your environment such as Azure IoT Operations.
 
 # [Edge-based solution](#tab/edge)
 
-The following diagram shows a high-level view of the components in a typical [edge-based IoT solution](iot-introduction.md#edge-based-solution). This article focuses on the assets and connectors shown in the diagram:
+The following diagram shows a high-level view of the components in a typical [edge-based IoT solution](iot-introduction.md#edge-based-solution). This article focuses on the devices, assets and connectors shown in the diagram:
 
 <!-- Art Library Source# ConceptArt-0-000-025 -->
 
-:::image type="content" source="media/iot-overview-device-development/iot-edge-device-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting asset connectivity areas." border="false":::
+:::image type="content" source="media/iot-overview-device-development/iot-edge-device-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting device connectivity areas." border="false":::
 
 Assets typically have built-in firmware that implements standard protocols. For example, a robotic arm might be an OPC UA client and a security video camera might implement ONVIF. Azure IoT Operations includes various connectors that can use these protocols to communicate with assets and translate messages from the assets into MQTT messages. Some assets can receive messages enabling you to perform operations on them such as:
 
@@ -50,7 +52,7 @@ In Azure IoT, a device developer writes the code to run on the devices in the so
 
 ---
 
-## Asset and device types
+## Device types
 
 An IoT solution can contain many types of [assets](iot-glossary.md#asset) and [devices](iot-glossary.md#device). You typically find devices in cloud-based solutions and assets in edge-based solutions. It's also possible to have a hybrid solution that contains both devices and assets.
 
@@ -62,7 +64,6 @@ Example assets in an edge-based solution include:
 - Industrial CNC machines, lathes, saws, and drills.
 - Medical diagnostic imaging machines.
 - Security video cameras.
-- Software or software components
 - Programmable logic controllers.
 
 These assets typically have built-in firmware that implements standard protocols. For example, a robotic arm might be an OPC UA client and a security video camera might implement the ONVIF protocol. In an edge-based solution, you use specialized connectors to connect to these assets and translate messages from them into a common format.
@@ -150,8 +151,9 @@ Device and asset models define the data that devices and assets exchange with th
 
 # [Edge-based solution](#tab/edge)
 
-In an edge-based solution, an operator configures connectors to connect to assets. This configuration includes a mapping between the asset's data and a cloud schema. For example, the OPC UA connector lets the operator map OPC UA node IDs to tags and events in a JSON message exchanged with the MQTT broker. The following screenshot shows an example in the digital operations experience web UI that defines two such mappings for an asset:
+In an edge-based solution, an operator configures connectors to connect to assets. This configuration includes a mapping between the asset's data and a cloud schema. For example, the OPC UA connector lets the operator map OPC UA node IDs to data points and events in a JSON message exchanged with the MQTT broker. The following screenshot shows an example in the digital operations experience web UI that defines two such mappings:
 
+<!-- TODO: Update this screenshot to show the latest UI -->
 :::image type="content" source="media/iot-overview-device-development/add-tag.png" alt-text="Screenshot that shows an example asset definition.":::
 
 Elsewhere in the solution, an operator can refer directly to the **Temperature** and **Tag 10** tags without needing to know the details of the OPC UA node IDs.
@@ -212,6 +214,6 @@ The following table lists some of the available IoT device development tools:
 
 ## Related content
 
-- [IoT asset and device connectivity and infrastructure](iot-overview-device-connectivity.md)
-- [IoT asset and device management and control](iot-overview-device-management.md)
+- [IoT device connectivity and infrastructure](iot-overview-device-connectivity.md)
+- [IoT device management and control](iot-overview-device-management.md)
 - [Choose an Azure IoT service](iot-services-and-technologies.md)

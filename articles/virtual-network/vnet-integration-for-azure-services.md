@@ -1,33 +1,35 @@
 ---
-title: Virtual network integration of Azure services for network isolation
+title: Azure Virtual Network Integration for Service Network Isolation
 titlesuffix: Azure Virtual Network
-description: This article describes different methods of integrating an Azure service to a virtual network that enables you to securely access the Azure service.
+description: Learn Azure virtual network integration methods for network isolation. Secure Azure services with private endpoints, service endpoints, and dedicated deployments.
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 05/08/2023
+ms.date: 07/28/2025
 ms.author: allensu
+ms.custom: sfi-image-nochange
+# Customer intent: "As a cloud architect, I want to implement network isolation for Azure services using virtual networks, so that I can enhance security and control access to critical resources within my organization's infrastructure."
 ---
 
 # Integrate Azure services with virtual networks for network isolation
 
-Virtual Network integration for an Azure service enables you to lock down access to the service to only your virtual network infrastructure. The virtual network infrastructure also includes peered virtual networks and on-premises networks.
+Azure virtual network integration enables you to securely isolate and control access to Azure services within your virtual network infrastructure. By integrating services with virtual networks, you can eliminate exposure to the public internet, restrict access to authorized networks including peered virtual networks and on-premises connections, and enhance your overall security posture. This comprehensive approach to network isolation helps protect critical resources and ensures compliance with organizational security requirements.
 
-Virtual network integration provides Azure services the benefits of network isolation with one or more of the following methods:
+Virtual network integration provides Azure services with enhanced security and network isolation through one or more of the following integration methods:
 
-- [Deploying dedicated instances of the service into a virtual network](virtual-network-for-azure-services.md). The services can then be privately accessed within the virtual network and from on-premises networks.
+- **Dedicated service deployment**: [Deploy dedicated instances of the service into a virtual network](virtual-network-for-azure-services.md) to enable private access within the virtual network and from on-premises networks. This deployment method provides complete control over network traffic and routing.
 
-- Using [Private Endpoint](../private-link/private-endpoint-overview.md) that connects you privately and securely to a service powered by [Azure Private Link](../private-link/private-link-overview.md). Private Endpoint uses a private IP address from your virtual network, effectively bringing the service into your virtual network.
+- **Private connectivity**: Using [Private Endpoint](../private-link/private-endpoint-overview.md) that connects you privately and securely to a service powered by [Azure Private Link](../private-link/private-link-overview.md). Private Endpoint uses a private IP address from your virtual network, effectively bringing the service into your virtual network and eliminating internet exposure.
 
-- Accessing the service using public endpoints by extending a virtual network to the service, through [service endpoints](virtual-network-service-endpoints-overview.md). Service endpoints allow service resources to be secured to the virtual network.
+- **Service endpoint integration**: Accessing the service using public endpoints by extending a virtual network to the service, through [service endpoints](virtual-network-service-endpoints-overview.md). Service endpoints allow service resources to be secured to the virtual network while maintaining optimized routing over the Azure backbone.
 
-- Using [service tags](service-tags-overview.md) to allow or deny traffic to your Azure resources to and from public IP endpoints.
+- **Network access control**: Use [service tags](service-tags-overview.md) to allow or deny traffic to your Azure resources to and from public IP endpoints. Service tags provide granular control over network access without requiring knowledge of specific IP addresses.
 
 ## Deploy dedicated Azure services into virtual networks
 
 When you deploy dedicated Azure services in a virtual network, you can communicate with the service resources privately, through private IP addresses.
 
-:::image type="content" source="./media/virtual-network-for-azure-services/deploy-service-into-vnet.png" alt-text="Diagram of deploy dedicated Azure services into virtual networks.":::
+:::image type="content" source="./media/virtual-network-for-azure-services/deploy-service-into-vnet.png" alt-text="Screenshot of deploy dedicated Azure services into virtual networks.":::
 
 Deploying a dedicated Azure service into your virtual network provides the following capabilities:
 
@@ -49,26 +51,26 @@ Deploying a dedicated Azure service into your virtual network provides the follo
 
 ### Services that can be deployed into a virtual network
 
-|Category|Service| Dedicated<sup>1</sup> Subnet
+| Category | Service | Dedicated<sup>1</sup> Subnet |
 |-|-|-|
-| Compute | Virtual machines: [Linux](/previous-versions/azure/virtual-machines/linux/infrastructure-example?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](/previous-versions/azure/virtual-machines/windows/infrastructure-example?toc=%2fazure%2fvirtual-network%2ftoc.json) <br/>[Virtual machine scale sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Cloud Service](/previous-versions/azure/reference/jj156091(v=azure.100)): Virtual network (classic) only <br/> [Azure Batch](../batch/nodes-and-pools.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration) <br/> [Azure Baremetal Infrastructure](../baremetal-infrastructure/concepts-baremetal-infrastructure-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)| No <br/> No <br/> No <br/> No<sup>2</sup> </br> No |
+| Compute | Virtual machines: [Linux](/previous-versions/azure/virtual-machines/linux/infrastructure-example?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](/previous-versions/azure/virtual-machines/windows/infrastructure-example?toc=%2fazure%2fvirtual-network%2ftoc.json) <br/>[Virtual machine scale sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Cloud Service](/previous-versions/azure/reference/jj156091(v=azure.100)): Virtual network (classic) only <br/> [Azure Batch](../batch/nodes-and-pools.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration) <br/> [Azure Bare metal Infrastructure](../baremetal-infrastructure/concepts-baremetal-infrastructure-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | No <br/> No <br/> No <br/> No<sup>2</sup> </br> No |
 | Network | [Application Gateway - WAF](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Bastion](../bastion/bastion-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Firewall](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)  <br/>[Azure Route Server](../route-server/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[ExpressRoute Gateway](../expressroute/expressroute-about-virtual-network-gateways.md)<br/>[Network Virtual Appliances](/windows-server/networking/sdn/manage/use-network-virtual-appliances-on-a-vn)<br/>[VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) <br/>[Azure DNS Private Resolver](../dns/dns-private-resolver-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) </br> [Virtual Network Data Gateway for Fabric and Power BI](/data-integration/vnet/overview) | Yes <br/> Yes <br/> Yes <br/> Yes <br/> Yes <br/> No <br/> Yes </br> No </br> Yes |
-|Data|[RedisCache](../azure-cache-for-redis/cache-how-to-premium-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure SQL Managed Instance](/azure/azure-sql/managed-instance/connectivity-architecture-overview?toc=%2fazure%2fvirtual-network%2ftoc.json) </br> [Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/concepts-networking-vnet) </br> [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/concepts-networking#private-access-vnet-integration)| Yes <br/> Yes <br/> Yes </br> Yes |
-|Analytics | [Azure HDInsight](../hdinsight/hdinsight-plan-virtual-network-deployment.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks?toc=%2fazure%2fvirtual-network%2ftoc.json) |No<sup>2</sup> <br/> No<sup>2</sup> <br/> 
-| Identity | [Microsoft Entra Domain Services](../active-directory-domain-services/tutorial-create-instance.md?toc=%2fazure%2fvirtual-network%2ftoc.json) |No <br/>
-| Containers | [Azure Kubernetes Service (AKS)](/azure/aks/concepts-network?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Container Instance (ACI)](https://www.aka.ms/acivnet)<br/>[Azure Container Service Engine](https://github.com/Azure/acs-engine) with Azure Virtual Network CNI [plug-in](https://github.com/Azure/acs-engine/tree/master/examples/vnet)<br/>[Azure Functions](../azure-functions/functions-networking-options.md#virtual-network-integration) |No<sup>2</sup><br/> Yes <br/> No <br/> Yes
-| Web | [API Management](../api-management/api-management-using-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Web Apps](../app-service/overview-vnet-integration.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[App Service Environment](../app-service/overview-vnet-integration.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Container Apps environments](../container-apps/networking.md)<br/>|Yes <br/> Yes <br/> Yes <br/> Yes <br/> Yes
-| Hosted | [Azure Dedicated HSM](/azure/dedicated-hsm/?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>|Yes <br/> Yes <br/>
-| Azure Spring Apps | [Deploy in Azure virtual network (VNet injection)](../spring-apps/basic-standard/how-to-deploy-in-azure-virtual-network.md)<br/>| Yes <br/>
-| Virtual desktop infrastructure| [Azure Lab Services](../lab-services/how-to-connect-vnet-injection.md)<br/>| Yes <br/>
-| DevOps | [Azure Load Testing](/azure/load-testing/concept-azure-load-testing-vnet-injection)<br/>| Yes <br/>
+| Data | [Redis cache](../azure-cache-for-redis/cache-how-to-premium-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure SQL Managed Instance](/azure/azure-sql/managed-instance/connectivity-architecture-overview?toc=%2fazure%2fvirtual-network%2ftoc.json) </br> [Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/concepts-networking-vnet) </br> [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/concepts-networking#private-access-vnet-integration) | Yes <br/> Yes <br/> Yes </br> Yes |
+| Analytics | [Azure HDInsight](../hdinsight/hdinsight-plan-virtual-network-deployment.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks?toc=%2fazure%2fvirtual-network%2ftoc.json) | No<sup>2</sup> <br/> No<sup>2</sup> <br/> |
+| Identity | [Microsoft Entra Domain Services](../active-directory-domain-services/tutorial-create-instance.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | No <br/> |
+| Containers | [Azure Kubernetes Service (AKS)](/azure/aks/concepts-network?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Container Instance (ACI)](https://www.aka.ms/acivnet)<br/>[Azure Container Service Engine](https://github.com/Azure/acs-engine) with Azure Virtual Network CNI [plug-in](https://github.com/Azure/acs-engine/tree/master/examples/vnet)<br/>[Azure Functions](../azure-functions/functions-networking-options.md#virtual-network-integration) | No<sup>2</sup><br/> Yes <br/> No <br/> Yes |
+| Web | [API Management](../api-management/api-management-using-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Web Apps](../app-service/overview-vnet-integration.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[App Service Environment](../app-service/overview-vnet-integration.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Container Apps environments](../container-apps/networking.md)<br/> | Yes <br/> Yes <br/> Yes <br/> Yes <br/> Yes |
+| Hosted | [Azure Dedicated HSM](/azure/dedicated-hsm/?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/> | Yes <br/> Yes <br/> |
+| Azure Spring Apps | [Deploy in Azure virtual network (virtual network injection)](../spring-apps/basic-standard/how-to-deploy-in-azure-virtual-network.md)<br/> | Yes <br/> |
+| Virtual desktop infrastructure | [Azure Lab Services](../lab-services/how-to-connect-vnet-injection.md)<br/> | Yes <br/> |
+| DevOps | [Azure Load Testing](/azure/load-testing/concept-azure-load-testing-vnet-injection)<br/> | Yes <br/> |
 
 <sup>1</sup> 'Dedicated' implies that only service specific resources can be deployed in this subnet and can't be combined with customer VM/VMSSs <br/> 
-<sup>2</sup> It's recommended as a best practice to have these services in a dedicated subnet, but not a mandatory requirement imposed by the service.
+<sup>2</sup> As a best practice, it's recommended to have these services in a dedicated subnet, but it's not a mandatory requirement imposed by the service.
 
-## Private Link and Private Endpoints
+## Private Link and private endpoints
 
-Private endpoints allow ingress of traffic from your virtual network to an Azure resource securely. This private link is established without the need of public IP addresses. A private endpoint is a special network interface for an Azure service in your virtual network. When you create a private endpoint for your resource, it provides secure connectivity between clients on your virtual network and your Azure resource. The private endpoint is assigned an IP address from the IP address range of your virtual network. The connection between the private endpoint and the Azure service is a private link.
+Private endpoints allow ingress of traffic from your virtual network to an Azure resource securely. This private link is established without the need of public IP addresses. A private endpoint is a special network interface for an Azure service in your virtual network. When you create a private endpoint for your resource, it provides secure connectivity between clients on your virtual network and your Azure resource. An IP address from the IP address range of your virtual network is assigned to the private endpoint. The connection between the private endpoint and the Azure service is a private link.
 
 In the diagram, the right shows an Azure SQL Database as the target PaaS service. The target can be [any service that supports private endpoints](../private-link/availability.md). There are multiple instances of the logical SQL Server for multiple customers, which are all reachable over public IP addresses.
 
@@ -76,7 +78,7 @@ In this case, one instance of a logical SQL Server is exposed with a private end
 
 The green arrow represents private link. A public IP address can still _exist_ for the target resource alongside the private endpoint. The public IP is no longer used by the client application. The firewall can now disallow any access for that public IP address, making it accessible _only_ over private endpoints. Connections to a SQL server without a private endpoint from the virtual network originates from a public IP address. The blue arrow represents this flow.
 
-:::image type="content" source="./media/network-isolation/architecture-private-endpoints.png" alt-text="Diagram of Private Endpoints.":::
+:::image type="content" source="./media/network-isolation/architecture-private-endpoints.png" alt-text="Screenshot of Private Endpoints architecture diagram.":::
 
 The client application typically uses a DNS host name to reach the target service. No changes are needed to the application. [DNS resolution in the virtual network must be configured](../private-link/private-endpoint-dns.md) to resolve that same host name to the target resource's private IP address instead of the original public IP address. With a private path between the client and the target service, the client doesn't rely on the public IP address. The target service can turn off public access.
 
@@ -96,9 +98,9 @@ In the following diagram, the right side is the same target PaaS service. On the
 
 When a resource in Subnet B tries to reach any SQL Server, it uses a public IP address for outbound communication. The blue arrow represents this traffic. The SQL Server firewall must use that public IP address to allow or block the network traffic. 
 
-When a resource in Subnet A tries to reach a database server, it's seen as a private IP address from within the virtual network. The green arrows represent this traffic. The SQL Server firewall can now specifically allow or block Subnet A. Knowledge of the public IP address of the source service is unneeded.
+When a resource in Subnet A tries to reach a database server, the connection is seen as a private IP address from within the virtual network. The green arrows represent this traffic. The SQL Server firewall can now specifically allow or block Subnet A. Knowledge of the public IP address of the source service is unneeded.
 
-:::image type="content" source="./media/network-isolation/architecture-service-endpoints.png" alt-text="Diagram of Service Endpoints.":::
+:::image type="content" source="./media/network-isolation/architecture-service-endpoints.png" alt-text="Screenshot of Service Endpoints architecture diagram.":::
 
 Service endpoints apply to **all** instances of the target service. For example, **all** SQL Server instances of Azure customers, not just the customer's instance.
 
@@ -114,10 +116,10 @@ Achieve network isolation and protect your Azure resources from the Internet whi
 
 For more information about Service Tags and Azure services that support them, see [Service Tags Overview](service-tags-overview.md)
 
-## Compare Private Endpoints and Service Endpoints
+## Compare private endpoints and service endpoints
 
 >[!NOTE]
-> Microsoft recommends using Azure Private Link. Private Link offers better capabilities in terms of privately accessing PaaS from on-premises, in built data-exfiltration protection and mapping service to Private IP in your own network. For more information, see [Azure Private Link](../private-link/private-link-overview.md)
+> Microsoft recommends using Azure Private Link. Private Link offers better capabilities for privately accessing PaaS from on-premises, provides built-in data-exfiltration protection, and maps services to private IPs in your own network. For more information, see [Azure Private Link](../private-link/private-link-overview.md).
 
 Rather than looking only at their differences, it's worth pointing out that both service endpoints and private endpoints have characteristics in common.
 
@@ -129,20 +131,20 @@ In both cases, you can still ensure that traffic into the target service passes 
 
 To compare and understand the differences, see the following table.
 
-| Consideration                                                                                                                                    | Service Endpoints                                                                                                           | Private Endpoints                                                                                                                                                 |
+| Consideration | Service Endpoints | Private Endpoints |
 | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Service scope at which level the configuration applies                                                                                                   | Entire service (for example, _all_ SQL Servers or Storage accounts of _all_ customers)                                      | Individual instance (for example, a specific SQL Server instance or Storage account _you_ own)                                                                    |
-|In-Built Data Exfiltration Protection - ability to move/copy data from protected PaaS resource to other unprotected PaaS resource by malicious insider| No | Yes|
-|Private Access to PaaS resource from on-premises| No| Yes|
-|NSG configuration required for Service Access| Yes (using Service Tags)| No|
-| Service can be reached without using any public IP address                                                                                       | No                                                                                                                          | Yes                                                                                                                                                               |
-| Azure-to-Azure traffic stays on the Azure backbone network                                                                                       | Yes                                                                                                                         | Yes                                                                                                                                                               |
-| Service can disable its public IP address                                                                                                        | No                                                                                                                          | Yes                                                                                                                                                               |
-| You can easily restrict traffic coming from an Azure Virtual Network                                                                             | Yes (allow access from specific subnets and or use NSGs)                                                                   | Yes                                                                                                                                                               |
-| You can easily restrict traffic coming from on-premises (VPN/ExpressRoute)                                                                           | N/A**                                                                                                                       | Yes                                                                                                                                                               |
-| Requires DNS changes                                                                                                                             | No                                                                                                                          | Yes (see [DNS configuration](../private-link/private-endpoint-dns.md))                                                                 |
-| Impacts the cost of your solution                                                                                                                | No                                                                                                                          | Yes (see [Private link pricing](https://azure.microsoft.com/pricing/details/private-link/))                                                                       |
-| Impacts the [composite SLA](/azure/architecture/framework/resiliency/business-metrics#composite-slas) of your solution | No                                                                                                                          | Yes (Private link service itself has a [99.99% SLA](https://azure.microsoft.com/support/legal/sla/private-link/))                                                 |
+| Service scope at which the configuration applies | Entire service (for example, _all_ SQL Servers or Storage accounts of _all_ customers) | Individual instance (for example, a specific SQL Server instance or Storage account _you_ own) |
+| In-Built Data Exfiltration Protection - ability to move/copy data from protected PaaS resource to other unprotected PaaS resource by malicious insider | No | Yes |
+| Private Access to PaaS resource from on-premises | No | Yes |
+| NSG configuration required for Service Access | Yes (using Service Tags) | No |
+| Service can be reached without using any public IP address | No | Yes |
+| Azure-to-Azure traffic stays on the Azure backbone network | Yes | Yes |
+| Service can disable its public IP address | No | Yes |
+| You can easily restrict traffic coming from an Azure Virtual Network | Yes (allow access from specific subnets and or use NSGs) | Yes |
+| You can easily restrict traffic coming from on-premises (VPN/ExpressRoute) | N/A** | Yes |
+| Requires DNS changes | No | Yes (see [DNS configuration](../private-link/private-endpoint-dns.md)) |
+| Impacts the cost of your solution | No | Yes (see [Private link pricing](https://azure.microsoft.com/pricing/details/private-link/)) |
+| Impacts the [composite SLA](/azure/architecture/framework/resiliency/business-metrics#composite-slas) of your solution | No | Yes (Private link service itself has a [99.99% SLA](https://azure.microsoft.com/support/legal/sla/private-link/)) |
 | Setup and maintenance | Simple to set up with less management overhead | Extra effort is required |
 | Limits | No limit on the total number of service endpoints in a virtual network. Azure services might enforce limits on the number of subnets used for securing the resource. (see [virtual network FAQ](virtual-networks-faq.md#are-there-any-limits-on-how-many-service-endpoints-i-can-set-up-from-my-virtual-network)) | Yes (see [Private Link limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-private-link-limits)) |
 

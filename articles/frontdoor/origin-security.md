@@ -14,6 +14,13 @@ zone_pivot_groups: front-door-tiers
 
 Front Door's features work best when traffic only flows through Front Door. You should configure your origin to block traffic that hasn't been sent through Front Door. Otherwise, traffic might bypass Front Door's web application firewall, DDoS protection, and other security features.
 
+| Approach | Supported tiers | 
+|--|--|
+| Private Link | Premium |
+| Managed Identities | Standard, Premium |
+| IP address filtering | Classic, Standard, Premium |
+| Front Door identifier | Classic, Standard, Premium |
+
 ::: zone pivot="front-door-classic"
 
 > [!NOTE]
@@ -25,7 +32,7 @@ Front Door's features work best when traffic only flows through Front Door. You 
 
 Front Door provides several approaches that you can use to restrict your origin traffic.
 
-## Private Link origins
+## Private Link enabled origins
 
 When you use the premium SKU of Front Door, you can use Private Link to send traffic to your origin. [Learn more about Private Link origins.](private-link.md)
 
@@ -34,6 +41,10 @@ You should configure your origin to disallow traffic that doesn't come through P
 - Azure App Service and Azure Functions automatically disable access through public internet endpoints when you use Private Link. For more information, see [Using Private Endpoints for Azure Web App](../app-service/networking/private-endpoint.md).
 - Azure Storage provides a firewall, which you can use to deny traffic from the internet. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md).
 - Internal load balancers with Azure Private Link service aren't publicly routable. You can also configure network security groups to ensure that you disallow access to your virtual network from the internet.
+
+## Managed Identities
+
+Managed identities provided by Microsoft Entra ID enables your Front Door instance to securely access other Microsoft Entra protected resources, such as Azure Blob Storage, without the need to manage credentials. After you enable managed identity for Front Door and granting the managed identity necessary permissions to your origin, Front Door will use the managed identity to obtain an access token from Microsoft Entra ID for accessing the specified resource. After successfully obtaining the token, Front Door will set the value of the token in the Authorization header using the Bearer scheme and then forward the request to the origin. Front Door caches the token until it expires. For more information, see [use managed identities to authenticate to origins (preview)](origin-authentication-with-managed-identities.md).
 
 ::: zone-end
 

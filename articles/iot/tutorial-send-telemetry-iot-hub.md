@@ -6,6 +6,7 @@ ms.author: dobett
 ms.service: azure-iot
 ms.topic: tutorial
 ms.date: 1/10/2025
+ms.update-cycle: 1095-days
 ms.collection: embedded-developer, application-developer
 zone_pivot_groups: iot-develop-set1
 ms.custom: mode-other, devx-track-azurecli, devx-track-extended-java, devx-track-python, linux-related-content, devx-track-js

@@ -7,16 +7,22 @@ author: garrodonnell
 manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: quickstart
-ms.custom: devx-track-csharp, mvc, mode-other
 ms.date: 01/24/2023
 ms.author: godonnell
 ms.subservice: b2c
+ms.custom:
+  - devx-track-csharp
+  - mvc
+  - mode-other
+  - sfi-image-nochange
 
 #Customer Intent: As a developer building an ASP.NET application, I want to set up sign-in functionality using Azure Active Directory B2C, so that I can authenticate users with social or enterprise accounts and protect my application and customer data.
 
 ---
 
 # Quickstart: Set up sign in for an ASP.NET application using Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Azure Active Directory B2C (Azure AD B2C) provides cloud identity management to keep your application, business, and customers protected. Azure AD B2C enables your applications to authenticate to social accounts and enterprise accounts using open standard protocols. 
 

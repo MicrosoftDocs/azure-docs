@@ -3,9 +3,9 @@ title: Request disallowed by policy error
 description: Describes the error for request disallowed by policy when deploying resources with an Azure Resource Manager template (ARM template) or Bicep file.
 ms.topic: troubleshooting
 ms.custom: devx-track-bicep, devx-track-arm-template
-ms.date: 06/20/2024
+ms.date: 04/28/2025
 author: genlin
-ms.author: genli
+ms.author: allensu
 ---
 
 # Resolve errors for request disallowed by policy
@@ -85,4 +85,4 @@ For more information, see the following articles:
 
 - [What is Azure Policy?](../../governance/policy/overview.md)
 - [Tutorial: Create and manage policies to enforce compliance](../../governance/policy/tutorials/create-and-manage.md)
-- [Azure Policy built-in policy definitions](../../governance/policy/samples/built-in-policies.md)
+- [Azure Policy built-in policy definitions](/azure/governance/policy/samples/built-in-policies)

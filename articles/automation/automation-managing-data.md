@@ -7,6 +7,8 @@ ms.date: 01/01/2025
 ms.topic: overview
 ms.custom:
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Management of Azure Automation data

@@ -6,9 +6,11 @@ description: Provides an overview of factors to consider and steps to follow to 
 author: karauten
 ms.author: karauten
 ms.date: 04/12/2021
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
+ms.custom: sfi-image-nochange
+# Customer intent: As a data administrator using DobiProtect, I want to configure Azure Blob storage as a backup and recovery target, so that I can ensure data protection and quick recovery in the event of a disaster.
 ---
 
 # Backup to Azure with DobiProtect

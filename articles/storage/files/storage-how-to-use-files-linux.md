@@ -1,12 +1,16 @@
 ---
-title: Mount SMB Azure file share on Linux
+title: Mount SMB Azure File Share on Linux
 description: Learn how to mount an Azure file share over SMB on Linux and review SMB security considerations on Linux clients.
 author: khdownie
 ms.service: azure-file-storage
-ms.custom: linux-related-content, devx-track-azurecli
 ms.topic: how-to
-ms.date: 03/19/2025
+ms.date: 09/22/2025
 ms.author: kendownie
+ms.custom:
+  - linux-related-content
+  - devx-track-azurecli
+  - sfi-ropc-nochange
+# Customer intent: As a Linux user, I want to mount Azure file shares over SMB, so that I can access and manage files stored in Azure directly from my Linux environment while considering security best practices.
 ---
 
 # Mount SMB Azure file shares on Linux clients
@@ -16,16 +20,21 @@ Azure file shares can be mounted in Linux distributions using the [SMB kernel cl
 This article shows how to mount an SMB Azure file share using NTLMv2 authentication (storage account key). Using identity-based authentication is preferred for security reasons. See [Enable Active Directory authentication over SMB for Linux clients accessing Azure Files](storage-files-identity-auth-linux-kerberos-enable.md).
 
 ## Applies to
-
-| File share type | SMB | NFS |
-|-|:-:|:-:|
-| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
+|-|-|-|-|:-:|:-:|
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Protocols
-
-We recommend using SMB 3.1.1. By default, Azure Files requires encryption in transit, which is supported by SMB 3.0+. Azure Files also supports SMB 2.1, which doesn't support encryption in transit, but you can't mount Azure file shares with SMB 2.1 from another Azure region or on-premises for security reasons. Unless your application specifically requires SMB 2.1, use SMB 3.1.1. SMB 2.1 support was added to Linux kernel version 3.7, so if you're using a version of the Linux kernel after 3.7, it should support SMB 2.1.
+By default, Azure Files enforces encryption in transit. SMB encryption is available starting with SMB 3.0. Azure Files also supports SMB 2.1, which doesn't support SMB encryption. As a result, Azure Files doesn't permit file shares to be mounted using SMB 2.1 from another Azure region or on-premises, without additional networking configuration, for security reasons. You should use SMB 3.1.1 unless your application specifically requires an older version.
 
 | Distribution | SMB 3.1.1 (Recommended) | SMB 3.0 |
 |-|-----------|---------|
@@ -48,7 +57,6 @@ uname -r
 * <a id="install-cifs-utils"></a>**Ensure the cifs-utils package is installed.**
     Install the latest version of the cifs-utils package using the package manager on the Linux distribution of your choice.
 
-
 # [Ubuntu](#tab/Ubuntu)
 
 On Ubuntu and Debian, use the `apt` package manager:
@@ -57,6 +65,7 @@ On Ubuntu and Debian, use the `apt` package manager:
 sudo apt update
 sudo apt install cifs-utils
 ```
+
 # [RHEL](#tab/RHEL)
 
 Same applies for CentOS or Oracle Linux
@@ -72,6 +81,7 @@ On older versions of Red Hat Enterprise Linux use the `yum` package manager:
 ```bash
 sudo yum install cifs-utils
 ```
+
 # [SLES](#tab/SLES)
 
 On SUSE Linux Enterprise Server, use the `zypper` package manager:
@@ -85,7 +95,7 @@ On other distributions, use the appropriate package manager or [compile from sou
 
 * **The most recent version of the Azure Command Line Interface (CLI).** For more information on how to install the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli) and select your operating system. If you prefer to use the Azure PowerShell module in PowerShell 6+, you may; however, the instructions in this article are for the Azure CLI.
 
-* **Ensure port 445 is open**: SMB communicates over TCP port 445 - make sure your firewall or ISP isn't blocking TCP port 445 from the client machine. Replace `<your-resource-group>` and `<your-storage-account>` and then run the following script:
+* **Ensure port 445 is open**: SMB communicates over TCP port 445. Make sure your firewall or ISP isn't blocking TCP port 445 from the client machine. Replace `<your-resource-group>` and `<your-storage-account>` and then run the following script:
 
     ```bash
     RESOURCE_GROUP_NAME="<your-resource-group>"
@@ -108,11 +118,11 @@ On other distributions, use the appropriate package manager or [compile from sou
     Connection to <your-storage-account> 445 port [tcp/microsoft-ds] succeeded!
     ```
 
-    If you're unable to open up port 445 on your corporate network or are blocked from doing so by an ISP, you may use a VPN connection or ExpressRoute to work around port 445. For more information, see [Networking considerations for direct Azure file share access](storage-files-networking-overview.md).
+    You can use a VPN connection or ExpressRoute if port 445 is blocked on your network. For more information, see [Networking considerations for direct Azure file share access](storage-files-networking-overview.md).
 
 ## Permissions
 
-All mounting scripts in this article will mount the file shares using the default 0755 Linux file and folder permissions. This means read, write, and execute for the file/directory owner, read and execute for users in the owner group, and read and execute for other users. Depending on your organization's security policies, you might want to set alternate `uid`/`gid` or `dir_mode` and `file_mode` permissions in the mount options. For more information on how to set permissions, see [Unix symbolic notation](https://en.wikipedia.org/wiki/File-system_permissions#Symbolic_notation). See [mount options](#mount-options) for a list of mount options.
+All mounting scripts in this article mount the file shares using the default 0755 Linux file and folder permissions. This means read, write, and execute for the file/directory owner, read and execute for users in the owner group, and read and execute for other users. Depending on your organization's security policies, you might want to set alternate `uid`/`gid` or `dir_mode` and `file_mode` permissions in the mount options. For more information on how to set permissions, see [Unix symbolic notation](https://en.wikipedia.org/wiki/File-system_permissions#Symbolic_notation). See [mount options](#mount-options) for a list of mount options.
 
 ### Unix-style permissions support
 
@@ -171,6 +181,7 @@ sudo chmod 600 $SMB_CREDENTIAL_FILE
 Now you can mount the file share with the `mount` command using the credential file. In the following example, the `$SMB_PATH` command is populated using the fully qualified domain name for the storage account's file endpoint. See [mount options](#mount-options) for a list of SMB mount options.
 
 # [SMB 3.1.1](#tab/smb311)
+
 > [!NOTE]
 > Starting in Linux kernel version 5.0, SMB 3.1.1 is the default negotiated protocol. If you're using a version of the Linux kernel older than 5.0, specify `vers=3.1.1` in the mount options list.
 
@@ -191,6 +202,7 @@ sudo mount -t cifs $SMB_PATH $MNT_PATH -o credentials=$SMB_CREDENTIAL_FILE,serve
 ```
 
 # [SMB 3.0](#tab/smb30)
+
 ```azurecli
 # This command assumes you have logged in with az login
 HTTP_ENDPOINT=$(az storage account show \
@@ -208,6 +220,7 @@ sudo mount -t cifs $SMB_PATH $MNT_PATH -o vers=3.0,credentials=$SMB_CREDENTIAL_F
 ```
 
 # [SMB 2.1](#tab/smb21)
+
 ```azurecli
 # This command assumes you have logged in with az login
 HTTP_ENDPOINT=$(az storage account show \
@@ -226,7 +239,7 @@ sudo mount -t cifs $SMB_PATH $MNT_PATH -o vers=2.1,credentials=$SMB_CREDENTIAL_F
 
 ---
 
-You can also mount the same Azure file share to multiple mount points if desired. 
+You can also mount the same Azure file share to multiple mount points if desired.
 
 When you're done using the Azure file share, use `sudo umount $mntPath` to unmount the share.
 
@@ -322,11 +335,13 @@ On Ubuntu and Debian distributions, use the `apt` package manager:
 sudo apt update
 sudo apt install autofs
 ```
+
 # [RHEL](#tab/RHEL)
 
 Same applies for CentOS or Oracle Linux:
 
 On Red Hat Enterprise Linux 8+,  use the `dnf` package manager:
+
 ```bash
 sudo dnf install autofs
 ```
@@ -340,6 +355,7 @@ sudo yum install autofs
 # [SLES](#tab/SLES)
 
 On SUSE Linux Enterprise Server, use the `zypper` package manager:
+
 ```bash
 sudo zypper install autofs
 ```
@@ -367,6 +383,54 @@ The final step is to restart the `autofs` service.
 sudo systemctl restart autofs
 ```
 
+## Mount with password rotation
+
+Periodically rotating passwords (storage account keys) is a security best practice. However, in the past it required some planned downtime. We now provide the ability to specify the mount option `password2=` so that if the primary password expires or is rotated, the file share mount will continue to work with no downtime for users. This is an optional, second secret you can pass to the Linux SMB client to enable seamless credential rotation without unmounting the share or interrupting I/O.
+
+When this mount option is present, the client will accept both `password` and `password2` during session setup/reconnects, so you can introduce a new key while the old key is still in use.
+
+You can supply `password2` one of two ways:
+
+- In the SMB credentials file alongside username and password
+- On the command line to update an existing volume mount: -o password2=`new-secret`, including via -o remount during rotation
+
+### Prerequisites
+
+You need cifs-utils version 7.4 or higher to use the `password2` mount option. In addition to the correct cifs-utils package, your Linux distribution must support the minimum required kernel versions as highlighted in the following table:
+
+| **Distribution** | **Release**  |**Supported Kernel Version** |
+|***********************************************|
+| Ubuntu | 22.04 LTS | 6.8-1027 |
+| Ubuntu | 24.04 LTS | 6.14.0-1006 |
+| Ubuntu | 24.04 LTS | 6.14.0-1006 |
+| RHEL | 9.5 | 5.14.0-503.11.1.el9_5 |
+| RHEL | 9.6 | 5.14.0-570.12.1.el9_6 |
+| Alma | 9.6 | 5.14.0-570.12.1 |
+| Rocky | 9.6 | 5.14.0-570.17.1 |
+
+> [!NOTE]
+> If your distribution isn't on the list, it currently doesn't have the required backports from Kernel 6.6 Stable branch.
+
+### Via credentials file
+
+Put both secrets in your credentials file, then mount with credentials. When rotating, update `password2` to the new key first, remount or wait for reconnects, then swap the values at your next maintenance window so the new key becomes `password`.
+
+```bash
+# /etc/smbcredentials/<storage-account-name>.cred
+username=<storage-account-name>
+password=<current-key>
+password2=<new-rotating-key>
+```
+
+### Update existing volume mount
+
+If you have already a volume mounted on a supported distro with an appropiate version of cifs-utils, you can use the following command to modify the mount option by adding the `password2=` option.
+
+```bash
+# During rotation:
+sudo mount -o remount,password2=<new-rotating-key> /mnt/share
+```
+
 ### Mount options
 
 You can use the following mount options when mounting SMB Azure file shares on Linux.
@@ -378,19 +442,20 @@ You can use the following mount options when mounting SMB Azure file shares on L
 | `password2=` | Storage account secondary key | Recommended in case when no-downtime key-rotation is desirable. |
 | `mfsymlinks` | n/a | Recommended. Forces the mount to support symbolic links, allowing applications like git to clone repos with symlinks. |
 | `actimeo=` | 30-60 | Recommended. The time (in seconds) that the CIFS client caches attributes of a file or directory before it requests attribute information from a server. Using a value lower than 30 seconds can cause performance degradation because attribute caches for files and directories expire too quickly. We recommend setting `actimeo` between 30 and 60 seconds. |
-| `nosharesock` | n/a | Optional. Forces the client to always make a new connection to the server even if it has an existing connection to the SMB mount. This can enhance performance, as each mount point will use a different TCP socket. In some cases, `nosharesock` can degrade performance due to not caching the same file when opened from two mounts from the same client. |
-| `max_channels=` | 4 | Recommended when using SMB Multichannel. Specifies the maximum number of channels (network connections) to the file share. If you're using SMB Multichannel and the number of channels exceeds four, this will result in poor performance. |
+| `nosharesock` | n/a | Optional. Forces the client to always make a new connection to the server even if it has an existing connection to the SMB mount. This can enhance performance, as each mount point uses a different TCP socket. In some cases, `nosharesock` can degrade performance due to not caching the same file when opened from two mounts from the same client. |
+| `max_channels=` | 4 | Recommended when using SMB Multichannel. Specifies the maximum number of channels (network connections) to the file share. Using SMB Multichannel with more than four channels results in poor performance. |
 | `remount` | n/a | Remounts the file share and changes mount options if specified. Use with the `password2` option in cases where you want to specify an alternative password to fix an expired password after the original mount. |
 | `nobrl` | n/a | Recommended in single-client scenarios when advisory locks are required. Azure Files doesn't support advisory locks, and this setting prevents sending byte range lock requests to the server. |
 | `snapshot=` | time | Mount a specific snapshot of the file share. Time must be a positive integer identifying the snapshot requested (in 100-nanosecond units that have elapsed since January 1, 1601, or alternatively it can be specified in GMT format e.g. @GMT-2024.03.27-20.52.19). |
 | `closetimeo=` | 5 | Configures deferred close timeout (handle cache) in seconds, or disables it by setting to 0. Default is 5 seconds. |
 | `nostrictsync` | n/a | Don't ask the server to flush on fsync(). Some servers perform non-buffered writes by default, in which case flushing is redundant. This option can improve performance for workloads where a client is performing a lot of small write + fsync combinations and where network latency is much higher than the server latency. |
-| `multiuser` | n/a | Map user accesses to individual credentials when accessing the server. By default, CIFS mounts only use a single set of user credentials (the mount credentials) when accessing a share. With this option, the client instead creates a new session with the server using the user's credentials whenever a new user accesses the mount. Further accesses by that user will also use those credentials. Because the kernel can't prompt for passwords, multiuser mounts are limited to mounts using `sec=` options that don't require passwords. |
+| `multiuser` | n/a | Map user accesses to individual credentials when accessing the server. By default, CIFS mounts only use a single set of user credentials (the mount credentials) when accessing a share. With this option, the client instead creates a new session with the server using the user's credentials whenever a new user accesses the mount. Further accesses by that user also use those credentials. Because the kernel can't prompt for passwords, multiuser mounts are limited to mounts using `sec=` options that don't require passwords. |
 | `cifsacl` | n/a | This option is used to map CIFS/NTFS ACLs to/from Linux permission bits, map SIDs to/from UIDs and GIDs, and get and set Security Descriptors. Only supported for NTLMv2 authentication. |
 | `idsfromsid,modefromsid` | n/a | Recommended when client needs to do client-enforced authorization. Enables Unix-style permissions. Only works when UIDs/GIDs are uniform across all the clients. Only supported for NTLMv2 authentication. |
-| `sec=` | krb5 | Required for Kerberos authentication. To enable Kerberos security mode, set `sec=krb5`. You must omit username and password when using this option. The Linux client must be domain-joined. See [Enable Active Directory authentication over SMB for Linux clients](storage-files-identity-auth-linux-kerberos-enable.md). |
-| `uid=` | 0 | Optional. Sets the uid that will own all files or directories on the mounted filesystem when the server doesn't provide ownership information. It can be specified as either a username or a numeric uid. When not specified, the default is 0. |
-| `gid=` | 0 | Optional. Sets the gid that will own all files or directories on the mounted filesystem when the server doesn't provide ownership information. It can be specified as either a groupname or a numeric gid. When not specified, the default is 0. |
+| `cruid=` | uid or username | Optional. Sets the uid of the owner of the credentials cache. This is primarily useful with `sec=krb5`. The default is the real uid of the process performing the mount. We recommend setting this parameter to the uid or username of the user who has the necessary Kerberos tickets in their default credentials cache file. This directs the upcall to look for a credentials cache owned by that user. |
+| `sec=` | krb5 | Required for Kerberos authentication. To enable Kerberos security mode, set `sec=krb5`. Example: `sudo mount -t cifs $SMB_PATH $MNT_PATH -o sec=krb5,cruid=$UID,serverino,nosharesock,actimeo=30,mfsymlinks`. You must omit username and password when using this option. The Linux client must be domain-joined. See [Enable Active Directory authentication over SMB for Linux clients](storage-files-identity-auth-linux-kerberos-enable.md). |
+| `uid=` | 0 | Optional. Sets the uid that owns all files or directories on the mounted filesystem when the server doesn't provide ownership information. It can be specified as either a username or a numeric uid. When not specified, the default is 0. |
+| `gid=` | 0 | Optional. Sets the gid that owns all files or directories on the mounted filesystem when the server doesn't provide ownership information. It can be specified as either a groupname or a numeric gid. When not specified, the default is 0. |
 | `file_mode=` | n/a | Optional. If the server doesn't support the CIFS Unix extensions, this overrides the default file mode. |
 | `dir_mode=` | n/a | Optional. If the server doesn't support the CIFS Unix extensions, this overrides the default mode for directories. |
 | `handletimeout=` | n/a | Optional. The time (in milliseconds) for which the server should reserve the file handle after a failover waiting for the client to reconnect. |

@@ -10,6 +10,7 @@ ms.author: shaas
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: data-box-sku
 #Customer intent: As an IT admin, I need to be able to order Data Box to upload on-premises data from my server onto Azure.
+# Customer intent: "As an IT admin, I want to order an Azure Data Box to transfer on-premises data to Azure, so that I can efficiently manage and migrate large volumes of data to the cloud."
 ---
 # Tutorial: Order Azure Data Box
 
@@ -216,6 +217,9 @@ For detailed information on how to sign in to Azure using Windows PowerShell, se
 ---
 
 ## Order Data Box
+
+> [!NOTE]
+> Azure Data Box currently does not support Azure Files Provisioned v2 Storage Accounts. For on-premises to Azure migration scenarios, you can explore [Azure Storage Mover](/azure/storage-mover/service-overview).
 
 To order a device, perform the following steps:
 

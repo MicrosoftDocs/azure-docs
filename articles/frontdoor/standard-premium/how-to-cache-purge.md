@@ -7,9 +7,12 @@ manager: KumudD
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 11/15/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Cache purging in Azure Front Door
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 Azure Front Door caches assets until their time-to-live (TTL) expires. When a client requests an asset with an expired TTL, Azure Front Door retrieves and caches a new copy of the asset to serve the request.
 

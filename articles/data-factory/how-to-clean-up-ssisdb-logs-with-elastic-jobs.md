@@ -6,6 +6,9 @@ ms.topic: conceptual
 ms.date: 05/15/2024
 author: chugugrace
 ms.author: chugu
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # How to clean up SSISDB logs automatically

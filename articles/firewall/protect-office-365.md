@@ -7,6 +7,8 @@ services: firewall
 ms.topic: how-to
 ms.date: 03/31/2025
 ms.author: yuvalpery
+ms.custom: sfi-image-nochange
+# Customer intent: As a network administrator, I want to configure Azure Firewall with Microsoft 365 service and FQDN tags, so that I can effectively control and secure outbound traffic to Microsoft 365 endpoints while optimizing performance and compliance.
 ---
 
 # Use Azure Firewall to protect Microsoft 365

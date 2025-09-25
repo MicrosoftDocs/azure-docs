@@ -4,9 +4,10 @@ description: This article contains important reference material you need when yo
 ms.date: 03/21/2024
 ms.custom: horz-monitor
 ms.topic: reference
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ms.service: azure-site-recovery
+# Customer intent: As an IT administrator, I want to access monitoring data for Azure Site Recovery, so that I can effectively track replication status, job details, and performance metrics to ensure reliable disaster recovery processes.
 ---
 
 # Azure Site Recovery monitoring data reference

@@ -6,9 +6,9 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 09/12/2024
+ms.date: 09/23/2025
 
-#CustomerIntent: As an Azure administrator, I want to learn about VPN troubleshoot so I can use it to troubleshoot my VPN virtual network gateways and their connections whenever resources in a virtual network can't communicate with on-premises machines over a VPN connection.
+# Customer intent: As an Azure administrator, I want to utilize the VPN troubleshoot feature, so that I can effectively diagnose and resolve connectivity issues between my on-premises resources and Azure Virtual Networks.
 ---
 
 # VPN troubleshoot overview
@@ -97,7 +97,7 @@ The resource troubleshooting log files are stored in a storage account after res
 
 > [!NOTE]
 > 1. In some cases, only a subset of the logs files is written to storage.
-> 2. For newer gateway versions, the IkeErrors.txt, Scrubbed-wfpdiag.txt and wfpdiag.txt.sum have been replaced by an IkeLogs.txt file that contains the whole IKE activity (not just errors).
+> 2. For newer gateway versions, IkeLogs.txt file replaces the IkeErrors.txt, Scrubbed-wfpdiag.txt and wfpdiag.txt.sum files and it contains the whole IKE activity (not just errors).
 
 For instructions on downloading files from Azure storage accounts, see [Download a block blob](../storage/blobs/storage-quickstart-blobs-portal.md#download-a-block-blob). Another tool that can be used is Storage Explorer. For information about Azure Storage Explorer, see [Use Azure Storage Explorer to download blobs](../storage/blobs/quickstart-storage-explorer.md#download-blobs)
 
@@ -120,7 +120,7 @@ Connected Since : 2/1/2017 8:22:06 PM
 
 ### CPUStats.txt
 
-The **CPUStats.txt** file contains CPU usage and memory available at the time of testing.  The contents of this file is similar to the following example:
+The **CPUStats.txt** file contains CPU usage and memory available at the time of testing. The contents of this file is similar to the following example:
 
 ```
 Current CPU Usage : 0 % Current Memory Available : 641 MBs

@@ -120,7 +120,7 @@ ms.author: wchi
     DATABASES = {
         'default': {
             'ENGINE': 'sql_server.pyodbc',
-            'NAME': databse,
+            'NAME': database,
             'USER': user,
             'PASSWORD': password,
             'HOST': server,

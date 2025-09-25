@@ -5,6 +5,7 @@ author: FlorianBorn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Use Azure Blob Storage for model conversion

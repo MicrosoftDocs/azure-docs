@@ -94,7 +94,7 @@ Included in the body of the request:
 Azure Maps _Route Directions_ API POST request:
 
 ``` http
-https://atlas.microsoft.com/route/directions?api-version=2023-10-01-preview&subscription-key={Your-Azure-Maps-Subscription-key} 
+https://atlas.microsoft.com/route/directions?api-version=2025-01-01&subscription-key={Your-Azure-Maps-Subscription-key} 
 ```
 
 Included in the body of the request:
@@ -151,7 +151,7 @@ The following table lists the fields that can appear in the HTTP response when r
 |------------------------|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | actualEnd              | Point feature object      | Point feature object with _type=”waypoint”_ and _inputIndex = last_ defines the routable end location.                              |
 | actualStart            | Point feature object      | Point feature object with _type=”waypoint”_ and _inputIndex = 0_ defines the routable start location.                               |
-| alternateVias          | alternativeRoutes         | Bing Maps `alternateVias` identifies the separate routes. In Azure maps Route Directions API, alternate routes are returned as a new feature collection under `alternativeRoutes`.  |
+| alternateVias          | alternativeRoutes         | Bing Maps `alternateVias` identifies the separate routes. In Azure Maps Route Directions API, alternate routes are returned as a new feature collection under `alternativeRoutes`.  |
 | compassDegrees         | Not supported             |                                                                                                                                     |
 | compassDirection       | Not supported             |                                                                                                                                     |
 | description            | Not supported             |                                                                                                                                     |
@@ -573,15 +573,15 @@ Support
 [Azure Account]: https://azure.microsoft.com/
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Calculate a Truck Route]: /bingmaps/rest-services/routes/calculate-a-truck-route
-[Definitions]: /rest/api/maps/route/post-directions#definitions
+[Definitions]: /rest/api/maps/route/post-route-directions#definitions
 [geographic scope]: geographic-scope.md
 [Microsoft Entra ID]: azure-maps-authentication.md#microsoft-entra-authentication
 [Microsoft Q&A Forum]: /answers/tags/209/azure-maps
-[Post Directions Batch]: /rest/api/maps/route/post-directions-batch
-[Route Directions]: /rest/api/maps/route/post-directions
-[RouteOutputOption]: /rest/api/maps/route/post-directions#routeoutputoption
+[Post Directions Batch]: /rest/api/maps/route/post-route-directions-batch
+[Route Directions]: /rest/api/maps/route/post-route-directions
+[RouteOutputOption]: /rest/api/maps/route/post-route-directions#routeoutputoption
 [Security section]: /rest/api/maps/route/get-route-range?#security
 [Shared Access Signature (SAS) Token]: azure-maps-authentication.md#shared-access-signature-token-authentication
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Understanding Azure Maps Transactions]: understanding-azure-maps-transactions.md
-[URI Parameters]: /rest/api/maps/route/post-directions#uri-parameters
+[URI Parameters]: /rest/api/maps/route/post-route-directions#uri-parameters
