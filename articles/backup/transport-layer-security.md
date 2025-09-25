@@ -8,7 +8,7 @@ ms.author: v-mallicka
 # Customer intent: As a system administrator, I want to enable TLS 1.2 in Azure Backup, so that I can ensure secure data transmission and protect sensitive backup information from vulnerabilities associated with older protocols.
 ---
 
-# Transport Layer Security in Azure Backup
+# Enable Transport Layer Security in Azure Backup
 
 This article describes how to enable Transport Layer Security (TLS) 1.2 for Azure Backup to ensure secure data transmission over networks. TLS 1.2 offers enhanced protection compared to earlier protocol versions, helping safeguard backup data from vulnerabilities, and unauthorized access.
 
