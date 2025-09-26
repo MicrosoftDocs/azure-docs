@@ -3,7 +3,9 @@ title: Manage sensors with Defender for IoT in the Azure portal
 description: Learn how to onboard, view, and manage sensors with Defender for IoT in the Azure portal.
 ms.date: 12/19/2023
 ms.topic: how-to
-ms.custom: enterprise-iot
+ms.custom:
+  - enterprise-iot
+  - sfi-image-nochange
 ---
 
 # Manage sensors with Defender for IoT in the Azure portal

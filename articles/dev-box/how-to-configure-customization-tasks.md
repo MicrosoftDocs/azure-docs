@@ -73,7 +73,7 @@ To configure your key vault secrets for use in your YAML configurations:
 
 1. Grant the Key Vault Secrets User role for the key vault secret to each user or user group that should be able to consume the secret during the customization of a dev box. The user or group granted the role must include the managed identity for the dev center, your own user account, and any user or group that needs the secret during the customization of a dev box.
 
-For more information on using key vault secrets in a customization file, see [Clone a private repository by using a customization file](how-to-write-customization-file.md#clone-a-private-repository-by-using-a-customization-file).
+For more information on using key vault secrets in a customization file, see [Clone a private repository by using a customization file](how-to-customizations-connect-resource-repository.md#use-key-vault-secrets-in-customization-files).
 
 ## Attach a catalog
 

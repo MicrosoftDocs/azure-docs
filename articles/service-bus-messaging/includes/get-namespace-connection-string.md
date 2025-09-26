@@ -6,7 +6,9 @@
  ms.topic: include
  ms.date: 06/18/2025
  ms.author: spelluru
- ms.custom: include file
+ ms.custom:
+   - include file
+   - sfi-image-nochange
 ---
 
 ## Get connection string to the namespace (Azure portal)

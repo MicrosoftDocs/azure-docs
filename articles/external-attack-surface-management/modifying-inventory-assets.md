@@ -6,6 +6,7 @@ author: dandennis
 ms.service: defender-easm
 ms.date: 3/1/2022
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Asset modification overview

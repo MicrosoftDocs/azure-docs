@@ -9,6 +9,7 @@ ms.service: azure-automation
 ms.author: v-jasmineme
 author: jasminemehndir
 zone_pivot_groups: enable-change-tracking-inventory-using-monitoring-agent
+ms.custom: sfi-image-nochange
 ---
 
 # Enable Change Tracking and Inventory using Azure Monitoring Agent

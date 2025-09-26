@@ -9,14 +9,15 @@ ms.topic: how-to
 ms.date: 07/29/2025
 ms.author: jkinma
 ms.custom:
-- build-2025
+  - sfi-image-nochange
+  - build-2025
 ---
 
 # Transfer Azure product billing ownership to your Microsoft Partner Agreement (MPA)
 
-An Azure Expert MSP can request to transfer their customer's Enterprise subscriptions and reservations to the Microsoft Partner Agreement (MPA) that they manage. 
+An Azure Expert MSP can request to transfer their customer's Enterprise subscriptions, reservations and savings plans to the Microsoft Partner Agreement (MPA) that they manage. 
 
-Supported product (subscriptions and reservations) billing ownership transfer options include:
+Supported product (subscriptions, reservations and savings plans) billing ownership transfer options include:
 
 - A direct Enterprise Agreement transfer to an Azure plan under the MPA
 - An enterprise Microsoft Customer Agreement transfer to an Azure plan under the MPA
@@ -34,7 +35,9 @@ There are three options to transfer products:
 
 - Transfer only subscriptions
 - Transfer only reservations
-- Transfer both subscriptions and reservations
+- Transfer only savings plans
+
+- Transfer subscriptions, reservations and savings plans
 
 [!INCLUDE [cost-management-billing-subscription-b2b-b2c-transfer-note](../../../includes/cost-management-billing-subscription-b2b-b2c-transfer-note.md)]
 
@@ -89,7 +92,9 @@ The recipient of the transfer request uses the following procedure to review and
 
 - Transfer one or more subscriptions only
 - Transfer one or more reservations only
-- Transfer both subscriptions and reservations
+- Transfer one or more savings plans only
+
+- Transfer subscriptions, reservations and savings plans
 
 1. The user gets an email with instructions to review your transfer request. Select **Review the request** to open it in the Azure portal.  
     :::image type="content" source="./media/mpa-request-ownership/mpa-review-transfer-request-email.png" alt-text="Screenshot that shows review transfer request email." lightbox="./media/mpa-request-ownership/mpa-review-transfer-request-email.png" :::  

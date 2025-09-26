@@ -8,8 +8,12 @@ ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.devlang: csharp
-ms.custom: devx-track-csharp, ai-video-demo
 ai-usage: ai-assisted
+ms.custom:
+  - devx-track-csharp
+  - ai-video-demo
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Use the Azurite emulator for local Azure Storage development

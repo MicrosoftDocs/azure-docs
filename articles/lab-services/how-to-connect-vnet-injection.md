@@ -8,6 +8,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: how-to
 ms.date: 06/20/2023
+ms.custom: sfi-image-nochange
 ---
 
 # Connect a lab plan to a virtual network with advanced networking
