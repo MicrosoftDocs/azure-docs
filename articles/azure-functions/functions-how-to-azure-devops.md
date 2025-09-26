@@ -222,6 +222,8 @@ variables:
     #slotName: '<SLOT_NAME>'
 ```
 
+---
+
 ### [Linux App](#tab/linux)
 ```yaml
 trigger:
