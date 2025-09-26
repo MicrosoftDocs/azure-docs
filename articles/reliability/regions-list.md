@@ -86,7 +86,7 @@ Azure provides the most extensive global footprint of any cloud provider and is 
 
 ### Azure programmatic region names
 
-To retrieve a list of regions names directly, including the names that can be used for programming and scripting, you can use the following methods:
+To retrieve a list of regions, including the names that can be used for programming and scripting, you can use the following methods:
 
 - [Azure CLI - az account list-locations](/cli/azure/account#az-account-list-locations)
 - [Azure PowerShell - Get-AzLocation](/powershell/module/az.resources/get-azlocation)
