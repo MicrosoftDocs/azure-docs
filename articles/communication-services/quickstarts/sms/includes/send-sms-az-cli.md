@@ -140,7 +140,7 @@ Make these replacements in the code:
 az communication sms send --sender "<fromPhoneNumber>" --recipient "<toPhoneNumber>" --message "Hello world via SMS for Azure CLI!" --connection-string "<yourConnectionString>" --deliveryReport --tag "<yourCustomTag>"
 ```
 
-The `DeliveryReport` parameter is an optional parameter you can use to configure delivery reporting. Use this function if you want to emit events when SMS messages are delivered. See [Handle SMS Events](../handle-sms-events.md) to configure delivery reporting for your SMS messages.
+The `deliveryReport` parameter is an optional parameter you can use to configure delivery reporting. Use this function if you want to emit events when SMS messages are delivered. See [Handle SMS Events](../handle-sms-events.md) to configure delivery reporting for your SMS messages.
 
 The `tag` parameter is an optional parameter that you can use to apply a tag to the delivery report.
 
