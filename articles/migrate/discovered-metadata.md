@@ -295,6 +295,9 @@ Updated Software version | `apt-get -s dist-upgrade, yum -q check-update, zypper
 Classification/Severity | `apt-get -s dist-upgrade, yum -q check-update, zypper list-updates`
 Published date | `apt-get -s dist-upgrade, yum -q check-update, zypper list-updates`
 
+> [!NOTE]
+> If your Red Hat Enterprise Linux (RHEL) servers use `yum` and aren't patched regularly, pending updates data can consume storage in the cache under `var\tmp\yum\-<username>`. To manage disk space, it is recommended to clear the cache regularly.
+
 ## SQL Server instance and database data
 
 The Azure Migrate appliance that's used for discovery of VMware VMs can also collect data on SQL Server instances and databases.
