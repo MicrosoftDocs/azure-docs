@@ -25,6 +25,7 @@ This guide shows how to import App Configuration data:
 - [from a configuration file in JSON, YAML or Properties](#import-data-from-a-configuration-file)
 - [from an App Configuration store](#import-data-from-an-app-configuration-store)
 - [from Azure App Service](#import-data-from-azure-app-service)
+- [from Azure Kubernetes Service ConfigMaps](#import-data-from-azure-kubernetes-service-configmaps)
 
 ### Import data from a configuration file
 
