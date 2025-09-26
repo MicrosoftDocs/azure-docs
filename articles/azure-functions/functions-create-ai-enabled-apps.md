@@ -117,6 +117,36 @@ Here's an example of such a custom MCP server project:
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript"  
 > Provides an MCP server template along with several function tool endpoints, which can be run locally and also deployed to Azure.
 ::: zone-end
+
+
+### Self-hosted remote MCP servers (early preview)
+
+Azure Functions now supports self-hosted MCP servers built with the official MCP SDKs for Python, Node.js, and .NET. This early preview enables developers to run their existing MCP servers on a hyperscale, serverless platform with minimal code change.
+
+This preview targets **stateless servers** using the **streamable HTTP** transport. For stateful scenarios, consider using the [MCP binding extension](#remote-mcp-servers) above. 
+
+#### Get started
+
+::: zone pivot="programming-language-csharp"  
+- [Weather server quickstart](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-dotnet)
+::: zone-end
+::: zone pivot="programming-language-python"  
+- [Weather server quickstart](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-python)
+::: zone-end
+::: zone pivot="programming-language-typescript"  
+- [Weather server quickstart](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-node)
+::: zone-end
+::: zone pivot="programming-language-javascript"  
+- [Weather server quickstart](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-node)
+::: zone-end
+::: zone pivot="programming-language-java"  
+- Sample not available yet. 
+::: zone-end
+::: zone pivot="programming-language-powershell"  
+- PowerShell is not supported.  
+::: zone-end
+- For already-built MCP servers, try out the [experimental prompt](https://aka.ms/mcp-deployment-helper) to have Visual Studio Code Copilot prepare the server for deployment. 
+
 ### Agentic workflows
 
 While it's common for AI-driven processes to autonomously determine how to interact with models and other AI assets, there are many cases where a higher level of predicability is required or where the required steps are well-defined. These directed agentic workflows are composed of an orchestration of separate tasks or interactions that agents are required to follow. 
