@@ -17,7 +17,7 @@ ms.date: 09/26/2025
 
 # Securely connect to Azure resources or clone private repositories
 
-Authenticate securely when you access repositories or Azure resources during customization. Don't store sensitive values such as personal access tokens (PATs) or service principal credentials in customization files because they can be exposed. This article explains how to manage and access resources securely during dev boxcustomization.
+When you access resources like repositories or Azure resources during the customization process, you need to authenticate securely. You can reference Azure Key Vault secrets in your customization files to avoid exposing sensitive information, and you can use service principals to authenticate to Azure for secure resource access. This article explains how to manage and access resources securely during dev box customization.
 
 ## Use key vault secrets in customization files
 
