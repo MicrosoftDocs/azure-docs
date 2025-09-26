@@ -55,7 +55,7 @@ This table shows operating system support for the hosting options.
 | **[Premium plan]** | ✅ Code-only<br/>✅ Container | ✅ Code-only | 
 | **[Dedicated plan]** | ✅ Code-only<br/>✅ Container | ✅ Code-only |
 | **[Container Apps]** | ✅ Container-only | ❌ Not supported |
-| **[Consumption plan]**<sup>3</sup> | ✅ Code-only<br/>❌ Container (not supported) | ✅ Code-only |
+| **[Consumption plan]**<sup>3</sup> | ✅ Code-only (Retired)<br/>❌ Container (not supported) | ✅ Code-only |
 
 1. Linux is the only supported operating system for the [Python runtime stack](./functions-reference-python.md).  
 2. Windows deployments are code-only. Functions doesn't currently support Windows containers. 
