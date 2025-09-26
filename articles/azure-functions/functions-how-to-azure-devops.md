@@ -18,7 +18,7 @@ YAML pipelines are defined using a YAML file in your repository. A step is the s
 
 You use the `AzureFunctionApp` task to deploy your code. There are now two versions of the `AzureFunctionApp`, which are compared in this table:
 
-| | [AzureFunctionApp@2](/azure/devops/pipelines/tasks/reference/azure-function-app-v2) | [AzureFunctionApp@1](/azure/devops/pipelines/tasks/reference/azure-function-app-v1) |
+|Comparison/version  | [AzureFunctionApp@2](/azure/devops/pipelines/tasks/reference/azure-function-app-v2) | [AzureFunctionApp@1](/azure/devops/pipelines/tasks/reference/azure-function-app-v1) |
 | ---- | ---- | ---- |
 | Supports the [Flex Consumption plan](./flex-consumption-plan.md) | ✔ | ❌ |
 | Includes enhanced validation support<sup>*</sup>| ✔ | ❌ | 
