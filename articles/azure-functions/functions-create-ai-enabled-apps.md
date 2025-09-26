@@ -140,14 +140,13 @@ For stateful scenarios, consider using the [MCP binding extension](#remote-mcp-s
 - To host already-built MCP servers, try out the [experimental prompt](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-node/blob/main/ExistingServer.md) to have Visual Studio Code Copilot prepare the server for deployment. 
 ::: zone-end
 ::: zone pivot="programming-language-javascript"  
-- [Weather server quickstart](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-node)
-- To host already-built MCP servers, try out the [experimental prompt](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-node/blob/main/ExistingServer.md) to have Visual Studio Code Copilot prepare the server for deployment. 
+See [TypeScript sample](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-node).
 ::: zone-end
 ::: zone pivot="programming-language-java"  
-- Sample not available yet. 
+Sample not available yet. 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"  
-- PowerShell is not supported.  
+PowerShell is not supported.  
 ::: zone-end
 
 
