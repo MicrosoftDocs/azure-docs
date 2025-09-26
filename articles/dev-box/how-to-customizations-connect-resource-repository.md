@@ -12,49 +12,56 @@ ms.custom:
   - ai-seo-date:05/10/2025
   - ai-gen-description
 ms.topic: how-to
-ms.date: 09/25/2025
+ms.date: 09/26/2025
 ---
 
-# Connect to Azure resources or clone private repositories by using customizations
+# Use secrets to connect to Azure resources or clone private repositories
 
-Use secrets from Azure Key Vault in your YAML customizations to clone private repositories or run tasks that require an access token. For example, in a team customization file, use a personal access token (PAT) stored in Azure Key Vault to access a private repository.
+Use secrets from Azure Key Vault in your YAML customizations to clone private repositories or run tasks that require an access token. For example, in a customization file, use a personal access token (PAT) stored in Azure Key Vault to access a private repository.
 
 ## Use key vault secrets in customization files
 
-To use a secret, like a PAT, in your customization files, store your PAT as a key vault secret. 
+To use a secret, like a PAT, in your customization files, store it as a key vault secret. 
 
-Both team and user customizations support fetching secrets from a key vault. Team customizations, also known as image definition files, define the base image for the dev box with the `image` parameter, and list the tasks that run when a dev box is created. User customizations list the tasks that run when a dev box is created. The following examples show how to use a key vault secret in both types of customizations.
+Both team and user customizations support fetching secrets from a key vault. Team customizations, which use image definition files, define the base image for the dev box with the `image` parameter, and list the tasks that run when a dev box is created. User customizations list the tasks that run when a dev box is created. The following examples show how to use a key vault secret in both types of customizations.
+
+### Configure key vault access for customizations
 
 To configure key vault secrets for use in your team or user customizations, make sure the Dev Center project's managed identity has the Key Vault Secrets User role on your key vault.
+
+The dev center needs access to your key vault. If your key vault is private, let trusted Microsoft services bypass the firewall because Dev Center doesn't support service tags.
+
+:::image type="content" source="media/how-to-customizations-connect-resource-repository/trusted-services-bypass-firewall.png" alt-text="Screenshot of the option to allow trusted Microsoft services to bypass the firewall in Azure Key Vault settings." lightbox="media/how-to-customizations-connect-resource-repository/trusted-services-bypass-firewall.png":::
+
+To learn how to let trusted Microsoft services bypass the firewall, see [Configure Azure Key Vault networking settings](/azure/key-vault/general/how-to-azure-key-vault-network-security).
+
+#### Additional configuration for user customizations
 
 To configure key vault secrets for use in user customizations, also do the following:
 
 1. Make sure the Dev Center project's managed identity has the Key Vault Reader role and the Key Vault Secrets User role on your key vault.
 1. Grant the Key Vault Secrets User role for the secret to each user or group who needs it during dev box customization. Include the Dev Center managed identity, the admin's user account, and any other users or groups that need the secret.
 
-You can use a key vault secret in-line with the built-in task:
+### Team customizations example
 
-Example (image definition file): uses a key vault secret (PAT) inline in an image definition file. Make sure the Dev Center project's managed identity has the Key Vault Secrets User role on the key vault.
+This syntax uses a key vault secret (PAT) in an image definition file. The `KEY_VAULT_SECRET_URI` is the URI of the secret in your key vault.
 
 ```yaml
-$schema: "1.0"
-name: "example-image-definition"
-image: microsoftvisualstudio_visualstudioplustools_vs-2022-ent-general-win11-m365-gen2
-description: "Clones an example Git repository"
+$schema: "<SCHEMA_VERSION>"
+name: "<IMAGE_DEFINITION_NAME>"
+image: "<BASE_IMAGE>"
+description: "<DESCRIPTION>"
 
 tasks:
-  - name: git-clone
-    description: Clone this repository into C:\workspaces
+  - name: <TASK_NAME>
+    description: <TASK_DESCRIPTION>
     parameters:
-      repositoryUrl: https://github.com/example-org/example-repo.git
-      directory: C:\workspaces
-      pat: "{{https://contoso-vault.vault.azure.net/secrets/github-pat}}"
+      repositoryUrl: <REPOSITORY_URL>
+      directory: <DIRECTORY_PATH>
+      pat: "{{<KEY_VAULT_SECRET_URI>}}"
 ```
-This example shows an image definition file. The `KEY_VAULT_SECRET_URI` is the URI of the secret in your key vault.
 
-Example (image definition file): the same format shown above — this demonstrates the secret URI format when referencing Key Vault secrets from team customizations.
-
-You can reference the secret in your YAML customization in the following format, which uses the `git-clone` task as an example:
+This example uses the `git-clone` task:
 
 ```yaml
 $schema: "1.0"
@@ -71,9 +78,27 @@ tasks:
       pat: "{{https://contoso-vault.vault.azure.net/secrets/github-pat}}"
 ```
 
+Or, you can reference the secret in-line with a built-in task, as shown in the following example:
+
+```yaml
+$schema: "1.0" 
+name: "example-image-definition"
+image: microsoftvisualstudio_visualstudioplustools_vs-2022-ent-general-win11-m365-gen2
+description: "Clones a public example Git repository"
+
+tasks:  
+- name: git-clone
+    description: Clone this repository into C:\Workspaces 
+    parameters: 
+    command: MyCommand –MyParam "{{KEY_VAULT_SECRET_URI}}"
+```
+
+
+### User customizations example
+
 User customizations let you obtain an Azure DevOps token to clone private repositories without explicitly specifying a PAT from the key vault. The service automatically exchanges your Azure token for an Azure DevOps token at run time.
 
-Example (user customization): shows the ADO shorthand (`{{ado://...}}`). Use this shorthand only in user customizations—the service exchanges your Azure token for an Azure DevOps token at runtime, so you don't need to store a PAT in Key Vault.
+This example shows the ADO shorthand (`{{ado://...}}`). The service exchanges your Azure token for an Azure DevOps token at runtime, so you don't need to store a PAT in Key Vault.
 
 ```yaml
 $schema: "1.0"
@@ -87,15 +112,6 @@ tasks:
 ```
 
 The Dev Box VS Code extension and Dev Box CLI don't support hydrating secrets in the inner-loop testing workflow for customizations.
-
-### Configure key vault access
-
-The dev center needs access to your key vault. If your key vault is private, let trusted Microsoft services bypass the firewall because Dev Center doesn't support service tags.
-
-:::image type="content" source="media/how-to-customizations-connect-resource-repository/trusted-services-bypass-firewall.png" alt-text="Screenshot of the option to allow trusted Microsoft services to bypass the firewall in Azure Key Vault settings." lightbox="media/how-to-customizations-connect-resource-repository/trusted-services-bypass-firewall.png":::
-
-To learn how to let trusted Microsoft services bypass the firewall, see [Configure Azure Key Vault networking settings](/azure/key-vault/general/how-to-azure-key-vault-network-security).
-
 
 ## Authenticate to Azure resources with service principals
 
