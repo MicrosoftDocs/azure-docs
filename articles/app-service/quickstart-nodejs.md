@@ -251,7 +251,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
     :::image type="content" source="./media/quickstart-nodejs/project-details.png" alt-text="Screenshot of the Project Details section showing where you select the Azure subscription and the resource group for the web app.":::
 
-1. Under **Instance details**, type a globally unique name for your web app and select **Code**. Select **Node 18 LTS** in **Runtime stack**, an **Operating System**, and a **Region** you want to serve your app from.
+1. Under **Instance details**, type a globally unique name for your web app and select **Code**. Select **Node 22 LTS** in **Runtime stack**, an **Operating System**, and a **Region** you want to serve your app from.
 
     :::image type="content" source="./media/quickstart-nodejs/instance-details.png" alt-text="Screenshot of the Instance Details section.":::
 
