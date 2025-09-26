@@ -1,20 +1,15 @@
 ---
 title: Microsoft Partner Agreement (MPA) cost and usage details file schema
 description: Learn about the data fields available in the MPA cost and usage details file.
-author: jojohpm
-ms.reviewer: jojoh
+author: vikramdesai01
+ms.reviewer: vikdesai
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
 ms.date: 06/26/2025
-ms.author: jojoh
+ms.author: vikdesai
 ---
-
 # Microsoft Partner Agreement cost and usage details file schema
-
-This article applies to cost and usage details file schema for Microsoft Partner Agreement where the CSP partner has selected any of the billing scopes - Billing Account, Billing Profile or Customer scope.
-
-## Version 2023-12-01-preview
 
 |Column order|Fields|Description|
 |------|------|------|
