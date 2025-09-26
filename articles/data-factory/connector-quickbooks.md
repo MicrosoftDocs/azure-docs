@@ -24,20 +24,22 @@ This article also describes how to upgrade the QuickBooks connector from version
 
 The QuickBooks connector is supported for the following capabilities:
 
-| Capability|Integration runtime |
+| Supported capabilities|IR |
 |---------| --------|
-|[Copy activity](copy-activity-overview.md) (source)|Azure and self-hosted|
-|[Lookup activity](control-flow-lookup-activity.md)|Azure and self-hosted|
+|[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
+
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For a list of data stores that are supported as sources or sinks, see [Supported data stores](connector-overview.md#supported-data-stores).
 
 The connector supports QuickBooks OAuth 2.0 authentication.
 
-## Get started
+## Getting started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-## Create a linked service to QuickBooks by using the portal
+## Create a linked service to QuickBooks by using the UI
 
 1. In the [Azure portal](https://ms.portal.azure.com/), go to your Azure Data Factory or Azure Synapse workspace.
 
@@ -59,15 +61,15 @@ The connector supports QuickBooks OAuth 2.0 authentication.
 
    :::image type="content" source="media/connector-quickbooks/configure-quickbooks-linked-service.png" alt-text="Screenshot of the pane for linked service configuration for QuickBooks.":::
 
-## Understand connector configuration details
+## Connector configuration details
 
 You use properties to define Data Factory entities that are specific to the QuickBooks connector.
 
-### Linked service properties
+## Linked service properties
 
 The following sections describe the property details for the two versions of the QuickBooks connector.
 
-#### Version 2.0
+### Version 2.0
 
 The QuickBooks linked service supports the following properties for connector version 2.0:
 
@@ -106,7 +108,7 @@ Here's an example:
 }
 ```
 
-#### Version 1.0
+### Version 1.0
 
 The QuickBooks linked service supports the following properties for connector version 1.0:
 
@@ -159,7 +161,7 @@ The linked service doesn't automatically update the refresh token in Azure Key V
 
 You can manually update the refresh token in Azure Key Vault based on the QuickBooks Online policy for expiry of refresh tokens. Another approach is to automate updates by using a scheduled task or an [Azure function](https://github.com/Azure-Samples/serverless-keyvault-secret-rotation-handling) that checks for a new refresh token and updates it in Azure Key Vault.
 
-### Dataset properties
+## Dataset properties
 
 To copy data from QuickBooks Online, set the `type` property of the dataset to `QuickBooksObject`. The QuickBooks dataset supports the following properties:
 
@@ -187,7 +189,7 @@ Here's an example:
 
 For a full list of available sections and properties for defining datasets, see [Datasets in Azure Data Factory and Azure Synapse Analytics](concepts-datasets-linked-services.md).
 
-### Copy activity properties
+## Copy activity properties
 
 To copy data from QuickBooks Online, set the source type in the copy activity to `QuickBooksSource`. The QuickBooks dataset supports the following properties in the copy activity's `source` section:
 
@@ -234,6 +236,8 @@ For a full list of available sections and properties for defining activities, se
 
 The copy activity in the service can't copy data directly from QuickBooks Desktop. To copy data from QuickBooks Desktop, export your QuickBooks data to a comma-separated values (CSV) file and then upload the file to Azure Blob Storage. From there, you can use the service to copy the data to the sink of your choice.
 
+## Data type mapping for Quickbooks
+
 When you copy data from QuickBooks, the following mappings apply from the QuickBooks data types to the internal data types that the service uses.
 
 | QuickBooks data type | Interim service data type (for version 2.0) | Interim service data type (for version 1.0) |
@@ -249,11 +253,11 @@ When you copy data from QuickBooks, the following mappings apply from the QuickB
 
 To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mapping in copy activity](copy-activity-schema-and-type-mapping.md).
 
-## Learn about properties for the lookup activity
+## Lookup activity properties
 
 For details about the properties of the lookup activity, see [Lookup activity in Azure Data Factory and Azure Synapse Analytics](control-flow-lookup-activity.md).
 
-## Upgrade the QuickBooks connector
+## Quickbooks connector lifecycle and upgrade
 
 The following table summarizes information about the versions of the QuickBooks connector:
 
@@ -262,7 +266,7 @@ The following table summarizes information about the versions of the QuickBooks 
 | 1.0 | End of support announced | Not applicable. |  
 | 2.0 | General availability |QuickBooks native query is supported, with limitations. `GROUP BY` clauses, `JOIN` clauses, and aggregate functions (`Avg`, `Max`, `Sum`) aren't supported. For more information, see [Query operations and syntax](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries) on the Intuit Developer site. <br><br>The `tableName` value specified in the query must match the `tableName` value in the dataset. <br><br>The SQL-92 query is not supported. <br><br>The `useEncryptedEndpoints` property is not supported.  |
 
-To upgrade the QuickBooks connector from version 1.0 to version 2.0:
+### Upgrade the Quickbooks connector from version 1.0 to version 2.0
 
 1. In the [Azure portal](https://ms.portal.azure.com/), go to your Azure Data Factory or Azure Synapse workspace.
 
@@ -274,4 +278,4 @@ To upgrade the QuickBooks connector from version 1.0 to version 2.0:
 
 ## Related content
 
-For a list of data stores that the copy activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
+- For a list of data stores that the copy activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
