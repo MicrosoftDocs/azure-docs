@@ -6,7 +6,7 @@ description: Learn how to configure lab secrets in Azure DevTest Labs to central
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 09/24/2025
+ms.date: 09/26/2025
 ms.custom:
 
 #customer intent: As a platform engineer, I want to configure lab secrets in Azure DevTest Labs so that I can securely store and manage sensitive values for automation and virtual machines.
@@ -54,4 +54,5 @@ After creation, the secret is available in the selected scope and stored in an A
 
 ## Related content
 
-- For information about creating labs, see [Create a lab in the Azure portal](devtest-lab-create-lab.md).
+- [Create a VM using the secret](devtest-lab-add-vm.md) 
+- [Store secrets in a key vault in Azure DevTest Labs](devtest-lab-store-secrets-in-key-vault.md)
