@@ -17,6 +17,8 @@ ms.author: seshanmugam
 
 Azure Event Grid MQTT broker now supports **Sparkplug B**, an open-source specification widely used across industrial IoT (IIoT) and Industry 4.0 solutions. Sparkplug B builds on top of the MQTT protocol, providing a standardized framework for message structure, device lifecycle management, and state awareness. By adding features such as **QoS 1**, **Retain messages**, and **Last Will and Testament (LWT)**, Event Grid MQTT broker enables customers to run Sparkplug B–compliant workloads natively in Azure.
 
+This article explains what the Sparkplu B specification is and how Azure Event Grid supports the specification. 
+
 ## What is Sparkplug B?
 
 Sparkplug B is an **open-source MQTT-based specification** designed by the Eclipse Foundation. While MQTT provides a lightweight, publish/subscribe messaging protocol, Sparkplug B adds standardization on **payload definitions**, **device lifecycle state management**, and **topic structures**. It ensures interoperability and consistent communication between industrial devices, gateways, and SCADA/MES/ERP systems.
@@ -27,7 +29,7 @@ Key aspects of Sparkplug B include:
 - **Standardized payloads**: Device metrics, states, and commands are encoded in a common format, making it easier to integrate and analyze.
 - **State management**: This specification uses **LWT** and **birth/death certificates** to provide system-wide awareness of device availability and health.
 
-## Why Sparkplug B is Important
+## Why Sparkplug B is important
 
 In industrial environments, **reliability, consistency, and interoperability** are critical. While plain MQTT provides flexible messaging, different vendors often use proprietary topic structures and payloads. This specification solves it by defining an **open and common data model**.
 
@@ -38,7 +40,7 @@ This approach is important because it:
 - Improves scalability for **large distributed industrial systems** where consistent data handling is required.
 - Accelerates adoption of **Industry 4.0 and digital manufacturing** solutions by aligning with open standards.
 
-## Industries Using Sparkplug B
+## Industries using Sparkplug B
 
 Sparkplug B adoption spans several industries where **industrial automation** and **real-time telemetry** are essential:
 
@@ -50,7 +52,7 @@ Sparkplug B adoption spans several industries where **industrial automation** an
 
 :::image type="content" source="./media/sparkplug-support/specification-support.png" alt-text="Diagram that shows how Azure Event Grid MQTT broker supports the specification." lightbox="./media/sparkplug-support/specification-support.png":::
 
-## How Azure Event Grid MQTT Broker Supports Sparkplug B
+## How Azure Event Grid MQTT broker supports Sparkplug B
 
 Azure Event Grid MQTT broker now provides the foundational MQTT features that enable Sparkplug B–compliant workloads:
 
