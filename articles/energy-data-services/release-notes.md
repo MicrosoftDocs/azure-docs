@@ -22,6 +22,9 @@ Azure Data Manager for Energy is updated on an ongoing basis. To stay up to date
 This page is updated with the details about the upcoming release approximately a week before the actual deployment.
 
 <hr width = 100%>
+## September 2025
+### Rock and Fluid Samples (RAFS) Preview
+The Rock and Fluid Samples (RAFS) DDMS introduces a standardized approach for storing, querying, and analyzing geological and engineering sample data collected from subsurface and surface sites. These samples are critical for workflows such as reservoir modeling, facility design, and drilling planning. RAFS DDMS is now available as a Preview feature on ADME Developer SKU. See [Tutorial: Use Rock and Fluid Samples (RAFS) DDMS APIs](tutorial-rock-and-fluid-samples-ddms.md) on how to use RAFS DDMS APIs.
 
 ## August 2025
 ### Compliant with M25 OSDU&reg; release
