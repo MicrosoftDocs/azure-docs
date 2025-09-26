@@ -101,7 +101,7 @@ You need a test user in your Microsoft Entra External ID tenant to associate wit
 
 #### Link an Entra External ID user with the `fhirUser` custom user attribute
 
-The `fhirUser` custom user attribute is used to link a user in Microsoft Entra External ID with a corresponding patient resource in the FHIR service. In this example, a user named **Test Patient1** is created in the Entra External ID tenant. In a later step, a [patient](https://www.hl7.org/fhir/patient.html) resource is created in the FHIR service. The **Test Patient1** user is associated with the patient resource by setting the `fhirUser` attribute to the patient's FHIR resource identifier.For more information about custom attributes in Microsoft Entra External ID, see  
+The `fhirUser` custom user attribute is used to link a user in Microsoft Entra External ID with a corresponding patient resource in the FHIR service. In this example, a user named **Test Patient1** is created in the Entra External ID tenant. In a later step, a [patient](https://www.hl7.org/fhir/patient.html) resource is created in the FHIR service. The **Test Patient1** user is associated with the patient resource by setting the `fhirUser` attribute to the patient's FHIR resource identifier. For more information about custom attributes in Microsoft Entra External ID, see  
 [User flow custom attributes in Entra External ID.](https://learn.microsoft.com/entra/external-id/customers/how-to-define-custom-attributes#create-custom-user-attributes).
 
 1. Search for **External Identities** 
@@ -116,7 +116,7 @@ The `fhirUser` custom user attribute is used to link a user in Microsoft Entra E
 
    - From the **Data Type** dropdown list, select **String**.
    
-   - In the **Description** field, enter a description for the custom attribute. For example, "The fully qualified FHIR resource Id associated with the user. (e.g. Patient Resource)"
+   - In the **Description** field, enter a description for the custom attribute. For example, "The fully qualified FHIR resource ID associated with the user. (e.g. Patient Resource)"
    
    - Choose **Create**.
    
@@ -280,7 +280,7 @@ Use the **authority** and **client ID** (or application ID) parameters to config
    https://<YOUR_EXTERNAL_ID_TENANT_NAME>.ciamlogin.com/<YOUR_EXTERNAL_ID_TENANT_ID>/v2.0
    ```
 
-1. Test the authority string by making a request to the `.well-known/openid-configuration` endpoint. Enter the string into a browser to confirm it navigates to the OpenId Configuration JSON file. If the OpenId Configuration JSON fails to load, make sure the Entra External ID tenant name and Entra External ID tenant id are correct.
+1. Test the authority string by making a request to the `.well-known/openid-configuration` endpoint. Enter the string into a browser to confirm it navigates to the OpenId Configuration JSON file. If the OpenId Configuration JSON fails to load, make sure the Entra External ID tenant name and Entra External ID tenant ID are correct.
   
    ```http
    https://<YOUR_EXTERNAL_ID_TENANT_NAME>.ciamlogin.com/<YOUR_EXTERNAL_ID_TENANT_ID>/v2.0/.well-known/openid-configuration
@@ -439,7 +439,7 @@ Create an explicit link between the test user in the **Microsoft Entra External 
 
    For more information, see [Manage extension attributes through Microsoft Graph](https://learn.microsoft.com/entra/external-id/customers/how-to-define-custom-attributes#create-custom-user-attributes).
 
-1. After the request is formatted, choose **Run query**. Wait for a successful response that confirms the user in the Entra External Id tenant is linked to the patient resource in the FHIR service.
+1. After the request is formatted, choose **Run query**. Wait for a successful response that confirms the user in the Entra External ID tenant is linked to the patient resource in the FHIR service.
 
    ![Screenshot showing Graph patch.](media/azure-entra-external-id-setup/graph-patch.png)
 
@@ -461,13 +461,13 @@ Obtain an access token to test the authentication flow.
 
    - **Callback URL**. This value is configured when the Entra External ID resource application is created.
 
-   - **Auth URL**. This value can be created using the name of the Entra External ID tenant and the Entra External ID tenant id.
+   - **Auth URL**. This value can be created using the name of the Entra External ID tenant and the Entra External ID tenant ID.
 
       ```http
       https://{YOUR_EXTERNAL_ID_TENANT_NAME}.ciamlogin.com/{YOUR_EXTERNAL_ID_TENANT_ID}/oauth2/v2.0/authorize
       ```
 
-   - **Access Token URL**. This value can be created using the name of the Entra External ID tenant and the Entra External ID tenant id.
+   - **Access Token URL**. This value can be created using the name of the Entra External ID tenant and the Entra External ID tenant ID.
 
       ```http
       https://{YOUR_EXTERNAL_ID_TENANT_NAME}.ciamlogin.com/{YOUR_EXTERNAL_ID_TENANT_ID}/oauth2/v2.0/token
