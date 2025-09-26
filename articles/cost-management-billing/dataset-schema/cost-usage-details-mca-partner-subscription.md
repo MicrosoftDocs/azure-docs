@@ -9,7 +9,13 @@ ms.topic: reference
 ms.date: 06/26/2025
 ms.author: vikdesai
 ---
+This article applies to cost and usage details file schema for a Microsoft Partner Agreement where the CSP partner or the customer has selected a subscription or resource group scope.
+
 # Cloud Solution Provider subscription cost and usage details file schema
+
+This article applies to cost and usage details file schema for a Microsoft Partner Agreement where the CSP partner or the customer has selected a subscription or resource group scope.
+
+## Version 2023-12-01-preview
 
 |Column order|Fields|Description|
 |------|------|------|
