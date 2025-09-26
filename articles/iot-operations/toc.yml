@@ -103,9 +103,12 @@ items:
           - name: Connect to ONVIF-compliant cameras
             href: discover-manage-assets/howto-use-onvif-connector.md
             displayName: camera, PTZ, pan, tilt, zoom, DiscoveredAsset, DiscoveredAssetEndpointProfile, media, events, stream, southbound
-          - name: Connect to REST/HTTP endpoints
+          - name: Connect to HTTP/REST endpoints
             href: discover-manage-assets/howto-use-http-connector.md
             displayName: HTTP, REST, API, southbound
+          - name: Connect to SSE endpoints
+            href: discover-manage-assets/howto-use-sse-connector.md
+            displayName: HTTP, SSE, API, southbound, server-sent, events
           - name: Use asset endpoints to manage assets
             href: /previous-versions/azure/iot-operations/discover-manage-assets/overview-manage-assets
             displayName: connector, tags, southbound, asset endpoint profile
