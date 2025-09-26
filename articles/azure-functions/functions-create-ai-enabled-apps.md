@@ -121,9 +121,9 @@ Here's an example of such a custom MCP server project:
 
 ### Self-hosted remote MCP servers (early preview)
 
-Azure Functions now supports self-hosted MCP servers built with the official MCP SDKs for Python, Node.js, and .NET. This early preview enables developers to run their existing MCP servers on a hyperscale, serverless platform with minimal code change.
+If you've already built servers with the official MCP SDKs, you can now host them on Azure Functions with minimal code change. This early preview support servers written in the Python, Node.js, and .NET MCP SDKs. The servers must also be **stateless** and use the **streamable HTTP** transport. 
 
-This preview targets **stateless servers** using the **streamable HTTP** transport. For stateful scenarios, consider using the [MCP binding extension](#remote-mcp-servers) above. 
+For stateful scenarios, consider using the [MCP binding extension](#remote-mcp-servers) for now. 
 
 #### Get started
 
