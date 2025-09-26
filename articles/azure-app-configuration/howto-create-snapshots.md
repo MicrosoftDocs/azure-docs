@@ -5,7 +5,7 @@ author: Muksvso
 ms.author: mubatra
 ms.service: azure-app-configuration
 ms.topic: how-to 
-ms.date: 08/25/2025
+ms.date: 09/26/2025
 ---
 
 # Manage and use snapshots
@@ -117,6 +117,8 @@ Update the `application.yml` file of your application with the following configu
 
 ```yml
 spring:
+  config:
+    import: azureAppConfiguration
   cloud:
     azure:
       appconfiguration:
