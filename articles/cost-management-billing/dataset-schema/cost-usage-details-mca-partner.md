@@ -11,6 +11,10 @@ ms.author: vikdesai
 ---
 # Microsoft Partner Agreement cost and usage details file schema
 
+This article applies to cost and usage details file schema for Microsoft Partner Agreement where the CSP partner has selected any of the billing scopes - Billing Account, Billing Profile or Customer scope.
+
+## Version 2023-12-01-preview
+
 |Column order|Fields|Description|
 |------|------|------|
 |1|invoiceId|The unique document ID listed on the invoice PDF.|
