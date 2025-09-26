@@ -17,7 +17,7 @@ ms.author: seshanmugam
 
 Azure Event Grid MQTT broker now supports **Sparkplug B**, an open-source specification widely used across industrial IoT (IIoT) and Industry 4.0 solutions. Sparkplug B builds on top of the MQTT protocol, providing a standardized framework for message structure, device lifecycle management, and state awareness. By adding features such as **QoS 1**, **Retain messages**, and **Last Will and Testament (LWT)**, Event Grid MQTT broker enables customers to run Sparkplug B–compliant workloads natively in Azure.
 
-This article explains what the Sparkplu B specification is and how Azure Event Grid supports the specification. 
+This article explains what the Sparkplug B specification is and how Azure Event Grid supports the specification. 
 
 ## What is Sparkplug B?
 
