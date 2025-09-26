@@ -188,6 +188,9 @@
       href: vmware-physical-azure-classic-deprecation.md
     - name: Failover and failback - Modernized
       href: failover-failback-overview-modernized.md
+      items:
+      - name: Configure on-premise disks for Azure through Hydration
+        href: hydration-process.md
     - name: VMware to Azure architecture - Modernized
       href: vmware-azure-architecture-modernized.md      
   - name: About Hyper-V VM disaster recovery

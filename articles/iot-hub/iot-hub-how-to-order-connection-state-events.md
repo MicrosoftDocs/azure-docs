@@ -5,9 +5,11 @@ author: SoniaLopezBravo
 
 ms.author: sonialopez
 ms.service: azure-iot-hub
-ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/11/2019
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Order device connection events from Azure IoT Hub using Azure Cosmos DB

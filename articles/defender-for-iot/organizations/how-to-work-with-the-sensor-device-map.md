@@ -3,6 +3,7 @@ title: Investigate devices in the OT sensor device map
 description: Learn how to use the device map on an OT sensor which provides a graphical representation of devices and the connections between them.
 ms.date: 01/25/2023
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Investigate devices on a device map

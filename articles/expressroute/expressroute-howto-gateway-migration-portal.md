@@ -5,10 +5,13 @@ description: This article explains how to seamlessly migrate from Standard/HighP
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.custom: ignite-2023, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 04/22/2025
 ms.author: duau
+ms.custom:
+  - ignite-2023
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 ---
 
 # Migrate to an availability zone-enabled ExpressRoute virtual network gateway in Azure portal

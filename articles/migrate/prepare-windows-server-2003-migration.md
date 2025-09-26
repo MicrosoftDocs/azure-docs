@@ -6,6 +6,7 @@ ms.author: vijain
 ms.manager: kmadnani
 ms.topic: how-to
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 06/30/2023
 ms.custom: engagement-fy25
 # Customer intent: "As a system administrator, I want to prepare Windows Server 2003 machines for migration to Azure, so that I can ensure a smooth transition and take advantage of newer server features and support."

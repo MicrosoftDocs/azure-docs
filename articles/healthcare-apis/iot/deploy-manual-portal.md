@@ -7,6 +7,7 @@ ms.subservice: medtech-service
 ms.topic: quickstart
 ms.date: 08/18/2025
 ms.author: chrupa
+ms.custom: sfi-image-nochange
 ---
 
 # Quickstart: Deploy the MedTech service using the Azure portal

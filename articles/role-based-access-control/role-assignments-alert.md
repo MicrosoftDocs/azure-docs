@@ -8,6 +8,7 @@ ms.service: role-based-access-control
 ms.topic: how-to
 ms.date: 11/15/2023
 ms.author: rolyon
+ms.custom: sfi-image-nochange
 ---
 
 # Alert on privileged Azure role assignments

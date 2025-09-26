@@ -6,7 +6,10 @@ ms.topic: tutorial
 author: jasminemehndir
 ms.author: v-jasmineme
 ms.date: 07/31/2025
-ms.custom: mvc, engagement-fy23
+ms.custom:
+  - mvc
+  - engagement-fy23
+  - sfi-image-nochange
 # Customer intent: As an Azure administrator, I want to migrate encrypted virtual machines to a different Azure region using a resource mover tool, so that I can optimize resource management and comply with regional data regulations.
 ---
 

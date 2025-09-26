@@ -7,7 +7,9 @@ ms.author: allensu
 ms.service: azure-nat-gateway
 ms.topic: tutorial
 ms.date: 02/14/2024
-ms.custom: template-tutorial 
+ms.custom:
+  - template-tutorial
+  - sfi-image-nochange
 # Customer intent: As a network engineer, I want to migrate my virtual machine public IP address to a NAT gateway to improve outbound connectivity.
 ---
 

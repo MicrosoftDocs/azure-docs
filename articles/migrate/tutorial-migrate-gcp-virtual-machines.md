@@ -6,6 +6,7 @@ ms.author: vijain
 ms.topic: tutorial
 ms.date: 02/07/2025
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.collection:
  - migration
  - gcp-to-azure

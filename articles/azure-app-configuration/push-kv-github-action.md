@@ -6,6 +6,7 @@ ms.author: cwanjau
 ms.date: 06/05/2024
 ms.topic: how-to
 ms.service: azure-app-configuration
+ms.custom: sfi-ropc-nochange
 
 ---
 # Import configuration files from your GitHub repository to App Configuration store
