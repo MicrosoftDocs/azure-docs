@@ -21,9 +21,9 @@ Use secrets from Azure Key Vault in your YAML customizations to clone private re
 
 ## Use key vault secrets in customization files
 
-To use a secret, like a PAT, in your customization files, store it as a key vault secret. 
+Both team and user customizations support fetching secrets from a key vault. Team customizations, which use image definition files, define the base image for the dev box with the `image` parameter, and list the tasks that run when a dev box is created. User customizations list the tasks that run when a dev box is created. 
 
-Both team and user customizations support fetching secrets from a key vault. Team customizations, which use image definition files, define the base image for the dev box with the `image` parameter, and list the tasks that run when a dev box is created. User customizations list the tasks that run when a dev box is created. The following examples show how to use a key vault secret in both types of customizations.
+To use a secret, like a PAT, in your customization files, store it as a key vault secret. The following examples show how to reference a key vault secret in both types of customizations.
 
 ### Configure key vault access for customizations
 
