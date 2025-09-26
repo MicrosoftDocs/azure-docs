@@ -35,99 +35,69 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 
-  ```
-    							{  
-								"id":"/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.HDInsight/clusters/mycluster",  
-							  "name":"mycluster",   
-							  "type":"Microsoft.HDInsight/clusters",  
-							  
-								"location": "location-name",  
-								"tags": { "tag1": "value1", "tag2": "value2" },  
-								"properties": {  
-									"clusterVersion": "3.2",  
-									"osType": "Linux",  
-									"clusterDefinition": {  
-										"kind": "hadoop",  
-							  
-										"configurations": {  
-											"gateway": {
-												 "restAuthEntraUsers": "[{\"objectId\":\"000000-00000-00000-000000\",\"displayName\":\"User1\",\"upn\":\"user1@contoso.com\"},{\"objectId\":\"000000-00000-00000-00001\",\"displayName\":\"User 2\",\"upn\":\"user2@contoso.com\"}]"
-											},  
-							  
-											"core-site": {  
-												"fs.defaultFS": "wasb://container@storageaccount.blob.core.windows.net",  
-												"fs.azure.account.key.storageaccount.blob.core.windows.net": storage-account-key"  
-											}  
-										}  
-									},
-							  
-									"computeProfile": {  
-										"roles": [  
-											{  
-												"name": "headnode",  
-							  
-												"targetInstanceCount": 2,  
-							  
-												"hardwareProfile": {  
-													"vmSize": "Large"  
-												},  
-							  
-												"osProfile": {  
-													"linuxOperatingSystemProfile": {  
-														"username": "username",  
-														"sshProfile": {  
-															"publicKeys": [   
-																{ "certificateData": "ssh-rsa key" }  
-															]  
-														}  
-													}  
-												}  
-											},  
-											{  
-												"name": "workernode",  
-							  
-												"targetInstanceCount": 1,  
-							  
-												"hardwareProfile": {  
-													"vmSize": "Large"  
-												},  
-							  
-												"osProfile": {  
-													"linuxOperatingSystemProfile": {  
-														"username": "username",  
-														"sshProfile": {  
-															"publicKeys": [  
-																{ "certificateData": " ssh-rsa key" }  
-															]  
-														}  
-													}  
-												}  
-											},  
-											{  
-												"name": "zookeepernode",  
-							  
-												"targetInstanceCount": 3,  
-							  
-												"hardwareProfile": {  
-													"vmSize": "Small"  
-												},  
-							  
-												"osProfile": {  
-													"linuxOperatingSystemProfile": {  
-														"username": "username",  
-														"sshProfile": {  
-															"publicKeys": [   
-																{ "certificateData": "ssh-rsa key" }  
-															]  
-														}  
-													}  
-												}  
-											}  
-										]  
-									}  
-								}  
+  ```json-interactive
+
+    		{
+			"id":"/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.HDInsight/clusters/mycluster",
+		  "name":"mycluster",
+		  "type":"Microsoft.HDInsight/clusters",
+
+			"location": "location-name",
+			"tags": { "tag1": "value1", "tag2": "value2" },
+			"properties": {
+				"clusterVersion": "3.2",
+				"osType": "Linux",
+				"provisioningState": "InProgress",
+				"clusterState": "Accepted",
+				"createdDate": "2015-09-23",
+				"quotaInfo": {
+					"coresUsed": 20
+		}
+				"clusterDefinition": {
+					"kind": "hadoop"
+				},
+
+				"computeProfile": {
+					"roles": [
+						{
+							"name": "headnode",
+
+							"targetInstanceCount": 2,
+
+							"hardwareProfile": {
+								"vmSize": "Large"
 							}
+
+						},
+						{
+							"name": "workernode",
+
+							"targetInstanceCount": 1,
+
+							"hardwareProfile": {
+								"vmSize": "Large"
+							}
+						},
+						{
+							"name": "zookeepernode",
+
+							"targetInstanceCount": 3,
+
+							"hardwareProfile": {
+								"vmSize": "Small"
+							}
+						}
+					]
+				}
+			}
+		}
+
+
   ```
+
+
+
+
 
 
 
@@ -146,7 +116,8 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 
-**Properties**
+### **Properties**
+
 | Element name | Required | Type | Description |
 | --- | --- | --- | --- |
 | clusterVersion    | Yes      | String       | Specifies the cluster version.                                              |
@@ -157,7 +128,7 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 
-**clusterDefinition**
+### **clusterDefinition**
 
 | Element name | Required | Type | Description |
 | --- | --- | --- | --- |
@@ -168,7 +139,7 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 
-**computeProfile**
+### **computeProfile**
 
 
 | Element name   | Required | Type                              | Description |
@@ -180,7 +151,7 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 
-**role**
+### **role**
 
 
 | Element name        | Required | Type          | Description |
@@ -193,7 +164,7 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 
-**hardwareProfile**
+### **hardwareProfile**
 
 
 | Element name | Required | Type   | Description |
@@ -203,7 +174,7 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 
-**osProfile**
+### **osProfile**
 
 
 | Element name                 | Required | Type                   | Description |
@@ -215,7 +186,7 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 
-**linuxOperatingSystemProfile**
+### **linuxOperatingSystemProfile**
 
 
 | Element name | Required | Type         | Description |
@@ -227,7 +198,7 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 
-**sshProfile**
+### **sshProfile**
 
 
 | Element name | Required | Type | Description |
@@ -237,7 +208,7 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 
-**windowsOperatingSystemProfile**
+### **windowsOperatingSystemProfile**
 
 
 | Element name | Required | Type | Description |
@@ -246,7 +217,7 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 
-**rdpSettings**
+### **rdpSettings**
 
 
 | Element name | Required | Type  | Description |
@@ -257,7 +228,7 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 
-**virtualNetworkProfile**
+### **virtualNetworkProfile**
 
 
 | Element name | Required | Type   | Description |
@@ -267,7 +238,7 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 
-**scriptActions**
+### **scriptActions**
 
 
 | Element name | Required | Type   | Description |
@@ -279,76 +250,133 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 
-**Response**
+### **Response**
 
 
 If validation is complete and the request is accepted, the operation returns 200 (OK).
 
 **Status code:** 200 OK
 
-**Response body for a linux cluster creates using ssh key:**
-
-
-JSONCopy
+### **Response body for a linux cluster creates using ssh key:**
 
 
 
-```
-								{
-									"id":"/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.HDInsight/clusters/mycluster",
-								  "name":"mycluster",
-								  "type":"Microsoft.HDInsight/clusters",
 
-									"location": "location-name",
-									"tags": { "tag1": "value1", "tag2": "value2" },
-									"properties": {
-										"clusterVersion": "3.2",
-										"osType": "Linux",
-										"provisioningState": "InProgress",
-										"clusterState": "Accepted",
-										"createdDate": "2015-09-23",
-										"quotaInfo": {
-											"coresUsed": 20
-								}
-										"clusterDefinition": {
-											"kind": "hadoop"
-										},
 
-										"computeProfile": {
-											"roles": [
-												{
-													"name": "headnode",
 
-													"targetInstanceCount": 2,
+```json-interactive
 
-													"hardwareProfile": {
-														"vmSize": "Large"
-													}
 
-												},
-												{
-													"name": "workernode",
-
-													"targetInstanceCount": 1,
-
-													"hardwareProfile": {
-														"vmSize": "Large"
-													}
-												},
-												{
-													"name": "zookeepernode",
-
-													"targetInstanceCount": 3,
-
-													"hardwareProfile": {
-														"vmSize": "Small"
-													}
-												}
-											]
+		{
+		"id": "/subscriptions/{ subscription-id }/resourceGroups/myresourcegroup1/providers/Microsoft.HDInsight/ clusters/mycluster ", "
+		name "
+		: "mycluster",
+		"type": "Microsoft.HDInsight/clusters",
+		"location": "location-name",
+		"tags": {
+			"tag1": "value1",
+			"tag2": "value2"
+		},
+		"properties": {
+			"clusterVersion": "3.5",
+			"osType": "Linux",
+			"tier": "premium",
+			"clusterDefinition": {
+				"kind": "hadoop",
+				"configurations": {
+					"gateway": {
+						 "restAuthEntraUsers": "[{\"objectId\":\"000000-00000-00000-000000\",\"displayName\":\"User1\",\"upn\":\"user1@contoso.com\"},{\"objectId\":\"000000-00000-00000-00001\",\"displayName\":\"User 2\",\"upn\":\"user2@contoso.com\"}]"
+					},
+					"core-site": {
+						"fs.defaultFS": "wasb://container@storageaccount.blob.core.windows.net",
+						"fs.azure.account.key.storageaccount.blob.core.windows.net": "storage-account-key"
+					}
+				}
+			},
+			"securityProfile": {
+				"directoryType": "ActiveDirectory",
+				"domain": "mydomain.com",
+				"organizationalUnitDN": "OU=Hadoop,DC=mydomain,DC=COM",
+				"ldapsUrls": ["ldaps://mydomain.com:636"],
+				"domainUsername": "clusteradmin@mydomain.com",
+				"domainUserPassword": "password",
+				"clusterUsersGroupDNs": ["ADGroup1", "ADGroup2"]
+			},
+			"computeProfile": {
+				"roles": [
+					{
+						"name": "headnode",
+						"targetInstanceCount": 2,
+						"hardwareProfile": {
+							"vmSize": "Large"
+						},
+						"osProfile": {
+							"linuxOperatingSystemProfile": {
+								"username": "username",
+								"sshProfile": {
+									"publicKeys": [
+										{
+											"certificateData": "ssh-rsa key"
 										}
-									}
+									]
 								}
-
+							}
+						},
+						"virtualNetworkProfile": {
+							"id": "/subscriptions/mysubscriptionid/resourceGroups/myrresourcegroup/providers/Microsoft.Network/virtualNetworks/myvirtualnetwork",
+							"subnet": "/subscriptions/mysubscriptionid /resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvirtualnetwork/subnets/mysubnet"
+						}
+					},
+					{
+						"name": "workernode",
+						"targetInstanceCount": 1,
+						"hardwareProfile": {
+							"vmSize": "Large"
+						},
+						"osProfile": {
+							"linuxOperatingSystemProfile": {
+								"username": "username",
+								"sshProfile": {
+									"publicKeys": [
+										{
+											"certificateData": " ssh-rsa key"
+										}
+									]
+								}
+							}
+						},
+						"virtualNetworkProfile": {
+							"id": "/subscriptions/mysubscriptionid/resourceGroups/myrresourcegroup/providers/Microsoft.Network/virtualNetworks/myvirtualnetwork",
+							"subnet": "/subscriptions/mysubscriptionid /resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvirtualnetwork/subnets/mysubnet"
+						}
+					},
+					{
+						"name": "zookeepernode",
+						"targetInstanceCount": 3,
+						"hardwareProfile": {
+							"vmSize": "Small"
+						},
+						"osProfile": {
+							"linuxOperatingSystemProfile": {
+								"username": "username",
+								"sshProfile": {
+									"publicKeys": [
+										{
+											"certificateData": "ssh-rsa key"
+										}
+									]
+								}
+							},
+							"virtualNetworkProfile": {
+								"id": "/subscriptions/mysubscriptionid/resourceGroups/myrresourcegroup/providers/Microsoft.Network/virtualNetworks/myvirtualnetwork",
+								"subnet": "/subscriptions/mysubscriptionid /resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvirtualnetwork/subnets/mysubnet"
+							}
+						}
+					}
+				]
+			}
+		}
+	}
 
 ```
 
@@ -401,119 +429,118 @@ The following example shows the request body for creating an Entra enabled Linux
 
 
 
-
-```
-								{
-									"id": "/subscriptions/{ subscription-id }/resourceGroups/myresourcegroup1/providers/Microsoft.HDInsight/ clusters/mycluster ", "
-									name "
-									: "mycluster",
-									"type": "Microsoft.HDInsight/clusters",
-									"location": "location-name",
-									"tags": {
-										"tag1": "value1",
-										"tag2": "value2"
-									},
-									"properties": {
-										"clusterVersion": "3.5",
-										"osType": "Linux",
-										"tier": "premium",
-										"clusterDefinition": {
-											"kind": "hadoop",
-											"configurations": {
-												"gateway": {
-													 "restAuthEntraUsers": "[{\"objectId\":\"000000-00000-00000-000000\",\"displayName\":\"User1\",\"upn\":\"user1@contoso.com\"},{\"objectId\":\"000000-00000-00000-00001\",\"displayName\":\"User 2\",\"upn\":\"user2@contoso.com\"}]"
-												},
-												"core-site": {
-													"fs.defaultFS": "wasb://container@storageaccount.blob.core.windows.net",
-													"fs.azure.account.key.storageaccount.blob.core.windows.net": "storage-account-key"
-												}
+	```json-interactive
+					{
+			"id": "/subscriptions/{ subscription-id }/resourceGroups/myresourcegroup1/providers/Microsoft.HDInsight/ clusters/mycluster ", "
+			name "
+			: "mycluster",
+			"type": "Microsoft.HDInsight/clusters",
+			"location": "location-name",
+			"tags": {
+				"tag1": "value1",
+				"tag2": "value2"
+			},
+			"properties": {
+				"clusterVersion": "3.5",
+				"osType": "Linux",
+				"tier": "premium",
+				"clusterDefinition": {
+					"kind": "hadoop",
+					"configurations": {
+						"gateway": {
+							 "restAuthEntraUsers": "[{\"objectId\":\"000000-00000-00000-000000\",\"displayName\":\"User1\",\"upn\":\"user1@contoso.com\"},{\"objectId\":\"000000-00000-00000-00001\",\"displayName\":\"User 2\",\"upn\":\"user2@contoso.com\"}]"
+						},
+						"core-site": {
+							"fs.defaultFS": "wasb://container@storageaccount.blob.core.windows.net",
+							"fs.azure.account.key.storageaccount.blob.core.windows.net": "storage-account-key"
+						}
+					}
+				},
+				"securityProfile": {
+					"directoryType": "ActiveDirectory",
+					"domain": "mydomain.com",
+					"organizationalUnitDN": "OU=Hadoop,DC=mydomain,DC=COM",
+					"ldapsUrls": ["ldaps://mydomain.com:636"],
+					"domainUsername": "clusteradmin@mydomain.com",
+					"domainUserPassword": "password",
+					"clusterUsersGroupDNs": ["ADGroup1", "ADGroup2"]
+				},
+				"computeProfile": {
+					"roles": [
+						{
+							"name": "headnode",
+							"targetInstanceCount": 2,
+							"hardwareProfile": {
+								"vmSize": "Large"
+							},
+							"osProfile": {
+								"linuxOperatingSystemProfile": {
+									"username": "username",
+									"sshProfile": {
+										"publicKeys": [
+											{
+												"certificateData": "ssh-rsa key"
 											}
-										},
-										"securityProfile": {
-											"directoryType": "ActiveDirectory",
-											"domain": "mydomain.com",
-											"organizationalUnitDN": "OU=Hadoop,DC=mydomain,DC=COM",
-											"ldapsUrls": ["ldaps://mydomain.com:636"],
-											"domainUsername": "clusteradmin@mydomain.com",
-											"domainUserPassword": "password",
-											"clusterUsersGroupDNs": ["ADGroup1", "ADGroup2"]
-										},
-										"computeProfile": {
-											"roles": [
-												{
-													"name": "headnode",
-													"targetInstanceCount": 2,
-													"hardwareProfile": {
-														"vmSize": "Large"
-													},
-													"osProfile": {
-														"linuxOperatingSystemProfile": {
-															"username": "username",
-															"sshProfile": {
-																"publicKeys": [
-																	{
-																		"certificateData": "ssh-rsa key"
-																	}
-																]
-															}
-														}
-													},
-													"virtualNetworkProfile": {
-														"id": "/subscriptions/mysubscriptionid/resourceGroups/myrresourcegroup/providers/Microsoft.Network/virtualNetworks/myvirtualnetwork",
-														"subnet": "/subscriptions/mysubscriptionid /resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvirtualnetwork/subnets/mysubnet"
-													}
-												},
-												{
-													"name": "workernode",
-													"targetInstanceCount": 1,
-													"hardwareProfile": {
-														"vmSize": "Large"
-													},
-													"osProfile": {
-														"linuxOperatingSystemProfile": {
-															"username": "username",
-															"sshProfile": {
-																"publicKeys": [
-																	{
-																		"certificateData": " ssh-rsa key"
-																	}
-																]
-															}
-														}
-													},
-													"virtualNetworkProfile": {
-														"id": "/subscriptions/mysubscriptionid/resourceGroups/myrresourcegroup/providers/Microsoft.Network/virtualNetworks/myvirtualnetwork",
-														"subnet": "/subscriptions/mysubscriptionid /resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvirtualnetwork/subnets/mysubnet"
-													}
-												},
-												{
-													"name": "zookeepernode",
-													"targetInstanceCount": 3,
-													"hardwareProfile": {
-														"vmSize": "Small"
-													},
-													"osProfile": {
-														"linuxOperatingSystemProfile": {
-															"username": "username",
-															"sshProfile": {
-																"publicKeys": [
-																	{
-																		"certificateData": "ssh-rsa key"
-																	}
-																]
-															}
-														},
-														"virtualNetworkProfile": {
-															"id": "/subscriptions/mysubscriptionid/resourceGroups/myrresourcegroup/providers/Microsoft.Network/virtualNetworks/myvirtualnetwork",
-															"subnet": "/subscriptions/mysubscriptionid /resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvirtualnetwork/subnets/mysubnet"
-														}
-													}
-												}
-											]
-										}
+										]
 									}
 								}
-```
+							},
+							"virtualNetworkProfile": {
+								"id": "/subscriptions/mysubscriptionid/resourceGroups/myrresourcegroup/providers/Microsoft.Network/virtualNetworks/myvirtualnetwork",
+								"subnet": "/subscriptions/mysubscriptionid /resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvirtualnetwork/subnets/mysubnet"
+							}
+						},
+						{
+							"name": "workernode",
+							"targetInstanceCount": 1,
+							"hardwareProfile": {
+								"vmSize": "Large"
+							},
+							"osProfile": {
+								"linuxOperatingSystemProfile": {
+									"username": "username",
+									"sshProfile": {
+										"publicKeys": [
+											{
+												"certificateData": " ssh-rsa key"
+											}
+										]
+									}
+								}
+							},
+							"virtualNetworkProfile": {
+								"id": "/subscriptions/mysubscriptionid/resourceGroups/myrresourcegroup/providers/Microsoft.Network/virtualNetworks/myvirtualnetwork",
+								"subnet": "/subscriptions/mysubscriptionid /resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvirtualnetwork/subnets/mysubnet"
+							}
+						},
+						{
+							"name": "zookeepernode",
+							"targetInstanceCount": 3,
+							"hardwareProfile": {
+								"vmSize": "Small"
+							},
+							"osProfile": {
+								"linuxOperatingSystemProfile": {
+									"username": "username",
+									"sshProfile": {
+										"publicKeys": [
+											{
+												"certificateData": "ssh-rsa key"
+											}
+										]
+									}
+								},
+								"virtualNetworkProfile": {
+									"id": "/subscriptions/mysubscriptionid/resourceGroups/myrresourcegroup/providers/Microsoft.Network/virtualNetworks/myvirtualnetwork",
+									"subnet": "/subscriptions/mysubscriptionid /resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvirtualnetwork/subnets/mysubnet"
+								}
+							}
+						}
+					]
+				}
+			}
+		}
+	```
 
 
 
