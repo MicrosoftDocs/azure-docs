@@ -27,10 +27,10 @@ You can view and configure the following settings using the **Resource Menu**.
 - [Settings](#settings)
   - [Authentication](#authentication)
   - [Advanced settings](#advanced-settings)
-  - [Data persistence](#data-persistence-preview)
+  - [Data persistence](#data-persistence)
   - [Encryption](#encryption)
   - [Active geo-replication](#active-geo-replication)
-  - [Scale](#scale-preview)
+  - [Scale](#scale)
   - [Properties](#properties)
   - [Locks](#locks)
 - [Administration](#administration)
@@ -76,10 +76,10 @@ The **Settings** section allows you to access and configure the following settin
 
 - [Authentication](#authentication)
 - [Advanced settings](#advanced-settings)
-- [Data persistence](#data-persistence-preview) (preview)
+- [Data persistence](#data-persistence) 
 - [Encryption](#encryption)
 - [Active geo-replication](#active-geo-replication)
-- [Scale](#scale-preview)
+- [Scale](#scale)
 - [Properties](#properties)
 - [Locks](#locks)
 
@@ -109,7 +109,7 @@ The following properties are set:
   - Eviction Policy
   - Defer Redis DB version updates
 
-### Data persistence (preview)
+### Data persistence
 
 Use **Data persistence** to enable, disable, or configure data persistence for your Redis cache. Azures Managed Redis offers Redis persistence using either RDB persistence or AOF persistence.
 
@@ -125,7 +125,7 @@ For more information, see [Configure disk encryption for Azure Managed Redis ins
 This functionality can be used to replicate a cache across Azure regions, providing greater data durability and availability.
 For more information, see [Configure active geo-replication for Azure Managed Redis instances](how-to-active-geo-replication.md)
 
-### Scale (preview)
+### Scale
 
 Select **Scale** to view or change the size and performance tier of your Redis instance. For more information on scaling, see [How to Scale Azure Managed Redis](how-to-scale.md).
 

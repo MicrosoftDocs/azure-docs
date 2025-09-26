@@ -2,11 +2,13 @@
 title: Monitoring data reference for Azure Application Gateway
 description: This article contains important reference material you need when you monitor Azure Application Gateway.
 ms.date: 06/04/2025
-ms.custom: horz-monitor
 ms.topic: reference
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-application-gateway
+ms.custom:
+  - horz-monitor
+  - sfi-image-nochange
 # Customer intent: "As a cloud administrator, I want to access detailed performance metrics for Azure Application Gateway, so that I can effectively monitor traffic handling, optimize resource usage, and ensure high availability of services."
 ---
 

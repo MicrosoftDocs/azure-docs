@@ -5,6 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.topic: troubleshooting-known-issue
 ms.date: 08/14/2025
+ms.custom: sfi-ropc-nochange
 ---
 
 # Known issues: Azure IoT Operations

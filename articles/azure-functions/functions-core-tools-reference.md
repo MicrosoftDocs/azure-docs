@@ -201,7 +201,7 @@ Connects the local command prompt to streaming logs for the function app in Azur
 func azure functionapp logstream <APP_NAME>
 ```
 
-The default timeout for the connection is 2 hours. You can change the timeout by adding an app setting named [SCM_LOGSTREAM_TIMEOUT](functions-app-settings.md#scm_logstream_timeout), with a timeout value in seconds. Not yet supported for Linux apps in the Consumption plan. For these apps, use the `--browser` option to view logs in the portal.
+The default timeout for the connection is 2 hours. You can change the timeout by adding an app setting named [SCM_LOGSTREAM_TIMEOUT](functions-app-settings.md#scm_logstream_timeout), with a timeout value in seconds. Not yet supported for Linux in a [Flex Consumption](flex-consumption-plan.md) or [Consumption](consumption-plan.md) plan. For these apps, use the `--browser` option to view logs in the portal.
 
 The `deploy` action supports the following options:
 

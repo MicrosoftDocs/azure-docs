@@ -7,7 +7,9 @@ ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: tutorial
 ms.date: 11/26/2024
-ms.custom: template-tutorial
+ms.custom:
+  - template-tutorial
+  - sfi-image-nochange
 # Customer intent: "As a network administrator, I want to configure a Gateway Load Balancer for my virtual machines' outbound connectivity, so that I can ensure high performance and scalability while securing both inbound and outbound traffic."
 ---
 

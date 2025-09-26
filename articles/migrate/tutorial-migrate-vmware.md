@@ -6,6 +6,7 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: tutorial
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 05/12/2025
 ms.custom: vmware-scenario-422, mvc, engagement-fy23
 # Customer intent: As an IT administrator migrating on-premises VMware VMs, I want to perform an agentless migration to Azure, so that I can seamlessly transition my workloads without the overhead of installing migration agents.
@@ -13,7 +14,7 @@ ms.custom: vmware-scenario-422, mvc, engagement-fy23
 
 # Migrate VMware VMs to Azure (agentless)
 
-This article shows you how to migrate on-premises VMware VMs to Azure, using the [Migration and modernization](migrate-services-overview.md) tool, with agentless migration. You can also migrate VMware VMs using agent-based migration. [Compare](server-migrate-overview.md#compare-migration-methods) the methods.
+This article shows you how to migrate on-premises VMware VMs to Azure, using the [Migration and modernization](migrate-services-overview.md) tool, with agentless migration. You can also migrate VMware VMs using agent-based migration. [Compare](server-migrate-overview.md) the methods.
 
 This tutorial is the third in a series that demonstrates how to assess and migrate VMware VMs to Azure.
 
@@ -195,7 +196,7 @@ Get-AzMigrateServerMigrationStatus   -ProjectName "<your-project-name>"   -Resou
 
 16. You run this command to get the following output: <br /><br />
 
-:::image type="content" source="./media/tutorial-migrate-vmware/appliance-name.png" alt-text="Screenshot shows azure migrate server migration status." lightbox="./media/tutorial-migrate-vmware/appliance-name.png":::
+:::image type="content" source="./media/tutorial-migrate-vmware/appliance-name.png" alt-text="Screenshot shows Azure Migrate server migration status." lightbox="./media/tutorial-migrate-vmware/appliance-name.png":::
 
 ## Run a test migration
 

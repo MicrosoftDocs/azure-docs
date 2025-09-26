@@ -7,6 +7,7 @@ ms.date: 10/22/2024
 ms.topic: how-to
 ms.service: azure-iot-central
 services: iot-central
+ms.custom: sfi-image-nochange
 
 # CustomerIntent: As an administrator, I want to be able to track changes made to my IoT Central application so that I can understand who made what changes at what time.
 ---

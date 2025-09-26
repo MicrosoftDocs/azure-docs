@@ -104,10 +104,6 @@ items:
             href: network-security-namespaces.md
           - name: Transport Layer Security (TLS)
             href: transport-layer-security.md
-        - name: Use cases
-          items:
-          - name: Automotive Messaging
-            href: mqtt-automotive-connectivity-and-data-solution.md
       - name: How-to
         items:
         - name: Create and manage namespaces

@@ -7,7 +7,9 @@ ms.author: alzam
 ms.service: azure-private-5g-core
 ms.topic: tutorial 
 ms.date: 01/16/2022
-ms.custom: template-tutorial
+ms.custom:
+  - template-tutorial
+  - sfi-image-nochange
 ---
 
 # Tutorial: Create an example policy control configuration set for Azure Private 5G Core

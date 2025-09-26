@@ -4,6 +4,7 @@ description: This tutorial describes how to use the Microsoft Sentinel data conn
 ms.topic: tutorial
 ms.date: 09/18/2022
 ms.subservice: sentinel-integration
+ms.custom: sfi-image-nochange
 ---
 
 # Tutorial: Investigate and detect threats for IoT devices
