@@ -9,7 +9,7 @@ ms.service: azure-operator-service-manager
 ---
 
 # Publisher artifact store resiliency 
-This article describes how to enable geo-replication in Azure Operator Service Manager artifact store resource when backed by a Azure Container Registry (ACR). A geo-replicated registry offers these advantages:
+This article describes how to enable geo-replication in Azure Operator Service Manager artifact store resource when backed by an Azure Container Registry (ACR). A geo-replicated registry offers these advantages:
 * Enhances performance and reliability for regional deployments by providing registry access closer to the network.
 * Allows centralized management of a registry across various regions.
 * Ensures registry availability if a regional outage happens.
@@ -35,7 +35,7 @@ The Azure Operator Service Manager artifact store supports two resiliency strate
 
 Where `SingleReplication` strategy is configured, the Azure Operator Service Manager artifact store uses zone redundancy to achieve intra-region resiliency.
 * Zone redundancy is enabled for both the primary and replica resources in regions that support availability zones.
-* This distributes resources across physically separate datacenters (zones) within a region, protecting against datacenter-level failures and increasing local (intra-regional) availability
+* Resources are distributed across physically separate datacenters (zones) within a region, protecting against datacenter-level failures and increasing local (intra-regional) availability
 
 ### ACR geo-replication strategy
 Where `GeoReplication` replication strategy is configured, the Azure Operator Service Manager artifact store uses both zone redundancy and inter-regional geo-replication to achieve carrier-grade resiliency. 
@@ -56,8 +56,8 @@ Given the primary regions supported by Azure Operator Service Manager and the Az
 ## Enable geo-replication for artifact store resources
 ACR geo-replication can either be configured during the creation of a new artifact store, or retrofit onto an artifact store previously deployed. In addition to the artifact store configuration itself, use of private endpoints and private links must also be considered.
 
-### Conhfiguring new artifact stores
-To enable geo-replication for a new artifact store the publisher can simply set the replication strategy to `GeoReplication` while creating artifact store resource. 
+### Configuring new artifact stores
+To enable geo-replication, for a new artifact store, set the replication strategy to `GeoReplication` while creating the artifact store resource. 
 
 ```powershell
 // An example PUT Body on ArtifactStore resource with GeoReplication strategy
@@ -73,10 +73,10 @@ To enable geo-replication for a new artifact store the publisher can simply set 
 }
 ```
 
-If private link is in-use, the private endpoints are created after the artifact store is configured for `GeoReplication` following stanard process. No extra steps are required.
+If private link is in-use, the private endpoints are created after the artifact store is configured for `GeoReplication` following standard process. No extra steps are required.
 
 ### Configuring existing artifact stores with private link
-If an existing artifact store is not using private link, configuring the `GeoReplication` strategy is the only step required. If an existing artifact store is using private link or private endopoint, then the following second step is required. 
+If an existing artifact store isn't using private link, configuring the `GeoReplication` strategy is the only step required. If an existing artifact store is using private link or private endpoint, then the following second step is required. 
 * First, update the replication strategy to `GeoReplication`, as previously described.
 * Second, perform an update (re-POST) operation on the private endpoint resource, after geo-replication is enabled.
 This second step is necessary because domain name records (DNS) for the private endpoint aren't automatically created in the new replica regions. Updating the private endpoint forces the DNS records to update and adds private DNS zones for all ACR service regions.
@@ -111,8 +111,8 @@ az acr replication list --registry <acr-name>
 * If you try to push to a replica (not primary), you get the error:
 
 ```
-DENIED: The operation is not allowed on a read-only replica.
+DENIED: The operation isn't allowed on a read-only replica.
 ```
 
 4. What happens if the primary region only partially fails? 
-•	If the primary is partially down and can't accept pushes, image push operations fails. You must wait for the primary to recover or perform a failover.
+•	If the primary is partially down and can't accept pushes, the image push operation fails. You must wait for the primary to recover or perform a failover.
