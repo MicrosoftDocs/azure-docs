@@ -101,6 +101,9 @@ Suggested order of operations for manually upgrading a Basic Load Balancer in co
 ### Will the Basic Load Balancer retirement impact Cloud Services Extended Support (CSES) deployments?
 No, this retirement won't impact your existing or new deployments on CSES. This means that you can still create and use Basic Load Balancers for CSES deployments. However, we advise using Standard SKU on Azure Resource Manager (ARM) native resources (those that don't depend on CSES) when possible, because Standard has more advantages than Basic.
 
+### What will happen to my Basic Load Balancer resource post-retirement (September 30, 2025)?
+Basic Load Balancers will remain operational after September 30, 2025, giving users more time to transition to Standard SKU. Customers who choose to continue using Basic Load Balancers after retirement date accept the risks and acknowledge that the service is unsupported and not covered by SLA guarantees.
+
 ## Next Steps
 
 For guidance on upgrading Basic Public IP addresses to Standard SKUs, see:
