@@ -179,6 +179,14 @@ Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"DB
 
 When your app runs, the App Service app settings are injected into the process as environment variables automatically. You can verify container environment variables with the URL `https://<app-name>.scm.azurewebsites.net/Env`.
 
+By default with Custom Docker Images, when SSH’ing into a container, only a few certain environment variables may be seen when trying to use something like env or printenv. To be able to see all environment variables within the container - such as ones you pass in to your application for runtime usage, add this line to your entrypoint script:
+
+```docker endpoint
+eval $(printenv | sed -n "s/^\([^=]\+\)=\(.*\)$/export \1=\2/p" | sed 's/"/\\\"/g' | sed '/=/s//="/' | sed 's/$/"/' >> /etc/profile)
+```
+
+A full example can be seen [here](https://github.com/azureossd/docker-container-ssh-examples/blob/main/alpine-node/init_container.sh).
+
 If your app uses images from a private registry or from Docker Hub, credentials for accessing the repository are saved in environment variables: `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME`, and `DOCKER_REGISTRY_SERVER_PASSWORD`. Because of security risks, none of these reserved variable names are exposed to the application.
 
 ::: zone pivot="container-windows"

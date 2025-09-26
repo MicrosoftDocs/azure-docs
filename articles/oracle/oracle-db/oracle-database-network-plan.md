@@ -86,6 +86,7 @@ The following table describes the network topologies that are supported by each 
 |On-premises connectivity to an Oracle database cluster via a virtual WAN and attached software-defined wide area network (SD-WAN)|No|Yes|
 |On-premises connectivity via a secured hub (a firewall network virtual appliance) |Yes|Yes|
 |Connectivity from an Oracle database cluster on Oracle Database@Azure nodes to Azure resources|Yes|Yes|
+|Azure Container Apps supported for advanced network features|No|Yes|
 
 ## Constraints
 

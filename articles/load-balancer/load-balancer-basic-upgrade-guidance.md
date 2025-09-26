@@ -62,7 +62,10 @@ Use these PowerShell scripts to help with upgrading from Basic to Standard SKU:
 ## Upgrade manually
 
 > [!NOTE]
-> Although manually upgrading your Basic Load Balancer to a Standard Load Balancer using the Portal is an option, we recommend using the [**automated script option**](./upgrade-basic-standard-with-powershell.md) above, due to the number of steps and complexity of the migration. The automation ensures a consistent migration and minimizes downtime to load balanced applications. 
+> Although manually upgrading your Basic Load Balancer to a Standard Load Balancer using the Portal is an option, we recommend using the [**automated script option**](./upgrade-basic-standard-with-powershell.md) above, due to the number of steps and complexity of the migration. The automation ensures a consistent migration and minimizes downtime to load balanced applications.
+
+>[!Warning]
+> Before manually upgrading a Basic Load Balancer, make sure that all Public IPs associated with both the Load Balancer and its backend Virtual Machines are set to 'static'. If you disassociate a Public IP or remove all backend VMs before changing the IP allocation to static, the IP address may be lost.
 
 When manually migrating from a Basic to Standard SKU Load Balancer, there are a couple key considerations to keep in mind:
 
@@ -100,6 +103,9 @@ Suggested order of operations for manually upgrading a Basic Load Balancer in co
 
 ### Will the Basic Load Balancer retirement impact Cloud Services Extended Support (CSES) deployments?
 No, this retirement won't impact your existing or new deployments on CSES. This means that you can still create and use Basic Load Balancers for CSES deployments. However, we advise using Standard SKU on Azure Resource Manager (ARM) native resources (those that don't depend on CSES) when possible, because Standard has more advantages than Basic.
+
+### What will happen to my Basic Load Balancer resource post-retirement (September 30, 2025)?
+Basic Load Balancers will remain operational after September 30, 2025, giving users more time to transition to Standard SKU. Customers who choose to continue using Basic Load Balancers after retirement date accept the risks and acknowledge that the service is unsupported and not covered by SLA guarantees.
 
 ## Next Steps
 

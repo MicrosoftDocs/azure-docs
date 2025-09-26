@@ -95,7 +95,7 @@ This section describes what to expect when IoT Hub resources are configured for 
 
 - **Detection and response:** The IoT Hub service is responsible for detecting a failure in an availability zone. You don't need to do anything to initiate a zone failover.
 
-+ **Notification**: Azure IoT Hub doesn't notify you when a zone is down. However, you can use [Azure Resource Health](/azure/service-health/resource-health-overview) to monitor for the health of your IoT hub. You can also use [Azure Service Health](/azure/service-health/overview) to understand the overall health of the Azure Iot Hub service, including any zone failures.
++ **Notification**: Azure IoT Hub doesn't notify you when a zone is down. However, you can use [Azure Resource Health](/azure/service-health/resource-health-overview) to monitor for the health of your IoT hub. You can also use [Azure Service Health](/azure/service-health/overview) to understand the overall health of the Azure IoT Hub service, including any zone failures.
 
   Set up alerts on these services to receive notifications of zone-level problems. For more information, see [Create Service Health alerts in the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal) and [Create and configure Resource Health alerts](/azure/service-health/resource-health-alert-arm-template-guide).
 

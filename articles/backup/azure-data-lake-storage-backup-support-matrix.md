@@ -2,7 +2,7 @@
 title: Support matrix for Azure Data Lake Storage Vaulted Backup (preview)
 description: Learn about the  regional availability, supported scenarios, and limitations for vaulted backups of Azure Data Lake Storage (preview).
 ms.topic: reference
-ms.date: 08/26/2025
+ms.date: 09/26/2025
 ms.custom:
   - references_regions
   - engagement-fy24
@@ -16,6 +16,7 @@ ms.author: v-mallicka
 # Support matrix for Azure Data Lake Storage vaulted backup (preview)
 
 This article summarizes the regional availability, supported scenarios, and limitations for vaulted backups of Azure Data Lake Storage (preview).
+Azure Backup now enables enhanced protection and recovery for Azure Data Lake Storage through vaulted backups that offer ransomware resilience, secure offsite storage, and long-term data retention. See the [Microsoft Community Hub blog](https://techcommunity.microsoft.com/blog/azurestorageblog/protect-azure-data-lake-storage-with-vaulted-backups/4410707).
 
 For more insights on Azure Backup’s support for vaulted backups in Azure Data Lake Storage (preview) that enables secure, long-term, and isolated data protection, see the [Microsoft Community Hub blog](https://azure.microsoft.com/updates?id=488835).
 
