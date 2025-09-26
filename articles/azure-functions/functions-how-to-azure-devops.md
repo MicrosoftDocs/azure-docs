@@ -16,7 +16,7 @@ Use [Azure Pipelines](/azure/devops/pipelines/) to automatically deploy your cod
 
 YAML pipelines are defined using a YAML file in your repository. A step is the smallest building block of a pipeline and can be a script or task (prepackaged script). [Learn about the key concepts and components that make up a pipeline](/azure/devops/pipelines/get-started/key-pipelines-concepts).
 
-You use the `AzureFunctionApp` task to deploy your code. There are now two versions of the `AzureFunctionApp`, which are compared in this table:
+You use the `AzureFunctionApp` task to deploy your code. There are now two versions of `AzureFunctionApp`, which are compared in this table:
 
 |Comparison/version  | [AzureFunctionApp@2](/azure/devops/pipelines/tasks/reference/azure-function-app-v2) | [AzureFunctionApp@1](/azure/devops/pipelines/tasks/reference/azure-function-app-v1) |
 | ---- | ---- | ---- |
@@ -543,7 +543,7 @@ The following YAML snippet shows how to deploy to a staging slot, and then swap 
   inputs:
     azureSubscription: <Azure service connection>
     appType: functionAppLinux
-    appName: <Name of the Function app>
+    appName: <Name of the function app>
     package: $(System.ArtifactsDirectory)/**/*.zip
     deployToSlotOrASE: true
     resourceGroupName: <Name of the resource group>
@@ -552,7 +552,7 @@ The following YAML snippet shows how to deploy to a staging slot, and then swap 
 - task: AzureAppServiceManage@0
   inputs:
     azureSubscription: <Azure service connection>
-    WebAppName: <name of the Function app>
+    WebAppName: <name of the function app>
     ResourceGroupName: <name of resource group>
     SourceSlot: staging
     SwapWithProduction: true
@@ -560,7 +560,9 @@ The following YAML snippet shows how to deploy to a staging slot, and then swap 
 ::: zone-end
 ## Deploy to Azure Container Apps
 
-You can use this YAML snippet to deploy your function code to an Azure Container App that is optimized for Azure Functions. For more information, see [Azure Functions on Azure Container Apps overview](../container-apps/functions-overview.md).
+You can use the `AzureContainerApps` task to deploy a function app image to an Azure Container App instance that is optimized for Azure Functions. For more information, see [Azure Functions on Azure Container Apps overview](../container-apps/functions-overview.md).
+
+This code deploys the base image for a .NET 8 isolated process model function app:
 
 ```yaml
 trigger:
@@ -570,17 +572,12 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: AzureCLI@2
-  displayName: 'Deploy to Azure Container Apps'
+- task: AzureContainerApps@1
   inputs:
-    azureSubscription: '<Name of your Azure subscription>'
-    scriptType: 'bash'
-    scriptLocation: 'inlineScript'
-    inlineScript: |
-      az containerapp update \
-        --name your-app-name \
-        --resource-group your-resource-group \
-        --image mcr.microsoft.com/azure-functions/dotnet:4-dotnet8.0
+    azureSubscription: <Name of your Azure subscription>
+    imageToDeploy: 'mcr.microsoft.com/azure-functions/dotnet-isolated:4-dotnet-isolated8.0'
+    containerAppName: <Name of your container app>
+    resourceGroup: <Name of the resource group>
 ```
 
 ## Create a pipeline with Azure CLI
