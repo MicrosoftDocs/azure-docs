@@ -4,7 +4,7 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 09/08/2025
+ms.date: 09/12/2025
 # Customer intent: "As an Azure VMware Solution user, I want to stay informed about platform updates and maintenance schedules, so that I can ensure my workloads remain optimized and secure during transitions."
 ---
 
@@ -16,7 +16,7 @@ Microsoft regularly applies important updates to the Azure VMware Solution for n
 
 **Azure VMware Solution Generation 2 Private Clouds**
 
-Azure VMware Solution Generation 2 Private Clouds is now generally available on the AV64 SKU. With this capability, we've achieved infrastructure innovation, powered by Azure Boost, simplifying networking, delivering 100 Gbps throughput, lowering latency, and boosting performance for VMware vSphere workloads. Private clouds are deployed inside a virtual network, enabling your private cloud with standard Azure Networking. Azure ExpressRoute is no longer required. Gen 2 is available in specific Azure regions. SLAs are region specific. Contact your Microsoft account team or Microsoft Support to confirm coverage. [Learn more](native-introduction.md)
+Azure VMware Solution Generation 2 Private Clouds is now generally available on the AV64 SKU. With this capability, we've achieved infrastructure innovation, powered by Azure Boost, simplifying networking, delivering 100 Gbps throughput, lowering latency, and boosting performance for VMware vSphere workloads. Private clouds are deployed inside a virtual network, enabling your private cloud with standard Azure Networking. Azure ExpressRoute is no longer required. Gen 2 is available in the following Azure regions, East US, Canada Central, Canada East, North Europe, and UK West. SLAs are region specific. Contact your Microsoft account team or Microsoft Support to confirm coverage. [Learn more](native-introduction.md)
 
 **Security enhancement: new required permissions for Azure NetApp Files datastore with Azure VMware Solution**
 

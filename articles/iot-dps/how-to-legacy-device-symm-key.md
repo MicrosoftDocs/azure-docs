@@ -7,9 +7,13 @@ ms.author: sonialopez
 ms.date: 03/12/2024
 ms.topic: tutorial
 ms.service: azure-iot-hub
-ms.custom: devx-track-extended-java, devx-track-python, devx-track-js
 zone_pivot_groups: iot-dps-set1
 ms.subservice: azure-iot-hub-dps
+ms.custom:
+  - devx-track-extended-java
+  - devx-track-python
+  - devx-track-js
+  - sfi-image-nochange
 ---
 
 # Tutorial: Provision devices using symmetric key enrollment groups

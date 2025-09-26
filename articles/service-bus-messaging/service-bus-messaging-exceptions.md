@@ -3,6 +3,7 @@ title: Azure Service Bus - messaging exceptions (deprecated) | Microsoft Docs
 description: This article provides a list of Azure Service Bus messaging exceptions from the deprecated packages and suggested actions to taken when the exception occurs.
 ms.topic: article
 ms.date: 04/29/2025
+ms.custom: sfi-ropc-nochange
 ---
 
 # Service Bus messaging exceptions (deprecated)

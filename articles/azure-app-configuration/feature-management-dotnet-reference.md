@@ -150,7 +150,7 @@ The following example demonstrates how to enable custom feature flag configurati
 IConfiguration configuration = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json")
     .AddJsonFile("appsettings.prod.json")
-    .build();
+    .Build();
 
 services.AddSingleton(configuration);
 services.AddFeatureManagement();

@@ -242,7 +242,7 @@ Can onboard targets and manage capabilities but cannot create, run, or see detai
 
 Provides read access to environment resources.
 
-[Learn more](/azure/deployment-environments/how-to-configure-deployment-environments-user)
+[Learn more](/azure/deployment-environments/how-to-manage-deployment-environments-access)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -299,7 +299,7 @@ Provides read access to environment resources.
 
 Provides access to manage environment resources.
 
-[Learn more](/azure/deployment-environments/how-to-configure-deployment-environments-user)
+[Learn more](/azure/deployment-environments/how-to-manage-deployment-environments-access)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |

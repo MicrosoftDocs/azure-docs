@@ -5,6 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.service: azure-migrate
 ms.topic: concept-article
+ms.reviewer: v-uhabiba
 ms.date: 09/11/2025
 ms.custom: engagement-fy25, devx-track-extended-java
 # Customer intent: As a systems administrator, I want to understand the metadata collected by the Azure Migrate appliance for server discovery, so that I can assess server readiness for migration to the cloud and optimize resource allocation.
@@ -240,17 +241,6 @@ Name  | `Win32_operatingsystem`  | `Caption`
 Version  | `Win32_operatingsystem`  | `Version`
 Architecture  | `Win32_operatingsystem`  | `OSArchitecture`
 
-
-
-### Linux server operating system data
-
-Here's the operating system data that the appliance collects from each discovered Linux server:
-
-Data  | Commands
---- | ---
-Name/version | Gathered from one or more of the following files:<br/> <br/>`/etc/os-release`  <br> `/usr/lib/os-release`  <br> `/etc/enterprise-release`  <br> `/etc/redhat-release`  <br> `/etc/oracle-release`  <br> `/etc/SuSE-release`  <br> `/etc/lsb-release`  <br> `/etc/debian_version`
-Architecture | `uname`
-
 ### Windows server pending updates data
 
 Here's the pending updates data that the appliance collects from each discovered Windows server:
@@ -274,6 +264,15 @@ Edition  | `HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\<InstanceName>\Set
 Service pack  | `HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\<InstanceName>\Setup`  | `SP`
 Version  | `HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\<InstanceName>\Setup`  | `Version`
 
+### Linux server operating system data
+
+Here's the operating system data that the appliance collects from each discovered Linux server:
+
+Data  | Commands
+--- | ---
+Name/version | Gathered from one or more of the following files:<br/> <br/>`/etc/os-release`  <br> `/usr/lib/os-release`  <br> `/etc/enterprise-release`  <br> `/etc/redhat-release`  <br> `/etc/oracle-release`  <br> `/etc/SuSE-release`  <br> `/etc/lsb-release`  <br> `/etc/debian_version`
+Architecture | `uname`
+
 ### Linux server application data
 
 Here's the software inventory data that the appliance collects from each discovered Linux server. Based on the operating system of the server, one or more of the commands are run.
@@ -295,6 +294,9 @@ Update ID | `apt-get -s dist-upgrade, yum -q check-update, zypper list-updates`
 Updated Software version | `apt-get -s dist-upgrade, yum -q check-update, zypper list-updates`
 Classification/Severity | `apt-get -s dist-upgrade, yum -q check-update, zypper list-updates`
 Published date | `apt-get -s dist-upgrade, yum -q check-update, zypper list-updates`
+
+> [!NOTE]
+> If your Red Hat Enterprise Linux (RHEL) servers use `yum` and aren't patched regularly, pending updates data can consume storage in the cache under `var\tmp\yum\-<username>`. To manage disk space, it is recommended to clear the cache regularly.
 
 ## SQL Server instance and database data
 

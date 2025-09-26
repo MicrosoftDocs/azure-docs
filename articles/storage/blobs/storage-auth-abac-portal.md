@@ -8,6 +8,7 @@ ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.reviewer: nachakra
 ms.date: 03/15/2023
+ms.custom: sfi-image-nochange
 
 #Customer intent:
 

@@ -5,10 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/20/2025
 ms.topic: how-to 
-ms.custom: devx-track-azurepowershell
 ms.service: azure-automation
 ms.author: v-jasmineme
 author: jasminemehndir
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-ropc-nochange
 ---
 
 # Using a system-assigned managed identity for an Azure Automation account

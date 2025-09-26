@@ -10,6 +10,7 @@ ms.date: 06/30/2021
 ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: sms
+ms.custom: sfi-image-blocked
 ---
 
 # Tutorial: Sign and make requests with Postman

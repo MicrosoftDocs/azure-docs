@@ -4,9 +4,12 @@ description: In this guide, learn how to enable service accounts and add a servi
 author: maud-lv
 ms.author: malev
 ms.service: azure-managed-grafana
-ms.custom: devx-track-azurecli
 ms.topic: concept-article
 ms.date: 11/05/2024
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 #customer intent: As a Grafana administrator, I want to use service accounts in Azure Managed Grafana so that I can automate operations add authenticate applications in Grafana.
 ---
 

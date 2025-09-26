@@ -457,6 +457,7 @@ You'll deploy with the [Azure Function App Deploy](/azure/devops/pipelines/tasks
 
 To deploy to Azure Functions, add the following snippet at the end of your `azure-pipelines.yml` file. The default `appType` is Windows. You can specify Linux by setting the `appType` to `functionAppLinux`. Deploying to a Flex Consumption app is not supported with @v1 of the AzureFunctionApp task.
 
+
 ```yaml
 trigger:
 - main

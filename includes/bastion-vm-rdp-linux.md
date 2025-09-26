@@ -3,8 +3,10 @@ author: cherylmc
 ms.author: cherylmc
 ms.date: 04/26/2023
 ms.service: azure-virtual-wan
-ms.custom: linux-related-content
 ms.topic: include
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
 ---
 
 1. In the [Azure portal](https://portal.azure.com), go to the virtual machine that you want to connect to. On the **Overview** page, select **Connect**, then select **Bastion** from the dropdown to open the Bastion page.

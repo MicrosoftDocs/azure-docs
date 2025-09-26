@@ -6,7 +6,10 @@ ms.author: v-jasmineme
 ms.date: 07/31/2025
 ms.service: azure-resource-mover
 ms.topic: how-to
-ms.custom: engagement-fy23, UpdateFrequency2
+ms.custom:
+  - engagement-fy23
+  - UpdateFrequency2
+  - sfi-image-nochange
 # Customer intent: As an Azure administrator, I want to modify destination settings during the migration of VMs between regions using a resource mover, so that I can ensure optimal configuration and compliance with regional specifications.
 ---
 # Modify destination settings

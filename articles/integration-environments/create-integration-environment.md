@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.reviewer: estfan, azla
 ms.date: 09/11/2025
 ms.update-cycle: 1095-days
+ms.custom: sfi-image-nochange
 # Customer intent: As an integration developer, I want a way to centrally and logically organize Azure resources related to my organization's integration solutions.
 ---
 

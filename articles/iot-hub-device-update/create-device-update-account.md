@@ -7,6 +7,7 @@ ms.date: 12/06/2024
 ms.topic: how-to
 ms.service: azure-iot-hub
 ms.subservice: device-update
+ms.custom: sfi-image-nochange
 ---
 
 # Create Azure Device Update for IoT Hub resources

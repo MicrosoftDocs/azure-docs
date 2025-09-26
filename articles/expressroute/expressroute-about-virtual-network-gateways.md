@@ -80,6 +80,10 @@ The Auto-Assigned Public IP feature simplifies ExpressRoute gateway deployment b
 
 :::image type="content" source="media/expressroute-about-virtual-network-gateways/hobo-ip.png" alt-text="Screenshot of the create for virtual network gateway for ExpressRoute.":::
 
+When Auto-Assigned Public IP is enabled, the ExpressRoute gateway's Overview page no longer shows a Public IP address field — this means the gateway’s public IP is automatically provisioned and managed by Microsoft.
+
+:::image type="content" source="media/expressroute-about-virtual-network-gateways/hobo-overview.png" alt-text="Screenshot of the overview for virtual network gateway for ExpressRoute.":::
+
 **Key benefits:**
 
 - **Improved security:** The public IP is managed internally by Microsoft and isn't exposed to you, reducing risks associated with open management ports.

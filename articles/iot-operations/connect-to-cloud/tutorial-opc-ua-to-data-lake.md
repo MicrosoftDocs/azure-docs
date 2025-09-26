@@ -7,6 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.author: sonialopez
 ms.topic: how-to
 ms.date: 11/15/2024
+ms.custom: sfi-image-nochange
 
 #CustomerIntent: As an operator, I want to send data from an OPC UA server to Azure Data Lake Storage Gen 2 using Azure IoT Operations so that I can store the data for further analysis and processing.
 ---

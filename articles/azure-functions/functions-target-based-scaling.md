@@ -6,6 +6,7 @@ ms.topic: conceptual
 ms.service: azure-functions
 ms.custom:
   - build-2024
+  - sfi-ropc-nochange
 ---
 
 # Target-based scaling
