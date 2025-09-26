@@ -103,6 +103,9 @@ oras push <YOUR_ACR_NAME>.azurecr.io/enrichment:1.0.0 enrichment-1.0.0.wasm
 oras push <YOUR_ACR_NAME>.azurecr.io/filter:1.0.0 filter-1.0.0.wasm
 ```
 
+> [!TIP]
+> You can also push your own modules and create custom graphs, see [Configuration of custom data flow graphs](#configuration-of-custom-data-flow-graphs).
+
 ### Create a registry endpoint
 
 A registry endpoint defines the connection to your container registry. Data flow graphs use registry endpoints to pull WASM modules and graph definitions from container registries. For detailed information about configuring registry endpoints with different authentication methods and registry types, see [Configure registry endpoints](howto-configure-registry-endpoint.md).
@@ -260,12 +263,12 @@ This separation lets you deploy the same graph definition with different endpoin
 1. To create a data flow graph in [operations experience](https://iotoperations.azure.com/), go to **Data flow** tab.
 1. Select the drop-down menu next to **+ Create** and select **Create a data flow graph**
 
-    :::image type="content" source="media/howto-dataflow-graph/create-data-flow-graph.png" alt-text="Screenshot of the operations experience interface showing how to create a data flow graph.":::
+    :::image type="content" source="media/howto-create-dataflow-graph/create-data-flow-graph.png" alt-text="Screenshot of the operations experience interface showing how to create a data flow graph.":::
 
 1. Select the placeholder name **new-data-flow** to set the data flow properties.Enter the name of the data flow graph and choose the data flow profile to use.
 1. In the data flow diagram, select **Source** to configure the source node. Under **Source details**, select **Asset** or **Data flow Endpoint**.
 
-    :::image type="content" source="media/howto-dataflow-graph/select-source-simple.png" alt-text="Screenshot of the operations experience interface showing how to select a source for the data flow graph.":::
+    :::image type="content" source="media/howto-create-dataflow-graph/select-source-simple.png" alt-text="Screenshot of the operations experience interface showing how to select a source for the data flow graph.":::
 
     1. If you select **Asset**, choose the asset to pull data from and click **Apply**.
     1. If you select **Data flow Endpoint**, enter the following details and click **Apply**.
@@ -278,14 +281,14 @@ This separation lets you deploy the same graph definition with different endpoin
 
 1. In the data flow diagram, select **Add graph transform (optional)** to add a graph processing node. In the **Graph selection** pane, select **graph-simple:1** and click **Apply**.
 
-    :::image type="content" source="media/howto-dataflow-graph/create-simple-graph.png" alt-text="Screenshot of the operations experience interface showing how to create a simple data flow graph.":::
+    :::image type="content" source="media/howto-create-dataflow-graph/create-simple-graph.png" alt-text="Screenshot of the operations experience interface showing how to create a simple data flow graph.":::
 
     > [!IMPORTANT]
     > This example uses the `graph-simple:1.0.0` artifact that you [pushed to your container registry](#push-modules-to-your-registry). You can create your custom graphs by [developing your own WASM modules](#develop-custom-wasm-modules) and pushing them to your container registry. The graphs you push to your container registry are available in the **Graph selection** pane.
 
 1. You can configure some graph operator settings by selecting the graph node in the diagram. For example, you can select **module-temperature/map** operator and enter in `key2` the value `example-value-2`. Click **Apply** to save the changes.
 
-    :::image type="content" source="media/howto-dataflow-graph/configure-simple-graph.png" alt-text="Screenshot of the operations experience interface showing how to configure a simple data flow graph.":::
+    :::image type="content" source="media/howto-create-dataflow-graph/configure-simple-graph.png" alt-text="Screenshot of the operations experience interface showing how to configure a simple data flow graph.":::
 
 1. In the data flow diagram, select **Destination** to configure the destination node.
 1. Select **Save** under the data flow graph name to save the data flow graph.
@@ -529,12 +532,12 @@ This similarity occurs because the data flow graph resource acts as a host envir
 1. To create a data flow graph in [operations experience](https://iotoperations.azure.com/), go to **Data flow** tab.
 1. Select the drop-down menu next to **+ Create** and select **Create a data flow graph**
 
-    :::image type="content" source="media/howto-dataflow-graph/create-data-flow-graph.png" alt-text="Screenshot of the operations experience interface showing how to create a data flow complex graph.":::
+    :::image type="content" source="media/howto-create-dataflow-graph/create-data-flow-graph.png" alt-text="Screenshot of the operations experience interface showing how to create a data flow complex graph.":::
 
 1. Select the placeholder name **new-data-flow** to set the data flow properties. Enter the name of the data flow graph and choose the data flow profile to use. 
 1. In the data flow diagram, select **Source** to configure the source node. Under **Source details**, select **Asset** or **Data flow Endpoint**.
 
-    :::image type="content" source="media/howto-dataflow-graph/select-source-simple.png" alt-text="Screenshot of the operations experience interface showing how to select a source for the data flow graph.":::
+    :::image type="content" source="media/howto-create-dataflow-graph/select-source-simple.png" alt-text="Screenshot of the operations experience interface showing how to select a source for the data flow graph.":::
 
     1. If you select **Asset**, choose the asset to pull data from and click **Apply**.
     1. If you select **Data flow Endpoint**, enter the following details and click **Apply**.
@@ -547,14 +550,14 @@ This similarity occurs because the data flow graph resource acts as a host envir
 
 1. In the data flow diagram, select **Add graph transform (optional)** to add a graph processing node. In the **Graph selection** pane, select **graph-complex:1** and click **Apply**.
 
-    :::image type="content" source="media/howto-dataflow-graph/create-complex-graph.png" alt-text="Screenshot of the operations experience interface showing how to create a complex data flow graph.":::
+    :::image type="content" source="media/howto-create-dataflow-graph/create-complex-graph.png" alt-text="Screenshot of the operations experience interface showing how to create a complex data flow graph.":::
 
     > [!IMPORTANT]
     > This example uses the `graph-complex:1.0.0` artifact that you [pushed to your container registry](#push-modules-to-your-registry). You can create your custom graphs by [developing your own WASM modules](#develop-custom-wasm-modules) and pushing them to your container registry. The graphs you push to your container registry are available in the **Graph selection** pane.
 
 1. You can configure some graph operator settings by selecting the graph node in the diagram. 
 
-    :::image type="content" source="media/howto-dataflow-graph/configure-complex-graph.png" alt-text="Screenshot of the operations experience interface showing how to configure a complex data flow graph.":::
+    :::image type="content" source="media/howto-create-dataflow-graph/configure-complex-graph.png" alt-text="Screenshot of the operations experience interface showing how to configure a complex data flow graph.":::
 
       |Operator|Description|
       |--------|-----------|
@@ -835,7 +838,7 @@ See [Develop WebAssembly modules for data flow graphs](howto-develop-wasm-module
 
 For detailed information about creating and configuring the YAML graph definitions that define your data processing workflows, see [Configure WebAssembly graph definitions](howto-configure-wasm-graph-definitions.md).
 
-## Customize data flow graph configuration
+## Configuration of custom data flow graphs
 
 This section provides detailed information about configuring data flow graphs with WASM modules. It covers all configuration options, data flow endpoints, and advanced settings.
 
@@ -857,7 +860,7 @@ The mode property determines whether the data flow graph is actively processing 
 
 When creating or editing a data flow graph, in the **Data flow properties** pane, you can check **Enable data flow** to **Yes** to set the mode to `Enabled`. If you leave it unchecked, the mode is set to `Disabled`.
 
-:::image type="content" source="media/howto-dataflow-graph/select-mode.png" alt-text="Screenshot of the operations experience interface showing how to enable or disable mode configuration.":::
+:::image type="content" source="media/howto-create-dataflow-graph/select-mode.png" alt-text="Screenshot of the operations experience interface showing how to enable or disable mode configuration.":::
 
 # [Bicep](#tab/bicep)
 
