@@ -60,12 +60,9 @@ Choose your task version at the top of the article.
     
     Remember to upload the local code project to your GitHub or Azure Repos repository after you publish it to your function app. 
 
-::: zone pivot="v2"
-
-
 ## Build your app
 
-
+::: zone pivot="v2"
 1. Sign in to your Azure DevOps organization and navigate to your project.
 1. In your project, navigate to the **Pipelines** page. Then choose the action to create a new pipeline.
 1. Walk through the steps of the wizard by first selecting **GitHub** as the location of your source code.
@@ -73,7 +70,6 @@ Choose your task version at the top of the article.
 1. When the list of repositories appears, select your sample app repository.
 1. Azure Pipelines will analyze your repository and recommend a template. Select **Save and run**, then select **Commit directly to the main branch**, and then choose **Save and run** again.
 1. A new run is started. Wait for the run to finish.
-
 
 ### Example YAML build pipelines
 
@@ -196,135 +192,8 @@ steps:
 ```
 ---
 
-## Deploy your app
-
-You'll deploy with the [Azure Function App Deploy v2](/azure/devops/pipelines/tasks/reference/azure-function-app-v2) task. This task requires an [Azure service connection](/azure/devops/pipelines/library/service-endpoints) as an input. An Azure service connection stores the credentials to connect from Azure Pipelines to Azure. You should create a connection that uses [workload identity federation](/azure/devops/pipelines/library/connect-to-azure#create-an-azure-resource-manager-service-connection-that-uses-workload-identity-federation).
-
-The v2 version of the task includes support for newer applications stacks for .NET, Python, and Node. The task includes networking predeployment checks. When there are predeployment issues, deployment stops. 
-
-To deploy to Azure Functions, add the following snippet at the end of your `azure-pipelines.yml` file. The default `appType` is Windows. You can specify Linux by setting the `appType` to `functionAppLinux`. Deploying to a Flex Consumption app requires you to set both `appType: functionAppLinux` and `isFlexConsumption: true`. The reason must be set to `functionAppLinux` when you use Flex Consumption because [Flex Consumption](/azure/azure-functions/flex-consumption-plan) is a Linux-based Azure Function.
-
-### [Windows App](#tab/windows)
-```yaml
-trigger:
-- main
-
-variables:
-  # Azure service connection established during pipeline creation
-  azureSubscription: <Name of your Azure subscription>
-  appName: <Name of the function app>
-  # Agent VM image name
-  vmImageName: 'windows-latest'
-
-- task: AzureFunctionApp@2 # Add this at the end of your file
-  inputs:
-    azureSubscription: <Name of your Azure subscription>
-    appType: functionApp # this specifies a Windows-based function app
-    appName: $(appName)
-    package: $(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip
-    deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required. Deployment method. Default: auto.
-    #Uncomment the next lines to deploy to a deployment slot
-    #Note that deployment slots is not supported for Linux Dynamic SKU
-    #deployToSlotOrASE: true
-    #resourceGroupName: '<RESOURCE_GROUP>'
-    #slotName: '<SLOT_NAME>'
-```
-
-### [Linux App](#tab/linux)
-```yaml
-trigger:
-- main
-
-variables:
-  # Azure service connection established during pipeline creation
-  azureSubscription: <Name of your Azure subscription>
-  appName: <Name of the function app>
-  # Agent VM image name
-  vmImageName: 'ubuntu-latest'
-
-- task: AzureFunctionApp@2 # Add this at the end of your file
-  inputs:
-    azureSubscription: <Name of your Azure subscription>
-    appType: functionAppLinux # This specifies a Linux-based function app
-    #isFlexConsumption: true # Uncomment this line if you are deploying to a Flex Consumption app
-    appName: $(appName)
-    package: $(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip
-    deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required. Deployment method. Default: auto.
-    #Uncomment the next lines to deploy to a deployment slot
-    #Note that deployment slots is not supported for Linux Dynamic SKU
-    #deployToSlotOrASE: true
-    #resourceGroupName: '<RESOURCE_GROUP>'
-    #slotName: '<SLOT_NAME>'
-```
-
-The snippet assumes that the build steps in your YAML file produce the zip archive in the `$(System.ArtifactsDirectory)` folder on your agent.
-
-If you opted to deploy to a [deployment slot](functions-deployment-slots.md), you can add the following step to perform a slot swap. Deployment slots are not available for the Flex Consumption SKU.
-```yaml
-- task: AzureAppServiceManage@0
-  inputs:
-    azureSubscription: <AZURE_SERVICE_CONNECTION>
-    WebAppName: <APP_NAME>
-    ResourceGroupName: <RESOURCE_GROUP>
-    SourceSlot: <SLOT_NAME>
-    SwapWithProduction: true
-```
-
-## Deploy a container
-
-You can automatically deploy your code to Azure Functions as a custom container after every successful build. To learn more about containers, see [Working with containers and Azure Functions](./functions-how-to-custom-container.md). 
-
-### Deploy to Azure Container Apps
-
-The snippet updates an Azure Container App that is optimized for Azure Functions. Learn more about [native Azure Functions support in Azure Container Apps](https://techcommunity.microsoft.com/blog/appsonazureblog/announcing-native-azure-functions-support-in-azure-container-apps/4414039).
-
-```yaml
-trigger:
-- main
-
-pool:
-  vmImage: 'ubuntu-latest'
-
-steps:
-- task: AzureCLI@2
-  displayName: 'Deploy to Azure Container Apps'
-  inputs:
-    azureSubscription: '<Name of your Azure subscription>'
-    scriptType: 'bash'
-    scriptLocation: 'inlineScript'
-    inlineScript: |
-      az containerapp update \
-        --name your-app-name \
-        --resource-group your-resource-group \
-        --image mcr.microsoft.com/azure-functions/dotnet:4-dotnet8.0
-```
-
-## Create a pipeline with Azure CLI
-
-To create a build pipeline in Azure, use the `az functionapp devops-pipeline create` [command](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create). The build pipeline is created to build and release any code changes that are made in your repo. The command generates a new YAML file that defines the build and release pipeline and then commits it to your repo. The prerequisites for this command depend on the location of your code.
-
-- If your code is in GitHub:
-
-    - You must have **write** permissions for your subscription.
-
-    - You must be the project administrator in Azure DevOps.
-
-    - You must have permissions to create a GitHub personal access token (PAT) that has sufficient permissions. For more information, see [GitHub PAT permission requirements.](/azure/devops/pipelines/repos/github#repository-permissions-for-personal-access-token-pat-authentication)
-
-    - You must have permissions to commit to the main branch in your GitHub repository so you can commit the autogenerated YAML file.
-
-- If your code is in Azure Repos:
-
-    - You must have **write** permissions for your subscription.
-
-    - You must be the project administrator in Azure DevOps.
-
 ::: zone-end  
-
-::: zone pivot="v1"
-
-## Build your app
-
+::: zone pivot="v1"  
 1. Sign in to your Azure DevOps organization and navigate to your project.
 1. In your project, navigate to the **Pipelines** page. Then select **New pipeline**.
 1. Select one of these options for **Where is your code?**:
@@ -456,6 +325,141 @@ steps:
     artifactName: 'drop'
 ```
 ---
+
+::: zone-end
+
+## Deploy your app
+
+::: zone pivot="v2"
+You'll deploy with the [Azure Function App Deploy v2](/azure/devops/pipelines/tasks/reference/azure-function-app-v2) task. This task requires an [Azure service connection](/azure/devops/pipelines/library/service-endpoints) as an input. An Azure service connection stores the credentials to connect from Azure Pipelines to Azure. You should create a connection that uses [workload identity federation](/azure/devops/pipelines/library/connect-to-azure#create-an-azure-resource-manager-service-connection-that-uses-workload-identity-federation).
+
+The v2 version of the task includes support for newer applications stacks for .NET, Python, and Node. The task includes networking predeployment checks. When there are predeployment issues, deployment stops. 
+
+To deploy to Azure Functions, add the following snippet at the end of your `azure-pipelines.yml` file. The default `appType` is Windows. You can specify Linux by setting the `appType` to `functionAppLinux`. Deploying to a Flex Consumption app requires you to set both `appType: functionAppLinux` and `isFlexConsumption: true`. The reason must be set to `functionAppLinux` when you use Flex Consumption because [Flex Consumption](/azure/azure-functions/flex-consumption-plan) is a Linux-based Azure Function.
+
+### [Windows App](#tab/windows)
+```yaml
+trigger:
+- main
+
+variables:
+  # Azure service connection established during pipeline creation
+  azureSubscription: <Name of your Azure subscription>
+  appName: <Name of the function app>
+  # Agent VM image name
+  vmImageName: 'windows-latest'
+
+- task: AzureFunctionApp@2 # Add this at the end of your file
+  inputs:
+    azureSubscription: <Name of your Azure subscription>
+    appType: functionApp # this specifies a Windows-based function app
+    appName: $(appName)
+    package: $(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip
+    deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required. Deployment method. Default: auto.
+    #Uncomment the next lines to deploy to a deployment slot
+    #Note that deployment slots is not supported for Linux Dynamic SKU
+    #deployToSlotOrASE: true
+    #resourceGroupName: '<RESOURCE_GROUP>'
+    #slotName: '<SLOT_NAME>'
+```
+
+### [Linux App](#tab/linux)
+```yaml
+trigger:
+- main
+
+variables:
+  # Azure service connection established during pipeline creation
+  azureSubscription: <Name of your Azure subscription>
+  appName: <Name of the function app>
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+
+- task: AzureFunctionApp@2 # Add this at the end of your file
+  inputs:
+    azureSubscription: <Name of your Azure subscription>
+    appType: functionAppLinux # This specifies a Linux-based function app
+    #isFlexConsumption: true # Uncomment this line if you are deploying to a Flex Consumption app
+    appName: $(appName)
+    package: $(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip
+    deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required. Deployment method. Default: auto.
+    #Uncomment the next lines to deploy to a deployment slot
+    #Note that deployment slots is not supported for Linux Dynamic SKU
+    #deployToSlotOrASE: true
+    #resourceGroupName: '<RESOURCE_GROUP>'
+    #slotName: '<SLOT_NAME>'
+```
+
+---
+
+The snippet assumes that the build steps in your YAML file produce the zip archive in the `$(System.ArtifactsDirectory)` folder on your agent.
+
+## Deployment 
+
+If you opted to deploy to a [deployment slot](functions-deployment-slots.md), you can add the following step to perform a slot swap. Deployment slots are not available for the Flex Consumption SKU.
+```yaml
+- task: AzureAppServiceManage@0
+  inputs:
+    azureSubscription: <AZURE_SERVICE_CONNECTION>
+    WebAppName: <APP_NAME>
+    ResourceGroupName: <RESOURCE_GROUP>
+    SourceSlot: <SLOT_NAME>
+    SwapWithProduction: true
+```
+
+## Deploy a container
+
+You can automatically deploy your code to Azure Functions as a custom container after every successful build. To learn more about containers, see [Working with containers and Azure Functions](./functions-how-to-custom-container.md). 
+
+### Deploy to Azure Container Apps
+
+The snippet updates an Azure Container App that is optimized for Azure Functions. Learn more about [native Azure Functions support in Azure Container Apps](https://techcommunity.microsoft.com/blog/appsonazureblog/announcing-native-azure-functions-support-in-azure-container-apps/4414039).
+
+```yaml
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: AzureCLI@2
+  displayName: 'Deploy to Azure Container Apps'
+  inputs:
+    azureSubscription: '<Name of your Azure subscription>'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      az containerapp update \
+        --name your-app-name \
+        --resource-group your-resource-group \
+        --image mcr.microsoft.com/azure-functions/dotnet:4-dotnet8.0
+```
+
+## Create a pipeline with Azure CLI
+
+To create a build pipeline in Azure, use the `az functionapp devops-pipeline create` [command](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create). The build pipeline is created to build and release any code changes that are made in your repo. The command generates a new YAML file that defines the build and release pipeline and then commits it to your repo. The prerequisites for this command depend on the location of your code.
+
+- If your code is in GitHub:
+
+    - You must have **write** permissions for your subscription.
+
+    - You must be the project administrator in Azure DevOps.
+
+    - You must have permissions to create a GitHub personal access token (PAT) that has sufficient permissions. For more information, see [GitHub PAT permission requirements.](/azure/devops/pipelines/repos/github#repository-permissions-for-personal-access-token-pat-authentication)
+
+    - You must have permissions to commit to the main branch in your GitHub repository so you can commit the autogenerated YAML file.
+
+- If your code is in Azure Repos:
+
+    - You must have **write** permissions for your subscription.
+
+    - You must be the project administrator in Azure DevOps.
+
+::: zone-end  
+
+:::zone pivot="v1"
+
 
 ## Deploy your app
 
