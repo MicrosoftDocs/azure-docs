@@ -19,7 +19,7 @@ Azure Container Apps provides access to GPUs on-demand without you having to man
 Serverless GPUs are only supported for Consumption workload profiles. The feature isn't supported for Consumption-only environments.
 
 > [!NOTE]
-> Access to GPUs is only available after you request GPU quotas. You can submit your GPU quota request via a [customer support case](./quota-requests.md).
+> Access to GPUs is only available after you request GPU quotas. You can submit your GPU quota request via a [customer support case](./quota-requests.md#manual-requests).
 
 ## Benefits
 
@@ -100,7 +100,7 @@ Serverless GPUs are run on consumption GPU workload profiles. You manage a consu
 > [!NOTE]
 > Customers with enterprise agreements and pay-as-you-go customers have A100 and T4 quota enabled by default.
 
-Access to this feature is only available after you have serverless GPU quota. You can submit your GPU quota request via a [customer support case](./quota-requests.md). When opening a support case for a GPU quota request, please select the following:
+Access to this feature is only available after you have serverless GPU quota. You can submit your GPU quota request via a [customer support case](./quota-requests.md#manual-requests). When opening a support case for a GPU quota request, please select the following:
 
 1. Open [New support request](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV4Blade/callerName/Quota/summary/Quota%20request) form in the Azure portal.
 
