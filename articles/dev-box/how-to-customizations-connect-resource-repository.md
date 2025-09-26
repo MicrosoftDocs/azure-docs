@@ -15,11 +15,13 @@ ms.topic: how-to
 ms.date: 09/26/2025
 ---
 
-# Use secrets to connect to Azure resources or clone private repositories
+# Securely connect to Azure resources or clone private repositories
 
-Use secrets from Azure Key Vault in your YAML customizations to clone private repositories or run tasks that require an access token. For example, in a customization file, use a personal access token (PAT) stored in Azure Key Vault to access a private repository.
+Authenticate securely when you access repositories or Azure resources during customization. Don't store sensitive values such as personal access tokens (PATs) or service principal credentials in customization files because they can be exposed. This article explains how to manage and access resources securely during dev boxcustomization.
 
 ## Use key vault secrets in customization files
+
+Use secrets from Azure Key Vault in your YAML customizations to clone private repositories or run tasks that require an access token. For example, in a customization file, use a personal access token (PAT) stored in Azure Key Vault to access a private repository.
 
 Both team and user customizations support fetching secrets from a key vault. Team customizations, which use image definition files, define the base image for the dev box with the `image` parameter, and list the tasks that run when a dev box is created. User customizations list the tasks that run when a dev box is created. 
 
