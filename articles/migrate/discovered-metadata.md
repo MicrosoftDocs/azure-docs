@@ -296,7 +296,7 @@ Classification/Severity | `apt-get -s dist-upgrade, yum -q check-update, zypper 
 Published date | `apt-get -s dist-upgrade, yum -q check-update, zypper list-updates`
 
 > [!NOTE]
-> If your Red Hat Enterprise Linux (RHEL) servers using `yum` are not patched regularly, Pending updates data can consume storage in cache under `var\tmp\yum\-<username>`. To manage space constraints, it is recommended to clear the cache regularly.
+> If your Red Hat Enterprise Linux (RHEL) servers use `yum` and aren't patched regularly, Pending updates data can consume storage in the cache under `var\tmp\yum\-<username>`. To manage disk space, it is recommended to clear the cache regularly.
 
 ## SQL Server instance and database data
 
