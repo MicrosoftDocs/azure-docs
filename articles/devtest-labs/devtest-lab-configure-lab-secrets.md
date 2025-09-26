@@ -42,7 +42,7 @@ To create and manage lab secrets, follow these steps:
 1. Go to the Azure portal and open the **Overview** page for your lab.
 1. Select **Configuration and Policies** > **Settings** > **Lab Secrets**, and then select **Add**.
 
-   :::image type="content" source="media/devtest-lab-configure-labs-secrets/devtest-labs-lab-secrets.png" alt-text="Screenshot of Lab Secrets in Azure DevTest Labs.":::
+   :::image type="content" source="media/devtest-lab-configure-lab-secrets/devtest-labs-lab-secrets.png" alt-text="Screenshot of Lab Secrets in Azure DevTest Labs.":::
 
 1. In the **Create a lab secret** pane, enter a name and value, and choose a scope: **Formulas and Virtual Machines** or **Artifacts**.
 1. Select **Create**.
