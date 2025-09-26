@@ -26,11 +26,11 @@
         href: best-practices-onboard-deploy.md
       - name: Publisher Resource Cleanup Management
         href: resource-cleanup-management.md
+      - name: Publisher Artifact Store Resiliency
+        href: publisher-artifact-store-resiliency.md
   - name: Designer Best Practices
     expanded: false
     items:
-      - name: Publisher Tenants, Subscriptions and Regions
-        href: publisher-resource-preview-management.md
       - name: Onboarding and Deployment Considerations
         href: best-practices-onboard-deploy.md
       - name: Workload Configuration Management 
@@ -38,8 +38,6 @@
   - name: Operator Best Practices
     expanded: false
     items:
-      - name: Publisher Tenants, Subscriptions and Regions
-        href: publisher-resource-preview-management.md
       - name: Onboarding and Deployment Considerations
         href: best-practices-onboard-deploy.md
       - name: Workload Configuration Management 
@@ -156,3 +154,4 @@
     href: glossary.md
   - name: REST API
     href: /rest/api/hybridnetwork
+
