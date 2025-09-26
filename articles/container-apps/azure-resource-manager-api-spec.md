@@ -417,7 +417,7 @@ The following example YAML configuration deploys a container app when used with 
 - [`az containerapp update`](/cli/azure/containerapp?view=azure-cli-latest&preserve-view=true#az-containerapp-update)
 - [`az containerapp revision copy`](/cli/azure/containerapp?view=azure-cli-latest&preserve-view=true#az-containerapp-revision-copy)
 
-The following example YAML shows how to deploys a container app.
+The following example YAML shows how to deploy a container app.
 
 ```yaml
 identity:
