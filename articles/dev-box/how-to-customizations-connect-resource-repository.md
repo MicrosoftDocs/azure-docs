@@ -37,10 +37,10 @@ To learn how to let trusted Microsoft services bypass the firewall, see [Configu
 
 #### Additional configuration for user customizations
 
-To configure key vault secrets for use in user customizations, also do the following:
+To configure key vault secrets for user customizations, also:
 
-1. Make sure the Dev Center project's managed identity has the Key Vault Reader role and the Key Vault Secrets User role on your key vault.
-1. Grant the Key Vault Secrets User role for the secret to each user or group who needs it during dev box customization. Include the Dev Center managed identity, the admin's user account, and any other users or groups that need the secret.
+1. Ensure the Dev Center project's managed identity has both the Key Vault Reader and Key Vault Secrets User roles on your key vault.
+1. Grant the Key Vault Secrets User role for the secret to each user or group who needs it during dev box customization, including the Dev Center managed identity, admin accounts, and any other required users or groups.
 
 ### Team customizations example
 
@@ -111,7 +111,7 @@ tasks:
       pat: '{{ado://example-org}}'
 ```
 
-The Dev Box VS Code extension and Dev Box CLI don't support hydrating secrets in the inner-loop testing workflow for customizations.
+The Dev Box Visual Studio Code extension and Dev Box CLI don't support hydrating secrets in the inner-loop testing workflow for customizations.
 
 ## Authenticate to Azure resources with service principals
 
