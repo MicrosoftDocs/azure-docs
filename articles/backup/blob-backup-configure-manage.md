@@ -2,7 +2,7 @@
 title: Configure and manage backup for Azure Blobs using Azure Backup
 description: Learn how to configure and manage operational and vaulted backups for Azure Blobs.
 ms.topic: how-to
-ms.date: 08/19/2025
+ms.date: 09/26/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -12,6 +12,8 @@ ms.author: v-mallicka
 # Configure and manage backup for Azure Blobs using Azure Backup
 
 Azure Backup allows you to configure operational and vaulted backups to protect block blobs in your storage accounts. This article describes how to configure and manage backups on one or more storage accounts using the Azure portal. You can also [configure backup using REST API](backup-azure-dataprotection-use-rest-api-backup-blobs.md).
+
+For more information on the general availability of vaulted backups for Azure Blob Storage and how they enhance data protection with ransomware resilience and long-term retention, see the [Microsoft Community Hub blog](https://techcommunity.microsoft.com/blog/azuregovernanceandmanagementblog/general-availability-vaulted-backups-for-azure-blob-storage/4207474).
 
 ## Before you start
 
