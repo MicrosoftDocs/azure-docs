@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
+ms.custom: sfi-image-nochange
 ---
 
 # Analyze cost with the Cost Management Power BI app for Enterprise Agreements (EA)

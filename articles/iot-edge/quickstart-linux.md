@@ -7,7 +7,13 @@ ms.date: 09/04/2025
 ms.topic: quickstart
 ms.service: azure-iot-edge
 services: iot-edge
-ms.custom: mvc, devx-track-azurecli, mode-other, linux-related-content
+ms.custom:
+  - mvc
+  - devx-track-azurecli
+  - mode-other
+  - linux-related-content
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 
 #customer intent: As a developer, I want to create an IoT Edge device on Linux so that I can deploy and test containerized modules.
 

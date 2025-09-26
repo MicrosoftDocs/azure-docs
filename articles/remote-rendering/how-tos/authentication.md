@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Configure authentication

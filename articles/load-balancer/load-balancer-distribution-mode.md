@@ -6,9 +6,12 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.custom: template-how-to, devx-track-azurecli
 ms.date: 01/22/2025
 ms.author: mbender
+ms.custom:
+  - template-how-to
+  - devx-track-azurecli
+  - sfi-image-nochange
 # Customer intent: As a network administrator, I want to configure the distribution mode of the Azure Load Balancer, so that I can optimize traffic distribution and ensure consistency for client sessions.
 ---
 
