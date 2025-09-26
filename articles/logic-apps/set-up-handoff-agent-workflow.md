@@ -11,7 +11,7 @@ ms.update-cycle: 180-days
 # Customer intent: As an AI developer, I want to set up seamless handoffs to specialized agents that handle domain-specific tasks, while keeping the same chat continuity and context in my workflow using Azure Logic Apps.
 ---
 
-# Hand off tasks to specialized AI agents but keep chat continuity in Azure Logic Apps (Preview)
+# Hand off tasks to specialized AI agents but keep chat continuity in Azure Logic Apps (preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
