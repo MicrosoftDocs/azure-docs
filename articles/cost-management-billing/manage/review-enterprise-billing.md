@@ -1,13 +1,13 @@
 ---
 title: Review Azure enterprise enrollment billing data with REST API
 description: Learn how to use the Cost Details API to review enterprise enrollment billing information. You can use this asynchronous API to get detailed cost and usage data.
-author: maddieminn
-ms.reviewer: maminn
+author: vikramdesai01
+ms.reviewer: vikdesai
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: article
 ms.date: 07/28/2025
-ms.author: maminn
+ms.author: vikdesai
 ---
 
 # Review enterprise enrollment billing using REST APIs

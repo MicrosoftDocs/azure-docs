@@ -1,13 +1,13 @@
 ---
 title: Manage Azure costs with automation
 description: This article explains how you can manage Azure costs with automation.
-author: maddieminn
-ms.author: maminn
+author: vikramdesai01
+ms.author: vikdesai
 ms.date: 07/03/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: maminn
+ms.reviewer: vikdesai
 ---
 
 # Manage costs with automation

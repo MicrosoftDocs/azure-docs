@@ -2,8 +2,8 @@
 title: Optimize your cloud investment with Cost Management
 titleSuffix: Microsoft Cost Management
 description: This article helps get the most value out of your cloud investments, reduce your costs, and evaluate where your money is being spent.
-author: maddieminn
-ms.author: maminn
+author: vikramdesai01
+ms.author: vikdesai
 ms.date: 07/09/2025
 ms.topic: conceptual
 ms.service: cost-management-billing

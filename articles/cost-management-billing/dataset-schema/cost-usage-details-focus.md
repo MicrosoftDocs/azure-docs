@@ -1,13 +1,13 @@
 ---
 title: FOCUS cost and usage details file schema
 description: Learn about the data fields available in the FOCUS cost and usage details file.
-author: jojohpm
-ms.reviewer: jojoh
+author: vikramdesai01
+ms.reviewer: vikdesai
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
 ms.date: 06/26/2025
-ms.author: jojoh
+ms.author: vikdesai
 ---
 
 # FOCUS cost and usage details file schema

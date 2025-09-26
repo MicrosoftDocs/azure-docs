@@ -1,20 +1,15 @@
 ---
 title: Microsoft Customer Agreement cost and usage details file schema
 description: Learn about the data fields available in the Microsoft Customer Agreement cost and usage details file.
-author: jojohpm
-ms.reviewer: jojoh
+author: vikramdesai01
+ms.reviewer: vikdesai
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
 ms.date: 06/26/2025
-ms.author: jojoh
+ms.author: vikdesai
 ---
-
 # Microsoft Customer Agreement cost and usage details file schema
-
-This article applies to the Microsoft Customer Agreement cost and usage details file schema.
-
-The following information lists the cost and usage details (formerly known as usage details) fields found in Microsoft Customer Agreement cost and usage details files. The file contains contains all of the cost details and usage data for the Azure services that were used.
 
 ## Version 2023-12-01-preview
 

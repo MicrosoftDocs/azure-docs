@@ -2,13 +2,13 @@
 title: Assign access to Cost Management data
 titleSuffix: Microsoft Cost Management
 description: This article walks you through assigning permission to Cost Management data for various access scopes.
-author: jojohpm
-ms.author: jojohn
+author: vikramdesai01
+ms.author: vikdesai
 ms.date: 06/26/2025
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: jojohn
+ms.reviewer: vikdesai
 ms.custom: secdec18
 ---
 
