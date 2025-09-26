@@ -2,13 +2,13 @@
 title: Cost details best practices
 titleSuffix: Microsoft Cost Management
 description: This article describes best practices recommended by Microsoft when you work with data in cost details files.
-author: jojohpm
-ms.author: jojoh
+author: vikramdesai01
+ms.author: vikdesai
 ms.date: 06/26/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: jojoh
+ms.reviewer: vikdesai
 ---
 
 # Choose a cost details solution
