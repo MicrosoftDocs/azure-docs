@@ -2,7 +2,7 @@
 title: Manage vault lifecycle used for Azure Backup and Azure Site Recovery
 description: In this article, you'll learn how to manage the lifecycle of the vaults (Recovery Services and Backup vault) used for Azure Backup and/or Azure Site Recovery.
 ms.topic: how-to
-ms.date: 11/19/2024
+ms.date: 09/25/2025
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
@@ -23,7 +23,7 @@ Before you start this tutorial:
 
 - Ensure you have the required resource permissions to view them in the ABC center.
 
-## View vaults
+## View vaults using Azure Business Continuity Center
 
 Use Azure Business Continuity center to view all your existing Recovery Services and Backup vaults from a single location and manage their lifecycle as needed.
 
@@ -52,7 +52,7 @@ To get started with querying information for your vaults using ARG, you can use 
 
 :::image type="content" source="./media/manage-vault/query-vault-details.png" alt-text="Screenshot showing how to view samples to view vault details." lightbox="./media/manage-vault/query-vault-details.png":::
 
-## Modify security level
+## Modify security level for a vault
 
 To modify the security level for a vault using Azure Business Continuity center, follow these steps:
 
