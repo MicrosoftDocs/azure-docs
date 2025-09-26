@@ -81,7 +81,7 @@ To receive an explanation:
     * To explain a policy that applies to a specific API, under **APIs**, select the API, and then select **Policy**.
     * To explain a policy that applies to a specific API operation, select the operation, and then select **Policy**.
 
-1. In the policy editor window that appears, right-click and select **Explain**  
+1. In the policy editor window that appears, right-click and select **Explain**.
 1. An overview and explanation of policies in the policy XML document are generated in the Chat window.
 
 
