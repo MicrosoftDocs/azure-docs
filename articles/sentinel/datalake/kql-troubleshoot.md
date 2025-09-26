@@ -59,7 +59,10 @@ Job-specific validation:
 | **Table(s) could not be found or may not have data. Please check if table(s) exists, has data, or user has permissions.** | • The specified tables might not exist in the database.<br>• You may not have permissions to access the tables.<br>• The tables might exist but have no data, resulting in no meaningful output. | Confirm table existence, data availability, and user permissions. |
 | **The query text exceeded the maximum allowable length after internal expansion. This might occur when the `in()` operator is used with a variable that contains a large list of items.** | • The `in()` operator might be used with a large list, causing the expanded query to exceed query limits.<br>• The query may contain dynamically generated content that results in excessive length. | Reduce the size of the list or simplify the query. |
 | **Query execution has exceeded the allowed limits.** |  | Optimize your query and try again. |
-| **The arguments array exceeded the allowed limit (allowed=1,000,000).** | The query contains more than 1,000,000 items in an array. | Reduce the number of items in the array. |
+| Semantic and syntax errors, for example:<br><ul><li>**Semantic error: 'project' operator: Failed to resolve scalar expression named 'Timestamp'**<li>**Semantic error: 'where' operator: Failed to resolve scalar expression named 'Type'**<li>**Syntax error: The operator cannot be the first operator in a query.**<li>**Syntax error: Missing expression**<li>**Failed to execute KQL query with validation errors: The incomplete fragment is unexpected.**</ul>| The query is malformed and is referencing tables or columns that don’t exist, or it's using invalid scalar functions. | Check your query and try again. |
+| **Client does not have access to any workspaces or client provided invalid workspace(s) in the scope.** | The query uses an invalid workspace ID. | Enter the correct workspace ID and try again. |
+| **Unexpected control command** | Using control commands (for example, `show`) isn't allowed |  |
+
 
 
 ## KQL job error messages
