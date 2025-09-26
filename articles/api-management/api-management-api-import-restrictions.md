@@ -9,7 +9,7 @@ ms.service: azure-api-management
 ms.custom:
   - build-2024
 ms.topic: concept-article
-ms.date: 04/24/2024
+ms.date: 09/26/2025
 ms.author: danlep
 ---
 
@@ -17,7 +17,7 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-When importing an API, you might encounter some restrictions or need to identify and rectify issues before you can successfully import. In this article, you'll learn:
+When importing an API, you might encounter some restrictions or need to identify and rectify issues before you can successfully import. In this article, you learn about:
 
 - API Management's behavior during OpenAPI import. 
 - OpenAPI import limitations and how OpenAPI export works.
@@ -123,7 +123,7 @@ OpenAPI version 2 support is limited to JSON format only.
 
 API Management supports the following specification versions:
 
-- [OpenAPI 3.0.3](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md)
+- [OpenAPI 3.0.3](https://spec.openapis.org/oas/v3.0.3)
 - [OpenAPI 3.1.0](https://spec.openapis.org/oas/v3.1.0) (import only)
 
 #### HTTPS URLs
