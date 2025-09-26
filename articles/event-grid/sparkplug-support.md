@@ -4,7 +4,7 @@ ms.reviewer: spelluru
 description: Discover how Azure Event Grid Message Queueing Transport Telemetry (MQTT) broker supports Sparkplug B for industrial IoT, enabling standardized messaging, device lifecycle management, and state awareness.
 #customer intent: As an industrial IoT developer, I want to understand how Azure Event Grid MQTT broker supports Sparkplug B so that I can implement standardized messaging and device lifecycle management in my solutions.
 ms.date: 09/23/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-event-grid
 ms.subservice: mqtt
 ms.custom: template-concept
