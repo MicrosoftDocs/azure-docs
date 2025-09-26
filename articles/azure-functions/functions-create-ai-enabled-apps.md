@@ -129,15 +129,19 @@ For stateful scenarios, consider using the [MCP binding extension](#remote-mcp-s
 
 ::: zone pivot="programming-language-csharp"  
 - [Weather server quickstart](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-dotnet)
+- To host already-built MCP servers, try out the [experimental prompt](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-dotnet/blob/main/ExistingServer.md) to have Visual Studio Code Copilot prepare the server for deployment. 
 ::: zone-end
 ::: zone pivot="programming-language-python"  
 - [Weather server quickstart](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-python)
+- To host already-built MCP servers, try out the [experimental prompt](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-python/blob/main/ExistingServer.md) to have Visual Studio Code Copilot prepare the server for deployment. 
 ::: zone-end
 ::: zone pivot="programming-language-typescript"  
 - [Weather server quickstart](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-node)
+- To host already-built MCP servers, try out the [experimental prompt](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-node/blob/main/ExistingServer.md) to have Visual Studio Code Copilot prepare the server for deployment. 
 ::: zone-end
 ::: zone pivot="programming-language-javascript"  
 - [Weather server quickstart](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-node)
+- To host already-built MCP servers, try out the [experimental prompt](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-node/blob/main/ExistingServer.md) to have Visual Studio Code Copilot prepare the server for deployment. 
 ::: zone-end
 ::: zone pivot="programming-language-java"  
 - Sample not available yet. 
@@ -145,7 +149,7 @@ For stateful scenarios, consider using the [MCP binding extension](#remote-mcp-s
 ::: zone pivot="programming-language-powershell"  
 - PowerShell is not supported.  
 ::: zone-end
-- For already-built MCP servers, try out the [experimental prompt](https://aka.ms/mcp-deployment-helper) to have Visual Studio Code Copilot prepare the server for deployment. 
+
 
 ### Agentic workflows
 
