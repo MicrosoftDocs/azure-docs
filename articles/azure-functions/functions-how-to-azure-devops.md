@@ -3,7 +3,7 @@ title: Continuously update function app code using Azure Pipelines
 description: Learn how to use Azure Pipelines to set up a pipeline that builds and deploys apps to Azure Functions.
 author: juliakm
 ms.topic: conceptual
-ms.date: 09/18/2025
+ms.date: 09/27/2025
 ms.author: jukullam
 ms.custom: devx-track-csharp, devx-track-azurecli, devops-pipelines-deploy
 ms.devlang: azurecli
@@ -333,9 +333,7 @@ steps:
 ::: zone pivot="v2"
 You'll deploy with the [Azure Function App Deploy v2](/azure/devops/pipelines/tasks/reference/azure-function-app-v2) task. This task requires an [Azure service connection](/azure/devops/pipelines/library/service-endpoints) as an input. An Azure service connection stores the credentials to connect from Azure Pipelines to Azure. You should create a connection that uses [workload identity federation](/azure/devops/pipelines/library/connect-to-azure#create-an-azure-resource-manager-service-connection-that-uses-workload-identity-federation).
 
-The v2 version of the task includes support for newer applications stacks for .NET, Python, and Node. The task includes networking predeployment checks. When there are predeployment issues, deployment stops. 
-
-To deploy to Azure Functions, add the following snippet at the end of your `azure-pipelines.yml` file. The default `appType` is Windows. You can specify Linux by setting the `appType` to `functionAppLinux`. Deploying to a Flex Consumption app requires you to set both `appType: functionAppLinux` and `isFlexConsumption: true`. The reason must be set to `functionAppLinux` when you use Flex Consumption because [Flex Consumption](/azure/azure-functions/flex-consumption-plan) is a Linux-based Azure Function.
+To deploy to Azure Functions, add this snippet at the end of your `azure-pipelines.yml` file, depending on whether your app runs on Linux or Windows: 
 
 ### [Windows App](#tab/windows)
 ```yaml
@@ -387,15 +385,17 @@ variables:
 
 ---
 
+The default `appType` is Windows (`functionApp`). You can specify Linux by setting the `appType` to `functionAppLinux`. A [Flex Consumption](/azure/azure-functions/flex-consumption-plan) app runs on Linux, and you to must set both `appType: functionAppLinux` and `isFlexConsumption: true`. 
+
 The snippet assumes that the build steps in your YAML file produce the zip archive in the `$(System.ArtifactsDirectory)` folder on your agent.
 ::: zone-end  
 ::: zone pivot="v1"
 You deploy using the [Azure Function App Deploy](/azure/devops/pipelines/tasks/deploy/azure-function-app) task. This task requires an [Azure service connection](/azure/devops/pipelines/library/service-endpoints) as an input. An Azure service connection stores the credentials to connect from Azure Pipelines to Azure.
 
-To deploy to Azure Functions, add the following snippet at the end of your `azure-pipelines.yml` file. The default `appType` is Windows. You can specify Linux by setting the `appType` to `functionAppLinux`. 
-
 >[!IMPORTANT]  
 >Deploying to a Flex Consumption app isn't supported using @v1 of the `AzureFunctionApp` task.
+
+To deploy to Azure Functions, add this snippet at the end of your `azure-pipelines.yml` file: 
 
 ```yaml
 trigger:
@@ -423,7 +423,9 @@ variables:
     package: $(System.ArtifactsDirectory)/**/*.zip
 ```
 
-The snippet assumes that the build steps in your YAML file produce the zip archive in the `$(System.ArtifactsDirectory)` folder on your agent.
+This snippet sets the `appType` to `functionAppLinux`, which is required when deploying to an app that runs on Linux. The default `appType` is Windows (`functionApp`).
+
+The example assumes that the build steps in your YAML file produce the zip archive in the `$(System.ArtifactsDirectory)` folder on your agent.
 ::: zone-end 
 
 ## Deploy a container
