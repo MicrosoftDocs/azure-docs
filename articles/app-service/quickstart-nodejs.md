@@ -343,7 +343,7 @@ You can deploy changes to this app by making edits in Visual Studio Code, saving
 
 You can stream log output (calls to `console.log()`) from the Azure app directly in the Visual Studio Code output window.
 
-1. In the **App Service** explorer, right-click the app node and select **Start Streaming Logs**.
+1. In **Resources** in Visual Studio Code, right-click the app node and then select **Start Streaming Logs**.
 
     ![Start Streaming Logs](./media/quickstart-nodejs/view-logs.png)
 
@@ -419,7 +419,7 @@ You can access the console logs generated from inside the app and the container 
 In the preceding steps, you created Azure resources in a resource group. The steps in this quickstart put all the resources in this resource group. To clean up, you just need to remove the resource group.
 
 
-1. In the Azure extension of Visual Studio, expand the **Resource Groups** explorer.
+1. In the Azure extension of Visual Studio Code, expand the **Resource Groups** explorer.
 
 1. Expand the subscription, right-click the resource group you created earlier, and select **Delete**.
 
