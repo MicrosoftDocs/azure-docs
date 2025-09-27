@@ -430,10 +430,38 @@ The example assumes that the build steps in your YAML file produce the zip archi
 
 ## Deploy a container
 
-You can automatically deploy your code as a containerized function app after every successful build. To learn more about containers, see [Working with containers and Azure Functions](functions-how-to-custom-container.md#working-with-containers-and-azure-functions). 
+>[!TIP]
+>We recommend using the Azure Functions support in Azure Container Apps for hosting your function app in a custom Linux container. For more information, see [Azure Functions on Azure Container Apps overview](../container-apps/functions-overview.md).   
 
-:::zone pivot="v1"
-The simplest way to deploy to a container is to use the [Azure Function App on Container Deploy task](/azure/devops/pipelines/tasks/deploy/azure-rm-functionapp-containers).
+When deploying a containerized function app, the deployment task you use depends on the specific hosting environment. 
+
+### [Azure Container Apps hosting](#tab/container-apps)
+
+You can use the [Azure Container Apps Deploy](/devops/pipelines/tasks/reference/azure-container-apps-v1) task (`AzureContainerApps`) to deploy a function app image to an Azure Container App instance that is optimized for Azure Functions. 
+
+This code deploys the base image for a .NET 8 isolated process model function app:
+
+```yaml
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: AzureContainerApps@1
+  inputs:
+    azureSubscription: <Name of your Azure subscription>
+    imageToDeploy: 'mcr.microsoft.com/azure-functions/dotnet-isolated:4-dotnet-isolated8.0'
+    containerAppName: <Name of your container app>
+    resourceGroup: <Name of the resource group>
+```
+
+Ideally, you would build your own custom container in the pipeline instead of using a base image, as shown in this example. For more information, see [Deploy to Azure Container Apps from Azure Pipelines](../container-apps/azure-pipelines.md).
+
+### [Azure Functions hosting](#tab/azure-functions)
+
+While Azure Container Apps is the recommend host for containerized function apps, you can also deploy to a Functions-hosted container on Linux by using the [Azure Function App on Container Deploy](/azure/devops/pipelines/tasks/deploy/azure-rm-functionapp-containers) task (`AzureFunctionAppContainer`).
 
 To deploy, add the following snippet at the end of your YAML file:
 
@@ -459,9 +487,11 @@ variables:
     imageName: $(containerRegistry)/$(imageRepository):$(tag)
 ```
 
-The snippet pushes the Docker image to your Azure Container Registry. The **Azure Function App on Container Deploy** task pulls the appropriate Docker image corresponding to the `BuildId` from the repository specified, and then deploys the image. 
+This snippet pushes the Docker image to your Azure Container Registry. The **Azure Function App on Container Deploy** task pulls the appropriate Docker image corresponding to the `BuildId` from the repository specified, and then deploys the image. 
 
 For a complete end-to-end pipeline example, including building the container and publishing to the container registry, see [this Azure Pipelines container deployment example](https://github.com/Azure/azure-functions-on-container-apps/blob/main/samples/AzurePipelineTasks/Func_on_ACA_DevOps_deployment.yml).
+
+---
 
 ::: zone-end 
 
@@ -560,27 +590,6 @@ The following YAML snippet shows how to deploy to a staging slot, and then swap 
     SwapWithProduction: true
 ```
 ::: zone-end
-## Deploy to Azure Container Apps
-
-You can use the `AzureContainerApps` task to deploy a function app image to an Azure Container App instance that is optimized for Azure Functions. For more information, see [Azure Functions on Azure Container Apps overview](../container-apps/functions-overview.md).
-
-This code deploys the base image for a .NET 8 isolated process model function app:
-
-```yaml
-trigger:
-- main
-
-pool:
-  vmImage: 'ubuntu-latest'
-
-steps:
-- task: AzureContainerApps@1
-  inputs:
-    azureSubscription: <Name of your Azure subscription>
-    imageToDeploy: 'mcr.microsoft.com/azure-functions/dotnet-isolated:4-dotnet-isolated8.0'
-    containerAppName: <Name of your container app>
-    resourceGroup: <Name of the resource group>
-```
 
 ## Create a pipeline with Azure CLI
 
