@@ -174,11 +174,12 @@ sections:
           Receiving momentary HTTP status code 429 responses usually causes no harm, as App Configuration clients handle them gracefully. However, if your application regularly experiences HTTP status code 429 responses, consider the following options:
           
           - **Upgrade your store to the Premium tier**: This tier has no quota limit on requests and has increased storage quota and higher throughput allowance.
-          - **Use App Configuration Providers**: The providers have built-in retry and caching capabilities along with many other resiliency features. Be sure to update to the latest version of the provider for all the latest enhancements.
+          - **Use App Configuration Providers**: The [providers](./configuration-provider-overview.md) have built-in retry and caching capabilities along with many other resiliency features. Be sure to update to the latest version of the provider for all the latest enhancements.
           - **Use App Configuration SDKs** if your application needs to send write requests. Although the SDKs may not be as feature-rich as providers, they automatically retry on HTTP status code 429 responses and other transient errors.
           - **Include retry logic in custom clients** if you can't use App Configuration Providers or SDKs. The `retry-after-ms` header in the response provides a suggested wait time (in milliseconds) before retrying the request.
           - **Distribute requests across multiple client instances**: This helps achieve the maximum throughput from your App Configuration store.
           - **Reduce requests made to App Configuration**: Follow the guidance to [minimize the number of requests](./howto-best-practices.md#reduce-requests-made-to-app-configuration).
+          - **Reduce key-value revision retention** if your application performs frequent key-value updates and you don't need to retain revisions for the maximum duration allowed by your App Configuration store. Revisions count toward your store's total storage usage. If the storage quota is exceeded, you will no longer be able to create or modify key-values or feature flags.
           - **Improve your application resiliency**: Consider integrating geo-replication to allow failover and load balancing. Check the best practices for [building highly resilient applications](./howto-best-practices.md#building-applications-with-high-resiliency).
 
       - question: Why can't I create an App Configuration store with the same name as one that I just deleted?
