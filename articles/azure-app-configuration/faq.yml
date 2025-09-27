@@ -179,7 +179,7 @@ sections:
           - **Include retry logic in custom clients** if you can't use App Configuration Providers or SDKs. The `retry-after-ms` header in the response provides a suggested wait time (in milliseconds) before retrying the request.
           - **Distribute requests across multiple client instances**: This helps achieve the maximum throughput from your App Configuration store.
           - **Reduce requests made to App Configuration**: Follow the guidance to [minimize the number of requests](./howto-best-practices.md#reduce-requests-made-to-app-configuration).
-          - **Reduce key-value revision retention** if your application performs frequent key-value updates and you don't need to retain revisions for the maximum duration allowed by your App Configuration store. Revisions count toward your store's total storage usage. If the storage quota is exceeded, you will no longer be able to create or modify key-values or feature flags.
+          - **Reduce key-value revision retention** if you perform frequent key-value updates and you don't need to retain revisions for the maximum duration allowed by your App Configuration store. Revisions count toward your store's total storage usage. If the storage quota is exceeded, you will no longer be able to create or modify key-values or feature flags.
           - **Improve your application resiliency**: Consider integrating geo-replication to allow failover and load balancing. Check the best practices for [building highly resilient applications](./howto-best-practices.md#building-applications-with-high-resiliency).
 
       - question: Why can't I create an App Configuration store with the same name as one that I just deleted?
