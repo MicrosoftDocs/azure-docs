@@ -38,22 +38,22 @@ Bearer Token is needed to send the cURL or any REST communication. You can follo
 
 Execute an HTTP GET request to the OAuth 2.0 token endpoint with the following specifications:
 
-### **URL**
+### URL
 
 ```bash
 https://login.microsoftonline.com/{Tenant_ID}/oauth2/v2.0/token
 ```
 
-### **Body**
+### Body
 
 | Parameter | Description | Required |
 | --- | --- | --- |
 | grant_type | Must be set to "client_credentials" | Yes |
-| client_id | Application (client) ID from Entra App registration | Yes |
+| client_ID | Application (client) ID from Entra App registration | Yes |
 | client_secret | Generated client secret or certificate | Yes |
 | scope | Resource URL with `.default` suffix | Yes |
 
-### **cURL Request**
+### cURL Request
 
 ```bash
 curl --request GET \
@@ -175,24 +175,22 @@ The following steps demonstrate how to use these cmdlets to run a job in your En
     State           : Completed
     StatusDirectory : f1ed2028-afe8-402f-a24b-13cc17858097
     SubmissionTime  : 12/5/2014 8:34:09 PM
-    JobId           : job_1415949758166_0071
+    JobID           : job_1415949758166_0071
     
     ```
     
     This output indicates that the job completed successfully.
     
-    **Note**
-    
-    If the **ExitCode** is a value other than 0, see [**Troubleshooting**](../hadoop/apache-hadoop-use-mapreduce-powershell.md#troubleshooting).
-    
-    This example also stores the downloaded files to an **output.txt** file in the directory that you run the script from.
+    >[!Note}
+    >If the **ExitCode** is a value other than 0, see [**Troubleshooting**](../hadoop/apache-hadoop-use-mapreduce-powershell.md#troubleshooting).
+    >This example also stores the downloaded files to an **output.txt** file in the directory that you run the script from.
     
 
 **View output**
 
 To see the words and counts produced by the job, open the **output.txt** file in a text editor.
 
-> [NOTE!]
+> [!NOTE]
 > The output files of a MapReduce job are immutable. So, if you rerun this sample, you need to change the name of the output file. 
 
 **Troubleshooting**
@@ -220,4 +218,3 @@ Write-Host $jobOutput
 This cmdlet returns the information that was written to STDERR as the job runs.
 
 
-## Next steps
