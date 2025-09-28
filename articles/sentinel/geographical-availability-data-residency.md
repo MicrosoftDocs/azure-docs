@@ -67,9 +67,6 @@ Regions supported for Microsoft Sentinel raw data, and for processed and configu
 
 ### Regions supported for Microsoft Sentinel data lake
 
-> [!NOTE]
-> The Microsoft Sentinel data lake is currently in preview. During this time onboarding may be temporarily unavailable in some regions. When onboarding is available in your region, an onboarding banner appears on the Microsoft Defender portal home page to guide you through the process.
-
 
 | Continent | Country/Region | Azure Region |
 |---------|---------|---------|
