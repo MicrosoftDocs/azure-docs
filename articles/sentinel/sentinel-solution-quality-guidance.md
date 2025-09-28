@@ -6,7 +6,7 @@ ms.author: monaberdugo
 ms.reviewer: angodavarthy
 ms.service: microsoft-sentinel
 ms.topic: conceptual
-ms.date: 19/18/2025
+ms.date: 09/18/2025
 
 #CustomerIntent: As an ISV partner, I want clear guidance on how I can build and publish high quality solutions to Microsoft Sentinel so that customers can get a truly out-of-the-box experience using my solution.
 ---
