@@ -5,7 +5,7 @@ titleSuffix: Microsoft Security
 description: Learn how Microsoft Sentinel graph enables multi-modal security analytics through graph-based representation of security data, providing deep insights into digital environments and attack paths.
 author: mberdugo
 ms.topic: overview
-ms.date: 09/25/2025
+ms.date: 09/28/2025
 ms.author: monaberdugo
 ms.service: microsoft-sentinel
 ms.subservice: sentinel-graph
@@ -65,7 +65,7 @@ To begin using Microsoft Sentinel graph:
 To begin using Microsoft Sentinel graph:
 
 * In **Purview Insider Risk Management (IRM)**, follow the instructions in [Insider risk management data risk graph](https://aka.ms/sentinel/graph/docs/irm).
-* In **Purview Data Security Investigation (DSI)**, follow [these instructions](https://aka.ms/sentinel/graph/docs/dsi).
+* In **Purview Data Security Investigation (DSI)**, follow the instructions in [Data security data risk graph](https://aka.ms/sentinel/graph/docs/dsi).
 
 ---
 
