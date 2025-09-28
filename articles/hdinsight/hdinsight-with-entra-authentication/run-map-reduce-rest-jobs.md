@@ -18,7 +18,7 @@ When using Microsoft Entra ID-enabled HDInsight clusters, authentication and acc
 This guide walks you through how to connect to an Entra-enabled HDInsight cluster, authenticate via REST, and submit MapReduce jobs programmatically.
 
 
-**Prerequisites**
+## Prerequisites
 
 - An Apache Hadoop cluster on Entra enabled HDInsight. See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 Either:
@@ -35,12 +35,12 @@ Bearer Token is needed to send the cURL or any REST communication. You can follo
 
 Execute an HTTP GET request to the OAuth 2.0 token endpoint with the following specifications:
 
-**URL**
+### URL
 ```
   https://login.microsoftonline.com/{Tenant_ID}/oauth2/v2.0/token
 ```
 
-**Body**
+### Body
 
 | Parameter | Description | Required |
 | --- | --- | --- |
@@ -50,7 +50,7 @@ Execute an HTTP GET request to the OAuth 2.0 token endpoint with the following s
 | scope         | Resource URL with .default suffix                   | Yes |
 
 
-**cURL Request**
+### cURL Request
 
 ```
 curl --request GET \
@@ -62,7 +62,7 @@ curl --request GET \
   --form scope=https://{clustername}.clusteraccess.azurehdinsight.net/.default \
 ```
 
-**Response**
+### Response
 A successful request returns a JSON object containing:
 
 - token_type: Always "Bearer"
@@ -70,8 +70,8 @@ A successful request returns a JSON object containing:
 - ext_expires_in: Extended expiration time in seconds
 - access_token: The Bearer token for authentication
 
- Powershell
- ```
+ 
+ ```powershell
   {
 	"token_type": "Bearer",
 	"expires_in": 3599,
@@ -80,9 +80,9 @@ A successful request returns a JSON object containing:
   }
  ```
 
-After securing the Access Token needed for each action, let’s jump right into the commands -
+After securing the Access Token needed for each action, let’s jump right into the commands.
 
-**Curl**
+### Curl
 
 1. For ease of use, set the variables below. This example is based on a Windows environment, revise as needed for your environment.
     
@@ -150,11 +150,11 @@ After securing the Access Token needed for each action, let’s jump right into 
       jq .status.state
 
     ```
-    **PowerShell**
+   ### PowerShell
 
-   1. For ease of use, set the variables below. Replace `CLUSTERNAME` with your actual cluster name. Execute the command and enter the cluster login password when prompted.
-    PowerShell
-      ```
+1. For ease of use, set the variables below. Replace `CLUSTERNAME` with your actual cluster name. Execute the command and enter the cluster login password when prompted.
+    
+      ```powershell
           $clusterName="CLUSTERNAME"
 
           # Define the bearer token
@@ -163,11 +163,10 @@ After securing the Access Token needed for each action, let’s jump right into 
           # Define the API endpoint
           $apiEndpoint = "https://$clusterName.azurehdinsight.net/templeton/v1/status"
       ```
-    1. Use the following command to verify that you can connect to your HDInsight cluster:
+1. Use the following command to verify that you can connect to your HDInsight cluster:
     
-        PowerShell
 
-        ```
+        ```powershell
           # Make the API request with the bearer token
           $response = Invoke-WebRequest -Uri $apiEndpoint -Headers @{Authorization = "Bearer $bearerToken"} -UseBasicParsing
 
@@ -177,17 +176,14 @@ After securing the Access Token needed for each action, let’s jump right into 
         
         You receive a response similar to the following JSON:
 
-        JSON
-
-        ```
+        ```json
           {"version":"v1","status":"ok"}
 
         ```
-     1. To submit a MapReduce job, use the following command:
+1. To submit a MapReduce job, use the following command:
     
-         PowerShell
 
-          ```
+          ```powershell
             # Define the request parameters
             $reqParams = @{
             "user.name" = "admin"
@@ -213,11 +209,10 @@ After securing the Access Token needed for each action, let’s jump right into 
 
           This command should return a job ID that can be used to check the status of the job: `job_1415651640909_0026`.
 
-      1. To check the status of the job, use the following command:
+1. To check the status of the job, use the following command:
     
-         PowerShell
 
-         ```
+         ```powershell
             $reqParams=@{"user.name"="admin"}
             # Make the API request with the bearer token
             $response = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/jobs/$jobID" -Headers @{Authorization = "Bearer $bearerToken"} -Body $reqParams -UseBasicParsing
@@ -230,7 +225,7 @@ After securing the Access Token needed for each action, let’s jump right into 
          ```
 
          
-   **Both methods**
+   ### Both methods
 
 
     - If the job is complete, the state returned is `SUCCEEDED`.
