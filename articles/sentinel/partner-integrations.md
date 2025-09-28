@@ -1,5 +1,5 @@
 ---
-title: Partner integrations with Microsoft Sentinel
+title: Partner integrations best practices
 description: This article describes best practices for creating your own integrations with Microsoft Sentinel.
 author: EdB-MSFT
 ms.author: edbaynash

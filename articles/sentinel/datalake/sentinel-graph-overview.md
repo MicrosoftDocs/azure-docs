@@ -65,7 +65,9 @@ To begin using Microsoft Sentinel graph:
 To begin using Microsoft Sentinel graph:
 
 * In **Purview Insider Risk Management (IRM)**, follow the instructions in [Insider risk management data risk graph](/purview/insider-risk-management-data-risk-graph).
-* In Purview Data Security Investigation (DSI), follow the instructions here.
+* In Purview Data Security Investigation (DSI), follow [these instructions](https://aka.ms/sentinel/graph/docs/dsi).
+
+---
 
 ## Pricing
 

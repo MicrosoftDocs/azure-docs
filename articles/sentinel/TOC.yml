@@ -819,7 +819,7 @@
   items:
     - name: Overview
       href: sentinel-integration-guide.md
-    - name: Components and patterns
+    - name: Partner integrations best practices
       href: partner-integrations.md
     - name: Sentinel solution quality guidelines
       href: sentinel-solution-quality-guidance.md
@@ -850,7 +850,7 @@
       items:
       - name: Packaging and publishing a Sentinel platform solution
         href: package-platform-solution.md
-      - name: Publishing a Sentinel SIEM solution
+      - name: Sentinel SIEM solution lifecyle post publish
         href: publish-sentinel-solutions.md
       - name: Solution lifecycle post publish
         href: sentinel-solutions-post-publish-tracking.md
