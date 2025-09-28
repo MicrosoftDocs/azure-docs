@@ -23,7 +23,7 @@ The listed features were released in the last six months. For information about 
 - [Microsoft Sentinel is evolving into a SIEM and platform](#microsoft-sentinel-is-evolving-into-a-siem-and-platform)
 
   Key additions include:
-  
+
   - [Microsoft Sentinel data lake is now generally available (GA)](#microsoft-sentinel-data-lake-is-now-generally-available-ga)
   - [Microsoft Sentinel graph (Preview)](#microsoft-sentinel-graph-preview)
   - [Microsoft Sentinel Model Context Protocol (MCP) server (Preview)](#microsoft-sentinel-model-context-protocol-mcp-server-preview)
@@ -38,19 +38,19 @@ Key additions include:
 
 #### Microsoft Sentinel data lake is now generally available (GA)
 
-Microsoft Sentinel data lake A scalable, cost-efficient foundation for long-term data retention and multi-modal analytics. 
+A scalable, cost-efficient foundation for long-term data retention and multi-modal analytics. Microsoft Sentinel data lake enables organizations to unify security data across sources and run advanced analytics without infrastructure overhead.
 
 For more information, see [Microsoft Sentinel data lake](datalake/sentinel-lake-overview.md).
 
 #### Microsoft Sentinel graph (Preview)
 
-Unified graph analytics for deeper context and threat reasoning. 
+Unified graph analytics for deeper context and threat reasoning. Microsoft Sentinel graph models relationships across users, devices, and activities to support complex threat investigations and pre/post-breach analysis.
 
 For more information, see [What is Microsoft Sentinel graph? (Preview)](datalake/sentinel-graph-overview.md). 
 
 #### Microsoft Sentinel Model Context Protocol (MCP) server (Preview) 
 
-Microsoft Sentinel Model Context Protocol (MCP) server is hosted interface for building intelligent agents using natural language. 
+A hosted interface for building intelligent agents using natural language. Microsoft Sentinel MCP server simplifies agent creation and data exploration by allowing engineers to query and reason over security data without needing schema knowledge.
 
 For more information, see [Model Context Protocol (MCP) overview](datalake/sentinel-mcp-overview.md).
 
