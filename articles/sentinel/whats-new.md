@@ -37,7 +37,7 @@ The listed features were released in the last six months. For information about 
 
 Security is being reengineered for the AI era, moving beyond static, rulebound controls and post-breach response toward platform-led, machine-speed defense. The challenge is clear: fragmented tools, sprawling signals, and legacy architectures that can’t match the velocity and scale of modern attacks. As a result, Microsoft Sentinel has evolved into both a SIEM and a platform for agentic defense. This update reflects architectural enhancements that support AI-driven security operations at scale. For more information, see [What is Microsoft Sentinel?](sentinel-overview.md)
 
-**Key additions include:**
+Key additions include Microsoft Sentinel data lake, Microsoft Sentinel graph, and Microsoft Sentinel Model Context Protocol (MCP) server, as described below.
 
 #### Microsoft Sentinel data lake is now generally available (GA)
 
