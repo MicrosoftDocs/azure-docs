@@ -2,8 +2,9 @@
 title: Manage Microsoft Sentinel platform solutions
 description: Learn how to configure, update, and uninstall components installed by a Microsoft Sentinel platform solution.
 ms.topic: how-to
-author: guywi-ms
-ms.author: guywild
+author: mberdugo
+ms.author: monaberdugo
+ms.reviewer: angodavarthy
 ms.date: 09/18/2025
 ---
 

@@ -1,11 +1,12 @@
 ---
 title: Sentinel solution quality guidelines
 description: This article guides you through the process of publishing high quality solutions for Microsoft Sentinel.
-author: anilgodavarthy
-ms.author: angodavarthy
+author: mberdugo
+ms.author: monaberdugo
+ms.reviewer: angodavarthy
 ms.service: microsoft-sentinel
 ms.topic: conceptual
-ms.date: 10/08/2024
+ms.date: 19/18/2025
 
 #CustomerIntent: As an ISV partner, I want clear guidance on how I can build and publish high quality solutions to Microsoft Sentinel so that customers can get a truly out-of-the-box experience using my solution.
 ---
@@ -22,18 +23,18 @@ Before you build a solution, it is important to understand how all the pieces fi
 
 **Ingesting data**: [Data connectors](#data-connectors) are the foundation for both SIEM and Platform solutions, as having the right data is prerequisite to providing any insights or taking action. Data connectors are distributed via SIEM solutions. This means that platform solutions may need to take a dependency on a SIEM solution.  
 
-**Data tiers**: Data connectors ingest data either to the SIEM analytic and [data lake tiers](/azure/sentinel/manage-data-overview), or just the data lake tiers. The Analytic tier provides unlimited querying and supports SIEM solution components, such as analytic rules. The data lake provides low-cost storage, long retention and is provided free of charge with the analytic tier. Platform solutions should interact with the data lake tier to maximize data coverage and retention. The non-data connector components of SIEM solutions (for example, analytic rules) require use the analytic tier data.
+**Data tiers**: Data connectors ingest data either to the SIEM analytic and [data lake tiers](/azure/sentinel/manage-data-overview), or just the data lake tiers. The Analytic tier provides unlimited querying and supports SIEM solution components, such as analytic rules. The data lake provides low-cost storage, long retention and is provided free of charge with the analytic tier. Platform solutions should interact with the data lake tier to maximize data coverage and retention. The non-data connector components of SIEM solutions (for example, analytic rules) require use of the analytic tier data.
 
 ## Platform solutions 
 
-A Microsoft Sentinel platform solution consists of multiple content items, including security Copilot Agents, MCP tools, notebooks, and notebook jobs. These components provide AI tools to improve Security teams efficiency and using Spark jobs to perform data lake. Platform solutions often depend on the data ingested by [data connectors](#data-connectors), provided via [SIEM solutions](#siem-solutions).   
+A Microsoft Sentinel platform solution consists of multiple content items, including security Copilot Agents, MCP tools, notebooks, and notebook jobs. These components provide AI tools to improve Security teams efficiency and using Spark jobs to perform data lake. Platform solutions often depend on the data ingested by [data connectors](#data-connectors), provided via [SIEM solutions](#siem-solutions).
 
-Listed next are the key components that make up Microsoft Sentinel platform solutions and how they relate to each other: 
+Listed next are the key components that make up Microsoft Sentinel platform solutions and how they relate to each other:
 
 - **Security Copilot Agents** automate repetitive tasks and reduce manual workloads. They enhance security and IT operations across cloud, data security and privacy, identity, and network security. In the context of Sentinel platform solutions, agents can query the SIEM or data lake, and call APIs and plugins to enrich Microsoft Sentinel data. To perform jobs requiring intensive data processing or analysis, agents can utilize notebooks and notebook jobs (See below) to efficiently and deterministically do the heavy lifting, while the agent can use the processed data to generate reports, communicate findings to remote endpoints, and utilize any number of plugins.
-- **Notebooks and Notebook jobs** provide powerful tools for performing complex data transformations and running machine learning models. Additionally, [notebooks](/azure/sentinel/datalake/notebooks-overview) augment Security Copilot agents with a deterministic and efficient means of performing data analysis and summarization.  Notebooks and notebook jobs are authored using a Microsoft Sentinel Visual Studio Code extension (preview) and interact with analytic tier and data lake using Python for Spark (PySpark). Notebooks write custom data tables to the analytic tier and data lake to be used by downstream applications such as Security Copilot skills and agents. [Notebook jobs](/azure/sentinel/datalake/notebook-jobs) enable notebooks to run on a schedule creating data on a reoccurring basis. 
+- **Notebooks and Notebook jobs** provide powerful tools for performing complex data transformations and running machine learning models. Additionally, [notebooks](/azure/sentinel/datalake/notebooks-overview) augment Security Copilot agents with a deterministic and efficient means of performing data analysis and summarization.  Notebooks and notebook jobs are authored using a Microsoft Sentinel Visual Studio Code extension (preview) and interact with analytic tier and data lake using Python for Spark (PySpark). Notebooks write custom data tables to the analytic tier and data lake to be used by downstream applications such as Security Copilot skills and agents. [Notebook jobs](/azure/sentinel/datalake/notebook-jobs) enable notebooks to run on a schedule creating data on a reoccurring basis.
 
- ## Security Copilot agents  
+## Security Copilot agents  
 
 [Microsoft Security Copilot](/copilot/security/agents-overview) agents automate provide security analysts insights, take on tedious jobs, improve analyst efficiency. With Microsoft Sentinel, agents can take advantage of MCP tools, and skills for querying the data lake, and calling APIs to enrich data from 3rd party endpoints. 
 
@@ -81,7 +82,7 @@ Best practices include:
 
 - **Use required permissions**: Users installing solutions containing notebook jobs must have a Security Operator, Security Admin, or Global Administrator role for a successful install.  
 
-## SIEM solutions 
+## SIEM solutions
 
 A Microsoft Sentinel SIEM solution consists of multiple content items, each serving a specific purpose. Together, they enable customers to configure the solution quickly and begin monitoring their security infrastructure within minutes. Listed next are the key components that make up Microsoft Sentinel SIEM solutions: 
 
