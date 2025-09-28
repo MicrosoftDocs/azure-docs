@@ -108,6 +108,7 @@ After securing the Access Token needed for each action, let’s jump right into 
 
     ```json
       {"version":"v1","status":"ok"}
+    
     ```
 1. To submit a MapReduce job, use the following command. Modify the path to jq as needed.
    
@@ -118,6 +119,7 @@ After securing the Access Token needed for each action, let’s jump right into 
       -d class=wordcount -d arg=/example/data/gutenberg/davinci.txt -d arg=/example/data/output ^
       https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/mapreduce/jar | ^
       jq -r .id
+      
       ```
 
       The end of the URI (/mapreduce/jar) tells WebHCat that this request starts a MapReduce job from a class in a jar file. The parameters used in this command are as follows:
@@ -151,6 +153,7 @@ After securing the Access Token needed for each action, let’s jump right into 
 1. For ease of use, set the variables below. Replace `CLUSTERNAME` with your actual cluster name. Execute the command and enter the cluster login password when prompted.
     
    ```powershell
+   
           $clusterName="CLUSTERNAME"
 
           # Define the bearer token
@@ -162,23 +165,25 @@ After securing the Access Token needed for each action, let’s jump right into 
 1. Use the following command to verify that you can connect to your HDInsight cluster:
     
 
-   ```powershell
+  ```powershell
+   
           # Make the API request with the bearer token
           $response = Invoke-WebRequest -Uri $apiEndpoint -Headers @{Authorization = "Bearer $bearerToken"} -UseBasicParsing
 
           # Output the response content
           $response.Content
    ```
-        
-        You receive a response similar to the following JSON:
+
+   You receive a response similar to the following JSON:
 
    ```json
-          {"version":"v1","status":"ok"}
-
+   	{"version":"v1","status":"ok"}
+   
    ```
 1. To submit a MapReduce job, use the following command:
 
-   ```powershell
+    ```powershell
+   
             # Define the request parameters
             $reqParams = @{
             "user.name" = "admin"
@@ -196,8 +201,9 @@ After securing the Access Token needed for each action, let’s jump right into 
             # Output the raw response content
             $jobID = (ConvertFrom-Json $resp.Content).id
             $jobID
+	  ```
 
-  ```
+
 
   The end of the URI (/mapreduce/jar) tells WebHCat that this request starts a MapReduce job from a class in a jar file. The parameters used in this command are as follows:
 
