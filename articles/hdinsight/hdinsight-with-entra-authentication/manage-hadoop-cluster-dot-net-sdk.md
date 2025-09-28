@@ -12,13 +12,13 @@ ms.date: 09/19/2025
 # Manage Azure HDInsight clusters using the HDInsight .NET SDK
 
 This article describes how to manage Azure HDInsight clusters programmatically by using the HDInsight .NET SDK. The SDK provides a set of client libraries that let you automate cluster operations such as creating, 
-list,delete and scale directly from your .NET applications. By using the SDK, you can integrate HDInsight cluster management into your existing workflows and applications.
+list, delete and scale directly from your .NET applications. By using the SDK, you can integrate HDInsight cluster management into your existing workflows and applications.
 ## Prerequisites
 Before you begin this article, you must have:
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## **Connect to Azure HDInsight**
+## Connect to Azure HDInsight
 
 You need the following NuGet packages:
 
@@ -30,8 +30,8 @@ You need the following NuGet packages:
 
 The following code sample shows you how to connect to Azure before you can administer HDInsight clusters under your Azure subscription.
 
-C#
- ```
+
+ ```csharp
     				using Azure.Identity;
 				using Microsoft.Azure.HDInsight.Job;
 				using Microsoft.Azure.Management.HDInsight;
@@ -50,11 +50,11 @@ C#
 						private const string ExistingClusterName = "adms-";
 
 						// Service Principal Configuration
-						private const string TenantId = "
-						private const string ClientId = "";
+						private const string TenantID = "
+						private const string ClientID = "";
 						private const string ClientSecret = "";
 
-						private const string SubscriptionId = "";
+						private const string SubscriptionID = "";
 						private const string ResourceGroup = "";
 
 						static async Task Main(string[] args)
@@ -78,7 +78,7 @@ C#
 
 						private static async Task InitializeHDInsightClientAsync()
 						{
-							var credential = new ClientSecretCredential(TenantId, ClientId, ClientSecret);
+							var credential = new ClientSecretCredential(TenantID, ClientID, ClientSecret);
 							var tokenRequestContext = new Azure.Core.TokenRequestContext(new[] { "https://" + "management.core.windows.net/.default" });
 							var tokenResponse = await credential.GetTokenAsync(tokenRequestContext);
 
@@ -96,7 +96,7 @@ C#
 								_hdiManagementClient.Credentials
 							)
 							{
-								SubscriptionId = SubscriptionId
+								SubscriptionID = SubscriptionID
 							};
 
 							var result = await resourceClient.Providers.RegisterAsync("Microsoft.HDInsight");
@@ -109,7 +109,7 @@ C#
 								_hdiManagementClient.Credentials
 							)
 							{
-								SubscriptionId = SubscriptionId
+								SubscriptionID = SubscriptionID
 							};
 							var cluster = await resourceClient.Clusters.GetAsync(ResourceGroup, ExistingClusterName);
 
@@ -135,12 +135,12 @@ C#
 
  ```
 You see a prompt when you run this program. If you don't want to see the prompt, see [Create noninteractive authentication .NET HDInsight applications](../hdinsight-create-non-interactive-authentication-dotnet-applications.md).
-## **List clusters**
+## List clusters
 
 The following code snippet lists clusters and some properties:
 
-C#
- ```
+
+ ```csharp
  				var results = _hdiManagementClient.Clusters.List();
 				foreach (var name in results.Clusters) {
 					Console.WriteLine("Cluster Name: " + name.Name);
@@ -150,19 +150,17 @@ C#
 				}
 
  ```
-## **Delete clusters**
+## Delete clusters
 
 Use the following code snippet to delete a cluster synchronously or asynchronously:
 
-C#
-
- ```
+ ```csharp
   _hdiManagementClient.Clusters.Delete("<Resource Group Name>", "<Cluster Name>");
   _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Name>");
 
  ```
 
-## **Scale clusters**
+## Scale clusters
 
 Use the cluster scaling feature to change the number of worker nodes used by a cluster that's running in HDInsight without having to re-create the cluster.
 
@@ -179,25 +177,25 @@ The effect of changing the number of data nodes for each type of cluster support
     
 - **Apache HBase**: You can seamlessly add or remove nodes to your HBase cluster while it's running. Regional servers are automatically balanced within a few minutes of completing the scaling operation. You can also manually balance the regional servers. Sign in to the head node of a cluster and run the following commands from a command prompt window:
     
-    BashCopy
-   ```
+    
+   ```bash
      >pushd %HBASE_HOME%\bin
      >hbase shell
      >balancer
 
    ```
 
-   **Update HTTP user credentials**
+   ## Update HTTP user credentials
 
     The update procedure is the same as the one you use to grant or revoke HTTP access. If the cluster was granted HTTP access, you must first revoke it. Then you can grant access with new HTTP user credentials.
 
-   **Find the default storage account**
+   ## Find the default storage account
 
     The following code snippet demonstrates how to get the default storage account name and key for a cluster.
 
-    C#
+   
 
-    ```
+    ```csharp
      var results = _hdiManagementClient.Clusters.GetClusterConfigurations(<Resource Group Name>, <Cluster Name>, "core-site");
      foreach (var key in results.Configuration.Keys)
      {
@@ -205,4 +203,4 @@ The effect of changing the number of data nodes for each type of cluster support
      }
     ```
 
-    ## Next Steps
+
