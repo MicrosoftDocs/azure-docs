@@ -5,7 +5,7 @@ titleSuffix: Microsoft Security
 description: Learn how Microsoft Sentinel graph enables multi-modal security analytics through graph-based representation of security data, providing deep insights into digital environments and attack paths.
 author: mberdugo
 ms.topic: overview
-ms.date: 09/25/2025
+ms.date: 09/28/2025
 ms.author: monaberdugo
 ms.service: microsoft-sentinel
 ms.subservice: sentinel-graph
