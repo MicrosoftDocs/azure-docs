@@ -47,7 +47,7 @@ For more information, see [Microsoft Sentinel data lake](datalake/sentinel-lake-
 
 #### Microsoft Sentinel graph (Preview)
 
-Unified graph analytics for deeper context and threat reasoning. Microsoft Sentinel graph models relationships across users, devices, and activities to support complex threat investigations and pre/post-breach analysis.
+Unified graph analytics for deeper context and threat reasoning. Microsoft Sentinel graph models relationships across users, devices, and activities to support complex threat investigations and pre- and post-breach analysis.
 
 For more information, see [What is Microsoft Sentinel graph? (Preview)](datalake/sentinel-graph-overview.md). 
 
