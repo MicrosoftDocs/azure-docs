@@ -1,5 +1,5 @@
 ---
-title: Run MapReduce jobs using HDInsight .NET SDK for Entra Auth enabled Azure HDInsight clusters
+title: Run MapReduce jobs using HDInsight .NET SDK for Entra Authentication enabled Azure HDInsight clusters
 description: Learn how to run MapReduce jobs using HDInsight .NET SDK  for Entra Auth enabled Azure HDInsight clusters
 ms.service: azure-hdinsight
 ms.topic: how-to
@@ -9,7 +9,7 @@ ms.reviewer: nijelsf
 ms.date: 09/19/2025
 ---
 
-# Run MapReduce jobs in Entra Auth enable clusters using HDInsight .NET SDK
+# Run MapReduce jobs in Entra Authentication enabled clusters using HDInsight .NET SDK
 
 This article explains how to submit MapReduce jobs to an HDInsight cluster by using the HDInsight .NET SDK. HDInsight clusters include a JAR file, `/example/jars/hadoop-mapreduce-examples.jar`, that contains several 
 MapReduce samples. One of these samples is wordcount.
@@ -21,13 +21,13 @@ If you want to rerun the application, you must first clean up the output folder.
 > The steps in this article must be performed from a Windows client. To use a Linux, OS X, or Unix client with Hive, use the tab selector at the top of the article.
 
 
-**Prerequisites**
+## Prerequisites
 
 - An Entra enabled Apache Hadoop cluster on HDInsight. See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 - [Visual Studio](https://visualstudio.microsoft.com/vs/community/).
 
 
-## **Submit MapReduce jobs using HDInsight .NET SDK**
+## Submit MapReduce jobs using HDInsight .NET SDK
 
 The HDInsight .NET SDK provides .NET client libraries, which make it easier to work with HDInsight clusters from .NET.
 
@@ -40,9 +40,8 @@ The HDInsight .NET SDK provides .NET client libraries, which make it easier to w
 
 1. Copy the code below into **Program.cs**. Then edit the code by setting the values for: `existingClusterName`, `existingClusterPassword`, `defaultStorageAccountName`, `defaultStorageAccountKey`, and `defaultStorageContainerName`.
     
-    C#
 
-      ```
+      ```C#
         				using Azure.Identity;
 				using Microsoft.Azure.HDInsight.Job;
 				using Microsoft.Azure.HDInsight.Job.Models;
@@ -187,5 +186,5 @@ The HDInsight .NET SDK provides .NET client libraries, which make it easier to w
 
    When the job completes successfully, the application prints the content of the output file `part-r-00000`.
 
-   ## Next Steps
+
      
