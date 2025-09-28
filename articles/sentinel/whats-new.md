@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: batamig
 ms.author: bagol
 ms.topic: concept-article
-ms.date: 08/20/2025
+ms.date: 09/28/2025
 #Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
 ms.custom:
   - build-2025
@@ -20,7 +20,10 @@ The listed features were released in the last six months. For information about 
 
 ## September 2025
 
-- [Microsoft Sentinel is evolving into a SIEM and platform with Microsoft Sentinel data lake (GA), Microsoft Sentinel graph (Preview), Model Context Protocol (MCP) server (Preview), and developer extensibility](#microsoft-sentinel-is-evolving-into-a-siem-and-platform-with-microsoft-sentinel-data-lake-ga-microsoft-sentinel-graph-preview-model-context-protocol-mcp-server-preview-and-developer-extensibility)
+- [Microsoft Sentinel is evolving into a SIEM and platform](#microsoft-sentinel-is-evolving-into-a-siem-and-platform)
+  - [Microsoft Sentinel data lake is now generally available (GA)](#microsoft-sentinel-data-lake-is-now-generally-available-ga)
+  - [Microsoft Sentinel graph (Preview)](#microsoft-sentinel-graph-preview)
+  - [Microsoft Sentinel Model Context Protocol (MCP) server (Preview)](#microsoft-sentinel-model-context-protocol-mcp-server-preview)
 - [New data sources and enhanced User and Entity Behavior Analytics (UEBA) (Preview)](#new-data-sources-for-enhanced-user-and-entity-behavior-analytics-ueba-preview)
 
 
