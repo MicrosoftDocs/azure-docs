@@ -59,7 +59,7 @@ For more information, see the following resources:
 
 ## Connector technical reference
 
-The following sections specify the connector reference articles that describe the connection parameters and operation parameters for each connector:
+The following sections specify the connector reference articles that describe the connection parameters and operation parameters for each connector. If any operations in these connectors show the "Preview" label, they're currently in preview and subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### Azure OpenAI
 
