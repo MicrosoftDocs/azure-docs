@@ -279,6 +279,15 @@ npm install
 npm run build
 ```
 
+# [React](#tab/Vite)
+
+Install npm dependencies and build the app into the _build_ folder.
+
+```bash
+npm install
+npm run dist
+```
+
 # [Vue](#tab/vue)
 
 Install npm dependencies and build the app into the _dist_ folder.
