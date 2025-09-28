@@ -25,8 +25,11 @@ The listed features were released in the last six months. For information about 
   Key additions include:
 
   - [Microsoft Sentinel data lake is now generally available (GA)](#microsoft-sentinel-data-lake-is-now-generally-available-ga)
+
   - [Microsoft Sentinel graph (Preview)](#microsoft-sentinel-graph-preview)
+  
   - [Microsoft Sentinel Model Context Protocol (MCP) server (Preview)](#microsoft-sentinel-model-context-protocol-mcp-server-preview)
+
 - [New data sources and enhanced User and Entity Behavior Analytics (UEBA) (Preview)](#new-data-sources-for-enhanced-user-and-entity-behavior-analytics-ueba-preview)
 
 
