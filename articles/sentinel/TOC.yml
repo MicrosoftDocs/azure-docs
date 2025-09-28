@@ -3,7 +3,7 @@
 - name: Overview
   items:
     - name: What is Microsoft Sentinel?
-      href: sentinel-platform-overview.md
+      href: sentinel-overview.md
     - name: What's new
       href: whats-new.md
 - name: Plan

@@ -20,7 +20,30 @@ The listed features were released in the last six months. For information about 
 
 ## September 2025
 
+- [Microsoft Sentinel is evolving into a SIEM and platform with Microsoft Sentinel data lake (GA), Microsoft Sentinel graph (Preview), Model Context Protocol (MCP) server (Preview), and developer extensibility](#microsoft-sentinel-is-evolving-into-a-siem-and-platform-with-microsoft-sentinel-data-lake-ga-microsoft-sentinel-graph-preview-model-context-protocol-mcp-server-preview-and-developer-extensibility)
 - [New data sources and enhanced User and Entity Behavior Analytics (UEBA) (Preview)](#new-data-sources-for-enhanced-user-and-entity-behavior-analytics-ueba-preview)
+
+
+### Microsoft Sentinel is evolving into a SIEM and platform with Microsoft Sentinel data lake (GA), Microsoft Sentinel graph (Preview), Model Context Protocol (MCP) server (Preview), and developer extensibility
+
+Security is being reengineered for the AI era, moving beyond static, rulebound controls and post-breach response toward platform-led, machine-speed defense. The challenge is clear: fragmented tools, sprawling signals, and legacy architectures that can’t match the velocity and scale of modern attacks. As a result, Microsoft Sentinel has evolved into both a SIEM and a platform for agentic defense. This update reflects architectural enhancements that support AI-driven security operations at scale.
+
+Key additions include:
+
+- **Microsoft Sentinel data lake - now generally available**: A scalable, cost-efficient foundation for long-term data retention and multi-modal analytics. 
+
+    For more information, see [Microsoft Sentinel data lake](datalake/sentinel-lake-overview.md).
+
+- **Microsoft Sentinel graph (Preview)**: Unified graph analytics for deeper context and threat reasoning. 
+
+    For more information, see [What is Microsoft Sentinel graph? (Preview)](datalake/sentinel-graph-overview.md). 
+- **Microsoft Sentinel Model Context Protocol (MCP) server (Preview)**: A hosted interface for building intelligent agents using natural language. 
+
+    For more information, see [Model Context Protocol (MCP) server overview](mcp-server-overview.md).
+- **Developer extensibility**: Tools and APIs for partners to build and publish solutions via the Security Store and SIEM Content Hub.
+
+For more information, see [What is Microsoft Sentinel?](sentinel-overview.md).
+
 
 ### New data sources for enhanced User and Entity Behavior Analytics (UEBA) (Preview)
 
