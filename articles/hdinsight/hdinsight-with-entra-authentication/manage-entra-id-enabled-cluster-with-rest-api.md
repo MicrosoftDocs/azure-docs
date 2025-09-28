@@ -11,7 +11,7 @@ ms.date: 08/21/2025
 
 # Manage Entra ID enabled HDInsight clusters using REST API
 
-Microsoft Entra ID-enabled HDInsight clusters can be administered programmatically through the Azure REST API. The REST API allows authorized clients to perform management operations such as provisioning, updating, scaling, and deleting clusters. This method is well-suited for enterprise automation scenarios, integration with CI/CD pipelines, and environments requiring precise control without reliance on the Azure portal or SDK.
+Microsoft Entra ID enabled HDInsight clusters can be administered programmatically through the Azure REST API. The REST API allows authorized clients to perform management operations such as provisioning, updating, scaling, and deleting clusters. This method is well-suited for enterprise automation scenarios, integration with CI/CD pipelines, and environments requiring precise control without reliance on the Azure portal or SDK.
 
 
 
@@ -91,8 +91,6 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 				}
 			}
 		}
-
-
   ```
 
 
@@ -257,20 +255,12 @@ If validation is complete and the request is accepted, the operation returns 200
 
 **Status code:** 200 OK
 
-### Response body for a linux cluster creates using ssh key:
+### Response body for a linux cluster created using ssh key:
 
-
-
-
-
-
-
-
-
+```json
 		{
-		"id": "/subscriptions/{ subscription-id }/resourceGroups/myresourcegroup1/providers/Microsoft.HDInsight/ clusters/mycluster ", "
-		name "
-		: "mycluster",
+		"id": "/subscriptions/{ subscription-id }/resourceGroups/myresourcegroup1/providers/Microsoft.HDInsight/ clusters/mycluster ",
+		"name": "mycluster",
 		"type": "Microsoft.HDInsight/clusters",
 		"location": "location-name",
 		"tags": {
@@ -278,7 +268,7 @@ If validation is complete and the request is accepted, the operation returns 200
 			"tag2": "value2"
 		},
 		"properties": {
-			"clusterVersion": "3.5",
+			"clusterVersion": "5.1",
 			"osType": "Linux",
 			"tier": "premium",
 			"clusterDefinition": {
@@ -382,15 +372,14 @@ If validation is complete and the request is accepted, the operation returns 200
 
 
 
-| Element name         | Type                   | Description                                                                 |
-|-----------------------|------------------------|-----------------------------------------------------------------------------|
-| provisioningState    | String                 | Indicates the current provisioning state.                                   |
+| Element name         | Type                   | Description|
+|-----------------------|------------------------|--------------------------------------------------------------------------|
+| provisioningState    | String                 | Indicates the current provisioning state.                                 |
 | clusterState         | String                 | Indicates the more detailed HDInsight cluster state while provisioning is in progress. |
-| createdDate          | Date                   | Datetime when the cluster create request was received.                      |
-| quotaInfo            | Complex Type           | Specifies the cores used by the cluster.                                    |
-| errors               | Array of error messages| Contains the error message if provisioningState = ‘failed’.                 |
-| connectivityEndpoints| Complex Type           | Specifies the public endpoints for the cluster.                             |
-
+| createdDate          | Date                   | Datetime when the cluster create request was received.                    |
+| quotaInfo            | Complex Type           | Specifies the cores used by the cluster.                                  |
+| errors               | Array of error messages| Contains the error message if provisioningState = ‘failed’.               |
+| connectivityEndpoints| Complex Type           | Specifies the public endpoints for the cluster.                           |
 
 
 
@@ -426,120 +415,117 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-h
 
 The following example shows the request body for creating an Entra enabled Linux based, premium, domain-joined Hadoop cluster.
 
-
-
-
 ```json
-					{
-			"id": "/subscriptions/{ subscription-ID }/resourceGroups/myresourcegroup1/providers/Microsoft.HDInsight/ clusters/mycluster ", "
-			name "
-			: "mycluster",
-			"type": "Microsoft.HDInsight/clusters",
-			"location": "location-name",
-			"tags": {
-				"tag1": "value1",
-				"tag2": "value2"
-			},
-			"properties": {
-				"clusterVersion": "3.5",
-				"osType": "Linux",
-				"tier": "premium",
-				"clusterDefinition": {
-					"kind": "hadoop",
-					"configurations": {
-						"gateway": {
-							 "restAuthEntraUsers": "[{\"objectID\":\"000000-00000-00000-000000\",\"displayName\":\"User1\",\"upn\":\"user1@contoso.com\"},{\"objectID\":\"000000-00000-00000-00001\",\"displayName\":\"User 2\",\"upn\":\"user2@contoso.com\"}]"
-						},
-						"core-site": {
-							"fs.defaultFS": "wasb://container@storageaccount.blob.core.windows.net",
-							"fs.azure.account.key.storageaccount.blob.core.windows.net": "storage-account-key"
-						}
-					}
-				},
-				"securityProfile": {
-					"directoryType": "ActiveDirectory",
-					"domain": "mydomain.com",
-					"organizationalUnitDN": "OU=Hadoop,DC=mydomain,DC=COM",
-					"ldapsUrls": ["ldaps://mydomain.com:636"],
-					"domainUsername": "clusteradmin@mydomain.com",
-					"domainUserPassword": "password",
-					"clusterUsersGroupDNs": ["ADGroup1", "ADGroup2"]
-				},
-				"computeProfile": {
-					"roles": [
-						{
-							"name": "headnode",
-							"targetInstanceCount": 2,
-							"hardwareProfile": {
-								"vmSize": "Large"
-							},
-							"osProfile": {
-								"linuxOperatingSystemProfile": {
-									"username": "username",
-									"sshProfile": {
-										"publicKeys": [
-											{
-												"certificateData": "ssh-rsa key"
-											}
-										]
-									}
-								}
-							},
-							"virtualNetworkProfile": {
-								"id": "/subscriptions/mysubscriptionid/resourceGroups/myrresourcegroup/providers/Microsoft.Network/virtualNetworks/myvirtualnetwork",
-								"subnet": "/subscriptions/mysubscriptionid /resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvirtualnetwork/subnets/mysubnet"
-							}
-						},
-						{
-							"name": "workernode",
-							"targetInstanceCount": 1,
-							"hardwareProfile": {
-								"vmSize": "Large"
-							},
-							"osProfile": {
-								"linuxOperatingSystemProfile": {
-									"username": "username",
-									"sshProfile": {
-										"publicKeys": [
-											{
-												"certificateData": " ssh-rsa key"
-											}
-										]
-									}
-								}
-							},
-							"virtualNetworkProfile": {
-								"id": "/subscriptions/mysubscriptionid/resourceGroups/myrresourcegroup/providers/Microsoft.Network/virtualNetworks/myvirtualnetwork",
-								"subnet": "/subscriptions/mysubscriptionid /resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvirtualnetwork/subnets/mysubnet"
-							}
-						},
-						{
-							"name": "zookeepernode",
-							"targetInstanceCount": 3,
-							"hardwareProfile": {
-								"vmSize": "Small"
-							},
-							"osProfile": {
-								"linuxOperatingSystemProfile": {
-									"username": "username",
-									"sshProfile": {
-										"publicKeys": [
-											{
-												"certificateData": "ssh-rsa key"
-											}
-										]
-									}
-								},
-								"virtualNetworkProfile": {
-									"id": "/subscriptions/mysubscriptionid/resourceGroups/myrresourcegroup/providers/Microsoft.Network/virtualNetworks/myvirtualnetwork",
-									"subnet": "/subscriptions/mysubscriptionid /resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvirtualnetwork/subnets/mysubnet"
-								}
-							}
-						}
-					]
+	{
+	"id": "/subscriptions/{ subscription-id }/resourceGroups/myresourcegroup1/providers/Microsoft.HDInsight/ clusters/mycluster ", "
+	name "
+	: "mycluster",
+	"type": "Microsoft.HDInsight/clusters",
+	"location": "location-name",
+	"tags": {
+		"tag1": "value1",
+		"tag2": "value2"
+	},
+	"properties": {
+		"clusterVersion": "5.1",
+		"osType": "Linux",
+		"tier": "premium",
+		"clusterDefinition": {
+			"kind": "hadoop",
+			"configurations": {
+				"gateway": {
+                     "restAuthEntraUsers": "[{\"objectId\":\"000000-00000-00000-000000\",\"displayName\":\"User1\",\"upn\":\"user1@contoso.com\"},{\"objectId\":\"000000-00000-00000-00001\",\"displayName\":\"User 2\",\"upn\":\"user2@contoso.com\"}]"
+                },
+				"core-site": {
+					"fs.defaultFS": "wasb://container@storageaccount.blob.core.windows.net",
+					"fs.azure.account.key.storageaccount.blob.core.windows.net": "storage-account-key"
 				}
 			}
+		},
+		"securityProfile": {
+			"directoryType": "ActiveDirectory",
+			"domain": "mydomain.com",
+			"organizationalUnitDN": "OU=Hadoop,DC=mydomain,DC=COM",
+			"ldapsUrls": ["ldaps://mydomain.com:636"],
+			"domainUsername": "clusteradmin@mydomain.com",
+			"domainUserPassword": "password",
+			"clusterUsersGroupDNs": ["ADGroup1", "ADGroup2"]
+		},
+		"computeProfile": {
+			"roles": [
+				{
+					"name": "headnode",
+					"targetInstanceCount": 2,
+					"hardwareProfile": {
+						"vmSize": "Large"
+					},
+					"osProfile": {
+						"linuxOperatingSystemProfile": {
+							"username": "username",
+							"sshProfile": {
+								"publicKeys": [
+									{
+										"certificateData": "ssh-rsa key"
+									}
+								]
+							}
+						}
+					},
+					"virtualNetworkProfile": {
+						"id": "/subscriptions/mysubscriptionid/resourceGroups/myrresourcegroup/providers/Microsoft.Network/virtualNetworks/myvirtualnetwork",
+						"subnet": "/subscriptions/mysubscriptionid /resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvirtualnetwork/subnets/mysubnet"
+					}
+				},
+				{
+					"name": "workernode",
+					"targetInstanceCount": 1,
+					"hardwareProfile": {
+						"vmSize": "Large"
+					},
+					"osProfile": {
+						"linuxOperatingSystemProfile": {
+							"username": "username",
+							"sshProfile": {
+								"publicKeys": [
+									{
+										"certificateData": " ssh-rsa key"
+									}
+								]
+							}
+						}
+					},
+					"virtualNetworkProfile": {
+						"id": "/subscriptions/mysubscriptionid/resourceGroups/myrresourcegroup/providers/Microsoft.Network/virtualNetworks/myvirtualnetwork",
+						"subnet": "/subscriptions/mysubscriptionid /resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvirtualnetwork/subnets/mysubnet"
+					}
+				},
+				{
+					"name": "zookeepernode",
+					"targetInstanceCount": 3,
+					"hardwareProfile": {
+						"vmSize": "Small"
+					},
+					"osProfile": {
+						"linuxOperatingSystemProfile": {
+							"username": "username",
+							"sshProfile": {
+								"publicKeys": [
+									{
+										"certificateData": "ssh-rsa key"
+									}
+								]
+							}
+						},
+						"virtualNetworkProfile": {
+							"id": "/subscriptions/mysubscriptionid/resourceGroups/myrresourcegroup/providers/Microsoft.Network/virtualNetworks/myvirtualnetwork",
+							"subnet": "/subscriptions/mysubscriptionid /resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvirtualnetwork/subnets/mysubnet"
+						}
+					}
+				}
+			]
 		}
+	}
+}
 ```
 
 
@@ -702,61 +688,60 @@ If validation is complete and the request is accepted, the operation returns 200
 
 
 ```json
-  									{
-										"id":"/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.HDInsight/clusters/mycluster",
-									  "name":"mycluster",
-									  "type":"Microsoft.HDInsight/clusters",
+ 		{
+			"id":"/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.HDInsight/clusters/mycluster",
+		  "name":"mycluster",
+		  "type":"Microsoft.HDInsight/clusters",
 
-										"location": "location-name",
-										"tags": { "tag1": "value1", "tag2": "value2" },
-										"properties": {
-											"clusterVersion": "3.2",
-											"osType": "Linux",
-											"provisioningState": "InProgress",
-											"clusterState": "Accepted",
-											"createdDate": "2015-09-23",
-											"quotaInfo": {
-												"coresUsed": 20
-									}
-											"clusterDefinition": {
-												"kind": "hadoop"
-											},
+			"location": "location-name",
+			"tags": { "tag1": "value1", "tag2": "value2" },
+			"properties": {
+				"clusterVersion": "3.2",
+				"osType": "Linux",
+				"provisioningState": "InProgress",
+				"clusterState": "Accepted",
+				"createdDate": "2015-09-23",
+				"quotaInfo": {
+					"coresUsed": 20
+		}
+				"clusterDefinition": {
+					"kind": "hadoop"
+				},
 
-											"computeProfile": {
-												"roles": [
-													{
-														"name": "headnode",
+				"computeProfile": {
+					"roles": [
+						{
+							"name": "headnode",
 
-														"targetInstanceCount": 2,
+							"targetInstanceCount": 2,
 
-														"hardwareProfile": {
-															"vmSize": "Large"
-														}
+							"hardwareProfile": {
+								"vmSize": "Large"
+							}
 
-													},
-													{
-														"name": "workernode",
+						},
+						{
+							"name": "workernode",
 
-														"targetInstanceCount": 1,
+							"targetInstanceCount": 1,
 
-														"hardwareProfile": {
-															"vmSize": "Large"
-														}
-													},
-													{
-														"name": "zookeepernode",
+							"hardwareProfile": {
+								"vmSize": "Large"
+							}
+						},
+						{
+							"name": "zookeepernode",
 
-														"targetInstanceCount": 3,
+							"targetInstanceCount": 3,
 
-														"hardwareProfile": {
-															"vmSize": "Small"
-														}
-													}
-												]
-											}
-										}
-									}
-
+							"hardwareProfile": {
+								"vmSize": "Small"
+							}
+						}
+					]
+				}
+			}
+		}
 
 ```
 
@@ -790,7 +775,7 @@ If validation is complete and the request is accepted, the operation returns 200
 
 Creates a cluster in the specified subscription with Azure Data Lake Store as the default filesystem. Provide a **ClusterIdentity** object in the request body and configure the **default-filesystem** property with appropriate Data Lake Store URL.
 
-Azure Data Lake can be configured as the default filesystem for cluster versions starting from 3.5 inclusive.
+Azure Data Lake can be configured as the default filesystem for cluster versions starting from 5.1 inclusive.
 
 ### Request
 
