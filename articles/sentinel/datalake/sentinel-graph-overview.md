@@ -14,7 +14,7 @@ ms.subservice: sentinel-graph
 ---
 
 
-# What is Microsoft Sentinel graph? (preview)
+# What is Microsoft Sentinel graph? (Preview)
 
 Microsoft Sentinel graph is a unified graph analytics capability within Microsoft Sentinel that powers graph-based experiences across security, compliance, identity, and the Microsoft Security ecosystem - empowering security teams to model, analyze, and visualize complex relationships across their digital estate.  
 
@@ -65,7 +65,7 @@ To begin using Microsoft Sentinel graph:
 To begin using Microsoft Sentinel graph:
 
 * In **Purview Insider Risk Management (IRM)**, follow the instructions in [Insider risk management data risk graph](https://aka.ms/sentinel/graph/docs/irm).
-* In Purview Data Security Investigation (DSI), follow [these instructions](https://aka.ms/sentinel/graph/docs/dsi).
+* In **Purview Data Security Investigation (DSI)**, follow [these instructions](https://aka.ms/sentinel/graph/docs/dsi).
 
 ---
 
