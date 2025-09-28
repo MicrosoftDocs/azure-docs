@@ -25,7 +25,7 @@ Azure Container Apps assigns different quota types to different scopes. In addit
 
 <a name="list-usage-portal"></a>
 
-You can view your quota levels via the [Azure portal](https://ms.portal.azure.com/#view/Microsoft_Azure_Capacity/QuotaMenuBlade/~/myQuotas) and through the Azure CLI, depending on the quota type.
+Depending on the quota type, you can view your quota levels via the [Azure portal](https://ms.portal.azure.com/#view/Microsoft_Azure_Capacity/QuotaMenuBlade/~/myQuotas) and through the Azure CLI.
 
 When in the portal, select **Azure Container Apps** for the *Provider*.
 

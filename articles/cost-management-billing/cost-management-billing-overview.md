@@ -2,9 +2,9 @@
 title: Overview of Billing
 titleSuffix: Microsoft Cost Management
 description: You use Billing features to manage billing accounts, invoices, and purchased products. You also use the features to monitor and control Azure spending and to optimize Azure resource use.
-author: shasulin
-ms.author: shasulin
-ms.reviewer: shasulin
+author: vikramdesai01
+ms.author: vikdesai
+ms.reviewer: vikdesai
 ms.date: 06/27/2025
 ms.topic: overview
 ms.service: cost-management-billing
