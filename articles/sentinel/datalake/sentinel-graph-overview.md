@@ -58,13 +58,13 @@ To begin using Microsoft Sentinel graph:
 ### [Defender](#tab/defender)
 
 * If you already have the Sentinel data lake, the required graph is auto provisioned when you sign in into the Defender portal. Hunting graph and blast radius experience will appear in the Defender portal.
-* New to data lake? Use the [Sentinel data lake onboarding flow](./sentinel-lake-onboard-defender.md) to enable the data lake and graph.
+* New to data lake? Use the [Sentinel data lake onboarding flow](https://aka.ms/sentinel/graph/docs/defender/onboarding) to enable the data lake and graph.
 
 ### [Microsoft Purview](#tab/purview)
 
 To begin using Microsoft Sentinel graph:
 
-* In **Purview Insider Risk Management (IRM)**, follow the instructions in [Insider risk management data risk graph](/purview/insider-risk-management-data-risk-graph).
+* In **Purview Insider Risk Management (IRM)**, follow the instructions in [Insider risk management data risk graph](https://aka.ms/sentinel/graph/docs/irm).
 * In Purview Data Security Investigation (DSI), follow [these instructions](https://aka.ms/sentinel/graph/docs/dsi).
 
 ---
