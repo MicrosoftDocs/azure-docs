@@ -1,10 +1,10 @@
 ---
-title: Connect to Azure AI services from workflows
-description: Integrate with Azure OpenAI and Azure AI Search in workflows for Azure Logic Apps.
+title: Connect to Azure AI services from Workflows
+description: Learn to integrate workflows with Azure OpenAI and Azure AI Search services using Azure Logic Apps.
 author: ecfan
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, divswa, azla
 ms.topic: how-to
 ms.date: 09/28/2025
 ms.collection: ce-skilling-ai-copilot
