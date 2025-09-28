@@ -279,9 +279,9 @@ npm install
 npm run build
 ```
 
-# [React](#tab/Vite)
+# [React (Vite)](#tab/react-vite)
 
-Install npm dependencies and build the app into the _build_ folder.
+Install npm dependencies and build the app into the _dist_ folder.
 
 ```bash
 npm install
@@ -327,6 +327,13 @@ Run the frontend app and API together by starting the app with the Static Web Ap
 
     ```bash
     swa start build --api-location api
+    ```
+    # [React (Vite)](#tab/react-vite)
+
+    Pass the build output folder (`dist`) and the API folder (`api`) to the CLI.
+
+    ```bash
+    swa start dist --api-location api
     ```
 
     # [Vue](#tab/vue)
