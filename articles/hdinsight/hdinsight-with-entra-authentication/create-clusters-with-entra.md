@@ -50,7 +50,7 @@ Users have to perform the following for setting up Entra ID authentication when 
 
   - Add one (or more) admin Entra ID user during cluster creation(adding atleast one admin is mandatory).
 
-    :::image type="content" source="./media/create-clusters-with-entra/creation-cluster.png" alt-text="Screenshot of hdinsight cluster creation landing page." border="true" lightbox="./media/create-clusters-with-entra/creation-cluster.png":::
+    :::image type="content" source="./media/create-clusters-with-entra/creation-cluster.png" alt-text="Screenshot of HDInsight cluster creation landing page." border="true" lightbox="./media/create-clusters-with-entra/creation-cluster.png":::
 
   
 
@@ -63,9 +63,8 @@ Entra ID enabled users are assigned one of two profiles:
   - Cluster User: View only permission.
 
 
-    >[!Note]
-    
-    >During cluster creation if the admin chooses Entra ID for authentication, then all the users in the cluster must be authenticated using Entra ID.
+>[!Note]
+>During cluster creation if the admin chooses Entra ID for authentication, then all the users in the cluster must be authenticated using Entra ID.
 
      >If the admin chooses basic authentication during  cluster creation then all the users in the cluster must be authenticated using basic authentication.
 
@@ -76,13 +75,13 @@ Entra ID enabled users are assigned one of two profiles:
     > **User can use only one mode on authentication for a particular cluster.**
 
 
-  :::image type="content" source="./media/create-clusters-with-entra/select-entra-button.png" alt-text="Screenshot of hdinsight landing page showing the selection of entra id option in hdinsight landing page." border="true" lightbox="./media/create-clusters-with-entra/select-entra-button.png":::
+  :::image type="content" source="./media/create-clusters-with-entra/select-entra-button.png" alt-text="Screenshot of HDInsight landing page showing the selection of entra ID option in HDInsight landing page." border="true" lightbox="./media/create-clusters-with-entra/select-entra-button.png":::
 
-  :::image type="content" source="./media/create-clusters-with-entra/select-entra-user.png" alt-text="Screenshot of user selecting the users entra id when selecting a cluster admin."  border="true" lightbox="./media/create-clusters-with-entra/select-entra-user.png":::
+  :::image type="content" source="./media/create-clusters-with-entra/select-entra-user.png" alt-text="Screenshot of user selecting the users entra ID when selecting a cluster admin."  border="true" lightbox="./media/create-clusters-with-entra/select-entra-user.png":::
 
 ## Login Options 
 
-Users can log in via Multi-Factor Authentication (MFA) once they input their Entra ID. 
+Users can log in via Multifactor Authentication (MFA) once they input their Entra ID. 
 
 ## Adding users with API
 
@@ -97,12 +96,11 @@ Admin can add multiple users at once via an API, ideal for managing large cluste
  | Entra Cluster API Version| greater than or equal to `2025-01-15-preview`|
 
 
- **JSON**
-```
-  				{ 
-				"restAuthEntraUsers": [ 
-					{ 
-						"objectId": "0d7c4bd6-d042-45ec-9ae5-1ed7871c38e0", 
+```json
+		{ 
+		"restAuthEntraUsers": [ 
+			{ 
+				"objectId": "0d7c4bd6-d042-45ec-9ae5-1ed7871c38e0", 
 						"displayName": "Hemant Gupta", 
 						"upn": "apsinhar@microsoft.com" 
 					} 
@@ -120,16 +118,16 @@ If Entra ID is selected:
 
  - The cluster creator provides an ID for the default cluster administrator user in Ambari. 
 
- - The default admin can add more Ambari users as needed, with either 'Cluster Administrator' or 'Cluster User' permissions after cluster creation via Ambari UI or  REST API.
+ - The default admin can add Ambari users after cluster creation. Users may have either **Cluster Administrator** or **Cluster User** permissions, set via the Ambari UI or REST API.
    The cluster admin also has to add Object ID, and the display name and click on "**Save**".
 
  	 :::image type="content" source="./media/create-clusters-with-entra/add-users.png" alt-text="Screenshot of Ambari page showing the users in the Ambari portal." border="true" lightbox="./media/create-clusters-with-entra/add-users.png":::
 
      :::image type="content" source="./media/create-clusters-with-entra/user-roles.png" alt-text="Screenshot of Ambari add users page where cluster admin selects roles of newly added users." border="true" lightbox="./media/create-clusters-with-entra/user-roles.png":::
 
- - A multi-factor authentication prompt appears when the user logs in with their Entra ID.
+ - A multifactor authentication prompt appears when the user logs in with their Entra ID.
 
-**Basic Authentication**
+## Basic Authentication
 
 Users can use the legacy basic authentication way of authenticating users as well 
 
@@ -151,11 +149,11 @@ If Basic Authentication is selected:
 
 		:::image type="content" source="./media/create-clusters-with-entra/click-manage.png" alt-text="Screenshot of Ambari landing page where cluster admin has to click on manage Ambari button." border="true" lightbox="./media/create-clusters-with-entra/click-manage.png":::
    
-   1. Click on user tab to see all present users
+   1. Click on user tab to see all present users in Ambari UI.
 
   		:::image type="content" source="./media/create-clusters-with-entra/open-user-tab.png" alt-text="Screenshot of Ambari page where cluster admin clicks on User tab." border="true" lightbox="./media/create-clusters-with-entra/open-user-tab.png":::
     
-   1. Click on "Add User" tab to add more users
+   1. Click on "Add User" tab to add more users in the cluster.
 
       :::image type="content" source="./media/create-clusters-with-entra/add-users.png" alt-text="Screenshot of Ambari page showing the users in the Ambari portal." border="true" lightbox="./media/create-clusters-with-entra/add-users.png":::
       
@@ -164,4 +162,3 @@ If Basic Authentication is selected:
 		:::image type="content" source="./media/create-clusters-with-entra/add-object-id.png" alt-text="Screenshot of Ambari page showing thee add users tab where cluster admin has to input new user information."  border="true" lightbox="./media/create-clusters-with-entra/add-object-id.png":::
 
 
-## Next Steps
