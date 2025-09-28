@@ -45,7 +45,7 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 			"location": "location-name",
 			"tags": { "tag1": "value1", "tag2": "value2" },
 			"properties": {
-				"clusterVersion": "3.2",
+				"clusterVersion": "5.1",
 				"osType": "Linux",
 				"provisioningState": "InProgress",
 				"clusterState": "Accepted",
@@ -696,7 +696,7 @@ If validation is complete and the request is accepted, the operation returns 200
 			"location": "location-name",
 			"tags": { "tag1": "value1", "tag2": "value2" },
 			"properties": {
-				"clusterVersion": "3.2",
+				"clusterVersion": "5.1",
 				"osType": "Linux",
 				"provisioningState": "InProgress",
 				"clusterState": "Accepted",
