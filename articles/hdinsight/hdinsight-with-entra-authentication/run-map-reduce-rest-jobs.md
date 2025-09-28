@@ -212,7 +212,7 @@ After securing the Access Token needed for each action, let’s jump right into 
 1. To check the status of the job, use the following command:
     
 
-         ```powershell
+  ```powershell
             $reqParams=@{"user.name"="admin"}
             # Make the API request with the bearer token
             $response = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/jobs/$jobID" -Headers @{Authorization = "Bearer $bearerToken"} -Body $reqParams -UseBasicParsing
@@ -222,7 +222,7 @@ After securing the Access Token needed for each action, let’s jump right into 
             $fixDup = $response.Content.Replace("jobID", "job_ID")
             (ConvertFrom-Json $fixDup).status.state
 
-         ```
+  ```
 
          
    ### Both methods
