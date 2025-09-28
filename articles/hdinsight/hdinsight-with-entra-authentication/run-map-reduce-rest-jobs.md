@@ -13,7 +13,7 @@ ms.date: 08/21/2025
 
 Apache Hadoop MapReduce provides a powerful programming model for processing and analyzing large datasets in a distributed environment. In Azure HDInsight, you can submit and manage MapReduce jobs through the REST API, allowing you to integrate Hadoop workloads into applications, scripts, and automation pipelines.
 
-When using Microsoft Entra ID-enabled HDInsight clusters, authentication and access control are handled securely through organizational identities. This ensures that only authorized users and applications can submit MapReduce jobs, helping you meet enterprise security and compliance requirements.
+When using Microsoft Entra ID enabled HDInsight clusters, authentication and access control are handled securely through organizational identities. This ensures that only authorized users and applications can submit MapReduce jobs, helping you meet enterprise security and compliance requirements.
 
 This guide walks you through how to connect to an Entra-enabled HDInsight cluster, authenticate via REST, and submit MapReduce jobs programmatically.
 
@@ -88,15 +88,13 @@ After securing the Access Token needed for each action, let’s jump right into 
     
     Windows Command Prompt
     ```
-        set TOKEN= <access_token>
+    set TOKEN= <access_token>
 
     ```
 1. From a command line, use the following command to verify that you can connect to your HDInsight cluster:
-    
-    Bash
-    ```
+        
+    ```bash
       curl -H "Authorization: Bearer $TOKEN" -G https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/status
-
     ```
 
     The parameters used in this command are as follows:
@@ -108,10 +106,8 @@ After securing the Access Token needed for each action, let’s jump right into 
 
     You receive a response similar to the following JSON:
 
-    JSON
-    ```
+    ```json
       {"version":"v1","status":"ok"}
-
     ```
 1. To submit a MapReduce job, use the following command. Modify the path to jq as needed.
    
@@ -154,7 +150,7 @@ After securing the Access Token needed for each action, let’s jump right into 
 
 1. For ease of use, set the variables below. Replace `CLUSTERNAME` with your actual cluster name. Execute the command and enter the cluster login password when prompted.
     
-      ```powershell
+   ```powershell
           $clusterName="CLUSTERNAME"
 
           # Define the bearer token
@@ -162,28 +158,27 @@ After securing the Access Token needed for each action, let’s jump right into 
 
           # Define the API endpoint
           $apiEndpoint = "https://$clusterName.azurehdinsight.net/templeton/v1/status"
-      ```
+    ```
 1. Use the following command to verify that you can connect to your HDInsight cluster:
     
 
-        ```powershell
+   ```powershell
           # Make the API request with the bearer token
           $response = Invoke-WebRequest -Uri $apiEndpoint -Headers @{Authorization = "Bearer $bearerToken"} -UseBasicParsing
 
           # Output the response content
           $response.Content
-        ```
+   ```
         
         You receive a response similar to the following JSON:
 
-        ```json
+   ```json
           {"version":"v1","status":"ok"}
 
-        ```
+   ```
 1. To submit a MapReduce job, use the following command:
-    
 
-          ```powershell
+   ```powershell
             # Define the request parameters
             $reqParams = @{
             "user.name" = "admin"
@@ -202,12 +197,11 @@ After securing the Access Token needed for each action, let’s jump right into 
             $jobID = (ConvertFrom-Json $resp.Content).id
             $jobID
 
-           ```
+  ```
 
-        The end of the URI (/mapreduce/jar) tells WebHCat that this request starts a MapReduce job from a class in a jar file. The parameters used in this command are as follows:
-  
+  The end of the URI (/mapreduce/jar) tells WebHCat that this request starts a MapReduce job from a class in a jar file. The parameters used in this command are as follows:
 
-          This command should return a job ID that can be used to check the status of the job: `job_1415651640909_0026`.
+  This command should return a job ID that can be used to check the status of the job: `job_1415651640909_0026`.
 
 1. To check the status of the job, use the following command:
     
