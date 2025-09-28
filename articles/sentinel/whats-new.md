@@ -20,7 +20,7 @@ The listed features were released in the last six months. For information about 
 
 ## September 2025
 
-- [Microsoft Sentinel is evolving into a SIEM and platform](#microsoft-sentinel-is-evolving-into-a-siem-and-platform)
+- [Microsoft Sentinel evolves into a SIEM and platform](#microsoft-sentinel-is-evolving-into-a-siem-and-platform)
 
   Key additions include:
 
