@@ -18,12 +18,12 @@ This guide walks you through how to connect to an Entra-enabled HDInsight cluste
 > [!NOTE]  
 >This document does not provide a detailed description of what the HiveQL statements that are used in the examples do. For information on the HiveQL that is used in this example, see [Use Apache Hive with Apache Hadoop on HDInsight](../hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md).
 
- **Prerequisites**
+ ## Prerequisites
 
 - An Entra enabled Apache Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
 - The PowerShell [Az Module](/powershell/azure/) installed.
 
-- **Run a Hive query**
+## Run a Hive query
 - Azure PowerShell provides *cmdlets* that allow you to remotely run Hive queries on HDInsight. Internally, the cmdlets make REST calls to [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) on the HDInsight cluster.
 
 The following cmdlets are used when running Hive queries in a remote HDInsight cluster:
@@ -35,19 +35,19 @@ The following cmdlets are used when running Hive queries in a remote HDInsight c
 - `Invoke-AzHDInsightHiveJob`: Used to run HiveQL statements. This cmdlet blocks the query completes, then returns the results.
 - `Use-AzHDInsightCluster`: Sets the current cluster to use for the `Invoke-AzHDInsightHiveJob` command.
 
-**Setup (Secure Bearer Access Token)**
+## Setup (Secure Bearer Access Token)
 
 Bearer Token is needed to send the cURL or any REST communication. You can follow the below mentioned step to get the token:
 
 Execute an HTTP GET request to the OAuth 2.0 token endpoint with the following specifications:
 
-**URL**
+### URL
 
-```
+```bash
 https://login.microsoftonline.com/{Tenant_ID}/oauth2/v2.0/token
 ```
 
-**Body**
+### Body
 
 | Parameter | Description | Required |
 | --- | --- | --- |
@@ -57,9 +57,9 @@ https://login.microsoftonline.com/{Tenant_ID}/oauth2/v2.0/token
 | scope         | Resource URL with .default suffix                   | Yes |
 
 
-**cURL Request**
+### cURL Request
 
-```
+```bash
 curl --request GET \
   --url https://login.microsoftonline.com/{tenant_id}/oauth2/v2.0/token \
   --header 'Content-Type: multipart/form-data' \
@@ -69,9 +69,9 @@ curl --request GET \
   --form scope=https://{clustername}.clusteraccess.azurehdinsight.net/.default \
 ```
 
-**Response**
+### Response
 
-```
+```powershell
 {
 	"token_type": "Bearer",
 	"expires_in": 3599,
@@ -84,8 +84,8 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 
 1. Using an editor, save the following code as `hivejob.ps1`.
     
-    PowerShell
-   ```
+   
+   ```powershell
     # Login to your Azure subscription
     $context = Get-AzContext
     if ($context -eq $null) 
@@ -127,8 +127,8 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 
 1. Open a new **Azure PowerShell** command prompt. Change directories to the location of the `hivejob.ps1` file, then use the following command to run the script:
     
-    Azure PowerShell
-    ```
+
+    ```powershell
       .\hivejob.ps1
     ```
 
@@ -150,9 +150,9 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 
 1. As mentioned earlier, `Invoke-Hive` can be used to run a query and wait for the response. Use the following script to see how Invoke-Hive works:
     
-    PowerShell
 
-     ```
+
+     ```powershell
         # Login to your Azure subscription
         $context = Get-AzContext
         if ($context -eq $null) 
@@ -194,9 +194,8 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 
 If no information is returned when the job completes, view the error logs. To view error information for this job, add the following to the end of the `hivejob.ps1` file, save it, and then run it again.
 
-PowerShell
 
-```
+```powershell
   # Print the output of the Hive job
 Get-AzHDInsightJobOutput `
     -Clustername $clusterName `
@@ -208,10 +207,10 @@ Get-AzHDInsightJobOutput `
 
 This cmdlet returns the information that is written to STDERR during job processing.
 
-**Summary**
+## Summary
 
 As you can see, Azure PowerShell provides an easy way to run Hive queries in an HDInsight cluster, monitor the job status, and retrieve the output.
 
 
 
-## Next Steps
+
