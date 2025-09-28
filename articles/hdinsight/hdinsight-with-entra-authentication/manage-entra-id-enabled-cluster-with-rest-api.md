@@ -15,12 +15,12 @@ Microsoft Entra ID-enabled HDInsight clusters can be administered programmatical
 
 
 
-## **Create**
+## Create
 
 Creates an Entra enabled cluster in the specified subscription.
 
 
-**Request**
+### Request
 
 See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-headers) for headers and parameters that are used by clusters.
 
@@ -35,7 +35,7 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 
-  ```json-interactive
+  ```json
 
     		{
 			"id":"/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.HDInsight/clusters/mycluster",
@@ -105,7 +105,7 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 | Element name | Required | Type | Description |
 | --- | --- | --- | --- |
-| id           | Yes      | String       | Specifies the resource identifier of the cluster. |
+| ID           | Yes      | String       | Specifies the resource identifier of the cluster. |
 | name         | Yes      | String       | Specifies the name of the cluster. |
 | type         | Yes      | String       | Specifies the type of the cluster. |
 | location     | Yes      | String       | Specifies the supported Azure location where the cluster should be created. For more information, see [List all of the available geo-locations](/azure/azure-resource-manager/management/azure-subscription-service-limits#regions). |
@@ -116,7 +116,7 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 
-### **Properties**
+### Properties
 
 | Element name | Required | Type | Description |
 | --- | --- | --- | --- |
@@ -128,7 +128,7 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 
-### **clusterDefinition**
+### clusterDefinition
 
 | Element name | Required | Type | Description |
 | --- | --- | --- | --- |
@@ -139,7 +139,7 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 
-### **computeProfile**
+### computeProfile
 
 
 | Element name   | Required | Type                              | Description |
@@ -151,7 +151,7 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 
-### **role**
+### role
 
 
 | Element name        | Required | Type          | Description |
@@ -164,7 +164,7 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 
-### **hardwareProfile**
+### hardwareProfile
 
 
 | Element name | Required | Type   | Description |
@@ -174,7 +174,7 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 
-### **osProfile**
+### osProfile
 
 
 | Element name                 | Required | Type                   | Description |
@@ -186,7 +186,7 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 
-### **linuxOperatingSystemProfile**
+### linuxOperatingSystemProfile
 
 
 | Element name | Required | Type         | Description |
@@ -198,7 +198,7 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 
-### **sshProfile**
+### sshProfile
 
 
 | Element name | Required | Type | Description |
@@ -208,7 +208,7 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 
-### **windowsOperatingSystemProfile**
+### windowsOperatingSystemProfile
 
 
 | Element name | Required | Type | Description |
@@ -217,7 +217,7 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 
-### **rdpSettings**
+### rdpSettings
 
 
 | Element name | Required | Type  | Description |
@@ -228,17 +228,17 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 
-### **virtualNetworkProfile**
+### virtualNetworkProfile
 
 
 | Element name | Required | Type   | Description |
 |--------------|----------|--------|-------------|
-| id           | Yes      | String | Virtual Network Resource Id. |
+| ID           | Yes      | String | Virtual Network Resource ID. |
 | subnet       | Yes      | String | Specifies the subnet name. |
 
 
 
-### **scriptActions**
+### scriptActions
 
 
 | Element name | Required | Type   | Description |
@@ -250,21 +250,21 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 
-### **Response**
+### Response
 
 
 If validation is complete and the request is accepted, the operation returns 200 (OK).
 
 **Status code:** 200 OK
 
-### **Response body for a linux cluster creates using ssh key:**
+### Response body for a linux cluster creates using ssh key:
 
 
 
 
 
 
-```json-interactive
+
 
 
 		{
@@ -285,7 +285,7 @@ If validation is complete and the request is accepted, the operation returns 200
 				"kind": "hadoop",
 				"configurations": {
 					"gateway": {
-						 "restAuthEntraUsers": "[{\"objectId\":\"000000-00000-00000-000000\",\"displayName\":\"User1\",\"upn\":\"user1@contoso.com\"},{\"objectId\":\"000000-00000-00000-00001\",\"displayName\":\"User 2\",\"upn\":\"user2@contoso.com\"}]"
+						 "restAuthEntraUsers": "[{\"objectID\":\"000000-00000-00000-000000\",\"displayName\":\"User1\",\"upn\":\"user1@contoso.com\"},{\"objectId\":\"000000-00000-00000-00001\",\"displayName\":\"User 2\",\"upn\":\"user2@contoso.com\"}]"
 					},
 					"core-site": {
 						"fs.defaultFS": "wasb://container@storageaccount.blob.core.windows.net",
@@ -394,7 +394,7 @@ If validation is complete and the request is accepted, the operation returns 200
 
 
 
-**connectivityEndpoints**
+### connectivityEndpoints
 
 | Element name | Type   | Description                                               |
 |--------------|--------|-----------------------------------------------------------|
@@ -407,19 +407,19 @@ If validation is complete and the request is accepted, the operation returns 200
 
 
 
-**Create a premium, domain-joined HDInsight cluster (Linux only)**
+### Create a premium, domain-joined HDInsight cluster (Linux only)
 
 Create a premium domain-joined cluster with Apache Ranger. User needs to provide SecurityProfile in the request body to create a secure cluster.
 
 
-**Request**
+### Request
 
 See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-headers) for headers and parameters that are used by clusters.
 
 
 | Method | Request URI                                                                                                                                                                        |
 | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| PUT    | `https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{resourceGroup Name}/providers/Microsoft.HDInsight/clusters/{cluster name}?api-version={api-version}` |
+| PUT    | `https://management.azure.com/subscriptions/{subscription ID}/resourceGroups/{resourceGroup Name}/providers/Microsoft.HDInsight/clusters/{cluster name}?api-version={api-version}` |
 
 
 
@@ -429,9 +429,9 @@ The following example shows the request body for creating an Entra enabled Linux
 
 
 
-	```json-interactive
+```json
 					{
-			"id": "/subscriptions/{ subscription-id }/resourceGroups/myresourcegroup1/providers/Microsoft.HDInsight/ clusters/mycluster ", "
+			"id": "/subscriptions/{ subscription-ID }/resourceGroups/myresourcegroup1/providers/Microsoft.HDInsight/ clusters/mycluster ", "
 			name "
 			: "mycluster",
 			"type": "Microsoft.HDInsight/clusters",
@@ -448,7 +448,7 @@ The following example shows the request body for creating an Entra enabled Linux
 					"kind": "hadoop",
 					"configurations": {
 						"gateway": {
-							 "restAuthEntraUsers": "[{\"objectId\":\"000000-00000-00000-000000\",\"displayName\":\"User1\",\"upn\":\"user1@contoso.com\"},{\"objectId\":\"000000-00000-00000-00001\",\"displayName\":\"User 2\",\"upn\":\"user2@contoso.com\"}]"
+							 "restAuthEntraUsers": "[{\"objectID\":\"000000-00000-00000-000000\",\"displayName\":\"User1\",\"upn\":\"user1@contoso.com\"},{\"objectID\":\"000000-00000-00000-00001\",\"displayName\":\"User 2\",\"upn\":\"user2@contoso.com\"}]"
 						},
 						"core-site": {
 							"fs.defaultFS": "wasb://container@storageaccount.blob.core.windows.net",
@@ -540,7 +540,7 @@ The following example shows the request body for creating an Entra enabled Linux
 				}
 			}
 		}
-	```
+```
 
 
 
@@ -548,7 +548,7 @@ The following example shows the request body for creating an Entra enabled Linux
 
 | Element name | Required | Type | Description |
 |--------------|----------|------|-------------|
-| id | Yes | String | Specifies the resource identifier of the cluster. |
+| ID | Yes | String | Specifies the resource identifier of the cluster. |
 | name | Yes | String | Specifies the name of the cluster. |
 | type | Yes | String | Specifies the type of the cluster. |
 | location | Yes | String | Specifies the supported Azure location where the cluster should be created. For more information, see [List all of the available geo-locations](/azure/azure-resource-manager/management/azure-subscription-service-limits#regions). |
@@ -558,7 +558,7 @@ The following example shows the request body for creating an Entra enabled Linux
 
 
 
-**Properties**
+### Properties
 
 
 | Element name      | Required | Type         | Description |
@@ -573,7 +573,7 @@ The following example shows the request body for creating an Entra enabled Linux
 
 
 
-**clusterDefinition**
+### clusterDefinition
 
 
 
@@ -585,7 +585,7 @@ The following example shows the request body for creating an Entra enabled Linux
 
 
 
-**computeProfile**
+### computeProfile
 
 
 | Element name   | Required | Type                       | Description |
@@ -595,7 +595,7 @@ The following example shows the request body for creating an Entra enabled Linux
 
 
 
-**securityProfile**
+### securityProfile
 
 
 | Element name            | Required | Type             | Description |
@@ -612,7 +612,7 @@ The following example shows the request body for creating an Entra enabled Linux
 
 
 
-**role**
+### role
 
 
 | Element name        | Required | Type         | Description |
@@ -625,7 +625,7 @@ The following example shows the request body for creating an Entra enabled Linux
 
 
 
-**hardwareProfile**
+### hardwareProfile
 
 
 | Element name | Required | Type   | Description |
@@ -634,7 +634,7 @@ The following example shows the request body for creating an Entra enabled Linux
 
 
 
-**osProfile**
+### osProfile
 
 
 | Element name                 | Required | Type                   | Description |
@@ -645,7 +645,7 @@ The following example shows the request body for creating an Entra enabled Linux
 
 
 
-**linuxOperatingSystemProfile**
+### linuxOperatingSystemProfile
 
 
 | Element name | Required | Type         | Description |
@@ -657,7 +657,7 @@ The following example shows the request body for creating an Entra enabled Linux
 
 
 
-**sshProfile**
+### sshProfile
 
 
 | Element name | Required | Type  | Description |
@@ -667,18 +667,18 @@ The following example shows the request body for creating an Entra enabled Linux
 
 
 
-**virtualNetworkProfile**
+### virtualNetworkProfile
 
 
 | Element name | Required | Type   | Description |
 |--------------|----------|--------|-------------|
-| id           | Yes      | String | Virtual Network Resource Id. |
+| ID           | Yes      | String | Virtual Network Resource ID. |
 | subnet       | Yes      | String | Specifies the subnet name. |
 
 
 
 
-**scriptActions**
+### scriptActions
 
 
 | Element name | Required | Type   | Description |
@@ -690,21 +690,18 @@ The following example shows the request body for creating an Entra enabled Linux
 
 
 
-**Response**
+### Response
 
 If validation is complete and the request is accepted, the operation returns 200 (OK).
 
 
-**Status code:** 200 OK
+### **Status code:** 200 OK
 
 
-**Response body for a linux cluster creates using ssh key:**
-
-JSONCopy
+### Response body for a linux cluster creates using ssh key:
 
 
-
-```
+```json
   									{
 										"id":"/subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.HDInsight/clusters/mycluster",
 									  "name":"mycluster",
@@ -776,7 +773,7 @@ JSONCopy
 
 
 
-**connectivityEndpoints**
+### connectivityEndpoints
 
 
 | Element name | Type   | Description |
@@ -788,14 +785,14 @@ JSONCopy
 
 
 
-**Create a cluster with Azure Data Lake Store as the default filesystem**
+### Create a cluster with Azure Data Lake Store as the default filesystem
 
 
 Creates a cluster in the specified subscription with Azure Data Lake Store as the default filesystem. Provide a **ClusterIdentity** object in the request body and configure the **default-filesystem** property with appropriate Data Lake Store URL.
 
 Azure Data Lake can be configured as the default filesystem for cluster versions starting from 3.5 inclusive.
 
-**Request**
+### Request
 
 
 See [Common parameters](/rest/api/hdinsight/#common-parameters-and-headers) and headers for headers and parameters that are used by clusters.
