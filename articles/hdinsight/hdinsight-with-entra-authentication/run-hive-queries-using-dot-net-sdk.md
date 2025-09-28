@@ -15,7 +15,7 @@ The HDInsight .NET SDK provides a programmatic way to interact with Apache Hive 
 
 This approach enables developers to integrate big data processing into existing .NET solutions, automate analytics workflows, and build custom applications that apply the power of Hive on HDInsight. With Microsoft Entra ID-enabled clusters, you also gain secure identity-based access and centralized control.
 
-## **Prerequisites**
+## Prerequisites
 
 Before you begin this article, you must have the following items:
 
@@ -25,21 +25,21 @@ Before you begin this article, you must have the following items:
 - [Visual Studio](https://visualstudio.microsoft.com/vs/community/) 2013 and beyond. At least, workload .NET desktop development should be installed.
 
 
-**Run a Hive Query**
+### Run a Hive Query
 
 The HDInsight .NET SDK provides .NET client libraries, which makes it easier to work with HDInsight clusters from .NET.
 
   1. Create a C# console application in Visual Studio.
-  1. From the Nuget Package Manager Console, run the  command:
+  1. From the NuGet Package Manager Console, run the  command:
    
-      ```
+      ```csharp
       Install-Package Microsoft.Azure.HDInsight.Job -Version 3.0.0-preview.3
 
-      ```
+      ```csharp
   1. Edit the code to initialize the values for variables: `ExistingClusterName, TenantId, ClientId,ClientSecret, ExistingClusterPassword,DefaultStorageAccountName,DefaultStorageAccountKey,DefaultStorageContainerName`. Then use the revised code as the entire contents of **Program.cs** in Visual Studio.
 
 
-      ```
+      ```csharp
         
        								using System;
 								using System.Collections.Generic;
@@ -64,8 +64,8 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 								        private const string ExistingClusterUri = ExistingClusterName + ".azurehdinsight.net";
 
 								        // Service Principal Configuration
-								        private const string TenantId = "<tenant_id>";
-								        private const string ClientId = "<client_id>";
+								        private const string TenantId = "<tenant_ID>";
+								        private const string ClientId = "<client_ID>";
 								        private const string ClientSecret = "<secret>";
 
 								        // Storage Account Configuration linked to HDI Cluster
@@ -259,7 +259,3 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 
 The output of the application should be similar to:
 
-
-
-
-## Next Steps
