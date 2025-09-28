@@ -117,6 +117,39 @@ Here's an example of such a custom MCP server project:
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript"  
 > Provides an MCP server template along with several function tool endpoints, which can be run locally and also deployed to Azure.
 ::: zone-end
+
+
+### Self-hosted remote MCP servers (early preview)
+
+If you've already built servers with the official MCP SDKs, you can now host them on Azure Functions with minimal code change. This early preview supports hosting servers written with the Python, Node.js, and .NET MCP SDKs. The servers must also be **stateless** and use the **streamable HTTP** transport. 
+
+For stateful scenarios, consider using the [MCP binding extension](#remote-mcp-servers) for now. 
+
+#### Get started
+
+::: zone pivot="programming-language-csharp"  
+- [Weather server quickstart](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-dotnet)
+- To host already-built MCP servers, try out the [experimental prompt](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-dotnet/blob/main/ExistingServer.md) to have Visual Studio Code Copilot prepare the server for deployment. 
+::: zone-end
+::: zone pivot="programming-language-python"  
+- [Weather server quickstart](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-python)
+- To host already-built MCP servers, try out the [experimental prompt](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-python/blob/main/ExistingServer.md) to have Visual Studio Code Copilot prepare the server for deployment. 
+::: zone-end
+::: zone pivot="programming-language-typescript"  
+- [Weather server quickstart](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-node)
+- To host already-built MCP servers, try out the [experimental prompt](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-node/blob/main/ExistingServer.md) to have Visual Studio Code Copilot prepare the server for deployment. 
+::: zone-end
+::: zone pivot="programming-language-javascript"  
+See [TypeScript sample](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-node).
+::: zone-end
+::: zone pivot="programming-language-java"  
+Sample not available yet. 
+::: zone-end
+::: zone pivot="programming-language-powershell"  
+PowerShell is not supported.  
+::: zone-end
+
+
 ### Agentic workflows
 
 While it's common for AI-driven processes to autonomously determine how to interact with models and other AI assets, there are many cases where a higher level of predicability is required or where the required steps are well-defined. These directed agentic workflows are composed of an orchestration of separate tasks or interactions that agents are required to follow. 
