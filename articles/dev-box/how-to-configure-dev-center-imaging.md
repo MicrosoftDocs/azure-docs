@@ -16,9 +16,7 @@ ms.date: 09/24/2025
 
 Using a customization file simplifies the creation of dev boxes for your team. With dev box customizations, you can create a shared team customization by creating a file called an *image definition*. Creating a reusable image from this image definition optimizes customizations and saves time during dev box creation. In this article, you learn how to configure a pool to use an image definition and build reusable images for your development teams.
 
-To configure imaging for Microsoft Dev Box team customizations, enable project-level catalogs and configure catalog sync settings for the project. Then, attach a catalog that contains a definition file to your project, configure a dev box pool to use an image definition, and verify that the customizations apply to a new dev box. When the customizations apply correctly, you can choose to build a reusable image, which makes the creation of new dev boxes quicker.
-
-[!INCLUDE [customizations-preview-text](includes/customizations-preview-text.md)]
+To configure imaging for Microsoft Dev Box team customizations, first enable project-level catalogs and configure catalog sync settings. Next, attach a catalog with a definition file, set up a dev box pool to use an image definition, and verify that customizations apply; once confirmed, you can build a reusable image for faster dev box creation.
 
 ## Prerequisites
 
@@ -65,7 +63,7 @@ The **Image definitions** pane lists the image definitions that your project can
 
 :::image type="content" source="media/how-to-configure-dev-center-imaging/team-customizations-image-definitions-small.png" alt-text="Screenshot of the Azure portal pane that lists accessible image definitions for a project." lightbox="media/how-to-configure-dev-center-imaging/team-customizations-image-definitions.png":::
 
-For more information about attaching catalogs, see [Add and configure a catalog from GitHub or Azure Repos](../deployment-environments/how-to-configure-catalog.md).
+For more information about attaching catalogs, see [Add and configure a catalog from GitHub or Azure Repos](../dev-box/how-to-configure-catalog.md).
 
 ## Configure a dev box pool to use an image definition
 
@@ -87,7 +85,7 @@ A dev box pool has the following properties:
 | **Licensing** | You can apply Azure Hybrid Benefit licenses to the dev boxes in the pool. Select the checkbox to confirm that your organization has Azure Hybrid Benefit licenses that you want to apply to the dev boxes in this pool. |
 | **Roles** | You can assign users to be either Local Administrators or Standard Users on the dev boxes they create. |
 | **Access** | Determines how users can access their dev boxes.</br> - **Single Sign-On (SSO)**: Enable single sign-on (SSO) to allow users to sign in to their dev boxes by using their organizational credentials. </br> - **Headless connections**: Enable headless connections to allow developers to open a dev box in Visual Studio Code without a full desktop experience. |
-| **Cost controls** | You can configure cost controls to help manage the costs of running dev boxes in the pool. </br> - **Auto-stop schedule**: Set an auto-stop schedule to automatically stop or hibernate dev boxes at a specified time. </br> - **Hibernate**: Configure dev boxes to hibernate after a specified grace period when no one is connected or when they have never been connected. |
+| **Cost controls** | You can configure cost controls to help manage the costs of running dev boxes in the pool. </br> - **Auto-stop schedule**: Set an autostop schedule to automatically stop or hibernate dev boxes at a specified time. </br> - **Hibernate**: Configure dev boxes to hibernate after a specified grace period when no one is connected or when they have never been connected. |
 
 The following steps show you how to create a dev box pool in a project. 
 
@@ -111,14 +109,14 @@ If you don't have an available dev center and project, follow the steps in [Quic
    |---|---|
    | **Name** | Enter a name for the pool. The pool name is visible to developers to select when they're creating dev boxes. The name must be unique within a project. |
    | **Definition** | Select an existing dev box definition or image definition. </br>A dev box definition determines the base image and size for the dev boxes that are created. </br>An image definition allows you to specify your required Compute and SKU.  |
-   | **Compute** | Image definitions only. Select the VM size for the dev boxes in this pool. |
+   | **Compute** | Image definitions only. Select the virtual machine size for the dev boxes in this pool. |
    | **Storage** | Image definition only. Select the storage size for the dev boxes in this pool. |
    | **Hibernation** | Shows whether hibernation is supported or not. |
    | **Region** |  |
    | **Network connection** | 1. Select **Deploy to a Microsoft hosted network**. </br>2. Select your desired deployment region for the dev boxes. Choose a region close to your expected dev box users for the optimal user experience. |
    | **Licensing** | Select this checkbox to confirm that your organization has Azure Hybrid Benefit licenses that you want to apply to the dev boxes in this pool. |
 
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-pool-create-basics-hibernation-image.png" alt-text="Screenshot of the Basics pane for creating a dev box pool." lightbox="./media/quickstart-configure-dev-box-service/dev-box-pool-create-basics-hibernation-image.png":::
+   :::image type="content" source="./media/how-to-configure-dev-center-imaging/dev-box-pool-create-basics-hibernation-image.png" alt-text="Screenshot of the Basics pane for creating a dev box pool." lightbox="./media/how-to-configure-dev-center-imaging/dev-box-pool-create-basics-hibernation-image.png":::
 
 1. on the **Management** tab, enter the following values:
 
@@ -131,12 +129,12 @@ If you don't have an available dev center and project, follow the steps in [Quic
    | **Headless connections** | Select to enable developers to open a dev box in Visual Studio Code without a full desktop experience. |
    | **Cost controls** | |
    | **Auto-stop on schedule** | Select the checkbox to enable an autostop schedule. You can also configure an autostop schedule after the pool is created. |
-   | **Stop time** | Select a time to shut down all the dev boxes in the pool. Dev boxes that support hibernation will hibernate at the specified time. Dev Boxes that don't support hibernation shut down.  |
+   | **Stop time** | Select a time to shut down all the dev boxes in the pool. Dev boxes that support hibernation hibernate at the specified time. Dev boxes that don't support hibernation shut down.  |
    | **Time zone** | Select the time zone for the stop time. |
    | **Hibernate on disconnect** | Hibernates dev boxes that no one is connected to after a specified grace period. |
    | **Grace period** | Hibernates dev boxes that have never been connected to after a specified grace period. |
 
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-pool-create-management-hibernation.png" alt-text="Screenshot of the Management pane for creating a dev box pool." lightbox="./media/quickstart-configure-dev-box-service/dev-box-pool-create-management-hibernation.png":::
+   :::image type="content" source="./media/how-to-configure-dev-center-imaging/dev-box-pool-create-management-hibernation.png" alt-text="Screenshot of the Management pane for creating a dev box pool." lightbox="./media/how-to-configure-dev-center-imaging/dev-box-pool-create-management-hibernation.png":::
 
 1. Select **Create**.
 
@@ -146,7 +144,7 @@ Dev Box supports hibernation when both these conditions are met:
 - The source image supports hibernation.
 - The compute resources of the dev box pool support hibernation.
 
-If either the image or the pool does not support hibernation, the feature won't be available for dev boxes in that pool. If hibernation isn't supported, verify that the image was created with hibernation support and that the pool is using that image.
+If either the image or the pool doesn't support hibernation, the feature isn't available for dev boxes in that pool. If hibernation isn't supported, verify that the image was created with hibernation support and that the pool is using that image.
 
 For more information about Dev Box support for hibernation, see [Configure hibernation in Microsoft Dev Box](how-to-configure-dev-box-hibernation.md).
 
