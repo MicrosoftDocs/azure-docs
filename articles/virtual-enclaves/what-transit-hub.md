@@ -11,7 +11,7 @@ ms.date: 04/08/2025
 
 A Transit hub establishes a virtual hub within a community vWAN that serves as a secure tunnel between the community and an external private network. A transit hub can be associated with a Private Network rule within a community endpoint to enable enclaves to connect to trusted private networks outside of the community boundary.
 
-## Architecture of a Transit Hub
+## Architecture of a transit hub
 
 ![Diagram showing example connection through a transit hub with a VPN connection to resources external to the community.](./media/transit-hub-vpn-connection.png)
 

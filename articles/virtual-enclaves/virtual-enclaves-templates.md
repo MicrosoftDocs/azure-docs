@@ -8,19 +8,19 @@ ms.date: 04/08/2025
 ---
 
 # Azure Virtual Enclaves deployment templates
-Example templates to deploy multiple Azure Virtual Enclave resources for a sample scenario. The current templates are maintained using a [Bicep](/azure/azure-resource-manager/bicep/overview) file but those are converted to [Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/overview) templates for deployment from the portal.
+Example templates to deploy multiple Azure Virtual Enclaves resources for a sample scenario. The current templates are maintained using a [Bicep](/azure/azure-resource-manager/bicep/overview) file but those are converted to [Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/overview) templates for deployment from the portal.
 
 ## Secure Azure Computing Architecture (SACA) template
 An example of how to deploy the SACA within AVE.
 
 What gets deployed:
-- One  [Community](./what-community.md)
-- Four  [Enclaves](./what-enclave.md)
+- One  [community](./what-community.md)
+- Four  [enclaves](./what-enclave.md)
 - Four  [workloads](./what-workload.md)
-- Five  [Community Endpoints](./what-community-endpoint.md)
-- One  [Enclave Endpoint](./what-enclave-endpoint.md)
+- Five  [community endpoints](./what-community-endpoint.md)
+- One  [enclave endpoint](./what-enclave-endpoint.md)
 - 18  [enclave connections](./what-enclave-connection.md)
-- One  [Transit Hub](./what-transit-hub.md)
+- One  [transit hub](./what-transit-hub.md)
 
 [ ![Diagram showing Secure Azure Computing Architecture within Azure Virtual Enclaves.](./media/reference-architecture-secure-azure-computing-architecture.png) ](./media/reference-architecture-secure-azure-computing-architecture.png#lightbox)
 
@@ -41,13 +41,13 @@ Deploy the template:
 ## Trusted Research Environment (TRE) within AVE
 
 What gets deployed:
-- One  [Community](./what-community.md)
-- Four  [Enclaves](./what-enclave.md)
+- One  [community](./what-community.md)
+- Four  [enclaves](./what-enclave.md)
 - Four  [workloads](./what-workload.md)
-- Five  [Community Endpoints](./what-community-endpoint.md)
-- Two  [Enclave Endpoint](./what-enclave-endpoint.md)
+- Five  [community endpoints](./what-community-endpoint.md)
+- Two  [enclave endpoint](./what-enclave-endpoint.md)
 - 15  [enclave connections](./what-enclave-connection.md)
-- One  [Transit Hub](./what-transit-hub.md)
+- One  [transit hub](./what-transit-hub.md)
 
 [ ![Diagram showing a Trusted Research Environment using Azure Virtual Enclaves resources.](./media/reference-architecture-trusted-research-environment.png) ](./media/reference-architecture-trusted-research-environment.png#lightbox)
 
@@ -68,13 +68,13 @@ Deploy the template:
 ## AVE demo environment template
 
 What gets deployed:
-- One  [Community](./what-community.md)
-- Eight  [Enclaves](./what-enclave.md)
+- One  [community](./what-community.md)
+- Eight  [enclaves](./what-enclave.md)
 - Eight  [workloads](./what-workload.md)
-- Five  [Community Endpoints](./what-community-endpoint.md)
-- 11 [Enclave Endpoint](./what-enclave-endpoint.md)
+- Five  [community endpoints](./what-community-endpoint.md)
+- 11 [enclave endpoint](./what-enclave-endpoint.md)
 - 39 [enclave connections](./what-enclave-connection.md)
-- One  [Transit Hub](./what-transit-hub.md)
+- One  [transit hub](./what-transit-hub.md)
 
 [ ![Diagram showing an example demo environment within Azure Virtual Enclaves.](./media/reference-architecture-demo-environment.png) ](./media/reference-architecture-demo-environment.png#lightbox)
 
@@ -96,13 +96,13 @@ Deploy the template:
 ## Community and enclaves template
 
 [What gets deployed](./deploy-community-enclaves-template.md#what-gets-deployed)
-- One  [Community](./what-community.md)
-- One  [Enclaves](./what-enclave.md)
+- One  [community](./what-community.md)
+- One  [enclaves](./what-enclave.md)
 - One  [workloads](./what-workload.md)
-- Two  [Community Endpoints](./what-community-endpoint.md)
-- One  [Enclave Endpoint](./what-enclave-endpoint.md)
+- Two  [community endpoints](./what-community-endpoint.md)
+- One  [enclave endpoint](./what-enclave-endpoint.md)
 - Four  [enclave connections](./what-enclave-connection.md)
-- One  [Transit Hub](./what-transit-hub.md)
+- One  [transit hub](./what-transit-hub.md)
 
 [ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/nightly-base.json) (easiest to deploy via Portal, PowerShell, or command line)
 
@@ -112,9 +112,9 @@ Deploy the template:
 
 ### Community template
 What gets deployed:
-- One  [Community](./what-community.md)
-- Two  [Community Endpoints](./what-community-endpoint.md)
-- One  [Transit Hub](./what-transit-hub.md)
+- One  [community](./what-community.md)
+- Two  [community endpoints](./what-community-endpoint.md)
+- One  [transit hub](./what-transit-hub.md)
 
 [ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/community.json) (easiest to deploy via Portal, PowerShell, or command line)
 
@@ -151,7 +151,7 @@ Deploy the template:
 
 ### Endpoints template
 What gets deployed:
-- One  [Enclave Endpoint](./what-enclave-endpoint.md)
+- One  [enclave endpoint](./what-enclave-endpoint.md)
 
 [ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/endpointsv2.json) (easiest to deploy via Portal, PowerShell, or command line)
 

@@ -19,9 +19,9 @@ A Transit hub establishes a virtual hub within a community vWAN that serves as a
 ## Sign-in to Azure
 Sign-in to the [Azure portal](https://portal.azure.com).
 
-## Create a Transit Hub
+## Create a transit hub
 
-1. Navigate to an existing `Community` within your Azure subscription, select the `Transit Hubs` tab, and select `Create`
+1. Navigate to an existing `Community` within your Azure subscription, select the `transit hubs` tab, and select `Create`
 
 ![Screenshot showing the transit hub creation page with the create button highlighted in red.](./media/fabrikam-transit-hub-create.png)
 

@@ -18,7 +18,7 @@ Several types of [encryption](/azure/virtual-machines/windows/disk-encryption-ov
 - Portal Access from Admin Workstation (192.168.x.x/26 usually).
   - [Create community endpoint](./create-community-endpoint-portal.md) to Azure portal and Microsoft Azure services.
     - A default endpoint can be created within the community that defines access to common Microsoft sites and endpoints. If so you can skip this step.
-  - [Create enclave Connection](./create-enclave-connection-portal.md) to community endpoint.
+  - [Create enclave connection](./create-enclave-connection-portal.md) to community endpoint.
 - You have the `Key Vault Contributor` role on the key vault or workload resource group that contains the key vault.
 
 ## Steps in this guide
@@ -54,7 +54,7 @@ Alternatively, CMK can be created via the Portal
 
 ### Enable Enclave access to the Azure portal
 Key vault access is restricted to the KV virtual network so the key vault Key needs to be created from the Azure portal from within the Admin Workstation.
-* [Create enclave Connection](./create-enclave-connection-portal.md) to community endpoint for access to the Azure portal.
+* [Create enclave connection](./create-enclave-connection-portal.md) to community endpoint for access to the Azure portal.
  
 ### Sign in to Admin Workstation
 Follow [these Admin Workstation](./understand-admin-vm.md) instructions to sign in.

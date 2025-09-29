@@ -1,27 +1,27 @@
 ---
-title: Create an enclave Connection from the Azure portal
-description: Create an enclave Connection from the Azure portal.
+title: Create an enclave connection from the Azure portal
+description: Create an enclave connection from the Azure portal.
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
 ms.date: 04/08/2025
 ---
 
-# Create an enclave Connection from the Azure portal
+# Create an enclave connection from the Azure portal
 
-Enclave connections enable network traffic to flow into, out of, and between AVE communities and Enclaves. Follow these steps to create an enclave Connection within the Azure portal.
+Enclave connections enable network traffic to flow into, out of, and between AVE communities and Enclaves. Follow these steps to create an enclave connection within the Azure portal.
 
 ## Prerequisites
 
 To access Azure Virtual Enclaves, you need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-All access to Azure Virtual Enclaves takes place through a community or an Enclave. For this how-to article, create a [community](./create-community-portal.md) and [enclave](./create-enclave-portal.md) using the Azure portal. Creating a connection also requires an existing [Enclave Endpoint](./what-enclave-endpoint.md) or [Community Endpoint](./what-community-endpoint.md)
+All access to Azure Virtual Enclaves takes place through a community or an Enclave. For this how-to article, create a [community](./create-community-portal.md) and [enclave](./create-enclave-portal.md) using the Azure portal. Creating a connection also requires an existing [enclave endpoint](./what-enclave-endpoint.md) or [Community Endpoint](./what-community-endpoint.md)
 
 ## Sign-in to Azure
 
 Sign-in to the [Azure portal](https://portal.azure.com).
 
-## Create enclave Connection to community endpoint
+## Create enclave connection to community endpoint
 
 1. Enter `Azure Virtual Enclaves` in the search.
 
@@ -36,7 +36,7 @@ Sign-in to the [Azure portal](https://portal.azure.com).
 ![Screenshot showing the highlighted create button for enclave connections.](./media/tutorial-step-five-fabrikam-connection-create.png)
 
 6. Enter the following information:
-  - **Enclave connection name**: Create an enclave Connection name.
+  - **Enclave connection name**: Create an enclave connection name.
   - **Community**: Select the existing community from the list. 
 
 ## Enclave Source Connection
@@ -52,13 +52,13 @@ For connections where the `Enclave` is the connection source:
 
 ![Screenshot showing enclave creation page with Enclave source selected.](./media/create-enclave-connection-tab-1-basics-enclave-source.png)
 
-## Transit Hub Source Connection
+## Transit hub Source Connection
 If the connection source is `Enclave`, skip this step.
 For connections where the `Transit Hub` is the connection source:
 
 8. Enter the required information for the connection
   - **Source Type**: Select `Transit Hub`.
-  - **Source Transit Hub**: Select the transit hub from the list.
+  - **Source transit hub**: Select the transit hub from the list.
   - **Source IP addresses/CIDR range(s)**: Enter the source IP addresses or CIDR ranges for this connection.
   - **Destination endpoint**: Select the endpoint from the list.
 

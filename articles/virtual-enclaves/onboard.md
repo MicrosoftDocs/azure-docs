@@ -129,8 +129,8 @@ Now the Azure Virtual Enclaves resource provider can begin deploying Azure Virtu
   - Use the following guides to establish network connectivity within your Community
 
     - [Create an Enclave Endpoint](./create-enclave-endpoint-portal.md)
-    - [Create an Enclave Connection](./create-enclave-connection-portal.md)
-    - [Create a Transit Hub](./create-transit-hub-portal.md)
+    - [Create an enclave connection](./create-enclave-connection-portal.md)
+    - [Create a transit hub](./create-transit-hub-portal.md)
     - [Create a Community Endpoint](./create-community-endpoint-portal.md)
 
   - Create resources within your workloads to meet your objectives.

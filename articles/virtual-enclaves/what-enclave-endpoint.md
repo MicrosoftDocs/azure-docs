@@ -25,7 +25,7 @@ Enclave Endpoint rules have the following three components:
 
 Enclave Endpoints support two types of connections:
 - Inbound from another Enclave in the community
-- Inbound from a Transit Hub
+- Inbound from a transit hub
 
 ## Template
 See [template documentation](./virtual-enclaves-templates.md#endpoints-template)

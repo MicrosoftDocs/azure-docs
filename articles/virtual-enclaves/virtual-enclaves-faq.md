@@ -50,7 +50,7 @@ When you are deploying an Azure service into a workload resource group and you s
  
 Once the update action finishes, you can redeploy the service that was denied previously. 
 
-### How do I prevent the creation of new Azure Virtual Enclave resource types?
+### How do I prevent the creation of new Azure Virtual Enclaves resource types?
 
 If you're a cloud engineer and want to restrict the creation of new Communities in your subscription you can use Azure policy to prevent deployment of specific resource types.
 
