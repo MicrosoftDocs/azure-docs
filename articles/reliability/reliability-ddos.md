@@ -20,7 +20,7 @@ This article describes reliability support in [Azure DDoS Network Protection](..
 
 [!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
-Azure DDoS Protection is [zone-redundant](./availability-zones-overview.md#zonal-and-zone-redundant-services) by default and is managed by the service itself. You don't need to configure or setup zone redundancy yourself.
+Azure DDoS Protection is [zone-redundant](./availability-zones-overview.md#zonal-and-zone-redundant-services) by default and is managed by the service itself. You don't need to configure or set up zone redundancy yourself.
 
 ### Cross-region disaster recovery and business continuity
 
