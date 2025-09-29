@@ -28,7 +28,7 @@
       href: create-community-endpoint-portal.md
     - name: Create an enclave endpoint
       href: create-enclave-endpoint-portal.md
-    - name: Create an enclave 
+    - name: Create an enclave connection
       href: create-enclave-connection-portal.md
     - name: Create a transit hub
       href: create-transit-hub-portal.md
