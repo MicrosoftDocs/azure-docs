@@ -23,6 +23,7 @@ In Azure API Management, *subscriptions* are the most common way for API consume
 ## What are subscriptions?
 
 By publishing APIs through API Management, you can easily secure API access using subscription keys. Developers who need to consume the published APIs must include a valid subscription key in HTTP requests when calling those APIs. Without a valid subscription key, the calls are:
+
 - Rejected immediately by the API Management gateway. 
 - Not forwarded to the back-end services.
 
@@ -43,7 +44,7 @@ In addition,
 
 Regularly regenerating keys is a common security precaution. Like most Azure services requiring a subscription key, API Management generates keys in pairs. Each application using the service can switch from *key A* to *key B* and regenerate key A with minimal disruption, and vice versa.
 
-Setting specific keys instead of regenerating ones can be performed by invoking the [Azure API Management Subscription - Create Or Update Azure REST API](/rest/api/apimanagement/current-ga/subscription/create-or-update). Specifically, the `properties.primaryKey` and/or `properties.secondaryKey` need to be set in the HTTP request body.
+Instead of regenerating keys, you can set specific keys by invoking the [Azure API Management Subscription - Create Or Update Azure REST API](/rest/api/apimanagement/current-ga/subscription/create-or-update). Specifically, you need to set `properties.primaryKey` and/or `properties.secondaryKey` in the HTTP request body.
 
 > [!NOTE]
 > - API Management doesn't provide built-in features to manage the lifecycle of subscription keys, such as setting expiration dates or automatically rotating keys. You can develop workflows to automate these processes using tools such as Azure PowerShell or the Azure SDKs. 
@@ -59,7 +60,7 @@ Traditionally, subscriptions in API Management were associated with a single [pr
 
 - Find the list of products on the developer portal. 
 - Submit subscription requests for the products they wanted to use. 
-- Use the keys in those subscriptions (approved either automatically or by API publishers) to access all APIs in the product. 
+- Access the APIs in the product by using the keys in those subscriptions that were approved either automatically or by API publishers.
 
 Currently, the developer portal only shows the product scope subscriptions under the **User Profile** section. 
 
@@ -100,7 +101,7 @@ When created in the portal, a subscription is in the **Active** state, meaning a
 
 ## Use a subscription key
 
-A subscriber can use an API Management subscription key in one of two ways:
+There are two ways a subscriber can use an API Management subscription key:
 
 - Add the **Ocp-Apim-Subscription-Key** HTTP header to the request, passing the value of a valid subscription key.
 - Include the **subscription-key** query parameter and a valid value in the URL. The query parameter is checked only if the header isn't present.
@@ -113,7 +114,7 @@ A subscriber can use an API Management subscription key in one of two ways:
 
 ## Enable or disable subscription requirement for API or product access
 
-By default when you create an API, a subscription key is required for API access. Similarly, when you create a product, by default a subscription key is required to access any API that's added to the product. Under certain scenarios, an API publisher might want to publish a product or a particular API to the public without the requirement of subscriptions. While a publisher could choose to enable unsecured (anonymous) access to certain APIs, configuring another mechanism to secure client access is recommended.
+By default when you create an API, a subscription key is required for API access. Similarly, when you create a product, by default a subscription key is required to access any API that you add to the product. Under certain scenarios, an API publisher might want to publish a product or a particular API to the public without the requirement of subscriptions. While a publisher could choose to enable unsecured (anonymous) access to certain APIs, configuring another mechanism to secure client access is recommended.
 
 > [!CAUTION]
 > Use care when configuring a product or an API that doesn't require a subscription. This configuration might be overly permissive and can make an API more vulnerable to certain [API security threats](mitigate-owasp-api-threats.md#security-misconfiguration).
@@ -136,16 +137,16 @@ After the subscription requirement is disabled, the selected API or APIs can be 
 
 When API Management receives an API request from a client with a subscription key, it handles the request according to these rules: 
 
-1. Check first if it's a valid key associated with an active subscription, either:
+1. It checks first if it's a valid key associated with an *active subscription*, defined as:
 
-    - A subscription scoped to the API
-    - A subscription scoped to a product that's assigned to the API
-    - A subscription scoped to all APIs
-    - The service-scoped subscription (built in all access subscription)
+    - A subscription scoped to the API.
+    - A subscription scoped to a product assigned to the API.
+    - A subscription scoped to all APIs.
+    - The service-scoped subscription (built in all access subscription).
 
     If a valid key for an active subscription at an appropriate scope is provided, access is allowed. Policies are applied depending on the configuration of the policy definition at that scope.
 
-1. If the key isn't valid but a product exists that includes the API but doesn't require a subscription (an *open* product), ignore the key and handle as an API request without a subscription key (see the following section). 
+1. If the key isn't valid but a product exists that includes the API without requiring a subscription (an *open* product). API Management ignores the key and handles the request as an API request without a subscription key (see the following section).
 
 1. Otherwise, access is denied (401 Access denied error).
 
