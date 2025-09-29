@@ -65,7 +65,7 @@ curl --request GET \
   --form scope=https://{clustername}.clusteraccess.azurehdinsight.net/.default \
 ```
 
-### **Response**
+### Response
 
 A successful request returns a JSON object containing:
 
