@@ -437,7 +437,7 @@ When deploying a containerized function app, the deployment task you use depends
 
 ### [Azure Container Apps hosting](#tab/container-apps)
 
-You can use the [Azure Container Apps Deploy](/devops/pipelines/tasks/reference/azure-container-apps-v1) task (`AzureContainerApps`) to deploy a function app image to an Azure Container App instance that is optimized for Azure Functions. 
+You can use the [Azure Container Apps Deploy](/azure/devops/pipelines/tasks/reference/azure-container-apps-v1) task (`AzureContainerApps`) to deploy a function app image to an Azure Container App instance that is optimized for Azure Functions. 
 
 This code deploys the base image for a .NET 8 isolated process model function app:
 
