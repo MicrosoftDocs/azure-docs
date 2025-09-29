@@ -1,13 +1,13 @@
 ---
 title: Transition from Consumption APIs to Cost Management APIs
 description: Learn about transitioning from Consumption APIs to Cost Management APIs for enhanced capabilities and up-to-date functionality in managing Azure costs.
-author: jojohpm
-ms.author: jojoh
+author: vikramdesai01
+ms.author: vikdesai
 ms.date: 06/26/2025
 ms.topic: concept-article
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: jojoh
+ms.reviewer: vikdesai
 #customer intent: As a billing administrator, I want learn about Consumption APIs getting replaced by Cost Management APIs so that I can plan replace them.
 ---
 

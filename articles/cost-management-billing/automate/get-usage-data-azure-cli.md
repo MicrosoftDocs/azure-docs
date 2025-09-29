@@ -2,14 +2,14 @@
 title: Get usage data with the Azure CLI
 titleSuffix: Microsoft Cost Management
 description: This article explains how you get usage data with the Azure CLI.
-author: jojohpm
-ms.author: jojoh
+author: vikramdesai01
+ms.author: vikdesai
 ms.date: 06/26/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.custom: devx-track-azurecli
-ms.reviewer: jojoh
+ms.reviewer: vikdesai
 ---
 
 # Get usage data with the Azure CLI

@@ -120,9 +120,9 @@ If the number of directly connected Virtual Network address spaces connected is 
 
 As a result, proactively deploy a new Virtual WAN hub and connect new Virtual Networks to the new Virtual WAN hub if the total number of address spaces across all locally connected Virtual Networks **exceeds 90% (540) of the documented limit (600)** or if you have any planned network expansion or deployment operations that will increase the number of Virtual Network address spaces past the limit.
  
-The following table provides example Virtual Network address space calculations.
+The following table provides example Virtual Network address space calculations. Note that only Virtual Networks **directly connected** to the hub count towards the 600 limit. Virtual Networks connected to remote hubs don't contribute to the local hub's count.  
 
-|Virtual Hub| Virtual Network Count| Address spaces per Virtual Network | Total number of Virtual Network address spaces connected to Virtual Hub| Suggested Action|
+|Virtual Hub| Virtual Network Count| Address spaces per Virtual Network | Total number of Virtual Network address spaces connected to **this** Virtual Hub| Suggested Action|
 |--|--|--|--|--|
 | Hub #1| 200| 1 | 200| No action required, monitor address space count.| 
 | Hub #2| 150 | 3 | 450| No action required, monitor address space count.|
