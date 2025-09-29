@@ -24,9 +24,9 @@ sections:
       - question: |
           How do I find out about updates and changes to API Management?
         answer: |
-          Subscribe to update announcements published in these locations:
+          Subscribe to update announcements published at these locations:
           
-          * [Azure API Management release notes](https://github.com/Azure/API-Management/releases).
+          * [Azure API Management release notes](https://github.com/Azure/API-Management/releases)
           * [Azure updates](https://azure.microsoft.com/updates/?query=%22API%20Management%22)
           
       - question: |
@@ -36,7 +36,7 @@ sections:
           
           * Use subscription key authentication. On its own, a subscription key isn't a strong form of authentication, but it's often used together with another method. For more information, see [Authentication and authorization in API Management](authentication-authorization-overview.md). 
           * Use TLS mutual authentication as described in [How to secure back-end services by using client certificate authentication in Azure API Management](api-management-howto-mutual-certificates.md).
-          * Use IP filtering on your back-end service. In all tiers of API Management except the Consumption tier, the IP address of the gateway remains constant. For more information, see [IP addresses of Azure API Management](api-management-howto-ip-addresses.md).
+          * Use IP filtering on your back-end service. In all tiers of API Management except the Consumption tier, the IP address of the gateway remains constant. For more information, see [IP addresses in Azure API Management](api-management-howto-ip-addresses.md).
           * Connect your API Management instance to an [Azure virtual network](virtual-network-concepts.md).
           * Configure OAuth 2.0 authorization. For more information, see [Authentication and authorization in API Management](authentication-authorization-overview.md).        
 
@@ -129,7 +129,7 @@ sections:
       - question: |
           How does API Management handle trailing slashes when calling back-end services?
         answer: |
-          Historically and by convention, a URL ending with a trailing slash, for example `https://contoso.com/sample/`, is treated as a directory, whereas the same URL without the trailing slash (`https://contoso.com/sample`) indicates a file. This isn't mandated. Some systems consider those two URLs unique, but others consider them the same. API Management doesn't make a distinction, so a single operation `resource` will accept either `resource` or `resource/`. However, the distinction might matter to the back-end host. Some web servers automatically redirect a URL not ending with a trailing slash to the same URL ending in a trailing slash. Because API Management is the client to the back end (server), an automatic redirect isn't always desirable. If you need to, create a [Rewrite URL policy](rewrite-uri-policy.md) to ensure that a trailing slash is always added to the outbound back-end call.
+          Historically and by convention, a URL ending with a trailing slash, for example `https://contoso.com/sample/`, is treated as a directory, whereas the same URL without the trailing slash (`https://contoso.com/sample`) indicates a file. This convention isn't mandated. Some systems consider those two URLs unique, but others consider them the same. API Management doesn't make a distinction, so a single operation `resource` will accept either `resource` or `resource/`. However, the distinction might matter to the back-end host. Some web servers automatically redirect a URL not ending with a trailing slash to the same URL ending in a trailing slash. Because API Management is the client to the back end (server), an automatic redirect isn't always desirable. If you need to, create a [Rewrite URL policy](rewrite-uri-policy.md) to ensure that a trailing slash is always added to the outbound back-end call.
  
       - question: Can the name of an API Management API be changed?  
         answer: |
