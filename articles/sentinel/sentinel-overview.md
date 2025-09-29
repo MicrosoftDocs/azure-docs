@@ -97,8 +97,6 @@ Microsoft Sentinel MCP server's key capabilities include:
 - Natural language security tooling, including scenario-focused tools for querying and reasoning over Microsoft Sentinel data lake without schema knowledge or coding.
 - Accelerated agent creation whereby engineers can build customized security agents using natural language, reducing manual effort and speeding up automation.
 - Native integration with Microsoft Sentinel’s data lake enables rich context engineering without compromising on data coverage or cost.
-- Interactive data exploration using natural language to correlate and retrieve security data across tables, improving threat detection and investigation.
-
 
 For more information, see [What is Microsoft Sentinel’s support for Model Context Protocol (MCP)?](../sentinel/datalake/sentinel-mcp-overview.md).
 
