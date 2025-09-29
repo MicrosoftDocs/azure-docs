@@ -15,6 +15,14 @@ Azure private endpoint enables clients located in your private network to secure
 
 Private endpoints are supported for both Consumption and Dedicated plans in workload profile environments.
 
+## Billing and cost considerations
+
+> [!IMPORTANT]
+> **Private endpoints incur additional charges.** When you enable a private endpoint in Azure Container Apps, you will see **two separate charges**:
+> 
+> 1. **Azure Networking Charge** - Billed for the private endpoint resource itself.
+> 2. **Azure Container Apps Charge** - Billed by Azure Container Apps for the backend infrastructure required to support private endpoint connectivity. This appears as a separate **"Dedicated Plan Management"** charge and applies to both Consumption and Dedicated plan environments when using private endpoints.
+
 ### Tutorials
 - To learn more about how to configure private endpoints in Azure Container Apps, see the [Use a private endpoint with an Azure Container Apps environment](how-to-use-private-endpoint.md) tutorial.
 - Private link connectivity with Azure Front Door is supported for Azure Container Apps. Refer to [create a private link with Azure Front Door](./how-to-integrate-with-azure-front-door.md) for more information.

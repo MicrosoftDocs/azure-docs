@@ -21,6 +21,16 @@ In this article, you learn how to use a private endpoint to securely access your
 
 A private endpoint uses a private IP address from your virtual network (VNet). This endpoint connects you privately and securely to a service powered by [Azure Private Link](/azure/private-link/private-link-overview).
 
+## Billing considerations
+
+> [!IMPORTANT]
+> **Private endpoints incur additional charges.** Before implementing private endpoints, be aware that you will see **two separate charges** on your Azure bill:
+> 
+> 1. **Azure Networking Charge** - For the private endpoint resource itself (appears as "aznet" charge)
+> 2. **Azure Container Apps Charge** - For backend infrastructure support (appears as "Dedicated Plan Management" charge, even on Consumption plans)
+> 
+> These charges are in addition to your regular Container Apps usage costs. For more information, see [Private endpoints and DNS for virtual networks](private-endpoints-with-dns.md#billing-and-cost-considerations).
+
 ::: zone pivot="azure-portal"
 
 ## Prerequisites

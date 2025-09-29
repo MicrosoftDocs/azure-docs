@@ -26,6 +26,8 @@ Billing in Azure Container Apps is based on your [plan type](plans.md) (Consumpt
 
 This article describes how to calculate the cost of running your container app. For pricing details in your account's currency, see [Azure Container Apps Pricing](https://azure.microsoft.com/pricing/details/container-apps/).
 
+In addition, features such as private endpoints and planned maintenance are subject to additional charges which show up as a **Dedicated Plan Management Fee**.
+
 ## Consumption plan
 
 Billing for apps running in the Consumption plan consists of two types of charges:
