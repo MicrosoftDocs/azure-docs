@@ -27,7 +27,7 @@ Either:
 
 
 > [!NOTE]  
->When you use Curl or any other REST communication with WebHCat, you must authenticate the requests by providing the Access Token generated for the cluster. You must use the cluster name as part of the URI that is used to send the requests to the server.The REST API is secured by using OAuth 2.0. You should always make requests by using HTTPS to ensure that your credentials are securely sent to the server.
+>When you use Curl or any other REST communication with WebHCat, you must authenticate the requests by providing the Access Token generated for the cluster. You must use the cluster name as part of the URI that is used to send the requests to the server. The REST API is secured by using OAuth 2.0. You should always make requests by using HTTPS to ensure that your credentials are securely sent to the server.
 
 
 ### Setup (Secure Bearer Access Token)
