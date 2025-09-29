@@ -419,9 +419,9 @@ You can access the console logs generated from inside the app and the container 
 In the preceding steps, you created Azure resources in a resource group. The steps in this quickstart put all the resources in this resource group. To clean up, you just need to remove the resource group.
 
 
-1. In the Azure extension of Visual Studio, expand the **Resource Groups** explorer.
+1. In the Azure extension of Visual Studio Code, in the **Group By** list, select **Group by Resource Group**.
 
-1. Expand the subscription, right-click the resource group you created earlier, and select **Delete**.
+1. In the **Resouces** list, expand the subscription, right-click the resource group you created earlier, and then select **Delete Resource Group**.
 
     :::image type="content" source="media/quickstart-nodejs/clean-up.png" alt-text="Screenshot of the Visual Studio Code navigation to delete a resource that contains App Service resources.":::
 
