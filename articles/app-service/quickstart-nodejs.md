@@ -143,7 +143,7 @@ Before you continue, ensure that you have all the prerequisites installed and co
 
 # [Deploy to Windows](#tab/windows)
 
-2. Under **Resoucres**, in the subscription that you want to use, right-click **App Services** and then select **Create New Web App... (Advanced)**.
+2. Under **Resources**, in the subscription that you want to use, right-click **App Services** and then select **Create New Web App... (Advanced)**.
 1. Select the location that you want to serve your app from. For example, **West Europe**.
 1. Select **Secure unique default hostname**.
 1. Select **Create a new resource group**, and then enter a name for the resource group, such as *AppServiceQS-rg*.
@@ -421,7 +421,7 @@ In the preceding steps, you created Azure resources in a resource group. The ste
 
 1. In the Azure extension of Visual Studio Code, in the **Group By** list, select **Group by Resource Group**.
 
-1. In the **Resouces** list, expand the subscription, right-click the resource group you created earlier, and then select **Delete Resource Group**.
+1. In the **Resources** list, expand the subscription, right-click the resource group you created earlier, and then select **Delete Resource Group**.
 
     :::image type="content" source="media/quickstart-nodejs/clean-up.png" alt-text="Screenshot of the Visual Studio Code navigation to delete a resource that contains App Service resources.":::
 
