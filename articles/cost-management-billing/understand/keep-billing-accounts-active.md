@@ -6,7 +6,7 @@ ms.reviewer: mijeffer
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 09/26/2025
+ms.date: 09/29/2025
 ms.author: mijeffer
 ---
 
@@ -60,4 +60,4 @@ When your billing account is blocked, you can no longer perform certain actions,
 
 - [Understand your Microsoft business billing account](mca-overview.md)
 - [Manage your Microsoft business billing profiles](mca-overview.md#billing-profiles)
-- [Get support for Microsoft 365 for business](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
+- [Get support for Microsoft Azure](/azure/azure-portal/supportability/how-to-create-azure-support-request)
