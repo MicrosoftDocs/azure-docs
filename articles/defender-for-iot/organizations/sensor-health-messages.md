@@ -28,7 +28,7 @@ For more information, see [Understand sensor health](how-to-manage-sensors-on-th
 |**Sensor update failed** | There was an error installing the update.| Installation error |Open a support ticket. |
 | **Unstable traffic to Azure**|Sensor’s connection to Azure is unstable |Unstable traffic to Azure | We recommend that you check the sensor WAN connection, the BW limit settings, and validate network equipment that might be on the route between the sensor and the cloud.|
 | **Unsupported**|Outdated software may result in a non-optimal experience |Sensor version is outdated |Upgrade your sensor software to the latest version to use the most recently available Defender for IoT features.|
-|**Partially connected** |Sensor is partially connected |The sensor couldn't connect to some of the endpoints. |Verify the sensor’s ability to communicate with Azure. If the problem persists, open a support ticket.|
+|**Sensor is partially connected** |Sensor is partially connected |The sensor couldn't connect to some of the endpoints. |Verify the sensor’s ability to communicate with Azure. If the problem persists, open a support ticket.|
 
 ## Healthy messages
 
