@@ -32,7 +32,7 @@ In a self-managed hub-and-spoke setup:
 
 For workloads spread across multiple regions, you typically deploy one hub per region to aggregate traffic from the spokes in that region. The following diagram shows a two-region self-managed hub-and-spoke architecture with two spoke virtual networks in each region:
 
-:::image type="content" source="media/firewall-multi-hub-spoke/multi-hub-spoke-overall.png" alt-text="Conceptual diagram showing 2-region self-managed hub-and-spoke architecture." lightbox="media/firewall-multi-hub-spoke/multi-hub-spoke-overall.png":::
+:::image type="content" source="media/firewall-multi-hub-spoke/multi-hub-spoke-overall.png" alt-text="Diagram of a multi-region hub-and-spoke network topology with two regions, each containing a hub virtual network with Azure Firewall and two spoke virtual networks." lightbox="media/firewall-multi-hub-spoke/multi-hub-spoke-overall.png":::
 
 ## Single-region hub-and-spoke architecture
 
@@ -46,8 +46,8 @@ Consider the routing requirements for each potential traffic flow in the single-
 - **Spoke-to-internet traffic**: The `0.0.0.0/0` route in the spoke route table also covers traffic sent to the public internet. This route overwrites the system route included in public subnets by default. For more information, see [Default outbound access in Azure][default-outbound].
 - **Internet-to-spoke traffic**: Traffic from the internet to the spoke usually goes through Azure Firewall first. Azure Firewall has Destination Network Address Translation (DNAT) rules configured, which also translates the source IP address (Source Network Address Translation or SNAT). The spoke workloads see traffic as coming from the Azure Firewall subnet. Virtual network peering creates system routes to the hub (`10.1.0.0/24`), so the spokes know how to route return traffic.
 - **On-premises-to-spoke and spoke-to-on-premises traffic**: Consider each direction separately:
-  - **On-premises-to-spoke traffic**: Traffic arrives from the on-premises network to the VPN or ExpressRoute gateways. With default routing in Azure, a system route is created in the GatewaySubnet (and other subnets in the hub virtual network) for each spoke. You must override these system routes and set the next hop to the Azure Firewall's private IP address. In this example, you need two routes in a route table associated with the gateway subnet, one for each spoke (`10.1.1.0/24` and `10.1.2.0/24`). Using a summary such as `10.1.0.0/16` that encompasses all spoke virtual networks doesn't work because the system routes injected by the virtual network peerings in the gateway subnet are more specific (`/24` compared to the `/16` summary). This route table must have the **Propagate gateway routes** toggle enabled (set to "Yes"), otherwise gateway routing can become unpredictable.
-  - **Spoke-to-on-premises traffic**: The virtual network peerings between the hub and spokes must have "Allow Gateway Transit" enabled on the hub side and "Use Remote Gateways" enabled on the spoke side. These settings are required so that the VPN and ExpressRoute gateways advertise the spoke prefixes over Border Gateway Protocol (BGP) to on-premises networks. These settings also cause the spokes to learn the prefixes advertised from on-premises to Azure by default. Since on-premises prefixes are usually more specific than the user-defined route `0.0.0.0/0` in the spoke route table, traffic from spokes to on-premises would bypass the firewall by default. To prevent this situation, set the "Propagate Gateway Routes" toggle to "No" in the spoke route table so that on-premises prefixes aren't learned and the `0.0.0.0/0` route is used for traffic to on-premises.
+  - **On-premises-to-spoke traffic**: Traffic arrives from the on-premises network to the VPN or ExpressRoute gateways. With default routing in Azure, a system route is created in the GatewaySubnet (and other subnets in the hub virtual network) for each spoke. You must override these system routes and set the next hop to the Azure Firewall's private IP address. In this example, you need two routes in a route table associated with the gateway subnet, one for each spoke (`10.1.1.0/24` and `10.1.2.0/24`). Using a summary such as `10.1.0.0/16` that encompasses all spoke virtual networks doesn't work because the system routes injected by the virtual network peerings in the gateway subnet are more specific (`/24` compared to the `/16` summary). This route table must have the **Propagate gateway routes** toggle enabled (set to *Yes*), otherwise gateway routing can become unpredictable.
+  - **Spoke-to-on-premises traffic**: The virtual network peerings between the hub and spokes must have **Allow Gateway Transit** enabled on the hub side and **Use Remote Gateways** enabled on the spoke side. These settings are required so that the VPN and ExpressRoute gateways advertise the spoke prefixes over Border Gateway Protocol (BGP) to on-premises networks. These settings also cause the spokes to learn the prefixes advertised from on-premises to Azure by default. Since on-premises prefixes are more specific than the user-defined route `0.0.0.0/0` in the spoke route table, traffic from spokes to on-premises would bypass the firewall by default. To prevent this situation, set the **Propagate Gateway Routes** toggle to *No* in the spoke route table so that on-premises prefixes aren't learned and the `0.0.0.0/0` route is used for traffic to on-premises.
 
 > [!NOTE]
 > Use the exact spoke virtual network IP prefixes in the route table associated with the gateway subnet instead of a network summary. The system routes introduced by the virtual network peerings with the spokes override your user-defined route because they're more specific.
@@ -56,7 +56,7 @@ You can manage both the route table associated with the spoke subnets and the ro
 
 ## Hub virtual network workloads
 
-Deploying workloads in the hub virtual network (such as Active Directory domain controllers, DNS servers, or other shared infrastructure) increases the complexity of the hub-and-spoke design. We recommend avoiding placing workloads in the hub and instead deploying them in a dedicated spoke for shared services.
+If you deploy workloads in the hub virtual network (such as Active Directory domain controllers, DNS servers, or other shared infrastructure), this increases the complexity of the hub-and-spoke design. We recommend that you avoid placing workloads in the hub and instead deploy them in a dedicated spoke for shared services.
 
 This section describes the configuration required for hub workloads so you can evaluate whether this complexity is acceptable for your requirements. We also describe a common mistake that can cause asymmetric traffic and packet drops.
 
@@ -80,12 +80,12 @@ To inspect traffic between subnets in the same spoke virtual network, modify the
 
 :::image type="content" source="media/firewall-multi-hub-spoke/multi-hub-spoke-inter-subnet.png" alt-text="Low-level routing design for a single-region self-managed hub-and-spoke architecture with inter-subnet traffic going through the firewall." lightbox="media/firewall-multi-hub-spoke/multi-hub-spoke-inter-subnet.png":::
 
-In the previous diagram, two spoke subnets are introduced in each spoke virtual network, and the route tables for the spokes in virtual network A2 are described. Sending inter-subnet traffic to the firewall requires that every subnet have a separate route table because the routes to install in each subnet are different.
+In the previous diagram, two spoke subnets are introduced in each spoke virtual network, and the route tables for the spokes in virtual network A2 are described. Sending inter-subnet traffic to the firewall requires that every subnet has a separate route table because the routes to install in each subnet are different.
 
-For subnet A21, you need these two additional routes:
+For subnet A21, you need these two extra routes:
 
 - **Route to `10.1.2.0/24`**: Overrides the system route for intra-virtual network traffic. Without other routes, all intra-virtual network traffic is sent to Azure Firewall, even traffic between virtual machines in the same subnet.
-- **Route to `10.1.2.0/26` with next hop "Virtual Network"**: An exception to the previous route, so traffic within this specific subnet isn't sent to the firewall but is routed locally within the virtual network. This route is specific to each subnet, which is why you need a separate route table for each subnet.
+- **Route to `10.1.2.0/26` with next hop _Virtual Network_**: An exception to the previous route, so traffic within this specific subnet isn't sent to the firewall but is routed locally within the virtual network. This route is specific to each subnet, which is why you need a separate route table for each subnet.
 
 ## SD-WAN network virtual appliances
 
@@ -97,7 +97,7 @@ There are different ways to integrate SD-WAN NVAs in Azure. For more information
 
 If you don't want to configure each spoke virtual network's prefix in the route table associated with the NVA subnet, you can place the SD-WAN NVAs in their dedicated virtual network. The NVA virtual network doesn't learn the spoke prefixes because they aren't directly peered, and a summary route is possible as shown in the following diagram: 
 
-:::image type="content" source="media/firewall-multi-hub-spoke/multi-hub-spoke-sd-wan-2.png" alt-text="Low-level routing design for a two-region self-managed hub-and-spoke architecture with SD-WAN NVAs in a separate VNet." lightbox="media/firewall-multi-hub-spoke/multi-hub-spoke-sd-wan-2.png":::
+:::image type="content" source="media/firewall-multi-hub-spoke/multi-hub-spoke-sd-wan-2.png" alt-text="Low-level routing design for a two-region self-managed hub-and-spoke architecture with SD-WAN NVAs in a separate virtual network." lightbox="media/firewall-multi-hub-spoke/multi-hub-spoke-sd-wan-2.png":::
 
 ## Multi-region hub-and-spoke architecture
 
@@ -113,7 +113,7 @@ In this example, each region can be easily summarized:
 
 Defining IP addresses in each region that are easily summarized makes your routing configuration simpler. Otherwise, you need to create one route for each remote spoke.
 
-The route table associated with the Azure Firewall subnet needs the "Propagate gateway routes" checkbox set to "Yes" so that Azure Firewall learns the routes from the VPN and ExpressRoute gateways and can route traffic to on-premises networks.
+Enable **Propagate gateway routes** on the Azure Firewall subnet route table so the firewall can learn on-premises routes from VPN and ExpressRoute gateways.
 
 > [!NOTE]
 > If Azure Firewall is deployed without a management NIC, the Azure Firewall subnet requires a default route with next hop "Internet" to add more specific routes as previously described.
