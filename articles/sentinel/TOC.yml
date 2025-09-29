@@ -25,7 +25,7 @@
     - name: Plan roles and permissions
       href: roles.md
       displayName: data lake
-    - name: Plan interactive and long-term data retention
+    - name: Plan data retention
       href: log-plans.md
     - name: Plan costs
       href: billing.md
