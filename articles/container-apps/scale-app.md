@@ -63,6 +63,9 @@ Three categories of triggers determine how scaling occurs:
 
 If you define more than one scale rule, the container app begins to scale once the first condition of any rules is met.
 
+> [!NOTE]
+> If you're using [Functions on Container Apps](../container-apps/functions-overview.md) , scale rules are automatically configured based on the function triggers and bindings. As a result, the “Add scale rules” button in the Azure portal will be disabled for these apps. Manual scale rule configuration is not required or supported in this scenario.
+
 ## HTTP
 
 With an HTTP scaling rule, you have control over the threshold of concurrent HTTP requests that determines how your container app revision scales. Every 15 seconds, the number of concurrent requests is calculated as the number of requests in the past 15 seconds divided by 15. [Container Apps jobs](jobs.md) don't support HTTP scaling rules.

@@ -12,6 +12,7 @@ ms.topic: troubleshooting
 ms.date: 05/20/2025
 ms.author: kengaderdus
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: "As an Azure Active Directory B2C user experiencing technical issues, I want to open a support ticket, so that I can receive assistance from Microsoft support engineers to resolve my problem and contribute to service improvements."

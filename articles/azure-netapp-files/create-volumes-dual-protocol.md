@@ -5,8 +5,9 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 12/11/2024
+ms.date: 08/11/2025
 ms.author: anfdocs
+ms.custom: sfi-image-nochange
 # Customer intent: As an IT administrator, I want to create a dual-protocol volume in Azure NetApp Files, so that I can enable both NFS and SMB access with LDAP user mapping for a flexible file storage solution.
 ---
 # Create a dual-protocol volume for Azure NetApp Files
@@ -18,9 +19,6 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
 ## Before you begin 
 
 [!INCLUDE [Delegated subnet permission](includes/create-volume-permission.md)]
-
->[!IMPORTANT]
->Windows Server 2025 currently doesn't work with the Azure NetApp Files SMB protocol. 
 
 * You must have already created a capacity pool.  
     See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   

@@ -92,7 +92,7 @@ Azure virtual networks are designed to be resilient to zone failures. When a zon
 
 However, any resources within the virtual network need to be considered individually, because each resource might have a different set of behaviors during the loss of an availability zone. Review the [reliability guide for each resource](./overview-reliability-guidance.md) that you use to understand their availability zone support and behavior when a zone is unavailable.
 
-### Failback
+### Zone recovery
 
 When the zone recovers, Microsoft initiates a failback process to ensure that virtual networks continue to work in the recovered zone. The failback process is automatic and doesn't require any action from you.
 

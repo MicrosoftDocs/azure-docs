@@ -6,7 +6,7 @@ author: normesta
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
-ms.date: 06/18/2025
+ms.date: 08/25/2025
 ms.author: normesta
 ---
 
@@ -20,15 +20,13 @@ You can deny all public access to your storage account and then configure Azure 
 
 1. Go to the storage account for which you want to manage IP network rules.
 
-2. In the service menu, under **Security + networking**, select **Networking**.
+2. In the service menu, under **Security + networking**, select **Networking**, and then under **Resource settings: Virtual networks, IP addresses, and exceptions**, select **View**.
 
-3. To allow traffic from IP address ranges, make sure that **Enabled from selected virtual networks and IP addresses** is selected.
+3. To grant access to an internet IP range, in the box which contains the placeholder text *IPv4 address or CIDR*, enter the IP address or address range (in CIDR format). 
 
-4. To grant access to an internet IP range, enter the IP address or address range (in CIDR format) under **Firewall** > **Address Range**.
+4. To remove an IP network rule, select the delete icon (:::image type="icon" source="media/storage-network-security/delete-icon.png":::) next to the address range.
 
-5. To remove an IP network rule, select the delete icon (:::image type="icon" source="media/storage-network-security/delete-icon.png":::) next to the address range.
-
-6. Select **Save** to apply your changes.
+5. Select **Save** to apply your changes.
 
 ### [PowerShell](#tab/azure-powershell)
 

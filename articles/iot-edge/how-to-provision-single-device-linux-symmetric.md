@@ -2,14 +2,15 @@
 title: Create IoT Edge device on Linux using symmetric keys
 titleSuffix: Azure IoT Edge
 description: Create and provision a single IoT Edge device in IoT Hub for manual provisioning with symmetric keys
-author: PatAltimore
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-edge
-ms.custom: linux-related-content
 services: iot-edge
 ms.topic: how-to
 ms.date: 04/29/2025
-ms.author: patricka
-ms.reviewer: mattmcinnes
+ms.custom:
+  - linux-related-content
+  - sfi-ropc-nochange
 ---
 
 # Create and provision an IoT Edge device on Linux using symmetric keys

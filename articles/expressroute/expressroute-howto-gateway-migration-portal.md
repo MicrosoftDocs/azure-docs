@@ -5,10 +5,13 @@ description: This article explains how to seamlessly migrate from Standard/HighP
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.custom: ignite-2023, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 04/22/2025
 ms.author: duau
+ms.custom:
+  - ignite-2023
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 ---
 
 # Migrate to an availability zone-enabled ExpressRoute virtual network gateway in Azure portal
@@ -35,7 +38,7 @@ Follow these steps to migrate to a new gateway using the Azure portal:
 
     :::image type="content" source="media/gateway-migration/validate-step.png" alt-text="Screenshot of the validate step for migrating a virtual network gateway." lightbox="media/gateway-migration/validate-step.png":::
 
-1. After successful validation, move to the **Prepare** stage. At this point, a new virtual network gateway will be created, and its Public IP address will be provisioned and managed by Microsoft. In the **Virtual Network Gateway Details** section, enter the following information:
+1. After successful validation, move to the **Prepare** stage. At this point, a new virtual network gateway will be created, and its Public IP address will be provisioned and [managed by Microsoft](expressroute-about-virtual-network-gateways.md#auto-assigned-public-ip). In the **Virtual Network Gateway Details** section, enter the following information:
 1. 
     :::image type="content" source="media/gateway-migration/gateway-prepare-update.png" alt-text="Screenshot of the Prepare stage for migrating a virtual network gateway." lightbox="media/gateway-migration/gateway-prepare-update.png":::
 

@@ -2,13 +2,14 @@
 title: Back Up PostgreSQL Databases by Using the Data Protection REST API
 description: Learn how to configure, initiate, and manage backup operations of PostgreSQL databases in Azure Database for PostgreSQL by using the Data Protection REST API.
 ms.topic: how-to
-ms.date: 05/20/2025
+ms.date: 08/18/2025
 ms.service: azure-backup
 ms.assetid: 55fa0a81-018f-4843-bef8-609a44c97dcd
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.custom:
   - build-2025
+  - sfi-ropc-nochange
 # Customer intent: "As a database administrator, I want to configure and manage backups for PostgreSQL databases using a REST API, so that I can ensure data protection and recovery in my cloud environment."
 ---
 
@@ -509,3 +510,4 @@ GET "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
 - [Azure Backup Data Protection REST API](/rest/api/dataprotection/).
 - [Azure REST API reference](/rest/api/azure/).
 - [Track backup and restore jobs by using the REST API in Azure Backup](backup-azure-arm-userestapi-managejobs.md).
+- [Manage an Azure Database for PostgreSQL server by using the Azure portal](manage-azure-database-postgresql.md).

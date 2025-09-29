@@ -38,11 +38,12 @@ The following limitations apply to Azure Container Apps on Azure Arc enabled Kub
 
 | Limitation | Details |
 |---|---|
-| Supported Azure regions | Central US, East Asia, East US, North Central US, Southeast Asia, Sweden Central, UK South, West Europe, West US |
+| Supported Azure regions | Australia East，Central US, East Asia, East US, North Central US, Southeast Asia, Sweden Central, UK South, West Europe, West US|
 | Cluster networking requirement | Must support [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer) service type |
 | Node OS requirement | **Linux** only. | 
 | Feature: Managed identities | [Not available](#are-managed-identities-supported) |
 | Feature: Pull images from ACR with managed identity | Not available (depends on managed identities) |
+| Feature: Azure File Storage | [SMB driver (>= v1.18.0)](https://github.com/kubernetes-csi/csi-driver-smb) should be installed before using Azure file SMB storage |
 | Logs | Log Analytics must be configured with cluster extension; not per-application |
 
 The following features are supported:
@@ -58,7 +59,9 @@ The following features are supported:
 - App container console
 
 > [!IMPORTANT]
-> If deploying onto **AKS on Azure Local** ensure that you have [setup HAProxy as your load balancer](/azure/aks/hybrid/configure-load-balancer)  before attempting to install the extension.
+> If deploying onto **AKS on Azure Local** ensure that you have [setup HAProxy as your load balancer](/azure/aks/hybrid/configure-load-balancer)  before attempting to install the extension. Additionally, make sure that custom CoreDNS is enabled. 
+> 
+> For information on enabling AKS custom CoreDNS, see the [`az containerapp arc`](/cli/azure/containerapp/arc) CLI documentation.
 
 ## Resources created by the Container Apps extension
 
@@ -89,13 +92,19 @@ The following table describes the role of each revision created for you:
 
 ## FAQ for Azure Container Apps on Azure Arc
 
-- [Which Container Apps features are supported?](#which-container-apps-features-are-supported)
-- [Are managed identities supported?](#are-managed-identities-supported)
-- [Are there any scaling limits?](#are-there-any-scaling-limits)
-- [What logs are collected?](#what-logs-are-collected)
-- [What do I do if I see a provider registration error?](#what-do-i-do-if-i-see-a-provider-registration-error)
-- [Can the extension be installed on Windows nodes?](#can-the-extension-be-installed-on-windows-nodes)
-- [Can I deploy the Container Apps extension on an Arm64 based cluster?](#can-i-deploy-the-container-apps-extension-on-an-arm64-based-cluster)
+- [Azure Container Apps on Azure Arc](#azure-container-apps-on-azure-arc)
+  - [Limitations](#limitations)
+  - [Resources created by the Container Apps extension](#resources-created-by-the-container-apps-extension)
+  - [FAQ for Azure Container Apps on Azure Arc](#faq-for-azure-container-apps-on-azure-arc)
+    - [Which Container Apps features are supported?](#which-container-apps-features-are-supported)
+    - [Are managed identities supported?](#are-managed-identities-supported)
+    - [Are there any scaling limits?](#are-there-any-scaling-limits)
+    - [What logs are collected?](#what-logs-are-collected)
+    - [What do I do if I see a provider registration error?](#what-do-i-do-if-i-see-a-provider-registration-error)
+    - [How can I install SMB Driver?](#how-can-i-install-smb-driver)
+  - [Can the extension be installed on Windows nodes?](#can-the-extension-be-installed-on-windows-nodes)
+    - [Can I deploy the Container Apps extension on an Arm64 based cluster?](#can-i-deploy-the-container-apps-extension-on-an-arm64-based-cluster)
+  - [Related content](#related-content)
 
 ### Which Container Apps features are supported?
 
@@ -121,6 +130,15 @@ By default, logs from system components are sent to the Azure team. Application 
 
 As you create an Azure Container Apps connected environment resource, some subscriptions might see the "No registered resource provider found" error. The error details might include a set of locations and API versions that are considered valid. If this error message is returned, the subscription must be re-registered with the `Microsoft.App` provider. Re-registering the provider has no effect on existing applications or APIs. To re-register, use the Azure CLI to run `az provider register --namespace Microsoft.App --wait`. Then reattempt the connected environment command.
 
+### How can I install SMB Driver?
+
+You can install the SMB driver using the following Helm command. For additional installation methods, see [Install driver on a Kubernetes cluster](https://github.com/kubernetes-csi/csi-driver-smb/tree/master/charts).
+
+```
+helm repo add csi-driver-smb https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
+helm install csi-driver-smb csi-driver-smb/csi-driver-smb --namespace kube-system --version v1.18.0
+```
+
 ## Can the extension be installed on Windows nodes?
 
 No, the extension cannot be installed on Windows nodes. The extension supports installation on **Linux** nodes **only**.
@@ -128,6 +146,7 @@ No, the extension cannot be installed on Windows nodes. The extension supports i
 ### Can I deploy the Container Apps extension on an Arm64 based cluster?
 
 No. Arm64 based clusters aren't supported.
+
 
 ## Related content
 

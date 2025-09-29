@@ -2,14 +2,14 @@
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: include
-ms.date: 08/07/2025
+ms.date: 09/25/2025
 ms.author: anfdocs
 ms.custom: include file, references_regions
 
 # azure-netapp-files/replication.md
 # Customer intent: As a cloud architect, I want to understand Azure NetApp Files volume replication across different regional pairs, so that I can plan and implement resilient data storage solutions for multi-region applications.
 ---
-Azure NetApp Files volume replication is supported between various [Azure regional pairs](../../reliability/cross-region-replication-azure.md#azure-paired-regions) and non-standard pairs. Azure NetApp Files volume replication is currently available between the following regions. You can replicate Azure NetApp Files volumes from Regional Pair A to Regional Pair B, and vice versa.  
+Azure NetApp Files volume replication is supported between various [Azure regional pairs](../../reliability/cross-region-replication-azure.md#paired-regions) and nonstandard pairs. Azure NetApp Files volume replication is currently available between the following regions. You can replicate Azure NetApp Files volumes from Regional Pair A to Regional Pair B and from Regional Pair B to Regional Pair A.
 
 ### Azure regional pairs
 
@@ -38,7 +38,7 @@ Azure NetApp Files volume replication is supported between various [Azure region
 | US Government | US Gov Arizona | US Gov Texas |
 | US Government | US Gov Virginia | US Gov Texas |
 
-### Azure regional non-standard pairs
+### Azure regional nonstandard pairs
 
 | Geography | Regional Pair A | Regional Pair B  |
 |:--- |:--- |:--- |
@@ -46,6 +46,7 @@ Azure NetApp Files volume replication is supported between various [Azure region
 | Israel/Sweden | Israel Central | Sweden Central | 
 | Qatar/Europe | Qatar Central | West Europe |
 | France/Europe | France Central | West Europe |
+| France/Europe | France Central | North Europe |
 | Germany/UK | Germany West Central | UK South |
 | Germany/Europe | Germany West Central | West Europe | 
 | Germany/France | Germany West Central | France Central |
@@ -68,5 +69,5 @@ Azure NetApp Files volume replication is supported between various [Azure region
 | UK/Europe | UK South | North Europe |
 | US Government | US Gov Arizona | US Gov Virginia |
 
->[!NOTE]
->There can be a discrepancy in the size and number of snapshots between source and destination. This discrepancy is expected. Snapshot policies and replication schedules will influence the number of snapshots. Snapshot policies and replication schedules, combined with the amount of data changed between snapshots, will influence the size of snapshots. To learn more about snapshots, refer to [How Azure NetApp Files snapshots work](../snapshots-introduction.md).
+> [!NOTE]
+> There can be a discrepancy in the size and number of snapshots between the source and the destination. This discrepancy is expected. Snapshot policies and replication schedules influence the number of snapshots. Snapshot policies and replication schedules, combined with the amount of data that changes between snapshots, influence the size of snapshots. For more information, see [How Azure NetApp Files snapshots work](../snapshots-introduction.md).

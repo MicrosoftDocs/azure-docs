@@ -5,9 +5,11 @@ ms.service: azure-government
 ms.topic: article
 author: EliotSeattle
 ms.author: eliotgra
-ms.custom: references_regions
 recommendations: false
-ms.date: 05/22/2025
+ms.date: 08/21/2025
+ms.custom:
+  - references_regions
+  - sfi-ropc-nochange
 ---
 
 # Compare Azure Government and global Azure
@@ -247,6 +249,42 @@ This section outlines variations and considerations when using Developer tools i
 
 - Enterprise Dev/Test subscription offer in existing or separate tenant is currently available only in Azure public as documented in [Azure EA portal administration](../cost-management-billing/manage/ea-portal-administration.md#enterprise-devtest-offer).
 
+## Hybrid and multicloud
+
+This section outlines variations and considerations when using hybrid and multicloud services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=load-testing,app-configuration,devtest-lab,lab-services,azure-devops&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
+
+### [Edge RAG Preview enabled by Azure Arc](/azure/azure-arc/edge-rag/)
+
+The process to deploy Edge RAG is the same as the public cloud with a few exceptions:
+
+- The steps for [Install networking and observability components](/azure/azure-arc/edge-rag/prepare-networking-observability) don't apply.
+- The steps in [Configure authentication](/azure/azure-arc/edge-rag/prepare-authentication) are the same as the public cloud, but you complete them in the Fairfax portal (portal.azure.us).
+- Installation of the Edge RAG extension is only available for Azure Government by using Azure CLI. To deploy the Edge RAG extension, run the following cli command with corresponding parameters:
+
+  ```powershell
+  $akscluster = <clustername>
+  $rg = <resource group name>
+  $gpu_enabled="true" <or false, depending on whether environment has gpu>  
+  $autoUpgrade = "false"  
+  $localextname = <extension name> 
+  $tenantId = <rag app entra tenant id>
+  $appId = <rag app entra app id>
+  $domainName = <domain name. Eg: "arcrag.contoso.com" >
+  $extension = "microsoft.arc.rag"  
+  $release = "preview" 
+  $metallbip = <metallb ip range>
+  $armid = <cluster armid>
+   
+  az k8s-extension create --cluster-type connectedClusters --cluster-name $akscluster --resource-group $rg --name $localextname --extension-type $extension --debug ` 
+  --release-train $release --auto-upgrade $autoUpgrade --configuration-settings gpu_enabled=$gpu_enabled ` 
+  --configuration-settings AgentOperationTimeoutInMinutes=60 --configuration-settings auth.tenantId=$tenantId ` 
+  --configuration-settings auth.clientId=$appId --configuration-settings ingress.domainname=$domainName --configuration-settings logLevel="DEBUG" ` 
+  --configuration-settings cloudEnvironment="fairfax" --configuration-settings isAldo="true"  ` 
+  --configuration-settings metallb.ipRange=$metallbip --configuration-settings global.azure.extension.resourceId=$armid  
+  ```
+
+  For more information, see [Deploy the extension for Edge RAG Preview enabled by Azure Arc](/azure/azure-arc/edge-rag/deploy).
+
 ## Identity
 
 This section outlines variations and considerations when using Identity services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=information-protection,active-directory-ds,active-directory&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
@@ -257,7 +295,7 @@ This section outlines variations and considerations when using Identity services
 
 For feature variations and limitations, see [Cloud feature availability](../active-directory/authentication/feature-availability.md).
 
-For information on how to use Power BI capabilities for collaboration between Azure and Azure Government, see [Cross-cloud B2B](/power-bi/enterprise/service-admin-azure-ad-b2b#cross-cloud-b2b).
+For information on how to use Power BI capabilities for collaboration between Azure and Azure Government, see [Cross-cloud B2B](/power-platform/admin/new-admin-center#cross-cloud-b2b).
 
 The following features have known limitations in Azure Government:
 

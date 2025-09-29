@@ -1,14 +1,15 @@
 ---
 title: Configure MQTT broker authentication
 description: Configure MQTT broker authentication.
-author: PatAltimore
-ms.author: patricka
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
+ms.date: 04/10/2025
 ms.custom:
   - ignite-2023
-ms.date: 04/10/2025
+  - sfi-image-nochange
 
 #CustomerIntent: As an operator, I want to configure authentication so that I have secure MQTT broker communications.
 ---

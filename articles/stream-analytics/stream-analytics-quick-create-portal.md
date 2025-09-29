@@ -6,7 +6,10 @@ ms.author: spelluru
 ms.date: 12/16/2024
 ms.topic: quickstart
 ms.service: azure-stream-analytics
-ms.custom: mvc, mode-ui
+ms.custom:
+  - mvc
+  - mode-ui
+  - sfi-image-nochange
 #Customer intent: As an IT admin/developer, I want to create a Stream Analytics job, configure input and output, and analyze data by using the Azure portal.
 ---
 

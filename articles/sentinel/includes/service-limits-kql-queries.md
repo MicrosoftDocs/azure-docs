@@ -13,7 +13,7 @@ The following service parameters limitations apply when writing queries in Micro
 |----------------------------|-----------------------------------------------|
 | Concurrent interactive queries | 45 per minute                             |
 | Query result data          | 64 MB                                         |
-| Query result rows          | 30,000 rows                                   |
+| Query result rows          | 500,000 rows                                  |
 | Query Scope                | Single workspace                              |
 | Query timeout              | 8 minutes                                     |
 | Queryable time range       | Up to 12 years, depending on data retention.  |

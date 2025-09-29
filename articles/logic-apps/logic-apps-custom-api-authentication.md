@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 04/01/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Add Microsoft Entra authentication for calling custom APIs from Azure Logic Apps

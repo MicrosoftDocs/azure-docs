@@ -9,7 +9,9 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 05/20/2025
 ms.author: danlep
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 ---
 
 # How to authorize developer accounts by using Azure Active Directory B2C in Azure API Management

@@ -8,8 +8,10 @@ ms.service: azure-communication-services
 ms.subservice: call-automation
 ms.date: 07/16/2024
 ms.author: kpunjabi
-ms.custom: public_preview
 services: azure-communication-services
+ms.custom:
+  - public_preview
+  - sfi-ropc-nochange
 ---
 
 # Control mid-call media actions with Call Automation
@@ -582,11 +584,11 @@ call_connection_client.unhold(target_participant=PhoneNumberIdentifier(TARGET_PH
 ```
 -----
 
-### Audio streaming (public preview)
+### Audio streaming 
 
 With audio streaming, you can subscribe to real-time audio streams from an ongoing call. For more information on how to get started with audio streaming and information about audio-streaming callback events, see [Quickstart: Server-side audio streaming](audio-streaming-quickstart.md).
 
-### Real-time transcription (public preview)
+### Real-time transcription
 
 By using real-time transcription, you can access live transcriptions for the audio of an ongoing call. For more information on how to get started with real-time transcription and information about real-time transcription callback events, see [Add real-time transcription into your application](real-time-transcription-tutorial.md).
 

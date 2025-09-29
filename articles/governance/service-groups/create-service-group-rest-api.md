@@ -2,7 +2,7 @@
 title: "Quickstart: Create a service group with REST API - Azure Governance"
 description: In this quickstart, you use REST API to create a service group to organize your resources.
 author: rthorn17
-ms.author: rithorn
+ms.author: kenieva
 ms.service: azure-policy
 ms.topic: quickstart  
 ms.date: 5/19/2025

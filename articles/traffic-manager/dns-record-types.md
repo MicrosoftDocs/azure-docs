@@ -5,6 +5,7 @@ author: asudbring
 ms.topic: concept-article
 ms.date: 06/19/2025
 ms.author: allensu
+ms.service: azure-traffic-manager
 #customer intent: As a network administrator, I want to understand which DNS record types Azure Traffic Manager supports, so that I can choose the right configuration for my environment.
 ---
 

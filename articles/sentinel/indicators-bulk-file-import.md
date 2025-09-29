@@ -11,6 +11,7 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a security analyst, I want to import threat intelligence in bulk from CSV or JSON files so that I can quickly integrate and analyze emerging threats within Microsoft Sentinel.

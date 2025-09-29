@@ -61,7 +61,7 @@ Use the time picker above the query editor to select the time range for your que
 
 
 > [!NOTE]
-> Queries are limited to 30,000 rows or 64 MB of data and timeout after 10 minutes. When selecting a broad time range, your query may exceed these limits.
+> Queries are limited to 500,000 rows or 64 MB of data and timeout after 8 minutes. When selecting a broad time range, your query may exceed these limits.
 
 ### View schema information
 
@@ -111,11 +111,12 @@ external_table("microsoft.entra.id.AADRiskyUsers")
 
 + Calling external data via KQL query against the data lake isn't supported. 
 
-+ All KQL operators are supported except for the following:
++ All KQL operators and functions are supported except for the following:
     + `adx()`
     + `externaldata()`
     + `arg()`
-    + `Ingestion_time()`
+    + `ingestion_time()`
+    + `workspace()`
 
 
 [!INCLUDE [Service limits for KQL queries against the data lake](../includes/service-limits-kql-queries.md)]

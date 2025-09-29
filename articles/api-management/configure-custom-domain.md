@@ -12,6 +12,7 @@ ms.author: danlep
 ms.custom:
   - engagement-fy23
   - build-2025
+  - sfi-image-nochange
 ---
 
 # Configure a custom domain name for your Azure API Management instance

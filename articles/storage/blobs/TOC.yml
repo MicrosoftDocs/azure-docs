@@ -92,23 +92,55 @@ items:
         href: upgrade-to-data-lake-storage-gen2.md
       - name: Upgrade an account
         href: upgrade-to-data-lake-storage-gen2-how-to.md
+    - name: General Purpose v1 (GPv1) account retirement
+      href: ../common/general-purpose-version-1-account-migration-overview.md
+      items:
+      - name: Migrate a GPv1 storage account to GPv2
+        href: ../common/storage-account-upgrade.md
+      - name: GPv1 account retirement Frequently Asked Questions (FAQ)
+        href: ../common/general-purpose-version-1-account-migration-frequently-asked-questions.md
+    - name:  General Purpose v1 (GPv1) account with ZRS standard redundancy retirement
+      href: ../common/general-purpose-version-1-zone-redundant-storage-migration-overview.md
+      items:
+      - name: Migrate GPv1 ZRS to GPv2 ZRS
+        href: ../common/general-purpose-version-1-zone-redundant-storage-upgrade-process.md
+      - name:  General Purpose v1 (GPv1) account with ZRS standard redundancy retirement Frequently Asked Questions (FAQ)
+        href: ../common/general-purpose-v-1-zone-redundant-storage-migration-freq-asked-questions.md
+    - name: Legacy Blob storage account retirement
+      href: ../common/legacy-blob-storage-account-migration-overview.md
+      items:
+      - name: Migrate a Legacy Blob storage account to GPv2
+        href: ../common/storage-account-upgrade.md
+      - name: Legacy Blob storage account migration Frequently Asked Questions (FAQ)
+        href: ../common/legacy-blob-storage-account-migration-frequently-asked-questions.md
   - name: Data transfer and migration
     items:
     - name: Storage migration overview
       href: ../common/storage-migration-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      items:
+      - name: Phase 1 - Assessment
+        href: ../common/storage-migration-assessment.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Phase 2 - Target selection
+        href: ../common/storage-migration-target-selection.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Phase 3 - Planning migration strategy
+        href: ../common/storage-migration-plan-strategy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Phase 4 - Selecting migration tools
+        href: ../common/storage-migration-tools.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Phase 5 - Migration execution
+        href: ../common/storage-migration-execution.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Tape migration overview
       href: ../common/tape-migration-guide.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: Compare data transfer solutions
-      href: ../common/storage-choose-data-transfer-solution.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      items:
-      - name: Large dataset, low network bandwidth
-        href: ../common/storage-solution-large-dataset-low-network.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Large dataset, moderate to high network bandwidth
-        href: ../common/storage-solution-large-dataset-moderate-high-network.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Small dataset, low to moderate network bandwidth
-        href: ../common/storage-solution-small-dataset-low-moderate-network.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Periodic data transfer
-        href: ../common/storage-solution-periodic-data-transfer.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+    # - name: Compare data transfer solutions
+    #  href: ../common/storage-choose-data-transfer-solution.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+    #  items:
+    #  - name: Large dataset, low network bandwidth
+    #    href: ../common/storage-solution-large-dataset-low-network.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+    #  - name: Large dataset, moderate to high network bandwidth
+    #    href: ../common/storage-solution-large-dataset-moderate-high-network.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+    #  - name: Small dataset, low to moderate network bandwidth
+    #    href: ../common/storage-solution-small-dataset-low-moderate-network.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+    #  - name: Periodic data transfer
+    #    href: ../common/storage-solution-periodic-data-transfer.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: AzCopy
       items:
       - name: Get started
@@ -431,6 +463,8 @@ items:
     items:
     - name: Data protection
       href: data-protection-overview.md
+    - name: Soft delete versus versioning
+      href: soft-delete-vs-versioning-options.md
     - name: Soft delete
       items:
       - name: Soft delete for containers
@@ -466,8 +500,10 @@ items:
         href: immutable-policy-configure-container-scope.md
       - name: Configure version-level policies
         href: immutable-policy-configure-version-scope.md
-  - name: Availability and disaster recovery
+  - name: Reliability
     items:
+    - name: Reliability in Azure Blob Storage
+      href: ../../reliability/reliability-storage-blob.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Design highly available applications
       href: ../common/geo-redundant-design.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: 'Tutorial: Design applications for high availability'
@@ -481,6 +517,8 @@ items:
       items:
       - name: Change redundancy configuration
         href: ../common/redundancy-migration.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Change redundancy configuration - FAQs
+        href: ../common/storage-redundancy-change-faq.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Disaster recovery
       items:
       - name: Disaster recovery planning and failover
@@ -973,9 +1011,15 @@ items:
     - name: Test with a storage emulator
       items:
       - name: Use the Azurite open-source emulator
-        href: ../common/storage-use-azurite.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Use Azurite to run automated tests
-        href: use-azurite-to-run-automated-tests.md
+        items:
+        - name: About Azurite
+          href: ../common/storage-use-azurite.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        - name: Install and run Azurite
+          href: ../common/storage-install-azurite.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        - name: Connect to Azurite with SDKs and tools
+          href: ../common/storage-connect-azurite.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        - name: Use Azurite to run automated tests
+          href: use-azurite-to-run-automated-tests.md
       - name: Use the Azure Storage emulator (deprecated)
         href: ../common/storage-use-emulator.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Change feed and events

@@ -4,9 +4,11 @@ description: Learn about reliability in Azure DNS.
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
-ms.custom: subject-reliability
 ms.service: azure-traffic-manager
 ms.date: 02/02/2024
+ms.custom:
+  - subject-reliability
+  - sfi-image-nochange
 ---
 
 

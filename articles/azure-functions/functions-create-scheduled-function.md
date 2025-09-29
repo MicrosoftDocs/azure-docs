@@ -4,7 +4,11 @@ description: Learn how to use the Azure portal to create a function that runs ba
 ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
 ms.topic: how-to
 ms.date: 05/07/2025
-ms.custom: mvc, cc996988-fb4f-47, devdivchpfy22
+ms.custom:
+  - mvc
+  - cc996988-fb4f-47
+  - devdivchpfy22
+  - sfi-image-nochange
 ---
 # Create a function in the Azure portal that runs on a schedule
 

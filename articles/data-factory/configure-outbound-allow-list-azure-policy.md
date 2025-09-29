@@ -7,6 +7,7 @@ author: nabhishek
 ms.topic: how-to
 ms.date: 10/03/2024
 ms.subservice: security
+ms.custom: sfi-image-nochange
 ---
 
 # Outbound network rules using Azure Policy (Preview)

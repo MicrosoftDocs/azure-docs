@@ -4,7 +4,8 @@ description: Learn how to bind an Azure Database for PostgreSQL instance to your
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 06/04/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.author: karler
 ms.custom: passwordless-java, devx-track-java, devx-track-extended-java
 ---

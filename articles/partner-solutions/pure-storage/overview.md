@@ -1,67 +1,49 @@
 ---
-title: What is Azure Native Pure Storage Cloud (preview)?
-description: Discover Azure Native Pure Storage Cloud (preview), offering scalable and flexible enterprise-class cloud block storage with built-in capabilities via the Azure portal.
+title: What is Azure Native Pure Storage Cloud?
+description: Discover Azure Native Pure Storage Cloud, offering scalable and flexible enterprise-class cloud block storage with built-in capabilities via the Azure portal.
 author: ProfessorKendrick
 ms.author: kkendrick
 ms.topic: overview
-ms.date: 03/24/2025
+ms.date: 07/14/2025
+ai-usage: ai-assisted
 ---
-# What is Azure Native Pure Storage Cloud (preview)?
+# What is Azure Native Pure Storage Cloud?
 
-[!INCLUDE [what-is](../includes/what-is.md)]
+Azure Native Pure Storage Cloud (refered to as Pure Storage Cloud from here on) is a jointly developed and managed enterprise-class cloud block storage service offered as an Azure Native Integration. [!INCLUDE [what-is](../includes/what-is.md)]
 
-Microsoft and Pure Storage Cloud developed this service and manage it together.
+## What is it used for?
 
-Access Azure Native Pure Storage Cloud from the [Azure portal](https://portal.azure.com).
+Pure Storage Cloud is designed for organizations that require scalable, flexible, and high-performance block storage in the cloud.  
 
-This offering provides enterprise-class cloud block storage with built-in cloud capabilities powered by a common Purity operating environment. Pure Storage decouples storage and compute resources, which allows customers with large data footprints to optimize their cloud spend and avoid paying for unnecessary compute power.
+Typical use cases include:
 
-## Capabilities
+- Running large-scale databases and analytics platforms that demand consistent performance and low latency
+- Providing persistent storage for virtual machines and containerized applications in enterprise and cloud-native environments via Azure VMware Solution (AVS)
+- Ensuring business continuity and rapid data recovery
+- Reducing cloud costs by decoupling compute and storage resources for independent scaling and efficient resource utilization
 
-Here are the key capabilities provided by the Pure Storage Cloud integration:
+## Key Features
 
-- **Elastic capacity** - Pay for the capacity you use.
-- **Flexible performance** - Scale independently from capacity.
-- **Thin provisioning** - Allocate space dynamically.
-- **Instant resizing** - Adjust storage volumes without downtime or disruption.
-- **Flexible volumes** - Multiple hosts can simultaneously access the same storage volume.
-- **Snapshots** - Quickly recover from data loss or corruption.
+The following key features are available for Pure Storage Cloud:
 
-## Subscribe to Azure Native Pure Storage Cloud (preview)
+- **Elastic Capacity**: Dynamically scale storage up or down to match workload requirements and pay only for what you use.
+- **Flexible Performance**: Independently scale performance and capacity to optimize for specific application needs.
+- **Thin Provisioning**: Allocate storage space efficiently, reducing wasted capacity, and improving utilization.
+- **Instant Resizing**: Adjust storage volumes without downtime or disruption to applications.
+- **Snapshots**: Create point-in-time copies of data for rapid recovery from data loss or corruption.
+- **Compute and Storage Decoupling**: Decoupling compute and storage resources for independent scaling and efficent resource utilization.
 
-You can [subscribe to Azure Native Pure Storage Cloud](https://azuremarketplace.microsoft.com/marketplace/apps/purestoragemarketplaceadmin.psc_contact_me?tab=Overview) in Azure Marketplace.
+## Subscribe to Azure Native Pure Storage Cloud
 
-1. Select the **Contact Me** button.
+[!INCLUDE [subscribe](../includes/subscribe.md)] *Pure Storage Cloud*.
 
-    Pure Storage emails you once they enable your tenant.
-
-    Once your tenant is enabled, you can [access the service via this link](https://portal.azure.com/?Azure_Marketplace_PureStorage_assettypeoptions=%7B%22purestorage_block_reservations%22%3A%7B%22options%22%3A%22%22%7D%7D&Azure_Marketplace_PureStorage=true&feature.canmodifystamps=true#home).
-
-    > [!IMPORTANT]
-    > - You can't access the service until your tenant is enabled.
-
-1. Go to **Subscriptions** and select the subscription where you wish to deploy the AVS cluster.
-
-1. Go to the **Settings** tab and select **Resource providers**.
-
-1. Choose `PureStorage.Block` from the options.
-
-    
-    You can also choose Pure Storage as a resource provider with Azure CLI <br />
-
-    ```
-    az provider register --namespace 'PureStorage.Block'
-    ```
-
-1. Select the **Register** button.
-
-    The status updates to *Registered* once the process is complete.
+[!INCLUDE [subscribe](../includes/subscribe-from-azure-portal.md)]
 
 ## Azure Native Pure Storage Cloud links
 
-For more information, see [Pure Storage Cloud documentation](https://support.purestorage.com/csh?context=azure_native_pure_storage_cloud).
+For more information, see [Pure Storage Cloud documentation](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/topics/c_azure_native_pure_storage_cloud.html).
 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create an Azure Native Pure Storage Cloud (preview) resource](create.md)
+> [Create a resource](create.md)

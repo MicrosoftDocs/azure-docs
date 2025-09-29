@@ -5,8 +5,14 @@ ms.date: 04/25/2024
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions-temp
 ms.devlang: csharp
+ms.custom:
+  - mode-ui
+  - vscode-azure-extension-update-completed
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - sfi-image-nochange
 # ms.devlang: csharp, javascript, python
-ms.custom: mode-ui, vscode-azure-extension-update-completed, devx-track-extended-java, devx-track-js, devx-track-python
 ---
 
 # Connect Azure Functions to Azure Cosmos DB using Visual Studio Code

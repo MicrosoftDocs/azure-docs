@@ -7,8 +7,11 @@ ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 07/31/2025
-ms.custom: devx-track-azurecli, build-2025
 zone_pivot_groups: front-door-dev-exp-portal-cli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
+  - sfi-image-nochange
 ---
 
 # Connect Azure Front Door Premium to an App Service (Web App or Function App) origin with Private Link

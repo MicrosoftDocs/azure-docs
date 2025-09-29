@@ -3,7 +3,7 @@ title: Configure Google Authentication
 description: Learn how to configure Google authentication as an identity provider for your App Service or Azure Functions app.
 ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
 ms.topic: how-to
-ms.date: 03/29/2021
+ms.date: 07/10/2025
 ms.custom: fasttrack-edit, AppServiceIdentity
 author: cephalin
 ms.author: cephalin
@@ -20,32 +20,38 @@ To complete the procedure, you must have a Google account that has a verified em
 
 ## <a name="register"> </a>Register your application with Google
 
-1. Follow the Google documentation at [Sign In with Google for Web - Setup](https://developers.google.com/identity/gsi/web/guides/fedcm-migration) to create a client ID and client secret. You don't need to make any code changes. Use the following information:
-    - For **Authorized JavaScript Origins**, use `https://<app-name>.azurewebsites.net` with the name of your app in *\<app-name>*.
-    - For **Authorized Redirect URI**, use `https://<app-name>.azurewebsites.net/.auth/login/google/callback`.
-1. Copy the **App ID** and the **App Secret** values.
+1. Follow the Google documentation at [Get your Google API client ID](https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid) to create a client ID and client secret. You don't need to make any code changes.
+   - For **Authorized JavaScript Origins**, use `https://<app-name>.azurewebsites.net`, replacing `<app-name>` with the name of your app.
+   - For **Authorized Redirect URI**, use `https://<app-name>.azurewebsites.net/.auth/login/google/callback`.
+1. Make a note of the **App ID** and the **App Secret** values to use in the Azure app configuration.
 
-    > [!IMPORTANT]
-    > The **App Secret** value is an important security credential. Don't share this secret with anyone or distribute it within a client application.
+   > [!IMPORTANT]
+   > The **App Secret** value is an important security credential. Don't share this secret with anyone or distribute it within a client application.
 
 ## <a name="secrets"> </a>Add Google information to your application
 
-1. Sign in to the [Azure portal] and go to your app.
-1. Select **Authentication** on the left menu. Select **Add identity provider**.
-1. Select **Google** in the identity provider dropdown. Paste in the **App ID** and **App Secret** values that you obtained previously.
+1. On the [Azure portal] page for your app, select **Authentication** under **Settings** in the left navigation menu.
 
-    The secret is stored as a slot-sticky [application setting](./configure-common.md#configure-app-settings) named `GOOGLE_PROVIDER_AUTHENTICATION_SECRET`. You can later update that setting to use [Key Vault references](./app-service-key-vault-references.md) if you wish to manage the secret in Azure Key Vault.
+1. On the **Authentication** page, select **Add identity provider**, or select **Add provider** in the **Identity provider** section.
 
-1. If this is the first identity provider configured for the application, you're also prompted with an **App Service authentication settings** section. Otherwise, you can move to the next step.
-    
-    The **App Service authentication settings** values determine how your application responds to unauthenticated requests. The default selections will redirect all requests to sign in with this new provider. You can customize this behavior now or adjust these settings later from the main **Authentication** screen by choosing **Edit** next to **Authentication settings**. To learn more about these options, see [Authentication flow](overview-authentication-authorization.md#authentication-flow).
+1. On the **Add an identity provider** page, select **Google** in the identity provider dropdown.
+
+1. Enter the **App ID** and **App Secret** values you obtained previously.
+
+1. If this is the first identity provider for the application, the **App Service authentication settings** section appears with settings such as how your application responds to unauthenticated requests. The default selections redirect all requests to sign in with the new provider.
+
+   If you already configured an identity provider for the app, this section doesn't appear. You can customize the settings later if necessary.
 
 1. Select **Add**.
 
-> [!NOTE]
-> For adding scope: You can define what permissions your application has in the provider's registration portal. The app can request scopes at the time of sign-in, which use these permissions.
+On the **Authentication** page, the **Google** provider now appears in the **Identity provider** section. You can edit the provider settings by selecting the pencil icon under **Edit**.
 
-You're now ready to use Google for authentication in your app. The provider is listed on the **Authentication** screen. From there, you can edit or delete this provider configuration.
+The **Authentication settings** section shows settings such as how the application responds to unauthenticated requests. You can edit these settings by selecting **Edit** next to **Authentication settings**. To learn more about the options, see [Authentication flow](overview-authentication-authorization.md#authentication-flow).
+
+The application secret is stored as a slot-sticky [application setting](configure-common.md#configure-app-settings) named `GOOGLE_PROVIDER_AUTHENTICATION_SECRET`. You can see this setting on the **App Settings** tab of your app's **Environment variables** page in the portal. If you want to manage the secret in Azure Key Vault, you can update the setting to use [Key Vault references](app-service-key-vault-references.md).
+
+> [!NOTE]
+> To add scopes, define the permissions your application has in the provider's registration portal. The app can request scopes that use these permissions at sign-in time.
 
 ## Related content
 

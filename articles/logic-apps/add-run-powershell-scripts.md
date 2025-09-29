@@ -5,8 +5,8 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, swghimire, shahparth, azla
 ms.topic: how-to
-ms.date: 06/25/2025
-# Customer intent: As a logic app workflow developer, I want to write and run PowerShell code so that I can perform custom integration tasks in Standard workflows for Azure Logic Apps.
+ms.date: 08/13/2025
+# Customer intent: As an integration developer, I want to write and run PowerShell code so that I can perform custom integration tasks in Standard workflows for Azure Logic Apps.
 ---
 
 # Add and run PowerShell scripts in Standard workflows for Azure Logic Apps (Preview)
@@ -59,6 +59,62 @@ This guide shows how to add the action in your workflow and add the PowerShell c
 |------|-------|-------|
 | Script run duration | 10 minutes | If you have scenarios that need longer durations, use the product feedback option to provide more information about your needs. |
 | Output size | 100 MB | Output size depends on the output size limit for actions, which is generally 100 MB. |
+
+## Update the PowerShell version
+
+You can change the PowerShell version in your logic app resource by editing the application settings. However, before you upgrade your app, review the following considerations:
+
+- A version upgrade might introduce breaking changes to your Standard logic app, which uses a runtime that's hosted as an extension on the Azure Functions runtime. Before you upgrade, review the following migration guide: [Upgrading your Azure Functions apps to run on PowerShell 7.4](https://github.com/Azure/azure-functions-powershell-worker/wiki/Upgrading-your-Azure-Function-Apps-to-run-on-PowerShell-7.4).
+
+- Make sure that your logic app uses the latest runtime version for Azure Functions runtime in Azure, which is version 4.x. For more information, see [View the current runtime version](../azure-functions/set-runtime-version.md?tabs=azure-portal#view-the-current-runtime-version).
+
+> [!NOTE]
+>
+> By default, if you don't specify a PowerShell version, Azure Logic Apps uses the same default 
+> version as Azure Functions. Currently, PowerShell 7.4 is generally available. For more information 
+> about available versions, see the [Azure Functions PowerShell developer guide](../azure-functions/functions-reference-powershell.md#powershell-versions).
+
+Based on where you want to update the PowerShell version, follow the corresponding steps:
+
+### [Portal](#tab/portal)
+
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
+
+1. On the resource sidebar, under **Settings**, select **Environment variables**.
+
+1. On the **App settings** tab, select **+ Add**.
+
+1. On the **Add/Edit application setting** pane, add the following new app setting:
+
+   | Parameter | Value | Description |
+   | --------- | ------| ----------- |
+   | **Name** | **`LOGIC_APPS_POWERSHELL_VERSION`** | The app setting name. |
+   | **Value** | <*powershell-version*> | The PowerShell version, currently **7.4**. |
+
+1. When you're done, select **Apply**. When the restart warning appears, select **Continue**.
+
+   Your logic app restarts with the updated version.
+
+### [Visual Studio Code](#tab/visual-studio-code)
+
+1. In Visual Studio Code, open the workspace for your logic app project.
+
+1. In your logic app project, from the root folder, open the *local.settings.json* file.
+
+1. In the *local.settings.json* file, add the **LOGIC_APPS_POWERSHELL_VERSION** setting and value, for example:
+
+   ```json
+   {
+       "IsEncrypted": false,
+       "Values": {
+           "AzureWebJobsStorage": "<*storage-account*>",
+           <...>
+           "LOGIC_APPS_POWERSHELL_VERSION": "<powershell-version>" // For example, "7.4"
+       }
+   }
+   ```
+
+---
 
 ## Add the Execute PowerShell Code action
 
@@ -144,7 +200,7 @@ The following table lists the outputs that are generated when you call `Get-Acti
 | **StartTime** | DateTime | The start time for the trigger or action |
 | **EndTime** | DateTime | The end time for the trigger or action |
 | **ScheduledTime** | DateTime | The scheduled time to run the trigger or action or trigger |
-| **OriginHistoryName** | String | The origin history name for triggers with the `SplitOn` option enabled |
+| **OriginHistoryName** | String | The origin history name for triggers that use the `splitOn` property |
 | **SourceHistoryName** | String | The source history name for a resubmitted trigger |
 | **TrackingId** | String | The operation tracking ID |
 | **Code** | String | The status code for the result |

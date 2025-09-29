@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 06/25/2025
+ms.date: 08/20/2025
 
 # Customer intent: "As a network administrator, I want to understand the traffic analytics schema and data aggregation methods so that I can effectively analyze flow logs and enhance network performance and security."
 ---
@@ -32,14 +32,6 @@ Traffic analytics is a cloud-based solution that provides visibility into user a
 - `FlowStartTime` field indicates the first occurrence of such an aggregated flow (same four-tuple) in the flow log processing interval between `FlowIntervalStartTime` and `FlowIntervalEndTime`.
 - For any resource in traffic analytics, the flows indicated in the Azure portal are total flows seen, but in Azure Monitor logs, user sees only the single, reduced record. To see all the flows, use the `blob_id` field,  which can be referenced from storage. The total flow count for that record matches the individual flows seen in the blob.
 
-The following query helps you look at all subnets interacting with non-Azure public IPs in the last 30 days.
-
-```
-NTANetAnalytics
-| where SubType == "FlowLog" and FlowStartTime >= ago(30d) and FlowType == "ExternalPublic"
-| project SrcSubnet, DestSubnet
-```
-
 # [**Network security group flow logs**](#tab/nsg)
 
 - All flow logs at a network security group between `FlowIntervalStartTime_t` and `FlowIntervalEndTime_t` are captured at one-minute intervals as blobs in a storage account.
@@ -48,52 +40,6 @@ NTANetAnalytics
 - This single record is decorated (details in the section below) and ingested in Azure Monitor logs by traffic analytics. This process can take up to 1 hour.
 - `FlowStartTime_t` field indicates the first occurrence of such an aggregated flow (same four-tuple) in the flow log processing interval between `FlowIntervalStartTime_t` and `FlowIntervalEndTime_t`.
 - For any resource in traffic analytics, the flows indicated in the Azure portal are total flows seen by the network security group, but in Azure Monitor logs, user sees only the single, reduced record. To see all the flows, use the `blob_id` field,  which can be referenced from storage. The total flow count for that record matches the individual flows seen in the blob.
-
-The following query helps you look at all subnets interacting with non-Azure public IPs in the last 30 days.
-
-```
-AzureNetworkAnalytics_CL
-| where SubType_s == "FlowLog" and FlowStartTime_t >= ago(30d) and FlowType_s == "ExternalPublic"
-| project Subnet1_s, Subnet2_s  
-```
-
-To view the blob path for the flows in the previous query, use the following query:
-
-```
-let TableWithBlobId =
-(AzureNetworkAnalytics_CL
-   | where SubType_s == "Topology" and ResourceType == "NetworkSecurityGroup" and DiscoveryRegion_s == Region_s and IsFlowEnabled_b
-   | extend binTime = bin(TimeProcessed_t, 6h),
-            nsgId = strcat(Subscription_g, "/", Name_s),
-            saNameSplit = split(FlowLogStorageAccount_s, "/")
-   | extend saName = iif(arraylength(saNameSplit) == 3, saNameSplit[2], '')
-   | distinct nsgId, saName, binTime)
-| join kind = rightouter (
-   AzureNetworkAnalytics_CL
-   | where SubType_s == "FlowLog"  
-   | extend binTime = bin(FlowEndTime_t, 6h)
-) on binTime, $left.nsgId == $right.NSGList_s  
-| extend blobTime = format_datetime(todatetime(FlowIntervalStartTime_t), "yyyy MM dd hh")
-| extend nsgComponents = split(toupper(NSGList_s), "/"), dateTimeComponents = split(blobTime, " ")
-| extend BlobPath = strcat("https://", saName,
-                        "@insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/", nsgComponents[0],
-                        "/RESOURCEGROUPS/", nsgComponents[1],
-                        "/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/", nsgComponents[2],
-                        "/y=", dateTimeComponents[0], "/m=", dateTimeComponents[1], "/d=", dateTimeComponents[2], "/h=", dateTimeComponents[3],
-                        "/m=00/macAddress=", replace(@"-", "", MACAddress_s),
-                        "/PT1H.json")
-| project-away nsgId, saName, binTime, blobTime, nsgComponents, dateTimeComponents;
-
-TableWithBlobId
-| where SubType_s == "FlowLog" and FlowStartTime_t >= ago(30d) and FlowType_s == "ExternalPublic"
-| project Subnet_s , BlobPath
-```
-
-The previous query constructs a URL to access the blob directly. The URL with placeholders is as follows:
-
-```
-https://{storageAccountName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroup}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{networkSecurityGroupName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
-```
 
 ---
 
@@ -258,7 +204,7 @@ The following table lists the fields in the schema and what they signify for net
 
 ## Public IP details schema
 
-Traffic analytics provides WHOIS data and geographic location for all public IPs in your environment. For a malicious IP, traffic analytics provides DNS domain, threat type and thread descriptions as identified by Microsoft security intelligence solutions. IP Details are published to your Log Analytics workspace so you can create custom queries and put alerts on them. You can also access prepopulated queries from the traffic analytics dashboard.
+Traffic analytics provides WHOIS data and geographic location for all public IPs in your environment. For a malicious IP, traffic analytics provides DNS domain, threat type, and thread descriptions as identified by Microsoft security intelligence solutions. IP Details are published to your Log Analytics workspace so you can create custom queries and put alerts on them. You can also access prepopulated queries from the traffic analytics dashboard.
 
 # [**Virtual network flow logs**](#tab/vnet)
 
@@ -268,7 +214,7 @@ The following table details public IP schema. For more information, see [NTAIpDe
 | ----- | ------ | -------- |
 | **TableName**| NTAIpDetails | Table that contains traffic analytics IP details data. |
 | **SubType**| FlowLog | Subtype for the flow logs. Use only **FlowLog**. Other values of SubType are for internal workings of the product. |
-| **FASchemaVersion** | 2  | Schema version. Doesn't reflect virtual network flow Log version. |
+| **FASchemaVersion** | 3  | Schema version. Doesn't reflect virtual network flow log version. |
 | **FlowIntervalStartTime**| Date and time in UTC | Start time of the flow log processing interval (the time from which flow interval is measured). |
 | **FlowIntervalEndTime**| Date and time in UTC | End time of the flow log processing interval. |
 | **FlowType** | - AzurePublic <br> - ExternalPublic <br> - MaliciousFlow | See [Notes](#notes) for definitions. |
@@ -284,7 +230,7 @@ The following table details public IP schema. For more information, see [NTAIpDe
 > [!NOTE]
 > - *NTAIPDetails* in virtual network flow logs replaces *AzureNetworkAnalyticsIPDetails_CL* used in network security group flow logs.
 > 
-> - Traffic analytics can log any malicious FQDN associated to the IP for malicious flows. To filter out, use the port, URL and domain fields as needed. 
+> - Traffic analytics can log any malicious FQDN associated to the IP for malicious flows. To filter out, use the port, URL, and domain fields as needed. 
 
 # [**Network security group flow logs**](#tab/nsg)
 
@@ -337,8 +283,8 @@ The following table lists the currently allowed values for the `ThreatType` fiel
     - `S2S` (Site-To-Site): One of the IP addresses belongs to an Azure virtual network, while the other IP address belongs to customer network (Site) connected to the virtual network through VPN gateway or ExpressRoute.
     - `P2S` (Point-To-Site): One of the IP addresses belongs to an Azure virtual network, while the other IP address belongs to customer network (Site) connected to the Azure Virtual Network through VPN gateway.
     - `AzurePublic`: One of the IP addresses belongs to an Azure virtual network, while the other IP address is an Azure Public IP address owned by Microsoft. Customer owned Public IP addresses aren't part of this flow type. For instance, any customer owned VM sending traffic to an Azure service (Storage endpoint) would be categorized under this flow type.
-    - `ExternalPublic`: One of the IP addresses belongs to an Azure virtual network, while the other IP address is a public IP that is neither owned by Microsoft nor part of a customer-owned subscription visible to traffic analytics and isn't reported as malicious in the ASC feeds that traffic analytics consumes for the processing interval between `FlowIntervalStartTime_t` and `FlowIntervalEndTime_t`.
-    - `MaliciousFlow`: One of the IP addresses belong to an Azure virtual network, while the other IP address is a public IP that is neither owned by Microsoft nor part of a customer-owned subscription visible to traffic analytics and is reported as malicious in the ASC feeds that traffic analytics consumes for the processing interval between `FlowIntervalStartTime_t` and `FlowIntervalEndTime_t`.
+    - `ExternalPublic`: One of the IP addresses belongs to an Azure virtual network, while the other IP address is a public IP that isn't owned by Microsoft or part of a customer-owned subscription visible to traffic analytics and isn't reported as malicious in the ASC feeds that traffic analytics consumes for the processing interval between `FlowIntervalStartTime_t` and `FlowIntervalEndTime_t`.
+    - `MaliciousFlow`: One of the IP addresses belong to an Azure virtual network, while the other IP address is a public IP that is not owned by Microsoft or part of a customer-owned subscription visible to traffic analytics and is reported as malicious in the ASC feeds that traffic analytics consumes for the processing interval between `FlowIntervalStartTime_t` and `FlowIntervalEndTime_t`.
     - `UnknownPrivate`: One of the IP addresses belong to an Azure virtual network, while the other IP address belongs to the private IP range defined in RFC 1918 and couldn't be mapped by traffic analytics to a customer owned site or Azure virtual network.
     - `Unknown`: Unable to map either of the IP addresses in the flow with the customer topology in Azure and on-premises (site).
 
@@ -347,5 +293,6 @@ The following table lists the currently allowed values for the `ThreatType` fiel
 
 ## Related content
 
-- To learn more about traffic analytics, see [Traffic analytics overview](traffic-analytics.md).
-- See [Traffic analytics FAQ](traffic-analytics-faq.yml) for answers to traffic analytics most frequently asked questions.
+- [Traffic analytics overview](traffic-analytics.md)
+- [Use queries in traffic analytics](traffic-analytics-queries.md)
+- [Traffic analytics usage scenarios](traffic-analytics-usage-scenarios.md)

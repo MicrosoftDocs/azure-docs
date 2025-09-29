@@ -11,6 +11,7 @@ ms.topic: quickstart
 ms.custom:
   - devx-track-azurepowershell
   - mode-api
+  - sfi-image-nochange
 ---
 
 # Quickstart: Scale compute for dedicated SQL pool (formerly SQL DW) with Azure PowerShell

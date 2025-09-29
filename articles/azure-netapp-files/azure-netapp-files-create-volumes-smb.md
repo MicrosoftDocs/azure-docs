@@ -1,12 +1,13 @@
 ---
-title: Create an SMB volume for Azure NetApp Files | Microsoft Docs
+title: Create an SMB volume for Azure NetApp Files 
 description: This article shows you how to create an SMB3 volume in Azure NetApp Files. Learn about requirements for Active Directory connections and Domain Services.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 12/11/2024
+ms.date: 06/11/2025
 ms.author: anfdocs
+ms.custom: sfi-image-nochange
 # Customer intent: As a cloud administrator, I want to create an SMB volume in Azure NetApp Files, so that I can leverage scalable storage solutions that meet my organization’s data management and sharing requirements.
 ---
 # Create an SMB volume for Azure NetApp Files
@@ -14,9 +15,6 @@ ms.author: anfdocs
 Azure NetApp Files supports creating volumes using NFS (NFSv3 or NFSv4.1), SMB3, or dual protocol (NFSv3 and SMB, or NFSv4.1 and SMB). A volume's capacity consumption counts against its pool's provisioned capacity. 
 
 This article shows you how to create an SMB3 volume. For NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volumes.md). For dual-protocol volumes, see [Create a dual-protocol volume](create-volumes-dual-protocol.md).
-
->[!IMPORTANT]
->Windows Server 2025 currently doesn't work with the Azure NetApp Files SMB protocol. 
 
 ## Before you begin 
 

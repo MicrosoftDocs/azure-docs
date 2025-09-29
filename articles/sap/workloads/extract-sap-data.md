@@ -13,7 +13,7 @@ ms.author: ritikeshvali
 
 In this article, you gain a comprehensive understanding of the different data sources and tools available for SAP data extraction, and how to select the most appropriate option based on your analytical goals. The content covers the structure and purpose of each data layer within SAP systems. It also highlights the integration capabilities towards Microsoft Fabric, and the considerations for reliability, performance, and business alignment.
 
-[Microsoft Fabric](https://learn.microsoft.com/fabric/fundamentals/microsoft-fabric-overview) is a fully integrated, SaaS-based data platform that unifies data engineering, real-time analytics, data science, business intelligence, and governance into a single experience. Built on OneLake, Fabric centralizes data storage and enables seamless collaboration across roles—from data engineers to business users. At its core is OneLake, a unified data lake that centralizes storage and enables seamless data access across services. Fabric also integrates AI capabilities through Copilot and Azure AI Studio, empowering users to derive insights faster and more intuitively. Designed for simplicity, scalability, and collaboration, Microsoft Fabric helps organizations streamline their analytics workflows, reduce complexity, and accelerate their AI transformation journey
+[Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is a fully integrated, SaaS-based data platform that unifies data engineering, real-time analytics, data science, business intelligence, and governance into a single experience. Built on OneLake, Fabric centralizes data storage and enables seamless collaboration across roles—from data engineers to business users. At its core is OneLake, a unified data lake that centralizes storage and enables seamless data access across services. Fabric also integrates AI capabilities through Copilot and Azure AI Studio, empowering users to derive insights faster and more intuitively. Designed for simplicity, scalability, and collaboration, Microsoft Fabric helps organizations streamline their analytics workflows, reduce complexity, and accelerate their AI transformation journey
 
 Enterprises are increasingly adopting Microsoft Fabric as the foundation of their data landscape to unify business applications, IoT telemetry, and AI workloads. By consolidating all analytics workloads into a single environment, Microsoft Fabric accelerates insight delivery and eliminates data silos. SAP systems are one of the most critical data sources as they contain data supporting core business operations and can also be integrated into the unified platform. This integration enriches enterprise data and enables a more holistic view of business performance. You can build powerful dashboards that explore trends and highlight issues, reflecting end-to-end business processes using data from across systems and departments, regardless of its source. This is made possible by having all relevant data unified in a single platform.
 
@@ -148,7 +148,7 @@ When the target is a relational data store, the SAP CDC connector automatically
 > [!NOTE]
 > While Microsoft fully supports the SAP CDC connector as a reliable solution for data extraction, before using the SAP CDC connector, consult the relevant SAP Note: *3255746 - Unpermitted usage of ODP Data Replication APIs* to determine if it's relevant for your current SAP licensing. 
 
-[Learn more about SAP CDC connector in Azure Data Factory](https://learn.microsoft.com/azure/data-factory/sap-change-data-capture-introduction-architecture)
+[Learn more about SAP CDC connector in Azure Data Factory](/azure/data-factory/sap-change-data-capture-introduction-architecture)
 
 ### SAP data extraction using SAP Datasphere
 
@@ -181,7 +181,7 @@ A growing ecosystem of trusted partners brings specialized expertise in extracti
 | Simplement | Supported | Supported | [Link](https://www.sap.com/dmc/exp/sap-certified-solutions/#/solutions?search=Simplement&id=s:53c55980-3dbe-46c5-aa65-c97471c083de) |
 | SNP Glue | Supported | Supported | [Link](https://www.sap.com/dmc/exp/sap-certified-solutions/#/solutions?search=SNP%20Glue&id=s:28684d27-ef9c-412a-9370-aefa244e18b9) |
 
-Learn more about [partner solutions supporting Open Mirroring](https://learn.microsoft.com/fabric/database/mirrored-database/open-mirroring-partners-ecosystem).
+Learn more about [partner solutions supporting Open Mirroring](/fabric/database/mirrored-database/open-mirroring-partners-ecosystem).
 
 **Figure 4**: SAP to Microsoft Fabric data connectivity options using partner solutions.
 
@@ -193,7 +193,7 @@ Partner solutions usually support two integration patterns:
 
 Partner solutions apply a set of native Microsoft Fabric APIs to synchronize source datasets with mirrored databases in Fabric. This approach ensures that the target tables remain a consistent and up-to-date copy of the source, as the mirroring engine automatically process and merges changes. 
 
-[Learn more about Open Mirroring in Microsoft Fabric](https://learn.microsoft.com/fabric/database/mirrored-database/open-mirroring).
+[Learn more about Open Mirroring in Microsoft Fabric](/fabric/database/mirrored-database/open-mirroring).
 
 #### Lakehouse
 
@@ -203,6 +203,6 @@ Direct lakehouse integration allows partners to ingest data into Fabric in both 
 
 [**SAP Knowledge Center – data integration**](https://microsofteur-my.sharepoint.com/personal/bajarkow_microsoft_com/Documents/SAP%20knowledge%20center%20overview)
 
-[**Overview and architecture of the SAP CDC capabilities**](https://learn.microsoft.com/azure/data-factory/sap-change-data-capture-introduction-architecture)
+[**Overview and architecture of the SAP CDC capabilities**](/azure/data-factory/sap-change-data-capture-introduction-architecture)
 
 [**What’s new with SAP connectivity in Microsoft Fabric – July 2025**](https://blog.fabric.microsoft.com/blog/whats-new-with-sap-connectivity-in-microsoft-fabric-july-2025)

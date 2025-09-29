@@ -2,7 +2,6 @@
 title: Use Microsoft Entra for cache authentication with Azure Managed Redis
 description: Learn how to use Microsoft Entra with Azure Managed Redis.
 ms.date: 07/23/2025
-ms.service: azure-managed-redis
 ms.topic: conceptual
 ms.custom:
   - references_regions
@@ -25,6 +24,7 @@ In this article, you learn how to use your service principal or managed identity
 ## Prerequisites and limitations
 
 - Microsoft Entra authentication is supported for SSL connections only.
+- Microsoft Entra groups are not supported.
 - Some Redis commands are blocked. For a full list of blocked commands, see [Redis commands not supported in Azure Managed Redis](best-practices-client-libraries.md#blocked-commands).
 
 > [!IMPORTANT]

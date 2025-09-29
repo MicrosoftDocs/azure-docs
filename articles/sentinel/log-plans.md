@@ -1,8 +1,8 @@
 ---
 title: Log retention plans in Microsoft Sentinel
 description: Learn about the different log retention plans that are available in Microsoft Sentinel and how they're meant to be used to ensure maximum coverage at minimum expenditure.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: conceptual
 ms.date: 07/09/2025
 appliesto:

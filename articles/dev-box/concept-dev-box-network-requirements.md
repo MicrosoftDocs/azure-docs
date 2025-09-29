@@ -180,6 +180,8 @@ Some enterprise customers use traffic interception, TLS decryption, deep packet 
 
 Traffic interception technologies can exacerbate latency issues. You can use a [Remote Desktop Protocol (RDP) Shortpath](/windows-365/enterprise/rdp-shortpath-public-networks) to help minimize latency issues.
 
+For more information on configuring UDP ports for RDP Shortpath, see [Configure RDP Shortpath](/azure/virtual-desktop/rdp-shortpath?tabs=public-networks#session-host-virtual-network).
+
 ## Troubleshooting 
 
 This section covers some common connection and network issues.

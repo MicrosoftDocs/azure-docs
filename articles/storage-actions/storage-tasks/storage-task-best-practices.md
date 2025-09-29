@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: azure-storage-actions
 ms.topic: conceptual
-ms.date: 05/05/2025
+ms.date: 09/15/2025
 ms.author: normesta
 
 ---
@@ -18,7 +18,7 @@ This article provides you with best practice guidelines for using storage tasks.
 
 ## Composition
 
-Design conditions that can apply to multiple storage accounts. Consider enabling blob soft delete before using delete operations in your conditions, and carefully review the impact of condition groupings. This section describes each of these recommendations. 
+Design conditions that can apply to multiple storage accounts. Consider enabling blob soft delete before using delete operations in your conditions, and carefully review the impact of condition groupings. This section describes each of these recommendations.
 
 ### Define a single storage task condition that can be applied to multiple storage accounts simultaneously
 
@@ -34,6 +34,10 @@ After all these task assignments are enabled, the storage task execution will op
 ### Consider enabling blob soft delete in a storage account before using the delete operation
 
 For enhanced data protection, Microsoft recommends enabling blob soft delete on your storage account. Blob soft delete provides an extra layer of retention and peace of mind by allowing you to recover blobs that are accidentally deleted. By enabling blob soft delete, you can undelete blobs within the retention period, minimizing the risk of data loss due to inadvertent deletions. If blobs are accidentally deleted on a soft-deleted storage account, an undelete operation in a storage task can be used to recover the blob.
+
+### Understand the impact of assigning a storage task to an account that has a lifecycle management policy enabled
+
+A delete operation might fail if a lifecycle management policy attempts to delete the same blob. Therefore, if a storage task contains a delete operation and the task is assigned to an account that has an active lifecycle management policy that defines a delete action, you might experience high failure rates if they target the same set of blobs.
 
 ### Understand the impact of storage task condition groupings
 

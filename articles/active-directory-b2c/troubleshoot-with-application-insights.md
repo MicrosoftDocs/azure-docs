@@ -10,6 +10,7 @@ ms.date: 04/17/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 #Customer intent: As a developer working with Azure Active Directory B2C, I want to collect logs from my custom policies using Application Insights, so that I can diagnose and troubleshoot any problems that may occur.
 

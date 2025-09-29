@@ -19,7 +19,7 @@ Azure Container Apps provides access to GPUs on-demand without you having to man
 Serverless GPUs are only supported for Consumption workload profiles. The feature isn't supported for Consumption-only environments.
 
 > [!NOTE]
-> Access to GPUs is only available after you request GPU quotas. You can submit your GPU quota request via a [customer support case](/azure/azure-portal/supportability/how-to-create-azure-support-request).
+> Access to GPUs is only available after you request GPU quotas. You can submit your GPU quota request via a [customer support case](./quota-requests.md#manual-requests).
 
 ## Benefits
 
@@ -67,13 +67,6 @@ Keep in mind the following items as you use serverless GPUs:
 
 - **IP addresses**: Consumption GPUs use one IP address per replica when you set up integration with your own virtual network.
 
-## Request serverless GPU quota
-
-Access to this feature is only available after you have serverless GPU quota. You can submit your GPU quota request via a [customer support case](/azure/azure-portal/supportability/how-to-create-azure-support-request). When opening a support case for a GPU quota request, select issue type "Technical."
-
-> [!NOTE]
-> Customers with enterprise agreements and pay-as-you-go customers have A100 and T4 quota enabled by default.
-
 ## Supported regions
 
 Serverless GPUs are available in the following regions:
@@ -101,6 +94,39 @@ In the *Container* tab of the create process, set the following settings:
 ## Manage serverless GPU workload profile
 
 Serverless GPUs are run on consumption GPU workload profiles. You manage a consumption GPU workload profile in the same manner as any other workload profile. You can manage your workload profile using the [CLI](workload-profiles-manage-cli.md) or the [Azure portal](workload-profiles-manage-portal.md).
+
+## Request serverless GPU quota
+
+> [!NOTE]
+> Customers with enterprise agreements and pay-as-you-go customers have A100 and T4 quota enabled by default.
+
+Access to this feature is only available after you have serverless GPU quota. You can submit your GPU quota request via a [customer support case](./quota-requests.md#manual-requests). When opening a support case for a GPU quota request, please select the following:
+
+1. Open [New support request](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV4Blade/callerName/Quota/summary/Quota%20request) form in the Azure portal.
+
+1. Enter the following values into the form:
+
+    | Property | Value |
+    |---|---|
+    | Issue type | Select **Service and subscription limits (quotas)** |
+    | Subscription | Select your subscription.  |
+    | Quota type | Select **Container Apps**. |
+
+1. Select **Next**.
+
+1. In the *Additional details* window, select **Enter details** to open the request details window.
+
+    :::image type="content" source="media/quotas/azure-container-apps-qms-support-details.png" alt-text="Screenshot of Azure Quota Management System details window.":::
+
+1. For **Quota type**, select either **Managed Environment Consumption NCA100 Gpus** or **Managed Environment Consumption T4 Gpus**. Enter your additional values.
+
+1. Select **Save and continue**.
+
+1. Fill out the rest the relevant details in the *Additional details* window.
+
+1. Select **Next**.
+
+1. Select **Create**.
 
 ## Improve GPU cold start
 
@@ -146,7 +172,7 @@ For any model not in this list, you need to:
 
 1. Download the github template for the model image from the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps/tree/main/templates/azml-app).
 
-1. Modify the score.py file to match your model type. The scoring script (named *score.py*) defines how you interact with the model. The following example shows [how to use a custom score.py file](/azure/machine-learning/how-to-deploy-online-endpoints?view=azureml-api-2&tabs=cli).
+1. Modify the score.py file to match your model type. The scoring script (named *score.py*) defines how you interact with the model. The following example shows [how to use a custom score.py file](/azure/machine-learning/how-to-deploy-online-endpoints).
 
 1. Build the image and deploy it to a container registry.
 

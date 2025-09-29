@@ -7,6 +7,7 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 06/26/2025
 ms.author: danlep
+ms.custom: sfi-image-blocked
 ---
 # Export API definition to Postman for API testing, monitoring, and development
 
