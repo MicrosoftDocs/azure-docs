@@ -169,64 +169,7 @@ Organizations implementing this approach should start with a comprehensive inven
 
 For environments that cannot utilize Azure DNS Security Policy or require on-premises DNS control, similar deny-by-default security can be implemented using Windows DNS Server with DNS Policy features. This approach provides comparable protection against DNS-based data exfiltration while maintaining compatibility with existing Windows infrastructure.
 
-Windows DNS Server (Windows Server 2016 and later) supports DNS Policy functionality that enables organizations to implement sophisticated DNS filtering rules. The deny-by-default model can be achieved through a combination of DNS Policy rules and zone configurations.
-
-**Prerequisites and setup**
-
-- Windows Server 2016 or later with DNS Server role installed
-- DNS Policy feature enabled
-- PowerShell administrative access to the DNS server
-- Comprehensive inventory of required domains for business operations
-
-**Implementation approach**
-
-**Step 1: Configure default deny behavior**
-Windows DNS Server implements deny-by-default through DNS Policy rules that block all queries except those explicitly allowed. Create a baseline DNS Policy that blocks all external DNS resolution:
-
-```powershell
-# Create a default deny policy for all external queries
-Add-DnsServerQueryResolutionPolicy -Name "DefaultDeny" -Action DENY -ProcessingOrder 65000 -ApplyOnRecursion
-```
-
-This policy serves as the catch-all rule that blocks any DNS query not matched by higher-priority allow rules.
-
-**Step 2: Create allow-list policies**
-Configure specific DNS policies for approved domains using higher processing orders (lower numbers = higher priority):
-
-```powershell
-# Allow Azure services
-Add-DnsServerQueryResolutionPolicy -Name "AllowAzureServices" -Action ALLOW -FQDN "EQ,*.azure.com" -ProcessingOrder 500
-Add-DnsServerQueryResolutionPolicy -Name "AllowMicrosoft" -Action ALLOW -FQDN "EQ,*.microsoft.com" -ProcessingOrder 501
-
-# Allow business domains
-Add-DnsServerQueryResolutionPolicy -Name "AllowCorporateDomains" -Action ALLOW -FQDN "EQ,*.company.com" -ProcessingOrder 600
-Add-DnsServerQueryResolutionPolicy -Name "AllowPartner1" -Action ALLOW -FQDN "EQ,*.partner1.com" -ProcessingOrder 601
-
-# Allow essential services
-Add-DnsServerQueryResolutionPolicy -Name "AllowWindowsUpdate" -Action ALLOW -FQDN "EQ,*.windowsupdate.com" -ProcessingOrder 700
-Add-DnsServerQueryResolutionPolicy -Name "AllowCertificateServices" -Action ALLOW -FQDN "EQ,*.verisign.com" -ProcessingOrder 701
-```
-
-**Step 3: Configure conditional forwarding for approved domains**
-For domains that require specific resolution paths, configure conditional forwarders:
-
-```powershell
-# Configure conditional forwarding for corporate domains
-Add-DnsServerConditionalForwarderZone -Name "company.com" -MasterServers 192.168.1.10,192.168.1.11
-Add-DnsServerConditionalForwarderZone -Name "partner1.com" -MasterServers 10.0.1.5,10.0.1.6
-```
-
-**Step 4: Implement DNS logging and monitoring**
-Enable comprehensive DNS logging to monitor blocked queries and identify potential threats:
-
-```powershell
-# Enable DNS audit logging
-Set-DnsServerDiagnostics -Answers $true -Questions $true -ReceivePackets $true -SendPackets $true
-Set-DnsServerDiagnostics -SaveLogsAsTextFile $true -LogFilePath "C:\Windows\System32\dns\dns.log"
-
-# Configure Windows Event Log for DNS Policy events
-wevtutil sl "Microsoft-Windows-DNSServer/Analytical" /e:true
-```
+Windows DNS Server (Windows Server 2016 and later) supports DNS Policy functionality that enables organizations to implement sophisticated DNS filtering rules. The deny-by-default model can be achieved through a combination of [DNS Policy rules](/powershell/module/dnsserver/add-dnsserverqueryresolutionpolicy) and zone configurations.
 
 ## Managed resource groups in Azure Virtual Enclaves
 
