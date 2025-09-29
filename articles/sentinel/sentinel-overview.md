@@ -24,7 +24,7 @@ This article provides an overview of Microsoft Sentinel and its core components.
 
 This diagram illustrates the Microsoft Sentinel AI-first, end-to-end SIEM and security platform, highlighting its core components and its integration with [Microsoft Security Copilot](/copilot/security/microsoft-security-copilot).
 
-:::image type="content" source="media/sentinel-platform-overview/microsoft-sentinel-overview.png" alt-text="A diagram that depicts the Microsoft Sentinel platform overview" link="media/sentinel-platform-overview/microsoft-sentinel-overview.png" lightbox="media/sentinel-platform-overview/microsoft-sentinel-overview.png":::
+:::image type="content" source="media/sentinel-overview/microsoft-sentinel-overview.png" alt-text="A diagram that depicts the Microsoft Sentinel AI-first, end-to-end SIEM and security platform." link="media/sentinel-overview/microsoft-sentinel-overview.png" lightbox="media/sentinel-overview/microsoft-sentinel-overview.png":::
 
 ## Microsoft Sentinel SIEM
 
@@ -100,7 +100,7 @@ Microsoft Sentinel MCP server's key capabilities include:
 - Interactive data exploration using natural language to correlate and retrieve security data across tables, improving threat detection and investigation.
 
 
-For more information, see [ What is Sentinel’s support for Model Context Protocol (MCP)?](../sentinel/datalake/sentinel-mcp-overview.md).
+For more information, see [What is Microsoft Sentinel’s support for Model Context Protocol (MCP)?](../sentinel/datalake/sentinel-mcp-overview.md).
 
 ## Microsoft Sentinel developer experience
 

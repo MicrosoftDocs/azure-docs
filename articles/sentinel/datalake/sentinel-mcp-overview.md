@@ -11,7 +11,7 @@ ms.service: microsoft-sentinel
 #customer intent: As a security analyst, I want to understand
 ---
 
-# What is Sentinel’s support for Model Context Protocol (MCP)? 
+# What is Microsoft Sentinel’s support for Model Context Protocol (MCP)? 
 
 Microsoft Sentinel, our security platform, is introducing support for Model Context Protocol (MCP) comprising multiple scenario-focused collections of security tools through a unified server interface allowing customers to interactively query security data in natural language and build effective security agents that can perform complex automation. Our collection of security tools help security teams bring AI into their daily security operations to assist with common tasks like data exploration, threat intelligence and building agentic automation. 
 
