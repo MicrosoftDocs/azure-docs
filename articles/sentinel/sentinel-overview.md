@@ -76,13 +76,13 @@ For more information, see [What is Microsoft Sentinel data lake?](../sentinel/da
 
 ### Microsoft Sentinel graph
 
-Microsoft Sentinel graph provides unified graph analytics capability by modeling and analyzing complex relationships across assets, identities, activities, and threat intelligence. It enables defenders and AI agents to reason over interconnected data, offering deeper insights and faster response to cyber threats.
+Microsoft Sentinel graph provides unified graph analytics capability by modeling and analyzing complex relationships across assets, identities, activities, and threat intelligence. It enables Microsoft Defenders and AI agents to reason over interconnected data, offering deeper insights and faster response to cyber threats.
 
 Microsoft Sentinel graph's key capabilities include:
 
 - Unified graph-based analytics that power built-in experiences across security, compliance, identity, and the Microsoft Security ecosystem.
 - Real-world relationship modeling that uses nodes and edges to represent users, devices, cloud resources, data flows, and attacker actions.
-- Enhanced threat reasoning to help defenders answer complex questions, such as which vulnerable paths an attacker could take from a compromised entity to a critical asset.
+- Enhanced threat reasoning to help Defenders answer complex questions, such as which vulnerable paths an attacker could take from a compromised entity to a critical asset.
 - End-to-end defense with support for both pre-breach and post-breach scenarios, using interconnected graphs across Microsoft Defender and Purview.
 
 For more information, see [What is Microsoft Sentinel graph?](../sentinel/datalake/sentinel-graph-overview.md).
