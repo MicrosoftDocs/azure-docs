@@ -170,16 +170,16 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 
           $queryString = "set hive.execution.engine=tez;" +
             "DROP TABLE log4jLogs;" +
-            "CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ' STORED AS TEXTFILE LOCATION '/example/data/';" +
+            "CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)                 ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ' STORED AS TEXTFILE LOCATION '/example/data/';" +
             "SELECT * FROM log4jLogs WHERE t4 = '[ERROR]';"
           Invoke-AzHDInsightHiveJob `
             -StatusFolder "statusout" `
             -Query $queryString
 
      ```
-      The output looks like the following text:
+1. The output looks like the following text:
 
-      Output
+   Output
      ```
         2012-02-03    18:35:34    SampleClass0    [ERROR]    incorrect    id
         2012-02-03    18:55:54    SampleClass1    [ERROR]    incorrect    id
@@ -190,7 +190,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 > [!NOTE]  
 >For longer HiveQL queries, you can use the Azure PowerShell **Here-Strings** cmdlet or HiveQL script files. The following snippet shows how to use the `Invoke-Hive` cmdlet to run a HiveQL script file. The HiveQL script file must be uploaded to wasbs://.`Invoke-AzHDInsightHiveJob -File "wasbs://<ContainerName>@<StorageAccountName>/<Path>/query.hql"` For more information about **Here-Strings**, see [**HERE-STRINGS**](/powershell/module/microsoft.powershell.core/about/about_quoting_rules#here-strings).
 
-**Troubleshooting**
+### Troubleshooting
 
 If no information is returned when the job completes, view the error logs. To view error information for this job, add the following to the end of the `hivejob.ps1` file, save it, and then run it again.
 
