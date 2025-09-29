@@ -206,8 +206,7 @@ In the AppCAT CLI install path, you can configure the `.appcat-ignore` file to e
       --output <path-to-output> \
       --target azure-aks,azure-container-apps,azure-appservice \
       --capability containerization \
-      --os windows \
-      --overwrite
+      --os windows
   ```
 
 This command analyzes the source code for rules matching: `target = (azure-aks || azure-container-apps || azure-appservice) && capability = containerization && os = windows`.
