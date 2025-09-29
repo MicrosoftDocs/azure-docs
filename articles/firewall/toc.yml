@@ -248,7 +248,7 @@ items:
     href: /rest/api/firewall
   - name: Azure Resource Manager
     href: ../azure-resource-manager/management/overview.md
-  - name: Monitoring dataWinRT reference
+  - name: Monitoring Azure Firewall reference
     href: monitor-firewall-reference.md
 - name: Resources
   items:
