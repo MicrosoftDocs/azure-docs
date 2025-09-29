@@ -90,7 +90,7 @@ Design a revenue model based on the outcome of the preceding steps. You can work
 
 | Dimension | Description |
 | --------- | ----------- |
-| **Quality of service** | Put constraints on the service level you are offering by setting a cap on API usage. Define a quota for the API calls that can be made over a period of time (for example, 50,000 calls per month) and then block calls once that quota is reached. <br> You can also set a rate limit, throttling the number of calls that can be made in a short period (for example, 100 calls per second). <br> Caps and rate limits are applied in conjunction, preventing users from consuming their monthly quota in a short intensive burst of API calls. |
+| **Quality of service** | Put constraints on the service level you're offering by setting a cap on API usage. Define a quota for the API calls that can be made over a period of time (for example, 50,000 calls per month) and then block calls once that quota is reached. <br> You can also set a rate limit, throttling the number of calls that can be made in a short period (for example, 100 calls per second). <br> Caps and rate limits are applied in conjunction, preventing users from consuming their monthly quota in a short intensive burst of API calls. |
 | **Price** | Define the unit price to be paid for each API call. |
 
 Maximize the lifetime value (LTV) you generate from each customer by designing a revenue model that supports your customer at each stage of the customer journey.
