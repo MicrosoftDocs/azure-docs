@@ -112,6 +112,7 @@ The deny-by-default approach is implemented using a two-tier DNS rule structure 
 
 **Step 1: Create the default deny rule**
 Create a DNS Domain List containing only the root domain `.` (dot). This wildcard domain matches all possible DNS queries. Associate this domain list to a DNS traffic rule configured with:
+
 - **Priority**: 65000 (lowest priority)
 - **Action**: Block
 - **Domain List**: Root domain (`.`)
@@ -120,35 +121,40 @@ This rule serves as the catch-all that blocks any DNS query not explicitly allow
 
 **Step 2: Create allow-list rules**
 Create separate DNS Domain Lists containing specific domains that are required for legitimate business operations. These might include:
+
 - Essential Azure services (e.g., `*.azure.com`, `*.microsoft.com`)
 - Corporate domains and trusted third-party services
 - Operating system update services
 - Certificate authority domains
 
 Associate these allow-lists to DNS traffic rules configured with:
+
 - **Priority**: 500-1000 (higher priority than the default deny)
 - **Action**: Allow
 - **Domain Lists**: Specific approved domains
 
 **Priority-based rule processing**
 Azure DNS Security Policy processes rules in priority order (lower numbers = higher priority). When a DNS query is made:
+
 1. The system first evaluates high-priority allow rules (priority 500-1000)
 2. If the domain matches an allow-list, the query is permitted
 3. If no allow rules match, the query falls through to the default deny rule (priority 65000) and is blocked
 
 This approach provides several security advantages:
+
 - **Zero trust model**: No DNS queries are permitted unless explicitly authorized
 - **Granular control**: Organizations can precisely control which domains are accessible
 - **Audit trail**: All blocked queries are logged, providing visibility into potential threats
 - **Incremental updates**: New approved domains can be added to allow-lists without modifying the default deny rule
 
 **Example implementation:**
+
 ```
 Priority 500: Allow rule for Azure services
 - Domain List: azure-services (contains azure.com., microsoft.com.)
 - Action: Allow
 
-Priority 600: Allow rule for business applications  
+Priority 600: Allow rule for business applications
 - Domain List: business-domains (contains company.com., partner1.com., partner2.com.)
 - Action: Allow
 
@@ -166,6 +172,7 @@ For environments that cannot utilize Azure DNS Security Policy or require on-pre
 Windows DNS Server (Windows Server 2016 and later) supports DNS Policy functionality that enables organizations to implement sophisticated DNS filtering rules. The deny-by-default model can be achieved through a combination of DNS Policy rules and zone configurations.
 
 **Prerequisites and setup**
+
 - Windows Server 2016 or later with DNS Server role installed
 - DNS Policy feature enabled
 - PowerShell administrative access to the DNS server
