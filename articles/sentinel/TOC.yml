@@ -25,7 +25,7 @@
     - name: Plan roles and permissions
       href: roles.md
       displayName: data lake
-    - name: Plan interactive and long-term data retention
+    - name: Plan data retention
       href: log-plans.md
     - name: Plan costs
       href: billing.md
@@ -577,17 +577,29 @@
       displayName: data lake
     - name: Microsoft Sentinel graph overview
       href: datalake/sentinel-graph-overview.md
-    - name: Microsoft Sentinel MCP overview
-      href: datalake/sentinel-mcp-overview.md
     - name: Compare KQL jobs, summary rules, and search jobs
       href: datalake/kql-jobs-summary-rules-search-jobs.md
       displayName: data lake
-    - name: MCP server
-      href: datalake/sentinel-mcp-server.md
-      displayName: data lake
-    - name: Microsoft asset data in the data lake (Preview)
-      href: datalake/enable-data-connectors.md
-      displayName: data lake
+    - name: Microsoft Sentinel MCP Server
+      items:
+        - name: Overview
+          href: datalake/sentinel-mcp-overview.md
+        - name: Get started with Microsoft Sentinel MCP
+          href: datalake/sentinel-mcp-get-started.md
+        - name: Tool collection in Microsoft Sentinel MCP
+          items:
+          - name: Overview
+            href: datalake/sentinel-mcp-tools-overview.md
+          - name: Data exploration
+            href: datalake/sentinel-mcp-data-exploration-tool.md
+          - name: Agent creation
+            href: datalake/sentinel-mcp-agent-creation-tool.md
+        - name: Troubleshooting
+          href: datalake/troubleshoot-sentinel-mcp.md
+        - name: Billing, limits, and availability
+          href: datalake/sentinel-mcp-billing.md
+        - name: Responsible AI FAQs
+          href: datalake/sentinel-mcp-responsible-ai-faq.md
     - name: KQL for data lake exploration
       items:
         - name: Overview
