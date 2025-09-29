@@ -6,7 +6,7 @@ ms.reviewer: drjones
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/16/2025
+ms.date: 09/29/2025
 ms.author: drjones
 ---
 
@@ -73,7 +73,7 @@ To edit credit card details such as the expiration date or address:
 
 1. Update the credit card details and select **Next**.
 
-![Screenshot of the Edit payment method side panel showing credit card detail fields.](media/account-admin-tasks/Edit-payment-method-panel.png)
+![Screenshot of the Edit payment method side panel showing credit card detail fields.](media/account-admin-tasks/edit-payment-method-panel.png)
 
 ### Remove a credit card from the account
 
