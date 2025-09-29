@@ -158,3 +158,4 @@ articles/planetary-computer/geocatalog_configs/umbra-sar-ships/stac.json
 articles/planetary-computer/geocatalog_configs/umbra-sar-ships/tile-settings.json
 articles/planetary-computer/helper-content/collection-config-scraper.py
 articles/planetary-computer/helper-content/generate_collection_docs.py
+.git.bak
