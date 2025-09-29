@@ -611,9 +611,10 @@ Finally, to identify the AKS cluster version that you're using, follow the linke
 ### Add-on versions available per each AKS cluster version
 
 #### 1.14.1
-Security improvements.
 
-Patch CVE-2025-47907.
+Patch [CVE-2025-47907](https://nvd.nist.gov/vuln/detail/CVE-2025-47907)
+
+Security improvements.
 - Released Sept 2025
 - Kubernetes 1.27+
 - Gatekeeper 3.20.0
