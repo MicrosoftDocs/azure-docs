@@ -75,12 +75,14 @@ A successful request returns a JSON object containing:
 - access_token: The Bearer token for authentication
 
 ```powershell
+
 {
 	"token_type": "Bearer",
 	"expires_in": 3599,
 	"ext_expires_in": 3599,
 	"access_token": "eyJ0eXAiOiJKV1iLCJub25jZSI6IkhaZ3lqQ2MxSkxzaXRSbmxzT1FTSHV0bEtBeXhhMU1JTzdyWmluLWF6LUEiLCJhbGciOiJSUzI1NiIsIng1dCI6ImltaTBZMnowZFlLeEJ0dEFxS19UdDVoWUJUayIsImtpZCI6ImltaTBZMnowZFlLeEJ0dEFxS19UdDVoWUJUayJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC8wY2QzZGY5OS1lMDJmLTRmZDgtYTdkOC0zYjE5ZWVhZGFiYTUvIiwiaWF0IjoxNzQxMjgzMzUzLCJuYmYiOjE3NDEyODMzNTMsImV4cCI6MTc0MTI4NzI1MywiYWlvIjoiazJSZ1lIRDF1U1R4NGx2bjdmMTdGcXlkZUdwWlBnQT0iLCJhcHBfZGlzcGxheW5hbWUiOiJBenVyZSBIREkgTVNGVCBDbGllbnQiLCJhcHBpZCI6IjAzZDNiNTg5LWFjM2MtNDE4NC1iY2EyLTQ3ZWRiN2Q2ZmVjNiIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzBjZDNkZjk5LWUwMmYtNGZkOC1hN2Q4LTNiMTllZWFkYWJhNS8iLCJpZHR5cCI6ImFwcCIsIm9pZCI6ImQ0NDA3YjQ4LWZmZTctNDJjNS04ZDIwLTdiMTTgwNWE4NCIsInJoIjoiMS5BUnNBbWRfVERDX2cyRS1uMkRzWjdxMnJwUU1BQUFBQUFBQUF3QUFBQUFBQUFBRFlBQUFiQUEuIiwic3ViIjoiZDQ0MDdiNDgtZmZlNy00MmM1LThkMjAtN2IxMzU5ODA1YTg0IiwidGVuYW50X3JlZ2lvbl9zY29wZSI6Ik5BIiwidGlkIjoiMGNkM2RmOTktZTAyZi00ZmQ4LWE3ZDgtM2IxOWVlYWRhYmE1IiwidXRpIjoiLVA1T3JPWGpJVWk0VE12dElTYWRBQSIsInZlciI6IjEuMCIsIndpZHMiOlsiMDk5N2ExZDAtMGQxZC00YWNiLWI0MDgtZDVjYTczMTIxZTkwIl0sInhtc19pZHJlbCI6IjI4IDciLCJ4bXNfdGNkdCI6MTQ4NjM3NDQ2MH0.a9z3ZYyMTRQCoY7dzPYE55DmpNAxqo4a4rrt80A-RpK0NDDAftNkc2hafbLl6gdwEzqRyKc1HExUggFUpKxaLUXc62-u-9emxC12EsNlQYd-ZzG_GRDNoTYrro4RDRL-_gDo2lgBNOi5ZZ4a9UI_pYVvV1b0SBRpgd5bmIV4kI2tDfAVZ1-HMpGscuVkQIy45Tqt4c3gXPoMEZ3UYikbCpErbTNfUFqngE3sARXRV-rB1OMu6ZbN32ijjL-rD8593-IfSpmVDUfE5CMGc-7FuWGOYyUUJmp5AQ1yFpJzqaDBEdPT8kKync1o7eplWXCsPWOnVvAKNf7BuWCRRedBWg"
 }
+
 ```
 
 The following steps demonstrate how to use these cmdlets to run a job in your Entra enabled HDInsight cluster.
@@ -179,21 +181,21 @@ The following steps demonstrate how to use these cmdlets to run a job in your En
     
     ```
     
-    This output indicates that the job completed successfully.
-    
-    >[!Note}
-    >If the **ExitCode** is a value other than 0, see [**Troubleshooting**](../hadoop/apache-hadoop-use-mapreduce-powershell.md#troubleshooting).
-    >This example also stores the downloaded files to an **output.txt** file in the directory that you run the script from.
+   This output indicates that the job completed successfully.
+
+>[!Note}
+>If the **ExitCode** is a value other than 0, see [**Troubleshooting**](../hadoop/apache-hadoop-use-mapreduce-powershell.md#troubleshooting).
+>This example also stores the downloaded files to an **output.txt** file in the directory that you run the script from.
     
 
-**View output**
+## View output
 
 To see the words and counts produced by the job, open the **output.txt** file in a text editor.
 
 > [!NOTE]
 > The output files of a MapReduce job are immutable. So, if you rerun this sample, you need to change the name of the output file. 
 
-**Troubleshooting**
+## Troubleshooting
 
 If no information is returned when the job completes, view errors for the job. To view error information for this job, add the following command to the end of the **mapreducejob.ps1** file. Then save the file and rerun the script.
 
