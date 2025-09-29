@@ -867,7 +867,7 @@
       items:
       - name: Packaging and publishing a Sentinel platform solution
         href: package-platform-solution.md
-      - name: Sentinel SIEM solution lifecyle post publish
+      - name: Sentinel SIEM solution lifecycle post publish
         href: publish-sentinel-solutions.md
       - name: Solution lifecycle post publish
         href: sentinel-solutions-post-publish-tracking.md
@@ -971,7 +971,7 @@
           href: api-dcr-reference.md
         - name: Microsoft Purview Information Protection reference
           href: microsoft-purview-record-types-activities.md
-        - name: Microsoft 365 Defender connector data type support
+        - name: Microsoft Defender XDR connector data type support
           href: microsoft-365-defender-cloud-support.md
     - name: Detection and analysis references
       items:
