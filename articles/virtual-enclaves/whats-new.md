@@ -4,7 +4,7 @@ description: Learn what's new with Azure Virtual Enclaves such as the latest rel
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: concept-article
-ms.date: 04/08/2025
+ms.date: 9/30/2025
 ---
 
 # What's new in Azure Virtual Enclaves?

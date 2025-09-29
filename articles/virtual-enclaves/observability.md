@@ -4,7 +4,7 @@ description: Understand how observability works using Log Analytics and storage 
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
-ms.date: 06/19/2025
+ms.date: 9/30/2025
 ms.custom: references_region
 ---
 

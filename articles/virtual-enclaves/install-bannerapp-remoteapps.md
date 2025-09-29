@@ -5,7 +5,7 @@ description: Install BannerApp for RemoteApps.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: overview
-ms.date: 04/08/2025
+ms.date: 9/30/2025
 ---
 
 # Install BannerApp for RemoteApps

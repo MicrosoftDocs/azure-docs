@@ -4,7 +4,7 @@ description: Learn how to use built-in roles in Azure Virtual Enclaves to isolat
 author: jadean-msft
 ms.author: jadean
 ms.topic: how-to
-ms.date: 07/24/2025
+ms.date: 9/30/2025
 ---
 
 # Role-based access control (RBAC) in Azure Virtual Enclaves

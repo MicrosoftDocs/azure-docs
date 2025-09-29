@@ -4,7 +4,7 @@ description: Description of Azure Virtual Enclaves pricing.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: concept-article
-ms.date: 04/08/2025
+ms.date: 9/30/2025
 ---
 
 # Azure Virtual Enclaves (AVE) pricing

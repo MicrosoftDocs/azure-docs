@@ -4,7 +4,7 @@ description: Azure Kubernetes Service Initiative.
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
-ms.date: 04/08/2025
+ms.date: 9/30/2025
 ---
 
 # Azure Kubernetes Service (AKS) guardrails initiative

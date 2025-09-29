@@ -4,7 +4,7 @@ description: Create a workload in Azure
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
-ms.date: 04/08/2025
+ms.date: 9/30/2025
 ---
 
 # Create a workload in the Azure portal

@@ -5,7 +5,7 @@ description: Just-in-time Access.
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
-ms.date: 04/08/2025
+ms.date: 9/30/2025
 ---
 
 # Configuring just-in-time access in Azure Virtual Enclaves using Privileged Identity Management

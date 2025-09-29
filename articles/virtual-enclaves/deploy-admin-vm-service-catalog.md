@@ -4,7 +4,7 @@ description: Deploy Admin Virtual Machine from the service catalog into a worklo
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: how-to
-ms.date: 04/08/2025
+ms.date: 9/30/2025
 ---
 
 # Deploy Admin Virtual Machine (Admin VM) from the service catalog into a workload

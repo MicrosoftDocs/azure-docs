@@ -5,7 +5,7 @@ description: Setup Customer Managed Key (CMK) Encryption within an Enclave.
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
-ms.date: 04/08/2025
+ms.date: 9/30/2025
 ---
 
 # Set-up customer-managed-key (CMK) encryption within an enclave

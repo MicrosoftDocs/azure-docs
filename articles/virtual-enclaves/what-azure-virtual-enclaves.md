@@ -4,12 +4,12 @@ description: What is Azure Virtual Enclaves?
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
-ms.date: 04/03/2025
+ms.date: 9/30/2025
 ---
 
 # What is Azure Virtual Enclaves?
 
-Azure Virtual Enclaves (AVE) accelerates and streamlines the deployment and management of secure, isolated, and compliant cloud environments for the most sensitive workloads. AVE is design for commercial and air-gapped environments.
+Azure Virtual Enclaves (AVE) accelerates and streamlines the deployment and management of secure, isolated, and compliant cloud environments for the most sensitive workloads. AVE is designed for commercial and air-gapped environments.
 
 > [!IMPORTANT]
 > 

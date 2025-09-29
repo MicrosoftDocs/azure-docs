@@ -4,7 +4,7 @@ description: Create enclave or community endpoint resources in Azure Virtual Enc
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: tutorial
-ms.date: 04/08/2025
+ms.date: 9/30/2025
 ---
 
 # Tutorial 5: Create enclave or community endpoint resources in Azure Virtual Enclaves

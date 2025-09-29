@@ -5,7 +5,7 @@ description: Deploy Community and Enclaves from a quickstart template.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: how-to
-ms.date: 04/08/2025
+ms.date: 9/30/2025
 ---
 
 # Quickstart: Deploy an Azure Virtual Enclaves (AVE) Community with Enclaves using an ARM template
