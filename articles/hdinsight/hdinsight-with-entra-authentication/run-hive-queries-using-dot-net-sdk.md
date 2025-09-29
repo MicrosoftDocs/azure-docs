@@ -259,5 +259,5 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 
 The output of the application should be similar to:
 
- :::image type="content" source="./media/run-hive-queries-using-dot-net-sdk.md/output.png" alt-text="Screenshot of output showing the output of the program." border="true" lightbox="./media/run-hive-queries-using-dot-net-sdk.md/output.png":::
+ :::image type="content" source="./media/run-hive-queries-using-dot-net-sdk/output.png" alt-text="Screenshot of output showing the output of the program." border="true" lightbox="./media/run-hive-queries-using-dot-net-sdk/output.png":::
 
