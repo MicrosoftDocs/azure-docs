@@ -6,7 +6,7 @@ description: Learn how to manage developer accounts using groups in Azure API Ma
 author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 09/03/2024
+ms.date: 09/29/2025
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -19,7 +19,7 @@ In API Management, groups are used to manage the visibility of products to devel
 
 API Management has the following immutable groups:
 
-- **Administrators** - Built-in group containing only the administrator email account provided at the time of service creation. The system manages the membership of this group, so users can't be added to it or removed from it. The primary purpose of the administrator account is to access the developer portal's administrative interface to [customize and publish](api-management-howto-developer-portal-customize.md) the portal content. Any user that has [Azure RBAC permissions](/azure/api-management/developer-portal-faq#what-permissions-do-i-need-to-edit-the-developer-portal) to customize the developer portal can authenticate as the administrator to customize the portal.
+- **Administrators** - Built-in group containing only the administrator email account provided at the time of service creation. The system manages the membership of this group, so users can't be added to it or removed from it. The primary purpose of the administrator account is to access the developer portal's administrative interface to [customize and publish](api-management-howto-developer-portal-customize.md) the portal content. Any user that has [Azure role-based access control (RBAC) permissions](/azure/api-management/developer-portal-faq#what-permissions-do-i-need-to-edit-the-developer-portal) to customize the developer portal can authenticate as the administrator to customize the portal.
 
     > [!NOTE]
     > At any time, a service owner can update the administrator [email settings](api-management-howto-configure-notifications.md#configure-email-settings) that are used in notifications from your API Management instance.
