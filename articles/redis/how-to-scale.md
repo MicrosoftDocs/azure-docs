@@ -186,7 +186,7 @@ For more information on how Azure Managed Redis handles sharding, see [Sharding 
 
 ### Are there scaling limitations with geo-replication?
 
-Scaling geo-replicated caches is in Public Preview.  With [active geo-replication](how-to-active-geo-replication.md) configured, you can't mix and match cache sizes in a geo-replication group. As a result, scaling the caches in a geo-replication group requires a few more steps. See [Scaling instances in a geo-replication group](how-to-active-geo-replication.md#scaling-instances-in-a-geo-replication-group) for instructions.
+Scaling geo-replicated caches is in Public Preview.  With [active geo-replication](how-to-active-geo-replication.md) configured, you can't mix and match cache sizes in a geo-replication group. As a result, scaling the caches in a geo-replication group requires a few more steps. See [Scaling instances in a geo-replication group](how-to-active-geo-replication.md#scaling-instances-in-a-geo-replication-group) for instructions. Scaling down to a smaller memory size or smaller shard count is not supported for geo-replicated caches. See [How many shards does each Azure Managed Redis SKU use](how-to-scale.md#how-many-shards-does-each-azure-managed-redis-sku-use) to find out shards in your cluster.
 
 ### How long does scaling take?
 
