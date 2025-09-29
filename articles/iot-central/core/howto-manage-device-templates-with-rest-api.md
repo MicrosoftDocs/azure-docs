@@ -3,7 +3,7 @@ title: Add device templates in Azure IoT Central with the REST API
 description: How to use the IoT Central REST API to add, update, delete, and manage device templates in an application
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/12/2024
+ms.date: 08/06/2025
 ms.topic: how-to
 ms.service: azure-iot-central
 services: iot-central
@@ -182,7 +182,7 @@ The request body has some required fields:
 * `capabilityModel` : Every device template has a capability model. A relationship is established between each module capability model and a device model. A capability model implements one or more module interfaces.
 
 > [!TIP]
-> The device template JSON is not a standard DTDL document. The device template JSON includes IoT Central specific data such as cloud property definitions and display units. You can use the device template JSON format to import and export device templates in IoT Central by using the REST API, the CLI, and the UI.
+> The device template JSON isn't a standard DTDL document. The device template JSON includes IoT Central specific data such as cloud property definitions and display units. You can use the device template JSON format to import and export device templates in IoT Central by using the REST API, the CLI, and the UI.
 
 There are some optional fields you can use to add more details to the capability model, such as display name and description.
 

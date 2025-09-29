@@ -54,6 +54,7 @@ The easiest way to add an App Configuration store to your application is through
 | Java Spring                       | App Configuration [provider](https://go.microsoft.com/fwlink/?linkid=2180917) for Spring Cloud                   | Java Spring [quickstart](./quickstart-java-spring-app.md)  |
 | JavaScript/Node.js                | App Configuration [provider](https://github.com/Azure/AppConfiguration-JavaScriptProvider) for JavaScript                       | JavaScript/Node.js [quickstart](./quickstart-javascript-provider.md)|
 | Python                            | App Configuration [provider](https://pypi.org/project/azure-appconfiguration-provider/) for Python                           | Python [quickstart](./quickstart-python-provider.md)                |
+| Go                            | App Configuration [provider](https://github.com/Azure/AppConfiguration-GoProvider) for Go                           | Go [quickstart](./quickstart-go-console-app.md)                |
 | Other                             | App Configuration [REST API](/rest/api/appconfiguration/)                                                        | None                                                       |
 
 ## Next steps

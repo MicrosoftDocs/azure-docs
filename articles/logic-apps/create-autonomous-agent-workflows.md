@@ -1,10 +1,9 @@
 ---
 title: Create Autonomous AI Agent Workflows
 description: Build AI agent workflows that complete tasks without human interactions in Azure Logic Apps.
-service: ecfan
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, divswa, krmitta, azla
+ms.reviewers: estfan, divswa, krmitta, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.date: 09/14/2025

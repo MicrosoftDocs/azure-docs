@@ -5,7 +5,7 @@ services: iot-central
 ms.service: azure-iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/18/2024
+ms.date: 08/06/2025
 ms.topic: how-to
 ms.custom: sfi-ropc-nochange
 
@@ -115,7 +115,7 @@ All users can create *personal dashboards*, visible only to themselves. Users ca
 > [!NOTE]
 > Creating personal dashboards using API is currently not supported.
 
-To learn how to manage dashboards by using the IoT Central UI, see [How to manage dashboards.](../core/howto-manage-dashboards.md)
+To learn how to manage dashboards by using the IoT Central UI, see [Create and manage dashboards](../core/howto-manage-dashboards.md).
 
 ### Dashboards REST API
 
