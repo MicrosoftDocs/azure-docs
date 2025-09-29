@@ -195,23 +195,9 @@ The table summarizes VMware vSphere VM support for VMware vSphere VMs you want t
 ### Appliance requirements (agent-based)
 The Azure Site Recovery Replication appliance is used to replicate machines to Azure in agent-based migration. [Learn more](../site-recovery/physical-server-azure-architecture-modernized.md).
 
-To set up a new appliance, you can use the OVA template. We recommend using this approach as it ensures all prerequisite configurations are handled by the template. The OVA template creates a machine with the required specifications. 
-
-Follow the steps:
-
-1. [Download](https://aka.ms/V2ARcmOvaDownloadLink_ccy) the OVA template here or from the portal to set up an appliance on your on-premises environment.
-1. Power on the appliance VM to accept the Microsoft Evaluation license. 
-1. Provide a password for the administrator user. 
-1. Select **Finalize** the system reboots, and you can log in with the administrator user account.
-
-If your organization has restrictions, you can manually set up the replication appliance using PowerShell. Ensure you meet all the [hardware](../site-recovery/replication-appliance-support-matrix.md#hardware-requirements) and [software](../site-recovery/replication-appliance-support-matrix.md#software-requirements) requirements, and any other prerequisites. 
-
-Follow these steps:
-
-1. [Download](https://aka.ms/V2ARcmApplianceCreationPowershellZip) the installers and place them on the replication appliance.
-1. Unzip and extract the components.
-1. Execute the **DRInstaller.ps1 PowerShell** script as an administrator.
-
+Set up the replication appliance using the OVA template for VMware agent-based migration. We recommend using this approach as it ensures all prerequisite configurations are handled by the template. The OVA template creates a machine with the required specifications. If your organization has restrictions, you can manually set up the replication appliance using PowerShell.
+ 
+Ensure you meet all the [hardware](../site-recovery/replication-appliance-support-matrix.md#hardware-requirements) and [software](../site-recovery/replication-appliance-support-matrix.md#software-requirements) requirements, and any other prerequisites. [Learn more](../migrate/tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance-using-the-ova-template-for-vmware-agent-based-migration) on how to set up the appliance.
 
 > [!NOTE]
 > The replication appliance shouldn't be installed on a source machine that you want to replicate or on the Azure Migrate: Discovery and assessment appliance you might have installed before.
