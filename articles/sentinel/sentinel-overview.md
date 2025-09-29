@@ -1,6 +1,6 @@
 ---
 title: What is Microsoft Sentinel?
-description: Learn about Microsoft Sentinel, an AI-first, cloud-native security platform and security information and event management (SIEM) that consolidates and analyzes security data at scale, empowers security operations teams with proactive, AI-enhanced defense capabilities, and provides unified tools for detecting, investigating, and responding to threats across hybrid and multicloud environments.
+description: Learn about Microsoft Sentinel, an AI-first, cloud-native security information and event management (SIEM) and security platform that consolidates and analyzes security data at scale, empowers security operations teams with proactive, AI-enhanced defense capabilities, and provides unified tools for detecting, investigating, and responding to threats across hybrid and multicloud environments.
 author: guywi-ms
 ms.author: guywild
 ms.topic: overview
@@ -14,15 +14,15 @@ Customer intent: As a security or IT decision‑maker, I need to assess Microsof
 
 # What is Microsoft Sentinel?
 
-Microsoft Sentinel is a cloud-native SIEM and unified security platform for agentic defense. To meet the demands of today’s complex threats, Microsoft Sentinel has moved beyond static, rule-based controls and post-breach response, providing an AI-ready, data-first foundation that turns telemetry into a security graph, standardizes access for agents, and coordinates autonomous actions while keeping humans in command of strategy and high impact investigations.
+Microsoft Sentinel is a cloud-native Security Information and Event Management (SIEM) and unified security platform for agentic defense. To meet the demands of today’s complex threats, Microsoft Sentinel has evolved from a traditional SIEM to a dual-role solution - SIEM and platform - extending beyond static, rule-based controls and post-breach response to provide an AI-ready, data-first foundation that transforms telemetry into a security graph, standardizes access for agents, and coordinates autonomous actions, while keeping humans in command of strategy and high impact investigations.
 
-As a SIEM, Microsoft Sentinel delivers AI-driven security across multicloud and multiplatform environments, offering robust capabilities for threat detection, investigation, hunting, response, and automated attack disruption. As a platform, Microsoft Sentinel provides a foundation built on a modern data lake for deep insights, graph capabilities for contextual analysis, a hosted MCP server for agent-ready tooling, and developer capabilities for building and deploying solutions through the Security Store.
+As a SIEM, Microsoft Sentinel delivers AI-driven security across multicloud and multiplatform environments, offering robust capabilities for threat detection, investigation, hunting, response, and automated attack disruption. As a platform, Microsoft Sentinel provides a foundation built on a modern data lake for deep insights, graph capabilities for contextual analysis, a hosted Model Context Protocol (MCP) server for agent-ready tooling, and developer capabilities for building and deploying solutions through the Security Store.
 
 This article provides an overview of Microsoft Sentinel and its core components. It explains how Microsoft Sentinel helps security operations teams detect and respond to threats, and adapt continuously by unifying data, automating responses, and deriving AI-driven insights.
 
-## Microsoft Sentinel high-level architecture 
+## AI-first, end-to-end SIEM and security platform 
 
-This diagram illustrates Microsoft Sentinel's high-level architecture, highlighting its core components and its integration with [Microsoft Security Copilot](/copilot/security/microsoft-security-copilot).
+This diagram illustrates the Microsoft Sentinel AI-first, end-to-end SIEM and security platform, highlighting its core components and its integration with [Microsoft Security Copilot](/copilot/security/microsoft-security-copilot).
 
 :::image type="content" source="media/sentinel-platform-overview/microsoft-sentinel-overview.png" alt-text="A diagram that depicts the Microsoft Sentinel platform overview" link="media/sentinel-platform-overview/microsoft-sentinel-overview.png" lightbox="media/sentinel-platform-overview/microsoft-sentinel-overview.png":::
 
@@ -32,7 +32,7 @@ The cloud-native Microsoft Sentinel SIEM solution delivers AI-powered security a
 
 Microsoft Sentinel SIEM is available in the Microsoft Defender portal - for customers with or without Defender XDR or an E5 license - offering a unified security operations experience. This integration streamlines workflows, enhances visibility, and helps analysts respond faster and more precisely to increasingly complex threats.
 
-The integration of Microsoft Sentinel SIEM with the Defender portal and Security Copilot creates a powerful ecosystem that enhances security operations. Security Copilot enables analysts to interact with Sentinel data using natural language, generate hunting queries, and automate investigations, making threat response faster and more accessible.
+The integration of Microsoft Sentinel SIEM with the Defender portal and Security Copilot creates a powerful ecosystem that enhances security operations. Security Copilot enables analysts to interact with Microsoft Sentinel data using natural language, generate hunting queries, and automate investigations, making threat response faster and more accessible.
 
 For more information, see [What is Microsoft Sentinel SIEM?](./overview.md).
 
@@ -71,7 +71,7 @@ Microsoft Sentinel data lake's key capabilities include:
 
 - Enables multi-modal analytics on a single copy of open-format data using Kusto queries, scheduled jobs, and AI-powered notebooks in Visual Studio Code - no infrastructure setup required.
 
-For more information, see [What is Microsoft Sentinel data lake (preview)?](../sentinel/datalake/sentinel-lake-overview.md).
+For more information, see [What is Microsoft Sentinel data lake?](../sentinel/datalake/sentinel-lake-overview.md).
 
 
 ### Microsoft Sentinel graph
@@ -94,9 +94,9 @@ Microsoft Sentinel MCP server provides a unified, hosted interface that enables 
 Microsoft Sentinel MCP server's key capabilities include:
 
 - A hosted interface that uses Microsoft Entra for identity and supports compatible clients for seamless AI operations.
-- Natural language security tooling, including scenario-focused tools for querying and reasoning over Sentinel’s data lake without schema knowledge or coding.
+- Natural language security tooling, including scenario-focused tools for querying and reasoning over Microsoft Sentinel data lake without schema knowledge or coding.
 - Accelerated agent creation whereby engineers can build customized security agents using natural language, reducing manual effort and speeding up automation.
-- Native integration with Sentinel’s data lake enables rich context engineering without compromising on data coverage or cost.
+- Native integration with Microsoft Sentinel’s data lake enables rich context engineering without compromising on data coverage or cost.
 - Interactive data exploration using natural language to correlate and retrieve security data across tables, improving threat detection and investigation.
 
 
@@ -120,8 +120,8 @@ To get started with the Microsoft Sentinel platform and SIEM, see:
 - [Onboard Microsoft Sentinel](quickstart-onboard.md)
 - [Onboard to Microsoft Sentinel data lake and Microsoft Sentinel graph](../sentinel/datalake/sentinel-lake-onboarding.md)
 - [Deployment guide for Microsoft Sentinel](deploy-overview.md)
-- [KQL and the Microsoft Sentinel data lake (preview)](../sentinel/datalake/kql-overview.md)
+- [KQL and the Microsoft Sentinel data lake](../sentinel/datalake/kql-overview.md)
 - [Manage data tiers and retention in Microsoft Defender Portal (preview)](./manage-data-overview.md)
 - [Manage and monitor costs for Microsoft Sentinel](./billing-monitor-costs.md)
-- [Jupyter notebooks in the Microsoft Sentinel data lake (preview)](../sentinel/datalake/notebooks-overview.md).
-- [Permissions for the Microsoft Sentinel data lake (preview)](./roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake)
+- [Jupyter notebooks in the Microsoft Sentinel data lake](../sentinel/datalake/notebooks-overview.md).
+- [Permissions for the Microsoft Sentinel data lake](./roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake)
