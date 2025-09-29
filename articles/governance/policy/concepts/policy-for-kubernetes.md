@@ -611,7 +611,6 @@ Finally, to identify the AKS cluster version that you're using, follow the linke
 ### Add-on versions available per each AKS cluster version
 
 #### 1.14.1
-
 Patch [CVE-2025-47907](https://nvd.nist.gov/vuln/detail/CVE-2025-47907)
 
 Security improvements.
