@@ -151,12 +151,12 @@ items:
         href: create-mcp-server-api-center.md
       - name: Set up Standard logic apps as MCP servers
         href: set-up-model-context-protocol-server-standard.md
+      - name: Run Python code in agent workflows
+        href: connectors/code-interpreter-python-container-apps-session.md
       - name: Parse or chunk content
         href: parse-document-chunk-text.md
       - name: Create chat completions with prompt templates
         href: connectors/create-chat-completions-prompt-template.md
-      - name: Process files in AI agent workflows
-        href: connectors/code-interpreter-python-container-apps-session.md
     - name: Develop for rules engine integration
       items:
       - name: Overview for rules engine integration
