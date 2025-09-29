@@ -868,7 +868,7 @@
       href: /rest/api/securityinsights/
     - name: OOTB content centralization changes
       href: sentinel-content-centralize.md
-    - name: Asset data tables in Microsoft Sentinel data lake (Preview)
+    - name: Asset data tables in Microsoft Sentinel data lake
       href: datalake/asset-data-tables.md
     - name: Management references
       items:
