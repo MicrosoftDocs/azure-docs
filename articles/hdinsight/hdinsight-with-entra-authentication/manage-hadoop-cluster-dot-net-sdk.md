@@ -13,6 +13,7 @@ ms.date: 09/19/2025
 
 This article describes how to manage Azure HDInsight clusters programmatically by using the HDInsight .NET SDK. The SDK provides a set of client libraries that let you automate cluster operations such as creating, 
 list, delete and scale directly from your .NET applications. By using the SDK, you can integrate HDInsight cluster management into your existing workflows and applications.
+
 ## Prerequisites
 Before you begin this article, you must have:
 
@@ -22,7 +23,7 @@ Before you begin this article, you must have:
 
 You need the following NuGet packages:
 
- ```
+ ```cmd
  Install-Package Microsoft.Azure.Management.ResourceManager -Pre
  Install-Package Microsoft.Azure.Management.HDInsight
  Install-Package Microsoft.Azure.HDInsight.Job -Version 3.0.0-preview.3
