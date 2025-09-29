@@ -34,7 +34,7 @@ You must be an owner or contributor on your billing account to perform these tas
 
 1. Inside of **Products + services**, select "All billing subscriptions" or "Azure Subscriptions".  Then select the subscription from the list that you'd like to replace the credit card to.
 
-   ![User's image](media/account-admin-tasks/image.png)
+   ![Screenshot of the Azure portal navigation showing Cost Management + Billing and the list of subscriptions for selection.](media/account-admin-tasks/billing-navigation-menu.png)
    
    > [!NOTE]
    > If you don't see some of your subscriptions here, it might be because you changed the subscription directory at some point. For these subscriptions, you need to switch the directory to the original directory (the directory in which you initially signed up). Then, repeat step 2. Also, if you have multiple billing scopes, make sure you select the right one that contains the subscription you want to update.
@@ -44,8 +44,8 @@ You must be an owner or contributor on your billing account to perform these tas
    > [!NOTE]
    > A billing profile is the commercial scope that manages how you pay for Microsoft products and services.  Each billing profile is tied to a billing account, and you can have multiple billing profiles associate to a single billing account to manage your billing.
    
-1. Select **Manage p****ayment methods** in the shortcuts section.  
-![User's image](media/account-admin-tasks/image2.png)
+1. Select **Manage payment methods** in the shortcuts section.  
+![Screenshot of the billing profile shortcuts panel with Manage payment methods highlighted.](media/account-admin-tasks/billing-shortcuts.png)
 
 1. Here you can add a new credit card, change the default payment method, edit existing credit card details, and delete credit cards.  See the next three sections for details on how to perform these actions.
 
@@ -63,7 +63,7 @@ You can change the default payment method on your billing profile by adding a ne
 
 1. Inside of the list of available credit and debit cards, click the ellipse (...) and select "Make default".
 
-   ![User's image](media/account-admin-tasks/image4.png)
+![Screenshot of the payment method overflow menu with Make default option highlighted.](media/account-admin-tasks/payment-method-action-menu.png)
    
 ### Edit credit card details
 
@@ -73,7 +73,7 @@ To edit credit card details such as the expiration date or address:
 
 1. Update the credit card details and select **Next**.
 
-![User's image](media/account-admin-tasks/image5.png)
+![Screenshot of the Edit payment method side panel showing credit card detail fields.](media/account-admin-tasks/Edit-payment-method-panel.png)
 
 ### Remove a credit card from the account
 
@@ -100,15 +100,16 @@ If you're eligible to pay by wire transfer, you can switch your billing profile 
 
 1. At the top of the page, select "Apply to pay by wire transfer".
 
-![User's image](media/account-admin-tasks/image6.png)
+![Screenshot of the Payment methods page with the Apply to pay by wire transfer button displayed at the top.](media/account-admin-tasks/pay-by-wire-transfer-button.png)
+
 Verification checks are often completed immediately.  If you are approved, you will see the following message in the side window on the left.
 
-![User's image](media/account-admin-tasks/image7.png)
+![Screenshot of the approval notification shown after wire transfer payment method is enabled.](media/account-admin-tasks/pay-by-wire-transfer-notification.png)
 
 
 If you are required to complete a credit check, you will receive the below message.
 
-![User's image](media/account-admin-tasks/image10.png)
+![Screenshot of the under review message indicating a credit check is required for wire transfer enablement.](media/account-admin-tasks/pay-by-wire-transfer-under-review-3.png)
 
 **How long does the whole process take?**
 
