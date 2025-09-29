@@ -100,7 +100,7 @@ Microsoft Sentinel MCP server's key capabilities include:
 - Interactive data exploration using natural language to correlate and retrieve security data across tables, improving threat detection and investigation.
 
 
-For more information, see [What is MCP? (Preview) - Microsoft Security | Microsoft Learn](../sentinel/datalake/sentinel-mcp-overview.md).
+For more information, see [ What is Sentinel’s support for Model Context Protocol (MCP)?](../sentinel/datalake/sentinel-mcp-overview.md).
 
 ## Microsoft Sentinel developer experience
 
