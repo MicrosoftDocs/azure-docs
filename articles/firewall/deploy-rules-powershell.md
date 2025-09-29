@@ -91,7 +91,7 @@ To modify existing rules in the rule collection:
 
 ### Find and modify existing rules
 
-1. Locate an existing rule by name and modify its properties:
+Locate an existing rule by name and modify its properties:
 
 ```azurepowershell-interactive
 # Find the existing rule
