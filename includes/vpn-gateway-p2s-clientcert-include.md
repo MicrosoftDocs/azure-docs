@@ -14,7 +14,7 @@ You can generate client certificates by using the following methods:
 
 * **Enterprise certificate:**
 
-  * If you're using an enterprise certificate solution, generate a client certificate with the common name value format *name\@yourdomain.com*. Use this format instead of the *domain name\username* format.
+  * If you're using an enterprise certificate solution, generate a client certificate with the common name value format *name\@contoso.com*. Use this format instead of the *domain name\username* format.
 
   * Make sure the client certificate is based on a user certificate template that has *Client Authentication* listed as the first item in the user list. Check the certificate by double-clicking it and viewing **Enhanced Key Usage** in the **Details** tab.
 
