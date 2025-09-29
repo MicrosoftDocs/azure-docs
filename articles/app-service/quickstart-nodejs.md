@@ -419,7 +419,7 @@ You can access the console logs generated from inside the app and the container 
 In the preceding steps, you created Azure resources in a resource group. The steps in this quickstart put all the resources in this resource group. To clean up, you just need to remove the resource group.
 
 
-1. In the Azure extension of Visual Studio Code, expand the **Resource Groups** explorer.
+1. In the Azure extension of Visual Studio, expand the **Resource Groups** explorer.
 
 1. Expand the subscription, right-click the resource group you created earlier, and select **Delete**.
 
