@@ -98,22 +98,23 @@ https://management.azure.com/subscriptions/<subscription>/resourceGroups/<rg>/pr
 > Currently, only uni-directional replication from a single region to geo-replication is supported. The primary ACR must be in a successful state before geo-replication can be enabled.
 
 ## Frequently Asked Questions
-1. How can we check the status of a geo-replicated ACR pair?
-* You can check on the ACR status for primary and secondary region is primary by running:
+
+How can we check the status of a geo-replicated ACR pair?
+- You can check on the ACR status for primary and secondary region is primary by running:
 
 ```powershell
 az acr replication list --registry <acr-name>
 ```
 
-2. Which ACR do I use to upload artifacts?
-* The primary region ACR is the only ACR that accepts image pushes.
+Which ACR do I use to upload artifacts?
+- The primary region ACR is the only ACR that accepts image pushes.
 
-3. What happens if I try to upload to a nonprimary region?
-* If you try to push to a replica (not primary), you get the error:
+What happens if I try to upload to a nonprimary region?
+- If you try to push to a replica (not primary), you get the error:
 
 ```
 DENIED: The operation isn't allowed on a read-only replica.
 ```
 
-4. What happens if the primary region only partially fails? 
-•	If the primary is partially down and can't accept pushes, the image push operation fails. You must wait for the primary to recover or perform a failover.
+What happens if the primary region only partially fails? 
+- If the primary is partially down and can't accept pushes, the image push operation fails. You must wait for the primary to recover or perform a failover.
