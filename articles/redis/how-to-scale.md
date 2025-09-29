@@ -235,8 +235,7 @@ az redisenterprise list-skus-for-scaling --cluster-name <your-redis-instance> --
 ```
 ### Can the Clustering Policy be changed after selecting OSS or Enterprise Cluster?
 
-Once a clustering policy is set to either OSSCluster or EnterpriseCluster, it cannot be changed. To switch to a different clustering policy, the Redis cache must be deleted and recreated with the desired configuration. Only caches with the NoCluster policy can be updated to a clustered configuration post-deployment.
-
+Once you set a clustering policy to either OSSCluster or EnterpriseCluster when you create a cache, you can't change it. To switch to a different clustering policy, you must delete the Redis cache and recreate it with the desired configuration. Only caches with the Noncluster policy can be updated to a clustered configuration after deployment.
 
 ## Related content
 
