@@ -145,7 +145,7 @@ The following list contains answers to commonly asked questions about Azure Mana
 - [How are keys distributed in a cluster?](#how-are-keys-distributed-in-a-cluster)
 - [What is the largest cache size I can create?](#what-is-the-largest-cache-size-i-can-create)
 - [Why can only I scale down to a subset of smaller SKUs?](#why-can-only-i-scale-down-to-a-subset-of-smaller-skus)
-- [Can the Clustering Policy be changed after selecting OSS or Enterprise Cluster?](#Can-the-Clustering-Policy-be-changed-after-selecting-OSS-or-Enterprise-Cluster)
+- [Can the Clustering Policy be changed after selecting OSS or Enterprise Cluster?](#can-the-clustering-policy-be-changed-after-selecting-oss-or-enterprise-cluster)
 
 ### Can I scale within or across tiers?
 
