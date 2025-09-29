@@ -265,7 +265,7 @@ This separation lets you deploy the same graph definition with different endpoin
 
     :::image type="content" source="media/howto-create-dataflow-graph/create-data-flow-graph.png" alt-text="Screenshot of the operations experience interface showing how to create a data flow graph.":::
 
-1. Select the placeholder name **new-data-flow** to set the data flow properties.Enter the name of the data flow graph and choose the data flow profile to use.
+1. Select the placeholder name **new-data-flow** to set the data flow properties. Enter the name of the data flow graph and choose the data flow profile to use.
 1. In the data flow diagram, select **Source** to configure the source node. Under **Source details**, select **Asset** or **Data flow Endpoint**.
 
     :::image type="content" source="media/howto-create-dataflow-graph/select-source-simple.png" alt-text="Screenshot of the operations experience interface showing how to select a source for the data flow graph.":::
