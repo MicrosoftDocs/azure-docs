@@ -198,6 +198,20 @@ In the AppCAT CLI install path, you can configure the `.appcat-ignore` file to e
       --target=<target-name>
   ```
 
+- Analyze with specific targets, capabilities, and operating systems:
+
+  ```bash
+  appcat analyze \
+      --input <path-to-source> \
+      --output <path-to-output> \
+      --target azure-aks,azure-container-apps,azure-appservice \
+      --capability containerization \
+      --os windows \
+      --overwrite
+  ```
+
+This command analyzes the source code for rules matching: `target = (azure-aks || azure-container-apps || azure-appservice) && capability = containerization && os = windows`.
+
 - Analyze a source code directory and keep the detected context lines with custom line numbers:
 
   ```bash
