@@ -26,11 +26,11 @@ Some of the inherent benefits of using Azure Functions as a compute resource for
 
 This article is language-specific, so make sure you choose your programming language at the [top of the page](#top).
 
-## Core AI integration scenarios 
+The combination of built-in bindings and broad support for external libraries provides you with a wide range of potential scenarios for augmenting your apps and solutions with the power of AI. 
 
-The combination of built-in bindings and broad support for external libraries provides you with a wide range of potential scenarios for augmenting your apps and solutions with the power of AI. These are some key AI integration scenarios supported by Functions.   
+The following sections introduce some key AI integration scenarios supported by Functions.   
 
-### Retrieval-augmented generation
+## Retrieval-augmented generation
 
 Because Functions is able to handle multiple events from various data sources simultaneously, it's an effective solution for real-time AI scenarios, like RAG systems that require fast data retrieval and processing. Rapid event-driven scaling reduces the latency experienced by your customers, even in high-demand situations. 
 
@@ -66,7 +66,7 @@ Here are some reference samples for RAG-based scenarios:
 > Shows you how to create a friendly chat bot that issues simple prompts, receives text completions, and sends messages, all in a stateful session using the [OpenAI binding extension].
 ::: zone-end
 
-### Assistant function calling
+## Assistant function calling
 
 Assistant function calling gives your AI assistant or agent the ability to invoke specific functions or APIs dynamically based on the context of a conversation or task. These behaviors enable assistants to interact with external systems, retrieve data, and perform other actions.
 
@@ -96,7 +96,7 @@ Here are some reference samples for assistant function calling scenarios:
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-javascript"  
 > Uses function calling features for agents in Azure AI SDKs to implement custom functions calling.  
 ::: zone-end
-### Remote MCP servers
+## Remote MCP servers
 
 The Model Context Protocol (MCP) provides a standardized way for AI models to communicate with external systems to determine their capabilities and how they can best be used by AI assistants and agents. An MCP server enables an AI model (client) to more efficiently make these determinations. 
 
