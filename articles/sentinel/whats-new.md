@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: batamig
 ms.author: bagol
 ms.topic: concept-article
-ms.date: 08/20/2025
+ms.date: 09/28/2025
 #Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
 ms.custom:
   - build-2025
@@ -20,7 +20,41 @@ The listed features were released in the last six months. For information about 
 
 ## September 2025
 
+- [Microsoft Sentinel evolves into a SIEM and platform](#microsoft-sentinel-is-evolving-into-a-siem-and-platform)
+
+  Key additions include:
+
+  - [Microsoft Sentinel data lake is now generally available (GA)](#microsoft-sentinel-data-lake-is-now-generally-available-ga)
+  - [Microsoft Sentinel graph (Preview)](#microsoft-sentinel-graph-preview)  
+  - [Microsoft Sentinel Model Context Protocol (MCP) server (Preview)](#microsoft-sentinel-model-context-protocol-mcp-server-preview)
+
 - [New data sources and enhanced User and Entity Behavior Analytics (UEBA) (Preview)](#new-data-sources-for-enhanced-user-and-entity-behavior-analytics-ueba-preview)
+
+
+### Microsoft Sentinel is evolving into a SIEM and platform
+
+Security is being reengineered for the AI era, moving beyond static, rule-based controls and post-breach response toward platform-led, machine-speed defense. To address the challenge of fragmented tools, sprawling signals, and legacy architectures that can’t match the velocity and scale of modern attacks, Microsoft Sentinel has evolved into both a SIEM and a platform that unifies data for agentic defense. This update reflects architectural enhancements that support AI-driven security operations at scale. For more information, see [What is Microsoft Sentinel?](sentinel-overview.md)
+
+Key additions include Microsoft Sentinel data lake, Microsoft Sentinel graph, and Microsoft Sentinel Model Context Protocol (MCP) server, as described below.
+
+#### Microsoft Sentinel data lake is now generally available (GA)
+
+A scalable, cost-efficient foundation for long-term data retention and multi-modal analytics. Microsoft Sentinel data lake enables organizations to unify security data across sources and run advanced analytics without infrastructure overhead.
+
+For more information, see [Microsoft Sentinel data lake](datalake/sentinel-lake-overview.md).
+
+#### Microsoft Sentinel graph (Preview)
+
+Unified graph analytics for deeper context and threat reasoning. Microsoft Sentinel graph models relationships across users, devices, and activities to support complex threat investigations and pre- and post-breach analysis.
+
+For more information, see [What is Microsoft Sentinel graph? (Preview)](datalake/sentinel-graph-overview.md). 
+
+#### Microsoft Sentinel Model Context Protocol (MCP) server (Preview) 
+
+A hosted interface for building intelligent agents using natural language. Microsoft Sentinel MCP server simplifies agent creation and data exploration by allowing engineers to query and reason over security data without needing schema knowledge.
+
+For more information, see [Model Context Protocol (MCP) overview](datalake/sentinel-mcp-overview.md).
+
 
 ### New data sources for enhanced User and Entity Behavior Analytics (UEBA) (Preview)
 
@@ -81,7 +115,7 @@ Workbooks are available in the Defender portal under **Microsoft Sentinel > Thre
 
 ### Microsoft Sentinel data lake
 
-Microsoft Sentinel is now enhanced with a modern data lake, purpose-built to streamline data management, reduce costs, and accelerate AI adoption for security operations teams. The new Microsoft Sentinel data lake offers cost-effective, long-term storage, eliminating the need to choose between affordability and robust security. Security teams gain deeper visibility and faster incident resolution, all within the familiar Sentinel experience, enriched through seamless integration with advanced data analytics tools.  
+Microsoft Sentinel is now enhanced with a modern data lake, purpose-built to streamline data management, reduce costs, and accelerate AI adoption for security operations teams. The new Microsoft Sentinel data lake offers cost-effective, long-term storage, eliminating the need to choose between affordability and robust security. Security teams gain deeper visibility and faster incident resolution, all within the familiar Microsoft Sentinel experience, enriched through seamless integration with advanced data analytics tools.  
 
 Key benefits of the Microsoft Sentinel data lake include:
 +	Single, open-format data copy for efficient and cost-effective storage

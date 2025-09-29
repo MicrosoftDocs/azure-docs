@@ -11,7 +11,7 @@ ms.service: microsoft-sentinel
 #customer intent: As a security analyst, I want to understand
 ---
 
-# What is Sentinel’s support for Model Context Protocol (MCP)? 
+# What is Microsoft Sentinel’s support for Model Context Protocol (MCP)? 
 
 Microsoft Sentinel, our security platform, is introducing support for Model Context Protocol (MCP) comprising multiple scenario-focused collections of security tools through a unified server interface allowing customers to interactively query security data in natural language and build effective security agents that can perform complex automation. Our collection of security tools help security teams bring AI into their daily security operations to assist with common tasks like data exploration, threat intelligence and building agentic automation. 
 
@@ -48,7 +48,7 @@ For example: Visual Studio Code acts as an MCP host. When Visual Studio Code est
 Once you connect a compatible client with Sentinel’s MCP collections, you can use tools to:
 
 - **Build Security Copilot agents through natural language:** Security Operations Center (SOC) engineers often spend weeks manually automating playbooks due to fragmented data sources and rigid schema requirements. With our agent creation tools, engineers can describe their intent in natural language to quickly build agents with the right LLM instructions and tools that reason over their Security data, creating automations that are customized to their organization's workflows and processes.  
-Get started with building agents .
+Get started with building agents.
 
 - **Interactively explore long term security data**: Security analysts and threat hunters, like those focusing on identity-based attacks, need to quickly query and correlate data across various security tables. Today, they must have knowledge of all tables and how what data each table contains. With our data exploration collection, analysts can now use natural language prompts to search and retrieve relevant data from tables in Sentinel data lake without needing to remember tables, their schema or write well-formed KQL queries.  
 
