@@ -6,10 +6,10 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 09/04/2025
+ms.date: 09/29/2025
 ms.custom: sfi-image-nochange
 
-# Customer intent: As a network administrator, I want to transition from SSTP to IKEv2 or OpenVPN
+# Customer intent: As a network administrator, I want to transition from SSTP to IKEv2 or OpenVPN.
 ---
 
 # Transition to OpenVPN protocol or IKEv2 from SSTP
@@ -203,7 +203,7 @@ A P2S configuration requires quite a few specific steps. The following articles 
 
 * [Configure OpenVPN](vpn-gateway-howto-openvpn.md)
 
-## Next steps
+## Related content
 
 * [Configure a P2S connection - RADIUS authentication](point-to-site-how-to-radius-ps.md)
 
