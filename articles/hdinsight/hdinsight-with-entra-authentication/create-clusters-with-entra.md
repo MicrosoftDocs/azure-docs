@@ -98,7 +98,7 @@ Admin can add multiple users at once via an API, ideal for managing large cluste
 			{ 
 				"objectId": "0d7c4bd6-d042-45ec-9ae5-1ed7871c38e0", 
 						"displayName": "Hemant Gupta", 
-						"upn": "apsinhar@microsoft.com" 
+						"upn": "john@contoso.com" 
 					} 
 				] 
 			} 
