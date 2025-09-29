@@ -13,7 +13,7 @@ ms.date: 09/18/2025
 
 # Reliability in Azure Files
 
-This article describes reliability support in [Azure Files](/azure/well-architected/service-guides/azure-files), covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support). It also covers cross-region protection through geo-redundant storage (GRS) options. For more information, see [Azure reliability](/azure/reliability/overview).
+This article describes reliability support in [Azure Files](/azure/storage/files/storage-files-introduction), covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support). It also covers cross-region protection through geo-redundant storage (GRS) options. For more information, see [Azure reliability](/azure/reliability/overview).
 
 [!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
