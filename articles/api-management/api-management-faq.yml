@@ -46,7 +46,7 @@ sections:
           You have several options, including:
           
           * Use the [backup and restore](api-management-howto-disaster-recovery-backup-restore.md) functionality in API Management.
-          * Create your own backup and restore feature by using the [API Management REST API](/rest/api/apimanagement/) to save and restore the entities from the service instance that you want.
+          * Create your own backup and restore functionality by using the [API Management REST API](/rest/api/apimanagement/) to save and restore the entities from the service instance that you want.
           * Download the service configuration by using [Git](api-management-configuration-repository-git.md), and then upload it to a new instance.
       
       - question: |
@@ -115,7 +115,7 @@ sections:
       - question: |
           What's the minimum subnet size needed when deploying API Management into a virtual network?
         answer: |
-          The minimum subnet size needed to deploy API Management is /29. Learn more about using API Management in [virtual networks](virtual-network-concepts.md).
+          The minimum subnet size needed to deploy API Management is /29. [Learn more about using API Management in virtual networks.](virtual-network-concepts.md)
 
       - question: |
           Does API Management provide a web application firewall (WAF)?
