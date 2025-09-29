@@ -25,8 +25,6 @@ items:
     items:
     - name: Manage Oracle TDE with Azure Key Vault
       href: oracle-db/manage-oracle-tde-with-akv.md
-    - name: Onboard Oracle Exadata VM Clusters to Microsoft Defender for Cloud using Azure Arc  
-      href: oracle-db/exadata-vm-clusters.md
   - name: Onboarding
     items:
     - name: Onboard Oracle Database@Azure
