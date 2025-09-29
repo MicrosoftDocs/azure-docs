@@ -115,7 +115,7 @@ Here's a comparison of the current MCP server hosting options provided by Functi
 | Project type | Standard function app project | MCP-protocol SDK projects |
 | Benefits | Regular Functions project | Standard MCP SDKs |
 | Stateful execution | Supported | Not currently supported | 
-| Languages currently supported | [All Functions languages](supported-languages.md) | .NET<br/>Python<br/>Node.js<br/>Java |
+| Languages currently supported | C# (isolated process)<br/>Python<br/>TypeScript<br/>JavaScript<br/>Java  | C# (isolated process)<br/>Python<br/>TypeScript<br/>JavaScript<br/>Java |
 | Additional requirements | None | Streamable HTTP transport |
 | How implemented | [MCP binding extension] | [Custom handlers](./functions-custom-handlers.md) |
 
