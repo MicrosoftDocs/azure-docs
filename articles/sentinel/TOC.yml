@@ -808,9 +808,9 @@
           href: monitor-optimize-analytics-rule-execution.md
         - name: Audit and monitor the health of analytics rules
           href: monitor-analytics-rule-integrity.md
-    - name: Auditing Microsoft Sentinel with Azure Activity Logs
+    - name: Audit Microsoft Sentinel with Azure Activity Logs
       href: audit-sentinel-data.md
-    - name: Audit log for Microsoft Sentinel data lake
+    - name: Audit Microsoft Sentinel data lake and graph in Purview portal
       href: datalake/auditing-lake-activities.md
       displayName: data lake
     - name: Remove Microsoft Sentinel from your workspaces
@@ -868,7 +868,7 @@
       href: /rest/api/securityinsights/
     - name: OOTB content centralization changes
       href: sentinel-content-centralize.md
-    - name: Asset data tables in Microsoft Sentinel data lake (Preview)
+    - name: Asset data tables in Microsoft Sentinel data lake
       href: datalake/asset-data-tables.md
     - name: Management references
       items:
