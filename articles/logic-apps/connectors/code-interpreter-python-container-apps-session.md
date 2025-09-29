@@ -1,18 +1,18 @@
 ---
-title: Process Files in Agent Workflows with Python Code
-description: Learn how to process files by running Python code from AI agent workflows Azure Logic Apps.
+title: Run Python Code in Agent Workflows
+description: Learn to run Python code to process files in AI agent workflows with Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: ecfan
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
-ms.date: 09/04/2025
-#Customer intent: As a developer, I want to create a workflow that accepts files and can process those files by using an agent that can upload a file and generate the necesssary Python code to use for file processing.
+ms.date: 09/28/2025
+#Customer intent: As an AI developer, I want to create a workflow that accepts and processes files using an agent that uploads a file and generates Python code that processes the file.
 ---
 
-# Process files by running Python code from AI agent workflows in Azure Logic Apps (Preview)
+# Run Python code that processes files in agent workflows with Azure Logic Apps (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
 
@@ -20,7 +20,7 @@ ms.date: 09/04/2025
 > This capability is in preview and is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In Standard logic apps, not only can agent workflows handle natural language requests through chat interfaces by using agents, they can also process files when you create agent tools with **Code Interpreter (Python Container Apps session)** built-in connector operations. These operations make it possible for the agent workflow to generate and run Python code, upload, download, and delete files. From a scenario perspective, the agent can receive instructions, accept files, generate and run code in an isolated environment, and return usable results, such as summaries, forecasts, or other requested data transformations - all within the same workflow.
+In Standard logic apps, not only can agent workflows handle natural language requests through chat interfaces by using agents, they can also process files when you create agent tools with the **Code Interpreter (Python Container Apps session)** built-in connector operations. These operations make it possible for the agent workflow to generate and run Python code, upload, download, and delete files. From a scenario perspective, the agent can receive instructions, accept files, generate and run code in an isolated environment, and return usable results, such as summaries, forecasts, or other requested data transformations - all within the same workflow.
 
 > [!NOTE]
 >

@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-central
 ms.topic: tutorial
-ms.date: 06/13/2024
+ms.date: 08/07/2025
 ms.custom: sfi-image-nochange
 
 #customer intent: As a developer, I want to learn how to deploy and use an IoT Central connected logistics application from an application template so that I can build similar solutions in the future.

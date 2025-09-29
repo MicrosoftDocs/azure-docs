@@ -102,8 +102,12 @@ items:
                     href: network-security-namespaces.md
                   - name: Transport Layer Security (TLS)
                     href: transport-layer-security.md
-              - name: Sparkplug support
-                href: sparkplug-support.md
+              - name: Use cases
+                items:
+                - name: Automotive Messaging
+                  href: /industry/mobility/architecture/automotive-messaging-data-analytics-content?toc=/azure/event-grid/toc.json
+                - name: Sparkplug B support
+                  href: sparkplug-support.md
           - name: How-to
             items:
               - name: Create and manage namespaces

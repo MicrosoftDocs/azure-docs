@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 09/01/2025
+ms.date: 09/29/2025
 ms.author: anfdocs
 ms.custom: references_regions
 # Customer intent: As a storage administrator, I want to enable file access logs on Azure NetApp Files volumes so that I can monitor file access operations and troubleshoot access issues effectively.
@@ -75,28 +75,7 @@ The events capture in file access logs depend on the protocol of your volume.
 * Set attribute 
 * Unlink
 * Write
-<!--
-## Register the feature
 
-If you're using file access logs for the first time, you need to register the feature. 
-
-1. Register the feature:
-
-    ```azurepowershell-interactive
-      Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFileAccessLogs
-    ```
-
-1. Check the status of the registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** can be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFileAccessLogs`
-    ```
-
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.
--->
 ## Supported regions
 
 Availability for file access log is limited to the following regions: 
@@ -106,6 +85,7 @@ Availability for file access log is limited to the following regions:
 - Australia East
 - Australia Southeast
 - Brazil South
+- Brazil Southeast 
 - Canada Central
 - Canada East
 - Central India
@@ -113,17 +93,28 @@ Availability for file access log is limited to the following regions:
 - East Asia
 - East US
 - East US 2
+- France Central 
+- Germany North 
 - Japan East
 - Japan West
 - Korea Central
 - Korea South
 - North Europe
+- Norway East
+- Norway West
+- South Africa North
 - South Central US
 - Southeast Asia
 - South India
+- Sweden Central
 - Switzerland North
 - Switzerland West
+- UAE Central 
+- UAE North 
 - UK South
+- UK West
+- US Gov Arizona 
+- US Gov Virginia
 - West Europe
 - West US
 - West US 2

@@ -63,22 +63,26 @@ File shares (preview) are a new top-level Azure resource provided by the `Micros
 Currently, creating a file share with Microsoft.FileShares (preview) is available in the following regions:
 
 - Australia East
+- Australia Central
 - Australia Southeast
 - East Asia
+- East US
+- Germany North
+- Korea South
 - Southeast Asia
 - North Europe
-- Germany North
 - South Africa West
-- East US
 - South India
 - UAE Central
-- Korea South
-- Australia Central
 
 Currently, private endpoint support for file share with Microsoft.FileShares (preview) is available in the following regions:
 
+- Australia East
+- Australia Central
 - East Asia
-- UK South
+- East US
+- North Europe
+- UAE Central
 
 #### Comparing resource providers: Microsoft.Storage versus Microsoft.FileShares
 

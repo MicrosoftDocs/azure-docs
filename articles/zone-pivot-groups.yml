@@ -1571,10 +1571,10 @@ groups:
   title: Select your version of the Pipelines task
   prompt: Choose an option
   pivots:
-  - id: v1
-    title: AzureFunctionApp@1
   - id: v2
     title: AzureFunctionApp@2
+  - id: v1
+    title: AzureFunctionApp@1
 # Owner: juliakm, ggailey777
 - id: github-actions-deployment-options
   title: GitHub Actions deployment options

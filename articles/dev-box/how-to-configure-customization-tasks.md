@@ -16,8 +16,6 @@ ms.date: 11/05/2024
 
 When you create tasks for Microsoft Dev Box customizations, you can define specific actions for your dev boxes to help ensure a consistent and efficient development environment. Creating new tasks in a catalog allows you to define reusable components tailored to your development teams and add guardrails around the configurations that are possible. This article guides you through creating a catalog for customization tasks, adding tasks, and attaching the catalog to a dev center or project.
 
-[!INCLUDE [customizations-preview-text](includes/customizations-preview-text.md)]
-
 ## Prerequisites
 
 To complete the steps in this article, you must have:
