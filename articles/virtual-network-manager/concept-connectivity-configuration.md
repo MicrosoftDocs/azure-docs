@@ -47,7 +47,7 @@ When you create a mesh topology or enable direct connectivity in a hub-and-spoke
 
 ### Enable high-scale connectivity in Azure Virtual Network Manager connected groups
 
-Azure Virtual Network Manager's high-scale connectivity feature in connected group feature empowers you to extend your network capacity. To you this feature, please register the preveiw feature "AllowHighScaleConnectedGroup" (you can find it with the Display Name of "Enable High Scale Connected Group
+Azure Virtual Network Manager's high-scale connectivity feature in connected group feature empowers you to extend your network capacity. To you this feature, please register the preview feature "AllowHighScaleConnectedGroup" (you can find it with the Display Name of "Enable High Scale Connected Group
 ".) This feature allows a connected group in the supported regions to contain up to 5,000 virtual networks.
 
 ### Enable high-scale private endpoints in Azure Virtual Network Manager connected groups

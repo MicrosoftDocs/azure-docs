@@ -182,6 +182,8 @@
       href: concepts-azure-to-azure-high-churn-support.md
     - name: About moving Azure VMs to another region
       href: azure-to-azure-move-overview.md
+    - name: Alternative virtual machine size guidance
+      href: alternative-vm-size-failover-flow.md
   - name: About VMware VM disaster recovery
     items:
     - name: Deprecation of classic experience
