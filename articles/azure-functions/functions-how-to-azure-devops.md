@@ -461,7 +461,7 @@ Ideally, you would build your own custom container in the pipeline instead of us
 
 ### [Azure Functions hosting](#tab/azure-functions)
 
-While Azure Container Apps is the recommend host for containerized function apps, you can also deploy to a Functions-hosted container on Linux by using the [Azure Function App on Container Deploy](/azure/devops/pipelines/tasks/deploy/azure-rm-functionapp-containers) task (`AzureFunctionAppContainer`).
+While Azure Container Apps is the recommended host for containerized function apps, you can also deploy to a Functions-hosted container on Linux by using the [Azure Function App on Container Deploy](/azure/devops/pipelines/tasks/deploy/azure-rm-functionapp-containers) task (`AzureFunctionAppContainer`).
 
 To deploy, add the following snippet at the end of your YAML file:
 
@@ -497,7 +497,7 @@ For a complete end-to-end pipeline example, including building the container and
 :::zone pivot="v2"
 >[!IMPORTANT]  
 >The Flex Consumption plan doesn't currently support slots. 
->Linux apps also don't support slots when running in a Consumtion plan, and [support for these apps is being retired in the future](./consumption-plan.md). 
+>Linux apps also don't support slots when running in a Consumption plan, and [support for these apps is being retired in the future](./consumption-plan.md). 
 
 ### [Windows App](#tab/windows)
 ```yaml
