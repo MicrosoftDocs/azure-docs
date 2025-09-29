@@ -4,7 +4,7 @@ description: Learn how Azure SRE Agent handles your data while in preview.
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: tutorial
-ms.date: 08/29/2025
+ms.date: 09/24/2025
 ms.service: azure
 ---
 
@@ -16,7 +16,7 @@ By using an SRE Agent, you consent to the product-specific [Supplemental Terms o
 
 ## Agent location
 
-During preview, you can only choose to create Azure SRE Agent in the *Sweden Central*, *East US*, and *Australia* regions.
+During preview, you can only choose to create Azure SRE Agent in the *Sweden Central*, *East US 2*, and *Australia East* regions.
 
 ## Data residency
 

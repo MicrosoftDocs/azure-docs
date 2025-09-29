@@ -6,6 +6,7 @@ author: vijain
 ms.author: vijain
 ms.manager: kmadnani
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template, engagement-fy25
 # Customer intent: As a cloud administrator, I want to create an Azure Migrate project using an ARM template, so that I can efficiently assess and migrate my on-premises servers and applications to Azure.

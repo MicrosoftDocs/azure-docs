@@ -1,13 +1,13 @@
 ---
 title: Plan to manage Azure costs
 description: Learn how to plan to manage Azure costs and use cost-tracking and management features for your Azure account.
-author: maddieminn
-ms.reviewer: maminn
+author: vikramdesai01
+ms.reviewer: vikdesai
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: conceptual
 ms.date: 05/21/2025
-ms.author: maminn
+ms.author: vikdesai
 ms.custom: sfi-image-nochange
 ---
 
