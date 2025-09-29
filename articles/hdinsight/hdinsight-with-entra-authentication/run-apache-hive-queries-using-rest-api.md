@@ -15,34 +15,34 @@ Apache Hive enables you to query and analyze large datasets in Azure HDInsight u
 
 With the REST API, you can integrate Hive query execution into applications, scripts, and automation pipelines. This approach is especially useful for scenarios where you need to run queries from external systems, enforce secure access through Microsoft Entra ID, or manage workloads at scale.
 
-**Prerequisites**
+## Prerequisites
 
 - An Entra Enabled Apache Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
 - A REST client. This document uses [Curl](https://curl.haxx.se/).
 - If you use Bash, use jq, a command-line JSON processor. See [Download jq](https://jqlang.org/download/)
 
-**Base URI for REST API**
+### Base URI for REST API
 
 The base Uniform Resource Identifier(URI) for the REST API on HDInsight is `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, where `CLUSTERNAME` is the name of your cluster. Cluster names in URIs are **case-sensitive**. While the cluster name in the fully qualified domain name (FQDN) part of the URI (`CLUSTERNAME.azurehdinsight.net`) is case-insensitive, other occurrences in the URI are case-sensitive.
 
-**Authentication**
+### Authentication
 
 When using cURL or any other REST communication with WebHCat, you must authenticate the requests by providing the Bearer Token for the HDInsight cluster administrator. The REST API is secured via OAuth 2.0. To help ensure that your credentials are securely sent to the server, always make requests by using Secure HTTP (HTTPS).
 
-**Setup (Secure Bearer Access Token)**
+### Setup (Secure Bearer Access Token)
 
 Bearer Token is needed to send the cURL or any REST communication. Follow the mentioned steps to get the token:
 
 Execute an HTTP GET request to the OAuth 2.0 token endpoint with the following specifications:
 
-**URL**
+### URL
   ```
     https://login.microsoftonline.com/{Tenant_ID}/oauth2/v2.0/token
   ```
 
 
-**Body**
-  ```
+### Body
+  ```bash
       curl --request GET \
     --url https://login.microsoftonline.com/{tenant_id}/oauth2/v2.0/token \
     --header 'Content-Type: multipart/form-data' \
@@ -52,7 +52,7 @@ Execute an HTTP GET request to the OAuth 2.0 token endpoint with the following s
     --form scope=https://{clustername}.clusteraccess.azurehdinsight.net/.default \
   ```
 
-**Response**
+## Response
 
 A successful request returns a JSON object containing:
 
@@ -61,7 +61,7 @@ A successful request returns a JSON object containing:
 - ext_expires_in: Extended expiration time in seconds
 - access_token: The Bearer token for authentication
 
-  ```
+  ```bash
       {
 	"token_type": "Bearer",
 	"expires_in": 3599,
@@ -70,13 +70,11 @@ A successful request returns a JSON object containing:
       }
   ```
 
-**Run a Hive query**
+### Run a Hive query
 
 1. To verify that you can connect to your HDInsight cluster, use one of the following commands:
-    
-      Bash
 
-      ```
+      ```bash
         curl -H "Authorization: Bearer $TOKEN" -G https://$CLUSTER_NAME.azurehdinsight.net/templeton/v1/status
 
       ```
@@ -94,10 +92,8 @@ A successful request returns a JSON object containing:
  	 - 'u' The username and password used to authenticate the request.
      - 'G' Indicates that this request is a GET operation.
 1. The beginning of the URL, `https://$CLUSTERNAME.azurehdinsight.net/templeton/v1`, is the same for all requests. The path, `/status`, indicates that the request is to return a status of WebHCat (also known as Templeton) for the server. You can also request the version of Hive by using the following command:
-    
-    Bash
 
-    ```
+    ```bash
       curl -H "Authorization: Bearer $TOKEN" -G https://$CLUSTER_NAME.azurehdinsight.net/templeton/v1/version/hive
     ```
 
@@ -111,8 +107,8 @@ A successful request returns a JSON object containing:
 
 1. Use the following to create a table named **log4jLogs**:
     
-    Bash
-    ```
+    
+    ```bash
       curl -s -H "Authorization: Bearer $TOKEN" -d user.name=admin -d execute="DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/rest" https://$CLUSTER_NAME.azurehdinsight.net/templeton/v1/hive | jq -r .id
     ```
     This request uses the POST method, which sends data as part of the request to the REST API. The following data values are sent with the request:
@@ -150,15 +146,11 @@ Dropping an external table does **not** delete the data, only the table defini
 
 
 ### To check the status of the job, use the following command:
-    
- Bash   
-	  
-     
- ```
-            curl -H "Authorization: Bearer $TOKEN" -d user.name=admin -G https://$CLUSTER_NAME.azurehdinsight.net/templeton/v1/jobs/$jobid | jq .status.state
+         
+ ```bash
+ 	curl -H "Authorization: Bearer $TOKEN" -d user.name=admin -G 		     https://$CLUSTER_NAME.azurehdinsight.net/templeton/v1/jobs/$jobid | jq .status.state
  ```
 If the job finishes, the state is **SUCCEEDED**.
 
  Once the state of the job changes to **SUCCEEDED**, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter passed with the query contains the location of the output file; in this case, `/example/rest`. This address stores the output in the `example/curl` directory in the clusters default storage.
 
-## Next Steps
