@@ -36,8 +36,8 @@ You can choose one of two approaches to managing business continuity for DDoS Pr
 
 - **Reactive business continuity plan**. Virtual networks are fairly lightweight resources. In the case of a regional outage, you can invoke Azure APIs to create a VNet with the same address space, but in a different region. To recreate the same environment that was present in the affected region, you'll need to make API calls to redeploy primary region VNet resources. If on-premises connectivity is available, such as in a hybrid deployment, you must deploy a new VPN Gateway, and connect to your on-premises network.
 
->[!NOTE]
->A reactive approach to maintaining business continuity always runs the risk that you may not have access to the primary region's resources, due the extent of the disaster. In that case, you'll need to recreate all of the primary region's resources.
+> [!NOTE]
+> A reactive approach to maintaining business continuity always runs the risk that you might not have access to the primary region's resources, due to the extent of the disaster. In that case, you'll need to recreate all of the primary region's resources.
 
 
 - **Proactive business continuity plan**. You can create two VNets using the same private IP address space and resources in two different regions ahead of time. If you are hosting internet-facing services in the VNet, you could set up Traffic Manager to geo-route traffic to the region that is active. However, you cannot connect two VNets with the same address space to your on-premises network, as it would cause routing issues. At the time of a disaster and loss of a VNet in one region, you can connect the other VNet in the available region, with the matching address space to your on-premises network.
