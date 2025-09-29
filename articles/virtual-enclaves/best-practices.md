@@ -75,6 +75,24 @@ AVE recommends following [Microsoft Azure Security best practices and patterns](
 
 Customers are also recommended to follow the [Azure security best practices - Cloud Adoption Framework](/azure/cloud-adoption-framework/secure/security-top-10) for organizing their systems, cloud infrastructure, IT personnel and teaming structures, and corporate cybersecurity awareness trainings.
 
+### Data exfiltration via Domain Name System
+
+Data exfiltration through Domain Name System (DNS) represents a significant security concern for organizations, as it leverages a protocol that is typically allowed through firewalls and rarely monitored for malicious activity. Attackers can exploit DNS queries to covertly extract sensitive data from compromised systems by encoding information within domain names or using DNS tunneling techniques. This method is particularly insidious because DNS traffic appears legitimate and often bypasses traditional security monitoring tools.
+
+In DNS-based data exfiltration attacks, malicious actors encode stolen data into DNS queries, often using techniques such as subdomain labeling or TXT record queries. For example, an attacker might break sensitive data into chunks and embed each chunk as a subdomain in DNS queries to attacker-controlled domains. The data can be extracted from DNS logs on the attacker's DNS server. This approach allows for the gradual exfiltration of large datasets while maintaining a low profile, as the DNS queries appear as normal name resolution requests.
+
+#### Addressing data exfiltration with Azure DNS Security Policy
+
+Azure DNS Security Policy provides comprehensive protection against DNS-based data exfiltration attacks by offering granular control over DNS traffic within Azure Virtual Networks. This service enables organizations to implement proactive security measures that can detect, alert on, and block suspicious DNS activity before data can be successfully exfiltrated.
+
+Azure DNS Security Policy addresses DNS data exfiltration through several key mechanisms. First, it provides the ability to create DNS traffic rules that can block queries to known malicious domains or suspicious domain patterns commonly used in exfiltration attempts. Organizations can maintain blocklists of domains associated with command and control infrastructure or data exfiltration services. Second, the service offers comprehensive DNS logging capabilities that capture all DNS queries and responses within protected virtual networks, enabling security teams to analyze DNS traffic patterns and identify potential exfiltration attempts. Third, the policy engine supports wildcard domain filtering, allowing organizations to block entire categories of suspicious domains or implement allow-lists for approved DNS destinations.
+
+The implementation of Azure DNS Security Policy creates multiple layers of defense against DNS data exfiltration. Traffic rules can be configured with different priority levels, allowing for complex security policies that balance security with operational requirements. The service supports real-time blocking of malicious queries while providing detailed logs for forensic analysis and threat hunting. Additionally, virtual network links ensure that DNS security policies are consistently applied across all resources within protected network segments, creating a comprehensive security perimeter that is difficult for attackers to bypass.
+
+For Azure Virtual Enclaves deployments, Azure DNS Security Policy should be integrated as part of the overall security architecture. Organizations should configure DNS security policies to monitor and control DNS traffic from enclave workloads, ensuring that sensitive data remains protected even if individual workloads become compromised. Regular review and updating of DNS domain lists, combined with continuous monitoring of DNS logs, provides ongoing protection against evolving DNS-based threats and helps maintain the security integrity of the virtual enclave environment.
+
+More information is available at the [DNS Security Policy documentation](../dns/dns-security-policy.md).
+
 ## Managed resource groups in Azure Virtual Enclaves
 The resource groups that contain resources managed by Azure Virtual Enclaves.
 
