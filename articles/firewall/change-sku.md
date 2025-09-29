@@ -50,7 +50,7 @@ Use the easy SKU change method when:
 
 ### Policy considerations for SKU changes
 
-#### Upgrading to Premium
+#### Upgrade to Premium
 
 During the upgrade process, choose how to handle your firewall policy:
 
@@ -58,7 +58,7 @@ During the upgrade process, choose how to handle your firewall policy:
 - **Existing Standard policy**: Use your current Standard policy. The system automatically duplicates and upgrades it to a Premium policy
 - **Create new Premium policy**: Let the system create a new Premium policy based on your current configuration
 
-#### Downgrading to Standard
+#### Downgrade to Standard
 
 When downgrading from Premium to Standard, consider the following policy requirements:
 
