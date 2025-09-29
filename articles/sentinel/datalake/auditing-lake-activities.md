@@ -6,7 +6,7 @@ ms.subservice: sentinel-graph
 ms.author: edbaynash
 author: EdB-MSFT
 ms.topic: how-to
-ms.date: 07/09/2025
+ms.date: 09/29/2025
 
 #customer intent: As a SOC analyst, I want to learn how to use the audit log to search for Microsoft Sentinel data lake activities to help with investigation.
 
@@ -44,8 +44,8 @@ For a list of all events that are logged for user and admin activities in Micros
 + [Microsoft Sentinel data lake notebook activities](/purview/audit-log-activities#microsoft-sentinel-data-lake-notebook-activities)
 + [Microsoft Sentinel data lake job activities](/purview/audit-log-activities#microsoft-sentinel-data-lake-job-activities)
 + [Microsoft Sentinel data lake KQL activities](/purview/audit-log-activities#microsoft-sentinel-data-lake-kql-activities)
-+ [Microsoft Sentinel data lake AI tool activities](Link to the AI Tool section in Document 2 that we will create)
-+ [Microsoft Sentinel graph activities](Link to the graph section in Document 2 that we will create)
++ [Microsoft Sentinel data lake AI tool activities](https://aka.ms/sentinel-ai-tool-activities)
++ [Microsoft Sentinel graph activities](https://aka.ms/sentinel-graph-activities)
 
 For detailed audit log schema information, see [Microsoft Sentinel data lake and graph schema](https://aka.ms/sentinel-lake-audit-schema).
 
