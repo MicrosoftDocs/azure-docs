@@ -577,17 +577,29 @@
       displayName: data lake
     - name: Microsoft Sentinel graph overview
       href: datalake/sentinel-graph-overview.md
-    - name: Microsoft Sentinel MCP overview
-      href: datalake/sentinel-mcp-overview.md
     - name: Compare KQL jobs, summary rules, and search jobs
       href: datalake/kql-jobs-summary-rules-search-jobs.md
       displayName: data lake
-    - name: MCP server
-      href: datalake/sentinel-mcp-server.md
-      displayName: data lake
-    - name: Microsoft asset data in the data lake (Preview)
-      href: datalake/enable-data-connectors.md
-      displayName: data lake
+    - name: Microsoft Sentinel MCP Server
+      items:
+        - name: Overview
+          href: datalake/sentinel-mcp-overview.md
+        - name: Get started with Microsoft Sentinel MCP
+          href: datalake/sentinel-mcp-get-started.md
+        - name: Tool collection in Microsoft Sentinel MCP
+          items:
+          - name: Overview
+            href: datalake/sentinel-mcp-tools-overview.md
+          - name: Data exploration
+            href: datalake/sentinel-mcp-data-exploration-tool.md
+          - name: Agent creation
+            href: datalake/sentinel-mcp-agent-creation-tool.md
+        - name: Troubleshooting
+          href: datalake/troubleshoot-sentinel-mcp.md
+        - name: Billing, limits, and availability
+          href: datalake/sentinel-mcp-billing.md
+        - name: Responsible AI FAQs
+          href: datalake/sentinel-mcp-responsible-ai-faq.md
     - name: KQL for data lake exploration
       items:
         - name: Overview
@@ -855,7 +867,7 @@
       items:
       - name: Packaging and publishing a Sentinel platform solution
         href: package-platform-solution.md
-      - name: Sentinel SIEM solution lifecyle post publish
+      - name: Sentinel SIEM solution lifecycle post publish
         href: publish-sentinel-solutions.md
       - name: Solution lifecycle post publish
         href: sentinel-solutions-post-publish-tracking.md
@@ -959,7 +971,7 @@
           href: api-dcr-reference.md
         - name: Microsoft Purview Information Protection reference
           href: microsoft-purview-record-types-activities.md
-        - name: Microsoft 365 Defender connector data type support
+        - name: Microsoft Defender XDR connector data type support
           href: microsoft-365-defender-cloud-support.md
     - name: Detection and analysis references
       items:
