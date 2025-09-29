@@ -28,7 +28,6 @@ This release contains the following new features and enhancements:
   - `--capability`: Specify capability technologies for analysis
   - `--os`: Specify operating systems for analysis
 - **Improved target specification**: Refined the `--targets` parameter by removing OS and capability values, which are now handled by dedicated parameters
-- **Module-level reporting**: Added support for generating reports at the module level
 - **Unified output format**: Introduced a new consolidated **report.json** output file 
 
 ### 7.7.0.3
