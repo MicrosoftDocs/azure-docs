@@ -11,3 +11,4 @@ services: microsoft-sentinel
 
 > [!IMPORTANT]
 > Microsoft Sentinel graph is currently in preview.
+> This information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, expressed or implied, with respect to the information provided here.
