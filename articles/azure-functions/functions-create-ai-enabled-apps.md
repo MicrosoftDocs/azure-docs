@@ -2,7 +2,7 @@
 title: Use AI tools and models in Azure Functions  
 description: Describes the ways in which Azure Functions supports the use of AI in your function code executions, including LLMs, RAG, agentic workflows, and other AI-related frameworks. 
 ms.topic: conceptual
-ms.date: 04/29/2025
+ms.date: 09/28/2025
 ms.update-cycle: 180-days
 ai-usage: ai-assisted
 ms.custom:
@@ -100,55 +100,75 @@ Here are some reference samples for assistant function calling scenarios:
 
 The Model Context Protocol (MCP) provides a standardized way for AI models to communicate with external systems to determine their capabilities and how they can best be used by AI assistants and agents. An MCP server enables an AI model (client) to more efficiently make these determinations. 
 
-Functions provides an MCP binding extension that simplifies the process of creating custom MCP servers in Azure. 
+When you build or host your remote MCP servers in Azure Functions, you can take advantage of dynamic scaling, serverless pricing models, and platform security features.
 
-::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell"
-Here's an example of such a custom MCP server project: 
-::: zone-end
-::: zone pivot="programming-language-csharp"  
-**[Remote MCP servers](https://github.com/Azure-Samples/remote-mcp-functions-dotnet)**
-::: zone-end
+Functions supports these options for hosting remote MCP servers:
+
++ Use the [MCP binding extension](./functions-bindings-mcp.md) to create and host custom MCP servers as a normal function app. 
++ Build your _self hosted_ MCP servers, created using official MCP SDKs. This hosting option is currently in preview.
+
+Here's a comparison of the current MCP server hosting options provided by Functions:
+
+| Feature  | [MCP binding extension] | Self-hosted MCP servers |
+| ---- | ----- | ----- |
+| Current support level |  GA |Preview |
+| Project type | Standard function app project | MCP-protocol SDK projects |
+| Benefits | Regular Functions project | Standard MCP SDKs |
+| Stateful execution | Supported | Not currently supported | 
+| Languages currently supported | [All Functions languages](supported-languages.md) | .NET<br/>Python<br/>Node.js<br/>Java |
+| Additional requirements | None | Streamable HTTP transport |
+| How implemented | [MCP binding extension] | [Custom handlers](./functions-custom-handlers.md) |
+
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-typescript,programming-language-python"
+Here are some options to help you get started hosting MCP servers in Functions:  
+::: zone-end  
+::: zone pivot="programming-language-csharp" 
+ 
+| Options  | MCP binding extensions | Self-hosted MCP servers |
+| ---- | ----- | ----- |
+| Documentation | [MCP binding extension](./functions-bindings-mcp.md?pivots=programming-language-csharp)  | n/a |
+| Samples | [Remote custom MCP server](https://github.com/Azure-Samples/remote-mcp-functions-dotnet) | [Weather server](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-dotnet)  |
+| Copilot prompts<br/>(Visual Studio Code)| n/a | [Setup prompt](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-dotnet/blob/main/ExistingServer.md) (experimental)  |
+| Templates | [HelloTool](https://github.com/Azure/azure-functions-templates/tree/dev/Functions.Templates/Templates/McpToolTrigger-CSharp-Isolated)  | n/a |
+
+::: zone-end  
 ::: zone pivot="programming-language-python"  
-**[Remote MCP servers](https://github.com/Azure-Samples/remote-mcp-functions-python)**
-::: zone-end
+ 
+| Options  | MCP binding extensions | Self-hosted MCP servers |
+| ---- | ----- | ----- |
+| Documentation | [MCP binding extensions](./functions-bindings-mcp.md?pivots=programming-language-python)  | n/a |
+| Samples | [Remote custom MCP server](https://github.com/Azure-Samples/remote-mcp-functions-python) | [Weather server](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-python)  |
+| Copilot prompts<br/>(Visual Studio Code)| n/a | [Setup prompt](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-python/blob/main/ExistingServer.md) (experimental)  |
+
+::: zone-end  
 ::: zone pivot="programming-language-typescript"  
-**[Remote MCP servers](https://github.com/Azure-Samples/remote-mcp-functions-typescript)**
-::: zone-end
-::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript"  
-> Provides an MCP server template along with several function tool endpoints, which can be run locally and also deployed to Azure.
-::: zone-end
+ 
+| Options  | MCP binding extensions | Self-hosted MCP servers |
+| ---- | ----- | ----- |
+| Documentation | [MCP binding extensions](./functions-bindings-mcp.md?pivots=programming-language-typescript)  | n/a |
+| Samples | [Remote custom MCP server](https://github.com/Azure-Samples/remote-mcp-functions-typescript) | [Weather server](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-node)  |
+| Copilot prompts<br/>(Visual Studio Code)| n/a | [Setup prompt](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-node/blob/main/ExistingServer.md) (experimental)  |
 
-
-### Self-hosted remote MCP servers (early preview)
-
-If you've already built servers with the official MCP SDKs, you can now host them on Azure Functions with minimal code change. This early preview supports hosting servers written with the Python, Node.js, and .NET MCP SDKs. The servers must also be **stateless** and use the **streamable HTTP** transport. 
-
-For stateful scenarios, consider using the [MCP binding extension](#remote-mcp-servers) for now. 
-
-#### Get started
-
-::: zone pivot="programming-language-csharp"  
-- [Weather server quickstart](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-dotnet)
-- To host already-built MCP servers, try out the [experimental prompt](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-dotnet/blob/main/ExistingServer.md) to have Visual Studio Code Copilot prepare the server for deployment. 
-::: zone-end
-::: zone pivot="programming-language-python"  
-- [Weather server quickstart](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-python)
-- To host already-built MCP servers, try out the [experimental prompt](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-python/blob/main/ExistingServer.md) to have Visual Studio Code Copilot prepare the server for deployment. 
-::: zone-end
-::: zone pivot="programming-language-typescript"  
-- [Weather server quickstart](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-node)
-- To host already-built MCP servers, try out the [experimental prompt](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-node/blob/main/ExistingServer.md) to have Visual Studio Code Copilot prepare the server for deployment. 
-::: zone-end
+::: zone-end  
 ::: zone pivot="programming-language-javascript"  
-See [TypeScript sample](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-node).
-::: zone-end
-::: zone pivot="programming-language-java"  
-Sample not available yet. 
-::: zone-end
-::: zone pivot="programming-language-powershell"  
-PowerShell is not supported.  
-::: zone-end
+ 
+| Options  | MCP binding extensions | Self-hosted MCP servers |
+| ---- | ----- | ----- |
+| Documentation | [MCP binding extensions](./functions-bindings-mcp.md?pivots=programming-language-javascript)  | n/a |
+| Samples | n/a | [Weather server](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-node)  |
 
+::: zone-end  
+::: zone pivot="programming-language-java"  
+
+| Options  | MCP binding extensions | Self-hosted MCP servers |
+| ---- | ----- | ----- |
+| Documentation | [MCP binding extensions](./functions-bindings-mcp.md?pivots=programming-language-java)  | n/a |
+| Samples | Not yet available | Not yet available |
+
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
+PowerShell isn't currently supported for either MCP server hosting options.  
+::: zone-end  
 
 ### Agentic workflows
 
@@ -178,7 +198,7 @@ Functions also enables your apps to reference third-party libraries and framewor
 + [Tutorial: Add Azure OpenAI text completion hints to your functions in Visual Studio Code](functions-add-openai-text-completion.md)
 
 [OpenAI binding extension]: functions-bindings-openai.md
- 
+[MCP binding extension]: functions-bindings-mcp.md
 
  
 
