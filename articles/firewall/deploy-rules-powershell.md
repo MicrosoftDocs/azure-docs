@@ -47,7 +47,7 @@ The following sections show you how to add new DNAT rules and update existing ru
 
 Connect to your Azure account and set the context to your target subscription:
 
-```azurepowershell
+```azurepowershell-interactive
 Connect-AzAccount
 Set-AzContext -Subscription "<Subscription ID>"
 ```
@@ -56,7 +56,7 @@ Set-AzContext -Subscription "<Subscription ID>"
 
 Create local objects for the firewall policy, rule collection group, and the specific rule collection you want to modify:
 
-```azurepowershell
+```azurepowershell-interactive
 $policy = Get-AzFirewallPolicy -Name "<Policy Name>" -ResourceGroupName "<Resource Group Name>"
 $natrulecollectiongroup = Get-AzFirewallPolicyRuleCollectionGroup -Name "<Rule Collection Group Name>" -ResourceGroupName "<Resource Group Name>" -AzureFirewallPolicyName "<Firewall Policy Name>"
 $existingrulecollection = $natrulecollectiongroup.Properties.RuleCollection | Where-Object {$_.Name -eq "<rule collection name>"}
@@ -68,7 +68,7 @@ $existingrulecollection = $natrulecollectiongroup.Properties.RuleCollection | Wh
 
 Define the new DNAT rules you want to add to the rule collection:
 
-```azurepowershell
+```azurepowershell-interactive
 $newrule1 = New-AzFirewallPolicyNatRule -Name "dnat-rule1" -Protocol "TCP" -SourceAddress "<Source Address>" -DestinationAddress "<Destination Address>" -DestinationPort "<Destination Port>" -TranslatedAddress "<Translated Address>" -TranslatedPort "<Translated Port>"
 $newrule2 = New-AzFirewallPolicyNatRule -Name "dnat-rule2" -Protocol "TCP" -SourceAddress "<Source Address>" -DestinationAddress "<Destination Address>" -DestinationPort "<Destination Port>" -TranslatedAddress "<Translated Address>" -TranslatedPort "<Translated Port>"
 ```
@@ -77,7 +77,7 @@ $newrule2 = New-AzFirewallPolicyNatRule -Name "dnat-rule2" -Protocol "TCP" -Sour
 
 Add the new rules to the local rule collection object:
 
-```azurepowershell
+```azurepowershell-interactive
 $existingrulecollection.Rules.Add($newrule1)
 $existingrulecollection.Rules.Add($newrule2)
 ```
@@ -93,7 +93,7 @@ To modify existing rules in the rule collection:
 
 1. Locate an existing rule by name and modify its properties:
 
-```azurepowershell
+```azurepowershell-interactive
 # Find the existing rule
 $existingRule = $existingrulecollection.Rules | Where-Object {$_.Name -eq "existing-rule-name"}
 
@@ -113,7 +113,7 @@ if ($existingRule) {
 
 To remove a rule from the collection:
 
-```azurepowershell
+```azurepowershell-interactive
 # Find and remove the rule
 $ruleToRemove = $existingrulecollection.Rules | Where-Object {$_.Name -eq "rule-to-delete"}
 if ($ruleToRemove) {
@@ -128,7 +128,7 @@ if ($ruleToRemove) {
 
 To view all current rules in the collection:
 
-```azurepowershell
+```azurepowershell-interactive
 # Display all rules
 $existingrulecollection.Rules | Select-Object Name, Protocol, SourceAddresses, DestinationAddresses, DestinationPorts, TranslatedAddress, TranslatedPort | Format-Table
 ```
@@ -137,7 +137,7 @@ $existingrulecollection.Rules | Select-Object Name, Protocol, SourceAddresses, D
 
 After you make all your changes to the local objects, update the rule collection group in Azure:
 
-```azurepowershell
+```azurepowershell-interactive
 try {
     Set-AzFirewallPolicyRuleCollectionGroup -Name "<Rule Collection Group Name>" -FirewallPolicyObject $policy -Priority 200 -RuleCollection $natrulecollectiongroup.Properties.RuleCollection
     Write-Host "Firewall policy updated successfully."
@@ -153,7 +153,7 @@ try {
 
 After you update the policy, verify that your changes were applied correctly:
 
-```azurepowershell
+```azurepowershell-interactive
 # Refresh the policy object and verify changes
 $updatedPolicy = Get-AzFirewallPolicy -Name "<Policy Name>" -ResourceGroupName "<Resource Group Name>"
 $updatedRuleGroup = Get-AzFirewallPolicyRuleCollectionGroup -Name "<Rule Collection Group Name>" -ResourceGroupName "<Resource Group Name>" -AzureFirewallPolicyName "<Firewall Policy Name>"
@@ -167,7 +167,7 @@ $updatedRuleCollection.Rules | Select-Object Name, Protocol, SourceAddresses, De
 
 If you created test resources for this tutorial, you can remove them to avoid charges. When you delete the resource group, you also delete the firewall and all related resources.
 
-```azurepowershell
+```azurepowershell-interactive
 Remove-AzResourceGroup -Name "<Resource Group Name>" -Force
 ```
 
