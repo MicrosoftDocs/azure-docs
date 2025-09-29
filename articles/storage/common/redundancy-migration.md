@@ -213,8 +213,8 @@ To change between locally redundant and zone-redundant storage with Azure CLI, c
 
 ```azurecli-interactive
 az storage account migration start  \
-    -- account-name <string> \
-    -- g <string> \
+    --account-name <string> \
+    --resource-group <string> \
     --sku <string> \
     --no-wait
 ```
@@ -262,8 +262,8 @@ To track the current migration status of the conversion initiated on your storag
 ```azurecli-interactive
 az storage account migration show \
     --account-name <string> \
-    - g <string> \
-    -n "default"
+    --resource-group <string> \
+    --name "default"
 ```
 
 ---
