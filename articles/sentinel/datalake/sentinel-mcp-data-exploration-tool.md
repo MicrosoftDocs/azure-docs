@@ -11,7 +11,7 @@ ms.service: microsoft-sentinel
 #customer intent: As a security analyst, I want to know the different tools available to explore security data in Microsoft Sentinel data lake
 ---
 
-# Explore Microsoft Sentinel data lake with data exploration collection (Preview)
+# Explore Microsoft Sentinel data lake with data exploration collection (preview)
 
 > [!IMPORTANT]
 > Microsoft Sentinel MCP Server is currently in preview.
@@ -75,7 +75,7 @@ Let's take a deeper look into how an agent answers a prompt by dynamically orche
 
 **Typical response (GitHub Copilot using Claude Sonnet 4):**
 
-:::image type="content" source="media/sentinel-mcp/mcp-tool-01.png" alt-text="Screenshot of a GitHub Copilot response." lightbox="media/sentinel-mcp/mcp-tool-01.png"::: 
+:::image type="content" source="media/sentinel-mcp/mcp-tool-github-response.png" alt-text="Screenshot of a GitHub Copilot response." lightbox="media/sentinel-mcp/mcp-tool-github-response.png"::: 
 
 **Explanation:**
 - When the agent receives the prompt, it searches for relevant tables that would contain user risk and security information. It starts by deconstructing the prompt into search keywords to find the tables.
@@ -86,23 +86,23 @@ Let's take a deeper look into how an agent answers a prompt by dynamically orche
      - `SigninLogs` - Interactive Microsoft Entra ID sign-in events
      - `AADUserRiskEvents` - Identity protection risk detections
  
-     :::image type="content" source="media/sentinel-mcp/mcp-tool-02.png" alt-text="Screenshot of the agent searching for relevant tables that contain user risk and security information." lightbox="media/sentinel-mcp/mcp-tool-02.png"::: 
+     :::image type="content" source="media/sentinel-mcp/mcp-tool-search-table.png" alt-text="Screenshot of the agent searching for relevant tables that contain user risk and security information." lightbox="media/sentinel-mcp/mcp-tool-search-table.png"::: 
 
 - The agent does another search using the **Semantic search on table catalog** (`search_tables`) tool, this time with broader terms, to find other tables that it should query data from to influence its reasoning.
 
-    :::image type="content" source="media/sentinel-mcp/mcp-tool-03.png" alt-text="Screenshot of the agent searching using broader terms." lightbox="media/sentinel-mcp/mcp-tool-03.png"::: 
+    :::image type="content" source="media/sentinel-mcp/mcp-tool-semantic-search.png" alt-text="Screenshot of the agent searching using broader terms." lightbox="media/sentinel-mcp/mcp-tool-semantic-search.png"::: 
  
 - The agent identifies the relevant tables and then uses the **Execute KQL (Kusto Query Language) query on Microsoft Sentinel data lake** (`query_lake`) tool to query for data and find the top three users at risk. The first attempt fails because the KQL query had a semantic error.
 
-     :::image type="content" source="media/sentinel-mcp/mcp-tool-04.png" alt-text="Screenshot of the agent attempting to run a KQL query with a semantic error." lightbox="media/sentinel-mcp/mcp-tool-04.png":::
+     :::image type="content" source="media/sentinel-mcp/mcp-tool-run-kql.png" alt-text="Screenshot of the agent attempting to run a KQL query with a semantic error." lightbox="media/sentinel-mcp/mcp-tool-run-kql.png":::
 
 - The agent corrects the KQL query by itself and successfully retrieves data from Microsoft Sentinel data lake, finding the risky users.
 
-     :::image type="content" source="media/sentinel-mcp/mcp-tool-05.png" alt-text="Screenshot of the agent attempting running a corrected KQL query." lightbox="media/sentinel-mcp/mcp-tool-05.png"::: 
+     :::image type="content" source="media/sentinel-mcp/mcp-tool-run-correct-kql.png" alt-text="Screenshot of the agent attempting running a corrected KQL query." lightbox="media/sentinel-mcp/mcp-tool-run-correct-kql.png"::: 
 
 - The agent runs one more query to get detailed information about the risky users to provide better context on why they'are at risk.
 
-    :::image type="content" source="media/sentinel-mcp/mcp-tool-06.png" alt-text="Screenshot of the agent running another query to get detailed user information." lightbox="media/sentinel-mcp/mcp-tool-06.png"::: 
+    :::image type="content" source="media/sentinel-mcp/mcp-tool-risky-users.png" alt-text="Screenshot of the agent running another query to get detailed user information." lightbox="media/sentinel-mcp/mcp-tool-risky-users.png"::: 
 
 - The agent responds back to the user with its comprehensive analysis.
 

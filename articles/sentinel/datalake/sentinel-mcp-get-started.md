@@ -11,7 +11,7 @@ ms.service: microsoft-sentinel
 #customer intent: As a security analyst, I want to configure Microsoft Sentinel MCP Server so that I can use natural language to query security data and accelerate investigations.
 ---
 
-# Get started with Microsoft Sentinel MCP Server (Preview)
+# Get started with Microsoft Sentinel MCP Server (preview)
 
 > [!IMPORTANT]
 > Microsoft Sentinel MCP Server is currently in preview.
@@ -38,13 +38,13 @@ Microsoft Sentinel's support for MCP tools works with the following AI-powered c
 # [Visual Studio Code](#tab/visual-studio)
 
 1.	**Add MCP Server:**
-    1. Press **Ctrl** + **Shift** + **P** then type or choose `MCP: Add server`.
+    1. Press **Ctrl** + **Shift** + **P** then type or choose `MCP: Add Server`.
 
-        :::image type="content" source="media/sentinel-mcp/mcp-get-started-01.png" alt-text="Screenshot of Visual Studio Code with Add server highlighted." lightbox="media/sentinel-mcp/mcp-get-started-01.png":::
+        :::image type="content" source="media/sentinel-mcp/mcp-get-started-add-server.png" alt-text="Screenshot of Visual Studio Code with Add server highlighted." lightbox="media/sentinel-mcp/mcp-get-started-add-server.png":::
 
     1. Choose **HTTP (HTTP or Server-Sent Events)**.
 
-        :::image type="content" source="media/sentinel-mcp/mcp-get-started-02.png" alt-text="Screenshot of Visual Studio Code with HTTP or Server-Sent Events highlighted." lightbox="media/sentinel-mcp/mcp-get-started-02.png":::
+        :::image type="content" source="media/sentinel-mcp/mcp-get-started-http.png" alt-text="Screenshot of Visual Studio Code with HTTP or Server-Sent Events highlighted." lightbox="media/sentinel-mcp/mcp-get-started-http.png":::
 
     1. Enter the URL of the MCP Server you want to access then press **Enter**:
         - [Data exploration](sentinel-mcp-data-exploration-tool.md): `https://sentinel.microsoft.com/mcp/data-exploration` 
@@ -55,7 +55,7 @@ Microsoft Sentinel's support for MCP tools works with the following AI-powered c
  
 2.	**Allow authentication.** When prompted, select **Allow** to authenticate using an account with at least a Security reader role.
 
-    :::image type="content" source="media/sentinel-mcp/mcp-get-started-03.png" alt-text="Screenshot of a Visual Studio Code dialog box prompting the user to authenticate." lightbox="media/sentinel-mcp/mcp-get-started-03.png"::: 
+    :::image type="content" source="media/sentinel-mcp/mcp-get-started-authenticate.png" alt-text="Screenshot of a Visual Studio Code dialog box prompting the user to authenticate." lightbox="media/sentinel-mcp/mcp-get-started-authenticate.png"::: 
 
 3. **Open Visual Studio Code's chat.** Select **View** > **Chat**, select the **Toggle Chat** icon :::image type="icon" source="media/sentinel-mcp/mcp-chat-icon.png"::: beside the search bar, or press **Ctrl** + **Alt** + **I**.
     

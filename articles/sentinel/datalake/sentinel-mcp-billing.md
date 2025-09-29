@@ -12,7 +12,7 @@ ms.custom: references_regions
 #customer intent: As a security analyst, I want to understand Microsoft Sentinel MCP Server pricing, limits, and availability 
 ---
 
-# Understand Microsoft Sentinel MCP Server pricing, limits, and availability (Preview)
+# Understand Microsoft Sentinel MCP Server pricing, limits, and availability (preview)
 
 > [!IMPORTANT]
 > Microsoft Sentinel MCP Server is currently in preview.

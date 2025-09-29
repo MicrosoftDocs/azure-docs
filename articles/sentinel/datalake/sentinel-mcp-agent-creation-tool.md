@@ -11,7 +11,7 @@ ms.service: microsoft-sentinel
 #customer intent: As a security analyst, I want to know the different tools available to create AI agents
 ---
 
-# Create AI agents with agent creation collection (Preview)
+# Create AI agents with agent creation collection (preview)
 
 > [!IMPORTANT]
 > Microsoft Sentinel MCP Server is currently in preview.

@@ -11,7 +11,7 @@ ms.service: microsoft-sentinel
 #customer intent: As a security analyst, I want to know the frequently asked questions about responsible AI in relation to using Microsoft Sentinel's collection of MCP tools 
 ---
 
-# Responsible AI FAQs for Microsoft Sentinel MCP server (Preview)
+# Responsible AI FAQs for Microsoft Sentinel MCP Server (preview)
 
 > [!IMPORTANT]
 > Microsoft Sentinel MCP Server is currently in preview.

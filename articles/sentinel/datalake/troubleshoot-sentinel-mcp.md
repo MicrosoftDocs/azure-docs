@@ -11,7 +11,7 @@ ms.service: microsoft-sentinel
 #customer intent: As a security analyst, I want to understand how to troubleshoot issues when using Microsoft Sentinel's collection of MCP tools 
 ---
 
-# Microsoft Sentinel MCP tool collection best practices and troubleshooting (Preview)
+# Microsoft Sentinel MCP tool collection best practices and troubleshooting (preview)
 
 > [!IMPORTANT]
 > Microsoft Sentinel MCP Server is currently in preview.

@@ -11,7 +11,7 @@ ms.service: microsoft-sentinel
 #customer intent: As a security analyst, I want to understand the different tools in Microsoft Sentinel MCP Server 
 ---
 
-# Tool collection in Microsoft Sentinel MCP Server (Preview)
+# Tool collection in Microsoft Sentinel MCP Server (preview)
 
 > [!IMPORTANT]
 > Microsoft Sentinel MCP Server is currently in preview.

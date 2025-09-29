@@ -1,5 +1,5 @@
 ---
-title: What is Microsoft Sentinel’s support for MCP? (Preview)
+title: What is Microsoft Sentinel’s support for MCP? (preview)
 titleSuffix: Microsoft Security  
 description: Learn how Model Context Protocol (MCP) 
 author: mberdugo
