@@ -193,13 +193,28 @@ The table summarizes VMware vSphere VM support for VMware vSphere VMs you want t
 
 
 ### Appliance requirements (agent-based)
+The Azure Site Recovery Replication appliance is used to replicate machines to Azure in agent-based migration. [Learn more](../site-recovery/physical-server-azure-architecture-modernized.md).
 
-When you set up the replication appliance using the OVA template provided in the Azure Migrate hub, the appliance runs Windows Server 2016 and complies with the support requirements. If you set up the replication appliance manually on a physical server, then make sure that it complies with the requirements.
+To set up a new appliance, you can use the OVA template. We recommend using this approach as it ensures all prerequisite configurations are handled by the template. The OVA template creates a machine with the required specifications. 
 
-- Learn about [replication appliance requirements](migrate-replication-appliance.md#appliance-requirements) for VMware vSphere.
-- Install MySQL on the appliance. Learn about [installation options](migrate-replication-appliance.md#mysql-installation).
-- Learn about URLs that the replication appliance needs to access in [public](migrate-replication-appliance.md#url-access) and [government](migrate-replication-appliance.md#azure-government-url-access) clouds.
-- Review the [ports](migrate-replication-appliance.md#port-access) the replication appliance needs to access.
+Follow the steps:
+
+1. [Download](https://aka.ms/V2ARcmOvaDownloadLink_ccy) the OVA template here or from the portal to set up an appliance on your on-premises environment.
+1. Power on the appliance VM to accept the Microsoft Evaluation license. 
+1. Provide a password for the administrator user. 
+1. Select **Finalize** the system reboots, and you can log in with the administrator user account.
+
+If your organization has restrictions, you can manually set up the replication appliance using PowerShell. Ensure you meet all the [hardware](../site-recovery/replication-appliance-support-matrix.md#hardware-requirements) and [software](../site-recovery/replication-appliance-support-matrix.md#software-requirements) requirements, and any other prerequisites. 
+
+Follow these steps:
+
+1. [Download](https://aka.ms/V2ARcmApplianceCreationPowershellZip) the installers and place them on the replication appliance.
+1. Unzip and extract the components.
+1. Execute the **DRInstaller.ps1 PowerShell** script as an administrator.
+
+
+> [!NOTE]
+> The replication appliance shouldn't be installed on a source machine that you want to replicate or on the Azure Migrate: Discovery and assessment appliance you might have installed before.
 
 ### Port requirements (agent-based)
 
