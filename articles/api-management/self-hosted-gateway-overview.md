@@ -15,23 +15,23 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
-The self-hosted gateway is an optional, containerized version of the default managed gateway that's included in every API Management service. It's useful for scenarios like placing gateways in the same environments where you host your APIs. Use the self-hosted gateway to improve API traffic flow and address API security and compliance requirements.
+Self-hosted gateway is an optional, containerized version of the default managed gateway that's included in every API Management service. It's useful for scenarios like placing gateways in the same environments where you host your APIs. Use the self-hosted gateway to improve API traffic flow and address API security and compliance requirements.
 
 This article explains how the self-hosted gateway feature of Azure API Management enables hybrid and multicloud API management, presents its high-level architecture, and describes its capabilities.
 
-For an overview of the features across the various gateway offerings, see [API gateway in API Management](api-management-gateways-overview.md#feature-comparison-managed-versus-self-hosted-gateways).
+For an overview of the differences between managed and self-hosted gateways, see [API gateway in API Management](api-management-gateways-overview.md#feature-comparison-managed-versus-self-hosted-gateways).
 
 ## Hybrid and multicloud API management
 
 The self-hosted gateway feature expands API Management support for hybrid and multicloud environments and enables you to efficiently and securely manage APIs hosted on-premises and across clouds from a single API Management service in Azure.
 
-With the self-hosted gateway, you have the flexibility to deploy a containerized version of the API Management gateway component to the same environments where you host your APIs. All self-hosted gateways are managed from the API Management service they're federated with, thus providing you with the visibility and unified management experience across all internal and external APIs.
+With self-hosted gateway, you have the flexibility to deploy a containerized version of the API Management gateway component to the same environments where you host your APIs. All self-hosted gateways are managed from the API Management service they're federated with, thus providing you with the visibility and unified management experience across all internal and external APIs.
 
 Each API Management service is composed of the following key components:
 
--   A management plane, exposed as an API, used to configure the service via the Azure portal, PowerShell, and other supported technologies.
+-   A management plane, exposed as an API, used to configure the service via the Azure portal, PowerShell, and other supported technologies
 -   A gateway (or data plane), that's responsible for proxying API requests, applying policies, and collecting telemetry
--   A developer portal that's used by developers to discover, learn, and onboard to use the APIs
+-   A developer portal that's used by developers to discover, learn, and onboard for using the APIs
 
 By default, all these components are deployed in Azure, causing all API traffic (shown as solid black arrows on the following image) to flow through Azure regardless of where backends implementing the APIs are hosted. The operational simplicity of this model comes at the cost of increased latency, compliance issues, and in some cases, extra data transfer fees.
 
@@ -47,7 +47,7 @@ The self-hosted gateway is available as a Linux-based Docker [container image](h
 
 ### Container images
 
-A variety of container images for self-hosted gateways are avaiable:
+A variety of container images for self-hosted gateways are available:
 
 | Tag convention | Recommendation | Example  | Rolling tag  | Recommended for production |
 | ------------- | -------- | ------- | ------- | ------- |
@@ -111,7 +111,7 @@ To operate properly, each self-hosted gateway needs outbound connectivity on por
 | Endpoints for [external cache integration](api-management-howto-cache-external.md) | Optional<sup>5</sup> | This requirement depends on the external cache that's being used. |
 
 
-<sup>1</sup>For information about an API Management instance in an internal virtual network, see [Connectivity in an internal virtual network](#connectivity-in-internal-virtual-network).<br/>
+<sup>1</sup>For information about an API Management instance in an internal virtual network, see [Connectivity in an internal virtual network](#connectivity-in-an-internal-virtual-network).<br/>
 <sup>2</sup>Only required in v2 when API inspector or quotas are used in policies.<br/>
 <sup>3</sup>Only required when using Microsoft Entra authentication to verify RBAC permissions.<br/>
 <sup>4</sup>Only required when you use Microsoft Entra authentication or policies related to Microsoft Entra.<br/>
@@ -134,7 +134,7 @@ The gateway container's [configuration settings](self-hosted-gateway-settings-re
 
 |Option  |Considerations  |
 |---------|---------|
-| [Microsoft Entra authentication](self-hosted-gateway-enable-azure-ad.md)   | Configure one or more Microsoft Entra apps for access to the gateway.<br/><br/>Manage access separately per app.<br/><br/>Configure longer expriration times for secrets in accordance with your organization's policies.<br/><br/>Use standard Microsoft Entra procedures to assign or revoke user or group permissions to apps and to rotate secrets.<br/><br/>        |
+| [Microsoft Entra authentication](self-hosted-gateway-enable-azure-ad.md)   | Configure one or more Microsoft Entra apps for access to the gateway.<br/><br/>Manage access separately per app.<br/><br/>Configure longer expiration times for secrets in accordance with your organization's policies.<br/><br/>Use standard Microsoft Entra procedures to assign or revoke user or group permissions to apps and to rotate secrets.<br/><br/>        |
 | Gateway access token. (Also called an authentication key.)    |  Token expires at least every 30 days and must be renewed in the containers.<br/><br/>Backed by a gateway key that can be rotated independently (for example, to revoke access). <br/><br/>Regenerating the gateway key invalidates all access tokens that are created with it.        |
 
 > [!TIP]
@@ -223,10 +223,10 @@ With v2.1.1 and later, you can manage the ciphers that are being used via config
 -   [Support policy for self-hosted gateway](self-hosted-gateway-support-policies.md)
 -   [API Management in a hybrid and multicloud world](https://aka.ms/hybrid-and-multi-cloud-api-management)
 -   [Guidance for running self-hosted gateway on Kubernetes in production](how-to-self-hosted-gateway-on-kubernetes-in-production.md)
--   [Deploy self-hosted gateway to Docker](how-to-deploy-self-hosted-gateway-docker.md)
--   [Deploy self-hosted gateway to Kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md)
--   [Deploy self-hosted gateway to an Azure Arc-enabled Kubernetes cluster](how-to-deploy-self-hosted-gateway-azure-arc.md)
--   [Deploy self-hosted gateway to Azure Container Apps](how-to-deploy-self-hosted-gateway-container-apps.md)
+-   [Deploy a self-hosted gateway to Docker](how-to-deploy-self-hosted-gateway-docker.md)
+-   [Deploy a self-hosted gateway to Kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md)
+-   [Deploy a self-hosted gateway to an Azure Arc-enabled Kubernetes cluster](how-to-deploy-self-hosted-gateway-azure-arc.md)
+-   [Deploy a self-hosted gateway to Azure Container Apps](how-to-deploy-self-hosted-gateway-container-apps.md)
 -   [Self-hosted gateway configuration settings](self-hosted-gateway-settings-reference.md)
 -   [Observability capabilities in API Management](observability.md) 
 -   [Dapr integration with self-hosted gateway](https://github.com/dapr/samples/tree/master/dapr-apim-integration)
