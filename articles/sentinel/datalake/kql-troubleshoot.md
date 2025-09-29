@@ -61,7 +61,7 @@ Job-specific validation:
 | **Query execution has exceeded the allowed limits.** |  | Optimize your query and try again. |
 | Semantic and syntax errors, for example:<br><ul><li>**Semantic error: 'project' operator: Failed to resolve scalar expression named 'Timestamp'**<li>**Semantic error: 'where' operator: Failed to resolve scalar expression named 'Type'**<li>**Syntax error: The operator cannot be the first operator in a query.**<li>**Syntax error: Missing expression**<li>**Failed to execute KQL query with validation errors: The incomplete fragment is unexpected.**</ul>| The query is malformed and is referencing tables or columns that don’t exist, or it's using invalid scalar functions. | Check your query and try again. |
 | **Client does not have access to any workspaces or client provided invalid workspace(s) in the scope.** | The query uses an invalid workspace ID. | Enter the correct workspace ID and try again. |
-| **Unexpected control command** | Using control commands (for example, `show`) isn't allowed | No action needed. |
+| **Unexpected control command** | Using control commands (for example, `show`) isn't allowed. | No action needed. |
 
 
 
