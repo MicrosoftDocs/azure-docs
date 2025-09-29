@@ -34,7 +34,7 @@ Before creating your resources, you need to create the AVE workload resource. Wo
 
 ![Screenshot showing the WebApp enclave overview.](./media/tutorial-step-two-webapp-enclave-overview-page.png)
 
-3. Go to the `Workloads` on the left underneath the `Enclave resources` section in the left-hand menu.
+3. Go to the `Workloads` on the left underneath the `Manag` section in the left-hand menu.
 
 4. On the workloads page, select `Create`
 

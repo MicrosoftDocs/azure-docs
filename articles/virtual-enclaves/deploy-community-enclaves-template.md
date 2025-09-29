@@ -47,7 +47,7 @@ The template used in this quickstart can be found [here](https://github.com/Azur
         - `outlook.com`
 - Enclave endpoint:
     - `ADDS-TCP` and `ADDS-UDP` - Ports/Protocols covering a fake Active Directory Doman Services (AD DS) instance
-- Transit Hub:
+- Transit hub:
     - Input parameter to a remote virtual network; covering Gateway connection
 - Enclave connections
     - | Source | Destination |

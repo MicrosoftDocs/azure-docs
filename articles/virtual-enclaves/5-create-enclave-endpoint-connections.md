@@ -84,7 +84,7 @@ If you haven't created those resources yet, return to those earlier tutorials.
 
 ## Create an enclave  associated to an Endpoint
 
-1. From the `fabrikam` community, select  `Enclave connections`
+1. From the `fabrikam` community, select  `Enclave Connections`
 
 ![Screenshot showing no existing enclave s.](./media/tutorial-step-five-fabrikam-connection-list.png)
 
@@ -105,7 +105,7 @@ If you haven't created those resources yet, return to those earlier tutorials.
 
 4. Select `Review + Create` and then `Create`
 
-5. Once the endpoint resource is created, you can view them in Azure portal from the `fabrikam` `Enclave connections`. However, it's in a disconnected state because we selected `Yes` to requiring approvals on connections for this endpoint.
+5. Once the endpoint resource is created, you can view them in Azure portal from the `fabrikam` `Enclave Connections`. However, it's in a disconnected state because we selected `Yes` to requiring approvals on connections for this endpoint.
 
 ![Screenshot showing the enclave created but in a disconnected state while pending approval.](./media/tutorial-step-five-fabrikam-connection-deployed-disconnected.png)
 
