@@ -66,39 +66,9 @@ Here are some reference samples for RAG-based scenarios:
 > Shows you how to create a friendly chat bot that issues simple prompts, receives text completions, and sends messages, all in a stateful session using the [OpenAI binding extension].
 ::: zone-end
 
-## Assistant function calling
-
-Assistant function calling gives your AI assistant or agent the ability to invoke specific functions or APIs dynamically based on the context of a conversation or task. These behaviors enable assistants to interact with external systems, retrieve data, and perform other actions.
-
-Functions is ideal for implementing assistant function calling in agentic workflows. In addition to scaling efficiently to handle demand,  [binding extensions](./functions-triggers-bindings.md) simplify the process of using Functions to connect assistants with remote Azure services. If there's no binding for your data source or you need full control over SDK behaviors, you can always manage your own client SDK connections in your app.
-
-::: zone pivot="programming-language-java,programming-language-typescript,programming-language-powershell"
-Here are some reference samples for assistant function calling scenarios:
-::: zone-end
-::: zone pivot="programming-language-csharp"  
-**[Assistants function calling (OpenAI bindings)](https://github.com/Azure-Samples/azure-functions-assistants-openai-dotnet)**
-::: zone-end
-::: zone pivot="programming-language-python"  
-**[Assistants function calling (OpenAI bindings)](https://github.com/Azure-Samples/azure-functions-assistants-python)**
-::: zone-end
-::: zone pivot="programming-language-csharp,programming-language-python"  
-> Uses the [OpenAI binding extension] to enable calling custom functions with the assistant skill trigger.
-::: zone-end
-::: zone pivot="programming-language-csharp"  
-**[Agents function calling (Azure AI SDKs)](https://github.com/Azure-Samples/azure-functions-ai-services-agent-dotnet)**
-::: zone-end
-::: zone pivot="programming-language-python"  
-**[Agents function calling (Azure AI SDKs)](https://github.com/Azure-Samples/azure-functions-ai-services-agent-python)**
-::: zone-end
-::: zone pivot="programming-language-javascript"  
-**[Agents function calling (Azure AI SDKs)](https://github.com/Azure-Samples/azure-functions-ai-services-agent-javascript)**
-::: zone-end
-::: zone pivot="programming-language-csharp,programming-language-python,programming-language-javascript"  
-> Uses function calling features for agents in Azure AI SDKs to implement custom functions calling.  
-::: zone-end
 ## Remote MCP servers
 
-The Model Context Protocol (MCP) provides a standardized way for AI models to communicate with external systems to determine their capabilities and how they can best be used by AI assistants and agents. An MCP server enables an AI model (client) to more efficiently make these determinations. 
+The Model Context Protocol (MCP) provides a standardized way for AI models to communicate with external systems to determine their capabilities and how they can best be used by AI agents. An MCP server enables an AI model (client) to more efficiently make these determinations. MCP lets you publicly expose specific resources as tools, which are then called by LLMs and agents to accomplish specific tasks. 
 
 When you build or host your remote MCP servers in Azure Functions, you can take advantage of dynamic scaling, serverless pricing models, and platform security features.
 
@@ -170,7 +140,41 @@ Here are some options to help you get started hosting MCP servers in Functions:
 PowerShell isn't currently supported for either MCP server hosting options.  
 ::: zone-end  
 
-### Agentic workflows
+## Function calling
+
+Function calling gives your AI agent the ability to dynamically invoke specific AI tools or APIs based on the context of a conversation or task. These MCP-enabled behaviors allow your agents to interact with external systems, retrieve data, and perform other actions.
+
+Functions is ideal for implementing function calling in agentic workflows. In addition to scaling efficiently to handle demand, [binding extensions](./functions-triggers-bindings.md) simplify the process of using Functions to connect agents with remote Azure services. If there's no binding for your data source or you need full control over SDK behaviors, you can always manage your own client SDK connections in your app.
+
+::: zone pivot="programming-language-java,programming-language-typescript,programming-language-powershell"
+Here are some reference samples for function calling scenarios:
+::: zone-end
+::: zone pivot="programming-language-csharp"  
+**[Agent Service function calling](https://github.com/Azure-Samples/foundry-agent-service-remote-mcp-dotnet)**
+::: zone-end
+::: zone pivot="programming-language-python"  
+**[Agent Service function calling](https://github.com/Azure-Samples/foundry-agent-service-remote-mcp-python)**
+::: zone-end
+::: zone pivot="programming-language-javascript"  
+**[Agent Service function calling](https://github.com/Azure-Samples/foundry-agent-service-remote-mcp-javascript)**
+::: zone-end
+::: zone pivot="programming-language-csharp,programming-language-python,programming-language-javascript"  
+> Uses an [Azure AI Foundry Agent Service](/azure/ai-foundry/agents/) client to call a custom remote MCP server implemented using Azure Functions.
+::: zone-end
+::: zone pivot="programming-language-csharp"  
+**[Agents function calling (Azure AI SDKs)](https://github.com/Azure-Samples/azure-functions-ai-services-agent-dotnet)**
+::: zone-end
+::: zone pivot="programming-language-python"  
+**[Agents function calling (Azure AI SDKs)](https://github.com/Azure-Samples/azure-functions-ai-services-agent-python)**
+::: zone-end
+::: zone pivot="programming-language-javascript"  
+**[Agents function calling (Azure AI SDKs)](https://github.com/Azure-Samples/azure-functions-ai-services-agent-javascript)**
+::: zone-end
+::: zone pivot="programming-language-csharp,programming-language-python,programming-language-javascript"  
+> Uses function calling features for agents in Azure AI SDKs to implement custom function calling.  
+::: zone-end
+
+## Agentic workflows
 
 While it's common for AI-driven processes to autonomously determine how to interact with models and other AI assets, there are many cases where a higher level of predicability is required or where the required steps are well-defined. These directed agentic workflows are composed of an orchestration of separate tasks or interactions that agents are required to follow. 
 
@@ -186,6 +190,7 @@ Here are some of the key Microsoft AI frameworks of which you should be aware:
 
 | Framework/library | Description |
 | ----- | ----- |
+| [Azure AI Foundry Agent Service](/azure/ai-foundry/agents/overview) | A fully managed service for building, deploying, and scaling AI agents with enterprise-grade security, built-in tools, and seamless integration with Azure Functions. |
 | [Azure AI Services SDKs](/azure/developer/ai/azure-ai-for-developers) | By working directly with client SDKs, you can use the full breadth of Azure AI services functionality directly in your function code. |
 | [OpenAI binding extension] | Easily integrate the power of Azure OpenAI in your functions and let Functions manage the service integration. |
 | [Semantic Kernel](/semantic-kernel/overview) | Enables you to easily build AI agents and models. |
