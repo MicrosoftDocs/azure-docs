@@ -1,13 +1,13 @@
 ---
 title: Configure MQTT broker authorization
 description: Configure MQTT broker authorization using BrokerAuthorization.
-author: PatAltimore
-ms.author: patricka
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 04/28/2025
+ms.date: 09/03/2025
 
 #CustomerIntent: As an operator, I want to configure authorization so that I have secure MQTT broker communications.
 ms.service: azure-iot-operations
@@ -18,6 +18,19 @@ ms.service: azure-iot-operations
 [!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
 Authorization policies determine what actions the clients can perform on the broker, such as connecting, publishing, or subscribing to topics. Configure the MQTT broker to use one or multiple authorization policies with the BrokerAuthorization resource. Each BrokerAuthorization resource contains a list of rules that specify the principals and resources for the authorization policies.
+
+### How rules are evaluated
+
+- Policies are allow-only. If no rule explicitly allows an action on a resource for a principal, the action is denied.
+- A rule is defined by three factors: principals (actor), action (Connect/Publish/Subscribe or state store operations), and resource (topics or keys).
+- Principals within a rule are matched with logical OR. For example, any listed username, clientId, or attribute match grants access to the resources in the rule.
+
+### Token substitution and wildcards
+
+- For topics and keys, you can use token substitution to build rules that adapt per client: `{principal.username}`, `{principal.clientId}`, and `{principal.attributes.<attributeName>}`.
+- MQTT topic wildcards `+` and `#` are supported in `brokerResources.topics`.
+- When using token substitution in a topic, the token must be the only text in its path segment. For example, `clients/{principal.clientId}/#` is valid, but `client-{principal.clientId}/#` isn't.
+- Connect actions shouldn't include topics.
 
 ## Link BrokerAuthorization to BrokerListener
 
@@ -98,7 +111,7 @@ In this example, assume a configuration file named `my-authz-policy.json` with t
 An example command to create a new authorization policy named `my-authz-policy` is:
 
 ```azurecli
-az iot ops broker authn apply --resource-group myResourceGroupName --instance myAioInstanceName --broker default --name my-authz-policy --config-file ~/my-authz-policy.json
+az iot ops broker authz apply --resource-group myResourceGroupName --instance myAioInstanceName --broker default --name my-authz-policy --config-file ~/my-authz-policy.json
 ```
 
 # [Bicep](#tab/bicep)
@@ -233,6 +246,14 @@ To use the MQTT username for authorization, specify them as an array under `prin
 - **Custom**: Username should only be used for authorization rules if custom authentication validates the username.
 
 To prevent security issues, use the MQTT username for broker authorization only when it can be verified.
+> [!TIP]
+> To require that MQTT username matches the client ID, use token substitution:
+>
+> ```yaml
+> principals:
+>   usernames:
+>     - "{principal.clientId}"
+> ```
 
 ### Further limit access based on client ID
 
@@ -325,7 +346,7 @@ In the broker authorization rules for your authorization policy, create a config
 An example command to create a new authorization policy named `client-id-authz-policy` is:
 
 ```azurecli
-az iot ops broker authn apply --resource-group myResourceGroupName --instance myAioInstanceName --broker default --name my-authz-policy --config-file ~/client-id-authz-policy.json
+az iot ops broker authz apply --resource-group myResourceGroupName --instance myAioInstanceName --broker default --name my-authz-policy --config-file ~/client-id-authz-policy.json
 ```
 
 # [Bicep](#tab/bicep)
@@ -548,7 +569,7 @@ In this example, assume a configuration file named `my-authz-policy.json` with t
 An example command to create a new authorization policy named `my-authz-policy` is:
 
 ```azurecli
-az iot ops broker authn apply --resource-group myResourceGroupName --instance myAioInstanceName --broker default --name my-authz-policy --config-file ~/my-authz-policy.json
+az iot ops broker authz apply --resource-group myResourceGroupName --instance myAioInstanceName --broker default --name my-authz-policy --config-file ~/my-authz-policy.json
 ```
 
 # [Bicep](#tab/bicep)
@@ -655,10 +676,11 @@ To learn more with an example, see [Set up Authorization Policy with Dapr Client
 
 The MQTT broker provides a [state store](../develop-edge-apps/reference-state-store-protocol.md) that clients can use to store state. You can also configure the state store to be highly available.
 
-To set up authorization for clients that use the state store, provide the following permissions:
+To set up authorization for clients that use the state store, provide permissions for protocol topics and keys:
 
-- Permission to publish to the system key value store `$services/statestore/_any_/command/invoke/request` topic
-- Permission to subscribe to the response-topic (set during initial publish as a parameter) `<response_topic>/#`
+- Publish requests to: `statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke`.
+- Subscribe to the response topic you set on publish, commonly: `clients/{principal.clientId}/services/statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke/response/#`.
+- Grant key access under `stateStoreResources` per the guidance below.
 
 ### State store keys
 
@@ -898,7 +920,7 @@ In this example, assume a configuration file named `state-store-authz-policy.jso
 An example command to create a new authorization policy named `state-store-authz-policy` is:
 
 ```azurecli
-az iot ops broker authn apply --resource-group myResourceGroupName --instance myAioInstanceName --broker default --name my-authz-policy --config-file ~/state-store-authz-policy.json
+az iot ops broker authz apply --resource-group myResourceGroupName --instance myAioInstanceName --broker default --name my-authz-policy --config-file ~/state-store-authz-policy.json
 ```
 
 # [Bicep](#tab/bicep)
@@ -1023,6 +1045,14 @@ You can update broker authorization resources at runtime without restart. All cl
 kubectl edit brokerauthorization my-authz-policies
 ```
 
+## Caching behavior
+
+To reduce authorization overhead on high-throughput topics, enable in-memory caching with `authorizationPolicies.cache: Enabled`.
+
+- Decisions are cached per tuple of client, action, and resource. Repeated operations hit the cache.
+- Highly variable resources (for example, unique topic segments per message) lower cache hit rate.
+- The cache grows with the number of unique tuples. Monitor memory for very high churn patterns.
+
 ## Disable authorization
 
 # [Portal](#tab/portal)
@@ -1059,6 +1089,40 @@ To disable authorization, omit `authorizationRef` in the `ports` setting of your
 ## Unauthorized publish in MQTT 3.1.1
 
 With MQTT 3.1.1, when publish is denied, the client receives PUBACK with no error because the protocol version doesn't support returning error code. MQTTv5 returns PUBACK with reason code 135 (Not authorized) when publish is denied.
+
+## Troubleshooting
+
+### Validate rules
+
+1. Review your BrokerAuthorization YAML/JSON for schema issues.
+2. Check output when applying the config; schema errors are reported by the API server.
+3. Set frontend pod logs to `debug` or `trace`, restart pods, and inspect for entries tagged with `authz` that show parsed and effective rules.
+
+Example healthy logs (abridged):
+
+```log
+<7>2025-02-10T16:28:31.986Z aio-broker-frontend-0 [mq@311 tid="1" module="authz"] - adding broker config ... and store config ...
+<6>2025-02-10T16:28:31.986Z aio-broker-frontend-0 [mq@311 tid="1"] - starting broker authorization engine with basic rules. Cache enabled: true
+<7>2025-02-10T16:28:31.987Z aio-broker-frontend-0 [mq@311 tid="1" module="authz"] - set broker authorization engine data: {"rules":[{...}]}
+```
+
+### MQTT broker operations
+
+Denied publish example:
+
+```log
+<7>2025-02-10T16:32:19.398Z aio-broker-frontend-0 [mq@311 tid="15" module="authz"] - checking authorization for {"action":"publish","clientId":"test-publisher","topic":"test"}
+<7>2025-02-10T16:32:19.411Z aio-broker-frontend-0 [mq@311 tid="15" module="authz"] - publish from client 'test-publisher' was denied ... reason_code: NotAuthorized
+```
+
+### State store operations
+
+Denied get example:
+
+```log
+<7>2025-02-10T16:41:31.314Z aio-broker-frontend-0 [mq@311 tid="8" module="authz"] - checking authorization for {"action":"get","clientId":"statestore-cli","key":"dGVzdA=="}
+<7>2025-02-10T16:41:31.322Z aio-broker-frontend-0 [mq@311 tid="8" module="authz"] - cached new authorization result ...: Denied("no rule matched")
+```
 
 ## Related content
 

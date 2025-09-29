@@ -4,7 +4,8 @@ description: The complete overview guide for migrating Azure Spring Apps Standar
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: overview
-ms.date: 09/30/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.author: karler
 ms.reviewer: seal
 ms.custom: devx-track-java, devx-track-extended-java

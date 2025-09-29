@@ -1,13 +1,16 @@
 ---
 title: Elevate access to manage all Azure subscriptions and management groups
 description: Describes how to elevate access for a Global Administrator to manage all subscriptions and management groups in Microsoft Entra ID using the Azure portal or REST API.
-author: jenniferf-skc
+author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.date: 03/10/2025
-ms.author: jfields
-ms.custom: devx-track-azurecli
+ms.author: rolyon
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
+  - sfi-ga-nochange
 ---
 # Elevate access to manage all Azure subscriptions and management groups
 
@@ -503,13 +506,15 @@ az rest --url "https://management.azure.com/providers/Microsoft.Insights/eventty
 
 To detect elevate access events and gain visibility into potentially fraudulent activities, you can use Microsoft Sentinel. [Microsoft Sentinel](../sentinel/overview.md) is a security information and event management (SIEM) platform that provides security analytics and threat response capabilities. This section describes how to connect Microsoft Entra audit logs to Microsoft Sentinel so that you can detect elevate access in your organization. 
 
-### Step 1: Enable Microsoft Sentinel
+### Step 1: Onboard Microsoft Sentinel
 
-To get started, add Microsoft Sentinel to an existing Log Analytics workspace or create a new one.
+Follow these steps to onboard Microsoft Sentinel:
 
-- Enable Microsoft Sentinel by following the steps at [Enable Microsoft Sentinel](../sentinel/quickstart-onboard.md#enable-microsoft-sentinel).
+1. Find an existing Log Analytics workspace or [create a new one](../sentinel/quickstart-onboard.md#create-a-log-analytics-workspace).
 
     :::image type="content" source="./media/elevate-access-global-admin/sentinel-enable.png" alt-text="Screenshot of Microsoft Sentinel with a workspace." lightbox="./media/elevate-access-global-admin/sentinel-enable.png":::
+
+1. [Add Microsoft Sentinel to your workspace](../sentinel/quickstart-onboard.md#add-microsoft-sentinel-to-your-log-analytics-workspace).
 
 ### Step 2: Connect Microsoft Entra data to Microsoft Sentinel
 

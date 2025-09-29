@@ -5,9 +5,11 @@ description: Learn how to develop and debug Data Factory and Synapse Analytics p
 ms.date: 05/15/2024
 ms.topic: conceptual
 ms.subservice: authoring
-ms.custom: synapse
 author: kromerm
 ms.author: makromer
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Iterative development and debugging with Azure Data Factory and Synapse Analytics pipelines

@@ -156,6 +156,8 @@
     items:
     - name: Permissions to view and manage
       href: view-reservations.md
+    - name: Grant RBAC access to Azure Reservations using PowerShell
+      href: manage-reservations-rbac-powershell.md
     - name: View reservations as a CSP
       href: how-to-view-csp-reservations.md
     - name: Manage reservations

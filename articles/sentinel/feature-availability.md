@@ -6,7 +6,7 @@ ms.author: bagol
 ms.topic: feature-availability
 ms.custom: references_regions
 ms.service: microsoft-sentinel
-ms.date: 06/22/2025
+ms.date: 08/21/2025
 
 
 #Customer intent: As a security operations manager, I want to understand the Microsoft Sentinel's feature availability across different Azure environments so that I can effectively plan and manage our security operations.
@@ -21,6 +21,8 @@ This article describes the features available in Microsoft Sentinel across diffe
 > These lists and tables do not include feature or bundle availability in the Azure Government Secret or Azure Government Top Secret clouds. 
 > For more information about specific availability for air-gapped clouds, please contact your account team.
 
+[!INCLUDE [azure-21vianet-retirement](includes/azure-21vianet-retirement.md)]
+
 ## Experience in the Defender portal 
 
 Microsoft Sentinel is also available in the [Microsoft Defender portal](microsoft-sentinel-defender-portal.md). In the Defender portal, all features in general availability are available in commercial, GCC, GCC High and DoD clouds. Features still in preview are available only in the commercial cloud.
@@ -29,7 +31,7 @@ For more information, see [Microsoft Defender XDR for US Government customers](/
 
 ## Analytics		
 
-|Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
+|Feature  |Feature stage |Azure commercial  |Azure Government |Azure operated by 21Vianet   |
 |---------|---------|---------|---------|---------|
 |[Analytics rules health](monitor-analytics-rule-integrity.md) |Public preview |Yes |No |No |
 |[MITRE ATT&CK dashboard](mitre-coverage.md)	|Public preview |Yes |Yes |Yes |
@@ -39,7 +41,7 @@ For more information, see [Microsoft Defender XDR for US Government customers](/
 
 ## Content and content management		
 
-|Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
+|Feature  |Feature stage |Azure commercial  |Azure Government |Azure operated by 21Vianet  |
 |---------|---------|---------|---------|---------|
 |[Content hub](sentinel-solutions.md) and [solutions](sentinel-solutions-catalog.md) |GA |Yes |Yes |Yes |
 |[Repositories](ci-cd.md?tabs=github) |Public preview |Yes |No |No |
@@ -47,7 +49,7 @@ For more information, see [Microsoft Defender XDR for US Government customers](/
 
 ## Data collection
 
-|Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
+|Feature  |Feature stage |Azure commercial  |Azure Government |Azure operated by 21Vianet  |
 |---------|---------|---------|---------|---------|
 |[Amazon Web Services](connect-aws.md?tabs=ct) |GA |Yes |Yes |No |
 |[Amazon Web Services S3](connect-aws.md?tabs=s3) |GA|Yes |Yes |No |
@@ -89,7 +91,7 @@ For more information, see [Microsoft Defender XDR for US Government customers](/
 
 ## Hunting
 
-|Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
+|Feature  |Feature stage |Azure commercial  |Azure Government |Azure operated by 21Vianet  |
 |---------|---------|---------|---------|---------|
 |[Bookmarks](bookmarks.md) |GA |Yes |Yes |Yes |
 |[Hunts](hunts.md) |Public preview|Yes |No |No |
@@ -100,7 +102,7 @@ For more information, see [Microsoft Defender XDR for US Government customers](/
 
 ## Incidents
 
-|Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
+|Feature  |Feature stage |Azure commercial  |Azure Government |Azure operated by 21Vianet  |
 |---------|---------|---------|---------|---------|
 |[Add entities to threat intelligence](add-entity-to-threat-intelligence.md?tabs=incidents) |Public preview |Yes |Yes |Yes |
 |[Advanced and/or conditions](add-advanced-conditions-to-automation-rules.md) |GA |Yes |Yes |Yes |
@@ -110,7 +112,7 @@ For more information, see [Microsoft Defender XDR for US Government customers](/
 |[Cross-tenant/Cross-workspace incidents view](multiple-workspace-view.md)     |GA         |Yes |Yes |Yes |
 |[Incident advanced search](investigate-cases.md#search-for-incidents) |GA |Yes |Yes |Yes |
 |[Incident tasks](incident-tasks.md) |GA |Yes |Yes |Yes |
-|[Microsoft 365 Defender incident integration](microsoft-365-defender-sentinel-integration.md#working-with-microsoft-defender-xdr-incidents-in-microsoft-sentinel-and-bi-directional-sync) |GA |Yes |Yes |No |
+|[Microsoft Defender XDR incident integration](microsoft-365-defender-sentinel-integration.md#working-with-microsoft-defender-xdr-incidents-in-microsoft-sentinel-and-bi-directional-sync) |GA |Yes |Yes |No |
 |[Microsoft Teams integrations](collaborate-in-microsoft-teams.md) |Public preview |Yes |Yes |No |
 |[Playbook template gallery](use-playbook-templates.md) |Public preview |Yes |Yes |No |
 |[Run playbooks on entities](respond-threats-during-investigation.md) |GA |Yes |Yes |Yes |
@@ -119,7 +121,7 @@ For more information, see [Microsoft Defender XDR for US Government customers](/
 
 ## Machine Learning
 
-|Feature  |Feature stage |Azure commercial |Azure Government |Azure China 21Vianet  |
+|Feature  |Feature stage |Azure commercial |Azure Government |Azure operated by 21Vianet  |
 |---------|---------|---------|---------|---------|
 |[Anomalous RDP login detection - built-in ML detection](configure-connector-login-detection.md) |Public preview |Yes |Yes |No |
 |[Anomalous SSH login detection - built-in ML detection](connect-syslog.md#configure-the-syslog-connector-for-anomalous-ssh-login-detection) |Public preview |Yes |Yes |No |
@@ -130,40 +132,40 @@ For more information, see [Microsoft Defender XDR for US Government customers](/
 
 ## Managing Microsoft Sentinel
 
-|Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
+|Feature  |Feature stage |Azure commercial  |Azure Government |Azure operated by 21Vianet  |
 |---------|---------|---------|---------|---------|
 |[Workspace manager](workspace-manager.md) |Public preview | Yes |Yes |No |
 |[SIEM migration experience](siem-migration.md) | GA | Yes |No |No |
 
 ## Normalization
 
-|Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
+|Feature  |Feature stage |Azure commercial  |Azure Government |Azure operated by 21Vianet  |
 |---------|---------|---------|---------|---------|
 |[Advanced Security Information Model (ASIM)](normalization.md) |Public preview |Yes |Yes |Yes |
 
 ## Notebooks
 
-|Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
+|Feature  |Feature stage |Azure commercial  |Azure Government |Azure operated by 21Vianet  |
 |---------|---------|---------|---------|---------|
 |[Notebooks](notebooks.md) |GA |Yes |Yes  |Yes  |
 |[Notebook integration with Azure Synapse](notebooks-with-synapse.md) |Public preview |Yes |Yes  |Yes  |
 
 ## SOC optimizations
 
-|Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
+|Feature  |Feature stage |Azure commercial  |Azure Government |Azure operated by 21Vianet  |
 |---------|---------|---------|---------|---------|
 |[SOC optimizations](soc-optimization/soc-optimization-access.md) |Supported for production use|Yes |No |No |
 
 ## SAP
 
-|Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
+|Feature  |Feature stage |Azure commercial  |Azure Government |Azure operated by 21Vianet  |
 |---------|---------|---------|---------|---------|
 |[Threat protection for SAP](sap/deployment-overview.md)</sup> |GA |Yes|Yes |Yes |
 |[Agentless data connector](sap/deployment-overview.md#data-connector) | Limited preview | Yes |No | No |
 
 ## Threat intelligence support		
 
-|Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
+|Feature  |Feature stage |Azure commercial  |Azure Government |Azure operated by 21Vianet  |
 |---------|---------|---------|---------|---------|
 |[GeoLocation and WhoIs data enrichment](work-with-threat-indicators.md) |Public preview |Yes |No |No |
 |[Import TI from flat file](indicators-bulk-file-import.md) |Public preview |Yes |Yes |Yes |
@@ -178,7 +180,7 @@ For more information, see [Microsoft Defender XDR for US Government customers](/
 
 ## UEBA 
 
-|Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
+|Feature  |Feature stage |Azure commercial  |Azure Government |Azure operated by 21Vianet  |
 |---------|---------|---------|---------|---------|
 |[Active Directory sync via MDI](enable-entity-behavior-analytics.md#how-to-enable-user-and-entity-behavior-analytics) |Public preview |Yes |Yes |No |
 |[Azure resource entity pages](entity-pages.md) |Public preview |Yes |Yes |No |
@@ -186,14 +188,14 @@ For more information, see [Microsoft Defender XDR for US Government customers](/
 |[Entity pages](entity-pages.md) |GA |Yes |Yes |Yes |
 |[Identity info table data ingestion](investigate-with-ueba.md) |GA |Yes |Yes |Yes |
 |[IoT device entity page](/azure/defender-for-iot/organizations/iot-advanced-threat-monitoring#investigate-further-with-iot-device-entities) |Public preview	|Yes |Yes |No |
-|[Peer/Blast radius enrichments](identify-threats-with-entity-behavior-analytics.md#what-is-user-and-entity-behavior-analytics-ueba) |Public preview |Yes |No |No |
+|[Peer/Blast radius enrichments](identify-threats-with-entity-behavior-analytics.md#what-is-ueba) |Public preview |Yes |No |No |
 |[SOC-ML anomalies](soc-ml-anomalies.md#what-are-customizable-anomalies) |GA |Yes |Yes |No |
 |[UEBA anomalies](soc-ml-anomalies.md#ueba-anomalies) |GA |Yes |Yes |No |
 |[UEBA enrichments\insights](investigate-with-ueba.md) |GA |Yes |Yes |Yes |
 
 ## Watchlists
 
-|Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
+|Feature  |Feature stage |Azure commercial  |Azure Government |Azure operated by 21Vianet  |
 |---------|---------|---------|---------|---------|
 |[Large watchlists from Azure Storage](watchlists.md) |Public preview |Yes |No |No |
 |[Watchlists](watchlists.md) |GA |Yes |Yes |Yes |

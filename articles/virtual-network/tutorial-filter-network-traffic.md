@@ -7,13 +7,14 @@ ms.service: azure-virtual-network
 ms.topic: tutorial
 ms.date: 08/19/2024
 ms.author: allensu
-ms.custom: 
-  - template-tutorial
-  - devx-track-azurecli
-  - devx-track-azurepowershell
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
+ms.custom:
+  - template-tutorial
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
 ---
 

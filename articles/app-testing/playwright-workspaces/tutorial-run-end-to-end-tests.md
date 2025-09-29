@@ -4,8 +4,8 @@ titleSuffix: Playwright Workspaces
 description: 'In this tutorial, you learn how to integrate Playwright Workspaces with a Playwright test suite and run Playwright tests on cloud hosted browsers.'
 ms.service: azure-app-testing
 ms.subservice: playwright-workspaces
-author: ninallam
-ms.author: ninallam
+author: johnsta
+ms.author: johnsta
 ms.topic: tutorial
 ms.date: 08/07/2025
 

@@ -1,11 +1,12 @@
 ---
 title: Azure Migrate appliance 
 description: Provides a summary of support for the Azure Migrate appliance.
-author: Vikram1988
-ms.author: vibansa
-ms.manager: abhemraj
+author: molishv
+ms.author: molir
+ms.manager: ronai
 ms.topic: concept-article
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 02/06/2025
 ms.custom: engagement-fy24
 # Customer intent: "As a system administrator, I want to deploy the Azure Migrate appliance for server discovery and assessment, so that I can evaluate the infrastructure and plan for migration to the cloud."
@@ -69,19 +70,19 @@ C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip 
 
     | Algorithm  | Download  | SHA256  | 
     | --- | --- | --- |
-    | VMware- OVA file (11.9 GB)  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191954)  | 68907FC88C4215358779234AE74686DD10C76178686895ACB0663E1C3F56F207   |
+    | VMware- OVA file (11.9 GB)  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191954)  | 79679469041FD9E474B03A3AEEA0D554552EFD57F79B322E61595EC58F5FF625   |
 
     - Use the VHD file to set up the Hyper-V appliance in Azure public cloud.
 
     | Algorithm  | Download  | SHA256  | 
     | --- | --- | --- |
-    | Hyper-V -  VHD file (9.46Gb)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191848)  | DFECBFC9865C59F5A7B88BF78FA1028AD24919945059AE387BE9DA619C42A421   |
+    | Hyper-V -  VHD file (9.46Gb)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191848)  | AD3C72FB21037B10969548228B4F651BF5A79CD0A34D608CD470B75329A24A24   |
 
     - Use the Zip file to set up the VMware, Hyper-V, or Physical appliance stack in Azure public cloud and Azure Government.
 
     | Algorithm  | Download  | SHA256  | 
     | --- | --- | --- |
-    | Zip file (693 MB)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847)  | B4632DAA872310BCE44CFC7FF1C8968CDC7BAA2EB924C18FF630B18D57852EDA   |
+    | Zip file (693 MB)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847)  | 5933935B3DF002A283B40BC3A6C7F56C43185A56A9D66163514F0814EA0CC880   |
 
 
 ## Appliance services
@@ -92,7 +93,7 @@ The appliance has the following services:
 - **Discovery agent**: The agent collects server configuration metadata, which can be used to create as on-premises assessments.
 - **Assessment agent**: The agent collects server performance metadata, which can be used to create performance-based assessments.
 - **Auto update service**: The service keeps all the agents running on the appliance up-to-date. It automatically runs once every 24 hours.
-- **SQL discovery and assessment agent**: sends the configuration and performance metadata of SQL Server instances and databases to Azure.
+- **SQL discovery and assessment agent**: Sends the configuration and performance metadata of SQL Server instances and databases to Azure.
 - **DRA agent**: Orchestrates server replication, and coordinates communication between replicated servers and Azure. Used only when replicating servers to Azure using agentless migration.
 - **Gateway**: Sends replicated data to Azure. Used only when replicating servers to Azure using agentless migration.
 - **Web apps discovery and assessment agent**: sends the web apps configuration data to Azure.
@@ -108,7 +109,7 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 **Requirement** | **VMware**
 --- | ---
 **Permissions** | To access the appliance configuration manager locally or remotely, you need to have a local or domain user account with administrative privileges on the appliance server.
-**Appliance services** | The appliance has the following services:<br><br> - **Appliance configuration manager**: This is a web application that can be configured with source details to start the discovery and assessment of servers.<br> - **VMware discovery agent**: The agent collects server configuration metadata that can be used to create as on-premises assessments.<br>- **VMware assessment agent**: The agent collects server performance metadata that can be used to create performance-based assessments.<br>- **Auto update service**: The service keeps all the agents running on the appliance up to date. It automatically runs once every 24 hours.<br>- **DRA agent**: Orchestrates server replication, and coordinates communication between replicated servers and Azure. Used only when replicating servers to Azure using agentless migration.<br>- **Gateway**: Sends replicated data to Azure. Used only when replicating servers to Azure using agentless migration.<br>- **SQL discovery and assessment agent**: sends the configuration and performance metadata of SQL Server instances and databases to Azure.<br>- **Web apps discovery and assessment agent**: sends the web apps configuration data to Azure.
+**Appliance services** | The appliance has the following services:<br><br> - **Appliance configuration manager**: This is a web application that can be configured with source details to start the discovery and assessment of servers.<br> - **VMware discovery agent**: The agent collects server configuration metadata that can be used to create as on-premises assessments.<br>- **VMware assessment agent**: The agent collects server performance metadata that can be used to create performance-based assessments.<br>- **Auto update service**: The service keeps all the agents running on the appliance up to date. It automatically runs once every 24 hours.<br>- **DRA agent**: Orchestrates server replication, and coordinates communication between replicated servers and Azure. Used only when replicating servers to Azure using agentless migration.<br>- **Gateway**: Sends replicated data to Azure. Used only when replicating servers to Azure using agentless migration.<br>- **SQL discovery and assessment agent**: sends the configuration and performance metadata of SQL Server instances and databases to Azure.<br>- **Web apps discovery and assessment agent**: Sends the web apps configuration data to Azure.
 **Project limits** |  An appliance can only be registered with a single project.<br> A single project can have multiple registered appliances.
 **Discovery limits** | An appliance can discover up to 10,000 severs running across multiple vCenter Servers.<br>A single appliance can connect to up to 10 vCenter Servers.
 **Supported deployment** | Deploy as new server running on vCenter Server using OVA template. <br><br> Deploy on an existing server that runs Windows Server 2019, Windows Server 2022, or Windows Server 2025 using PowerShell.
@@ -124,7 +125,7 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 |**Requirement** | **Hyper-V** |
 |--- | --- |
 |**Permissions** | To access the appliance configuration manager locally or remotely, you need to have a local or domain user account with administrative privileges on the appliance server.|
-|**Appliance services** | The appliance has the following services:<br><br> - **Appliance configuration manager**: This is a web application that can be configured with source details to start the discovery and assessment of servers.<br> - **Discovery agent**: The agent collects server configuration metadata that can be used to create as on-premises assessments.<br>- **Assessment agent**: The agent collects server performance metadata that can be used to create performance-based assessments.<br>- **Auto update service**: The service keeps all the agents running on the appliance up to date. It automatically runs once every 24 hours.<br>- **SQL discovery and assessment agent**: sends the configuration and performance metadata of SQL Server instances and databases to Azure.|
+|**Appliance services** | The appliance has the following services:<br><br> - **Appliance configuration manager**: This is a web application that can be configured with source details to start the discovery and assessment of servers.<br> - **Discovery agent**: The agent collects server configuration metadata that can be used to create as on-premises assessments.<br>- **Assessment agent**: The agent collects server performance metadata that can be used to create performance-based assessments.<br>- **Auto update service**: The service keeps all the agents running on the appliance up to date. It automatically runs once every 24 hours.<br>- **SQL discovery and assessment agent**: Sends the configuration and performance metadata of SQL Server instances and databases to Azure.|
 |**Project limits** |  An appliance can only be registered with a single project.<br> A single project can have multiple registered appliances.|
 |**Discovery limits** | An appliance can discover up to 5000 servers running in Hyper-V environment.<br/><br/> An appliance can connect to up to 300 Hyper-V hosts.|
 |**Supported deployment** | Deploy as server running on a Hyper-V host using a VHD template. <br/><br/>  Deploy on an existing server that runs Windows Server 2019, Windows Server 2022, or Windows Server 2025 using PowerShell.|
@@ -140,7 +141,7 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 **Requirement** | **Physical**
 --- | ---
 **Permissions** | To access the appliance configuration manager locally or remotely, you need to have a local or domain user account with administrative privileges on the appliance server.
-**Appliance services** | The appliance has the following services:<br><br> - **Appliance configuration manager**: This is a web application that can be configured with source details to start the discovery and assessment of servers.<br> - **Discovery agent**: The agent collects server configuration metadata that can be used to create as on-premises assessments.<br>- **Assessment agent**: The agent collects server performance metadata that can be used to create performance-based assessments.<br>- **Auto update service**: The service keeps all the agents running on the appliance up to date. It automatically runs once every 24 hours.<br>- **SQL discovery and assessment agent**: sends the configuration and performance metadata of SQL Server instances and databases to Azure.
+**Appliance services** | The appliance has the following services:<br><br> - **Appliance configuration manager**: This is a web application that can be configured with source details to start the discovery and assessment of servers.<br> - **Discovery agent**: The agent collects server configuration metadata that can be used to create as on-premises assessments.<br>- **Assessment agent**: The agent collects server performance metadata that can be used to create performance-based assessments.<br>- **Auto update service**: The service keeps all the agents running on the appliance up to date. It automatically runs once every 24 hours.<br>- **SQL discovery and assessment agent**: Sends the configuration and performance metadata of SQL Server instances and databases to Azure.
 **Project limits** |  An appliance can only be registered with a single project.<br> A single project can have multiple registered appliances.<br>
 **Discovery limits** | An appliance can discover up to 1000 physical servers.
 **Supported deployment** | Deploy on an existing server that runs Windows Server 2019, Windows Server 2022, or Windows Server 2025 using PowerShell.
@@ -312,7 +313,7 @@ You can check the appliance services version using either of these methods:
 To check in the Appliance configuration manager:
 
 1. On the appliance configuration manager, go to **Set up prerequisites** panel
-2. In the latest updates check, and select **View appliance services**.
+2. In the latest updates check and select **View appliance services**.
 
     ![Screenshot of screen to check the version.](./media/migrate-appliance/versions.png)
 
@@ -325,7 +326,7 @@ To check in the Control Panel:
 
 ### Manually update an older version
 
-If you are running an older version for any of the services, you must uninstall the service, and manually update to the latest version.
+If you are running an older version for any of the services, you must uninstall the service and manually update to the latest version.
 
 1. To check for the latest appliance service versions, [download](https://aka.ms/latestapplianceservices) the LatestComponents.json file.
 

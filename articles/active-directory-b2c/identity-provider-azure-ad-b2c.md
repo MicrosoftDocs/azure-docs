@@ -12,8 +12,10 @@ ms.topic: how-to
 ms.date: 10/11/2024
 ms.author: godonnell
 ms.subservice: b2c
-ms.custom: fasttrack-edit, 
 zone_pivot_groups: b2c-policy-type
+ms.custom:
+  - fasttrack-edit
+  - sfi-image-nochange
 
 #Customer Intent: As an Azure AD B2C administrator, I want to set up federation with another Azure AD B2C tenant, so that users from the other tenant can sign in to applications protected by my tenant using their existing accounts.
 

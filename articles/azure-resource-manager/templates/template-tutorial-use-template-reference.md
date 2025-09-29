@@ -27,9 +27,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-To complete this article, you need:
-
-* Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+To complete this article, you need [Visual Studio Code](https://code.visualstudio.com/).
 
 ## Open a Quickstart template
 

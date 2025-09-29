@@ -7,6 +7,7 @@ ms.author: sujie
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 12/07/2018
+ms.custom: sfi-image-nochange
 ---
 
 # Monitor and manage Stream Analytics jobs with Visual Studio

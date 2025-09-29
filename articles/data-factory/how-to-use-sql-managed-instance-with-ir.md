@@ -6,6 +6,7 @@ ms.author: chugu
 ms.topic: conceptual
 ms.date: 10/03/2024
 ms.subservice: integration-services
+ms.custom: sfi-image-nochange
 ---
 
 # Use Azure SQL Managed Instance with SQL Server Integration Services (SSIS) in Azure Data Factory or Azure Synapse Analytics

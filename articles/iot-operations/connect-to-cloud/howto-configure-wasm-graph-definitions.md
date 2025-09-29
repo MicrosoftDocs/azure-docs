@@ -1,12 +1,12 @@
 ---
 title: Configure WebAssembly Graph Definitions For Data Flow Graphs (Preview)
 description: Learn how to create and configure WebAssembly graph definitions that define data processing workflows for Azure IoT Operations data flow graphs.
-author: PatAltimore
-ms.author: patricka
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 08/01/2025
+ms.date: 08/14/2025
 ai-usage: ai-assisted
 
 ---
@@ -21,6 +21,9 @@ ai-usage: ai-assisted
 Graph definitions are central to WASM development because they define how your modules connect to processing workflows. Understanding the relationship between graph definitions and data flow graphs helps you develop effectively.
 
 This article focuses on creating and configuring the YAML graph definitions. For information about deploying and testing WASM data flow graphs, see [Use WebAssembly with data flow graphs](howto-dataflow-graph-wasm.md).
+
+> [!IMPORTANT]
+> Data flow graphs currently only support MQTT, Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage are not supported. For more information, see [Known issues](../troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).
 
 ## Graph definition structure
 
@@ -67,6 +70,9 @@ moduleRequirements:
     - name: "wasi-nn"
 ```
 
+> [!TIP]
+> For guidance on enabling in-band ONNX inference with the `wasi-nn` feature, see [Run ONNX inference in WebAssembly data flow graphs](howto-wasm-onnx-inference.md).
+
 ## Example 1: Simple graph definition
 
 The [simple graph definition](https://github.com/Azure-Samples/explore-iot-operations/blob/wasm/samples/wasm/graph-simple.yaml) demonstrates a basic three-stage pipeline that converts temperature data from Fahrenheit to Celsius:
@@ -83,7 +89,7 @@ This graph creates a straightforward data processing pipeline:
 2. **Map operation**: Processes data with the temperature WASM module (`temperature:1.0.0`)
 3. **Sink operation**: Sends converted data to the data flow's destination endpoint
 
-The [temperature module](https://github.com/Azure-Samples/explore-iot-operations/blob/wasm/samples/wasm/operators/temperature/src/lib.rs) converts Fahrenheit to Celsius using the standard formula `(F - 32) × 5/9 = C`.
+The [temperature module](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/rust/examples/temperature/src/lib.rs) converts Fahrenheit to Celsius using the standard formula `(F - 32) × 5/9 = C`.
 
 **Input format:**
 ```json
@@ -263,7 +269,7 @@ moduleConfigurations:
 
 These parameters are passed to your WASM operator's `init` function at runtime, enabling dynamic configuration without rebuilding modules. For detailed examples of how to access and use these parameters in your Rust and Python code, see [Module configuration parameters](howto-develop-wasm-modules.md#module-configuration-parameters).
 
-For a complete implementation example, see the [branch module](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples/branch), which demonstrates parameter usage for conditional routing logic.
+For a complete implementation example, see the [branch module](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/python/examples/branch), which demonstrates parameter usage for conditional routing logic.
 
 ## Next steps
 

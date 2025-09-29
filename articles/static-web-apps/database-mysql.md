@@ -7,6 +7,7 @@ ms.service: azure-static-web-apps
 ms.topic: tutorial
 ms.date: 03/15/2023
 zone_pivot_groups: static-web-apps-api-protocols
+ms.custom: sfi-ropc-nochange
 ---
 
 # Tutorial: Add a MySQL database connection in Azure Static Web Apps (preview)

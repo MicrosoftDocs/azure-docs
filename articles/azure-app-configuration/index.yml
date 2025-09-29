@@ -222,6 +222,8 @@ landingContent:
           url: /rest/api/appconfiguration/
         - text: Data plane REST API
           url: rest-api.md
+        - text: Local emulator
+          url: emulator-overview.md
       - linkListType: reference
         links:
         - text: Azure CLI

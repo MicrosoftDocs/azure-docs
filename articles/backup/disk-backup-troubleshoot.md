@@ -2,7 +2,7 @@
 title: Troubleshooting backup failures in Azure Disk Backup
 description: Learn how to troubleshoot backup failures in Azure Disk Backup
 ms.topic: troubleshooting
-ms.date: 08/07/2025
+ms.date: 08/25/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As an IT administrator, I want to troubleshoot backup failures in Azure Disk Backup, so that I can ensure successful backup and restore operations for my organization's data."
@@ -26,7 +26,7 @@ Recommended Action: Disks and disk snapshots are stored in the same subscription
 
 Error Message: Could not perform the operation as Snapshot Data store Resource Group does not exist.
 
-Recommended Action: Create the resource group and provide the required permissions on it. For more information, see [configure backup](backup-managed-disks.md#configure-backup).
+Recommended Action: Create the resource group and provide the required permissions on it. For more information, see [configure Azure Disk backup](backup-managed-disks.md#configure-azure-disk-backup).
 
 ### Error Code: UserErrorManagedDiskNotFound
 

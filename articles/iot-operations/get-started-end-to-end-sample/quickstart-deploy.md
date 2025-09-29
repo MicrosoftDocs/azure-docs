@@ -22,7 +22,7 @@ For the best new user experience, we recommend using an [Azure free account](htt
 
 We also use GitHub Codespaces as a virtual environment for this quickstart so that you can test the scenario without installing new tools on your own machines. However, if you want to deploy Azure IoT Operations to a local cluster on Ubuntu or Azure Kubernetes Service (AKS), see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
 
-[!INCLUDE [supported-environments](../includes/supported-environments.md)]
+[!INCLUDE [supported-environments-table](../includes/supported-environments-table.md)]
 
 ## Prerequisites
 
@@ -75,7 +75,7 @@ To create your codespace and cluster, use the following steps:
    | --------- | ----- |
    | SUBSCRIPTION_ID | Your Azure subscription ID. |
    | RESOURCE_GROUP | A name for a new Azure resource group where your cluster will be created. |
-   | LOCATION | An Azure region close to you. For the list of currently supported regions, see [Supported regions](../overview-iot-operations.md#supported-regions). |
+   | LOCATION | An Azure region close to you. For the list of currently supported regions, see [Supported regions](../overview-support.md#supported-regions). |
 
    >[!TIP]
    >The values you provide as secrets in this step get saved on your GitHub account to be used in this and future Codespaces. They're added as environment variables in the codespace terminal, and you can use those environment variables in the CLI commands in the next section.

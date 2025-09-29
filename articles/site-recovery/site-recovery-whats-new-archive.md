@@ -5,7 +5,7 @@ ms.topic: overview
 ms.author: jsuri
 ms.service: azure-site-recovery
 author: jyothisuri
-ms.date: 12/27/2023
+ms.date: 08/19/2025
 # Customer intent: "As a system administrator, I want to review the latest updates and feature enhancements for the disaster recovery service, so that I can optimize our organization's backup strategy and ensure compatibility with our systems."
 ---
 
@@ -763,7 +763,7 @@ Features added this month are summarized in the table.
 
 ### Update rollup 27 (July 2018)
 
-[Update rollup 27](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery) provides the following updates.
+[Update rollup 27](https://support.microsoft.com/topic/update-rollup-27-for-azure-site-recovery-4050853f-0d11-e557-c7c3-57990de0bc0b) provides the following updates.
 
 **Update** | **Details**
 --- | ---

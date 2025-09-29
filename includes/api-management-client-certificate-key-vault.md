@@ -4,6 +4,7 @@ ms.service: azure-api-management
 ms.topic: include
 ms.date: 01/11/2023
 ms.author: danlep
+ms.custom: sfi-image-nochange
 ---
 
 ### Prerequisites for key vault integration

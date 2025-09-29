@@ -11,7 +11,7 @@ ms.author: ofshezaf
 
 --- 
 
-# Manage Advanced Security Information Model (ASIM) parsers (Public preview)
+# Manage Advanced Security Information Model (ASIM) parsers
 
 Advanced Security Information Model (ASIM) users use *unifying parsers* instead of table names in their queries, to view data in a normalized format and get all the data relevant to the schema in a single query. Each unifying parser uses multiple source-specific parsers that handle each source's specific details. 
 
@@ -32,10 +32,6 @@ You may need to manage the source-specific parsers used by each unifying parser 
 - **Configure a source-specific parser**, for example to define the sources that send information relevant to the parser.
 
 This article guides you through managing your parsers, whether using built-in, unifying ASIM parsers or workspace-deployed unifying parsers. 
-
-> [!IMPORTANT]
-> ASIM is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 ## Prerequisites
 

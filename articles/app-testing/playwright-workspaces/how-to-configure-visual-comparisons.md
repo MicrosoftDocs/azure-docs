@@ -5,18 +5,15 @@ description: Learn how to configure visual comparisons with Playwright Workspace
 ms.topic: how-to
 ms.service: azure-app-testing
 ms.subservice: playwright-workspaces
-author: ninallam
-ms.author: ninallam
+author: johnsta
+ms.author: johnsta
 ms.date: 08/07/2025
-ms.custom: playwright-workspaces-preview
+ms.custom: playwright-workspaces
 ---
 
 # Configure visual comparisons with Playwright Workspaces
 
 In this article, you learn how to properly configure Playwright's visual comparison tests when using Playwright Workspaces. Unexpected test failures may occur because Playwright's snapshots differ between local and remote browsers.
-
-> [!IMPORTANT]
-> Playwright Workspaces is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Background
 
@@ -49,16 +46,16 @@ Example service config that runs visual comparisons and configures the path for 
 
 ```typeScript
 import { defineConfig } from '@playwright/test';
-import { getServiceConfig, ServiceOS } from '@azure/playwright';
+import { createAzurePlaywrightConfig, ServiceOS } from '@azure/playwright';
 import { DefaultAzureCredential } from '@azure/identity';
 import config from './playwright.config';
 
 /* Learn more about service configuration at https://aka.ms/pww/docs/config */
 export default defineConfig(
   config,
-  getServiceConfig(config, {
+  createAzurePlaywrightConfig(config, {
     exposeNetwork: '<loopback>',
-    timeout: 30000,
+    connectTimeout: 30000,
     os: ServiceOS.LINUX,
     credential: new DefaultAzureCredential()
   }),

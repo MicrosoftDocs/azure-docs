@@ -1,9 +1,8 @@
 ---
 title: Configure and connect an IoT Edge module with a GPU
 description: Configure your environment to connect and verify your GPU to process modules from your IoT Edge device.
-author: PatAltimore
-
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.date: 06/05/2025
 ms.topic: tutorial
 ms.service: azure-iot-edge

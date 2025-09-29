@@ -6,6 +6,7 @@ author: nabhishek
 ms.author: abnarain
 ms.date: 10/03/2024
 ms.subservice: orchestration
+ms.custom: sfi-image-nochange
 ---
 # Transform data in the cloud by using a Spark activity in Azure Data Factory
 

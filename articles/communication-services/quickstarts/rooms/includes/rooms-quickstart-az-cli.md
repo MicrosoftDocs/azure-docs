@@ -8,8 +8,11 @@ ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 05/15/2025
 ms.topic: include
-ms.custom: include file, devx-track-azurecli
 ms.author: mikehang-msft
+ms.custom:
+  - include file
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 ---
 
 ## Prerequisites

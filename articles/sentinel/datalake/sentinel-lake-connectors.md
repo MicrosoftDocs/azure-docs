@@ -10,6 +10,9 @@ ms.date: 07/09/2025
 ms.author: edbaynash  
 
 ms.collection: ms-security  
+
+# Customer intent: As a security admin, I want to set up connectors for Microsoft Sentinel data lake so that I can mirror and retain security data for long-term analysis.
+
 ---  
 
 # Set up connectors for the Microsoft Sentinel data lake (preview)
@@ -33,13 +36,18 @@ To configure retention and tiering for the data connector see [Configure data co
 
  ## Microsoft Sentinel XDR data
 
-All tables from your Microsoft Sentinel XDR connector are enabled in the data lake with 30-day retention period. Navigate to **Microsoft Sentinel** > **Configuration** > **Tables** in the Microsoft Defender portal to extend retention of the XDR tables without impacting the default retention of your analytics tier tables.
- 
-Non-DCR/MMA-based custom tables aren't mirrored to the data lake. DCR-based custom tables are mirrored.
+By default, Microsoft Defender XDR retains threat hunting data in the XDR default tier for 30 days. XDR data isn't ingested into the analytics or data lake tiers by default. Some XDR tables can be ingested into the analytics and data lake tiers by increasing the retention time to more than 30 days. For more information, see [Manage XDR data in Microsoft Sentinel](../manage-data-overview.md#manage-xdr-data-in-microsoft-sentinel).
+
+
+## Custom log tables
+
+Microsoft Monitoring Agent(MMA) and Log analytics Agent (CLV1) custom tables aren't mirrored to the data lake.
+  
+Tables created using the Logs Ingestion API or Azure Monitor Agent (AMA) and DCR-based custom tables are mirrored. For more information, see [Logs Ingestion API in Azure Monitor](/azure/azure-monitor/logs/logs-ingestion-api-overview).
 
 ## Auxiliary log tables 
 
-When a customer has onboarded to both Defender and Microsoft Sentinel onboards to the data lake, auxiliary log tables are no longer visible in Microsoft Defender’s Advanced hunting or in the Microsoft Sentinel Azure portal. The auxiliary table data is available in the data lake and can be queried using KQL queries or Jupyter notebooks. Find KQL queries under **Microsoft Sentinel** > **Data lake exploration** in the Defender portal.
+When a customer has onboarded to both Defender and Microsoft Sentinel and then onboards to the data lake, auxiliary log tables are no longer visible in Microsoft Defender’s Advanced hunting or in the Microsoft Sentinel Azure portal. The auxiliary table data is available in the data lake and can be queried using KQL queries or Jupyter notebooks. Find KQL queries under **Microsoft Sentinel** > **Data lake exploration** in the Defender portal.
  
 
 ## Related articles

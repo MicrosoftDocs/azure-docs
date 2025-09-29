@@ -34,7 +34,7 @@ During this tutorial, you learn how to accomplish these tasks:
 :::zone pivot="programming-language-csharp"  
 * Install [.NET Core CLI tools](/dotnet/core/tools/?tabs=netcore2x).
 :::zone-end
-* The [Azurite storage emulator](../storage/common/storage-use-azurite.md?tabs=npm#install-azurite). While you can also use an actual Azure Storage account, the article assumes you're using this emulator.
+* The [Azurite storage emulator](../storage/common/storage-use-azurite.md?tabs=npm). While you can also use an actual Azure Storage account, the article assumes you're using this emulator.
  
 ## 2. Create your Azure OpenAI resources
 

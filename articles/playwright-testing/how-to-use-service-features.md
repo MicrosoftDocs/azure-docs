@@ -10,8 +10,7 @@ zone_pivot_groups: microsoft-playwright-testing
 
 # Use features of Microsoft Playwright Testing preview
 
-> [!NOTE]
-> Playwright Testing is now part of [Azure App Testing](https://aka.ms/AzureAppTesting), a unified service for functional and performance tests. Learn more about how to [get started](https://aka.ms/AzureAppTesting/announcement).
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 In this article, you learn how to use the features provided by Microsoft Playwright Testing preview. 
 

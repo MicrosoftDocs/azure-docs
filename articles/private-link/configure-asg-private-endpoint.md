@@ -7,7 +7,11 @@ ms.author: abell
 ms.service: azure-private-link
 ms.topic: how-to 
 ms.date: 03/25/2025
-ms.custom: template-how-to, devx-track-azurepowershell, devx-track-azurecli
+ms.custom:
+  - template-how-to
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - sfi-image-nochange
 # Customer intent: As a cloud infrastructure engineer, I want to configure an application security group with a private endpoint, so that I can enhance network security for my Azure resources.
 ---
 

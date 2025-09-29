@@ -12,6 +12,8 @@ ms.custom:
   - mvc
   - linux-related-content
   - build-2025
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 # Create a WordPress site
 

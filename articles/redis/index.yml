@@ -104,7 +104,7 @@ landingContent:
           - text: REST API
             url: /rest/api/redis/redisenterprisecache/operation-groups
           - text: Redis Clients
-            url: https://redis.io/docs/connect/clients/
+            url: https://redis.io/docs/latest/operate/rs/databases/connect/supported-clients-browsers/
           - text: Redis commands
             url: https://redis.io/commands
       - linkListType: reference

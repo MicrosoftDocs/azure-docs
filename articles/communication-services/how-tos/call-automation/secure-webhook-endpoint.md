@@ -25,8 +25,6 @@ Azure Communication Services relies on Azure Event Grid subscriptions to deliver
 
 ## Call Automation webhook events
 
-### OpenID Configuration Verification
-
 [Call Automation events](../../concepts/call-automation/call-automation.md#call-automation-webhook-events) are sent to the webhook callback URI specified when you answer a call or place a new outbound call. Your callback URI must be a public endpoint with a valid HTTPS certificate, Domain Name System name, and IP address with the correct firewall ports open to enable Call Automation to reach it. This anonymous public web server could create a security risk if you don't take the necessary steps to secure it from unauthorized access.
 
 ::: zone pivot="programming-language-csharp"

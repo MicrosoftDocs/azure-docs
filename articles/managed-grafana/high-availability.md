@@ -4,7 +4,7 @@ description: Learn about service reliability and availability options provided b
 author: maud-lv 
 ms.author: malev 
 ms.service: azure-managed-grafana
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/18/2025
 ms.custom: references_regions, engagement-fy23
 #customer intent: As an IT professional who uses Azure Managed Grafana, I want to understand the service reliability features of the Standard plan. 

@@ -9,6 +9,7 @@ ms.author: chpalm
 ms.date: 04/01/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.custom: sfi-ropc-nochange
 ---
 
 # Pre-call diagnostic overview

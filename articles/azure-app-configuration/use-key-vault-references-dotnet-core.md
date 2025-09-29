@@ -8,7 +8,11 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 03/10/2024
 ms.author: zhiyuanliang
-ms.custom: devx-track-csharp, mvc, devx-track-dotnet
+ms.custom:
+  - devx-track-csharp
+  - mvc
+  - devx-track-dotnet
+  - sfi-ropc-nochange
 #Customer intent: I want to update my ASP.NET Core application to reference values stored in Key Vault through App Configuration.
 ---
 # Tutorial: Use Key Vault references in an ASP.NET Core app

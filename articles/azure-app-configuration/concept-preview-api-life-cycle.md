@@ -6,7 +6,7 @@ services: azure-app-configuration
 author: amerjusupovic
 ms.author: jimmyca
 ms.service: azure-app-configuration
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/01/2025
 ---
 

@@ -4,13 +4,19 @@ description: Learn how to discover AWS instances with Azure Migrate Discovery an
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
+ms.reviewer: v-uhabiba
 ms.topic: tutorial
 ms.date: 02/07/2025
 ms.service: azure-migrate
-ms.custom: mvc, subject-rbac-steps, engagement-fy25
 ms.collection:
  - migration
  - aws-to-azure
+ms.custom:
+  - mvc
+  - subject-rbac-steps
+  - engagement-fy25
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 # Customer intent: "As a server administrator, I want to discover my AWS instances using a migration tool, so that I can assess and plan their migration to Azure efficiently."
 ---
 

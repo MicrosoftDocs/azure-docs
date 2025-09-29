@@ -4,7 +4,9 @@ description: In this tutorial, you use the Azure portal to scale an Azure VMware
 ms.topic: tutorial
 ms.service: azure-vmware
 ms.date: 6/4/2025
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 
 #Customer intent: As a VMware administrator, I want to learn how to scale an Azure VMware Solution private cloud in the Azure portal.
 # Customer intent: As a VMware administrator, I want to scale clusters and hosts in my Azure VMware Solution private cloud using the Azure portal, so that I can optimize performance and meet the requirements of my application workloads.

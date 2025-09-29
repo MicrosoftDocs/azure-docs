@@ -1,9 +1,9 @@
 ---
 title: Connect Azure Arc-enabled servers from an isolated network
 description: Connect a node host to Azure Arc-enabled servers from an isolated network environment using Azure IoT Layered Network Management.
-author: PatAltimore
+author: SoniaLopezBravo
 ms.subservice: layered-network-management
-ms.author: patricka
+ms.author: sonialopez
 ms.topic: how-to
 ms.date: 10/22/2024
 

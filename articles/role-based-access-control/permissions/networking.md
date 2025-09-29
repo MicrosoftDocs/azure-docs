@@ -3,9 +3,9 @@ title: Azure permissions for Networking - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the Networking category.
 ms.service: role-based-access-control
 ms.topic: generated-reference
-author: jenniferf-skc
+author: rolyon
 manager: pmwongera
-ms.author: jfields
+ms.author: rolyon
 ms.date: 05/25/2025
 ms.custom: generated
 ---
@@ -453,7 +453,7 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/applicationGateways/migrateV1ToV2/action | Migrate Application Gateway from v1 sku to v2 sku |
 > | Microsoft.Network/applicationGateways/getMigrationStatus/action | Get Status Of Migrate Application Gateway From V1 sku To V2 sku |
 > | Microsoft.Network/applicationGateways/setSecurityCenterConfiguration/action | Sets Application Gateway Security Center Configuration |
-> | Microsoft.Network/applicationGateways/effectiveNetworkSecurityGroups/action | Get Route Table configured On Application Gateway |
+> | Microsoft.Network/applicationGateways/effectiveNetworkSecurityGroups/action | Get Network Security Group configured On Application Gateway |
 > | Microsoft.Network/applicationGateways/effectiveRouteTable/action | Get Route Table configured On Application Gateway |
 > | Microsoft.Network/applicationGateways/appProtectPolicy/getAppProtectPolicy/action | Get AppProtect policy attached to application gateway resource |
 > | Microsoft.Network/applicationGateways/appProtectPolicy/attachAppProtectPolicy/action | Attaches AppProtect policy to application gateway at global, path and/or listener level |

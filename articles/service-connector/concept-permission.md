@@ -4,7 +4,7 @@ description: Learn about the resource permission requirements for creating conne
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/18/2024
 ---
 

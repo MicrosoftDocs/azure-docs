@@ -4,7 +4,8 @@ ms.author: v-shilichen
 ms.service: azure-spring-apps
 ms.custom: devx-track-azurecli
 ms.topic: include
-ms.date: 08/09/2023
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ---
 
 <!--

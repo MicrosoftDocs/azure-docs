@@ -4,7 +4,10 @@ description: Use Azure Functions to create a serverless function that is invoked
 ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
 ms.topic: how-to
 ms.date: 09/18/2024
-ms.custom: mvc, cc996988-fb4f-47
+ms.custom:
+  - mvc
+  - cc996988-fb4f-47
+  - sfi-image-nochange
 ---
 # Create a function in Azure that's triggered by Blob storage
 

@@ -3,11 +3,15 @@ title: Set up clusters in HDInsight with Hadoop, Spark, and Kafka
 description: Set up Hadoop, Kafka, Spark, or HBase clusters for HDInsight from a browser, the Azure classic CLI, Azure PowerShell, REST, or SDK.
 ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive, devx-track-azurepowershell, linux-related-content
 author: hareshg
 ms.author: hgowrisankar
 ms.reviewer: nijelsf
 ms.date: 01/08/2025
+ms.custom:
+  - hdinsightactive
+  - devx-track-azurepowershell
+  - linux-related-content
+  - sfi-image-nochange
 ---
 
 # Set up clusters in HDInsight with Apache Hadoop, Spark, Kafka, and more

@@ -7,7 +7,9 @@ mms.subservice: confidential-computing
 ms.topic: quickstart
 ms.date: 12/01/2023
 ms.author: simranparkhe
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - sfi-ga-nochange
 # Customer intent: As a cloud administrator, I want to create a confidential virtual machine using the command-line interface, so that I can ensure enhanced security for sensitive data and applications running in the cloud.
 ---
 

@@ -10,6 +10,8 @@ ms.topic: conceptual
 ms.custom:
   - azure-synapse
   - devx-track-csharp
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Troubleshooting connectivity issues in dedicated SQL pool (formerly SQL DW)

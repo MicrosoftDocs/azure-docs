@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.author: kesheth
 author: expekesheth
 ms.date: 06/04/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Da Vinci Plan Net

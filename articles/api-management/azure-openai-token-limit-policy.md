@@ -9,7 +9,7 @@ ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2024
 ms.topic: reference
-ms.date: 02/18/2025
+ms.date: 08/14/2025
 ms.update-cycle: 180-days
 ms.author: danlep
 ---
@@ -54,8 +54,8 @@ By relying on token usage metrics returned from the OpenAI endpoint, the policy 
 | estimate-prompt-tokens | Boolean value that determines whether to estimate the number of tokens required for a prompt: <br> - `true`: estimate the number of tokens based on prompt schema in API; may reduce performance. <br> - `false`: don't estimate prompt tokens. <br><br>When set to `false`, the remaining tokens per `counter-key` are calculated using the actual token usage from the response of the model. This could result in prompts being sent to the model that exceed the token limit. In such case, this will be detected in the response, and all succeeding requests will be blocked by the policy until the token limit frees up again.  | Yes       | N/A     |
 | retry-after-header-name    | The name of a custom response header whose value is the recommended retry interval in seconds after the specified `tokens-per-minute` or `token-quota` is exceeded. Policy expressions aren't allowed. |  No | `Retry-After`  |
 | retry-after-variable-name    | The name of a variable that stores the recommended retry interval in seconds after the specified `tokens-per-minute` or `token-quota` is exceeded. Policy expressions aren't allowed. |  No | N/A  |
-| remaining-quota-tokens-header-name | The name of a response header whose value after each policy execution is the number of remaining tokens corresponding to `token-quota` allowed for the `token-quota-period`. Policy expressions aren't allowed. | No | N/A |
-| remaining-quota-tokens-variable-name | The name of a variable that after each policy execution stores the number of remaining tokens corresponding to `token-quota` allowed for the `token-quota-period`. Policy expressions aren't allowed.	 | No | N/A |
+| remaining-quota-tokens-header-name | The name of a response header whose value after each policy execution is the estimated number of remaining tokens corresponding to `token-quota` allowed for the `token-quota-period`. Policy expressions aren't allowed. | No | N/A |
+| remaining-quota-tokens-variable-name | The name of a variable that after each policy execution stores the estimated number of remaining tokens corresponding to `token-quota` allowed for the `token-quota-period`. Policy expressions aren't allowed.	 | No | N/A |
 | remaining-tokens-header-name    | The name of a response header whose value after each policy execution is the number of remaining tokens corresponding to `tokens-per-minute` allowed for the time interval. Policy expressions aren't allowed.|  No | N/A  |
 | remaining-tokens-variable-name    | The name of a variable that after each policy execution stores the number of remaining tokens corresponding to `tokens-per-minute` allowed for the time interval. Policy expressions aren't allowed.|  No | N/A  |
 | tokens-consumed-header-name    | The name of a response header whose value is the number of tokens consumed by both prompt and completion. The header is added to response only after the response is received from backend. Policy expressions aren't allowed.|  No | N/A  |
@@ -73,6 +73,7 @@ By relying on token usage metrics returned from the OpenAI endpoint, the policy 
 * This policy can optionally be configured when adding an API from the Azure OpenAI using the portal.
 * Where available when `estimate-prompt-tokens` is set to `false`, values in the usage section of the response from the Azure OpenAI API are used to determine token usage.
 * Certain Azure OpenAI endpoints support streaming of responses. When `stream` is set to `true` in the API request to enable streaming, prompt tokens are always estimated, regardless of the value of the `estimate-prompt-tokens` attribute. Completion tokens are also estimated when responses are streamed.
+* The value of `remaining-quota-tokens-variable-name` or `remaining-quota-tokens-header-name` is an estimate for informational purposes but could be larger than expected based on actual token consumption. The value is more accurate as the quota is approached.
 * For models that accept image input, image tokens are generally counted by the backend language model and included in limit and quota calculations. However, when streaming is used or `estimate-prompt-tokens` is set to `true`, the policy currently over-counts each image as a maximum count of 1200 tokens.
 * [!INCLUDE [api-management-rate-limit-key-scope](../../includes/api-management-rate-limit-key-scope.md)]
 * [!INCLUDE [api-management-token-limit-gateway-counts](../../includes/api-management-token-limit-gateway-counts.md)]

@@ -80,7 +80,7 @@ As files are simply blobs in Azure Storage, then standard blob APIs, tools, and 
 
 ## Using Azure Files with Windows VMs
 
-[Azure Files](../storage/files/storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the SMB protocol. Azure Files is based on Azure Blob Storage; it's [cost-efficient](https://azure.microsoft.com/pricing/details/storage/files/) and can be configured with data replication to another region so globally redundant. [Scale targets](../storage/files/storage-files-scale-targets.md#azure-files-scale-targets) should be reviewed to determine if Azure Files should be used given the forecast pool size and number of asset files.
+[Azure Files](../storage/files/storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the SMB protocol. Azure Files is based on Azure Blob Storage; it's [cost-efficient](https://azure.microsoft.com/pricing/details/storage/files/) and can be configured with data replication to another region so globally redundant. [Scale targets](../storage/files/storage-files-scale-targets.md) should be reviewed to determine if Azure Files should be used given the forecast pool size and number of asset files.
 
 There's [documentation](../storage/files/storage-how-to-use-files-windows.md) covering how to mount an Azure File share.
 

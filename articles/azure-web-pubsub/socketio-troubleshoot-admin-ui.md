@@ -7,6 +7,7 @@ ms.author: siyuanxing
 ms.date: 07/02/2024
 ms.service: azure-web-pubsub
 ms.topic: how-to
+ms.custom: sfi-ropc-nochange
 ---
 
 # Azure Socket.IO Admin UI

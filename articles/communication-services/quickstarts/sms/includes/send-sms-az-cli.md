@@ -9,8 +9,10 @@ ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 06/12/2022
 ms.topic: include
-ms.custom: include file
 ms.author: mayssamm
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 Get started with Azure Communication Services by using the Communication module in Azure CLI to send SMS messages.
@@ -131,3 +133,24 @@ Make these replacements in the code:
 
 > [!WARNING]
 > Provide phone numbers in E.164 international standard format, such as +14255550123. The value for `<fromPhoneNumber>` can also be a short code, such as 23456 or an alphanumeric sender ID, such as CONTOSO.
+
+## Send an SMS message with DeliveryReport and Tag
+
+```azurecli-interactive
+az communication sms send --sender "<fromPhoneNumber>" --recipient "<toPhoneNumber>" --message "Hello world via SMS for Azure CLI!" --connection-string "<yourConnectionString>" --deliveryReport --tag "<yourCustomTag>"
+```
+
+The `deliveryReport` parameter is an optional parameter you can use to configure delivery reporting. Use this function if you want to emit events when SMS messages are delivered. See [Handle SMS Events](../handle-sms-events.md) to configure delivery reporting for your SMS messages.
+
+The `tag` parameter is an optional parameter that you can use to apply a tag to the delivery report.
+
+Make these replacements in the code:
+
+- Replace `<fromPhoneNumber>` with an SMS-enabled phone number associated with your Communication Services resource.
+- Replace `<toPhoneNumber>` with a phone number that you'd like to send a message to.
+- Replace `<yourConnectionString>` with your connection string.
+- Replace `<yourCustomTag>` with your custom tag.
+
+> [!WARNING]
+> Provide phone numbers in E.164 international standard format, for example, +14255550123. The value for `<fromPhoneNumber>` can also be a short code, for example, 23456 or an alphanumeric sender ID, for example, CONTOSO.
+

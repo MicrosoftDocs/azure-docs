@@ -8,7 +8,9 @@ ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 05/13/2025
 ms.author: danlep
-ms.custom: fasttrack-edit
+ms.custom:
+  - fasttrack-edit
+  - sfi-image-nochange
 
 #customer intent: As an API developer, I want to learn how to retrieve the IP addresses of API Management. 
 ---

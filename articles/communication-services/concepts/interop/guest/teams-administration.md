@@ -8,6 +8,7 @@ ms.date: 7/9/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: teams-interop
+ms.custom: sfi-ga-nochange
 ---
 
 # Teams controls

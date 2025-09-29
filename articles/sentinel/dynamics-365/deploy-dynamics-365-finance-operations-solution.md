@@ -5,6 +5,7 @@ author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.date: 11/14/2024
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a security administrator, I want to deploy a monitoring solution for Microsoft Dynamics 365 Finance and Operations so that I can detect and respond to threats and suspicious activities in real-time.

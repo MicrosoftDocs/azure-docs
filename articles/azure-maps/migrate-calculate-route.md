@@ -653,16 +653,16 @@ Support
 [Azure Account]: https://azure.microsoft.com/
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Calculate a Route]: /bingmaps/rest-services/routes/calculate-a-route
-[Definitions]: /rest/api/maps/route/post-directions#definitions
+[Definitions]: /rest/api/maps/route/post-route-directions#definitions
 [geographic scope]: geographic-scope.md
 [GeoJSON]: https://geojson.org
 [Get Geocoding]: /rest/api/maps/search
 [Microsoft Entra ID]: azure-maps-authentication.md#microsoft-entra-authentication
 [Microsoft Q&A Forum]: /answers/tags/209/azure-maps
-[Post Directions Batch]: /rest/api/maps/route/post-directions-batch
-[Route Directions]: /rest/api/maps/route/post-directions
+[Post Directions Batch]: /rest/api/maps/route/post-route-directions-batch
+[Route Directions]: /rest/api/maps/route/post-route-directions
 [Security section]: /rest/api/maps/route/get-route-range?#security
 [Shared Access Signature (SAS) Token]: azure-maps-authentication.md#shared-access-signature-token-authentication
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Understanding Azure Maps Transactions]: understanding-azure-maps-transactions.md
-[URI Parameters]: /rest/api/maps/route/post-directions#uri-parameters
+[URI Parameters]: /rest/api/maps/route/post-route-directions#uri-parameters

@@ -4,6 +4,7 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 06/28/2025
 ms.author: jsaurezlee
+ms.custom: sfi-ropc-nochange
 ---
 
 ## Implement Windows push notifications

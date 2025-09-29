@@ -6,13 +6,26 @@ author: johndowns
 ms.author: jodowns
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 10/02/2023
+ms.date: 09/25/2025
 zone_pivot_groups: front-door-tiers
 ---
 
 # Secure traffic to Azure Front Door origins
 
-Front Door's features work best when traffic only flows through Front Door. You should configure your origin to block traffic that hasn't been sent through Front Door. Otherwise, traffic might bypass Front Door's web application firewall, DDoS protection, and other security features.
+::: zone pivot="front-door-classic"
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+
+::: zone-end
+
+Azure Front Door's features work best when traffic only flows through Front Door. You should configure your origin to block traffic that hasn't been sent through Front Door. Otherwise, traffic might bypass Front Door's web application firewall, DDoS protection, and other security features.
+
+| Approach | Supported tiers | 
+|--|--|
+| Private Link | Premium |
+| Managed Identities | Standard, Premium |
+| IP address filtering | Classic, Standard, Premium |
+| Front Door identifier | Classic, Standard, Premium |
 
 ::: zone pivot="front-door-classic"
 
@@ -25,9 +38,9 @@ Front Door's features work best when traffic only flows through Front Door. You 
 
 Front Door provides several approaches that you can use to restrict your origin traffic.
 
-## Private Link origins
+## Private Link enabled origins
 
-When you use the premium SKU of Front Door, you can use Private Link to send traffic to your origin. [Learn more about Private Link origins.](private-link.md)
+When you use the premium tier of Azure Front Door, you can use Private Link to send traffic to your origin. [Learn more about Private Link origins.](private-link.md)
 
 You should configure your origin to disallow traffic that doesn't come through Private Link. The way that you restrict traffic depends on the type of Private Link origin you use:
 
@@ -37,7 +50,7 @@ You should configure your origin to disallow traffic that doesn't come through P
 
 ## Managed Identities
 
-Managed identities provided by Microsoft Entra ID enables your Front Door instance to securely access other Microsoft Entra protected resources, such as Azure Blob Storage, without the need to manage credentials. After you enable managed identity for Front Door and granting the managed identity necessary permissions to your origin, Front Door will use the managed identity to obtain an access token from Microsoft Entra ID for accessing the specified resource. After successfully obtaining the token, Front Door will set the value of the token in the Authorization header using the Bearer scheme and then forward the request to the origin. Front Door caches the token until it expires. For more information, see [use managed identities to authenticate to origins (preview)](origin-authentication-with-managed-identities.md).
+Managed identities provided by Microsoft Entra ID enable your Front Door instance to securely access other Microsoft Entra protected resources, such as Azure Blob Storage, without the need to manage credentials. After you enable managed identity for Front Door and granting the managed identity necessary permissions to your origin, Front Door will use the managed identity to obtain an access token from Microsoft Entra ID for accessing the specified resource. After successfully obtaining the token, Front Door will set the value of the token in the Authorization header using the Bearer scheme and then forward the request to the origin. Front Door caches the token until it expires. For more information, see [use managed identities to authenticate to origins (preview)](origin-authentication-with-managed-identities.md).
 
 ::: zone-end
 
@@ -79,7 +92,7 @@ You can use [App Service access restrictions](../app-service/app-service-ip-rest
 
 Application Gateway is deployed into your virtual network. Configure a network security group rule to allow inbound access on ports 80 and 443 from the *AzureFrontDoor.Backend* service tag, and disallow inbound traffic on ports 80 and 443 from the *Internet* service tag.
 
-Use a custom WAF rule to check the `X-Azure-FDID` header value.  For more information, see [Create and use Web Application Firewall v2 custom rules on Application Gateway](../web-application-firewall/ag/create-custom-waf-rules.md#example-7).
+Use a custom Web Application Firewall (WAF) rule to check the `X-Azure-FDID` header value. For more information, see [Create and use Web Application Firewall v2 custom rules on Application Gateway](../web-application-firewall/ag/create-custom-waf-rules.md#example-7).
 
 # [Application Gateway for Containers](#tab/agc)
 
@@ -154,7 +167,7 @@ spec:
 
 ---
 
-## Next steps
+## Related content
 
 - Learn how to configure a [WAF profile on Front Door](front-door-waf.md). 
 - Learn how to [create a Front Door](quickstart-create-front-door.md).

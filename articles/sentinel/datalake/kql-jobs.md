@@ -17,12 +17,18 @@ ms.collection: ms-security
  
 
 #  Create KQL jobs in the Microsoft Sentinel data lake (preview)
- 
 
-A job is a one-time or repeatedly scheduled task that runs a KQL (Kusto Query Language) query against the data in the data lake tier to promote the results to the analytics tier. Once in the analytics tier, use the advanced hunting KQL editor to query the data. Promoting data to the analytics tier has the following benefits:
+KQL jobs are one-time or scheduled asynchronous KQL queries on data in the Microsoft Sentinel data lake. Jobs are useful for investigative and analytical scenarios for example; 
++ Long-running one-time queries for incident investigations and incident response (IR)
++ Data aggregation tasks that support enrichment workflows using low-fidelity logs
++ Historical threat intelligence (TI) matching scans for retrospective analysis
++ Anomaly detection scans that identify unusual patterns across multiple tables
+
+KQL jobs are especially effective when queries use joins or unions across different datasets. 
+
+Jobs are also used to promote the data from the data lake tier to the analytics tier. Once in the analytics tier, use the advanced hunting KQL editor to query the data. Promoting data to the analytics tier has the following benefits:
 
 + Combine current and historical data in the analytics tier to run advanced analytics and machine learning models on your data.
-
 + Reduce query costs by running queries in the analytics tier.
 + Combine data from multiple workspaces to a single workspace in the analytics tier. 
 + Combine Microsoft Entra ID, Microsoft 365, and Microsoft Resource Graph data in the analytics tier to run advanced analytics across data sources.
@@ -30,7 +36,7 @@ A job is a one-time or repeatedly scheduled task that runs a KQL (Kusto Query La
 > [!NOTE] 
 > Storage in the analytics tier incurs higher billing rates than in the data lake tier. To reduce costs, only promote data that you need to analyze further. Use the KQL in your query to project only the columns you need, and filter the data to reduce the amount of data promoted to the analytics tier.  
 
-When promoting data to the analytics tier, make sure that the destination workspace is visible in the advanced hunting query editor. You can only query connected workspaces in the advanced hunting query editor. You will not be able to see data promoted to workspaces that aren't connected or to the default workspace in advance hunting. For more information on connected workspaces, see [Connect a workspace](/defender-xdr/advanced-hunting-microsoft-defender#connect-a-workspace). You can promote data to a new table or append the results to an existing table in the analytics tier. When creating a new table, the table name is suffixed with *_KQL_CL* to indicate that the table was created by a KQL job.  
+When promoting data to the analytics tier, make sure that the destination workspace is visible in the advanced hunting query editor. You can only query connected workspaces in the advanced hunting query editor. You won't be able to see data promoted to workspaces that aren't connected or to the default workspace in advance hunting. For more information on connected workspaces, see [Connect a workspace](/defender-xdr/advanced-hunting-microsoft-defender#connect-a-workspace). You can promote data to a new table or append the results to an existing table in the analytics tier. When creating a new table, the table name is suffixed with *_KQL_CL* to indicate that the table was created by a KQL job.  
 
 ## Prerequisites
 
@@ -121,11 +127,12 @@ When creating jobs in the Microsoft Sentinel data lake, consider the following l
 
 ## KQL
 
-+ All KQL operators are supported except for the following:
++ All KQL operators and functions are supported except for the following:
   + `adx()`
-  + `externaldata`
+  + `externaldata()`
   + `arg()`
-  + `Ingestion_time()`
+  + `ingestion_time()`
+  + `workspace()`
 
 + User-defined functions not supported.
 
@@ -151,7 +158,7 @@ The following standard columns aren't supported for export. These columns are ov
 + _IsBillable
 + _WorkspaceId
 
-+ `TimeGenerated` will be overwritten if it's older that 2 days. To preserve the original event time, we recommend writing the source timestamp to a separate column.
++ `TimeGenerated` is overwritten if it's older that 2 days. To preserve the original event time, we recommend writing the source timestamp to a separate column.
 
 For service limits, see [Microsoft Sentinel data lake (preview) service limits](sentinel-lake-service-limits.md#service-parameters-and-limits-for-kql-jobs).
 

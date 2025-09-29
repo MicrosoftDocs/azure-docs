@@ -6,8 +6,10 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 08/08/2025
-ms.custom: references_regions
 ms.author: anfdocs
+ms.custom:
+  - references_regions
+  - sfi-image-nochange
 # Customer intent: As an Azure NetApp Files administrator, I want to configure network features for my volumes, so that I can optimize resource allocation and leverage VNet capabilities based on my workload requirements.
 ---
 # Configure network features for an Azure NetApp Files volume
@@ -70,9 +72,7 @@ You can edit the network features option of existing volumes from *Basic* to *St
 
 ### Register the feature
 
-Before editing network features on an existing volume, you need to register the feature. Ensure you are using the correct feature name for the change in network features you want to perform.
-
-* To upgrade to Standard network features from Basic, use the feature name `ANFBasicToStdNetworkFeaturesUpgrade`.
+Before upgradeing from Basic to Standard network features, you need to register the feature.
 
 1.  Register the feature:
 

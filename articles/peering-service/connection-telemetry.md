@@ -8,6 +8,7 @@ ms.service: azure-peering-service
 ms.topic: how-to
 ms.date: 03/03/2025
 ms.author: halkazwini
+ms.custom: sfi-image-nochange
 
 # Customer intent: Customer wants to access their connection telemetry per prefix to Microsoft services with Azure Peering Service.
 ---

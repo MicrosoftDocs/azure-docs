@@ -159,7 +159,11 @@
         - name: Overview
           href: expressroute-about-virtual-network-gateways.md
         - name: About Scalable Gateway
-          href: scalable-gateway.md
+          items: 
+            - name: Overview
+              href: scalable-gateway.md
+            - name: Configure a scalable gateway
+              href: expressroute-howto-scalable-portal.md
         - name: Configure a virtual network gateway
           items:
             - name: Azure portal
@@ -182,6 +186,8 @@
                       href: expressroute-howto-gateway-migration-portal.md
                     - name: Azure PowerShell
                       href: expressroute-howto-gateway-migration-powershell.md
+                - name: Troubleshoot
+                  href: gateway-migration-error-messaging.md
     - name: Traffic collector
       items:
         - name: Overview

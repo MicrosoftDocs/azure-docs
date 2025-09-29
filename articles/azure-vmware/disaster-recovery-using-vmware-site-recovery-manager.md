@@ -4,7 +4,9 @@ description: Deploy disaster recovery with VMware Site Recovery Manager (SRM) in
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 01/13/2025
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 # Customer intent: "As a cloud administrator, I want to deploy and manage disaster recovery using VMware Site Recovery Manager in my Azure VMware Solution environment, so that I can ensure minimal downtime and reliable recovery of virtual machines in case of a disaster."
 ---
 

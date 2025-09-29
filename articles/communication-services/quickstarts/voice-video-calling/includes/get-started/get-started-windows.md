@@ -4,6 +4,7 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 05/10/2025
 ms.author: rifox
+ms.custom: sfi-ropc-nochange
 ---
 
 This article describes how to start a call using the Azure Communication Services Calling SDK for Windows.

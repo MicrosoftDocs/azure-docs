@@ -8,6 +8,7 @@ ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: authentication
+ms.custom: sfi-image-nochange
 ---
 
 # Secure a daemon application

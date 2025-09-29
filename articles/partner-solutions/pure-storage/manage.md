@@ -1,15 +1,15 @@
 ---
-title: Manage Settings for Your Pure Storage (preview) Resource via Azure portal 
-description: Manage settings, view resources, reconfigure metrics/logs, and more for your Pure Storage resource via Azure portal.
+title: Manage Settings for Your Pure Storage Cloud Resource via Azure portal 
+description: Manage settings, view resources, reconfigure metrics/logs, and more for your Pure Storage Cloud resource via Azure portal.
 
 ms.topic: how-to
-ms.date: 03/24/2025
+ms.date: 07/14/2025
 
 ---
 
-# Manage Azure Native Pure Storage (preview) resources 
+# Manage Azure Native Pure Storage resources 
 
-This article describes how to manage the settings for Pure Storage for Azure.
+This article describes how to manage your Pure Storage Cloud Resource and connect storage to your Azure VMware Solution (AVS) resource.
 
 ## Resource overview
 
@@ -32,17 +32,15 @@ Below the essentials, you can navigate to other details about your resource by s
 
 - Get Started
 - Documentation on Microsoft Learn
-- Pure Storage support
+- [Pure Storage support](https://pure1.purestorage.com/)
 
 ## Create a Storage Pool
 
-Once you create a resource, you can create a storage pool. 
+Once you create a resource, you can create a storage pool to connect to an Azure VMware Solution resource. 
 
-[!INCLUDE [manage](../includes/manage.md)]
+1. Select **Settings > Storage Pool** from the service menu.
 
-3. Select **Settings > Storage Pool** from the service menu.
-
-4. Select **Create a new storage pool** from the working pane's command bar. 
+1. Select **Create a new storage pool** from the working pane's command bar. 
 
     The *Create a Storage Pool* window appears.
 
@@ -53,8 +51,8 @@ Once you create a resource, you can create a storage pool.
     > [!NOTE]
     > The storage pool defaults to the same region as your Pure Storage resource.
 
-5. Enter the values for each required setting.
-  
+1. Enter the values for each required setting.
+
     | Setting                            | Action                                |
     |------------------------------------|---------------------------------------|
     | Resource group                     | Choose a resource group.              |
@@ -64,18 +62,34 @@ Once you create a resource, you can create a storage pool.
     | Virtual network                    | Choose a virtual network.             |
     | Delegated subnet                   | Choose a delegated subnet.            |
 
-6. Select the **Create** button.
+1. Select the **Create** button.
 
     > [!NOTE]
     > It can take up to 1 hour for deployment to complete.
 
 ### Connect a Storage Pool to an Azure VMware Solution resource
 
-Once you create a storage pool, you can link the storage pool to an Azure VMware Solution resource from the Azure portal.
-
 > [!IMPORTANT]
-> In order to connect your storage pool to an Azure VMware Solution resource, you must be an *Owner* or *RBACAdministrator* in your subscription.
+>
+> - Before you can connect a storage pool to an Azure VMware Solution resource, you must create a [Storage Pool](#create-a-storage-pool) and an [Azure VMware Solution](../../azure-vmware/tutorial-create-private-cloud.md).
+> - All hosts must be in the same Host Location within the same Azure Subscription. 
+> - In order to connect your storage pool to an Azure VMware Solution resource, you must be an *Owner* or *RBACAdministrator* in your subscription.
 
 [!INCLUDE [manage](../includes/manage.md)]
 
 To connect a storage pool to an Azure VMware Solution resource, select the **Connect Azure VMware Solution** button from the working pane's command bar.
+
+:::image type="content" source="media/manage/connect-vm.png" alt-text="A screenshot of a Storage Pool resource inside Azure portal with the Connect Azure VMware Solution button emphasized":::
+
+>[!IMPORTANT]
+> Once you've connected, see the [Pure Storage Resource Guide](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/management/c_psc_management.html) to learn how to manage your datastores and volumes.
+
+## Get support
+
+Contact [Pure Storage](https://pure1.purestorage.com/) for customer support.
+
+See the [Pure Storage troubleshooting documentation](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/troubleshooting/c_troubleshooting.html) for more information.
+
+## Related content
+
+[FAQ: Pure Storage Cloud](faq.yml)

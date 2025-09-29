@@ -360,6 +360,142 @@ This filter provides the capability to enable a feature based on a time window. 
 ]     
 ```
 
+The time window can be configured to recur periodically. This can be useful for the scenarios where one may need to turn on a feature during a low or high traffic period of a day or certain days of a week. To expand the individual time window to recurring time windows, the recurrence rule should be specified in the `Recurrence` parameter.
+
+> [!NOTE]
+> `Start` and `End` must be both specified to enable `Recurrence`.
+
+``` JavaScript
+"client_filters": [
+    {
+        "name": "Microsoft.TimeWindow",
+        "parameters": {
+            "Start": "Fri, 22 Mar 2024 20:00:00 GMT",
+            "End": "Sat, 23 Mar 2024 02:00:00 GMT",
+            "Recurrence": {
+                "Pattern": {
+                    "Type": "Daily",
+                    "Interval": 1
+                },
+                "Range": {
+                    "Type": "NoEnd"
+                }
+            }
+        }
+    }
+]
+```
+
+The `Recurrence` settings are made up of two parts: `Pattern` (how often the time window repeats) and `Range` (for how long the recurrence pattern repeats). 
+
+#### Recurrence Pattern
+
+There are two possible recurrence pattern types: `Daily` and `Weekly`. For example, a time window could repeat "every day", "every three days", "every Monday" or "every other Friday". 
+
+Depending on the type, certain fields of the `Pattern` are required, optional, or ignored.
+
+- `Daily`
+    
+    The daily recurrence pattern causes the time window to repeat based on a number of days between each occurrence.
+
+    | Property | Relevance | Description |
+    |----------|-----------|-------------|
+    | **Type** | Required | Must be set to `Daily`. |
+    | **Interval** | Optional | Specifies the number of days between each occurrence. Default value is 1. |
+
+- `Weekly`
+
+    The weekly recurrence pattern causes the time window to repeat on the same day or days of the week, based on the number of weeks between each set of occurrences.
+
+    | Property | Relevance | Description |
+    |----------|-----------|-------------|
+    | **Type** | Required | Must be set to `Weekly`. |
+    | **DaysOfWeek** | Required | Specifies on which days of the week the event occurs. |
+    | **Interval** | Optional | Specifies the number of weeks between each set of occurrences. Default value is 1. |
+    | **FirstDayOfWeek** | Optional | Specifies which day is considered the first day of the week. Default value is `Sunday`. |
+
+    The following example repeats the time window every other Monday and Tuesday
+
+    ``` javascript
+    "Pattern": {
+        "Type": "Weekly",
+        "Interval": 2,
+        "DaysOfWeek": ["Monday", "Tuesday"]
+    }
+    ```
+
+> [!NOTE]
+> `Start` must be a valid first occurrence that fits the recurrence pattern. Additionally, the duration of the time window can't be longer than how frequently it occurs. For example, it's invalid to have a 25-hour time window recur every day.
+
+#### Recurrence Range
+
+There are three possible recurrence range types: `NoEnd`, `EndDate` and `Numbered`.
+
+- `NoEnd`
+
+    The `NoEnd` range causes the recurrence to occur indefinitely.
+
+    | Property | Relevance | Description |
+    |----------|-----------|-------------|
+    | **Type** | Required | Must be set to `NoEnd`. |
+
+- `EndDate`
+
+    The `EndDate` range causes the time window to occur on all days that fit the applicable pattern until the end date.
+
+    | Property | Relevance | Description |
+    |----------|-----------|-------------|
+    | **Type** | Required | Must be set to `EndDate`. |
+    | **EndDate** | Required | 	Specifies the date time to stop applying the pattern. As long as the start time of the last occurrence falls before the end date, the end time of that occurrence is allowed to extend beyond it. |
+
+    The following example will repeat the time window every day until the last occurrence happens on April 1, 2024.
+
+    ``` javascript
+    "Start": "Fri, 22 Mar 2024 18:00:00 GMT",
+    "End": "Fri, 22 Mar 2024 20:00:00 GMT",
+    "Recurrence":{
+        "Pattern": {
+            "Type": "Daily",
+            "Interval": 1
+        },
+        "Range": {
+            "Type": "EndDate",
+            "EndDate": "Mon, 1 Apr 2024 20:00:00 GMT"
+        }
+    }
+    ```
+
+- `Numbered`
+
+    The `Numbered` range causes the time window to occur a fixed number of times (based on the pattern).
+
+    | Property | Relevance | Description |
+    |----------|-----------|-------------|
+    | **Type** | Required | Must be set to `Numbered`. |
+    | **NumberOfOccurrences** | Required | 	Specifies the number of occurrences. |
+
+    The following example will repeat the time window on Monday and Tuesday until there are three occurrences, which respectively happen on April 1(Mon), April 2(Tue) and April 8(Mon).
+
+    ``` javascript
+    "Start": "Mon, 1 Apr 2024 18:00:00 GMT",
+    "End": "Mon, 1 Apr 2024 20:00:00 GMT",
+    "Recurrence":{
+        "Pattern": {
+            "Type": "Weekly",
+            "Interval": 1,
+            "DaysOfWeek": ["Monday", "Tuesday"]
+        },
+        "Range": {
+            "Type": "Numbered",
+            "NumberOfOccurrences": 3
+        }
+    }
+    ```
+
+To create a recurrence rule, you must specify both `Pattern` and `Range`. Any pattern type can work with any range type.
+
+**Advanced:** The time zone offset of the `Start` property is applied to the recurrence settings.
+
 ### Microsoft.Targeting
 
 This filter provides the capability to enable a feature for a target audience. An in-depth explanation of targeting is explained in the [targeting](#targeting) section below. The filter parameters include an `Audience` object that describes users, groups, excluded users/groups, and a default percentage of the user base that should have access to the feature. Each group object that is listed in the `Groups` section must also specify what percentage of the group's members should have access. If a user is specified in the `Exclusion` section, either directly or if the user is in an excluded group, the feature is disabled. Otherwise, if a user is specified in the `Users` section directly, or if the user is in the included percentage of any of the group rollouts, or if the user falls into the default rollout percentage then that user will have the feature enabled.

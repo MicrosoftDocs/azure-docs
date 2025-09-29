@@ -6,9 +6,12 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: whhender
 ms.subservice: data-movement
-ms.custom: synapse
 ms.topic: conceptual
 ms.date: 07/25/2025
+ms.custom:
+  - synapse
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Linked services in Azure Data Factory and Azure Synapse Analytics

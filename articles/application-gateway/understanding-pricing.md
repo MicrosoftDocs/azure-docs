@@ -42,7 +42,7 @@ Capacity Unit is the measure of capacity utilization for an Application Gateway 
 
 A single Capacity Unit consists of the following parameters:
 * 2,500 Persistent connections
-* 2.22-Mbps throughput
+* 1 GB per hour (2.22-Mbps) throughput
 * 1 Compute Unit
 
 The parameter with the highest utilization among these three parameters is used to calculate capacity units for billing purposes.

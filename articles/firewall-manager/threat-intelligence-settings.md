@@ -7,6 +7,7 @@ ms.service: azure-firewall-manager
 ms.topic: concept-article
 ms.date: 11/19/2024
 ms.author: duau
+ms.custom: sfi-image-nochange
 ---
 
 # Azure Firewall threat intelligence configuration

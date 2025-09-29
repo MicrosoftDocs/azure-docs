@@ -50,7 +50,7 @@ The `RealTimeTextInfo` (or `RealTimeTextDetails` on certain platforms) class is 
 Developers can subscribe to RTT events through a single event subscription, allowing them to manage their own list and ordering of RTT messages. This approach aligns with the Captions API, facilitating easier integration and maintenance. The UI is responsible for binding the data to the screen, managing the display list, and handling text input interactions based on message finalization.
 
 >[!NOTE]
->RTT for PSTN or Teams Interop scenarios isn't available at this time.
+>RTT for PSTN scenarios isn't available at this time.
 
 ### Privacy Concerns
 

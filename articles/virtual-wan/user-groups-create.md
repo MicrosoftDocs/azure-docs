@@ -7,6 +7,7 @@ ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 01/22/2024
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 
 ---
 # Configure user groups and IP address pools for P2S User VPNs
