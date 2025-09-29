@@ -6,6 +6,7 @@ ms.author: adamdor
 ms.date: 09/26/2025
 ms.topic: concept-article
 ms.service: azure-operator-service-manager
+ms.custom: references_regions
 ---
 
 # Publisher artifact store resiliency 
