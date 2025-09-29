@@ -228,7 +228,7 @@ Set-DnsServerDiagnostics -SaveLogsAsTextFile $true -LogFilePath "C:\Windows\Syst
 wevtutil sl "Microsoft-Windows-DNSServer/Analytical" /e:true
 ```
 
-## Managed Resource Group
+## Managed resource groups in Azure Virtual Enclaves
 
 The resource groups that contain resources managed by Azure Virtual Enclaves.
 
