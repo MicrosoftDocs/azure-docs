@@ -74,7 +74,7 @@ Once the servers are Arc-enabled and the Defender for Servers plan is active, th
 
 - In Defender for Cloud, go to the **Inventory page** (under **Asset management**). Filter or scroll to find the Oracle Exadata VM resource (it will show up with Resource Type **Machine – Azure Arc**).The Arc-enabled Oracle server will be listed here, indicating that it is now under Defender for Cloud’s protection
 
-    :::image type="content" source="\media\oracle-inventory-asset.png" alt-text="Screenshot showing where to find Inventory page and asset management":::
+    :::image type="content" source="\media\oracle-inventory-asset.png" alt-text="Screenshot showing where the Arc-enabled Oracle servers benefit from the following security capabilities in Defender for Cloud":::
 
 - With the Defender for Servers Plan 1 enabled, the Arc-enabled Oracle servers benefit from the following security capabilities in Defender for Cloud: 
     - **Threat detection**: Identifies potential threats in real time using machine learning and behavioral analytics, and raises **security alerts** for suspicious activities (via Microsoft Defender for Endpoint integration). 
