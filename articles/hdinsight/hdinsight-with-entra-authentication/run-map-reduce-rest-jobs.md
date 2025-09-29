@@ -30,17 +30,17 @@ Either:
 >When you use Curl or any other REST communication with WebHCat, you must authenticate the requests by providing the Access Token generated for the cluster. You must use the cluster name as part of the URI that is used to send the requests to the server. The REST API is secured by using OAuth 2.0. You should always make requests by using HTTPS to ensure that your credentials are securely sent to the server.
 
 
-### Setup (Secure Bearer Access Token)
+## Setup (Secure Bearer Access Token)
 Bearer Token is needed to send the cURL or any REST communication. You can follow the below mentioned step to get the token:
 
 Execute an HTTP GET request to the OAuth 2.0 token endpoint with the following specifications:
 
-### URL
+## URL
 ```
   https://login.microsoftonline.com/{Tenant_ID}/oauth2/v2.0/token
 ```
 
-### Body
+## Body
 
 | Parameter | Description | Required |
 | --- | --- | --- |
@@ -50,7 +50,7 @@ Execute an HTTP GET request to the OAuth 2.0 token endpoint with the following s
 | scope         | Resource URL with .default suffix                   | Yes |
 
 
-### cURL Request
+## cURL Request
 
 ```
 curl --request GET \
@@ -62,7 +62,7 @@ curl --request GET \
   --form scope=https://{clustername}.clusteraccess.azurehdinsight.net/.default \
 ```
 
-### Response
+## Response
 A successful request returns a JSON object containing:
 
 - token_type: Always "Bearer"
@@ -86,10 +86,9 @@ After securing the Access Token needed for each action, let’s jump right into 
 
 1. For ease of use, set the variables below. This example is based on a Windows environment, revise as needed for your environment.
     
-    Windows Command Prompt
-    ```
-    set TOKEN= <access_token>
-
+   
+    ```azurecli
+     set TOKEN= <access_token>
     ```
 1. From a command line, use the following command to verify that you can connect to your HDInsight cluster:
         
@@ -165,21 +164,21 @@ After securing the Access Token needed for each action, let’s jump right into 
 1. Use the following command to verify that you can connect to your HDInsight cluster:
     
 
-  ```powershell
+   ```powershell
    
           # Make the API request with the bearer token
           $response = Invoke-WebRequest -Uri $apiEndpoint -Headers @{Authorization = "Bearer $bearerToken"} -UseBasicParsing
 
           # Output the response content
           $response.Content
-   ```
+    ```
 
-   You receive a response similar to the following JSON:
+    You receive a response similar to the following JSON:
 
-   ```json
+    ```json
    	{"version":"v1","status":"ok"}
    
-   ```
+    ```
 1. To submit a MapReduce job, use the following command:
 
     ```powershell
@@ -196,7 +195,7 @@ After securing the Access Token needed for each action, let’s jump right into 
             }
 
             # Make the API request with the bearer token
-            $response = Invoke-WebRequest -Uri $apiEndpoint -Headers @{Authorization = "Bearer $bearerToken"} -Body $reqParams -Method POST -UseBasicParsing
+            $response = Invoke-WebRequest -Uri $apiEndpoint -Headers @{Authorization = "Bearer $bearerToken"} -Body                      $reqParams -Method POST -UseBasicParsing
 
             # Output the raw response content
             $jobID = (ConvertFrom-Json $resp.Content).id
@@ -205,9 +204,9 @@ After securing the Access Token needed for each action, let’s jump right into 
 
 
 
-  The end of the URI (/mapreduce/jar) tells WebHCat that this request starts a MapReduce job from a class in a jar file. The parameters used in this command are as follows:
+   The end of the URI (/mapreduce/jar) tells WebHCat that this request starts a MapReduce job from a class in a jar file.       The parameters used in this command are as follows:
 
-  This command should return a job ID that can be used to check the status of the job: `job_1415651640909_0026`.
+   This command should return a job ID that can be used to check the status of the job: `job_1415651640909_0026`.
 
 1. To check the status of the job, use the following command:
     
@@ -225,7 +224,7 @@ After securing the Access Token needed for each action, let’s jump right into 
   ```
 
          
-   ### Both methods
+## Both methods
 
 
  - If the job is complete, the state returned is **SUCCEEDED**.
