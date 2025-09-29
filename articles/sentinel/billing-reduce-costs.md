@@ -96,5 +96,5 @@ Besides for the predefined sets of events that you can select to ingest, such as
 - Learn about how to [prevent unexpected costs](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
 - For more tips on reducing Log Analytics data volume, see [Azure Monitor best practices - Cost management](/azure/azure-monitor/best-practices-cost).
-- To understand more about Microsoft Sentinel data lake (Preview), see [Microsoft Sentinel data lake (Preview)](datalake/sentinel-lake-overview.md).
-- To onboard to Microsoft Sentinel data lake (Preview), see [Onboard data to Microsoft Sentinel data lake (Preview)](datalake/sentinel-lake-onboarding.md). 
+- To understand more about Microsoft Sentinel data lake, see [Microsoft Sentinel data lake](datalake/sentinel-lake-overview.md).
+- To onboard to Microsoft Sentinel data lake, see [Onboard data to Microsoft Sentinel data lake](datalake/sentinel-lake-onboarding.md).
