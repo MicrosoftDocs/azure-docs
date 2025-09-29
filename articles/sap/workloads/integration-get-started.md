@@ -4,7 +4,7 @@ description: Learn about the various integration points in the Microsoft ecosyst
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: concept-article
-ms.date: 06/22/2025
+ms.date: 09/29/2025
 author: MartinPankraz
 ms.author: mapankra
 
@@ -330,7 +330,6 @@ These resources include Customer Engagement Initiatives (CEI), public BETAs, and
 
 - [SAP Joule integration with Microsoft Copilot private preview](https://aka.ms/CopilotJoule)
 - [SAP Event Mesh integration with Microsoft Azure Event Grid - Aug 2022 | SAP Customer Influence](https://influence.sap.com/sap/ino/#campaign/2836)
-- [SAP Private Link service CEI - Jul 2022 | SAP Customer Influence](https://influence.sap.com/sap/ino/#campaign/3118)
 
 ## Free developer accounts
 
