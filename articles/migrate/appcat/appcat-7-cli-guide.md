@@ -42,8 +42,12 @@ The following sections provide a detailed description of the available `appcat a
 | Source & target technologies |                             |                                                                                                                                                                                                                              |
 |                              | `--list-sources`            | Displays the available migration source technologies.                                                                                                                                                                        |
 |                              | `--list-targets`            | Displays the available migration target technologies.                                                                                                                                                                        |
+|                              | `--list-capabilities`       | Displays the available migration capabilities. The default value is `false`.                                                                                                                                                |
+|                              | `--list-os`                 | Displays the available migration target operating systems. The default value is `false`.                                                                                                                                    |
 |                              | `--source`, `-s`            | Specifies the source technologies for analysis. Use a comma-separated list for multiple values - for example, `--source <source1>,<source2>,...`. Use the `--list-sources` argument to list all available sources.           |
 |                              | `--target`, `-t`            | Specifies the target technologies for analysis. Use a comma-separated list for multiple values - for example, `--target <target1>,<target2>,...`. Use the `--list-targets` argument to list all available targets.           |
+|                              | `--capability`, `-c`        | Specifies capability technologies for analysis. Use a comma-separated list for multiple values - for example, `--capability <capability1>,<capability2>,...`. The default value is `[]`.                                   |
+|                              | `--os`                      | Specifies operating systems for analysis. Use a comma-separated list for multiple values - for example, `--os <os1>,<os2>,...`. The default value is `[]`.                                                                 |
 | Analysis options             |                             |                                                                                                                                                                                                                              |
 |                              | `--analyze-known-libraries` | Enables analysis of known open-source libraries - specified in AppCAT's `maven.default.index` - during source code analysis. The default value is `false`.                                                                   |
 |                              | `--custom-maven-settings`   | Specifies the path to a custom Maven settings file.                                                                                                                                                                          |
@@ -99,7 +103,7 @@ The `--list-sources` parameter shows the following source technologies:
 | EAP          | Best practices for migrating Java applications that use JBoss EAP technology.   | `eap`        |
 | EAP 7        | Best practices for migrating Java applications that use JBoss EAP 7 technology. | `eap7`       |
 
-##### Support targets
+##### Supported targets
 
 The `--list-targets` parameter shows the following target technologies:
 
@@ -108,11 +112,26 @@ The `--list-targets` parameter shows the following target technologies:
 | Azure App Service         | Best practices for deploying an app to Azure App Service.              | `azure-appservice`     |
 | Azure Kubernetes Service  | Best practices for deploying an app to Azure Kubernetes Service.       | `azure-aks`            |
 | Azure Container Apps      | Best practices for deploying an app to Azure Container Apps.           | `azure-container-apps` |
-| Cloud Readiness           | General best practices for making an application Cloud (Azure) ready.  | `cloud-readiness`      |
-| Linux                     | General best practices for making an application Linux ready.          | `linux`                |
-| OpenJDK 11                | General best practices for running a Java 8 application with Java 11.  | `openjdk11`            |
-| OpenJDK 17                | General best practices for running a Java 11 application with Java 17. | `openjdk17`            |
-| OpenJDK 21                | General best practices for running a Java 17 application with Java 21. | `openjdk21`            |
+
+##### Supported operating systems
+
+The `--list-os` parameter shows the following operating systems:
+
+| OS name | Description                                                   | OS       |
+|---------|---------------------------------------------------------------|----------|
+| Linux   | Best practices for migrating applications to Linux platform. | `linux`  |
+| Windows | Best practices for migrating applications to Windows platform. | `windows` |
+
+##### Supported capabilities
+
+The `--list-capabilities` parameter shows the following capabilities:
+
+| Capability name | Description                                               | Capability        |
+|-----------------|-----------------------------------------------------------|-------------------|
+| Containerization | Best practices for containerizing applications.          | `containerization` |
+| OpenJDK 11      | Best practices for migrating to OpenJDK 11.             | `openjdk11`       |
+| OpenJDK 17      | Best practices for migrating to OpenJDK 17.             | `openjdk17`       |
+| OpenJDK 21      | Best practices for migrating to OpenJDK 21.             | `openjdk21`       |
 
 ##### Configure ignore files
 
