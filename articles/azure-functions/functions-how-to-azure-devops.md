@@ -493,13 +493,11 @@ For a complete end-to-end pipeline example, including building the container and
 
 ---
 
-::: zone-end 
-
 ## Deploy to a slot
 :::zone pivot="v2"
 >[!IMPORTANT]  
 >The Flex Consumption plan doesn't currently support slots. 
->Linux apps on a Consumption plan also don't support slots and [support is being retired in the future](./consumption-plan.md). 
+>Linux apps also don't support slots when running in a Consumtion plan, and [support for these apps is being retired in the future](./consumption-plan.md). 
 
 ### [Windows App](#tab/windows)
 ```yaml
@@ -552,18 +550,6 @@ variables:
 
 ---
 
-### Slot swap during deployment
-
-If you opted to deploy to a [deployment slot](functions-deployment-slots.md), you can add the following step to perform a slot swap. Deployment slots are not available for the Flex Consumption SKU.
-```yaml
-- task: AzureAppServiceManage@0
-  inputs:
-    azureSubscription: <AZURE_SERVICE_CONNECTION>
-    WebAppName: <APP_NAME>
-    ResourceGroupName: <RESOURCE_GROUP>
-    SourceSlot: <SLOT_NAME>
-    SwapWithProduction: true
-```
 :::zone-end
 ::: zone pivot="v1"
 You can configure your function app to have multiple slots. Slots allow you to safely deploy your app and test it before making it available to your customers.
@@ -590,6 +576,18 @@ The following YAML snippet shows how to deploy to a staging slot, and then swap 
     SwapWithProduction: true
 ```
 ::: zone-end
+
+When using [deployment slots](functions-deployment-slots.md), you can also add the following task to perform a slot swap as part of your deployment. 
+
+```yaml
+- task: AzureAppServiceManage@0
+  inputs:
+    azureSubscription: <AZURE_SERVICE_CONNECTION>
+    WebAppName: <APP_NAME>
+    ResourceGroupName: <RESOURCE_GROUP>
+    SourceSlot: <SLOT_NAME>
+    SwapWithProduction: true
+```
 
 ## Create a pipeline with Azure CLI
 
