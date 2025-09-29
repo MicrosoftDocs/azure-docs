@@ -25,7 +25,7 @@ The audit log helps you investigate specific activities across Microsoft service
 Auditing is automatically turned on for Microsoft Sentinel data lake and graph. Features that are audited are logged in the audit log automatically.
 
 ## Prerequisites
-Microsoft Sentinel data lake uses the [Microsoft Purview auditing solution](/purview/audit-solutions-overview). Before you can look at the audit data, you need to turn on auditing in the Microsoft Purview portal. For more information, see [Turn auditing on or off](/purview/audit-log-enable-disable). 
+Microsoft Sentinel data lake and graph uses the [Microsoft Purview auditing solution](/purview/audit-solutions-overview). Before you can look at the audit data, you need to turn on auditing in the Microsoft Purview portal. For more information, see [Turn auditing on or off](/purview/audit-log-enable-disable). 
  
 To access the audit log, you need to have the **View-Only Audit Logs** or **Audit Logs** role in Exchange Online. By default, those roles are assigned to the Compliance Management and Organization Management role groups.
 
@@ -36,7 +36,7 @@ To access the audit log, you need to have the **View-Only Audit Logs** or **Audi
 > [!IMPORTANT]
 > Global Administrator is a highly privileged role that should be limited to scenarios when you can't use an existing role. Microsoft recommends that you use roles with the fewest permissions. Using accounts with lower permissions helps improve security for your organization.
 
-## Microsoft Sentinel data lake activities
+## Microsoft Sentinel data lake and graph activities
 
 For a list of all events that are logged for user and admin activities in Microsoft Sentinel data lake, see the following articles:
 
@@ -44,7 +44,7 @@ For a list of all events that are logged for user and admin activities in Micros
 + [Microsoft Sentinel data lake notebook activities](/purview/audit-log-activities#microsoft-sentinel-data-lake-notebook-activities)
 + [Microsoft Sentinel data lake job activities](/purview/audit-log-activities#microsoft-sentinel-data-lake-job-activities)
 + [Microsoft Sentinel data lake KQL activities](/purview/audit-log-activities#microsoft-sentinel-data-lake-kql-activities)
-+ [Microsoft Sentinel data lake AI tool activities](https://aka.ms/sentinel-ai-tool-activities)
++ [Microsoft Sentinel AI tool activities](https://aka.ms/sentinel-ai-tool-activities)
 + [Microsoft Sentinel graph activities](https://aka.ms/sentinel-graph-activities)
 
 For detailed audit log schema information, see [Microsoft Sentinel data lake and graph schema](https://aka.ms/sentinel-lake-audit-schema).
