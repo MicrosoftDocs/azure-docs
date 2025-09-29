@@ -42,7 +42,7 @@ With Azure Virtual Enclaves, you can easily create new isolated, zero-trust soft
   - Managed resources protected by Azure Policy and Deny Assignments
   - Service Catalog - Collection of templates that can be used to deploy well-known services and applications.
 
-![Diagram showing the layers Azure Virtual Enclaves within the management layers in Azure.](./media/ave-azure-layers-hierarchy.png)
+[ ![Diagram showing the layers Azure Virtual Enclaves within the management layers in Azure.](./media/ave-azure-layers-hierarchy.png) ](./media/ave-azure-layers-hierarchy.png#lightbox)
 
 ## What gets deployed
 When you deploy Azure Virtual Enclaves resources, these are the resources that are deployed for you:
