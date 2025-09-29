@@ -25,7 +25,7 @@ Before you begin this article, you must have the following items:
 - [Visual Studio](https://visualstudio.microsoft.com/vs/community/) 2013 and beyond. At least, workload .NET desktop development should be installed.
 
 
-### Run a Hive Query
+## Run a Hive Query
 
 The HDInsight .NET SDK provides .NET client libraries, which makes it easier to work with HDInsight clusters from .NET.
 
@@ -258,4 +258,6 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 1. Press **F5** to run the application.
 
 The output of the application should be similar to:
+
+ :::image type="content" source="./media/run-hive-queries-using-dot-net-sdk.md/output.png" alt-text="Screenshot of output showing the output of the program." border="true" lightbox="./media/run-hive-queries-using-dot-net-sdk.md/output.png":::
 
