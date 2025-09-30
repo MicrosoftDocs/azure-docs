@@ -3,7 +3,7 @@ title: Tutorial - Create and manage rules in Azure IoT Central
 description: This tutorial shows you how Azure IoT Central rules let you monitor your devices in near real time and automatically invoke actions when a rule triggers.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/17/2024
+ms.date: 08/07/2025
 ms.topic: tutorial
 ms.service: azure-iot-central
 services: iot-central
@@ -60,7 +60,7 @@ To test the rule you create in the next section, add a simulated device to your 
 To create a telemetry rule, the device template must include at least one telemetry value. This tutorial uses a simulated **Hobo MX-100** device that sends temperature telemetry. The rule monitors the temperature reported by the device and sends an email when it goes above 70 degrees.
 
 > [!NOTE]
-> There is a limit of 50 rules per application.
+> There's a limit of 50 rules per application.
 
 1. In the left pane, select **Rules**.
 
@@ -100,7 +100,7 @@ After you define the condition, you set up the actions to take when the rule fir
 1. Enter _Temperature warning_ as the display name for the action, your email address in the **To** field, and _You should check the device!_ as a note to appear in the body of the email.
 
     > [!NOTE]
-    > Emails are only sent to the users that have been added to the application and have logged in at least once. Learn more about [user management](howto-administer.md) in Azure IoT Central.
+    > Emails are only sent to the users that are added to the application and have signed in at least once. Learn more about [user management](howto-administer.md) in Azure IoT Central.
 
     :::image type="content" source="media/tutorial-create-telemetry-rules/configure-action.png" alt-text="Screenshot that shows the email action for the rule." lightbox="media/tutorial-create-telemetry-rules/configure-action.png":::
 
@@ -128,9 +128,9 @@ Choose the rule you want to customize. Use one or more filters in the **Target d
 
 [!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
-## Next step
+## Next steps
 
-Now that you've defined a threshold-based rule the suggested next step is to learn how to:
+Now that you know how to define a threshold-based rule, the suggested next step is to learn how to:
 
 > [!div class="nextstepaction"]
 > [Configure rules](howto-configure-rules.md)
