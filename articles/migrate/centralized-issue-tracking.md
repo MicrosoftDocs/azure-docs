@@ -7,7 +7,7 @@ ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 08/18/2025
 ms.reviewer: v-uhabiba
-monikerRange: migrate
+monikerRange:
 # Customer intent: As a migration project manager, I want to use a centralized issue tracking system, so that I can efficiently manage and resolve migration-related problems, ensuring a smoother transition to Azure.
 ---
 

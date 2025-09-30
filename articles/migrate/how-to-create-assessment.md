@@ -7,7 +7,7 @@ ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 04/17/2025
-monikerRange: migrate
+monikerRange:
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange

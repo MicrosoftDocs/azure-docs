@@ -6,7 +6,7 @@ author: zhiyuanliang-ms
 ms.service: azure-app-configuration
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 09/26/2024
+ms.date: 09/30/2025
 ms.author: zhiyuanliang
 ms.custom: quickstart, mode-other, devx-track-js
 #Customer intent: As a JavaScript developer, I want to use feature flags to control feature availability quickly and confidently.

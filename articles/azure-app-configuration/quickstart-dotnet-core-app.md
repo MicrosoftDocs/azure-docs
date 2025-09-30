@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mode-other, devx-track-dotnet
-ms.date: 10/05/2024
+ms.date: 09/30/2025
 ms.author: malev
 #Customer intent: As a .NET developer, I want to manage all my app settings in one place.
 ---

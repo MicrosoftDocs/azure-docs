@@ -6,7 +6,7 @@ ms.reviewer: v-uhabiba
 ms.topic: tutorial
 ms.date: 02/05/2025
 zone_pivot_groups: web-apps-assessment-aks
-monikerRange: migrate-classic
+monikerRange:
 ms.custom:
   - template-tutorial
   - devx-track-extended-java

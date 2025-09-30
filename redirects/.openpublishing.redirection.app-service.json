@@ -2561,6 +2561,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/app-service/troubleshoot-domain-ssl-certificates.md",
+      "redirect_url": "/troubleshoot/azure/app-service/connection-issues-with-ssl-or-tls/troubleshoot-domain-and-tls-ssl-certificates",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service/app-service-release-notes.md",
       "redirect_url": "/previous-versions/azure/reference/dn479282(v=azure.100)#azure-sdk-release-dates-retirement-dates-and-support-information",
       "redirect_document_id": false

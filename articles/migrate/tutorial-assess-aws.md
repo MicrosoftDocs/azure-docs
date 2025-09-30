@@ -6,7 +6,7 @@ ms.date: 02/06/2025
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.custom: MVC, engagement-fy23
-monikerRange: migrate-classic
+monikerRange:
 # Customer intent: As a server administrator, I want to evaluate my AWS instances for migration to Azure, so that I can assess cloud readiness, identify risks, and estimate costs effectively before proceeding with the migration.
 ---
 

@@ -21,6 +21,9 @@ In this article, you learn how to use a private endpoint to securely access your
 
 A private endpoint uses a private IP address from your virtual network (VNet). This endpoint connects you privately and securely to a service powered by [Azure Private Link](/azure/private-link/private-link-overview).
 
+> [!IMPORTANT]
+> There are [additional charges](./private-endpoints-with-dns.md#billing) for enabling private endpoints in both the Dedicated and Consumption plans.
+
 ::: zone pivot="azure-portal"
 
 ## Prerequisites

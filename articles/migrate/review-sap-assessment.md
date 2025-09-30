@@ -8,7 +8,7 @@ ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.date: 04/17/2025
 ms.custom: engagement-fy24
-monikerRange: migrate
+monikerRange:
 # Customer intent: As an SAP system administrator, I want to review assessments for my on-premises SAP systems, so that I can evaluate migration options and understand the associated costs with transitioning to the cloud.
 ---
 

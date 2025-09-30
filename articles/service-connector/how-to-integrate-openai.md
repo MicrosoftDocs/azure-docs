@@ -6,7 +6,7 @@ author: wchigit
 ms.author: wchi
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 08/25/2025
+ms.date: 09/30/2025
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 #customer intent: As a cloud developer, I want to connect my compute services toAzure OpenAI in Foundry Models using Service Connector.
@@ -66,7 +66,7 @@ To connect to Azure OpenAI using a system-assigned managed identity, refer to th
 #### Sample code
 
 To connect to Azure OpenAI using a user-assigned managed identity, refer to the following steps and code.
-[!INCLUDE [code sample for azure openai service](./includes/code-openai-microsoft-entra-id.md)]
+[!INCLUDE [code sample for Azure OpenAI](./includes/code-openai-microsoft-entra-id.md)]
 
 ### Connection string
 
@@ -79,7 +79,7 @@ To connect to Azure OpenAI using a user-assigned managed identity, refer to the 
 #### Sample Code 
 
 To connect to Azure OpenAI using a connection string, refer to the following steps and code.
-[!INCLUDE [code sample for azure openai service](./includes/code-openai-secret.md)]
+[!INCLUDE [code sample for Azure OpenAI](./includes/code-openai-secret.md)]
 
 
 ### Service principal
@@ -94,7 +94,7 @@ To connect to Azure OpenAI using a connection string, refer to the following ste
 #### Sample code
 
 To connect to Azure OpenAI using a service principal, refer to the following steps and code.
-[!INCLUDE [code sample for azure openai service](./includes/code-openai-microsoft-entra-id.md)]
+[!INCLUDE [code sample for Azure OpenAI](./includes/code-openai-microsoft-entra-id.md)]
 
 ### Related content
 

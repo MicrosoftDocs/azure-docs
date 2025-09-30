@@ -29,6 +29,9 @@ Planned maintenance capabilities are available via the Azure portal and Azure CL
 
 To change your planned maintenance settings in the portal, open your Container Apps environment. From the side menu, open *Settings* and then select **Planned Maintenance**.
 
+> [!NOTE]
+> There is separate billing for planned maintenance which appears as a **Dedicated Plan Management** charge.
+
 ## How maintenance windows work
 
 To control the timing for noncritical updates, you can define a weekly time range for when updates are applied to your environment. When you define a maintenance window, you specify a day of the week, a start time in the UTC format, and a duration.

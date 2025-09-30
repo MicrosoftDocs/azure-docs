@@ -5,7 +5,7 @@ services: azure-app-configuration
 author: maud-lv
 ms.service: azure-app-configuration
 ms.topic: how-to
-ms.date: 10/29/2024
+ms.date: 09/30/2025
 ms.author: malev
 ---
 

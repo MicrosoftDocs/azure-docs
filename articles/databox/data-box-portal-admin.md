@@ -8,6 +8,7 @@ ms.service: azure-databox
 ms.topic: how-to
 ms.date: 03/06/2025
 ms.author: shaas
+ms.custom: sfi-image-nochange
 # Customer intent: As a data administrator, I want to manage Data Box orders through the Azure portal, so that I can efficiently handle tasks such as canceling, cloning, and tracking orders during data transfer processes.
 ---
 
