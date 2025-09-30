@@ -24,7 +24,7 @@ Azure Firewall is available in three SKUs: Basic, Standard, and Premium.
 
 Azure Firewall Basic is designed for small and medium-sized businesses (SMBs) to secure their Azure cloud environments. It provides essential protection at an affordable price.
 
-:::image type="content" source="media/overview/firewall-basic-diagram.png" alt-text="Diagram showing Firewall Basic.":::
+:::image type="content" source="media/overview/firewall-basic-diagram.png" alt-text="Architecture diagram illustrating Azure Firewall Basic deployment in a cloud environment.":::
 
 Key limitations of Azure Firewall Basic include:
 
@@ -38,7 +38,7 @@ For more information, see [Azure Firewall features by SKU](features-by-sku.md#az
 
 Azure Firewall Standard offers L3-L7 filtering and threat intelligence feeds directly from Microsoft Cyber Security. It can alert and block traffic from/to known malicious IP addresses and domains, updated in real-time to protect against new and emerging threats.
 
-:::image type="content" source="media/overview/firewall-standard.png" alt-text="Diagram showing Firewall Standard.":::
+:::image type="content" source="media/overview/firewall-standard.png" alt-text="Architecture diagram illustrating Azure Firewall Standard deployment with L3-L7 filtering and threat intelligence capabilities.":::
 
 For more information, see [Azure Firewall features by SKU](features-by-sku.md#azure-firewall-standard-features).
 
@@ -46,7 +46,7 @@ For more information, see [Azure Firewall features by SKU](features-by-sku.md#az
 
 Azure Firewall Premium provides advanced capabilities, including signature-based IDPS for rapid attack detection by identifying specific patterns. These patterns can include byte sequences in network traffic or known malicious instruction sequences used by malware. With over 67,000 signatures in more than 50 categories, updated in real-time, it protects against new and emerging exploits such as malware, phishing, coin mining, and Trojan attacks.
 
-:::image type="content" source="media/overview/firewall-premium.png" alt-text="Diagram showing Firewall Premium.":::
+:::image type="content" source="media/overview/firewall-premium.png" alt-text="Architecture diagram illustrating Azure Firewall Premium deployment with advanced security capabilities including signature-based intrusion detection and prevention system (IDPS).":::
 
 For more information, see [Azure Firewall features by SKU](features-by-sku.md#azure-firewall-premium-features).
 
