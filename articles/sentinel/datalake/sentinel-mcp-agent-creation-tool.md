@@ -1,5 +1,5 @@
 ---
-title: Agent creation tool collection in Microsoft Sentinel MCP Server
+title: Agent creation tool collection in Microsoft Sentinel MCP server
 titleSuffix: Microsoft Security  
 description: Learn about the different tools available in the Agent creation collection in Microsoft Sentinel 
 author: poliveria
@@ -14,7 +14,7 @@ ms.service: microsoft-sentinel
 # Create AI agents with agent creation collection (preview)
 
 > [!IMPORTANT]
-> Microsoft Sentinel MCP Server is currently in preview.
+> Microsoft Sentinel MCP server is currently in preview.
 > This information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, expressed or implied, with respect to the information provided here.
 
 The agent creation tool collection in the Microsoft Sentinel Model Context Protocol (MCP) Server lets you create effective Microsoft Security Copilot agents. 
@@ -29,7 +29,7 @@ To access the agent creation tool collection, you must have the following prereq
 
 ## Add the agent creation collection
 
-To add the agent creation collection, you must first set up add Microsoft Sentinel's unified MCP Server interface. Follow the step-by-step instructions for the following [AI-powered code editors and agent-building platforms](sentinel-mcp-get-started.md#add-microsoft-sentinels-collection-of-mcp-tools):
+To add the agent creation collection, you must first set up add Microsoft Sentinel's unified MCP server interface. Follow the step-by-step instructions for the following [AI-powered code editors and agent-building platforms](sentinel-mcp-get-started.md#add-microsoft-sentinels-collection-of-mcp-tools):
 - Visual Studio Code
 
 The agent creation collection is hosted in the following URL:
@@ -85,4 +85,4 @@ This tool uploads the agent to the Security Copilot user or workspace scope.
 
 ## Related content
 - [What is Microsoft Sentinel’s support for Model Context Protocol (MCP)?](sentinel-mcp-overview.md) 
-- [Get started with Microsoft Sentinel MCP Server](sentinel-mcp-get-started.md)
+- [Get started with Microsoft Sentinel MCP server](sentinel-mcp-get-started.md)

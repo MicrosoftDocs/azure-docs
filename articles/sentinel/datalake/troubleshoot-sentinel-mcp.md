@@ -14,7 +14,7 @@ ms.service: microsoft-sentinel
 # Microsoft Sentinel MCP tool collection best practices and troubleshooting (preview)
 
 > [!IMPORTANT]
-> Microsoft Sentinel MCP Server is currently in preview.
+> Microsoft Sentinel MCP server is currently in preview.
 > This information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, expressed or implied, with respect to the information provided here.
 
 This article outlines best practices to using Microsoft Sentinel's collection of Model Context Protocol (MCP) tools. It also provides steps you can take to troubleshoot common issues you might experience while using them.

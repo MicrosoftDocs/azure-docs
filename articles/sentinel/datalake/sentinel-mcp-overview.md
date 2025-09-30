@@ -14,7 +14,7 @@ ms.service: microsoft-sentinel
 # What is Microsoft Sentinel’s support for Model Context Protocol (MCP)? 
 
 > [!IMPORTANT]
-> Microsoft Sentinel MCP Server is currently in preview.
+> Microsoft Sentinel MCP server is currently in preview.
 > This information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, expressed or implied, with respect to the information provided here.
 
 Microsoft Sentinel, our security platform, is introducing support for Model Context Protocol (MCP). This support comprises multiple scenario-focused collections of security tools through a unified server interface, allowing customers to interactively query security data in natural language and build effective security agents that can perform complex automation. Our collection of security tools help security teams bring AI into their daily security operations to assist with common tasks like data exploration and building agentic automation.
@@ -36,11 +36,11 @@ The following are some of the key features and benefits of Microsoft Sentinel’
 
 The [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is an open protocol designed to manage how language models interact with external tools, memory, and context in a safe, structured, and stateful way. MCP defines a client-server architecture with several components: 
 
-- **MCP Host**: The AI application that coordinates and manages one or multiple MCP clients
+- **MCP host**: The AI application that coordinates and manages one or multiple MCP clients
 
-- **MCP Client**: A component that maintains a connection to an MCP server and obtains context from an MCP server for the MCP host to use
+- **MCP client**: A component that maintains a connection to an MCP server and obtains context from an MCP server for the MCP host to use
 
-- **MCP Server**: A program that provides context to MCP clients
+- **MCP server**: A program that provides context to MCP clients
 
 For example, Visual Studio Code acts as an MCP host. When Visual Studio Code establishes a connection to an MCP server, such as the Microsoft Sentinel MCP server for data exploration, the Visual Studio Code runtime instantiates an MCP client object that maintains the connection to the connected MCP server.
 
@@ -62,5 +62,5 @@ Once you connect a [compatible client](sentinel-mcp-get-started.md#supported-cod
 
 
 ## Related content
-- [Get started with Microsoft Sentinel MCP Server](sentinel-mcp-get-started.md)
-- [Tool collection in Microsoft Sentinel MCP Server](sentinel-mcp-tools-overview.md)
+- [Get started with Microsoft Sentinel MCP server](sentinel-mcp-get-started.md)
+- [Tool collection in Microsoft Sentinel MCP server](sentinel-mcp-tools-overview.md)
