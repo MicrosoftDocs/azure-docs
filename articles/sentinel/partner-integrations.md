@@ -15,7 +15,7 @@ ms.date: 09/30/2025
 
 This article discusses the different components of a Microsoft Sentinel solution and how they can work together to address important customer scenarios. 
 
-The Sentinel platform includes a data lake, graph, Jupyter notebook jobs, an Model Context Protocol (MCP) server, and data from more than 300 Sentinel connectors to help customers centralize and analyze their security data in a cost-efficient way. These capabilities plus Microsoft Security Copilot enable customers and partners to create impactful solutions, which can be published through the Microsoft Security Store. 
+The Sentinel platform includes a data lake, graph, Jupyter notebook jobs, a Model Context Protocol (MCP) server, and data from more than 300 Sentinel connectors to help customers centralize and analyze their security data in a cost-efficient way. These capabilities plus Microsoft Security Copilot enable customers and partners to create impactful solutions, which can be published through the Microsoft Security Store. 
 
 Sentinel SIEM is used by Security Operations (SOC) teams to generate detections, investigate malicious behavior, and remediate threats. By creating Sentinel connectors to bring in new data, and by creating content such as analytics rules, playbooks, hunting queries, parsers, and workbooks, partners can help SOC teams get information they need to identify threats and respond appropriately. Sentinel SIEM solutions are published through Sentinel’s Content Hub. 
 
