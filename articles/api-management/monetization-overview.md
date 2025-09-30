@@ -116,7 +116,7 @@ For example, to support the [customer stages above](#step-1-understand-your-cust
 | `Metered` | The API consumer can make as many calls as they want per month and will pay a fixed amount per call. |
 | `Tier` | The API consumer pays for a set number of calls per month. If they exceed this limit, they pay an overage amount per extra call. If they regularly incur overage, they can upgrade to the next tier. |
 | `Tier + Overage` | The API consumer pays for a set number of calls per month. If they exceed this limit, they pay a set amount per extra call. |
-| `Unit` | The API consumer pays for a set amount of call per month. If they exceed this limit, they have to pay for another unit of calls. |
+| `Unit` | The API consumer pays for a set amount of calls per month. If they exceed this limit, they have to pay for another unit of calls. |
 
 Your revenue model defines the set of API products. Each API product implements a specific pricing model to target a specific stage in the API consumer lifecycle.
 
