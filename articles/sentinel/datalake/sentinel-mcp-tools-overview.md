@@ -1,5 +1,5 @@
 ---
-title: What is Microsoft Sentinel MCP Server's tool collection?
+title: What is Microsoft Sentinel MCP server's tool collection?
 titleSuffix: Microsoft Security  
 description: Learn about the different MCP collection of tools in Microsoft Sentinel 
 author: poliveria
@@ -8,13 +8,13 @@ ms.date: 09/30/2025
 ms.author: pauloliveria
 ms.service: microsoft-sentinel
 
-#customer intent: As a security analyst, I want to understand the different tools in Microsoft Sentinel MCP Server 
+#customer intent: As a security analyst, I want to understand the different tools in Microsoft Sentinel MCP server 
 ---
 
-# Tool collection in Microsoft Sentinel MCP Server (preview)
+# Tool collection in Microsoft Sentinel MCP server (preview)
 
 > [!IMPORTANT]
-> Microsoft Sentinel MCP Server is currently in preview.
+> Microsoft Sentinel MCP server is currently in preview.
 > This information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, expressed or implied, with respect to the information provided here.
 
 Microsoft Sentinel’s Model Context Protocol (MCP) Server collections are logical groupings of related security-focused MCP tools that you can use in any [compatible client](sentinel-mcp-get-started.md#supported-code-editors-and-agent-platforms) to search and retrieve data from tables and create agents.
@@ -36,4 +36,4 @@ The following table lists the available collections you can use:
 
 ## Related content
 - [What is Microsoft Sentinel’s support for Model Context Protocol (MCP)?](sentinel-mcp-overview.md) 
-- [Get started with Microsoft Sentinel MCP Server](sentinel-mcp-get-started.md)
+- [Get started with Microsoft Sentinel MCP server](sentinel-mcp-get-started.md)

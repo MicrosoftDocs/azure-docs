@@ -1,5 +1,5 @@
 ---
-title: Data exploration tool collection in Microsoft Sentinel MCP Server
+title: Data exploration tool collection in Microsoft Sentinel MCP server
 titleSuffix: Microsoft Security  
 description: Learn about the different tools available in the Data exploration collection in Microsoft Sentinel 
 author: poliveria
@@ -14,7 +14,7 @@ ms.service: microsoft-sentinel
 # Explore Microsoft Sentinel data lake with data exploration collection (preview)
 
 > [!IMPORTANT]
-> Microsoft Sentinel MCP Server is currently in preview.
+> Microsoft Sentinel MCP server is currently in preview.
 > This information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, expressed or implied, with respect to the information provided here.
 
 The data exploration tool collection in the Microsoft Sentinel Model Context Protocol (MCP) Server lets you search for relevant tables and retrieve data from Microsoft Sentinel's data lake using natural language. 
@@ -28,7 +28,7 @@ To access the data exploration tool collection, you must have the following prer
 
 ## Add the data exploration collection
 
-To add the data exploration collection, you must first set up add Microsoft Sentinel's unified MCP Server interface. Follow the step-by-step instructions for the following [AI-powered code editors and agent-building platforms](sentinel-mcp-get-started.md#add-microsoft-sentinels-collection-of-mcp-tools):
+To add the data exploration collection, you must first set up add Microsoft Sentinel's unified MCP server interface. Follow the step-by-step instructions for the following [AI-powered code editors and agent-building platforms](sentinel-mcp-get-started.md#add-microsoft-sentinels-collection-of-mcp-tools):
 - Visual Studio Code
 - Microsoft Security Copilot
 
@@ -110,4 +110,4 @@ Let's take a deeper look into how an agent answers a prompt by dynamically orche
 
 ## Related content
 - [What is Microsoft Sentinel's support for Model Context Protocol (MCP)?](sentinel-mcp-overview.md) 
-- [Get started with Microsoft Sentinel MCP Server](sentinel-mcp-get-started.md)
+- [Get started with Microsoft Sentinel MCP server](sentinel-mcp-get-started.md)

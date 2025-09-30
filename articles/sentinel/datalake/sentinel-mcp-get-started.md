@@ -1,5 +1,5 @@
 ---
-title: Get started with Microsoft Sentinel MCP Server
+title: Get started with Microsoft Sentinel MCP server
 titleSuffix: Microsoft Security  
 description: Learn how to set up and use Microsoft Sentinel's Model Context Protocol (MCP) collection of security tools to enable natural language queries and AI-powered security investigations 
 author: poliveria
@@ -8,13 +8,13 @@ ms.date: 09/30/2025
 ms.author: pauloliveria
 ms.service: microsoft-sentinel
 
-#customer intent: As a security analyst, I want to configure Microsoft Sentinel MCP Server so that I can use natural language to query security data and accelerate investigations.
+#customer intent: As a security analyst, I want to configure Microsoft Sentinel MCP server so that I can use natural language to query security data and accelerate investigations.
 ---
 
-# Get started with Microsoft Sentinel MCP Server (preview)
+# Get started with Microsoft Sentinel MCP server (preview)
 
 > [!IMPORTANT]
-> Microsoft Sentinel MCP Server is currently in preview.
+> Microsoft Sentinel MCP server is currently in preview.
 > This information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, expressed or implied, with respect to the information provided here.
 
 This article shows you how to set up and use Microsoft Sentinel's Model Context Protocol (MCP) collection of security tools to enable natural language queries against your security data. Sentinel's support for MCP enables security teams to bring AI into their security operations by allowing AI models to access security data in a standard way. 
@@ -23,7 +23,7 @@ Sentinel's [collection](sentinel-mcp-tools-overview.md) of security tools are de
 
 ## Prerequisites
 
-To use Microsoft Sentinel MCP Server and access its collection of tools, you need to be onboarded to Microsoft Sentinel data lake. For more information, see [Onboard to Microsoft Sentinel data lake and Microsoft Sentinel graph (preview)](sentinel-lake-onboarding.md).
+To use Microsoft Sentinel MCP server and access its collection of tools, you need to be onboarded to Microsoft Sentinel data lake. For more information, see [Onboard to Microsoft Sentinel data lake and Microsoft Sentinel graph (preview)](sentinel-lake-onboarding.md).
 
 You also need the **Security reader** role to list and invoke Sentinel's collection of MCP tools.
 
@@ -37,7 +37,7 @@ Microsoft Sentinel's support for MCP tools works with the following AI-powered c
 
 # [Visual Studio Code](#tab/visual-studio)
 
-1.	**Add MCP Server:**
+1.	**Add MCP server:**
     1. Press **Ctrl** + **Shift** + **P** then type or choose `MCP: Add Server`.
 
         :::image type="content" source="media/sentinel-mcp/mcp-get-started-add-server.png" alt-text="Screenshot of Visual Studio Code with Add server highlighted." lightbox="media/sentinel-mcp/mcp-get-started-add-server.png":::
@@ -46,11 +46,11 @@ Microsoft Sentinel's support for MCP tools works with the following AI-powered c
 
         :::image type="content" source="media/sentinel-mcp/mcp-get-started-http.png" alt-text="Screenshot of Visual Studio Code with HTTP or Server-Sent Events highlighted." lightbox="media/sentinel-mcp/mcp-get-started-http.png":::
 
-    1. Enter the URL of the MCP Server you want to access then press **Enter**:
+    1. Enter the URL of the MCP server you want to access then press **Enter**:
         - [Data exploration](sentinel-mcp-data-exploration-tool.md): `https://sentinel.microsoft.com/mcp/data-exploration` 
         - [Security Copilot agent creation](sentinel-mcp-agent-creation-tool.md): `https://sentinel.microsoft.com/mcp/agent-creation`
     
-    1. Assign a friendly **Server ID** (for example, `Microsoft Sentinel MCP Server`)
+    1. Assign a friendly **Server ID** (for example, `Microsoft Sentinel MCP server`)
     1. Choose whether to make the server available in all Visual Studio Code workspaces or just the current one.
  
 2.	**Allow authentication.** When prompted, select **Allow** to authenticate using an account with at least a Security reader role.
@@ -59,7 +59,7 @@ Microsoft Sentinel's support for MCP tools works with the following AI-powered c
 
 3. **Open Visual Studio Code's chat.** Select **View** > **Chat**, select the **Toggle Chat** icon :::image type="icon" source="media/sentinel-mcp/mcp-chat-icon.png"::: beside the search bar, or press **Ctrl** + **Alt** + **I**.
     
-4. **Verify connection.** Set the chat to Agent mode then confirm by selecting the **Configure Tools** icon :::image type="icon" source="media/sentinel-mcp/mcp-tools-icon.png"::: that you see added under the MCP Server.
+4. **Verify connection.** Set the chat to Agent mode then confirm by selecting the **Configure Tools** icon :::image type="icon" source="media/sentinel-mcp/mcp-tools-icon.png"::: that you see added under the MCP server.
 
     :::image type="content" source="media/sentinel-mcp/mcp-get-started-04.png" alt-text="Screenshot of a Visual Studio Code Agent menu with the Agent mode and tool icon highlighted." lightbox="media/sentinel-mcp/mcp-get-started-04.png":::
 
@@ -86,4 +86,4 @@ After adding Microsoft Sentinel's collection of tools, you can use the following
 To understand how agents invoke our tools to answer these prompts, see [How Microsoft Sentinel MCP tools work alongside your agent](sentinel-mcp-data-exploration-tool.md#how-microsoft-sentinel-mcp-tools-work-alongside-your-agent).
 
 ## Next step
-- [Tool collection in Microsoft Sentinel MCP Server](sentinel-mcp-tools-overview.md)
+- [Tool collection in Microsoft Sentinel MCP server](sentinel-mcp-tools-overview.md)
