@@ -42,12 +42,12 @@ The following sections provide a detailed description of the available `appcat a
 | Source & target technologies |                             |                                                                                                                                                                                                                              |
 |                              | `--list-sources`            | Displays the available migration source technologies.                                                                                                                                                                        |
 |                              | `--list-targets`            | Displays the available migration target technologies.                                                                                                                                                                        |
-|                              | `--list-capabilities`       | Displays the available migration capabilities. The default value is `false`.                                                                                                                                                |
-|                              | `--list-os`                 | Displays the available migration target operating systems. The default value is `false`.                                                                                                                                    |
+|                              | `--list-capabilities`       | Displays the available migration capabilities                                                                         |
+|                              | `--list-os`                 | Displays the available migration target operating systems.                                                             |
 |                              | `--source`, `-s`            | Specifies the source technologies for analysis. Use a comma-separated list for multiple values - for example, `--source <source1>,<source2>,...`. Use the `--list-sources` argument to list all available sources.           |
 |                              | `--target`, `-t`            | Specifies the target technologies for analysis. Use a comma-separated list for multiple values - for example, `--target <target1>,<target2>,...`. Use the `--list-targets` argument to list all available targets.           |
-|                              | `--capability`, `-c`        | Specifies capability technologies for analysis. Use a comma-separated list for multiple values - for example, `--capability <capability1>,<capability2>,...`. The default value is `[]`.                                   |
-|                              | `--os`                      | Specifies operating systems for analysis. Use a comma-separated list for multiple values - for example, `--os <os1>,<os2>,...`. The default value is `[]`.                                                                 |
+|                              | `--capability`, `-c`        | Specifies capability technologies for analysis. Use a comma-separated list for multiple values - for example, `--capability <capability1>,<capability2>,...`. Use the `--list-capabilities` argument to list all available capabilities. |
+|                              | `--os`                      | Specifies operating systems for analysis. Use a comma-separated list for multiple values - for example, `--os <os1>,<os2>,...`. Use the `--list-os` argument to list all available operating systems. |
 | Analysis options             |                             |                                                                                                                                                                                                                              |
 |                              | `--analyze-known-libraries` | Enables analysis of known open-source libraries - specified in AppCAT's `maven.default.index` - during source code analysis. The default value is `false`.                                                                   |
 |                              | `--custom-maven-settings`   | Specifies the path to a custom Maven settings file.                                                                                                                                                                          |
@@ -198,18 +198,19 @@ In the AppCAT CLI install path, you can configure the `.appcat-ignore` file to e
       --target=<target-name>
   ```
 
-- Analyze with specific targets, capabilities, and operating systems:
+- Analyze a source code directory with specific source combine target technologies, capabilities and os:
 
   ```bash
   appcat analyze \
       --input <path-to-source> \
       --output <path-to-output> \
-      --target azure-aks,azure-container-apps,azure-appservice \
-      --capability containerization \
+      --source springboot \
+      --target azure-aks,azure-appservice,azure-container-apps
+      --capability containerization
       --os windows
   ```
 
-This command analyzes the source code for rules matching: `target = (azure-aks || azure-container-apps || azure-appservice) && capability = containerization && os = windows`.
+The `--target`, `--capabilities` and `-os` parameters are combined with an `AND` condition, meaning the rules must simultaneously match (1) an Azure service such as azure-aks, azure-appservice, or azure-container-apps, (2) the capability to detect containerization issues, and (3) the Windows OS platform.
 
 - Analyze a source code directory and keep the detected context lines with custom line numbers:
 
