@@ -30,7 +30,7 @@ Planned maintenance capabilities are available via the Azure portal and Azure CL
 To change your planned maintenance settings in the portal, open your Container Apps environment. From the side menu, open *Settings* and then select **Planned Maintenance**.
 
 > [!NOTE]
-> There here is separate billing for planned maintenance which will appear on your bill as a **Dedicated Plan Management** charge.
+> There is separate billing for planned maintenance which will appear on your bill as a **Dedicated Plan Management** charge.
 
 ## How maintenance windows work
 
