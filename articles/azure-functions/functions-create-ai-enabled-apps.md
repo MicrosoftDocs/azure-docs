@@ -75,7 +75,7 @@ When you build or host your remote MCP servers in Azure Functions, you can take 
 Functions supports these options for hosting remote MCP servers:
 
 + Use the [MCP binding extension](./functions-bindings-mcp.md) to create and host custom MCP servers as a normal function app. 
-+ Build your _self hosted_ MCP servers, created using official MCP SDKs. This hosting option is currently in preview.
++ Self host MCP servers created using the official MCP SDKs. This hosting option is currently in early preview.
 
 Here's a comparison of the current MCP server hosting options provided by Functions:
 
