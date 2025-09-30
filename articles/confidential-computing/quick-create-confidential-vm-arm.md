@@ -7,8 +7,13 @@ ms.subservice: azure-confidential-computing
 ms.topic: quickstart
 ms.date: 12/01/2023
 ms.author: RunCai
-ms.custom: mode-arm, devx-track-azurecli, devx-track-arm-template, has-azure-ad-ps-ref
 ms.devlang: azurecli
+ms.custom:
+  - mode-arm
+  - devx-track-azurecli
+  - devx-track-arm-template
+  - has-azure-ad-ps-ref
+  - sfi-ga-nochange
 # Customer intent: As an IT administrator, I want to deploy a confidential virtual machine using an ARM template, so that I can ensure secure memory encryption and isolation for my sensitive workloads.
 ---
 
@@ -217,7 +222,8 @@ Use this example to create a custom parameter file for a Linux-based confidentia
 
 1. Create a new key using Azure Key Vault. For how to use an Azure Managed HSM instead, see the next step.
 
-   1. Create a new key with [az keyvault key create](https://learn.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create)
+   1. Create a new key with [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create)
+
       ```
       $KeyName = <name of key>
       $KeySize = 3072
@@ -260,7 +266,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
 
  1. (Optional) Create a new key from an Azure Managed HSM.
     
-    1. Create a new key with [az keyvault key create](https://learn.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create)
+    1. Create a new key with [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create)
           ```
           $KeyName = <name of key>
           $KeySize = 3072

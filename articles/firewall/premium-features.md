@@ -7,7 +7,9 @@ services: firewall
 ms.topic: concept-article
 ms.date: 09/18/2025
 ms.author: duau
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - sfi-image-nochange
 # Customer intent: "As a network security administrator, I want to implement Azure Firewall Premium features like TLS inspection and IDPS, so that I can configure advanced threat protection for our sensitive data and ensure compliance with industry standards."
 ---
 
@@ -173,5 +175,5 @@ For a list of regions where Azure Firewall is available, see [Azure products ava
 
 - [Learn about Azure Firewall Premium certificates](premium-certificates.md)
 - [Deploy and configure Azure Firewall Premium](premium-deploy.md)
-- [Migrate to Azure Firewall Premium](premium-migrate.md)
+- [Change Azure Firewall SKU](change-sku.md)
 - [Learn more about Azure network security](../networking/security/index.yml)

@@ -5,8 +5,11 @@ ms.date: 09/28/2021
 ms.topic: quickstart
 author: spelluru
 ms.author: spelluru
-ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
+ms.custom:
+  - mode-api
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 ---
 
 # Use Azure CLI to create a Service Bus topic and subscriptions to the topic

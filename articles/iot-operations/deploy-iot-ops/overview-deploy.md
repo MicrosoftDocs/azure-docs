@@ -103,7 +103,7 @@ If you use enterprise firewalls or proxies to manage outbound traffic, configure
 * Endpoints in the [Azure Arc-enabled Kubernetes endpoints](/azure/azure-arc/network-requirements-consolidated#azure-arc-enabled-kubernetes-endpoints).
 
   > [!NOTE]
-  > If you use *Azure Arc Gateway* to connect your cluster to Arc, you can configure a smaller set of endpoints based on the [Arc Gateway guidance](/azure/azure-arc/servers/arc-gateway#step-3-ensure-the-required-urls-are-allowed-in-your-environment).
+  > If you use *Azure Arc Gateway* to connect your cluster to Arc, you can configure a smaller set of endpoints based on the [Arc Gateway guidance](/azure/azure-arc/kubernetes/arc-gateway-simplify-networking).
 
 * Endpoints in [Azure CLI endpoints](/cli/azure/azure-cli-endpoints?tabs=azure-cloud#endpoints).
 

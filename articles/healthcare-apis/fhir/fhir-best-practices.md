@@ -64,6 +64,9 @@ Logical Identifiers are considered "deterministic" because FHIR operations perfo
 * **Avoid** the use of `_revinclude` in search queries, as they can result in unbounded result sets and higher latencies.
 * **Avoid** using complex searches (for example: `_has`, or chained search parameters), as they impact query performance.
 
+> [!NOTE]
+> For the rare outliers or 1% of queries can be impacted due to transient conditions, maintenance or network variability. We recommend implementing retry logic to ensure reliability without degrading your application and user experience.
+
 ## Data extraction
 
 For data extraction, use the bulk `$export` operation as specified in the [HL7 FHIR Build Data Access specification](https://www.hl7.org/fhir/uv/bulkdata/).

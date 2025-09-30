@@ -20,9 +20,6 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
 
 [!INCLUDE [Delegated subnet permission](includes/create-volume-permission.md)]
 
->[!IMPORTANT]
->Windows Server 2025 currently doesn't work with the Azure NetApp Files SMB protocol. 
-
 * You must have already created a capacity pool.  
     See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
 * A subnet must be delegated to Azure NetApp Files.  

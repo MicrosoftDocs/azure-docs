@@ -10,12 +10,14 @@ ms.assetid: 484914b5-e081-4a05-a84a-798bbd89d428
 ms.service: azure-notification-hubs
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
-ms.custom: devx-track-dotnet
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
+ms.custom:
+  - devx-track-dotnet
+  - sfi-ropc-nochange
 ---
 
 # Tutorial: Send localized push notifications to iOS using Azure Notification Hubs

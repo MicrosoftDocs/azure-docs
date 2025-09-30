@@ -18,31 +18,30 @@ To solve this problem and keep your secrets in a safe place, DevTest Labs suppor
 
 Lab users need to create a lab virtual machine before they can create a secret in the key vault. This requirement is because DevTest Labs must associate lab users with valid user documents. DevTest Labs then allows users to create and store secrets in their key vaults.
 
-
 ## Save a secret in Azure Key Vault
 To save your secret in Azure Key Vault, do the following steps:
 
 1. Select **My secrets** on the left menu.
-2. Enter a **name** for the secret. You see this name in the drop-down list when creating a VM, formula, or an environment. 
-3. Enter the secret as the **value**.
+1. Enter a **name** for the secret. You see this name in the drop-down list when creating a VM, formula, or an environment. 
+1. Enter the secret as the **value**.
 
-    ![Screenshot that shows storing a secret.](media/devtest-lab-store-secrets-in-key-vault/store-secret.png)
+:::image type="content" source="media/devtest-lab-store-secrets-in-key-vault/store-secret.png" alt-text="Screenshot of storing a secret.":::
 
 ## Use a secret from Azure Key Vault
 When you enter a secret to create a VM, formula, or environment, you can enter the secret manually or select a saved secret from the key vault. To use a secret stored in your key vault, do the following actions:
 
 1. Select **Use a saved secret**. 
-2. Select your secret from the drop-down list for **Pick a secret**. 
+1. Select your secret from the drop-down list for **Pick a secret**. 
 
-    ![Screenshot that shows using a secret in VM creation.](media/devtest-lab-store-secrets-in-key-vault/secret-store-pick-a-secret.png)
+:::image type="content" source="media/devtest-lab-store-secrets-in-key-vault/secret-store-pick-a-secret.png" alt-text="Screenshot of using a secret in VM creation.":::
 
 ## Use a secret in an Azure Resource Manager template
 You can specify your secret name in an Azure Resource Manager template that's used to create a VM as shown in the following example:
 
-![Screenshot that shows using a secret in a formula or environment.](media/devtest-lab-store-secrets-in-key-vault/secret-store-arm-template.png)
+:::image type="content" source="media/devtest-lab-store-secrets-in-key-vault/secret-store-arm-template.png" alt-text="Screenshot of using a secret in a formula or environment.":::
 
-## Next steps
+## Related content
 
 - [Create a VM using the secret](devtest-lab-add-vm.md) 
 - [Create a formula using the secret](devtest-lab-manage-formulas.md)
-- [Create an environment using the secret](devtest-lab-create-environment-from-arm.md)
+- [Configure Lab Secrets in Azure DevTest Labs](devtest-lab-configure-lab-secrets.md)

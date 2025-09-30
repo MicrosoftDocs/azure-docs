@@ -1085,6 +1085,15 @@ groups:
   - id: alphanumeric-senderid
     title: Alphanumeric Sender ID
 # Owner: cshoe
+- id: sre-agent-code-repo
+  title: Code repository
+  prompt: Select a code repository hosting platform
+  pivots:
+  - id: azure-devops
+    title: Azure DevOps
+  - id: github
+    title: GitHub
+# Owner: cshoe
 - id: container-apps
   title: Template language
   prompt: Select a template language
@@ -1562,10 +1571,10 @@ groups:
   title: Select your version of the Pipelines task
   prompt: Choose an option
   pivots:
-  - id: v1
-    title: AzureFunctionApp@1
   - id: v2
     title: AzureFunctionApp@2
+  - id: v1
+    title: AzureFunctionApp@1
 # Owner: juliakm, ggailey777
 - id: github-actions-deployment-options
   title: GitHub Actions deployment options

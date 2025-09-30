@@ -1,11 +1,15 @@
 ---
 title: Azure Cache for Redis with Azure Private Link
 description: Learn how to create an Azure Cache, an Azure Virtual Network, and a Private Endpoint using the Azure portal.
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, ignite-2024
 ms.topic: conceptual
 ms.date: 11/12/2024
 appliesto:
   - ✅ Azure Cache for Redis
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - ignite-2024
+  - sfi-image-nochange
 
 ---
 
