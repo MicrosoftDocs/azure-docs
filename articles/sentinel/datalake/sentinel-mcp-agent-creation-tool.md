@@ -17,7 +17,7 @@ ms.service: microsoft-sentinel
 > Microsoft Sentinel MCP server is currently in preview.
 > This information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, expressed or implied, with respect to the information provided here.
 
-The agent creation tool collection in the Microsoft Sentinel Model Context Protocol (MCP) Server lets you create effective Microsoft Security Copilot agents. 
+The agent creation tool collection in the Microsoft Sentinel Model Context Protocol (MCP) server lets you create effective Microsoft Security Copilot agents. 
 
 ## Prerequisites
 

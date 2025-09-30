@@ -17,7 +17,7 @@ ms.service: microsoft-sentinel
 > Microsoft Sentinel MCP server is currently in preview.
 > This information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, expressed or implied, with respect to the information provided here.
 
-The data exploration tool collection in the Microsoft Sentinel Model Context Protocol (MCP) Server lets you search for relevant tables and retrieve data from Microsoft Sentinel's data lake using natural language. 
+The data exploration tool collection in the Microsoft Sentinel Model Context Protocol (MCP) server lets you search for relevant tables and retrieve data from Microsoft Sentinel's data lake using natural language. 
 
 ## Prerequisites
 
