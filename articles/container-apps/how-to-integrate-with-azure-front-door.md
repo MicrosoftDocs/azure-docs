@@ -24,7 +24,7 @@ In this article, you learn how to connect directly from Azure Front Door to your
 > [!IMPORTANT]
 > **Private endpoints incur additional charges.** When you enable a private endpoint in Azure Container Apps, you will be billed for the following:
 > 
-> 1. **Azure Private Link** - Billing for the [Azure Private Link resource itself](https://azure.microsoft.com/en-us/pricing/details/private-link/).
+> 1. **Azure Private Link** - Billing for the [Azure Private Link resource itself](https://azure.microsoft.com/pricing/details/private-link/).
 > 2. **Azure Container Apps** - Billing for the backend infrastructure on Azure Container Apps. This appears as a separate **"Dedicated Plan Management"** charge and applies to both Consumption and Dedicated plans when using private endpoints.
 
 ::: zone pivot="azure-portal"
