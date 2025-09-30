@@ -65,7 +65,7 @@
           href: deploy-side-by-side.md
     - name: Deploy Microsoft Sentinel platform
       items:
-        - name: Overview
+        - name: Microsoft Sentinel platform deployment overview
           href: datalake/sentinel-lake-onboarding.md
         - name: Onboard to data lake and graph from Defender portal
           href: datalake/sentinel-lake-onboard-defender.md
@@ -75,7 +75,7 @@
           href: /purview/data-security-investigations-data-risk-graph?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
 - name: Microsoft Sentinel SIEM
   items:
-    - name: What is Microsoft Sentinel SIEM?
+    - name: Microsoft Sentinel SIEM overview
       href: overview.md
     - name: Microsoft Sentinel SIEM experience in Defender portal
       href: microsoft-sentinel-defender-portal.md
@@ -572,7 +572,7 @@
 
 - name: Microsoft Sentinel platform
   items:
-    - name: What is the Microsoft Sentinel data lake?
+    - name: Microsoft Sentinel data lake overview
       href: datalake/sentinel-lake-overview.md
       displayName: data lake
     - name: Microsoft Sentinel graph overview
@@ -582,7 +582,7 @@
       displayName: data lake
     - name: Microsoft Sentinel MCP server
       items:
-        - name: Overview
+        - name: Microsoft Sentinel MCP server Overview
           href: datalake/sentinel-mcp-overview.md
         - name: Get started with Microsoft Sentinel MCP
           href: datalake/sentinel-mcp-get-started.md
@@ -862,17 +862,16 @@
       href: publish-sentinel-solutions.md
     - name: Sentinel SIEM solution lifecycle post publish
       href: sentinel-solutions-post-publish-tracking.md
-    - name: Troubleshoot solutions in Microsoft Sentinel
-      href: troubleshoot-sentinel-solutions.md
-      items:
-      - name: Packaging and publishing a Sentinel platform solution
-        href: package-platform-solution.md
-      - name: Sentinel SIEM solution lifecycle post publish
-        href: publish-sentinel-solutions.md
-      - name: Solution lifecycle post publish
-        href: sentinel-solutions-post-publish-tracking.md
+    - name: Packaging and publishing a Sentinel platform solution
+      href: package-platform-solution.md
+    - name: Sentinel SIEM solution lifecycle post publish
+      href: publish-sentinel-solutions.md
+    - name: Solution lifecycle post publish
+      href: sentinel-solutions-post-publish-tracking.md
     - name: Managing Platform Solutions
       href: manage-platform-solutions.md
+    - name: Troubleshoot solutions in Microsoft Sentinel
+      href: troubleshoot-sentinel-solutions.md
     - name: Remove Microsoft Sentinel from your workspace
       items:
         - name: Overview
