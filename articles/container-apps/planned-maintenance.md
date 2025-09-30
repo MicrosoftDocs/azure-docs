@@ -30,8 +30,7 @@ Planned maintenance capabilities are available via the Azure portal and Azure CL
 To change your planned maintenance settings in the portal, open your Container Apps environment. From the side menu, open *Settings* and then select **Planned Maintenance**.
 
 > [!NOTE]
-> When you enable planned maintenance for your Azure Container Apps, a separate charge for planned maintenance will appear on your bill:
-> 2. Azure Container Apps charge - this is billed by the ACA team for the backend infrastructure to support planned maintenance. It appears as a separate line item as the **Dedicated Plan Management** charge and will show up whenever using private endpoints whether its a dedicated or consumption plan.
+> There here is a separate charge for planned maintenance which will appear on your bill as a **Dedicated Plan Management** charge.
 
 ## How maintenance windows work
 
