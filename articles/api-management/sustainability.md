@@ -4,9 +4,10 @@ description: Learn about gateway features in Azure API Management that help redu
 author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 09/12/2025
+ms.date: 09/30/2025
 ms.author: danlep
 ai-usage: ai-assisted
+ms.custom: references_regions
 #customer intent: As an IT admin, I want to understand how to adjust API traffic based on carbon emissions in different Azure regions so that I can reduce emissions from my services.
 ---
 # Environmentally sustainable APIs in Azure API Management (preview)
