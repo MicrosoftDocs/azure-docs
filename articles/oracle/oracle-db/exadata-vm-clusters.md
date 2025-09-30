@@ -9,16 +9,16 @@ ms.date: 09/26/2025
 ---
 
 # Onboard Oracle Exadata VM clusters to Microsoft Defender for Cloud using Azure Arc
-## Overview
 
-Microsoft Defender for Cloud is a  Cloud Native Application Protection Platform (CNAPP), that combines Cloud Security Posture Management (CSPM) and Cloud Workload Protection Platform (CWPP) capabilities to deliver unified threat protection and posture management across Azure and hybrid environments. It continuously monitors resources for misconfigurations, vulnerabilities, and active threats to help maintain a strong security posture. While Defender for Cloud is designed for Azure-native services, it can also extend protection to hybrid and non-Azure environments—such as **Oracle Database@Azure  Exadata VM clusters**—by leveraging Azure Arc. Defender for Cloud continuously assesses their configurations, monitors for threats, and generates security alerts (using Defender for Servers) if suspicious activity is detected. 
-In essence, Defender for Cloud functions as the security guardian for Oracle infrastructure running in Azure, ensuring Oracle VMs hosted in Azure are secured and compliant just like native Azure services.  
-This article describes the process of onboarding Oracle Exadata VM clusters into Azure using Azure Arc and enabling Microsoft Defender for Cloud’s Defender for Servers Plan 1 to effectively monitor and protect them. A P2 license is required to access Premium Vulnerability Management features. 
+In this article, you learn about how to onboard Oracle Exadata VM clusters into Azure using Azure Arc and enabling Microsoft Defender for Cloud’s Defender for Servers Plan 1 to effectively monitor and protect the Exadata VM clusters. A P2 license is required to access Premium Vulnerability Management features. 
+
+Microsoft Defender for Cloud is a Cloud Native Application Protection Platform (CNAPP), that combines Cloud Security Posture Management (CSPM) and Cloud Workload Protection Platform (CWPP) capabilities to deliver unified threat protection and posture management across Azure and hybrid environments. It continuously monitors resources for misconfigurations, vulnerabilities, and active threats to help maintain a strong security posture. While Defender for Cloud is designed for Azure-native services, it can also extend protection to hybrid and non-Azure environments—such as **Oracle Database@Azure  Exadata VM clusters**—by leveraging Azure Arc. Defender for Cloud continuously assesses their configurations, monitors for threats, and generates security alerts (using Defender for Servers) if suspicious activity is detected. 
+Defender for Cloud functions as the security guardian for Oracle infrastructure running in Azure, ensuring Oracle VMs hosted in Azure are secured and compliant like native Azure services.  
 
 ---
 
 ## Prerequisites
-Before beginning, ensure the following prerequisites are met: 
+To begin, ensure the following prerequisites are met: 
 - **Azure subscription & permissions**
   - An active Azure subscription with Owner or Contributor access. Permissions to register Azure Arc resources and enable Defender for Cloud for that subscription are needed.
 - **Oracle Exadata environment**
@@ -32,6 +32,8 @@ Before beginning, ensure the following prerequisites are met:
 ---
 
 ## Step-by-step instructions
+
+The process requires the following three steps:
 
 ### 1. Install Azure Arc Agent on Oracle Exadata VM clusters
 Deploy the Azure Connected Machine agent on each Oracle VM in the Exadata cluster. This agent establishes the connection between the Exadata VM and Azure. Using Azure Arc onboarding (via the Azure portal script or CLI), register the Oracle VM(s) to the Azure subscription and resource group. Once connected, the servers become **Arc-enabled** and will appear in Azure as Arc resources.
@@ -60,12 +62,12 @@ Enabling this plan enrolls the Arc machines in Defender for Cloud and ensures th
 - Sign in to the Azure portal and open **Microsoft Defender for Cloud** from the left-hand menu. The Defender for Cloud overview page will open. 
 
 - In Defender for Cloud, select **Environment settings** from the menu on the left. This is where Defender plans per subscription or workspace can be configured. 
-  :::image type="content" source="\media\environment-settings.png" alt-text="Screenshot showing where to select environment settings":::
+  :::image type="content" source="/media/environment-settings.png" alt-text="Screenshot showing where to select environment settings":::
 
 - Choose the Azure subscription (or Log Analytics workspace, if applicable) that contains the Arc-enabled Oracle Exadata VM cluster.
 
 - Under **Defender plans**, locate **Servers Plan** and switch it to **On** Plan. This enables Microsoft Defender for Servers Plan 1 or Plan 2 for the selected subscription.
-  :::image type="content" source="\media\oracle-defender-plans.png" alt-text="Screenshot showing where to server plan and how to toggle between plan 1 and plan 2 ":::
+  :::image type="content" source="/media/oracle-defender-plans.png" alt-text="Screenshot showing where to find server plan and how to toggle between plan 1 and plan 2 ":::
 - Click **Save** to apply the change.
 Microsoft Defender for Cloud is now active for those Arc-enabled servers. 
 
@@ -74,7 +76,7 @@ Once the servers are Arc-enabled and the Defender for Servers plan is active, th
 
 - In Defender for Cloud, go to the **Inventory page** (under **Asset management**). Filter or scroll to find the Oracle Exadata VM resource (it will show up with Resource Type **Machine – Azure Arc**).The Arc-enabled Oracle server will be listed here, indicating that it is now under Defender for Cloud’s protection
 
-    :::image type="content" source="\media\oracle-inventory-asset.png" alt-text="Screenshot showing where the Arc-enabled Oracle servers benefit from the following security capabilities in Defender for Cloud":::
+    :::image type="content" source="/media/oracle-inventory-asset.png" alt-text="Screenshot showing where the Arc-enabled Oracle servers benefit from the following security capabilities in Defender for Cloud":::
 
 - With the Defender for Servers Plan 1 enabled, the Arc-enabled Oracle servers benefit from the following security capabilities in Defender for Cloud: 
     - **Threat detection**: Identifies potential threats in real time using machine learning and behavioral analytics, and raises **security alerts** for suspicious activities (via Microsoft Defender for Endpoint integration). 
@@ -82,10 +84,10 @@ Once the servers are Arc-enabled and the Defender for Servers plan is active, th
     - **Integration with Azure Security Center**: The Arc-enabled Oracle machines are integrated into Azure Security Center/Defender for Cloud just like native Azure VMs, allowing unified **secure score** and **recommendations** tracking. 
     - **Compliance monitoring**: Includes the Arc-enabled servers in Azure Policy and regulatory compliance evaluations, helping ensure they meet necessary organization’s security compliance requirements. 
 
-    :::image type="content" source="\media\oracle-microsoft-defender.png" alt-text="Screenshot showing where to find Inventory page and asset management":::
+    :::image type="content" source="/media/oracle-microsoft-defender.png" alt-text="Screenshot showing where to find Inventory page and asset management":::
 
 ## Summary
-By following these steps, you have successfully onboarded Exadata VM cluster into Azure Arc and enabled Microsoft Defender for Cloud to protect it.  Oracle Exadata servers are now visible in Azure and continuously monitored by Defender for Cloud, receiving the same threat detection and security management as any Azure native resource. This hybrid integration allows maintenance for a strong, unified security posture across both Azure and Oracle environments. 
+By following these steps, you have successfully onboarded an Exadata VM cluster into Azure Arc and enabled Microsoft Defender for Cloud to protect it.  Oracle Exadata servers are now visible in Azure and are being continuously monitored by Defender for Cloud. ,This protection threat detection and security management as any Azure native resource. This hybrid integration provides a unified security posture across both Azure and Oracle environments. 
 
 ---
 
