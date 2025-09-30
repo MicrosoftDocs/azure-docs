@@ -67,7 +67,7 @@ For connections based on the authorization code grant type, you must authenticat
 
 ### Access policy
 
-You configure one or more *access policies* for each connection. The access policies determine which [Microsoft Entra ID identities](../active-directory/develop/app-objects-and-service-principals.md) can gain access to your credentials at runtime. Connections currently support access using service principals, your API Management instance's identity, users, and groups.
+You configure one or more *access policies* for each connection. The access policies determine which [Microsoft Entra ID identities](/entra/identity-platform/app-objects-and-service-principals) can gain access to your credentials at runtime. Connections currently support access using service principals, your API Management instance's identity, users, and groups.
 
 |Identity  |Description  | Benefits | Considerations |
 |---------|---------|-----|----|
