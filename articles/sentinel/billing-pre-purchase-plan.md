@@ -27,7 +27,7 @@ To buy a pre-purchase plan, you must have one of the following Azure subscriptio
 
 >[!NOTE]
 > Microsoft Sentinel Commit Units are different from Security Compute Units in Security Copilot. Customers can't use Microsoft Sentinel Commit Units to run Copilot workloads and vice versa.
-> Microsoft Sentinel billable preview capabilities costs, such as data lake, aren't included in pre-purchase plans or commitment tiers.
+> Microsoft Sentinel billable capabilities costs, such as data lake, aren't included in pre-purchase plans or commitment tiers.
 
 ## Determine the right size to buy
 
