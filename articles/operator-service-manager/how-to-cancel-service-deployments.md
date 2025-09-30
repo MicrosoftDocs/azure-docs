@@ -1,6 +1,6 @@
 ---
 title: Interrupt a service deployment with Azure Operator Service Manager
-description: Learn how to interrupt an Azure Operator Service Manager deployment while in a non-terminal state.
+description: Learn how to interrupt an Azure Operator Service Manager deployment in a nonterminal state.
 author: msftadam
 ms.author: adamdor
 ms.date: 09/30/2024
@@ -9,7 +9,7 @@ ms.service: azure-operator-service-manager
 ---
 
 # Interrupt a service deployment operation
-This article describes a method to interrupt a site network service (SNS) deployment operation while in a non-terminal state. This capability only supports container network functions (CNF) and is triggered by applying a tag to the network function (NF) managed resource group (MRG). The user must later remove this tag to restore future SNS operations.
+This article describes a method to interrupt a site network service (SNS) deployment operation in a nonterminal state. This capability only supports container network functions (CNF) and is triggered by applying a tag to the network function (NF) managed resource group (MRG). The user must later remove this tag to restore future SNS operations.
 
 ## Why interrupt a service deployment operation
 Azure Operator Service Manager deploys complex CNF workloads, which are composed of many individual components (helm charts). When an SNS deployment is started, each component is processed sequentially, in the order as defined in the network function design (NFD). Depending on how many components are touched in a given deployment, the SNS operation can take an extended time to complete. As an example, consider a scenario where a CNF is composed of 30 components where each component takes 5 minutes to deploy. The total run time of this operation would exceed 2 hours. Now, consider operational issues with long running deployment operations:
@@ -17,10 +17,10 @@ Azure Operator Service Manager deploys complex CNF workloads, which are composed
 * Users may realize, after initiating the operation, that an error exists in a component configuration. 
 * The operation might create an unexpected negative impact on a customer facing service.
 
-In such cases, an ability to interrupt the operation is desirable. Before the introduction of this interruption capability, the only option was to wait for the defective component to fail. With this interruption capability, long-running deployments can be proactively cancelled before reaching the defective component, minimizing delays and improving operational agility.
+In such cases, an ability to interrupt the operation is desirable. Before the introduction of this interruption capability, the only option was to wait for the defective component to fail. With this interruption capability, long-running deployments can be proactively interrupted before reaching the defective component, minimizing delays and improving operational agility.
 
-## About service deployment operations
-During the first deployment of an SNS, the install operation creates a managed resource group (MRG) which includes the network function resource. For subsequent SNS deployments, upgrade operations leverage this managed-by relationship to modify the NF within the MRG. As a prerequisite, the user must have access to the NF MRG to use the interruption feature.
+## Overview of service deployment operations
+During the first deployment of an SNS, the install operation creates a managed resource group (MRG) which includes the network function resource. For subsequent SNS deployments, upgrade operations use this managed-by relationship to modify the NF within the MRG. As a prerequisite, the user must have access to the NF MRG to use the interruption feature.
 
 > [!NOTE]
 > The NF MRG has different default permissions, versus the SNS resource group (RG), which often restricts direct user access.
@@ -95,4 +95,4 @@ az tag update --resource-id {resourceGroup} --operation Delete --tags cancel=1
 ## Other considerations
 When considering interrupting an SNS deployment operation, be aware of the following considerations:
 * Interrupting deployments is supported only for Container Network Function (CNF) deployments. 
-* When the tag is added to the SNS MRG, the ongoing component action isn't interrupted and must complete before interruption is exectued.
+* When the tag is added to the SNS MRG, the ongoing component action isn't interrupted and must complete before interruption is executed.
