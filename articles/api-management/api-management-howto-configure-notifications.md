@@ -26,7 +26,7 @@ If you don't have an API Management service instance, complete the following qui
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="publisher-notifications"> </a>Configure notifications in the portal
+## <a name="publisher-notifications"> </a>Configure notifications in the Azure portal
 
 1. From the sidebar menu of your API Management instance, select **Deployment + infrastructure**, then choose **Notifications** to view the available notifications.
 
