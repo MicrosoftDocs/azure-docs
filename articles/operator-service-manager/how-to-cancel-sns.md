@@ -9,7 +9,7 @@ ms.service: azure-operator-service-manager
 ---
 
 # Interrupt an SNS deployment operation
-This article describes a method to interrupt site network service (SNS) deployment operations before the SNS operation reaching a terminal state. This interruption capability supports only container network function (CNF) workflows and is triggered by adding a tag to the network function (NF) managed resource group (MRG). Once the interruption has occurred, the user must manually remove this tag from the NF MRG to restore proper operation for the next attempt.
+This article describes a method to interrupt site network service (SNS) deployment operations before the SNS operation reaching a terminal state. This interruption capability supports only container network function (CNF) workflows and is triggered by adding a tag to the network function (NF) managed resource group (MRG). Once the interruption occurrs, the user must manually remove this tag from the NF MRG to restore proper operation for the next attempt.
 
 ## Why interrupt an SNS deployment operation
 Azure Operator Service Manager deploys complex CNF workloads, which are composed of many individual components. When an SNS deployment is started, each component is processed sequentially, in the order as defined in the network function design (NFD). Depending on how many components are touched in a given deployment, the SNS operation can take an extended time to complete. As an example, consider a scenario where a CNF is composed of 30 components where each component takes 5 minutes to deploy. The total run time of this SNS operation would exceed 2 hours. Now, consider operational issues with long running deployment operations:
@@ -44,7 +44,7 @@ az tag update --resource-id {resourceGroup} --operation Merge --tags cancel=1
 ### Wait for interruption to be triggered
 Once the tag is applied to the NF MRG, the interruption is executed between component operations.
 * The current component operation isn't interrupted and must proceed to completion.
-* Prior to starting the next component operation, the workflow checks for the presence of the tag on the NF MRG.
+* Before starting the next component operation, the workflow checks for the presence of the tag on the NF MRG.
 * If the tag is present, any remaining components aren't executed and set to fail state.
 * If the interruption is applied to an upgrade operation, the configured failure recovery method is honored.
 * After failure recovery is complete, the deployment operation terminal state is set to failed.
@@ -74,7 +74,7 @@ Example of log emitted during a first install operation. The reference to `testa
 ```
 
 #### Error emitted during upgrade
-Example of log emitted during upgrade operation. The reference to `testapp` identifies the next component which wasn't started, due to the interruption request. The string `NF update` indicates the interruption was applied to an upgrade operation.
+Example of log emitted during upgrade operation. The reference to `testapp` identifies the next component that wasn't started, due to the interruption request. The string `NF update` indicates the interruption was applied to an upgrade operation.
 ```powershell
 {
  "code": "DeploymentFailed",
