@@ -33,12 +33,12 @@ In this tutorial, part four of eight, you create Azure resources using service c
 1. Navigate to the `Enclave-WebApp` enclave and select `Maintenance Mode`
 
 2. Enter the information needed to enable maintenance mode
-   - **Maintenance Mode:** Select `Advanced`
+   - **Maintenance Mode:** Select `General`
    - **Principals:** Select `Choose Microsoft Entra principal` and enter your username
    - **Justification:** Select `Networking`
    - Select `Save`
 
-![Screenshot showing the maintenance mode screen.](./media/service-catalog-app-service-maintenance-mode-input.png)
+[ ![Screenshot showing the maintenance mode screen.](./media/service-catalog-app-service-maintenance-mode-input.png) ](./media/service-catalog-app-service-maintenance-mode-input.png#lightbox)
 
 3. Select `Confirm` and allow a few minutes for the enclave to return to `Succeeded` state
 

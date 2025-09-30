@@ -26,13 +26,9 @@ If you haven't created those resources yet, return to those earlier tutorials.
 
 1. Navigate to an enclave hosting a service you want to make available to other enclaves in the community
 
-2. While in your enclave's page, select `Enclave Endpoints` in the left menu.
+2. While in your enclave's page, select `Enclave Endpoints` on the left side, and select `Create`.
 
-![Screenshot showing the empty list of enclave endpoints for the WebApp enclave.](./media/tutorial-step-five-enclave-webapp-endpoint-list.png)
-
-3. Select `Create`
-
-![Screenshot showing the highlighted create button for enclave endpoints.](./media/tutorial-step-five-enclave-webapp-endpoint-list-create.png)
+[ ![Screenshot showing the highlighted create button for enclave endpoints.](./media/tutorial-step-five-enclave-webapp-endpoint-list-create.png) ](./media/tutorial-step-five-enclave-webapp-endpoint-list-create.png#lightbox)
 
 4. Enter the details for your app/service and then select `Save`
    - Enclave: Select the existing enclave `Enclave-WebApp`.
@@ -40,8 +36,8 @@ If you haven't created those resources yet, return to those earlier tutorials.
    - Select `Add` to add Endpoint Rules that represent how to access your app/service
       - Name: `WebAppEndpointRules`
       - Destination: `<See the information box that gives your enclave subnet range (for example 10.0.2.0/26)>`
-      - Port: `443`
       - Protocol: `ANY`
+      - Port: `443`
 
 ![Screenshot showing the enclave endpoint creation screen with endpoint rule dialog open as well.](./media/tutorial-step-five-enclave-webapp-endpoint-rule.png)
 

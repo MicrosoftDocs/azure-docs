@@ -32,13 +32,13 @@ Before creating your resources, you need to create the AVE workload resource. Wo
 
 2. On the fabrikam `Enclaves` page, select the `Enclave-WebApp` enclave that we created in [2 - Create enclaves within a community](./2-create-enclaves-inside-community.md).
 
-![Screenshot showing the WebApp enclave overview.](./media/tutorial-step-two-webapp-enclave-overview-page.png)
+[ ![Screenshot showing the WebApp enclave overview.](./media/tutorial-step-two-webapp-enclave-overview-page.png) ](./media/tutorial-step-two-webapp-enclave-overview-page.png#lightbox)
 
-3. Go to the `Workloads` on the left underneath the `Manag` section in the left-hand menu.
+3. Go to the `Workloads` on the left underneath the `Manage` section in the left-hand menu.
 
 4. On the workloads page, select `Create`
 
-![Screenshot showing the WebApp enclave workloads list with the create button highlighted.](./media/tutorial-step-three-webapp-enclave-workload-list-create.png)
+[ ![Screenshot showing the WebApp enclave workloads list with the create button highlighted.](./media/tutorial-step-three-webapp-enclave-workload-list-create.png) ](./media/tutorial-step-three-webapp-enclave-workload-list-create.png#lightbox)
 
 5. Enter the basic details for your workload
    - **Enclave**: Select an existing enclave. This value is automatically applied from `Enclave-WebApp`.
@@ -63,12 +63,12 @@ Before creating your resources, you need to create the AVE workload resource. Wo
 
 8. After the two workload resources have been created, you can view them in Azure portal.
 
-![Screenshot showing both workloads deployed successfully.](./media/tutorial-step-three-workloads-deployed.png)
+[ ![Screenshot showing both workloads deployed successfully.](./media/tutorial-step-three-workloads-deployed.png) ](./media/tutorial-step-three-workloads-deployed.png#lightbox)
 
 ## Clean up resources
 If you need to delete your enclaves created after completing this tutorial, this can be also achieved from the Azure portal. It's best to wait until after you complete the full tutorial but if you need to, select each workload resource `wl-webapp-frontend` and `wl-webapp-backend` then select `Delete`
 
-![Screenshot showing both workloads deployed successfully and selected for deletion.](./media/tutorial-step-three-workloads-deployed.png)
+[ ![Screenshot showing both workloads deployed successfully and selected for deletion.](./media/tutorial-step-three-workloads-deployed.png) ](./media/tutorial-step-three-workloads-deployed.png#lightbox)
 
 
 ## Next steps
