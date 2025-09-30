@@ -6,7 +6,7 @@ ms.author: v-uhabiba
 ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 04/17/2025
-monikerRange: migrate
+monikerRange:
 # Customer intent: As an IT administrator, I want to evaluate workload sizing using performance-based assessments, so that I can ensure optimal resource allocation on Azure and reduce costs without compromising resilience.
 ---
 

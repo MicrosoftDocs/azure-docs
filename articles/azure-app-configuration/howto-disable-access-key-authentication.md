@@ -6,7 +6,7 @@ ms.service: azure-app-configuration
 author: maud-lv
 ms.author: malev
 ms.topic: how-to
-ms.date: 10/05/2024
+ms.date: 09/30/2025
 ---
 
 # Access Azure App Configuration using access keys
