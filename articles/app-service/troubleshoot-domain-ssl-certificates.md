@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Domain and TLS/SSL Certificates
 description: Find solutions to the common problems that you might encounter when you configure a domain or TLS/SSL certificate in Azure App Service.
-author: genlin
+author: JarrettRenshaw
 manager: dcscontentpm
 tags: top-support-issue
 ms.topic: troubleshooting-general
