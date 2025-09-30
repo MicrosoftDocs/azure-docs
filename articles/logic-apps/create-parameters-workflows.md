@@ -279,7 +279,7 @@ To add or update an app setting using the Azure CLI, run the command `az logicap
 az logicapp config appsettings set --name MyLogicApp --resource-group MyResourceGroup --settings CUSTOM_LOGIC_APP_SETTING=12345 
 ```
 
-#### Resource Manager or Bicep file
+#### Review and define app settings in a Resource Manager or Bicep file
 
 To review and define your app settings in an ARM template or Bicep file, find your logic app's resource definition, and update the `appSettings` JSON object. For the full resource definition, see the [ARM template reference](/azure/templates/microsoft.web/sites).
 
