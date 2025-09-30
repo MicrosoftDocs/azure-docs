@@ -67,7 +67,7 @@ You use properties to define Data Factory entities that are specific to the Quic
 
 ## Linked service properties
 
-The following sections describe the property details for the two versions of the QuickBooks connector.
+The QuickBooks connector now supports version 2.0. To upgrade your QuickBooks connector from version 1.0 to version 2.0, refer to the [procedure later in this article](#upgrade-the-quickbooks-connector-from-version-10-to-version-20). The following sections describe the property details for the two versions.
 
 ### Version 2.0
 
