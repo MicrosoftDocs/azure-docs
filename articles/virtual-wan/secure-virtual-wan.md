@@ -40,7 +40,7 @@ Identity management for Virtual WAN ensures that only authorized users and servi
 
 - **Use Azure Key Vault for credential management**: Store and manage VPN pre-shared keys (PSK), certificates, and other credentials securely in Azure Key Vault instead of embedding them in configuration files or code. Site-to-site VPN connections in Virtual WAN can integrate with Azure Key Vault for secure credential lifecycle management. For more information, see [Azure Key Vault integration](/azure/key-vault/general/overview).
 
-- **Implement Azure Active Directory authentication for User VPN**: Configure Azure Active Directory authentication for point-to-site VPN connections to leverage centralized identity management, conditional access policies, and multi-factor authentication. This provides stronger security than traditional certificate-based authentication alone. For more information, see [Create a User VPN (point-to-site) connection](virtual-wan-point-to-site-portal.md).
+- **Implement Azure Active Directory authentication for User VPN**: Configure Azure Active Directory authentication for point-to-site VPN connections to leverage centralized identity management, conditional access policies, and multifactor authentication. This provides stronger security than traditional certificate-based authentication alone. For more information, see [Create a User VPN (point-to-site) connection](virtual-wan-point-to-site-portal.md).
 
 - **Apply role-based access control (RBAC) for Virtual WAN management**: Use Azure RBAC to control who can manage Virtual WAN resources and what actions they can perform. Assign appropriate roles to users and service principals to follow the principle of least privilege for network infrastructure management.
 
