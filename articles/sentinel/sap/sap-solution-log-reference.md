@@ -1,11 +1,11 @@
 ---
 title: Log and table reference for the Microsoft Sentinel solution for SAP applications
 description: Learn about the SAP logs, tables, and functions available from the Microsoft Sentinel solution for SAP applications.
-author: batamig
-ms.author: bagol
+author: mberdugo
+ms.author: monaberdugo
 ms.topic: reference
 ms.custom: mvc
-ms.date: 01/15/2024
+ms.date: 09/30/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal

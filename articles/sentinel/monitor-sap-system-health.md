@@ -1,10 +1,10 @@
 ---
 title: Monitor the health of the connection between Microsoft Sentinel and your SAP system
 description: Use the SAP connector page and a dedicated alert rule template to keep track of your SAP systems' connectivity and performance.
-author: batamig
-ms.author: bagol
+author: mberdugo
+ms.author: monaberdugo
 ms.topic: how-to
-ms.date: 07/07/2025
+ms.date: 09/30/2025
 ms.service: microsoft-sentinel
 #customerIntent: As a security engineer, I want to learn how to monitor the health and connectivity of our SAP system connection to Microsoft Sentinel.
 

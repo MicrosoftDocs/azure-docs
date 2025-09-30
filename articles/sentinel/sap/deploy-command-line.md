@@ -1,11 +1,11 @@
 ---
 title: Connect your SAP system by deploying your data connector agent container from the command line | Microsoft Sentinel
 description: This article describes how to connect your SAP system to Microsoft Sentinel by deploying the container that that hosts the SAP data connector agent using the command line.
-author: batamig
-ms.author: bagol
+author: mberdugo
+ms.author: monaberdugo
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 08/19/2025
+ms.date: 09/30/2025
 ms.collection: usx-security
 
 #Customer intent: As a security, infrastructure, or SAP BASIS team member, I want to deploy and configure a containerized SAP data connector agent from the command line so that I can ingest SAP data into Microsoft Sentinel for enhanced monitoring and threat detection.

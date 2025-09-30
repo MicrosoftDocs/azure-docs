@@ -1,10 +1,10 @@
 ---
 title: Microsoft Sentinel solution for SAP applications - function reference
 description: Learn about the functions available from the Microsoft Sentinel solution for SAP applications.
-author: batamig
-ms.author: bagol
+author: mberdugo
+ms.author: monaberdugo
 ms.topic: reference
-ms.date: 03/03/2025
+ms.date: 09/30/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
