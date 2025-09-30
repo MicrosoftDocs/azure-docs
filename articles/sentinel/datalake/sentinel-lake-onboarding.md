@@ -87,8 +87,8 @@ To onboard to the Microsoft Sentinel data lake and graph (preview) in Microsoft 
 
 + Contributor access to the Microsoft Sentinel primary workspace to authorize ingestion of your Microsoft 365 activity data to the primary workspace.
 + Install and configure the following data connectors to send data to a Sentinel workspace attached to Defender:
-   - [Office 365 activity](../configure-data-connector.md#enable-a-data-connector)
-   - [Entra activity](../connect-azure-active-directory.md) 
+   - [Microsoft 365](../configure-data-connector.md#enable-a-data-connector). You must collect SharePoint record types for the graph to build.
+   - [Microsoft Entra ID](../connect-azure-active-directory.md). You must collect Sign-In Logs and User Risk Events.
 
   The data risk graph is built from data ingested into Sentinel data lake through connectors for Office activity and Entra sign-in logs. 
 
