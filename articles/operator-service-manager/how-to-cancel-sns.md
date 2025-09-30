@@ -9,7 +9,7 @@ ms.service: azure-operator-service-manager
 ---
 
 # Interrupt an SNS deployment operation
-This article describes a method to interrupt site network service (SNS) deployment operations before the SNS operation reaching a terminal state. This interruption capability supports only container network function (CNF) workflows and is triggered by adding a tag to the network function (NF) managed resource group (MRG). Once the interruption occurrs, the user must manually remove this tag from the NF MRG to restore proper operation for the next attempt.
+This article describes a method to interrupt site network service (SNS) deployment operations before the SNS operation reaching a terminal state. This interruption capability supports only container network function (CNF) workflows and is triggered by adding a tag to the network function (NF) managed resource group (MRG). Once the interruption occurs, the user must manually remove this tag from the NF MRG to restore proper operation for the next attempt.
 
 ## Why interrupt an SNS deployment operation
 Azure Operator Service Manager deploys complex CNF workloads, which are composed of many individual components. When an SNS deployment is started, each component is processed sequentially, in the order as defined in the network function design (NFD). Depending on how many components are touched in a given deployment, the SNS operation can take an extended time to complete. As an example, consider a scenario where a CNF is composed of 30 components where each component takes 5 minutes to deploy. The total run time of this SNS operation would exceed 2 hours. Now, consider operational issues with long running deployment operations:
