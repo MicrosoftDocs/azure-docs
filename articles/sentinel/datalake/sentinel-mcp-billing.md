@@ -26,15 +26,7 @@ Pricing in Microsoft Sentinel is based on the tier that the data is ingested int
 
 ## Quotas and limits
 
-All [service parameters and limits for Microsoft Sentinel data lake](sentinel-lake-service-limits.md#service-parameters-and-limits-for-tables-data-management-and-ingestion) also apply when using Microsoft Sentinel's MCP collection of tools:
-
-[!INCLUDE [Service limits for tables, data management and ingestion](../includes/service-limits-table-manaement-ingestion.md)]
-
-[!INCLUDE [Service limits for VS Code notebooks](../includes/service-limits-notebooks.md)]
-
-[!INCLUDE [Service limits for KQL queries against the data lake](../includes/service-limits-kql-queries.md)]
-
-[!INCLUDE [Service limits for KQL jobs](../includes/service-limits-kql-jobs.md)]
+All [service parameters and limits for Microsoft Sentinel data lake](sentinel-lake-service-limits.md#service-parameters-and-limits-for-tables-data-management-and-ingestion) also apply when using Microsoft Sentinel's MCP collection of tools. 
 
 The following limits are specific to this service:
 
