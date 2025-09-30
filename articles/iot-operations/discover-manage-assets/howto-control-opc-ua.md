@@ -70,7 +70,7 @@ The message must include the required [metadata](https://github.com/Azure/iot-op
 
 ### Call a method using a management group
 
-The boiler asset in the OPC PLC simulator has an action called `Switch` that you can call to to switch the boiler on or off. Create a namespace asset that includes a management group with an action that maps to this action:
+The boiler asset in the OPC PLC simulator has an action called `Switch` that you can call to switch the boiler on or off. Create a namespace asset that includes a management group with an action that maps to this action:
 
 | name | targetUri  | actionType | typeRef |
 |------|------------|------------|---------|
