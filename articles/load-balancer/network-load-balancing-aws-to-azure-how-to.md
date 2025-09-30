@@ -3,7 +3,7 @@ title: Migrate from AWS Network Load Balancer to Azure Load Balancer
 description: Learn to migrate from AWS Network Load Balancer to Azure Load Balancer with step-by-step guidance, feature mapping, and validation strategies for high-availability and performance workloads.
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 08/14/2025
+ms.date: 09/30/2025
 ms.custom:
   - ai-gen-docs-bap
   - ai-gen-description
@@ -216,13 +216,13 @@ While the specific steps can vary based on your architecture, the general sequen
 
 1. **Azure infrastructure deployment** - Deploy Load Balancer with static IPs and VMs first as it's necessary for subsequent configuration steps.
 1. **Health probe configuration** - Configure health probes for both protocol types matching AWS health check behavior using the [Load Balancer health probe guide](load-balancer-custom-probe-overview.md).
-1. **Service migration** - Migrate services to Azure VMs and Scale Sets. This can be done in parallel with the Azure infrastructure deployment to save time.
 1. **Protocol-specific rule configuration** - Configure separate load balancing rules for TCP and UDP traffic with appropriate backend pools.
-1. **Zone redundancy optimization** - Configure multi-zone distribution for services to ensure high availability.
+1. **DNS preparation** - Reduce TTL values and prepare DNS record updates for your domains. This step is crucial for ensuring minimal user disconnection when services are cut over.
+1. **Application service migration** - Migrate services to Azure VMs and Scale Sets. This can be done in parallel with the Azure infrastructure deployment to save time.
 1. **Monitoring setup** - Configure Azure Monitor dashboards and alerting for application-specific metrics including latency, connections, and health status.
-1. **DNS preparation** - Reduce TTL values and prepare DNS record updates for your domains. This step is crucial for ensuring minimal user disconnection during cutover.
 
-In general, the migration process involves deploying and migrating services first, followed by configuring protocol-specific load balancing rules, health probes, and monitoring. This sequence ensures that your Load Balancer is built and your services are migrated before configuring the specific networking requirements.
+
+In general, the migration process involves deploying and configuring new load balancer infrastructure, followed by migrating application services and then configuring monitoring.
 
 ## Step 3: Evaluation
 
