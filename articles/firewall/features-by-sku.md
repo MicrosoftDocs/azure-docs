@@ -14,7 +14,7 @@ ms.author: duau
 
 Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It offers three SKUs - Basic, Standard, and Premium - each designed for different use cases and security requirements.
 
-:::image type="content" source="media/features-by-sku/firewall-overview.png" alt-text="Azure Firewall overview diagram":::
+:::image type="content" source="media/features-by-sku/firewall-overview.png" alt-text="Diagram showing Azure Firewall deployment architecture protecting Azure Virtual Network resources from threats.":::
 
 This article provides a comprehensive overview of all Azure Firewall features organized by SKU to help you understand capabilities and choose the right version for your needs.
 
@@ -96,7 +96,7 @@ Azure Firewall Basic is designed for small and medium-sized businesses (SMBs) to
 
 Azure Firewall Standard is suitable for customers requiring Layer 3–Layer 7 firewall capabilities with autoscaling to manage peak traffic up to 30 Gbps. It includes enterprise features like threat intelligence, DNS proxy, custom DNS, and web categories.
 
-:::image type="content" source="media/features-by-sku/firewall-standard.png" alt-text="Azure Firewall Standard features":::
+:::image type="content" source="media/features-by-sku/firewall-standard.png" alt-text="Diagram showing Azure Firewall Standard deployment with enhanced features including threat intelligence, DNS proxy, and network-level FQDN filtering capabilities.":::
 
 ### Key Standard features
 
@@ -132,7 +132,7 @@ Standard includes all Basic features, plus:
 
 Azure Firewall Premium offers advanced threat protection suitable for highly sensitive and regulated environments, such as payment and healthcare industries. It includes all Standard features plus advanced security capabilities.
 
-:::image type="content" source="media/features-by-sku/firewall-premium.png" alt-text="Azure Firewall Premium overview diagram":::
+:::image type="content" source="media/features-by-sku/firewall-premium.png" alt-text="Diagram showing Azure Firewall Premium deployment with advanced security features including TLS inspection, IDPS capabilities, URL filtering, and enhanced threat protection for enterprise environments.":::
 
 ### Key Premium features
 
