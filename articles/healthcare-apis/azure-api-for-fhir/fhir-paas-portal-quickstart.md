@@ -8,7 +8,9 @@ ms.subservice: fhir
 ms.topic: quickstart 
 ms.date: 09/27/2023
 ms.author: kesheth
-ms.custom: mode-api
+ms.custom:
+  - mode-api
+  - sfi-image-nochange
 ---
 
 # Quickstart: Deploy Azure API for FHIR using Azure portal

@@ -9,8 +9,10 @@ ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 05/25/2022
 ms.topic: include
-ms.custom: include file
 ms.author: bertong
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 Get started with Azure Communication Services using the Communication Services JavaScript SMS SDK to send SMS messages.

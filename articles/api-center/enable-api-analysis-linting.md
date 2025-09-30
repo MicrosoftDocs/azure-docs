@@ -6,7 +6,9 @@ ms.topic: how-to
 ms.date: 12/03/2024
 ms.author: danlep
 author: dlepow
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 # Customer intent: As an API program manager, I want to lint the API definitions in my organization's API center and analyze whether my APIs comply with my organization's API style guide.
 ---
 

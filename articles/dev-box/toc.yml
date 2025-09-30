@@ -9,6 +9,9 @@ items:
       - name: Roadmap for Microsoft Dev Box
         href: dev-box-roadmap.md
         displayName: roadmap, future, features, enhancements, coming soon, in development
+      - name: Windows 365 adds Microsoft Dev Box capabilities
+        href: dev-box-windows-365-announcement.md
+        displayName: Windows 365, announcement, news
   - name: Quickstarts
     items:
       - name: Get Started with the quick start template

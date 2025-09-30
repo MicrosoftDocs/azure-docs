@@ -9,9 +9,15 @@ ms.subservice: call-automation
 ms.topic: include
 ms.date: 03/28/2023
 ms.author: visho
-ms.custom: public_preview, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-js-csharp-java-python
 services: azure-communication-services
+ms.custom:
+  - public_preview
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - sfi-ga-blocked
+  - sfi-ropc-nochange
 ---
 
 # Add a Microsoft Teams user to an existing call using Call Automation

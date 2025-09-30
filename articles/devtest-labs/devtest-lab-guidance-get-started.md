@@ -80,7 +80,7 @@ Lab users can create lab VMs in minutes by choosing from a wide variety of ready
 
 Lab owners can also install needed software on a VM, save the VM as a *custom image*, and make the image available in the lab. Lab users can use the custom image to create VMs that have the software preinstalled. For more information, see [Create a custom image](devtest-lab-create-custom-image-from-vm-using-portal.md).
 
-You can use an *image factory* to automatically build and distribute your custom images regularly. This configuration-as-code solution eliminates the need to manually maintain VM images, by keeping the base OS and components up to date. For more information, see [Create a custom image factory](image-factory-create.md).
+You can use an *image builder* to automatically build and distribute your custom images regularly. This configuration-as-code solution eliminates the need to manually maintain VM images, by keeping the base OS and components up to date. For more information, see [Azure VM Image Builder](/azure/virtual-machines/image-builder-overview?tabs=azure-powershell).
 
 ### Use reusable formulas for VMs
 

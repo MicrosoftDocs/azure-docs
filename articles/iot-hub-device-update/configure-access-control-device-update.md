@@ -7,6 +7,7 @@ ms.date: 12/30/2024
 ms.topic: how-to
 ms.service: azure-iot-hub
 ms.subservice: device-update
+ms.custom: sfi-image-nochange
 ---
 
 # Configure access control for Device Update resources

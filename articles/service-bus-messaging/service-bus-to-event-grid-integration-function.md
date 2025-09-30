@@ -5,7 +5,9 @@ author: spelluru
 ms.topic: tutorial
 ms.date: 12/06/2024
 ms.author: spelluru
-ms.custom: devx-track-csharp
+ms.custom:
+  - devx-track-csharp
+  - sfi-image-nochange
 # Customer intent: As a developer, I want to know how to handle Service Bus events using Azure Functions.
 ---
 

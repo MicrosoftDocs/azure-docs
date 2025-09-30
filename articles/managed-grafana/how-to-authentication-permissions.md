@@ -6,6 +6,7 @@ ms.topic: how-to
 author: maud-lv
 ms.author: malev
 ms.date: 10/08/2024
+ms.custom: sfi-image-nochange
 --- 
 
 # Set up Azure Managed Grafana authentication and permissions

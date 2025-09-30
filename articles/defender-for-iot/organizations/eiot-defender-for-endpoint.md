@@ -3,7 +3,9 @@ title: Set up enterprise IoT security - Defender for IoT
 description: Enable enterprise IoT security for your IoT devices, using added security value in Microsoft Defender for IoT.
 ms.topic: quickstart
 ms.date: 09/13/2023
-ms.custom: enterprise-iot
+ms.custom:
+  - enterprise-iot
+  - sfi-image-nochange
 #CustomerIntent: As a security administrator, I want to understand how to set up enterprise IoT monitoring so that I can keep my EIoT devices safe.
 ---
 
