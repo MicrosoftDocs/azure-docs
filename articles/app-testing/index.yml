@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure App Testing documentation
-summary: Improve your app performance at scale by running end-to-end Playwright tests, or run load tests using JMeter or Locust on the cloud with Azure App Testing.
+summary: Improve your app performance at scale. Run end-to-end Playwright tests, or run automated load tests on the cloud using JMeter or Locust scripts with Azure App Testing.
 
 metadata:
   title: Azure App Testing documentation
-  description: Improve your app performance at scale by running end-to-end Playwright tests, or run load tests using JMeter or Locust on the cloud with Azure App Testing.
+  description: Improve your app performance at scale. Run end-to-end Playwright tests, or run automated load tests on the cloud using JMeter or Locust scripts with Azure App Testing.
   ms.service: azure-app-testing
   ms.topic: landing-page
   ms.author: ninallam
