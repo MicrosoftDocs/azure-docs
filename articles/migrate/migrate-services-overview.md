@@ -27,6 +27,12 @@ A general migration journey includes the following phases. Azure Migrate provide
 
 :::image type="content" source="./media/migrate-services-overview/migrate-journey.png" alt-text="Screenshot that shows the phases of migrating workloads to Azure." lightbox="./media/migrate-services-overview/migrate-journey.png":::
 
+Watch the following video to learn about key phases of a typical migration: Decide, Plan, and Execute—and how Azure Migrate supports each step.
+
+
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=edd9a562-f4c1-49cb-8312-952f214a1cd6]
+
+
 ### Decide
 
 The first step in a migration journey is to identify your workloads. This process of identification is called *discovery*. To discover your workloads, you can deploy a lightweight [Azure Migrate appliance](migrate-appliance.md) (recommended approach) or quickly import the inventory data for your workloads.
