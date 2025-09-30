@@ -77,7 +77,7 @@ There are three key deadlines outlined in our documentation:
 
 ## How should I get an extension for legacy version of the connectors?
 
-In general, we don't recommend customers to request an extension. However, we recognize that, due to various factors, some customers may need more time to complete their upgrades. In such cases, we encourage customers to take full advantage of the service's [automatic upgrade capabilities](connector-upgrade-guidance.md#automatic-connector-upgrade), which apply at the connector and pipeline activity level. These capabilities effectively grant your workload an extension by automatically upgrading it, thereby preventing failures after the end-of-support date.
+In general, we don't recommend customers to request an extension. However, we recognize that, due to various factors, some customers may need more time to complete their upgrades. In such cases, we encourage customers to take full advantage of the service's [automatic upgrade](connector-upgrade-guidance.md#automatic-connector-upgrade) capabilities, which apply at the connector and pipeline activity level. These capabilities effectively grant your workload an extension by automatically upgrading it, thereby preventing failures after the end-of-support date.
 
 It's important to note that the scope of automatic upgrades varies by connector. We strongly recommend reviewing the [criteria](connector-upgrade-guidance.md#supported-automatic-upgraded-criteria) and supported scenarios for each connector to prioritize workloads that require manual upgrades before the end-of-support date, ensuring uninterrupted operations.
 
