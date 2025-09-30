@@ -19,10 +19,10 @@ This article shows how to access your File Transfer Protocol (FTP) server from a
 
 For example, your workflow can start with an FTP trigger that monitors and responds to events on your FTP server. The trigger makes the outputs available to actions in your workflow. Your workflow can run FTP actions that create, send, receive, and manage files through your FTP server account using the following specific tasks:
 
-- Monitor when files are added or changed
-- Create, copy, delete, list, and update files
-- Get file metadata and content
-- Manage folders
+- Monitor when files are added or changed.
+- Create, copy, delete, list, and update files.
+- Get file metadata and content.
+- Manage folders.
 
 If you're new to Azure Logic Apps, see the following documentation:
 
@@ -36,7 +36,7 @@ The FTP connector has different versions, based on [logic app type and host envi
 | Logic app type (plan) | Environment | Connector version |
 |------------------------|-------------|-------------------|
 | **Consumption** | Multitenant Azure Logic Apps | Managed connector, which appears in the connector gallery with the **Shared** filter. For more information, see: <br><br>- [FTP managed connector reference](/connectors/ftp) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | - Managed connector, which appears in the connector gallery with the **Shared** filter. <br>- Built-in connector, which appears in the connector gallery with the **Built-in** filter and is [service provider based](custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks with a connection string. For more information, see: <br><br>- [FTP managed connector reference](/connectors/ftp) <br>- [FTP built-in connector operations](#built-in-operations) section later in this article <br>- [Managed connectors in Azure Logic Apps](managed.md) <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | - Managed connector, which appears in the connector gallery with the **Shared** filter. <br>- Built-in connector, which appears in the connector gallery with the **Built-in** filter and is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks with a connection string. For more information, see: <br><br>- [FTP managed connector reference](/connectors/ftp) <br>- [FTP built-in connector operations](#built-in-operations) section later in this article <br>- [Managed connectors in Azure Logic Apps](managed.md) <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
 
 ## Limitations
 
