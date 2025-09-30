@@ -12,8 +12,6 @@ ms.custom: sfi-image-nochange
 
 # Manage Azure resources and monitor costs by creating automation tasks
 
-> [!IMPORTANT]
-
 To help you manage [Azure resources](../azure-resource-manager/management/overview.md#terminology), you can create automated tasks on specific supported resources or resource groups. These tasks vary in number and availability, based on the resource type.
 
 - For an [Azure storage account](../storage/common/storage-account-overview.md), you can set up an automation task that sends the monthly cost for that storage account.
