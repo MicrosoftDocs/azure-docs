@@ -25,7 +25,7 @@ When you provision a [self-hosted Azure API Management gateway](self-hosted-gate
 
 - An API Management instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
 - A self-hosted gateway. For more information, see [How to provision self-hosted gateway](api-management-howto-provision-self-hosted-gateway.md).
-- A custom domain name that is owned by you or your organization. This article doesn't provide instructions on how to procure a custom domain name.
+- A custom domain name that's owned by you or your organization. This article doesn't provide instructions on how to procure a custom domain name.
 - A DNS record hosted on a DNS server that maps the custom domain name to the self-hosted gateway's IP address. This article doesn't provide instructions on how to host a DNS record.
 - You must have a valid certificate with a public and private key (.PFX). The subject or subject alternative name (SAN) needs to match the domain name. This enables the API Management instance to securely expose URLs over TLS.
 
