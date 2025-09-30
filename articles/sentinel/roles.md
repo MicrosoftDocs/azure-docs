@@ -100,7 +100,7 @@ Alternatively, you might want to assign the ability to read tables from within a
 
 |Tasks   |Permissions |
 |---------|---------|
-|**Read permissions on the [system tables](https://go.microsoft.com/fwlink/?linkid=2325420)**     | Use a [custom Microsoft Defender XDR unified RBAC role with ](/defender-xdr/custom-permissions-details)*[data (read)](/defender-xdr/custom-permissions-details)* permissions over the Microsoft Sentinel data collection.     |
+|**Read permissions on the [system tables](https://go.microsoft.com/fwlink/?linkid=2325420)**     | Use a [custom Microsoft Defender XDR unified RBAC role with ](/defender-xdr/custom-permissions-details)*[security data basics (read)](/defender-xdr/custom-permissions-details)* permissions over the Microsoft Sentinel data collection.     |
 |**Read permissions on any other workspace enabled for Microsoft Sentinel in the data lake**     | Use one of the following built-in roles in Azure RBAC for permissions on that workspace: <br>- [Log Analytics Reader](/azure/role-based-access-control/built-in-roles/monitor#log-analytics-reader) <br>- [Log Analytics Contributor](/azure/role-based-access-control/built-in-roles/monitor#log-analytics-contributor) <br>- [Microsoft Sentinel Contributor](/azure/role-based-access-control/built-in-roles/security#microsoft-sentinel-contributor) <br>- [Microsoft Sentinel Reader](/azure/role-based-access-control/built-in-roles/security#microsoft-sentinel-reader) <br>- [Reader](/azure/role-based-access-control/built-in-roles/general#reader)<br>- [Contributor](/azure/role-based-access-control/built-in-roles/privileged#contributor)<br>- [Owner](/azure/role-based-access-control/built-in-roles/privileged#owner)|
 
 
