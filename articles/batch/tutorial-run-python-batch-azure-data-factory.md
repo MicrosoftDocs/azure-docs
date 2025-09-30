@@ -5,7 +5,10 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 04/02/2025
 ai-usage: ai-assisted
-ms.custom: mvc, devx-track-python
+ms.custom:
+  - mvc
+  - devx-track-python
+  - sfi-ropc-nochange
 # Customer intent: "As a data engineer, I want to create and execute an Azure Data Factory pipeline that runs a Batch workload with a Python script, so that I can process and manipulate data stored in Azure Blob Storage efficiently."
 ---
 

@@ -35,7 +35,7 @@ Many open source tools are available to transfer data to NFS file shares. Howeve
 
 ### Using fpsync vs. rsync
 
-Despite being single-threaded, [rsync](https://linux.die.net/man/1/rsync) is a versatile, open source file copy tool. It can copy locally, to/from another host over any remote shell, or to/from a remote rsync daemon. It offers many options and enables flexible specification of the set of files to be copied. However, [fpsync](https://manpages.ubuntu.com/manpages/lunar/en/man1/fpsync.1.html) is a multithreaded application and therefore offers some advantages, including the ability to run rsync jobs in parallel.
+Despite being single-threaded, [rsync](https://linux.die.net/man/1/rsync) is a versatile, open source file copy tool. It can copy locally, to/from another host over any remote shell, or to/from a remote rsync daemon. It offers many options and enables flexible specification of the set of files to be copied. However, [fpsync](https://manpages.ubuntu.com/manpages/questing/en/man1/fpsync.1.html) is a multithreaded application and therefore offers some advantages, including the ability to run rsync jobs in parallel.
 
 In this article, we'll use fpsync to move data from a Linux file server to NFS Azure file shares.
 

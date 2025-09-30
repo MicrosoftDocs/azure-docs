@@ -4,8 +4,9 @@ description: Describes how to assess on-premises physical servers for migration 
 ms.topic: tutorial
 ms.date: 02/06/2025
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.custom: MVC, engagement-fy25
-monikerRange: migrate-classic
+monikerRange:
 # Customer intent: As a server administrator, I want to assess my on-premises physical servers for their cloud readiness and migration costs, so that I can effectively plan and execute their migration to a cloud infrastructure.
 ---
 

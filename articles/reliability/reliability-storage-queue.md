@@ -174,6 +174,8 @@ For detailed pricing information, see [Queue Storage pricing](https://azure.micr
 
 [!INCLUDE [Storage - Alternative multi-region approaches - reasons](includes/storage/reliability-storage-multi-region-alternative-reasons-include.md)]
 
+[!INCLUDE [Storage - Alternative multi-region approaches - introduction](includes/storage/reliability-storage-multi-region-alternative-introduction-include.md)]
+
 > [!NOTE]
 > For advanced multi-region requirements, consider using Service Bus instead, which includes support for nonpaired regions.
 

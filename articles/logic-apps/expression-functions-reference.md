@@ -4821,27 +4821,20 @@ Optionally, you can specify a different format with the <*format*> parameter.
 | ------------ | ---- | ----------- |
 | <*current-timestamp*> | String | The current date and time |
 
-*Example 1*
-
-Suppose today is April 15, 2018 at 1:00:00 PM.
-This example gets the current timestamp:
+*Examples*
 
 ```
-utcNow()
+utcNow()                  // Returns 2025-09-25T05:18:31.3384797Z
+utcNow('u')               // Returns 2025-09-25 05:18:31Z
+utcNow('U')               // Returns Thursday, September 25, 2025 5:18:31 AM
+utcNow('d')               // Returns 9/25/2025
+utcNow('D')               // Returns Thursday, September 25, 2025
+utcNow('t')               // Returns 5:18 AM
+utcNow('T')               // Returns 5:18:31 AM
+utcNow('y')               // Returns September 2025
+utcNow('yyyy')            // Returns 2025
+utcNow('ddd, d MMM yyyy') // Returns Thu, 25 Sep 2025
 ```
-
-And returns this result: `"2018-04-15T13:00:00.0000000Z"`
-
-*Example 2*
-
-Suppose today is April 15, 2018 at 1:00:00 PM.
-This example gets the current timestamp using the optional "D" format:
-
-```
-utcNow('D')
-```
-
-And returns this result: `"Sunday, April 15, 2018"`
 
 ## V
 

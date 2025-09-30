@@ -7,7 +7,9 @@ ms.author: baanders
 ms.date: 4/17/2025
 ms.topic: tutorial
 ms.service: azure-digital-twins
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated

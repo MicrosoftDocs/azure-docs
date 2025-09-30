@@ -10,6 +10,7 @@ ms.custom:
   - passwordless-java
   - devx-track-extended-java
   - build-2025
+  - sfi-ropc-nochange
 ---
 
 # Quickstart: Send events to or receive events from Azure Event Hubs
