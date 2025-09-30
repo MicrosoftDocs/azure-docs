@@ -1,15 +1,17 @@
 ---
-title: How to log events to Azure Event Hubs in Azure API Management | Microsoft Docs
+title: How to Log Events to Azure Event Hubs in Azure API Management | Microsoft Docs
 description: Learn how to log events to Azure Event Hubs in Azure API Management. Event Hubs is a highly scalable data ingress service.
 services: api-management
 author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 09/04/2024
+ms.date: 10/01/2025
 ms.author: danlep
 ms.custom:
   - build-2025
+
+#customer intent: As an API developer or admin, I want to learn how to log events to Event Hubs in API Management.
 ---
 # How to log events to Azure Event Hubs in Azure API Management
 
