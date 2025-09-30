@@ -22,7 +22,7 @@ Choose the option that best fits your requirements and budget.
 We recommend that you plan your migration before the following key dates to prevent disruption:
 
 - October 31, 2025: Portal support for creating new Essential (preview) workspaces ends.
-- March 31, 2026: The Essential tier is fully retired and existing Essential workspaces stop functioning.
+- March 31, 2026: The Essential tier is no longer available and existing Essential workspaces will stop functioning.
 
 
 ## Recommended option: Upgrade to Standard service tier

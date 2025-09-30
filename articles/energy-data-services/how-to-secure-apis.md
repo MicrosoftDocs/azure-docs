@@ -6,7 +6,9 @@ ms.author: mitulshah
 ms.service: azure-data-manager-energy
 ms.topic: how-to
 ms.date: 04/29/2024
-ms.custom: template-how-to
+ms.custom:
+  - template-how-to
+  - sfi-image-nochange
 
 #Customer intent: As an administrator, I want to set up a secured API gateway for Azure Data Manager for Energy APIs.
 

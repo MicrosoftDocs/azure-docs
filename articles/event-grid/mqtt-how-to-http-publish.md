@@ -30,15 +30,19 @@ This article explains how to publish MQTT messages via HTTP with Event Grid.
 - **Topic**: An example is `devices/CXa-23112/prompt`.
 - **Credentials**: Microsoft Entra ID client credentials.
 
+## Role Assignments
+
+The identity used to make the HTTP Publish request must have the Azure RBAC role [`EventGrid TopicSpaces Publisher`](mqtt-client-microsoft-entra-token-and-rbac.md#authorization-to-grant-access-permissions) for MQTT message publisher access.
+
 ## Get a bearer token
 
 Run the following Azure CLI command to get a bearer token:
 
 ```bash
-az account get-access-token --resource=https://<namespaceFQDN> --query accessToken -o tsv
+az account get-access-token --resource=https://eventgrid.azure.net --query accessToken -o tsv
 ```
 
-Save this token to use in the `Authorization: Bearer <TOKEN>` header.
+Save this token to use in the `Authorization: Bearer <TOKEN>` header. 
 
 ## Publish messages by using HTTP
 

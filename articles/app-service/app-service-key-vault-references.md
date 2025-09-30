@@ -13,9 +13,9 @@ ms.custom:
   - sfi-ropc-nochange
 ---
 
-# Use Key Vault references as app settings in Azure App Service and Azure Functions
+# Use Key Vault references as app settings in Azure App Service, Azure Functions, and Azure Logic Apps (Standard)
 
-This article shows you how to use secrets from Azure Key Vault as values of [app settings](configure-common.md#configure-app-settings) or [connection strings](configure-common.md#configure-connection-strings) in your Azure App Service or Azure Functions apps.
+This article shows how to use secrets from Azure Key Vault as values in [app settings](configure-common.md#configure-app-settings) or [connection strings](configure-common.md#configure-connection-strings) for apps created with Azure App Service, Azure Functions, or Azure Logic Apps (Standard).
 
 [Key Vault](/azure/key-vault/general/overview) is a service that provides centralized secrets management, with full control over access policies and audit history. When an app setting or connection string is a Key Vault reference, your application code can use it like any other app setting or connection string. This way, you can maintain secrets apart from your app's configuration. App settings are securely encrypted at rest, but if you need capabilities for managing secrets, they should go into a key vault.
 

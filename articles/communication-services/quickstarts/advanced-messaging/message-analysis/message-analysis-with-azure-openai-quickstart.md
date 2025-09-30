@@ -10,6 +10,7 @@ ms.service: azure-communication-services
 ms.subservice: advanced-messaging
 ms.topic: quickstart 
 ms.date: 05/01/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Quickstart: Enable Message Analysis with Azure OpenAI

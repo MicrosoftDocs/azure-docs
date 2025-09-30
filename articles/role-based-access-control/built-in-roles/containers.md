@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon    
 manager: pmwongera
 ms.author: rolyon
-ms.date: 09/03/2025
+ms.date: 09/19/2025
 ms.custom: generated
 ---
 
@@ -1905,6 +1905,100 @@ Grants access to read and write Azure Kubernetes Service clusters
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
+
+## Azure Kubernetes Service Namespace Contributor
+
+Allows users to create and manage Azure Kubernetes Service namespace resources.
+
+[Learn more](/azure/aks/concepts-managed-namespaces)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/managedNamespaces/* | Create and manage namespaces |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows users to create and manage Azure Kubernetes Service namespace resources.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/289d8817-ee69-43f1-a0af-43a45505b488",
+  "name": "289d8817-ee69-43f1-a0af-43a45505b488",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.ContainerService/managedClusters/managedNamespaces/*",
+        "Microsoft.Resources/deployments/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Kubernetes Service Namespace Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+
+## Azure Kubernetes Service Namespace User
+
+Allows users to read Azure Kubernetes Service namespace resources. In-cluster namespace access further requires assignment of Azure Kubernetes Service RBAC roles to the namespace resource for an Entra ID enabled cluster.
+
+[Learn more](/azure/aks/concepts-managed-namespaces)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/managedNamespaces/read | Get a managed namespace of a managed cluster |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/managedNamespaces/listCredential/action | List cluster credentials of a managed namespace |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows users to read Azure Kubernetes Service namespace resources. In-cluster namespace access further requires assignment of Azure Kubernetes Service RBAC roles to the namespace resource for an Entra ID enabled cluster.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/c9f76ca8-b262-4b10-8ed2-09cf0948aa35",
+  "name": "c9f76ca8-b262-4b10-8ed2-09cf0948aa35",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerService/managedClusters/managedNamespaces/read",
+        "Microsoft.ContainerService/managedClusters/managedNamespaces/listCredential/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Kubernetes Service Namespace User",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 
 ## Azure Kubernetes Service RBAC Admin
 

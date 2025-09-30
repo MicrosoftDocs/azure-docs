@@ -7,7 +7,9 @@ ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
 ms.date: 05/19/2025
-ms.custom: build-2025
+ms.custom:
+  - build-2025
+  - sfi-image-nochange
 
 # Customer intent: As an Azure network administrator, I want to understand how NSG flow logs work, so that I can monitor traffic patterns and enhance the security and performance of my network.
 ---

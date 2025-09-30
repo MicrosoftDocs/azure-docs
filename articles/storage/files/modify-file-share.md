@@ -316,6 +316,11 @@ $command
 
 ## Change the cost and performance characteristics of a file share (Microsoft.FileShares)
 
+> [!NOTE]
+> File share with Microsoft.FileShares is currently in preview. You may use the Azure portal, or you can use generic PowerShell or Azure CLI commands to work with file shares. If you want to try the CLI private package for Microsoft.FileShares resource provider, fill out this [survey](https://forms.microsoft.com/r/nEGcB0ccaD).
+
+# [Portal](#tab/azure-portal)
+
 Follow these instructions to change the size and performance of a file share (Microsoft.FileShares) using the Azure portal. The amount of storage, IOPS, and throughput you provision can be dynamically scaled up or down as your needs change. However, you can only decrease a provisioned quantity after 24 hours have elapsed since your last quantity increase. Storage, IOPS, and throughput changes are effective within a few minutes after a provisioning change.
 
 1. Select the file share you want to modify.
@@ -337,6 +342,67 @@ Follow these instructions to change the size and performance of a file share (Mi
     ![image on saving new size for a file share created with Microsoft.FileShares](./media/storage-how-to-create-file-share/file-share-change-performance-save.png)
 
 5. Select **Save**. Storage, IOPS, and throughput changes are effective within a few minutes after a provisioning change.
+
+# [PowerShell](#tab/azure-powershell)
+
+To change the size and performance of a file share (Microsoft.FileShares) using PowerShell, use the following commands.
+
+```powershell
+$Resource = Get-AzResource -ResourceType "Microsoft.FileShares/fileShares" `
+                            -ResourceGroupName "<your-resource-group-name>" `
+                            -ResourceName "<your-file-share-name>"
+# You may update file share, provisioned capacity, IOPS, throughput, mount name, and nfsProtocolProperties here. 
+# For more info, refer to the property example for update section. 
+$Resource.Properties.provisionedStorageGiB = <intended capacity>
+$Resource | Set-AzResource -Force
+```
+
+Property example for update:
+
+```powershell
+-Properties @{
+    provisionedStorageGiB = 36
+    ProvisionedIoPerSec = 5005 
+    ProvisionedThroughputMiBPerSec = 1003
+    mountName = "<intened-mount-name>"
+    nfsProtocolProperties = @{
+        rootSquash = "AllSquash"
+    }
+}
+```
+
+To check file share information:
+
+```powershell
+$Resource = Get-AzResource -ResourceType "Microsoft.FileShares/fileShares" `
+                            -ResourceGroupName "<your-resource-group-name>" `
+                            -ResourceName "<your-file-share-name>"
+$Resource.properties
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To change the size and performance of a file share (Microsoft.FileShares) using Azure CLI, use the following commands.
+
+```bash
+az resource update \
+  --resource-type "Microsoft.FileShares/fileShares" \
+  --name <your-file-share-name> \
+  --resource-group <your-resource-group-name> \
+  --set properties.provisionedStorageGiB=<intended capacity> \
+       properties.ProvisionedIoPerSec=<intended IOPS> \
+       properties.ProvisionedThroughputMiBPerSec=<intended througphput> \
+       properties.nfsProtocolProperties.rootSquash="AllSquash"
+```
+
+To check file share information:
+
+```bash
+az resource show \
+  --resource-type "Microsoft.FileShares/fileShares" \
+  --name <your-file-share-name> \
+  --resource-group <your-resource-group-name>
+```
 
 ---
 
@@ -393,6 +459,13 @@ az storage share-rm delete \
 
 ## Delete a file share (Microsoft.FileShares)
 
+> [!NOTE]
+> File share with Microsoft.FileShares is currently in preview. You may use the Azure portal, or you can use generic PowerShell or Azure CLI commands to work with file shares. If you want to try the CLI private package for Microsoft.FileShares resource provider, fill out this [survey](https://forms.microsoft.com/r/nEGcB0ccaD).
+
+# [Portal](#tab/azure-portal)
+
+To delete a file share (Microsoft.FileShares) using the Azure portal, follow these steps.
+
 1. Go to your file share.
 
 2. Select **Delete** from the context menu.
@@ -402,6 +475,29 @@ az storage share-rm delete \
 3. The **Delete** pop-out contains a survey about why you're deleting the file share. You can skip this, but we appreciate any feedback you have on Azure Files, particularly if something isn't working properly for you.
 
 4. Enter the file share name to confirm deletion and then select **Delete**.
+
+# [PowerShell](#tab/azure-powershell)
+
+To delete a file share (Microsoft.FileShares) using PowerShell, run the following command.
+
+```powershell
+Remove-AzResource -ResourceType "Microsoft.FileShares/fileShares" `
+                  -ResourceName "<your-file-share-name>" `
+                  -ResourceGroupName "<your-resource-group-name>" `
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To delete a file share (Microsoft.FileShares) using Azure CLI, run the following command.
+
+```bash
+az resource delete \
+  --resource-type "Microsoft.FileShares/fileShares" \
+  --name <your-file-share-name> \
+  --resource-group <your-resource-group-name>
+```
+
+---
 
 ## Next steps
 

@@ -6,6 +6,7 @@ ms.topic: how-to
 author: jasminemehndir
 ms.author: v-jasmineme
 ms.date: 07/31/2025
+ms.custom: sfi-image-nochange
 # Customer intent: As an Azure administrator, I want to relocate resources to a different Azure region using a resource management tool, so that I can optimize resource deployment and achieve better performance or compliance for my applications.
 ---
 

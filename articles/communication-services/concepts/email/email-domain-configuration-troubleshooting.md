@@ -9,6 +9,7 @@ ms.author: raviverm
 ms.date: 04/09/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.custom: sfi-image-nochange
 ---
 # Troubleshooting domain configuration issues
 

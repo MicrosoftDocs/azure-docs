@@ -4,7 +4,7 @@ description: Plan for a deployment with Azure File Sync, a service that allows y
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 04/07/2025
+ms.date: 09/26/2025
 ms.author: kendownie
 ms.custom: references_regions
 # Customer intent: "As an IT administrator, I want to plan for an Azure File Sync deployment so that I can effectively manage on-premises file caching and ensure seamless integration with cloud file shares."
@@ -33,9 +33,9 @@ The files are stored in the cloud in [Azure file shares](../files/storage-files-
 In Azure, a *resource* is a manageable item that you create and configure within your Azure subscriptions and resource groups. Resources are offered by *resource providers*, which are management services that deliver specific types of resources. To deploy Azure File Sync, you will work with two key resources:
 
 - **Storage accounts**, offered by the `Microsoft.Storage` resource provider. Storage accounts are top-level resources that represent a shared pool of storage, IOPS, and throughput in which you can deploy **classic file shares** or other storage resources, depending on the storage account kind. All storage resources that are deployed into a storage account share the limits that apply to that storage account. Classic file shares support both the SMB and NFS file sharing protocols, but you can only use Azure File Sync with SMB file shares.
-    
-    > [!NOTE]
-    > Azure Files also supports deploying file shares as a top-level Azure resources through the `Microsoft.FileShares` resource provider, however, these file shares only support the NFS file system protocol aren't supported by Azure File Sync.
+
+  > [!NOTE]
+  > Azure Files also supports deploying file shares as a top-level Azure resource through the `Microsoft.FileShares` resource provider. However, because these file shares currently only support the NFS protocol, they aren't supported by Azure File Sync.
 
 - **Storage Sync Services**, offered by the `Microsoft.StorageSync` resource provider. Storage Sync Services act as management containers that enable you to register Windows File Servers and define the sync relationships for Azure File Sync.
 
@@ -83,12 +83,12 @@ To enable the sync capability on Windows Server, you must install the Azure File
 
 Azure File Sync is supported with the following versions of Windows Server:
 
-| Version | Supported editions | Supported deployment options |
-|---------|----------------|------------------------------|
-| Windows Server 2025 | Azure, Datacenter, Essentials, Standard, and IoT | Full and Core |
-| Windows Server 2022 | Azure, Datacenter, Essentials, Standard, and IoT | Full and Core |
-| Windows Server 2019 | Datacenter, Essentials, Standard, and IoT | Full and Core |
-| Windows Server 2016 | Datacenter, Essentials, Standard, and Storage Server | Full and Core |
+| Version | RTM Version | Supported editions | Supported deployment options |
+|---------|-------------|--------------------|------------------------------|
+| Windows Server 2025 | 26100 | Azure, Datacenter, Essentials, Standard, and IoT | Full and Core |
+| Windows Server 2022 | 20348 | Azure, Datacenter, Essentials, Standard, and IoT | Full and Core |
+| Windows Server 2019 | 17763 | Datacenter, Essentials, Standard, and IoT | Full and Core |
+| Windows Server 2016 | 14393 | Datacenter, Essentials, Standard, and Storage Server | Full and Core |
 
 We recommend keeping all servers that you use with Azure File Sync up to date with the latest updates from Windows Update.
 
@@ -450,9 +450,12 @@ For detailed guidance, see [Migrate to SMB Azure file shares](../files/storage-f
 
 ## Antivirus
 
-Because antivirus works by scanning files for known malicious code, an antivirus product might cause the recall of tiered files and high egress charges. Tiered files have the secure Windows attribute `FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS` set. We recommend consulting with your software vendor to learn how to configure its solution to skip reading files that have this attribute set. (Many do it automatically.)
+Because antivirus works by scanning files for known malicious code, an antivirus product might cause the recall of tiered files and high egress charges. Tiered files have the secure Windows attribute `FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS` set. We recommend consulting with your software vendor to learn how to configure its solution to skip reading files that have this attribute set. Many do it automatically.
 
-The Microsoft antivirus solutions Windows Defender and System Center Endpoint Protection automatically skip reading files that have this attribute set. We tested them and identified one minor issue: when you add a server to an existing sync group, files smaller than 800 bytes are recalled (downloaded) on the new server. These files remain on the new server and aren't tiered because they don't meet the tiering size requirement (more than 64 KiB).
+During on-demand scans, antivirus solutions Microsoft Defender and System Center Endpoint Protection automatically skip reading files that have this attribute set. We tested them and identified one minor issue: when you add a server to an existing sync group, files smaller than 800 bytes are recalled (downloaded) on the new server. These files remain on the new server and aren't tiered because they don't meet the tiering size requirement (more than 64 KiB).
+
+> [!NOTE]
+> Microsoft Defender and System Center Endpoint Protection only skip reading during on-demand scans. This doesn't apply to real-time protection (RTP).
 
 Antivirus vendors can check compatibility between their products and Azure File Sync by using the [Azure File Sync Antivirus Compatibility Test Suite](https://www.microsoft.com/download/details.aspx?id=58322) in the Microsoft Download Center.
 

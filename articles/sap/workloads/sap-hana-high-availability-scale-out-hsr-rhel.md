@@ -3,13 +3,17 @@ title: SAP HANA scale-out with HSR and Pacemaker on RHEL| Microsoft Docs
 description: SAP HANA scale-out with HANA system replication (HSR) and Pacemaker on Red Hat Enterprise Linux (RHEL)
 author: rdeltcheva
 manager: juergent
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.date: 05/22/2025
 ms.author: radeltch
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - linux-related-content
+  - sfi-image-nochange
 # Customer intent: "As an SAP administrator, I want to configure a highly available SAP HANA scale-out system using HANA system replication and Pacemaker on Red Hat Enterprise Linux, so that I can ensure data reliability and automatic failover in my Azure environment."
 ---
 

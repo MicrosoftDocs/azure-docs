@@ -4,8 +4,10 @@ description: Use the Azure CLI or Azure portal to manage your Azure IoT Operatio
 author: SoniaLopezBravo
 ms.author: sonialopez
 ms.topic: how-to
-ms.custom: devx-track-azurecli
 ms.date: 05/20/2025
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 
 #CustomerIntent: As an IT professional, I want to manage Azure IoT Operations instances.
 ---

@@ -6,7 +6,10 @@ ms.author: malev
 ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 02/03/2025
-ms.custom: service-connector, devx-track-azurecli
+ms.custom:
+  - service-connector
+  - devx-track-azurecli
+  - sfi-image-nochange
 # Customer intent: As an app developer, I want to connect a containerized app to a storage account in the Azure portal using Service Connector.
 ---
 
@@ -17,8 +20,8 @@ Azure Container Apps allows you to use Service Connector to connect to cloud ser
 In this article, you learn to connect a container app to Azure Blob Storage.
 
 > [!IMPORTANT]
-> This feature in Container Apps is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Support for Service Connector (preview) on Azure Container Apps ends on March 30, 2026. After that date, new service connections using Service Connector (preview) aren't available through any interface. For more information, see [RETIREMENT: Service Connector (Preview) on Azure Container Apps](https://aka.ms/serviceconnectoraca).
+
 
 ## Prerequisites
 

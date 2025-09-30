@@ -6,7 +6,10 @@ author: ahartoon
 ms.author: anboisve
 ms.date: 12/17/2024
 ms.topic: quickstart
-ms.custom: mvc, mode-ui
+ms.custom:
+  - mvc
+  - mode-ui
+  - sfi-image-nochange
 #Customer intent: As an IT admin/developer, I want to create a Stream Analytics job, configure input and output, and analyze data by using Visual Studio Code.
 ---
 

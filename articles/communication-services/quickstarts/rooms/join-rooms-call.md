@@ -9,8 +9,10 @@ ms.author: alexokun
 ms.date: 06/02/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.custom: mode-other
 zone_pivot_groups: acs-plat-web-ios-android-windows
+ms.custom:
+  - mode-other
+  - sfi-ropc-nochange
 ---
 
 # Join a room call

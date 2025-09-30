@@ -8,6 +8,7 @@ author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.custom:
   - build-2025
+  - sfi-image-nochange
 # Customer intent: "As a database administrator, I want to back up my Azure Database for PostgreSQL using the Azure portal, so that I can ensure data protection and recovery options are in place for my databases."
 ---
 

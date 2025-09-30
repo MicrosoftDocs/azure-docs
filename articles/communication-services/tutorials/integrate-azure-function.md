@@ -8,6 +8,7 @@ ms.author: jiminwen
 ms.date: 11/03/2022
 ms.topic: tutorial
 ms.service: azure-communication-services
+ms.custom: sfi-ropc-nochange
 ---
 
 # Integrate Azure Function

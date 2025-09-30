@@ -63,8 +63,8 @@ Existing files that have the same name are overwritten during a snapshot. A file
 ### Prerequisites for the source storage account
 
 - An Azure Storage account. If you don't already have an account, [create one](../storage/common/storage-account-create.md).
-- Permission to write to the storage account. Write permission is in *Microsoft.Storage/storageAccounts/write*. It's part of the Contributor role.
 - Permission to add role assignment to the storage account. This permission is in *Microsoft.Authorization/role assignments/write*. It's part of the Owner role.
+- Grant your Azure Data Share managed identity permission to write to the storage account. Grant it [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles/storage#storage-blob-data-contributor) or any other role that grants *Microsoft.Storage/storageAccounts/blobServices/containers/write*.
 
 ### Create a share
 
@@ -127,8 +127,8 @@ Before you accept a data share invitation, make sure you have the following prer
 ### Prerequisites for a target storage account
 
 - An Azure Storage account. If you don't already have one, [create an account](../storage/common/storage-account-create.md).
-- Permission to write to the storage account. This permission is in *Microsoft.Storage/storageAccounts/write*. It's part of the Contributor role.
-- Permission to add role assignment to the storage account. This assignment is in *Microsoft.Authorization/role assignments/write*. It's part of the Owner role.  
+- Permission to add role assignment to the storage account. This assignment is in *Microsoft.Authorization/role assignments/write*. It's part of the Owner role.
+- Grant your Azure Data Share managed identity permission to write to the storage account. Grant it [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles/storage#storage-blob-data-contributor) or any other role that grants *Microsoft.Storage/storageAccounts/blobServices/containers/write*.
 
 ## Receive shared data
 

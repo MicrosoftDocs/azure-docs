@@ -8,6 +8,7 @@ author: ramandhillon84
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 
 # Customer intent: As a cloud administrator, I want to assign private IP address prefixes to virtual machines, so that I can efficiently manage network configurations for varying workloads in my environment.
 ---

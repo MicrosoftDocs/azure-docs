@@ -4,7 +4,7 @@ description: Understand how to plan for an Azure Files deployment. You can eithe
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 07/31/2025
+ms.date: 09/18/2025
 ms.author: kendownie
 ms.custom: references_regions
 # Customer intent: As a system architect, I want to evaluate deployment options for Azure Files, so that I can determine the best approach for directly mounting or caching file shares while considering performance, compatibility, and organizational needs.
@@ -27,6 +27,11 @@ In Azure, a *resource* is a manageable item that you create and configure within
 - **File shares** (preview), offered by the `Microsoft.FileShares` resource provider. File shares are a new top-level resource that simplify the deployment of Azure Files by eliminating the storage account. Unlike classic file shares, which must be deployed into a storage account, file shares are deployed directly into the resource group like storage accounts themselves, or other Azure resources you may be familiar with like virtual machines, disks, or virtual networks. File shares support the NFS file sharing protocol - if you require SMB, choose classic file shares for your deployment.
 
 ![Image comparing file shares and classic Azure file shares](./media/storage-files-planning/file-share-comparison.png)
+
+This video provides a comprehensive overview of the differences between the storage account and file share management models:
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/T5eKHDwZe3M]
+
 
 ### Classic file shares (Microsoft.Storage)
 Classic file shares, or file shares deployed in storage accounts, are the traditional way to deploy file shares for Azure Files. They support all of the key features that Azure Files supports including SMB and NFS, SSD and HDD media tiers, every redundancy type, and in every region. While classic file shares support the entire breadth of Azure Files features, they have important key limitations:
@@ -58,22 +63,26 @@ File shares (preview) are a new top-level Azure resource provided by the `Micros
 Currently, creating a file share with Microsoft.FileShares (preview) is available in the following regions:
 
 - Australia East
+- Australia Central
 - Australia Southeast
 - East Asia
+- East US
+- Germany North
+- Korea South
 - Southeast Asia
 - North Europe
-- Japan West
-- Germany North
 - South Africa West
-- East US
 - South India
 - UAE Central
-- Korea South
-- Australia Central
 
 Currently, private endpoint support for file share with Microsoft.FileShares (preview) is available in the following regions:
 
+- Australia East
+- Australia Central
 - East Asia
+- East US
+- North Europe
+- UAE Central
 
 #### Comparing resource providers: Microsoft.Storage versus Microsoft.FileShares
 
@@ -247,3 +256,5 @@ The [migration overview article](storage-files-migration-overview.md) briefly co
 - [Deploying Azure Files](./storage-how-to-create-file-share.md)
 - [Deploying Azure File Sync](../file-sync/file-sync-deployment-guide.md)
 - [Check out the migration overview article to find the migration guide for your scenario](storage-files-migration-overview.md)
+
+
