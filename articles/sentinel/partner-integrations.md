@@ -196,7 +196,7 @@ Microsoft offers the programs to help partners approach Microsoft customers:
 
 - [Azure Marketplace](https://azure.microsoft.com/marketplace/). Microsoft Sentinel solutions are delivered via the Azure Marketplace, which is where customers go to discover and deploy both Microsoft- and partner-supplied general Azure integrations.
 
- Microsoft Sentinel solutions are one of many types of offers found in the Marketplace. You can also find the solution offerings embedded in the Microsoft Sentinel [content hub](sentinel-solutions-catalog.md)
+  Microsoft Sentinel solutions are one of many types of offers found in the Marketplace. You can also find the solution offerings embedded in the Microsoft Sentinel [content hub](sentinel-solutions-catalog.md)
 
 - [Microsoft Intelligent Security Association (MISA)](https://www.microsoft.com/security/partnerships/intelligent-security-association). MISA provides Microsoft Security Partners with help in creating awareness about partner-created integrations with Microsoft customers, and helps to provide discoverability for Microsoft Security product integrations.
 
