@@ -225,6 +225,26 @@ The following screenshot shows an example of using `--context-lines-number 3`:
 
 :::image type="content" source="media/java/appcat-7-cli-command-with-context-line-number.png" alt-text="Screenshot of the appcat report issue code snippet difference with context-lines-number parameter." lightbox="media/java/appcat-7-cli-command-with-context-line-number.png":::
 
+- Restrict report content without code snippets
+```
+  appcat analyze \
+      --input <path-to-source> \
+      --output <path-to-output> \
+      --code-snips-number -1
+```
+
+When `--code-snips-number -1` is set, code snippets are not exported to the report. This helps prevent sensitive data from being included.
+
+:::image type="content" source="media/java/appcat-7-cli-command-with-code-snips-number.png" alt-text="Screenshot of the AppCAT report showing the difference with and without code snippets." lightbox="media/java/appcat-7-cli-command-with-code-snips-number.png":::
+
+You can also check the `metadata.privacyMode` property in `report.json`.
+
+PrivacyMode values
+
+- Unrestricted – the report will include code snippets
+
+- Restricted – the report will not include code snippets
+
 ### appcat transform
 
 Converts Windup XML rules to YAML.
