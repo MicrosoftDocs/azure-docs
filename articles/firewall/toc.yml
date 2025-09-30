@@ -50,7 +50,7 @@ items:
     href: tcp-session-behavior.md
   - name: Explicit Proxy
     href: explicit-proxy.md
-  - name: Multi hub and spoke
+  - name: Routing in hub and spoke 
     href: firewall-multi-hub-spoke.md
   - name: Central management
     href: central-management.md
@@ -204,12 +204,10 @@ items:
     href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
 - name: Migration and upgrades
   items:
-  - name: Migrate to Azure Firewall Premium
-    href: premium-migrate.md
+  - name: Change Azure Firewall SKU
+    href: change-sku.md
   - name: Migrate to Premium using Terraform
     href: /azure/developer/terraform/firewall-upgrade-premium?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
-  - name: Easy upgrade/downgrade
-    href: easy-upgrade.md
 - name: Operational excellence
   items:
   - name: Monitoring
@@ -248,7 +246,7 @@ items:
     href: /rest/api/firewall
   - name: Azure Resource Manager
     href: ../azure-resource-manager/management/overview.md
-  - name: Monitoring dataWinRT reference
+  - name: Monitoring Azure Firewall reference
     href: monitor-firewall-reference.md
 - name: Resources
   items:

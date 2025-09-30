@@ -78,7 +78,7 @@ landingContent:
             url: how-to-onboard-azure-resource-manager-resources-cli.md
           - text: Troubleshoot common CLI Issues
             url: troubleshoot-cli-common-issues.md
-
+            
   # Card
   - title: Safe Upgrade Practices
     linkLists:
@@ -118,6 +118,8 @@ landingContent:
             url: best-practices-onboard-deploy.md
           - text: Publisher Resource Cleanup Management
             url: resource-cleanup-management.md
+          - text: Publisher Artifact Store Resiliency
+            url: publisher-artifact-store-resiliency.md 
           - text: Workload Configuration Management
             url: configuration-guide.md
       - linkListType: reference
