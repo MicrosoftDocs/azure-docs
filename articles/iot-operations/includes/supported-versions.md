@@ -3,7 +3,7 @@ title: Include file
 description: Include file with details of currently supported versions
 author: dominicbetts
 ms.topic: include
-ms.date: 08/12/2025
+ms.date: 09/29/2025
 ms.author: dobett
 ---
 
@@ -25,7 +25,7 @@ Currently, there's only one supported preview version. [Azure support](https://a
 
 | Version         | Patch release (YYMM) | CLI version         | Release notes |
 |-----------------|---------------|---------------------|---------------|
-| 1.2.x-preview   | 1.2.36 (2507) | [2.0.0b2 (preview)](https://github.com/Azure/azure-iot-ops-cli-extension/releases/tag/v2.0.0b2)   | [Release notes](https://github.com/Azure/azure-iot-operations/releases/tag/v1.2.36) |
+| 1.2.x-preview   | 1.2.72 (2509) | [2.0.0b3 (preview)](https://github.com/Azure/azure-iot-ops-cli-extension/releases/tag/v2.0.0b3)   | [Release notes](https://github.com/Azure/azure-iot-operations/releases/tag/v1.2.72) |
 
 > [!WARNING]
 > Don't use preview versions in production environments.
