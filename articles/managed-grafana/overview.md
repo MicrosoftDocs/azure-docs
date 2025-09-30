@@ -41,7 +41,7 @@ You can create dashboards instantaneously by importing existing charts directly 
 Azure Managed Grafana is available in the service tiers presented below.
 
 > [!IMPORTANT] 
-> The Essential (preview) service tier for Azure Managed Grafana is being replaced by the Standard service tier and Azure Monitor dashboards with Grafana. Use the Standard tier for all new workspaces and upgrade any existing Essential workspaces to Standard or migrate to Azure Monitor dashboards with Grafana. For details, see [Migrate from Essential (preview) service tier](how-to-migrate-essential-service-tier.md).
+> The Essential (preview) service tier for Azure Managed Grafana is being replaced with the Standard service tier and Azure Monitor dashboards with Grafana. Use the Standard tier for all new workspaces and upgrade any existing Essential workspaces to Standard or migrate to Azure Monitor dashboards with Grafana. For details, see [Migrate from Essential (preview) service tier](how-to-migrate-essential-service-tier.md).
 
 | Tier      | Description                                                                                                                                                                               |
 |-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
