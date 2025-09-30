@@ -163,6 +163,8 @@ You can manually update the refresh token in Azure Key Vault based on the QuickB
 
 ## Dataset properties
 
+For a full list of available sections and properties for defining datasets, see [Datasets in Azure Data Factory and Azure Synapse Analytics](concepts-datasets-linked-services.md).
+
 To copy data from QuickBooks Online, set the `type` property of the dataset to `QuickBooksObject`. The QuickBooks dataset supports the following properties:
 
 | Property | Description | Required |
@@ -187,9 +189,11 @@ Here's an example:
 }
 ```
 
-For a full list of available sections and properties for defining datasets, see [Datasets in Azure Data Factory and Azure Synapse Analytics](concepts-datasets-linked-services.md).
-
 ## Copy activity properties
+
+For a full list of sections and properties available for defining activities, see [Pipelines and activities in Azure Data Factory and Azure Synapse Analytics](concepts-pipelines-activities.md). This section provides a list of properties that the QuickBooks source supports.
+
+### QuickBooks as source
 
 To copy data from QuickBooks Online, set the source type in the copy activity to `QuickBooksSource`. The QuickBooks dataset supports the following properties in the copy activity's `source` section:
 
@@ -238,7 +242,7 @@ The copy activity in the service can't copy data directly from QuickBooks Deskto
 
 ## Data type mapping for Quickbooks
 
-When you copy data from QuickBooks, the following mappings apply from the QuickBooks data types to the internal data types that the service uses.
+When you copy data from QuickBooks, the following mappings apply from the QuickBooks data types to the internal data types that the service uses. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mapping in copy activity](copy-activity-schema-and-type-mapping.md).
 
 | QuickBooks data type | Interim service data type (for version 2.0) | Interim service data type (for version 1.0) |
 |:--- |:--- |:--- |
@@ -250,8 +254,6 @@ When you copy data from QuickBooks, the following mappings apply from the QuickB
 | `Date` | `datetime` | `datetime` |
 | `BigDecimal` | `decimal (15,2)` | `decimal (15, 2)` |
 | `Integer` | `int` | `int` |
-
-To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mapping in copy activity](copy-activity-schema-and-type-mapping.md).
 
 ## Lookup activity properties
 
@@ -268,7 +270,7 @@ The following table summarizes information about the versions of the QuickBooks 
 
 ### Upgrade the Quickbooks connector from version 1.0 to version 2.0
 
-1. In the [Azure portal](https://ms.portal.azure.com/), go to your Azure Data Factory or Azure Synapse workspace.
+1. In the Azure portal, go to your Azure Data Factory or Azure Synapse workspace.
 
 1. Go to the **Manage** tab, select **Linked services**, and then select **Edit** for the linked service.
 
