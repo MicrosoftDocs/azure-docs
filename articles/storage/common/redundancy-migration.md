@@ -45,6 +45,8 @@ There are three ways to change the replication settings:
 
 Geo-redundancy and read-access can be changed at the same time. However, any change that also involves zone-redundancy requires a conversion and must be performed separately using a two-step process. These two steps can be performed in any order.
 
+For answers to common questions about changing replication types, see the [Storage redundancy change FAQ](storage-redundancy-change-faq.md) article.
+
 ### Changing redundancy configuration
 
 The following table provides an overview of how to switch between replication types.
@@ -339,11 +341,10 @@ Limitations apply to some replication change scenarios depending on:
 Make sure the region where your storage account is located supports all of the desired replication settings. For example, if you're converting your account to zone-redundant (ZRS, GZRS, or RA-GZRS), make sure your storage account is in a region that supports it. See the lists of supported regions for [Zone-redundant storage](storage-redundancy.md#zone-redundant-storage) and [Geo-zone-redundant storage](storage-redundancy.md#geo-zone-redundant-storage).
 
 > [!IMPORTANT]
-> [Customer-initiated conversion](#customer-initiated-conversion) is available in all public regions that support ZRS with the following exceptions:
->
+> [Customer-initiated conversion](#customer-initiated-conversion) is available in all public regions that support ZRS with the following exceptions:> - (Asia Pacific) Indonesia Central
+> - (Europe) Spain Central
 > - (North America) Mexico Central
->
-> [Customer-initiated conversion](#customer-initiated-conversion) from existing ZRS accounts to LRS is available in all public regions.
+> - (South America) Chile Central
 
 ### Feature conflicts
 
@@ -351,7 +352,7 @@ Some storage account features aren't compatible with other features or operation
 
 Boot diagnostics doesn't support premium storage accounts or zone-redundant storage accounts. When either premium or zone-redundant storage accounts are used for boot diagnostics, users receive a `StorageAccountTypeNotSupported` error upon starting their virtual machine (VM). 
 
-Any conversion attempts to add zonal redundancy, such as LRS to ZRS or GRS to GZRS, will fail. To convert your account to a zone-redundant SKU, disable boot diagnostics on your account and resubmit the request. To learn more about boot diagnostics, review the [Azure boot diagnostics](/azure/virtual-machines/boot-diagnostics#enable-managed-boot-diagnostics) article.
+Any conversion attempts to add zonal redundancy, such as LRS to ZRS or GRS to GZRS, fail. To convert your account to a zone-redundant SKU, disable boot diagnostics on your account and resubmit the request. To learn more about boot diagnostics, review the [Azure boot diagnostics](/azure/virtual-machines/boot-diagnostics#enable-managed-boot-diagnostics) article.
 
 ### Storage account type
 
@@ -372,15 +373,12 @@ The following table provides an overview of redundancy options available for sto
 | ZRS Classic<sup>4</sup><br /><sub>(available in standard general purpose v1 accounts)</sub> | &#x2705; |  |  |  |                           |
 
 
-<sup>1</sup> Customer-initiated conversion for premium file shares can be undertaken using the [Azure Portal](../common/redundancy-migration.md?tabs=portal#customer-initiated-conversion), [PowerShell](redundancy-migration.md?tabs=powershell#customer-initiated-conversion), or the [Azure CLI](redundancy-migration.md?tabs=azure-cli#customer-initiated-conversion). You can also [open a support request](#support-initiated-conversion).<br />
+<sup>1</sup> Customer-initiated conversion for premium file shares can be undertaken using the [Azure portal](../common/redundancy-migration.md?tabs=portal#customer-initiated-conversion), [PowerShell](redundancy-migration.md?tabs=powershell#customer-initiated-conversion), or the [Azure CLI](redundancy-migration.md?tabs=azure-cli#customer-initiated-conversion). You can also [open a support request](#support-initiated-conversion).<br />
 <sup>2</sup> Managed disks are available for LRS and ZRS, though ZRS disks have some [limitations](/azure/virtual-machines/disks-redundancy#limitations). If an LRS disk is regional (no zone specified), it can be converted by [changing the SKU](/azure/virtual-machines/disks-convert-types). If an LRS disk is zonal, then it can only be manually migrated by following the process in [Migrate your managed disks](../../reliability/migrate-vm.md#migrate-your-managed-disks). You can store snapshots and images for standard SSD managed disks on standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/). For information about integration with availability sets, see [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview#integration-with-availability-sets).<br />
 <sup>3</sup> If your storage account is v1, you need to upgrade it to v2 before performing a conversion. To learn how to upgrade your v1 account, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md).<br />
 <sup>4</sup> ZRS Classic storage accounts are deprecated. For information about converting ZRS Classic accounts, see [Converting ZRS Classic accounts](#converting-zrs-classic-accounts).<br />
 
 #### Converting ZRS Classic accounts
-
-> [!IMPORTANT]
-> ZRS Classic accounts were deprecated on March 31, 2021. Customers can no longer create ZRS Classic accounts. If you still have some, you should upgrade them to general purpose v2 accounts.
 
 ZRS Classic was available only for **block blobs** in general-purpose V1 (GPv1) storage accounts. For more information about storage accounts, see [Azure storage account overview](storage-account-overview.md).
 
@@ -432,7 +430,7 @@ An LRS storage account containing blobs in the archive tier can be switched to G
 
 ### Protocol support
 
-Customer and support initiated conversions are not supported if either of the following cases are true:
+Customer and support initiated conversions aren't supported if either of the following cases are true:
 
 - NFSv3 protocol support is enabled for Azure Blob Storage
 - The storage account contains Azure Files NFSv4.1 shares with public endpoint access enabled
@@ -489,6 +487,7 @@ If you remove geo-redundancy (change from GRS to LRS), there's no cost for makin
 ## See also
 
 - [Azure Storage redundancy](storage-redundancy.md)
+- [Storage redundancy change FAQ](storage-redundancy-change-faq.md)
 - [Use geo-redundancy to design highly available applications](geo-redundant-design.md)
 - [Move an Azure Storage account to another region](storage-account-move.md)
 - [Check the Last Sync Time property for a storage account](last-sync-time-get.md)

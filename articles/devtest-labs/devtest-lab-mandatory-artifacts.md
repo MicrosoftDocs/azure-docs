@@ -6,7 +6,9 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/10/2024
-ms.custom: UpdateFrequency2
+ms.custom:
+  - UpdateFrequency2
+  - sfi-image-nochange
 
 #customer intent: As a developer, I want to specify mandatory artifacts in Azure DevTest Labs so that I can create new virtual machines that automatically have the mandatory artifacts installed.
 ---

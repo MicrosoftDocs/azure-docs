@@ -6,7 +6,10 @@ ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: tutorial
 ms.date: 07/11/2025
-ms.custom: FY23 content-maintenance, engagement-FY24
+ms.custom:
+  - FY23 content-maintenance
+  - engagement-FY24
+  - sfi-image-nochange
 ---
 
 # Tutorial: Create a secured hub-and-spoke network

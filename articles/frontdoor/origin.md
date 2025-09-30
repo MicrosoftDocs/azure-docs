@@ -1,12 +1,12 @@
 ---
 title: Origins and origin groups
 titleSuffix: Azure Front Door
-description: This article explains the concept of what an origin and origin group is in a Front Door configuration.
+description: Learn about origins and origin groups in an Azure Front Door configuration.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 08/12/2024
+ms.date: 09/25/2025
 zone_pivot_groups: front-door-tiers
 ---
 
@@ -18,7 +18,6 @@ zone_pivot_groups: front-door-tiers
 
 > [!NOTE]
 > *Origin* and *origin group* in this article refers to the backend and backend pool of the Azure Front Door (classic) configuration.
->
 
 ::: zone-end
 
@@ -31,7 +30,7 @@ An origin refers to the application deployment that Azure Front Door retrieves c
 * **Origin type:** The type of resource you want to add. Front Door supports autodiscovery of your application backends from App Service, Cloud Service, or Storage. If you want a different resource in Azure or even a non-Azure backend, select **Custom host**.
 
     >[!IMPORTANT]
-    >During configuration, APIs doesn't validate if the origin is not accessible from the Front Door environment. Make sure that Front Door can reach your origin.
+    >During configuration, APIs doesn't validate if the origin isn't accessible from the Front Door environment. Make sure that Front Door can reach your origin.
 
 * **Subscription and origin host name:** If you didn't select **Custom host** for your backend host type, select your backend by choosing the appropriate subscription and the corresponding backend host name.
 
@@ -71,7 +70,7 @@ To configure the **origin host header** field for an origin in the origin gr
 
 1. Open your Front Door resource and select the origin group with the origin to configure. 
 
-1. Add an origin if you haven't done so, or edit an existing one. 
+1. Add an origin or edit an existing one. 
 
 1. Set the origin host header field to a custom value or leave it blank. The hostname for the incoming request gets used as the host header value. 
 
@@ -96,8 +95,8 @@ Azure Front Door sends periodic HTTP/HTTPS probe requests to each of your config
 
 * **Interval (seconds)**: Defines the frequency of health probes to your origins, or the intervals in which each of the Front Door environments sends a probe.
 
-    >[!NOTE]
-    >For faster failovers, set the interval to a lower value. The lower the value, the higher the health probe volume your backends receive. For example, if the interval is set to 30 seconds with say, 100 Front Door POPs globally, each backend will receive about 200 probe requests per minute.
+    > [!NOTE]
+    > For faster failovers, set the interval to a lower value. The lower the value, the higher the health probe volume your backends receive. For example, if the interval is set to 30 seconds with 100 Front Door POPs globally, each backend will receive about 200 probe requests per minute.
 
 For more information, see [Health probes](health-probes.md).
 
@@ -113,7 +112,7 @@ Load-balancing settings for the origin group define how we evaluate health probe
 
 For more information, see [Least latency based routing method](routing-methods.md#latency).
 
-## Next steps
+## Related content
 
 ::: zone pivot="front-door-standard-premium"
 

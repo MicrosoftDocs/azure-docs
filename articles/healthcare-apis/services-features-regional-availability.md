@@ -18,10 +18,6 @@ For information about general Microsoft product availability, refer to [Products
 > [!IMPORTANT]
 > Azure API for FHIR will be retired on 30 September 2026. Migrate to Azure Health Data Services FHIR service before that date. Due to this retirement, new Azure API for FHIR deployments will be blocked starting from 1 April 2025.
 
-> [!NOTE]
-> Azure Health Data Services will be retired in the Qatar Central region on 31 October 2025.
-> Please transition your workloads to another Azure Health Data Services region before 31 October 2025.
-
 <br> **Key**:
 
 - &check; - General Availability
@@ -70,10 +66,6 @@ For information about general Microsoft product availability, refer to [Products
 | West Europe | &check; | &check; |   |   |   |   |
 
 ### Qatar
-
-> [!NOTE]
-> Azure Health Data Services will be retired in the Qatar Central region on 31 October 2025.
-> Please transition your workloads to another Azure Health Data Services region before 31 October 2025.
 
 | Region | FHIR service | Azure API for FHIR | DICOM service | MedTech service | De-Identification service | Events |
 |--------|--------------|---------------|---------------|-----------------|---------------------------|--------|

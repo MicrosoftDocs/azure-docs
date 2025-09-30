@@ -7,7 +7,10 @@ ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 02/09/2023
-ms.custom: [amqp, mqtt]
+ms.custom:
+  - amqp
+  - mqtt
+  - sfi-image-nochange
 ---
 
 # Azure IoT Hub billing information

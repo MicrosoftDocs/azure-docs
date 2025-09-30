@@ -7,7 +7,9 @@ ms.author: baanders
 ms.date: 06/19/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Create endpoints in Azure Digital Twins

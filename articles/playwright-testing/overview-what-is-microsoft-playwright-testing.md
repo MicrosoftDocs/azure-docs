@@ -8,8 +8,7 @@ ms.custom: playwright-testing-preview
 
 # What is Microsoft Playwright Testing Preview?
 
-> [!NOTE]
-> Playwright Testing is now part of [Azure App Testing](https://aka.ms/AzureAppTesting), a unified service for functional and performance tests. Learn more about how to [get started](https://aka.ms/AzureAppTesting/announcement).
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 Microsoft Playwright Testing Preview is a fully managed service for end-to-end testing built on top of Playwright. With Playwright, you can automate end-to-end tests to ensure your web applications work the way you expect it to, across different web browsers and operating systems. The service abstracts the complexity and infrastructure for running Playwright tests and managing results and artifacts. The service runs tests with high parallelization and stores test results and artifacts to help you ship features faster and troubleshoot easily. 
 

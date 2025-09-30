@@ -8,6 +8,7 @@ ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 05/21/2025
 ms.author: danlep
+ms.custom: sfi-image-nochange
 ---
 
 # Secure access to the API Management developer portal

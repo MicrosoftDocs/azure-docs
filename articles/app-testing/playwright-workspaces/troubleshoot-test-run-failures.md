@@ -1,21 +1,18 @@
 ---
 title: Troubleshoot test run issues
 titleSuffix: Playwright Workspaces
-description: Learn how to troubleshoot issues when running Playwright tests with Playwright Workspaces Preview.
+description: Learn how to troubleshoot issues when running Playwright tests with Playwright Workspaces.
 ms.topic: troubleshooting-general
 ms.date: 08/07/2025
 ms.service: azure-app-testing
 ms.subservice: playwright-workspaces
-author: ninallam
-ms.author: ninallam
+author: johnsta
+ms.author: johnsta
 ---
 
-# Troubleshoot issues with running tests with Playwright Workspaces preview
+# Troubleshoot issues with running tests with Playwright Workspaces
 
-This article addresses issues that might arise when you run Playwright tests at scale with Playwright Workspaces Preview.
-
-> [!IMPORTANT]
-> Playwright Workspaces is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+This article addresses issues that might arise when you run Playwright tests at scale with Playwright Workspaces.
 
 ## Tests are failing with a `401 Unauthorized` error
 

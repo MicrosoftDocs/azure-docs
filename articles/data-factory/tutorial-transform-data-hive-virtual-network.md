@@ -4,9 +4,12 @@ description: Use Azure PowerShell to create a Data Factory pipeline that transfo
 author: nabhishek
 ms.author: abnarain
 ms.topic: tutorial
-ms.custom: devx-track-azurepowershell
 ms.date: 10/03/2024
 ms.subservice: orchestration
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Transform data in Azure Virtual Network using Hive activity in Azure Data Factory

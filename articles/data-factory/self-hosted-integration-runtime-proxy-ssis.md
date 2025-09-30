@@ -6,6 +6,7 @@ ms.topic: conceptual
 author: chugugrace
 ms.author: chugu
 ms.date: 01/05/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Configure a self-hosted IR as a proxy for an Azure-SSIS IR

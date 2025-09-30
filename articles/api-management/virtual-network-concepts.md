@@ -9,6 +9,7 @@ ms.date: 10/16/2024
 ms.author: danlep
 ms.custom:
   - build-2025
+  - sfi-image-nochange
 ---
 # Use a virtual network to secure inbound or outbound traffic for Azure API Management
 

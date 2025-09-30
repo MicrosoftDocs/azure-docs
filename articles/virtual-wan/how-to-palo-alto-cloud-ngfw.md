@@ -9,7 +9,9 @@ ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 07/31/2023
 ms.author: wellee
-ms.custom : references_regions
+ms.custom: 
+    - sfi-image-nochange
+    - references_regions
 
 ---
 # Configure Palo Alto Networks Cloud NGFW in Virtual WAN 

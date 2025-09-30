@@ -7,7 +7,9 @@ ms.service: azure-application-gateway
 ms.date: 07/16/2025
 ms.author: mbender
 ms.topic: how-to 
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: As an IT administrator, I want to configure an application gateway with URL path-based redirection using PowerShell, so that I can efficiently route web traffic to specific server pools based on URL patterns and enhance the user experience.
 ---
 

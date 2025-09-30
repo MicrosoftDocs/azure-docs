@@ -20,8 +20,6 @@ This article highlights log sources to consider configuring as data lake tier on
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
-[!INCLUDE [sentinel-lake-preview](includes/sentinel-lake-preview.md)]
-
 ## Storage access logs for cloud providers
 
 Storage access logs can provide a secondary source of information for investigations that involve exposure of sensitive data to unauthorized parties. These logs can help you identify issues with system or user permissions granted to the data.
@@ -66,8 +64,8 @@ A new and growing source of log data is Internet of Things (IoT)-connected devic
 
 ## Next steps
 
-- [What is the Microsoft Sentinel data lake? (preview)](datalake/sentinel-lake-overview.md)
-- [Manage data tiers and retention in Microsoft Defender Portal (preview)](manage-data-overview.md)
-- [KQL and the Microsoft Sentinel data lake (preview)](datalake/kql-overview.md)
-- [Jupyter notebooks in the Microsoft Sentinel data lake (preview)](datalake/notebooks-overview.md)
+- [What is the Microsoft Sentinel data lake?](datalake/sentinel-lake-overview.md)
+- [Manage data tiers and retention in Microsoft Defender Portal](manage-data-overview.md)
+- [KQL and the Microsoft Sentinel data lake](datalake/kql-overview.md)
+- [Jupyter notebooks in the Microsoft Sentinel data lake](datalake/notebooks-overview.md)
 

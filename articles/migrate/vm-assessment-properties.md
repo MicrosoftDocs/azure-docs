@@ -4,6 +4,7 @@ description: Describes the components of an Azure VM assessment in Azure Migrate
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.topic: concept-article
 ms.date: 04/17/2025
 monikerRange: migrate

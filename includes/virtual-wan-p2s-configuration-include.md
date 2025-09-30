@@ -4,6 +4,7 @@ ms.author: cherylmc
 ms.date: 12/12/2024
 ms.service: azure-virtual-wan
 ms.topic: include
+ms.custom: sfi-image-nochange
 ---
 1. Navigate to the virtual WAN that you created. 
 

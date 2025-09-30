@@ -6,6 +6,7 @@ ms.date: 12/04/2024
 ms.topic: overview
 author: habibaum
 ms.author: v-uhabiba
+ms.custom: sfi-image-nochange
 # Customer intent: "As an IT administrator managing multiple servers, I want to use a centralized update management tool, so that I can efficiently assess, deploy, and monitor updates across my Azure and on-premises environments."
 ---
 
@@ -24,14 +25,14 @@ This article describes the various features that Azure Update Manager offers to 
 Instead of performing these actions from a selected Azure VM or Azure Arc-enabled server, you can manage all your machines in the Azure subscription.
 
 
-## View update Manager status 
+## View update Manager status
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. To view update assessment across all machines, including Azure Arc-enabled servers  navigate to **Azure Update Manager**.
 
    :::image type="content" source="./media/manage-multiple-machines/overview-page-inline.png" alt-text="Screenshot that shows the Update Manager Overview page in the Azure portal." lightbox="./media/manage-multiple-machines/overview-page-expanded.png":::
-   
+
      On the **Overview** page, the summary tiles show the following status:
 
    - **Filters**: Use filters to focus on a subset of your resources. The selectors above the tiles return **Subscription**, **Resource group**, **Resource type** (Azure VMs and Azure Arc-enabled servers), **Location**, and **OS** type (Windows or Linux) based on the Azure role-based access rights you've been granted. You can combine filters to scope to a specific resource.
@@ -45,7 +46,7 @@ Instead of performing these actions from a selected Azure VM or Azure Arc-enable
       - **Updates available**: Updates are pending for these machines and these machines aren't up to date.
       - **Reboot required**: Pending a reboot for the updates to take effect.
       - **No updates data**: No assessment data is available for these machines.
-   
+
       The following reasons could explain why there's no assessment data:
       - No assessment has been done over the last seven days.
       - The machine has an unsupported OS.
@@ -53,15 +54,15 @@ Instead of performing these actions from a selected Azure VM or Azure Arc-enable
 
    - **Patch orchestration configuration of Azure virtual machines**: All the Azure machines inventoried in the subscription are summarized by each update orchestration method. Values are:
 
-      - **Customer Managed Schedules**—enables schedule patching on your existing VMs. 
-      - **Azure Managed - Safe Deployment**—this mode enables automatic VM guest patching for the Azure virtual machine. Subsequent patch installation is orchestrated by Azure. 
+      - **Customer Managed Schedules**—enables schedule patching on your existing VMs.
+      - **Azure Managed - Safe Deployment**—this mode enables automatic VM guest patching for the Azure virtual machine. Subsequent patch installation is orchestrated by Azure.
       - **Image Default**—for Linux machines, it uses the default patching configuration.
       - **OS orchestrated**—the OS automatically updates the machine.
-      - **Manual updates**—you control the application of patches to a machine by applying patches manually inside the machine. In this mode, automatic updates are disabled for Windows OS. 
-   
-    
- 
-   For more information about each orchestration method see, [automatic VM guest patching for Azure VMs](/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes). 
+      - **Manual updates**—you control the application of patches to a machine by applying patches manually inside the machine. In this mode, automatic updates are disabled for Windows OS.
+
+
+
+   For more information about each orchestration method see, [automatic VM guest patching for Azure VMs](/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 
    For more information about each orchestration method, see [Automatic VM guest patching for Azure VMs](/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 
@@ -93,7 +94,7 @@ Update Manager in Azure enables you to browse information about your Azure VMs a
    * **Automatic by OS**—the machine is automatically updated by the OS.
    * **Image Default**—for Linux machines, its default patching configuration is used.
    * **Manual**—you control the application of patches to a machine by applying patches manually inside the machine. In this mode automatic updates are disabled for Windows OS.
-   
+
 
 The **Patch orchestration** column in the machine's patch mode has the following values:
 

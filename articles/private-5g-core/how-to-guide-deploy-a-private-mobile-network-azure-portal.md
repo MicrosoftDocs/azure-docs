@@ -7,7 +7,9 @@ ms.author: alzam
 ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 01/03/2022
-ms.custom: template-how-to
+ms.custom:
+  - template-how-to
+  - sfi-image-nochange
 ---
 
 # Deploy a private mobile network through Azure Private 5G Core - Azure portal

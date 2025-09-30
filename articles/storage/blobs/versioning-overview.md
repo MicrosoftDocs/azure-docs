@@ -218,6 +218,8 @@ If you've changed a blob or version's tier, then you're billed for the entire ob
 
 > [!NOTE]
 > Enabling versioning for data that is frequently overwritten may result in increased storage capacity charges and increased latency during listing operations. To mitigate these concerns, store frequently overwritten data in a separate storage account with versioning disabled.
+> 
+> Enabling versions on storage accounts that are backed up frequently might trigger data retrieval charges when the versions are stored on cool or cold access tiers.
 
 For more information about billing details for blob snapshots, see [Blob snapshots](snapshots-overview.md).
 

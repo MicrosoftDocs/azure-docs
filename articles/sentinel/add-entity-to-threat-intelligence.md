@@ -9,6 +9,7 @@ ms.date: 3/14/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+ms.custom: sfi-image-nochange
 
 #Customer intent: As a security engineer, I want to add entities to threat intelligence during incident investigations so that my team can track and manage indicators of compromise effectively.
 ---

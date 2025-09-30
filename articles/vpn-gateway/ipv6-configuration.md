@@ -22,7 +22,7 @@ This article helps you configure IPv6 in dual stack for VPN Gateway using the Az
 
 ## Prerequisites
 
-During Preview, you can opt in to configure IPv6 in dual stack. To opt in, send your subscription ID to **vpnipv6preview@microsoft.com** and request your subscription to be enabled for IPv6.
+During Preview, you can opt in to configure IPv6 in dual stack. To opt in, send your subscription ID to **vpngwipv6preview@microsoft.com** and request your subscription to be enabled for IPv6.
 
 ## Configure using the Azure portal
 
@@ -30,11 +30,11 @@ When you deploy VPN Gateway with IPv6 in dual stack mode, you can use the same s
 
 1. Create a virtual network with IPv4 and IPv6 address ranges.
 
-   :::image type="content" source="./media/ipv6-configuration/vnet-ipv6.png" alt-text="Diagram shows IPv6 configuration for Virtual Network." lightbox="./media/ipv6-configuration/vnet-ipv6.png":::
+   :::image type="content" source="./media/ipv6-configuration/vnet-ipv6.png" alt-text="Screenshot shows IPv6 configuration for Virtual Network, highlighting Address Space." lightbox="./media/ipv6-configuration/vnet-ipv6.png":::
 
 1. Create the gateway subnet with IPv4 and IPv6 address ranges.
 
-   :::image type="content" source="./media/ipv6-configuration/gateway-subnet-ipv6.png" alt-text="Diagram shows IPv6 configuration for Virtual Network." lightbox="./media/ipv6-configuration/gateway-subnet-ipv6.png":::
+   :::image type="content" source="./media/ipv6-configuration/gateway-subnet-ipv6.png" alt-text="Screenshot shows IPv6 configuration for Virtual Network, highlighting Subnets." lightbox="./media/ipv6-configuration/gateway-subnet-ipv6.png":::
 
 1. Create the virtual network gateway and local network gateway using IPv4 and IPv6 configuration settings.
 

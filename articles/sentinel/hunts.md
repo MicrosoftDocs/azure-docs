@@ -10,6 +10,7 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a security analyst, I want to conduct end-to-end threat hunting so that I can identify and mitigate undetected threats and malicious behaviors in my environment while managing all components of the hunting process.

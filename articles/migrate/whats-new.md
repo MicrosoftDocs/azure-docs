@@ -6,6 +6,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 02/24/2025
 ms.custom: mvc, engagement-fy25
 # Customer intent: As a cloud architect, I want to stay updated on the latest features and enhancements in Azure Migrate, so that I can optimize on-premises migration strategies and ensure successful transitions to the Azure platform.
@@ -15,7 +16,25 @@ ms.custom: mvc, engagement-fy25
 
 [Azure Migrate](migrate-services-overview.md) helps you discover, assess, and migrate on-premises servers, apps, and data to the Azure cloud platform. This article summarizes new releases and features in Azure Migrate.
 
-## Update (August 2025)
+## Update (September 2025)
+
+Public preview: Azure Migrate now supports discovery and assessment of PostgreSQL instances. 
+You can use this capability to:
+
+- Discover PostgreSQL instances and their attributes within your environment. 
+- Assess the readiness of these instances for migration to Azure Database for PostgreSQL flexible server.
+- Obtain recommendations on suitable compute and storage options, along with the associated costs.
+- Analyze configuration compatibility including server parameters, extensions, and authentication methods.
+- Review migration blockers and receive remediation guidance for seamless migration.
+
+  Key features include:
+
+    - **Configuration-based assessment**: Analyzes PostgreSQL configuration metadata to provide migration recommendations
+    - **Comprehensive discovery**: Identifies PostgreSQL instances across VMware, Hyper-V, physical servers, and other cloud environments
+    - **Cost estimation**: Provides detailed monthly cost breakdowns for compute and storage in Azure
+    - **Migration readiness**: Categorizes instances as Ready, Ready with conditions, Not ready, or Unknown with detailed remediation steps. 
+[Learn more](tutorial-assess-postgresql.md).
+
 
 - General availability: Azure Migrate enhances resiliency by supporting migration to [ZRS Disks](/azure/virtual-machines/disks-deploy-zrs?tabs=portal) during Migration. **Zone-Redundant Storage (ZRS)** for Azure Disks synchronously replicates data across three physically separate availability zones within a region – each with independent power, cooling, and networking – enhancing Disk availability and resiliency.
 
@@ -33,7 +52,7 @@ ms.custom: mvc, engagement-fy25
 ## Update (May 2025)
 
 - General availability: Azure Migrate enhances support for [Premium v2 SSD Disks](/azure/virtual-machines/disks-deploy-premium-v2?tabs=azure-cli). This offers a seamless experience to migrate their on-premises workloads to Azure and benefit from the advanced disk options that offer greater flexibility and enhanced performance of Pv2 disks in Azure. 
-- Public preview: Azure Migrate expands support for migrations with [Ultra SSD](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal).This enables customers to seamlessly migrate their on-premises workloads to Azure while taking advantage of Ultra Disk’s cutting-edge performance and scalability.
+- Public preview: Azure Migrate expands support for migrations with [Ultra SSD](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal). This enables customers to seamlessly migrate their on-premises workloads to Azure while taking advantage of Ultra Disk’s cutting-edge performance and scalability.
 - Public preview: Azure Migrate enhances resiliency by supporting migration to [ZRS Disks](/azure/virtual-machines/disks-deploy-zrs?tabs=portal) during Migration only. **Zone-Redundant Storage (ZRS)** for Azure Disks synchronously replicates data across three physically separate availability zones within a region – each with independent power, cooling, and networking – enhancing Disk availability and resiliency.
 
 - General availability: Azure Migrate now supports a simplified experience through its upgraded version of the agent-based migration stack. This stack offers a streamlined experience for customers and is set to replace the classic experience over the next three years. [Learn more](simplified-experience-for-azure-migrate.md).
@@ -119,7 +138,7 @@ The RVTools XLSX (preview) file import now reads storage data, when available, f
 ## Update (June 2023)
 
 - Envision security cost savings with [Microsoft Defender for Cloud](https://www.microsoft.com/security/business/cloud-security/microsoft-defender-cloud) by using an Azure Migrate business case.
-- Resolve problems that affect the collection of performance data and the accuracy of Azure VM and Azure VMware Solution assessment recommendations, and improve the confidence ratings of assessments. [Learn more](common-questions-discovery-assessment.md).
+- Resolve problems that affect the collection of performance data and the accuracy of Azure VM and Azure VMware Solution assessment recommendations and improve the confidence ratings of assessments. [Learn more](common-questions-discovery-assessment.md).
 
 ## Update (May 2023)
 

@@ -5,6 +5,7 @@ description: A tutorial explaining how Azure SignalR and OpenAI Completion API a
 ms.author: kevinguo
 ms.topic: tutorial
 ms.date: 09/09/2024
+ms.service: azure-signalr-service
 uid: tutorials/ai-powered-group-chat
 ---
 

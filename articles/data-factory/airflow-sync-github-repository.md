@@ -6,6 +6,7 @@ ms.author: abnarain
 ms.reviewer: whhender
 ms.topic: how-to
 ms.date: 02/13/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Sync a GitHub repository in Workflow Orchestration Manager

@@ -5,16 +5,14 @@ description: This article describes available PSTN connectivity options and cost
 author: henikaraa
 ms.service: azure-communication-services
 ms.subservice: pstn
-ms.date: 05/20/2025
+ms.date: 09/01/2025
 ms.topic: conceptual
 ms.author: henikaraa
-ms.custom: public_preview
+ms.custom: general_Availability
 services: azure-communication-services
 ---
 
 # Cost and connectivity options for Teams Phone extensibility
-
-[!INCLUDE [public-preview-notice.md](../../../includes/public-preview-include-document.md)]
 
 Effective communication is essential for success in today's fast-paced business environment. Choosing the right public switched telephone network (PSTN) connectivity option for your organization's communication needs can significantly improve efficiency, reduce cost, and raise overall performance.
 
@@ -62,11 +60,13 @@ Choosing the best PSTN connectivity solution for Teams Phone extensibility depen
 
 ## Estimate Teams Phone extensibility cost
 
-The Teams Phone Extensibility business model for independent software vendors (ISVs) includes charging contact center as a service (CCaaS) vendors for using Azure Communication Services SDKs. This model includes Calling SDK and VoIP consumption, which require charges for each leg between the call automation bot and the CCaaS agent.
+- The Teams Phone Extensibility business model for independent software vendors (ISVs) includes charging contact center as a service (CCaaS) vendors for using Azure Communication Services SDKs. This model includes Calling SDK and VoIP consumption, which require charges for each leg between the call automation bot and the CCaaS agent.
 
-This solution also includes Audio Insights with access to mixed/unmixed audio streams or direct transcriptions. Using transcription incurs an [Azure AI Speech pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) for the selected Azure resource and Call Recording with pay-as-you-go for mixed/unmixed AV recordings. You can review current pricing for VoIP, transcription, and recording at [Azure Communication Services pricing](https://azure.microsoft.com/pricing/details/communication-services/).
+- This solution also includes Audio Insights with access to mixed/unmixed audio streams or direct transcriptions. Using transcription incurs an [Azure AI Speech pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) for the selected Azure resource and Call Recording with pay-as-you-go for mixed/unmixed AV recordings. You can review current pricing for VoIP, transcription, and recording at [Azure Communication Services pricing](https://azure.microsoft.com/pricing/details/communication-services/).
 
-End users can take advantage of their Teams Calling plans or any of the connectivity options for PSTN usage with inbound / outbound and any associated extra usage. Users must enable the required Teams licenses including Teams Phone License for any agent involved in the call including SMEs, and Resource Account license for the provisioned Teams resource account. For more information, see [Microsoft Teams Phone - Cloud Phone System](https://www.microsoft.com/microsoft-teams/microsoft-teams-phone).
+- End users can take advantage of their Teams Calling plans or any of the connectivity options for PSTN usage with inbound / outbound and any associated extra usage. Users must enable the required Teams licenses including Teams Phone License for any agent involved in the call including SMEs, and Resource Account license for the provisioned Teams resource account. For more information, see [Microsoft Teams Phone - Cloud Phone System](https://www.microsoft.com/microsoft-teams/microsoft-teams-phone).
+
+- **As of November 1st 2025**, Calling Plan licenses on resource accounts will no longer be supported for On-Behalf-Of PSTN outbound calls. A Pay-As-You-Go license will be required. For more information, see [Plan for Teams Auto attendants and Call queues](/microsoftteams/plan-auto-attendant-call-queue).
 
 ## Related articles
 

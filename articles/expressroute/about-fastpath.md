@@ -85,9 +85,11 @@ ExpressRoute FastPath support for Private Link and Private endpoint connectivity
 The supported Azure regions are:
 
 - Australia East
+- Central Korea
 - East Asia
 - East US
 - East US 2
+- East Japan
 - North Central US
 - North Europe
 - South Central US

@@ -7,6 +7,7 @@ ms.service: azure-synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 06/23/2022
+ms.custom: sfi-image-nochange
 ---
 
 # Apache Spark Advisor in Azure Synapse Analytics (Preview)

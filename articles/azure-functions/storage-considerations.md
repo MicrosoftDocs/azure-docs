@@ -2,22 +2,25 @@
 title: Storage considerations for Azure Functions
 description: Learn about the storage requirements of Azure Functions and about encrypting stored data, including important considerations for your function app instances.
 ms.topic: conceptual
+ms.date: 07/13/2025
 ms.custom:
   - ignite-2024
-ms.date: 07/13/2025
+  - sfi-ropc-nochange
 #customer intent: As a function app developer, I want to know the storage options for my apps, including guidance and best practices.
 ---
 
 # Storage considerations for Azure Functions
 
-Azure Functions requires an Azure Storage account when you create a function app instance. Your function app could use the following storage services:
+When you create a function app instance in Azure, you must provide access to a default Azure Storage account. This diagram and the subsequent table details how Azure Functions uses services in the default storage account:
+
+:::image type="content" source="media/storage-considerations/functions-storage-services.png" alt-text="Diagram showing how Azure Functions uses different storage services within an Azure Storage account, including Blob storage, Files share, Queue storage, and Table storage.":::
 
 |Storage service  | Functions usage  |
 |---------|---------|
 | [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md)     | Maintain bindings state and function keys<sup>1</sup>.<br/>Deployment source for apps that run in a [Flex Consumption plan](flex-consumption-plan.md).<br/>Used by default for [task hubs in Durable Functions](durable/durable-functions-task-hubs.md). <br/>Can be used to store function app code for [Linux Consumption remote build](functions-deployment-technologies.md#remote-build) or as part of [external package URL deployments](functions-deployment-technologies.md#external-package-url). |
-| [Azure Files](../storage/files/storage-files-introduction.md)<sup>2</sup>  | File share used to store and run your function app code in a [Consumption Plan](consumption-plan.md) and [Premium Plan](functions-premium-plan.md). <br/> |
+| [Azure Files](../storage/files/storage-files-introduction.md)<sup>2</sup>  | File share used to store and run your function app code in a [Consumption Plan](consumption-plan.md) and [Premium Plan](functions-premium-plan.md). <br/> Maintain [extension bundles](./extension-bundles.md).<br/>Store deployment logs.<br/>Supports [Managed dependencies in PowerShell](./functions-reference-powershell.md#managed-dependencies-feature). |
 | [Azure Queue storage](../storage/queues/storage-queues-introduction.md)     | Used by default for [task hubs in Durable Functions](durable/durable-functions-task-hubs.md). Used for failure and retry handling in [specific Azure Functions triggers](./functions-bindings-storage-blob-trigger.md). Used for object tracking by the [Blob storage trigger](functions-bindings-storage-blob-trigger.md). |
-| [Azure Table storage](../storage/tables/table-storage-overview.md)  |  Used by default for [task hubs in Durable Functions](durable/durable-functions-task-hubs.md).       |
+| [Azure Table storage](../storage/tables/table-storage-overview.md)  |  Used by default for [task hubs in Durable Functions](durable/durable-functions-task-hubs.md).<br/>Used for tracking [diagnostic events](./functions-diagnostics.md).  |
 
 1. Blob storage is the default store for function keys, but you can [configure an alternate store](function-keys-how-to.md#manage-key-storage).
 2. Azure Files is set up by default, but you can [create an app without Azure Files](#create-an-app-without-azure-files) under certain conditions.
@@ -46,7 +49,7 @@ Storage accounts created as part of the function app create flow in the Azure po
 
 - When you create your function app on a plan with [availability zone support](../reliability/reliability-functions.md#availability-zone-support) enabled, only [zone-redundant storage accounts](../storage/common/storage-redundancy.md#zone-redundant-storage) are supported.
 
-When you use deployment automation to create your function app with a network-secured storage account, you must include specific networking configurations in your ARM template or Bicep file. When you don't include these settings and resources, your automated deployment might fail in validation. For ARM and Bicep guidance, see [Secured deployments](functions-infrastructure-as-code.md#secured-deployments). For an overview on configuring storage accounts with networking, see [How to use a secured storage account with Azure Functions](configure-networking-how-to.md).
+When you use deployment automation to create your function app with a network-secured storage account, you must include specific networking configurations in your ARM template or Bicep file. When you don't include these settings and resources, your automated deployment might fail in validation. For ARM template and Bicep guidance, see [Secured deployments](functions-infrastructure-as-code.md#secured-deployments). For an overview on configuring storage accounts with networking, see [How to use a secured storage account with Azure Functions](configure-networking-how-to.md).
 
 ## Storage account guidance
 
@@ -99,9 +102,13 @@ A key scenario for Functions is file processing of files in a blob container, su
 
 ### Trigger on a blob container
 
-There are several ways to run your function code based on changes to blobs in a storage container. Use the following table to determine which function trigger best fits your needs:
+There are several ways to run your function code based on changes to blobs in a storage container, as indicated by this diagram: 
 
-| Strategy | Container (polling) | Container (events) | Queue trigger | Event Grid | 
+:::image type="content" source="media/storage-considerations/functions-blob-storage-trigger-options.png" alt-text="Diagram that shows the various options for triggering a function when items are added or updated in a Blob Storage container in Azure.":::
+
+Use the following table to determine which function trigger best fits your needs for processing added or updated blobs in a container:
+
+| Strategy | Blob trigger (polling) | Blob trigger (event-driven) | Queue trigger | Event Grid trigger | 
 | ----- | ----- | ----- | ----- | ---- |
 | Latency | High (up to 10 min) | Low | Medium  | Low | 
 | [Storage account](../storage/common/storage-account-overview.md#types-of-storage-accounts) limitations | Blob-only accounts not supported¹  | general purpose v1 not supported  | none | general purpose v1 not supported |
@@ -112,10 +119,12 @@ There are several ways to run your function code based on changes to blobs in a 
 | Requires [event subscription](../event-grid/concepts.md#event-subscriptions) | No | Yes | No | Yes |
 | Supports [Flex Consumption plan](flex-consumption-plan.md) | No | Yes | Yes | Yes |
 | Supports high-scale² | No | Yes | Yes | Yes |
+| Works with [inbound access restrictions](./functions-networking-options.md#inbound-access-restrictions) | Yes | No | Yes | Yes<sup>3</sup> | 
 | Description | Default trigger behavior, which relies on polling the container for updates. For more information, see the examples in the [Blob storage trigger reference](./functions-bindings-storage-blob-trigger.md#example). | Consumes blob storage events from an event subscription. Requires a `Source` parameter value of `EventGrid`. For more information, see [Tutorial: Trigger Azure Functions on blob containers using an event subscription](./functions-event-grid-blob-trigger.md). | Blob name string is manually added to a storage queue when a blob is added to the container. A Queue storage trigger passes this value directly to a Blob storage input binding on the same function. | Provides the flexibility of triggering on events besides those events that come from a storage container. Use when need to also have nonstorage events trigger your function. For more information, see [How to work with Event Grid triggers and bindings in Azure Functions](event-grid-how-tos.md). |
 
 1. Blob storage input and output bindings support blob-only accounts.
 2. High scale can be loosely defined as containers that have more than 100,000 blobs in them or storage accounts that have more than 100 blob updates per second.
+3. You can work around inbound access restrictions by having the event subscription deliver events over an encrypted channel in public IP space using a known user identity. For more information, see [Deliver events securely using managed identities](../event-grid/deliver-events-using-managed-identity.md).
 
 ## Storage data encryption
 
@@ -200,7 +209,11 @@ Azure Files is used to enable dynamic scale-out for Functions. Scaling could be 
 
 _This functionality is current only available when running on Linux._ 
 
-You can mount existing Azure Files shares to your Linux function apps. By mounting a share to your Linux function app, you can use existing machine learning models or other data in your functions. You can use the following command to mount an existing share to your Linux function app. 
+You can mount existing Azure Files shares to your Linux function apps. By mounting a share to your Linux function app, you can use existing machine learning models or other data in your functions. 
+
+[!INCLUDE [functions-linux-consumption-retirement](../../includes/functions-linux-consumption-retirement.md)]
+
+You can use the following command to mount an existing share to your Linux function app. 
 
 # [Azure CLI](#tab/azure-cli)
 

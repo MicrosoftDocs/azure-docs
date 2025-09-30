@@ -3,12 +3,17 @@ title: Connect devices with X.509 certificates to your application
 description: This article describes how devices can use X.509 certificates to authenticate to your application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/01/2024
+ms.date: 08/06/2025
 ms.topic: how-to
 ms.service: azure-iot-central
 services: iot-central
-ms.custom: device-developer, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-ten
+ms.custom:
+  - device-developer
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - sfi-image-nochange
 
 # - id: programming-languages-set-ten
 #     title: Python
@@ -16,11 +21,11 @@ zone_pivot_groups: programming-languages-set-ten
 
 # How to connect devices with X.509 certificates to IoT Central Application
 
-IoT Central supports both shared access signatures (SAS) and X.509 certificates to secure the communication between a device and your application. The [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device.md) tutorial uses SAS. In this article, you learn how to modify the code sample to use X.509 certificates. X.509 certificates are recommended in production environments. For more information, see [Device authentication concepts](concepts-device-authentication.md).
+IoT Central supports both shared access signatures (SAS) and X.509 certificates to secure the communication between a device and your application. The [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device.md) tutorial uses SAS. In this article, you learn how to modify the code sample to use X.509 certificates. X.509 certificates are recommended in production environments. For more information, see [Device authentication concepts in IoT Central](concepts-device-authentication.md).
 
 This guide shows two ways to use X.509 certificates - [group enrollments](how-to-connect-devices-x509.md#use-group-enrollment) typically used in a production environment, and [individual enrollments](how-to-connect-devices-x509.md#use-individual-enrollment) useful for testing. The article also describes how to [roll device certificates](#roll-your-x509-device-certificates) to maintain connectivity when certificates expire.
 
-This guide builds on the samples shown in the [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) tutorial that use C#, Java, JavaScript, and Python. For an example that uses the C programming language, see the [Provision multiple X.509 devices using enrollment groups](../../iot-dps/tutorial-custom-hsm-enrollment-group-x509.md).
+This guide builds on the samples shown in the [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) tutorial that use C#, Java, JavaScript, and Python. For an example that uses the C programming language, see the [Provision multiple X.509 devices using enrollment groups](../../iot-dps/tutorial-custom-hsm-enrollment-group-x509.md) tutorial.
 
 ## Prerequisites
 
@@ -407,7 +412,7 @@ During the lifecycle of your IoT Central application, you might need to roll you
 
 For uninterrupted connectivity, IoT Central lets you configure primary and secondary X.509 certificates. If the primary and secondary certificates have different expiry dates, you can roll the expired certificate while devices continue to connect with the other certificate.
 
-To learn more, see [Assume Breach Methodology](https://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf).
+To learn more, see the Assume Breach Methodology section of [Microsoft Enterprise Cloud Red Teaming] (https://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf).
 
 This section describes how to roll the certificates in IoT Central. When you roll a certificate in IoT Central, you also need to copy the new device certificate to your devices.
 
@@ -467,4 +472,4 @@ When the secondary certificate nears expiration, and needs to be rolled, you can
 
 4. For secondary certificate update, select the folder icon to select the new certificate to be uploaded for the enrollment entry. Select **Save**.
 
-5. Later when the primary certificate has expired, come back and update the primary certificate.
+5. Later, when the primary certificate expires, come back and update the primary certificate.

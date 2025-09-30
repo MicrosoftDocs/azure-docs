@@ -6,6 +6,7 @@ author: jyothisuri
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 08/19/2025
+ms.custom: sfi-image-nochange
 
 # Customer intent: "As an IT administrator managing SAP NetWeaver deployments, I want to set up a disaster recovery solution using cloud-based replication, so that I can ensure business continuity and minimize downtime during incidents."
 ---

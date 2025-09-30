@@ -4,10 +4,12 @@ description: Learn how to use a managed Admin for Spring in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.custom: devx-track-extended-java
 ms.topic: conceptual
 ms.date: 07/15/2024
 ms.author: cshoe
+ms.custom:
+  - devx-track-extended-java
+  - sfi-image-nochange
 ---
 
 # Connect to a managed Admin for Spring in Azure Container Apps

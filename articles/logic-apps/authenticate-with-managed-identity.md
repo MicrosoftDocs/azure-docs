@@ -6,7 +6,10 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 01/27/2025
-ms.custom: subject-rbac-steps, devx-track-arm-template
+ms.custom:
+  - subject-rbac-steps
+  - devx-track-arm-template
+  - sfi-image-nochange
 
 ##customerIntent: As a logic app developer, I want to authenticate connections for my logic app workflow using a managed identity so I don't have to use credentials or secrets.
 ---
@@ -1156,7 +1159,7 @@ This example shows the underlying connection resource definition for a connector
     "properties": {
         "alternativeParameterValues": {},
         "api": {
-            "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), 'azureautomation')]"
+            "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), '<connector-name>')]"
         },
         "authenticatedUser": {},
         "connectionState": "Enabled",
@@ -1184,19 +1187,18 @@ This example shows the underlying connection resource definition for a connector
     "location": "[parameters('location')]",
     "kind": "V1",
     "properties": {
-        "alternativeParameterValues":{},
+        "alternativeParameterValues": {},
         "api": {
-            "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), 'azureblob')]"
+            "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), '<connector-name>')]"
         },
         "authenticatedUser": {},
         "connectionState": "Enabled",
         "customParameterValues": {},
         "displayName": "[variables('connections_<connector-name>_name')]",
-        "parameterValueSet":{
+        "parameterValueSet": {
             "name": "managedIdentityAuth",
             "values": {}
-        },
-        "parameterValueType": "Alternative"
+        }
     }
 }
 ```
@@ -1216,8 +1218,8 @@ This example shows the underlying connection resource definition for a connector
 ```json
 {
     "type": "Microsoft.Web/connections",
-    "name": "[variables('connections_<connector-name>_name')]",
     "apiVersion": "[providers('Microsoft.Web','connections').apiVersions[0]]",
+    "name": "[variables('connections_<connector-name>_name')]",
     "location": "[parameters('location')]",
     "kind": "V2",
     "properties": {
@@ -1251,7 +1253,7 @@ This example shows the underlying connection resource definition for a connector
     "location": "[parameters('location')]",
     "kind": "V2",
     "properties": {
-        "alternativeParameterValues":{},
+        "alternativeParameterValues": {},
         "api": {
             "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), '<connector-name>')]"
         },
@@ -1259,11 +1261,10 @@ This example shows the underlying connection resource definition for a connector
         "connectionState": "Enabled",
         "customParameterValues": {},
         "displayName": "[variables('connections_<connector-name>_name')]",
-        "parameterValueSet":{
+        "parameterValueSet": {
             "name": "managedIdentityAuth",
             "values": {}
-        },
-        "parameterValueType": "Alternative"
+        }
     }
 }
 ```

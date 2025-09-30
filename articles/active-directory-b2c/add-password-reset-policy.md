@@ -10,6 +10,7 @@ ms.date: 01/05/2025
 ms.author: godonnell
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 #Customer Intent: As an Azure AD B2C administrator, I want to set up a password reset flow for local accounts, so that users can reset their passwords if they forget them.
 ---

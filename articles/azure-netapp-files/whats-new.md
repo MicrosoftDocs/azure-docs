@@ -8,7 +8,7 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.topic: overview
-ms.date: 08/21/2025
+ms.date: 09/25/2025
 ms.author: anfdocs
 # Customer intent: As a cloud administrator, I want to learn about the latest enhancements in Azure NetApp Files, so that I can effectively utilize new features for improved data security, resilience, and operational efficiency in my organization's cloud storage solutions.
 ---
@@ -16,6 +16,48 @@ ms.author: anfdocs
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
+
+## September 2025
+
+* [Short-term clones](create-short-term-clone.md) are now generally available (GA)
+
+    Azure NetApp Files short-term clones enable space-efficient, instant read/write access to data by creating temporary thin clones from existing volume snapshots, eliminating the need for full data copies and enabling capacity savings. Ideal for software development, analytics, disaster recovery and testing, short-term clones support large datasets and allow quick refreshes from the latest snapshots. Short-term clones remain temporary and space-efficient for up to one month, consuming capacity only for incremental changes. This capability accelerates development and analytics workflows, improves quality and resilience, and reduces costs by avoiding full copy storage and minimizing operational overhead. This capability is generally available in all Azure NetApp Files supported regions. You are still required to register for the feature before using it for the first time. 
+
+* [Configure NFSv4.1 ID domain for non-LDAP volumes](azure-netapp-files-configure-nfsv41-domain.md#configure-nfsv41-id-domain-for-non-ldap-volumes) is now generally available (GA)
+
+    To harmonize the authentication ID Domain settings in your NFSv4.1 environment, you can now configure a custom NFSv4.1 ID Domain in Azure NetApp Files for non-LDAP volumes. The ID Domain is set for all non-LDAP volumes in the same region and subscription, and can co-exist in environments with LDAP-enabled volumes. Once the ID Domain on Azure NetApp Files matches your NFSv4.1 clients, ‘root’ and non-root users will no longer be squashed to ‘nobody’. This setting helps either prepare for a future implementation of LDAP with Active Directory in the future by enabling the use of the same authentication ID Domain across all NFSv4.1 clients, or just ensures scripts and software installation routines that use ‘root’ can modify files on NFSv4.1 volumes correctly.
+    
+*   [Azure NetApp Files support with Windows Server 2025 domain controllers](faq-smb.md#can-i-use-windows-server-2025)
+
+    Azure NetApp Files is now fully supported by Windows Server 2025 domain controllers, making it easier for organizations to modernize their Active Directory environments without disruption. With this update, customers can seamlessly integrate Windows Server 2025 domain controllers with Azure NetApp Files SMB and dual-protocol volumes, ensuring smooth and secure Active Directory workflows.
+
+    Enterprises upgrading their domain infrastructure can maintain high-performance, enterprise-grade file services with Azure NetApp Files SMB and dual-protocol volumes. This compatibility means you can confidently adopt the latest Windows Server capabilities while continuing to leverage the scalability and reliability of Azure NetApp Files.
+
+* [Flexible service level](manage-cool-access.md?tabs=flexible#register-the-feature) with cool access is now generally available (GA)
+
+    Azure NetApp Files supports cool access for the Flexible service level, enabling you to further optimize performance and cost by automatically tiering infrequently accessed data to lower-cost Azure storage accounts. This enhancement builds on the Flexible service level's ability to decouple storage capacity and throughput, allowing precise resource alignment for diverse workloads while maintaining configured throughput levels—even with cool access enabled. These features help organizations reduce total cost of ownership without compromising performance. This feature is now generally available (GA).
+
+* [Flexible service level](azure-netapp-files-set-up-capacity-pool.md) is now generally available (GA)
+ 
+    The [Flexible service level](azure-netapp-files-service-levels.md#Flexible) allows you to independently configure storage capacity and throughput, optimizing costs by right-sizing according to storage and performance requirements. With separate pricing for capacity and throughput, the Flexible service level prevents overprovisioning and supports up to 640 MiB/second per TiB. This throughput is five times the performance of the Ultra service level, making it ideal for demanding workloads and offering higher throughput for smaller capacity pools and adapting to changing requirements without the need for volume moves. 
+    
+    The Flexible service level is only supported with _new_ manual QoS capacity pools. The Flexible service level offers a minimum throughput of 128 MiB/s and a maximum of 640 MiB/s per TiB [per pool](azure-netapp-files-service-levels.md#flexible-service-level-throughput-examples). This new service level is suitable for applications such as Oracle or SAP HANA and for creating high-capacity volumes with low throughput needs. You can adjust throughput and size limits independently, ensuring flexibility and precise scaling to meet your price-performance requirements. 
+
+* [Azure NetApp Files datastore support in Azure VMware Solution Generation 2](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md)
+
+  [Azure NetApp Files datastore](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) is now supported in [Azure VMware Solution (AVS) Generation 2](../azure-vmware/native-introduction.md). AVS Generation&nbsp;2 private clouds are deployed inside an Azure virtual network. This means that ExpressRoute is no longer needed to connect the Azure VMware Solution to Azure NetApp Files datastores. This deployment simplifies networking architecture, enhances data transfer speeds, reduces latency for workloads, and improves performance when accessing other Azure services. This capability is supported in all regions where Azure VMware Solution Generation 2 and Azure NetApp Files are available.
+
+* [Azure NetApp Files migration assistant](migrate-volumes.md) is now generally available (GA)
+
+    Azure NetApp Files [migration assistant](migrate-data.md) enables you to accelerate and simplify migrations of business-critical applications and data to Azure. Migration assistant offers efficient and cost-effective data migration, leveraging ONTAP's built-in replication engine for seamless transition from on-premises storage or Cloud Volumes ONTAP to Azure NetApp Files. It's a storage-efficient data transfer that reduces network transfer costs for both baseline and incremental updates. Migration assistant also offers a low cutover/downtime window, ensuring faster and more efficient final updates, minimizing disruption to operations. Volume migration using migration assistant includes source volume snapshots for primary data protection, and directory and file metadata maintaining security attributes.
+
+* [Cross-tenant customer-managed keys for Azure NetApp Files volume encryption](customer-managed-keys-cross-tenant.md) is now generally available (GA)
+
+    Cross-tenant customer-managed keys for Azure NetApp Files volume encryption enables you to manage your own keys across different tenancies. In scenarios such as SaaS provider/user configurations, this feature ensures the end user retains full control of their keys rather than the SaaS provider. This capability provides SaaS providers with the flexibility to offer customers customizable key management options. This feature is available in all Azure NetApp Files supported regions. This feature is now generally available (GA).
+    
+* [Security enhancement: new required permissions for Azure NetApp Files datastore with Azure VMware Solution (AVS)](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md#prerequisites)
+
+    Due to security enhancements in Azure, new role requirements have been introduced to perform create, update, and delete operations on Azure NetApp Files datastores for AVS. Pre-defined roles, such as the [Contributor role](../role-based-access-control/built-in-roles.md#privileged), might have the correct permissions, however custom roles might not. Ensure you meet the [new requirements](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md#prerequisites) for your Azure NetApp Files datastores.
 
 ## August 2025
 

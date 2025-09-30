@@ -3,7 +3,9 @@ title: Move a Service Bus namespace to another region | Microsoft Docs
 description: This article shows you how to move an Azure Service Bus namespace from the current region to another region. 
 ms.topic: how-to
 ms.date: 06/08/2021
-ms.custom: subject-moving-resources
+ms.custom:
+  - subject-moving-resources
+  - sfi-image-nochange
 ---
 
 # Move an Azure Service Bus namespace to another region

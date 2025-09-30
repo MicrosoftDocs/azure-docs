@@ -7,6 +7,7 @@ ms.author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: tutorial
 ms.date: 06/24/2025
+ms.custom: sfi-image-nochange
 
 # Customer intent: "As a network administrator, I want to create and manage a VPN gateway using the cloud portal, so that I can securely connect our on-premises resources to our virtual network."
 ---
