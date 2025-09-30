@@ -58,7 +58,7 @@ Use the component view to determine state of an executed interruption. Look for 
 ### Confirm interruption via logs
 Once the SNS deployment reaches a terminal state of failed, a notice of interruption is included in the operation's output logs.
 
-#### Error enutted during install
+#### Error emitted during install
 Example of log emitted during a first install operation. The reference to `testapp` identifies the next component that wasn't started, due to the interruption request. The string `deployment cancelled` indicates the interruption was applied to an initial install operation.
 ```powershell
 {
@@ -73,7 +73,7 @@ Example of log emitted during a first install operation. The reference to `testa
 }
 ```
 
-#### Error enutted during upgrade
+#### Error emitted during upgrade
 Example of log emitted during upgrade operation. The reference to `testapp` identifies the next component which wasn't started, due to the interruption request. The string `NF update` indicates the interruption was applied to an upgrade operation.
 ```powershell
 {
