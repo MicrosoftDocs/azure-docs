@@ -56,37 +56,6 @@ Your upgrade path may vary depending on the connector:
 2. **Migrate to the new connector** – For legacy connectors with updated versions, we strongly recommend migrating to the new connector.
 3. **If you're blocked from upgrading** – If you're unable to upgrade to the new connector, determine whether it's due to a feature gap or an error/bug with the new connector. Then follow the instructions outlined under [question 6](#what-should-i-do-if-i-encounter-the-feature-gaps-and-errors-bugs-that-are-preventing-me-from-migrating-to-the-new-connectors) to contact us.
 
-## What will happen after the migration deadline?
-
-There are three key deadlines outlined in our documentation:
-1. **End of Support Announcement**: This period serves as a recommended upgrade window. You're encouraged to upgrade your legacy connectors to the new ones during this time and engage with the Microsoft team if you encounter any blockers.
-    - New linked services can't use legacy connectors, but existing linked services with legacy connectors will continue to work.
-
-1. **End of Support (EOS)**: At this point, the connector is officially deprecated and no longer supported. Your data factories using legacy connectors will continue to operate, we won't intentionally fail any pipelines. However, the deprecation takes effect with the following:
-    - No bug fixes will be provided.
-    - No new features will be added.
-    - Microsoft reserves the right to disable the connector if a critical security vulnerability (CVE) is identified.
-
-1. **Disabled Date**: After this date, pipelines using legacy connectors will be disabled, meaning all pipelines relying on legacy connectors will start to fail as we stop all traffic on legacy drivers.
-    - New features and bug fixes will only be available on the new connectors.
-
-## What should I do if I encounter the feature gaps and errors/ bugs that are preventing me from migrating to the new connectors?
-
-If you encounter any feature gaps while migrating from legacy connectors, please review our connector documentation to check if it’s a known limitation. Additionally, send us an email at **dfconnectorupgrade@microsoft.com** with a description of the feature gap. 
-
-If you encounter any errors or bugs while migrating from legacy connectors, please contact our Microsoft support team and open a support ticket. Be sure to include detailed information about the connector, the error encountered, and your use case.
-
-Our Azure Data Factory team will assist you and ensure a smooth transition to the new connectors. We invite you to fill out this feedback [form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR94fEtK94M9FsNIwB3-nUTtUQTFGMjVFNkNEVkFaTEJQMUVaQlc3TlRDVi4u&route=shorturl) to help us better understand your needs and explore possible solutions.
-
-## How should I get an extension for legacy version of the connectors? 
-
-In general, we don't recommend customers to request an extension. However, we recognize that, due to various factors, some customers may need more time to complete their upgrades. In such cases, we encourage customers to take full advantage of the service's [automatic upgrade](connector-upgrade-guidance.md#automatic-connector-upgrade) capabilities, which apply at the connector and pipeline activity level. These capabilities effectively grant your workload an extension by automatically upgrading it, thereby preventing failures after the end-of-support date.
-
-It's important to note that the scope of automatic upgrades varies by connector. We strongly recommend reviewing the criteria and supported scenarios for each connector to prioritize workloads that require manual upgrades before the end-of-support date, ensuring uninterrupted operations.
-
-While auto-upgraded workloads aren't immediately affected by the announced removal date of the older version, this approach gives customers additional time to evaluate, validate, and transition to the latest GA version without facing unexpected disruptions.
-
-
 ## What will happen after the connector version removal date?
 
 There are three key deadlines outlined in our documentation:
@@ -106,24 +75,7 @@ There are three key deadlines outlined in our documentation:
     - New features and bug fixes will only be available on the new connectors.  
     - If your activity has been automatically upgraded by the service, your pipelines that rely on the legacy version will continue to run, giving users additional time to evaluate and transition to the latest GA version without facing immediate failures.
 
-
-
-## If the activity is auto upgraded, will they still fail after the version removal date?
-
-The auto-upgraded workloads aren't affected by the announced removal date of the older version, giving users additional time to evaluate and transition to the latest GA version without facing immediate failures. Read this [article](connector-upgrade-guidance.md#automatic-connector-upgrade) for more details.
-
-
-## How can I leverage the auto-upgrade capability?
-
-As the service provides the auto-upgrade capabilities within a list of connectors, each connector has different supported scopes. To ensure that your workload can benefit from this capability, make sure that your configurations or the capabilities used in the impacted connectors are supported by auto-upgrade. You can find more details from the [table](connector-upgrade-guidance.md#supported-automatic-upgraded-criteria) for the individual connector that is planned for the automatic upgrade. The automatic upgrade is triggered from service side in a regular cadence depends on the service release plan as long as your workload meets criteria.  
-
-While compatibility mode offers flexibility, we strongly encourage users to upgrade to the latest GA version as soon as possible to benefit from ongoing improvements, optimizations, and full support.
-
-### How do I know which workload has been automatically upgraded?
-
-You can identify which activities have been automatically upgraded by inspecting the activity output, where relevant upgraded information is recorded. The examples below show the upgraded information in various activity outputs. You can find the payload examples from this [article](connector-upgrade-guidance.md#automatic-connector-upgrade).
-
-### How should I get an extension for legacy version of the connectors?
+## How should I get an extension for legacy version of the connectors?
 
 In general, we don't recommend customers to request an extension. However, we recognize that, due to various factors, some customers may need more time to complete their upgrades. In such cases, we encourage customers to take full advantage of the service's [automatic upgrade capabilities](connector-upgrade-guidance.md#automatic-connector-upgrade), which apply at the connector and pipeline activity level. These capabilities effectively grant your workload an extension by automatically upgrading it, thereby preventing failures after the end-of-support date.
 
@@ -133,9 +85,30 @@ While auto-upgraded workloads aren't immediately affected by the announced remov
 
 An extension will allow the pipeline that relies on the existing legacy version to continue running. However, it won't permit the creation of new workloads, such as linked services, that depend on any legacy version.
 
-### If my workload is automatically upgraded by the service, how much additional time can I get to upgrade to v2?
+## If the activity is automatically upgraded, will they still fail after the version removal date?
+
+The auto-upgraded workloads aren't affected by the announced removal date of the older version, giving users additional time to evaluate and transition to the latest GA version without facing immediate failures. Read this [article](connector-upgrade-guidance.md#automatic-connector-upgrade) for more details.
+
+## How can I leverage the auto-upgrade capability?
+
+As the service provides the auto-upgrade capabilities within a list of connectors, each connector has different supported scopes. To ensure that your workload can benefit from this capability, make sure that your configurations or the capabilities used in the impacted connectors are supported by auto-upgrade. You can find more details from the [table](connector-upgrade-guidance.md#supported-automatic-upgraded-criteria) for the individual connector that is planned for the automatic upgrade. The automatic upgrade is triggered from service side in a regular cadence depends on the service release plan as long as your workload meets criteria.  
+
+While compatibility mode offers flexibility, we strongly encourage users to upgrade to the latest GA version as soon as possible to benefit from ongoing improvements, optimizations, and full support.
+
+## How do I know which workload has been automatically upgraded?
+
+You can identify which activities have been automatically upgraded by inspecting the activity output, where relevant upgraded information is recorded. The examples below show the upgraded information in various activity outputs. You can find the payload examples from this [article](connector-upgrade-guidance.md#automatic-connector-upgrade).
+
+
+## If my workload is automatically upgraded by the service, how much additional time can I get to upgrade to v2?
 
 There are no plans to disable workloads that have been automatically upgraded. However, please note that no bug fixes or new features will be available for these workloads.
+
+## What should I do if I encounter the feature gaps and errors/ bugs that are preventing me from migrating to the new connectors?
+
+If you encounter any feature gaps while migrating from legacy connectors, please review our connector documentation to check if it’s a known limitation. Additionally, send us an email at **dfconnectorupgrade@microsoft.com** with a description of the feature gap. 
+
+If you encounter any errors or bugs while migrating from legacy connectors, please contact our Microsoft support team and open a support ticket. Be sure to include detailed information about the connector, the error encountered, and your use case.
 
 ## Related content
 
