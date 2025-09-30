@@ -7,7 +7,7 @@ ms.custom: linux-related-content
 ms.date: 09/30/2025
 ms.author: kendownie
 ms.topic: faq
-# Customer intent: As a cloud storage administrator, I want to understand the configuration and synchronization capabilities of Azure Files and Azure File Sync, so that I can effectively manage file shares and ensure data consistency across multiple platforms.
+# Customer intent: As a cloud storage administrator, I want to understand the capabilities of Azure Files and Azure File Sync, so that I can effectively manage file shares and ensure data consistency across multiple platforms.
 ---
 
 # Frequently asked questions (FAQ) about Azure Files and Azure File Sync
