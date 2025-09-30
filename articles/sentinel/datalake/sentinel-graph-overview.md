@@ -48,8 +48,8 @@ Microsoft Sentinel graph powers new advanced capabilities across Microsoft's sec
 |----------|------------|-------------|
 | **Microsoft Defender XDR** | [Incident graph extended with Blast Radius](https://aka.ms/sentinel/graph/docs/incidents) | Visualize current impact of a breach and the possible future impact in one consolidated graph |
 | **Microsoft Defender XDR** | [Hunting graph in Defender](https://aka.ms/sentinel/graph/docs/hunting) | Interactively traverse graphs to uncover hidden relationships between assets |
-| **Microsoft Purview** | [Data risk graph in Insider Risk Management](https://aka.ms/sentinel/graph/docs/irm) | Map user activities to detect data exfiltration patterns and understand data leak blast radius |
-| **Microsoft Purview** | [Data risk graph in Data Security Investigation](https://aka.ms/sentinel/graph/docs/dsi) | Trace sensitive data access and movement. Understand data leak blast radius |
+| **Microsoft Purview** | [Data risk graph in Insider Risk Management](/purview/insider-risk-management-data-risk-graph) | Map user activities to detect data exfiltration patterns and understand data leak blast radius |
+| **Microsoft Purview** | [Data risk graph in Data Security Investigations](/purview/data-security-investigations-data-risk-graph) | Trace sensitive data access and movement. Understand data leak blast radius |
 
 ## Get started
 
@@ -62,10 +62,10 @@ To begin using Microsoft Sentinel graph:
 
 ### [Microsoft Purview](#tab/purview)
 
-To begin using Microsoft Sentinel graph:
+To begin using Microsoft Sentinel graph in Microsoft Purview:
 
-* In **Purview Insider Risk Management (IRM)**, follow the instructions in [Insider risk management data risk graph](https://aka.ms/sentinel/graph/docs/irm).
-* In **Purview Data Security Investigation (DSI)**, follow the instructions in [Data security data risk graph](https://aka.ms/sentinel/graph/docs/dsi).
+* In **Microsoft Purview Insider Risk Management**, follow the instructions in [Data risk graph in Insider Risk Management](/purview/insider-risk-management-data-risk-graph).
+* In **Microsoft Purview Data Security Investigation**, follow the instructions in [Data risk graph in Data Security Investigations](/purview/data-security-investigations-data-risk-graph).
 
 ---
 
