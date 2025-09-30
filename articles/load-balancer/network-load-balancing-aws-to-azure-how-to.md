@@ -215,9 +215,9 @@ The general flow of changes is infrastructure deployment, service migration, and
 While the specific steps can vary based on your architecture, the general sequence is as follows:
 
 1. **Azure infrastructure deployment** - Deploy Load Balancer with static IPs and VMs first as it's necessary for subsequent configuration steps.
+1. **Health probe configuration** - Configure health probes for both protocol types matching AWS health check behavior using the [Load Balancer health probe guide](load-balancer-custom-probe-overview.md).
 1. **Service migration** - Migrate services to Azure VMs and Scale Sets. This can be done in parallel with the Azure infrastructure deployment to save time.
 1. **Protocol-specific rule configuration** - Configure separate load balancing rules for TCP and UDP traffic with appropriate backend pools.
-1. **Health probe configuration** - Configure health probes for both protocol types matching AWS health check behavior using the [Load Balancer health probe guide](load-balancer-custom-probe-overview.md).
 1. **Zone redundancy optimization** - Configure multi-zone distribution for services to ensure high availability.
 1. **Monitoring setup** - Configure Azure Monitor dashboards and alerting for application-specific metrics including latency, connections, and health status.
 1. **DNS preparation** - Reduce TTL values and prepare DNS record updates for your domains. This step is crucial for ensuring minimal user disconnection during cutover.
