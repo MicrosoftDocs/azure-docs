@@ -117,9 +117,9 @@ To get started with the Microsoft Sentinel platform and SIEM, see:
 
 - [Onboard Microsoft Sentinel](quickstart-onboard.md)
 - [Onboard to Microsoft Sentinel data lake and Microsoft Sentinel graph](../sentinel/datalake/sentinel-lake-onboarding.md)
-- [Deployment guide for Microsoft Sentinel](deploy-overview.md)
-- [KQL and the Microsoft Sentinel data lake](../sentinel/datalake/kql-overview.md)
+- [Microsoft Sentinel data connector](../sentinel/connect-data-sources.md)
+- [Get started with Microsoft Sentinel MCP server (preview)](../sentinel/datalake/sentinel-mcp-get-started.md)
 - [Manage data tiers and retention in Microsoft Defender Portal (preview)](./manage-data-overview.md)
 - [Manage and monitor costs for Microsoft Sentinel](./billing-monitor-costs.md)
-- [Jupyter notebooks in the Microsoft Sentinel data lake](../sentinel/datalake/notebooks-overview.md).
-- [Permissions for the Microsoft Sentinel data lake](./roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake)
+- [Jupyter notebooks in the Microsoft Sentinel data lake](../sentinel/datalake/notebooks-overview.md)
+- [Build and publish Microsoft Sentinel solutions](../sentinel/partner-integrations.md)
