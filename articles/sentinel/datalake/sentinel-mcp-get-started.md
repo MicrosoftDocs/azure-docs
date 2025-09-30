@@ -48,7 +48,7 @@ Microsoft Sentinel's support for MCP tools works with the following AI-powered c
 
     1. Enter the URL of the MCP server you want to access then press **Enter**:
         - [Data exploration](sentinel-mcp-data-exploration-tool.md): `https://sentinel.microsoft.com/mcp/data-exploration` 
-        - [Security Copilot agent creation](sentinel-mcp-agent-creation-tool.md): `https://sentinel.microsoft.com/mcp/agent-creation`
+        - [Security Copilot agent creation](sentinel-mcp-agent-creation-tool.md): `https://sentinel.microsoft.com/mcp/security-copilot-agent-creation`
     
     1. Assign a friendly **Server ID** (for example, `Microsoft Sentinel MCP server`)
     1. Choose whether to make the server available in all Visual Studio Code workspaces or just the current one.
