@@ -93,7 +93,7 @@ For more information about different networking scenarios, see [Ingress in Azure
 |[Path-based routing](rule-based-routing.md) | Use rules to route requests to different container apps in your environment, depending on the path of each request. |
 |[Virtual networks](custom-virtual-networks.md) | Configure the VNet for your container app environment. |
 |[DNS](private-endpoints-with-dns.md#dns) | Configure DNS for your container app environment's VNet. |
-|[Private endpoint](how-to-use-private-endpoint.md) | Use a private endpoint to securely access your Azure Container App without exposing it to the public Internet.
+|[Private endpoint](how-to-use-private-endpoint.md) | Use a private endpoint to securely access your Azure Container App without exposing it to the public Internet. |
 |[Integrate with Azure Front Door](how-to-integrate-with-azure-front-door.md) | Connect directly from Azure Front Door to your Azure Container Apps using a private link instead of the public internet. |
 
 ## Outbound features
