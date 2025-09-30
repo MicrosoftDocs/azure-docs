@@ -60,7 +60,7 @@ The following steps explain how to implement a monetization strategy for your AP
     | **Implementation** | Provide sufficient access to the API to support the development and testing work required to integrate with it. |
     | **Preview** | Allow the customer to launch their offering and understand initial demand. |
     | **Initial production usage** | Support early adoption of the API in production when usage levels aren't fully understood and a risk-adverse approach might be necessary. |
-    | **Initial growth** | Enable the API Consumer to ramp up usage of the API in response to increased demand from end users. |
+    | **Initial growth** | Enable the API consumer to ramp up usage of the API in response to increased demand from end users. |
     | **Scale** | Incentivize the API consumer to commit to a higher volume of purchase once the API is consistently reaching high levels of usage each month. |
     | **Global growth** | Reward the API users who are using the API at global scale by offering the optimal wholesale price. |
 
