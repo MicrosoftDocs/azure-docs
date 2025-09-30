@@ -19,8 +19,6 @@ zone_pivot_groups: azure-cli-or-portal
 
 In this article, you learn how to connect directly from Azure Front Door to your Azure Container Apps using a private link instead of the public internet. In this tutorial, you create an Azure Container Apps workload profiles environment, an Azure Front Door, and connect them securely through a private link. You then verify the connectivity between your container app and the Azure Front Door.
 
-## Billing
-
 > [!IMPORTANT]
 > **Private endpoints incur additional charges.** When you enable a private endpoint in Azure Container Apps, you will be billed for the following:
 > 

@@ -15,8 +15,6 @@ Azure private endpoint enables clients located in your private network to secure
 
 Private endpoints are supported for both Consumption and Dedicated plans in workload profile environments.
 
-### Billing
-
 > [!IMPORTANT]
 > **Private endpoints incur additional charges.** When you enable a private endpoint in Azure Container Apps, you will be billed for the following:
 > 
