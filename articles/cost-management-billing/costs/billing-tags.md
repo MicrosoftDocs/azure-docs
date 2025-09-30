@@ -2,13 +2,13 @@
 title: Apply billing tags
 titleSuffix: Microsoft Cost Management
 description: This article explains what billing tags are how and how to apply them in Cost Management.
-author: sdoultani
-ms.author: sadoulta
+author: vikramdesai01
+ms.author: vikdesai
 ms.date: 06/27/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: sadoulta
+ms.reviewer: vikdesai
 ---
 
 
