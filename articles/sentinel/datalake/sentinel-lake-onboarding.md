@@ -54,7 +54,7 @@ When you onboard to data lake and graph, the process makes the following changes
   > [!NOTE]
   > Auxiliary log tables for Microsoft Defender connected workspaces aren't accessible from Microsoft Defender Advanced hunting once the data lake is enabled.
 
-+ It creates a managed identity with the prefix  `msg-resources-` followed by a globally unique identifier (GUID). This managed identity is required for data lake functionality. The identity has the **Azure Reader** role over subscriptions onboarded into the data lake. Don't delete or remove required permissions from this managed identity. To enable custom table creation in the analytics tier, assign the **Log Analytics Contributor** role to this identity for the relevant Log Analytics workspaces. For more information, see [Create KQL jobs in the Microsoft Sentinel data lake (preview)](./kql-jobs.md#permissions).
++ It creates a managed identity with the prefix  `msg-resources-` followed by a globally unique identifier (GUID). This managed identity is required for data lake functionality. The identity has the **Azure Reader** role over subscriptions onboarded into the data lake. Don't delete or remove required permissions from this managed identity. To enable custom table creation in the analytics tier, assign the **Log Analytics Contributor** role to this identity for the relevant Log Analytics workspaces. For more information, see [Create KQL jobs in the Microsoft Sentinel data lake](./kql-jobs.md#permissions).
 
 Once you're onboarded to the Microsoft Sentinel data lake, you can use the following features in the Defender portal:
 
