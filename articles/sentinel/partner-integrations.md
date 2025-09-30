@@ -200,10 +200,10 @@ Microsoft offers the programs to help partners approach Microsoft customers:
 
 - [Microsoft Intelligent Security Association (MISA)](https://www.microsoft.com/security/partnerships/intelligent-security-association). MISA provides Microsoft Security Partners with help in creating awareness about partner-created integrations with Microsoft customers, and helps to provide discoverability for Microsoft Security product integrations.
 
- Joining the MISA program requires a nomination from a participating Microsoft Security Product Team. Building any of the following integrations can qualify partners for nomination:
+  Joining the MISA program requires a nomination from a participating Microsoft Security Product Team. Building any of the following integrations can qualify partners for nomination:
 
     - A Microsoft Sentinel data connector and associated content, such as workbooks, sample queries, and analytics rules
-    - Published Logic Apps connector and Microsoft Sentinel playbooks.
+    - Published Logic Apps connector and Microsoft Sentinel playbooks
     - API integrations, on a case-by-case basis
 
     To request a MISA nomination review or for questions, contact [AzureSentinelPartner@microsoft.com](mailto:AzureSentinelPartner@microsoft.com).
