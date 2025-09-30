@@ -68,6 +68,8 @@
       href: understand-domain-name-service.md
 - name: Tutorials
   items:
+  - name: Learn Virtual Enclaves
+    href: virtual-enclaves-learn.md
   - name: Create a community
     href: 1-create-community.md
   - name: Create enclaves inside a community

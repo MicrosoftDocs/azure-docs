@@ -90,6 +90,8 @@ landingContent:
 #             url: Easy-Button-Deployments.md
       - linkListType: tutorial
         links:
+          - text: Learn Virtual Enclaves
+            url: virtual-enclaves-learn.md
           - text: Create a community
             url: 1-create-community.md
           - text: Create enclaves inside a community
