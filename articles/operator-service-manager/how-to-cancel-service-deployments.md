@@ -3,7 +3,7 @@ title: Interrupt a service deployment with Azure Operator Service Manager
 description: Learn how to interrupt an Azure Operator Service Manager deployment in a nonterminal state.
 author: msftadam
 ms.author: adamdor
-ms.date: 09/30/2024
+ms.date: 09/30/2025
 ms.topic: how-to
 ms.service: azure-operator-service-manager
 ---
