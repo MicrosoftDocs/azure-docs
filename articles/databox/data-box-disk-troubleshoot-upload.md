@@ -211,7 +211,7 @@ A sample of the `_error.xml` is shown here where the order completed with errors
 
 The error file in this case has a `Summary` section and another section that contains all the file level errors. 
 
-The `Summary` contains the `ValidationErrors` and the `CopyErrors`. In this case, wight files or folders were uploaded to Azure and there were no validation errors. When the data was copied to Azure Storage account, five files or folders uploaded successfully. The remaining three files or folders were renamed as per the Azure container naming conventions and then uploaded successfully to Azure.
+The `Summary` contains the `ValidationErrors` and the `CopyErrors`. In this case, eight files or folders were uploaded to Azure and there were no validation errors. When the data was copied to Azure Storage account, five files or folders uploaded successfully. The remaining three files or folders were renamed as per the Azure container naming conventions and then uploaded successfully to Azure.
 
 The file level statuses are in `BlobStatus`, which describes any actions taken to upload the blobs. In this case, three containers are renamed because the folders to which the data was copied did not conform with the Azure naming conventions for containers. For the blobs uploaded in those containers, the new container name, path of the blob in Azure, original invalid file path, and the blob size are included.
   
