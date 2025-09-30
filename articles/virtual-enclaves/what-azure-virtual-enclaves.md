@@ -130,7 +130,7 @@ Azure Virtual Enclaves simplifies integration with existing secure Azure securit
 Learn more about how Azure Virtual Enclaves incorporates [defense-in-depth](./defense-in-depth.md).
 
 ## Next steps
-Here are some other articles to learn about Azure Virtual Enclaves:
+Here are some other articles to learn about the new Azure Virtual Enclaves resources:
 
 1. [Create a community](./create-community-portal.md) 
 2. [Create an enclave](./create-enclave-portal.md)
