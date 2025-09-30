@@ -30,7 +30,7 @@ The following image summarizes the process flow for creating a connection in API
 | 2 | Credential provider is created and a response is sent back. |
 | 3| Client sends a request to create a connection. |
 | 4| Connection is created and a response is sent back with the information that the connection isn't "connected." |
-|5| Client sends a request to retrieve a login URL to start the OAuth 2.0 consent at the credential provider. The request includes a post-redirect URL to be used in the last step|  
+|5| Client sends a request to retrieve a login URL to start the OAuth 2.0 consent at the credential provider. The request includes a post-redirect URL to be used in the last step.|  
 |6|Response is returned with a login URL that should be used to start the consent flow. |
 |7|Client opens a browser with the login URL that was provided in the previous step. The browser is redirected to the credential provider's OAuth 2.0 consent flow |
 |8|After the consent is approved, the browser is redirected with an authorization code to the redirect URL configured at the credential provider. |
