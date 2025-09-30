@@ -4310,6 +4310,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/firewall/premium-migrate.md",
+      "redirect_url": "/azure/firewall/change-sku",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/firewall/easy-upgrade.md",
+      "redirect_url": "/azure/firewall/change-sku",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/firewall/firewall-network-rule-logging.md",
       "redirect_url": "/azure/firewall/monitor-firewall",
       "redirect_document_id": false

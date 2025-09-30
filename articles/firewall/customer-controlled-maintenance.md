@@ -22,8 +22,14 @@ For more information on limitations and frequently asked questions about custome
 ## Maintenance configuration
 
 #### [Azure portal](#tab/portal)
+First you need to register the Azure Resource Provider with Microsoft.Maintenance.
+Register the Azure Resource Provider.
 
-You can configure customer-controlled maintenance in the Azure portal using two methods: 
+```powershell-interactive
+Register-AzResourceProvider -ProviderNamespace Microsoft.Maintenance
+```
+
+Then, you can configure customer-controlled maintenance in the Azure portal using two methods: 
 
 - [**From the Azure Firewall resource**](#configure-maintenance-from-the-azure-firewall-resource): This method allows you to configure maintenance directly for a specific Azure Firewall.
 - [**From the maintenance configurations page**](#set-up-in-maintenance-configurations): This method enables you to create a maintenance configuration that can be applied to multiple Azure Firewalls, offering greater flexibility and efficiency.

@@ -1,10 +1,10 @@
 ---
 title: Prerequisites for deploying Microsoft Sentinel solution for SAP applications
 description: This article lists the prerequisites required for deployment of the Microsoft Sentinel solution for SAP applications.
-author: batamig
-ms.author: bagol
+author: mberdugo
+ms.author: monaberdugo
 ms.topic: reference
-ms.date: 11/05/2024
+ms.date: 09/30/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -36,7 +36,7 @@ Content in this article is relevant for your **security**, **infrastructure**, a
 Content in this article is relevant for your **security** and **SAP BASIS** teams.
 
 > [!IMPORTANT]
-> Microsoft Sentinel's agentless data connector for SAP is currently in **LIMITED PREVIEW**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Microsoft Sentinel's agentless data connector for SAP is currently in **PREVIEW**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 :::zone-end
 
@@ -83,10 +83,6 @@ We recommend that your **SAP BASIS** team verify and ensure SAP system prerequis
 :::zone-end
 
 :::zone pivot="connection-agentless"
-
-## Sign up for limited preview
-
-To use the agentless data connector for SAP, [sign up for the limited preview](https://forms.cloud.microsoft/r/FeWbvc18MV).
 
 ## Azure prerequisites
 

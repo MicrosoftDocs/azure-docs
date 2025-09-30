@@ -8,7 +8,7 @@ ms.date: 07/15/2025
 ## Service parameters and limits for VS Code Notebooks
 
 
-The following section lists the service parameters and limits for Microsoft Sentinel data lake (Preview) when using VS Code Notebooks.
+The following section lists the service parameters and limits for Microsoft Sentinel data lake when using VS Code Notebooks.
 
 |Category|Parameter/limit|
 |---|---|

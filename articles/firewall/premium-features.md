@@ -173,5 +173,5 @@ For a list of regions where Azure Firewall is available, see [Azure products ava
 
 - [Learn about Azure Firewall Premium certificates](premium-certificates.md)
 - [Deploy and configure Azure Firewall Premium](premium-deploy.md)
-- [Migrate to Azure Firewall Premium](premium-migrate.md)
+- [Change Azure Firewall SKU](change-sku.md)
 - [Learn more about Azure network security](../networking/security/index.yml)

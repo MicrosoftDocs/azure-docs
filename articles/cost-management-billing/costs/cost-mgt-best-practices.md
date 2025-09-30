@@ -8,7 +8,7 @@ ms.date: 07/09/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: sadoulta
+ms.reviewer: vikdesai
 ---
 
 # How to optimize your cloud investment with Cost Management

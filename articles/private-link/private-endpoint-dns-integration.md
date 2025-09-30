@@ -19,6 +19,13 @@ Azure Private Endpoint DNS integration is essential for enabling secure, private
 
 For private DNS zone settings for Azure services that support a private endpoint, see [Azure Private Endpoint private DNS zone values](private-endpoint-dns.md).
 
+> [!CAUTION]
+>
+> - It's not recommended to override a zone that's actively in use to resolve public endpoints. Connections to resources won't be able to resolve correctly without DNS forwarding to the public DNS. To avoid issues, create a different domain name or follow the suggested name for each service listed later in this article.
+>
+> - Existing Private DNS Zones linked to a single Azure service should not be associated with two different Azure service Private Endpoints. This will cause a deletion of the initial A-record and result in resolution issues when attempting to access that service from each respective Private Endpoint. Create a DNS zone for each Private Endpoint of like services. Don't place records for multiple services in the same DNS zone.
+
+
 ## DNS configuration scenarios
 
 The FQDN of the service automatically resolves to a public IP address. To resolve to the private IP address of the private endpoint, change your DNS configuration.

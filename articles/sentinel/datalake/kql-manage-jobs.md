@@ -15,14 +15,17 @@ ms.collection: ms-security
 
 ---  
  
-#  Manage KQL jobs in the Microsoft Sentinel data lake (preview)
+#  Manage KQL jobs in the Microsoft Sentinel data lake 
  
 
-A job is a one-time or scheduled task that runs a KQL (Kusto Query Language) query against the data in the data lake tier to promote the results to the analytics tier. Jobs can be created in the **KQL queries** editor, or the **Jobs** page under **Microsoft Sentinel** > **Data lake exploration**  in the Microsoft Defender portal for. For more information, see [KQL jobs](kql-jobs.md). 
+A KQL job is a one-time or scheduled task that runs a KQL (Kusto Query Language) query against the data in the data lake tier to promote the results to the analytics tier. Jobs can be created in the **KQL queries** editor, or the **Jobs** page under **Microsoft Sentinel** > **Data lake exploration**  in the Microsoft Defender portal for. For more information, see [KQL jobs](kql-jobs.md). 
 
-Jobs are managed in the **Jobs** page under **Data lake exploration** in the Defender portal for Microsoft Sentinel. The Jobs management page provides the following functions:
+The Jobs management page provides the following functions:
 
 + View all jobs in the Microsoft Sentinel data lake. You can view jobs created in the KQL queries editor or jobs created for notebooks. 
++ View a summary of KQL and Notebook jobs.
++ View details of all jobs and apply filter to narrow down the list.
++ View recent job health issues.
 + Create a new job to run a KQL query. For more information on creating jobs, see [Create jobs in the Microsoft Sentinel data lake using KQL](kql-jobs.md).
 + Edit job details. You can view but can't edit a notebook job from the jobs page. For more information on editing notebook jobs, see [Notebook notebooks](notebook-jobs.md).
 + Disable a job, preventing it from running until you enable it again.
@@ -33,27 +36,32 @@ Jobs are managed in the **Jobs** page under **Data lake exploration** in the Def
 
 ## Permissions
 
-Microsoft Entra ID roles provide broad access across all workspaces in the data lake. To read tables across all workspaces, write to the analytics tier, and schedule jobs using KQL queries, you must have one of the supported Microsoft Entra ID roles. For more information on roles and permissions, see [Microsoft Sentinel data lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
+Microsoft Entra ID roles provide broad access across all workspaces in the data lake. To read tables across all workspaces, write to the analytics tier, and schedule jobs using KQL queries, you must have one of the supported Microsoft Entra ID roles. For more information on roles and permissions, see [Microsoft Sentinel data lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake).
 
 
 ## Manage jobs
 
-The jobs page is found in the left navigation pane in the Defender portal under **Data lake exploration** in the *Microsoft Sentinel* menu.
+The Jobs page shows a list of jobs, including the job name, status, job type, last and next run dates, and the recent job health. You can filter the jobs by status, last run date, and creation date. **Jobs status** column indicates whether the job enabled or disabled. The **Job type** column indicates whether the job is a KQL query job or a notebook job.
+:::image type="content" source="media/kql-manage-jobs/jobs-page.png" lightbox="media/kql-manage-jobs/jobs-page.png" alt-text="A screenshot showing the jobs page in the Defender portal.":::
 
-The Jobs page shows a list of all your jobs, including the job name, status, and job type. The **Jobs status** column indicates whether the job enabled or disabled. The **Job type** column indicates whether the job is a KQL query job or a notebook job. 
+The **Recent health issues** column shows whether the job encountered any issues in its recent runs as per the filters. Select the link to view the job's health details.
 
-:::image type="content" source="media/kql-manage-jobs/jobs-page.png"  lightbox="media/kql-manage-jobs/jobs-page.png" alt-text="A screenshot showing the jobs page in the Defender portal.":::
+:::image type="content" source="media/kql-manage-jobs/recent-health-issues.png" lightbox="media/kql-manage-jobs/recent-health-issues.png" alt-text="A screenshot showing the recent health issues panel.":::
 
-To create a job, select **Create new job**. For more information on creating jobs, see [Create jobs in the Microsoft Sentinel data lake using KQL](kql-jobs.md).
+
+
+To create a job from the jobs page, select **Create a new KQL job**. For more information on creating jobs, see [Create jobs in the Microsoft Sentinel data lake using KQL](kql-jobs.md).
 
 ### Job details
 
 To see a job's details, select the job from the table.
+The job details panel opens, showing the job's details. You can enable and disable a job, view its history, edit, or delete it.
+Select the **Destination table** link to open the table in the KQL query editor in Advanced hunting.  
+The query can be copied by selecting **Copy query**.  
 
 :::image type="content" source="media/kql-manage-jobs/manage-job-details.png" alt-text="A screenshot showing the job details page." lightbox="media/kql-manage-jobs/manage-job-details.png":::
 
-Select the **Destination table** link to open the table in the KQL query editor in Advanced hunting.  
-The query can be copied by selecting **Copy query**.  
+
 
 ### Edit a job
 
@@ -72,7 +80,7 @@ After you edit the job, select **Submit** to save the changes. The job is update
 
 ### View a job's run history
 
-To view the history of a job, select **View history** in the job details panel. The job history panel opens, showing a list of job run times and statuses.
+To view the history of a job, select **View history** in the job details panel. The job history panel opens, showing a list of job run times and statuses. The row count reflects the number of rows sent to the destination table in the analytics tier.
 
 :::image type="content" source="media/kql-manage-jobs/job-history.png" lightbox="media/kql-manage-jobs/job-history.png" alt-text="A screenshot showing the job history panel.":::
 
@@ -90,7 +98,7 @@ For information on considerations and limitations when managing KQL jobs in the 
 
 ## Next steps
 
-- [Overview of the Microsoft Sentinel data lake (preview)](sentinel-lake-overview.md)
-- [Create jobs in the Microsoft Sentinel data lake using KQL (preview)](kql-jobs.md)
-- [Data lake exploration - KQL queries (preview)](kql-queries.md)
-- [Microsoft Sentinel data lake roles and permissions (preview)](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview)
+- [Overview of the Microsoft Sentinel data lake](sentinel-lake-overview.md)
+- [Create jobs in the Microsoft Sentinel data lake using KQL](kql-jobs.md)
+- [Data lake exploration - KQL queries](kql-queries.md)
+- [Microsoft Sentinel data lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake)

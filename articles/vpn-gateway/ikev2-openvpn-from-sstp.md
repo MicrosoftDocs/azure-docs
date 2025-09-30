@@ -1,5 +1,5 @@
 ---
-title: 'How to transition to OpenVPN or IKEv2 from SSTP'
+title: SSTP protocol retirement and connections migration
 titleSuffix: Azure VPN Gateway
 description: Learn how to transition to OpenVPN protocol or IKEv2 from SSTP to overcome the 128 concurrent connection SSTP limit.
 author: cherylmc
@@ -12,7 +12,7 @@ ms.custom: sfi-image-nochange
 # Customer intent: As a network administrator, I want to transition from SSTP to IKEv2 or OpenVPN.
 ---
 
-# Transition to OpenVPN protocol or IKEv2 from SSTP
+# SSTP protocol retirement and connections migration
 
 A point-to-site (P2S) VPN gateway connection lets you create a secure connection to your virtual network from an individual client computer. A P2S connection is established by starting it from the client computer. This article talks about SSTP retirement and ways to migrate off SSTP by transitioning to OpenVPN protocol or IKEv2.
 

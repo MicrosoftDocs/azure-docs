@@ -1,5 +1,5 @@
 ---  
-title: Troubleshoot KQL queries for the data lake (preview)
+title: Troubleshoot KQL queries for the data lake
 titleSuffix: Microsoft Security   
 description:  Troubleshoot KQL queries for the Microsoft Sentinel data lake.
 author: EdB-MSFT  
@@ -7,7 +7,7 @@ ms.service: microsoft-sentinel
 ms.subservice: sentinel-graph 
 ms.topic: how-to
 ms.author: edbaynash  
-ms.date: 07/14/2025
+ms.date: 08/27/2025
 
 ms.collection: ms-security  
 
@@ -16,21 +16,21 @@ ms.collection: ms-security
 ---  
 
 
-# Troubleshoot KQL queries for the Microsoft Sentinel data lake (preview)
+# Troubleshoot KQL queries for the Microsoft Sentinel data lake
 
 
 Use the following checklist to resolve common issues when working with KQL (Kusto Query Language) queries and jobs in Microsoft Sentinel data lake.
 
-+ Check for prerequisites before running queries or jobs. For more information, see [Roles and permissions for the Microsoft Sentinel data lake (preview)](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
++ Check for prerequisites before running queries or jobs. For more information, see [Roles and permissions for the Microsoft Sentinel data lake](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake).
 
-+ Ensure that you selected the correct workspace before executing KQL queries or jobs.
++ Ensure that you selected the correct workspaces before executing KQL queries or jobs.
 + Confirm that all referenced tables and workspaces exist and are accessible.
 + Use only supported KQL operators and commands to avoid execution errors.
 + Adjust the query with filters such as time range to avoid query timeouts.
 
 Job-specific validation:
 
-+ Verify that you have the correct role for the target workspace when creating new custom tables via jobs. For more information, see [Roles and permissions for the Microsoft Sentinel data lake (preview)](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
++ Verify that you have the correct role for the target workspace when creating new custom tables via jobs. For more information, see [Roles and permissions for the Microsoft Sentinel data lake](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake).
 + Test queries in a KQL editor to catch syntax and logic errors before submitting them as jobs.
 + Ensure job names are unique across all jobs in the tenant, including Notebooks jobs.
 + Validate that the query output schema aligns with the destination table in column names, and data types.
@@ -47,7 +47,7 @@ Job-specific validation:
 ## KQL query error messages
 | Error message | Root cause | Suggested actions |
 |-------------------|------------|-------------------|
-| **Table could not be found or is empty.** | The referenced table doesn't exist, is empty, or the user doesn't have the required permissions. | Verify the table name, confirm data availability, and ensure the user has appropriate access. For more information, see [Roles and permissions for the Microsoft Sentinel data lake (preview)](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview). |
+| **Table could not be found or is empty.** | The referenced table doesn't exist, is empty, or the user doesn't have the required permissions. | Verify the table name, confirm data availability, and ensure the user has appropriate access. For more information, see [Roles and permissions for the Microsoft Sentinel data lake](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake). |
 | **Cannot access a disposed object.** | An internal service error occurred in the backend service. | Retry. Open a support ticket if the issue persists. |
 | **Queries timing out at Gateway.** | Long-running queries without time filters. | Enforce time filters or apply extra filters. |
 | **No time range set. Add a time parameter to control query cost and avoid timeouts.** | Queries that have unrestricted lookback, can cause timeouts. | Enforce time filters or apply extra filters. |
@@ -59,7 +59,10 @@ Job-specific validation:
 | **Table(s) could not be found or may not have data. Please check if table(s) exists, has data, or user has permissions.** | • The specified tables might not exist in the database.<br>• You may not have permissions to access the tables.<br>• The tables might exist but have no data, resulting in no meaningful output. | Confirm table existence, data availability, and user permissions. |
 | **The query text exceeded the maximum allowable length after internal expansion. This might occur when the `in()` operator is used with a variable that contains a large list of items.** | • The `in()` operator might be used with a large list, causing the expanded query to exceed query limits.<br>• The query may contain dynamically generated content that results in excessive length. | Reduce the size of the list or simplify the query. |
 | **Query execution has exceeded the allowed limits.** |  | Optimize your query and try again. |
-| **The arguments array exceeded the allowed limit (allowed=1,000,000).** | The query contains more than 1,000,000 items in an array. | Reduce the number of items in the array. |
+| Semantic and syntax errors, for example:<br><ul><li>**Semantic error: 'project' operator: Failed to resolve scalar expression named 'Timestamp'**<li>**Semantic error: 'where' operator: Failed to resolve scalar expression named 'Type'**<li>**Syntax error: The operator cannot be the first operator in a query.**<li>**Syntax error: Missing expression**<li>**Failed to execute KQL query with validation errors: The incomplete fragment is unexpected.**</ul>| The query is malformed and is referencing tables or columns that don’t exist, or it's using invalid scalar functions. | Check your query and try again. |
+| **Client does not have access to any workspaces or client provided invalid workspace(s) in the scope.** | The query uses an invalid workspace ID. | Enter the correct workspace ID and try again. |
+| **Unexpected control command** | Using control commands (for example, `show`) isn't allowed. | No action needed. |
+
 
 
 ## KQL job error messages
