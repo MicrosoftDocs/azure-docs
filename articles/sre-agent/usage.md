@@ -3,7 +3,7 @@ title: Create and Use an agent in Azure SRE Agent Preview
 description: Learn how to use an automated agent to resolve problems and keep your apps running in Azure.
 author: craigshoemaker
 ms.topic: how-to
-ms.date: 07/23/2025
+ms.date: 09/30/2025
 ms.author: cshoe
 ms.service: azure-sre-agent
 ---
@@ -13,10 +13,6 @@ ms.service: azure-sre-agent
 Azure SRE Agent Preview helps you maintain the health and performance of your Azure resources through AI-powered monitoring and assistance. Agents continuously watch your resources for problems, provide troubleshooting help, and suggest remediation steps in a natural-language chat interface. To ensure accuracy and control, any action that an agent takes on your behalf requires your approval.
 
 This article demonstrates how to create an agent and connect it to your resources to maintain optimal application performance.
-
-## Preview access
-
-Access to SRE Agent is available only as a preview. To sign up for access, fill out the [SRE Agent application](https://go.microsoft.com/fwlink/?linkid=2319540).
 
 > [!NOTE]
 > By using SRE Agent, you consent to the product-specific [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
