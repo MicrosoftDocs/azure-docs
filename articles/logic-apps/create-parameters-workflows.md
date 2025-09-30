@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 08/22/2025
+ms.date: 09/30/2025
 ms.custom:
 #Customer intent: As an integration developer who works with Azure Logic Apps, I want to use parameters and application settings as values across workflows.
 ---
@@ -29,13 +29,14 @@ For more information about multitenant and single-tenant Azure Logic Apps, see [
   If you don't have a logic app workflow yet, see [Create a Consumption logic app workflow](quickstart-create-example-consumption-workflow.md) or [Create a Standard logic app workflow](create-single-tenant-workflows-azure-portal.md).
 
    > [!NOTE]
+   >
    > Currently, you can create parameters for Consumption logic app workflows only by using the Azure portal. You can create parameters for Standard logic app workflows by using the Azure portal or Visual Studio Code.
 
 <a name="parameters-introduction"></a>
 
 ## Parameters for Consumption versus Standard logic app workflows
 
-For both Consumption and Standard logic app workflows, you can define parameters using the workflow designer. After you define a parameter, you can reference that parameter from any workflow or connection that's in the *same* logic app resource.
+For both Consumption and Standard logic app workflows, you can define parameters using the workflow designer. After you define a parameter, you can reference that parameter from any workflow or connection in the *same* logic app resource.
 
 In multitenant Consumption logic app workflows, you create and use parameters in the designer. Then you define and set the environment variables in your Azure Resource Manager template (ARM template) and template parameters files. In this scenario, you have to define and set the parameters *at deployment*. This requirement means that even if you have to change only one variable, you must redeploy your logic app's ARM template.
 
@@ -68,13 +69,13 @@ This procedure describes how to work with parameters for either Consumption or S
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
 
-   - For Standard logic apps, on the resource menu, under **Workflows**, select **Workflows**.
+   - For Standard logic apps, on the resource sidebar menu, under **Workflows**, select **Workflows**.
 
      On the **Workflows** page, select the blank workflow to open the designer.
 
-   - For Consumption logic apps, on the resource menu, under **Development Tools**, select the designer to open the workflow.
+   - For Consumption logic apps, on the resource sidebar menu, under **Development Tools**, select the designer to open the workflow.
 
-1. From the designer toolbar, select **Parameters**.
+1. On the designer toolbar, select **Parameters**.
 
    :::image type="content" source="./media/create-parameters-workflows/select-parameter.png" alt-text="Screenshot shows the Azure portal with the workflow designer open and Parameters on designer toolbar highlighted." lightbox="./media/create-parameters-workflows/select-parameter.png":::
 
@@ -94,10 +95,10 @@ This procedure describes how to work with parameters for either Consumption or S
 
    :::image type="content" source="./media/create-parameters-workflows/define-parameter.png" alt-text="Screenshot shows the Azure portal with the workflow designer and the Parameters pane with an example parameter definition.":::
 
-1. When you're done, close the **Parameters** pane. Make sure to save your workflow to save your new parameter definition.
+1. When you're done, close the **Parameters** pane. Make sure to save your workflow so that you save your new parameter definition.
 
 
-To reference the parameter from a trigger or action that's in any workflow in the same logic app, follow these steps:
+To reference the parameter from a trigger or action in any workflow for the same logic app, follow these steps:
 
 1. In the designer, open the workflow that you want, and select the trigger or action.
 
@@ -113,7 +114,7 @@ To view or edit parameters in the same logic app:
 
   The **Parameters** pane opens and displays all the parameters that you defined from workflows in that logic app.
 
-- Standard workflows only: To view or edit in bulk JSON, on the resource menu, select **Parameters**.
+- Standard workflows only: To view or edit in bulk JSON, on the resource sidebar menu, select **Parameters**.
 
   The **Parameters** JSON view opens and displays all the parameters that you defined from workflows in that logic app.
 
@@ -247,7 +248,7 @@ To review the app settings for your logic app resource in the Azure portal, foll
 
 1. In the [Azure portal](https://portal.azure.com/), open your logic app resource.
 
-1. On your logic app menu, under **Settings**, select **Environment variables**.
+1. On the resource sidebar menu, under **Settings**, select **Environment variables**.
 
 1. On the **Environment variables** page, on the **App settings** tab, review the app settings for your logic app.
 
