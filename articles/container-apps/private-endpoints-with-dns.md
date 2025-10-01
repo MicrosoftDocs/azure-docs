@@ -20,7 +20,7 @@ Private endpoints are supported for both Consumption and Dedicated plans in work
 Private endpoints incur additional charges. When you enable a private endpoint in Azure Container Apps, you're billed for the following:
 
 1. **Azure Private Link** - Billing for the [Azure Private Link resource itself](https://azure.microsoft.com/pricing/details/private-link/).
-2. **Azure Container Apps** - Billing for the backend infrastructure on Azure Container Apps which appears as a separate **"Dedicated Plan Management"** charge and applies to both Consumption and Dedicated plans.
+1. **Azure Container Apps** - Billing for the dedicated private endpoint infrastructure for Azure Container Apps which appears as a separate **"Dedicated Plan Management"** charge and applies to both Consumption and Dedicated plans.
 
 ### Tutorials
 - To learn more about how to configure private endpoints in Azure Container Apps, see the [Use a private endpoint with an Azure Container Apps environment](how-to-use-private-endpoint.md) tutorial.

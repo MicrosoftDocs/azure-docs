@@ -1,6 +1,6 @@
 ---
- title: Description of Azure Storage alternative multi-region deployment introductoin
- description: Description of Azure Storage alternative multi-region deployment introductoin
+ title: Description of Azure Storage alternative multi-region deployment introduction
+ description: Description of Azure Storage alternative multi-region deployment introduction.
  author: anaharris-ms
  ms.service: azure
  ms.topic: include
@@ -9,4 +9,4 @@
  ms.custom: include file
 ---
 
-This section provides a high-level overview of some approaches to consider, but a complete treatment of multi-region deployment topologies for Azure Storage is outside the scope of this article.
+This section provides a high-level overview of some approaches to consider. A comprehensive overview of multi-region deployment topologies for Azure Storage is outside the scope of this article.

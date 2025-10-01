@@ -4,7 +4,7 @@ description: Learn about Active Directory Domain Services (AD DS) authentication
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/22/2024
+ms.date: 10/01/2025
 ms.author: kendownie
 # Customer intent: "As a system administrator, I want to enable on-premises Active Directory Domain Services authentication for Azure file shares, so that I can manage access permissions seamlessly while leveraging existing AD credentials for secure file access."
 ---
@@ -33,7 +33,9 @@ If you're new to Azure Files, we recommend reading our [planning guide](storage-
 
 ## Supported scenarios and restrictions
 
-- To assign share-level RBAC permissions to specific users or groups, on-premises AD DS identities must be synced to Microsoft Entra ID using Entra Connect Sync. If identities aren't synced, you must [use a default share-level permission](storage-files-identity-assign-share-level-permissions.md#share-level-permissions-for-all-authenticated-identities), which applies to all authenticated users. For example, a group created only in Microsoft Entra ID won't work if RBAC permissions are configured at the share level. However, if the group contains user accounts synced from on-premises, then you can use those identities. Password hash synchronization isn't required.
+- To use identity-based authentication with Azure Files, share-level RBAC permissions must be assigned. You can do this in two ways:
+  - **[Default share-level permission](storage-files-identity-assign-share-level-permissions.md#share-level-permissions-for-all-authenticated-identities):** This option applies RBAC at the share level for all authenticated users. With this configuration, you don't need to sync your on-premises AD DS identities to Microsoft Entra ID.
+  - **Granular share-level permissions:** If you want to assign RBAC at the share level to specific users or groups, the corresponding identities must be synchronized from your on-premises AD DS to Microsoft Entra ID using [Microsoft Entra Connect](/entra/identity/hybrid/connect/whatis-azure-ad-connect) or [Microsoft Entra Cloud Sync](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync). Groups created only in Microsoft Entra ID won't work unless they contain synced user accounts. Password hash synchronization isn't required.
 - Client OS requirements: Windows 8 / Windows Server 2012 or later, or Linux VMs such as Ubuntu 18.04+ and equivalent RHEL/SLES distributions.
 - Azure file shares can be managed with Azure File Sync.
 - Kerberos authentication is available with Active Directory using [AES 256 encryption](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption) (recommended) and RC4-HMAC. AES 128 Kerberos encryption isn't yet supported.

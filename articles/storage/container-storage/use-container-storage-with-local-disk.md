@@ -37,7 +37,7 @@ Azure Container Storage supports the use of *generic ephemeral volumes* by defau
 
 ## Choose a VM type that supports local NVMe
 
-Local NVMe Disk is only available in certain types of VMs, for example, [Storage optimized VM SKUs](/azure/virtual-machines/sizes/overview#storage-optimized) or [GPU accelerated VM SKUs](/azure/virtual-machines/sizes/overview#gpu-accelerated). If you plan to use local NVMe capacity, choose one of these VM SKUs.
+Local NVMe disks are only available in certain types of VMs, for example, [Storage optimized VM SKUs](/azure/virtual-machines/sizes/overview#storage-optimized) or [GPU accelerated VM SKUs](/azure/virtual-machines/sizes/overview#gpu-accelerated). If you plan to use local NVMe capacity, choose one of these VM SKUs.
 
 Run the following command to get the VM type that's used with your node pool. Replace `<resource group>` and `<cluster name>` with your own values. You don't need to supply values for `PoolName` or `VmSize`, so keep the query as shown here.
 
@@ -53,7 +53,8 @@ PoolName    VmSize
 nodepool1   standard_l8s_v3
 ```
 
-With Azure Container Storage (version 2.x.x), you can now use single-node clusters, though multi-node configurations are still recommended.
+> [!NOTE]
+> In Azure Container Storage (version 2.x.x), you can now use clusters with fewer than three nodes.
 
 ## Create and attach generic ephemeral volumes
 

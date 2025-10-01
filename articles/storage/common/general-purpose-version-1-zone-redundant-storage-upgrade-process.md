@@ -37,6 +37,10 @@ To upgrade to GPv2 using PowerShell, call the following command:
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource_group> -AccountName <storage_account> -UpgradeToStorageV2
 ```
+> [!NOTE]
+> If you are in a region that does not support GPv2 with ZRS redundancy, you will not be able to upgrade your GPv1 account to GPv2 with ZRS redundancy. You will need to contact support to upgrade to GPv2 with LRS or GRS redundancy instead. Or migrate your account to a region that supports ZRS.
+> For more information about regions that do not support ZRS, see [Regions without ZRS support](./general-purpose-version-1-zone-redundant-storage-migration-overview.md#regions-without-zrs-support). For more information about what information is required when contacting support, see [Information required for support request](./general-purpose-version-1-zone-redundant-storage-migration-overview.md#information-required-for-support-request).
+
 # [Azure CLI](#tab/azure-cli)
 
 To upgrade to ZRS using Azure CLI, call the following command:

@@ -79,7 +79,6 @@ Azure Maps adheres to the [Mapbox Vector Tile Specification], an open standard. 
 * [Road tiles]
 * [Traffic incidents]
 * [Traffic flow]
-* Azure Maps Creator also allows custom vector tiles to be created and accessed through the [Render - Get Map Tile] API
 
 > [!TIP]
 > When using vector or raster image tiles from the Azure Maps Render service with the web SDK, you can replace `atlas.microsoft.com` with the placeholder `{azMapsDomain}`. This placeholder will be replaced with the same domain used by the map and will automatically append the same authentication details as well. This greatly simplifies authentication with the render service when using Microsoft Entra authentication.

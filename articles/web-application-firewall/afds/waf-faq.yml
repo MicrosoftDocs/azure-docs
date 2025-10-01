@@ -6,7 +6,7 @@ metadata:
   ms.author: halkazwini
   ms.service: azure-web-application-firewall
   ms.topic: faq
-  ms.date: 07/11/2022
+  ms.date: 10/01/2025
 title: Frequently asked questions for Azure Web Application Firewall on Azure Front Door
 summary: This article answers common questions about features and functionality for Azure Web Application Firewall on Azure Front Door. 
 
@@ -117,6 +117,9 @@ sections:
 
             Custom rules:
             * `application/x-www-form-urlencoded`
+          
+          > [!NOTE]
+          > Azure Front Door WAF doesn't support content-encoding. This means that compressed bodies won't be decompressed before being sent to the WAF engine.  
 
       - question: |
           Can I apply an Azure Front Door WAF policy to front-end hosts in Azure Front Door Premium profiles that belong to different subscriptions?

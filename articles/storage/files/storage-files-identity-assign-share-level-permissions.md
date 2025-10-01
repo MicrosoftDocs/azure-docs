@@ -14,7 +14,7 @@ recommendations: false
 
 # Assign share-level permissions for Azure file shares
 
-Once you've enabled an Active Directory (AD) source for your storage account, you must configure share-level permissions in order to get access to your file share. There are two ways you can assign share-level permissions. You can assign them to [specific Microsoft Entra users/groups](#share-level-permissions-for-specific-azure-ad-users-or-groups), and you can assign them to all authenticated identities as a [default share-level permission](#share-level-permissions-for-all-authenticated-identities).
+Once you've enabled an identity source for your storage account, you must configure share-level permissions in order to get access to your file share. There are two ways you can assign share-level permissions. You can assign them to [specific Microsoft Entra users/groups](#share-level-permissions-for-specific-azure-ad-users-or-groups), and you can assign them to all authenticated identities as a [default share-level permission](#share-level-permissions-for-all-authenticated-identities).
 
 ## Applies to
 | Management model | Billing model | Media tier | Redundancy | SMB | NFS |
@@ -122,6 +122,9 @@ az role assignment create --role "<role-name>" --assignee <user-principal-name> 
 ## Share-level permissions for all authenticated identities
 
 You can add a default share-level permission on your storage account, instead of configuring share-level permissions for Microsoft Entra users or groups. A default share-level permission assigned to your storage account applies to all file shares contained in the storage account.
+
+> [!IMPORTANT]
+> If you set a default share-level permission on the storage account, you aren't required to sync your on-premises identities to Microsoft Entra ID.
 
 When you set a default share-level permission, all authenticated users and groups will have the same permission. Authenticated users or groups are identified as the identity can be authenticated against the on-premises AD DS the storage account is associated with. The default share-level permission is set to **None** at initialization, implying that no access is allowed to files or directories in the Azure file share.
 
