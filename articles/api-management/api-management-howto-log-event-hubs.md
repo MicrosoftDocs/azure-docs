@@ -40,7 +40,7 @@ To log events to the event hub, you need to configure credentials for access fro
 > [!NOTE]
 > We recommend that you use managed identity credentials when possible, for enhanced security. 
 
-### Option 1: Configure API Management managed identity
+### Option 1: Configure an API Management managed identity
 
 1. Enable a system-assigned or user-assigned [managed identity for API Management](api-management-howto-use-managed-service-identity.md) in your API Management instance.
 
@@ -67,7 +67,7 @@ You can configure an API Management logger to an event hub by using either syste
 
 #### Create a logger with system-assigned managed identity credentials
 
-For prerequisites, see [Configure API Management managed identity](#option-1-configure-api-management-managed-identity).
+For prerequisites, see [Configure an API Management managed identity](#option-1-configure-an-api-management-managed-identity).
 
 #### [REST API](#tab/PowerShell)
 
@@ -132,7 +132,7 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
 ---
 #### Create a logger with user-assigned managed identity credentials
 
-For prerequisites, see [Configure API Management managed identity](#option-1-configure-api-management-managed-identity).
+For prerequisites, see [Configure an API Management managed identity](#option-1-configure-an-api-management-managed-identity).
 
 #### [REST API](#tab/PowerShell)
 
@@ -267,7 +267,7 @@ After your logger is configured in API Management, you can configure your [log-t
 1. Go to your API Management instance.
 1. Under **APIs**, select **APIs**, and then select the API to which you want to add the policy. In this example, we're adding a policy to the **Echo API** in the **Unlimited** product.
 1. On the **Design** tab, select **All operations**.
-1. In the **Inbound processing** or **Outbound processing** pane, select the `</>` (Policy code editor) button. For more information, see [How to set or edit policies](set-edit-policies.md).
+1. In the **Inbound processing** or **Outbound processing** pane, select the **</>** (Policy code editor) button. For more information, see [How to set or edit policies](set-edit-policies.md).
 1. Position your cursor in the `inbound` or `outbound` policy section.
 1. Select **Show snippets** at the top of the tab. Select **Advanced policies** > **Log to EventHub**. This action inserts the `log-to-eventhub` policy statement template.
 
