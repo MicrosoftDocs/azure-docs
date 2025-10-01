@@ -7,6 +7,7 @@ ms.service: azure-load-balancer
 ms.topic: concept-article
 ms.date: 06/27/2024
 ms.author: mbender
+ms.custom: sfi-image-nochange
 # Customer intent: "As a cloud administrator, I want to monitor and diagnose the health of my load balancer using metrics and alerts, so that I can ensure optimal performance and quickly address any availability issues."
 ---
 

@@ -4,8 +4,8 @@ description: Learn about Microsoft Sentinel's incident summarization capabilitie
 ms.service: microsoft-sentinel
 ms.collection: usx-security
 ms.pagetype: security
-ms.author: yelevin
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.localizationpriority: medium
 audience: ITPro
 ms.topic: conceptual

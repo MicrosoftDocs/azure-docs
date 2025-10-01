@@ -61,14 +61,12 @@ Use a data visualization tool of your choice to connect to your long-term storag
 
 You can use [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) to create, link, and manage your resources within a single location interface. If greater control is needed, the individual resource can be created within a single resource group and managed independently of the Data Factory service.  
 
-## Next Steps
+## Next steps
 
 Once you set up the system and data is moving to the long-term storage, the next step is to come up with the questions that the data needs to answer. For example: 
 
--	What is the VM size usage?
-
-    Are users selecting high performance (more expensive) VM sizes?
--	Which Marketplace images are being used?
-
-    Are custom images the most common VM base, should a common Image store be built like [Shared Image Gallery](/azure/virtual-machines/shared-image-galleries) or [Image factory](image-factory-create.md).
--	Which custom images are being used, or not used?
+- What is the VM size usage?
+- Are users selecting high performance (more expensive) VM sizes?
+- Which Marketplace images are being used?
+- Are custom images the most common VM base? Should a common Image store be built like [Shared Image Gallery](/azure/virtual-machines/shared-image-galleries) or [Azure VM Image Builder](/azure/virtual-machines/image-builder-overview?tabs=azure-powershell)?
+- Which custom images are being used, or not used?

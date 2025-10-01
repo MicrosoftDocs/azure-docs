@@ -4,6 +4,7 @@ ms.service: azure-databox
 ms.topic: include
 ms.date: 11/04/2022
 ms.author: alkohli
+ms.custom: sfi-image-nochange
 ---
 
 To place an order through the Azure Edge Hardware Center, do these steps:

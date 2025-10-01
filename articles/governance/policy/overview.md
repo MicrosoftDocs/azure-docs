@@ -115,7 +115,7 @@ For certain resource providers such as [Machine configuration](../machine-config
 
 Here are a few pointers and tips to keep in mind:
 
-- Start with an `audit` or `auditIfNotExist` effect instead of an enforcement (`deny`, `modify`, `deployIfNotExist`) effect to track how your policy definition affects the resources in your environment. If you have scripts already in place to autoscale your applications, setting an enforcement effect might hinder such automation tasks already in place.
+- Start with an `audit` or `auditIfNotExists` effect instead of an enforcement (`deny`, `modify`, `deployIfNotExists`) effect to track how your policy definition affects the resources in your environment. If you have scripts already in place to autoscale your applications, setting an enforcement effect might hinder such automation tasks already in place.
 
 - Consider organizational hierarchies when you create definitions and assignments. We recommend creating definitions at higher levels such as the management group or subscription level. Then, create the assignment at the next child level. If you create a definition at a management group, the assignment can be scoped down to a subscription or resource group within that management group.
 

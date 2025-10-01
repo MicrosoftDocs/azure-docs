@@ -3,8 +3,10 @@ author: ggailey777
 ms.service: azure-functions
 ms.topic: include
 ms.date: 06/15/2022
-ms.custom: devdivchpfy22
 ms.author: glenga
+ms.custom:
+  - devdivchpfy22
+  - sfi-image-nochange
 ---
 
 ## Run the function locally

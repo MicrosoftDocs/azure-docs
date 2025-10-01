@@ -7,7 +7,9 @@ ms.service: azure-dns
 ms.topic: tutorial
 ms.date: 06/07/2024
 ms.author: allensu
-ms.custom: template-tutorial
+ms.custom:
+  - template-tutorial
+  - sfi-image-nochange
 #Customer intent: As an experienced network administrator, I want to configure Azure DNS, so I can host DNS zones.
 # Customer intent: As a network administrator, I want to host my domain in Azure DNS, so that I can manage my DNS records using Azure's tools and credentials.
 ---

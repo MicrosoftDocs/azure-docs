@@ -1,34 +1,38 @@
 ---
-title: Azure Firewall Premium features
-description: Azure Firewall Premium is a managed, cloud-based network security service that protects your Azure Virtual Network resources.
+title: Azure Firewall Premium features implementation guide
+description: Detailed implementation guide for Azure Firewall Premium advanced threat protection features including TLS inspection, IDPS, URL filtering, and web categories.
 author: duongau
 ms.service: azure-firewall
 services: firewall
 ms.topic: concept-article
-ms.date: 03/17/2025
+ms.date: 09/18/2025
 ms.author: duau
-ms.custom: references_regions
-# Customer intent: "As a network security administrator, I want to implement Azure Firewall Premium features like TLS inspection and IDPS, so that I can enhance threat protection for our sensitive data and ensure compliance with industry standards."
+ms.custom:
+  - references_regions
+  - sfi-image-nochange
+# Customer intent: "As a network security administrator, I want to implement Azure Firewall Premium features like TLS inspection and IDPS, so that I can configure advanced threat protection for our sensitive data and ensure compliance with industry standards."
 ---
 
-# Azure Firewall Premium features
+# Azure Firewall Premium features implementation guide
 
 :::image type="content" source="media/premium-features/pci-logo.png" alt-text="PCI certification logo" border="false":::
 
 Azure Firewall Premium offers advanced threat protection suitable for highly sensitive and regulated environments, such as payment and healthcare industries.
 
+This guide provides detailed implementation information for Azure Firewall Premium features. For a high-level comparison of all Azure Firewall features across SKUs, see [Azure Firewall features by SKU](features-by-sku.md).
+
 Organizations can leverage Premium SKU features like IDPS and TLS inspection to prevent malware and viruses from spreading across networks. To meet the increased performance demands of these features, Azure Firewall Premium uses a more powerful virtual machine SKU. Similar to the Standard SKU, the Premium SKU can scale up to 100 Gbps and integrate with availability zones to support a 99.99% SLA. The Premium SKU complies with Payment Card Industry Data Security Standard (PCI DSS) requirements.
 
 :::image type="content" source="media/premium-features/premium-overview.png" alt-text="Azure Firewall Premium overview diagram":::
 
-Azure Firewall Premium includes the following features:
+Azure Firewall Premium includes the following advanced features:
 
 - **TLS inspection**: Decrypts outbound traffic, processes it, then re-encrypts and sends it to the destination.
 - **IDPS**: Monitors network activities for malicious activity, logs information, reports it, and optionally blocks it.
 - **URL filtering**: Extends FQDN filtering to consider the entire URL, including any additional path.
 - **Web categories**: Allows or denies user access to website categories such as gambling or social media.
 
-To compare Azure Firewall features for all SKUs, see [Choose the right Azure Firewall SKU to meet your needs](choose-firewall-sku.md).
+For a complete feature comparison across all Azure Firewall SKUs, see [Azure Firewall features by SKU](features-by-sku.md).
 
 ## TLS inspection
 
@@ -171,5 +175,5 @@ For a list of regions where Azure Firewall is available, see [Azure products ava
 
 - [Learn about Azure Firewall Premium certificates](premium-certificates.md)
 - [Deploy and configure Azure Firewall Premium](premium-deploy.md)
-- [Migrate to Azure Firewall Premium](premium-migrate.md)
+- [Change Azure Firewall SKU](change-sku.md)
 - [Learn more about Azure network security](../networking/security/index.yml)

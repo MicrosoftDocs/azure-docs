@@ -6,8 +6,10 @@ ms.author: darkoa
 ms.date: 07/06/2022
 ms.topic: how-to
 ms.service: azure-iot-hub
-ms.custom: devx-track-azurecli
 ms.subservice: device-update
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Configure private endpoints for Device Update for IoT Hub accounts

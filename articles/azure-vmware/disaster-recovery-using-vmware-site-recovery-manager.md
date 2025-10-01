@@ -4,7 +4,9 @@ description: Deploy disaster recovery with VMware Site Recovery Manager (SRM) in
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 01/13/2025
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 # Customer intent: "As a cloud administrator, I want to deploy and manage disaster recovery using VMware Site Recovery Manager in my Azure VMware Solution environment, so that I can ensure minimal downtime and reliable recovery of virtual machines in case of a disaster."
 ---
 
@@ -153,7 +155,7 @@ After you created the site pairing, use the following VMware documentation for e
 
 - [How Site Recovery Manager Reprotects Virtual Machines with vSphere Replication](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8/site-recovery-manager-administration-8-8/reprotecting-virtual-machines-after-a-recovery/how-srm-performs-reprotect-with-vsphere-replication.html)
 
-- [Perform a Failback)](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8/site-recovery-manager-administration-8-8/restoring-the-pre-recovery-site-configuration-by-performing-failback/perform-a-failback.html)
+- [Perform a Failback](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8/site-recovery-manager-administration-8-8/restoring-the-pre-recovery-site-configuration-by-performing-failback/perform-a-failback.html)
 
 ## Ongoing management of your VMware SRM solution
 
@@ -161,8 +163,7 @@ Microsoft aims to simplify VMware SRM and vSphere Replication installation on an
 
 ## VMware Live Site Recovery licenses
 
-[Set up offline mode for VMware Live Site Recovery](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-recovery/saas/vmware-live-recovery/setting-up-vmware-live-site-recovery-overview/how-do-i-set-up-vmware-live-site-recovery-to-work-in-offline-mode/set-up-offline-mode-for-vmware-live-site-recovery.html)
-[Remove the offline mode license for VMware Live Site Recovery](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-recovery/saas/vmware-live-recovery/setting-up-vmware-live-site-recovery-overview/how-do-i-set-up-vmware-live-site-recovery-to-work-in-offline-mode/remove-offline-mode-license-for-vmware-live-site-recovery.html)
+[Set up offline mode](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/overview/how-do-i-set-up-vmware-live-site-recovery-to-work-in-offline-mode/set-up-offline-mode-for-vmware-live-site-recovery.html) for VMware Live Recovery. [Remove the offline mode license](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/overview/how-do-i-set-up-vmware-live-site-recovery-to-work-in-offline-mode/remove-offline-mode-license-for-vmware-live-site-recovery.html) for VMware Live Site Recovery.
 
 Customers are responsible to purchase and apply Live Site Recovery by following Broadcom's instructions. Customers are requested to create Broadcom ticket for license issues.
 

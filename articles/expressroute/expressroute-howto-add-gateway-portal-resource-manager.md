@@ -10,6 +10,7 @@ ms.author: duau
 ms.custom:
   - reference_regions
   - ignite-2023
+  - sfi-image-nochange
 ---
 
 # Configure a virtual network gateway for ExpressRoute using the Azure portal

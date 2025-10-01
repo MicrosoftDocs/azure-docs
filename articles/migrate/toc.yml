@@ -31,6 +31,14 @@ items:
     href: how-to-use-azure-migrate-with-private-endpoints.md
   - name: Support Matrix
     href: migrate-support-matrix.md
+  - name: Assessment rules for PostgreSQL
+    href: assessment-rules-for-postgresql.md
+  - name: Agentless migration architecture
+    href: concepts-vmware-agentless-migration.md
+  - name: Hyper-V migration architecture
+    href: hyper-v-migration-architecture.md
+  - name: VMware to Azure disaster recovery hyper-v-migration-architecture.md
+    href: ../site-recovery/vmware-azure-architecture-modernized.md?toc=/azure/migrate/toc.json
 - name: Discover inventory
   items:
   - name: Discovery methods
@@ -76,7 +84,9 @@ items:
       - name: Discover software, databases, and web apps
         href: how-to-discover-applications.md
       - name: Create least privileged credentials for SQL discovery
-        href: least-privilege-credentials.md   
+        href: least-privilege-credentials.md 
+      - name: Create least privileged credentials for PostgreSQL discovery
+        href: postgresql-least-privilege-configuration.md
   - name: Discover using inventory import
     items: 
       - name: CSV import
@@ -143,6 +153,14 @@ items:
           href: assessment-properties.md
         - name: Review assessment report
           href: review-sql-assessment.md
+      - name: Azure Database for PostgreSQL assessment
+        items:
+        - name: Create an Azure Database for PostgreSQL assessment
+          href: tutorial-assess-postgresql.md
+        - name: Review assessment PostgreSQL report
+          href: tutorial-review-postgresql-report.md
+        - name: PostgreSQL customize assessment settings
+          href: postgresql-assessment-properties.md
       - name: MySQL assessment
         items:
         - name: Assessment overview
@@ -171,24 +189,30 @@ items:
 #         href: assessment-properties.md
 #       - name: Review assessment report
 #         href: review-sap-assessment.md
-- name: Execute Migrations
+- name: Execute migrations
   items:
-  - name: Server Migrations
-    items: 
-    - name: Overview of Migration method
-      href: server-migrate-overview.md
-    - name: Agent-based migrations
-      items:
-      - name: Agent-based migration using portal
-        href: tutorial-migrate-vmware-agent.md
-      - name: Hydration process 
-        href: hydration-process.md
-    - name: Agentless migrations
-      items:
-      - name: Agentless migrations using portal
-        href: tutorial-migrate-vmware.md
-      - name: Agentless migrations using scripts
-        href: tutorial-migrate-vmware-powershell.md
+  - name: Overview of migration method
+    href: server-migrate-overview.md
+  - name: Support Matrix
+    items:
+    - name: VMware vSphere migration requirements 
+      href: migrate-support-matrix-vmware-migration.md
+    - name: Physical Agent-based migration requirements
+      href: ../site-recovery/vmware-physical-azure-support-matrix.md?toc=/azure/migrate/toc.json
+    - name: Hyper-V migration requirements
+      href: migrate-support-matrix-hyper-v-migration.md
+  # - name: Agent-based migrations
+  #   items:
+  #   - name: Agent-based migration using portal
+  #     href: tutorial-migrate-vmware-agent.md
+  #   - name: Hydration process 
+  #     href: hydration-process.md
+  # - name: Agentless migrations
+  #   items:
+  #   - name: Agentless migrations using portal
+  #     href: tutorial-migrate-vmware.md
+  #   - name: Agentless migrations using scripts
+  #     href: tutorial-migrate-vmware-powershell.md
 #   - name: Limitations
 - name: Modernize applications
   items:
@@ -208,7 +232,7 @@ items:
       href: tutorial-modernize-asp-net-appservice-code.md
 - name: Tutorials 
   items:
-  - name: Migration Scenarios
+  - name: Migration scenarios
     items:
     - name: Migrate VMware servers 
       items:
@@ -577,23 +601,15 @@ items:
 #     items:
 #     - name: Build a migration plan
 #       href: concepts-migration-planning.md
-#     - name: VMware migration support
-#       href: migrate-support-matrix-vmware-migration.md
 #     - name: Hyper-V migration support
 #       href: migrate-support-matrix-hyper-v-migration.md
 #     - name: Physical server migration support
 #       href: migrate-support-matrix-physical-migration.md
 #     - name: Replication appliance requirements
 #       href: migrate-replication-appliance.md
-#     - name: VMware agentless migration architecture
-#       href: concepts-vmware-agentless-migration.md
 #       items:
 #         - name: Prepare for VMware agentless migration
 #           href: prepare-for-agentless-migration.md
-#     - name: Hyper-V migration architecture
-#       href: hyper-v-migration-architecture.md
-#     - name: VMware agent-based migration architecture
-#       href: agent-based-migration-architecture.md
 #     - name: Web apps migration support
 #       href: concepts-migration-webapps.md
 # - name: How-to guides

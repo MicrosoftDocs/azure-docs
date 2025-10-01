@@ -4,6 +4,7 @@
  ms.topic: include
  ms.date: 08/21/2024
  ms.author: cherylmc
+ ms.custom: sfi-image-nochange
 ---
 
 Configuration considerations:

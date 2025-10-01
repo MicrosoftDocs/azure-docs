@@ -5,14 +5,15 @@ description: Learn how-to to set up Azure Application Gateway Private Link using
 services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
+ms.topic: how-to
+ms.date: 07/09/2025
+ms.author: mbender
 ms.custom:
   - devx-track-azurecli, devx-track-azurepowershell
   - ai-gen-docs-bap
   - ai-gen-description
   - ai-seo-date:06/16/2025
-ms.topic: how-to
-ms.date: 07/09/2025
-ms.author: mbender
+  - sfi-image-nochange
 # Customer intent: As a cloud architect, I want to configure Application Gateway Private Link so that I can securely connect workloads over a private network without exposing them to the public internet.
 ---
 
