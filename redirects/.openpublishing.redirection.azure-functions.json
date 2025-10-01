@@ -7,7 +7,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-functions/functions-create-serverless-api.md",
-            "redirect_url": "/azure/azure-functions/function-proxies",
+            "redirect_url": "/azure/azure-functions/functions-proxies",
             "redirect_document_id": false
         },
         {
