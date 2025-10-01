@@ -20,7 +20,7 @@ Microsoft Entra ID enabled HDInsight clusters can be administered programmatical
 Creates an Entra enabled cluster in the specified subscription.
 
 
-### Request
+## Request
 
 See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-headers) for headers and parameters that are used by clusters.
 
@@ -30,7 +30,7 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 | PUT | https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{resourceGroup Name}/providers/Microsoft.HDInsight/clusters/{cluster name}?api-version={api-version} |
  
  
- The following example shows the request body for creating an Entra enabled Linux-based hadoop cluster. For examples of creating clusters in other ways, see the Examples section as follows:.
+ The following example shows the request body for creating an Entra enabled Linux-based hadoop cluster. For examples of creating clusters in other ways, see the Examples section as follows:
 
 
 
@@ -114,7 +114,7 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 
-### Properties
+## Properties
 
 | Element name | Required | Type | Description |
 | --- | --- | --- | --- |
@@ -248,14 +248,14 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 
-### Response
+## Response
 
 
 If validation is complete and the request is accepted, the operation returns 200 (OK).
 
 **Status code:** 200 OK
 
-### Response body for a linux cluster created using ssh key:
+## Response body for a linux cluster created using ssh key:
 
 ```json
 		{
@@ -684,7 +684,7 @@ If validation is complete and the request is accepted, the operation returns 200
 ### Status code: 200 OK
 
 
-### Response body for a linux cluster creates using ssh key:
+## Response body for a linux cluster creates using ssh key:
 
 
 ```json
@@ -770,7 +770,7 @@ If validation is complete and the request is accepted, the operation returns 200
 
 
 
-### Create a cluster with Azure Data Lake Store as the default filesystem
+## Create a cluster with Azure Data Lake Store as the default filesystem
 
 
 Creates a cluster in the specified subscription with Azure Data Lake Store as the default filesystem. Provide a **ClusterIdentity** object in the request body and configure the **default-filesystem** property with appropriate Data Lake Store URL.
