@@ -106,7 +106,7 @@ Yes. **GPv2** supports **GRS**, **RA-GRS**, **GZRS**, and **RA-GZRS**.
 ### Why can I not upgrade my GPv1 account to GPv2 in the Azure portal?
 The Azure portal may not allow you to upgrade your GPv1 account to GPv2 if the account is in a region that does not support GPv2, or if there are specific configurations or features in your GPv1 account that are incompatible with GPv2. In such cases, you may need to use Azure CLI or PowerShell to perform the upgrade, or consider creating a new GPv2 account and migrating your data.
 
-### Why does Powershell or CLI allow me to upgrade my GPv1 account to GPv2 but my account doesn't upgrade?
+### Why does PowerShell or CLI allow me to upgrade my GPv1 account to GPv2 but my account doesn't upgrade?
 PowerShell and Azure CLI may bypass certain restrictions present in the Azure portal, allowing you to upgrade your GPv1 account to GPv2 even if the portal does not permit it. This could be due to differences in how the tools validate account configurations or regional support. However, using these tools may still require you to address any underlying compatibility issues before a successful upgrade can occur.
 
 ### What if I don't want LRS or GRS as my redundancy option after the upgrade?
