@@ -40,7 +40,7 @@ Details about OAuth authorization flows and how to generate the required OAuth t
 
 <a name='register-an-application-in-azure-ad-to-represent-the-api'></a>
 
-## Register an application in Microsoft Entra ID that represents the API
+## Register an application in Microsoft Entra ID to represent the API
 
 Using the Azure portal, protect an API with Microsoft Entra ID by first registering an application that represents the API. 
 
