@@ -82,7 +82,7 @@ Go a step further with this scenario by moving API Management into the network p
  
 ### Scenario 2 - External API, partner application
 
-* An API Management contributor and backend API developer wants to undertake a rapid proof-of-concept to expose a legacy API through Azure API Management. The API through API Management will be externally (internet) facing.
+* An API Management contributor and backend API developer want to undertake a rapid proof-of-concept to expose a legacy API through Azure API Management. The API through API Management will be externally (internet) facing.
 * The API uses client certificate authentication and will be consumed by a new public-facing single-page app (SPA) being developed offshore by a partner. 
 * The SPA uses OAuth 2.0 with OpenID Connect (OIDC). 
 * Application developers will access the API in a test environment through the developer portal, using a test backend endpoint to accelerate frontend development. 
