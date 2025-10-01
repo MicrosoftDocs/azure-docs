@@ -74,9 +74,9 @@ A successful request returns a JSON object containing:
 
 Before you submit a batch job, you must upload the application jar on the cluster storage associated with the cluster. You can use [AzCopy](/azure/storage/common/storage-use-azcopy-v10), a command-line utility, to do so. There are various other clients you can use to upload data. You can find more about them at [Upload data for Apache Hadoop jobs in HDInsight](../hdinsight-upload-data.md).
 
-Windows Command Prompt
 
-```
+
+```cmd
 curl -k -v -H "Content-Type: application/json" -H "Authorization: Bearer " -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches' -H "X-Requested-By: admin"
 
 ```
@@ -85,18 +85,18 @@ curl -k -v -H "Content-Type: application/json" -H "Authorization: Bearer " -X PO
 
 - If the jar file is on the cluster storage (WASBS)
     
-    Windows Command Prompt
     
-    ```
+    
+    ```cmd
     curl -k -v -H "Content-Type: application/json" -H "Authorization: Bearer " -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://mysparkcluster.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
     
     ```
     
 - If you want to pass the jar filename and the classname as part of an input file (in this example, input.txt)
     
-    Windows Command Prompt
     
-    ```
+    
+    ```cmd
     curl -k -v -H "Content-Type: application/json" -H "Authorization: Bearer " -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
     
     ```
@@ -106,9 +106,9 @@ curl -k -v -H "Content-Type: application/json" -H "Authorization: Bearer " -X PO
 
 Syntax:
 
-Windows Command Prompt
 
-```
+
+```cmd
 curl -k -v -H "Authorization: Bearer " -X GET "https://<spark_cluster_name>.azurehdinsight.net/livy/batches"
 
 ```
@@ -117,18 +117,18 @@ curl -k -v -H "Authorization: Bearer " -X GET "https://<spark_cluster_name>.azur
 
 - If you want to retrieve all the Livy Spark batches running on the cluster:
     
-    Windows Command Prompt
     
-    ```
+    
+    ```cmd
     curl -k -v -H "Authorization: Bearer " -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches"
     
     ```
     
 - If you want to retrieve a specific batch with a given batch ID
     
-    Windows Command Prompt
+   
     
-    ```
+    ```cmd
     curl -k -v -H "Authorization: Bearer " -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches/{batchId}"
     
     ```
@@ -136,9 +136,9 @@ curl -k -v -H "Authorization: Bearer " -X GET "https://<spark_cluster_name>.azur
 
 ## Delete a Livy Spark batch job
 
-Windows Command Prompt
 
-```
+
+```cmd
 curl -k -v -H "Authorization: Bearer " -X DELETE "https://<spark_cluster_name>.azurehdinsight.net/livy/batches/{batchId}"
 
 ```
@@ -147,9 +147,9 @@ curl -k -v -H "Authorization: Bearer " -X DELETE "https://<spark_cluster_name>.a
 
 Deleting a batch job with batch ID `5`.
 
-Windows Command Prompt
 
-```
+
+```cmd
 curl -k -v -H "Authorization: Bearer " -X DELETE "https://mysparkcluster.azurehdinsight.net/livy/batches/5"
 
 ```
@@ -172,9 +172,8 @@ Perform the following steps:
 
 1. For ease of use, set environment variables. This example is based on a Windows environment, revise variables as needed for your environment. Replace `CLUSTERNAME`, and `TOKEN` with the appropriate values.
     
-    Windows Command Prompt
     
-    ```
+    ```cmd
     set clustername=CLUSTERNAME
     set token=TOKEN
     
@@ -182,9 +181,9 @@ Perform the following steps:
     
 1. Verify that Livy Spark is running on the cluster. We can do so by getting a list of running batches. If you're running a job using Livy for the first time, the output should return zero.
     
-    Windows Command Prompt
+   
     
-    ```
+    ```cmd
     curl -k -v -H "Authorization:%token%" -X GET "https://%clustername%.azurehdinsight.net/livy/batches"
     
     ```
@@ -193,7 +192,7 @@ Perform the following steps:
     
     Output
     
-    ```
+    ```json
     < HTTP/1.1 200 OK
     < Content-Type: application/json; charset=UTF-8
     < Server: Microsoft-IIS/8.5
@@ -210,18 +209,16 @@ Perform the following steps:
     
 1. Let us now submit a batch job. The following snippet uses an input file (input.txt) to pass the jar name and the class name as parameters. If you're running these steps from a Windows computer, using an input file is the recommended approach.
     
-    Windows Command Prompt
     
-    ```
+    ```cmd
     curl -k -v -H "Content-Type: application/json" -H "Authorization:%token%" -X POST --data @C:\Temp\input.txt "https://%clustername%.azurehdinsight.net/livy/batches" -H "X-Requested-By: admin"
     
     ```
     
     The parameters in the file **input.txt** are defined as follows:
     
-    text
     
-    ```
+    ```cmd
     { "file":"wasbs:///example/jars/SparkSimpleApp.jar", "className":"com.microsoft.spark.example.WasbIOTest" }
     
     ```
@@ -230,7 +227,7 @@ Perform the following steps:
     
     Output
     
-    ```
+    ```json
     < HTTP/1.1 201 Created
     < Content-Type: application/json; charset=UTF-8
     < Location: /0
@@ -248,9 +245,8 @@ Perform the following steps:
     
 1. You can now retrieve the status of this specific batch using the batch ID.
     
-    Windows Command Prompt
     
-    ```
+    ```cmd
     curl -k -v -H "Authorization:%token%" -X GET "https://%clustername%.azurehdinsight.net/livy/batches/0"
     
     ```
@@ -259,7 +255,7 @@ Perform the following steps:
     
     Output
     
-    ```
+    ```json
     < HTTP/1.1 200 OK
     < Content-Type: application/json; charset=UTF-8
     < Server: Microsoft-IIS/8.5
@@ -276,9 +272,8 @@ Perform the following steps:
     
 1. If you want, you can now delete the batch.
     
-    Windows Command Prompt
     
-    ```
+    ```cmd
     curl -k -v -H "Authorization:%token%" -X DELETE "https://%clustername%.azurehdinsight.net/livy/batches/0"
     
     ```
@@ -287,7 +282,7 @@ Perform the following steps:
     
     Output
     
-    ```
+    ```json
     < HTTP/1.1 200 OK
     < Content-Type: application/json; charset=UTF-8
     < Server: Microsoft-IIS/8.5
@@ -303,7 +298,7 @@ Perform the following steps:
     The last line of the output shows that the batch was successfully deleted. If you delete a job, while it's running, also kills the job. If you delete a job that has completed, successfully or otherwise, it deletes the job information completely.
     
 
-## Updates to Livy configuration starting with HDInsight 3.5 version
+## Updates to Livy configuration starting with HDInsight 5.1 version
 
 HDInsight 3.5 clusters and above, by default, disable use of local file paths to access sample data files or jars. We encourage you to use the `wasbs://` path instead to access jars or sample data files from the cluster.
 
