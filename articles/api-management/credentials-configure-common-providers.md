@@ -15,26 +15,24 @@ ms.custom: sfi-image-nochange
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-In this article, you learn about configuring identity providers for managed [connections](credentials-overview.md) in your API Management instance. Settings for the following common providers are shown:
+In this article, you learn about configuring identity providers for managed [connections](credentials-overview.md) in your Azure API Management instance. Settings for the following common providers are shown:
 
-* Microsoft Entra provider
-* Generic OAuth 2.0 provider
+* Microsoft Entra 
+* Generic OAuth 2.0 
 
-You configure a credential provider in your API Management instance's credential manager. For a step-by-step example of configuring a Microsoft Entra provider and connection, see:
-
-* [Configure credential manager - Microsoft Graph API](authorizations-how-to-azure-ad.md)
+You configure a credential provider in the credential manager in your API Management instance. For a step-by-step example of configuring a Microsoft Entra provider and connection, see [Configure credential manager - Microsoft Graph API](authorizations-how-to-azure-ad.md).
 
 ## Prerequisites
 
 To configure any of the supported providers in API Management, first configure an OAuth 2.0 app in the identity provider that will be used to authorize API access. For configuration details, see the provider's developer documentation.
 
-* If you're creating a credential provider that uses the authorization code grant type, configure a **Redirect URL** (sometimes called Authorization Callback URL or a similar name) in the app. For the value, enter `https://authorization-manager.consent.azure-apim.net/redirect/apim/<YOUR-APIM-SERVICENAME>`.
+* If you're creating a credential provider that uses the authorization code grant type, configure a redirect URL (sometimes called an Authorization Callback URL or a similar name) in the app. For the value, enter `https://authorization-manager.consent.azure-apim.net/redirect/apim/<API-management-instance-name>`.
 
-* Depending on your scenario, configure app settings such as scopes (API permissions).
+* Depending on your scenario, configure app settings like scopes (API permissions).
     
 * Minimally, retrieve the following app credentials that will be configured in API Management: the app's **client ID** and **client secret**.
 
-* Depending on the provider and your scenario, you might need to retrieve other settings such as authorization endpoint URLs or scopes.
+* Depending on the provider and your scenario, you might need to retrieve other settings, like authorization endpoint URLs or scopes.
 
 * The provider's authorization endpoints must be reachable over the internet from your API Management instance. If your API Management instance is secured in a virtual network, configure network or firewall rules to allow access to the provider's endpoints.
 
