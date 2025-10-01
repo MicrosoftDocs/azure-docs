@@ -31,9 +31,9 @@ After importing API definitions or APIs from API Management, you can add metadat
 
 ## Prerequisites
 
-* An API center in your Azure subscription. If you haven't created one, see [Quickstart: Create your API center](set-up-api-center.md).
+* An API center in your Azure subscription. If you don't have one, see [Quickstart: Create your API center](set-up-api-center.md).
 
-* One or more instances of Azure API Management in the same or a different subscription. When you import APIs directly from API Management, the API Management instance and API center must be in the same directory. If you haven't created one, see [Create an Azure API Management instance](../api-management/get-started-create-service-instance.md).
+* One or more instances of Azure API Management in the same or a different subscription. When you import APIs directly from API Management, the API Management instance and API center must be in the same directory. If you don't have one, see [Create an Azure API Management instance](../api-management/get-started-create-service-instance.md).
 
 * One or more APIs managed in your API Management instance that you want to add to your API center.
 
@@ -121,7 +121,7 @@ az apic api definition import-specification `
 
 ## Option 2: Import APIs directly from your API Management instance
 
-The following are steps to import APIs from your API Management instance to your API center using the [az apic import-from-apim](/cli/azure/apic#az-apic-service-import-from-apim) command. This command is useful when you want to import multiple APIs from API Management to your API center, but you can also use it to import a single API.
+The following are steps to import APIs from your API Management instance to your API center using the [az apic import-from-apim](/cli/azure/apic#az-apic-service-import-from-apim) command. This command is useful when you want to import multiple APIs from API Management to your API center. You can also use it to import a single API.
 
 When you add APIs from an API Management instance to your API center using `az apic import-from-apim`, the following happens automatically:
 
