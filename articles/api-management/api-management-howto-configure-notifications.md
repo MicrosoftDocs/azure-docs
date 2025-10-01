@@ -65,7 +65,7 @@ API Management provides notification templates for the administrative email mess
 - Subscription request declined
 - Subscription request received
 
-Each email template has a subject in plain text, and a body definition in HTML format. Each item can be customized as desired.
+Each email template has a subject line in plain text, and a body definition in HTML format. Each item can be customized as desired.
 
 > [!NOTE]
 > HTML content in a template must be well-formed and adhere to the [XML specification](https://www.w3.org/XML/). The `&nbsp;` character isn't allowed.
@@ -98,9 +98,9 @@ To modify email settings:
 1. Select **E-mail settings**.
 
 1. On the **General email settings** page, enter values for:
-    * **Administrator email**: the email address to receive all system notifications and other configured notifications
-    * **Organization name**: the name of your organization for use in the developer portal and notifications 
-    * **Originating email address**: The value of the `From` header for notifications from the API Management instance. API Management sends notifications on behalf of this originating address.
+    * **Administrator email**: the email address to receive all system notifications and other configured notifications.
+    * **Organization name**: the name of your organization for use in the developer portal and notifications.
+    * **Originating email address**: The value of the **From** header for notifications from the API Management instance. API Management sends notifications on behalf of this originating address.
 
       :::image type="content" source="media/api-management-howto-configure-notifications/configure-email-settings.png" alt-text="Screenshot of API Management email settings in the portal":::
 
@@ -110,11 +110,11 @@ To modify email settings:
 
 Recipients of email notifications from API Management could be affected when you change the originating email address.
 
-* **Change the From address**: When you change the originating email address (for example, to `no-reply@contoso.com`), the `From` address header will be `noreply@contoso.com apimgmt-noreply@mail.windowsazure.com`. This is because the email is being sent by API Management, and not the email server of the originating email address.
+* **Change the From address**: When you change the originating email address (for example, to `no-reply@contoso.com`), the **From** address header will be `noreply@contoso.com apimgmt-noreply@mail.windowsazure.com`. This is because the email is being sent by API Management, and not the email server of the originating email address.
 
-* **Email set to junk or spam folder**: Some recipients might not receive the email notifications from API Management, or emails might get sent to the junk or spam folder. This can happen depending on the organization's SPF or DKIM email authentication settings:
+* **Email sent to junk or spam folder**: Some recipients might not receive the email notifications from API Management, or emails might get sent to the junk or spam folder. This can happen depending on the organization's SPF or DKIM email authentication settings:
 
-    * **SPF authentication**: Email might no longer pass SPF authentication after you change the originating email address domain. To ensure successful SPF authentication and delivery of email, create the following TXT record in the DNS database of the domain specified in the email address. For instance, if the email address is `noreply@contoso.com`, contact the administrator of contoso.com to add the following TXT record: **"v=spf1 include:spf.protection.outlook.com include:_spf-ssg-a.microsoft.com -all"**
+    * **SPF authentication**: Email might no longer pass SPF authentication after you change the originating email address domain. To ensure successful SPF authentication and delivery of email, create the following TXT record in the DNS database of the domain specified in the email address. For instance, if the email address is `noreply@contoso.com`, contact the administrator of `contoso.com` to add the following TXT record: **"v=spf1 include:spf.protection.outlook.com include:_spf-ssg-a.microsoft.com -all"**
 
     * **DKIM authentication**: To generate a valid signature for DKIM for email authentication, API Management requires the private key associated with the domain of the originating email address. However, it's currently not possible to upload this private key in API Management. Therefore, to assign a valid signature, API Management uses the private key associated with the `mail.windowsazure.com` domain.
 
