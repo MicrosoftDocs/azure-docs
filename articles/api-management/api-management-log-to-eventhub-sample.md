@@ -29,7 +29,7 @@ Using the Azure API Management service to integrate with logging infrastructure 
 
 ## Why send to an event hub?
 
-It's reasonable to ask: why create a policy that is specific to Azure Event Hubs? There are many different places where you might want to log your requests. Why not just send the requests directly to the final destination? That's an option. However, when making logging requests from an API management service, it's necessary to consider how logging messages affects the API's performance. Gradual increases in load can be handled by increasing available instances of system components or by taking advantage of geo-replication. However, short spikes in traffic can cause requests to be delayed if requests to logging infrastructure start to slow under load.
+It's reasonable to ask: why create a policy that's specific to Azure Event Hubs? There are many different places where you might want to log your requests. Why not just send the requests directly to the final destination? That's an option. However, when making logging requests from an API management service, it's necessary to consider how logging messages affects the API's performance. Gradual increases in load can be handled by increasing available instances of system components or by taking advantage of geo-replication. However, short spikes in traffic can cause requests to be delayed if requests to logging infrastructure start to slow under load.
 
 Azure Event Hubs is designed to ingress huge volumes of data, with capacity for dealing with a far higher number of events than the number of HTTP requests most APIs process. The event hub acts as a kind of sophisticated buffer between your API management service and the infrastructure that stores and processes the messages. This ensures that your API performance won't suffer due to the logging infrastructure.
 
@@ -167,7 +167,7 @@ Events from Azure Event Hubs are received using the [AMQP protocol](https://www.
 
 ### EventProcessorHost
 
-In this sample, we use the `EventProcessorHost` for simplicity, however it might not the best choice for this particular scenario. `EventProcessorHost` does the hard work of making sure you don't have to worry about threading issues within a particular event processor class. However, in our scenario, we simply convert the message to another format and pass it to another service using an async method. There's no need to update shared state, and therefore no risk of threading issues. For most scenarios, `EventProcessorHost` is probably the best choice and is certainly the easier option.
+In this sample, we use the `EventProcessorHost` for simplicity, however it might not the best choice for this particular scenario. `EventProcessorHost` does the hard work of making sure you don't have to worry about threading issues within a particular event processor class. However, in our scenario, we convert the message to another format and pass it to another service using an async method. There's no need to update shared state, and therefore no risk of threading issues. For most scenarios, `EventProcessorHost` is probably the best choice and is certainly the easier option.
 
 ### IEventProcessor
 
@@ -310,7 +310,7 @@ The [source code](https://github.com/dgilling/ApimEventProcessor) and tests for 
 
 The sample is just a simple Console application that listens for events coming from Event Hub, converts them into a Moesif `EventRequestModel` and `EventResponseModel` objects, then forwards them on to the Moesif Collector API.
 
-In the following animated image, you can see a request being made to an API in the Developer Portal, the Console application showing the message being received, processed, and forwarded and then the request and response showing up in the event stream.
+In the following animated image, you can see a request being made to an API in the Developer Portal, the Console application showing the message being received, processed, and forwarded and then the request and response showing up in the eventstream.
 
 ![Animated image demonstration of a request being forwarded to Runscope](./media/api-management-log-to-eventhub-sample/apim-eventhub-runscope.gif)
 
