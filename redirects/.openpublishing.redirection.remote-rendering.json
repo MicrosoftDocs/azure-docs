@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/remote-rendering/index.yml",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/remote-rendering/concepts/components.md",
             "redirect_url": "https://learn.microsoft.com/azure/?product=popular",
             "redirect_document_id": false
