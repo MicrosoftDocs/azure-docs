@@ -9,20 +9,23 @@ ms.date: 09/11/2025
 ms.author: danlep
 
 ---
+
 # Custom caching in Azure API Management
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-Azure API Management service has built-in support for [HTTP response caching](caching-overview.md) using the resource URL as the key. The key can be modified by request headers using the `vary-by` properties. This is useful for caching entire HTTP responses (also known as representations), but sometimes it's useful to just cache a portion of a representation. The [cache-lookup-value](cache-lookup-value-policy.md) and [cache-store-value](cache-store-value-policy.md) policies provide the ability to store and retrieve arbitrary pieces of data from within policy definitions. This ability also adds value to the [send-request](send-request-policy.md) policy because you can cache responses from external services.
+Azure API Management service has built-in support for [HTTP response caching](caching-overview.md) using the resource URL as the key. You can modify the key by using request headers that use the `vary-by` properties. This technique is useful for caching entire HTTP responses (also known as representations), but sometimes it's useful to just cache a portion of a representation. The [cache-lookup-value](cache-lookup-value-policy.md) and [cache-store-value](cache-store-value-policy.md) policies give you the ability to store and retrieve arbitrary pieces of data from within policy definitions. This ability also adds value to the [send-request](send-request-policy.md) policy because you can cache responses from external services.
 
 ## Architecture
-API Management service uses a shared per-tenant internal data cache so that, as you scale up to multiple units, you still get access to the same cached data. However, when working with a multi-region deployment there are independent caches within each of the regions. It's important to not treat the cache as a data store, where it's the only source of some piece of information. If you did, and later decided to take advantage of the multi-region deployment, then customers with users that travel may lose access to that cached data.
+
+API Management service uses a shared per-tenant internal data cache so that, as you scale up to multiple units, you still get access to the same cached data. However, when working with a multi-region deployment there are independent caches within each of the regions. It's important to not treat the cache as a data store, where it's the only source of some piece of information. If you did, and later decided to take advantage of the multi-region deployment, then customers with users that travel might lose access to that cached data.
 
 > [!NOTE]
-> The internal cache is not available in the **Consumption** tier of Azure API Management. You can [use an external Redis-compatible cache](api-management-howto-cache-external.md) instead. An external cache allows for greater cache control and flexibility for API Management instances in all tiers.
+> The internal cache isn't available in the **Consumption** tier of Azure API Management. You can [use an external Redis-compatible cache](api-management-howto-cache-external.md) instead. An external cache allows for greater cache control and flexibility for API Management instances in all tiers.
 
 ## Fragment caching
-There are certain cases where responses being returned contain some portion of data that is expensive to determine and yet remains fresh for a reasonable amount of time. As an example, consider a service built by an airline that provides information relating to flight reservations, flight status, and so on. If the user is a member of the airlines points program, they would also have information relating to their current status and accumulated mileage. This user-related information might be stored in a different system, but it may be desirable to include it in responses returned about flight status and reservations. This can be done using a process called fragment caching. The primary representation can be returned from the origin server using some kind of token to indicate where the user-related information is to be inserted. 
+
+There are certain cases where responses being returned contain some portion of data that's expensive to determine and yet remains fresh for a reasonable amount of time. As an example, consider a service built by an airline that provides information relating to flight reservations, flight status, and so on. If the user is a member of the airlines points program, they would also have information relating to their current status and accumulated mileage. This user-related information might be stored in a different system, but it might be desirable to include it in responses returned about flight status and reservations. This inclusion can be done using a process called fragment caching. The primary representation can be returned from the origin server using some kind of token to indicate where the user-related information is to be inserted.
 
 Consider the following JSON response from a backend API.
 
@@ -63,7 +66,7 @@ variable-name="userprofile" />
 > [!NOTE]
 > [!INCLUDE [api-management-cache-availability](../../includes/api-management-cache-availability.md)]
 
-If there is no entry in the cache that corresponds to the key value, then no `userprofile` context variable is created. API Management checks the success of the lookup using the `choose` control flow policy.
+If there's no entry in the cache that corresponds to the key value, then no `userprofile` context variable is created. API Management checks the success of the lookup using the `choose` control flow policy.
 
 ```xml
 <choose>
@@ -108,7 +111,7 @@ To avoid API Management from making this HTTP request again, when the same user 
 
 API Management stores the value in the cache using the same key that API Management originally attempted to retrieve it with. The duration that API Management chooses to store the value should be based on how often the information changes and how tolerant users are to out-of-date information. 
 
-It is important to realize that retrieving from the cache is still an out-of-process network request and potentially can add tens of milliseconds to the request. The benefits come when determining the user profile information takes longer than that due to needing to do database queries or aggregate information from multiple back-ends.
+It's important to realize that retrieving information from the cache is still an out-of-process network request and potentially can add tens of milliseconds to the request. The benefits come when determining the user profile information takes longer than that due to needing to do database queries or aggregate information from multiple back-ends.
 
 The final step in the process is to update the returned response with the user profile information.
 
@@ -178,14 +181,15 @@ Once you combine these steps, the end result is a policy that looks like the fol
 
 This caching approach is primarily used in websites where HTML is composed on the server side so that it can be rendered as a single page. It can also be useful in APIs where clients can't do client-side HTTP caching or it's desirable not to put that responsibility on the client.
 
-This same kind of fragment caching can also be done on the backend web servers using a Redis caching server, however, using the API Management service to perform this work is useful when the cached fragments are coming from different back-ends than the primary responses.
+This same kind of fragment caching can also be done on the backend web servers using a Redis caching server. However, using the API Management service to perform this work is useful when the cached fragments are coming from different back-ends than the primary responses.
 
 ## Transparent versioning
+
 It's common practice for multiple different implementation versions of an API to be supported at any one time. For example, to support different environments (dev, test, production, etc.) or to support older versions of the API to give time for API consumers to migrate to newer versions. 
 
-One approach to handling this, instead of requiring client developers to change the URLs from `/v1/customers` to `/v2/customers` is to store in the consumer’s profile data which version of the API they currently wish to use and call the appropriate backend URL. To determine the correct backend URL to call for a particular client, it's necessary to query some configuration data. By caching this configuration data, API Management can minimize the performance penalty of doing this lookup.
+One approach to handling multiple versions, instead of requiring client developers to change the URLs from `/v1/customers` to `/v2/customers` is to store in the consumer’s profile data which version of the API they currently wish to use and call the appropriate backend URL. To determine the correct backend URL to call for a particular client, it's necessary to query some configuration data. When you cache this configuration data, API Management can minimize the performance penalty of doing this lookup.
 
-The first step is to determine the identifier used to configure the desired version. In this example, I chose to associate the version to the product subscription key. 
+The first step is to determine the identifier used to configure the desired version. In this example, we associate the version to the product subscription key. 
 
 ```xml
 <set-variable name="clientid" value="@(context.Subscription.Key)" />
@@ -273,14 +277,16 @@ The complete policy is as follows:
 </inbound>
 ```
 
-Enabling API consumers to transparently control which backend version is being accessed by clients without having to update and redeploy clients is an elegant solution that addresses many API versioning concerns.
+Enabling API consumers to transparently control which backend version is being accessed by clients without having to update and redeploy clients, is an elegant solution that addresses many API versioning concerns.
 
 ## Tenant isolation
-In larger, multitenant deployments some companies create separate groups of tenants on distinct deployments of backend hardware. This minimizes the number of customers who are impacted by a hardware issue on the backend. It also enables new software versions to be rolled out in stages. Ideally this backend architecture should be transparent to API consumers. This can be achieved in a similar way to transparent versioning because it is based on the same technique of manipulating the backend URL using configuration state per API key.  
+
+In larger, multitenant deployments some companies create separate groups of tenants on distinct deployments of backend hardware. This structure minimizes the number of customers who are impacted by a hardware issue on the backend. It also enables new software versions to be rolled out in stages. Ideally this backend architecture should be transparent to API consumers. You can achieve this transparency by using a technique similar to transparent versioning, manipulating the backend URL using configuration state per API key.
 
 Instead of returning a preferred version of the API for each subscription key, you would return an identifier that relates a tenant to the assigned hardware group. That identifier can be used to construct the appropriate backend URL.
 
 ## Summary
+
 The freedom to use the Azure API management cache for storing any kind of data enables efficient access to configuration data that can affect the way an inbound request is processed. It can also be used to store data fragments that can augment responses, returned from a backend API.
 
 ## Related content
