@@ -114,7 +114,7 @@ Zone-redundant Premium, Standard tier caches are available in the following regi
 | South Central US | West Europe          |                |                    | East Asia         |
 | US Gov Virginia  | Sweden Central       |                |                    | China North 3     |
 | West US 2        | Switzerland North    |                |                    | Korea Central     |
-| West US 3        | Poland Central       |                |                    | Malaysia          |
+| West US 3        | Poland Central       |                |                    | Malaysia West     |
 | Mexico Central   | Spain Central        |                |                    | New Zealand North |
 
 Zone-redundant Enterprise and Enterprise Flash tier caches are available in the following regions:
