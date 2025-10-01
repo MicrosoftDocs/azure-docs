@@ -24,7 +24,7 @@ Azure PowerShell provides *cmdlets* that allow you to remotely run MapReduce j
 
 The following cmdlets used when running MapReduce jobs in a remote HDInsight cluster.
 
-| **Cmdlet** | **Description** |
+| Cmdlet | Description |
 | --- | --- |
 | Connect-AzAccount | Authenticates Azure PowerShell to your Azure subscription. |
 | New-AzHDInsightMapReduceJobDefinition | Creates a new *job definition* by using the specified MapReduce information. |
