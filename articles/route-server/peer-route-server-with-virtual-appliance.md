@@ -6,6 +6,8 @@ ms.author: duau
 ms.service: azure-route-server
 ms.topic: tutorial
 ms.date: 09/17/2025
+ms.custom: sfi-image-nochange
+
 ---
 
 # Tutorial: Configure BGP peering between Azure Route Server and network virtual appliance (NVA)

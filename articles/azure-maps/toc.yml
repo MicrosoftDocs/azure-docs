@@ -58,8 +58,6 @@ items:
       href: geographic-coverage.md
     - name: Geocoding coverage
       href: geocoding-coverage.md
-    - name: Autocomplete coverage
-      href: autocomplete-coverage.md
     - name: Traffic coverage
       href: traffic-coverage.md
     - name: Render coverage

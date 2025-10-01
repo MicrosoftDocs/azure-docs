@@ -7,7 +7,10 @@ ms.date: 06/06/2025
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
-ms.custom: amqp, mqtt
+ms.custom:
+  - amqp
+  - mqtt
+  - sfi-ropc-nochange
 ---
 
 # Connect a downstream device to an Azure IoT Edge gateway

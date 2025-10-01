@@ -185,7 +185,7 @@ Oracle Transparent Data Encryption (TDE) master encryption keys (MEK) can be man
 
 ### What type of storage redundancy options are available?
 
-Oracle Automatic Storage Management (Oracle ASM) is the default and only storage management system that's supported on Oracle Exadata systems. Only NORMAL (protection against single disk or an entire storage server failure) and HIGH redundancy (protection against two simultaneous partner disk failures from two distinct storage servers) levels are supported on Oracle Exadata systems. For more information, see [Oracle ASM considerations
+Oracle Automatic Storage Management (Oracle ASM) is the default and only storage management system that's supported on Oracle Exadata systems. Only HIGH redundancy (protection against two simultaneous partner disk failures from two distinct storage servers) levels are supported on Oracle Exadata systems. NORMAL (protection against single disk or an entire storage server failure) levels are not supported. For more information, see [Oracle ASM considerations
 for Oracle Exadata deployments, on-premises and cloud](https://www.oracle.com/docs/tech/database/maa-exadata-asm-cloud.pdf).
 
 ### Is tiering storage available for the database in Oracle Database@Azure?

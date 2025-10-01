@@ -89,7 +89,6 @@ items:
       href: configure-wu-agent.md
   - name: Manage
     items:
-    - name: Migration from Automation Update Management to Azure Update Manager
     - name: Check update compliance
       href: view-updates.md
     - name: Automate assessment at scale using Policy
