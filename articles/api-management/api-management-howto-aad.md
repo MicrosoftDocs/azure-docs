@@ -31,7 +31,7 @@ For an overview of options to secure the developer portal, see [Secure access to
 > * If you previously configured a Microsoft Entra app for user sign-in using the Azure AD Authentication Library (ADAL), we recommend that you [migrate to MSAL](#migrate-to-msal).
 
 > [!NOTE]
-> For information about using Microsoft External ID to allow external idenntities to sign in to the developer portal, see [Authorize access to API Management developer portal by using Microsoft Entra External ID](api-management-howto-entra-external-id.md).
+> For information about using Microsoft External ID to allow external identities to sign in to the developer portal, see [Authorize access to API Management developer portal by using Microsoft Entra External ID](api-management-howto-entra-external-id.md).
  
 
 ## Prerequisites
