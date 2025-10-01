@@ -4,7 +4,7 @@ description: Describes Azure HPC Cache, a file access accelerator solution for h
 author: ronhogue
 ms.service: azure-hpc-cache
 ms.topic: overview
-ms.date: 03/15/2024
+ms.date: 10/01/2025
 ms.author: rohogue
 # Customer intent: As a high-performance computing administrator, I want to find an alternative file access solution to Azure HPC Cache, so that I can maintain efficient data access and support scalability in my workflows after its retirement.
 ---

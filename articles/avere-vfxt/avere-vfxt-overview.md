@@ -4,7 +4,7 @@ description: Learn about Avere vFXT for Azure, a cloud-based filesystem caching 
 author: ekpgh
 ms.service: azure-avere-vfxt
 ms.topic: overview
-ms.date: 03/15/2024
+ms.date: 10/01/2025
 ms.author: rohogue
 # Customer intent: "As a data engineer, I want to implement a cloud filesystem caching solution for HPC tasks, so that I can efficiently manage large datasets across hybrid and cloud environments before the Avere vFXT for Azure retirement."
 ---
