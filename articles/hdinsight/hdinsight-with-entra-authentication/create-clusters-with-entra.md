@@ -104,7 +104,7 @@ Admin can add multiple users at once via an API, ideal for managing large cluste
 			} 
 ```
 
-**Response**
+### Response
 HTTP 202 (Accepted) on successful completion of the operation. 
 
 ## Authentication Process 
