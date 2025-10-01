@@ -49,11 +49,9 @@ For more information, see [Optimize Microsoft Sentinel costs with a pre-purchase
 
 Microsoft Sentinel analyzes all the data ingested into Microsoft Sentinel-enabled Log Analytics workspaces. It's best to have a separate workspace for non-security operations data, to ensure it doesn't incur Microsoft Sentinel costs.
 
-## Use the Microsoft Sentinel data lake (preview) for lower fidelity or secondary security data 
+## Use the Microsoft Sentinel data lake for lower fidelity or secondary security data 
 
 While the analytics tier is most appropriate for continuous, real-time threat detection, the Microsoft Sentinel data lake is well-suited for query and analytics of secondary security data that is not needed for real time threat detection. Microsoft Sentinel data lake offers ingestion and storage at a significantly reduced cost. For more information, see [Microsoft Sentinel Pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
-
-[!INCLUDE [sentinel-lake-preview](includes/sentinel-lake-preview.md)]
 
 ## Optimize Log Analytics costs with dedicated clusters
 
@@ -98,5 +96,5 @@ Besides for the predefined sets of events that you can select to ingest, such as
 - Learn about how to [prevent unexpected costs](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
 - For more tips on reducing Log Analytics data volume, see [Azure Monitor best practices - Cost management](/azure/azure-monitor/best-practices-cost).
-- To understand more about Microsoft Sentinel data lake (Preview), see [Microsoft Sentinel data lake (Preview)](datalake/sentinel-lake-overview.md).
-- To onboard to Microsoft Sentinel data lake (Preview), see [Onboard data to Microsoft Sentinel data lake (Preview)](datalake/sentinel-lake-onboarding.md). 
+- To understand more about Microsoft Sentinel data lake, see [Microsoft Sentinel data lake](datalake/sentinel-lake-overview.md).
+- To onboard to Microsoft Sentinel data lake, see [Onboard data to Microsoft Sentinel data lake](datalake/sentinel-lake-onboarding.md).

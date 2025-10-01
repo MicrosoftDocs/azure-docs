@@ -40,9 +40,9 @@ GPv2 supports all capabilities of GPv1 and adds several enhancements, including 
 
 | Date               | Milestone                                                   |
 |--------------------|-------------------------------------------------------------|
-| **September 2025** | Retirement announced                                        |
-| **August 2026**    | Creation of new GPv1 Storage accounts disabled              |
-| **September 2026** | Full retirement; Any remaining GPv1 Storage accounts will be automigrated to GPv2. Your decision not to migrate an existing GPv1 account will be construed as consent for Microsoft to migrate the account on your behalf. |
+|**September 2025** |Retirement announced                                        |
+| **Q1 2026**    |Creation of new GPv1 Storage accounts disabled              |
+|**September 2026** |Full retirement; Any remaining GPv1 Storage accounts will be automigrated to GPv2. Your decision not to migrate an existing GPv1 account will be construed as consent for Microsoft to migrate the account on your behalf. |
 
 The retirement takes effect globally across all Azure regions.
 
@@ -99,7 +99,8 @@ Resources
 | project name, type, tenantId, kind, location, resourceGroup, subscriptionId, managedBy, sku, plan, properties, tags, identity, zones, extendedLocation, Version
 
 ```
-[!NOTE] This query identifies both GPv1 accounts (kind `Storage`) and legacy blob storage accounts (kind `BlobStorage`) regardless of redundancy. Since both account types are being retired, be sure to review and include all affected accounts in your migration plan.
+> [!NOTE] 
+> This query identifies both GPv1 accounts (kind `Storage`) and legacy blob storage accounts (kind `BlobStorage`) regardless of redundancy. Since both account types are being retired, be sure to review and include all affected accounts in your migration plan.
 
 ## What happens if you don’t migrate by the deadline
 > [!Warning]

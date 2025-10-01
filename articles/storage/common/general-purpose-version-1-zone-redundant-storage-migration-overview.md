@@ -59,7 +59,7 @@ The table below summarizes the key differences most customers care about:
 | Date               | Milestone |
 |--------------------|---|
 | **September 2025** | Public announcement and documentation updates. |
-| **September 2026** | Creation of new GPv1/Blob‑Only/**general purpose v1 (GPv1) with ZRS redundancy** configurations blocked. |
+| **Q1 2026** | Creation of new GPv1/Blob‑Only/**general purpose v1 (GPv1) with ZRS redundancy** configurations blocked. |
 | **September 2026** | **Full retirement.** Any remaining general purpose v1 (GPv1) with ZRS redundancy accounts are automatically upgraded to GPv2. |
 
 ## Preparing for migration
