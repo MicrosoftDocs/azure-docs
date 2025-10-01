@@ -16,6 +16,9 @@ ms.subservice: storage-partner-integration
 
 This article highlights Microsoft partners that are integrated with Azure Storage for archive, backup, and for business continuity and disaster recovery (BCDR) workloads. These partner solutions take advantage of the scale and cost benefits of Azure Storage. You can use the solutions to help solve backup challenges, to create a disaster recovery site, or to archive unused content for long-term retention. With all the compliance standards that Azure Storage meets, and with Azure features such as [immutable storage](../../../blobs/immutable-storage-overview.md) and [lifecycle management](../../../blobs/lifecycle-management-overview.md), these solutions can easily replace tape-based backups, and offer an on-demand economical recovery site.
 
+> [!NOTE]
+> While Azure Storage works closely with our partners, support for any partner solution is provided by the partner, not Azure Support. You will need to open a case with the partner's support organization and then, if necessary, open a case with Azure Support to troubleshoot Azure infrastructure events that may be connected to the issue."
+
 ## Verified partners
 
 | Partner | Description | Website/product link |
