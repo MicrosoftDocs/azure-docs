@@ -31,7 +31,7 @@ At Azure Data Factory (ADF), we're committed to continually enhancing our platfo
 
 If your data factory includes any of the connectors listed in the [parent article](connector-deprecation-plan.md) announcing the **End of Support**, you should plan to migrate to the newer version of the connector or explore alternative solutions before the deprecation/disabled date.
 
-Alternatively, you can check if you have any impacted objects in your data factory by navigating to **Manage → Linked Services** page. If you have any legacy connectors, an alert icon will be displayed beside those linked services.
+Alternatively, you can check if you have any impacted objects in your data factory by navigating to **Manage → Linked Services** page. If you have any legacy connectors, an alert icon is displayed beside those linked services.
 
 :::image type="content" source="media/connector-deprecation-frequently-asked-questions/linked-services-page.png" alt-text="Screenshot of the linked services page." lightbox="media/connector-deprecation-frequently-asked-questions/linked-services-page.png":::
 
@@ -62,7 +62,7 @@ There are three key deadlines outlined in our documentation:
 
 1. **End of Support Announcement:**  This period serves as a recommended upgrade window. You're encouraged to upgrade your legacy connectors to the new ones during this time and engage with the Microsoft team if you encounter any blockers.  
 
-    - New linked services can't use legacy connectors, but existing linked services with legacy connectors will continue to work.
+    - New linked services can't use legacy connectors, but existing linked services with legacy connectors continue to work.
 
 1. **End of Support (EOS) date:**  At this point, the connector is officially deprecated and no longer supported. Your data factories using legacy connectors continue to operate, we won't intentionally fail any pipelines. However, the deprecation takes effect with the following:
 
@@ -72,8 +72,8 @@ There are three key deadlines outlined in our documentation:
 
 1. **Version removed:** After this date, pipelines using legacy connectors will start to fail if it is not automatically upgraded. All pipelines relying on legacy connectors will start to fail as the service stop all traffic on legacy drivers. 
  
-    - New features and bug fixes will only be available on the new connectors.  
-    - If your activity has been automatically upgraded by the service, your pipelines that rely on the legacy version will continue to run, giving users additional time to evaluate and transition to the latest GA version without facing immediate failures.
+    - New features and bug fixes are available on the new connectors.  
+    - If your activity has been automatically upgraded by the service, your pipelines that rely on the legacy version continues to run, giving users additional time to evaluate and transition to the latest GA version without facing immediate failures.
 
 ## How should I get an extension for legacy version of the connectors?
 
@@ -83,7 +83,7 @@ It's important to note that the scope of automatic upgrades varies by connector.
 
 While auto-upgraded workloads aren't immediately affected by the announced removal date of the older version, this approach gives customers additional time to evaluate, validate, and transition to the latest GA version without facing unexpected disruptions.
 
-An extension will allow the pipeline that relies on the existing legacy version to continue running. However, it won't permit the creation of new workloads, such as linked services, that depend on any legacy version.
+An extension allows the pipeline that relies on the existing legacy version to continue running. However, it won't permit the creation of new workloads, such as linked services, that depend on any legacy version.
 
 ## If the activity is automatically upgraded, will they still fail after the version removal date?
 
@@ -102,7 +102,7 @@ You can identify which activities have been automatically upgraded by inspecting
 
 ## If my workload is automatically upgraded by the service, how much additional time can I get to upgrade to v2?
 
-There are no plans to disable workloads that have been automatically upgraded. However, please note that no bug fixes or new features will be available for these workloads.
+There are no plans to disable workloads that have been automatically upgraded. However, please note that no bug fixes or new features are available for these workloads.
 
 ## What should I do if I encounter the feature gaps and errors/ bugs that are preventing me from migrating to the new connectors?
 
