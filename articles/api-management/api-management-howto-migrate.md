@@ -69,6 +69,6 @@ If you moved the API Management instance by using Option 1, after you successful
 
 ## Related content
 
-* For more information about the backup and restore feature, see [how to implement disaster recovery](api-management-howto-disaster-recovery-backup-restore.md).
+* For more information about the backup and restore feature, see [How to implement disaster recovery](api-management-howto-disaster-recovery-backup-restore.md).
 * For information on migrating Azure resources, see [Azure cross-region migration guidance](https://github.com/Azure/Azure-Migration-Guidance).
 * [Optimize and save on your cloud spending](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
