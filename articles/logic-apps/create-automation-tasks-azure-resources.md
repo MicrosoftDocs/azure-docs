@@ -1,11 +1,11 @@
 ---
 title: Create Automation Tasks to Manage and Monitor Azure Resources
-description: Learn how to use automated tasks to manage Azure resources and monitor costs by creating workflows that run on Azure Logic Apps.
+description: Learn to create automated tasks that manage Azure resources, monitor costs, and are powered by workflows that run in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/30/2025
 ms.custom: sfi-image-nochange
 #Customer intent: As an integration developer, I want to manage Azure resources like virtual machines and storage accounts using automated tasks that run workflows in Azure Logic Apps, create email notifications, power off virtual machines, and other tasks.
 ---
@@ -18,7 +18,7 @@ To help you manage [Azure resources](../azure-resource-manager/management/overvi
 
 - For an [Azure virtual machine](/azure/virtual-machines/overview), you can create an automation task that turns on or turns off that virtual machine on a predefined schedule. Specifically, you can create a task that automatically starts or stops the virtual machine a specific number of times every day, week, or month. On the task's **Configure** tab, set the **Interval** value to the number of times and the **Frequency** value to **Day**, **Week**, or **Month**. The automation task continues to work until you delete or disable the task.
  
-You can create an automation task from a specific automation task template. The following table lists the currently supported resource types and available task templates in this preview:
+You can create an automation task from a specific automation task template. The following table lists the currently supported resource types and available task templates:
 
 | Resource type | Automation task templates |
 |---------------|---------------------------|
@@ -27,7 +27,7 @@ You can create an automation task from a specific automation task template. The 
 | Azure storage accounts | Additionally: <br><br>- **Delete old blobs** |
 | Azure Cosmos DB | Additionally, <br><br>- **Send query result via email** |
 
-This article shows you how to complete the following tasks:
+This article shows how to complete the following tasks:
 
 - [Create an automation task](#create-automation-task) for a specific Azure resource.
 - [Review a task's history](#review-task-history), which includes the run status, inputs, outputs, and other historical information.
@@ -114,6 +114,7 @@ Triggers and actions follow [Consumption plan rates](https://azure.microsoft.com
    :::image type="content" source="./media/create-automation-tasks-azure-resources/automation-tasks-list.png" alt-text="Screenshot shows the automation tasks list with your new task.":::
 
    > [!TIP]
+   >
    > If the task doesn't appear immediately, try refreshing the tasks list or wait a little before you refresh. On the toolbar, select **Refresh**.
 
    After the selected task runs, you get an email that looks like this example:
@@ -159,7 +160,7 @@ To view a task's history of runs along with their statuses, inputs, outputs, and
 
    :::image type="content" source="./media/create-automation-tasks-azure-resources/runs-history-details.png" alt-text="Screenshot shows each step in the run, status, and run duration.":::
 
-1. To review the inputs and outputs for each step, select the step, which expands.
+1. To review the inputs and outputs for each step, select the step, which opens the inputs and outputs pane.
 
 To learn how you can build your own automated workflows so that you can integrate apps, data, services, and systems apart from the context of automation tasks for Azure resources, see [Quickstart: Create a Consumption logic app workflow in the Azure portal](quickstart-create-example-consumption-workflow.md).
 
@@ -240,11 +241,11 @@ When you change the underlying workflow for an automation task, your changes aff
 
    1. After Azure finishes provisioning your cloned workflow, find and open that workflow in the designer.
 
-1. To view the properties for the trigger or an action, expand that trigger or action.
+1. To view the properties for the trigger or an action, select that trigger or action on the designer:
 
-   For example, you can change the Recurrence trigger to run weekly, rather than monthly.
+   For example, you can change the **Recurrence** trigger to run weekly, rather than monthly.
 
-   :::image type="content" source="./media/create-automation-tasks-azure-resources/edit-recurrence-trigger.png" alt-text="Screenshot shows the expanded Recurrence trigger with the Frequency list open to show available frequency options.":::
+   :::image type="content" source="./media/create-automation-tasks-azure-resources/edit-recurrence-trigger.png" alt-text="Screenshot shows the Recurrence trigger with open information pane and the Frequency list open to show available frequency options.":::
 
    For more information about the **Recurrence** trigger, see [Create, schedule, and run recurring tasks and workflows with the Recurrence trigger.](../connectors/connectors-native-recurrence.md).
 
@@ -262,7 +263,7 @@ When you change the underlying workflow for an automation task, your changes aff
 
 You can create your own automation task template by using any Consumption logic app workflow that starts with a recurring or event-based trigger, but not HTTP-based triggers or HTTP-based webhook triggers. For this task, you need the following items:
 
-- A [GitHub](https://github.com) account
+- A [GitHub](https://github.com) account.
 
 - Your forked version of the [automation task templates GitHub repository](https://github.com/Azure/automation-task-template/tree/master/templates).
 
@@ -295,13 +296,13 @@ After the Azure Logic Apps team reviews and approves your PR for merging to the 
 
 Before you begin, make sure that the workflow starts with a recurring or event-based trigger, instead of an HTTP-based trigger or HTTP-based webhook trigger.
 
-1. In the [Azure portal](https://portal.azure.com), open the logic app workflow that you want to export. 
+1. In the [Azure portal](https://portal.azure.com), open the Consumption logic app resource that has the workflow you want to export. 
 
-1. On the logic app resource menu, select **Overview**.
+1. On the resource sidebar menu, select **Overview**.
 
 1. On the **Overview** toolbar, select **Export** > **Export to Automation Task**.
 
-   :::image type="content" source="./media/create-automation-tasks-azure-resources/export-automation-task.png" alt-text="Screenshot show the Overview toolbar with Export menu open and Export to Automation Task highlighted.":::
+   :::image type="content" source="./media/create-automation-tasks-azure-resources/export-automation-task.png" alt-text="Screenshot shows the Overview toolbar with Export menu open and Export to Automation Task highlighted.":::
 
 1. On the **Export to Automation Task** pane that opens, provide the following information:
 
@@ -311,11 +312,11 @@ Before you begin, make sure that the workflow starts with a recurring or event-b
    | **Template Description** | Yes | <*template-description*> | A description for the template's task or purpose |
    | **Supported Resource Types** | No | Empty or <*supported-Azure-resource-type-list*> | The first-class Azure resource types where you want to make the template available. Subresource types are currently unsupported. To include all first-class Azure resource types, leave this property empty. To specify multiple resource types, separate each name with a comma and use the following syntax: <br><br>**Microsoft.<*service-provider*>/<*entity*>** <br><br>For example, to make the template available for Azure resource groups, specify **Microsoft.Resources/resourceGroups**. For more information, review [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md). |
    | **Unsupported Resource Types** | No | Empty or <*unsupported-Azure-resource-type-list*> | If any, the Azure resource types where you specifically don't want to make the template available. To specify multiple resource types, separate each name with a comma and use the following syntax: <br><br>**Microsoft.<*service-provider*>/<*entity*>** <br><br>For example, to make the template unavailable for Azure resource groups, specify **Microsoft.Resources/resourceGroups**. For more information, review [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md). |
-   | **Configure Parameters** | No | Varies | If your workflow includes cross-environment [parameter definitions](create-parameters-workflows.md), those parameters appear in this section for you to configure further. You can select whether each parameter value is provided either from the resource or the task creator. <br><br>- If you select **From Resource**, select a **Source Parameter** property value to use from that resource: <br><br>-- **Resource Name** <br>-- **Resource Type** <br>-- **Resource Id** <br>-- **Subscription Id** <br>-- **Resource Group** <br>-- **Resource Location**. <br><br>- If you select **User Provided**, select a **Template** format that determines how the task creator provides the parameter value: <br><br>-- **Default**: The parameter value is anything other than an interval, frequency, or time zone. <br><br>---- Specify the parameter's display name, default value, and description. <br><br>---- If the value is a timestamp (*hh:mm:ss*), set the **Format** property to **Time Format**. <br><br>---- To mark the parameter as required, change the **Optional** to **Required**. <br><br>-- **Interval**: The parameter value is an interval, such as **1** or **12**. <br><br>-- **Frequency**: The parameter value is a frequency, such as **Hour**, **Day, or **Month**. <br><br>-- **Timezone**: The parameter value is a time zone, such as **(UTC-08:00) Pacific Time (US & Canada)**. |
+   | **Configure Parameters** | No | Varies | If your workflow includes cross-environment [parameter definitions](create-parameters-workflows.md), those parameters appear in this section for you to configure further. You can select whether each parameter value is provided either from the resource or the task creator. <br><br>- If you select **From Resource**, select a **Source Parameter** property value to use from that resource: <br><br>-- **Resource Name** <br>-- **Resource Type** <br>-- **Resource Id** <br>-- **Subscription Id** <br>-- **Resource Group** <br>-- **Resource Location**. <br><br>- If you select **User Provided**, select a **Template** format that determines how the task creator provides the parameter value: <br><br>-- **Default**: The parameter value is anything other than an interval, frequency, or time zone. <br><br>---- Specify the parameter's display name, default value, and description. <br><br>---- If the value is a timestamp (*hh:mm:ss*), set the **Format** property to **Time Format**. <br><br>---- To mark the parameter as required, change the **Optional** to **Required**. <br><br>-- **Interval**: The parameter value is an interval, such as **1** or **12**. <br><br>-- **Frequency**: The parameter value is a frequency, such as **Hour**, **Day**, or **Month**. <br><br>-- **Timezone**: The parameter value is a time zone, such as **(UTC-08:00) Pacific Time (US & Canada)**. |
 
    The following example shows the properties for a sample automation task template:
 
-   :::image type="content" source="./media/create-automation-tasks-azure-resources/export-template-properties.png" alt-text="Screenshot showing the Export to Automation Task pane with example properties for an automation task template.":::
+   :::image type="content" source="./media/create-automation-tasks-azure-resources/export-template-properties.png" alt-text="Screenshot shows the Export to Automation Task pane with example properties for an automation task template.":::
 
    In this example, the task's underlying workflow includes the following parameter definitions and specifies that these parameter values are provided by the task creator.
 
