@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 09/19/2025
+ms.date: 09/30/2025
 ms.author: danlep
 ms.custom:
 
@@ -19,10 +19,13 @@ ms.custom:
 
 [Microsoft Entra External ID](/entra/external-id/external-identities-overview) is a cloud identity management solution that allows external identities to securely access your apps and resources. You can use it to manage access to your API Management developer portal by external identities. 
 
-In this article, you learn the configuration required in your API Management service to integrate with Microsoft Entra External ID. 
+In this article, you learn the configuration of the Microsoft Entra ID identity provider for the following scenarios that are supported by the API Management developer portal: 
 
-* Currently, API Management supports integration with Microsoft Entra External ID in your *workforce tenant*. For example, if your workforce tenant is for the Contoso organization, you might want to configure Google or Facebook as an external identity provider so that these external users can sign in using those accounts. 
-* Support for external identity providers in an *external tenant* isn't currently available.
+* Integration with Microsoft Entra External ID in your *workforce tenant*. For example, if your workforce tenant is for the Contoso organization, you might want to configure Google or Facebook as an external identity provider so that these external users can also sign in using their accounts. 
+* Integration with Microsoft Entra External ID in a separate *external tenant*. This configuration only allows external users from that tenant to sign in to the developer portal. 
+
+> [!NOTE]
+> Currently, you can't configure more than one Microsoft Entra ID identity provider for the developer portal. 
 
 For an overview of options to secure access to the developer portal, see [Secure access to the API Management developer portal](secure-developer-portal-access.md).
 
@@ -32,16 +35,14 @@ For an overview of options to secure access to the developer portal, see [Secure
 
 ## Prerequisites
 
-* A Microsoft Entra ID tenant (workforce tenant) in which to enable external access.
+* A Microsoft Entra ID tenant (workforce tenant) in which to enable external access, or a separate [external tenant](/entra/external-id/customers/how-to-create-external-tenant-portal)
 * Permissions to create an application and configure user flows in the workforce tenant.
 * An API Management instance. If you don't already have one, [create an Azure API Management instance](get-started-create-service-instance.md).
 * If you created your instance in a v2 tier, enable the developer portal. For more information, see [Tutorial: Access and customize the developer portal](api-management-howto-developer-portal-customize.md).
 
-
-
 ## Add external identity provider to your tenant
 
-An external identity provider must be enabled in your workforce tenant. Configuring the external identity provider is outside the scope of this article. For more information, see [Identity providers for External ID in workforce tenant](/entra/external-id/identity-providers).
+If you're using a workforce tenant, an external identity provider must be enabled in your workforce tenant. Configuring the external identity provider is outside the scope of this article. For more information, see [Identity providers for External ID in workforce tenant](/entra/external-id/identity-providers).
 
 ## Create Microsoft Entra app registration
 
@@ -73,7 +74,10 @@ For external users to sign up for access to the developer portal, you must compl
 * Enable self-service sign-up for your tenant. 
 * Add your app to the self-service sign-up user flow. 
 
-For more information and steps, see [Add self-service sign-up user flows for B2B collaboration](/entra/external-id/self-service-sign-up-user-flow).
+For more information and detailed steps, see the following articles, depending on whether you're using a workforce or an external tenant:
+
+- Workforce tenant: [Add self-service sign-up user flows for B2B collaboration](/entra/external-id/self-service-sign-up-user-flow) 
+- External tenant: [Create a sign-up and sign-in user flow for an external tenant app](/entra/external-id/customers/how-to-user-flow-sign-up-sign-in-customers) and [Add an app to the user flow](/entra/external-id/customers/how-to-user-flow-add-application)
 
 ## Configure Microsoft Entra ID as an identity provider for developer portal
 
