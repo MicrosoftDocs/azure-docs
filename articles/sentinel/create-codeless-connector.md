@@ -75,6 +75,9 @@ We recommend testing your components with an API testing tool like one of the fo
 
 ## Build the data connector
 
+>[!TIP]
+>If you're an Independent Software Vendor (ISV) and need support when building a Microsoft Sentinel integration using the Microsoft Sentinel Codeless Connector Framework, the Microsoft App Assure team may be able to assist. To engage the App Assure team, send an email to azuresentinelpartner@microsoft.com.
+
 There are four components required to build the CCF data connector.
 
 1. [Output table definition](#output-table-definition)
@@ -137,9 +140,6 @@ There are currently two kinds of data connection rules possible for defining you
 - `GCP` kind allows you to decrease your development time by automatically configuring paging and expected response payloads for your Google Cloud Platform (GCP) data source. For more information, see [GCP data connector connection rules reference](data-connection-rules-reference-gcp.md)
 
 Use an [API testing tool](#testing-apis) to call the data connector API to create the data connector which combines the connection rules and previous components. Verify the connector is now connected in the UI.
-
->[!TIP]
->If you're an Independent Software Vendor (ISV) and want support when building a Microsoft Sentinel integration using the Microsoft Sentinel Codeless Connector Framework, the Microsoft App Assure team may be able to assist. To engage the App Assure team, send an email to azuresentinelpartner@microsoft.com.
 
 ## Secure confidential input
 
