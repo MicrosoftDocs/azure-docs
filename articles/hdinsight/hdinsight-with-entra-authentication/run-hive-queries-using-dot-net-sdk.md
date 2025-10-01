@@ -35,7 +35,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
       ```csharp
       Install-Package Microsoft.Azure.HDInsight.Job -Version 3.0.0-preview.3
 
-      ```csharp
+      ```
   1. Edit the code to initialize the values for variables: `ExistingClusterName, TenantId, ClientId,ClientSecret, ExistingClusterPassword,DefaultStorageAccountName,DefaultStorageAccountKey,DefaultStorageContainerName`. Then use the revised code as the entire contents of **Program.cs** in Visual Studio.
 
 
