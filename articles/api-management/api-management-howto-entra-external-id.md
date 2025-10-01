@@ -106,11 +106,11 @@ In the developer portal, sign-in with Microsoft Entra External ID is possible wi
 
 1. On the **Sign in** page, select **Azure Active Directory**.
 
-    :::image type="content" source="media/api-management-howto-external-id/developer-portal-sign-in.png" alt-text="Select Azure Active Directory on Sign in page in developer portal.":::
+    :::image type="content" source="media/api-management-howto-external-id/developer-portal-sign-in.png" alt-text="Screenshot of select Azure Active Directory on Sign in page in developer portal.":::
 
 1. In the sign-in window for your Microsoft Entra tenant, select **Sign-in options**. Select the identity provider you configured in your Microsoft Entra tenant to sign in. For example, if you configured Google as an identity provider, select **Sign in with Google**.
 
-    :::image type="content" source="media/api-management-howto-external-id/sign-in-options.png" alt-text="Select external identity provider in Microsoft Entra.":::
+    :::image type="content" source="media/api-management-howto-external-id/sign-in-options.png" alt-text="Screenshot of select external identity provider in Microsoft Entra.":::
 
 To continue sign-in, respond to the prompts. After sign-in is complete, you're redirected back to the developer portal. 
 
