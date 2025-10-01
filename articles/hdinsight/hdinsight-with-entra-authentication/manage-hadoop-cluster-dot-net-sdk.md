@@ -11,8 +11,7 @@ ms.date: 09/19/2025
 
 # Manage Azure HDInsight clusters using the HDInsight .NET SDK
 
-This article describes how to manage Azure HDInsight clusters programmatically by using the HDInsight .NET SDK. The SDK provides a set of client libraries that let you automate cluster operations such as creating, 
-list, delete and scale directly from your .NET applications. By using the SDK, you can integrate HDInsight cluster management into your existing workflows and applications.
+This article describes how to manage Azure HDInsight clusters programmatically by using the HDInsight .NET SDK. The SDK provides a set of client libraries that let you automate cluster operations such as creating, list, delete and scale directly from your .NET applications. By using the SDK, you can integrate HDInsight cluster management into your existing workflows and applications.
 
 ## Prerequisites
 Before you begin this article, you must have:
@@ -132,8 +131,6 @@ The following code sample shows you how to connect to Azure before you can admin
 					}
 
 				}
-
-
  ```
 You see a prompt when you run this program. If you don't want to see the prompt, see [Create noninteractive authentication .NET HDInsight applications](../hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 ## List clusters
@@ -166,8 +163,7 @@ Use the following code snippet to delete a cluster synchronously or asynchronous
 Use the cluster scaling feature to change the number of worker nodes used by a cluster that's running in HDInsight without having to re-create the cluster.
 
 >[!Note]
->Only clusters with HDInsight version 5.1 or higher are supported. If you're unsure of the version of your cluster, check the **Properties** page. For more information, 
-see [**List and show clusters**](../hdinsight-administer-use-portal-linux.md#showClusters).
+>Only clusters with HDInsight version 5.1 or higher are supported. If you're unsure of the version of your cluster, check the **Properties** page. For more information, see [**List and show clusters**](../hdinsight-administer-use-portal-linux.md#showClusters).
 
 
 The effect of changing the number of data nodes for each type of cluster supported by HDInsight:
@@ -179,29 +175,26 @@ The effect of changing the number of data nodes for each type of cluster support
 - **Apache HBase**: You can seamlessly add or remove nodes to your HBase cluster while it's running. Regional servers are automatically balanced within a few minutes of completing the scaling operation. You can also manually balance the regional servers. Sign in to the head node of a cluster and run the following commands from a command prompt window:
     
     
-   ```bash
+  ```bash
      >pushd %HBASE_HOME%\bin
      >hbase shell
      >balancer
+  ```
 
-   ```
+## Update HTTP user credentials
 
-   ## Update HTTP user credentials
+The update procedure is the same as the one you use to grant or revoke HTTP access. If the cluster was granted HTTP access, you must first revoke it. Then you can grant access with new HTTP user credentials.
 
-    The update procedure is the same as the one you use to grant or revoke HTTP access. If the cluster was granted HTTP access, you must first revoke it. Then you can grant access with new HTTP user credentials.
+## Find the default storage account
 
-   ## Find the default storage account
+The following code snippet demonstrates how to get the default storage account name and key for a cluster.
 
-    The following code snippet demonstrates how to get the default storage account name and key for a cluster.
-
-   
-
-    ```csharp
+ ```csharp
      var results = _hdiManagementClient.Clusters.GetClusterConfigurations(<Resource Group Name>, <Cluster Name>, "core-site");
      foreach (var key in results.Configuration.Keys)
      {
         Console.WriteLine(String.Format("{0} => {1}", key, results.Configuration[key]));
      }
-    ```
+  ```
 
 
