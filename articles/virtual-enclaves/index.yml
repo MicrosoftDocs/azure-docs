@@ -59,6 +59,8 @@ landingContent:
             url: list-service-catalog-templates.md
       - linkListType: concept
         links:
+          - text: Best practices
+            url: best-practices.md
           - text: Understand resource groups
             url: virtual-enclaves-resource-groups.md
           - text: Understand Admin Virtual Machines
