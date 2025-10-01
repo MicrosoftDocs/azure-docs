@@ -83,7 +83,7 @@ curl -k -v -H "Content-Type: application/json" -H "Authorization: Bearer " -X PO
 
 ### Examples
 
-- If the jar file is on the cluster storage (WASBS)
+- If the jar file is on the cluster storage (WASBS):
     
     
     
@@ -136,13 +136,9 @@ curl -k -v -H "Authorization: Bearer " -X GET "https://<spark_cluster_name>.azur
 
 ## Delete a Livy Spark batch job
 
-
-
 ```cmd
-curl -k -v -H "Authorization: Bearer " -X DELETE "https://<spark_cluster_name>.azurehdinsight.net/livy/batches/{batchId}"
-
+	curl -k -v -H "Authorization: Bearer " -X DELETE "https://<spark_cluster_name>.azurehdinsight.net/livy/batches/{batchId}"
 ```
-
 ### Example
 
 Deleting a batch job with batch ID `5`.
@@ -166,7 +162,7 @@ Livy provides high-availability for Spark jobs running on the cluster. Here is a
 In this section, we look at examples to use Livy Spark to submit batch job, monitor the progress of the job, and then delete it. The application we use in this example is the one developed in the article [Create a standalone Scala application and to run on HDInsight Spark cluster](../spark/apache-spark-create-standalone-application.md). The steps here assume:
 
 - You've already copied over the application jar to the storage account associated with the cluster.
-- You've CuRL installed on the computer where you're trying these steps.
+- You have CuRL installed on the computer where you're trying these steps.
 
 Perform the following steps:
 
