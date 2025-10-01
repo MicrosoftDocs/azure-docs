@@ -35,7 +35,8 @@ You can find more information about their solutions in the following links:
 |Veeam Backup & Replication 12 for VCD Azure VMware Solution |Timeline - TBD | [Veeam Backup for VMware Cloud Director on Azure VMware Solution](https://helpcenter.veeam.com/docs/backup/vsphere/vcloud_director_backup.html?ver=120) |Veeam Backup and Recovery solution for Azure VMware Solution supports VMware Cloud Director multi-tenancy|
 |Refer to Backup Recovery Partner Compatibility Guidance |Refer to Backup Recovery Partner Compatibility Guidance                     | [Backup solutions for Azure VMware Solution VMs](/azure/azure-vmware/ecosystem-back-up-vms) | Kindly reach out to the Backup and Recovery Product team for all support cases.                                                            |
 
-Note: The preview designation indicates that the product is in preview mode due to known issues, limited functionality, or specific restrictions. For assistance, reach out to the third party partners directly.
+> [!NOTE] 
+> The preview means that the product is in preview mode due to known issues, limited functionality, or specific restrictions. For assistance, reach out to the third-party partners directly.
 
 Customers aren't permitted to open Microsoft support tickets for partner product-related issues, including error messages or run commands
 
@@ -44,12 +45,12 @@ Customers aren't permitted to open Microsoft support tickets for partner product
 
 | Solution            | Limitations / Unsupported Features                                                                                          |
 |---------------------|------------------------------------------------------------------------------------------------------------------------------|
-| **VMware Live Site Recovery** | Array-based replication and storage policy protection groups <br> VMware vVOLs Protection Groups<br> VMware SRM IP customization using SRM command-line tools <br> Shared Site Recovery (One-to-Many and Many-to-One topologies) <br> Custom VMware SRM plug-in identifier or extension ID <br> Encrypted VMs unsupported <br> Enhanced replication supported in Gen2 only |
-| **Zerto on Azure VMware Solution**  | Zerto supports version Zerto 10.0 U7 onwards <br> Zerto VAIO currently does not support the version upgrade or hotfix <br> DNS and network configuration changes for Zerto Virtual Machine aren't supported after installation.<br> Azure resource group modifications aren't supported after Zerto installation.<br> SSH or web console access for ZVML Virtual machine is restricted.<br> Service account credentials aren't shared with customers<br> A minimum of four hosts per cluster is required.<br> Backup and Snapshot features are unavailable for ZVML VM. <br> Customers are advised to coordinate directly with Zerto for timelines any fixes|
-| **JetStream on Azure VMware Solution**| Requires a minimum of four hosts per cluster                                                                                  |
+| **VMware Live Site Recovery** | Array-based replication and storage policy protection groups <br> VMware vVOLs Protection Groups<br> VMware SRM IP customization using SRM command-line tools <br> Shared Site Recovery (One-to-Many and Many-to-One topologies) <br> Custom VMware SRM plug-in identifier or extension ID <br> Encrypted VMs unsupported <br> Enhanced replication supported in Gen2 only<br> VMware Live Site Recovery only supports vSAN datastores, due to a supportability limitation from Broadcom<br> Stretched cluster is not supported|
+| **Zerto on Azure VMware Solution**  | Zerto supports version Zerto 10.0 U7 onwards <br> Zerto VAIO currently does not support the version upgrade or hotfix <br> DNS and network configuration changes for Zerto Virtual Machine aren't supported after installation.<br> Azure resource group modifications aren't supported after Zerto installation.<br> SSH or web console access for ZVML Virtual machine is restricted.<br> Service account credentials aren't shared with customers<br> A minimum of four hosts per cluster is required.<br> Backup and Snapshot features are unavailable for ZVML VM. <br> Customers are advised to coordinate directly with Zerto for timelines any fixes<br> Stretched cluster is not supported|
+| **JetStream on Azure VMware Solution**| Requires a minimum of four hosts per cluster for upgrade                                                                               |
 | **Backup and Recovery Partners**|[Azure VMware Solution third Party BCDR](/azure/azure-vmware/ecosystem-back-up-vms) has been tested with the cloudadmin role. Azure VMware Solution can't provide more than [Cloudadmin Privilege](/azure/azure-vmware/architecture-identity). For further support, Contact the respective BCDR partners directly|
 
 
 
 
-**Last Updated: September 2025** – Updated monthly with the latest information. Visit Partner onboarding sites for timelines and details. Partners keep their products up to date.
+Last Updated: **October 2025** – Updated monthly with the latest information. Visit Partner onboarding sites for timelines and details. Partners keep their products up to date.
