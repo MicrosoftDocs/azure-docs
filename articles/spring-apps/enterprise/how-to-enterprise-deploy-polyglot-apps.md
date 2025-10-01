@@ -53,7 +53,7 @@ All the builders configured in an Azure Spring Apps service instance are listed 
 
 :::image type="content" source="media/how-to-enterprise-deploy-polyglot-apps/builder-list.png" alt-text="Screenshot of the Azure portal that shows the Build Service page with the Builders list highlighted." lightbox="media/how-to-enterprise-deploy-polyglot-apps/builder-list.png":::
 
-Select **Add** to create a new builder. The following screenshot shows the resources you should use to create the custom builder. The [OS Stack](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/services/tanzu-buildpacks/GUID-stacks.html) includes `Bionic Base`, `Bionic Full`, `Jammy Tiny`, `Jammy Base`, and `Jammy Full`. Bionic is based on `Ubuntu 18.04 (Bionic Beaver)` and Jammy is based on `Ubuntu 22.04 (Jammy Jellyfish)`. For more information, see the [OS stack recommendations](#os-stack-recommendations) section.
+Select **Add** to create a new builder. The following screenshot shows the resources you should use to create the custom builder. The [OS Stack](https://techdocs.broadcom.com/us/en/vmware-tanzu/standalone-components/tanzu-buildpacks/services/buildpacks/stacks.html) includes `Bionic Base`, `Bionic Full`, `Jammy Tiny`, `Jammy Base`, and `Jammy Full`. Bionic is based on `Ubuntu 18.04 (Bionic Beaver)` and Jammy is based on `Ubuntu 22.04 (Jammy Jellyfish)`. For more information, see the [OS stack recommendations](#os-stack-recommendations) section.
 
 We recommend using `Jammy OS Stack` to create your builder because VMware is deprecating `Bionic OS Stack`.
 
@@ -88,7 +88,7 @@ In Azure Spring Apps, we recommend using `Jammy OS Stack` to create your builder
 - Jammy Full: Includes most libraries, and is suitable for apps with native extensions. For example, it includes a more complete library of fonts. If your app relies on the native extension, then use the `Full` stack.
   - Node.js or Python apps with native extensions.
 
-For more information, see [Ubuntu Stacks](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/services/tanzu-buildpacks/GUID-stacks.html#ubuntu-stacks) in the VMware documentation.
+For more information, see [Ubuntu Stacks](https://techdocs.broadcom.com/us/en/vmware-tanzu/standalone-components/tanzu-buildpacks/services/buildpacks/stacks.html#ubuntu-stacks) in the VMware documentation.
 
 ### Manage the container registry
 
