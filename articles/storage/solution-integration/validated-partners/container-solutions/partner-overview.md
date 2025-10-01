@@ -16,7 +16,7 @@ ms.subservice: storage-partner-integration
 This article highlights Microsoft partner solutions that enable automation, data protection, and storage management of container-based solutions at scale.
 
 > [!NOTE]
-> While Azure Storage works closely with our partners, support for any partner solution is provided by the partner, not Azure Support. You will need to open a case with the partner's support organization and then, if necessary, open a case with Azure Support to troubleshoot Azure infrastructure events that may be connected to the issue."
+> While Azure Storage works closely with our partners, support for any partner solution is provided by the partner, not Azure Support. You will need to open a case with the partner's support organization and then, if necessary, open a case with Azure Support to troubleshoot Azure infrastructure events that may be connected to the issue.
 
 ## Verified partners
 
