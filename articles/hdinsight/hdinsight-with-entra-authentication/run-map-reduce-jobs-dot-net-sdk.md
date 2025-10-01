@@ -34,14 +34,14 @@ The HDInsight .NET SDK provides .NET client libraries, which make it easier to w
 1. Start Visual Studio and create a C# console application.
 1. Navigate to **Tools** > **NuGet Package Manager** > **Package Manager Console** and enter the following command:
 
-   ```
+   ```json
    Install-Package Microsoft.Azure.HDInsight.Job -Version 3.0.0-preview.3
    ```
 
 1. Copy the code below into **Program.cs**. Then edit the code by setting the values for: `existingClusterName`, `existingClusterPassword`, `defaultStorageAccountName`, `defaultStorageAccountKey`, and `defaultStorageContainerName`.
     
 
-      ```C#
+      ```csharp
         				using Azure.Identity;
 				using Microsoft.Azure.HDInsight.Job;
 				using Microsoft.Azure.HDInsight.Job.Models;
