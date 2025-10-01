@@ -119,7 +119,7 @@ sections:
             * `application/x-www-form-urlencoded`
 
 > [!NOTE]
-            > Azure Front Door WAF does not support content-encoding. This means that compressed bodies won't be decompressed before being sent to the WAF engine.
+> Azure Front Door WAF does not support content-encoding. This means that compressed bodies won't be decompressed before being sent to the WAF engine.
 
       - question: |
           Can I apply an Azure Front Door WAF policy to front-end hosts in Azure Front Door Premium profiles that belong to different subscriptions?
