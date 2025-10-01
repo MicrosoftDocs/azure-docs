@@ -12,7 +12,7 @@ ms.author: rohogue
 # What is Avere vFXT for Azure?
 
 > [!NOTE]
-> **Action Required:** Avere vFXT for Azure is retiring. Microsoft announced on 14 March 2024 that Avere vFXT for Azure will be closing down. The retirement date is 30 September 2025. Please remove all Avere vFXT for Azure resources by 30 September 2025. Visit https://aka.ms/vfxtretirement for more information about the retirement.
+> Avere vFXT for Azure retired 30 September 2025 and is no longer supported. Visit https://aka.ms/vfxtretirement for more information about the retirement.
 
 Avere vFXT for Azure is a filesystem caching solution for data-intensive high-performance computing (HPC) tasks. It lets you take advantage of cloud computing's scalability to make your data accessible when and where it’s needed - even for data that’s stored in your own on-premises hardware.
 
