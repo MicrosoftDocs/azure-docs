@@ -99,7 +99,7 @@ Go a step further with this scenario by using the [developer portal with Microso
 
 ### Scenario 3 - External API, SaaS, open to the public
 
-* An API Management contributor and backend API developer is writing several new APIs that will be available to community developers.
+* An API Management contributor and backend API developer are writing several new APIs that will be available to community developers.
 * The APIs will be publicly available, with full functionality protected behind a paywall and secured using OAuth 2.0. After purchasing a license, the developer will be provided with their own client credentials and subscription key that is valid for production use. 
 * External community developers will discover the APIs using the developer portal. Developers will sign up and sign in to the developer portal using their social media accounts. 
 * Interested developer portal users with a test subscription key can explore the API functionality in a test context, without needing to purchase a license. The developer portal test console will represent the calling application and generate a default access token to the backend API. 
