@@ -8,7 +8,7 @@ ms.service: azure-api-management
 ms.custom:
   - build-2024
 ms.topic: concept-article
-ms.date: 07/22/2025
+ms.date: 09/30/2025
 ms.author: danlep
 ---
 
@@ -123,6 +123,7 @@ Managed and self-hosted gateways support all available [policies](api-management
 | Feature support  | Classic  |  V2  | Consumption | Self-hosted<sup>1</sup>  | Workspace |
 | --- | --- | ----- | ----- | ---------- | ----- |
 | [Dapr integration](api-management-policies.md#integration-and-external-communication) |  ❌ | ❌ |❌ | ✔️ | ❌ |
+| [Service Bus integration](send-service-bus-message-policy.md) (preview) |  ✔️ | ❌ | ❌ | ❌ | ❌ |
 | [GraphQL resolvers](api-management-policies.md#graphql-resolvers) and [GraphQL validation](api-management-policies.md#content-validation)|  ✔️ | ✔️ |✔️ | ❌ | ❌ |
 | [Get authorization context](get-authorization-context-policy.md) |  ✔️ |  ✔️ |✔️ | ❌ | ❌ |
 | [Authenticate with managed identity](authentication-managed-identity-policy.md) |  ✔️ |  ✔️ |✔️ | ✔️ | ❌ |
