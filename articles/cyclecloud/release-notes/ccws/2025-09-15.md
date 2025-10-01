@@ -1,0 +1,41 @@
+---
+title: CycleCloud Workspace for Slurm - Release Notes 2025.09.15
+description: These release notes for Azure CycleCloud Workspace for Slurm 2025.09.15 summarize new features and bug fixes included in the release. 
+author: abatallas
+ms.date: 09/29/2025
+ms.author: padmalathas
+---
+
+# CycleCloud Workspace for Slurm version 2025.09.15
+
+Azure CycleCloud Workspace for Slurm 2025.09.15 was released as General Audience. This article provides you with information about:
+
+* Recent releases
+* Previews underway with known limitations (if applicable)
+* Known issues
+* Deprecated functionality (if applicable)
+
+The following release notes identify the new features and the open issues for the 2025.09.15 release of Azure CycleCloud Workspace for Slurm.
+
+The release notes are continuously updated. Open known issues that require a workaround are added when they're discovered. Carefully review the information in the release notes before deploying Azure CycleCloud Workspace for Slurm.
+
+This release corresponds to the software version:
+
+- **CycleCloud Workspace for Slurm version 2025.09.15** 
+
+## What's new in CycleCloud Workspace for Slurm version 2025.09.15?
+
+Azure CycleCloud Workspace for Slurm is updated regularly. Stay up to date with the latest announcements. 
+
+This release contains the following new features:
+
+* Use of CycleCloud Marketplace Image 8.7.3
+* Support for Open OnDemand 4.0.6
+* Larger auto-created subnets for Azure Managed Lustre deployments
+* Deprecated support for Alma Linux 8 for Open OnDemand VM
+* Enabled accelerated networking for relevant VM SKUs by default
+* Admin user owns copy of cluster parameters found in home directory
+
+## Known issues in this release
+
+- **Azure US Gov Only**: Marketplace deployment validation fails due to an incorrect API version. To mitigate this issue, refer: [How to deploy a CycleCloud Workspace for Slurm environment using the CLI](../../how-to/ccws/deploy-with-cli.md).

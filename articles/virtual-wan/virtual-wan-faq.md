@@ -522,9 +522,9 @@ You can find more information on how to change the VNet address space in [Create
 
 ### What is the maximum number of spoke Virtual Network addresses supported for hubs configured with Routing Intent?
 
-The maximum number of address spaces across all Virtual Networks directly connected to a single Virtual WAN hub is 400. This limit is applied individually to each Virtual WAN hub in a Virtual WAN deployment. Virtual Network address spaces connected to remote (other Virtual WAN hubs in the same Virtual WAN) hubs are not counted towards this limit.
+The maximum number of address spaces across all Virtual Networks directly connected to a single Virtual WAN hub is 600. This limit is applied individually to each Virtual WAN hub in a Virtual WAN deployment. Virtual Network address spaces connected to remote (other Virtual WAN hubs in the same Virtual WAN) hubs are not counted towards this limit.
 
-This limit is adjustable. For more information on the limit, the procedure to request a limit increase and sample scripts to determine the number of address spaces across Virtual Networks connected to a Virtual WAN hub, see [routing intent virtual network address space limits](how-to-routing-policies.md#address-limits).
+For more information on the limit and sample scripts to determine the number of address spaces across Virtual Networks connected to a Virtual WAN hub, see [routing intent virtual network address space limits](how-to-routing-policies.md#address-limits).
 
 ### Can I use Azure Bastion with Virtual WAN?
 Yes but there are limitations. See the [Azure Bastion FAQ](../bastion/bastion-faq.md#vwan) for more details.

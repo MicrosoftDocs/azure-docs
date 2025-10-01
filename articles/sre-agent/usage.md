@@ -3,7 +3,7 @@ title: Create and Use an agent in Azure SRE Agent Preview
 description: Learn how to use an automated agent to resolve problems and keep your apps running in Azure.
 author: craigshoemaker
 ms.topic: how-to
-ms.date: 07/17/2025
+ms.date: 07/23/2025
 ms.author: cshoe
 ms.service: azure-sre-agent
 ---
@@ -41,13 +41,13 @@ To create an agent, you need to grant your agent the correct permissions and acc
     az provider register --namespace "Microsoft.App"
     ```
 
-* **Access to the Sweden Central region**: During the preview, the only allowed region for SRE Agent is Sweden Central. Make sure that your user account has *owner* or *admin* permissions, along with permissions to create resources in the Sweden Central region.
+* **Access to the Sweden Central or East US 2 region**: During the preview, the only allowed regions for SRE Agent are Sweden Central and East US 2. Make sure that your user account has *owner* or *admin* permissions, along with permissions to create resources in one of these regions.
 
 ## Create an agent
 
 Create an agent by associating resource groups that you want to monitor with the agent:
 
-1. Follow the link provided in your onboarding email to access Azure SRE Agent in the Azure portal.
+1. Open the [Azure portal](https://aka.ms/sreagent-portal).
 
 1. Select **Create**.
 
@@ -65,7 +65,7 @@ Create an agent by associating resource groups that you want to monitor with the
     | Property | Value |
     |---|---|
     | **Agent name** | Enter a name for your agent. |
-    | **Region** | Select **Sweden Central**.<br><br>During the preview, Azure SRE Agent is available only in the Sweden Central region. However, the agent can monitor resources in any Azure region.<br><br>If no options appear in the dropdown list, you might not have permissions to access to the Sweden Central region. |
+    | **Region** | Select **Sweden Central** or **East US 2**.<br><br>During the preview, Azure SRE Agent is available only in the Sweden Central or East US 2 regions. However, the agent can monitor resources in any Azure region.<br><br>If no options appear in the dropdown list, you might not have permissions to access to these regions. |
 
 1. Select **Choose resource groups**.
 

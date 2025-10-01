@@ -9,8 +9,9 @@ metadata:
   ms.service: azure-static-web-apps
   ms.topic: how-to
   ms.custom:
-    - engagement-fy23
+    - sfi-ropc-nochange
     - ge-structured-content-pilot
+    - engagement-fy23
 title: |
   Configure application settings for Azure Static Web Apps
 introduction: |

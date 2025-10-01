@@ -11,11 +11,15 @@ ms.service: azure-notification-hubs
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: csharp
 ms.topic: tutorial
-ms.custom: "mvc, devx-track-csharp"
 ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
+ms.custom:
+  - mvc
+  - devx-track-csharp
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Tutorial: Send location-based push notifications with Notification Hubs and Bing Spatial Data
