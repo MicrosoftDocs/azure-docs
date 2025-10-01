@@ -84,7 +84,7 @@ If you don't have an available dev center and project, follow the steps in [Quic
 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-pool-create-basics-hibernation.png" alt-text="Screenshot of the Basics pane for creating a dev box pool." lightbox="./media/quickstart-configure-dev-box-service/dev-box-pool-create-basics-hibernation.png":::
 
-1. on the **Management** tab, enter the following values:
+1. On the **Management** tab, enter the following values:
 
    | Setting | Value |
    |---|---|
