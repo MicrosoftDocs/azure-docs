@@ -1,5 +1,5 @@
 ---
-title: Create and manage Azure HDInsight clusters enabled with Entra ID Authentication
+title: Create and Manage Azure HDInsight clusters enabled with Entra ID Authentication
 description: Learn how to create Azure HDInsight clusters with Entra ID Authentication
 ms.service: azure-hdinsight
 ms.topic: how-to
@@ -14,8 +14,7 @@ ms.date: 09/28/2025
 This article provides comprehensive information on creating and managing Azure HDInsight clusters with Microsoft Entra ID authentication. 
 Users can securely authenticate and manage access to HDInsight clusters, ensuring enterprise-grade security and centralized identity governance by using Entra ID.
 
-With this capability, organizations can enforce role-based access, streamline user onboarding and offboarding, and enhance compliance by using existing Entra ID 
-policies. 
+With this capability, organizations can enforce role-based access, streamline user onboarding and offboarding, and enhance compliance by using existing Entra ID policies. 
 It simplifies cluster security management while providing a seamless login experience for data engineers, analysts, and administrators.
 
 ## Prerequisites
@@ -137,11 +136,11 @@ If Basic Authentication is selected:
 
    ## Steps to add object ID in Ambari UI
 
-   1. Log in to the Ambari portal
+   1. Log in to the Ambari portal.
    
   		:::image type="content" source="./media/create-clusters-with-entra/login-page.png" alt-text="Screenshot of Ambari landing page."  border="true" lightbox="./media/create-clusters-with-entra/login-page.png":::
 
-   1. Navigate to "**Manage Ambari**" option
+   1. Navigate to "**Manage Ambari**" option.
 
 		:::image type="content" source="./media/create-clusters-with-entra/click-manage.png" alt-text="Screenshot of Ambari landing page where cluster admin has to click on manage Ambari button." border="true" lightbox="./media/create-clusters-with-entra/click-manage.png":::
    
@@ -153,7 +152,7 @@ If Basic Authentication is selected:
 
       :::image type="content" source="./media/create-clusters-with-entra/add-users.png" alt-text="Screenshot of Ambari page showing the users in the Ambari portal." border="true" lightbox="./media/create-clusters-with-entra/add-users.png":::
       
-   1. Input Object ID,  display name, and select the user access (Cluster Administrator or Cluster User). Click on "**Save**"
+   1. Input Object ID,  display name, and select the user access (Cluster Administrator or Cluster User). Select "**Save**".
 
 		:::image type="content" source="./media/create-clusters-with-entra/add-object-id.png" alt-text="Screenshot of Ambari page showing thee add users tab where cluster admin has to input new user information."  border="true" lightbox="./media/create-clusters-with-entra/add-object-id.png":::
 
