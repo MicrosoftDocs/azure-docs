@@ -681,7 +681,7 @@ The following example shows the request body for creating an Entra enabled Linux
 If validation is complete and the request is accepted, the operation returns 200 (OK).
 
 
-### **Status code:** 200 OK
+### Status code: 200 OK
 
 
 ### Response body for a linux cluster creates using ssh key:
