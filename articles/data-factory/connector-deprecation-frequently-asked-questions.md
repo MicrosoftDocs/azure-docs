@@ -72,8 +72,8 @@ There are three key deadlines outlined in our documentation:
 
 1. **Version removed:** After this date, pipelines using legacy connectors will start to fail if it is not automatically upgraded. All pipelines relying on legacy connectors will start to fail as the service stop all traffic on legacy drivers. 
  
-    - New features and bug fixes are available on the new connectors.  
-    - If your activity has been automatically upgraded by the service, your pipelines that rely on the legacy version continues to run, giving users additional time to evaluate and transition to the latest GA version without facing immediate failures.
+    - New features and bug fixes are only available on the new connectors.  
+    - If your activity has been automatically upgraded by the service, your pipelines that rely on the legacy version continue to run, giving users additional time to evaluate and transition to the latest GA version without facing immediate failures.
 
 ## How should I get an extension for legacy version of the connectors?
 
