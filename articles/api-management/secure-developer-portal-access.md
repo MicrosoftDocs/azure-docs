@@ -65,7 +65,7 @@ Different authentication and authorization options apply to different scenarios.
 
 ### Scenario 1 - Intranet API and applications
 
-* An API Management contributor and backend API developer wants to publish an API that is secured by OAuth 2.0. 
+* An API Management contributor and backend API developer want to publish an API that is secured by OAuth 2.0. 
 * The API will be consumed by desktop applications whose users sign in using SSO through Microsoft Entra ID. 
 * The desktop application developers also need to discover and test the APIs via the API Management developer portal.
 
