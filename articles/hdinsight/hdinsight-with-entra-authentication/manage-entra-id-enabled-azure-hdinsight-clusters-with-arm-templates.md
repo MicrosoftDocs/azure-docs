@@ -13,7 +13,7 @@ ms.date: 08/20/2025
 
 Azure HDInsight now supports integration with Microsoft Entra ID, enabling secure, role-based access control and simplified identity management for your big data workloads. 
 By using Azure Resource Manager (ARM) templates, you can deploy and manage Entra ID-enabled HDInsight clusters in a repeatable, automated, and consistent way. 
-This guide explains how to define the necessary ARM template resources, configure Entra ID settings, and manage your clusters at scale, all while ensuring compliance with organizational security and governance requirements.
+In this guide, you’ll learn how to set up ARM template resources and configure Entra ID. You’ll also see how to manage clusters at scale while meeting your organization’s security and governance rules.
 
 ## Prerequisites
 
@@ -31,13 +31,11 @@ This guide explains how to define the necessary ARM template resources, configur
 
 ## ARM template resource definition
 
-The clusters resource type can be deployed with operations that target:
-
-- **Resource groups** - See [resource group deployment commands](/azure/azure-resource-manager/templates/deploy-to-resource-group)
+The clusters resource type can be deployed with operations that target **Resource groups** - See [resource group deployment commands](/azure/azure-resource-manager/templates/deploy-to-resource-group)
 
 For a list of changed properties in each API version, see [change log](/azure/templates/microsoft.hdinsight/change-log/clusters).
 
-### Resource format
+## Resource format
 
 To create a Microsoft.HDInsight/clusters resource, add the following JSON to your template.
 
@@ -258,7 +256,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 
 | Name | Description | Value |
 | --- | --- | --- |
-| groupID | The Entra security group id. | string |
+| groupID | The Entra security group ID. | string |
 | groupName | The Entra security group name. | string |
 
 ### ClusterCreateParametersExtendedTags
@@ -302,7 +300,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 | Name | Description | Value |
 | --- | --- | --- |
 | type | The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. | 'None' / 'SystemAssigned' / 'UserAssigned' |
-| userAssignedIdentities | The list of user identities associated with the cluster. The user identity dictionary key references are ARM resource ids in the form: '/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'. | [ClusterIdentityUserAssignedIdentities](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#clusteridentityuserassignedidentities-1) |
+| userAssignedIdentities | The list of user identities associated with the cluster. The user identity dictionary key references are ARM resource ID's in the form: '/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'. | [ClusterIdentityUserAssignedIdentities](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#clusteridentityuserassignedidentities-1) |
 
 
 ### ComputeIsolationProperties
@@ -344,7 +342,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 |isEncryptionInTransitEnabled |	Indicates whether or not inter cluster node communication is encrypted in transit.	| bool |
 
 
-### HardwareProfile
+### Hardware Profile
 
 
 | Name | Description | Value |
@@ -352,7 +350,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 | vmSize	| The size of the Virtual Machine	| string |
 
 
-### IPConfiguration
+### IP Configuration
 
 
 | Name | Description | Value |
@@ -376,7 +374,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 | Name | Description | Value |
 | --- | --- | --- |
 | ipTagType | Gets or sets the ipTag type: Example FirstPartyUsage.                  | string (required) |
-| tag       | Gets or sets value of the IpTag associated with the public IP. Example HDInsight, SQL, Storage etc., | string (required) |
+| tag       | Gets or sets value of the IpTag associated with the public IP. Example HDInsight, SQL, Storage, etc., | string (required) |
 
 
 ### KafkaRestProperties
@@ -404,7 +402,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 | identity   | The identity of the cluster, if configured.   | ClusterIdentity                              |
 | location   | The location of the cluster.                  | string                                      |
 | name       | The resource name.                            | string (required)                           |
-| properties | The cluster create parameters.                | [ClusterCreatePropertiesOrClusterGetProperties](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#clustercreatepropertiesorclustergetproperties-1) |
+| properties | The clusters create parameters.                | [ClusterCreatePropertiesOrClusterGetProperties](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#clustercreatepropertiesorclustergetproperties-1) |
 | tags       | Resource tags. | Dictionary of tag names and values. See [Tags in templates](/azure/azure-resource-manager/management/tag-resources#arm-templates) |
 | type       | The resource type.                            | 'Microsoft.HDInsight/clusters'              |
 | zones      | The availability zones.                       | string[]                                    |
@@ -485,7 +483,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 | clusterUsersGroupDNs  | Optional. The Distinguished Names for cluster user groups.            | string[] |
 | directoryType         | The directory type.                                                  | 'ActiveDirectory' |
 | domain                | The organization's active directory domain.                          | string   |
-| domainUsername        | The domain user account that will have admin privileges on the cluster. | string |
+| domainUsername        | The domain user account that has admin privileges on the cluster. | string |
 | domainUserPassword    | The domain admin password.                                           | string   |
 | ldapsUrls             | The LDAPS protocol URLs to communicate with the Active Directory.     | string[] |
 | msiResourceId         | User assigned identity that has permissions to read and create cluster-related artifacts in the user's AADDS. | string |
@@ -526,14 +524,14 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 
 | Name | Description | Value |
 | --- | --- | --- |
-| storageaccounts |	The list of storage accounts in the cluster.	| [StorageAccount](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#storageaccount-1)[]
+| storage accounts |	The list of storage accounts in the cluster.	| [StorageAccount](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#storageaccount-1)[]
 
 
 ### UserAssignedIdentity
 
 | Name | Description | Value |
 | --- | --- | --- |
-| tenantID	| The tenant id of user assigned identity.	| string |
+| tenantID	| The tenant ID of user assigned identity.	| string |
 
 
 
