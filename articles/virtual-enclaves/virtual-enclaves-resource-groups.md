@@ -4,7 +4,7 @@ description: Azure Virtual Enclaves Resource Groups.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: overview
-ms.date: 04/08/2025
+ms.date: 9/30/2025
 ---
 
 # Azure Virtual Enclaves resource groups
@@ -15,7 +15,7 @@ For a deployment into a single subscription, the Azure Virtual Enclaves resource
 
 [ ![Diagram showing Azure Virtual Enclaves organized into the different resource groups used in a deployment in one subscription.](./media/azure-virtual-enclaves-resource-groups-one-subscription.svg) ](./media/azure-virtual-enclaves-resource-groups-one-subscription.svg#lightbox)
  
-1.	The resource group where the Azure Virtual Enclave resources are deployed. The Azure Virtual Enclave resources can be organized into resource groups according to your needs. 
+1.	The resource group where the Azure Virtual Enclaves resources are deployed. The Azure Virtual Enclaves resources can be organized into resource groups according to your needs. 
 2.	Community managed resource group - The managed resource group deployed with the community for the community resources like the firewall and Log Analytics workspace. Our documentation refers to this resource group as the `community managed resource group` and one is created for each community. You shouldn't normally deploy new Azure resources to this resource group manually. Azure Virtual Enclaves manages the resources in this resource group. This resource group is deleted when the community is deleted. [What gets deployed](./what-azure-virtual-enclaves.md#what-gets-deployed)
 3.	Enclave managed resource group - The managed resource group deployed with the enclave for the enclave resources like the virtual network, subnet network security groups, and Log Analytics workspace. Our documentation refers to this resource group as the `enclave managed resource group` and one is created for each enclave. You shouldn't normally deploy new Azure resources to this resource group manually. Azure Virtual Enclaves manages the resources in this resource group. This resource group is deleted when the enclave is deleted. [What gets deployed](./what-azure-virtual-enclaves.md#what-gets-deployed)
 4.	Workload resource group - The managed resource group for customer resources. Our documentation refers to this resource group as the `workload resource group` and you can create many per workload. You manage the resources inside this resource group and Azure Virtual Enclaves manages the policy and deletion of the resource group itself because it's linked to the workload. These resource groups are deleted when the workload is deleted or when the resource group is detached from the workload. These workload resource groups must be empty before deletion can complete successfully.

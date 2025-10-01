@@ -4,7 +4,7 @@ description: Create Azure Virtual Desktop workloads within Azure Virtual Enclave
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
-ms.date: 04/08/2025
+ms.date: 9/30/2025
 ---
 
 # Create Azure Virtual Desktop (AVD) workloads
@@ -17,7 +17,7 @@ Currently, [Azure Bastion](https://aka.ms/bastion) is the Azure Cloud's first-pa
 
 ## Prerequisites
 
-Create a [Community](./what-community.md) and [Enclave](./what-enclave.md).
+Create a [community](./what-community.md) and [Enclave](./what-enclave.md).
 
 ### Create AVD through Azure portal into an AVE workload
 1. [Create a workload](./create-workload-portal.md) with any specified name (for example, `wl-avd-mgmt-pool`).
@@ -26,7 +26,7 @@ Create a [Community](./what-community.md) and [Enclave](./what-enclave.md).
    - Alternatively, follow the [AVD deployment instructions](/azure/virtual-desktop/deploy-azure-virtual-desktop) to deploy Azure Virtual Desktop. For all steps that deploy Azure resources targeting a Resource group, select the workload resource group (for example, `wl-avd-mgmt-pool`).
 3. [Create community endpoint](./create-community-endpoint-portal.md) for necessary URL networking information.
 4. [Create enclave endpoint](./create-enclave-endpoint-portal.md) for necessary IP/CIDR/port/protocol rule networking information.
-5. [Create the enclave Connection](./create-enclave-connection-portal.md) so that the customer can access the AVD service in Azure from specified Enclaves.
+5. [Create the enclave connection](./create-enclave-connection-portal.md) so that the customer can access the AVD service in Azure from specified Enclaves.
 
 ## References
 - [What is an Enclave?](./what-enclave.md)

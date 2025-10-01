@@ -4,7 +4,7 @@ description: Deploy an App Service Web App from the service catalog into a workl
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: how-to
-ms.date: 04/08/2025
+ms.date: 9/30/2025
 ---
 
 # Deploy an App Service Web App from the service catalog into a workload

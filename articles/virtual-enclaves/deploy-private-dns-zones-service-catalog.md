@@ -4,7 +4,7 @@ description: Deploy private DNS zones from the service catalog into a workload.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: how-to
-ms.date: 04/08/2025
+ms.date: 9/30/2025
 ---
 
 # Deploy private DNS zones from the service catalog into a workload

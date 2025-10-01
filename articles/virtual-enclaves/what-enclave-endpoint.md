@@ -4,7 +4,7 @@ description: What is an enclave endpoint?
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
-ms.date: 04/08/2025
+ms.date: 9/30/2025
 ---
 
 # What is an enclave endpoint?
@@ -25,7 +25,7 @@ Enclave Endpoint rules have the following three components:
 
 Enclave Endpoints support two types of connections:
 - Inbound from another Enclave in the community
-- Inbound from a Transit Hub
+- Inbound from a transit hub
 
 ## Template
 See [template documentation](./virtual-enclaves-templates.md#endpoints-template)

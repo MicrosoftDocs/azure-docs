@@ -8,7 +8,7 @@ ms.date: 11/21/2024
 ---
 
 # Mandatory Access Control for Azure Virtual Enclaves 
-Access to Azure Virtual enclave resources is primarily controlled using built-in Role Based Access Control (RBAC) role assignments. This built-in RBAC functionality can be further expanded by using Azure Privileged Identity Management to grant just-in-time access to Virtual enclave resources. 
+Access to Azure Virtual Enclaves resources is primarily controlled using built-in Role Based Access Control (RBAC) role assignments. This built-in RBAC functionality can be further expanded by using Azure Privileged Identity Management to grant just-in-time access to Virtual enclave resources. 
 
 ## RBAC for community and Enclaves 
 Azure Virtual Enclaves provides built-in RBAC roles to control access at the **Community and Enclave** levels.
@@ -21,7 +21,7 @@ Azure Virtual Enclaves provides built-in RBAC roles to control access at the **C
 - **Enclave reader** - Read-only access to one or more enclave resources and underlying workloads, endpoints, and connections.
 - **Enclave approver** - Read-only access to all AVE resource types and explicit permissions to approve actions that require approval.
 
-|Built in Role          |Community              |Community Endpoint     |Transit Hub        |Enclave            |Workload           |Enclave Endpoint       |Enclave connection |Approvals      |
+|Built in Role          |Community              |Community Endpoint     |Transit hub        |Enclave            |Workload           |Enclave Endpoint       |Enclave connection |Approvals      |
 |--|--|--|--|--|--|--|--|--|
 |Community owner        |Read/Write/Delete      |Read/Write/Delete      |Read/Write/Delete  |Read/Write/Delete  |Read/Write/Delete  |Read-only              |Read/Write/Delete  |Read-only     |
 |Community Contributor  |Read/Write             |Read/Write             |Read/Write         |Read/Write         |Read/Write         |Read-only              |Read/Write         |Read-only     |

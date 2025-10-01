@@ -4,7 +4,7 @@ description: Create enclaves in a community on Azure Virtual Enclaves.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: overview
-ms.date: 04/08/2025
+ms.date: 9/30/2025
 ms.custom: references_region
 ---
 
@@ -46,7 +46,7 @@ Enclave deployments take around 30-45 minutes to complete. Once it completes, op
 
 4. Select `Review + create` and validate the details for your enclave are correct, then select `Create`.
 
-5. Now, to deploy another enclave -- **repeat Steps 1 and 2.** Once you're on the **Enclave Create** page, Enter these basic details for your second enclave:
+5. Now, to deploy another enclave -- **repeat Steps 1 and 2.** Once you're on the `Enclave Create` page, Enter these basic details for your second enclave:
    - **Subscription**: Select an existing Subscription
    - **Resource Group**: `myResourceGroup`
    - **Enclave name**: `Enclave-DMZ`

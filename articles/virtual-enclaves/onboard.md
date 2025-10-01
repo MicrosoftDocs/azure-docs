@@ -4,7 +4,7 @@ description: Onboard to Azure Virtual Enclaves
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: how-to
-ms.date: 04/08/2025
+ms.date: 9/30/2025
 ---
 
 # Onboard to Azure Virtual Enclaves
@@ -38,7 +38,7 @@ $resourceProviders = @(
    "Microsoft.Advisor",
    "Microsoft.AlertsManagement",
    "Microsoft.Authorization",
-   "Microsoft.Automation"
+   "Microsoft.Automation",
    "Microsoft.Billing",
    "Microsoft.Capacity",
    "Microsoft.ChangeAnalysis",
@@ -129,8 +129,8 @@ Now the Azure Virtual Enclaves resource provider can begin deploying Azure Virtu
   - Use the following guides to establish network connectivity within your Community
 
     - [Create an Enclave Endpoint](./create-enclave-endpoint-portal.md)
-    - [Create an Enclave Connection](./create-enclave-connection-portal.md)
-    - [Create a Transit Hub](./create-transit-hub-portal.md)
+    - [Create an enclave connection](./create-enclave-connection-portal.md)
+    - [Create a transit hub](./create-transit-hub-portal.md)
     - [Create a Community Endpoint](./create-community-endpoint-portal.md)
 
   - Create resources within your workloads to meet your objectives.

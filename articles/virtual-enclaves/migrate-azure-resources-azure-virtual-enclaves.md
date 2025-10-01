@@ -4,7 +4,7 @@ description: Migrate Azure Resources into Azure Virtual Enclaves.
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
-ms.date: 04/08/2025
+ms.date: 9/30/2025
 ---
 
 # Migrate Azure Resources into Azure Virtual Enclaves
@@ -43,7 +43,7 @@ For a more exhaustive and detailed checklist, see [Checklist before moving resou
 ## Existing Preview Customers
 Certain AVE customers deployed enclaves with early preview or beta builds of AVE or predecessor systems (for example, "mission enclaves"). If you deployed your system into a traditional mission enclave (or similar landing zone architecture), here are some things to consider as you plan your migration into Azure Virtual Enclaves:
 
-- You can't move a mission enclave network into a [Community](./what-community.md) or an [Enclave](./what-enclave.md).
+- You can't move a mission enclave network into a [community](./what-community.md) or an [Enclave](./what-enclave.md).
 - Migrating secrets from a mission enclave Key Vault to an AVE Key Vault may require using Azure PowerShell modules to do the following:
     - Exporting secrets from the mission enclave Key Vault
     - Temporarily storing those secrets locally

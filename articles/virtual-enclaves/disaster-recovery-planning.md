@@ -5,7 +5,7 @@ description: Disaster Recovery Planning within Azure Virtual Enclaves.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: how-to
-ms.date: 04/08/2025
+ms.date: 9/30/2025
 ---
 
 # Disaster Recovery Planning within Azure Virtual Enclaves
@@ -17,7 +17,7 @@ You should create a disaster recovery plan for your critical workloads.
 
 ### Creating multiple replicas of the services (workloads)
 
-You should create multiple Azure Virtual Enclave instances with identical configurations and workloads in at least two Azure regions: one designated as the primary region and the other as the secondary region. Depending on the services and workloads hosted inside the Azure Virtual Enclaves, an appropriate load balancer can then distribute and/or redirect network traffic. Depending on the customer's deployment scenario, review the recommended load balancing options available on the Azure Architecture Center page. For more information, please visit: [Load-balancing options - Azure Architecture Center](/azure/architecture/guide/technology-choices/load-balancing-overview). The following example explains the use of Azure Front Door as a load
+You should create multiple Azure Virtual Enclaves instances with identical configurations and workloads in at least two Azure regions: one designated as the primary region and the other as the secondary region. Depending on the services and workloads hosted inside the Azure Virtual Enclaves, an appropriate load balancer can then distribute and/or redirect network traffic. Depending on the customer's deployment scenario, review the recommended load balancing options available on the Azure Architecture Center page. For more information, please visit: [Load-balancing options - Azure Architecture Center](/azure/architecture/guide/technology-choices/load-balancing-overview). The following example explains the use of Azure Front Door as a load
 balancer for Azure App Services. [Tutorial: Create a multi-region app - Azure App Service](/azure/app-service/tutorial-multi-region-app).
 
 - Primary Region: The region where the main resource resides and operates under normal conditions. (for example, East US)

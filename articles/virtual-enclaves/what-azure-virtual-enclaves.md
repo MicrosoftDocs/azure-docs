@@ -4,12 +4,12 @@ description: What is Azure Virtual Enclaves?
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
-ms.date: 04/03/2025
+ms.date: 9/30/2025
 ---
 
 # What is Azure Virtual Enclaves?
 
-Azure Virtual Enclaves (AVE) accelerates and streamlines the deployment and management of secure, isolated, and compliant cloud environments for the most sensitive workloads. AVE is design for commercial and air-gapped environments.
+Azure Virtual Enclaves (AVE) accelerates and streamlines the deployment and management of secure, isolated, and compliant cloud environments for the most sensitive workloads. AVE is designed for commercial and air-gapped environments.
 
 > [!IMPORTANT]
 > 
@@ -42,10 +42,10 @@ With Azure Virtual Enclaves, you can easily create new isolated, zero-trust soft
   - Managed resources protected by Azure Policy and Deny Assignments
   - Service Catalog - Collection of templates that can be used to deploy well-known services and applications.
 
-![Diagram showing the layers Azure Virtual Enclaves within the management layers in Azure.](./media/ave-azure-layers-hierarchy.png)
+[ ![Diagram showing the layers Azure Virtual Enclaves within the management layers in Azure.](./media/ave-azure-layers-hierarchy.png) ](./media/ave-azure-layers-hierarchy.png#lightbox)
 
 ## What gets deployed
-When you deploy Azure Virtual Enclave resources, these are the resources that are deployed for you:
+When you deploy Azure Virtual Enclaves resources, these are the resources that are deployed for you:
 
 - [**Communities**](./what-community.md) - The community managed resource group contains these resources depending on your selections during community creation.
   - Azure Virtual WAN
@@ -83,7 +83,7 @@ With Azure Virtual Enclaves, you can easily connect your communities, enclaves, 
 
 - [**Enclave Endpoints**](./what-enclave-endpoint.md) are collections of networking rules that enable simplified and standardized connectivity to an enclave or an individual workload.
 - [**Community Endpoints**](./what-community-endpoint.md) are collections of networking rules that enable external connectivity to trusted destinations including public websites, well-known services, and external private networks.
-- [**Transit Hubs**](./what-transit-hub.md) can be associated with community endpoint rules to allow secure site-to-site connectivity to external private networks via VPN Gateway or ExpressRoute.
+- [**Transit hubs**](./what-transit-hub.md) can be associated with community endpoint rules to allow secure site-to-site connectivity to external private networks via VPN Gateway or ExpressRoute.
 - [**Enclave connections**](./what-enclave-connection.md) are associated with a community or enclave endpoint and allow network traffic based on the rules defined within the Endpoint.
 
 ## Multi-layered governance, security, and monitoring
@@ -129,8 +129,8 @@ Azure Virtual Enclaves simplifies integration with existing secure Azure securit
 
 Learn more about how Azure Virtual Enclaves incorporates [defense-in-depth](./defense-in-depth.md).
 
-## Next steps
-Here are some other articles to learn about Azure Virtual Enclaves:
+## Next steps 
+Here are some other articles to learn about the new Azure Virtual Enclaves resources:
 
 1. [Create a community](./create-community-portal.md) 
 2. [Create an enclave](./create-enclave-portal.md)

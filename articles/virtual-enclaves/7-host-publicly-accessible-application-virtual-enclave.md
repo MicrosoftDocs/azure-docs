@@ -4,7 +4,7 @@ description: Host a publicly accessible application in an enclave.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: tutorial
-ms.date: 04/08/2025
+ms.date: 9/30/2025
 ---
 
 # Tutorial 7: Host a publicly accessible application in an enclave

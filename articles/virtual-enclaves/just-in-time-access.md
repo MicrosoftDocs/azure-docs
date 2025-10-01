@@ -5,7 +5,7 @@ description: Just-in-time Access.
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
-ms.date: 04/08/2025
+ms.date: 9/30/2025
 ---
 
 # Configuring just-in-time access in Azure Virtual Enclaves using Privileged Identity Management
@@ -21,10 +21,10 @@ Here's how you can use Azure PIM to approve actions within Azure Virtual Enclave
    Before you can use Azure PIM, you need to enable it for your Azure subscription. You can do this through the Azure portal. Navigate to the "Microsoft Entra ID Privileged Identity Management" service and follow the steps to set up PIM for your subscription.
 
 2. **Assign roles with approval**:
-   In Azure PIM, you can define custom roles or use built-in roles with approval workflows. These roles are designed to grant access to Azure Virtual Enclave resource's actions, such as creating, modifying, and deleting community, endpoints, enclaves, etc. - including establishing internal connections. When you assign these roles to users, you can configure them to require approval before the role's permissions are activated.
+   In Azure PIM, you can define custom roles or use built-in roles with approval workflows. These roles are designed to grant access to Azure Virtual Enclaves resource's actions, such as creating, modifying, and deleting community, endpoints, enclaves, etc. - including establishing internal connections. When you assign these roles to users, you can configure them to require approval before the role's permissions are activated.
 
 3. **Approve Access Requests**:
-   When a user needs to perform an action within Azure Virtual Enclave that requires privileged access, they initiate a request through Azure PIM. This request is then sent to the appropriate approver for review. The approver can be a community owner, enclave owner, or an individual with the necessary permissions to evaluate and approve the request.
+   When a user needs to perform an action within Azure Virtual Enclaves that requires privileged access, they initiate a request through Azure PIM. This request is then sent to the appropriate approver for review. The approver can be a community owner, enclave owner, or an individual with the necessary permissions to evaluate and approve the request.
 
 4. **Review and Approve**:
    The designated approver receives a notification that a user requested access. The approver can review the details of the request, including the specific actions the user intends to perform within Azure Virtual Enclave. The approver can approve or deny the request based on the information provided. This process ensures only authorized and legitimate actions are taken within Azure Virtual Enclaves.

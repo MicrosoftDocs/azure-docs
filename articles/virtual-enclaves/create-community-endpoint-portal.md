@@ -4,7 +4,7 @@ description: Create a community endpoint in the Azure portal.
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
-ms.date: 04/08/2025
+ms.date: 9/30/2025
 ---
 
 # Create a community endpoint in the Azure portal
@@ -14,7 +14,7 @@ Quickly create a community endpoint in the Azure portal.
 ## Prerequisites
 - To access Azure Virtual Enclaves, you need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-- All access to Azure Virtual Enclaves takes place through a community or an Enclave. For this how-to article, create a [Community](./create-community-portal.md) and [Enclave](./create-enclave-portal.md) using the Azure portal.
+- All access to Azure Virtual Enclaves takes place through a community or an Enclave. For this how-to article, create a [community](./create-community-portal.md) and [Enclave](./create-enclave-portal.md) using the Azure portal.
 
 ## Sign-in to Azure
 Sign-in to the [Azure portal](https://portal.azure.com).
@@ -31,7 +31,7 @@ Community Endpoint rule types:
 - **IP Address**: Enable traffic from an enclave to an IP address outside of the community vWAN
 - **FQDN**: Enable traffic from an enclave to a trusted Fully Qualified Domain Name (FQDN) (for example `*portal.azure.com`)
 - **FQDN Tag**: Enable traffic from Enclaves to known Microsoft Azure services via FQDN Tags (for example `AzurePortal`)
-- **Private Network**: Enable traffic from Enclaves to an external private network through a [Transit Hub](./create-transit-hub-portal.md) connection
+- **Private Network**: Enable traffic from Enclaves to an external private network through a [transit hub](./create-transit-hub-portal.md) connection
 
 3. Provide a name, destination type, destination, port, and protocol for the community endpoint rule and select `Add`
 

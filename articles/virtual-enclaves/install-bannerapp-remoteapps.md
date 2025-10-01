@@ -5,7 +5,7 @@ description: Install BannerApp for RemoteApps.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: overview
-ms.date: 04/08/2025
+ms.date: 9/30/2025
 ---
 
 # Install BannerApp for RemoteApps
@@ -19,7 +19,7 @@ When a user accesses an app through Remote App, the BannerApp displays at the to
 
 This image shows two VS Code RemoteApp windows with different banners at the top of the windows. They have different colors and text content which aligns with the enclave configuration.
 
-![Screenshot showing two application windows from different environments on one desktop with different banner content.](./media/banner-app-example-remoteapp windows.png)
+![Screenshot showing two application windows from different environments on one desktop with different banner content.](./media/banner-app-example-remoteapp-windows.png)
 
 There are 3 VMs running in the picture above. The desktop shown is running on the "desktopVM," the `Platform VS Code` app is running on the "platformVM," and the `Subcontractor VS Code` is running on the "subcontractorVM." Both VS Code apps are streamed to the single desktop even though they're running on separate VMs. [Learn More](/windows-server/remote/remote-desktop-services/clients/windows)
 

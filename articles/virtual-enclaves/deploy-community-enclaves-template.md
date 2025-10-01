@@ -5,7 +5,7 @@ description: Deploy Community and Enclaves from a quickstart template.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: how-to
-ms.date: 04/08/2025
+ms.date: 9/30/2025
 ---
 
 # Quickstart: Deploy an Azure Virtual Enclaves (AVE) Community with Enclaves using an ARM template
@@ -47,7 +47,7 @@ The template used in this quickstart can be found [here](https://github.com/Azur
         - `outlook.com`
 - Enclave endpoint:
     - `ADDS-TCP` and `ADDS-UDP` - Ports/Protocols covering a fake Active Directory Doman Services (AD DS) instance
-- Transit Hub:
+- Transit hub:
     - Input parameter to a remote virtual network; covering Gateway connection
 - Enclave connections
     - | Source | Destination |

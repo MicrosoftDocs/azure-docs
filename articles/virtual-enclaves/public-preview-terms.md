@@ -4,7 +4,7 @@ description: Azure Virtual Enclaves Public Preview Terms.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: overview
-ms.date: 03/26/2025
+ms.date: 9/30/2025
 ---
 
 # Azure Virtual Enclaves public preview terms

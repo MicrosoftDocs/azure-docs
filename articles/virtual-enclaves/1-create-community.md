@@ -4,7 +4,7 @@ description: Deploy a community on Azure Virtual Enclaves.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: overview
-ms.date: 04/08/2025
+ms.date: 9/30/2025
 ms.custom: references_region
 ---
 
@@ -18,7 +18,7 @@ Communities are isolated hub networks that can securely and logically group seve
 
 ## Get started
 
-In this tutorial, part one of eight, you prepare a monitored and secure network cloud environment in the Azure portal using Azure Virtual Enclaves. One [enclave](./what-enclave.md) contains web applications and is publicly accessible by routing traffic through a second enclave with a Web Application Gateway, Web Application Firewall, and a Public IP address. An [Enclave Endpoint](./what-enclave-endpoint.md) for the Web App and establishing an [enclave connection](./what-enclave-connection.md) between the Web App enclave and second enclaves enables the networking behavior described above.
+In this tutorial, part one of eight, you prepare a monitored and secure network cloud environment in the Azure portal using Azure Virtual Enclaves. One [enclave](./what-enclave.md) contains web applications and is publicly accessible by routing traffic through a second enclave with a Web Application Gateway, Web Application Firewall, and a Public IP address. An [enclave endpoint](./what-enclave-endpoint.md) for the Web App and establishing an [enclave connection](./what-enclave-connection.md) between the Web App enclave and second enclaves enables the networking behavior described above.
 
 You learn how to:
 - ✅ Deploy a central community hub network
@@ -43,7 +43,7 @@ Community deployments will take around 30-45 minutes to complete. Once it comple
 
 2. On the `Communities` page, select `Create`.
 
-![Screenshot showing the Azure Virtual Enclaves portal page with the communities list selected.](./media/tutorial-step-one-azure-virtual-enclaves-page-communities-list.png)
+[ ![Screenshot showing the Azure Virtual Enclaves portal page with the communities list selected.](./media/tutorial-step-one-azure-virtual-enclaves-page-communities-list.png) ](./media/tutorial-step-one-azure-virtual-enclaves-page-communities-list.png#lightbox)
 
 3. Enter the basic details for your community:
    - **Subscription**: Select an existing Subscription

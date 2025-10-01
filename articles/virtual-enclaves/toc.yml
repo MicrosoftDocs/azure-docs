@@ -28,7 +28,7 @@
       href: create-community-endpoint-portal.md
     - name: Create an enclave endpoint
       href: create-enclave-endpoint-portal.md
-    - name: Create an enclave 
+    - name: Create an enclave connection
       href: create-enclave-connection-portal.md
     - name: Create a transit hub
       href: create-transit-hub-portal.md
@@ -68,6 +68,8 @@
       href: understand-domain-name-service.md
 - name: Tutorials
   items:
+  - name: Learn Virtual Enclaves
+    href: virtual-enclaves-learn.md
   - name: Create a community
     href: 1-create-community.md
   - name: Create enclaves inside a community
@@ -166,8 +168,6 @@
   items:
   - name: Troubleshoot guide
     href: troubleshoot.md
-  - name: Policy compliance exemptions
-    href: policy-compliance-exemptions.md
   - name: Migrate Azure resources into Azure Virtual Enclaves
     href: migrate-azure-resources-azure-virtual-enclaves.md
 #     - name: Connectivity troubleshooting
