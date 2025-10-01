@@ -1,15 +1,15 @@
 ---
-title: How to migrate Azure API Management between regions
+title: How to Migrate Azure API Management Between Regions
 description: Learn how to migrate an API Management instance from one region to another.
 services: api-management
 author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 08/20/2021
+ms.date: 09/02/2025
 ms.author: danlep
 ms.custom: subject-moving-resources
-# Customer intent: As an Azure service administrator, I want to move my service resources to another Azure region.
+# Customer intent: As an Azure service administrator, I want to move my API Management instance to another Azure region.
 ---
 
 # How to move Azure API Management across regions
@@ -18,9 +18,9 @@ ms.custom: subject-moving-resources
 
 This article describes how to move an API Management instance to a different Azure region. You might move your instance to another region for many reasons. For example:
 
-* Locate your instance closer to your API consumers
-* Deploy features available in specific regions only
-* Meet internal policy and governance requirements
+* Locate your instance closer to your API consumers.
+* Deploy features available in specific regions only.
+* Meet internal policy and governance requirements.
 
 To move API Management instances from one Azure region to another, use the service's [backup and restore](api-management-howto-disaster-recovery-backup-restore.md) operations. You can use a different API Management instance name or the existing name. 
 
