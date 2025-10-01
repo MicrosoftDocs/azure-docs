@@ -8,34 +8,37 @@ ms.service: azure-api-management
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: how-to
-ms.date: 01/23/2018
+ms.date: 10/01/2025
 ms.author: danlep
 ---
 # Monitor your APIs with Azure API Management, Event Hubs, and Moesif
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-The [API Management service](api-management-key-concepts.md) provides many capabilities to enhance the processing of HTTP requests sent to your HTTP API. However, the existence of the requests and responses is transient. The request is made and it flows through the API Management service to your backend API. Your API processes the request and a response flows back through to the API consumer. The API Management service keeps some important statistics about the APIs for display in the Azure portal dashboard, but beyond that, the details are gone.
+The [API Management service](api-management-key-concepts.md) provides many capabilities to enhance the processing of HTTP requests sent to your HTTP API. However, the existence of the requests and responses is transient. The request is made and flows through the API Management service to your backend API. Your API processes the request and a response flows back through to the API consumer. The API Management service keeps some important statistics about the APIs for display in the Azure portal dashboard, but beyond that, the details are gone.
 
-By using the `log-to-eventhub` policy in the API Management service, you can send any details from the request and response to an [Azure Event Hubs](../event-hubs/event-hubs-about.md). There are several reasons why you may want to generate events from HTTP messages being sent to your APIs. Some examples include audit trail of updates, usage analytics, exception alerting, and third-party integrations.
+By using the `log-to-eventhub` policy in the API Management service, you can send any details from the request and response to an [Azure Event Hubs](../event-hubs/event-hubs-about.md). There are several reasons why you might want to generate events from HTTP messages being sent to your APIs. Some examples include audit trail of updates, usage analytics, exception alerting, and third-party integrations.
 
-This article demonstrates how to capture the entire HTTP request and response message, send it to an event hub, and then relay that message to a third-party service that provides HTTP logging and monitoring services.
+This article demonstrates how to capture the entire HTTP request and response message, send it to an event hub, then relay that message to a third-party service that provides HTTP logging and monitoring services.
 
-## Why Send From API Management Service?
-It's possible to write HTTP middleware that can plug into HTTP API frameworks to capture HTTP requests and responses and feed them into logging and monitoring systems. The downside to this approach is the HTTP middleware needs to be integrated into the backend API and must match the platform of the API. If there are multiple APIs, then each one must deploy the middleware. Often there are reasons why backend APIs can't be updated.
+## Why send from API Management service?
 
-Using the Azure API Management service to integrate with logging infrastructure provides a centralized and platform-independent solution. It's also scalable, in part due to the [geo-replication](api-management-howto-deploy-multi-region.md) capabilities of Azure API Management.
+You can write HTTP middleware that can plug into HTTP API frameworks to capture HTTP requests and responses and feed them into logging and monitoring systems. The downside to this approach is the HTTP middleware needs to be integrated into the backend API and must match the API platform. If there are multiple APIs, then each one must deploy the middleware. Often there are reasons why backend APIs can't be updated.
+
+Using the Azure API Management service to integrate with logging infrastructure provides a centralized and platform-independent solution. It's also scalable, in part due to Azure API Management's [geo-replication](api-management-howto-deploy-multi-region.md) capabilities.
 
 ## Why send to an event hub?
-It's a reasonable to ask, why create a policy that is specific to Azure Event Hubs? There are many different places where I might want to log my requests. Why not just send the requests directly to the final destination? That is an option. However, when making logging requests from an API management service, it's necessary to consider how logging messages affect the performance of the API. Gradual increases in load can be handled by increasing available instances of system components or by taking advantage of geo-replication. However, short spikes in traffic can cause requests to be delayed if requests to logging infrastructure start to slow under load.
 
-The Azure Event Hubs is designed to ingress huge volumes of data, with capacity for dealing with a far higher number of events than the number of HTTP requests most APIs process. The event hub acts as a kind of sophisticated buffer between your API management service and the infrastructure that stores and processes the messages. This ensures that your API performance won't suffer due to the logging infrastructure.
+It's reasonable to ask: why create a policy that is specific to Azure Event Hubs? There are many different places where you might want to log your requests. Why not just send the requests directly to the final destination? That's an option. However, when making logging requests from an API management service, it's necessary to consider how logging messages affects the API's performance. Gradual increases in load can be handled by increasing available instances of system components or by taking advantage of geo-replication. However, short spikes in traffic can cause requests to be delayed if requests to logging infrastructure start to slow under load.
+
+Azure Event Hubs is designed to ingress huge volumes of data, with capacity for dealing with a far higher number of events than the number of HTTP requests most APIs process. The event hub acts as a kind of sophisticated buffer between your API management service and the infrastructure that stores and processes the messages. This ensures that your API performance won't suffer due to the logging infrastructure.
 
 Once the data has passed to an event hub, it persists and waits for the event hub consumers to process it. The event hub doesn't care how it's processed, it just cares about making sure the message is successfully delivered.
 
-Event Hubs has the ability to stream events to multiple consumer groups. This allows events to be processed by different systems. This enables supporting many integration scenarios without putting addition delays on the processing of the API request within the API Management service as only one event needs to be generated.
+Event Hubs has the ability to stream events to multiple consumer groups. This allows events to be processed by different systems. This supports many integration scenarios without putting more delays on the processing of the API request within the API Management service, because only one event needs to be generated.
 
-## A policy to send application/http messages
+## A policy to send application/HTTP messages
+
 An event hub accepts event data as a simple string. The contents of that string are up to you. To be able to package up an HTTP request and send it off to Azure Event Hubs, we need to format the string with the request or response information. In situations like this, if there's an existing format we can reuse, then we may not have to write our own parsing code. Initially I considered using the [HAR](http://www.softwareishard.com/blog/har-12-spec/) for sending HTTP requests and responses. However, this format is optimized for storing a sequence of HTTP requests in a JSON-based format. It contained many mandatory elements that added unnecessary complexity for the scenario of passing the HTTP message over the wire.
 
 An alternative option was to use the `application/http` media type as described in the HTTP specification [RFC 7230](https://tools.ietf.org/html/rfc7230). This media type uses the exact same format that is used to actually send HTTP messages over the wire, but the entire message can be put in the body of another HTTP request. In our case, we just use the body as our message to send to Event Hubs. Conveniently, there's a parser that exists in [Microsoft ASP.NET Web API 2.2 Client](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) libraries that can parse this format and convert it into the native `HttpRequestMessage` and `HttpResponseMessage` objects.
