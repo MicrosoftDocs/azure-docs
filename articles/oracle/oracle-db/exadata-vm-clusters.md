@@ -83,7 +83,7 @@ Once the servers are Arc-enabled and the Defender for Servers plan is active, th
     - **Integration with Azure Security Center**: The Arc-enabled Oracle machines are integrated into Azure Security Center/Defender for Cloud just like native Azure VMs, allowing unified **secure score** and **recommendations** tracking. 
     - **Compliance monitoring**: Includes the Arc-enabled servers in Azure Policy and regulatory compliance evaluations, helping ensure they meet necessary organization’s security compliance requirements. 
 
-    :::image type="content" source="/media/oracle-microsoft-defender.png" alt-text="Screenshot showing where to find Inventory page and asset management":::
+    :::image type="content" source="/media/oracle-microsoft-defender.png" alt-text="Screenshot showing the benefits enabled by plan 1":::
 ## Summary
 
 By following these steps, you have successfully onboarded Exadata VM cluster into Azure Arc and enabled Microsoft Defender for Cloud to protect it.  Oracle Exadata servers are now visible in Azure and are being continuously monitored by Defender for Cloud. This protection threat detection and security management is the same as any Azure native resource. This hybrid integration provides a unified security posture across both Azure and Oracle environments. 
