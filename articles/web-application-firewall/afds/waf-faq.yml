@@ -118,7 +118,7 @@ sections:
             Custom rules:
             * `application/x-www-form-urlencoded`
 
-            > [!NOTE]
+> [!NOTE]
             > Azure Front Door WAF does not support content-encoding. This means that compressed bodies won't be decompressed before being sent to the WAF engine.
 
       - question: |
