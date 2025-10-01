@@ -56,6 +56,8 @@ landingContent:
             url: how-to-delete-operator-resources.md
           - text: Create site network service
             url: how-to-create-site-network-service.md
+          - text: Interrupt a service deployment operation
+            url: how-to-cancel-service-deployments.md
 
   # Card
   - title: Onboard with the Azure Operator Service Manager (AOSM) CLI
