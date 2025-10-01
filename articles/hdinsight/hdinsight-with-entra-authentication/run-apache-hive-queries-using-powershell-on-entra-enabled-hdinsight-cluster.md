@@ -139,7 +139,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
     
     Output
 
-   ```
+   ```json
       Display the standard output...
       2012-02-03      18:35:34        SampleClass0    [ERROR] incorrect       id
       2012-02-03      18:55:54        SampleClass1    [ERROR] incorrect       id
@@ -180,7 +180,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 1. The output looks like the following text:
 
    Output
-     ```
+     ```json
         2012-02-03    18:35:34    SampleClass0    [ERROR]    incorrect    id
         2012-02-03    18:55:54    SampleClass1    [ERROR]    incorrect    id
         2012-02-03    19:25:27    SampleClass4    [ERROR]    incorrect    id
