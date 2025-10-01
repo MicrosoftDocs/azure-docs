@@ -203,7 +203,7 @@ After securing the Access Token needed for each action, let’s jump right into 
 
 
 
-   The end of the URI (/mapreduce/jar) tells WebHCat that this request starts a MapReduce job from a class in a jar file.       The parameters used in this command are as follows:
+   The end of the URI(/mapreduce/jar) tells WebHCat that this request starts a MapReduce job from a class in a jar file. The  parameters used in this command are as follows:
 
    This command should return a job ID that can be used to check the status of the job: `job_1415651640909_0026`.
 
