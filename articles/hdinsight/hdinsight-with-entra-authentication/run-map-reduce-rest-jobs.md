@@ -36,7 +36,7 @@ Bearer Token is needed to send the cURL or any REST communication. You can follo
 Execute an HTTP GET request to the OAuth 2.0 token endpoint with the following specifications:
 
 ## URL
-```
+```json
   https://login.microsoftonline.com/{Tenant_ID}/oauth2/v2.0/token
 ```
 
@@ -52,7 +52,7 @@ Execute an HTTP GET request to the OAuth 2.0 token endpoint with the following s
 
 ## cURL Request
 
-```
+```bash
 curl --request GET \
   --url https://login.microsoftonline.com/{tenant_id}/oauth2/v2.0/token \
   --header 'Content-Type: multipart/form-data' \
@@ -87,9 +87,9 @@ After securing the Access Token needed for each action, let’s jump right into 
 1. For ease of use, set the variables below. This example is based on a Windows environment, revise as needed for your environment.
     
    
-    ```azurecli
+   ```azurecli
      set TOKEN= <access_token>
-    ```
+   ```
 1. From a command line, use the following command to verify that you can connect to your HDInsight cluster:
         
     ```bash
@@ -111,8 +111,8 @@ After securing the Access Token needed for each action, let’s jump right into 
     ```
 1. To submit a MapReduce job, use the following command. Modify the path to jq as needed.
    
-     Windows Command Prompt
-      ```
+    
+      ```cmd
       curl -H "Authorization: Bearer $TOKEN" -d user.name=admin ^
       -d jar=/example/jars/hadoop-mapreduce-examples.jar ^
       -d class=wordcount -d arg=/example/data/gutenberg/davinci.txt -d arg=/example/data/output ^
@@ -139,8 +139,7 @@ After securing the Access Token needed for each action, let’s jump right into 
     
 1. To check the status of the job, use the following command. Replace the value for `JOBID` with the **actual** value returned in the previous step. Revise location of **jq** as needed.
     
-    Windows Command Prompt
-    ```
+    ```cmd
       set JOBID=job_1415651640909_0026
 
       curl -G -H "Authorization: Bearer $TOKEN" -d user.name=admin https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/$JOBID | ^
