@@ -28,7 +28,7 @@ Data flow graphs use registry endpoints to pull WebAssembly (WASM) modules and g
 A registry endpoint defines the connection details and authentication method for accessing a container registry. Registry endpoints are used by:
 
 - **Data flow graphs**: To pull WASM modules and graph definitions
-- **Akri connectors**: To pull custom discovery handlers and protocol adapters
+- **Akri connectors**: To pull custom connector templates
 
 Registry endpoints support authentication through:
 - System-assigned managed identity
@@ -334,9 +334,6 @@ authentication:
 #### Anonymous authentication
 
 Anonymous authentication is used for public registries that don't require authentication.
-
-> [!IMPORTANT]
-> Anonymous authentication has a known issue when pulling data flow graph definitions (YAML files). The upload must use the specific media type `application/vnd.wasm.config.v1+json`. For more information, see [Known issues](../troubleshoot/known-issues.md#anonymous-authentication-fails-to-pull-data-flow-graph-definitions-with-incorrect-media-type).
 
 <!-- 
 # [Operations experience](#tab/portal)

@@ -65,7 +65,7 @@ With cost-efficient storage and long-term retention, security teams can investig
 
 Microsoft Sentinel data lake's key capabilities include:
 
-- Centralizes logs from Microsoft 365, Defender, Azure, Microsoft Entra, Purview, Intune, and over 350 data connectors - including Amazon Web Services (AWS) and Google Cloud Platform (GCP) - to eliminate data silos.
+- Centralizes logs from Microsoft 365, Defender, Azure, Microsoft Entra, Microsoft Purview, Microsoft Intune, and over 350 data connectors - including Amazon Web Services (AWS) and Google Cloud Platform (GCP) - to eliminate data silos.
 
 - Optimizes costs by decoupling data ingestion from analytics, so you can store massive volumes of security data and apply the most effective analytic engines for tasks like threat hunting, anomaly detection, and deep forensic investigations.
 
@@ -83,7 +83,7 @@ Microsoft Sentinel graph's key capabilities include:
 - Unified graph-based analytics that power built-in experiences across security, compliance, identity, and the Microsoft Security ecosystem.
 - Real-world relationship modeling that uses nodes and edges to represent users, devices, cloud resources, data flows, and attacker actions.
 - Enhanced threat reasoning to help Defenders answer complex questions, such as which vulnerable paths an attacker could take from a compromised entity to a critical asset.
-- End-to-end defense with support for both pre-breach and post-breach scenarios, using interconnected graphs across Microsoft Defender and Purview.
+- End-to-end defense with support for both pre-breach and post-breach scenarios, using interconnected graphs across Microsoft Defender and Microsoft Purview.
 
 For more information, see [What is Microsoft Sentinel graph?](../sentinel/datalake/sentinel-graph-overview.md).
 

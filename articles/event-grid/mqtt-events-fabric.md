@@ -8,7 +8,7 @@ ms.author: seshanmugam
 ms.subservice: mqtt
 ---
 
-# How to send MQTT events to Microsoft Fabric using Azure Event Grid (Preview) 
+# How to send MQTT events to Microsoft Fabric using Azure Event Grid
 This article shows you how to use Azure Event Grid to send events from MQTT clients to Microsoft Fabric eventstream. 
 
 ## High-level steps

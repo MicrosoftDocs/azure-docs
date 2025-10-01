@@ -6,7 +6,7 @@ ms.reviewer: mijeffer
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 09/30/2025
+ms.date: 10/01/2025
 ms.author: mijeffer
 ---
 
@@ -46,7 +46,7 @@ If you use your billing account within 30 days of receiving the notification, yo
 
 When your billing account is blocked, you can no longer perform certain actions, like adding new subscriptions and transferring existing subscriptions. To unblock your billing account and return it to its active state, use the following criteria to contact support for help:
 
-- If you bought your subscription directly from Microsoft, [contact Microsoft Support](/azure/azure-portal/supportability/how-to-create-azure-support-request).
+- If you bought your subscription directly from Microsoft, [contact Microsoft support](/azure/azure-portal/supportability/how-to-create-azure-support-request). 
 - If you're a Partner or Enterprise customer, contact your partner or account manager.
 
 **If you have a billing account with a prepaid subscription set to auto-renew:** After your billing account is blocked, if no action is taken, you receive a notification of tenant deauthorization. This step can be avoided or reversed within the allowed timeframe specified in the notification. Subscription usage isn't affected until a lifecycle management event occurs, like when a payment method expires. At that time, subscriptions might expire and be deleted, followed by billing account expiration and deletion.
@@ -60,4 +60,4 @@ When your billing account is blocked, you can no longer perform certain actions,
 
 - [Understand your Microsoft business billing account](mca-overview.md)
 - [Manage your Microsoft business billing profiles](mca-overview.md#billing-profiles)
-- [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request)
+- [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request) 

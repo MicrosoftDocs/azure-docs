@@ -59,8 +59,8 @@ The table below summarizes the key differences most customers care about:
 | Date               | Milestone |
 |--------------------|---|
 | **September 2025** | Public announcement and documentation updates. |
-| **September 2026** | Creation of new GPv1/Blob‑Only/**general purpose v1 (GPv1) with ZRS redundancy** configurations blocked. |
-| **September 2026** | **Full retirement.** Any remaining general purpose v1 (GPv1) with ZRS redundancy accounts are automatically upgraded to GPv2. |
+| **Q1 2026** | Creation of new GPv1/Blob‑Only/**general purpose v1 (GPv1) with ZRS redundancy** configurations blocked. |
+| **October 2026** | **Full retirement.** Any remaining general purpose v1 (GPv1) with ZRS redundancy accounts are automatically upgraded to GPv2. |
 
 ## Preparing for migration
 
@@ -111,7 +111,7 @@ The following regions do not support Zone Redundant Storage (ZRS), if you have a
 - India South Central
 
 ## What happens if you don’t migrate by the deadline
-After **August 31, 2026**, you'll no longer be able to manage general purpose v1 (GPv1) with ZRS redundancy accounts. After **September 2026**, if you don't migrate your GPv1 with ZRS redundancy storage account to general-purpose v2, all existing GPv1 with ZRS redundancy accounts are auto migrated over to a general-purpose v2 account, which may result in higher billing costs. Your decision not to migrate an existing GPv1 with ZRS redundancy account will be construed as consent for Microsoft to migrate the account on your behalf.
+After **October 2026**, if you don't migrate your GPv1 with ZRS redundancy storage account to general-purpose v2, all existing GPv1 with ZRS redundancy accounts are auto migrated over to a general-purpose v2 account, which may result in higher billing costs. Your decision not to migrate an existing GPv1 with ZRS redundancy account will be construed as consent for Microsoft to migrate the account on your behalf.
 
 ## Where to get help and support
 If you have questions, get answers from community experts in Microsoft Q&A.

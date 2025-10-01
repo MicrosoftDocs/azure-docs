@@ -11,3 +11,5 @@ Azure IoT Operations uses the terms *namespace asset* and *device* to refer to c
 
 - A *device (preview)* is a configuration resource that encapsulates the connection information required to connect to one or more physical devices or assets.
 - A *namespace asset (preview)* is a configuration resource that encapsulates information about the data that a physical asset or device exchanges with IoT Operations.
+
+These configuration resources are stored as Kubernetes custom resources and as entries in the Azure Device Registry.

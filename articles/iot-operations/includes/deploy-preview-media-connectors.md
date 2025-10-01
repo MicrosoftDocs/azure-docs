@@ -11,7 +11,7 @@ When you deploy the preview version of Azure IoT Operations, the deployment incl
 
 :::image type="content" source="media/deploy-preview-media-connectors/portal-enable-preview-connectors.png" alt-text="Screenshot of Azure portal that shows that preview features are enabled." lightbox="media/deploy-preview-media-connectors/portal-enable-preview-connectors.png":::
 
-Before you can use the preview connectors (ONVIF, media, and REST/HTTP) in the operations experience web UI, an administrator must add connector template instances to your Azure IoT Operations instance.
+Before you can use the preview connectors (ONVIF, media, and HTTP/REST) in the operations experience web UI, an administrator must add connector template instances to your Azure IoT Operations instance.
 
 All three preview connectors can publish captured data to the MQTT broker. The media connector can also save captured data to storage. Azure IoT Operations uses [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview) to transfer the captured data to cloud storage destinations such as Azure Blob Storage. When you configure a connector template instance, you specify a _persistent volume claim_ and _mount path_ for the connector to use to save captured data. To learn how to create a suitable persistent volume claim, see [Cloud Ingest Edge Volumes configuration](/azure/azure-arc/container-storage/cloud-ingest-edge-volume-configuration).
 
@@ -21,7 +21,7 @@ To add a connector template instance to your Azure IoT Operations instance:
 
     :::image type="content" source="media/deploy-preview-media-connectors/portal-add-connector-template.png" alt-text="Screenshot of Azure portal that shows how to add a connector template instance." lightbox="media/deploy-preview-media-connectors/portal-add-connector-template.png":::
 
-1. On the first page of the **Add an Akri connector template** wizard, select the type of connector template you want to add, such as **ONVIF**, **Media**, or **HTTP REST**. Then select **Metadata**.
+1. On the first page of the **Add an Akri connector template** wizard, select the type of connector template you want to add, such as **ONVIF**, **Media**, **HTTP/REST**, or **SSE HTTP**. Then select **Metadata**.
 
     :::image type="content" source="media/deploy-preview-media-connectors/select-connector-template-type.png" alt-text="Screenshot of Azure portal that shows how to select the connector template instance type." lightbox="media/deploy-preview-media-connectors/select-connector-template-type.png":::
 

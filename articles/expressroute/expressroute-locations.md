@@ -165,7 +165,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[NETSG](https://www.netsg.co/dc-cloud/cloud-and-dc-interconnect/)** | &check; | &check; | Melbourne<br/>Sydney2 |
 | **[Next Generation Data](https://vantage-dc-cardiff.co.uk/)** | &check; | &check; | Newport(Wales) |
 | **[NEXTDC](https://www.nextdc.com/services/axon-ethernet/microsoft-expressroute)** | &check; | &check; | Melbourne<br/>Perth<br/>Sydney<br/>Sydney2 |
-| **[Next Layer GmbH](https://www.nextlayer.at/)** |&check; |&check; | Vienna<br/>Vienna2 |
+| **[next layer GmbH](https://www.nextlayer.at/)** |&check; |&check; | Vienna<br/>Vienna2<br/>Frankfurt<br/>Frankfurt2 |
 | **NL-IX** | &check; | &check; | Amsterdam2<br/>Dublin2 |
 | **[NOS](https://www.nos.pt/empresas/solucoes/cloud/cloud-publica/nos-cloud-connect)** | &check; | &check; | Amsterdam2<br/>Madrid |
 | **Noovle** | &check; | &check; | Milan |

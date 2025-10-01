@@ -96,6 +96,8 @@
   items:
   - name: Manage the network function operator extension
     href: manage-network-function-operator.md
+  - name: Interrupt a service deployment operation
+    href: how-to-cancel-service-deployments.md
   - name: Create required subscription, roles and identities
     expanded: false
     items:
@@ -145,5 +147,7 @@
     href: glossary.md
   - name: REST API
     href: /rest/api/hybridnetwork
+
+
 
 

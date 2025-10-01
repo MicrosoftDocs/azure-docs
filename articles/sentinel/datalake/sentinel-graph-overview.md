@@ -24,7 +24,7 @@ Unlike traditional tabular data approaches, Sentinel graph enables defenders and
 
 ## Enable defense at all stages
 
-Sentinel graph offers interconnected security graphs to help you at every stage of defense. The graph capabilities are being extended with new scenarios throughout Defender and Purview, providing graph-based defense strategies across all stages, from pre-breach to post-breach and across assets, activities, and threat intelligence.
+Sentinel graph offers interconnected security graphs to help you at every stage of defense. The graph capabilities are being extended with new scenarios throughout Defender and Microsoft Purview, providing graph-based defense strategies across all stages, from pre-breach to post-breach and across assets, activities, and threat intelligence.
 
 For example, your digital environment includes active directory, servers, virtual machines, and other assets, vulnerabilities, misconfigurations, and excessive privileges are common and can increase the risk of security breaches through compromised accounts. An attacker can infiltrate your organization, compromise tokens, and eventually gain access to sensitive information, resulting in data exfiltration.
 
@@ -35,8 +35,8 @@ Microsoft Sentinel graph offers underlying graph analytics capabilities intercon
 1. Features such as Attack Path within Microsoft Security Exposure Management (MSEM) and Microsoft Defender for Cloud (MDC) provide recommendations to proactively manage attack surfaces, protect critical assets, and explore and mitigate exposure risk.
 1. [New] Blast radius analysis in Incident graph in Defender helps you evaluate and visualize the vulnerable paths an attacker could take from a compromise entity to a critical asset.
 1. [New] Graph-based hunting in Defender helps you visually traverse the complex web of relationships between users, devices, and other entities to reveal privileged access paths to critical assets to prioritize incidents and response efforts.
-1. [New] Activity analysis via Purview Insider Risk Management (IRM) supports user risk assessment and helps you identify data leak blast radius of risky user activity across SharePoint and OneDrive.
-1. [New] Purview Data Security Investigation (DSI) graphs facilitate understanding of breach scope by pointing sensitive data access and movement, map potential exfiltration paths, and visualize the users and activities linked to risky files, all in one view.
+1. [New] Activity analysis via Microsoft Purview Insider Risk Management supports user risk assessment and helps you identify data leak blast radius of risky user activity across SharePoint and OneDrive.
+1. [New] Microsoft Purview Data Security Investigations graphs facilitate understanding of breach scope by pointing sensitive data access and movement, map potential exfiltration paths, and visualize the users and activities linked to risky files, all in one view.
 
 Collectively, Microsoft Sentinel graph’s capabilities enable defense across all stages of the security lifecycle.
 
@@ -71,4 +71,4 @@ To begin using Microsoft Sentinel graph in Microsoft Purview:
 
 ## Pricing
 
-All new Microsoft Sentinel graph-based experiences are included as part of the existing Defender and Purview licenses. However, the Sentinel graph is built upon the Sentinel data lake and requires data sources to be enabled. Enabling data sources incurs ingestion, data processing, and data lake storage costs. For Sentinel SIEM customers, most required data sources are part of Sentinel's *Free data sources* and are available without charge in the lake after the data is ingested into the Analytics tier. Nonentitled sources such as Microsoft Entra ID logs incur ingestion, data processing, and data lake storage costs if loaded directly into the lake, or Analytics tier ingestion if loaded into the Analytics tier. For more information, see Sentinel [data lake billing](https://azure.microsoft.com/pricing/details/storage/data-lake/).
+All new Microsoft Sentinel graph-based experiences are included as part of the existing Defender and Microsoft Purview licenses. However, the Sentinel graph is built upon the Sentinel data lake and requires data sources to be enabled. Enabling data sources incurs ingestion, data processing, and data lake storage costs. For Sentinel SIEM customers, most required data sources are part of Sentinel's *Free data sources* and are available without charge in the lake after the data is ingested into the Analytics tier. Nonentitled sources such as Microsoft Entra ID logs incur ingestion, data processing, and data lake storage costs if loaded directly into the lake, or Analytics tier ingestion if loaded into the Analytics tier. For more information, see Sentinel [data lake billing](https://azure.microsoft.com/pricing/details/storage/data-lake/).

@@ -20,7 +20,7 @@ General-purpose v2 (GPv2) storage accounts are the recommended account type for 
 This FAQ addresses common questions about upgrading from **GPv1 standard ZRS** to **GPv2**. It covers upgrade procedures, billing considerations, feature differences, and guidance for selecting the right redundancy option. Use this resource to plan your upgrade and ensure a smooth transition before GPv1 standard ZRS retirement.
 
 > [!IMPORTANT]
-> Microsoft will retire accounts that use **GPv1 standard ZRS** on **September 1, 2026**. All affected accounts must be upgraded to **GPv2** before this date to avoid service disruption.  
+> Microsoft will retire accounts that use **GPv1 standard ZRS** on **October 13, 2026**. All affected accounts must be upgraded to **GPv2** before this date to avoid service disruption.  
 > See: [Upgrade storage account](storage-account-upgrade.md) [general purpose v1 (GPv1) with ZRS redundancy migration overview](general-purpose-version-1-zone-redundant-storage-migration-overview.md)
 
 

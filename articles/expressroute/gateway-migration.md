@@ -47,7 +47,7 @@ For enhanced reliability and high availability, we recommend migrating to an Az-
 > [!NOTE]
 > The new gateway is created in the same region as the existing one. To change regions, you must delete the current gateway and create a new one in the desired region.
 
-3. **Migrate**: Switch traffic from the old gateway to the new one. This step can take up to 15 minutes and may cause brief connectivity interruptions.
+3. **Migrate**: Switch traffic from the old gateway to the new one. This step can take up to 15 minutes and may cause brief connectivity interruptions. Do not navigate away from the migration page while traffic is being moved. Leaving the page may interrupt the process.
 4. **Commit**: Finalize the migration by deleting the original gateway and its connections. If you need to cancel the migration, first switch traffic back to the original gateway by selecting the radio button in the **Migrate** section, then click **Migrate**, and finally choose **Abort** to delete the new gateway and its connections.
 
 > [!IMPORTANT]

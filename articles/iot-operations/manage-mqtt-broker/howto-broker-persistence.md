@@ -324,10 +324,10 @@ To configure dynamic persistence using Azure CLI, add the MQTT user property set
 az iot ops broker persist update --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <BrokerName> --persist-mode <PersistMode>
 ```
 
-Here's an example command Configure subscriber queue persistence for specific client IDs and apply user property key and value for dynamic persistence:
+Here's an example command to configure subscriber queue persistence for specific client IDs:
 
 ```azurecli
-az iot ops broker persist update --resource-group myResourceGroup --instance myAioInstance --name myBroker --persist-mode subscriberQueue=Custom --subscriber-client-ids "factory-client-*" "sensor-gateway-01"--user-key disk-persistence --user-value disk
+az iot ops broker persist update --resource-group myResourceGroup --instance myAioInstance --name myBroker --persist-mode subscriberQueue=Custom --subscriber-client-ids "factory-client-*" "sensor-gateway-01"
 ```
 
 ---

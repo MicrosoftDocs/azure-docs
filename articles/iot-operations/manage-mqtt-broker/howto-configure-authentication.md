@@ -774,7 +774,7 @@ With Azure Device Registry integration enabled:
 - Disabled or removed devices are automatically denied access.
 
 Before you enable this feature, create a corresponding device in the Azure Device Registry for each client certificate. The device name must match the certificate's Common Name (CN). To create and manage devices in the Azure Device Registry, see:
-- [Use the operations experience to manage resources such as assets, devices, and data flows](../discover-manage-assets/howto-manage-assets-devices.md)
+- [Use the operations experience to manage resources such as assets, devices, and data flows](../discover-manage-assets/howto-use-operations-experience.md)
 - [Understand assets and devices](../discover-manage-assets/concept-assets-devices.md)
 
 To enable Azure Device Registry integration, set the `additionalValidation` field to `AzureDeviceRegistry` in your X.509 settings. The `additionalValidation` field performs additional validation of the client certificate using the specified method, with supported values of `AzureDeviceRegistry` or `None` (default):
