@@ -16,7 +16,7 @@ ms.custom: sfi-image-nochange
 
 You can configure multiple connections to a credential provider in your API Management instance. For example, if you configured Microsoft Entra ID as a credential provider, you might need to create multiple connections for different scenarios and users.
 
-In this article, you learn how to add a connection to an existing provider, using credential manager in the Azure portal. For an overview of credential manager, see [About API credentials and credential manager](credentials-overview.md).
+In this article, you learn how to add a connection to an existing provider by using credential manager in the Azure portal. For an overview of credential manager, see [About API credentials and credential manager](credentials-overview.md).
 
 ## Prerequisites
 
@@ -27,8 +27,8 @@ In this article, you learn how to add a connection to an existing provider, usin
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to your API Management instance.
 1. Under **APIs** in the sidebar menu, select **Credential manager**.
-1. Select the credential provider for which you want to create multiple connections (for example, *mygithub*).
-1. In the credential provider window, select **Overview** > **+ Create connection**.
+1. Select the credential provider that you want to create multiple connections for.
+1. In the credential provider window, select **Overview**, then choose **+ Create connection**.
 
     :::image type="content" source="media/configure-credential-connection/create-credential.png" alt-text="Screenshot of creating a connection in the portal.":::
 
