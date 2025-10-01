@@ -102,7 +102,6 @@ The following regions do not support Zone Redundant Storage (ZRS), if you have a
 - Australia Southeast.
 - Canada East.
 - Korea South.
-- Malaysia South.
 - North Central US.
 - South India.
 - Sweden South.
@@ -116,19 +115,10 @@ The following regions do not support Zone Redundant Storage (ZRS), if you have a
 - Brazil Southeast.
 - France South.
 - Germany North.
-- Jio India Central.
-- Jio India West.
 - Norway West.
 - South Africa West.
 - Switzerland West.
 - UAE Central.
-- Taiwan North.
-- Taiwan Northwest.
-
-### Azure Government regions
-- USDoD Central.
-- USDoD East.
-- USGov Texas.
 
 ### Azure operated by 21Vianet
 - China East.
