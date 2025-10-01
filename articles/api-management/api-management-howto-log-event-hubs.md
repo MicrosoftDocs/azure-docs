@@ -306,7 +306,7 @@ You can preview the log in Event Hubs by using [Azure Stream Analytics queries](
 * Learn more about Azure Event Hubs
   * [Get started with Azure Event Hubs](../event-hubs/event-hubs-c-getstarted-send.md)
   * [Send events to and receive events from Event Hubs using .NET](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
-  * [Event Hubs programming guide](../event-hubs/event-hubs-programming-guide.md)
+  * [Azure.Messaging.EventHubs Samples](../event-hubs/event-hubs-programming-guide.md)
 * Learn more about API Management and Event Hubs integration
   * [Logger entity reference](/rest/api/apimanagement/current-preview/logger)
   * [log-to-eventhub](log-to-eventhub-policy.md) policy reference
