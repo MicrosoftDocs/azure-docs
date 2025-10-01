@@ -36,7 +36,7 @@ Bearer Token is needed to send the cURL or any REST communication. Follow the me
 Execute an HTTP GET request to the OAuth 2.0 token endpoint with the following specifications:
 
 ### URL
-  ```
+  ```json
     https://login.microsoftonline.com/{Tenant_ID}/oauth2/v2.0/token
   ```
 
@@ -81,9 +81,7 @@ A successful request returns a JSON object containing:
 
       You receive a response similar to the following text:
 
-      JSON
-
-      ```
+      ```json
         {"status":"ok","version":"v1"}
       ```
     The parameters used in this command are as follows:
@@ -98,10 +96,8 @@ A successful request returns a JSON object containing:
     ```
 
     This request returns a response similar to the following text:
-
-    JSON
     
-    ```
+    ```json
       {"module":"hive","version":"1.2.1000.2.6.5.3008-11"}
     ```
 
