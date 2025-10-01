@@ -6,7 +6,7 @@ ms.topic: how-to
 author: apurbasroy
 ms.author: apsinhar
 ms.reviewer: nijelsf
-ms.date: 09/28/2025
+ms.date: 10/02/2025
 ---
 
 # Create and Manage Azure HDInsight cluster with Entra ID authentication
