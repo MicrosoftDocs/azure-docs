@@ -75,7 +75,7 @@ Use `AzureFunctions.PowerShell.Durable.SDK` version [2.0.0](https://www.powershe
 
 # [Java](#tab/java)
 
-Use `durabletask-azure-functions` version [1.6.0](https://mvnrepository.com/artifact/com.microsoft/durabletask-azure-functions/1.6.0) or later.
+Use `durabletask-azure-functions` version [1.6.1](https://mvnrepository.com/artifact/com.microsoft/durabletask-azure-functions/1.6.1) or later.
 
 ---
 
