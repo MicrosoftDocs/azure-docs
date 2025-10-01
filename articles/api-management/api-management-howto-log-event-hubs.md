@@ -44,7 +44,7 @@ To log events to the event hub, you need to configure credentials for access fro
 
 1. Enable a system-assigned or user-assigned [managed identity for API Management](api-management-howto-use-managed-service-identity.md) in your API Management instance.
 
-    * If you enable a user-assigned managed identity, take note of the identity's **Client ID**.
+    * If you enable a user-assigned managed identity, take note of the identity's **Object ID**.
 
 1. Assign the identity the **Azure Event Hubs Data sender** role, scoped to the Event Hubs namespace or to the event hub used for logging. To assign the role, use the [Azure portal](../role-based-access-control/role-assignments-portal.yml) or another Azure tool.
 
@@ -210,7 +210,7 @@ For prerequisites, see [Configure an Event Hubs connection string](#option-2-con
 The following example uses the [New-AzApiManagementLogger](/powershell/module/az.apimanagement/new-azapimanagementlogger) cmdlet to create a logger to an event hub by configuring a connection string.
 
 ```powershell
-# API Management service-specific details
+# Details specific to API Management 
 $apimServiceName = "apim-hello-world"
 $resourceGroupName = "myResourceGroup"
 
@@ -265,12 +265,11 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
 After your logger is configured in API Management, you can configure your [log-to-eventhub](log-to-eventhub-policy.md) policy to log the desired events. For example, use the `log-to-eventhub` policy in the inbound policy section to log requests, or in the outbound policy section to log responses.
 
 1. Go to your API Management instance.
-1. Select **APIs**, and then select the API to which you want to add the policy. In this example, we're adding a policy to the **Echo API** in the **Unlimited** product.
-1. Select **All operations**.
-1. At the top of the page, select the **Design** tab.
-1. In the Inbound processing or Outbound processing window, select the `</>` (code editor) icon. For more information, see [How to set or edit policies](set-edit-policies.md).
+1. Under **APIs**, select **APIs**, and then select the API to which you want to add the policy. In this example, we're adding a policy to the **Echo API** in the **Unlimited** product.
+1. On the **Design** tab, select **All operations**.
+1. In the **Inbound processing** or **Outbound processing** pane, select the `</>` (Policy code editor) button. For more information, see [How to set or edit policies](set-edit-policies.md).
 1. Position your cursor in the `inbound` or `outbound` policy section.
-1. In the window on the right side, select **Advanced policies** > **Log to EventHub**. This action inserts the `log-to-eventhub` policy statement template.
+1. Select **Show snippets** at the top of the tab. Select **Advanced policies** > **Log to EventHub**. This action inserts the `log-to-eventhub` policy statement template.
 
     ```xml
     <log-to-eventhub logger-id="logger-id">
@@ -299,9 +298,9 @@ After your logger is configured in API Management, you can configure your [log-t
 You can preview the log in Event Hubs by using [Azure Stream Analytics queries](../event-hubs/process-data-azure-stream-analytics.md). 
 
 1. In the Azure portal, go to the event hub that the logger sends events to. 
-2. Under **Features**, select the **Process data** tab.
-3. On the **Enable real time insights from events** card, select **Start**.
-4. You should be able to preview the log on the **Input preview** tab. If the data shown isn't current, select **Refresh** to see the latest events.
+1. Under **Features**, select **Process data**.
+1. On the **Enable real time insights from events** card, select **Start**.
+1. You should be able to preview the log on the **Input preview** tab. If the data shown isn't current, select **Refresh** to see the latest events.
 
 ## Related content
 * Learn more about Azure Event Hubs
