@@ -14,6 +14,10 @@ Azure SRE Agent Preview helps you maintain the health and performance of your Az
 
 This article demonstrates how to create an agent and connect it to your resources to maintain optimal application performance.
 
+## Preview access
+
+While access to SRE Agent was previously only available to customers via a waitlist, the agent is now available to all customers through the [Azure portal](https://aka.ms/sreagent-portal).
+
 > [!NOTE]
 > By using SRE Agent, you consent to the product-specific [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
