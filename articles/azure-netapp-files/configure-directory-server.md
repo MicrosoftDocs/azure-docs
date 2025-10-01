@@ -10,10 +10,57 @@ ms.author: anfdocs
 ---
 # Configure LDAP directory servers for Azure NetApp Files NFS volumes (preview)
 
-In addition to native Active Directory support, Azure NetApp Files supports using FreeIPA, OpenLDAP, and Red Hat Directory Server for lightweight directory access protocol (LDAP) directory servers. 
+In addition to native Active Directory support, Azure NetApp Files supports native integration with directory services including FreeIPA, OpenLDAP, and Red Hat Directory Server for lightweight directory access protocol (LDAP) directory servers. With native LDAP directory server support, you can achieve secure and scalable identity-based access control for NFS volumes in Linux environments.
+
+Azure NetApp Files' LDAP integration simplifies file share access management by leveraging trusted directory services. It supports NFSv3 and NFSv4.1 protocols and uses DNS SRV record-based discovery for high availability and load balancing across LDAP servers. From a business perspective, this feature enhances: 
+
+- **Compliance**: Centralized identity management supports auditability and policy enforcement
+- **Efficiency**: Reduces administrative overhead by unifying identity controls across Linux and NTFS systems
+- **Security**: Supports LDAP over TLS, symmetric/asymmetric name mapping, and extended group memberships
+- **Seamless integration**: Works with existing LDAP infrastructure
+- **Scalability**: Supports large user and group directories
+- **Flexibility**: Compatible with multiple LDAP implementations
+
+## Supported directory services 
+
+* **FreeIPA**: Ideal for secure, centralized identity management in Linux environments
+* **OpenLDAP**: Lightweight and flexible directory service for custom deployments
+* **Red Hat Directory Server**: Enterprise-grade LDAP service with advanced scalability and security features
 
 >[!IMPORTANT]
 >To configure LDAP with Active Directory, see [Configure AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md).
+
+## Architecture 
+
+The following diagram outlines how Azure NetApp Files uses LDAP bind/search operations to authenticate users and enforce access control based on directory information.
+
+:::image type="content" source="./media/configure-directory-server/server-diagram.png" alt-text="Diagram of LDAP directory server in Azure NetApp Files." lightbox="./media/configure-directory-server/server-diagram.png":::
+
+### Components
+
+The architecture involves the following components:
+
+- Linux VM client: Initiates an NFS mount request to Azure NetApp Files
+- Azure NetApp Files volume: Receives the mount request and performs LDAP queries
+- LDAP directory server: Responds to bind/search requests with user and group information
+- Access control logic: Enforces access decisions based on LDAP responses
+
+### Data flow 
+
+1.	Mount Request: The Linux VM sends an NFSv3 or NFSv4.1 mount request to Azure NetApp Files.
+2.	LDAP Bind/Search: Azure NetApp Files sends a bind/search request to the LDAP server (FreeIPA, OpenLDAP, or RHDS) using the UID/GID.
+3. LDAP Response: The directory server returns user and group attributes.
+4. Access Control Decision: Azure NetApp Files evaluates the response and grants or denies access.
+5.	Client Access: The decision is communicated back to the client.
+
+
+## Use cases 
+
+Use cases for this feature include:
+
+- Hybrid cloud deployments with centralized identity management. 
+- Enterprises using FreeIPA or OpenLDAP for Linux workloads. 
+- Organizations requiring secure access to NFS volumes without Active Directory. 
 
 ## Considerations 
 
@@ -62,7 +109,7 @@ You must first create the LDAP server before you can connect it to Azure NetApp 
     * **Domain:** The domain name acts as the base DN. 
     * **LDAP servers:** The IP address of the LDAP server. 
     * **LDAP over TLS:** Optionally, check the box to enable LDAP over TLS for secure communication. For more information, see [Configure LDAP over TLS](configure-ldap-over-tls.md).
-    * **Server CA certificate:** The certification authority certificate. Selecting this option is required if you use LDAP over TLS. 
+    * **Server CA certificate:** The certification authority certificate. This option is required if you use LDAP over TLS. 
     * **Certificate CN Host:** The common name server of the host, for example contoso.server.com. 
 
     :::image type="content" source="./media/configure-directory-server/configure-connection.png" alt-text="Screenshot of Configure LDAP connection options." lightbox="./media/configure-directory-server/configure-connection.png":::
