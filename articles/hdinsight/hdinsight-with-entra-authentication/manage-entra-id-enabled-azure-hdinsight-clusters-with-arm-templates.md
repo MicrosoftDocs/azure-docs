@@ -41,7 +41,7 @@ For a list of changed properties in each API version, see [change log](/azure/t
 
 To create a Microsoft.HDInsight/clusters resource, add the following JSON to your template.
 
-``` JSON
+```json
 {
   "type": "Microsoft.HDInsight/clusters",
   "apiVersion": "2025-01-15-preview",
