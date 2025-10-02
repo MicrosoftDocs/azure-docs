@@ -46,8 +46,7 @@ sections:
           You have several options, including:
           
           * Use the [backup and restore](api-management-howto-disaster-recovery-backup-restore.md) functionality in API Management.
-          * Create your own backup and restore functionality by using the [API Management REST API](/rest/api/apimanagement/) to save and restore the entities from the service instance that you want.
-          * Download the service configuration by using [Git](api-management-configuration-repository-git.md), and then upload it to a new instance.
+          * Create your own backup and restore feature by using the [API Management REST API](/rest/api/apimanagement/) to save and restore the entities from the service instance that you want.
       
       - question: |
           Can I move an API Management instance from one subscription to another?
