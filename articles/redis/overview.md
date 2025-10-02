@@ -134,7 +134,7 @@ This table shows the max connections by tier and memory size.
 | 1920 *    | 200,000             | -        | -                    | 200,000                         |
 | 4500 *    | -                   | -        | -                    | 200,000                         |
 
-\* The tiers with an asterisk are in Public Preview.
+\* The sizes with an asterisk are in Public Preview.
 
 ### High availability
 
