@@ -272,9 +272,11 @@ If you have to reuse an existing app registration that's shared with another API
 
 After you set up Easy Auth, confirm that authentication and authorization work correctly.
 
-### Open the external chat client for conversational agent workflows
+<a name="external-chat-client"></a>
 
-If you're testing a conversational agent workflow, follow these steps:
+### Set up the external chat client for conversational agent workflows
+
+To test and set up the external chat client for conversational agent workflows, follow these steps:
 
 1. On the designer toolbar, select **Chat**.
 
@@ -381,6 +383,8 @@ For nonproduction scenarios only, such as design, development, and quick testing
 1. Optionally, lock down trigger endpoint URLs by disabling or regenerating any unused SAS URLs.
 
 1. Enforce authentication required access patterns.
+
+1. For conversational agent workflows, get the [chat client URL](#external-chat-client) so you can embed an external chat interface wherever you want to support human interactions.
 
 ### Troubleshoot authentication migration
 
