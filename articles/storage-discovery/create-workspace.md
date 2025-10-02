@@ -123,7 +123,7 @@ az storage-discovery workspace create \
 
 | Parameter | Description |
 |-----------|-------------|
-| resource-group | The resource group where the workspace will be created. |
+| resource-group | The resource group where the workspace is created. |
 | name | The name of the workspace. |
 | location | Azure region for deployment. |
 | workspace-roots | Defines the root scope (subscriptions/resource groups) for discovery. |
