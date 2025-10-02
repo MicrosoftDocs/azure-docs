@@ -5,18 +5,19 @@ services: api-management
 author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 02/22/2022
+ms.date: 09/29/2025
 ms.author: danlep
 ms.custom: fasttrack-new
 ---
+
 # Revisions in Azure API Management
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-Revisions allow you to make changes to your APIs in a controlled and safe way. When you want to make changes, create a new revision. You can then edit and test API without disturbing your API consumers. When you're ready, you then make your revision current. At the same time, you can optionally post an entry to the change log, to keep your API consumers up to date with what has changed. The change log is published to your developer portal.
+Revisions allow you to make changes to your APIs in a controlled and safe way. When you want to make changes, create a new revision. You can then edit and test your API without disturbing your API consumers. When you're ready, you then make your revision current. At the same time, you can optionally post an entry to the change log, to keep your API consumers up to date with the changes you made. The change log is published to your developer portal.
 
 > [!NOTE]
-> The developer portal is not available in the Consumption tier.
+> The developer portal isn't available in the Consumption tier.
 
 With revisions you can:
 
@@ -33,14 +34,14 @@ Each revision to your API can be accessed using a specially formed URL. Append `
 
 `https://apis.contoso.com/customers;rev=3/leads?customerId=123`
 
-By default, each revision has the same security settings as the current revision. You can deliberately change the policies for a specific revision if you want to have different security applied for each revision. For example, you might want to add a [IP filtering policy](ip-filter-policy.md) to prevent external callers from accessing a revision that is still under development.
+By default, each revision has the same security settings as the current revision. You can deliberately change the policies for a specific revision if you want to have different security applied for each revision. For example, you might want to add an [IP filtering policy](ip-filter-policy.md) to prevent external callers from accessing a revision that is still under development.
 
 > [!NOTE]
 > The `;rev={id}` must be appended to the API ID, and not the URI path.
 
 ## Current revision
 
-A single revision can be set as the *current* revision. This revision will be the one used for all API requests that don't specify an explicit revision number in the URL. You can roll back to a previous revision by setting that revision as current.
+A single revision can be set as the *current* revision. This revision is the one used for all API requests that don't specify an explicit revision number in the URL. You can roll back to a previous revision by setting that revision as current.
 
 You can set a revision as current using the Azure portal. If you use PowerShell, you can use the `New-AzApiManagementApiRelease` cmdlet.
 
@@ -51,7 +52,7 @@ When you create a revision, you can set a description for your own tracking purp
 When you set a revision as current you can also optionally specify a public change log note. The change log is included in the developer portal for your API users to view. You can modify your change log note using the `Update-AzApiManagementApiRelease` PowerShell cmdlet.
 
 > [!CAUTION]
-> If you are editing a non-current revision of an API, you cannot change the following properties:
+> If you're editing a non-current revision of an API, you can't change the following properties:
 >
 > * Name
 > * Type
@@ -62,8 +63,7 @@ When you set a revision as current you can also optionally specify a public chan
 > * Path
 > * Protocols
 >
-> These properties can only be changed in the current revision.  If your edits change any of the above 
-> properties of a non-current revision, the error message `Can't change property for non-current revision` will be displayed.
+> These properties can only be changed in the current revision. If your edits change any of these properties in a non-current revision, the error message `Can't change property for non-current revision` is displayed.
 
 ## Take a revision offline
 
@@ -74,6 +74,6 @@ A revision can be taken offline, which makes it inaccessible to callers even if 
 
 ## Versions and revisions
 
-Versions and revisions are distinct features. Each version can have multiple revisions, just like a non-versioned API. You can use revisions without using versions, or the other way around. Typically versions are used to separate API versions with breaking changes, while revisions can be used for minor and non-breaking changes to an API.
+Versions and revisions are distinct features. Each version can have multiple revisions, just like a nonversioned API. You can use revisions without using versions, or the other way around. Typically versions are used to separate API versions with breaking changes, while revisions can be used for minor and non-breaking changes to an API.
 
-Should you find that your revision has breaking changes, or if you wish to formally turn your revision into a beta/test version, you can create a version from a revision. Using the Azure portal, click the 'Create Version from Revision' on the revision context menu on the Revisions tab.
+If your revision has breaking changes, or if you wish to formally turn your revision into a beta/test version, you can create a version from a revision. Using the Azure portal, select 'Create Version from Revision' on the revision context menu on the Revisions tab.

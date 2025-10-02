@@ -37,7 +37,47 @@ The orchestration versioning feature operates on these core principles:
 - **Forward Protection**: The runtime automatically prevents workers running older orchestrator versions from executing orchestrations started by newer orchestrator versions.
 
 > [!IMPORTANT]
-> Orchestration versioning is currently in public preview for apps running in the .NET isolated model. Use `Microsoft.Azure.Functions.Worker.Extensions.DurableTask` package version **>=1.5.0**.
+> Orchestration versioning is currently in public preview.
+
+## Prerequisites
+
+Before using orchestration versioning, ensure you have the required package versions for your programming language.
+
+If you're using a non-.NET language (JavaScript, Python, PowerShell, or Java) with [extension bundles](../extension-bundles.md), your function app must reference **Extension Bundle version 4.26.0 or later**. Configure the `extensionBundle` range in `host.json` so that the minimum version is at least `4.26.0`, for example:
+
+```json
+{
+    "version": "2.0",
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[4.26.0, 5.0.0)"
+    }
+}
+```
+
+See the [extension bundle configuration documentation](../extension-bundles.md) for details on choosing and updating bundle versions.
+
+# [C#](#tab/csharp)
+
+Use `Microsoft.Azure.Functions.Worker.Extensions.DurableTask` version [1.5.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask/1.5.0) or later.
+
+# [JavaScript](#tab/javascript)
+
+Use `durable-functions` version [3.2.0](https://www.npmjs.com/package/durable-functions/v/3.2.0) or later.
+
+# [Python](#tab/python)
+
+Use `azure-functions-durable` version [1.3.3](https://pypi.org/project/azure-functions-durable/1.3.3/) or later.
+
+# [PowerShell](#tab/powershell)
+
+Use `AzureFunctions.PowerShell.Durable.SDK` version [2.0.0](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK/2.0.0) or later. Make sure you're using the standalone [Durable Functions PowerShell SDK](durable-functions-powershell-v2-sdk-migration-guide.md).
+
+# [Java](#tab/java)
+
+Use `durabletask-azure-functions` version [1.6.1](https://mvnrepository.com/artifact/com.microsoft/durabletask-azure-functions/1.6.1) or later.
+
+---
 
 ## Basic usage
 
@@ -84,6 +124,8 @@ To implement version-aware logic in your orchestrator function, you can use the 
 > [!IMPORTANT]
 > When implementing version-aware logic, it's **critically important** to preserve the exact orchestrator logic for older versions. Any changes to the sequence, order, or signature of activity calls for existing versions may break deterministic replay and cause in-flight orchestrations to fail or produce incorrect results. The old version code paths must remain unchanged once deployed.
 
+# [C#](#tab/csharp)
+
 ```csharp
 [Function("MyOrchestrator")]
 public static async Task<string> RunOrchestrator(
@@ -103,11 +145,90 @@ public static async Task<string> RunOrchestrator(
 }
 ```
 
+# [JavaScript](#tab/javascript)
+
+```javascript
+const df = require("durable-functions");
+
+df.app.orchestrator(function* (context) {
+    if (context.df.version === "1.0") {
+        // Original logic for version 1.0
+        // ...
+    } else if (context.df.version === "2.0") {
+        // New logic for version 2.0
+        // ...
+    }
+    // ...
+});
+```
+
+# [Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+myApp = df.DFApp(http_auth_level=func.AuthLevel.FUNCTION)
+
+@myApp.orchestration_trigger(context_name="context")
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    if context.version == "1.0":
+        # Original logic for version 1.0
+        # ...
+    elif context.version == "2.0":
+        # New logic for version 2.0
+        # ...
+    # ...
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+if ($Context.Version -eq "1.0") {
+    # Original logic for version 1.0
+    # ...
+} elseif ($Context.Version -eq "2.0") {
+    # New logic for version 2.0
+    # ...
+}
+# ...
+```
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("MyOrchestrator")
+public String myOrchestrator(
+    @DurableOrchestrationTrigger(name = "context") 
+    TaskOrchestrationContext context) {
+    
+    String version = context.getVersion();
+    if ("1.0".equals(version)) {
+        // Original logic for version 1.0
+        // ...
+    } else if ("2.0".equals(version)) {
+        // New logic for version 2.0
+        // ...
+    }
+    // ...
+}
+```
+
+---
+
 > [!NOTE]
 > The `context.Version` property is **read-only** and reflects the version that was permanently associated with the orchestration instance when it was created. You cannot modify this value during orchestration execution. If you want to specify a version through means other than `host.json`, you can do so when starting an orchestration instance with the orchestration client APIs (see [Starting new orchestrations and sub-orchestrations with specific versions](#starting-new-orchestrations-and-sub-orchestrations-with-specific-versions)).
 
 > [!TIP]
-> If you're just starting to use orchestration versioning and you already have in-flight orchestrations that were created before you specified a `defaultVersion`, you can still add the `defaultVersion` setting to your `host.json` now. For all previously created orchestrations, `context.Version` returns `null` (or an equivalent language-dependent value), so you can structure your orchestrator logic to handle both the legacy (null version) and new versioned orchestrations accordingly. In C#, you can check for `context.Version == null` or `context.Version is null` to handle the legacy case. Please also note that specifying `"defaultVersion": null` in `host.json` is equivalent to not specifying it at all.
+> If you're just starting to use orchestration versioning and you already have in-flight orchestrations that were created before you specified a `defaultVersion`, you can still add the `defaultVersion` setting to your `host.json` now. For all previously created orchestrations, `context.Version` returns `null` (or an equivalent language-dependent value), so you can structure your orchestrator logic to handle both the legacy (null version) and new versioned orchestrations accordingly. The following are the language-dependent values to check for the legacy case:
+- C#: `context.Version == null` or `context.Version is null` 
+- JavaScript: `context.df.version == null`
+- Python: `context.version is None`
+- PowerShell: `$null -eq $Context.Version`
+- Java: `context.getVersion() == null`
+Also note that specifying `"defaultVersion": null` in `host.json` is equivalent to not specifying it at all.
 
 > [!TIP]
 > Depending on your situation, you may prefer branching on different levels. You can make a local change precisely where this change is required, like the example shows. Alternatively, you can branch at a higher level, even at the entire orchestrator implementation level, which introduces some code duplication, but may keep the execution flow clear. It's up to you to choose the approach that best fits your scenario and coding style.
@@ -146,6 +267,8 @@ This example shows how to replace one activity with a different activity in the 
 
 **Orchestrator function:**
 
+# [C#](#tab/csharp)
+
 ```csharp
 [Function("ProcessOrderOrchestrator")]
 public static async Task<string> ProcessOrder(
@@ -161,6 +284,75 @@ public static async Task<string> ProcessOrder(
 }
 ```
 
+# [JavaScript](#tab/javascript)
+
+```javascript
+const df = require("durable-functions");
+
+df.app.orchestrator(function* (context) {
+    const orderId = context.df.getInput();
+    
+    yield context.df.callActivity("ValidateOrder", orderId);
+    yield context.df.callActivity("ProcessPayment", orderId);
+    yield context.df.callActivity("ShipOrder", orderId);
+    
+    return "Order processed successfully";
+});
+```
+
+# [Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+myApp = df.DFApp(http_auth_level=func.AuthLevel.FUNCTION)
+
+@myApp.orchestration_trigger(context_name="context")
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    order_id = context.get_input()
+    
+    yield context.call_activity("ValidateOrder", order_id)
+    yield context.call_activity("ProcessPayment", order_id)
+    yield context.call_activity("ShipOrder", order_id)
+    
+    return "Order processed successfully"
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+$orderId = $Context.Input
+
+Invoke-DurableActivity -FunctionName "ValidateOrder" -Input $orderId
+Invoke-DurableActivity -FunctionName "ProcessPayment" -Input $orderId
+Invoke-DurableActivity -FunctionName "ShipOrder" -Input $orderId
+
+return "Order processed successfully"
+```
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("ProcessOrderOrchestrator")
+public String processOrder(
+    @DurableOrchestrationTrigger(name = "context") 
+    TaskOrchestrationContext context) {
+    
+    String orderId = context.getInput(String.class);
+    
+    context.callActivity("ValidateOrder", orderId).await();
+    context.callActivity("ProcessPayment", orderId).await();
+    context.callActivity("ShipOrder", orderId).await();
+    
+    return "Order processed successfully";
+}
+```
+
+---
+
 #### Version 2.0 with discount processing
 
 **host.json configuration:**
@@ -175,6 +367,8 @@ public static async Task<string> ProcessOrder(
 ```
 
 **Orchestrator function:**
+
+# [C#](#tab/csharp)
 
 ```csharp
 using DurableTask.Core.Settings;
@@ -204,6 +398,153 @@ public static async Task<string> ProcessOrder(
     return "Order processed successfully";
 }
 ```
+
+# [JavaScript](#tab/javascript)
+
+```javascript
+const df = require("durable-functions");
+import semver from 'semver';
+
+df.app.orchestrator(function* (context) {
+    const orderId = context.df.getInput();
+
+    yield context.df.callActivity("ValidateOrder", orderId);
+
+    if (compareVersions(context.df.version, "1.0") <= 0) {
+        // Preserve original logic for existing instances
+        yield context.df.callActivity("ProcessPayment", orderId);
+    } else {
+        // New logic with discount processing (replaces payment processing)
+        yield context.df.callActivity("ApplyDiscount", orderId);
+        yield context.df.callActivity("ProcessPaymentWithDiscount", orderId);
+    }
+    
+    yield context.df.callActivity("ShipOrder", orderId);
+
+    return "Order processed successfully";
+});
+
+function compareVersions(version1, version2) {
+  // Feel free to implement your own version comparison logic
+  const v1 = semver.coerce(version1);
+  const v2 = semver.coerce(version2);
+
+  if (!v1 || !v2) {
+    throw new Error(`Invalid version string(s): "${version1}" vs "${version2}"`);
+  }
+  return semver.compare(v1, v2);
+}
+```
+
+# [Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+from packaging import version
+
+myApp = df.DFApp(http_auth_level=func.AuthLevel.FUNCTION)
+
+@myApp.orchestration_trigger(context_name="context")
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    order_id = context.get_input()
+
+    yield context.call_activity("ValidateOrder", order_id)
+
+    if compare_versions(context.version, "1.0") <= 0:
+        # Preserve original logic for existing instances
+        yield context.call_activity("ProcessPayment", order_id)
+    else:
+        # New logic with discount processing (replaces payment processing)
+        yield context.call_activity("ApplyDiscount", order_id)
+        yield context.call_activity("ProcessPaymentWithDiscount", order_id)
+    
+    yield context.call_activity("ShipOrder", order_id)
+
+    return "Order processed successfully"
+
+def compare_versions(version1, version2):
+    # Feel free to implement your own version comparison logic
+    v1 = version.parse(version1)
+    v2 = version.parse(version2)
+
+    if v1 < v2:
+        return -1
+    elif v1 > v2:
+        return 1
+    return 0
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+$orderId = $Context.Input
+
+Invoke-DurableActivity -FunctionName "ValidateOrder" -Input $orderId
+
+if (Compare-Version $Context.Version "1.0" -le 0) {
+    # Preserve original logic for existing instances
+    Invoke-DurableActivity -FunctionName "ProcessPayment" -Input $orderId
+} else {
+    # New logic with discount processing (replaces payment processing)
+    Invoke-DurableActivity -FunctionName "ApplyDiscount" -Input $orderId
+    Invoke-DurableActivity -FunctionName "ProcessPaymentWithDiscount" -Input $orderId
+}
+
+Invoke-DurableActivity -FunctionName "ShipOrder" -Input $orderId
+
+return "Order processed successfully"
+
+function Compare-Version([string]$version1, [string]$version2) {
+    # Feel free to implement your own version comparison logic
+    $v1 = [Version]$version1
+    $v2 = [Version]$version2
+
+    if ($v1 -lt $v2) { return -1 }
+    elseif ($v1 -gt $v2) { return 1 }
+    else { return 0 }
+}
+```
+
+# [Java](#tab/java)
+
+```java
+import org.apache.maven.artifact.versioning.ComparableVersion;
+
+@FunctionName("ProcessOrderOrchestrator")
+public String processOrder(
+    @DurableOrchestrationTrigger(name = "taskOrchestrationContext") 
+    TaskOrchestrationContext context) {
+    
+    String orderId = context.getInput(String.class);
+
+    context.callActivity("ValidateOrder", orderId).await();
+
+    if (compareVersions(context.getVersion(), "1.0") <= 0) {
+        // Preserve original logic for existing instances
+        context.callActivity("ProcessPayment", orderId).await();
+    } else {
+        // New logic with discount processing (replaces payment processing)
+        context.callActivity("ApplyDiscount", orderId).await();
+        context.callActivity("ProcessPaymentWithDiscount", orderId).await();
+    }
+    
+    context.callActivity("ShipOrder", orderId).await();
+
+    return "Order processed successfully";
+}
+
+private int compareVersions(String version1, String version2) {
+    // Feel free to implement your own version comparison logic
+    ComparableVersion v1 = new ComparableVersion(version1);
+    ComparableVersion v2 = new ComparableVersion(version2);
+    return v1.compareTo(v2);
+}
+```
+
+---
 
 ## Advanced usage
 
@@ -271,6 +612,8 @@ By default, all new orchestration instances are created with the current `defaul
 
 You can override the default version by providing a specific version value when creating new orchestration instances using the orchestration client APIs. This allows fine-grained control over which version each new orchestration instance uses.
 
+# [C#](#tab/csharp)
+
 ```csharp
 [Function("HttpStart")]
 public static async Task<HttpResponseData> HttpStart(
@@ -289,7 +632,44 @@ public static async Task<HttpResponseData> HttpStart(
 }
 ```
 
+# [JavaScript](#tab/javascript)
+
+Starting an orchestration with a specific version different from the current `defaultVersion` specified in your `host.json` is currently not supported in JavaScript.
+
+# [Python](#tab/python)
+
+Starting an orchestration with a specific version different from the current `defaultVersion` specified in your `host.json` is currently not supported in Python.
+
+# [PowerShell](#tab/powershell)
+
+Starting an orchestration with a specific version different from the current `defaultVersion` specified in your `host.json` is currently not supported in PowerShell.
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("HttpStart")
+public HttpResponseMessage httpStart(
+    @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) 
+    HttpRequestMessage<Optional<String>> request,
+    @DurableClientInput(name = "durableContext") 
+    DurableClientContext durableContext,
+    final ExecutionContext context) {
+    
+    DurableTaskClient client = durableContext.getClient();
+
+    NewOrchestrationInstanceOptions options = new NewOrchestrationInstanceOptions().setVersion("1.0");
+
+    String instanceId = client.scheduleNewOrchestrationInstance("ProcessOrderOrchestrator", orderId, options);
+
+    // ...
+}
+```
+
+---
+
 You can also start sub-orchestrations with specific versions from within an orchestrator function:
+
+# [C#](#tab/csharp)
 
 ```csharp
 [Function("MainOrchestrator")]
@@ -306,6 +686,36 @@ public static async Task<string> RunMainOrchestrator(
     // ...
 }
 ```
+
+# [JavaScript](#tab/javascript)
+
+Starting a sub-orchestration with a specific version different from the current `defaultVersion` specified in your `host.json` is currently not supported in JavaScript.
+
+# [Python](#tab/python)
+
+Starting a sub-orchestration with a specific version different from the current `defaultVersion` specified in your `host.json` is currently not supported in Python.
+
+# [PowerShell](#tab/powershell)
+
+Starting a sub-orchestration with a specific version different from the current `defaultVersion` specified in your `host.json` is currently not supported in PowerShell.
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("MainOrchestrator")
+public String runMainOrchestrator(
+    @DurableOrchestrationTrigger(name = "taskOrchestrationContext") 
+    TaskOrchestrationContext context) {
+
+    NewSubOrchestrationInstanceOptions subOptions = new NewSubOrchestrationInstanceOptions().setVersion("1.0");
+
+    String result = context.callSubOrchestrator("ProcessPaymentOrchestrator", orderId, String.class, subOptions).await();
+    
+    // ...
+}
+```
+
+---
 
 ### Removing legacy code paths
 
@@ -356,9 +766,8 @@ Over time, you may want to remove legacy code paths from your orchestrator funct
 - **Issue**: Workers running older orchestrator versions can't execute new orchestrations
    - **Solution**: This is expected behavior. The runtime intentionally prevents older workers from executing orchestrations with newer versions to maintain safety. Ensure all workers are updated to the latest orchestrator version and their `defaultVersion` setting in `host.json` is updated accordingly. You can modify this behavior if needed using the advanced configuration options (see [Advanced usage](#advanced-usage) for details).
 
-- **Issue**: Version information isn't available in orchestrator (`context.Version` is null, regardless of the `defaultVersion` setting)
-   - **Solution**: Verify that you're using a supported language and a Durable Functions extension version that supports orchestration versioning:
-     - For .NET Isolated, use `Microsoft.Azure.Functions.Worker.Extensions.DurableTask` version **1.5.0** or later.
+- **Issue**: Version information isn't available in orchestrator (`context.Version` or `context.getVersion()` is null, regardless of the `defaultVersion` setting)
+   - **Solution**: Check the [Prerequisites](#prerequisites) section to ensure your environment meets all the requirements for orchestration versioning.
 
 - **Issue**: Orchestrations of a newer version are making very slow progress or are completely stuck
    - **Solution**: The problem can have different root causes:

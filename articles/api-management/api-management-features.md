@@ -46,7 +46,6 @@ Each API Management [pricing tier](api-management-key-concepts.md#api-management
 | [Policies](api-management-howto-policies.md)<sup>4</sup> | Yes         | Yes       | Yes   | Yes      | Yes      | Yes      | Yes     | Yes |
 | [Credential manager](credentials-overview.md)  | Yes         | Yes       | Yes   | Yes      | Yes      | Yes      | Yes     |  Yes |
 | [Backup and restore](api-management-howto-disaster-recovery-backup-restore.md)               | No          | Yes       | Yes   | No          | Yes      | No          | Yes     | No |
-| [Management over Git](api-management-configuration-repository-git.md)                        | No          | Yes       | Yes   |No          | Yes      | No          | Yes     | No |
 | Azure Monitor metrics                                                               | Yes          | Yes       | Yes   | Yes      | Yes      | Yes      | Yes     | Yes |
 | Azure Monitor and Log Analytics request logs                                                              | No          | Yes       | Yes   | Yes      | Yes      | Yes      |Yes     | Yes |
 | Application Insights request logs                                                               | Yes          | Yes       | Yes   | Yes      | Yes      | Yes      |Yes     | Yes |

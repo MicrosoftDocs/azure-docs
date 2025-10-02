@@ -10,20 +10,6 @@ ms.date: 07/22/2025
 ms.author: fauhse
 ---
 
-<!-- 
-!########################################################
-STATUS: DRAFT
-
-CONTENT: IN PROGRESS
-
-REVIEW Stephen/Fabian: IN PROGRESS
-EDIT PASS: IN PROGRESS
-
-Document score: 100 - 495/0 (words, issues)
-
-!########################################################
--->
-
 # Create and manage a storage discovery preview workspace
 
 The Azure Storage Discovery workspace is a central resource within the Azure Storage Discovery (preview) platform. A discovery workspace is designed to help users manage and visualize storage data across various scopes such as tenants, subscriptions, and resource groups.
@@ -116,6 +102,39 @@ New-AzStorageDiscoveryWorkspace -Name $workSpaceName  -ResourceGroupName $resGro
 -Sku Standard   -Scope $scope1
 
 ```
+
+### [Azure CLI](#tab/cli)
+
+Create an Azure Storage Discovery workspace resource using CLI.
+
+```cli
+
+az storage-discovery workspace create \
+            --resource-group <your-resource-group> \
+            --name <your-workspace-name> \
+            --location <azure-region> \
+            --workspace-roots "/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>" \
+            --scopes '[{"displayName":"basic","resourceTypes":["Microsoft.Storage/storageAccounts"]}]' \
+            --sku Standard \
+            --description "Optional description"
+
+```
+#### Required parameters
+
+| Parameter | Description |
+|-----------|-------------|
+| resource-group | The resource group where the workspace is created. |
+| name | The name of the workspace. |
+| location | Azure region for deployment. |
+| workspace-roots | Defines the root scope (subscriptions/resource groups) for discovery. |
+| scopes | Logical groupings of storage accounts to analyze. |
+| sku | Pricing tier (Free or Standard). |
+
+#### Optional parameters
+
+| Parameter | Description |
+|-----------|-------------|
+| description | Optional metadata for the workspace. |
 
 ---
 
