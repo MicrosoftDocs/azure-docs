@@ -322,7 +322,7 @@ To confirm that enforcement works as expected, follow these steps:
 
 1. Get an Azure Resource Manager bearer token for your logic app resource.
 
-   For more information, see [Get access on behalf of user](graph/auth-v2-user?tabs=http).
+   For more information, see [Get access on behalf of user](/graph/auth-v2-user?tabs=http).
 
 1. Send the same request, but with the following header instead, and confirm that you get the **200 OK** response:
 
