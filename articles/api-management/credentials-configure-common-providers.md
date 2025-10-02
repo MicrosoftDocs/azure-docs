@@ -38,12 +38,12 @@ To configure any of the supported providers in API Management, first configure a
 
 ## Microsoft Entra provider
 
-API credential manager supports the Microsoft Entra identity provider, which is the identity service in Microsoft Azure that provides identity management and access control capabilities. It allows users to securely sign in using industry-standard protocols.
+API Management credential manager supports the Microsoft Entra identity provider, which is the identity service in Azure that provides identity management and access control capabilities. It enalbes users to securely sign in via industry-standard protocols.
 
-* **Supported grant types**: authorization code, client credentials
+**Supported grant types**: authorization code, client credentials
 
 > [!NOTE]
->  Currently, the Microsoft Entra credential provider supports only the Azure AD v1.0 endpoints.
+>  Currently, the Microsoft Entra credential provider supports only Azure Active Directory v1.0 endpoints.
  
 
 ### Microsoft Entra provider settings
@@ -51,19 +51,20 @@ API credential manager supports the Microsoft Entra identity provider, which is 
 [!INCLUDE [api-management-authorization-azure-ad-provider](../../includes/api-management-authorization-azure-ad-provider.md)]
 
 
-## Generic OAuth 2.0 providers
+## Generic OAuth providers
 
-You can use two generic providers for configuring connections:
+You can use three generic providers for configuring connections:
 
 * Generic OAuth 2.0
 * Generic OAuth 2.0 with PKCE 
+* Generic OAuth 2.1 with PKCE with DCR
 
-A generic provider allows you to use your own OAuth 2.0 identity provider based on your specific needs. 
+A generic provider enables you to use your own OAuth identity provider based on your specific needs. 
 
 > [!NOTE]
-> We recommend using the generic OAuth 2.0 with PKCE provider for improved security if your identity provider supports it. [Learn more](https://oauth.net/2/pkce/)
+> We recommend using a PKCE provider for improved security if your identity provider supports it. For more information, see [Proof Key for Code Exchange](https://oauth.net/2/pkce/).
 
-* **Supported grant types**: authorization code, client credentials
+**Supported grant types**: authorization code, client credentials (depends on provider)
 
 ### Generic credential provider settings
 
@@ -75,9 +76,9 @@ API Management supports several providers for popular SaaS offerings, including 
 
 :::image type="content" source="media/credentials-configure-common-providers/saas-providers.png" alt-text="Screenshot of identity providers listed in the portal.":::
 
-**Supported grant types**: authorization code, client credentials (depends on provider)
+**Supported grant types**: authorization code 
 
-Required settings for these providers differ from provider to provider but are similar to those for the [generic OAuth 2.0 providers](#generic-oauth-20-providers). Consult the developer documentation for each provider.
+Required settings for these providers differ from provider to provider but are similar to those for the [generic OAuth providers](#generic-oauth-providers). Consult the developer documentation for each provider.
 
 ## Related content
 
