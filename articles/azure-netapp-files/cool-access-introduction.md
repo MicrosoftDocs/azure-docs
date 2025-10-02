@@ -17,7 +17,7 @@ When you use Azure NetApp Files storage with cool access, you can configure inac
 
 Most cold data is associated with unstructured data. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of high-performance storage.
 
-Azure NetApp Files supports cool access with the follow [service levels](azure-netapp-files-service-levels.md): Flexible, Standard, Premium, and Ultra.
+Azure NetApp Files supports cool access with the following [service levels](azure-netapp-files-service-levels.md): Flexible, Standard, Premium, and Ultra.
 
 The following diagram illustrates an application with a volume enabled for cool access.
 
