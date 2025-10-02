@@ -114,8 +114,8 @@ Each SKU has a maximum number of client connections. This limit increases with h
 
 This table shows the max connections by tier and memory size.
 
-| Size (GB) | Memory Optimized | Balanced | Compute Optimized | Flash Optimized (preview) |
-|:---------:|-----------------:|---------:|------------------:|--------------------------:|
+| Size (GB) | Memory<br>Optimized | Balanced | Compute<br>Optimized | Flash <br>Optimized<br> (preview) |
+| ---------:|-----------------:|---------:|------------------:|--------------------------:|
 | 0.5       | -                | 15,000   | -                 | -                         |
 | 1         | -                | 15,000   | -                 | -                         |
 | 3         | -                | 15,000   | 30,000            | -                         |
