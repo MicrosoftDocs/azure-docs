@@ -110,13 +110,13 @@ To reference the parameter from a trigger or action in any workflow for the same
 
 To view or edit parameters in the same logic app:
 
-- Open a workflow in the workflow designer. Fon Consumption logic apps, select **Development Tools** > **Logic app designer**. For Standard logic apps, select **Workflows** > **Workflows**, then select a workflow to open the designer.
+1. Open a workflow in the workflow designer. Fon Consumption logic apps, select **Development Tools** > **Logic app designer**. For Standard logic apps, select **Workflows** > **Workflows**, then select a workflow to open the designer.
 
-  On the designer toolbar, select **Parameters**.
+1. On the designer toolbar, select **Parameters**.
 
-  The **Parameters** pane opens and displays all the parameters that you defined in that logic app.
+   The **Parameters** pane opens and displays all the parameters that you defined in that logic app.
 
-- Standard workflows only: To view or edit in bulk JSON, on the resource sidebar menu, select **Parameters**.
+- Standard workflows only: To view or edit in bulk JSON, on the resource sidebar menu, select **Parameters**. On the **Parameters** pane, select **Edit in JSON**.
 
   The **Parameters** JSON view opens and displays all the parameters that you defined from workflows in that logic app.
 
