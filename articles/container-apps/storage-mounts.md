@@ -67,6 +67,8 @@ To configure replica-scoped storage, first define an `EmptyDir` volume in the re
 | Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). |
 | Azure Container Apps environment | [Create a container apps environment](environment.md). |
 
+**Important**: Ensure that the managed identity associated with your Container App Environment is assigned the `Storage File Data SMB Share Contributor` role on the Azure Fileshare, to allow your container app to access the Azure Fileshare.
+
 #### Configuration
 
 ::: zone pivot="azure-cli"
