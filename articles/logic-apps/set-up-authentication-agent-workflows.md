@@ -282,15 +282,16 @@ If you're testing a conversational agent workflow, follow these steps:
 
 1. In the **Essentials** section, select the **Chat Client URL** link, which opens a new browser tab.
 
-   > [!TIP]
-   >
-   > The chat client URL is an *iFrame URL* that you can copy and embed in HTML for a website or other location here you want to provide the chat client, for example:
-   >
-   > `<iframe src="https:/<logic-app-name>.azurewebsites.net/api/agentsChat/<workflow-name>/IFrame" title="<chat-client-name>"></iframe>`
-
 1. At the permissions request prompt, provide your consent and accept the request.
 
    The browser page refreshes and shows the external chat interface. You can now start or continue to interact with your conversational agent workflow.
+
+   > [!TIP]
+   >
+   > You can also embed the chat client URL in an [*iFrame* HTML element](https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/iframe) 
+   > that you can use with your website where you want to provide the chat client, for example:
+   >
+   > `<iframe src="https:/<logic-app-name>.azurewebsites.net/api/agentsChat/<workflow-name>/IFrame" title="<chat-client-name>"></iframe>`
 
 1. Continue to the next section to try sending an authentication request.
 
