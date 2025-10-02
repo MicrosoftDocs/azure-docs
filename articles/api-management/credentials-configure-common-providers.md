@@ -59,7 +59,7 @@ You can use three generic providers for configuring connections:
 * Generic OAuth 2.0 with PKCE 
 * Generic OAuth 2.1 with PKCE with DCR
 
-A generic provider enables you to use your own OAuth identity provider based on your specific needs. 
+A generic provider enables you to use your own OAuth identity provider, based on your specific needs. 
 
 > [!NOTE]
 > We recommend using a PKCE provider for improved security if your identity provider supports it. For more information, see [Proof Key for Code Exchange](https://oauth.net/2/pkce/).
@@ -78,7 +78,7 @@ API Management supports several providers for popular SaaS offerings, including 
 
 **Supported grant types**: authorization code 
 
-Required settings for these providers differ from provider to provider but are similar to those for the [generic OAuth providers](#generic-oauth-providers). Consult the developer documentation for each provider.
+Required settings for these providers differ, depending on the provider, but are similar to those for the [generic OAuth providers](#generic-oauth-providers). Consult the developer documentation for each provider.
 
 ## Related content
 
