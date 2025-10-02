@@ -767,7 +767,7 @@ Over time, you may want to remove legacy code paths from your orchestrator funct
    - **Solution**: This is expected behavior. The runtime intentionally prevents older workers from executing orchestrations with newer versions to maintain safety. Ensure all workers are updated to the latest orchestrator version and their `defaultVersion` setting in `host.json` is updated accordingly. You can modify this behavior if needed using the advanced configuration options (see [Advanced usage](#advanced-usage) for details).
 
 - **Issue**: Version information isn't available in orchestrator (`context.Version` or `context.getVersion()` is null, regardless of the `defaultVersion` setting)
-   - **Solution**: Verify that you're using a supported language and a Durable Functions extension version that supports orchestration versioning. See the [Prerequisites](#prerequisites) section for the required package versions for each language.
+   - **Solution**: Check the [Prerequisites](#prerequisites) section to ensure your environment meets all the requirements for orchestration versioning.
 
 - **Issue**: Orchestrations of a newer version are making very slow progress or are completely stuck
    - **Solution**: The problem can have different root causes:
