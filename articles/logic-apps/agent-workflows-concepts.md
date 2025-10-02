@@ -200,7 +200,7 @@ To support an internal facilities team, a work order agent performs the followin
 
 Nonagent workflows usually interact with a small, known, and predictable set of callers. However, agent workflows communicate with broader range of callers, such as people, agents, Model Context Protocol (MCP) servers, tool brokers, and external services. This wider reach increases integration options but introduces different security challenges because callers can originate from dynamic, unknown, or untrusted networks. When callers come from networks you don't control, or when identities are external or unbounded identities, you must authenticate and authorize each caller so you can protect your workflows.
 
-For nonproduction actvities, the Azure portal uses a [*developer key*](#developer-key) for authentication and authorization. When you're ready to run agent workflows in production, make sure to set up [Easy Auth](#easy-auth), also known as App Service Authentication, to protect your workflows. Conversational agent workflows also provide a chat client outside the Azure portal that others can use after you set up Easy Auth.
+For nonproduction activities, the Azure portal uses a [*developer key*](#developer-key) for authentication and authorization. When you're ready to run agent workflows in production, make sure to set up [Easy Auth](#easy-auth), also known as App Service Authentication, to protect your workflows. Conversational agent workflows also provide a chat client outside the Azure portal that others can use after you set up Easy Auth.
 
 The following sections describe and compare options for authenticating callers and authorizing their access to agent workflows.
 
@@ -238,7 +238,7 @@ The following table describes appropriate and inappropriate scenarios for using 
 | Check workflow structure, bindings, or basic trigger and action behavior. | - Your workflow callers include external agents, MCP servers, or conversational clients. <br><br>- You plan to publish your workflow endpoint outside your tenant. |
 | Temporary sandbox or spike prototypes that later adopt Easy Auth or SAS URL hardening. | Your workflow requires auditable per-user identities, token revocation, Conditional Access policies, or least‑privilege enforcement. |
 
-For more information, see [Authenticate and atuhorize with a developer key](set-up-authentication-agent-workflows.md#authenticate-and-authorize-with-a-developer-key).
+For more information, see [Authenticate and authorize with a developer key](set-up-authentication-agent-workflows.md#authenticate-and-authorize-with-a-developer-key).
 
 <a name="easy-auth"></a>
 
@@ -246,7 +246,7 @@ For more information, see [Authenticate and atuhorize with a developer key](set-
 
 For production scenarios, including chat and agent clients outside the Azure portal, make sure to [set up Easy Auth on your logic app resource](set-up-authentication-agent-workflows.md) with a dedicated Microsoft Entra app registration. This approach isolates tokens, enforces least privilege, and avoids reusing broad multi-application registrations. Conversational agent workflows also provide a chat client outside the Azure portal that others can use after you set up Easy Auth.
 
-Known also as App Service Authentication, Easy Auth provides a built‑in enforcement layer that lets you focus more on building your workflow's business logic and offers the following benefits:
+Easy Auth provides a built‑in enforcement layer that lets you focus more on building your workflow's business logic and offers the following benefits:
 
 - Handles sign-in, authentication, and authorization for Microsoft Entra without custom code.
 

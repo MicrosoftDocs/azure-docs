@@ -286,6 +286,8 @@ To test and set up the external chat client for conversational agent workflows, 
 
 1. At the permissions request prompt, provide your consent and accept the request.
 
+   :::image type="content" source="media/set-up-authentication-agent-workflows/consent.png" alt-text="Screenshot shows permissions request consent prompot." lightbox="media/set-up-authentication-agent-workflows/consent.png":::
+
    The browser page refreshes and shows the external chat interface. You can now start or continue to interact with your conversational agent workflow.
 
    > [!TIP]
