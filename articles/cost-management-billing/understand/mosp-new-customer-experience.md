@@ -8,6 +8,7 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 05/26/2025
 ms.author: jkinma
+ms.custom: sfi-image-nochange
 ---
 
 # Get started with your updated Azure billing account

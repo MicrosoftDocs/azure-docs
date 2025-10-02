@@ -6,7 +6,9 @@ ms.author: ramithar
 ms.service: azure-data-manager-agriculture
 ms.topic: quickstart
 ms.date: 04/05/2023
-ms.custom: template-quickstart
+ms.custom:
+  - template-quickstart
+  - sfi-image-nochange
 ---
 
 # Quickstart install Azure Data Manager for Agriculture preview

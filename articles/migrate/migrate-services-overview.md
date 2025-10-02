@@ -6,6 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: overview
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 03/20/2025
 ms.custom: mvc, engagement-fy25
 # Customer intent: "As an IT manager, I want to utilize Azure Migrate to assess and execute the migration of our on-premises workloads to Azure, so that I can minimize downtime and ensure a cost-effective and efficient transition to the cloud."
@@ -25,6 +26,12 @@ Azure Migrate provides a simplified migration, modernization, and optimization s
 A general migration journey includes the following phases. Azure Migrate provides support at each phase.
 
 :::image type="content" source="./media/migrate-services-overview/migrate-journey.png" alt-text="Screenshot that shows the phases of migrating workloads to Azure." lightbox="./media/migrate-services-overview/migrate-journey.png":::
+
+Watch the following video to learn about key phases of a typical migration: Decide, Plan, and Execute—and how Azure Migrate supports each step.
+
+
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=edd9a562-f4c1-49cb-8312-952f214a1cd6]
+
 
 ### Decide
 

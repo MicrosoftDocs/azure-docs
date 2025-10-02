@@ -15,7 +15,7 @@ The Microsoft Defender portal provides a centralized experience for configuring 
 
 This article explains how to configure retention and tier settings for tables in Microsoft Sentinel and Defender XDR in the Microsoft Defender portal. 
 
-For more information about how data tiers and retention work, see [Manage data tiers and retention in Microsoft Sentinel (preview)](manage-data-overview.md).
+For more information about how data tiers and retention work, see [Manage data tiers and retention in Microsoft Sentinel](manage-data-overview.md).
 
 ## Prerequisites
 
@@ -90,6 +90,6 @@ To view and manage table settings in the Microsoft Defender portal:
 
 Learn more about:
 
-- [Microsoft Sentinel data lake (preview)](datalake/sentinel-lake-overview.md)
-- [KQL jobs in Microsoft Sentinel (preview)](datalake/kql-jobs.md)
+- [Microsoft Sentinel data lake](datalake/sentinel-lake-overview.md)
+- [KQL jobs in Microsoft Sentinel](datalake/kql-jobs.md)
 

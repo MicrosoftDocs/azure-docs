@@ -4,9 +4,10 @@ description: Describes the components of an Azure VM assessment in Azure Migrate
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.topic: concept-article
 ms.date: 04/17/2025
-monikerRange: migrate
+monikerRange:
 # Customer intent: As a cloud architect, I want to customize VM assessment properties in Azure Migrate, so that I can tailor the assessment to the specific needs of my workloads and optimize resource allocation for migration.
 ---
 

@@ -1,11 +1,10 @@
 ---
 title: Anomalies detected by the Microsoft Sentinel machine learning engine
 description: Learn about the anomalies detected by Microsoft Sentinel's machine learning engines.
-ms.topic: reference
-ms.date: 09/08/2024
 author: guywi-ms
 ms.author: guywild
-
+ms.topic: reference
+ms.date: 09/08/2024
 
 #Customer intent: As a security analyst, I want to understand the types of anomalies detected by machine learning models in my SIEM solution so that I can effectively monitor and respond to potential security threats.
 
@@ -127,9 +126,9 @@ Sentinel uses enriched data from the BehaviorAnalytics table to identify UEBA an
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
 | **Data sources:**                | GCP Audit Logs                                                     |
-| **MITRE ATT&CK tactics:**        |  Discovery                                  |
-| **MITRE ATT&CK techniques:**     | T1087 – Account Discovery, T1069 – Permission Groups Discovery                      |
-| **Activity:**                    |  iam.googleapis.com                       |
+| **MITRE ATT&CK tactics:**        | Discovery                                                          |
+| **MITRE ATT&CK techniques:**     | T1087 – Account Discovery, T1069 – Permission Groups Discovery     |
+| **Activity:**                    | iam.googleapis.com                                                 |
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
@@ -137,13 +136,13 @@ Sentinel uses enriched data from the BehaviorAnalytics table to identify UEBA an
 
 **Description:** Unexpected authentication activity or security-related configuration changes in Okta, including modifications to sign-on rules, multifactor authentication (MFA) enforcement, or administrative privileges. Such activity might indicate attempts to alter identity security controls or maintain access through privileged changes.
 
-| Attribute                        | Value                                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Okta Cloud Logs                                                    |
-| **MITRE ATT&CK tactics:**        |  Persistence, Privilege Escalation                                |
+| Attribute                        | Value                                                               |
+| -------------------------------- | ------------------------------------------------------------------- |
+| **Anomaly type:**                | UEBA                                                                |
+| **Data sources:**                | Okta Cloud Logs                                                     |
+| **MITRE ATT&CK tactics:**        | Persistence, Privilege Escalation                                   |
 | **MITRE ATT&CK techniques:**     | T1098 - Account Manipulation, T1556 - Modify Authentication Process |
-| **Activity:**                    |  'user.session.impersonation.grant'<br>'user.session.impersonation.initiate'<br>'user.session.start'<br>'app.oauth2.admin.consent.grant_success'<br>'app.oauth2.authorize.code_success'<br>'device.desktop_mfa.recovery_pin.generate'<br>'user.authentication.auth_via_mfa'<br>'user.mfa.attempt_bypass'<br>'user.mfa.factor.deactivate'<br>'user.mfa.factor.reset_all'<br>'user.mfa.factor.suspend'<br>'user.mfa.okta_verify' |
+| **Activity:**                    | 'user.session.impersonation.grant'<br>'user.session.impersonation.initiate'<br>'user.session.start'<br>'app.oauth2.admin.consent.grant_success'<br>'app.oauth2.authorize.code_success'<br>'device.desktop_mfa.recovery_pin.generate'<br>'user.authentication.auth_via_mfa'<br>'user.mfa.attempt_bypass'<br>'user.mfa.factor.deactivate'<br>'user.mfa.factor.reset_all'<br>'user.mfa.factor.suspend'<br>'user.mfa.okta_verify' |
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
@@ -155,10 +154,10 @@ Sentinel uses enriched data from the BehaviorAnalytics table to identify UEBA an
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Microsoft Defender for Endpoint, Microsoft Entra ID                     |
-| **MITRE ATT&CK tactics:**        |  Initial Access                           |
-| **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts  |
-| **Activity:**                    |   |
+| **Data sources:**                | Microsoft Defender for Endpoint, Microsoft Entra ID                |
+| **MITRE ATT&CK tactics:**        | Initial Access                                                     |
+| **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
+| **Activity:**                    |                                                                    |
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
@@ -228,9 +227,9 @@ Sentinel uses enriched data from the BehaviorAnalytics table to identify UEBA an
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
 | **Data sources:**                | AWS CloudTrail logs                                                |
-| **MITRE ATT&CK tactics:**        |  Initial Access                           |
-| **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts  |                                          |
-| **Activity:**                    |  signin.amazonaws.com            |
+| **MITRE ATT&CK tactics:**        | Initial Access                                                     |
+| **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
+| **Activity:**                    | signin.amazonaws.com                                               |
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
@@ -243,8 +242,8 @@ Sentinel uses enriched data from the BehaviorAnalytics table to identify UEBA an
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
 | **Data sources:**                | Okta Cloud Logs                                                    |
-| **MITRE ATT&CK tactics:**        | Persistence, Privilege Escalation                               |
-| **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts, T1556 - Modify Authentication Process  |
+| **MITRE ATT&CK tactics:**        | Persistence, Privilege Escalation                                  |
+| **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts, T1556 - Modify Authentication Process      |
 | **Activity:**                    | app.oauth2.admin.consent.grant_success<br>app.oauth2.authorize.code_success<br>device.desktop_mfa.recovery_pin.generate<br>user.authentication.auth_via_mfa<br>user.mfa.attempt_bypass<br>user.mfa.factor.deactivate<br>user.mfa.factor.reset_all<br>user.mfa.factor.suspend<br>user.mfa.okta_verify |
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
@@ -370,7 +369,7 @@ Microsoft Sentinel's customizable, machine learning-based anomalies can identify
 | **Anomaly type:**                | Customizable machine learning                                      |
 | **Data sources:**                | Office Activity log (Exchange)                                     |
 | **MITRE ATT&CK tactics:**        | Persistence<br>Collection                                          |
-| **MITRE ATT&CK techniques:**     | **Collection:**<br>T1114 - Email Collection<br>T1213 - Data from Information Repositories<br><br>**Persistence:**<br>T1098 - Account Manipulation<br>T1136 - Create Account<br>T1137 - Office Application Startup<br>T1505 - Server Software Component |
+| **MITRE ATT&CK techniques:**     | **Collection:**<br>T1114 - Email Collection<br>T1213 - Data from Information Repositories <br><br> **Persistence:**<br>T1098 - Account Manipulation<br>T1136 - Create Account<br>T1137 - Office Application Startup<br>T1505 - Server Software Component |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 

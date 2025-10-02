@@ -139,11 +139,14 @@ To set up Azure IoT Operations with your own issuer for internal communications,
       az iot ops init --subscription <SUBSCRIPTION_ID> --cluster <CLUSTER_NAME>  -g <RESOURCE_GROUP> --user-trust
       ```
 
-   2. Add the `--trust-settings` parameter with the necessary information while deploying Azure IoT Operations. For example:
+   1. Add the `--trust-settings` parameter with the necessary information while deploying Azure IoT Operations. For example:
 
       ```bash
       az iot ops create --subscription <SUBSCRIPTION_ID> -g <RESOURCE_GROUP> --cluster <CLUSTER_NAME> --custom-location <CUSTOM_LOCATION> -n <INSTANCE_NAME> --sr-resource-id <SCHEMAREGISTRY_RESOURCE_ID> --trust-settings configMapName=<CONFIGMAP_NAME> configMapKey=<CONFIGMAP_KEY_WITH_PUBLICKEY_VALUE> issuerKind=<CLUSTERISSUER_OR_ISSUER> issuerName=<ISSUER_NAME>
       ```
+
+    > [!NOTE]
+    > The custom location name has a maximum length of 63 characters.
 
 ## Manage certificates for external communications
 

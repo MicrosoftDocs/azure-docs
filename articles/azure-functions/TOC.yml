@@ -8,6 +8,7 @@
       href: functions-scenarios.md
     - name: AI-enabled functions
       href: functions-create-ai-enabled-apps.md
+      displayName: OpenAI, AI, MCP server, agent, agentic, Foundry
     - name: Getting started
       href: functions-get-started.md
     - name: Durable Functions
@@ -339,8 +340,6 @@
       displayName: migrate, migration, v3, v4, update, upgrade
     - name: Hosting and scale
       items:
-        - name: Consumption plan
-          href: consumption-plan.md
         - name: Flex Consumption plan
           href: flex-consumption-plan.md
         - name: Premium plan
@@ -353,6 +352,8 @@
               href: container-concepts.md
             - name: Azure Container Apps hosting
               href: functions-container-apps-hosting.md
+        - name: Consumption plan
+          href: consumption-plan.md
     - name: Deployment options
       href: functions-deployment-technologies.md
     - name: Events and messaging
@@ -710,8 +711,6 @@
               displayName: OpenAPI, Swagger
         - name: Use a managed identity
           href: ../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json
-        - name: Customize endpoints with legacy proxies
-          href: functions-create-serverless-api.md
         - name: Manage on-premises resources
           href: functions-hybrid-powershell.md
     - name: Troubleshoot

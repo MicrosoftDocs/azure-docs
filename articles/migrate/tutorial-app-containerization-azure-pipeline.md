@@ -5,6 +5,7 @@ author: vijain
 ms.author: vijain
 ms.manager: kmadnani
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.topic: tutorial
 ms.date: 02/06/2025
 ms.custom: engagement-fy23

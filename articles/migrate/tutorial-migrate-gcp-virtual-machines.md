@@ -6,10 +6,14 @@ ms.author: vijain
 ms.topic: tutorial
 ms.date: 02/07/2025
 ms.service: azure-migrate
-ms.custom: MVC, engagement-fy24
+ms.reviewer: v-uhabiba
 ms.collection:
  - migration
  - gcp-to-azure
+ms.custom:
+  - MVC
+  - engagement-fy24
+  - sfi-image-nochange
 # Customer intent: "As a cloud migration specialist, I want to migrate Google Cloud Platform VMs to Azure, so that I can ensure seamless integration and improved resource management in our cloud environment."
 ---
 

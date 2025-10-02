@@ -7,7 +7,9 @@ ms.author: allensu
 ms.service: azure-nat-gateway
 ms.topic: tutorial 
 ms.date: 03/06/2025
-ms.custom: template-tutorial 
+ms.custom:
+  - template-tutorial
+  - sfi-image-nochange
 # Customer intent: "As a network engineer, I want to implement a NAT gateway in a hub and spoke network, so that I can securely route and inspect outbound internet traffic while ensuring efficient inter-spoke communication."
 ---
 

@@ -6,6 +6,7 @@ ms.author: ankitsurkar
 ms.manager: abhemraj
 ms.topic: concept-article
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 04/04/2025
 ms.custom: engagement-fy25
 # Customer intent: "As a cloud architect, I want to assess on-premises Hyper-V servers for migration to Azure, so that I can effectively plan and execute the migration process while minimizing downtime and ensuring compatibility."

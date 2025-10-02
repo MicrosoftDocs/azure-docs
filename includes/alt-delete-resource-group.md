@@ -3,11 +3,13 @@ title: "Include file"
 description: "Include file"
 services: load-testing
 ms.service: azure-load-testing
-ms.custom: "include file"
 ms.topic: "include"
 author: ntrogh
 ms.author: nicktrog
 ms.date: 11/30/2021
+ms.custom:
+  - "include file"
+  - sfi-image-nochange
 ---
 
 >[!IMPORTANT]

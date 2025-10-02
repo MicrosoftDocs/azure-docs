@@ -1,8 +1,8 @@
 ---
 title: Transform or customize data at ingestion time in Microsoft Sentinel (preview)
 description: Learn about how to configure Azure Monitor's ingestion-time data transformation for use with Microsoft Sentinel.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.date: 02/27/2022
 

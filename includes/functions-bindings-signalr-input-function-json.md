@@ -4,6 +4,7 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/20/2024
 ms.author: zityang
+ms.custom: sfi-ropc-nochange
 ---
 
 The following example shows a SignalR connection info input binding in a *function.json* file and a function that uses the binding to return the connection information.

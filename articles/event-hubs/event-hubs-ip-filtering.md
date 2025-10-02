@@ -3,13 +3,14 @@ title: Configure IP Firewall Rules for Azure Event Hubs Namespaces
 description: Learn how to configure IP firewall rules for Azure Event Hubs namespaces to restrict access from specific IP addresses and CIDR ranges using Azure portal, CLI, or PowerShell.
 #customer intent: As a network administrator, I want to configure IP firewall rules for my Azure Event Hubs namespace so that I can restrict access to only specific IP addresses and improve security
 ms.topic: how-to
+ms.date: 07/25/2025
 ms.custom:
   - devx-track-azurepowershell, devx-track-azurecli
   - ai-gen-docs-bap
   - ai-gen-title
   - ai-seo-date:07/25/2025
   - ai-gen-description
-ms.date: 07/25/2025
+  - sfi-image-nochange
 ---
 
 # Allow access to Azure Event Hubs namespaces from specific IP addresses or ranges

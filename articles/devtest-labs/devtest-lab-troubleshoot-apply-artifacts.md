@@ -6,7 +6,9 @@ ms.topic: troubleshooting-general
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 07/18/2025
-ms.custom: UpdateFrequency2
+ms.custom:
+  - UpdateFrequency2
+  - sfi-image-nochange
 
 #customer intent: As a developer, I want to analyze errors and log data about my lab artifacts in Azure DevTest Labs so that I can troubleshoot and resolve issues.
 ---

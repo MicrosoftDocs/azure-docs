@@ -5,6 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.service: azure-migrate
 ms.topic: concept-article
+ms.reviewer: v-uhabiba
 ms.date: 09/11/2025
 ms.custom: engagement-fy25, devx-track-extended-java
 # Customer intent: As a systems administrator, I want to understand the metadata collected by the Azure Migrate appliance for server discovery, so that I can assess server readiness for migration to the cloud and optimize resource allocation.
@@ -293,6 +294,9 @@ Update ID | `apt-get -s dist-upgrade, yum -q check-update, zypper list-updates`
 Updated Software version | `apt-get -s dist-upgrade, yum -q check-update, zypper list-updates`
 Classification/Severity | `apt-get -s dist-upgrade, yum -q check-update, zypper list-updates`
 Published date | `apt-get -s dist-upgrade, yum -q check-update, zypper list-updates`
+
+> [!NOTE]
+> If your Red Hat Enterprise Linux (RHEL) servers use `yum` and aren't patched regularly, pending updates data can consume storage in the cache under `var\tmp\yum\-<username>`. To manage disk space, it is recommended to clear the cache regularly.
 
 ## SQL Server instance and database data
 

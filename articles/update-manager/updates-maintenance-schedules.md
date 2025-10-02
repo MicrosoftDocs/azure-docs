@@ -14,8 +14,8 @@ ms.author: v-uhabiba
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
 >[!IMPORTANT]
-> - For a seamless scheduled patching experience, we recommend that for all Azure virtual machines (VMs), you update the patch orchestration to **Customer Managed Schedules**. 
-> - For Arc-enabled servers, the updates and maintenance options such as Automatic VM Guest patching in Azure, Windows automatic updates and Hotpatching aren't supported.
+> - For a seamless scheduled patching experience, we recommend that for all Azure virtual machines (VMs), you update the patch orchestration to **Customer Managed Schedules**.
+> - For Arc-enabled servers, the updates and maintenance options such as Automatic VM Guest patching in Azure, Windows automatic updates and hotpatching aren't supported.
 
 This article provides an overview of the various update options and orchestration in Azure Update Manager.
 
@@ -51,9 +51,9 @@ To enable the VM property, follow these steps:
 
 ## Hotpatching
 
-[Hotpatching](/windows-server/get-started/hotpatch?context=%2Fazure%2Fvirtual-machines%2Fcontext%2Fcontext) allows you to install OS security updates on supported *Windows Server Datacenter: Azure Edition* virtual machines that don't require a reboot after installation. It works by patching the in-memory code of running processes without the need to restart the process. With Hotpatching, reboots will typically be required for the installation of patches on every third month rather than every month.
+[Hotpatching](/windows-server/get-started/hotpatch?context=%2Fazure%2Fvirtual-machines%2Fcontext%2Fcontext) allows you to install OS security updates on supported *Windows Server Datacenter: Azure Edition* virtual machines that don't require a reboot after installation. It works by patching the in-memory code of running processes without the need to restart the process. With hotpatching, reboots will typically be required for the installation of patches on every third month rather than every month.
 
-Following are the features of Hotpatching:
+Following are the features of hotpatching:
 
 - Fewer binaries mean update install faster and consume less disk and CPU resources.
 - Lower workload impact with fewer reboots.
@@ -77,7 +77,7 @@ Automatic Extension Upgrade has the following features:
 - Enabled on a Virtual Machine Scale Sets of any size.
 - Each supported extension is enrolled individually, and you can choose the extensions to upgrade automatically.
 - Supported in all public cloud regions. For more information, see [supported extensions and Automatic Extension upgrade](/azure/virtual-machines/automatic-extension-upgrade#availability-first-updates)
- 
+
  ### Windows automatic updates
 This mode of patching allows operating system to automatically install updates on Windows VMs as soon as they're available. It uses the VM property that is enabled by setting the patch orchestration to OS orchestrated/Automatic by OS.
 
@@ -97,18 +97,17 @@ Azure Update Manager allows you to secure your machines immediately by installin
 
 You can create a schedule for a daily, weekly or hourly cadence as per your requirement, specify the machines that must be updated as part of the schedule, and the updates that you must install. The schedule will then automatically install the updates as per the specifications.
 
-Azure Update Manager uses maintenance control schedule instead of creating its own schedules. Maintenance control enables customers to manage platform updates. For more information, see the [Maintenance control](/azure/virtual-machines/maintenance-configurations). 
+Azure Update Manager uses maintenance control schedule instead of creating its own schedules. Maintenance control enables customers to manage platform updates. For more information, see the [Maintenance control](/azure/virtual-machines/maintenance-configurations).
 
 Use [scheduled patching](scheduled-patching.md) to create and save recurring deployment schedules.
 
 > [!NOTE]
-> Patch orchestration property for Azure machines should be set to **Customer Managed Schedules** as it is a prerequisite for scheduled patching. For more information, see the [list of prerequisites](scheduled-patching.md#prerequisites-for-scheduled-patching).
+> Patch orchestration property for Azure machines should be set to **Customer Managed Schedules** as it is a prerequisite for scheduled patching.
 
 > [!IMPORTANT]
-> - For a seamless scheduled patching experience, we recommend that for all Azure VMs, you must update the patch orchestration to **Customer Managed Schedules**. If you fail to update the patch orchestration, you can experience a disruption in business continuity because the schedules will fail to patch the VMs. [Learn more](prerequsite-for-schedule-patching.md).
- 
- 
-## Next steps
+> - For a seamless scheduled patching experience, we recommend that for all Azure VMs, you must update the patch orchestration to **Customer Managed Schedules**. If you fail to update the patch orchestration, you can experience a disruption in business continuity because the schedules will fail to patch the VMs.
+
+ ## Next steps
 
 * To view update assessment and deployment logs generated by Update Manager, see [Query logs](query-logs.md).
 * To troubleshoot Azure Update Manager issues, see [Troubleshoot issues](troubleshoot.md).

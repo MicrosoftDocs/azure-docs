@@ -638,8 +638,8 @@ For Python v2 functions defined using a decorator, the following properties on t
 | Property    | Description |
 |-------------|-----------------------------|
 |`arg_name` | The variable name used in function code that represents the list of documents with changes. |
-|`database_name`  | The name of the Azure Cosmos DB database with the collection being monitored. |
-|`collection_name`  | The name of the Azure Cosmos DB collection being monitored. |
+|`database_name`  | The name of the Azure Cosmos DB database with the container being monitored. |
+|`container_name`  | The name of the Azure Cosmos DB container being monitored. |
 |`create_if_not_exists`  | A Boolean value that indicates whether the database and collection should be created if they do not exist. |
 |`connection_string_setting` | The connection string of the Azure Cosmos DB being monitored. |
 
