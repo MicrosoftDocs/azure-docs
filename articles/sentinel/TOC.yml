@@ -582,7 +582,7 @@
       displayName: data lake
     - name: Microsoft Sentinel MCP server
       items:
-        - name: Microsoft Sentinel MCP server Overview
+        - name: Microsoft Sentinel MCP server overview
           href: datalake/sentinel-mcp-overview.md
         - name: Get started with Microsoft Sentinel MCP
           href: datalake/sentinel-mcp-get-started.md
@@ -726,7 +726,7 @@
           href: connect-microsoft-365-defender.md
         - name: Integrate Microsoft Purview
           href: purview-solution.md
-        - name: Purview Information Protection data
+        - name: Microsoft Purview Information Protection data
           href: connect-microsoft-purview.md
         - name: Windows security events
           href: data-connectors-reference.md#windows-security-events-via-ama
@@ -827,7 +827,7 @@
           href: monitor-analytics-rule-integrity.md
     - name: Audit Microsoft Sentinel with Azure Activity Logs
       href: audit-sentinel-data.md
-    - name: Audit Microsoft Sentinel data lake and graph in Purview portal
+    - name: Audit Microsoft Sentinel data lake and graph in Microsoft Purview portal
       href: datalake/auditing-lake-activities.md
       displayName: data lake
     - name: Remove Microsoft Sentinel from your workspaces

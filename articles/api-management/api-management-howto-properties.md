@@ -40,7 +40,11 @@ For details about the named value attributes, see the API Management [REST API r
 
 Secret values can be stored either as encrypted strings in API Management (custom secrets) or by referencing secrets in [Azure Key Vault](/azure/key-vault/general/overview).
 
+
 We recommend using key vault secrets because they help improve API Management security:
+
+[!INCLUDE [api-management-workspace-key-vault-availability](../../includes/api-management-workspace-key-vault-availability.md)]
+
 
 * You can reuse secrets stored in key vaults across services.
 * You can apply granular [access policies](/azure/key-vault/general/security-features#privileged-access) to secrets.
