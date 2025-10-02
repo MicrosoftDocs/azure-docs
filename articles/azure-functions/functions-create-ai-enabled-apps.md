@@ -22,7 +22,7 @@ Some of the inherent benefits of using Azure Functions as a compute resource for
 + **Rapid, event-driven scaling**: you have compute resources available when you need them. With certain plans, your app scales back to zero when no longer needed. For more information, see [Event-driven scaling in Azure Functions](event-driven-scaling.md). 
 + **Model Context Protocol (MCP) servers**: Functions enables you to easily [create and deploy remote MCP servers](#remote-mcp-servers) to make your data and functions available to AI agents and large language models (LLMs).    
 + **Built-in support for Azure OpenAI**: the [OpenAI binding extension] greatly simplifies interacting with Azure OpenAI for both retrieval-augmented generation (RAG) and agentic workflows.
-+ **Broad language and library support**: Functions lets you interact with AI using your [choice of programming language](./supported-languages.md), plus you're able to use a broad variety of [AI frameworks and libraries](#ai-tools-and-frameworks). 
++ **Broad language and library support**: Functions lets you interact with AI using your [choice of programming language](./supported-languages.md), plus you're able to use a broad variety of [AI frameworks and libraries](#ai-tools-and-frameworks-for-azure-functions). 
 + **Orchestration capabilities**: while function executions are inherently stateless, the [Durable Functions extension](./durable/durable-functions-overview.md) lets you create complex workflows that your AI agents require.
 + 
 This article is language-specific, so make sure you choose your programming language at the [top of the page](#top).
