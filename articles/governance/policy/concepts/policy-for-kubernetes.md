@@ -610,10 +610,10 @@ Finally, to identify the AKS cluster version that you're using, follow the linke
 
 ### Add-on versions available per each AKS cluster version
 
-#### 1.14.1
+#### 1.14.2
 Security improvements.
 
-- Released Sept 2025
+- Released Oct 2025
 - Kubernetes 1.27+
 - Gatekeeper 3.20.0
 
