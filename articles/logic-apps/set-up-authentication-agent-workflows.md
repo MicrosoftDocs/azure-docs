@@ -7,7 +7,7 @@ ms.suite: integration
 ms.reviewers: estfan, divswa, edwardyhe, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 09/25/2025
+ms.date: 10/03/2025
 ms.update-cycle: 180-days
 ---
 
@@ -22,13 +22,14 @@ ms.update-cycle: 180-days
 
 Agent workflows expand integration options because they can exchange messages with more diverse callers, such as people, agents, Model Context Protocol (MCP) servers and clients, tool brokers, and external services. While nonagent workflows interact with a small, known, and fixed set of callers, agent callers can come from dynamic, unknown, and untrusted networks. As a result, you must authenticate and enforce permissions for each caller.
 
-To strengthen security for agent workflows, set up App Service Authentication, also called "Easy Auth", so you can use the following capabilities:
+To strengthen security for agent workflows, set up Easy Auth, also known as App Service Authentication, so you can use the following capabilities:
 
 - Provide a validated identity for each caller request.
 - Assign connections to each user.
 - Enforce Conditional Access policies.
 - Issue revocable credentials.
 - Grant permissions based on least-privilege principles, [roles](/entra/identity-platform/developer-glossary#roles), and [scopes](/entra/identity-platform/developer-glossary#scopes).
+- Provide an external chat client that humans can use with conversational agent workflows.
 
 These measures let you authenticate and authorize each caller at a fine-grained level and revoke access quickly when needed. Without these controls, you risk uncontrolled access, leaked secrets such as shared access signature (SAS) URLs and access keys, weak audit trails, and other security hazards.
 
@@ -269,23 +270,50 @@ If you have to reuse an existing app registration that's shared with another API
 
 ## Test and validate authentication
 
+After you set up Easy Auth, confirm that authentication and authorization work correctly.
+
+### Open the external chat client for conversational agent workflows
+
+If you're testing a conversational agent workflow, follow these steps:
+
+1. On the designer toolbar, select **Chat**.
+
+   The chat interface no longer appears on the **Chat** page.
+
+1. In the **Essentials** section, select the **Chat Client URL** link, which opens a new browser tab.
+
+   > [!TIP]
+   >
+   > The chat client URL is an *iFrame URL* that you can copy and embed in HTML for a website or other location here you want to provide the chat client, for example:
+   >
+   > `<iframe src="https:/<logic-app-name>.azurewebsites.net/api/agentsChat/<workflow-name>/IFrame" title="<chat-client-name>"></iframe>`
+
+1. At the permissions request prompt, provide your consent and accept the request.
+
+   The browser page refreshes and shows the external chat interface. You can now start or continue to interact with your conversational agent workflow.
+
+1. Continue to the next section to try sending an authentication request.
+
+### Send authentication requests for agent workflows
+
 To confirm that enforcement works as expected, follow these steps:
 
-1. In the designer, open your agent workflow. From the workflow trigger, get the following trigger endpoint URL:
+1. In the designer, open your agent workflow. From the workflow trigger, get and save the trigger endpoint URL:
 
-   - Conversational agent workflow: **Agent URL** value
-   - Autonomous agent workflow: **HTTP URL** value without the SAS query string
+   | Agent workflow | URL |
+   |----------------|-----|
+   | Conversational | From the **When a chat session starts** trigger, get the **Agent URL** value. Or, from the **Chat** page, get the **Agent URL**. |
+   | Autonomous | If the workflow has a **Request** trigger, get the **HTTP URL** value without the SAS query string. |
 
-   For example, if your workflow uses the **Request** trigger, and you plan to depend only on Easy Auth, get the **HTTP URL** value, known as the *callback URL*, without the SAS query string, for example:
+   For example, if your autonomous agent workflow uses the **Request** trigger, and you plan to depend only on Easy Auth, get the **HTTP URL** value, known as the *callback URL*, without the SAS query string, for example:
 
    `https://<logic-app-name>.azurewebsites.net:443/api/<workflow-name>/triggers/When_an_HTTP_request_is_received/invoke`
 
-1. Run your workflow based on your agent workflow type:
+1. Run your workflow based on the following agent workflow type:
 
-   - Conversational agent workflow: On the designer toolbar, select **Chat**.
-   - Autonomous agent workflow: On the designer toolbar, select **Run** > **Run**.
+   - Autonomous: On the designer toolbar, select **Run** > **Run**.
 
-### Send authentication requests
+   - Conversational: On the designer toolbar, select **Chat**.
 
 1. From your chosen REST client, send an unauthenticated HTTPS GET or POST request to call your workflow. Expect to get the **302** or **401** response based on your app registration setup.
 
