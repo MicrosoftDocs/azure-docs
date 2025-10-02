@@ -1,32 +1,61 @@
 ---
-title: Customer provided public IP address support in secured hubs (preview)
-description: Learn about customer provided public IP address support in secured hubs.
+title: Customer provided public IP address support in secured hubs
+description: Learn how to use customer-provided public IP addresses with Azure Firewall in secured Virtual WAN hubs for enhanced control and DDoS protection.
 services: firewall
 author: duongau
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 01/15/2025
+ms.date: 10/02/2025
 ms.author: duau
 # Customer intent: "As a network administrator, I want to associate customer-provided public IP addresses with secured hub firewalls, so that I can maintain control over IP address management and enhance DDoS protection in my virtual WAN deployments."
 ---
 
-# Customer provided public IP address support in secured hubs (preview)
+# Customer provided public IP address support in secured hubs
 
-> [!IMPORTANT]
-> Customer provided public IP address support in secured hubs is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Virtual WAN hub deployments can now associate customer tenant public IP addresses with secured hub Azure Firewalls.
+Azure Firewall in Virtual WAN secured hubs now supports the use of customer-provided public IP addresses. This capability enables organizations to bring their own public IP addresses when deploying Azure Firewall in a secured Virtual WAN hub, providing greater flexibility and control over network infrastructure.
 
-The capability is available only to new deployments of secured hub Firewalls. For existing secured virtual WAN hubs, delete the hub firewall and redeploy a new Firewall during scheduled maintenance hours. You can use the Azure portal or Azure PowerShell to configure it.   
+With this feature, instead of relying on Azure-managed public IP addresses, you can specify your own public IP addresses that are already allocated in your Azure subscription. This is valuable for organizations that need to maintain consistent IP addresses for compliance, security policies, or integration with third-party systems.
 
-The capability has the following benefits: 
+This capability is available only for new deployments of secured hub Azure Firewalls. For existing secured Virtual WAN hubs with Azure Firewall already deployed, you must delete the hub firewall and redeploy it during scheduled maintenance hours to take advantage of customer-provided public IP addresses.
 
-- You own and control the lifecycle of the Azure Firewall public IP addresses. 
+You can configure this feature using either the Azure portal or Azure PowerShell.
 
-- Secured hub firewalls can enable enhanced DDoS mitigation features to defend against DDoS attacks. 
+## Benefits
 
-- You can allocate Azure Firewall public IP addresses from an IP address prefix pool. 
+Using customer-provided public IP addresses with secured hub Azure Firewalls offers several advantages:
+
+- **IP lifecycle management**: You own and control the complete lifecycle of the Azure Firewall public IP addresses, including creation, configuration, and deletion.
+
+- **Enhanced DDoS protection**: Secured hub firewalls can enable enhanced DDoS mitigation features to defend against DDoS attacks when using customer-provided public IPs.
+
+- **IP prefix allocation**: You can allocate Azure Firewall public IP addresses from an IP address prefix pool, enabling better IP address management and simplified routing configurations.
+
+- **Compliance and consistency**: Maintain consistent public IP addresses across deployments to meet regulatory requirements or integrate with existing network security policies.
+
+## Prerequisites
+
+Before you can use customer-provided public IP addresses with secured hub Azure Firewalls, ensure you have the following resources permissions:
+
+- **Azure subscription**: An active Azure subscription with appropriate permissions to create and manage Azure Firewall resources.
+
+- **Virtual WAN and hub**: A Virtual WAN instance with a virtual hub where you plan to deploy the secured hub firewall.
+
+- **Public IP addresses**: One or more public IP addresses already created in your Azure subscription. These public IP addresses must:
+  - Be in the same region as your virtual hub
+  - Have a Standard SKU
+  - Use static allocation method
+  - Not be associated with any other Azure resources
+
+- **Resource group**: A resource group to contain your Azure Firewall and related resources.
+
+- **Permissions**: Appropriate Azure RBAC permissions to:
+  - Create and configure Azure Firewall resources
+  - Manage public IP addresses
+  - Modify Virtual WAN hub configurations
+
+- **IP prefix (recommended)**: For better management, allocate your public IP addresses from a public IP address prefix pool.ided public IP address support in secured hubs
+description: Learn how to use customer-provided public IP addresses with Azure Firewall in secured Virtual WAN hubs for enhanced control and DDoS protection.
 
 ## Configuration
 
@@ -34,18 +63,58 @@ You can configure this feature using either the Azure portal or Azure PowerShell
 
 ### Azure portal
 
-You can associate a preexisting public IP address with a secured hub firewall. You should allocate public IP addresses from an IP prefix pool to simplify downstream security access control lists (ACLs).  
+To configure customer-provided public IP addresses using the Azure portal:
 
-:::image type="content" source="media/secured-hub-customer-public-ip/new-secured-hub-customer-public-ip.png" alt-text="Screenshot showing new secured virtual hub.":::
+1. Navigate to your Virtual WAN hub in the Azure portal.
+2. Select **Security** > **Azure Firewall** from the hub menu.
+3. Select **Create Azure Firewall** to start the deployment wizard.
+4. In the firewall configuration section, select **Use customer provided public IP addresses**.
+5. Choose one or more existing public IP addresses from your subscription.
+6. Complete the remaining firewall configuration settings.
+7. Review and create the secured hub firewall.
+
+:::image type="content" source="media/secured-hub-customer-public-ip/new-secured-hub-customer-public-ip.png" alt-text="Screenshot showing new secured virtual hub configuration with customer-provided public IP addresses.":::
 
 ### Azure PowerShell
 
+Use the following Azure PowerShell commands to configure customer-provided public IP addresses:
+
 ```azurepowershell
+# Define variables
+$rgName = "<resource-group-name>"
+$PIPName = "<public-ip-name>"
+$vwanhub = "<virtual-wan-hub-name>"
+$azfwname = "<azure-firewall-name>"
+$location = "<region>"
+$Tier = "Standard"  # or "Premium"
+
+# Get the existing public IP address
 $publicip = Get-AzPublicIpAddress -ResourceGroupName $rgName -Name $PIPName
-$virtualhub = get-azvirtualhub -ResourceGroupName $rgName -name $vwanhub
-New-AzFirewall -Name $azfwname -ResourceGroupName $rgName -Location westcentralus -SkuName AZFW_Hub -SkuTier $Tier -PublicIpAddress $publicip -VirtualHubId $virtualhub.Id
+
+# Get the virtual hub
+$virtualhub = Get-AzVirtualHub -ResourceGroupName $rgName -Name $vwanhub
+
+# Create the Azure Firewall with customer-provided public IP
+New-AzFirewall -Name $azfwname `
+               -ResourceGroupName $rgName `
+               -Location $location `
+               -SkuName AZFW_Hub `
+               -SkuTier $Tier `
+               -PublicIpAddress $publicip `
+               -VirtualHubId $virtualhub.Id
 ```
+
+**PowerShell prerequisites:**
+- Install the Azure PowerShell module: `Install-Module -Name Az -AllowClobber`
+- Connect to your Azure subscription: `Connect-AzAccount`
+- Ensure you have the latest version of the Az.Network module
 
 ## Next steps
 
+Now that you configured customer-provided public IP addresses with your secured hub Azure Firewall, consider these next steps:
+
+- [Configure Azure Firewall policies](../firewall-manager/policy-overview.md)
+- [Monitor Azure Firewall logs and metrics](monitor-logs.md)
 - [Tutorial: Secure your virtual hub using Azure Firewall Manager](../firewall-manager/secure-cloud-network.md)
+- [Configure DDoS protection for your public IP addresses](../ddos-protection/ddos-protection-overview.md)
+- [Manage public IP address prefixes](../virtual-network/public-ip-address-prefix.md)
