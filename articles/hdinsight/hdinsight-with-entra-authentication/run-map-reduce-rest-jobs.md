@@ -13,7 +13,7 @@ ms.date: 08/21/2025
 
 Apache Hadoop MapReduce provides a powerful programming model for processing and analyzing large datasets in a distributed environment. In Azure HDInsight, you can submit and manage MapReduce jobs through the REST API, allowing you to integrate Hadoop workloads into applications, scripts, and automation pipelines.
 
-When using Microsoft Entra ID enabled HDInsight clusters, authentication and access control are handled securely through organizational identities. This ensures that only authorized users and applications can submit MapReduce jobs, helping you meet enterprise security and compliance requirements.
+When using Microsoft Entra ID enabled HDInsight clusters, authentication and access control are handled securely through organizational identities. This measure ensures that only authorized users and applications can submit MapReduce jobs, helping you meet enterprise security and compliance requirements.
 
 This guide walks you through how to connect to an Entra-enabled HDInsight cluster, authenticate via REST, and submit MapReduce jobs programmatically.
 
@@ -31,7 +31,7 @@ Either:
 
 
 ## Setup (Secure Bearer Access Token)
-Bearer Token is needed to send the cURL or any REST communication. You can follow the below mentioned step to get the token:
+Bearer Token is needed to send the cURL or any REST communication. You can follow the mentioned step to get the token:
 
 Execute an HTTP GET request to the OAuth 2.0 token endpoint with the following specifications:
 
@@ -47,7 +47,7 @@ Execute an HTTP GET request to the OAuth 2.0 token endpoint with the following s
 | grant_type    | Must be set to "client_credentials"                 | Yes |
 | client_id     | Application (client) ID from Entra App registration | Yes |
 | client_secret | Generated client secret or certificate              | Yes |
-| scope         | Resource URL with .default suffix                   | Yes |
+| scope         | Resource URL with default suffix                   | Yes |
 
 
 ## cURL Request
@@ -84,7 +84,7 @@ After securing the Access Token needed for each action, let’s jump right into 
 
 ### Curl
 
-1. For ease of use, set the variables below. This example is based on a Windows environment, revise as needed for your environment.
+1. For ease of use, set the variables in the script. This example is based on a Windows environment. Revise as needed for your environment.
     
    
    ```azurecli
@@ -121,7 +121,7 @@ After securing the Access Token needed for each action, let’s jump right into 
       
       ```
 
-      The end of the URI (/mapreduce/jar) tells WebHCat that this request starts a MapReduce job from a class in a jar file. The parameters used in this command are as follows:
+      The end of the URI(/mapreduce/jar) tells WebHCat that this request starts a MapReduce job from a class in a jar file. The parameters used in this command are as follows:
 
 
       - **d**: 'G' isn't used, so the request defaults to the POST method. 'd' specifies the data values that are sent with the request.
@@ -148,7 +148,7 @@ After securing the Access Token needed for each action, let’s jump right into 
     ```
    ### PowerShell
 
-1. For ease of use, set the variables below. Replace `CLUSTERNAME` with your actual cluster name. Execute the command and enter the cluster login password when prompted.
+1. For ease of use, set the variables in the script. Replace `CLUSTERNAME` with your actual cluster name. Execute the command and enter the cluster login password when prompted.
     
    ```powershell
    
@@ -228,6 +228,6 @@ After securing the Access Token needed for each action, let’s jump right into 
 
  - If the job is complete, the state returned is **SUCCEEDED**.
         
- - When the state of the job has changed to `SUCCEEDED`, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter that is passed with the query contains the location of the output file. In this example, the location is `/example/curl`. This address stores the output of the job in the clusters default storage at `/example/curl`.
+ - When the job state changes to `SUCCEEDED`, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter that is passed with the query contains the location of the output file. In this example, the location is `/example/curl`. This address stores the output of the job in the clusters default storage at `/example/curl`.
 
     You can list and download these files by using the [Azure CLI](../../storage/blobs/storage-quickstart-blobs-cli.md). For more information on using the Azure CLI to work with Azure Blob storage, see [Quickstart: Create, download, and list blobs with Azure CLI](../../storage/blobs/storage-quickstart-blobs-cli.md).
