@@ -260,7 +260,7 @@ date: Wed, 28 Feb 2024 22:45:09 GMT
 ## Limitations
 
 Self-hosted gateway instances rely on the UDP protocol for [heartbeat and rate-limit communications](self-hosted-gateway-settings-reference.md#cross-instance-discovery--synchronization). As Azure Container Apps presently does not support the UDP protocol - neither for ingress nor for internal traffic - the `rate-limit` policy cannot synchronize its counter across instances. Consequently, maintaining three replicas of a self-hosted gateway container app with limit X may well result in three times the traffic until limit X is reached. 
-Azure Container Apps distributes requests linearly across each available and healthy replica. In order to achieve some form of rate limiting, you may divide the desired limit by the number of replicas you wish to run and set the resulting value in configuration. Understand that this has its own downsides as you may not be able to account for adjusted counters if and when your container apps scale.
+Azure Container Apps distributes requests linearly across each available and healthy replica. To implement rate limiting, you can divide the desired limit by the number of replicas you wish to run and set the resulting value in configuration. This approach has its own downsides as you may not be able to account for adjusted counters if and when your container apps scale.
 
 ## Related content
 
