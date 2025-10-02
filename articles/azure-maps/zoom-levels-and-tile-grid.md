@@ -902,7 +902,7 @@ module AzureMaps {
          * @param allowFloatZoom Specifies if the returned zoom level should be a float or rounded down to an whole integer zoom level. 
          * @returns The center and zoom level to best position the map view over the provided bounding box.
          */
-        public static BestMapView(bounds: number, mapWidth: number, mapHeight: number, padding: number = 0, tileSize: number = 512, maxZoom: number = 24, allowFloatZoom: boolean = true): { center: number[], zoom: number } {
+        public static BestMapView(bounds: number[], mapWidth: number, mapHeight: number, padding: number = 0, tileSize: number = 512, maxZoom: number = 24, allowFloatZoom: boolean = true): { center: number[], zoom: number } {
         	//Ensure valid bounds and map dimensions are provided.
         	if (bounds == null || bounds.length < 4 || !mapWidth || !mapHeight || mapWidth <= 0 || mapHeight <= 0) {
         		return {
