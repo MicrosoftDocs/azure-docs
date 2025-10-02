@@ -52,7 +52,7 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 | Spain Central | 	Spain Central (Madrid) | ✓  | | | |  |   Dual    |
 | Sweden Central | 	Sweden Central (Stockholm) | ✓  | ✓ | | |  |   Dual    |
 | UAE Central | UAE Central (Abu Dhabi) | ✓  | | | |  |   Single    |
-| UAE North | UAE North (Dubai) | ✓  | | | |  |   Single    |
+| UAE North | UAE North (Dubai) | ✓  | | | |  |   Dual    |
 | UK South| UK South (London)   | ✓   | ✓   | ✓ | ✓ | ✓  | Dual|
 | UK West | UK West (Newport)	   | ✓   | ✓  | | ✓ | ✓ |  Single |
 
@@ -62,7 +62,7 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 | Azure region     | OCI region                 | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure | Oracle Database Autonomous Recovery Service@Azure | Exadata Database Service on Exascale Infrastructure@Azure | BaseDB            | Regional Availability |
 | ---------------- | -------------------------- | ----------------------------- | -------------------------------- | ------------------------------------------------- | --------------------------------------------------------- | ----------------- | --------------------- |
 | Canada Central   | Canada Southeast (Toronto) | ✓      | ✓   |  ✓  | ✓   | ✓ |  Dual |
-| Central US       | US Midwest (Chicago)       | ✓       | ✓      | ✓    |        |          | Dual    |
+| Central US       | US Midwest (Chicago)       | ✓       | ✓      | ✓    |  ✓   |          | Dual    |
 | East US          | US East (Ashburn)          | ✓     | ✓      | ✓      | ✓     | ✓ | Dual|
 | East US 2        | US East (Ashburn)          | ✓    | ✓         | ✓       |          |     | Dual     |
 | South Central US | US South (Dallas)   | ✓     |  ✓        |           |    |      | Dual |
