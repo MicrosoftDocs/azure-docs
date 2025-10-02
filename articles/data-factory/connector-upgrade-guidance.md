@@ -9,7 +9,7 @@ ms.topic: concept-article
 ms.custom:
   - references_regions
   - build-2025
-ms.date: 09/16/2025
+ms.date: 09/30/2025
 ---
 
 # Connector upgrade guidance
@@ -102,6 +102,8 @@ Script activity output
 
 > [!NOTE]
 > While compatibility mode offers flexibility, we strongly encourage users to upgrade to the latest GA version as soon as possible to benefit from ongoing improvements, optimizations, and full support. 
+
+### Supported automatic upgraded criteria
 
 You can find more details from the table below on the connector list that is planned for the automatic upgrade.  
 
