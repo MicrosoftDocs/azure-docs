@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path": "articles/azure-functions/functions-proxies.md",
+      "redirect_url": "/previous-versions/azure/azure-functions/functions-proxies",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/legacy-proxies.md",
+      "redirect_url": "/previous-versions/azure/azure-functions/legacy-proxies",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-sql-edge/backup-restore.md",
       "redirect_url": "/previous-versions/azure/azure-sql-edge/backup-restore",
       "redirect_document_id": false
