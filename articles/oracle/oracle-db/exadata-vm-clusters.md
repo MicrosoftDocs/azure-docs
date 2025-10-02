@@ -10,7 +10,7 @@ ms.date: 09/26/2025
 
 # Onboard Oracle Exadata VM clusters to Microsoft Defender for Cloud using Azure Arc
 
-In this article, you learn about how to onboard Oracle Exadata VM clusters into Azure using Azure Arc and enabling Microsoft Defender for Cloud’s Defender for Servers Plan 1 to effectively monitor and protect them. A P2 license is required to access Premium Vulnerability Management features. 
+In this article, you learn about how to onboard Oracle Exadata VM clusters into Azure using Azure Arc and enabling Microsoft Defender for Cloud’s Defender for Servers Plan 1 to effectively monitor and protect them.
 
 Microsoft Defender for Cloud is a Cloud Native Application Protection Platform (CNAPP), that combines Cloud Security Posture Management (CSPM) and Cloud Workload Protection Platform (CWPP) capabilities to deliver unified threat protection and posture management across Azure and hybrid environments. It continuously monitors resources for misconfigurations, vulnerabilities, and active threats to help maintain a strong security posture. While Defender for Cloud is designed for Azure-native services, it can also extend protection to hybrid and non-Azure environments—such as **Oracle Database@Azure  Exadata VM clusters**—by leveraging Azure Arc. Defender for Cloud continuously assesses their configurations, monitors for threats, and generates security alerts (using Defender for Servers) if suspicious activity is detected. 
 
@@ -90,7 +90,8 @@ By following these steps, you have successfully onboarded Exadata VM cluster int
 
 ---
 
-## References and additional resources
+## Related topics
+
 Core Documentation 
 - [Oracle Database@Azure Overview](/azure/oracle/oracle-db/database-overview) 
 - [Oracle Database@Azure Security Guidelines](/azure/cloud-adoption-framework/scenarios/oracle-on-azure/oracle-security-overview-odaa) 
