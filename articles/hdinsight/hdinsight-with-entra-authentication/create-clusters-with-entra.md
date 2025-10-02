@@ -9,7 +9,7 @@ ms.reviewer: nijelsf
 ms.date: 10/02/2025
 ---
 
-# Create and Manage Azure HDInsight cluster with Entra ID authentication
+# Create and manage Azure HDInsight cluster with Entra ID authentication
 
 This article provides comprehensive information on creating and managing Azure HDInsight clusters with Microsoft Entra ID authentication. 
 Users can securely authenticate and manage access to HDInsight clusters, ensuring enterprise-grade security and centralized identity governance by using Entra ID.
