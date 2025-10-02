@@ -117,7 +117,7 @@ For the best way to begin Easy Auth setup, create a new app registration in Micr
    |---------|-------|
    | **Client application requirement** | **Allow requests only from this application itself** |
    | **Identity requirement** | **Allow requests from specific identities** |
-   | **Allowed identities** | Appears only with **Allow requests from specific identities** selected. <br><br>The default prepopulated value is the object ID that represents the current user, namely yourself. You can update this value in the following ways: <br><br>- Include object IDs for other developers or users. <br>- Use group claims to include a specific group, rather than individual object IDs. <br>- Select an existing app registration for your logic app resource. If you do, make sure to [update the app registration](#update-an-existing-app-registration) to work cleanly with Easy Auth. <br><br>For more information, see [Use a built-in authorization policy](../app-service/configure-authentication-provider-aad?tabs=workforce-configuration.md#use-a-built-in-authorization-policy). |
+   | **Allowed identities** | Appears only with **Allow requests from specific identities** selected. <br><br>The default prepopulated value is the object ID that represents the current user, namely yourself. You can update this value in the following ways: <br><br>- Include object IDs for other developers or users. <br>- Use group claims to include a specific group, rather than individual object IDs. <br>- Select an existing app registration for your logic app resource. If you do, make sure to [update the app registration](#update-an-existing-app-registration) to work cleanly with Easy Auth. <br><br>For more information, see [Use a built-in authorization policy](../app-service/configure-authentication-provider-aad.md?tabs=workforce-configuration#use-a-built-in-authorization-policy). |
    | **Tenant requirement** | **Allow requests only from the issuer tenant** |
 
 1. Skip the **Excluded paths** section.
@@ -320,7 +320,7 @@ To confirm that enforcement works as expected, follow these steps:
 
 1. Get an Azure Resource Manager bearer token for your logic app resource.
 
-   For more information, see [Get access on behalf of user](../graph/auth-v2-user.md?tabs=http).
+   For more information, see [Get access on behalf of user](/azure/graph/auth-v2-user?tabs=http).
 
 1. Send the same request, but with the following header instead, and confirm that you get the **200 OK** response:
 
@@ -374,7 +374,7 @@ For nonproduction scenarios only, such as design, development, and quick testing
 
 1. On your logic app, [set up Easy Auth](#create-an-app-registration) with Microsoft as the identity provider.
 
-1. Get real access tokens to [run authentication tests](#run-authentication-tests).
+1. Get real access tokens to [run authentication tests](#send-authentication-requests-for-agent-workflows).
 
 1. Remove dependency on the developer key by testing requests sent to workflow trigger endpoints from external tools with valid tokens or with signed SAS callback URLs.
 
