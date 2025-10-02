@@ -121,6 +121,8 @@ items:
     items:
     - name: Using TLS with a managed cache
       href: tls-configuration.md
+    - name: Configure disk encryption 
+      href: how-to-encryption.md
     - name: Connect to cache using Private Link
       href: private-link.md
     - name: Security controls by Azure Policy
@@ -135,8 +137,6 @@ items:
       href: configure.md
     - name: Import/Export data
       href: how-to-import-export-data.md
-    - name: Configure disk encryption 
-      href: how-to-encryption.md
     - name: Configure redis-cli access
       href: how-to-redis-cli-tool.md
     - name: Management FAQs

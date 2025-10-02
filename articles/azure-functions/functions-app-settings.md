@@ -96,44 +96,12 @@ To connect to Application Insights with Microsoft Entra authentication, you shou
 ## AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
 
 > [!IMPORTANT]
-> Azure Functions proxies is a legacy feature for [versions 1.x through 3.x](functions-versions.md) of the Azure Functions runtime. For more information about legacy support in version 4.x, see [Functions proxies](functions-proxies.md).
-
-By default, Functions proxies use a shortcut to send API calls from proxies directly to functions in the same function app. This shortcut is used instead of creating a new HTTP request. This setting allows you to disable that shortcut behavior.
-
-|Key|Value|Description|
-|-|-|-|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|`true`|Calls with a backend URL pointing to a function in the local function app aren't sent directly to the function. Instead, the requests are directed back to the HTTP frontend for the function app.|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|`false`|Calls with a backend URL pointing to a function in the local function app are forwarded directly to the function. `false` is the default value. |
+> Azure Functions proxies was a feature of [versions 1.x through 3.x](functions-versions.md) of the Azure Functions runtime. For more information, see [Functions proxies](functions-proxies.md).
 
 ## AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
 
 > [!IMPORTANT]
-> Azure Functions proxies is a legacy feature for [versions 1.x through 3.x](functions-versions.md) of the Azure Functions runtime. For more information about legacy support in version 4.x, see [Functions proxies](functions-proxies.md).
-
-This setting controls whether the characters `%2F` are decoded as slashes in route parameters when they're inserted into the backend URL.
-
-|Key|Value|Description|
-|-|-|-|
-|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|`true`|Route parameters with encoded slashes are decoded. |
-|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|`false`|All route parameters are passed along unchanged, which is the default behavior. |
-
-For example, consider the proxies.json file for a function app at the `myfunction.com` domain.
-
-```JSON
-{
-    "$schema": "http://json.schemastore.org/proxies",
-    "proxies": {
-        "root": {
-            "matchCondition": {
-                "route": "/{*all}"
-            },
-            "backendUri": "example.com/{all}"
-        }
-    }
-}
-```
-
-When `AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES` is set to `true`, the URL `example.com/api%2ftest` resolves to `example.com/api/test`. By default, the URL remains unchanged as `example.com/test%2fapi`. For more information, see [Functions proxies](functions-proxies.md).
+> Azure Functions proxies was a feature of [versions 1.x through 3.x](functions-versions.md) of the Azure Functions runtime. For more information, see [Functions proxies](functions-proxies.md).
 
 ## AZURE_FUNCTIONS_ENVIRONMENT
 

@@ -292,7 +292,86 @@ For example, if a maintenance window is of 3 hours and starts at 3:00 PM, the fo
 > - Azure Update Manager doesn't terminate in-progress updates if the maintenance window is exceeded and only the remaining updates that must be installed aren't attempted. We recommend that you re-evaluate the duration of your maintenance window to ensure all the updates are installed.
 > - If the maintenance window is exceeded on Windows, it's often because a service pack update is taking a long time to install.
 
+## Use ARG to get assignments
 
+```
+<#
+.SYNOPSIS
+Get a list of Azure VMs and Arc machines assigned to a specific Maintenance Configuration using Azure Resource Graph.
+
+.PARAMETER SubscriptionId
+The Azure subscription ID to query.
+
+.PARAMETER ConfigName
+The name of the maintenance configuration.
+
+.PARAMETER ExportCsv
+Optional path to export results to CSV.
+#>
+
+param(
+    [Parameter(Mandatory = $true)][string]$SubscriptionId,
+    [Parameter(Mandatory = $true)][string]$ConfigName,
+    [Parameter(Mandatory = $false)][string]$ExportCsv
+)
+
+$cfgQuery = @"
+resources
+| where type =~ 'microsoft.maintenance/maintenanceconfigurations'
+| where name =~ '$ConfigName'
+| project id
+"@
+
+$cfgResult = Search-AzGraph -Query $cfgQuery -Subscription $SubscriptionId
+
+if (-not $cfgResult -or $cfgResult.Count -eq 0) {
+    Write-Error "Maintenance configuration '$ConfigName' not found in subscription '$SubscriptionId'."
+    return
+}
+
+$maintenanceConfigId = $cfgResult[0].id
+Write-Host "Resolved configuration ID: $maintenanceConfigId`n"
+
+$assignQuery = @"
+maintenanceresources
+| where type =~ 'microsoft.maintenance/configurationassignments'
+| where properties.maintenanceConfigurationId =~ '$maintenanceConfigId'
+| project MachineId = properties.resourceId, AssignmentName = name
+"@
+
+$machines = Search-AzGraph -Query $assignQuery -Subscription $SubscriptionId
+
+if (-not $machines -or $machines.Count -eq 0) {
+    Write-Host "No machines assigned to configuration '$ConfigName'."
+    return
+}
+
+$resources = Search-AzGraph -Query "resources | project id, name, resourceGroup" -Subscription $SubscriptionId
+
+
+$results = $machines | ForEach-Object {
+    $mach = $_
+    $res = $resources | Where-Object { $_.id -eq $mach.MachineId }
+    [PSCustomObject]@{
+        MachineName    = if ($res) { $res.name } else { $mach.MachineId }
+        ResourceGroup  = if ($res) { $res.resourceGroup } else { "" }
+        AssignmentName = $mach.AssignmentName
+        MachineId      = $mach.MachineId
+        Kind           = if ($res -and $res.id -match 'Microsoft\.Compute/virtualMachines') { "AzureVM" } else { "Arc" }
+    }
+}
+
+Write-Host "Machines assigned to configuration '$ConfigName':`n"
+$results | Format-Table -AutoSize
+
+# --------------------------------------------
+# Optional: export to CSV
+# --------------------------------------------
+if ($ExportCsv) {
+    $results | Export-Csv -Path $ExportCsv -NoTypeInformation
+    Write-Host "`nResults exported to $ExportCsv"
+}
+```
 
 ## Next steps
 

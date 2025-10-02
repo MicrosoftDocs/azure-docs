@@ -47,7 +47,7 @@ Azure Operator Service Manager is a cloud orchestration service that enables aut
 1.	Delete all site network services and network functions from the custom location.
 2.	Uninstall the network function extension.
 3.	Delete custom location
-4.	Ensure repository access, if required, by updating the content delivery network (CDN) to permit the endpoint linuxgeneva-microsoft.azurecr.io on port 443. This step can be skipped if a wildcard is  used or if running Nexus 3.12 or later.
+4.	Ensure repository access, if required, by updating the content delivery network (CDN) to permit the endpoint linuxgeneva-microsoft.azurecr.io on port 443. This step can be skipped if a wildcard is used or if running Nexus 3.12 or later.
 5.	Install the network function extension
 6.	Create custom location
 7.	Redeploy site network services and network functions to the custom location.
@@ -469,4 +469,42 @@ The following bug fixes, defect resolutions, or usability improvements are deliv
 * NFO - [SFI] Helm version upgraded from 3.17.2 to 3.17.3
 * RP - [SFI] 2236914: MISE Upgrade
 * RP - [SFI] 2120797: Migrate to MISE/SNI
-* RP - [SFI] 2154940: Security Code Bugs﻿
+* RP - [SFI] 2154940: Security Code Bugs
+
+## Release 2509.01
+
+Document Revision 2.0
+
+### Release Summary
+Azure Operator Service Manager is a cloud orchestration service that enables automation of operator network-intensive workloads, and mission critical applications hosted on Azure Operator Nexus. Azure Operator Service Manager unifies infrastructure, software, and configuration management with a common model into a single interface, both based on trusted Azure industry standards. This 2509.01 Azure Operator Service Manager release includes updating the NFO version to 3.0.3194.224 and the RP version to 1.0.03180.486, the details of which are further outlined in the remainder of this document.
+
+### Release Details
+* Release Version: NFO version 3.0.3194.224, RP version 1.0.03180.486
+* Release Date: September 30, 2025
+* Is NFO update required: YES, Update only
+* Dependency Versions: Go/1.24.3 - Helm/3.18.4 - Base Image/AzureLinux 3.0
+
+### Release Highlights
+
+#### Support for interruption of service deployments
+**[FEATURE 2069409 / ART-465]** introduces a method to interrupt a broken service deployment operation while in a nonterminal state. Supporting only container network functions, the interruption is triggered by applying a static tag to the network function managed resource group. This tag must later be removed to restore proper service operations. This feature provides a mechanism for customer operation teams to terminate a deployment which maybe negatively impacting service performance and otherwise could take multiple hours to reach a terminal state. For more information, see our [learn documentation](how-to-cancel-service-deployments.md).
+
+#### Support for publisher artifact store resiliency
+**[FEATURE 2129209 / ART-535]** introduces artifact store geo-resiliency between the backing ACR resources in two Azure regional location pairs. Once enabled, the artifact-store resource now  survives a single region failure, continuing to operate in read-only mode from the hot standby instance. Seemless integration with Azure Operator Service Manager's cluster registry, combined with centralized management of registry pairs, make artifact store resiliency to get and keep running. For more information, see our [learn documentation](publisher-artifact-store-resiliency.md).
+
+#### Release Updates
+The following bug fixes, defect resolutions, or usability improvements are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
+* NFO - [381571] Cleanup of unused infrastructure scripts.
+* NFO - [373116] Update of Msi-Adapter service.
+* NFO - [372479] Managed Identity support for ACR authentication.
+* NFO - [2275729] Fix to prevent instability when encountering untagged container images.
+* RP  - [2326576] Support for artifact-store geo-replication.
+* RP  - [2327070] Support for interruption of service deployments.
+* RP  - [2388664] Fix for West Central US region test opreations.
+* RP  - [2309471] For to create ACR Names in lower case only.
+
+#### Security Related Updates
+* NFO - [CVE] A total of 2 CVEs are addressed in this release.
+* NFO - [383549] Helm version 3.18.4 downgrade (from 3.18.5).
+* RP  - [2301086] Secure Code Bugs-RP.
+* RP  - [2313679] 1ES Operational Vulnerabilities.

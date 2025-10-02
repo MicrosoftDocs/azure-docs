@@ -2,17 +2,17 @@
 title: Create serverless APIs using Azure Functions 
 description: Describes how to use Azure Functions as the basis of a cohesive set of serverless APIs. 
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 09/30/2024
 
 ---
-# Serverless REST APIs using Azure Functions
+# Azure Functions proxies (legacy)
 
 Azure Functions is an essential compute service that you use to build serverless REST-based APIs. HTTP triggers expose REST endpoints that can be called by your clients, like browsers, mobile apps, and other backend services. With [native support for routes](functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint), a single HTTP triggered function can expose a highly functional REST API. Functions also provides its own basic key-based authorization scheme to help limit access only to specific clients. For more information, see [Azure Functions HTTP trigger](functions-bindings-http-webhook-trigger.md)
 
 In some scenarios, you may need your API to support a more complex set of REST behaviors. For example, you may need to combine multiple HTTP function endpoints into a single API. You might also want to pass requests through to one or more backend REST-based services. Finally, your APIs might require a higher-degree of security that lets you monetize its use.
 
-Today, the recommended approach to build more complex and robust APIs based on your functions is to use the comprehensive API services provided by [Azure API Management](../api-management/api-management-key-concepts.md). 
-API Management uses a policy-based model to let you control routing, security, and OpenAPI integration. It also supports advanced policies like rate limiting monetization. Previous versions of the Functions runtime used the legacy Functions Proxies feature.
+To build more complex and robust APIs based on your functions, you should instead use the comprehensive API services provided by [Azure API Management](../api-management/api-management-key-concepts.md). 
+API Management uses a policy-based model to let you control routing, security, and OpenAPI integration. It also supports advanced policies like rate limiting monetization. 
 
 [!INCLUDE [functions-legacy-proxies-deprecation](../../includes/functions-legacy-proxies-deprecation.md)]
 
